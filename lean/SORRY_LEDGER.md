@@ -7344,3 +7344,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 1,189 jobs.  This exposes occurrences but does not
   prove congestion, a uniform finite/completed gap, continuum QFT, or the Clay
   theorem.
+
+### [BF4-finite-weighted-edge-load] Exact occurrence-to-edge-load reindex — **CLOSED 2026-08-23**
+
+- **milestone**: sum rational weights of repeated directed edge occurrences
+  into a per-edge load and prove exact equality between the original weighted
+  occurrence energy and the Dirichlet block with joint
+  `edgeLoad * physicalKernel`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEdgeLoad.lean`.
+- **decl**: `WeightedDirectedEdgeOccurrence`,
+  `weightedDirectedEdgeLoad`, `weightedDirectedEdgeLoad_nonnegative`,
+  `finiteWeightedOccurrenceLoadedDirichlet`, and
+  `finiteWeightedOccurrenceLoadedDirichlet_eqv_occurrenceEnergy`.
+- **obligation**: instantiate the occurrence list with all actual canonical
+  old/new paths and prove pointwise within/cross edge-load capacities.
+- **constructive?**: yes — the two audited exports use at most
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 0.8 seconds and the exact
+  one-worker target passes 4,897 jobs.  Two earlier focused checks failed
+  during proof development and are not passes.  This closes finite
+  occurrence regrouping, not physical congestion, a uniform gap, continuum
+  QFT, or the Clay theorem.

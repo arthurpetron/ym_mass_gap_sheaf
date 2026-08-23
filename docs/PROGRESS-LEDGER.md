@@ -8838,3 +8838,30 @@ The next frontier is a finite reindexing theorem that groups the endpoint-pair
 path occurrences by physical directed edge.  Its resulting per-edge load can
 then be compared pointwise with the within/cross energy capacities.  No such
 load bound, uniform gap, continuum QFT, or Clay theorem is claimed here.
+
+## Weighted path occurrences can now be regrouped by physical edge (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorPathEdgeLoad` introduces a weighted directed
+edge occurrence and defines the total rational load carried by each directed
+edge.  For any duplicate-free finite support it proves the exact reindexing
+
+`sum_{occurrence} load(occurrence) * edgeEnergy(occurrence.edge)`
+
+`  = Dirichlet(states, edgeLoad * physicalKernel)`.
+
+The proof keeps repeated path uses as additive load and uses only finite-list
+selectors and Cartesian reindexing.  This is the contraction dual to the
+previous expansion into literal occurrences: an arbitrarily long occurrence
+list is now represented by one load value per directed physical edge.
+
+The focused monitored check passes in about 0.8 seconds and the exact
+one-worker dependency-complete target passes 4,897 jobs.  The two audited
+exports use at most `[propext, Quot.sound]`; no forbidden construct was added.
+The first two focused checks failed during selector/Fubini proof development
+and are not passes.
+
+The next frontier is the physical specialization: flatten the actual
+stationary-weighted old/new canonical paths into weighted occurrences, prove
+their polynomial cross-path budget equals the loaded physical Dirichlet form,
+then reduce congestion to pointwise load bounds on the four old/new edge
+blocks.  Those bounds and all continuum/Clay conclusions remain open.
