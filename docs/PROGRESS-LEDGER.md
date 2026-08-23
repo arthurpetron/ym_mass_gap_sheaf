@@ -7089,3 +7089,44 @@ noncomputable declaration was added.  The common all-base `q` is deliberately
 not inhabited: a uniform comparison between path length and persistent edge
 floor, the unconditional completed gap, thermodynamic/continuum control, and
 the Clay theorem remain open.
+
+## Uniform path-scale and edge-floor controls now compile to an explicit completed rate (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorPathLengthScaleFloorCompiler` splits a concrete
+sufficient form of the remaining dimensionless path/floor comparison into two
+independently named inputs.  A
+`FixedNomeUniformPathLengthScaleUpperBound ... scale` supplies
+
+`pathLengthMaximum(base) <= scale`
+
+for every base carrier, while a
+`FixedNomeUniformPulledEdgeFloorLowerBound ... floor` supplies one positive
+rational `floor` with
+
+`floor <= persistentEdgeFloor(base)`
+
+for every base.  The compiler defines the explicit common rate
+
+`q = scale / (scale + floor)`.
+
+It proves `0 <= q < 1` and, by constructive cross multiplication,
+
+`pathLengthPoincareRate(base) <= q`
+
+for every base.  The cross term is exactly
+
+`pathLengthMaximum(base) * floor <= scale * persistentEdgeFloor(base)`.
+
+The resulting rate witness contracts through the existing same-object
+cofinal bridge and completed Markov Cauchy--Schwarz theorem to the actual
+completed vacuum-sector strict-contraction datum.
+
+The focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 4,896 jobs.  All four audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  Neither
+uniform input is inhabited.  Moreover, separate absolute scale and floor
+bounds are only a sufficient decomposition of the sharper relative-ratio
+frontier.  Constructing adequate uniform estimates, an unconditional
+completed gap, thermodynamic/continuum control, and the Clay theorem remain
+open.

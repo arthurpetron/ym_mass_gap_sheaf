@@ -5768,3 +5768,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the common all-base rate itself is not inhabited.  Therefore the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-path-scale-floor-rate-compiler] Separate uniform scale/floor inputs compile to an explicit completed contraction — **REDUCED 2026-08-23**
+
+- **milestone**: expose an independently checkable uniform upper bound on the
+  polynomial canonical-path scale and a uniform positive lower bound on the
+  persistent pulled edge floor; define `q = scale / (scale + floor)`; prove
+  every fixed-base path rate is at most `q` by cross multiplication; and
+  compile that rate directly to the completed vacuum-sector contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPathLengthScaleFloorCompiler.lean`.
+- **decl**:
+  `FixedNomeUniformPathLengthScaleUpperBound`,
+  `FixedNomeUniformPulledEdgeFloorLowerBound`,
+  `FixedNomeUniformPathLengthScaleUpperBound.rate_lt_one`,
+  `FixedNomeUniformPathLengthScaleUpperBound.pathLengthPoincareRate_le`,
+  `FixedNomeUniformPathLengthScaleUpperBound.toUniformPathLengthVacuumSectorRateBound`,
+  and
+  `FixedNomeUniformPathLengthScaleUpperBound.toCompletedStrictContractionData`.
+- **obligation**: inhabit both a finite rational `scale > 0` uniformly
+  bounding `pathLengthMaximum(base)` and a rational `floor > 0` uniformly
+  below every persistent base edge floor, or prove the strictly weaker direct
+  relative comparison needed by the exact polynomial rate frontier.  The
+  finite-graph path-size and physical-kernel edge-weight estimates are now
+  separate causal proof obligations.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,896-job dependency-complete build pass.  This proves the compiler, not
+  either uniform input.  The unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem therefore remain open.
