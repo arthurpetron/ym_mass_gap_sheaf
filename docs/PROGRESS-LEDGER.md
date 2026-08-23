@@ -7618,3 +7618,38 @@ is to factor the explicit sector-centered Gram majorant into target and
 source boundary-posterior deviations and isolate the corresponding uniform
 mixing estimates.  The unconditional completed gap, thermodynamic/continuum
 control, and the Clay theorem remain open.
+
+## The BF4 sector Gram majorant factors into two physical profiles (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramProfiles` splits the literal actual
+boundary-Gram Tonelli majorant into two independently meaningful quantities:
+the total absolute centered target profile at one fixed-time boundary
+channel, and the channel-weighted centered boundary profile visible from one
+vacuum-sector source state.
+
+The module proves the exact causal estimate
+
+`rowMajorant <= targetRate * sourceDeviation`
+
+and then, from `sourceDeviation <= sourceRate * weight(source)`, obtains
+
+`rowMajorant <= (targetRate * sourceRate) * weight(source)`.
+
+Thus strictness belongs to the product of the two physical mixing rates;
+neither factor is arbitrarily fixed to a quarter.  The cofinal two-profile
+certificate compiles this product directly through the actual centered-Gram
+majorant to the completed same-object vacuum-sector strict gap.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,488 jobs.  All four audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused check exposed missing namespace opens and one
+associativity direction; both were corrected before the passing focused
+check and exact build.
+
+No profile bounds are inhabited.  The next frontier is to normalize the two
+sector profiles as target-given-boundary and boundary-given-source posterior
+`L1` distances, including zero-channel handling, so the remaining estimates
+are stated as explicit conditional mixing.  The unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.

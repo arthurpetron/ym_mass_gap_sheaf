@@ -6242,3 +6242,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   all issues were corrected before both passing checks.  No cofinal
   majorant bound is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-centered-Gram-profiles] Two-factor physical row bound — **REDUCED 2026-08-23**
+
+- **milestone**: define the literal target-channel and source-boundary
+  absolute centered profiles; factor the actual sector-centered Gram
+  majorant by a target profile rate; combine a source profile estimate to
+  obtain the product-rate row bound; and compile a cofinal family with
+  `targetRate * sourceRate < 1` to the completed same-object vacuum-sector
+  gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramProfiles.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorCenteredGramRowMajorant_le_profile_mul_sourceDeviation`,
+  `centralPhysicalFiniteVacuumSectorCenteredGramRowMajorant_le_rateProduct_mul_weight`,
+  `FixedNomeCofinalVacuumSectorCenteredGramProfileBounds.toCenteredGramMajorant`,
+  and
+  `FixedNomeCofinalVacuumSectorCenteredGramProfileBounds.toVacuumSectorCenteredStrictGap`.
+- **obligation**: normalize both profiles as genuine sector conditional-
+  probability `L1` distances and prove one constructively cofinal uniform
+  product bound strictly below one.  Neither factor needs to equal the old
+  quarter constant.
+- **constructive?**: yes — all four audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,488 jobs.  The
+  first focused check exposed missing namespace opens and one associativity
+  direction; both were corrected before both passing checks.  No profile
+  family is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
