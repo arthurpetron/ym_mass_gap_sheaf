@@ -8344,3 +8344,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   symmetrization removes the cross-edge orientation defect but supplies no
   capacity estimate.  The uniform flow payment, completed gap inhabitant,
   continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-capacity] Three-field completed-gap compiler — **CLOSED 2026-08-23**
+
+- **milestone**: classify every retained endpoint into the old or new block;
+  extend the three-field symmetric oriented capacity datum to the full carrier;
+  decompose the symmetric loaded form into four exact directed blocks; pay the
+  omitted new-to-old block by symmetry; control the novel pairwise variance;
+  combine with persistent old-block coercivity to construct full-sector
+  Dirichlet coercivity; and compile a cofinal three-field family to completed
+  vacuum-sector strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCapacity.lean`.
+- **decl**: `CutoffTwoNovelSymmetricOrientedCapacityAt.full_capacity`,
+  `cutoffTwoNovelSymmetricRawLoadedDirichlet_eqv_four_blocks`,
+  `CutoffTwoNovelSymmetricOrientedCapacityAt.loaded_oldOld_le_half_physical`,
+  `CutoffTwoNovelSymmetricOrientedCapacityAt.floor_mul_novelPairwiseVariance_le_allocated_physical`,
+  `CutoffTwoNovelSymmetricOrientedCapacityAt.toFullSectorDirichletCoercivityAt`,
+  `CutoffTwoCofinalNovelSymmetricOrientedCapacity`, and
+  `CutoffTwoCofinalNovelSymmetricOrientedCapacity.toCompletedStrictContractionData`.
+- **obligation**: inhabit the old--old, old-to-new, and new--new capacity
+  fields cofinally.  First factor the old-to-new field with the old source so
+  the persistent row floor can be used; then isolate and estimate the
+  irreducible new--new load/capacity ratio from explicit BF4 local geometry or
+  replace that subflow by a multiscale construction.  After uniform payment,
+  construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — carrier classification uses decidable embedded-image
+  membership, every block is a literal finite rational sum, the half-capacity
+  allocation is exact, and all six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two focused checks failed on namespace,
+  allocated-kernel unfolding, Boolean contradiction, and theorem-namespace
+  resolution details and are not passes.  The corrected focused check passes
+  in about 1.5 seconds; the exact one-worker dependency-complete target passes
+  4,977 jobs with the new module taking about 1.3 seconds.  The compiler is
+  closed, but none of the three cofinal local payments is inhabited.  Uniform
+  completed contraction, continuum QFT, and the Clay theorem remain open.

@@ -10013,3 +10013,42 @@ three remaining local fields sufficient for completed strict contraction and
 will isolate the subsequent analytic work cleanly at the new--new block.
 Uniform payment, thermodynamic/continuum theory, and the Clay theorem remain
 open.
+
+## Three oriented payments now compile to completed strict contraction (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCapacity` carries the exact
+load symmetrization through the full finite-volume proof pipeline.  Every
+retained state is constructively classified into the old or new block.  The
+three fields of `CutoffTwoNovelSymmetricOrientedCapacityAt` therefore imply a
+pointwise capacity comparison on the complete retained carrier, with its
+new-to-old case synthesized by the preceding symmetry theorem.
+
+The symmetric loaded Dirichlet form is partitioned exactly into old--old,
+old-to-new, new-to-old, and new--new blocks.  The three oriented capacity
+fields pay all four blocks: the old--old allocation receives half the physical
+kernel, and the other blocks receive the full physical kernel.  This controls
+the exact symmetric loaded form, hence the novel pairwise variance, at the
+same positive coercivity strength as the original directed-flow compiler.
+
+Combining that novel estimate with the existing persistent old-block
+coercivity spends the two old--old halves exactly and constructs
+`CutoffTwoFullSectorDirichletCoercivityAt`.  Finally,
+`CutoffTwoCofinalNovelSymmetricOrientedCapacity` compiles any cofinal family of
+the three local payments through the existing finite strict-gap theorem to
+completed vacuum-sector strict contraction.
+
+The first two focused checks exposed namespace, allocated-kernel unfolding,
+Boolean contradiction, and theorem-namespace resolution issues and are not
+passes.  The corrected focused monitored check passes in about 1.5 seconds.
+The exact one-worker dependency-complete target passes 4,977 jobs, with the
+new module taking about 1.3 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+The compiler is complete but its three local payment fields are not inhabited.
+The cross-block field can now be attacked only in the old-to-new orientation,
+where the persistent old-source row floor is usable.  The new--new field is the
+remaining irreducible scale problem.  The next frontier is to factor those two
+payments separately and determine whether the old-to-new field closes from
+existing persistent estimates before expanding the explicit geometry of the
+new--new block.  Uniform completed contraction, thermodynamic/continuum theory,
+and the Clay theorem remain open.
