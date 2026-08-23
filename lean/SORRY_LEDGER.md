@@ -5975,3 +5975,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not reported as a pass.  No cofinal checked family is inhabited, so the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-vacuum-sector-full-density-mass-defect] Exact scaling law and two-budget gap compiler — **REDUCED 2026-08-23**
+
+- **milestone**: prove `k_S = pi(S) * k_full` on the canonical component;
+  derive the exact centered identity and pointwise mass-defect estimate; lift
+  it to the conditioned weighted-row inequality with exactly one additive
+  copy of `|pi(S)-1|`; and compile cofinal `1/32` restricted-full-density plus
+  `1/32` mass-defect budgets to the corrected row certificate and completed
+  strict gap at rate `1/16`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorDensityMassDefect.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorFullDensityMassDefectGap.lean`.
+- **decl**:
+  `finiteCarrierMassNormalizedDensity_eqv_mass_mul_of_joint_reconstruction`,
+  `finiteCarrierMassNormalizedDensity_centered_eqv_mass_mul_full_centered_add_mass_defect`,
+  `finiteCarrierMassNormalizedDensity_centered_abs_le_mass_mul_error_add_mass_defect`,
+  `finiteCarrierMassNormalizedWeight_mul_mass_eqv_weight`,
+  `finiteCarrierMassNormalizedDensity_centeredRowMass_le_restrictedFull_add_massDefect`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedDensity_eqv_mass_mul_fullDensity`,
+  `centralPhysicalFiniteVacuumSectorRestrictedFullDensityCenteredRowMass`,
+  `FixedNomeCofinalVacuumSectorFullDensityMassDefect.conditionedDensityCenteredRow_le_sixteenth`,
+  `FixedNomeCofinalVacuumSectorFullDensityMassDefect.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumSectorFullDensityMassDefect.toVacuumSectorCenteredStrictGap`.
+- **obligation**: either inhabit both cofinal `1/32` budgets—restricted
+  full-density row mixing and vacuum-component mass concentration—or bypass
+  the second budget with a genuinely sector-normalized local mixing argument.
+  No current theorem proves `pi(S)` approaches one, so full-carrier Faraut or
+  local-slice estimates cannot be transferred without this explicit payment.
+- **constructive?**: yes — all 12 audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass for both modules.  Exact-
+  target one-worker dependency-complete builds pass 1,485 jobs for the
+  density-defect target and 1,486 jobs for the final two-budget gap target.
+  Neither analytic budget is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.

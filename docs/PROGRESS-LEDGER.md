@@ -7334,3 +7334,44 @@ the conditioned density rescales by its mass, so a component-mass defect must
 either be budgeted explicitly or avoided by a genuinely sector-local mixing
 argument.  The unconditional completed gap, thermodynamic/continuum control,
 and the Clay theorem remain open.
+
+## The full-density reuse branch now exposes and compiles its exact mass defect (2026-08-23)
+
+`BF4PhysicalVacuumSectorDensityMassDefect` proves the exact conditioning law
+
+`k_S(x,y) = pi(S) * k_full(x,y)`
+
+on the canonical vacuum component and therefore the centered decomposition
+
+`k_S - 1 = pi(S) * (k_full - 1) + (pi(S) - 1)`.
+
+The pointwise triangle estimate is lifted through the conditioned stationary
+weight.  Exact cancellation of `pi(S)` against that weight gives the useful
+row bound
+
+`conditioned sector row error <=
+  restricted full-density row error + |pi(S) - 1|`.
+
+Thus the mass defect is neither silently lost nor multiplied by the size of
+the component: normalization contributes exactly one copy.
+
+`BF4PhysicalVacuumSectorFullDensityMassDefectGap` packages a constructively
+cofinal two-budget route.  A restricted full-density row bound `<= 1/32` for
+every selected vacuum-sector source and a scalar vacuum-sector mass defect
+`<= 1/32` at the same cutoff imply the conditioned density row bound `1/16`.
+That estimate compiles to the corrected mass-normalized joint-row certificate
+and then to the completed same-object vacuum-sector strict gap at `1/16`.
+
+Focused monitored checks pass for both modules.  Exact-target one-worker
+dependency-complete builds pass 1,485 jobs for the density-defect module and
+1,486 jobs for the final two-budget gap target.  All 12 audited exports use at
+most `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.
+
+Neither `1/32` budget is inhabited.  The causal analytic frontier is now an
+explicit fork: prove both full-density mixing on the restricted rows and
+vacuum-sector mass concentration, or construct sector-normalized local
+mixing directly and avoid the mass-concentration obligation.  No current
+theorem proves that the canonical component mass approaches one.  The
+unconditional completed gap, thermodynamic/continuum control, and the Clay
+theorem remain open.
