@@ -6176,3 +6176,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   corrected before both passing checks.  Neither producer is inhabited, so
   the unconditional completed gap, thermodynamic/continuum QFT, and Clay
   theorem remain open.
+
+### [BF4-vacuum-sector-direct-power-budget] Cofinal direct powers to completed sector gap — **REDUCED 2026-08-23**
+
+- **milestone**: package a constructively cofinal family of exact conditioned
+  density powers with one uniform budget
+  `localRate(base,threshold)^depth(base,threshold) <= rate < 1`; compile it to
+  the corrected mass-normalized row-distance certificate and completed
+  same-object vacuum-sector strict gap; package the more concrete producer
+  consisting of compatible non-strict full time-factorizations plus
+  sector-only centered bounds; and compile that producer through the exact
+  restriction adapter to the same completed gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorDirectPowerBudgetGap.lean`.
+- **decl**:
+  `FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toMassNormalizedRowDistance`,
+  `FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toDensityPowerBudgetGluing`,
+  `FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toVacuumSectorCenteredStrictGap`.
+- **obligation**: inhabit the cofinal producer by constructing exact physical
+  time-factorization data and proving a uniform strict conditioned power
+  budget, or inhabit the equivalent direct sector-power interface.  No
+  full-carrier strictness is required or possible at cutoff two.
+- **constructive?**: yes — all five audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes on its first run, and
+  the exact-target one-worker dependency-complete build passes 1,490 jobs.
+  No cofinal producer is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.

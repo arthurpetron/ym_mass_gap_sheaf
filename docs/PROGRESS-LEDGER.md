@@ -7551,3 +7551,31 @@ before the passing focused check and exact build.
 Neither the compatible full time-factorization nor the sector strict bound
 is inhabited.  A cofinal direct-power compiler, the unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Cofinal direct density powers now compile to the completed BF4 sector gap (2026-08-23)
+
+`BF4PhysicalVacuumSectorDirectPowerBudgetGap` closes the compiler edge left
+by the time-factorization adapter.  A constructively cofinal family of exact
+conditioned density powers, together with one fixed strict budget
+`localRate(base,threshold)^depth(base,threshold) <= rate < 1`, now compiles to
+the corrected mass-normalized row-distance certificate and then to the
+existing completed same-object vacuum-sector strict gap.
+
+The module also exposes the full-factorization producer as one precise
+certificate.  At every selected cutoff it asks for a normalized non-strict
+full one-step density, exact component preservation and physical density-
+power factorization, a centered bound only after conditioning on the vacuum
+component, and the uniform depth-amplified power budget.  Its compiler first
+uses the exact restriction adapter and then reaches the completed gap.  No
+full-carrier strict estimate is requested.
+
+The focused monitored check passes on its first run, and the exact-target
+one-worker dependency-complete build passes 1,490 jobs.  All five audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.
+
+No cofinal direct-power or compatible full-factorization family is inhabited.
+The remaining finite analytic frontier is now exactly the construction of
+that producer (or a sector-native equivalent).  The unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.
