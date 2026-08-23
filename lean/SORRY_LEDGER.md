@@ -7554,3 +7554,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about one second.  The first missing-name focused check is not a
   pass.  The mass-floor input is closed; the cost-scaled edge-floor ratio,
   completed gap inhabitant, continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-uniform-old-block-coercivity] Fixed embedded-block gap — **CLOSED 2026-08-23**
+
+- **milestone**: sum the constructed transported cutoff-two path-edge floor
+  against arbitrary pulled stationary endpoint pairs; remove the pulled mass
+  using its normalized upper bound; divide by the fixed path ceiling to
+  construct a positive cutoff-independent coercivity floor; transport the
+  pairwise variance and Dirichlet energy exactly to the later old-old block;
+  and reduce full two-block gluing to only new-new and cross coercivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoUniformOldBlockCoercivity.lean`.
+- **decl**: `cutoffTwoUniformOldBlockCoercivityFloor`,
+  `cutoffTwoUniformOldBlockCoercivityFloor_pos`,
+  `cutoffTwoOldOldPairwiseVariance_eqv_pulled`,
+  `cutoffTwoOldOldDirichlet_eqv_pulled`,
+  `cutoffTwoUniformOldBlockCoercivityFloor_mul_oldOldPairwise_le_Dirichlet`,
+  `CutoffTwoNewAndCrossCoercivityAt.toFullSectorDirichletGluingAt`, and
+  `CutoffTwoCofinalNewAndCrossCoercivity.toCompletedStrictContractionData`.
+- **obligation**: construct a cofinal family proving new-new and old/new
+  cross pairwise-variance coercivity at the fixed constructed old-block
+  floor; then carry the resulting completed transfer gap through the
+  thermodynamic and continuum constructions.
+- **constructive?**: yes — all eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.6 seconds and the exact
+  one-worker dependency-complete target passes 4,910 jobs, with the new module
+  taking about 1.5 seconds.  The first missing-namespace/local-unfolding check
+  failed and is not a pass.  Old-old coercivity is now constructed uniformly;
+  new-new and cross coercivity, the completed uniform gap inhabitant,
+  continuum QFT, and the Clay theorem remain open.

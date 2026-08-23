@@ -9112,3 +9112,46 @@ frontier is to reuse the constructed uniform persistence of cutoff-two pulled
 positive edges and isolate precisely which newly appearing states/edges still
 prevent that bound.  A uniform completed gap, continuum QFT, and the Clay
 theorem remain open.
+
+## The embedded cutoff-two block has a uniform positive coercivity floor (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoUniformOldBlockCoercivity` reuses the constructed
+uniform floor on transported cutoff-two canonical-path edges and sums the
+endpoint estimate against arbitrary pulled stationary endpoint pairs.  The
+pulled component has stationary mass at most one, so division by the fixed
+positive path ceiling constructs the explicit rational constant
+
+`delta_old = pulledBasePositiveEdgeFloor / pulledCanonicalPathCeiling > 0`
+
+and proves, without any centering hypothesis,
+
+`delta_old * V_pulled(later, coefficient)`
+
+`  <= E_pulled(later, coefficient)`.
+
+Exact permutation and cutoff-index-map identities then transport both forms
+to the embedded old block of every sufficiently late full sector:
+
+`delta_old * V_old-old(later, coefficient)`
+
+`  <= E_old-old(later, coefficient)`.
+
+The old-old and total-mass inputs of the two-block gluing compiler are now
+inhabited.  `CutoffTwoCofinalNewAndCrossCoercivity` exposes the strictly
+smaller residual: at cofinally many later cutoffs one must prove only
+new-new coercivity and old/new cross coercivity at the already constructed
+constant `delta_old`; such a family compiles to the completed strict
+contraction datum.
+
+The focused monitored check passes in about 1.6 seconds, and the exact
+one-worker dependency-complete target passes 4,910 jobs with the new module
+itself taking about 1.5 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.  The first focused
+check failed on missing namespace openings and premature unfolding of local
+abbreviations and is not a pass.
+
+This closes the entire fixed embedded old-block contribution.  The next
+finite analytic frontier is genuinely about states absent at cutoff two:
+prove uniform new-new and cross-block coercivity, preferably by a recursive
+shell gluing or a weighted minorization argument.  A completed uniform gap,
+thermodynamic/continuum construction, and the Clay theorem remain open.
