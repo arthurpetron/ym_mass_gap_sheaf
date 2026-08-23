@@ -88,6 +88,104 @@ def centralPhysicalFiniteVacuumSectorCoordinateCoefficient
     (centralPhysicalFiniteVacuumSectorCoordinateAt
       w hw cutoff half coordinate)
 
+/-- Constructive lookup of a coordinate vector by the corresponding ambient
+natural-number label. -/
+def natListCoordinateLift :
+    List Nat → (Nat → Q') → Nat → Q'
+  | [], _, _ => 0
+  | head :: tail, coordinate, index =>
+      if index = head then coordinate 0
+      else natListCoordinateLift tail
+        (fun position => coordinate (position + 1)) index
+
+/-- Extend a sector-coordinate vector back to ambient positive-carrier
+indices using an explicit structurally recursive lookup in the duplicate-free
+sector list.  Values outside the sector are irrelevant. -/
+def centralPhysicalFiniteVacuumSectorCoordinateLift
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (cutoff half : Nat) (coordinate : Nat → Q')
+    (index : Nat) : Q' :=
+  natListCoordinateLift
+    (centralPhysicalFiniteVacuumSectorIndices w hw cutoff half)
+    coordinate index
+
+theorem natList_getD_mem_of_lt
+    (fallback : Nat) :
+    ∀ (items : List Nat) (coordinate : Nat),
+      coordinate < items.length →
+        items.getD coordinate fallback ∈ items
+  | [], coordinate, hlt => False.elim (Nat.not_lt_zero coordinate hlt)
+  | _ :: _, 0, _ => List.mem_cons_self
+  | head :: tail, coordinate + 1, hlt =>
+      List.mem_cons_of_mem head
+        (natList_getD_mem_of_lt fallback tail coordinate
+          (Nat.succ_lt_succ_iff.mp hlt))
+
+theorem natListCoordinateLift_getD_of_nodup
+    (fallback : Nat) (coordinate : Nat → Q') :
+    ∀ (items : List Nat) (position : Nat),
+      items.Nodup → position < items.length →
+        natListCoordinateLift items coordinate
+            (items.getD position fallback) =
+          coordinate position := by
+  intro items
+  induction items generalizing coordinate with
+  | nil =>
+      intro position _ hposition
+      exact False.elim (Nat.not_lt_zero position hposition)
+  | cons head tail ih =>
+      intro position hnodup hposition
+      have hparts := List.nodup_cons.mp hnodup
+      cases position with
+      | zero =>
+          simp only [List.getD_cons_zero, natListCoordinateLift, if_pos]
+      | succ position =>
+          have htailLt : position < tail.length :=
+            Nat.succ_lt_succ_iff.mp hposition
+          have htailMem : tail.getD position fallback ∈ tail :=
+            natList_getD_mem_of_lt fallback tail position htailLt
+          have hne : tail.getD position fallback ≠ head := by
+            intro heq
+            exact hparts.1 (heq ▸ htailMem)
+          simp only [List.getD_cons_succ, natListCoordinateLift,
+            if_neg hne]
+          exact ih (fun index => coordinate (index + 1))
+            position hparts.2 htailLt
+
+theorem centralPhysicalFiniteVacuumSectorCoordinateLift_recovers
+    (w : Q') (hw : (0 : Q') ≤ w) (cutoff half : Nat)
+    (coordinate : Nat → Q') {position : Nat}
+    (hposition : position <
+      centralPhysicalFiniteVacuumSectorCoordinateSize
+        w hw cutoff half) :
+    centralPhysicalFiniteVacuumSectorCoordinateCoefficient
+        w hw cutoff half
+        (centralPhysicalFiniteVacuumSectorCoordinateLift
+          w hw cutoff half coordinate)
+        position =
+      coordinate position := by
+  unfold centralPhysicalFiniteVacuumSectorCoordinateCoefficient
+    centralPhysicalFiniteVacuumSectorCoordinateLift
+    centralPhysicalFiniteVacuumSectorCoordinateAt finiteListStateAt
+  exact natListCoordinateLift_getD_of_nodup 0 coordinate
+    (centralPhysicalFiniteVacuumSectorIndices w hw cutoff half)
+    position
+    (centralPhysicalFiniteVacuumSectorIndices_nodup
+      w hw cutoff half)
+    (by simpa [centralPhysicalFiniteVacuumSectorCoordinateSize]
+      using hposition)
+
+private theorem finiteWeightedMean_coefficient_congr_local
+    (n : Nat) (weight left right : Nat → Q')
+    (hagrees : ∀ i, i < n → left i ≈ right i) :
+    finiteWeightedMean n weight left ≈
+      finiteWeightedMean n weight right := by
+  unfold finiteWeightedMean
+  apply listQSum_congr_on
+  intro i hi
+  exact Q'.mul_eqv_congr_right _ _ _
+    (hagrees i (List.mem_range.mp hi))
+
 theorem centralPhysicalFiniteVacuumSectorCoordinateMean_eqv
     (w : Q') (hw : (0 : Q') ≤ w) (cutoff half : Nat)
     (coefficient : Nat → Q') :
@@ -162,6 +260,113 @@ theorem centralPhysicalFiniteVacuumSectorCoordinateMatrix_eqv
       (coefficient left * coefficient right) *
         centralPhysicalFiniteKernel w hw cutoff half left right)
 
+/-- A mean-zero absolute sector estimate is independent of the enumeration
+chosen for the duplicate-free sector list.  The explicit coordinate lift is
+a right inverse on all in-range positions, so the ambient estimate transports
+back to the generated coordinate order without permuting an LDL factor. -/
+theorem centralPhysicalFiniteVacuumSectorCoordinateAbsGap_of_sectorAbsGap
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {cutoff half : Nat} {q : Q'}
+    (hsector : ∀ coefficient : Nat → Q',
+      centralPhysicalFiniteVacuumSectorWeightedMean
+          w hw cutoff half coefficient ≈ 0 →
+        Q'.abs
+            (centralPhysicalFiniteVacuumSectorMatrixQuadratic
+              w hw cutoff half coefficient) ≤
+          q * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+            w hw cutoff half coefficient)
+    (coordinate : Nat → Q')
+    (hcenter : finiteWeightedMean
+        (centralPhysicalFiniteVacuumSectorCoordinateSize
+          w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCoordinateWeight
+          w hw cutoff half)
+        coordinate ≈ 0) :
+    Q'.abs
+        (finiteMatrixQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateKernel
+            w hw cutoff half)
+          coordinate) ≤
+      q * finiteDiagonalQuadratic
+        (centralPhysicalFiniteVacuumSectorCoordinateSize
+          w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCoordinateWeight
+          w hw cutoff half)
+        coordinate := by
+  let ambient :=
+    centralPhysicalFiniteVacuumSectorCoordinateLift
+      w hw cutoff half coordinate
+  let recoded :=
+    centralPhysicalFiniteVacuumSectorCoordinateCoefficient
+      w hw cutoff half ambient
+  have hrecovers : ∀ i,
+      i < centralPhysicalFiniteVacuumSectorCoordinateSize
+          w hw cutoff half →
+        recoded i ≈ coordinate i := by
+    intro i hi
+    exact Q'.eqv_of_eq
+      (centralPhysicalFiniteVacuumSectorCoordinateLift_recovers
+        w hw cutoff half coordinate hi)
+  have hcoordinateMean :
+      finiteWeightedMean
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateWeight
+            w hw cutoff half)
+          recoded ≈ 0 :=
+    Q'.eqv_trans _ _ _
+      (finiteWeightedMean_coefficient_congr_local
+        (centralPhysicalFiniteVacuumSectorCoordinateSize
+          w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCoordinateWeight
+          w hw cutoff half)
+        recoded coordinate hrecovers)
+      hcenter
+  have hambientCenter :
+      centralPhysicalFiniteVacuumSectorWeightedMean
+          w hw cutoff half ambient ≈ 0 :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (centralPhysicalFiniteVacuumSectorCoordinateMean_eqv
+          w hw cutoff half ambient))
+      hcoordinateMean
+  have hambientGap := hsector ambient hambientCenter
+  have hmatrix :
+      finiteMatrixQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateKernel
+            w hw cutoff half)
+          coordinate ≈
+        centralPhysicalFiniteVacuumSectorMatrixQuadratic
+          w hw cutoff half ambient :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (finiteMatrixQuadratic_coefficient_congr hrecovers))
+      (centralPhysicalFiniteVacuumSectorCoordinateMatrix_eqv
+        w hw cutoff half ambient)
+  have hdiagonal :
+      centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+          w hw cutoff half ambient ≈
+        finiteDiagonalQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateWeight
+            w hw cutoff half)
+          coordinate :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (centralPhysicalFiniteVacuumSectorCoordinateDiagonal_eqv
+          w hw cutoff half ambient))
+      (finiteDiagonalQuadratic_coefficient_congr hrecovers)
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.abs_eqv_congr hmatrix))
+    (Q'.le_trans' _ _ _ hambientGap
+      (Q'.le_of_eqv
+        (Q'.mul_eqv_congr_left q _ _ hdiagonal)))
+
 private theorem finiteListStateAt_zero_mem_of_ne_nil
     {A : Type} (items : List A) (fallback : A)
     (hne : items ≠ []) :
@@ -227,10 +432,74 @@ def centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction
     (centralPhysicalFiniteVacuumSectorCoordinateWeight_zero_pos
       w hw cutoff half)
 
+/-- Order-invariant upper certificate for a centered restriction.  Unlike an
+LDL table, this retains only the mathematical content needed downstream:
+nonnegativity of the reduced upper quadratic in the restriction's own order. -/
+structure FiniteCenteredRestrictionUpperPSDCertificate
+    {n : Nat} {q : Q'} {weight : Nat → Q'}
+    {kernel : Nat → Nat → Q'}
+    (restriction :
+      FiniteCenteredTwoSidedRestriction n q weight kernel) : Type 1 where
+  upper_nonnegative : ∀ reduced,
+    (0 : Q') ≤ finiteMatrixQuadratic
+      restriction.reducedSize restriction.upperMatrix reduced
+
+namespace FiniteCenteredRestrictionUpperPSDCertificate
+
+/-- Upper PSD is precisely enough to prove the centered upper contraction;
+the restriction supplies both centering and constructive completeness. -/
+theorem upperContraction
+    {n : Nat} {q : Q'} {weight : Nat → Q'}
+    {kernel : Nat → Nat → Q'}
+    {restriction :
+      FiniteCenteredTwoSidedRestriction n q weight kernel}
+    (certificate :
+      FiniteCenteredRestrictionUpperPSDCertificate restriction)
+    (coefficient : Nat → Q')
+    (hcenter : finiteWeightedMean n weight coefficient ≈ 0) :
+    finiteMatrixQuadratic n kernel coefficient ≤
+      q * finiteDiagonalQuadratic n weight coefficient := by
+  let chosen := restriction.complete coefficient hcenter
+  let reduced : Nat → Q' := chosen.val
+  have hagrees : ∀ i, i < n →
+      coefficient i ≈ restriction.lift reduced i :=
+    chosen.property
+  have hlift :
+      finiteMatrixQuadratic n kernel (restriction.lift reduced) ≤
+        q * finiteDiagonalQuadratic n weight
+          (restriction.lift reduced) := by
+    apply finiteReversibleContraction_of_penalized
+    · exact Q'.le_trans' _ _ _
+        (certificate.upper_nonnegative reduced)
+        (Q'.le_of_eqv (restriction.upperIdentify reduced))
+    · exact restriction.liftCentered reduced
+  have hleft :
+      finiteMatrixQuadratic n kernel coefficient ≈
+        finiteMatrixQuadratic n kernel (restriction.lift reduced) :=
+    finiteMatrixQuadratic_coefficient_congr hagrees
+  have hright :
+      q * finiteDiagonalQuadratic n weight
+          (restriction.lift reduced) ≈
+        q * finiteDiagonalQuadratic n weight coefficient :=
+    Q'.mul_eqv_congr_left q _ _
+      (Q'.eqv_symm
+        (finiteDiagonalQuadratic_coefficient_congr hagrees))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hlift (Q'.le_of_eqv hright))
+
+end FiniteCenteredRestrictionUpperPSDCertificate
+
 abbrev CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperLDLCertificate
     (w : Q') (hw : (0 : Q') ≤ w)
     (cutoff half : Nat) (q : Q') : Type 1 :=
   FiniteCenteredRestrictionUpperLDLCertificate
+    (centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction
+      w hw cutoff half q)
+
+abbrev CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (cutoff half : Nat) (q : Q') : Type 1 :=
+  FiniteCenteredRestrictionUpperPSDCertificate
     (centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction
       w hw cutoff half q)
 
@@ -294,6 +563,116 @@ private theorem centralPhysicalFiniteVacuumSectorMeanZeroUpperGap_of_coordinate
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm hmatrix))
     (Q'.le_trans' _ _ _ hcoordinate
       (Q'.le_of_eqv (Q'.mul_eqv_congr_left q _ _ hdiagonal)))
+
+namespace CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate
+
+/-- Package an already proved physical-sector absolute gap into the generated
+canonical restriction.  This construction uses the coordinate right inverse,
+so it is valid under arbitrary enumeration of the duplicate-free sector list. -/
+def ofMeanZeroAbsGap
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {cutoff half : Nat} {q : Q'}
+    (hsector : ∀ coefficient : Nat → Q',
+      centralPhysicalFiniteVacuumSectorWeightedMean
+          w hw cutoff half coefficient ≈ 0 →
+        Q'.abs
+            (centralPhysicalFiniteVacuumSectorMatrixQuadratic
+              w hw cutoff half coefficient) ≤
+          q * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+            w hw cutoff half coefficient) :
+    CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate
+      w hw cutoff half q := by
+  let restriction :=
+    centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction
+      w hw cutoff half q
+  refine { upper_nonnegative := ?_ }
+  intro reduced
+  have hcenter :
+      finiteWeightedMean
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateWeight
+            w hw cutoff half)
+          (restriction.lift reduced) ≈ 0 :=
+    restriction.liftCentered reduced
+  have habs :=
+    centralPhysicalFiniteVacuumSectorCoordinateAbsGap_of_sectorAbsGap
+      hsector (restriction.lift reduced) hcenter
+  have hupper :
+      finiteMatrixQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateKernel
+            w hw cutoff half)
+          (restriction.lift reduced) ≤
+        q * finiteDiagonalQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateWeight
+            w hw cutoff half)
+          (restriction.lift reduced) :=
+    Q'.le_trans' _ _ _
+      (Q'.le_abs_self
+        (finiteMatrixQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateKernel
+            w hw cutoff half)
+          (restriction.lift reduced)))
+      habs
+  have hdifference : (0 : Q') ≤
+      q * finiteDiagonalQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateWeight
+            w hw cutoff half)
+          (restriction.lift reduced) +
+        -(finiteMatrixQuadratic
+          (centralPhysicalFiniteVacuumSectorCoordinateSize
+            w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorCoordinateKernel
+            w hw cutoff half)
+          (restriction.lift reduced)) :=
+    Q'.sub_nonneg_of_le hupper
+  have hpenalized : (0 : Q') ≤
+      finitePenalizedReversibleQuadratic
+        (centralPhysicalFiniteVacuumSectorCoordinateSize
+          w hw cutoff half)
+        q
+        (centralPhysicalFiniteVacuumSectorCoordinateWeight
+          w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCoordinateKernel
+          w hw cutoff half)
+        (restriction.lift reduced) :=
+    Q'.le_trans' _ _ _ hdifference
+      (Q'.ge_of_eqv
+        (finitePenalizedReversibleQuadratic_centered hcenter))
+  exact Q'.le_trans' _ _ _ hpenalized
+    (Q'.ge_of_eqv (restriction.upperIdentify reduced))
+
+theorem meanZeroAbsGap
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {cutoff half : Nat} {q : Q'}
+    (certificate :
+      CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate
+        w hw cutoff half q)
+    (coefficient : Nat → Q')
+    (hcenter : centralPhysicalFiniteVacuumSectorWeightedMean
+      w hw cutoff half coefficient ≈ 0) :
+    Q'.abs
+        (centralPhysicalFiniteVacuumSectorMatrixQuadratic
+          w hw cutoff half coefficient) ≤
+      q * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+        w hw cutoff half coefficient := by
+  rw [YMGap.Constructive.ExpNeg.abs_of_nonneg
+    (centralPhysicalFiniteVacuumSectorMatrixQuadratic_nonnegative
+      w hw cutoff half coefficient)]
+  exact centralPhysicalFiniteVacuumSectorMeanZeroUpperGap_of_coordinate
+    (fun coordinate hcoordinate =>
+      certificate.upperContraction coordinate hcoordinate)
+    coefficient hcenter
+
+end CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate
 
 namespace CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperLDLCertificate
 
@@ -575,6 +954,20 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge
 
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.centralPhysicalFiniteVacuumSectorCoordinateMean_eqv
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.natList_getD_mem_of_lt
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.natListCoordinateLift_getD_of_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.centralPhysicalFiniteVacuumSectorCoordinateLift_recovers
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.centralPhysicalFiniteVacuumSectorCoordinateAbsGap_of_sectorAbsGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.FiniteCenteredRestrictionUpperPSDCertificate.upperContraction
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate.ofMeanZeroAbsGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate.meanZeroAbsGap
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.centralPhysicalFiniteVacuumSectorCoordinateDiagonal_eqv
 #print axioms

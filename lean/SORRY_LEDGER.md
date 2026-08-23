@@ -6947,3 +6947,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs.  Two early namespace/unfold failures are not passes.  This closes a
   certificate recoding implication, not its cofinal inhabitant, the completed
   gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-sector-local-upper-PSD] Generated finite inhabitant — **PROVED FINITE 2026-08-23**
+
+- **milestone**: construct a structurally recursive coordinate-to-ambient
+  lift with an exact right inverse; transport arbitrary physical-sector
+  absolute gaps to the generated sector ordering; factor upper PSD as the
+  order-invariant centered-restriction certificate; and inhabit that exact
+  certificate at cutoff two and rate `49/50`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoVacuumSectorLocalUpperPSDCertificate.lean`.
+- **decl**:
+  `natListCoordinateLift_getD_of_nodup`,
+  `centralPhysicalFiniteVacuumSectorCoordinateLift_recovers`,
+  `centralPhysicalFiniteVacuumSectorCoordinateAbsGap_of_sectorAbsGap`,
+  `FiniteCenteredRestrictionUpperPSDCertificate.upperContraction`,
+  `CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate.ofMeanZeroAbsGap`,
+  `cutoffTwoCanonicalVacuumSectorUpperPSDCertificateAt49Over50`, and
+  `cutoffTwoCanonicalVacuumSectorCanonicalHeadUpperMatrix_nonnegative`.
+- **obligation**: construct these generated upper-PSD witnesses at one fixed
+  `0 <= q < 1` on an unbounded cofinal cutoff schedule, then feed that family
+  through the same-object CReal and completed vacuum-sector compilers.  The
+  cutoff-two inhabitant alone supplies no uniform persistence.
+- **constructive?**: yes — every new audited export uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused checks pass in about 1.5 and 1.8 seconds, and the
+  exact-target one-worker dependency-complete build passes 4,757 jobs.
+  Interrupted elaboration probes and the rejected choice-bearing `idxOf`
+  inverse are not passes.  This proves one finite generated witness, not its
+  cofinal uniform family, a completed gap, thermodynamic/continuum QFT, or the
+  Clay theorem.

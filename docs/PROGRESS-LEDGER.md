@@ -8388,3 +8388,38 @@ data with this generated sector-local restriction, establishing the first
 nontrivial finite inhabitant before seeking an unbounded uniform schedule.
 The completed gap, volume/spacing control, continuum QFT, and Clay theorem
 remain open.
+
+## The generated sector-local upper certificate is inhabited at cutoff two (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge` now separates the
+order-invariant content of an upper matrix certificate from any particular
+triangular LDL presentation.  A structurally recursive ambient coordinate
+lift has an exact right-inverse theorem on the duplicate-free sector list.
+Consequently any physical mean-zero absolute sector estimate transports to
+the generated coordinate order, and it packages constructively as upper PSD
+of the canonical head-centered restriction.  The generic PSD interface then
+proves the same centered upper contraction as an LDL certificate.
+
+`BF4PhysicalBoundaryCutoffTwoVacuumSectorLocalUpperPSDCertificate` applies
+that compiler to the already verified cutoff-two canonical gap at `49/50`.
+It constructs an actual witness for the exact generated sector-local upper
+restriction, proves its reduced matrix is nonnegative on every vector, and
+derives the coordinate mean-zero upper gap.  This avoids the invalid move of
+permuting the historical triangular LDL factors while preserving their
+proved signed-form consequence.
+
+The bridge focused check passes in about 1.5 seconds, the cutoff-two focused
+check in about 1.8 seconds, and the exact one-worker target passes 4,757 jobs.
+All newly audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Two monitored checks were deliberately
+interrupted while an unresolved `cutoffTwoHalfCoupling` name caused massive
+elaboration; a diagnostic version then exposed `Classical.choice` in a
+multi-pattern `idxOf` inverse proof.  Neither run is counted as a pass.  The
+final structurally recursive lookup removes that dependency and restores the
+axiom gate.
+
+This is a genuine finite inhabitant at cutoff two only.  No cofinal family at
+one uniform strict rate has been constructed.  That all-cutoff analytic
+input, the completed vacuum-complement gap, volume/spacing control,
+continuum QFT, and the Clay theorem remain open.
