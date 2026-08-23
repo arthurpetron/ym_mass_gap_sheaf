@@ -5846,3 +5846,51 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   below the preceding canonical path maximum. The all-base rate remains
   uninhabited, so the unconditional completed gap, thermodynamic/continuum
   QFT, and Clay theorem remain open.
+
+### [BF4-explicit-ambient-rate] Ambient power count and finite physical minimum expose a primitive all-base ratio — **REDUCED 2026-08-23**
+
+- **milestone**: bound the loop-erased vacuum-sector cardinality by the exact
+  full bounded-labelling enumeration; expose the extent-one count
+  `(cutoff + 1)^24`; construct a formula-carrying persistent floor certificate
+  whose floor is one half of a positive finite pulled-kernel minimum; enlarge
+  the fixed-base Poincare scale to the ambient count; and compile one uniform
+  denominator-cleared ambient ratio directly to the completed vacuum-sector
+  strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimpleCarrierAmbientBound.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloorFormula.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledAmbientPoincareGap.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorExplicitAmbientCofinalRateBridge.lean`.
+- **decl**:
+  `boundedEdgeLabellings_length`,
+  `centralPhysicalFiniteVacuumSectorIndices_length_le_ambient`,
+  `centralPhysicalFiniteVacuumSectorIndices_length_le_ambient_zero`,
+  `centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_le_ambient`,
+  `explicitFixedBasePulledPositiveEdgeFloorFormula`,
+  `explicitFixedBasePulledPositiveEdgeFloor_floor_eqv_value`,
+  `explicitAmbientPoincareScaleFormula`,
+  `explicitAmbientPoincareRate_lt_one`,
+  `explicitSimpleCarrierPoincareRate_le_ambient`,
+  `FixedNomeUniformExplicitAmbientVacuumSectorRateBound.toCompletedStrictContractionData`,
+  `FixedNomeUniformExplicitAmbientFloorRateBound.explicitAmbientPoincareRate_le`,
+  and
+  `FixedNomeUniformExplicitAmbientFloorRateBound.toCompletedStrictContractionData`.
+- **obligation**: inhabit one rational `0 <= q < 1` satisfying, for every
+  base cutoff,
+  `A(base) <= q * (A(base) + F(base))`, where
+  `A = 1 + ((base + 1)^(#lowerFaceCoordinates))^2` and
+  `F = (1/2) * fixedBasePulledEdgeAnchorMinimum`; or bypass this sufficient
+  global-path condition with a stronger local mixing/tensorization estimate.
+  Pointwise positivity of `F` is not an all-base relative lower bound.
+- **constructive?**: yes — all 22 audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass for all four modules and the
+  final exact-target one-worker dependency-complete build passes 4,905 jobs.
+  Two fully-transparent diagnostic attempts were manually interrupted and are
+  not reported as passes; the formula-carrying opaque version is verified.
+  The ambient rate is a sufficient upper envelope, not a proof that the actual
+  vacuum sector grows or its edge floor decays. The common rate remains
+  uninhabited, so the unconditional completed gap, thermodynamic/continuum
+  QFT, and Clay theorem remain open.

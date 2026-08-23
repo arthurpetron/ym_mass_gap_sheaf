@@ -7185,3 +7185,64 @@ The common all-base `q` is deliberately not inhabited. Carrier cardinality
 may grow and the persistent edge floor may shrink with the cutoff, so an
 unconditional completed gap, thermodynamic/continuum control, and the Clay
 theorem remain open.
+
+## The BF4 path frontier is now expressed by an ambient power count and a finite physical minimum (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorSimpleCarrierAmbientBound` removes the remaining
+combinatorial opacity from the loop-erased carrier scale. It proves the nested
+cardinality bounds
+
+`#vacuumSector <= #positivePhysicalCarrier <=
+  (cutoff + 1)^(#lowerFaceCoordinates)`
+
+and therefore bounds the simple-path scale by
+
+`A(cutoff, half) =
+  1 + ((cutoff + 1)^(#lowerFaceCoordinates(half)))^2`.
+
+At the smallest central slab the lower carrier has exactly 24 coordinates, so
+the ambient state count is `(cutoff + 1)^24`. This is an upper bound on the
+actual vacuum-sector size, not a proof that the sector itself grows at that
+rate.
+
+`BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloorFormula` constructs a second
+fixed-base floor certificate from the already-proved finite-minimum and
+half-retention estimates. A formula-carrying opaque bundle makes its
+quantitative projections explicit without forcing downstream elaboration to
+normalize the proof payload:
+
+`F(base, half) = (1/2) * fixedBasePulledEdgeAnchorMinimum(base, half)`.
+
+The minimum is taken over the finite base vacuum-sector pair carrier at the
+common row-tail anchor. Its positivity is constructed at each base, but no
+all-base positive lower bound is proved.
+
+`BF4PhysicalCutoffVacuumSectorPulledAmbientPoincareGap` enlarges the sharper
+simple-sector Poincare scale to `A` and constructs the explicit fixed-base rate
+
+`q_ambient(base) = A(base) / (A(base) + F(base)) < 1`.
+
+It proves that the sharper simple-carrier rate is no larger than this ambient
+rate. `BF4PhysicalCutoffVacuumSectorExplicitAmbientCofinalRateBridge` then
+isolates the fully expanded denominator-cleared all-base condition
+
+`A(base) <= q * (A(base) + F(base))`
+
+for one rational `0 <= q < 1` and every base. Any witness contracts through
+the same-object centered limit and completed Markov Cauchy--Schwarz machinery
+to the actual completed vacuum-sector strict contraction.
+
+Focused monitored checks pass for all four new modules. The final exact-target
+one-worker dependency-complete build passes 4,905 jobs. All 22 audited exports
+use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added. Two earlier diagnostic attempts with a fully transparent proof payload
+were manually interrupted and are not counted as successful checks; the
+formula-carrying opaque refactor is the version that passed.
+
+The ambient condition is sufficient but deliberately stronger than the
+sharper sector-size/floor condition. It is not inhabited. The explicit power
+count and finite minimum show exactly why global canonical paths may lose
+uniformity, but they do not prove that loss. A uniform relative estimate or a
+stronger local mixing/tensorization argument, the unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.
