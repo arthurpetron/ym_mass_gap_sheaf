@@ -7397,3 +7397,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   import, namespace, unfolding, and heartbeat failures are not passes.  This
   closes the pointwise congestion implication, not a load-bound inhabitant,
   uniform completed gap, continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-edge-load-capacity-scaling] Finite maxima and cleared coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: replace unit bridge capacity by separate finite internal and
+  bridge capacities; inhabit both by located maxima of the explicit edge
+  load; combine them with a within-block cost into the cleared inequality
+  `baseFloor * V_full <= totalCost * E_full`; and compile a supplied uniform
+  ratio comparison through the completed strict-contraction interface.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoEdgeLoadCapacityScaling.lean`.
+- **decl**: `CutoffTwoCanonicalCrossEdgeLoadCapacitiesAt`,
+  `CutoffTwoCanonicalCrossEdgeLoadCapacitiesAt.lengthLinearPathBudget_le_capacityEnergy`,
+  `cutoffTwoCanonicalInternalEdgeLoadCapacity`,
+  `cutoffTwoCanonicalBridgeEdgeLoadCapacity`,
+  `cutoffTwoCanonicalFiniteEdgeLoadCapacitiesAt`,
+  `CutoffTwoCapacityScaledPathGluingAt.cleared_full_coercivity`,
+  `CutoffTwoCapacityClearedDirichletAt.toFullSectorDirichletCoercivityAt`,
+  and
+  `CutoffTwoCofinalCapacityClearedGluing.toCompletedStrictContractionData`.
+- **obligation**: construct a cofinal within-block cost and prove a fixed
+  positive lower bound for `baseFloor / totalCost` in cleared form, together
+  with a fixed positive sector-mass floor; then carry the result through the
+  thermodynamic and continuum constructions.
+- **constructive?**: yes — all eight audited exports use at most
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.8 seconds and the exact
+  one-worker dependency-complete target passes 4,899 jobs.  The first focused
+  check failed on missing namespace openings and is not a pass.  Finite
+  capacity existence is closed, but its uniform scaled lower bound, the
+  completed gap inhabitant, continuum QFT, and the Clay theorem remain open.

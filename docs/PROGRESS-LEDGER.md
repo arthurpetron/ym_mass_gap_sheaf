@@ -8914,3 +8914,40 @@ bound the explicit rational edge load itself, preferably by a canonical-path
 counting/injection argument that is uniform along a cofinal cutoff schedule.
 The within-block coercivity, positive edge and sector-mass floors, continuum
 QFT, and the Clay theorem remain open.
+
+## Finite edge capacities and denominator-free scaling are now explicit (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoEdgeLoadCapacityScaling` removes the prior unit
+bridge-capacity normalization.  It introduces independent internal and bridge
+capacities and proves that their four pointwise bounds imply
+
+`canonicalCrossLengthLinearPathBudget`
+
+`  <= internalCapacity * E_within + bridgeCapacity * E_cross`.
+
+Both capacities are inhabited at every finite cutoff by `1 +` the located
+maximum of the explicit canonical edge load on the corresponding finite pair
+list.  Thus finite congestion existence is no longer an open hypothesis.
+
+After adjoining a declared within-block cost, the module contracts the two
+variance budgets to the denominator-free inequality
+
+`baseFloor * V_full <= totalCost * E_full`,
+
+where `totalCost = withinCost + internalCapacity + bridgeCapacity`.  A fixed
+effective floor is required only through the transparent cofinal comparison
+
+`effectiveFloor * totalCost <= baseFloor`.
+
+Positive rational cancellation then produces the existing full-sector
+coercivity certificate and compiles to the completed strict-contraction data.
+This is the precise uniform quantitative frontier: prove a cofinal lower
+bound on the capacity-scaled floor, a within-block budget, and a fixed
+positive sector-mass floor.
+
+The focused monitored check passes in about 1.8 seconds, and the exact
+one-worker dependency-complete target passes 4,899 jobs.  All eight audited
+exports use at most `[propext, Quot.sound]`; no forbidden construct was added.
+The first focused check failed on missing namespace openings and is not a
+pass.  No uniform ratio or mass-floor family, continuum QFT, or Clay theorem
+is claimed.
