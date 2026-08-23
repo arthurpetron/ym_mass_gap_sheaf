@@ -8807,3 +8807,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 4,990 jobs with the new module taking about 1.2 seconds.  No
   cofinal check success is asserted.  Uniform completed contraction, continuum
   QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-routed-support-finite-ceiling] Routed-support finite ratio ceiling — **CLOSED 2026-08-23**
+
+- **milestone**: enumerate the literal directed support of all canonical novel
+  paths; take the finite reverse/forward conditional-ratio maximum only over
+  those edges; prove that source prefixes and prefixes through a selected edge
+  remain in their parent route; bound both prefix products; and prove that the
+  restricted maximum is no larger than the full-carrier maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportFiniteCeiling.lean`.
+- **decl**: `cutoffTwoNovelRoutedDirectedEdges`,
+  `cutoffTwoConditionalReverseForwardRoutedFiniteCeiling`,
+  `cutoffTwoConditionalReverseForwardRoutedFiniteCeiling_le_finiteCeiling`,
+  `prefixAtDirectedEdge_directedEdges_subset`,
+  `throughEdge_directedEdges_subset`,
+  `cutoffTwoNovelPathReverseForwardProduct_le_routedFiniteCeilingPow`, and
+  `cutoffTwoNovelRoutedSupportFiniteRatioCeilingData`.
+- **obligation**: instantiate the three block payment scans with this sharper
+  routed-support ceiling; prove cofinal payment success or refine routes using
+  exact-product failures; then construct and control thermodynamic and
+  continuum limits.
+- **constructive?**: yes — the support list and maximum are explicit finite
+  data, prefix containment is proved structurally, and all six audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two focused checks failed during proof repair and
+  are not passes.  The corrected focused check passes in about 1.1 seconds;
+  the exact one-worker target passes 4,991 jobs with the new module taking
+  about 1.2 seconds.  The comparison is non-strict (`routed <= full`); no
+  payment or cofinal success, completed uniform contraction, continuum QFT, or
+  Clay theorem is asserted.

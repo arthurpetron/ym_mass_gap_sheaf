@@ -10460,3 +10460,31 @@ checker.  The next analytic frontier is to separate failure caused by the
 global ratio maximum from failure of the exact product load, then replace the
 global maximum by sharper block/edge-local routed ceilings where necessary.
 Thermodynamic/continuum theory and the Clay theorem remain open.
+
+## The finite ratio maximum is now restricted to actual routed support (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportFiniteCeiling`
+flattens the literal directed edges used by all canonical novel paths and
+takes the located reverse/forward conditional-ratio maximum only on that
+routed support.  Every selected route prefix and every prefix extended through
+its selected edge stays inside the parent route, so the restricted maximum
+controls both product families required by the common symmetric load.
+
+The module also proves, rather than merely suggests, that the routed-support
+maximum is no larger than the previous full-carrier maximum.  This removes
+positive carrier edges that no novel route traverses without weakening any
+source-prefix or target-prefix estimate.  Equality may still hold, and no
+uniform cutoff-independent bound or payment is inferred.
+
+Two focused monitored checks initially failed on a dependent `if` proof and
+the path-prefix namespace, then on dependent reduction of the extracted
+prefix; neither is counted as a pass.  After correction, the focused check
+passes in about 1.1 seconds.  The exact one-worker dependency-complete target
+passes 4,991 jobs, with the new module taking about 1.2 seconds.  All six
+audited exports use exactly `[propext, Quot.sound]`.
+
+The next finite frontier is to substitute this restricted maximum into all
+three executable ceiling-payment scans and retain block-tagged failures.  The
+analytic frontier remains cofinal success of those sharper payments (or route
+refinement informed by exact-product counteredges).  Completed uniform
+contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
