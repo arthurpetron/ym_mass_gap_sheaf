@@ -7246,3 +7246,53 @@ count and finite minimum show exactly why global canonical paths may lose
 uniformity, but they do not prove that loss. A uniform relative estimate or a
 stronger local mixing/tensorization argument, the unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Vacuum-sector row mixing now uses the correct component mass (2026-08-23)
+
+The local-mixing audit exposed a normalization issue that is invisible after
+exact centering but decisive for rowwise estimates.  If the canonical vacuum
+component `S` has stationary mass `pi(S)`, its conditioned equilibrium joint
+is
+
+`pi(x) * pi(y) / pi(S)`,
+
+not the unnormalized restricted product `pi(x) * pi(y)`.  The earlier
+`BF4PhysicalVacuumSectorCofinalRowGap` interface remains a valid sufficient
+condition, because its rank-one quadratic vanishes on sector-centered
+coefficients, but it is unnecessarily strong whenever `pi(S) < 1`.
+
+`BF4PhysicalVacuumSectorMassNormalizedRowGap` constructs the corrected
+component-conditioned rank-one joint, proves that its quadratic is the
+ordinary stationary-product quadratic divided by the positive component
+mass, and hence proves that exact sector centering kills it.  A symmetric
+row-relative estimate
+
+`sum_y |J(x,y) - pi(x)pi(y)/pi(S)| <= q * pi(x)`
+
+therefore gives the same centered finite quadratic contraction.  A
+constructively cofinal family of these corrected estimates compiles directly
+to the existing moving same-object cutoff-limit gap.
+
+`BF4PhysicalVacuumSectorMassNormalizedFiniteChecker` makes the corrected
+condition executable with exact rational arithmetic.  Its all-row Boolean
+scan ranges only over the graph-defined canonical vacuum component, avoiding
+the already-proved cutoff-two reducibility obstruction on the full positive
+carrier.  A true scan packages the finite symmetric certificate, and one
+true scan at every constructively selected cofinal cutoff compiles to the
+same centered strict-gap certificate.
+
+Focused monitored checks pass for both modules, and the final exact-target
+one-worker dependency-complete build passes 1,482 jobs.  All 11 audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was added.  Two
+performance diagnostics were manually interrupted: direct evaluation of a
+graph-defined cutoff-zero smoke theorem, and a redundant convenience theorem
+whose elaboration unfolded the checked family.  Neither is reported as
+verified; both were removed from the passing module without removing the
+checker or its compiler.
+
+No nontrivial cofinal scan is inhabited.  The next local frontier is to
+construct a sector-normalized conditional density/core-tail or local-slice
+witness that proves these checked rows uniformly.  The unconditional
+completed gap, thermodynamic/continuum control, and the Clay theorem remain
+open.

@@ -5894,3 +5894,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   vacuum sector grows or its edge floor decays. The common rate remains
   uninhabited, so the unconditional completed gap, thermodynamic/continuum
   QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-mass-normalized-rows] Correct component equilibrium and exact finite checker — **REDUCED 2026-08-23**
+
+- **milestone**: replace the unnormalized restricted rank-one comparison by
+  the canonical component-conditioned equilibrium
+  `pi(x)pi(y)/pi(S)`; prove that its quadratic still vanishes under exact
+  sector centering; derive the corrected row-relative finite form bound; make
+  the row condition an exact Boolean scan over only the canonical vacuum
+  component; and compile any constructively cofinal family of true scans to
+  the existing same-object centered cutoff-limit gap.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorMassNormalizedRowGap.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorMassNormalizedFiniteChecker.lean`.
+- **decl**:
+  `finiteCarrierMassNormalizedStationaryProductJoint`,
+  `finiteCarrierMassNormalizedStationaryProductJoint_quadratic_centered_eqv_zero`,
+  `FiniteCarrierMassNormalizedStationaryProductRowDistanceCertificate.absContraction`,
+  `FixedNomeCofinalVacuumSectorMassNormalizedRowDistance.toVacuumSectorCenteredStrictGap`,
+  `finiteCarrierMassNormalizedStationaryProductRowDistanceCheck`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedAllRowsCheck`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedCertificate_of_allRowsCheck`,
+  `FixedNomeCofinalVacuumSectorMassNormalizedCheckedRows.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumSectorMassNormalizedCheckedRows.toVacuumSectorCenteredStrictGap`.
+- **obligation**: inhabit one rational `0 <= q < 1` and a constructively
+  cofinal family of true sector-only scans, preferably by a
+  sector-normalized conditional-density core/tail or local-slice
+  tensorization estimate.  Full-carrier scans are not an admissible substitute
+  because reducibility is already proved at cutoff two.
+- **constructive?**: yes — all 11 audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass for both modules, and the
+  final exact-target one-worker dependency-complete build passes 1,482 jobs.
+  Direct evaluation of a graph-defined cutoff-zero smoke theorem and
+  elaboration of a redundant convenience theorem were manually interrupted
+  and are not counted as successful checks; both were removed.  The finite
+  checker and the cofinal compiler themselves pass.  No nontrivial cofinal check is
+  inhabited, so the unconditional completed gap, thermodynamic/continuum QFT,
+  and Clay theorem remain open.
