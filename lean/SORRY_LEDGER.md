@@ -7169,3 +7169,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   closes the positive block decomposition, not the recursive uniform
   Poincare estimate, cofinal completed gap inhabitant, thermodynamic/continuum
   QFT, or the Clay theorem.
+
+### [BF4-full-sector-dirichlet-gluing] Two-block Poincare compiler — **CLOSED 2026-08-23**
+
+- **milestone**: split stationary-product pairwise variance into exact
+  nonnegative within-block and cross-block pieces; glue matching coercivity
+  estimates to the full physical Dirichlet energy; use a sector-mass floor and
+  exact centering to prove `(kappa * m0) * D <= D - M`; derive the explicit
+  strict rate `1 / (1 + kappa * m0)`; and compile a supplied cofinal family to
+  the completed vacuum-sector contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorDirichletGluing.lean`.
+- **decl**:
+  `cutoffTwoFullSectorPairwiseVariance_eqv_within_add_cross`,
+  `cutoffTwoWithinBlockPairwiseVariance_nonnegative`,
+  `cutoffTwoCrossBlockPairwiseVariance_nonnegative`,
+  `CutoffTwoFullSectorDirichletGluingAt`,
+  `CutoffTwoFullSectorDirichletGluingAt.floor_mul_pairwiseVariance_le_fullDirichlet`,
+  `CutoffTwoFullSectorDirichletGluingAt.strength_mul_diagonal_le_deficit`,
+  `cutoffTwoDirichletGluingRate_lt_one`,
+  `CutoffTwoFullSectorDirichletGluingAt.abs_matrix_le_rate_mul_diagonal`,
+  `CutoffTwoCofinalFullSectorDirichletGluing.toFiniteStrictGap`, and
+  `CutoffTwoCofinalFullSectorDirichletGluing.toCompletedStrictContractionData`.
+- **obligation**: construct fixed positive `kappa` and `m0` and inhabit the
+  within/cross coercivity fields on an unbounded cofinal cutoff schedule.  The
+  cross field must quantitatively control the old/new block-separation mode;
+  internal gaps alone cannot do so.
+- **constructive?**: yes — all ten audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 1.3 seconds and the
+  exact-target one-worker dependency-complete build passes 4,890 jobs.  Two
+  preliminary namespace/setoid-algebra failures are not passes.  This closes
+  the gluing implication, not any coercivity-floor inhabitant, cofinal
+  completed gap inhabitant, thermodynamic/continuum QFT, or the Clay theorem.

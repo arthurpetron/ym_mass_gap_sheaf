@@ -8625,3 +8625,45 @@ within-block variances by their internal energies and control the difference
 of the two block means by cross energy, with constants that remain uniformly
 bounded on an unbounded cutoff schedule.  A completed gap inhabitant,
 volume/spacing control, continuum QFT, and the Clay theorem remain open.
+
+## Two-block coercivity now compiles causally to the completed gap (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorDirichletGluing` partitions the
+stationary-product pairwise variance along exactly the same cutoff-two old/new
+cut as the physical Dirichlet energy.  Its within-block and cross-block pieces
+are separately nonnegative, and their sum is exactly the full pairwise
+variance.  The cross piece retains the block-separation mode that is invisible
+to the two internal energies.
+
+At one later cutoff, `CutoffTwoFullSectorDirichletGluingAt` asks for a common
+floor `kappa` satisfying
+
+`kappa * V_within <= E_within` and
+`kappa * V_cross <= E_cross`,
+
+together with a lower bound `m0` on the total sector mass.  The module proves
+that these estimates glue without an additive loss, and exact centering gives
+
+`(kappa * m0) * D <= D - M`.
+
+The resulting explicit transfer rate is
+
+`q = 1 / (1 + kappa * m0) < 1`.
+
+A constructively cofinal family with fixed positive `kappa` and `m0` compiles
+through the existing finite strict-gap interface to the actual completed
+vacuum-sector contraction.
+
+The focused monitored check passes in about 1.3 seconds, and the exact
+one-worker dependency-complete target passes 4,890 jobs.  All ten audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Two preliminary checks failed on namespace exposure and explicit
+setoid doubling/cancellation algebra; neither is counted as a pass.
+
+No positive common coercivity floor, mass floor, or cofinal family is
+inhabited.  The next frontier is to expose the cross pairwise term explicitly
+in block masses, block means, and block diagonal fluctuations, then reduce
+`V_cross <= kappa^-1 E_cross` to a quantitative old/new bridge conductance
+estimate.  Uniform volume/spacing control, continuum QFT, and the Clay theorem
+remain open.
