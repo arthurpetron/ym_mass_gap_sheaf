@@ -9309,3 +9309,40 @@ then analyze the returned loaded edges using concrete BF4 weight and kernel
 factorizations, seeking a cofinal uniform comparison or a genuine asymptotic
 counterexample.  The uniform completed gap, continuum QFT, and Clay theorem
 remain open.
+
+## Unit fallback removed from the novel-flow decision (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound` proves that the fixed
+novel-flow strength is at most one.  The proof does not unfold the opaque
+transported edge-floor certificate: it applies the certificate's own
+pointwise lower-bound field to the cutoff-two vacuum-root diagonal, bounds
+that normalized BF4 entry by one using the established Markov row law, proves
+the fixed canonical-path ceiling is at least one, and observes that the novel
+flow spends only half of the resulting old-block coercivity constant.
+
+The Boolean frontier therefore simplifies to
+`cutoffTwoNovelEdgeCapacityCheck`, which scans only the actual ordered
+full-sector edge ratios.  Soundness and completeness identify its success
+exactly with the finite capacity-floor comparison.  The Type-level
+`inspectCutoffTwoNovelFlowCapacityDecisively` has only two outcomes:
+
+1. the cutoff capacity is certified; or
+2. a literal full-sector directed edge has positive novel-flow load and fails
+   `delta_flow * load <= allocatedPhysicalKernel`.
+
+The earlier unit-fallback branch is now kernel-checked impossible.
+`CutoffTwoCofinalNovelEdgeCapacityCheck` compiles any cofinally successful
+family of these edge-only scans to completed strict contraction.
+
+The focused monitored check passes after adding one missing namespace opening.
+The exact one-worker dependency-complete target passes 4,915 jobs, with the
+new module taking about 1.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`; the initial missing-name check failed and is not a
+pass.
+
+Every negative finite diagnostic is now a genuine local overloaded-edge
+witness.  The next analytic frontier is to expand such an edge's grouped load
+into the contributing stationary endpoint pairs and compare those terms with
+the concrete normalized BF4 kernel formula, uniformly in the representation
+cutoff.  The completed uniform gap, continuum QFT, and Clay theorem remain
+open.

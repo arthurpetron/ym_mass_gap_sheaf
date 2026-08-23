@@ -7702,3 +7702,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and is not a pass.  Every fixed cutoff is now an exact executable
   certificate-or-local-obstruction calculation, but cofinal success, the
   completed gap inhabitant, continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-capacity-unit-bound] Remove the fallback branch — **CLOSED 2026-08-23**
+
+- **milestone**: bound the opaque transported base-edge floor by the
+  normalized vacuum-root kernel entry and then by one; prove the fixed path
+  ceiling is at least one; propagate these bounds through the old-block
+  quotient and half allocation; reduce the exact checker to its edge scan;
+  and sharpen the Type-level result to the binary alternative of a valid
+  capacity certificate or a literal overloaded positive-load edge.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.lean`.
+- **decl**: `cutoffTwoPulledUniformBasePositiveEdgeFloor_le_one`,
+  `one_le_cutoffTwoPulledCanonicalPathCeiling`,
+  `cutoffTwoUniformOldBlockCoercivityFloor_le_baseFloor`,
+  `cutoffTwoNovelSimpleFlowCoercivityFloor_le_one`,
+  `cutoffTwoNovelEdgeCapacityCheck`,
+  `cutoffTwoNovelEdgeCapacityCheck_sound`,
+  `cutoffTwoNovelEdgeCapacityCheck_complete`,
+  `CutoffTwoNovelFlowCapacityDecisiveOutcome`,
+  `inspectCutoffTwoNovelFlowCapacityDecisively`, and
+  `CutoffTwoCofinalNovelEdgeCapacityCheck.toCompletedStrictContractionData`.
+- **obligation**: expand every possible overloaded edge into its contributing
+  stationary endpoint-pair occurrences and prove their grouped load is
+  uniformly paid by the concrete BF4 kernel, or extract an asymptotic family
+  showing this chosen flow must be redesigned; then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no unfolding of the opaque certificate and no
+  forbidden construct was used.
+- **status note**: the focused check passes and the exact one-worker
+  dependency-complete target passes 4,915 jobs, with the new module taking
+  about 1.1 seconds.  The initial missing-namespace check failed and is not a
+  pass.  The spurious unit-fallback branch is closed, but uniform control of
+  loaded edges, the completed gap inhabitant, continuum QFT, and Clay theorem
+  remain open.
