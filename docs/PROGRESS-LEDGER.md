@@ -10349,3 +10349,36 @@ without stationary-source prefactors.  The next analytic frontier is to
 expand the diagonal relative loads into endpoint/path contributions and seek
 block-specific transition-product or routing bounds.  Cofinal success,
 thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## One exact transition-product target now covers every capacity block (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockTransitionProduct`
+observes and proves that the earlier symmetric transition-product expansion
+requires only retained-source membership, not an old-to-new edge.  The same
+average of a source-prefix product and a through-edge target-prefix product
+therefore represents symmetric relative load on old--old, old-to-new, and
+new--new edges alike.
+
+A three-field transition-product capacity structure records the old--old half
+conditional allocation and the full conditional allocation on both remaining
+oriented blocks.  Maps in both directions connect this structure with the
+physical symmetric oriented-capacity datum, so this is an exact recoding rather
+than merely a sufficient ceiling.
+
+Three finite Boolean scans decide these exact transition-product payments.
+Combined scan success constructs the transition-product certificate and feeds
+the existing completed-gap compiler along a cofinal schedule.  Unlike the
+earlier cross ceiling scan, no conservative majorant occurs in this exact
+decision route.
+
+The focused monitored check passes on its first run in about 1.2 seconds.  The
+exact one-worker dependency-complete target passes 4,987 jobs, with the new
+module taking about 1.2 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The precise finite/completed frontier is now uniform across blocks: prove
+cofinal payment of explicit path-prefix transition-product sums by the selected
+conditional edge, with an extra factor one half of capacity on old--old edges.
+The next step is a constructive exact inspector retaining a literal failed
+transition-product edge, followed by block-aware ceiling or route-sharing
+bounds.  Cofinal success and all thermodynamic/continuum work remain open.

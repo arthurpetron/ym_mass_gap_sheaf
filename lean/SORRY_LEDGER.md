@@ -8692,3 +8692,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 1.1 seconds.  The cofinal normalized family is not
   inhabited.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-all-block-transition-product] Exact common path-product target — **CLOSED 2026-08-23**
+
+- **milestone**: generalize the exact symmetric relative-load transition-
+  product formula from cross edges to every retained source; encode all three
+  oriented block payments against one common transition-product load; prove
+  constructive conversions to and from physical symmetric capacity; define
+  exact finite scans of the three product payments; and compile cofinal scan
+  success to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockTransitionProduct.lean`.
+- **decl**: `cutoffTwoNovelSymmetricTransitionProductLoad`,
+  `cutoffTwoNovelSymmetricRelativeSourceEdgeLoad_eqv_transitionProductLoad`,
+  `CutoffTwoNovelSymmetricThreeBlockTransitionProductCapacityAt` and its
+  `toOrientedCapacityAt` / `ofOrientedCapacityAt` maps, the three block checks,
+  `cutoffTwoNovelSymmetricThreeBlockTransitionProductCapacityCheck`, its
+  success compiler and completeness theorem, and
+  `CutoffTwoCofinalNovelSymmetricThreeBlockTransitionProductCheck.toCompletedStrictContractionData`.
+- **obligation**: bound the explicit source-prefix and through-edge target-
+  prefix transition-product sums by the selected conditional edge uniformly
+  along a cofinal cutoff schedule, respecting the old--old half allocation;
+  then construct and control thermodynamic and continuum limits.
+- **constructive?**: yes — the transition products, prefix witnesses, finite
+  lists, scans, and both certificate conversions are explicit; the new exact
+  route does not use the conservative cross ceiling; all five audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused monitored check passes on its first run in about
+  1.2 seconds; the exact one-worker target passes 4,987 jobs with the new
+  module taking about 1.2 seconds.  No scan success or uniform product payment
+  is proved.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.
