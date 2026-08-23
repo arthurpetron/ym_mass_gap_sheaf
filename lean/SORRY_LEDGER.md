@@ -6859,3 +6859,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The theorem is finite and cutoff-two only.  The canonical `h_2` bridge,
   cofinal signed-form control, completed uniform gap, thermodynamic/continuum
   QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-canonical-exact-row-rate-obstruction] Named `h_2` obstruction — **PROVED FINITE 2026-08-23**
+
+- **milestone**: locate table row ten inside the exact canonical
+  vacuum-sector list; recode its normalized mass and denominator-cleared row
+  distance; and prove the named exact canonical rate satisfies `1 < h_2`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalExactRowRateObstruction.lean`.
+- **decl**:
+  `exists_cutoffTwoCanonicalVacuumSectorIndex_rowTen`,
+  `cutoffTwoSectorNormalizedMass_eqv_canonicalVacuumSectorMass`,
+  `cutoffTwoCanonicalClearedRowTen_eqv_normalizedRowTen`,
+  `cutoffTwoCanonicalMass_mul_rowDistance_eqv_rowTenCleared`,
+  `cutoffTwoCanonicalExactMassNormalizedRowRate_not_le_one`, and
+  `cutoffTwoCanonicalExactMassNormalizedRowRate_one_lt`.
+- **obligation**: abandon the now-refuted subunit row-TV route and construct
+  a cancellation-preserving signed-form or upper-LDL certificate on a
+  constructively cofinal cutoff family, then transport the resulting uniform
+  dense gap through completion and controlled limits.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the final focused monitored check passes in about 2.8
+  seconds, and the exact-target one-worker dependency-complete build passes
+  4,790 jobs.  Long-running direct wrappers and diagnostic `#exit` probes
+  were interrupted and are not passes; a missing namespace qualification was
+  corrected.  The theorem is finite and cutoff-two only.  Cofinal signed-form
+  control, the completed uniform gap, thermodynamic/continuum QFT, and the
+  Clay theorem remain open.

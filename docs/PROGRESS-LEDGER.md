@@ -8291,3 +8291,35 @@ named exact scalar `h_2`.  The viable analytic frontier remains a
 cancellation-preserving cofinal signed-form or spectral certificate; the
 completed uniform gap, thermodynamic/continuum QFT, and Clay theorem remain
 open.
+
+## The named cutoff-two canonical row rate is superunit (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalExactRowRateObstruction` closes the
+coordinate bridge from the normalized 65-state table to the named production
+scalar `h_2`.  It extracts the canonical vacuum-sector index whose state is
+table row ten, transports the normalized component mass through the exact
+state-list permutation, and identifies the canonical denominator-cleared row
+distance with the already-certified normalized row-ten value.  The resulting
+strict product inequality contradicts the defining row bound for any
+hypothesis `h_2 <= 1`; hence Lean proves both `not (h_2 <= 1)` and `1 < h_2`.
+
+This eliminates the exact mass-normalized row-total-variation coefficient as
+a subunit mechanism already at cutoff two.  It does not contradict the
+cutoff-two `49/50` signed centered-form theorem, which retains cancellations
+discarded by row absolute values, and it does not prove any cofinal or
+continuum statement.
+
+The final focused monitored check passes in about 2.8 seconds, and the exact-
+target one-worker dependency-complete build passes 4,790 jobs.  All five
+audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Several direct concrete wrappers and a source-indexed Type-valued
+seal were intentionally interrupted after exceeding 30--180 seconds; one
+probe exposed a missing namespace qualification.  None is counted as a
+pass.  Replacing the expensive canonical mass-positivity wrapper by transport
+from the proved normalized positive mass restored a small stable proof.
+
+The next honest frontier is therefore cancellation-preserving: construct or
+factor a cofinal signed-form/upper-LDL certificate that controls the actual
+vacuum-sector quadratic form uniformly.  A uniform completed gap,
+thermodynamic/continuum QFT, and the Clay theorem remain open.
