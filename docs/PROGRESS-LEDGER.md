@@ -8667,3 +8667,48 @@ in block masses, block means, and block diagonal fluctuations, then reduce
 `V_cross <= kappa^-1 E_cross` to a quantitative old/new bridge conductance
 estimate.  Uniform volume/spacing control, continuum QFT, and the Clay theorem
 remain open.
+
+## Cross variance exposes the block-mean mode and a local kernel test (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoCrossMeanCoercivity` proves the generic exact
+rectangular identity
+
+`V(L,R) = square(L) * mass(R) + mass(L) * square(R)
+          - 2 * mean(L) * mean(R)`.
+
+It specializes both directed orientations to the cutoff-two old/new split.
+For a globally centered coefficient, the old and new means cancel exactly,
+so the negative mean product becomes a positive old-mean square.  Consequently
+the full directed cross pairwise variance is two copies of
+
+`newMass * oldSquare + oldMass * newSquare + 2 * oldMean^2`.
+
+This identifies the precise mode that internal old-old and new-new gaps cannot
+control: the relative constant shift between the two blocks.
+
+The module also proves a local-to-global cross coercivity theorem.  If, on
+both directed old/new rectangles,
+
+`kappa * weight(old) * weight(new) <= physicalKernel(old,new)`,
+
+then summing against every squared coefficient difference gives
+
+`kappa * V_cross <= E_cross`.
+
+Thus an explicit `CutoffTwoCrossKernelMinorizationAt` supplies the cross field
+of the previously proved gluing certificate.
+
+The focused monitored check passes in about 2.3 seconds, and the exact
+one-worker dependency-complete target passes 4,891 jobs.  All eight audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Two preliminary checks failed on namespace exposure and local
+setoid-expression elaboration; neither is counted as a pass.
+
+No positive cutoff-uniform minorization is inhabited.  Entrywise
+minorization may be stronger than necessary; the next honest frontier is to
+test it against the exact BF4 kernel and, if it degenerates, replace it by a
+path/aggregate old-new conductance certificate while preserving the proved
+cross-mean coercivity.  The within-block uniform recursion and sector-mass
+floor also remain open, as do volume/spacing control, continuum QFT, and the
+Clay theorem.

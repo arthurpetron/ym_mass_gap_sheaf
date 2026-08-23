@@ -7203,3 +7203,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   preliminary namespace/setoid-algebra failures are not passes.  This closes
   the gluing implication, not any coercivity-floor inhabitant, cofinal
   completed gap inhabitant, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-cross-mean-coercivity] Cross-mode expansion — **CLOSED 2026-08-23**
+
+- **milestone**: prove the generic rectangular stationary-product Dirichlet
+  identity in block masses, squares, and means; specialize both old/new
+  orientations; show exact global centering turns the negative cross-mean
+  product into a positive block-mean square; and compile a pointwise directed
+  old/new kernel minorization into the cross-coercivity field required by the
+  two-block gluing theorem.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCrossMeanCoercivity.lean`.
+- **decl**:
+  `finiteWeightedDirichletBlock_eqv_mass_square_mean`,
+  `cutoffTwoOldNewPairwiseVariance_eqv_mass_square_mean`,
+  `cutoffTwoNewOldPairwiseVariance_eqv_mass_square_mean`,
+  `cutoffTwoOldMean_add_newMean_eqv_zero`,
+  `cutoffTwoNegOldMeanMulNewMean_centered_eqv_square`,
+  `cutoffTwoCrossBlockPairwiseVariance_centered_eqv`,
+  `scale_mul_finiteWeightedDirichletBlock_le`,
+  `CutoffTwoCrossKernelMinorizationAt`, and
+  `CutoffTwoCrossKernelMinorizationAt.cross_coercivity`.
+- **obligation**: determine whether the exact physical kernel admits a fixed
+  positive old/new product-weight minorization on an unbounded cutoff
+  schedule.  If not, construct a weaker aggregate/path conductance estimate
+  that still controls the displayed positive block-mean separation term.
+- **constructive?**: yes — all eight audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 2.3 seconds and the
+  exact-target one-worker dependency-complete build passes 4,891 jobs.  Two
+  preliminary namespace/elaboration failures are not passes.  This closes
+  the cross-term expansion and minorization implication, not any uniform
+  minorization inhabitant, within-block recursion, cofinal completed gap,
+  thermodynamic/continuum QFT, or the Clay theorem.
