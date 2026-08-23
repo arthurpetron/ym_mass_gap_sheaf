@@ -8044,3 +8044,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   decidable, but no cutoff is claimed to pass, no cofinal success family is
   constructed, and the completed gap inhabitant, continuum QFT, and Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-stationary-ratio-envelope] Exact stationary identification and envelope — **CLOSED 2026-08-23**
+
+- **milestone**: identify each positive-edge reverse/forward conditional ratio
+  exactly with its stationary-weight ratio by detailed balance; lift the
+  pointwise identity through the located finite maximum; bound that maximum by
+  the all-pairs stationary-weight-ratio envelope; prove power, path-term, and
+  finite-load monotonicity in the ceiling; and compile cofinal payment of the
+  stationary-envelope load to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalStationaryRatioEnvelope.lean`.
+- **decl**: `cutoffTwoPositiveEdgeStationaryWeightRatio`,
+  `cutoffTwoConditionalReverseForwardRatio_eqv_positiveEdgeStationaryWeightRatio`,
+  `cutoffTwoPositiveEdgeStationaryWeightFiniteCeiling`,
+  `cutoffTwoConditionalReverseForwardFiniteCeiling_eqv_positiveEdgeStationaryWeightFiniteCeiling`,
+  `cutoffTwoStationaryWeightRatio`,
+  `cutoffTwoStationaryWeightRatioFiniteEnvelope`,
+  `cutoffTwoConditionalReverseForwardFiniteCeiling_le_stationaryWeightRatioFiniteEnvelope`,
+  `cutoffTwoNovelConditionalRatioCeilingLoad_mono`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingLoad_le_stationaryRatioEnvelopeLoad`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_stationaryRatioEnvelope`, and
+  `CutoffTwoCofinalNovelConditionalStationaryRatioEnvelopeBound.toCompletedStrictContractionData`.
+- **obligation**: factor and control the all-pairs stationary envelope using a
+  numerator ceiling and positive stationary-weight minimum, decide whether
+  that sufficient estimate can remain uniform, and otherwise return to the
+  sharper positive-edge or exact transition-product load; then construct and
+  control the thermodynamic and continuum theories.
+- **constructive?**: yes — the exact maximum comparison and load monotonicity
+  are finite `Q'` proofs; all seven audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two focused checks failed on namespace exposure and
+  dependent proof-witness normalization and are not passes.  The corrected
+  focused check passes in about 1.3 seconds; the exact one-worker dependency-
+  complete target passes 4,925 jobs with the new module taking about 1.3
+  seconds.  The conditional ceiling now has a stationary interpretation, but
+  its cutoff-uniform control, payment, completed gap inhabitant, continuum
+  QFT, and Clay theorem remain open.

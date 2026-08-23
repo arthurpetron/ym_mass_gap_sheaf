@@ -9691,3 +9691,41 @@ the constructed reverse/forward ceiling and the resulting weighted path load,
 then either prove cofinal checker success or extract a systematic overload
 family that forces a redesigned flow.  The uniform completed gap inhabitant,
 thermodynamic/continuum construction, and Clay theorem remain open.
+
+## The conditional ceiling is exactly a stationary-weight edge ratio (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalStationaryRatioEnvelope`
+uses detailed balance to identify the totalized reverse/forward conditional
+ratio on every positive physical edge with the stationary-weight ratio across
+that edge.  Pointwise rational equivalence is lifted through the located
+finite maximum, proving that the constructed conditional ceiling is exactly
+the maximum positive-edge stationary-weight ratio.
+
+The module then constructs a simpler all-pairs envelope: the located maximum
+of `weight(left) / weight(right)` over the full finite Cartesian carrier.  The
+positive-edge ceiling lies below this envelope, so the local projective datum
+can now be supplied using stationary weights alone, without inspecting the
+conditional-kernel support.
+
+A constructive power induction proves monotonicity of every ceiling-weighted
+path term in its ceiling.  Finite summation gives monotonicity of the whole
+edge load and therefore bounds the concrete finite-ratio-ceiling load by the
+stationary-envelope load.  A cofinal payment family for this explicit
+stationary envelope still compiles to completed vacuum-sector strict
+contraction.
+
+The first focused check exposed missing namespace imports and is not a pass;
+the second exposed dependent proof-witness normalization after unfolding and
+is not a pass.  The corrected focused monitored check passes in about 1.3
+seconds.  The exact one-worker dependency-complete target passes 4,925 jobs,
+with the new module taking about 1.3 seconds.  All seven audited exports use
+exactly `[propext, Quot.sound]`.
+
+This clarifies the asymptotic issue but does not solve it: the sufficient
+all-pairs envelope can grow when the smallest carrier weight shrinks, and no
+uniform ceiling or payment theorem is claimed.  The next frontier is to
+factor that envelope into an explicit numerator ceiling and positive
+stationary-weight minimum, compare those quantities with the known normalized
+mass bounds, and determine whether the resulting estimate can be uniform or
+is necessarily too coarse.  The completed gap inhabitant, continuum QFT, and
+Clay theorem remain open.
