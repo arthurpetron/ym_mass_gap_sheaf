@@ -7478,3 +7478,39 @@ added before the passing check and exact build.
 This theorem prunes a false producer route but does not construct the
 sector-local slice or its power budget.  The unconditional completed gap,
 thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Closed-sector conditioning commutes with every positive density power (2026-08-23)
+
+`BF4PhysicalVacuumSectorConditionedDensityPower` proves a constructive finite
+kernel theorem for an outgoing-closed sector: if the conditioned kernel is
+the full kernel divided by the sector mass, then every positive-length
+conditioned density power is exactly the corresponding full density power
+multiplied by that mass.  At each intermediate convolution the density
+rescaling cancels the restricted stationary weight, so there is one overall
+component-mass factor rather than one accumulating mass defect per step.
+
+The generic theorem is instantiated by the actual BF4 physical density.  Its
+canonical root component is outgoing-closed by construction from graph
+reachability, and the full indexed density vanishes from that component to
+its complement.  Consequently the canonical vacuum-sector conditioned
+density power is exactly the component mass times the full indexed physical
+density power for every positive length and every pair of sector states.
+
+This result supplies the exact restriction algebra needed by a future full
+physical time-factorization: such a factorization can be transported to the
+closed vacuum sector without paying a new component-mass defect at each
+convolution.  It does not construct that factorization or a strict
+sector-local contraction rate.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,486 jobs.  All four audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Initial focused checks exposed an unavailable local tactic, missing
+namespace opens, a list-sum theorem used in the wrong direction, and a
+missing graph-adjacency argument; all were corrected before the passing
+focused check and exact build.
+
+No exact physical time-factorization or strict sector-local power budget is
+inhabited.  The unconditional completed gap, thermodynamic/continuum
+control, and the Clay theorem remain open.

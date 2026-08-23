@@ -6109,3 +6109,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   before the passing check and exact build.  This closes only the false
   full-carrier producer route.  The sector-local power budget, unconditional
   completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-conditioned-density-power] Closed-sector conditioning commutes with density powers — **PROVED 2026-08-23**
+
+- **milestone**: prove the finite-list restriction lemma for an
+  outgoing-closed subset; prove that conditioning a finite weighted density
+  by a positive component mass commutes with every positive-length density
+  power, leaving exactly one overall mass factor; prove that the actual BF4
+  full indexed physical density vanishes from the canonical root component
+  to its complement; and instantiate the power identity for the canonical
+  physical vacuum sector.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorConditionedDensityPower.lean`.
+- **decl**:
+  `listQSum_sector_eq_full_of_zero`,
+  `finiteWeightedConditionedDensityPower_eqv_mass_mul_fullPower`,
+  `centralPhysicalFiniteFullDensity_eqv_zero_of_sector_complement`,
+  and
+  `centralPhysicalFiniteVacuumSectorConditionedDensityPower_eqv_mass_mul_fullPower`.
+- **obligation**: construct an exact full physical time-factorization (or a
+  sector-native equivalent), transport it through the proved closed-sector
+  identity, and prove a uniform strict sector-local depth-amplified power
+  budget.  The theorem prevents an artificial mass-defect accumulation but
+  does not itself provide contraction.
+- **constructive?**: yes — all four audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,486 jobs.
+  Initial proof-engineering failures (an unavailable local tactic, omitted
+  namespace opens, a reversed list-sum theorem, and a missing adjacency
+  argument) were corrected before both passing checks.  No physical
+  factorization or strict sector-local power budget is inhabited, so the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.
