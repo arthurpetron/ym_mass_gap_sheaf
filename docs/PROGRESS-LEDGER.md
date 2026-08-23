@@ -9845,3 +9845,46 @@ machinery, then either construct the amplitude comparison on the relevant
 weighted support or replace it by a support-aware moment comparison.  Uniform
 payment, the completed gap inhabitant, thermodynamic/continuum theory, and the
 Clay theorem remain open.
+
+## Structural zeros force a support-aware defect (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalSupportAwareDefect` tests the
+preceding pointwise Harnack interface against the literal cutoff-two carrier.
+The cube state and vacuum state form a positive physical edge, while on the
+explicit single-face boundary the cube half-amplitude is strictly positive and
+the vacuum half-amplitude is exactly zero.  Consequently no finite rational
+factor can satisfy the proposed all-boundary positive-edge Harnack condition at
+cutoff two.  This is a kernel-checked no-go theorem for that sufficient route,
+not an assertion about every possible local comparison.
+
+The module replaces pointwise domination by the exact nonnegative relative
+defect
+
+`abs (sourceHalfAmplitude(left) - rho * sourceHalfAmplitude(right))`.
+
+After weighting by the same boundary weight and total target amplitude as the
+raw row moment, the elementary inequality `left <= rho * right + defect`
+propagates through the finite boundary sum.  Dividing by the positive right raw
+row mass gives
+
+`rawRatio <= rho + weightedDefectMoment / rightRawMass`.
+
+A totalized positive-edge defect fraction and its literal finite carrier
+maximum therefore construct a support-aware conditional reverse/forward
+ceiling.  The corresponding load comparison, capacity-floor theorem, and
+cofinal payment compiler carry any eventual uniform estimate on this new
+quantity to completed vacuum-sector strict contraction.
+
+The first focused check exposed missing namespace openings and an incorrect
+setoid addition congruence; the second exposed an implicit-argument inference
+site.  Neither failed check counts as a pass.  The corrected focused monitored
+check passes in about 1.5 seconds.  The exact one-worker dependency-complete
+target passes 4,973 jobs, with the new module taking about 1.6 seconds.  All
+eight audited exports use exactly `[propext, Quot.sound]`.
+
+No uniform defect estimate or payment is supplied.  The next frontier is to
+identify the weighted defect moment with an existing boundary-posterior `L1`
+quantity (or prove the precise comparison), so the already developed posterior
+mixing machinery can address structural-zero leakage without restoring the
+false pointwise hypothesis.  The uniform completed gap inhabitant,
+thermodynamic/continuum theory, and Clay theorem remain open.

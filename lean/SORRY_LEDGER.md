@@ -8196,3 +8196,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 1.2 seconds.  The Harnack implication
   is proved, but no Harnack inhabitant, uniform payment, completed gap
   inhabitant, continuum QFT, or Clay theorem is closed.
+
+### [BF4-cutoff-two-novel-flow-conditional-support-aware-defect] Structural-zero-safe defect reduction — **CLOSED 2026-08-23**
+
+- **milestone**: prove that the all-boundary positive-edge pointwise Harnack
+  datum is uninhabited already at cutoff two, using the positive cube--vacuum
+  physical edge and the explicit single-face boundary on which the cube
+  amplitude is positive but the vacuum amplitude vanishes; replace it by a
+  weighted absolute relative-defect moment; prove the raw row-ratio and
+  conditional reverse/forward ratio bounds by `rho + defectFraction`; take the
+  literal finite positive-edge maximum; and compile payment of the associated
+  load to completed strict contraction along a cofinal schedule.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalSupportAwareDefect.lean`.
+- **decl**: `no_cutoffTwoPositiveEdgeHalfAmplitudeHarnackAt`,
+  `cutoffTwoHalfAmplitudeRelativeDefect`,
+  `cutoffTwoHalfAmplitudeRelativeDefectMoment`,
+  `cutoffTwoRawBoundaryMoment_le_scaled_add_defectMoment`,
+  `cutoffTwoRawStationaryRowMassRatio_le_rho_add_defectFraction`,
+  `cutoffTwoPositiveEdgeHalfAmplitudeDefectFiniteMaximum`,
+  `cutoffTwoConditionalReverseForwardRatio_le_supportAwareDefectCeiling`,
+  `cutoffTwoSupportAwareDefectCeilingData`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_supportAwareDefect`, and
+  `CutoffTwoCofinalNovelSupportAwareDefectPayment.toCompletedStrictContractionData`.
+- **obligation**: relate the weighted defect moment to the existing
+  boundary-posterior `L1` framework and derive a cutoff-uniform payable bound,
+  without assuming support nesting contradicted by the explicit structural
+  zero; then construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — the no-go witness and defect estimates are explicit,
+  every division retains a strict positive-denominator proof, and all eight
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first two focused checks failed on namespace/setoid and
+  implicit-argument issues and are not passes.  The corrected focused check
+  passes in about 1.5 seconds; the exact one-worker dependency-complete target
+  passes 4,973 jobs with the new module taking about 1.6 seconds.  No uniform
+  defect payment, completed gap inhabitant, continuum QFT, or Clay theorem is
+  closed.
