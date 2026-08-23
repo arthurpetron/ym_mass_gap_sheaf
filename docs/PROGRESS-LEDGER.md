@@ -6738,3 +6738,31 @@ centered-minus-raw diagonal comparison.  Outer centered diagonal and matrix
 convergence, the global centered-form cofinality inhabitant, one common
 sector-local `q < 1`, and all thermodynamic/continuum/Clay conclusions remain
 open.
+
+## Outer head-centered diagonals converge to the actual completed sector norm (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterCenteredDiagonal`
+combines the arbitrary-representative raw diagonal, head-correction, and root
+coordinate limits.  The pulled vacuum-root weight is proved termwise
+equivalent to one canonical base-zero Bishop real because every cutoff
+embedding fixes index zero.
+
+Constructive continuity of addition, negation, and multiplication then shows
+that the exact root-replacement polynomial
+
+`((root - correction)^2 - root^2) * rootWeight`
+
+converges to zero.  The existing exact dense expansion transports raw
+diagonal convergence across this vanishing term, so the outer moving
+head-centered diagonal sequence of every completed vacuum-orthogonal sector
+representative converges to the representative pairing limit whose quotient
+class is its actual completed squared norm.
+
+The focused monitored check and exact-target one-worker 1,584-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The diagonal half of the arbitrary-
+vector centered-form cofinality datum is now closed.  Outer centered matrix
+convergence, the resulting global cofinality inhabitant, one common
+sector-local `q < 1`, and all thermodynamic/continuum/Clay conclusions remain
+open.

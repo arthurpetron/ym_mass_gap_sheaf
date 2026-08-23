@@ -5396,3 +5396,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,583-job dependency-complete build pass.  This is a completed-coordinate
   continuity theorem, not centered outer-form convergence, a common strict
   rate, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-outer-centered-diagonal] Outer centered diagonals represent the arbitrary completed norm — **PROVED 2026-08-22**
+
+- **milestone**: identify all varying pulled root-weight limits with one
+  canonical base-zero Bishop real; combine root-coordinate convergence and
+  head-correction vanishing to prove the exact centered-minus-raw root
+  polynomial tends to zero; conclude that arbitrary-representative moving
+  head-centered diagonal limits converge to the actual completed norm
+  representative.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterCenteredDiagonal.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_rootWeight_equiv_canonical`,
+  `centralPhysicalVacuumSectorCylinder_outerRootWeight_converges`,
+  `centralPhysicalVacuumSectorCylinder_outerHeadCenteredDiagonal_converges`,
+  and
+  `centralPhysicalVacuumSectorCylinder_completedInner_mk_eq_outerCenteredDiagonalLimit`.
+- **obligation**: prove the analogous outer centered transfer-matrix
+  convergence and endpoint identification, then combine both halves into an
+  unconditional inhabitant of the completed centered-form cofinality datum;
+  independently inhabit one common sector-local strict rate.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,584-job dependency-complete build pass.  This closes the norm/diagonal
+  half, not the transfer/matrix half, a common strict rate,
+  thermodynamic/continuum QFT, or the Clay theorem.
