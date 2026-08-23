@@ -7136,3 +7136,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   initial namespace/syntax failures are not passes.  This closes the exact
   block-rate arithmetic and cofinal implication, not its analytic inhabitant,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-full-sector-dirichlet-blocks] Positive Dirichlet partition — **CLOSED 2026-08-23**
+
+- **milestone**: partition the full directed Dirichlet energy exactly into
+  old-old, old-new, new-old, and new-new blocks; prove every block
+  nonnegative; regroup them into positive within-block and cross-block
+  energies, each bounded by the full energy; and identify the full energy
+  exactly with twice the diagonal-minus-transfer deficit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorDirichletBlocks.lean`.
+- **decl**:
+  `finiteJointDirichletEnergy_filter_four_blocks`,
+  `finiteJointDirichletBlock_nonnegative`,
+  `cutoffTwoFullSectorDirichlet_four_blocks`,
+  `cutoffTwoFullSectorDirichlet_eqv_within_add_cross`,
+  `cutoffTwoWithinBlockDirichlet_nonnegative`,
+  `cutoffTwoCrossBlockDirichlet_nonnegative`,
+  `cutoffTwoWithinBlockDirichlet_le_full`,
+  `cutoffTwoCrossBlockDirichlet_le_full`, and
+  `cutoffTwoFullSectorDirichlet_eqv_twice_deficit`.
+- **obligation**: construct a recursive two-block Poincare/gluing certificate
+  whose within-block estimates and cross-mean coercivity yield a cutoff-uniform
+  bound of centered variance by full Dirichlet energy on an unbounded cofinal
+  schedule.
+- **constructive?**: yes — all nine audited exports use exactly `[propext]`
+  or `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+  `sorry`, custom axiom, or noncomputable declaration was added.
+- **status note**: the final focused monitored check passes in about 1.0
+  seconds and the exact-target one-worker dependency-complete build passes
+  4,889 jobs.  One earlier missing-namespace failure is not a pass.  This
+  closes the positive block decomposition, not the recursive uniform
+  Poincare estimate, cofinal completed gap inhabitant, thermodynamic/continuum
+  QFT, or the Clay theorem.

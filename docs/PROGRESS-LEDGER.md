@@ -8596,3 +8596,32 @@ the embedded old sector and its new complement, plus a cross budget smaller
 than the remaining margin.  This replaces the untenable demand that every
 new-sector norm be small.  The completed gap inhabitant, volume/spacing
 control, continuum QFT, and the Clay theorem remain open.
+
+## Full-sector Dirichlet energy splits into positive old/new blocks (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorDirichletBlocks` replaces the lossy
+absolute-value treatment of old/new cross terms by the equivalent Dirichlet
+form.  It proves a generic exact four-block partition of directed finite
+Dirichlet energy and specializes it to the cutoff-two old/new decomposition.
+Each old-old, old-new, new-old, and new-new block is nonnegative.  Consequently
+the within-block and cross-block energies are separately nonnegative and each
+is bounded by the full energy.
+
+The full block energy is also proved exactly equal to twice the physical
+diagonal-minus-transfer deficit.  Thus cross edges are now exposed as
+coercivity that can help a gap estimate, rather than an absolute matrix error
+that consumes the strict-rate margin.
+
+The final focused monitored check passes in about 1.0 seconds, and the exact
+one-worker dependency-complete target passes 4,889 jobs.  All nine audited
+exports use exactly `[propext]` or `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  One earlier check failed because two imported namespaces had not
+yet been opened; it is not counted as a pass.
+
+No recursive Poincare constant or cofinal family is inhabited.  The next
+frontier is a constructive two-block gluing estimate: control old and new
+within-block variances by their internal energies and control the difference
+of the two block means by cross energy, with constants that remain uniformly
+bounded on an unbounded cutoff schedule.  A completed gap inhabitant,
+volume/spacing control, continuum QFT, and the Clay theorem remain open.
