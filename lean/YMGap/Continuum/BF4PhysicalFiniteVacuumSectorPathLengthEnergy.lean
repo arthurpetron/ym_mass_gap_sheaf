@@ -299,6 +299,30 @@ theorem edgeDifferences_sum_eqv_endpoint
         (Q'.eqv_symm (endpointDifference_step_local
           coefficient first next last))
 
+/-- Endpoint telescoping and finite Cauchy--Schwarz before any comparison
+with the physical kernel.  This floor-free form is the right input for
+weighted-flow arguments: the stationary endpoint weight and path length can
+be charged directly to each literal edge occurrence, and only afterwards
+compared pointwise with physical edge capacity. -/
+theorem endpointDifference_sq_le_length_mul_edgeSquareSum
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} (coefficient : State → Q') :
+    {first last : State} →
+      (path : PositiveKernelChainIn kernel support first last) →
+      (coefficient first + -coefficient last) *
+          (coefficient first + -coefficient last) ≤
+        Q'.ofNat (edgeLength path) *
+          listQSum (fun value => value * value)
+            (edgeDifferences coefficient path) := by
+  intro first last path
+  have hsum := edgeDifferences_sum_eqv_endpoint coefficient path
+  have hlength := edgeDifferences_length coefficient path
+  have hcs := listQSum_square_le_length_mul_squareSum
+    (edgeDifferences coefficient path)
+  refine Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.eqv_symm (square_eqv_congr hsum))) ?_
+  simpa only [hlength] using hcs
+
 private theorem ofNat_nonnegative (n : Nat) :
     (0 : Q') ≤ Q'.ofNat n := by
   rw [Q'.zero_le_iff_num_nonneg]
@@ -783,6 +807,8 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy
 
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy.listQSum_square_le_length_mul_squareSum
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.endpointDifference_sq_le_length_mul_edgeSquareSum
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_length_mul_linearEnergy
 #print axioms

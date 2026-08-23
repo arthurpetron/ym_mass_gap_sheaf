@@ -9155,3 +9155,66 @@ finite analytic frontier is genuinely about states absent at cutoff two:
 prove uniform new-new and cross-block coercivity, preferably by a recursive
 shell gluing or a weighted minorization argument.  A completed uniform gap,
 thermodynamic/continuum construction, and the Clay theorem remain open.
+
+## Novel weighted flow removes the shrinking global edge floor (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorPathLengthEnergy` now exposes the floor-free
+endpoint Cauchy estimate
+
+`(c(left) - c(right))^2 <= pathLength * sum_path_edges (Delta c)^2`,
+
+and `BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences` identifies the latter
+square sum exactly with the literal directed-edge list.  Building on those
+atoms, `BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow` enumerates precisely the
+ordered endpoint pairs with at least one state absent at cutoff two, routes
+their stationary-product weights along the existing loop-erased positive
+paths, and assigns each traversed edge the load
+
+`weight(left) * weight(right) * pathLength`.
+
+Finite Cauchy--Schwarz sums and exact occurrence regrouping prove
+
+`V_novel(later, coefficient)`
+
+`  <= DirichletBlock(novelEdgeLoad(later), coefficient)`
+
+without inserting the cutoff-dependent minimum positive physical edge.
+Moreover `V_novel` is proved exactly equivalent to the new-new variance plus
+both directed old/new cross variances.
+
+`BF4PhysicalBoundaryCutoffTwoNovelSimpleFlowCapacity` then defines
+
+`delta_flow = (1/2) * delta_old > 0`.
+
+The first half of old-old physical energy pays for the already proved old
+variance.  The other half is reserved for novel paths traversing old-old
+edges, while new-new and cross edges retain full physical capacity.  Four
+coefficient-independent pointwise inequalities of the form
+
+`delta_flow * novelEdgeLoad(source,target)`
+
+`  <= allocatedPhysicalKernel(source,target)`
+
+compile to full-sector Dirichlet coercivity at `delta_flow`, using the
+constructed uniform sector-mass floor.  A constructively cofinal family of
+these local capacity certificates therefore compiles directly to the
+completed vacuum-sector strict-contraction datum.
+
+The focused checks pass after replacing one oversized rational normalization
+by explicit distributivity steps.  The exact one-worker dependency-complete
+target passes 4,912 jobs, with the final capacity module taking about 1.3
+seconds.  All eleven audited exports across the two new frontier modules use
+exactly `[propext, Quot.sound]`, except the generic pointwise finite-block
+domination theorem, which uses only `[propext]`; the two new generic path
+atoms stay inside the same gate.  Preliminary stale-olean, missing-namespace,
+placeholder, timeout, and intentionally interrupted diagnostic checks are
+not passes.
+
+This replaces the former separate coefficient-dependent new-new and cross
+coercivity hypotheses by one explicit local weighted-flow capacity family
+and removes the known shrinking global edge-floor obstruction from this
+route.  The new finite analytic frontier is to inhabit that cofinal pointwise
+capacity family from the concrete BF4 kernel and stationary-weight formulas,
+or to identify a genuine obstruction.  The uniform completed gap remains
+conditional on that family; thermodynamic/continuum construction and the
+Clay theorem remain open.

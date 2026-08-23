@@ -122,6 +122,33 @@ theorem linearEnergy_eqv_directedEdges_sum
       exact Q'.add_eqv_congr' (Q'.eqv_refl _)
         (linearEnergy_eqv_directedEdges_sum coefficient rest)
 
+/-- The unweighted squared increments can equivalently be summed over the
+literal directed-edge list.  This is the exact reindexing needed by
+floor-free weighted-flow estimates. -/
+theorem edgeSquareSum_eqv_edgeDifferences
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} (coefficient : State → Q') :
+    {first last : State} →
+      (path :
+        BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+          kernel support first last) →
+      listQSum
+          (fun edge =>
+            (coefficient edge.1 + -coefficient edge.2) *
+              (coefficient edge.1 + -coefficient edge.2))
+          (directedEdges path) ≈
+        listQSum (fun value => value * value)
+          (BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.edgeDifferences
+            coefficient path)
+  | _, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
+      Q'.eqv_refl 0
+  | _, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        _ _ rest => by
+      exact Q'.add_eqv_congr' (Q'.eqv_refl _)
+        (edgeSquareSum_eqv_edgeDifferences coefficient rest)
+
 /-- Multiplying by path length preserves the literal occurrence identity. -/
 theorem length_mul_linearEnergy_eqv_directedEdges_sum
     {State : Type} {kernel : State → State → Q'}
@@ -171,5 +198,7 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_mem_support
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.linearEnergy_eqv_directedEdges_sum
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.edgeSquareSum_eqv_edgeDifferences
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.length_mul_linearEnergy_eqv_directedEdges_sum

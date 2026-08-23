@@ -7584,3 +7584,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   failed and is not a pass.  Old-old coercivity is now constructed uniformly;
   new-new and cross coercivity, the completed uniform gap inhabitant,
   continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-simple-flow-capacity] Floor-free novel weighted-flow compiler — **CLOSED 2026-08-23**
+
+- **milestone**: expose the raw endpoint Cauchy bound before comparison with
+  the physical kernel; route exactly the new-new and both directed cross
+  stationary endpoint pairs along loop-erased positive paths; regroup their
+  stationary length-weighted edge occurrences into one coefficient-independent
+  load; prove the novel pairwise variance is bounded by its raw loaded form;
+  reserve half of the constructed old-block coercivity for old variance and
+  half of old-old physical capacity for novel paths; and compile one cofinal
+  local flow-capacity family to completed strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathLengthEnergy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelSimpleFlowCapacity.lean`.
+- **decl**:
+  `PositiveKernelChainIn.endpointDifference_sq_le_length_mul_edgeSquareSum`,
+  `PositiveKernelChainIn.edgeSquareSum_eqv_edgeDifferences`,
+  `cutoffTwoNovelPairwiseVariance_eqv_newNew_add_cross`,
+  `cutoffTwoNovelPairwiseVariance_le_rawLoadedDirichlet`,
+  `cutoffTwoNovelSimpleFlowCoercivityFloor`,
+  `scale_mul_finiteJointDirichletBlock_le_of_joint_le`,
+  `CutoffTwoNovelSimpleFlowCapacityAt.toFullSectorDirichletCoercivityAt`, and
+  `CutoffTwoCofinalNovelSimpleFlowCapacity.toCompletedStrictContractionData`.
+- **obligation**: construct, on a constructively cofinal cutoff schedule, the
+  four pointwise comparisons between `delta_flow * novelEdgeLoad` and the
+  allocated physical kernel (half capacity on old-old edges and full capacity
+  on the other three blocks), using the concrete BF4 weight/kernel formulas
+  or prove that this chosen flow cannot satisfy them; then construct and
+  control the thermodynamic and continuum theories.
+- **constructive?**: yes — all eleven audited exports across the two new
+  frontier modules use exactly `[propext, Quot.sound]`, except the generic
+  finite-block pointwise-domination theorem, which uses only `[propext]`; the
+  supporting path atoms remain inside the same gate, and no forbidden
+  construct was added.
+- **status note**: the focused checks pass, and the exact one-worker
+  dependency-complete capacity target passes 4,912 jobs with the final module
+  taking about 1.3 seconds.  Preliminary stale-olean, missing-namespace,
+  placeholder, deterministic-heartbeat, and deliberately interrupted checks
+  are not passes.  The global shrinking edge-floor obstruction has been
+  removed from this route, but the cofinal local flow-capacity family remains
+  uninhabited; therefore the completed uniform gap, continuum QFT, and Clay
+  theorem remain open.
