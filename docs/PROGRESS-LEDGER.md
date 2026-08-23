@@ -6666,3 +6666,27 @@ noncomputable declaration was added.  The completion frontier and analytic
 rate frontier are now separate and explicit.  Neither the all-vector
 cofinality datum nor the common strict rate is inhabited here; all
 thermodynamic/continuum/Clay conclusions remain open.
+
+## Arbitrary completed orthogonal sector representatives have vanishing outer head corrections (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterHeadCorrectionVanishing`
+starts the genuinely non-dense construction of the all-vector centered-form
+cofinality datum.  For every Cauchy representative of a completed root-sector
+vector, the outer sequence of pulled weighted-mean cutoff limits converges to
+the representative's actual completed pairing with the global vacuum.
+Completed vacuum orthogonality makes that target constructively zero.
+
+The fixed positive pulled-root floor then controls division uniformly over
+the outer representative index: a sufficiently small pulled mean numerator
+forces the corresponding full Bishop-real head correction to be small.
+Thus the outer head-correction sequence converges to zero for every completed
+orthogonal sector representative, rather than only for constant dense
+representatives.
+
+The focused monitored check and exact-target one-worker 1,581-job build pass.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is the first arbitrary-completion
+ingredient of the global cofinality datum.  Outer centered diagonal and
+matrix convergence, a global cofinality inhabitant, one common sector-local
+`q < 1`, and all thermodynamic/continuum/Clay conclusions remain open.

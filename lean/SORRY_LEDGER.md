@@ -5322,3 +5322,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion and analytic residuals but inhabits neither globally; no
   unconditional completed gap, thermodynamic/continuum QFT, or Clay theorem
   is asserted.
+
+### [BF4-vacuum-sector-completed-outer-head-correction-vanishing] Completed orthogonality kills arbitrary-representative outer head corrections — **PROVED 2026-08-22**
+
+- **milestone**: identify the outer pulled-mean sequence of any sector Cauchy
+  representative with its actual completed global-vacuum pairing; use
+  completed orthogonality to make the outer mean converge to zero; and divide
+  by the fixed positive pulled-root floor to prove convergence of the full
+  outer head-correction sequence to zero.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterHeadCorrectionVanishing.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_outerPulledMean_converges_pairing`,
+  `centralPhysicalVacuumSectorCylinder_outerPulledMean_converges_zero`, and
+  `centralPhysicalVacuumSectorCylinder_outerHeadCorrection_converges_zero`.
+- **obligation**: combine this scalar perturbation control with outer raw-form
+  convergence and constructive quadratic estimates to obtain centered
+  diagonal and matrix convergence for arbitrary completed sector vacuum
+  vectors; then inhabit the global centered-form cofinality datum and the
+  independent common sector-local strict rate.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,581-job dependency-complete build pass.  This proves one non-dense
+  centering ingredient, not outer centered quadratic convergence, a global
+  cofinality inhabitant, a uniform completed gap, thermodynamic/continuum QFT,
+  or the Clay theorem.
