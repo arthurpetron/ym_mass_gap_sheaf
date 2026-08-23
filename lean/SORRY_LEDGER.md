@@ -8776,3 +8776,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact one-worker target passes 4,989 jobs with the new module taking about
   1.1 seconds.  No ceiling payment or cofinal family is inhabited.  Uniform
   completed contraction, continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-all-block-finite-ceiling-decision] Concrete all-block ceiling scan — **CLOSED 2026-08-23**
+
+- **milestone**: instantiate the common routed-prefix ceiling with the located
+  finite reverse/forward ratio maximum; prove it bounds the common exact
+  product load; decide old--old, old-to-new, and new--new ceiling payments;
+  construct full routed-ceiling capacity on success; retain a literal failed
+  ceiling edge tagged by block on failure; and compile cofinal check success to
+  completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockFiniteCeilingDecision.lean`.
+- **decl**: `cutoffTwoNovelSymmetricAllBlockFiniteRatioCeilingLoad`,
+  `cutoffTwoNovelSymmetricTransitionProductLoad_le_finiteCeilingLoad`, the two
+  new diagonal ceiling checks and soundness theorems,
+  `cutoffTwoNovelSymmetricAllBlockFiniteRatioCeilingCheck`,
+  `cutoffTwoNovelSymmetricThreeBlockRoutedCeilingCapacityAt_of_finiteCheck`,
+  `CutoffTwoNovelSymmetricAllBlockFiniteRatioCeilingOutcome`, its inspector,
+  and the cofinal completed compiler.
+- **obligation**: prove cofinal success of the concrete combined checker, or
+  compare its tagged failures with the exact product inspector and replace the
+  global ratio maximum by sharper block/edge-local routed ceilings; then
+  construct and control thermodynamic and continuum limits.
+- **constructive?**: yes — the finite maximum, block scans, success certificate,
+  and tagged failed edges are explicit rational data; all five audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed because redundant `unfold`
+  calls targeted aliases already reduced by elaboration and is not a pass.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  target passes 4,990 jobs with the new module taking about 1.2 seconds.  No
+  cofinal check success is asserted.  Uniform completed contraction, continuum
+  QFT, and the Clay theorem remain open.

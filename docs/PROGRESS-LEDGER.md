@@ -10432,3 +10432,31 @@ reverse/forward ceiling into this all-block interface and expose three finite
 ceiling-payment decisions.  The genuine analytic task will then be cofinal
 success of those explicit payments (or route refinement from exact failed
 edges).  Thermodynamic/continuum theory and the Clay theorem remain open.
+
+## The located finite ceiling now has a complete three-block checker (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockFiniteCeilingDecision`
+instantiates the common routed ceiling with the constructively located maximum
+of all finite reverse/forward conditional ratios.  It defines exact Boolean
+payment scans for the old--old and new--new blocks and reuses the existing
+old-to-new scan, preserving the half conditional allocation on old--old.
+
+Combined success constructs the full all-block routed-ceiling certificate,
+which bounds the exact transition-product traffic and compiles to physical
+capacity and completed strict contraction.  Constructive inspection instead
+returns a literal failed ceiling-payment edge tagged by block.  These failures
+diagnose the conservative majorant, not necessarily the exact flow; the exact
+product inspector remains available for that distinction.
+
+The first focused check used redundant unfolds after definitional reduction
+and is not a pass.  The corrected focused monitored check passes in about 1.1
+seconds.  The exact one-worker dependency-complete target passes 4,990 jobs,
+with the new module taking about 1.2 seconds.  All five audited exports use
+exactly `[propext, Quot.sound]`.
+
+At fixed cutoff, all ceiling and payment data are now executable.  The open
+finite/completed theorem is precisely cofinal success of the combined concrete
+checker.  The next analytic frontier is to separate failure caused by the
+global ratio maximum from failure of the exact product load, then replace the
+global maximum by sharper block/edge-local routed ceilings where necessary.
+Thermodynamic/continuum theory and the Clay theorem remain open.
