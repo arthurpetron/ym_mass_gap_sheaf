@@ -5597,3 +5597,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,366-job dependency-complete build pass.  The dense law is unconditional,
   but the arbitrary-completion extension, common rate, unconditional operator
   gap, thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-adaptive-completed-nonexpansive] Adaptive transfer is nonexpansive on the whole completed carrier — **PROVED 2026-08-22**
+
+- **milestone**: align the adaptive graph input and action diagonals; compare
+  them at every stage by the exact finite rational Markov `L2` contraction;
+  pass the inequalities through the two explicit constructive-real limits;
+  and descend the resulting squared-norm inequality to the actual completed
+  adaptive transfer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveNonexpansive.lean`.
+- **decl**:
+  `centralPhysicalAdaptiveGraph_stage_square_le`,
+  `centralPhysicalAdaptiveGraph_pairing_nonexpansive`, and
+  `centralPhysicalAdaptiveCompletedMarkovTransfer_norm_nonexpansive`.
+- **obligation**: use this unconditional rate-one continuity to extend the
+  dense positive Markov-form Cauchy--Schwarz law jointly to arbitrary
+  completed sector representatives; independently construct one common
+  strict rate `q < 1` at the required cutoff/volume scope.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,310-job dependency-complete build pass.  This proves only
+  `||T x||^2 <= ||x||^2` at fixed nome and volume; it does not prove a strict
+  spectral gap, a thermodynamic/continuum QFT, or the Clay theorem.

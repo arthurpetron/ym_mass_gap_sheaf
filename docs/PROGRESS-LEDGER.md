@@ -6927,3 +6927,28 @@ the dense sector, but its joint continuity extension to arbitrary completed
 sector representatives and one common cofinal rate `q < 1` remain open.  No
 unconditional operator gap, thermodynamic/continuum limit, or Clay theorem is
 asserted.
+
+## The adaptive BF4 transfer is norm-nonexpansive on the whole completed carrier (2026-08-22)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveNonexpansive` aligns the graph-normalized
+input representative with its literal same-cutoff adaptive Markov image.  At
+each stage, the two regular inner diagonals are identified with the finite
+physical input and output squared norms, so exact rational Markov `L2`
+contraction gives the required pointwise inequality.
+
+The already-proved input-square and action-square convergence laws then pass
+that inequality through the two explicit constructive-real limits.  Graph
+reindexing and adaptive input sampling preserve the completion class, so the
+representative result descends to the actual adaptive completed endomorphism:
+
+`<T x,T x> <= <x,x>`
+
+for every vector in the whole fixed-nome, fixed-volume cutoff completion.
+
+The focused monitored check and exact-target one-worker 1,310-job build pass.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is nonexpansiveness at rate one,
+not a strict gap.  Joint continuity of the positive Markov cross form, one
+common strict rate below one, the thermodynamic/continuum limit, and the Clay
+conclusion remain open.
