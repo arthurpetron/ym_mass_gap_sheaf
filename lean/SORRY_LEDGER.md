@@ -5799,3 +5799,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,896-job dependency-complete build pass.  This proves the compiler, not
   either uniform input.  The unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem therefore remain open.
+
+### [BF4-simple-carrier-rate] Loop erasure exposes the carrier-size/edge-floor all-base frontier — **REDUCED 2026-08-23**
+
+- **milestone**: constructively loop-erase every supported Boolean connectivity
+  chain; prove the resulting walk is simple and bounded by its finite support;
+  specialize it to a positive BF4 vacuum-sector path; derive the explicit
+  scale `1 + (#sectorStates)^2`; pull its endpoint estimate through every later
+  kernel; and compile a uniform rate witness directly to the completed
+  vacuum-sector strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBoolGraphSimplePaths.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimplePathScale.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledSimplePathScale.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledEndpointScaleCompiler.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledSimplePathPoincareGap.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorSimplePathCofinalRateBridge.lean`.
+- **decl**:
+  `Walk.dropTo_nodup`,
+  `Walk.edgeLength_add_one_eq_vertices_length`,
+  `FiniteListBound.nodup_subset_length_le`,
+  `supportBoundedSimpleWalkOfChainIn`,
+  `PositiveKernelChainIn.edgeLength_ofSupportedWalk`,
+  `centralPhysicalFiniteVacuumSectorSimplePositivePath_edgeLength_le`,
+  `centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale`,
+  `centralPhysicalFiniteVacuumSector_floor_mul_endpoint_sq_le_simpleCarrierSquareScale_mul_Dirichlet`,
+  `FixedBasePulledPositiveEdgeFloor.floor_mul_endpoint_sq_le_simpleCarrierSquareScale_mul_pulledDirichlet`,
+  `FixedBasePulledEndpointScaleData.toPoincareScaleData`,
+  `FixedBasePulledPositiveEdgeFloor.simpleCarrierPoincareRate_lt_one`,
+  `FixedNomeUniformSimpleCarrierVacuumSectorRateBound.toCompletedStrictContractionData`,
+  and
+  `FixedNomeUniformSimpleCarrierFloorRateBound.toCompletedStrictContractionData`.
+- **obligation**: inhabit one rational `0 <= q < 1` satisfying
+  `1 + (#sectorStates(base))^2 <=
+  q * (1 + (#sectorStates(base))^2 + edgeFloor(base))`
+  for every base carrier, or replace this global-path estimate by a stronger
+  direct uniform-mixing argument. This requires quantitative control of the
+  carrier-cardinality/edge-floor ratio, not merely fixed-base positivity.
+- **constructive?**: yes — all 19 audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass for all six modules and the
+  final exact-target one-worker dependency-complete build passes 4,901 jobs.
+  The new scale is structurally explicit but is not claimed to be pointwise
+  below the preceding canonical path maximum. The all-base rate remains
+  uninhabited, so the unconditional completed gap, thermodynamic/continuum
+  QFT, and Clay theorem remain open.

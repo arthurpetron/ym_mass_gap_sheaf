@@ -7130,3 +7130,58 @@ bounds are only a sufficient decomposition of the sharper relative-ratio
 frontier.  Constructing adequate uniform estimates, an unconditional
 completed gap, thermodynamic/continuum control, and the Clay theorem remain
 open.
+
+## BF4 canonical paths are now loop-free and bounded by the explicit carrier size (2026-08-23)
+
+`FiniteBoolGraphSimplePaths` gives a constructive graph engine that normalizes
+a Boolean `ChainIn` witness to a cons-form walk, augments each edge with a
+target-in-support certificate, and chronologically erases loops using
+decidable membership. The resulting walk has no repeated vertices, remains
+inside the supplied finite support, and satisfies the finite-pigeonhole bound
+
+`edgeLength <= support.length`.
+
+No shortest-path choice or classical selection is used.
+
+`BF4PhysicalFiniteVacuumSectorSimplePathScale` specializes that engine to the
+finite BF4 physical vacuum sector. It turns the loop-erased supported walk
+back into a positive physical-kernel chain and bounds every endpoint path by
+the number of enumerated vacuum-sector indices. The resulting explicit
+positive scale is
+
+`simpleCarrierSquareScale(base) = 1 + (#vacuumSectorIndices(base))^2`.
+
+Finite Cauchy--Schwarz and telescoping then give the endpoint-energy estimate
+
+`edgeFloor * (f(left) - f(right))^2 <= simpleCarrierSquareScale * DirichletEnergy`.
+
+The pulled-scale and endpoint-scale compiler modules transport this estimate
+to every sufficiently late physical kernel and convert it, using weighted
+pairwise variance and mass cancellation, to the fixed-base Poincare rate
+
+`q_simple(base) = simpleCarrierSquareScale(base) /
+  (simpleCarrierSquareScale(base) + persistentEdgeFloor(base)) < 1`.
+
+Finally, `BF4PhysicalCutoffVacuumSectorSimplePathCofinalRateBridge` exposes two
+equivalent all-base interfaces: a uniform upper bound on these fixed-base
+rates, or the denominator-cleared inequality
+
+`simpleCarrierSquareScale(base) <=
+  q * (simpleCarrierSquareScale(base) + edgeFloor(base))`
+
+for one rational `0 <= q < 1` and every base. Either witness compiles through
+the already-proved same-object centered bridge and completed Markov
+Cauchy--Schwarz theorem to the actual completed vacuum-sector strict
+contraction.
+
+Focused monitored checks pass for all six new modules, and the final exact-
+target one-worker dependency-complete build passes 4,901 jobs. All 19 audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added. This is a structurally explicit alternate rate, not a claimed
+pointwise sharpening of the preceding path-maximum rate: no ordering between
+the new carrier-square scale and the old canonical maximum has been proved.
+The common all-base `q` is deliberately not inhabited. Carrier cardinality
+may grow and the persistent edge floor may shrink with the cutoff, so an
+unconditional completed gap, thermodynamic/continuum control, and the Clay
+theorem remain open.
