@@ -8146,3 +8146,38 @@ prove a single constructively cofinal `g_K <= q < 1`, or introduce additional
 finite geometry that strictly improves the literal centered-row estimate.
 The unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
 remain open.
+
+## The physical row frontier retains cancellations through the actual kernel (2026-08-23)
+
+`BF4PhysicalVacuumSectorExactMassNormalizedRowRate` removes the remaining
+Tonelli slack from the sufficient finite scalar.  It takes the literal row
+distance between the physical joint and the stationary product conditioned on
+the canonical vacuum component, divides each canonical source row by its
+strictly positive stationary weight, and forms the located finite maximum
+
+`h_K = max_source actualRowDistance_K(source) / physicalWeight_K(source)`.
+
+Every actual mass-normalized row is bounded by `h_K` times its source weight.
+Conversely, every nonnegative rational coefficient satisfying all literal row
+inequalities bounds `h_K`, so `h_K` is the least coefficient at the exact
+row-distance interface.  A constructively cofinal fixed bound
+`h_K <= q < 1` compiles directly to the completed same-object vacuum-sector
+strict gap.  The comparison theorem establishes the sharpened ladder
+
+`h_K <= g_K <= s_K <= r_K`,
+
+and the cutoff-one rank-one calculation gives `h_1 = 0`.
+
+The corrected focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,559 jobs.  All seven audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  Three earlier
+focused checks failed on missing sector-law namespace opens and one redundant
+unfold after the goal had already reduced; none is counted as a pass.
+
+No cofinal bound on `h_K` is inhabited.  The remaining row-distance frontier
+is the actual finite analytic statement: prove one fixed constructively
+cofinal `h_K <= q < 1`.  Further algebraic progress must either estimate this
+literal scalar from BF4 geometry or pass below rowwise total variation to a
+sharper signed-form/operator coefficient.  The unconditional completed gap,
+thermodynamic/continuum QFT, and Clay theorem remain open.

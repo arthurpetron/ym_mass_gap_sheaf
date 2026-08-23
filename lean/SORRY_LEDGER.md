@@ -6739,3 +6739,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete build passes 1,558 jobs.  No cofinal bound
   below one is inhabited; the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-exact-mass-normalized-row-rate] Least actual finite row-distance coefficient — **PROVED / COFINAL BOUND OPEN 2026-08-23**
+
+- **milestone**: define the literal component-conditioned physical row
+  distance, normalize it by each positive stationary source weight, take its
+  located finite maximum `h_K`, prove its direct row inequality and minimality,
+  compile a cofinal bound below one to the completed gap, prove
+  `h_K <= g_K <= s_K <= r_K`, and evaluate `h_1 = 0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorExactMassNormalizedRowRate.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorMassNormalizedRowDistance_nonnegative`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedRowDistance_le_exactRate_mul_weight`,
+  `centralPhysicalFiniteVacuumSectorExactMassNormalizedRowRate_le_of_rowBound`,
+  `FixedNomeCofinalVacuumSectorExactMassNormalizedRowRateBound.toVacuumSectorCenteredStrictGap`,
+  `centralPhysicalFiniteVacuumSectorExactMassNormalizedRowRate_le_exactCenteredGramRowRate`,
+  and
+  `centralPhysicalFiniteVacuumSectorExactMassNormalizedRowRate_cutoffOne_eqv_zero`.
+- **obligation**: prove one constructively cofinal fixed bound
+  `h_K <= q < 1`, derive such a bound from actual BF4 finite geometry, or pass
+  to a strictly sharper signed-form/operator coefficient.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,559 jobs.  Three
+  earlier focused checks failed on missing namespace opens and a redundant
+  unfold; none is counted as a pass.  No cofinal bound below one is inhabited;
+  the unconditional completed gap, thermodynamic/continuum QFT, and Clay
+  theorem remain open.
