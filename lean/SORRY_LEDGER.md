@@ -6048,3 +6048,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete build passes 1,485 jobs.  No sector-local
   slice family is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-local-power-budget] Depth-amplified strict-rate compiler — **REDUCED 2026-08-23**
+
+- **milestone**: prove the exact coefficient identity
+  `(qS * qS) * qS^(depth - 2) = qS^depth`; expose the conditioned density-row
+  estimate at that full local power; replace the rigid local quarter cap by a
+  cofinal budget `qS(cutoff)^depth(cutoff) <= rate` for one fixed
+  `0 <= rate < 1`; and compile that budget to the corrected mass-normalized
+  row certificate and completed same-object vacuum-sector strict gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorLocalPowerBudgetGap.lean`.
+- **decl**:
+  `localPowerCoefficient_eqv_pow`,
+  `PhysicalBF4VacuumSectorLocalSliceGluing.conditionedDensityCenteredRow_le_localPower`,
+  `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing`,
+  `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.toVacuumSectorCenteredStrictGap`.
+- **obligation**: construct a cofinal family of exact sector-local
+  density-power gluings and prove one uniform strict bound on the complete
+  depth-amplified power.  The one-step rates themselves may now vary with the
+  cutoff and approach one; no cutoff-independent quarter cap is required.
+- **constructive?**: yes — all four audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,486 jobs.  An
+  initial namespace-omission check failed and was corrected before both
+  passing checks.  No local slice or power budget is inhabited, so the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.

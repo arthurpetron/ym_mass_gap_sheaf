@@ -7409,3 +7409,36 @@ column normalization, an exact finite density-power identity for the
 conditioned physical density, and a cutoff-uniform centered rate `qS <= 1/4`.
 The unconditional completed gap, thermodynamic/continuum control, and the
 Clay theorem remain open.
+
+## The sector-local compiler now consumes the exact depth-amplified rate (2026-08-23)
+
+`BF4PhysicalVacuumSectorLocalPowerBudgetGap` removes the unnecessarily rigid
+local condition `qS <= 1/4`.  It proves that the coefficient already produced
+by signed-`L1` tensorization is exactly
+
+`(qS * qS) * qS^(depth - 2) = qS^depth`
+
+whenever the gluing depth is at least three.  Hence the local rate may depend
+on the cutoff and may approach one: the actual uniform obligation is that its
+complete depth-amplified power stay below one fixed rational `rate < 1`.
+
+`FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing` records that exact
+cofinal power budget.  It compiles the conditioned density-row estimate to
+the corrected mass-normalized joint-row certificate and then to the existing
+completed same-object vacuum-sector strict gap at the supplied uniform rate.
+The earlier quarter-rate theorem remains a convenient sufficient special
+case, but is no longer the only local-slice route.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,486 jobs.  All four audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  An initial check failed because one finite-density namespace had not
+been opened; the namespace was added and the passing check and exact build
+were rerun.
+
+No local slice or depth-amplified budget is inhabited.  The next producer
+frontier is now sharper: construct exact sector-local density-power gluing
+and prove `qS(cutoff)^depth(cutoff) <= rate < 1`, rather than prove the
+stronger cutoff-independent cap `qS <= 1/4`.  The unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.
