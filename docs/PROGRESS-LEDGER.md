@@ -6618,3 +6618,27 @@ edge is now closed on dense orthogonal vectors.  Still open are a common
 sector-local `q < 1`, extension of the resulting estimate from the dense
 orthogonal domain to arbitrary completed sector vacuum vectors, and all
 thermodynamic/continuum/Clay conclusions.
+
+## The sector-local cofinal certificate controls the actual dense completed form (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseStrictFormGap` combines the dense
+centered endpoint identifications with
+`FixedNomeCofinalVacuumSectorCenteredStrictGap`.  Any supplied rational
+certificate at `0 <= q < 1` now yields, on every dense completed root-sector
+cylinder orthogonal to the global vacuum, the actual quotient-level form
+bound
+
+`<T v,v> <= q <v,v>`.
+
+The rate is unchanged: no squaring, extra prefactor, or full-carrier
+certificate enters this direct sector route.  This is important because the
+full positive carrier is reducible; the sector-local certificate is the
+mathematically appropriate remaining analytic input.
+
+The focused monitored check and exact-target one-worker 1,579-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  No common-rate certificate is inhabited here.  Still open are
+one sector-local rate uniform over all bases, extension from the dense
+orthogonal domain to the full completed sector vacuum complement, and all
+thermodynamic/continuum/Clay conclusions.

@@ -5270,3 +5270,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,577-job dependency-complete build pass.  This closes endpoint
   identification on the dense orthogonal domain, not the common strict rate,
   its completion extension, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-dense-strict-form-gap] Sector-local cofinal rate controls the actual dense completed form — **PROVED 2026-08-22**
+
+- **milestone**: compile any
+  `FixedNomeCofinalVacuumSectorCenteredStrictGap q` directly into the
+  quotient-level inequality `<T v,v> <= q <v,v>` for every dense completed
+  root-sector cylinder orthogonal to the normalized global vacuum, preserving
+  the supplied nonnegative strict rate without a full-carrier detour.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseStrictFormGap.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_denseCompletedStrictFormGapAtRate` and
+  `centralPhysicalVacuumSectorCylinder_denseCompletedStrictFormGapAtRate_rate`.
+- **obligation**: inhabit one common sector-local cofinal `q < 1` and extend
+  this dense orthogonal form bound to arbitrary vectors in the completed
+  sector vacuum complement; then address volume and lattice-spacing limits.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,579-job dependency-complete build pass.  This is a conditional dense-domain
+  compiler, not an inhabitant of the common rate, a completed all-vector gap,
+  thermodynamic/continuum QFT, or the Clay theorem.
