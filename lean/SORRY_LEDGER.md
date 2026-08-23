@@ -7461,3 +7461,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   missing-namespace/unfolding failure is not a pass.  Finite full-sector
   coercivity existence is closed; the uniform ratio, completed gap
   inhabitant, continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-simple-full-sector-cost] Explicit loop-erased polynomial cost — **CLOSED 2026-08-23**
+
+- **milestone**: prove the canonical vacuum-sector stationary mass is at most
+  one; aggregate loop-erased carrier-bounded endpoint paths into the explicit
+  finite coercivity cost `1 + |sector|^2`; bound it by the ambient half-zero
+  cost `1 + ((later + 1)^24)^2`; and compile a supplied cofinal ambient ratio
+  through completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.lean`.
+- **decl**: `cutoffTwoFullSectorMass_le_one`,
+  `cutoffTwoSimpleFullSectorCost`,
+  `cutoffTwo_edgeFloor_mul_fullVariance_le_simpleCost_mul_Dirichlet`,
+  `cutoffTwoSimpleFullSectorClearedDirichletAt`,
+  `cutoffTwoAmbientFullSectorCost`,
+  `cutoffTwo_edgeFloor_mul_fullVariance_le_ambientCost_mul_Dirichlet`, and
+  `CutoffTwoCofinalAmbientFullSectorRatio.toCompletedStrictContractionData`.
+- **obligation**: improve the degree-48 ambient fallback using actual
+  simple-path edge congestion or stronger BF4 kernel geometry, then prove a
+  fixed positive cofinal cost-scaled edge floor and sector-mass floor and
+  construct the thermodynamic/continuum theory.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.5 seconds and the exact
+  one-worker dependency-complete target passes 4,904 jobs.  The first focused
+  check failed on missing namespace openings and is not a pass.  The explicit
+  polynomial finite cost is closed; its uniform ratio, completed gap
+  inhabitant, continuum QFT, and Clay theorem remain open.

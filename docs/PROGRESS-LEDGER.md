@@ -8995,3 +8995,39 @@ or compare the arbitrary canonical paths with loop-free carrier-bounded paths
 and obtain a usable cutoff dependence for the full edge-load capacity, then
 prove a cofinal positive ratio and mass floor.  Continuum QFT and the Clay
 theorem remain open.
+
+## Loop erasure exposes an explicit polynomial full-sector cost (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost` proves that the stationary
+mass of the canonical finite vacuum sector is at most one by injecting its
+index list into the completely normalized positive-row carrier.  It then
+aggregates the existing loop-erased endpoint estimate to obtain
+
+`edgeFloor(later) * V_full`
+
+`  <= (1 + |vacuumSector(later)|^2) * E_full`.
+
+The known ambient enumeration bound contracts this further to
+
+`edgeFloor(later) * V_full`
+
+`  <= (1 + ((later + 1)^24)^2) * E_full`
+
+at half extent zero.  Both the sector-size and ambient-size coefficients are
+positive, inhabited cleared coercivity costs.  A cofinal lower bound on the
+edge floor divided by the explicit ambient cost, together with a positive
+mass floor, compiles to completed strict contraction.
+
+The focused monitored check passes in about 1.5 seconds, and the exact
+one-worker dependency-complete target passes 4,904 jobs.  All seven audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+The first focused check failed on two missing namespace openings and is not a
+pass.
+
+This is an honest diagnostic contraction as well as a theorem: the ambient
+fallback grows like degree 48 in the cutoff and is therefore too coarse to
+establish a uniform gap without a compensating edge-floor estimate.  The next
+frontier is a sharper simple-path edge-load/congestion bound exploiting which
+endpoint paths actually use each edge, or a stronger analytic BF4 kernel
+minorization.  A uniform completed gap, continuum QFT, and the Clay theorem
+remain open.
