@@ -8751,3 +8751,44 @@ positive old/new bridge edge (or bridge family), and explicit path-congestion
 budgets into the two allocated inequalities above.  Uniform path constants,
 the sector-mass floor, volume/spacing control, continuum QFT, and the Clay
 theorem remain open.
+
+## Canonical sparse old/new path costs are now aggregated exactly (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSparsePathAggregation` replaces the abstract
+cross-budget premise by a concrete sum over the actual canonical positive
+paths in the later full vacuum sector.  It first proves a generic rectangular
+summation theorem: pointwise endpoint estimates can be multiplied by their
+exact stationary pair weights and summed without replacing the result by a
+pair-count times one global energy.
+
+For the physical cutoff-two split, the module totalizes the canonical
+full-sector path energy and defines the directed old-to-new and new-to-old
+weighted path budgets.  The explicit finite-sector positive-edge minimum then
+gives
+
+`edgeFloor(later) * V_cross(later,f) <= canonicalCrossPathBudget(later,f)`.
+
+Thus a supplied lower floor below the finite edge minimum and a congestion
+bound
+
+`canonicalCrossPathBudget <= b * E_within + E_cross`
+
+produce the cross field of the allocated gluing certificate.  Together with
+the supplied within budget, complementary energy shares, and mass floor, the
+new sparse-path certificate compiles all the way to the completed strict
+contraction interface.  The paths and the finite edge floor in this statement
+are inhabited canonical objects; only their uniform aggregate congestion is
+left as analytic input.
+
+The focused monitored check passes in about 1.2 seconds, and the exact
+one-worker dependency-complete target passes 4,893 jobs.  All six audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused check failed on two missing namespace openings; it
+is not a pass.
+
+The next frontier is to decompose the canonical aggregate path budget by edge
+occurrences and prove an explicit congestion comparison with the within and
+cross Dirichlet blocks.  Uniform positive floors, congestion constants,
+sector mass, cutoff persistence, continuum QFT, and the Clay theorem remain
+open.

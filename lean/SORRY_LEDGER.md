@@ -7269,3 +7269,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   This closes the sparse allocation implication, not its analytic inhabitant,
   cofinal completed gap inhabitant, thermodynamic/continuum QFT, or the Clay
   theorem.
+
+### [BF4-cutoff-two-sparse-path-aggregation] Canonical cross-path sum compiler — **CLOSED 2026-08-23**
+
+- **milestone**: define the exact stationary-weighted sum of the actual
+  canonical old-to-new and new-to-old positive-path energies; prove the finite
+  edge floor times cross pairwise variance is below this path sum; and compile
+  a supplied congestion bound through allocated gluing to completion.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.lean`.
+- **decl**:
+  `floor_mul_finiteStationaryRectangularVariance_le_endpointBudget`,
+  `cutoffTwoCanonicalFullPathEnergy`,
+  `cutoffTwoCanonicalCrossPathBudget`,
+  `cutoffTwo_edgeFloor_mul_crossVariance_le_canonicalPathBudget`,
+  `CutoffTwoSparsePathAllocatedGluingAt.toAllocatedDirichletGluingAt`, and
+  `CutoffTwoCofinalSparsePathAllocatedGluing.toCompletedStrictContractionData`.
+- **obligation**: expose edge occurrences in the canonical aggregate path sum
+  and bound their stationary-weighted congestion by a fixed share of
+  within-block Dirichlet energy plus cross-block Dirichlet energy, uniformly
+  along a cofinal cutoff schedule; also prove fixed positive edge and sector
+  mass floors.
+- **constructive?**: yes — all six audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 1.2 seconds and the
+  exact-target one-worker dependency-complete build passes 4,893 jobs.  The
+  first focused check failed on two missing namespace openings and is not a
+  pass.  This closes exact canonical path aggregation and its implication,
+  not a congestion inhabitant, uniform finite/completed gap, continuum QFT,
+  or the Clay theorem.
