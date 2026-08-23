@@ -8113,3 +8113,36 @@ its strictly positive stationary source weight.  That scalar is no larger
 than `s_K` and removes the remaining product-of-maxima slack.  A uniform
 below-one estimate, thermodynamic/continuum control, and the Clay theorem
 remain open.
+
+## The physical centered-Gram frontier is contracted to its exact row rate (2026-08-23)
+
+`BF4PhysicalVacuumSectorExactCenteredGramRowRate` totalizes, on every actual
+finite source index, the centered physical Gram row majorant divided by its
+strictly positive component-conditioned stationary weight.  Its located
+finite maximum is the exact common row coefficient
+
+`g_K = max_source rowMajorant_K(source) / physicalWeight_K(source)`.
+
+Every centered row is bounded by `g_K` times its source weight.  Conversely,
+any nonnegative rational coefficient that bounds all of those rows also bounds
+`g_K`; thus this is the least coefficient available from the literal finite
+row inequalities, rather than another sufficient upper estimate.  A
+constructively cofinal fixed estimate `g_K <= q < 1` compiles directly to the
+completed same-object vacuum-sector strict gap.  The comparison ladder
+
+`g_K <= s_K <= r_K`
+
+is proved at every finite cutoff, and the rank-one cutoff-one calculation
+evaluates the sharp scalar exactly as `g_1 = 0`.
+
+The focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,558 jobs.  All seven audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.
+
+No cofinal bound on `g_K` is inhabited.  The remaining finite analytic
+frontier is now irreducible within the current row-majorant architecture:
+prove a single constructively cofinal `g_K <= q < 1`, or introduce additional
+finite geometry that strictly improves the literal centered-row estimate.
+The unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+remain open.

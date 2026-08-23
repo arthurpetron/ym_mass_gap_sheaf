@@ -6711,3 +6711,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not counted as a pass.  No cofinal bound below one is inhabited; the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-exact-centered-Gram-row-rate] Least finite centered-row coefficient — **PROVED / COFINAL BOUND OPEN 2026-08-23**
+
+- **milestone**: totalize the normalized centered physical Gram row majorant,
+  take its located finite maximum `g_K`, prove the direct row inequality and
+  the minimality of `g_K` among all nonnegative common row coefficients,
+  compile a cofinal bound below one to the completed gap, prove
+  `g_K <= s_K <= r_K`, and evaluate `g_1 = 0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorExactCenteredGramRowRate.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorCenteredGramRowMajorant_le_exactCenteredGramRowRate_mul_weight`,
+  `centralPhysicalFiniteVacuumSectorExactCenteredGramRowRate_le_of_rowBound`,
+  `FixedNomeCofinalVacuumSectorExactCenteredGramRowRateBound.toVacuumSectorCenteredStrictGap`,
+  `centralPhysicalFiniteVacuumSectorExactCenteredGramRowRate_le_exactPosteriorL1MaximumRate`,
+  `centralPhysicalFiniteVacuumSectorExactCenteredGramRowRate_le_overlapResidualRate`,
+  and
+  `centralPhysicalFiniteVacuumSectorExactCenteredGramRowRate_cutoffOne_eqv_zero`.
+- **obligation**: prove one constructively cofinal fixed bound
+  `g_K <= q < 1`, or add finite geometric information that strictly sharpens
+  the literal centered-row majorant itself.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes, and the exact-target
+  one-worker dependency-complete build passes 1,558 jobs.  No cofinal bound
+  below one is inhabited; the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
