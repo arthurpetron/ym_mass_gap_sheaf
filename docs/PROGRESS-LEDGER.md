@@ -6873,3 +6873,31 @@ over the required cutoff/volume scope, does not upgrade the quadratic-form
 bound to an operator-norm gap without an additional square-form or positive-
 form Cauchy--Schwarz bridge, and does not assert a thermodynamic, continuum,
 or Clay conclusion.
+
+## The completed BF4 sector form gap compiles to an operator gap from one positive-form law (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOperatorNormGap` isolates the
+remaining functional-analytic input as sharp Cauchy--Schwarz for the actual
+cutoff-removed Markov form `(left,right) |-> <T left,right>`.  Given that one
+law, the now-constructed completed form interval yields the square-form bound
+
+`||T v||^2 <= q <T v,v>`
+
+by constructive cancellation, without dividing by the possibly zero value
+`||T v||^2`.  A second application of the form gap gives the genuine
+completed squared-norm contraction
+
+`||T v||^2 <= q^2 ||v||^2`.
+
+The result is packaged directly as the existing
+`CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`, so all
+previously proved power and same-object correlation decay consumers apply
+without another carrier bridge.
+
+The focused monitored check and exact-target one-worker 1,606-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The positive Markov-form
+Cauchy--Schwarz datum itself is not yet inhabited, and no common cofinal rate
+is constructed.  Therefore no unconditional operator gap, thermodynamic or
+continuum limit, or Clay result is asserted.

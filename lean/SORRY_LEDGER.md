@@ -5540,3 +5540,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   available for every supplied certified rate, but no common uniform rate,
   unconditional operator gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
+
+### [BF4-vacuum-sector-completed-form-to-operator] One positive Markov-form law compiles the completed form gap to squared-norm contraction — **PROVED 2026-08-22**
+
+- **milestone**: name sharp Cauchy--Schwarz for the actual cutoff-removed
+  sector Markov form as one honest certificate; combine it with the completed
+  positive strict form interval; cancel division-free to obtain the
+  square-form estimate; and package the resulting `q^2` squared-norm bound in
+  the existing completed sector contraction interface.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOperatorNormGap.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinderCompletedTransfer_square_form_gap`,
+  `centralPhysicalVacuumSectorCylinderCompletedTransfer_norm_gap`,
+  `centralPhysicalVacuumSectorCylinderCompletedStrictContractionData_of_formGap`,
+  and
+  `centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtRate_of_markovCS`.
+- **obligation**: inhabit
+  `CentralPhysicalVacuumSectorCylinderCompletedMarkovFormCauchySchwarzData`
+  from finite pulled-kernel positivity and simultaneous completed limits; and
+  independently construct one cofinal rate `q < 1` with the required
+  cutoff/volume uniformity.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,606-job dependency-complete build pass.  The operator compiler is proved,
+  but its Markov-form Cauchy--Schwarz input and the common rate are both still
+  open; no unconditional operator gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.
