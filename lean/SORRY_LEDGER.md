@@ -6566,3 +6566,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exploratory checks and the broad `YMGapGuard` audit were interrupted and
   are not counted as passes.  The theorem is cutoff-one only; the cofinal
   completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-one-canonical-refresh] Genuine canonical-sector refresh action — **PROVED FINITE 2026-08-23**
+
+- **milestone**: transport the exact vacuum/cube physical Gram refresh law
+  through the exact rooted-component support identification; prove every
+  actual canonical-sector source has the same posterior-refresh row, the
+  restricted row remains normalized, constants are fixed, and the explicit
+  nonconstant posterior-centered cube mode is annihilated.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorRefresh.lean`.
+- **decl**:
+  `cutoffOneCanonicalVacuumSectorPhysicalGramMarkov_eqv_refresh`,
+  `cutoffOneCanonicalVacuumSectorPhysicalGramMarkov_row_normalized`,
+  `cutoffOneCanonicalVacuumSectorPhysicalGramAction_one`, and
+  `cutoffOneCanonicalVacuumSectorPhysicalGramAction_centeredCubeMode_zero`.
+- **obligation**: identify the indexed sector-conditioned stationary law
+  with the exact refresh posterior, then evaluate both posterior-overlap
+  floors and the product residual scalar at cutoff one; afterward prove a
+  fixed cofinal `r_K <= q < 1` estimate.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,402 jobs.  The
+  first focused check failed on a generic-versus-concrete `EdgeLabelling`
+  namespace ambiguity and is not counted as a passing audit.  This theorem is
+  cutoff-one only; the cofinal completed gap, thermodynamic/continuum QFT,
+  and Clay theorem remain open.

@@ -7953,3 +7953,30 @@ This finite support equality is not a cutoff-uniform sector theorem.  It
 provides the prerequisite for evaluating the exact canonical posterior-
 overlap residual scalar at cutoff one.  A cofinal bound `r_K <= q < 1`,
 thermodynamic/continuum control, and the Clay theorem remain open.
+
+## The cutoff-one canonical vacuum sector is an exact posterior-refresh block (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorRefresh` joins the exact
+rooted-component support theorem to the previously verified genuine
+vacuum/cube Gram rows.  Every source state in the actual canonical vacuum
+sector therefore has the same posterior-refresh Markov row on the complete
+positive target carrier.  Restriction to the exact two-state support remains
+normalized, constants are fixed, and the explicit nonconstant
+posterior-centered cube mode is annihilated in one step.
+
+This is the first theorem that places the solved rank-one physical transfer
+block on the graph-defined canonical vacuum sector rather than on a displayed
+two-state surrogate.  The focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,402 jobs.  All four audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused check failed only because `EdgeLabelling` resolved
+to a generic namespace; opening the concrete SU(2) labelling namespace fixed
+the type and the corrected check passed.
+
+The result is finite at `K = 1` and does not yet identify the indexed
+sector-conditioned stationary law with the refresh posterior.  That
+normalization bridge is the next prerequisite for evaluating the exact
+target/source overlap floors and their residual scalar `r_1`.  A cofinal
+bound `r_K <= q < 1`, thermodynamic/continuum control, and the Clay theorem
+remain open.
