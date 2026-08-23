@@ -8712,3 +8712,42 @@ path/aggregate old-new conductance certificate while preserving the proved
 cross-mean coercivity.  The within-block uniform recursion and sector-mass
 floor also remain open, as do volume/spacing control, continuum QFT, and the
 Clay theorem.
+
+## Sparse old/new paths can now allocate within energy honestly (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoAllocatedDirichletGluing` removes the unnecessary
+requirement that cross energy alone dominate the entire cross pairwise
+variance.  This matters for a sparse support graph: a path between arbitrary
+old and new states may use internal edges before it reaches a genuine bridge.
+
+The new certificate chooses nonnegative shares `a` and `b` with `a + b = 1`
+and asks for
+
+`kappa * V_within <= a * E_within`,
+
+`kappa * V_cross <= b * E_within + E_cross`.
+
+The module proves these combine exactly into
+
+`kappa * V_full <= E_full`.
+
+A minimal global coercivity interface then uses the sector-mass floor to
+recover `(kappa * m0) * D <= D - M`, the same explicit rate
+`1 / (1 + kappa * m0) < 1`, the cofinal finite strict gap, and the completed
+vacuum-sector transfer contraction.
+
+The focused monitored check passes in about 1.2 seconds, and the exact
+one-worker dependency-complete target passes 4,892 jobs.  All five audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  One preliminary check failed on a namespace and right-additive
+congruence orientation; it is not a pass.  A separate cutoff-three direct
+support probe was stopped by the 12 GiB safe-build memory reserve before
+returning a value and is not treated as evidence either way.
+
+No allocated certificate is inhabited.  The next analytic frontier is now a
+sparse path gluing theorem that converts: internal old/new path estimates, a
+positive old/new bridge edge (or bridge family), and explicit path-congestion
+budgets into the two allocated inequalities above.  Uniform path constants,
+the sector-mass floor, volume/spacing control, continuum QFT, and the Clay
+theorem remain open.

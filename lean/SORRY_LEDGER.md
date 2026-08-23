@@ -7237,3 +7237,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the cross-term expansion and minorization implication, not any uniform
   minorization inhabitant, within-block recursion, cofinal completed gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-allocated-dirichlet-gluing] Sparse path budget compiler — **CLOSED 2026-08-23**
+
+- **milestone**: introduce a minimal full-sector Dirichlet coercivity
+  interface; allow cross paths to consume an explicit complementary share of
+  within-block energy; prove the allocated within/cross estimates recombine
+  exactly to global coercivity; and compile a supplied cofinal family through
+  the explicit strict rate to the completed vacuum-sector contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoAllocatedDirichletGluing.lean`.
+- **decl**:
+  `CutoffTwoFullSectorDirichletCoercivityAt`,
+  `CutoffTwoFullSectorDirichletCoercivityAt.strength_mul_diagonal_le_deficit`,
+  `CutoffTwoFullSectorDirichletCoercivityAt.abs_matrix_le_rate_mul_diagonal`,
+  `CutoffTwoAllocatedDirichletGluingAt`,
+  `CutoffTwoAllocatedDirichletGluingAt.toFullSectorDirichletCoercivityAt`,
+  `CutoffTwoCofinalAllocatedDirichletGluing.toFiniteStrictGap`, and
+  `CutoffTwoCofinalAllocatedDirichletGluing.toCompletedStrictContractionData`.
+- **obligation**: build the allocated estimates from sparse internal paths and
+  one or more genuine old/new bridge edges, with fixed positive `kappa`, a
+  fixed positive sector-mass floor, and fixed shares on an unbounded cofinal
+  schedule.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 1.2 seconds and the
+  exact-target one-worker dependency-complete build passes 4,892 jobs.  One
+  preliminary namespace/congruence failure is not a pass.  A cutoff-three
+  diagnostic probe was memory-reserve interrupted and establishes nothing.
+  This closes the sparse allocation implication, not its analytic inhabitant,
+  cofinal completed gap inhabitant, thermodynamic/continuum QFT, or the Clay
+  theorem.
