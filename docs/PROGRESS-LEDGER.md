@@ -7828,3 +7828,36 @@ construct the exact minimum overlap over each finite carrier and isolate the
 single persistence estimate needed to keep those minima uniformly above the
 threshold required by the product-rate gap.  Thermodynamic/continuum control
 and the Clay theorem remain open.
+
+## Every finite carrier contracts to two exact positive overlap floors (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramOverlapFloor` defines a constructive
+capped minimum by folding `Q'.min'` from one.  Target channels of zero total
+and natural indices outside the canonical sector are assigned the neutral
+value one, so the total functions remain positive while agreeing with the
+actual posteriors on every relevant carrier member.
+
+Folding over the literal fixed-time boundary list and canonical vacuum-sector
+index list produces exact target and source overlap floors.  Both floors are
+strictly positive and at most one at every fixed cutoff, and each is proved to
+bound every corresponding physical posterior overlap.  Thus all pointwise
+finite mixing obligations are reduced to two exact rational scalars.
+
+A cofinal persistence structure records uniform lower bounds on only those
+two scalars and compiles them through the overlap and posterior layers to the
+completed same-object vacuum-sector strict gap whenever the residual-rate
+product is below one.
+
+The corrected focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,493 jobs.  All seven audited exports use at
+most `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  The first
+focused check exposed three elementary positive-one goals that `decide` could
+not close while their expected types retained free variables; explicit type
+annotations resolved them before both passing checks.
+
+No uniform floor persistence is inhabited.  The next causal contraction is
+to combine the two exact floors into the one finite residual-rate scalar
+consumed by the centered Gram and make a uniform cofinal upper bound below one
+the sole analytic obligation.  Thermodynamic/continuum control and the Clay
+theorem remain open.

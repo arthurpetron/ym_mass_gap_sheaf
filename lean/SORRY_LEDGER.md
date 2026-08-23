@@ -6443,3 +6443,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   complete build passes 1,492 jobs.  The theorem is finite-cutoff only: its
   positive overlaps may decay to zero, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-overlap-floor] Two exact finite minima — **PROVED FINITE / REDUCED 2026-08-23**
+
+- **milestone**: construct a positive capped finite minimum; totalize the
+  target and source overlap functions with neutral value one off the relevant
+  positive carrier; fold over the literal boundary and canonical-sector
+  lists; prove both exact floors lie in `(0,1]` and bound every relevant
+  posterior overlap; and compile uniform persistence of the two scalars to
+  the completed same-object vacuum-sector gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramOverlapFloor.lean`.
+- **decl**:
+  `finiteCappedMinimum_pos`,
+  `finiteCappedMinimum_le_member`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlapFloor_pos`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlapFloor_pos`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlapFloor_le`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlapFloor_le`, and
+  `FixedNomeCofinalVacuumSectorPosteriorOverlapFloorPersistence.toVacuumSectorCenteredStrictGap`.
+- **obligation**: prove cofinal cutoff-uniform lower bounds on the two exact
+  finite floors whose residual-rate product is below one, or equivalently
+  control their single exact product-rate scalar uniformly below one.
+- **constructive?**: yes — all seven audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,493 jobs.  The
+  first focused check exposed three elementary `0 < 1` goals whose expected
+  types retained free variables; explicit type annotations resolved them
+  before both passing checks.  Fixed-cutoff positivity does not imply a
+  cofinal floor, so the unconditional completed gap, thermodynamic/continuum
+  QFT, and Clay theorem remain open.
