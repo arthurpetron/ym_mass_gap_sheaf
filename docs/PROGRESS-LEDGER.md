@@ -9385,3 +9385,38 @@ path terms.  The next frontier is to normalize those terms by their common
 allocated BF4 kernel, producing the standard edge-congestion quantity and a
 uniform weighted-Harnack target.  The uniform completed gap, continuum QFT,
 and Clay theorem remain open.
+
+## Exact normalized novel-flow edge congestion (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowNormalizedCongestion` divides each
+positive novel-flow edge load by precisely the physical BF4 kernel allocated
+to that flow.  It proves that the resulting congestion is the exact finite
+sum of the endpoint-pair contributions from the preceding milestone divided
+by their common edge capacity.  Zero-load edges are handled separately, so
+no artificial positive denominator or global edge floor is introduced.
+
+The original edge payment comparison is now proved equivalent to the
+dimensionless unit bound
+
+`delta_flow * normalizedCongestion(source,target) <= 1`.
+
+Consequently, an all-full-edge congestion bound implies
+`delta_flow <= cutoffTwoNovelFiniteFlowCapacityFloor(later)`.  The cofinal
+structure `CutoffTwoCofinalNovelNormalizedCongestionBound` compiles such
+bounds through the exact capacity ratio and flow theorem to the completed
+vacuum-sector strict-contraction datum.
+
+The focused monitored check passes in about 1.3 seconds.  The exact
+one-worker dependency-complete target passes 4,917 jobs, with the new module
+taking about 1.1 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.  Two earlier focused checks hit deterministic
+elaboration timeouts, and one also exposed a nonexistent convenience lemma;
+explicit setoid congruences and primitive nonnegativity algebra replaced
+those proof attempts.  The failed checks are not passes.
+
+The next analytic frontier is now sharply local: uniformly bound the exact
+finite sum of normalized stationary endpoint-product/path-length indicators
+on every loaded BF4 edge, using concrete stationary-weight and allocated
+kernel factorizations, or produce a cofinal overload family proving that the
+chosen canonical paths require redesign.  No such uniform bound is claimed;
+the completed gap inhabitant, continuum QFT, and Clay theorem remain open.

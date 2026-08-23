@@ -7772,3 +7772,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes.  The exact edge load is now expanded into analyzable endpoint terms,
   but its uniform BF4 kernel payment, the completed gap inhabitant, continuum
   QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-normalized-congestion] Exact local congestion reduction — **CLOSED 2026-08-23**
+
+- **milestone**: divide every positive novel-flow edge load by its actual
+  allocated physical kernel; prove the exact endpoint-pair normalized-sum
+  formula; prove nonnegativity and equivalence between physical edge payment
+  and the dimensionless unit congestion bound; derive the explicit finite
+  capacity-floor comparison from all-edge congestion; and compile a cofinal
+  congestion certificate to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowNormalizedCongestion.lean`.
+- **decl**: `listQSum_divPos_eqv_divPos_listQSum`,
+  `cutoffTwoNovelNormalizedEdgeCongestion`,
+  `cutoffTwoNovelPathPairNormalizedEdgeContribution`,
+  `cutoffTwoNovelNormalizedEdgeCongestion_eqv_pairSum`,
+  `cutoffTwoNovelNormalizedEdgeCongestion_nonnegative`,
+  `cutoffTwoNovelEdgeCapacity_iff_normalizedCongestion`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_congestion`,
+  `CutoffTwoCofinalNovelNormalizedCongestionBound`, and
+  `CutoffTwoCofinalNovelNormalizedCongestionBound.toCompletedStrictContractionData`.
+- **obligation**: uniformly bound the exact sum of normalized
+  stationary-product/path-length contributions on every loaded edge using
+  concrete BF4 weight and kernel formulas, or exhibit a cofinal overload
+  family requiring a new flow; then construct and control the thermodynamic
+  and continuum theories.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.3 seconds and the exact
+  one-worker dependency-complete target passes 4,917 jobs, with the new module
+  taking about 1.1 seconds.  Two deterministic-timeout checks and the check
+  exposing a nonexistent convenience lemma are not passes.  The uniform
+  congestion estimate, completed gap inhabitant, continuum QFT, and Clay
+  theorem remain open.
