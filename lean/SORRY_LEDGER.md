@@ -5293,3 +5293,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,579-job dependency-complete build pass.  This is a conditional dense-domain
   compiler, not an inhabitant of the common rate, a completed all-vector gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-centered-form-cofinality] Exact all-vector centering frontier and compiler — **PROVED 2026-08-22**
+
+- **milestone**: package the exact centered-form cofinality datum needed for
+  arbitrary completed sector vacuum vectors; inhabit it on every dense
+  orthogonal sector vector; and prove that a global inhabitant plus one common
+  sector-local cofinal rate yields the actual all-vector completed strict form
+  bound at that unchanged rate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedCenteredFormCofinality.lean`.
+- **decl**:
+  `CentralPhysicalVacuumSectorCylinderCenteredFormLimitData`,
+  `CentralPhysicalVacuumSectorCylinderCompletedCenteredFormCofinality`,
+  `centralPhysicalVacuumSectorCylinder_denseCenteredFormLimitData`,
+  `centralPhysicalVacuumSectorCylinder_completedStrictFormGapAtRate`, and
+  `centralPhysicalVacuumSectorCylinder_completedStrictFormGapAtRate_rate`.
+- **obligation**: inhabit
+  `CentralPhysicalVacuumSectorCylinderCompletedCenteredFormCofinality` for
+  arbitrary completed sector vacuum vectors by a constructive diagonal
+  centering argument, and independently inhabit one common sector-local
+  `q < 1`; then turn the all-vector form bound into spectral and limit data.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,580-job dependency-complete build pass.  This separates and compiles the
+  completion and analytic residuals but inhabits neither globally; no
+  unconditional completed gap, thermodynamic/continuum QFT, or Clay theorem
+  is asserted.

@@ -6642,3 +6642,27 @@ was added.  No common-rate certificate is inhabited here.  Still open are
 one sector-local rate uniform over all bases, extension from the dense
 orthogonal domain to the full completed sector vacuum complement, and all
 thermodynamic/continuum/Clay conclusions.
+
+## The remaining completed-sector centering bridge is one exact cofinality datum (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedCenteredFormCofinality`
+packages the precise completion datum still needed by the direct sector
+route.  For each vector in the actual completed sector vacuum complement it
+asks for a sequence of finite sector presentations whose moving centered
+diagonal and matrix limits converge, respectively, to Bishop-real
+representatives of that vector's actual completed norm and transfer form.
+
+The datum is unconditionally inhabited for every already-dense orthogonal
+sector vector by a constant outer presentation sequence.  A global inhabitant
+for all completed vectors, together with any one
+`FixedNomeCofinalVacuumSectorCenteredStrictGap q`, now compiles to the actual
+all-vector completed form inequality `<T v,v> <= q <v,v>` at the unchanged
+strict rate `0 <= q < 1`.
+
+The focused monitored check and exact-target one-worker 1,580-job build pass.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The completion frontier and analytic
+rate frontier are now separate and explicit.  Neither the all-vector
+cofinality datum nor the common strict rate is inhabited here; all
+thermodynamic/continuum/Clay conclusions remain open.
