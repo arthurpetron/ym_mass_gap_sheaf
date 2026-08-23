@@ -10226,3 +10226,35 @@ ceilings already available at each cutoff to this routed interface, then
 separate finite decidability from the genuinely open cofinal uniform ceiling
 and payment estimates.  Old--old and new--new capacity, uniform completed
 contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## The symmetric old-to-new payment is now exactly decidable at each cutoff (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossFiniteDecision` transports
+the existing located finite reverse/forward ratio maximum into the weaker
+routed-prefix interface.  This constructs a concrete symmetric ceiling load
+at every fixed cutoff and proves that it bounds the exact symmetric cross
+transition-product load.
+
+An exact Boolean scan ranges only over the Cartesian product of the old and new
+blocks and checks whether the fixed coercivity floor times that ceiling load is
+paid by the old-to-new conditional transition.  Soundness and completeness
+are proved for this precise sufficient predicate.  A successful scan constructs
+the ratio-free old-to-new conditional capacity certificate consumed by the
+symmetric compiler.
+
+The constructive inspector returns either that certificate or a literal old
+state, new state, their block-membership witnesses, and failure of the ceiling
+payment inequality.  Such a failed result diagnoses this conservative finite
+ceiling only; it does not refute the exact flow-capacity inequality.
+
+The first focused check exposed a namespace-sensitive compiler projection and
+is not a pass.  The corrected focused monitored check passes in about 1.1
+seconds.  The exact one-worker dependency-complete target passes 4,983 jobs,
+with the new module taking about 1.1 seconds.  All five audited exports use
+exactly `[propext, Quot.sound]`.
+
+The next contraction frontier is to combine cofinally successful cross scans
+with separate old--old and new--new capacity fields, yielding the completed
+strict-contraction interface.  Analytically, success of those cofinal scans
+and both same-block payments remain open; thermodynamic/continuum theory and
+the Clay theorem also remain open.

@@ -8560,3 +8560,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 1.1 seconds.  No routed ceiling or
   capacity payment is inhabited here.  Uniform completed contraction,
   continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-finite-decision] Exact cross-block checker and counteredge — **CLOSED 2026-08-23**
+
+- **milestone**: transport the located finite reverse/forward ratio maximum to
+  the routed-prefix datum; define its concrete symmetric cross ceiling load;
+  prove it bounds the exact transition-product load; reflect precisely the
+  old-to-new conditional payment into a Boolean scan; prove scan soundness and
+  completeness; compile success to the old-to-new conditional certificate;
+  and constructively return a literal overloaded cross edge on failure.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossFiniteDecision.lean`.
+- **decl**: `cutoffTwoNovelSymmetricCrossFiniteRatioCeilingLoad`,
+  `cutoffTwoNovelFiniteRoutedPrefixRatioCeilingData`,
+  `cutoffTwoNovelSymmetricCrossTransitionProductLoad_le_finiteRatioCeilingLoad`,
+  `cutoffTwoNovelSymmetricCrossFiniteRatioCeilingCheck`, its soundness and
+  completeness theorems,
+  `cutoffTwoNovelSymmetricOldNewConditionalCapacityAt_of_check`,
+  `CutoffTwoNovelSymmetricCrossFiniteRatioCeilingOutcome`, and
+  `inspectCutoffTwoNovelSymmetricCrossFiniteRatioCeiling`.
+- **obligation**: establish cofinal success of the exact cross-only scans or
+  use returned overloaded edges to sharpen the flow/ceiling, and independently
+  inhabit old--old and new--new capacity.  Combine those three inputs through
+  the symmetric compiler, then construct and control the thermodynamic and
+  continuum theories.
+- **constructive?**: yes — the finite maximum and Boolean comparisons are
+  decidable rational computations, and failure retains both endpoints and
+  their block memberships as Type-level data; all five audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on one namespace-sensitive
+  projection and is not a pass.  The corrected focused check passes in about
+  1.1 seconds; the exact one-worker dependency-complete target passes 4,983
+  jobs with the new module taking about 1.1 seconds.  No scan-success theorem
+  or uniform capacity datum is asserted.  Uniform completed contraction,
+  continuum QFT, and the Clay theorem remain open.
