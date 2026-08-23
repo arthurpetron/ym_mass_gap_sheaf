@@ -7442,3 +7442,39 @@ frontier is now sharper: construct exact sector-local density-power gluing
 and prove `qS(cutoff)^depth(cutoff) <= rate < 1`, rather than prove the
 stronger cutoff-independent cap `qS <= 1/4`.  The unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Cutoff-two reducibility rules out every strict full-carrier local slice (2026-08-23)
+
+`BF4PhysicalFullCarrierLocalSliceObstruction` first generalizes the physical
+row-to-form perturbation theorem from the hard-coded rate `1/16` to an
+arbitrary rational rate.  A row estimate
+
+`physical centered row <= rate * stationary source weight`
+
+therefore gives the absolute centered quadratic estimate at exactly the same
+rate.
+
+Combining that theorem with the explicit nonzero centered eigenvalue-one mode
+on the reducible cutoff-two positive carrier proves that no full-carrier
+`PhysicalBF4LocalSliceGluing` can exist when
+
+`(qS * qS) * qS^(depth - 2) < 1`.
+
+This is stronger than ruling out the earlier `qS <= 1/4` sufficient case:
+every strictly contracting depth-amplified full-carrier slice is impossible
+at cutoff two, regardless of its proposed depth or one-step density.  Thus a
+uniform campaign covering this cutoff cannot obtain its analytic witness by
+inhabiting the old full-carrier interface and later restricting it.  The
+slice itself must be constructed on the selected vacuum component (or an
+equivalent sector-native carrier) from the outset.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,675 jobs.  All three audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Initial focused checks exposed missing namespace opens; those were
+added before the passing check and exact build.
+
+This theorem prunes a false producer route but does not construct the
+sector-local slice or its power budget.  The unconditional completed gap,
+thermodynamic/continuum control, and the Clay theorem remain open.

@@ -6079,3 +6079,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passing checks.  No local slice or power budget is inhabited, so the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-full-carrier-local-slice-obstruction] Every strict cutoff-two slice is impossible — **PROVED 2026-08-23**
+
+- **milestone**: generalize the physical centered-row-to-absolute-form
+  contraction theorem to an arbitrary rational rate; combine it with the
+  exact nonzero centered eigenvalue-one observable on the reducible
+  cutoff-two positive carrier; rule out every full-carrier local slice whose
+  complete tensorized coefficient
+  `(qS * qS) * qS^(depth - 2)` is strictly below one; and recover the old
+  quarter-rate impossibility as a corollary.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFullCarrierLocalSliceObstruction.lean`.
+- **decl**:
+  `physical_joint_quadratic_abs_le_rate_of_centered_rows`,
+  `no_cutoffTwo_fullCarrier_localSlice_of_localPower_lt_one`,
+  and
+  `no_cutoffTwo_fullCarrier_localSlice_of_rate_le_quarter`.
+- **obligation**: construct the local density and exact density-power gluing
+  directly on the canonical vacuum component.  A uniform strict
+  full-carrier slice family covering cutoff two is now formally impossible,
+  so it cannot serve as an intermediate witness for later conditioning.
+- **constructive?**: yes — all three audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,675 jobs.
+  Initial focused checks exposed missing namespace opens; they were corrected
+  before the passing check and exact build.  This closes only the false
+  full-carrier producer route.  The sector-local power budget, unconditional
+  completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
