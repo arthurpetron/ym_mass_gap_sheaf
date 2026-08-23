@@ -7797,3 +7797,34 @@ derive positive uniform common mass for the two physical posterior pairs,
 potentially after a fixed number of support-compatible steps.  The
 unconditional completed gap, thermodynamic/continuum control, and the Clay
 theorem remain open.
+
+## Both physical posterior overlaps are positive at every finite cutoff (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramOverlapPositivity` proves that the new
+overlap quantities are genuinely inhabited rather than formal placeholders.
+A generic finite argument extracts a positive atom from a normalized
+nonnegative law and shows its overlap is positive whenever the reference law
+is positive on that atom.
+
+For `target | boundary`, the reference is the sector stationary law, already
+strictly positive at every canonical vacuum-sector index.  For
+`boundary | source`, the module proves the missing physical support inclusion
+directly: positivity of the exact conditioned Bayes numerator forces positive
+boundary weight and positive channel total, hence positive square-amplitude
+prior mass at the same channel.  No global full-support hypothesis is used.
+
+Therefore, for every fixed finite cutoff, each positive target boundary
+channel and each canonical sector source has posterior overlap strictly
+between zero and one inclusive.  The focused monitored check passes after two
+missing namespace opens were added, and the exact-target one-worker
+dependency-complete build passes 1,492 jobs.  All seven audited exports use at
+most `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.
+
+The result supplies no cutoff-uniform quantitative floor: the positive
+rationals may tend to zero along a cofinal sequence, and positivity alone does
+not make either residual `L1` rate smaller than one.  The next frontier is to
+construct the exact minimum overlap over each finite carrier and isolate the
+single persistence estimate needed to keep those minima uniformly above the
+threshold required by the product-rate gap.  Thermodynamic/continuum control
+and the Clay theorem remain open.

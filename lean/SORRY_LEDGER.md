@@ -6413,3 +6413,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   required namespaces resolved every error before both passing checks.  No
   cofinal overlap family is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-overlap-positivity] Inhabited finite common mass — **PROVED FINITE 2026-08-23**
+
+- **milestone**: prove a normalized finite law has positive overlap with a
+  nonnegative reference positive on its support; prove overlap is at most the
+  left total mass; derive the exact physical Bayes support inclusion from
+  `boundary | source` to the square-amplitude prior; and conclude both actual
+  BF4 posterior overlaps lie in `(0,1]` at every fixed cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramOverlapPositivity.lean`.
+- **decl**:
+  `finiteProbabilityOverlap_pos_of_support`,
+  `finiteProbabilityOverlap_le_leftMass`,
+  `centralPhysicalFiniteVacuumSectorBoundaryPrior_pos_of_givenSource_pos`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlap_pos`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlap_pos`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlap_le_one`, and
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlap_le_one`.
+- **obligation**: form the exact minimum over each finite family of positive
+  target channels and sector sources, then prove a constructively cofinal
+  cutoff-uniform floor strong enough that the product of residual rates is
+  below one.  Pointwise finite positivity does not imply this persistence.
+- **constructive?**: yes — all seven audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes after adding two
+  missing namespace opens, and the exact-target one-worker dependency-
+  complete build passes 1,492 jobs.  The theorem is finite-cutoff only: its
+  positive overlaps may decay to zero, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
