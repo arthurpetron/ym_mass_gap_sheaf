@@ -5170,3 +5170,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   correlation decays are conditional on the common-rate certificate; no
   unconditional completed gap, thermodynamic/continuum QFT, or Clay theorem
   is asserted.
+
+### [BF4-vacuum-sector-dense-transfer-form] Actual completed dense transfer form is the pulled sector form — **PROVED 2026-08-22**
+
+- **milestone**: identify, on every dense completed root-sector cylinder, the
+  matrix coefficient of the actual lifted sector transfer with the existing
+  pulled finite-sector matrix cutoff limit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseTransferForm.lean`.
+- **decl**:
+  `innerLimitInnerRegularity_markov_left_rate_eq`,
+  `centralPhysicalVacuumSectorCylinder_markovPair_approx_eqv_pulledMatrix`,
+  `centralPhysicalVacuumSectorCylinder_denseTransferPairingDiagonal_converges`,
+  `centralPhysicalVacuumSectorCylinder_denseTransferPairing_equiv_pulledMatrix`,
+  and
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_embedRep_eq_pulled`.
+- **obligation**: construct or prove density of moving head-centered sector
+  presentations in the completed sector vacuum complement, then combine that
+  bridge with one common sector-local `q < 1` and pass to volume/spacing
+  limits.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,365-job dependency-complete build pass.  This proves the transfer-form
+  half of the direct sector bridge, not the head-centering density theorem, a
+  uniform completed gap, thermodynamic/continuum QFT, or the Clay theorem.

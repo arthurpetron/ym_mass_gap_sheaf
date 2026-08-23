@@ -6526,3 +6526,27 @@ noncomputable declaration was added.  This is a proved conditional
 implication: the sole fixed-nome finite-half-volume rate input is the still
 uninhabited cofinal common-rate certificate.  No unconditional completed
 gap, thermodynamic/continuum QFT, or Clay theorem is claimed.
+
+## The actual completed sector transfer form is the pulled sector cutoff limit (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseTransferForm` proves that on every
+dense root-sector cylinder presentation, the matrix coefficient of the actual
+completed lifted sector transfer is exactly the `CReal.RC` represented by the
+already-constructed pulled finite-sector matrix cutoff limit.
+
+The proof first shows that one-sided Markov recoding preserves the explicit
+structural inner rate.  Hence the same-cutoff diagonal converges to the
+completed dense transfer pairing.  At every cutoff beyond the presentation
+base, finite semantic recoding, weighted self-adjointness, and the linear
+realization theorem identify that diagonal with the pulled sector matrix
+quadratic.  Cofinal reindexing and constructive uniqueness of limits then give
+the completed equality.
+
+The focused monitored check and exact-target one-worker 1,365-job build pass.
+All five audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This removes the transfer-form
+identification half of the direct sector completion bridge.  Still open are
+the density/representation theorem for moving head-centered sector
+presentations, one common sector-local `q < 1`, and all
+thermodynamic/continuum/Clay conclusions.
