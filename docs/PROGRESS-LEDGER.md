@@ -9540,3 +9540,43 @@ the positive prefix ending at that edge source.  Applying the telescoping
 identity to that prefix will rewrite the exact conditional-Harnack summand in
 local transition-ratio form.  A cutoff-uniform bound for the resulting sums,
 the completed gap inhabitant, continuum QFT, and Clay theorem remain open.
+
+## Conditional Harnack load is an exact transition-product sum (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalTransitionProductTarget`
+constructs, from literal membership of a directed edge in a positive path,
+the positive prefix ending at that edge's source.  The extractor returns the
+source and target carrier witnesses, the prefix as Type-level chain data, and
+the selected edge's strict kernel positivity.  Its only generic computational
+input is explicit `DecidableEq`; on the actual `Nat` carrier no classical
+decision procedure is used.
+
+Applying pathwise detailed balance to this prefix rewrites every nonzero
+conditional-Harnack summand as
+
+`product_{prefix edges u->v} conditional(v,u)/conditional(u,v)`
+
+`  * weight(pair.right) * fullPathLength(pair)`.
+
+The module proves exact equality of the finite summed load with the preceding
+conditional-Harnack load.  It then proves that physical edge capacity is
+equivalent to bounding this transition-product sum by the allocated
+conditional transition probability.  The cofinal structure
+`CutoffTwoCofinalNovelConditionalTransitionProductBound` compiles such bounds
+to the completed vacuum-sector strict-contraction datum.
+
+The first focused check found a reserved identifier and an explicit empty-path
+contradiction; the second showed that eliminating propositional membership
+directly into Type is forbidden; the third caught an implicit use of
+`Classical.propDecidable`.  Those failed checks are not passes.  Supplying
+constructive decidable equality and branching on the computed head-edge test
+removes choice.  The corrected focused check passes in about 1.3 seconds.  The
+exact one-worker dependency-complete target passes 4,921 jobs, with the new
+module taking about 1.1 seconds.  Prefix extraction audits to `[propext]`; the
+four downstream audited exports use exactly `[propext, Quot.sound]`.
+
+The next analytic frontier is now local and multiplicative: obtain uniform
+control of the reverse/forward conditional ratios along canonical prefixes,
+then combine it with path length and endpoint-weight counting to bound the
+explicit edge sum.  No such uniform estimate, completed gap inhabitant,
+continuum QFT, or Clay theorem is claimed.

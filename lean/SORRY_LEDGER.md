@@ -7907,3 +7907,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 1.3 seconds.  Exact pathwise ratio transport is proved, but the
   prefix extraction, uniform congestion estimate, completed gap inhabitant,
   continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-transition-product] Exact prefix-local product target — **CLOSED 2026-08-23**
+
+- **milestone**: construct the positive prefix ending at the source of every
+  literal path-edge occurrence without Prop-to-Type elimination or classical
+  decision; rewrite each conditional-Harnack summand by the exact product of
+  reverse/forward conditional ratios on that prefix; sum the identity; prove
+  equivalence with physical edge capacity; and compile a cofinal family of
+  transition-product bounds to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalTransitionProductTarget.lean`.
+- **decl**: `PositiveKernelPrefixAtDirectedEdge`,
+  `PositiveKernelChainIn.prefixAtDirectedEdge`,
+  `cutoffTwoNovelPathPairConditionalTransitionProductTerm`,
+  `cutoffTwoNovelPathPairConditionalHarnackTerm_eqv_transitionProduct`,
+  `cutoffTwoNovelConditionalTransitionProductLoad`,
+  `cutoffTwoNovelConditionalHarnackLoad_eqv_transitionProductLoad`,
+  `cutoffTwoNovelEdgeCapacity_iff_conditionalTransitionProductTarget`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_transitionProduct`, and
+  `CutoffTwoCofinalNovelConditionalTransitionProductBound.toCompletedStrictContractionData`.
+- **obligation**: prove a cutoff-uniform bound for the prefix products of
+  reverse/forward conditional ratios and combine it with endpoint-weight and
+  path-length counting to control the explicit edge sum, or exhibit cofinal
+  overload requiring a different flow; then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — prefix extraction audits to `[propext]`, while all
+  four downstream audited exports use exactly `[propext, Quot.sound]`; the
+  failed classical fallback was eliminated and no forbidden construct remains.
+- **status note**: three focused checks failed on reserved syntax, forbidden
+  Prop-to-Type elimination, and a missing explicit decidable-equality input;
+  they are not passes.  The corrected focused check passes in about 1.3
+  seconds; the exact one-worker dependency-complete target passes 4,921 jobs
+  with the new module taking about 1.1 seconds.  The transition-product target
+  is exact, but its uniform bound, the completed gap inhabitant, continuum QFT,
+  and Clay theorem remain open.
