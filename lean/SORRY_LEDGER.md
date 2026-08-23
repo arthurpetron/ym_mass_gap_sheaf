@@ -8081,3 +8081,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds.  The conditional ceiling now has a stationary interpretation, but
   its cutoff-uniform control, payment, completed gap inhabitant, continuum
   QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-stationary-weight-oscillation] Maximum/minimum factorization — **CLOSED 2026-08-23**
+
+- **milestone**: construct the finite stationary-weight maximum and positive
+  minimum; bound every carrier weight between them; bound the maximum by the
+  vacuum-sector mass and hence by one; prove that the all-pairs stationary
+  ratio envelope is bounded by `maximum/minimum` and then by `1/minimum`; and
+  compile payment of the resulting reciprocal-minimum load to completed
+  strict contraction along a cofinal schedule.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalStationaryWeightOscillation.lean`.
+- **decl**: `cutoffTwoStationaryWeightFiniteMaximum`,
+  `cutoffTwoStationaryWeightFiniteMinimum`,
+  `cutoffTwoStationaryWeightFiniteMinimum_pos`,
+  `cutoffTwoStationaryWeightFiniteMaximum_le_sectorMass`,
+  `cutoffTwoStationaryWeightFiniteMaximum_le_one`,
+  `cutoffTwoStationaryWeightMaxMinEnvelope`,
+  `cutoffTwoStationaryWeightRatio_le_maxMinEnvelope`,
+  `cutoffTwoStationaryWeightRatioFiniteEnvelope_le_maxMinEnvelope`,
+  `cutoffTwoStationaryWeightReciprocalMinimumEnvelope`,
+  `cutoffTwoConditionalReverseForwardFiniteCeiling_le_reciprocalMinimumEnvelope`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingLoad_le_reciprocalMinimumEnvelopeLoad`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_reciprocalMinimumEnvelope`, and
+  `CutoffTwoCofinalNovelConditionalReciprocalMinimumEnvelopeBound.toCompletedStrictContractionData`.
+- **obligation**: do not seek uniformity through the coarse global minimum
+  unless justified; instead preserve positive-edge adjacency and derive a
+  local stationary-weight-ratio estimate from the BF4 action/support geometry,
+  or exhibit growing adjacent oscillation on the chosen canonical paths; then
+  construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — all finite extrema and quotient comparisons retain
+  explicit positive denominators; all eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused monitored check passes on its first attempt in
+  about 1.1 seconds; the exact one-worker dependency-complete target passes
+  4,926 jobs with the new module taking about 1.1 seconds.  The oscillation
+  factorization is proved, but the reciprocal-minimum route is explicitly
+  coarse; no uniform adjacent ratio, payment, completed gap inhabitant,
+  continuum QFT, or Clay theorem is closed.

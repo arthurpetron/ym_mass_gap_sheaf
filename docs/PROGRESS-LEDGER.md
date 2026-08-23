@@ -9729,3 +9729,44 @@ stationary-weight minimum, compare those quantities with the known normalized
 mass bounds, and determine whether the resulting estimate can be uniform or
 is necessarily too coarse.  The completed gap inhabitant, continuum QFT, and
 Clay theorem remain open.
+
+## Stationary oscillation factors into a finite maximum and minimum (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalStationaryWeightOscillation`
+constructs the located maximum and positive minimum of the stationary weights
+on every finite cutoff-two vacuum-sector carrier.  Literal membership gives
+the expected pointwise upper and lower bounds, while finite maximum-to-sum
+comparison proves that the maximum lies below the sector mass.
+
+The previously proved normalized-sector estimate then gives
+
+`maximumWeight <= sectorMass <= 1`.
+
+Cross-multiplication with positive denominators proves the explicit chain
+
+`positiveEdgeConditionalCeiling`
+
+`  <= allPairsStationaryRatioEnvelope`
+
+`  <= maximumWeight / minimumWeight`
+
+`  <= 1 / minimumWeight`.
+
+The reciprocal-minimum envelope supplies a valid local ratio-ceiling datum.
+Monotonicity of the ceiling-weighted load carries it into a sufficient
+edge-payment theorem and a cofinal compiler to completed vacuum-sector strict
+contraction.
+
+The focused monitored check passes on its first attempt in about 1.1 seconds.
+The exact one-worker dependency-complete target passes 4,926 jobs, with the
+new module taking about 1.1 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+This is a diagnostic contraction, not a uniform estimate.  The reciprocal of
+the global minimum is deliberately coarse and can diverge solely because the
+carrier expands; it must not be mistaken for the sharper adjacent-edge
+oscillation.  The next frontier is therefore to preserve adjacency and seek a
+local BF4 weight-ratio estimate from the explicit action/support geometry, or
+to certify that the chosen canonical paths encounter growing adjacent
+oscillation.  The uniform completed gap inhabitant, continuum QFT, and Clay
+theorem remain open.
