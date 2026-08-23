@@ -6712,3 +6712,29 @@ was added.  Still open are control of the centered-minus-raw outer diagonal,
 the analogous outer matrix convergence, a global centered-form cofinality
 inhabitant, one common sector-local `q < 1`, and all
 thermodynamic/continuum/Clay conclusions.
+
+## Arbitrary completed sector representatives have a controlled root-coordinate limit (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRootCoordinate` proves
+that the distinguished root coefficient is a continuous coordinate on the
+completed sector carrier.  At every sufficiently large finite cutoff, the
+uniform positive vacuum-row floor times the squared root-coordinate
+difference is bounded by the literal finite physical GNS distance.  Passing
+through the exact cutoff-stage bridge gives the corresponding eventual
+`CReal` inequality for the cutoff-removed sector distance.
+
+Reindexing an arbitrary sector representative's supplied squared-distance
+modulus at `floor * epsilon^2`, cancelling the positive floor, and reflecting
+the square bound constructs an explicit `CReal.QCauchy` datum for its rational
+root coefficients.  Hence every arbitrary completed-sector representative
+now has a canonical Bishop-real root-coordinate limit, with a proved
+convergence theorem.
+
+The focused monitored check and exact-target one-worker 1,583-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  This supplies the missing bounded/convergent root factor for the
+centered-minus-raw diagonal comparison.  Outer centered diagonal and matrix
+convergence, the global centered-form cofinality inhabitant, one common
+sector-local `q < 1`, and all thermodynamic/continuum/Clay conclusions remain
+open.

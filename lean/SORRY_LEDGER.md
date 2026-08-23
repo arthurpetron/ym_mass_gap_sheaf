@@ -5372,3 +5372,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,582-job dependency-complete build pass.  This proves outer uncentered norm
   convergence and endpoint identification, not centered outer convergence, a
   common strict rate, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-outer-root-coordinate] Arbitrary completed representatives have a Bishop-real root coordinate — **PROVED 2026-08-22**
+
+- **milestone**: prove the uniform positive vacuum-row floor times a squared
+  root-coordinate difference is dominated by the actual cutoff-removed
+  sector distance; use that estimate to construct an explicit rational
+  Cauchy modulus and Bishop-real limit for the root coefficients of every
+  arbitrary sector Cauchy representative.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRootCoordinate.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_rootDifferenceSq_floor_le_distSq` and
+  `centralPhysicalVacuumSectorCylinder_outerRootCoefficient_converges`.
+- **obligation**: combine the new root-coordinate convergence with outer
+  head-correction vanishing, root-weight boundedness, and raw-diagonal
+  convergence to prove outer centered-diagonal convergence; then prove the
+  matrix analogue and inhabit the global centered-form cofinality datum.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,583-job dependency-complete build pass.  This is a completed-coordinate
+  continuity theorem, not centered outer-form convergence, a common strict
+  rate, thermodynamic/continuum QFT, or the Clay theorem.
