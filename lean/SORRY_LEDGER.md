@@ -8380,3 +8380,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,977 jobs with the new module taking about 1.3 seconds.  The compiler is
   closed, but none of the three cofinal local payments is inhabited.  Uniform
   completed contraction, continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-conditional] Ratio-free cross-capacity reduction — **CLOSED 2026-08-23**
+
+- **milestone**: normalize the forward directed load by its source weight and
+  the reverse directed load by its target weight; prove that their symmetric
+  average has the same old stationary denominator on every old-to-new edge;
+  cancel that positive common factor from the physical capacity inequality;
+  remove the old--old half allocation on cross edges; and package the remaining
+  relative-load-versus-conditional-transition inequality as a non-vacuous
+  Type-level certificate that supplies the compiler's `old_new` field.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossConditional.lean`.
+- **decl**: `cutoffTwoNovelRelativeTargetEdgeLoad`,
+  `cutoffTwoEdgeLoadWeight_mul_relativeTargetEdgeLoad_eqv_load`,
+  `cutoffTwoNovelSymmetricRelativeSourceEdgeLoad`,
+  `cutoffTwoEdgeLoadWeight_mul_symmetricRelativeSourceEdgeLoad_eqv_load`,
+  `cutoffTwoNovelSymmetricEdgeCapacity_iff_relativeConditional`,
+  `cutoffTwoNovelAllocatedConditionalKernel_eqv_conditional_of_old_new`,
+  `CutoffTwoNovelSymmetricOldNewConditionalCapacityAt`, and
+  `CutoffTwoNovelSymmetricOldNewConditionalCapacityAt.old_new`.
+- **obligation**: use the persistent cutoff-two old-state row floor to replace
+  the reverse relative load's old denominator by a fixed positive denominator,
+  then prove the resulting envelope is paid by the old-to-new conditional
+  transition.  Independently estimate the irreducible new--new block; after
+  all three capacity fields are inhabited cofinally, construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — both divisions carry explicit retained-state
+  positivity witnesses, cancellation uses a strictly positive old weight, the
+  missing analytic statement is a named Type-level field, and all five audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on two missing namespace
+  openings and is not a pass.  The corrected focused monitored check passes in
+  about 1.1 seconds; the exact one-worker dependency-complete target passes
+  4,978 jobs with the new module taking about 1.1 seconds.  No cross-capacity
+  certificate is inhabited yet.  Uniform completed contraction, continuum
+  QFT, and the Clay theorem remain open.

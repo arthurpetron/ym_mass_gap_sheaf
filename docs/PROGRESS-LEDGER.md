@@ -10052,3 +10052,39 @@ payments separately and determine whether the old-to-new field closes from
 existing persistent estimates before expanding the explicit geometry of the
 new--new block.  Uniform completed contraction, thermodynamic/continuum theory,
 and the Clay theorem remain open.
+
+## Symmetric cross traffic cancels against one old source weight (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossConditional` removes the
+stationary-mass-ratio obstruction from the orientation-reduced old-to-new
+capacity field.  Besides the existing forward load divided by its source
+weight, it defines the reverse directed load divided by its target weight.
+On an old-to-new edge with old endpoint `s`, both denominators are therefore
+exactly `weight(s)`.
+
+The arithmetic average of those two relative loads factors the symmetric
+edge load by the single old stationary weight.  Cancelling that constructively
+positive common factor proves an exact equivalence between physical joint
+capacity and a relative-load-versus-conditional-transition inequality.  Since
+the half allocation applies only to old--old edges, the allocated conditional
+kernel on an old-to-new edge is exactly the full conditional transition.
+
+The Type-level
+`CutoffTwoNovelSymmetricOldNewConditionalCapacityAt` records precisely this
+ratio-free local inequality, and its theorem `old_new` produces the cross
+field required by the three-field symmetric capacity compiler.  The structure
+is intentionally not inhabited: the result changes the analytic obligation
+without pretending to prove its missing estimate.
+
+The first focused check exposed two missing namespace openings and is not a
+pass.  The corrected focused monitored check passes in about 1.1 seconds.  The
+exact one-worker dependency-complete target passes 4,978 jobs, with the new
+module taking about 1.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to transport the proved persistent cutoff-two old-state
+row floor to every old endpoint and use it to majorize the reverse relative
+load by a fixed-denominator envelope.  This will isolate the remaining
+old-to-new task as a uniform conditional transition payment.  New--new
+capacity, uniform completed contraction, thermodynamic/continuum theory, and
+the Clay theorem remain open.
