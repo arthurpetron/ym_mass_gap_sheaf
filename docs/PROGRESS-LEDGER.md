@@ -9975,3 +9975,41 @@ payment.  If deterministic path choice obstructs that route, the remaining
 local target is a BF4 raw-row scale comparison for new-state endpoints.
 Uniform payment, the completed gap inhabitant, thermodynamic/continuum theory,
 and the Clay theorem remain open.
+
+## Exact load symmetrization removes the cross-edge orientation defect (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricLoad` replaces the directed
+novel edge load by the arithmetic average of its forward and reverse values.
+A generic finite-Fubini theorem proves that transposing any directed joint on
+a square carrier leaves its Dirichlet form unchanged: the carrier sum swaps
+its two indices and the squared coefficient difference is symmetric.  By
+linearity and `1/2 + 1/2 = 1`, averaging a joint with its transpose therefore
+preserves the Dirichlet form exactly.
+
+Specializing this result shows that the symmetric novel loaded Dirichlet form
+is exactly the original routed form, so the proved novel pairwise-variance
+bound transfers with no loss of coercivity strength.  This is not merely a
+comparison by a factor two: it is an exact rational-setoid identity.
+
+The physical joint kernel and its old-old half allocation are also proved
+symmetric on retained states.  The new Type-level
+`CutoffTwoNovelSymmetricOrientedCapacityAt` therefore asks for only three
+blocks: old--old, old-to-new, and new--new.  Its theorem `new_old` derives the
+fourth block by exact load and capacity symmetry.  Thus all cross-block traffic
+can be checked with an old source, where the persistent old-state estimates
+are available; the genuinely irreducible local frontier is the new--new
+capacity block.
+
+The first two focused checks exposed one missing rational negation rewrite and
+are not passes.  The corrected focused monitored check passes in about 1.4
+seconds.  The exact one-worker dependency-complete target passes 4,976 jobs,
+with the new module taking about 1.2 seconds.  All seven audited exports use
+exactly `[propext, Quot.sound]`.
+
+No old-to-new or new--new capacity estimate is inhabited yet, and the new
+orientation-reduced datum is not yet compiled through the full-sector gap
+interface.  The next frontier is to build that compiler, which will make the
+three remaining local fields sufficient for completed strict contraction and
+will isolate the subsequent analytic work cleanly at the new--new block.
+Uniform payment, thermodynamic/continuum theory, and the Clay theorem remain
+open.

@@ -8305,3 +8305,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the current directed path flow only and does not rule out symmetric
   reorientation.  No uniform flow payment, completed gap inhabitant, continuum
   QFT, or Clay theorem is closed.
+
+### [BF4-cutoff-two-novel-flow-symmetric-load] Exact orientation-free flow energy — **CLOSED 2026-08-23**
+
+- **milestone**: prove by finite Fubini and exact squared-difference symmetry
+  that transposing a directed joint preserves its square-carrier Dirichlet
+  form; prove that averaging a joint with its transpose is exactly
+  energy-neutral; specialize this to a symmetric novel edge load; transfer the
+  existing novel pairwise-variance bound with no constant loss; prove symmetry
+  of the allocated physical kernel on retained states; and construct a
+  three-field oriented capacity datum whose old-to-new field derives the
+  omitted new-to-old comparison.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricLoad.lean`.
+- **decl**: `finiteJointDirichletBlock_transpose_eqv`,
+  `finiteJointDirichletBlock_averageTranspose_eqv`,
+  `cutoffTwoNovelSymmetricEdgeLoad`,
+  `cutoffTwoNovelSymmetricEdgeLoad_symm`,
+  `cutoffTwoNovelSymmetricRawLoadedDirichlet_eqv_original`,
+  `cutoffTwoNovelPairwiseVariance_le_symmetricRawLoadedDirichlet`,
+  `cutoffTwoNovelAllocatedKernel_symm`,
+  `CutoffTwoNovelSymmetricOrientedCapacityAt`, and
+  `CutoffTwoNovelSymmetricOrientedCapacityAt.new_old`.
+- **obligation**: compile the orientation-reduced capacity datum through the
+  full-sector coercivity and completed-gap interfaces.  Then prove the
+  old--old and old-to-new capacity payments from persistent estimates and
+  confront the irreducible new--new capacity block through explicit local BF4
+  geometry or a different multiscale flow; finally construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — the transpose uses literal finite Fubini, averaging
+  uses the exact rational half identity, every kernel symmetry invocation is
+  guarded by retained-carrier witnesses, and all seven audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two focused checks failed because one rational
+  negation rewrite was absent and are not passes.  The corrected focused check
+  passes in about 1.4 seconds; the exact one-worker dependency-complete target
+  passes 4,976 jobs with the new module taking about 1.2 seconds.  Exact
+  symmetrization removes the cross-edge orientation defect but supplies no
+  capacity estimate.  The uniform flow payment, completed gap inhabitant,
+  continuum QFT, and Clay theorem remain open.
