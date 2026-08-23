@@ -728,6 +728,35 @@ end CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperClearedLDLCertificate
 
 /-! ## 3. Cofinal sector-local certificates and the same-object limit -/
 
+/-- Order-invariant upper-PSD witnesses pinned to prescribed centered
+restrictions along a constructively cofinal sequence of changing carriers. -/
+structure CofinalFixedCenteredRestrictionUpperPSDCertificate
+    (q : Q') (size : Nat → Nat)
+    (weight : Nat → Nat → Q')
+    (kernel : Nat → Nat → Nat → Q')
+    (restriction : ∀ cutoff,
+      FiniteCenteredTwoSidedRestriction
+        (size cutoff) q (weight cutoff) (kernel cutoff)) : Type 1 where
+  anchor : Nat → Nat
+  anchor_ge : ∀ request, request ≤ anchor request
+  certificate : ∀ request,
+    FiniteCenteredRestrictionUpperPSDCertificate
+      (restriction (anchor request))
+
+abbrev FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate
+    (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) (q : Q') : Type 1 :=
+  CofinalFixedCenteredRestrictionUpperPSDCertificate
+    q
+    (fun cutoff =>
+      centralPhysicalFiniteVacuumSectorCoordinateSize w hw cutoff half)
+    (fun cutoff =>
+      centralPhysicalFiniteVacuumSectorCoordinateWeight w hw cutoff half)
+    (fun cutoff =>
+      centralPhysicalFiniteVacuumSectorCoordinateKernel w hw cutoff half)
+    (fun cutoff =>
+      centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction
+        w hw cutoff half q)
+
 abbrev FixedNomeCofinalVacuumSectorCanonicalHeadUpperLDLAtRate
     (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) (q : Q') : Type 1 :=
   CofinalFixedCenteredRestrictionUpperLDLCertificate
@@ -874,6 +903,45 @@ private def toVacuumSectorCenteredStrictGap_of_coordinateUpper
         (Q'.le_of_eqv
           (Q'.mul_eqv_congr_left q _ _ hdiagonal)))
 
+namespace FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate
+
+/-- A cofinal family of generated upper-PSD witnesses at one strict rate is
+the exact order-invariant input needed by the same-object centered bridge. -/
+def toVacuumSectorCenteredStrictGap
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {q : Q'}
+    (hq0 : (0 : Q') ≤ q) (hq1 : q < (1 : Q'))
+    (certificate :
+      FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate
+        w hw half q) :
+    FixedNomeCofinalVacuumSectorCenteredStrictGap w hw half q :=
+  toVacuumSectorCenteredStrictGap_of_coordinateUpper
+    hq0 hq1 certificate.anchor certificate.anchor_ge
+    (fun request coordinate hcenter =>
+      (certificate.certificate request).upperContraction
+        coordinate hcenter)
+
+theorem centeredMatrixCutoffLimit_leEv_rate_mul_diagonal
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (half : Nat) {q : Q'}
+    (hq0 : (0 : Q') ≤ q) (hq1 : q < (1 : Q'))
+    (certificate :
+      FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate
+        w (Q'.le_of_lt hw0) half q)
+    (base : Nat) (coefficient : Nat → Q') :
+    CReal.leEv
+      (centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit
+        hw0 hw1 base half coefficient)
+      (CReal.mul
+        (CReal.ofQ' q)
+        (centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit
+          hw0 hw1 base half coefficient)) :=
+  FixedNomeCofinalVacuumSectorCenteredStrictGap.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal
+      hw0 hw1 half
+      (toVacuumSectorCenteredStrictGap hq0 hq1 certificate)
+      base coefficient
+
+end FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate
+
 namespace FixedNomeCofinalVacuumSectorCanonicalHeadUpperLDLAtRate
 
 def toVacuumSectorCenteredStrictGap
@@ -968,6 +1036,10 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate.ofMeanZeroAbsGap
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.CentralPhysicalFiniteVacuumSectorCanonicalHeadUpperPSDCertificate.meanZeroAbsGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate.toVacuumSectorCenteredStrictGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.centralPhysicalFiniteVacuumSectorCoordinateDiagonal_eqv
 #print axioms

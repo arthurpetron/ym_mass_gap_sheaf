@@ -6980,3 +6980,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inverse are not passes.  This proves one finite generated witness, not its
   cofinal uniform family, a completed gap, thermodynamic/continuum QFT, or the
   Clay theorem.
+
+### [BF4-cofinal-sector-local-upper-PSD] Cofinal finite gaps to completion — **CLOSED 2026-08-23**
+
+- **milestone**: define cofinal generated upper-PSD families; compile them at
+  a supplied strict rate to the same-object CReal limit inequality; isolate
+  the equivalent direct physical finite-sector strict-gap family; and carry
+  either formulation to the actual completed vacuum-sector transfer
+  contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorLocalUpperPSDCofinalBridge.lean`.
+- **decl**:
+  `CofinalFixedCenteredRestrictionUpperPSDCertificate`,
+  `FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeCofinalVacuumSectorCanonicalHeadUpperPSDAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`,
+  `FixedNomeCofinalVacuumSectorFiniteStrictGap`,
+  `FixedNomeCofinalVacuumSectorFiniteStrictGap.toCanonicalHeadUpperPSDAtRate`,
+  `FixedNomeCofinalVacuumSectorFiniteStrictGap.toCompletedStrictContractionData`,
+  and the upper-PSD-family `toCompletedStrictContractionData`.
+- **obligation**: inhabit the cofinal family at one uniform `q < 1`.  The
+  cutoff-two `49/50` certificate is only one finite anchor and does not imply
+  an unbounded schedule.  Then establish the additional volume/spacing
+  control required by the continuum construction.
+- **constructive?**: yes — all six newly audited cofinal exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused checks pass in about 1.6 and 1.1 seconds, and the
+  exact-target one-worker dependency-complete build passes 4,884 jobs.
+  Interrupted abnormal elaboration and diagnostic `#exit` runs are not
+  passes.  This closes the implication from a cofinal finite strict-gap/PSD
+  family to completion, not construction of that family, thermodynamic or
+  continuum QFT, or the Clay theorem.

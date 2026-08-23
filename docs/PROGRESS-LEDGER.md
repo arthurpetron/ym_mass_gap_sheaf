@@ -8423,3 +8423,36 @@ This is a genuine finite inhabitant at cutoff two only.  No cofinal family at
 one uniform strict rate has been constructed.  That all-cutoff analytic
 input, the completed vacuum-complement gap, volume/spacing control,
 continuum QFT, and the Clay theorem remain open.
+
+## Cofinal sector-local upper PSD now reaches the completed transfer (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge` now defines a
+constructively cofinal family of order-invariant upper-PSD witnesses for the
+generated canonical sector restriction.  At any supplied `0 <= q < 1`, that
+family compiles to the same-object moving centered strict-gap interface and
+its literal `CReal.leEv` matrix-versus-diagonal cutoff-limit inequality.
+
+`BF4PhysicalCutoffVacuumSectorLocalUpperPSDCofinalBridge` isolates an even
+more direct analytic input: exact physical mean-zero absolute sector gaps at
+one strict rate along an unbounded cofinal cutoff schedule.  It converts each
+such gap to the generated upper-PSD restriction, then contracts the family
+through the existing same-object interface and the independently proved
+completed positive-form Cauchy--Schwarz law.  The endpoint is the actual
+`CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`, not only
+a finite matrix statement.
+
+The local bridge focused check passes in about 1.6 seconds.  The new cofinal
+compiler focused check passes in about 1.1 seconds, and its exact one-worker
+dependency-complete target passes 4,884 jobs.  All six newly audited cofinal
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Three abnormal elaboration runs around a redundant CReal wrapper were
+interrupted and are not passes; diagnostic `#exit` boundaries located that
+wrapper, which was removed because the underlying PSD bridge already exports
+the same CReal theorem.
+
+No cofinal finite strict-gap or upper-PSD family is inhabited.  The cutoff-two
+`49/50` witness proves only the first finite anchor.  The next genuine
+analytic frontier is uniform strict persistence on an unbounded cutoff
+schedule; after that, volume/spacing-uniform completion and the continuum QFT
+and Clay targets remain open.
