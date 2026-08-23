@@ -7980,3 +7980,28 @@ normalization bridge is the next prerequisite for evaluating the exact
 target/source overlap floors and their residual scalar `r_1`.  A cofinal
 bound `r_K <= q < 1`, thermodynamic/continuum control, and the Clay theorem
 remain open.
+
+## The cutoff-one canonical index presentation is exactly two-state and multiplicity-free (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorPresentation` strengthens
+the cutoff-one state-support equivalence to a multiplicity-preserving list
+equivalence.  It proves that totalized carrier lookup is injective on the
+canonical component, the mapped canonical state list is nodup, and that list
+is a permutation of `[vacuum, central cube]`.  A reusable theorem therefore
+transports every rational `listQSum` from the canonical index presentation to
+the explicit two-state presentation without selecting inverse
+representatives.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,403 jobs.  All four audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Two failed focused checks exposed only a reversed associativity step
+in the local permutation-sum proof and a missing namespace for the totalized
+vacuum fallback; both were corrected before the passing audit.
+
+This is still finite at `K = 1`.  It removes the normalization multiplicity
+ambiguity but does not yet prove that the indexed sector-conditioned
+stationary law equals the refresh posterior.  That equality, the exact
+overlap floors and `r_1`, a cofinal `r_K <= q < 1`, thermodynamic/continuum
+control, and the Clay theorem remain open.

@@ -6594,3 +6594,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   namespace ambiguity and is not counted as a passing audit.  This theorem is
   cutoff-one only; the cofinal completed gap, thermodynamic/continuum QFT,
   and Clay theorem remain open.
+
+### [BF4-cutoff-one-canonical-presentation] Multiplicity-free two-state recoding — **PROVED FINITE 2026-08-23**
+
+- **milestone**: prove totalized finite-carrier lookup is injective on the
+  canonical component; prove the mapped cutoff-one canonical state list is
+  nodup and a permutation of `[vacuum, central cube]`; and transport every
+  rational list sum across that exact permutation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorPresentation.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorStates_cutoffOne_nodup`,
+  `cutoffOneVacuumCubePhysicalSources_nodup`,
+  `centralPhysicalFiniteVacuumSectorStates_cutoffOne_perm`, and
+  `centralPhysicalFiniteVacuumSectorStates_cutoffOne_sum_eqv`.
+- **obligation**: use the multiplicity-free recoding and exact refresh rows
+  to identify the indexed sector-conditioned stationary law with the refresh
+  posterior; then evaluate both overlap floors and `r_1`, followed by a fixed
+  cofinal `r_K <= q < 1` estimate.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,403 jobs.  Two
+  failed focused checks exposed a reversed local associativity step and a
+  missing namespace for `zeroEdgeLabelling`; neither is counted as a pass.
+  This is cutoff-one only; the cofinal completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
