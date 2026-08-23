@@ -9770,3 +9770,40 @@ local BF4 weight-ratio estimate from the explicit action/support geometry, or
 to certify that the chosen canonical paths encounter growing adjacent
 oscillation.  The uniform completed gap inhabitant, continuum QFT, and Clay
 theorem remain open.
+
+## The global partition cancels from every positive-edge ratio (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalRawRowRatio` defines the
+unnormalized reflected BF4 row mass of every indexed vacuum-sector state as
+the finite sum of `centralPhysicalReflectedKernel` over the literal positive
+carrier.  The pre-existing general marginal factorization is specialized to
+prove, on every retained state,
+
+`stationaryWeight = rawRowMass * commonPartitionReciprocal`
+
+in the rational setoid.  Retained stationary-weight positivity and positivity
+of the common reciprocal then constructively imply strict positivity of the
+raw row mass, so all following divisions have explicit positive-denominator
+witnesses.
+
+Cross multiplication cancels the common reciprocal exactly from each ordered
+carrier ratio.  After restricting to positive physical edges and lifting the
+pointwise identity through the located finite maximum, the already constructed
+reverse/forward conditional ceiling is proved exactly equal to the maximum of
+unnormalized BF4 row-mass ratios on positive edges.  A raw-row ceiling datum,
+edge-load payment theorem, and cofinal compiler carry any eventual raw-row
+capacity estimate through to completed vacuum-sector strict contraction.
+
+The first two focused checks exposed missing namespace openings and are not
+passes.  The corrected focused monitored check passes in about 1.4 seconds.
+The exact one-worker dependency-complete target passes 4,966 jobs, with the new
+module taking about 1.3 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+This removes a global normalization obstruction but does not provide a
+cutoff-uniform local estimate.  The next frontier is to expand each raw row
+mass into its finite boundary-channel weighted-Gram sum and isolate what
+comparison of neighboring BF4 amplitudes or local action terms would bound
+the positive-edge row ratio uniformly.  The uniform payment theorem,
+completed gap inhabitant, thermodynamic/continuum theory, and Clay theorem
+remain open.
