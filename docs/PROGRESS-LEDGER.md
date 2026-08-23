@@ -10516,3 +10516,34 @@ failure paired with exact-product success calls for a sharper local estimate;
 an exact-product failure calls for route redesign.  Cofinal successful
 payments, completed uniform contraction, thermodynamic/continuum theory, and
 the Clay theorem remain open.
+
+## The finite checker hierarchy is now ordered by conservativeness (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportDominance` proves
+base monotonicity for the constructive rational powers used in path ceilings,
+then propagates it through each source-prefix term, through-edge target-prefix
+term, finite endpoint-pair sum, and symmetric half-average.  Consequently the
+routed-support ceiling load is pointwise no larger than the full-carrier
+ceiling load.
+
+At the reflected-decision level this gives the causal hierarchy
+`full-carrier check -> routed-support check -> exact transition-product check`.
+The second implication passes through the already constructed routed-capacity
+certificate and exact-check completeness.  Neither implication is reversed,
+and none supplies a successful check by itself.
+
+A guarded cutoff-2 `#eval` attempt for the new block checks produced no value:
+the crash-safe monitor stopped elaboration/evaluation when available memory
+reached the configured 12 GiB reserve.  It is recorded as inconclusive, not as
+a failed payment.  The dominance module's first focused checks exposed
+missing namespaces and proof-dependent path unfolding; these are not passes.
+The corrected focused check passes in about 1.1 seconds.  The exact one-worker
+dependency-complete target passes 4,993 jobs, with the new module taking about
+1.1 seconds.  All six audited exports remain within `[propext, Quot.sound]`
+(the elementary power lemma uses `[propext]`).
+
+The next analytic frontier is to avoid normalizing the enormous closed terms:
+derive block- and path-local symbolic bounds on the explicit transition
+products, or change the route family when an exact counteredge can be exposed
+within bounded resources.  Cofinal capacity, completed uniform contraction,
+thermodynamic/continuum theory, and the Clay theorem remain open.

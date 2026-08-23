@@ -8869,3 +8869,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,992 jobs with the new module taking about 1.2 seconds.  No scan result or
   cofinal success, completed uniform contraction, continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-cutoff-two-novel-flow-symmetric-routed-support-dominance] Ordered finite checker hierarchy — **CLOSED 2026-08-23**
+
+- **milestone**: prove monotonicity of every rational-power path ceiling term,
+  both finite prefix-load sums, and the symmetric ceiling load; show the
+  routed-support load is pointwise no larger than the full-carrier load; and
+  derive the checker implications `full-carrier -> routed-support -> exact
+  transition-product`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportDominance.lean`.
+- **decl**: `qpow_base_mono`, the source and target pair-term monotonicity
+  theorems, the two summed-load monotonicity theorems,
+  `cutoffTwoNovelSymmetricRoutedRatioCeilingLoad_mono`,
+  `cutoffTwoNovelSymmetricRoutedSupportFiniteCeilingLoad_le_fullFiniteCeilingLoad`,
+  `cutoffTwoNovelSymmetricAllBlockFiniteCheck_implies_routedSupportCheck`, and
+  `cutoffTwoNovelSymmetricRoutedSupportCheck_implies_transitionProductCheck`.
+- **obligation**: derive tractable block/path-local symbolic product bounds or
+  expose an exact failed edge within bounded resources; use that evidence to
+  prove cofinal capacity or redesign the canonical routes; then construct and
+  control thermodynamic and continuum limits.
+- **constructive?**: yes — finite-list monotonicity and Boolean reflection are
+  explicit, all six audited exports stay within `[propext, Quot.sound]`, and
+  the elementary rational-power lemma uses `[propext]`; no forbidden
+  construct was added.
+- **status note**: a guarded cutoff-2 evaluation stopped at the configured
+  12 GiB reserve before returning a value and is inconclusive.  Earlier focused
+  checks failed during namespace and proof-dependent unfolding repair and are
+  not passes.  The corrected focused check passes in about 1.1 seconds; the
+  exact one-worker target passes 4,993 jobs with the new module taking about
+  1.1 seconds.  The hierarchy supplies implications only: no scan result,
+  cofinal capacity, completed uniform contraction, continuum QFT, or Clay
+  theorem is asserted.
