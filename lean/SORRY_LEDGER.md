@@ -7737,3 +7737,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   pass.  The spurious unit-fallback branch is closed, but uniform control of
   loaded edges, the completed gap inhabitant, continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-cutoff-two-novel-flow-edge-expansion] Exact endpoint-pair load decomposition — **CLOSED 2026-08-23**
+
+- **milestone**: expose the generic flat-map edge-load identity; prove that
+  one simple path contributes exactly its stationary endpoint-product times
+  its length when the selected edge occurs and zero otherwise; regroup the
+  novel edge load exactly as the sum of those endpoint-pair contributions;
+  and prove that any pairwise payment allocation fitting inside the physical
+  edge allocation discharges the grouped capacity inequality.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowEdgeExpansion.lean`.
+- **decl**: `weightedDirectedEdgeLoad_constantMap_eqv_indicator`,
+  `weightedDirectedEdgeLoad_flatMap_eqv`,
+  `cutoffTwoSimpleWeightedPathEdgeLoad_eqv_indicator`,
+  `cutoffTwoNovelPathPairEdgeContribution`,
+  `cutoffTwoNovelSimpleEdgeLoad_eqv_pairContributionSum`,
+  `cutoffTwoNovelPathPairEdgeContribution_eqv_indicator`,
+  `CutoffTwoNovelEdgePairAllocation`, and
+  `CutoffTwoNovelEdgePairAllocation.toEdgeCapacity`.
+- **obligation**: normalize the endpoint-pair terms by their common allocated
+  BF4 edge kernel and prove a cutoff-uniform bound for the resulting canonical
+  path congestion, or extract an asymptotic overload family requiring a new
+  flow; then construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — all four newly audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the supporting focused check passes in about 70 seconds and
+  its rebuilt exact target takes about 77 seconds.  The expansion focused
+  check passes in about one second; the exact one-worker dependency-complete
+  target passes 4,916 jobs with the new module taking about 0.94 seconds.
+  Initial missing-namespace and under-applied-sum checks failed and are not
+  passes.  The exact edge load is now expanded into analyzable endpoint terms,
+  but its uniform BF4 kernel payment, the completed gap inhabitant, continuum
+  QFT, and Clay theorem remain open.

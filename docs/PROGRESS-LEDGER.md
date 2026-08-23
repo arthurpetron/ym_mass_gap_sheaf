@@ -9346,3 +9346,42 @@ into the contributing stationary endpoint pairs and compare those terms with
 the concrete normalized BF4 kernel formula, uniformly in the representation
 cutoff.  The completed uniform gap, continuum QFT, and Clay theorem remain
 open.
+
+## Endpoint-pair expansion of each novel-flow edge load (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad` now exposes the generic
+flat-map load identity and proves the exact load of one loop-erased endpoint
+path on a selected edge.  That contribution is zero when the edge is absent
+from the path and otherwise equals
+
+`weight(left) * weight(right) * pathLength(left,right)`.
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowEdgeExpansion` defines this term as
+`cutoffTwoNovelPathPairEdgeContribution` and proves the exact regrouping
+
+`novelEdgeLoad(source,target)`
+
+`  = sum_{novel endpoint pairs} pathPairEdgeContribution(source,target,pair)`.
+
+This reverses the earlier occurrence aggregation at precisely the local edge
+returned by the decisive failure diagnostic.  The new
+`CutoffTwoNovelEdgePairAllocation` interface also proves a finite payment
+compiler: if every endpoint-pair contribution is assigned a payment and the
+sum of those payments fits inside the edge's allocated physical kernel, then
+the grouped edge-capacity inequality follows.  This exposes the stationary
+endpoint weights and path incidence needed for a weighted congestion argument
+without reverting to the shrinking global positive-edge floor.
+
+The focused supporting check passes in about 70 seconds; rebuilding its exact
+target takes about 77 seconds.  The new expansion module's focused check
+passes in about one second, and the exact one-worker dependency-complete
+target passes 4,916 jobs with the new module taking about 0.94 seconds.  All
+four newly audited exports use exactly `[propext, Quot.sound]`.  The first
+expansion checks failed on missing namespace openings and an under-applied
+finite-sum monotonicity theorem and are not passes.
+
+The local obstruction is now a finite sum of explicit stationary-product
+path terms.  The next frontier is to normalize those terms by their common
+allocated BF4 kernel, producing the standard edge-congestion quantity and a
+uniform weighted-Harnack target.  The uniform completed gap, continuum QFT,
+and Clay theorem remain open.

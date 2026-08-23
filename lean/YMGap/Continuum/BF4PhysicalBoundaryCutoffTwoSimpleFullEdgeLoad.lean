@@ -115,7 +115,7 @@ theorem cutoffTwoSimplePositivePath_directedEdges_nodup
 
 /-! ## 2. A duplicate-free constant occurrence list charges an edge once -/
 
-private theorem weightedDirectedEdgeLoad_constantMap_eqv_indicator
+theorem weightedDirectedEdgeLoad_constantMap_eqv_indicator
     {State : Type} [DecidableEq State]
     (load : Q') (source target : State) :
     ∀ edges : List (State × State), edges.Nodup →
@@ -291,6 +291,47 @@ def cutoffTwoSimpleWeightedPathOccurrences
         (fun edge => (edge, load))
     else []
   else []
+
+/-- The load contributed by one loop-erased endpoint path to a fixed edge is
+exactly its stationary endpoint weight times its path length when that edge
+occurs, and zero otherwise. -/
+theorem cutoffTwoSimpleWeightedPathEdgeLoad_eqv_indicator
+    (later left right source target : Nat)
+    (hleft : left ∈ cutoffTwoEdgeLoadFullStates later)
+    (hright : right ∈ cutoffTwoEdgeLoadFullStates later) :
+    weightedDirectedEdgeLoad
+        (cutoffTwoSimpleWeightedPathOccurrences later left right)
+        source target ≈
+      if (source, target) ∈
+          BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+            (centralPhysicalFiniteVacuumSectorSimplePositivePath
+              cutoffTwoHalfCoupling (by decide) later 0
+              left right hleft hright) then
+        (cutoffTwoEdgeLoadWeight later left *
+            cutoffTwoEdgeLoadWeight later right) *
+          Q'.ofNat
+            (BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.edgeLength
+              (centralPhysicalFiniteVacuumSectorSimplePositivePath
+                cutoffTwoHalfCoupling (by decide) later 0
+                left right hleft hright))
+      else 0 := by
+  unfold cutoffTwoSimpleWeightedPathOccurrences
+  rw [dif_pos hleft, dif_pos hright]
+  exact weightedDirectedEdgeLoad_constantMap_eqv_indicator
+    ((cutoffTwoEdgeLoadWeight later left *
+        cutoffTwoEdgeLoadWeight later right) *
+      Q'.ofNat
+        (BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.edgeLength
+          (centralPhysicalFiniteVacuumSectorSimplePositivePath
+            cutoffTwoHalfCoupling (by decide) later 0
+            left right hleft hright)))
+    source target
+    (BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+      (centralPhysicalFiniteVacuumSectorSimplePositivePath
+        cutoffTwoHalfCoupling (by decide) later 0
+        left right hleft hright))
+    (cutoffTwoSimplePositivePath_directedEdges_nodup
+      later left right hleft hright)
 
 theorem cutoffTwoSimpleWeightedPathOccurrenceEnergy_eqv_pairBudget
     (later : Nat) (coefficient : Nat → Q')
@@ -571,7 +612,7 @@ theorem cutoffTwoSimpleFullLengthLinearAggregateBudget_eqv_loadedDirichlet
 
 /-! ## 5. The full simple-path edge load is at most sector size -/
 
-private theorem weightedDirectedEdgeLoad_flatMap_eqv
+theorem weightedDirectedEdgeLoad_flatMap_eqv
     {Class State : Type} [DecidableEq State]
     (classes : List Class)
     (occurrences : Class → List (WeightedDirectedEdgeOccurrence State))
@@ -950,6 +991,8 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad.cutoffTwoSimplePositivePath_directedEdges_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad.cutoffTwoSimpleWeightedPathEdgeLoad_eqv_indicator
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad.cutoffTwoSimpleWeightedPathOccurrenceEnergy_eqv_pairBudget
 #print axioms
