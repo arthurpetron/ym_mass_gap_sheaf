@@ -6013,3 +6013,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   density-defect target and 1,486 jobs for the final two-budget gap target.
   Neither analytic budget is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-local-contraction-gluing] Sector-normalized density-power compiler — **REDUCED 2026-08-23**
+
+- **milestone**: extract the generic signed-`L1` local-slice tensorization
+  estimate `qS * qS * qS^(depth - 2)` from exact stationary row/column laws
+  and exact density-power gluing; specialize it directly to the canonical
+  component-conditioned BF4 weight and density; prove that `qS <= 1/4` gives
+  the corrected conditioned row bound `1/16`; and compile a constructively
+  cofinal family of such sector-local slices to the existing completed
+  same-object vacuum-sector strict gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorLocalContractionGluing.lean`.
+- **decl**:
+  `FiniteWeightedLocalContractionGluingRow`,
+  `FiniteWeightedLocalContractionGluingRow.middlePower_centered_row_le`,
+  `FiniteWeightedLocalContractionGluingRow.middleRight_centered_row_le`,
+  `FiniteWeightedLocalContractionGluingRow.density_centered_row_le_local_power`,
+  `FiniteWeightedLocalContractionGluingRow.density_centered_row_le_sixteenth`,
+  `PhysicalBF4VacuumSectorLocalSliceGluing`,
+  `PhysicalBF4VacuumSectorLocalSliceGluing.conditionedDensityCenteredRow_le_sixteenth`,
+  `FixedNomeCofinalVacuumSectorLocalSliceGluing.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumSectorLocalSliceGluing.toVacuumSectorCenteredStrictGap`.
+- **obligation**: inhabit the cofinal family by constructing a shared
+  sector-preserving one-step density with exact stationary row and column
+  laws, exact finite density-power gluing to the conditioned physical
+  density, and a cutoff-uniform centered one-step rate `qS <= 1/4`.  The
+  compiler deliberately does not assume vacuum-component mass concentration.
+- **constructive?**: yes — all eight audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes, and the exact-target
+  one-worker dependency-complete build passes 1,485 jobs.  No sector-local
+  slice family is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.

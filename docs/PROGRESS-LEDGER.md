@@ -7375,3 +7375,37 @@ mixing directly and avoid the mass-concentration obligation.  No current
 theorem proves that the canonical component mass approaches one.  The
 unconditional completed gap, thermodynamic/continuum control, and the Clay
 theorem remain open.
+
+## Sector-local density-power gluing avoids the component-mass defect (2026-08-23)
+
+`BF4PhysicalVacuumSectorLocalContractionGluing` extracts a generic finite
+signed-`L1` tensorization theorem for a stationary density presented as two
+endpoint steps and a middle power of one common local density.  Exact row and
+column laws, exact density-power gluing at depth at least three, and a
+centered one-step row rate `qS` give the explicit carrier-free estimate
+
+`conditioned density row error <= qS * qS * qS^(depth - 2)`.
+
+Consequently `qS <= 1/4` implies a uniform conditioned row bound `<= 1/16`.
+The theorem is then specialized directly to the canonical vacuum-component
+probability weight and conditioned physical density.  This route never
+passes through the full-carrier stationary law and therefore introduces no
+`|pi(S)-1|` component-mass defect.
+
+`FixedNomeCofinalVacuumSectorLocalSliceGluing` packages one shared
+sector-local step, its exact gluing depth, and its uniform quarter contraction
+at every constructively selected cofinal cutoff.  Such a family compiles to
+the corrected mass-normalized row certificate and then to the existing
+completed same-object vacuum-sector strict gap at rate `1/16`.
+
+The focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,485 jobs.  All eight audited exports use at
+most `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.
+
+No sector-local slice family is inhabited.  The next producer obligation is
+to construct a shared sector-preserving one-step density with exact row and
+column normalization, an exact finite density-power identity for the
+conditioned physical density, and a cutoff-uniform centered rate `qS <= 1/4`.
+The unconditional completed gap, thermodynamic/continuum control, and the
+Clay theorem remain open.
