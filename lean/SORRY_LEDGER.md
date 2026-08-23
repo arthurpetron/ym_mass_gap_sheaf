@@ -8454,3 +8454,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,979 jobs with the new module taking about 1.1 seconds.  No capacity field
   is inhabited by this envelope alone.  Uniform completed contraction,
   continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-transition-product] Exact two-orientation product target — **CLOSED 2026-08-23**
+
+- **milestone**: distribute target normalization over the endpoint-pair edge
+  expansion; identify each target-normalized incidence with its exact
+  endpoint/edge-target Harnack term; extend the constructively extracted path
+  prefix through the selected positive edge; telescope the target ratio into
+  reverse/forward conditional transition factors; and prove that the average
+  of the existing source-prefix load and new through-edge target-prefix load
+  is exactly the symmetric relative cross load.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossTransitionProduct.lean`.
+- **decl**: `cutoffTwoNovelPathPairRelativeTargetDemand`,
+  `cutoffTwoNovelRelativeTargetEdgeLoad_eqv_pairDemandSum`,
+  `cutoffTwoNovelPathPairConditionalTargetHarnackTerm`,
+  `cutoffTwoNovelPathPairRelativeTargetDemand_eqv_harnackTerm`,
+  `positiveKernelPrefixThroughEdge`,
+  `cutoffTwoNovelPathPairConditionalTargetTransitionProductTerm`,
+  `cutoffTwoNovelPathPairConditionalTargetHarnackTerm_eqv_transitionProduct`,
+  `cutoffTwoNovelSymmetricCrossTransitionProductLoad`,
+  `cutoffTwoNovelSymmetricRelativeSourceEdgeLoad_eqv_crossTransitionProductLoad`,
+  and `CutoffTwoNovelSymmetricOldNewTransitionProductCapacityAt`.
+- **obligation**: bound both exact conditional products using local
+  reverse/forward transition ceilings and prove that the resulting symmetric
+  ceiling load is paid by the old-to-new conditional transition.  Separately
+  inhabit old--old and new--new capacity; after uniform cofinal payment,
+  construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — endpoint-pair membership, edge occurrence, prefix,
+  positive edge, and the through-edge chain are all explicit data; the path
+  extension is axiom-free and the other five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two focused checks failed on namespace,
+  dependent-`if`, reserved-identifier, and field-notation details and are not
+  passes.  The corrected focused check passes in about 1.1 seconds; the exact
+  one-worker dependency-complete target passes 4,979 jobs with the new module
+  taking about 1.1 seconds.  The transition-product capacity certificate is
+  not inhabited.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.

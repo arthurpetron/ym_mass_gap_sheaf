@@ -10122,3 +10122,41 @@ reverse terms into endpoint-pair/edge-occurrence sums and compare them with
 the already formalized conditional transition product formulas.  Old--old and
 new--new capacity, uniform completed contraction, thermodynamic/continuum
 theory, and the Clay theorem remain open.
+
+## Both symmetric cross orientations are exact transition products (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossTransitionProduct`
+expands target-normalized reverse traffic into literal endpoint-pair terms and
+proves its exact target-Harnack formula.  For an occurrence of a selected
+directed edge, the constructive prefix ending at its source is extended
+through that positive edge to its target.  Pathwise detailed balance then
+rewrites the endpoint/target stationary ratio as the product of reverse over
+forward conditional transitions along this extended prefix.
+
+The existing source-normalized formula handles the forward old-to-new half;
+the new target-normalized formula handles the reverse new-to-old half.  Their
+average is proved exactly equal to the symmetric relative cross load.  Thus
+the cross frontier no longer contains any unexpanded stationary-weight ratio:
+it is a finite sum of explicit conditional transition products, with the
+reverse contribution using a prefix one edge longer.
+
+The Type-level
+`CutoffTwoNovelSymmetricOldNewTransitionProductCapacityAt` asks the physical
+old-to-new conditional transition to pay precisely that exact product load and
+contracts to the preceding cross-capacity certificate.  It is not inhabited
+here, so no uniform estimate is claimed.
+
+The first two focused checks exposed a missing finite-sum namespace, dependent
+`if` simplification, a reserved identifier, and namespace-sensitive field
+notation; neither is a pass.  The corrected focused monitored check passes in
+about 1.1 seconds.  The exact one-worker dependency-complete target passes
+4,979 jobs, with the new module taking about 1.1 seconds.  The path-extension
+definition is axiom-free; the other five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to apply one-edge conditional reverse/forward ceilings to
+both prefix products and derive an explicit symmetric ceiling load.  The
+analytic core will then be a local ceiling-and-payment estimate rather than a
+hidden stationary-ratio assertion.  Old--old and new--new capacity, uniform
+completed contraction, thermodynamic/continuum theory, and the Clay theorem
+remain open.
