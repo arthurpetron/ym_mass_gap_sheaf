@@ -10317,3 +10317,35 @@ three-block checker succeeds.  No such schedule is constructed here.  The
 next proof-search step is to analyze the diagonal scans and the returned
 counteredges for reusable algebraic bounds, while cross-ceiling cofinality,
 thermodynamic/continuum construction, and the Clay theorem remain open.
+
+## Both diagonal block checks are exactly conditionally normalized (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricDiagonalConditional` cancels
+the positive stationary source weight from the old--old and new--new physical
+capacity inequalities.  On old--old edges the allocated conditional capacity
+is exactly one half of the physical conditional transition; on new--new edges
+it is the full transition.  Type-level conditional certificates are proved to
+supply the corresponding fields of the symmetric capacity compiler.
+
+The module defines finite conditional scans for both diagonal blocks and
+proves each Boolean-equal to its physical-joint scan.  Consequently the
+normalized three-block checker—old conditional, existing cross ceiling, new
+conditional—is exactly equal to the preceding combined checker.  A cofinal
+schedule of successful normalized checks therefore compiles unchanged to
+completed vacuum-sector strict contraction.
+
+An attempted diagnostic evaluation at cutoffs two and three did not complete:
+the monitored process reached the 12 GiB memory reserve and was stopped with
+exit code 75.  It is not counted as a pass and yields no scan truth value.  The
+first focused proof check exposed a missing explicit reflexivity proof and two
+`theorem` declarations whose codomain was `Type`; it is not a pass.  After
+changing those constructors to `def`, the corrected focused check passes in
+about 1.1 seconds.  The exact one-worker dependency-complete target passes
+4,986 jobs, with the new module taking about 1.1 seconds.  All five audited
+exports use exactly `[propext, Quot.sound]`.
+
+All three open local estimates are now stated against conditional transitions,
+without stationary-source prefactors.  The next analytic frontier is to
+expand the diagonal relative loads into endpoint/path contributions and seek
+block-specific transition-product or routing bounds.  Cofinal success,
+thermodynamic/continuum theory, and the Clay theorem remain open.

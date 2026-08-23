@@ -8656,3 +8656,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 1.2 seconds.  The cofinal checked family is
   not inhabited.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-diagonal-conditional] Exact diagonal source-weight cancellation — **CLOSED 2026-08-23**
+
+- **milestone**: identify the old--old allocated conditional kernel with one
+  half of the conditional transition and the new--new allocation with the full
+  transition; cancel the positive stationary source mass from both diagonal
+  physical inequalities; define exact conditional scans; prove them
+  Boolean-equal to the physical scans; and compile a cofinal successful
+  normalized three-block checker to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricDiagonalConditional.lean`.
+- **decl**:
+  `cutoffTwoNovelAllocatedConditionalKernel_eqv_halfConditional_of_old_old`,
+  `cutoffTwoNovelAllocatedConditionalKernel_eqv_conditional_of_new_new`,
+  `CutoffTwoNovelSymmetricOldOldConditionalCapacityAt`,
+  `CutoffTwoNovelSymmetricNewNewConditionalCapacityAt`, both conditional
+  checks and their Boolean-equality theorems,
+  `cutoffTwoNovelSymmetricThreeBlockConditionalCapacityCheck`, and
+  `CutoffTwoCofinalNovelSymmetricThreeBlockConditionalCheck.toCompletedStrictContractionData`.
+- **obligation**: expand and control diagonal relative loads directly against
+  their conditional transitions, retaining the exact half allocation on the
+  old block; establish cofinal success of all three conditional block checks;
+  then construct and control thermodynamic and continuum limits.
+- **constructive?**: yes — positive weights are cancelled through existing
+  rational equivalences, the allocation cases use explicit block-membership
+  witnesses, and the finite scan identity is proved rather than assumed; all
+  five audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: a diagnostic evaluator was stopped at the 12 GiB monitored
+  reserve (exit 75) and supplies no evidence.  The first focused proof check
+  failed on one reflexivity goal and invalid `theorem` declarations returning
+  `Type`, so it is not a pass.  The corrected focused check passes in about
+  1.1 seconds; the exact one-worker target passes 4,986 jobs with the new
+  module taking about 1.1 seconds.  The cofinal normalized family is not
+  inhabited.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.
