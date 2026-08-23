@@ -7299,3 +7299,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   pass.  This closes exact canonical path aggregation and its implication,
   not a congestion inhabitant, uniform finite/completed gap, continuum QFT,
   or the Clay theorem.
+
+### [BF4-cutoff-two-linear-cross-path-aggregation] Polynomial literal-edge path compiler — **CLOSED 2026-08-23**
+
+- **milestone**: replace recursive exponential path amplification in the
+  cross aggregation route by path length times the literal kernel-weighted
+  linear edge-energy sum, and compile its supplied congestion bound through
+  allocated gluing to completion.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.lean`.
+- **decl**:
+  `cutoffTwoCanonicalFullLengthLinearPathBudget`,
+  `cutoffTwoCanonicalCrossLengthLinearPathBudget`,
+  `cutoffTwo_edgeFloor_mul_crossVariance_le_lengthLinearPathBudget`,
+  `CutoffTwoSparseLinearPathAllocatedGluingAt.toAllocatedDirichletGluingAt`,
+  and
+  `CutoffTwoCofinalSparseLinearPathAllocatedGluing.toCompletedStrictContractionData`.
+- **obligation**: compute stationary-weighted edge-occurrence loads in the
+  length-weighted canonical path family and prove uniform within/cross
+  congestion, positive edge-floor, and sector-mass bounds.
+- **constructive?**: yes — all nine audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.5 seconds and the
+  exact-target one-worker dependency-complete build passes 4,895 jobs.  This
+  closes the polynomial path-cost compiler, not its uniform congestion
+  inhabitant, a completed gap, continuum QFT, or the Clay theorem.

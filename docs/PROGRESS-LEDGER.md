@@ -8792,3 +8792,28 @@ occurrences and prove an explicit congestion comparison with the within and
 cross Dirichlet blocks.  Uniform positive floors, congestion constants,
 sector mass, cutoff persistence, continuum QFT, and the Clay theorem remain
 open.
+
+## Cross-path aggregation now uses polynomial literal-edge energy (2026-08-23)
+
+The sparse path aggregation module now also instantiates the existing finite
+Cauchy--Schwarz path theorem.  For each canonical old/new path it replaces the
+recursively doubled energy by
+
+`pathLength * sum_{edge in path} kernel(edge) * (delta f(edge))^2`.
+
+Summing these exact length-weighted linear path costs gives
+
+`edgeFloor(later) * V_cross <= canonicalCrossLengthLinearPathBudget`.
+
+The corresponding sparse certificate compiles a congestion bound on this
+polynomial literal-edge budget through allocated gluing and the completed
+strict-contraction interface.  This is the appropriate form for the next
+edge-load calculation: path occurrences are additive, and the only path
+amplification is the explicit length factor rather than recursive doubling.
+
+The focused monitored check passes in about 1.5 seconds, and the exact
+one-worker dependency-complete target passes 4,895 jobs.  All nine audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+No uniform path-length, edge-load, positive-floor, or mass-floor certificate
+is inhabited, so no uniform completed gap or continuum/Clay conclusion is
+claimed.
