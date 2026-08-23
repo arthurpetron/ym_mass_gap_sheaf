@@ -6798,3 +6798,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and the exact-target one-worker dependency-complete build passes 1,560 jobs.
   The cutoff-one rate-zero check is finite only; no nontrivial cofinal scan,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-exact-row-rate-obstruction] Production row-TV obstruction — **PROVED FINITE 2026-08-23**
+
+- **milestone**: evaluate the exact 65-state raw component mass and one
+  denominator-cleared row distance; prove row ten is strictly superunit; and
+  transport the result through the sealed shared-DAG certificate to the
+  genuine cutoff-two production reflected kernel.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoExactRowRateObstruction.lean`.
+- **decl**:
+  `cutoffTwoSectorRawMass_eqv_value`,
+  `cutoffTwoSectorClearedRowTen_eqv_value`,
+  `cutoffTwoSectorClearedRowTen_gt_mass_mul_rowSum`,
+  `cutoffTwoSectorPhysicalMass_eqv_rawMass`,
+  `cutoffTwoSectorPhysicalClearedMassNormalizedRowDistance_eqv_raw`, and
+  `cutoffTwoSectorPhysicalClearedRowTen_gt_mass_mul_rowSum`.
+- **obligation**: transport the row-ten witness through the canonical
+  state-list permutation to the named exact scalar `h_2`; then replace the
+  nonviable per-row TV route by a cancellation-preserving signed-form or
+  spectral certificate on a constructively cofinal cutoff family.
+- **constructive?**: yes — the raw arithmetic exports use no axioms and the
+  physical transport exports use exactly `[propext, Quot.sound]`; no
+  `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+  noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes in 6.2
+  seconds, and the exact-target one-worker dependency-complete build passes
+  3,419 jobs.  An aggregate prerequisite build was stopped at the configured
+  memory reserve and one narrowed focused check failed on a missing namespace
+  open; neither is counted as a pass.  The theorem is finite and cutoff-two
+  only.  It leaves cofinal signed-form control, the completed uniform gap,
+  thermodynamic/continuum QFT, and the Clay theorem open.

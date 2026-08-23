@@ -8211,3 +8211,45 @@ gap does not logically imply a row-total-variation bound at the same rate, so
 that stronger Boolean statement must be evaluated or proved separately.  A
 uniform cofinal strict rate, thermodynamic/continuum QFT, and the Clay theorem
 remain open.
+
+## Cutoff two obstructs the stronger physical row-TV route (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoExactRowRateObstruction` proves that the exact
+mass-normalized row-total-variation criterion is already superunit on one
+actual production-kernel row at cutoff two.  An untrusted Python diagnostic
+first located rows `10`, `19`, and `37` and computed the table maximum as
+
+`12557268462086759048710571458930572244006473246401451415552`
+`/ 6280167100747004266260229105393860824732559645509611405537`
+
+(approximately `1.9995118379243628`).  Lean then checked, independently of
+that diagnostic, the exact raw component mass and the denominator-cleared
+row-ten distance and proved the strict inequality
+
+`physicalMass * physicalRowSum(10)`
+`  < physicalClearedMassNormalizedRowDistance(physicalMass, 10)`.
+
+The proof transports the literal arithmetic result through the previously
+sealed shared-DAG certificate to the genuine production reflected kernel.
+Thus the stronger rowwise sufficient condition cannot supply any rate
+`q < 1` at cutoff two.  This does not contradict the existing cutoff-two
+signed centered-form contraction at `49/50`: the form theorem retains
+cancellations that row total variation discards.  It also does not rule out a
+subunit row criterion on some later cofinal cutoff family.
+
+The corrected focused monitored check passes in 6.2 seconds, and the exact-
+target one-worker dependency-complete build passes 3,419 jobs.  The three raw
+arithmetic exports use no axioms; the three production-kernel transport
+exports use exactly `[propext, Quot.sound]`.  No `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  A first aggregate raw-kernel prerequisite build was stopped by the
+safety wrapper at its 12 GiB memory reserve, and the first narrowed focused
+check exposed a missing namespace open; neither interrupted/failed run is
+counted as verification.
+
+The immediate coordinate frontier is to identify this row-ten witness with
+the named canonical exact scalar `h_2`.  Analytically, however, the viable
+cofinal route now has to preserve signed form/operator cancellations rather
+than demand row-TV contraction at every cutoff.  A cofinal signed-form
+certificate, completed uniform gap, thermodynamic/continuum QFT, and the Clay
+theorem remain open.
