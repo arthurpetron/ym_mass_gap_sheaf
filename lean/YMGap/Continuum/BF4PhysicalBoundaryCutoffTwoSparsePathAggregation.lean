@@ -332,6 +332,27 @@ def cutoffTwoCanonicalFullLengthLinearPathBudget
     else 0
   else 0
 
+/-- Evaluation of the totalized polynomial path budget on genuine full-sector
+endpoints. -/
+theorem cutoffTwoCanonicalFullLengthLinearPathBudget_eqv_of_mem
+    (later : Nat) (coefficient : Nat → Q')
+    (left right : Nat)
+    (hleft : left ∈ cutoffTwoFullStates later)
+    (hright : right ∈ cutoffTwoFullStates later) :
+    cutoffTwoCanonicalFullLengthLinearPathBudget
+        later coefficient left right ≈
+      let path := centralPhysicalFiniteVacuumSectorPositivePath
+        cutoffTwoHalfCoupling (by decide) later 0
+        left right hleft hright
+      Q'.ofNat
+          (BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.edgeLength
+            path) *
+        BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.linearEnergy
+          coefficient path := by
+  unfold cutoffTwoCanonicalFullLengthLinearPathBudget
+  rw [dif_pos hleft, dif_pos hright]
+  exact Q'.eqv_refl _
+
 def cutoffTwoOldNewCanonicalLengthLinearPathBudget
     (later : Nat) (coefficient : Nat → Q') : Q' :=
   finiteWeightedRectangularEndpointBudget
@@ -653,6 +674,8 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwo_edgeFloor_mul_crossVariance_le_canonicalPathBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwo_edgeFloor_mul_crossVariance_le_lengthLinearPathBudget
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwoCanonicalFullLengthLinearPathBudget_eqv_of_mem
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.CutoffTwoSparsePathAllocatedGluingAt.toAllocatedDirichletGluingAt
 #print axioms

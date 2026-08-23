@@ -7366,3 +7366,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   during proof development and are not passes.  This closes finite
   occurrence regrouping, not physical congestion, a uniform gap, continuum
   QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-canonical-cross-edge-load] Pointwise physical congestion compiler — **CLOSED 2026-08-23**
+
+- **milestone**: flatten the actual stationary-weighted canonical old/new
+  paths into weighted directed-edge occurrences; group them into an explicit
+  coefficient-independent physical edge load; identify the polynomial
+  cross-path budget with its loaded Dirichlet form; and reduce its allocated
+  congestion bound to four pointwise old/new edge-load capacities.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.lean`
+  and the public endpoint evaluation added to
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.lean`.
+- **decl**: `cutoffTwoCanonicalCrossWeightedEdgeOccurrences`,
+  `cutoffTwoCanonicalCrossEdgeLoad`,
+  `cutoffTwoCanonicalCrossLengthLinearPathBudget_eqv_loadedDirichlet`,
+  `finiteLoadedDirichletBlock_le_scale_mul`,
+  `CutoffTwoCanonicalCrossEdgeLoadBoundsAt`,
+  `CutoffTwoCanonicalCrossEdgeLoadBoundsAt.lengthLinearPathBudget_le_allocatedEnergy`,
+  `CutoffTwoPointwiseEdgeLoadAllocatedGluingAt.toAllocatedDirichletGluingAt`,
+  and
+  `CutoffTwoCofinalPointwiseEdgeLoadAllocatedGluing.toCompletedStrictContractionData`.
+- **obligation**: prove the four explicit edge-load inequalities uniformly on
+  a cofinal schedule, together with within-block coercivity and fixed positive
+  edge and sector-mass floors.
+- **constructive?**: yes — all ten audited exports use at most
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.3 seconds and the exact
+  one-worker dependency-complete target passes 4,898 jobs.  Preliminary stale
+  import, namespace, unfolding, and heartbeat failures are not passes.  This
+  closes the pointwise congestion implication, not a load-bound inhabitant,
+  uniform completed gap, continuum QFT, or the Clay theorem.

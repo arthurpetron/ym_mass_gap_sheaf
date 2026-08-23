@@ -8865,3 +8865,52 @@ stationary-weighted old/new canonical paths into weighted occurrences, prove
 their polynomial cross-path budget equals the loaded physical Dirichlet form,
 then reduce congestion to pointwise load bounds on the four old/new edge
 blocks.  Those bounds and all continuum/Clay conclusions remain open.
+
+## Canonical cross-path congestion is now pointwise on physical edges (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad` instantiates the generic
+occurrence reindexing with every actual old-to-new and new-to-old canonical
+path.  Each path edge is charged its stationary endpoint-pair weight times the
+path length.  Equal directed physical edges are then grouped into the
+coefficient-independent rational
+`cutoffTwoCanonicalCrossEdgeLoad later source target`.
+
+The module proves the exact identity
+
+`canonicalCrossLengthLinearPathBudget(f)`
+
+`  = Dirichlet(full, canonicalCrossEdgeLoad * physicalKernel, f)`.
+
+It partitions this loaded Dirichlet form into the same four old/new blocks as
+the physical energy and proves that the following coefficient-free bounds are
+sufficient:
+
+`old-old load <= crossShare`, `new-new load <= crossShare`,
+
+`old-new load <= 1`, and `new-old load <= 1`.
+
+They imply
+
+`canonicalCrossLengthLinearPathBudget`
+
+`  <= crossShare * E_within + E_cross`,
+
+which compiles with the existing within budget, positive floor, mass floor,
+and complementary shares through allocated coercivity to the completed
+strict-contraction interface.  This is a genuine causal reduction: the open
+cross estimate no longer quantifies over coefficients, only over finite
+directed edges and their explicitly defined canonical loads.
+
+The focused monitored check passes in about 1.3 seconds, and the exact
+one-worker dependency-complete target passes 4,898 jobs.  All ten audited
+exports use at most `[propext, Quot.sound]`; no forbidden construct was added.
+Several preliminary focused checks failed on stale `.olean` state, missing
+namespace openings, overly eager unfolding, and one heartbeat-heavy monolithic
+proof; they are not passes.  The final proof is split into small loaded-within,
+loaded-cross, and recombination lemmas.
+
+No pointwise load certificate is inhabited.  The next analytic frontier is to
+bound the explicit rational edge load itself, preferably by a canonical-path
+counting/injection argument that is uniform along a cofinal cutoff schedule.
+The within-block coercivity, positive edge and sector-mass floors, continuum
+QFT, and the Clay theorem remain open.
