@@ -7695,3 +7695,41 @@ frontier is now an explicit uniform estimate on the two actual conditional
 laws (or a projective/coupling criterion that implies it), with product rate
 strictly below one.  The unconditional completed gap,
 thermodynamic/continuum control, and the Clay theorem remain open.
+
+## One sector half-amplitude diameter controls both posteriors (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramProjective` reduces the two posterior
+mixing estimates to one division-free four-index inequality for the actual
+vacuum-sector half-amplitude matrix.  It first proves constructively that
+projective spread is unchanged when either or both rays are divided by
+positive common normalizations.
+
+The existing positive-summation closure is then specialized to the canonical
+sector.  A single half-amplitude cross-ratio field survives the weighted
+column sum and becomes projective control of
+`target | boundary` versus the sector stationary law.  The same field
+survives the row sum and becomes projective control of
+`boundary | source` versus the sector square-amplitude prior.  Exact sector
+moments supply all normalization factors.
+
+At squared spread at most `65/64`, the normalized-projective theorem bounds
+each posterior `L1` distance by `1/4`.  Their product is the semantic rate
+`1/16`, and the cofinal half-amplitude projective certificate compiles all
+the way to the completed same-object vacuum-sector strict gap.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,494 jobs.  All seven audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused run naturally reached the deterministic heartbeat
+limit after missing namespace opens left dependent types unresolved; it was
+not manually interrupted.  Adding the required stationary-law and quarter-
+constant namespaces resolved all reported errors before the passing focused
+check and exact build.
+
+No cofinal half-amplitude projective family is inhabited.  The next causal
+frontier is to inspect the actual sector amplitude support: either prove the
+uniform `65/64` cross-ratio estimate, or exhibit a support obstruction and
+replace this sufficient criterion by a support-compatible coupling or
+multi-step estimate.  The unconditional completed gap,
+thermodynamic/continuum control, and the Clay theorem remain open.

@@ -6312,3 +6312,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passing checks.  No posterior-mixing family is inhabited, so the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-vacuum-sector-centered-Gram-projective] One diameter to both posterior quarters — **REDUCED 2026-08-23**
+
+- **milestone**: prove projective spread is invariant under one- and two-ray
+  positive normalization; specialize positive column and row summation to
+  the actual BF4 vacuum-sector half-amplitude matrix; derive both normalized
+  posterior projective bounds from one four-index cross-ratio field; use the
+  squared-spread ceiling `65/64` to obtain both posterior `L1` quarters; and
+  compile their semantic `1/16` product rate to the completed same-object
+  vacuum-sector gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramProjective.lean`.
+- **decl**:
+  `projectiveSpreadBound_divPos_left`,
+  `projectiveSpreadBound_divPos_both`,
+  `centralPhysicalFiniteVacuumSector_targetRawProjective`,
+  `centralPhysicalFiniteVacuumSector_sourceRawProjective`,
+  `centralPhysicalFiniteVacuumSectorTargetGivenBoundaryL1_le_quarter_of_crossRatio`,
+  `centralPhysicalFiniteVacuumSectorBoundaryGivenSourceL1_le_quarter_of_crossRatio`,
+  and
+  `FixedNomeCofinalVacuumSectorHalfAmplitudeProjective.toVacuumSectorCenteredStrictGap`.
+- **obligation**: prove the cofinal squared-spread `65/64` cross-ratio bound
+  for the actual sector half-amplitude matrix, or prove that its support
+  pattern obstructs this sufficient condition and construct a support-
+  compatible coupling or multi-step posterior estimate instead.
+- **constructive?**: yes — all seven audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,494 jobs.  The
+  initial focused run naturally hit its deterministic heartbeat after
+  missing namespace opens; it was not manually interrupted.  Adding the
+  stationary-law and quarter-constant namespaces resolved all errors before
+  both passing checks.  No projective family is inhabited, so the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.
