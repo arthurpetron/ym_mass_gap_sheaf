@@ -8233,3 +8233,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 4,973 jobs with the new module taking about 1.6 seconds.  No uniform
   defect payment, completed gap inhabitant, continuum QFT, or Clay theorem is
   closed.
+
+### [BF4-cutoff-two-novel-flow-conditional-support-aware-posterior-l1] Exact posterior normalization and scale diagnostic — **CLOSED 2026-08-23**
+
+- **milestone**: normalize each retained raw BF4 boundary row by its explicit
+  positive mass; prove total mass one and exact term recovery; identify that
+  law with the existing full physical source-conditioned boundary posterior;
+  prove finite `L1` symmetry and triangle inequalities; and prove that at the
+  self-normalizing left/right raw mass ratio the support-aware defect moment is
+  exactly left raw mass times pairwise posterior `L1`, while its defect
+  fraction is exactly raw mass ratio times pairwise posterior `L1`.  Bound the
+  latter shape distance by the two existing source-to-prior distances.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalSupportAwarePosteriorL1.lean`.
+- **decl**: `cutoffTwoRawBoundaryGivenState`,
+  `cutoffTwoRawBoundaryGivenState_total_one`,
+  `cutoffTwoRawBoundaryGivenState_eqv_centralBoundaryGivenSource`,
+  `cutoffTwoRawBoundaryPosteriorL1_eqv_centralBoundaryPosteriorL1`,
+  `finiteL1Distance_triangle`, `finiteL1Distance_symm`,
+  `cutoffTwoCentralBoundaryPosteriorL1_le_sourcePriorDistances`,
+  `cutoffTwoRelativeDefectMoment_eqv_leftMass_mul_pairwisePosteriorL1`,
+  `cutoffTwoRelativeDefectFraction_eqv_ratio_mul_pairwisePosteriorL1`, and
+  `cutoffTwoRelativeDefectFraction_le_ratio_mul_sourcePriorDistances`.
+- **obligation**: posterior mixing controls normalized row shape but leaves the
+  desired raw row ratio as an exterior factor.  Inspect the directed path-edge
+  geometry for a persistent-denominator orientation; failing that, derive an
+  independent adjacent raw row-scale comparison from explicit BF4 local
+  action/support data, then prove uniform payment and construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all row normalizations carry explicit positivity
+  proofs; finite `L1` algebra is setoid checked; the fourteen audited exports
+  use `[propext]` or exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: several development checks failed and one raised-budget
+  check was deliberately interrupted during pathological proof-index
+  elaboration; none counts as a pass.  Opaque cutoff posterior aliases removed
+  the blow-up.  The corrected focused check passes in about 1.6 seconds; the
+  exact one-worker dependency-complete target passes 4,974 jobs with the new
+  module taking about 1.7 seconds.  No independent uniform row ratio, flow
+  payment, completed gap inhabitant, continuum QFT, or Clay theorem is closed.

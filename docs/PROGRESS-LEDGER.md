@@ -9888,3 +9888,54 @@ quantity (or prove the precise comparison), so the already developed posterior
 mixing machinery can address structural-zero leakage without restoring the
 false pointwise hypothesis.  The uniform completed gap inhabitant,
 thermodynamic/continuum theory, and Clay theorem remain open.
+
+## The support-aware defect is an unnormalized posterior distance (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalSupportAwarePosteriorL1`
+normalizes each literal raw BF4 boundary row by its already proved positive raw
+row mass.  The resulting finite boundary law has total mass one, multiplying it
+by the row mass recovers the raw boundary-moment term, and exact cancellation
+identifies it with the pre-existing full-positive-carrier
+`centralBoundaryGivenSource` posterior.
+
+For retained states `left` and `right`, choose
+
+`rho = leftRawMass / rightRawMass`.
+
+The module proves, first boundary-channel by boundary-channel and then after
+finite summation, the exact identities
+
+`relativeDefectMoment = leftRawMass * pairwisePosteriorL1`
+
+and
+
+`relativeDefectMoment / rightRawMass`
+`  = (leftRawMass / rightRawMass) * pairwisePosteriorL1`.
+
+Finite `L1` symmetry and the triangle inequality are proved constructively, so
+the pairwise posterior distance is bounded by the sum of the two existing
+source-to-common-prior distances.  Consequently the support-aware defect
+fraction is bounded by that sum multiplied by the raw mass ratio.
+
+This is a sharp diagnostic boundary.  Existing posterior mixing controls the
+shape of normalized boundary rows, but normalization erases their relative
+scale: the very raw mass ratio sought by the conditional-flow argument remains
+as an exterior factor.  Thus posterior `L1` mixing alone cannot provide the
+missing ratio ceiling; an independent local row-scale comparison or a flow
+orientation avoiding uncontrolled denominators is still required.
+
+Several focused development checks exposed namespace, setoid-associativity,
+and proof-index elaboration issues; one raised-budget check was deliberately
+interrupted after pathological elaboration and is not a pass.  Opaque cutoff
+posterior aliases remove that elaboration blow-up.  The corrected focused
+monitored check passes in about 1.6 seconds.  The exact one-worker
+dependency-complete target passes 4,974 jobs, with the new module taking about
+1.7 seconds.  The fourteen audited exports use `[propext]` or exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to inspect the actual directed edges used by the novel
+canonical flow and determine whether their denominator endpoint can always be
+placed in the persistent old carrier with its proved uniform row floor.  If
+not, the remaining honest target is an adjacent raw row-scale estimate from
+the explicit BF4 action/support geometry.  Uniform payment, the completed gap
+inhabitant, thermodynamic/continuum theory, and the Clay theorem remain open.
