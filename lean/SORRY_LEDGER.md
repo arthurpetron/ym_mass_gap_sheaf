@@ -11377,3 +11377,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 1.4 seconds.  This is an exact equality compiler; no
   cofinal Harnack bound, continuum Yang--Mills theory, or Clay theorem is
   claimed.
+
+### [BF4-spin-cube-off-ray-residual-conditional-transition-product-target] Expose the final canonical-path analytic sum — **CLOSED 2026-08-24**
+
+- **milestone**: construct a positive prefix from directed-edge incidence;
+  substitute the exact detailed-balance telescope into each Harnack summand;
+  prove equality of the summed Harnack and transition-product loads; prove an
+  iff at the edge-capacity target; provide lossless finite/cofinal compilers,
+  unconditional finite-cutoff inhabitants, and the completed-contraction
+  consumer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualConditionalTransitionProductTarget.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualPathPairConditionalHarnackTerm_eqv_transitionProduct`,
+  `centralLowerExcitedSpinCubeOffRayResidualConditionalHarnackLoad_eqv_transitionProductLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualHarnackTarget_iff_transitionProductTarget`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalTransitionProductAt.ofConditionalHarnackAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalTransitionProductAt.toConditionalHarnackAt`,
+  `centralLowerExcitedSpinCubeFiniteLinearConditionalTransitionProductAt`,
+  `anchorCentralSpinCubeFiniteLinearConditionalTransitionProductAt`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualConditionalTransitionProduct.toCompletedStrictContractionData`.
+- **obligation**: prove the displayed transition-product edge inequality
+  uniformly in cutoff using BF4-specific local routing, a multiscale flow, or
+  a direct-operator replacement.  In particular, control prefix products,
+  path incidence, and length without reverting to a complete-sector minimum.
+- **constructive?**: yes — Type-level prefix extraction, the pathwise
+  detailed-balance equality, finite-list congruence, and equality transport
+  suffice.  All eight audited exports use exactly `[propext, Quot.sound]`;
+  no forbidden construct was added.
+- **status note**: the first focused attempt failed because `prefix` is
+  reserved syntax and one namespace was missing; it is not a pass, and its
+  downstream `sorryAx` output was elaboration contamination.  The corrected
+  focused guarded check passes in about 1.4 seconds.  The exact one-worker
+  dependency-complete target passes 5053 jobs, with the new module taking
+  about 1.4 seconds.  Finite inhabitants exist, but no cofinal uniform family,
+  continuum Yang--Mills theory, or Clay theorem is claimed.

@@ -13213,3 +13213,42 @@ products together with path incidence and length uniformly in the cutoff, or
 replace canonical routing by a local/multiscale or direct-operator proof.  No
 uniform completed gap, continuum Yang--Mills theory, or Clay theorem is
 proved here.
+
+## The arbitrary-cutoff local capacity is an explicit transition-product target (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualConditionalTransitionProductTarget`
+constructs a positive path prefix from literal incidence of a selected
+directed edge.  It substitutes the pathwise detailed-balance telescope into
+every residual Harnack summand, obtaining the exact term
+
+`product_prefix(conditional(reverse) / conditional(forward))`
+`  * weight(endpointRight) * pathLength * pathIncidence(edge)`.
+
+The finite sum of these terms is exactly the conditional Harnack load.  The
+module therefore proves an iff between the Harnack inequality and the
+transition-product inequality at every edge, supplies lossless finite and
+cofinal compilers, and connects any cofinal transition-product family to the
+actual completed vacuum-sector strict transfer contraction.
+
+The interface is non-vacuous at every finite cutoff: the existing
+carrier-linear certificate transports through the equality in the reverse
+direction, including at the strong-coupling anchor.  Its restricted ray
+floor remains cutoff-dependent, so this does not assert cofinal uniformity.
+
+The first focused attempt failed because `prefix` is reserved syntax and the
+ray-capacity namespace was not opened; it is not a pass, and its downstream
+`sorryAx` output was elaboration contamination.  After those corrections,
+the focused guarded check passes in about 1.4 seconds.  The exact one-worker
+dependency-complete target passes 5053 jobs, with the new module taking about
+1.4 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This completes the exact compiler expansion of the canonical-path producer.
+The genuinely new analytic obligation is now visible without quotient or
+stationary-mass opacity: uniformly control prefix transition ratios, path
+incidences, and lengths against the matching physical conditional edge.
+That may require a BF4-specific local route, a multiscale flow, or a direct
+operator argument; the opaque loop-erased canonical path itself carries no
+semantic spin-control theorem yet.  No cofinal transition-product family,
+uniform completed gap, continuum Yang--Mills theory, or Clay theorem is
+proved here.
