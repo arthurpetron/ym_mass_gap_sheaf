@@ -9737,3 +9737,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds.  The payment uses a possibly deteriorating later-sector floor; no
   uniform contraction, completed gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-cofinal-simple-floor-comparison] Fixed-floor comparison compiler — **CLOSED 2026-08-23**
+
+- **milestone**: transfer the automatic later-simple-floor new-mass payment
+  to the fixed positive cutoff-two novel-flow floor under one explicit floor
+  comparison; compile the finite comparison to all four novel-flow capacity
+  blocks; and compile a cofinal family of comparisons to the existing
+  completed-cylinder strict-contraction datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleCoercivityFloorComparison.lean`.
+- **decl**: `cutoffTwoLaterSimpleCoercivityFloor_pos`,
+  `cutoffTwoNovelNewShellMassEdgeFloorPayment_of_fixedFloor_le_simpleFloor`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_fixedFloor_le_simpleFloor`,
+  `CutoffTwoCofinalSimpleCoercivityFloorComparison`,
+  `CutoffTwoCofinalSimpleCoercivityFloorComparison.toCofinalNovelNewShellMassEdgeFloorPayment`,
+  `CutoffTwoCofinalSimpleCoercivityFloorComparison.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalSimpleCoercivityFloorComparison.toCompletedStrictContractionData`.
+- **obligation**: inhabit the cofinal fixed-floor comparison, or prove that
+  carrier growth forces this particular simple-path floor to zero and replace
+  it with a sharper multiscale coercivity mechanism.
+- **constructive?**: yes — the finite transfer uses nonnegativity of exact
+  new mass and monotonicity under multiplication; the cofinal compiler merely
+  composes existing Type-level certificates.  All six audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first failed focused attempt is not a pass.  The
+  corrected focused check passes in about 2.7 seconds; the exact one-worker
+  target passes 5,023 jobs with the new module taking about 2.6 seconds.  The
+  cofinal comparison is not inhabited, and no completed gap claim without
+  that certificate, continuum QFT, or Clay theorem is made.

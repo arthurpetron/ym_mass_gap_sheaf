@@ -11398,3 +11398,35 @@ fixed positive floor bounded by the later simple floors into the existing
 cutoff-two novel-flow capacity, thereby isolating the remaining cofinal floor
 comparison as an explicit certificate.  Completed contraction, continuum
 QFT, and the Clay theorem remain open.
+
+## A cofinal simple-floor comparison now compiles to completed contraction data (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSimpleCoercivityFloorComparison` names the later
+finite-sector simple coercivity floor and proves its positivity.  At a finite
+cutoff, if the already constructed fixed positive cutoff-two novel-flow floor
+is at most this later simple floor, monotonicity transfers the automatic exact
+new-mass payment from the later floor to the fixed floor.  The transferred
+payment then inhabits all four blocks of the established novel simple-flow
+capacity.
+
+The Type-level
+`CutoffTwoCofinalSimpleCoercivityFloorComparison` certificate asks for exactly
+this fixed-floor comparison along a cofinal schedule above the existing edge-
+floor and mass-floor anchors.  It compiles without further analytic fields to
+the cofinal new-shell payment, cofinal novel-flow capacity, and the existing
+completed-cylinder strict-contraction data.
+
+The first focused attempt exposed an already-eliminated intermediate
+definition and a Type-returning declaration incorrectly marked as a theorem;
+it is not a pass.  After correction, the focused check passes in about 2.7
+seconds.  The exact one-worker, dependency-complete target passes 5,023 jobs,
+with the new module taking about 2.6 seconds.  All six audited exports use
+exactly `[propext, Quot.sound]`.
+
+The cofinal comparison certificate is not inhabited.  It is only a sufficient
+bridge to completed cutoff contraction, not a proof that the simple floors
+have a positive uniform lower bound.  The next frontier is to determine
+constructively whether carrier growth and the normalized edge-floor ceiling
+force these particular simple floors to zero, which would rule out this
+route and identify the need for sharper multiscale coercivity.  No
+thermodynamic/continuum QFT or Clay theorem is claimed.
