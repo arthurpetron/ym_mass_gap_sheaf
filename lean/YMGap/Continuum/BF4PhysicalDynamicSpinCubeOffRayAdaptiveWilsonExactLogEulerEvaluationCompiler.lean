@@ -31,6 +31,7 @@ or Clay conclusion is constructed here.  No `Classical.*`, choice,
 -/
 
 import YMGap.Constructive.CRealExpRationalStreamContinuity
+import YMGap.Constructive.CRealLogOddness
 import YMGap.Constructive.TrigAddCReal
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
@@ -44,6 +45,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Constructive.CRealExpRationalStreamContinuity
+open YMGap.Constructive.CRealLogOddness
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
@@ -253,6 +255,68 @@ structure MantissaLogSquareEulerEvaluation
       (mantissaLogSquareExponent_nonnegative m hm1 hlt hyb stage))
     (CReal.ofQ' (m * m))
 
+/-- A single reusable inverse compiler for every rational in the direct
+artanh window below one.  It is stronger than supplying one reconstruction's
+mantissa evaluator, but it is the natural analytic theorem schema: the same
+rational-series proof is uniform in `m` and also contains the special
+`m = 1/2` evaluator from which the dyadic `log 2` seed will be derived. -/
+structure DirectWindowLogSquareEulerCompiler : Type 2 where
+  evaluate :
+    (m : Q') -> (hm1 : (0 : Q') < m + 1) -> (hlt : m < (1 : Q')) ->
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1) ->
+    MantissaLogSquareEulerEvaluation m hm1 hlt hyb
+
+/-- At `m = 1/2`, negating the direct-window logarithm approximation produces
+the exponent-one dyadic logarithm approximation. -/
+theorem oneHalfMantissaLogSquareExponent_eqv_dyadicOne (stage : Nat) :
+    (mantissaLogSquareExponent
+      CRealLogOddness.oneHalf
+      CRealLogOddness.oneHalf_plus_one_pos
+      CRealLogOddness.yOf_oneHalf_window stage).eqv
+    (dyadicLogSquareExponent 1 stage) := by
+  let L : Q' :=
+    (CRealLog.logRat CRealLogOddness.oneHalf
+      CRealLogOddness.oneHalf_plus_one_pos
+      CRealLogOddness.yOf_oneHalf_window).approx stage
+  let R : Q' := CRealLog.log2.approx stage
+  let two : Q' := (1 : Q') + 1
+  have hLog : L.eqv (-R) :=
+    CRealLogOddness.logRat_oneHalf_approx_eqv_neg_log2_approx stage
+  have hNegLog : (-L).eqv R :=
+    Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr L (-R) hLog)
+      (Q'.neg_neg_eqv R)
+  change ((-L) * two).eqv ((R + 0) * two)
+  exact Q'.mul_eqv_congr_right (-L) (R + 0) two
+    (Q'.eqv_trans _ _ _ hNegLog
+      (Q'.eqv_symm (QPoly.q_add_zero_eqv R)))
+
+/-- The literal negative-exponential sequence at direct-window `1/2` is
+termwise equivalent to the exponent-one dyadic sequence. -/
+theorem oneHalfMantissaLogSquareExponential_equiv_dyadicOne (stage : Nat) :
+    CReal.Equiv
+      (ExpNeg.expNeg
+        (mantissaLogSquareExponent
+          CRealLogOddness.oneHalf
+          CRealLogOddness.oneHalf_plus_one_pos
+          CRealLogOddness.yOf_oneHalf_window stage)
+        (mantissaLogSquareExponent_nonnegative
+          CRealLogOddness.oneHalf
+          CRealLogOddness.oneHalf_plus_one_pos
+          CRealLogOddness.oneHalf_lt_one
+          CRealLogOddness.yOf_oneHalf_window stage))
+      (ExpNeg.expNeg
+        (dyadicLogSquareExponent 1 stage)
+        (dyadicLogSquareExponent_nonnegative 1 stage)) :=
+  expNeg_eqv_congr
+    (mantissaLogSquareExponent_nonnegative
+      CRealLogOddness.oneHalf
+      CRealLogOddness.oneHalf_plus_one_pos
+      CRealLogOddness.oneHalf_lt_one
+      CRealLogOddness.yOf_oneHalf_window stage)
+    (dyadicLogSquareExponent_nonnegative 1 stage)
+    (oneHalfMantissaLogSquareExponent_eqv_dyadicOne stage)
+
 /-- The dyadic square exponent at `k+1` is the sum of the one-copy
 `log 2` square exponent and the exponent at `k`. -/
 theorem dyadicLogSquareExponent_one_add_eqv_succ (k stage : Nat) :
@@ -431,7 +495,50 @@ def allOfOne (one : DyadicLogSquareEulerEvaluation 1) :
           (TrigAdd.equiv_ofQ'_of_eqv
             (scaleQ_square_one_mul_square_eqv_succ k)))
 
+/-- The direct-window evaluator at `m = 1/2` supplies the universal dyadic
+exponent-one seed.  Oddness identifies the two literal exponent streams, and
+the target squares are the same rational `1/4`. -/
+def oneOfOneHalfMantissa
+    (halfEvaluation : MantissaLogSquareEulerEvaluation
+      CRealLogOddness.oneHalf
+      CRealLogOddness.oneHalf_plus_one_pos
+      CRealLogOddness.oneHalf_lt_one
+      CRealLogOddness.yOf_oneHalf_window) :
+    DyadicLogSquareEulerEvaluation 1 where
+  exponentialConverges := by
+    have hSequence : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (dyadicLogSquareExponent 1 stage)
+          (dyadicLogSquareExponent_nonnegative 1 stage))
+        (CReal.ofQ'
+          (CRealLogOddness.oneHalf * CRealLogOddness.oneHalf)) :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage =>
+          oneHalfMantissaLogSquareExponential_equiv_dyadicOne stage)
+        halfEvaluation.exponentialConverges
+    exact CReal.convergesTo_limit_congr hSequence
+      (TrigAdd.equiv_ofQ'_of_eqv
+        (by decide :
+          (CRealLogOddness.oneHalf * CRealLogOddness.oneHalf).eqv
+            (HamiltonianAllSep.scaleQ 1 *
+              HamiltonianAllSep.scaleQ 1)))
+
 end DyadicLogSquareEulerEvaluation
+
+namespace DirectWindowLogSquareEulerCompiler
+
+/-- A uniform direct-window compiler contains its dyadic exponent-one seed as
+the reciprocal specialization `m = 1/2`. -/
+def dyadicOne (compiler : DirectWindowLogSquareEulerCompiler) :
+    DyadicLogSquareEulerEvaluation 1 :=
+  DyadicLogSquareEulerEvaluation.oneOfOneHalfMantissa
+    (compiler.evaluate
+      CRealLogOddness.oneHalf
+      CRealLogOddness.oneHalf_plus_one_pos
+      CRealLogOddness.oneHalf_lt_one
+      CRealLogOddness.yOf_oneHalf_window)
+
+end DirectWindowLogSquareEulerCompiler
 
 /-- At physical time one, the canonical exact Wilson exponent is the sum of
 the dyadic and reduced-mantissa exponent streams. -/
@@ -648,6 +755,23 @@ def ofDyadicOneAndMantissa
     (DyadicLogSquareEulerEvaluation.allOfOne dyadicOne
       (gapBinExp D.reconstruction positiveGapBound).k)
     mantissa
+
+/-- A single uniform direct-window inverse compiler supplies both scalar
+inputs: its `m = 1/2` specialization generates every dyadic exponent, while
+its reconstruction-specific specialization evaluates the reduced mantissa. -/
+def ofDirectWindowCompiler
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (compiler : DirectWindowLogSquareEulerCompiler) :
+    WilsonCanonicalExactLogEulerEvaluation D positiveGapBound :=
+  ofDyadicOneAndMantissa D positiveGapBound compiler.dyadicOne
+    (compiler.evaluate
+      (gapMantissa D.reconstruction positiveGapBound)
+      (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+      (gapMantissa_lt_one D.reconstruction positiveGapBound)
+      (gapMantissa_window D.reconstruction positiveGapBound))
 
 end WilsonCanonicalExactLogEulerEvaluation
 
@@ -881,6 +1005,10 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.mantissaLogSquareExponent_nonnegative
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.oneHalfMantissaLogSquareExponent_eqv_dyadicOne
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.oneHalfMantissaLogSquareExponential_equiv_dyadicOne
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.dyadicLogSquareExponent_one_add_eqv_succ
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.dyadicLogSquareExponential_one_mul_equiv_succ
@@ -893,6 +1021,10 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DyadicLogSquareEulerEvaluation.allOfOne
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DyadicLogSquareEulerEvaluation.oneOfOneHalfMantissa
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DirectWindowLogSquareEulerCompiler.dyadicOne
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonCanonicalExponential_equiv_atomicProduct
@@ -900,6 +1032,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofDyadicOneAndMantissa
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofDirectWindowCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation
 #print axioms

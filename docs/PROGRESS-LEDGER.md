@@ -14798,3 +14798,43 @@ former from the direct-window evaluator at mantissa `1/2` using constructive
 oddness of the `artanh` partial sums.  No such oddness compiler is yet proved.
 The exact-rate, transfer, finite-graph, raw semantic/nontriviality, vacuum,
 continuum, QFT, and Clay residuals also remain open.
+
+## Dyadic and mantissa inversion are one direct-window compiler (2026-08-24)
+
+The two remaining scalar seeds are not analytically independent.
+`CRealLogOddness` proves, on the literal rational series, that odd powers,
+individual artanh terms, and finite artanh partial sums change sign under
+negation.  It then computes the artanh coordinate of `1/2` as the negation of
+the coordinate of `2`, yielding pointwise
+`logRat(1/2).approx n ≃ -log2.approx n`.
+
+This reciprocal identity turns any direct-window evaluator at `m = 1/2`
+into `DyadicLogSquareEulerEvaluation 1`; the previously proved recurrence
+then generates every dyadic exponent.  `DirectWindowLogSquareEulerCompiler`
+packages one uniform evaluator for arbitrary rational `m < 1` in the artanh
+window.  Its half specialization supplies the whole dyadic branch and its
+Wilson-mantissa specialization supplies the other atomic branch.
+`WilsonCanonicalExactLogEulerEvaluation.ofDirectWindowCompiler` contracts
+both into the canonical Wilson evaluator, and
+`adaptivePathOfDirectWindowEvaluationCompiler` carries that single analytic
+input through the same observable-connected path.
+
+The scalar frontier therefore has implementation width one, although two
+specializations of the finished compiler can execute in parallel.  This
+distinguishes engineering concurrency from logical independence.  In the
+wider DAG, exact-rate production, transfer/finite-graph approximation, raw
+nontriviality, projective OS/GNS semantics, and vacuum stationarity retain
+useful concurrency subject to their dependent-index joins.  Observable decay
+remains downstream of the same all-vector operator gap.
+
+The constructive oddness target passes 38 jobs with the changed module taking
+about 0.2 seconds.  Exact one-worker targets pass 5097 jobs for the exact-log
+compiler (about 2.0 seconds) and 5109 jobs for the connected capstone (about
+2.8 seconds).  Every newly audited export uses only
+`[propext, Quot.sound]`.
+
+`DirectWindowLogSquareEulerCompiler` remains uninhabited.  The next scalar
+frontier is now one uniform constructive exponential/logarithm inverse proof
+over the direct artanh window, rather than separate log-two and mantissa
+theorems.  Exact-rate, transfer, finite-graph, raw semantic/nontriviality,
+vacuum, continuum, QFT, and Clay residuals also remain open.

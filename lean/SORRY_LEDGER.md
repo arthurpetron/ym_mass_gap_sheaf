@@ -13051,3 +13051,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1.9 seconds; the connected capstone passes 5108 jobs with the changed target
   taking about 2.7 seconds.  The exponent-one seed, mantissa evaluator, and all
   later semantic/continuum residuals are not claimed inhabited.
+
+### [BF4-physical-wilson-direct-window-inverse] Collapse dyadic and mantissa branches to one compiler — **CLOSED 2026-08-24**
+
+- **milestone**: prove constructive oddness for rational artanh terms and
+  partial sums; identify the direct logarithm at `1/2` pointwise with the
+  negation of `log 2`; derive the exponent-one dyadic evaluator from the half
+  mantissa evaluator; package one uniform direct-window inverse interface; and
+  expose it on the connected Wilson capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealLogOddness.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealLogOddness.negPow_even_odd_eqv`,
+  `CRealLogOddness.artanhTerm_neg_eqv`,
+  `CRealLogOddness.artanhPartial_neg_eqv`,
+  `CRealLogOddness.logRat_oneHalf_approx_eqv_neg_log2_approx`,
+  `DirectWindowLogSquareEulerCompiler`,
+  `DyadicLogSquareEulerEvaluation.oneOfOneHalfMantissa`,
+  `DirectWindowLogSquareEulerCompiler.dyadicOne`,
+  `WilsonCanonicalExactLogEulerEvaluation.ofDirectWindowCompiler`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfDirectWindowEvaluationCompiler`.
+- **obligation**: inhabit the single uniform
+  `DirectWindowLogSquareEulerCompiler` by proving that the negative
+  exponential of twice the negative direct-window logarithm converges to
+  `m^2`.  The separate dyadic seed is no longer an independent analytic
+  obligation.  Exact-rate, transfer/finite-graph approximation, raw observable
+  semantics, nontriviality, vacuum stationarity, continuum existence, and QFT
+  closure remain separate open inputs.
+- **constructive?**: yes — parity induction, rational equivalences, pointwise
+  exponent transport, explicit convergence moduli, and exact limit retargeting
+  are used throughout.  No inverse theorem, selected limit, or combined
+  Wilson conclusion is assumed.  Every newly audited export uses only
+  `[propext, Quot.sound]`.
+- **status note**: the oddness module passes a 38-job exact one-worker target
+  with the changed module taking about 0.2 seconds.  The exact-log compiler
+  passes 5097 jobs in about 2.0 seconds, and the connected capstone passes 5109
+  jobs in about 2.8 seconds.  The uniform direct-window compiler and all later
+  semantic/continuum residuals are not claimed inhabited.
