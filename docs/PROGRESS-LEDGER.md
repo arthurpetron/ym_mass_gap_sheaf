@@ -12837,3 +12837,41 @@ The rate lane is now reduced to `s_j` comparable to the actual transfer spacing
 on the same completed object.  Producing the cofinal root ratios and proving
 graph-norm/OS convergence of the same carriers and transfers remain open, as
 do continuum Yang--Mills existence and the Clay theorem.
+
+## The global minimum-edge root-linear route is constructively ruled out (2026-08-24)
+
+`BF4PhysicalFiniteVacuumSectorRootLinearRatioNoGo` proves that the preceding
+global-minimum sufficient condition cannot supply the intended half-extent
+zero completed family.  At representation cutoff `K`, the all-spin ray gives
+`K` distinct excited vacuum spokes with strictly positive normalized joint
+kernel entries.  The finite global edge floor lies below every selected spoke,
+their sum lies below the vacuum row mass, and that row mass is at most one.
+Consequently
+
+`edgeFloor_K * K <= vacuumWeight_K <= 1`.
+
+Because the root-linear cost is at least one, any alleged cofinal ratio with
+positive fixed `delta` would force `delta*K <= 1` for every later cutoff.  At
+the explicit cutoff above the square of `delta.den + 1`, the constructive
+positive-rational denominator lemma gives `1 < delta*K`, a contradiction.
+Thus, for every positive nome `w`,
+
+`Not (Nonempty (FixedNomeCofinalVacuumRootLinearRatio hw 0))`.
+
+The first focused check failed on two namespace omissions and is not a pass;
+its `sorryAx` output was downstream elaboration contamination.  After explicit
+namespace openings and theorem calls, the complete focused guarded check
+passes in about 1.1 seconds.  The exact one-worker dependency-complete target
+passes 5037 jobs, with the new module taking about 1.1 seconds.  All six
+audited exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+added.
+
+This does not rule out a spectral gap.  It rules out the particular causal
+path that pays every local load using the global minimum edge and a global
+first-moment cost.  The dynamic physical-band modules remain correct
+conditional compilers, but their `half = 0` source interface is empty.  The
+proof must reroute through locally weight-cancelled capacities—most concretely
+the existing spin-ray return/escape estimates plus an off-ray residual
+compiler—or through a multiscale/direct-operator estimate.  Same-object
+graph-norm/OS continuum convergence, continuum Yang--Mills, and the Clay
+theorem remain open.

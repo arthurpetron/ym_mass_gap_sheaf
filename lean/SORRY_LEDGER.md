@@ -11010,3 +11010,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1.2 seconds.  The exact one-worker dependency-complete target passes 5034
   jobs, with the new module taking about 1.3 seconds.  No dynamic family,
   strength scaling, continuum QFT, or Clay theorem is inhabited or claimed.
+
+### [BF4-vacuum-root-linear-ratio-no-go] Rule out the global minimum-edge cofinal ratio at half-extent zero — **CLOSED 2026-08-24**
+
+- **milestone**: use the `K` distinct positive all-spin vacuum spokes to prove
+  `edgeFloor_K * K <= vacuumWeight_K <= 1`; show the root-linear cost is at
+  least one; derive `delta*K <= 1` from every later instance of an alleged
+  cofinal root-linear ratio; contradict this at an explicit cutoff determined
+  by the positive rational denominator; prove the cofinal interface is empty
+  for every positive nome at half-extent zero.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootLinearRatioNoGo.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorEdgeFloor_mul_cutoff_le_vacuumWeight`,
+  `centralPhysicalFiniteVacuumSectorEdgeFloor_mul_cutoff_le_one`,
+  `FixedNomeCofinalVacuumRootLinearRatio.delta_le_edgeFloor`,
+  `FixedNomeCofinalVacuumRootLinearRatio.delta_mul_cutoff_le_one`,
+  `FixedNomeCofinalVacuumRootLinearRatio.impossible`, and
+  `no_fixedNomeCofinalVacuumRootLinearRatio`.
+- **obligation**: abandon the global minimum-edge/root-linear ratio as the
+  half-extent-zero producer.  Preserve the valid finite and conditional
+  compilers, but reroute the actual proof through local weight cancellation,
+  such as a cofinal spin-ray return/escape bound combined with control of the
+  off-ray residual carrier, or through a genuinely multiscale/direct-operator
+  coercivity theorem.  Rebuild the dynamic physical-rate family on that viable
+  local source before attempting physical scaling.
+- **constructive?**: yes — explicit spin-ray indices, duplicate-free finite
+  injection, positive vacuum spokes, finite-sum monotonicity, exact sector
+  stationarity, probability-row normalization, and the denominator witness
+  for a positive rational suffice.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on missing finite-index
+  namespace access and invalid homonymous-namespace field notation and is not
+  a pass; its downstream `sorryAx` lines were elaboration contamination only.
+  The corrected focused guarded check passes in about 1.1 seconds.  The exact
+  one-worker dependency-complete target passes 5037 jobs, with the new module
+  taking about 1.1 seconds.  This proves a route-specific no-go, not a no-gap
+  theorem; continuum QFT and the Clay theorem remain open.
