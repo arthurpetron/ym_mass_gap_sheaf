@@ -13133,3 +13133,50 @@ or carrier-wide bound is taken.  Proving that estimate requires new explicit
 BF4 routing/conditional-density geometry or a multiscale/direct-operator
 replacement.  Physical strength scaling, the observable pin, the continuum
 handoff, continuum Yang--Mills, and the Clay theorem remain open.
+
+## Arbitrary-cutoff relative traffic is expanded into its exact Harnack target (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualConditionalHarnackTarget` removes the last
+opaque quotient from the local conditional-congestion frontier.  For every
+listed residual endpoint pair and every selected directed edge, it proves
+that the pair's edge load is exactly the stationary endpoint-product times
+the simple-path length when the edge occurs, and zero otherwise.  Dividing
+by the positive stationary mass of the edge source then gives the literal
+projective term
+
+`(weight(endpointLeft) / weight(edgeSource))`
+`  * weight(endpointRight) * pathLength * pathIncidence(edge)`.
+
+Summing these exact terms over the unchanged residual endpoint-pair list
+proves that the resulting conditional Harnack load is equal to the previously
+defined relative source flow load.  Consequently the dimensionless
+conditional-congestion inequality is equivalent in both directions to the
+explicit local Harnack target
+
+`sharedFloor * conditionalHarnackLoad(source,target)`
+`  <= (1/2) * physicalConditional(source,target)`.
+
+The finite and cofinal compiler structures are lossless.  In particular,
+the existing carrier-linear finite certificate yields a concrete Harnack
+target inhabitant at every finite cutoff, including the strong-coupling
+anchor specialization.  Its restricted positive floor still depends on the
+cutoff, so no uniformity has been hidden in this finite non-vacuity theorem.
+
+The first focused check failed on the zero-division normalization lemma and a
+missing finite-linear namespace; it is not a pass, and the downstream
+`sorryAx` lines were elaboration contamination.  After correcting those two
+points, the focused guarded check passes in about 1.4 seconds.  The exact
+one-worker dependency-complete target passes 5051 jobs, with the new module
+taking about 1.5 seconds.  All ten audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+No cofinal conditional-Harnack family is inhabited.  The analytic producer
+is now exposed at its decisive resolution: control a finite sum of endpoint
+stationary ratios, path incidences, and path lengths by the matching local
+conditional transition, uniformly in the representation cutoff.  The next
+causal expansion is a pathwise detailed-balance telescope that replaces each
+endpoint/source ratio by reverse/forward conditional-transition products;
+after that, explicit local or multiscale BF4 routing must bound those products
+and incidences.  The uniform completed gap, physical strength scaling,
+observable pin, continuum handoff, continuum Yang--Mills theory, and Clay
+theorem remain open.

@@ -11305,3 +11305,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   interface is inhabited at every finite cutoff by the concrete restricted
   carrier-linear certificate, but no cofinal uniform conditional family,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-conditional-harnack-target] Expand the local quotient into exact projective path traffic — **CLOSED 2026-08-24**
+
+- **milestone**: prove an exact path-incidence formula for each listed
+  residual endpoint-pair load; define the stationary endpoint/source ratio;
+  rewrite each relative pair demand as ratio times the other endpoint mass
+  times path length and incidence; sum without changing the endpoint or path
+  witnesses; prove an iff between conditional congestion and this explicit
+  Harnack target; provide lossless finite/cofinal compilers and unconditional
+  finite-cutoff inhabitants.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualConditionalHarnackTarget.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualWeightedPathEdgeLoad_eqv_indicator`,
+  `centralPhysicalFiniteWeight_mul_endpointWeightRatio_eqv_endpointWeight`,
+  `centralLowerExcitedSpinCubeOffRayResidualPathPairRelativeSourceDemand_eqv_harnackTerm`,
+  `centralLowerExcitedSpinCubeOffRayResidualRelativeSourceFlowLoad_eqv_harnackLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualConditionalCongestion_iff_harnackTarget`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalHarnackAt.ofConditionalCongestionAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalHarnackAt.toConditionalCongestionAt`,
+  `centralLowerExcitedSpinCubeFiniteLinearConditionalHarnackAt`,
+  `anchorCentralSpinCubeFiniteLinearConditionalHarnackAt`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualConditionalHarnack.toCompletedStrictContractionData`.
+- **obligation**: telescope the endpoint/source stationary ratio along the
+  actual positive path into reverse/forward conditional-transition ratios,
+  then prove a cutoff-uniform local or multiscale bound on the resulting
+  transition products, path incidences, and lengths.  Do not replace the
+  local target by a global edge minimum or carrier-wide scalar ceiling.
+- **constructive?**: yes — duplicate-free simple paths, exact finite-list
+  edge indicators, positive rational division, finite regrouping, and exact
+  equality transport suffice.  All ten audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused attempt failed on zero-division
+  normalization and one missing namespace and is not a pass; its downstream
+  `sorryAx` output was elaboration contamination only.  The corrected focused
+  guarded check passes in about 1.4 seconds.  The exact one-worker
+  dependency-complete target passes 5051 jobs, with the new module taking
+  about 1.5 seconds.  The interface is inhabited at every finite cutoff but
+  no cofinal uniform Harnack family, continuum Yang--Mills theory, or Clay
+  theorem is claimed.
