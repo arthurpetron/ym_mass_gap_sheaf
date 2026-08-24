@@ -11454,3 +11454,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs, with the new module taking about 3.6 seconds.  No cofinal routed
   capacity, physical strength-scaling theorem, same-object observable pin,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-adaptive-conditional-congestion] Cancel source mass for every supplied route — **CLOSED 2026-08-24**
+
+- **milestone**: define route-parametric relative endpoint-pair demand and
+  relative flow load; prove source weight times relative demand reconstructs
+  the exact routed joint traffic; cancel the common positive source weight
+  against the physical joint/conditional factorization; prove an iff between
+  routed pointwise capacity and dimensionless conditional congestion; compile
+  a cofinal adaptive conditional family to the completed strict contraction;
+  and prove exact two-way compatibility with the previous conditional
+  interface on the canonical routing.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveConditionalCongestion.lean`.
+- **decl**:
+  `centralPhysicalFiniteWeight_mul_routedRelativePairDemand_eqv_pathLoad`,
+  `centralPhysicalFiniteWeight_mul_routedRelativeSourceFlowLoad_eqv_flowLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedEdgeCapacity_iff_conditionalCongestion`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalCongestionAt.ofRoutedFlowCapacityAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalCongestionAt.toRoutedFlowCapacityAt`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedRelativeSourceFlowLoad_canonical_eq`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalCongestionAt.ofCanonical`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalCongestionAt.toCanonical`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveConditionalCongestion.toAdaptiveRoutingCapacity`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveConditionalCongestion.toCompletedStrictContractionData`.
+- **obligation**: choose explicit BF4-local or multiscale positive routes and
+  prove their exact relative traffic is uniformly bounded by the matching
+  physical conditional transition on every used directed edge.  Preserve the
+  route and endpoint witnesses; do not reintroduce a minimum stationary mass,
+  complete-sector edge floor, or carrier-wide scalar ceiling.
+- **constructive?**: yes — finite positive stationary weights, exact rational
+  division, duplicate-preserving summation, physical Markov factorization,
+  and positive-factor order cancellation suffice.  All eleven audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the first focused check failed on missing opened namespaces
+  and is not a pass; its downstream `sorryAx` output was elaboration
+  contamination only.  The corrected focused guarded check passes in about
+  1.5 seconds.  The exact one-worker dependency-complete target passes 5052
+  jobs, with the new module taking about 1.5 seconds.  No cofinal adaptive
+  conditional family, physical strength-scaling theorem, same-object
+  observable pin, continuum Yang--Mills theory, or Clay theorem is claimed.

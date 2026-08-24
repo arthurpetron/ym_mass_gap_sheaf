@@ -13297,3 +13297,47 @@ cutoff-uniform pointwise load comparison, or prove a direct-operator estimate
 that reaches the same coercivity consumer.  Physical strength scaling, the
 same-object observable pin, the thermodynamic/continuum handoff, continuum
 Yang--Mills theory, and the Clay theorem remain open.
+
+## Adaptive routed traffic is reduced to conditional congestion (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveConditionalCongestion` performs the
+stationary-mass cancellation for every route admitted by the new adaptive
+compiler.  For each residual endpoint pair and selected edge it divides the
+routed load by the strictly positive mass of the edge source, sums the exact
+relative demands, and proves
+
+`sourceWeight * routedRelativeTraffic(source,target)`
+`  = routedJointTraffic(source,target)`.
+
+The physical Markov factorization supplies the matching identity
+
+`sourceWeight * conditional(source,target)`
+`  = physicalJoint(source,target)`.
+
+Positive-factor cancellation therefore proves an iff between the adaptive
+joint-capacity inequality and the dimensionless local target
+
+`sharedFloor * routedRelativeTraffic(source,target)`
+`  <= (1/2) * physicalConditional(source,target)`.
+
+The conversion is lossless in both directions.  A cofinal adaptive
+conditional family compiles through adaptive routing to the existing
+residual coercivity and completed strict contraction.  On the canonical
+loop-erased routing, the relative load is definitionally the previous
+conditional-congestion load, and the old and adaptive certificates convert
+both ways.  No consumer or scorecard is duplicated.
+
+The first focused check failed on omitted list-sum and ray-capacity namespace
+opens and is not a pass; its downstream `sorryAx` output was elaboration
+contamination.  After opening the correct namespaces, the focused guarded
+check passes in about 1.5 seconds.  The exact one-worker dependency-complete
+target passes 5052 jobs, with the new module taking about 1.5 seconds.  All
+eleven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+construct was added.
+
+No cofinal adaptive conditional family is inhabited.  The open producer is
+now both route-aware and dimensionless: choose explicit BF4-local or
+multiscale positive paths and bound their relative traffic by the matching
+conditional transitions uniformly in cutoff.  Physical strength scaling,
+the same-object observable pin, the thermodynamic/continuum handoff,
+continuum Yang--Mills theory, and the Clay theorem remain open.
