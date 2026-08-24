@@ -10885,3 +10885,33 @@ later canonical-sector states outside the embedded cutoff-two image strongly
 enough that its product with the linear route scale pays the finite positive
 routed-edge floor on a cofinal sequence.  Completed contraction, continuum
 QFT, and the Clay theorem remain open.
+
+## New-shell mass splits into controlled tail and component mergers (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelNewShellMassComponentSplit` separates two
+events that must not be conflated.  A state outside the embedded cutoff-two
+vacuum component is either outside the entire cutoff-two positive carrier, or
+it is already cutoff-two-positive but belongs outside the cutoff-two vacuum
+component and joins that component only at the later cutoff.  The module
+defines disjoint index lists and proves the exact mass decomposition
+`newMass = outsidePositiveMass + componentMergerMass`.
+
+The outside-positive contribution embeds into the full finite indexed source
+tail, that indexed sum is proved exactly equivalent to the literal stationary
+source-tail event, and the existing corrected-slab theorem gives
+`outsidePositiveMass <= cutoffIncrement`.  Consequently
+`newMass <= cutoffIncrement + componentMergerMass`.
+
+The first focused attempt exposed missing namespace openings for the native
+finite sum, zero labelling, cutoff increment, and extent; it is not a pass.
+After correction, the focused check passes in about 1.2 seconds.  The exact
+one-worker, dependency-complete target passes 5,005 jobs, with the new module
+taking about 1.0 second.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+This shows why the already available stationary source-tail theorem alone
+cannot close the new-shell payment: it does not control mergers of previously
+positive components.  The next frontier is to compile the increment-plus-
+merger bound into the capacity payment and then determine whether component
+mergers can be excluded or quantitatively paid.  Completed contraction,
+continuum QFT, and the Clay theorem remain open.

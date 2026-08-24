@@ -9242,3 +9242,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,004 jobs with the new module taking about 1.0 second.  The
   cofinal payment is not inhabited, so no completed contraction, continuum
   QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-new-shell-component-split] Controlled source tail versus component merger — **CLOSED 2026-08-23**
+
+- **milestone**: decompose the new-shell stationary mass exactly into an
+  outside-cutoff-two-positive-carrier contribution and a component-merger
+  contribution; bound the first by the existing corrected-slab cutoff
+  increment.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelNewShellMassComponentSplit.lean`.
+- **decl**: `cutoffTwoNewMass_eqv_outside_add_componentMerger`,
+  `cutoffTwoNewOutsidePositiveMass_nonnegative`,
+  `cutoffTwoNewComponentMergerMass_nonnegative`,
+  `cutoffTwoNewOutsidePositiveMass_le_fullOutsideIndexedMass`,
+  `cutoffTwoFullOutsideIndexedMass_eqv_stationarySourceTail`,
+  `cutoffTwoNewOutsidePositiveMass_le_stationarySourceTail`,
+  `cutoffTwoNewOutsidePositiveMass_le_increment`, and
+  `cutoffTwoNewMass_le_increment_add_componentMerger`.
+- **obligation**: compile the increment-plus-merger estimate into the
+  edge-floor payment and then exclude or quantitatively control component
+  mergers.
+- **constructive?**: yes — finite filter partition, an injective sublist sum,
+  exact index/state recoding, and the existing cutoff-increment theorem.  All
+  eight audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the initial focused namespace failure is not a pass.  The
+  corrected focused check passes in about 1.2 seconds; the exact one-worker
+  target passes 5,005 jobs with the new module taking about 1.0 second.  The
+  component-merger mass is uncontrolled, so no completed contraction,
+  continuum QFT, or Clay theorem is claimed.
