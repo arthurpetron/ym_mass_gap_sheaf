@@ -11997,3 +11997,32 @@ handle untouched links by the generic residual bound, and allocate the
 resulting residual charge to non-source faces before summation.  Full-sector
 routing, completion, thermodynamic and continuum limits, continuum QFT, and
 the Clay theorem remain open.
+
+## Generic and equal-pair bounds now share one residual-list language (2026-08-23)
+
+`Z4ResidualListMultiplicityBound` proves that the prefix-coordinate sum in
+the generic local fusion estimate is exactly the ordinary `natListSum` of the
+incident-spin list.  It also proves invariance of that sum under `List.Perm`.
+Consequently both untouched links and links carrying the equal source pair can
+now be bounded in the same list-based residual language.
+
+The module exports a generic valence bound
+
+`explicitValenceMultiplicity ... spins <= spinSumCube (natListSum spins)`
+
+for every list of length at most six, together with its physical-permutation
+form.  This is bookkeeping with mathematical content: it removes a mismatch
+that otherwise prevents the zero-incidence and two-incidence cube-link cases
+from being combined into one theorem.
+
+One failed focused elaboration attempt exposed the recursive prefix-sum normal
+form, a list-length normalization, and a missing namespace opening; it is not
+a pass.  The corrected focused guarded check passes in about 0.5 seconds.  The
+exact one-worker, dependency-complete target passes 514 jobs, with the new
+module taking about 0.35 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+No raw-row ceiling is claimed.  The next frontier remains the actual
+central-cube linkwise theorem and subsequent non-source-face allocation and
+heat summation.  Full-sector routing, completion, thermodynamic and continuum
+limits, continuum QFT, and the Clay theorem remain open.

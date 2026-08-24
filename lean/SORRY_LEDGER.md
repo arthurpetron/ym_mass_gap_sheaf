@@ -10251,3 +10251,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 513 jobs with the new module taking about 0.4 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [Z4-residual-list-multiplicity] Unify generic and equal-pair residual coordinates — **CLOSED 2026-08-23**
+
+- **milestone**: identify the recursive external-prefix sum with the ordinary
+  sum of its finite incident-spin word, prove permutation invariance of that
+  word sum, and restate the generic valence bound in residual-list form.
+- **file**:
+  `lean/YMGap/Continuum/Z4ResidualListMultiplicityBound.lean`.
+- **decl**:
+  `externalPrefixSpinSum_externalSpinsOfList`, `natListSum_perm`,
+  `explicitValenceMultiplicity_list_le_spinSumCube`, and
+  `explicitValenceMultiplicity_physical_perm_le_spinSumCube`.
+- **obligation**: combine the generic zero-source-incidence case with the
+  equal-pair two-incidence case at every actual cube slab link, then allocate
+  the common residual bound to non-source faces and sum it.
+- **constructive?**: yes — primitive recursion on natural numbers and lists,
+  finite range decomposition, list permutations, and the existing generic
+  fusion estimate suffice.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 0.5 seconds; the exact one-worker
+  target passes 514 jobs with the new module taking about 0.35 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.
