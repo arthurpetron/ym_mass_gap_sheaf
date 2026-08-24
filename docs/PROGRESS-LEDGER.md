@@ -11969,3 +11969,31 @@ through the actual cube-incidence permutations, charge the residual factors
 to non-source faces, and perform the finite heat-activity sum.  Full-sector
 routing, the completed vacuum-complement gap, thermodynamic and continuum
 limits, continuum QFT, and the Clay theorem remain open.
+
+## The residual fusion bound is invariant under physical link order (2026-08-23)
+
+`Z4EqualPairResidualValenceBound` lifts the ordered equal-pair channel bounds
+to the literal production valence formula.  A finite case split over the
+at-most-four residual labels covers valences two through six.  The existing
+constructive physical permutation theorem then proves that any bounded actual
+incident list satisfying
+
+`actual.Perm (spin :: spin :: rest)`
+
+has production multiplicity at most `spinSumCube (natListSum rest)`.  The
+bound contains neither the location of the pair, the value of `spin`, nor the
+auxiliary cutoff.
+
+One failed focused elaboration attempt exposed only right-associated residual
+sums in the valence-five and valence-six normal forms; it is not a pass.  The
+corrected focused guarded check passes in about 0.5 seconds.  The exact
+one-worker, dependency-complete target passes 513 jobs, with the new module
+taking about 0.4 seconds.  Both audited exports use exactly
+`[propext, Quot.sound]`.
+
+This closes the order-transport subfrontier but not the raw-row ceiling.  The
+next step is to apply the theorem to every actual central-cube slab link,
+handle untouched links by the generic residual bound, and allocate the
+resulting residual charge to non-source faces before summation.  Full-sector
+routing, completion, thermodynamic and continuum limits, continuum QFT, and
+the Clay theorem remain open.

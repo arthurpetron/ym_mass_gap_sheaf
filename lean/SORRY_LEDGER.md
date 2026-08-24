@@ -10227,3 +10227,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 473 jobs with the new module taking about 0.4 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [Z4-equal-pair-residual-valence] Transport the residual bound through physical order — **CLOSED 2026-08-23**
+
+- **milestone**: cover every canonical valence containing a leading equal
+  pair and at most four residual labels, then use physical permutation
+  invariance to bound an arbitrary actual incident ordering by the cubic
+  residual-label envelope.
+- **file**:
+  `lean/YMGap/Continuum/Z4EqualPairResidualValenceBound.lean`.
+- **decl**:
+  `explicitValenceMultiplicity_equalPair_le_residualSpinSumCube` and
+  `explicitValenceMultiplicity_physical_equalPair_le_residualSpinSumCube`.
+- **obligation**: instantiate the actual-order theorem on every central-cube
+  slab link, combine it with the untouched-link bound, allocate all residual
+  charges to non-source faces, and sum the resulting heat majorant.
+- **constructive?**: yes — finite valence cases, the exact explicit formulas,
+  list-length arithmetic, bounded physical permutations, and the preceding
+  channel bounds suffice.  Both audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 0.5 seconds; the exact one-worker
+  target passes 513 jobs with the new module taking about 0.4 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.
