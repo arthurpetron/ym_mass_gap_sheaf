@@ -30,6 +30,7 @@ noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath
+import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 
@@ -57,6 +58,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
+open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.OSExactLogGap
@@ -101,9 +103,10 @@ structure RawWilsonConnectedMassGapPath
   vectors using the exact scheduled-rate limit parameter. -/
   graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
     family ratePower W
-  /-- The selected transfer fixes its own vacuum, so its one-step gap can be
-  iterated on the invariant vacuum complement. -/
-  stationarity : WilsonVacuumStationarityPin W
+  /-- The selected vacuum is the embedded constant observable and the
+  observable time shift preserves that unit.  Dense intertwining derives the
+  stationarity needed to iterate the operator gap. -/
+  vacuumPin : WilsonDenseUnitVacuumPin W
 
 namespace RawWilsonConnectedMassGapPath
 
@@ -141,7 +144,7 @@ def iteratedBoundedMassGap
       ratePower H W) :
     WilsonIteratedBoundedMassGap W where
   boundedGap := path.minimalBoundedMassGap
-  stationarity := path.stationarity
+  stationarity := path.vacuumPin.toStationarity
 
 /-- The endpoint's physical rate is definitionally the limit selected by the
 same dynamic physical-gap variation. -/
@@ -232,6 +235,51 @@ theorem rawContinuum_zero_isPositive
       ((rawMovingCubeContinuumLimitOfVariation family raw).continuumConnectedAutocorrelation
         0) :=
   path.nontrivial.zero_isPositive
+
+/-- The exact embedded observable state is orthogonal to the physically
+identified dense constant vacuum, not merely to an abstract unnamed vector. -/
+theorem gapState_orthogonal_denseUnit
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (path : RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W) :
+    W.wilson.toGNSData.gnsComplete.hilbert.cinner
+        path.matrixCoefficient.gapState
+        (GNSQuotient.embedV W.wilson.toGNSData H.os_axioms.A.one) =
+      RCzero := by
+  have h := path.matrixCoefficient.gapState_vacPerp
+  change W.wilson.toGNSData.gnsComplete.hilbert.cinner
+      path.matrixCoefficient.gapState W.timeTranslation.op.vacuum =
+    RCzero at h
+  rw [path.vacuumPin.vacuumPinned] at h
+  exact h
+
+/-- Zero-time nontriviality is exactly strict positivity of the norm square of
+the same completed Wilson state used in the connected matrix coefficient. -/
+theorem gapState_norm_isPositive
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (path : RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W) :
+    RCIsPositive
+      (W.wilson.toGNSData.gnsComplete.hilbert.cinner
+        path.matrixCoefficient.gapState
+        path.matrixCoefficient.gapState) := by
+  have h := path.rawContinuum_zero_isPositive
+  rw [path.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient 0] at h
+  simpa [BoundedTransferCalculus.Tpow] using h
 
 /-- The all-vector iterated Wilson gap implies squared decay of the exact raw
 continuum channel.  This is the valid operator-to-observable direction. -/
@@ -334,6 +382,10 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.physicalRate_equiv_selectedSeparatorExactLog
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.gapState_orthogonal_denseUnit
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.gapState_norm_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.rawContinuumConnectedAutocorrelationSqDecay
 #print axioms

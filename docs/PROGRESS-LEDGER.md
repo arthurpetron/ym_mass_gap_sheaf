@@ -14435,3 +14435,24 @@ The record remains uninhabited: raw nontriviality, projective OS semantics,
 the Wilson matrix-coefficient pin, exact-rate reconstruction convergence,
 all-vector graph-norm convergence, vacuum stationarity, continuum existence,
 and the QFT/Clay endpoint are still open obligations.
+
+## The connected path now uses the concrete dense constant vacuum (2026-08-24)
+
+The connected-path record has been strengthened from a bare stationarity
+equation to `WilsonDenseUnitVacuumPin`.  This identifies the selected completed
+vacuum with the embedded constant observable and proves that the observable
+time shift preserves that unit; dense intertwining then constructs the
+stationarity needed by the iterated all-vector gap.
+
+Two consequences make the observable semantics explicit.  The embedded raw
+gap state is orthogonal to this concrete dense unit, and its completed norm
+square is strictly positive because it is definitionally the nontrivial raw
+zero-time continuum correlation.  Thus the path now carries a genuine
+nonzero state in the physical vacuum complement, not merely an abstract
+connected scalar sequence.
+
+The focused guarded check and the exact one-worker target pass.  The latter
+builds 5103 jobs, with the refined module taking about 1.7 seconds.  All nine
+audited exports use only `[propext, Quot.sound]`.  The dense-unit vacuum pin
+itself, along with the other semantic and continuum residuals, remains an
+honest uninhabited input.

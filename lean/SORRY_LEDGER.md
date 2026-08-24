@@ -12711,3 +12711,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   specialization passes the focused check.  Its exact one-worker target
   passes 5102 jobs, with the new module taking about 1.5 seconds.  No residual
   field, continuum theory, or Clay theorem is claimed inhabited.
+
+### [BF4-physical-connected-dense-unit-vacuum] Pin the connected Wilson state to the concrete vacuum — **CLOSED 2026-08-24**
+
+- **milestone**: replace the connected path's bare `T Omega = Omega` field by
+  `WilsonDenseUnitVacuumPin`; derive stationarity through dense intertwining;
+  prove that the exact raw Wilson state is orthogonal to the embedded constant
+  observable; and transport raw zero-time nontriviality to strict positivity
+  of that same completed state's norm square.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `RawWilsonConnectedMassGapPath.vacuumPin`,
+  `iteratedBoundedMassGap`, `gapState_orthogonal_denseUnit`, and
+  `gapState_norm_isPositive`.
+- **obligation**: inhabit the dense-unit vacuum pin by identifying the selected
+  OS/Wilson vacuum and proving that its observable time shift preserves the
+  unit.  Raw nontriviality, projective/OS semantics, graph-norm convergence,
+  exact-rate reconstruction convergence, continuum existence, and the QFT
+  endpoint remain separate open inputs.
+- **constructive?**: yes — stationarity is derived by the existing dense
+  intertwining theorem, orthogonality is rewritten along the explicit vacuum
+  equality, and norm positivity is transported along the exact same-object
+  matrix-coefficient equality.  All nine audited exports use only
+  `[propext, Quot.sound]`.
+- **status note**: the focused guarded check passes.  The exact one-worker
+  dependency-complete target passes 5103 jobs, with the refined module taking
+  about 1.7 seconds.  No vacuum pin or later continuum residual is claimed
+  inhabited.
