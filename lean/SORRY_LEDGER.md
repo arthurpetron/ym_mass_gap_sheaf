@@ -10799,3 +10799,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 1.3 seconds.  The finite capacities are
   unconditional but cutoff-dependent; no cofinal uniform capacity, completed
   gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-physical-vacuum-sector-uniform-mass-floor] Lift one uniform positive row into the complete sector mass — **CLOSED 2026-08-23**
+
+- **milestone**: for every fixed rational nome `0 < w < 1` and half-extent,
+  use the persistent all-zero physical state and the generic uniform
+  positive-row theorem to construct an explicit positive lower bound for the
+  complete finite physical vacuum-sector mass at every later cutoff; specialize
+  the result to the spin-cube anchor `w = 1/400`, `half = 0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorUniformMassFloor.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorUniformMassFloor_pos`,
+  `centralPhysicalFiniteVacuumSectorUniformMassFloor_le`,
+  `anchorCentralPhysicalFiniteVacuumSectorUniformMassFloor_pos`, and
+  `anchorCentralPhysicalFiniteVacuumSectorUniformMassFloor_le`.
+- **obligation**: combine this now-constructed mass floor with an inhabitant of
+  `FixedNomeCofinalVacuumRootTrafficCapacity` to compile centered finite strict
+  contraction and the existing completed strict-contraction datum.  The
+  cofinal root-traffic capacity itself remains the immediate analytic input.
+- **constructive?**: yes — persistence of the explicit all-zero carrier state,
+  the generic uniform positive-row floor, stationary-weight nonnegativity, and
+  finite-list sum monotonicity suffice.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused guarded check passes on its first attempt in
+  about 0.48 seconds.  The exact one-worker dependency-complete target passes
+  1188 jobs, with the new module taking about 0.512 seconds.  This closes the
+  fixed-nome sector-mass lane; it does not inhabit the cofinal root-traffic
+  capacity or prove a completed/continuum/Clay mass gap.

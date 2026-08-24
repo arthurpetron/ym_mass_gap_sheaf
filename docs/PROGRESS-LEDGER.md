@@ -12625,3 +12625,33 @@ an edge with that edge's physical kernel uniformly in cutoff.  In parallel,
 the uniform sector-mass floor is still required for centered transfer
 contraction.  Completion, thermodynamic and continuum limits, continuum QFT,
 and the Clay theorem remain open.
+
+## Every fixed physical nome has a cofinal positive vacuum-sector mass floor (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorUniformMassFloor` closes the sector-mass lane for
+every fixed rational nome `0 < w < 1` and half-extent.  Finite index zero is the
+all-zero lower state and remains in the canonical physical vacuum sector at
+every cutoff.  The existing uniform positive-row theorem therefore supplies an
+explicit positive weight for that same state beyond its explicit anchor.
+Nonnegativity of every other sector weight lifts this one-row bound to the
+complete sector mass:
+
+`uniformMassFloor(w, half) <= vacuumSectorMass(w, K, half)`.
+
+The module specializes the construction to the spin-cube anchor
+`w = 1/400`, `half = 0`, so the mass floor needed by the centered-transfer
+route is now an unconditional fixed-coupling datum rather than an open
+analytic hypothesis.
+
+The focused guarded check passes on its first attempt in about 0.48 seconds.
+The exact one-worker dependency-complete target passes 1188 jobs, with the new
+module taking about 0.512 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+This does not prove a uniform spectral gap.  The remaining analytic input at
+this junction is the cofinal root-traffic capacity: one positive `delta`
+comparing the explicit local root load with the physical kernel at all later
+cutoffs.  Given that input, an algebraic compiler can combine it with the mass
+floor to produce centered finite strict contraction and then the already
+available completion map.  Thermodynamic and continuum control, continuum
+QFT, and the Clay theorem remain open.
