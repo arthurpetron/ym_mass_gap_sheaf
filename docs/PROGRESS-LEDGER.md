@@ -13626,3 +13626,43 @@ same-object decay estimate directly.  The older rational observable pin must
 not be inhabited by assuming those completed moments are rational.  A uniform
 physical rate band, projective/OS correlation convergence, reconstruction,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## One concrete RC channel now crosses every dynamic completed scale (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorSameObjectRCChannel` supplies the honest
+observable-connected compiler that the rational `PhysicalSeparator` surface
+could not provide.  Its `DynamicVacuumSectorSameObjectRCChannel` carries one
+actual completed vacuum-complement vector at every scale and a Type-level
+rational positive floor below that vector's literal completed norm.  The norm,
+connected autocorrelation, and squared connected autocorrelation are defined
+directly from that vector and the actual completed sector transfer; no
+independent numerical correlator or norm can be substituted.
+
+For any channel, time zero is definitionally its norm square, the retained
+rational floor proves strict positivity, the common completed-family theorem
+gives squared autocorrelation decay at the actual rate, and the existing
+sector/global moment bridge identifies the same quantity with the global
+adaptive-transfer matrix coefficient.  The exact moving-centered cutoff-one
+cube construction then inhabits this interface for every supplied
+`DynamicVacuumSectorCompletedFamily 0`: at scale `j` it uses the family nome,
+the exact already-proved completed moving vector, its actual vacuum-
+orthogonality proof, and the explicit cube-coordinate norm floor.
+
+The first guarded check found only invalid line-broken field notation; its
+downstream `sorryAx` was parser/elaboration contamination and is not a pass.
+After replacing that notation by explicit compiler names, the focused check
+passes.  The exact one-worker dependency-complete target passes 1654 jobs,
+with the new module taking about 0.82 seconds after replaying dependencies.
+All five audited exports use exactly `[propext, Quot.sound]`; no forbidden
+construct was added.
+
+This closes the scale-indexed same-vector/same-transfer/same-moment join in
+genuine completed-real currency, conditional on a supplied dynamic completed
+family.  It does not prove that the RC moments are rational and therefore does
+not inhabit the older rational observable pin or `PhysicalSeparator`.  The
+next causal choice is either (a) build an RC-valued physical-separation and
+scheduled-sampling consumer, or (b) prove constructive rational envelopes
+with explicit error/modulus data sufficient to compile the RC channel into an
+approximate rational interface.  In both routes, the strength/rate band,
+projective OS correlation limit, reconstructed generator identification,
+continuum Yang--Mills theory, and the Clay theorem remain open.

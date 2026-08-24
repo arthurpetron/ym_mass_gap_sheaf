@@ -11780,3 +11780,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 0.65 seconds after dependency replay.  No dynamic observable path,
   physical rate band, thermodynamic limit, continuum Yang--Mills theory, or
   Clay theorem is claimed.
+
+### [BF4-physical-dynamic-same-object-rc-channel] Carry the exact moving cube moment through every dynamic completed scale — **CLOSED 2026-08-24**
+
+- **milestone**: define a scale-indexed same-object channel whose vector lives
+  in the actual completed vacuum complement; retain a Type-level rational
+  positive floor for its literal norm; define its norm and connected moments
+  directly in `RC`; prove time-zero norm identity, strict positivity, and
+  completed-rate decay; identify the same autocorrelation with the global
+  adaptive-transfer matrix coefficient; and inhabit the channel with the
+  exact moving-centered cutoff-one cube vector at every nome of any supplied
+  `DynamicVacuumSectorCompletedFamily 0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.lean`.
+- **decl**:
+  `DynamicVacuumSectorSameObjectRCChannel`,
+  `DynamicVacuumSectorSameObjectRCChannel.normSq`,
+  `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation`,
+  `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq`,
+  `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_zero_isPositive`,
+  `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq_decay`,
+  `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global`,
+  `centralPhysicalDynamicMovingCubeVectorAt`,
+  `centralPhysicalDynamicMovingCubeRCChannel`, and
+  `centralPhysicalDynamicMovingCube_connectedSq_decay`.
+- **obligation**: preserve this exact `RC` channel through scheduled physical-
+  time sampling and projective/OS convergence.  Either build an RC-valued
+  physical-separation consumer, or supply constructive rational envelopes
+  and error moduli before using the existing rational `PhysicalSeparator`.
+  Do not assert that arbitrary completed moments are rational.  The dynamic
+  completed family and its physical strength/rate band remain Type-level
+  inputs, not inhabitants produced here.
+- **constructive?**: yes — the vector, rate, norm floor, and moments remain in
+  one dependent record; all moment equalities are definitional or already
+  proved sector/global bridges; the lower witness is explicit rational data.
+  The five audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first guarded check failed only on invalid line-broken
+  field notation and its downstream `sorryAx` output is failed-elaboration
+  contamination.  After using explicit compiler names, the focused check
+  passes.  The exact one-worker dependency-complete target passes 1654 jobs,
+  with the new module taking about 0.82 seconds after dependency replay.  No
+  rational observable pin, physical separator, continuum correlation limit,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
