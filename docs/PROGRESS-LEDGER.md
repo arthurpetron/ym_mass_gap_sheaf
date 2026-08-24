@@ -13777,3 +13777,38 @@ rescaled same-observable channel, which must control the reciprocal-square and
 reciprocal-fourth-power debts.  No such cutoff-limit inhabitant, adaptive
 producer, strength band, projective/OS identification, reconstructed
 generator, continuum Yang--Mills theory, or Clay theorem is proved here.
+
+## The adaptive producer now reaches the normalized cutoff-limit interface (2026-08-24)
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath` specializes
+the normalized channel to the completed family definitionally produced by one
+supplied dynamic adaptive off-ray transition-product family.  The compiler
+retains the same producer nome, completed transfer, moving-cube vector,
+reciprocal rescaling, scheduled physical-time power, connected matrix
+coefficient, completed rate, and optional strength band.
+
+The central join proves that the normalized sampled moment is exactly the
+reciprocal-square rescaling of the already connected raw producer moment.  It
+also unfolds to the literal global completed-transfer matrix coefficient of
+the actual normalized vector.  The same rate supplies sampled squared decay,
+the zero-time value has the uniform floor one, and the producer's strength
+band bounds the physical gap for that identical completed family.  An exact
+producer-indexed normalized cutoff-limit type exposes the final current input;
+any inhabitant yields a strictly positive zero-time continuum correlation.
+
+The first guarded check is not a pass: imported compiler names were hidden
+under the preceding module's nested namespace, one source theorem was
+shadowed, and the resulting downstream normalization timed out with
+failed-elaboration `sorryAx`.  A second check exposed one remaining completed-
+moment namespace.  After explicit namespace joins, the focused check passes.
+The exact one-worker dependency-complete target passes 5079 jobs, with the new
+module taking about 1.4 seconds after dependency replay.  All six audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This closes the producer-to-normalized-observable wiring, not the producer or
+limit itself.  The next analytic compiler must derive the normalized cutoff
+limit from explicit convergence/control of the raw moment and reciprocal-
+square debt, while squared-decay passage also tracks the reciprocal-fourth-
+power debt and sampled rate envelope.  Projective/OS identification,
+reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
+open.

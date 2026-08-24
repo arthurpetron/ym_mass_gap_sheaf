@@ -11956,3 +11956,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 1.7 seconds.  No normalized cutoff-limit
   inhabitant, producer inhabitant, strength band, projective/OS
   identification, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-normalized-moving-cube-path] Preserve the adaptive producer through normalized sampling — **CLOSED 2026-08-24**
+
+- **milestone**: specialize the reciprocal scale and both normalization debts
+  to the completed family produced by one supplied adaptive transition-
+  product family; retain the actual normalized global vector, norm, sampled
+  connected matrix coefficient, and scheduled power; prove exact equality to
+  the reciprocal-square rescaling of the raw producer moment and to the
+  literal global matrix coefficient; retain completed-rate decay, norm floor
+  one, and the same physical strength band; and expose the exact normalized
+  cutoff-limit type whose inhabitant gives continuum zero-time positivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.lean`.
+- **decl**:
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeScale`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeNormDebt`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeCorrelationSqDebt`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeVectorAt`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeSampledConnectedAutocorrelation_eq_scaled_raw`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeSampledConnectedAutocorrelation_eq_global`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeSampledConnectedAutocorrelationSq_decay`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.one_le_normalizedMovingCubeSampledConnectedAutocorrelation_zero`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCube_physicalGap_twoSided`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.NormalizedMovingCubeContinuumLimit`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation_zero_isPositive`.
+- **obligation**: derive the producer-indexed normalized cutoff limit from
+  constructive representative convergence of the raw sampled moment together
+  with convergence or another adequate control of the reciprocal-square debt.
+  Preserve the reciprocal-fourth-power debt through squared-decay passage and
+  combine it with the sampled physical-rate envelope.  Then identify this same
+  normalized correlation through projective measure and OS reconstruction.
+- **constructive?**: yes — all joins are definitional or named equalities over
+  one supplied producer, and the normalized continuum interface requires
+  explicit representatives and moduli.  The six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check had unresolved nested imported
+  namespaces and source-theorem shadowing; downstream normalization timed out
+  and emitted failed-elaboration `sorryAx`.  The second check found one
+  remaining completed-moment namespace.  Neither is a pass.  The corrected
+  focused check passes.  The exact one-worker dependency-complete target
+  passes 5079 jobs, with the new module taking about 1.4 seconds.  No producer,
+  strength band, normalized cutoff limit, projective/OS identification,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
