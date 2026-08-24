@@ -11178,3 +11178,30 @@ rebase this fixed cutoff-two interface to a general base/later pair, because a
 fixed-base increment need not decay cofinally; a moving-base local-step budget
 is the mathematically viable route to investigate.  Completed contraction,
 continuum QFT, and the Clay theorem remain open.
+
+## Generic embedded-boundary closure is exactly no carrier growth (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorEmbeddedBoundaryGrowth` works at arbitrary
+constructive coupling, finite half-volume, and cutoffs `base <= later`.  From
+every later new-block state it constructs a literal rooted support path and
+locates the first edge leaving the embedded base vacuum component.
+
+The module defines the corresponding generic Boolean closure scan and proves
+the exact equivalence: the embedded boundary is closed if and only if the
+entire later new-state block is empty.  Hence closure is a no-growth condition,
+not merely a no-component-merger condition.  Whenever the physical vacuum
+carrier genuinely grows, some embedded boundary crossing is forced and must
+be paid quantitatively.
+
+The first focused attempt omitted the constructive rational namespace; the
+second exposed a dependent empty-list case requiring `rfl`.  Neither is a
+pass.  The corrected focused check passes in about 0.9 seconds.  The exact
+one-worker, dependency-complete target passes 5,016 jobs, with the new module
+taking about 0.9 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+No larger-cutoff new block is proved empty.  The next frontier is therefore a
+generic base/later decomposition of new stationary mass into newly positive
+mass and old-component merger mass, with the first part controlled by the
+local corrected-slab increment.  Uniform moving-base payment, continuum QFT,
+and the Clay theorem remain open.

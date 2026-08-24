@@ -9535,3 +9535,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 5,015 jobs with the new module taking about 2.2
   seconds.  No reserve is inhabited, so no cofinal contraction, continuum QFT,
   or Clay theorem is claimed.
+
+### [BF4-generic-embedded-boundary-growth] Boundary closure iff no new states — **CLOSED 2026-08-23**
+
+- **milestone**: for arbitrary `base <= later`, construct a first embedded-
+  component exit edge from every new later vacuum-sector state and prove the
+  exact Boolean equivalence between boundary closure and an empty new block.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorEmbeddedBoundaryGrowth.lean`.
+- **decl**: `CentralPhysicalEmbeddedVacuumBoundaryExit`,
+  `centralPhysicalFiniteNewStateBoundaryExit`,
+  `centralPhysicalEmbeddedVacuumBoundaryClosedCheck_sound`,
+  `centralPhysicalEmbeddedVacuumBoundaryClosedCheck_complete`, and
+  `centralPhysicalEmbeddedVacuumBoundaryClosedCheck_true_iff_new_empty`.
+- **obligation**: quantify generic moving-base new-state growth; closure cannot
+  serve as a cofinal mechanism whenever new physical states occur.
+- **constructive?**: yes — rooted `ChainIn` recursion locates the first exit,
+  and a finite `List.all` scan is proved sound and complete.  All four audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the omitted-namespace and dependent-empty-case failures are
+  not passes.  The corrected focused check passes in about 0.9 seconds; the
+  exact one-worker target passes 5,016 jobs with the new module taking about
+  0.9 seconds.  No larger-cutoff emptiness, cofinal contraction, continuum QFT,
+  or Clay theorem is claimed.
