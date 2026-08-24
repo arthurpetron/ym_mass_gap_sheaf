@@ -10531,3 +10531,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5042 jobs with the new module taking about
   1.3 seconds.  No inhabitant of the cofinal off-ray residual certificate,
   full vacuum-complement gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-flow] Route the residual into a literal coefficient-independent edge load — **CLOSED 2026-08-23**
+
+- **milestone**: enumerate exactly the three residual endpoint blocks, route
+  every stationary demand through the constructive loop-erased positive
+  physical-kernel path, prove the finite Cauchy endpoint bound, retain and
+  regroup all duplicate directed-edge occurrences, and contract the residual
+  pairwise form into one loaded Dirichlet form.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualFlow.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualFlowPairwiseVariance_eqv_residual`,
+  `centralLowerExcitedSpinCubeOffRayResidualPairwiseVariance_le_rawPairBudget`,
+  `centralLowerExcitedSpinCubeOffRayResidualOccurrence_mem_sector`,
+  `centralLowerExcitedSpinCubeOffRayResidualOccurrence_kernel_pos`,
+  `centralLowerExcitedSpinCubeOffRayResidualRawOccurrenceEnergy_eqv_loadedDirichlet`,
+  and
+  `centralLowerExcitedSpinCubeOffRayResidualPairwiseVariance_le_rawLoadedDirichlet`.
+- **obligation**: prove a cutoff-uniform, coefficient-free pointwise capacity
+  comparison placing the shared coercivity floor times the explicit residual
+  flow load below the half physical-kernel capacity reserved by the ray proof;
+  then compile it into the already isolated cofinal residual certificate.
+- **constructive?**: yes — finite Cartesian enumeration, sector-filter
+  membership, constructive simple positive paths, finite Cauchy--Schwarz,
+  nonnegative stationary weights, occurrence support, and exact
+  duplicate-preserving load regrouping suffice.  All eight audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 1.4 seconds; the exact one-worker
+  dependency-complete target passes 5043 jobs with the new module taking about
+  1.2 seconds.  The residual load is explicit, but no uniform pointwise
+  congestion inequality, full vacuum-complement gap, continuum QFT, or Clay
+  theorem is claimed.

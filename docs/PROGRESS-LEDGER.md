@@ -12346,3 +12346,38 @@ physical capacity uniformly.  A uniform physical sector-mass floor is then
 still required to turn full pairwise coercivity into a uniform centered
 transfer rate.  Completion, thermodynamic and continuum limits, continuum
 QFT, and the Clay theorem remain open.
+
+## The off-ray residual is routed into one coefficient-independent edge load (2026-08-23)
+
+`BF4PhysicalSpinCubeOffRayResidualFlow` replaces the residual form certificate
+by literal finite flow data.  It enumerates exactly the ray--off, off--ray,
+and off--off ordered endpoint pairs and proves that their stationary-product
+sum is the residual isolated in the preceding frontier module.  Every pair is
+proved to lie in the full finite physical vacuum sector.
+
+For each residual pair, the module chooses the existing constructive
+loop-erased positive-physical-kernel path.  The path contributes its endpoint
+stationary-product weight times its edge length at each directed occurrence.
+Finite Cauchy--Schwarz controls the endpoint square by this raw path budget.
+Summing over all residual pairs and retaining duplicate occurrences gives an
+exact occurrence-energy identity; the general regrouping theorem then turns
+that energy into a full-sector loaded Dirichlet form with one explicit,
+coefficient-independent edge-load function.  Every occurrence stays in the
+physical sector, traverses a strictly positive physical-kernel edge, and has
+nonnegative load.  The resulting theorem is
+
+`offRayResidualPairwiseVariance <= residualRawLoadedDirichlet`.
+
+One failed focused elaboration attempt exposed a missing namespace opening and
+three command-line parse breaks; it is not a pass.  The corrected focused
+guarded check passes in about 1.4 seconds.  The exact one-worker,
+dependency-complete target passes 5043 jobs, with the new module taking about
+1.2 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+This closes the coefficient-dependent routing step, not the uniform analytic
+estimate.  The next causal frontier is the coefficient-free pointwise
+congestion inequality comparing the shared floor times this residual load
+with the reserved half of the genuine physical kernel on every carrier edge.
+No such uniform bound, full vacuum-complement gap, continuum QFT, or Clay
+theorem is claimed.
