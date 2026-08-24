@@ -13252,3 +13252,48 @@ operator argument; the opaque loop-erased canonical path itself carries no
 semantic spin-control theorem yet.  No cofinal transition-product family,
 uniform completed gap, continuum Yang--Mills theory, or Clay theorem is
 proved here.
+
+## Adaptive positive routing compiles into the same completed contraction (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting` removes an architectural
+restriction exposed by the transition-product target: the previous residual
+flow fixed the generic loop-erased connectivity path before an analytic
+argument could use BF4 spin geometry.  The new Type-level routing datum
+instead supplies an actual positive physical-kernel path for every ordered
+pair in the finite vacuum sector.
+
+For any such routing, the module redoes the full finite proof rather than
+assuming a form estimate.  It proves endpoint Cauchy--Schwarz along each
+supplied path, preserves every duplicate directed-edge occurrence, regroups
+the weighted occurrences into the exact routed load, and derives
+
+`offRayResidualPairwiseVariance`
+`  <= routedLoadedDirichlet`.
+
+A pointwise routed capacity then compiles to the existing off-ray residual
+coercivity interface and from there to the already constructed completed
+vacuum-sector strict contraction.  Thus a future BF4-local or multiscale
+producer may choose routes adapted to the spin geometry without opening a
+parallel consumer path.
+
+The refinement is conservative: the previous loop-erased routing is an
+explicit inhabitant, its routed flow load is definitionally the old flow
+load, and routed and old pointwise capacity certificates convert in both
+directions on that canonical routing.  This is the required bridge back to
+the canonical frontier, not a new scorecard.
+
+The first focused guarded check failed only because the two public list-sum
+lemmas and the finite ray-capacity structure were not in opened namespaces;
+it is not a pass, and its downstream `sorryAx` output was elaboration
+contamination.  After opening those namespaces, the focused guarded check
+passes in about 3.6 seconds.  The exact one-worker dependency-complete target
+passes 5047 jobs, with the new module taking about 3.6 seconds.  All eleven
+audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+was added.
+
+No cofinal routed-capacity family is inhabited.  The next analytic producer
+must construct BF4-local or multiscale positive routes together with a
+cutoff-uniform pointwise load comparison, or prove a direct-operator estimate
+that reaches the same coercivity consumer.  Physical strength scaling, the
+same-object observable pin, the thermodynamic/continuum handoff, continuum
+Yang--Mills theory, and the Clay theorem remain open.

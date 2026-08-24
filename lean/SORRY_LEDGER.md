@@ -11412,3 +11412,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5053 jobs, with the new module taking
   about 1.4 seconds.  Finite inhabitants exist, but no cofinal uniform family,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-adaptive-routing] Permit BF4-local routes without changing the contraction consumer — **CLOSED 2026-08-24**
+
+- **milestone**: define Type-level positive physical-kernel routing data for
+  every finite-sector endpoint pair; compile any supplied routing through
+  pathwise Cauchy--Schwarz, duplicate-preserving weighted occurrences, and
+  exact edge-load regrouping; prove the residual pairwise variance is bounded
+  by the routed loaded Dirichlet form; compile pointwise routed capacity to
+  the existing residual coercivity and completed strict contraction; and
+  prove that the canonical loop-erased routing recovers the old flow load and
+  capacity interface exactly in both directions.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting.lean`.
+- **decl**:
+  `CentralPhysicalFiniteVacuumSectorPositiveRoutingAt`,
+  `canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt`,
+  `centralLowerExcitedSpinCubeOffRayResidualPairwiseVariance_le_routedRawLoadedDirichlet`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedFlowLoad_canonical_eq`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedFlowCapacityAt.toOffRayResidualCoercivityAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedFlowCapacityAt.ofCanonical`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedFlowCapacityAt.toCanonical`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveRoutingCapacity.toCofinalResidualCoercivity`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveRoutingCapacity.toCompletedStrictContractionData`.
+- **obligation**: construct a cofinal BF4-local or multiscale routing whose
+  exact directed-edge loads satisfy the cutoff-uniform pointwise capacity
+  comparison.  The new routing freedom must be used to control spin-local
+  transition ratios, incidences, and lengths; it must not be collapsed back
+  to a complete-sector edge minimum or an opaque carrier-cardinality bound.
+  A direct-operator producer remains admissible if it targets the same
+  residual-coercivity consumer.
+- **constructive?**: yes — every routing contains literal Type-level positive
+  paths, and finite Cauchy--Schwarz plus exact list regrouping proves the
+  form estimate.  All eleven audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on missing opened namespaces
+  and is not a pass; its downstream `sorryAx` output was elaboration
+  contamination only.  The corrected focused guarded check passes in about
+  3.6 seconds.  The exact one-worker dependency-complete target passes 5047
+  jobs, with the new module taking about 3.6 seconds.  No cofinal routed
+  capacity, physical strength-scaling theorem, same-object observable pin,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
