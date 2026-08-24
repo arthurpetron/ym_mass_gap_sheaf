@@ -34,6 +34,7 @@ import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
+import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler
 
 namespace YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
 
@@ -50,6 +51,8 @@ open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponential
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveTransitionProductFamily
+open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
@@ -518,6 +521,41 @@ abbrev AdaptiveRawWilsonConnectedMassGapPath
     (family.physicalRateBand band) gapVariation
     (physicalExponentialLimit family positiveRatePower) H W
 
+/-- Build the adaptive connected path with the scalar all-vector branch
+reduced to the construction-specific exact-log Euler evaluation.  The
+evaluation is compiled to literal scheduled-rate convergence and then joined
+with the representative transfer lift and finite graph approximation. -/
+def adaptivePathOfExactLogEulerEvaluationCompilers
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (evaluation : DynamicVacuumSectorWilsonExactLogEulerEvaluation
+      family.toCompletedFamily gapVariation W exactRate)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  RawWilsonConnectedMassGapPath.ofUniformNormFloor
+    uniform projectiveOS matrixCoefficient exactRate
+    (wilsonPhysicalTimeGraphNormLimitOfExactLogEulerEvaluation
+      family band gapVariation positiveRatePower evaluation transfer finite)
+    vacuumPin
+
 /-- The adaptive path retains the direct scheduled physical-exponential
 bound, with the exact same rate-power limit consumed by its graph-norm field. -/
 def adaptiveRawPhysicalExponentialPath
@@ -582,5 +620,7 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.rawContinuumConnectedAutocorrelationSqDecay
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptiveRawPhysicalExponentialPath
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfExactLogEulerEvaluationCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptiveMinimalBoundedMassGap

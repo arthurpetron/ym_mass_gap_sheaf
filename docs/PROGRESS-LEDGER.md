@@ -14642,3 +14642,38 @@ audited exports use only `[propext, Quot.sound]`.
 
 The scheduled-rate convergence, transfer lift, finite graph approximation,
 and all other semantic/continuum/QFT residuals remain uninhabited.
+
+## The Wilson scalar frontier is one exact-log Euler evaluation (2026-08-24)
+
+The scheduled-rate-to-separator bridge is now factored at its sharp analytic
+boundary.  `scheduledSquaredRateUpperExponent_converges_selectedWilsonExact`
+proves that the actual upper Euler exponent stream converges to the
+physical-time exponent formed from the exact logarithm of the separator
+selected by the same Wilson datum.  This uses the existing same-stream exact-
+rate handoff; it does not assume an unrelated completed-real equality.
+
+`DynamicVacuumSectorWilsonExactLogEulerEvaluation` isolates the one remaining
+evaluation: at one physical-time unit the corresponding upper Euler
+exponential stream converges to the selected separator square.  From this
+single Type-level certificate, constructive uniqueness derives convergence of
+the literal scheduled finite rate stream and hence the scalar graph-norm pin.
+The adaptive compiler then rejoins that scalar branch with the representative
+transfer lift and finite all-vector graph approximation, and the raw connected
+capstone exposes the resulting constructor.
+
+This changes the parallel frontier precisely.  The scalar branch consists of
+the exact-rate reconstruction and exact-log Euler evaluation; the semantic
+transfer lift is independent; the finite graph approximation depends on that
+lift.  Their outputs contract into the all-vector operator gap before the
+observable branch is used as a downstream nontrivial realization.
+
+Focused guarded checks pass.  The exact one-worker Euler compiler target
+passes 5095 jobs, with the new module taking about 1.2 seconds; the connected
+capstone passes 5107 jobs, taking about 2.3 seconds.  All six newly audited
+exports use only `[propext, Quot.sound]`.
+
+The exact-log Euler evaluation is not inhabited: the repository still lacks
+the required constructive rational logarithm/exponential inverse theorem.
+The exact-rate handoff, transfer lift, finite graph approximation, raw
+nontriviality and semantic pins, continuum construction, QFT axioms, and Clay
+theorem remain open.
