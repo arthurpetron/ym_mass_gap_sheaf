@@ -10022,3 +10022,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds; the exact one-worker target passes 5,027 jobs with the new module
   taking about 1.0 seconds.  The cofinal premise is not inhabited here, and no
   full-sector gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-spin-ray-escape-mass] Exact row split and conditional return floor — **CLOSED 2026-08-23**
+
+- **milestone**: remove the unique vacuum index from each admitted excited
+  spin-cube stationary row, identify the literal non-vacuum escape mass, and
+  prove that `escape <= C * vacuumJoint` implies the genuine return floor
+  `1 / (1 + C)`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayEscapeMass.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeNonVacuumEscapeMass_nonnegative`,
+  `centralLowerExcitedSpinCube_weight_eqv_vacuumJoint_add_escape`,
+  `spinCubeEscapeReturnFloor_pos`, `spinCubeEscapeReturnFloor_le_one`, and
+  `spinCubeEscapeReturnFloor_le_return_of_escape_le`.
+- **obligation**: construct one cutoff-independent nonnegative escape-ratio
+  ceiling for all sufficiently large cutoffs and all admitted spins, compile
+  it into `FixedNomeCofinalSpinCubeRayReturnFloor`, and then extend the
+  successful routing mechanism beyond the explicit spin-ray subsector.
+- **constructive?**: yes — duplicate-free finite lists, literal filtering,
+  exact sector stationarity, rational order monotonicity, and a positive
+  reciprocal suffice.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 1.2 seconds; the exact
+  one-worker target passes 5,027 jobs with the new module taking about 1.0
+  seconds.  No cutoff-uniform escape ceiling, full-sector gap, continuum QFT,
+  or Clay theorem is claimed.

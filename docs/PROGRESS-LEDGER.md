@@ -11729,3 +11729,44 @@ The next frontier is therefore an arbitrary-spin conditional row ceiling (or
 a concrete obstruction to one), after which the explicit spin ray would
 still need to be extended to the full rooted sector.  No completed uniform
 gap, continuum QFT, or Clay theorem is claimed.
+
+## The spin return is exactly controlled by non-vacuum escape mass (2026-08-23)
+
+`BF4PhysicalSpinCubeRayEscapeMass` removes the unique vacuum index from the
+literal finite stationary row of every admitted excited spin cube.  The
+remaining filtered list is the actual set of non-vacuum targets in the
+canonical rooted sector, and its joint-kernel sum is nonnegative.  Combining
+the duplicate-free root split with the exact restricted stationarity law
+proves
+
+`pi(spin) = joint(spin,vacuum) + escape(spin)`.
+
+The module then closes the rational comparison step.  For any explicit
+nonnegative `C`, the pointwise estimate
+
+`escape(spin) <= C * joint(spin,vacuum)`
+
+forces the genuine conditional return probability to satisfy
+
+`1 / (1 + C) <= P(spin,vacuum)`.
+
+The reciprocal is constructed directly from the positive denominator
+`1 + C`, proved positive and at most one, and transported through exact
+positive-division cancellation.  This identifies the precise estimate that
+would inhabit the previously named cofinal return-floor interface; it does
+not assume or prove that such one `C` works at all large cutoffs.
+
+Three failed focused elaboration attempts exposed a missing parenthesis,
+namespace openings, and the orientation of rational distributivity and
+reciprocal cancellation; none is a pass.  After correction, the focused
+guarded check passes in about 1.2 seconds.  The exact one-worker,
+dependency-complete target passes 5,027 jobs, with the new module taking
+about 1.0 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to package one cutoff-independent escape-ratio ceiling
+as honest Type-level data and compile it into the explicit cofinal return
+floor and ray capacity.  Constructing that ceiling from arbitrary-spin BF4
+row estimates, extending routing beyond the spin ray, the completed spectral
+gap, thermodynamic and continuum limits, continuum QFT, and the Clay theorem
+all remain open.
