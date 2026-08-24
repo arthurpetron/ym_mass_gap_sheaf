@@ -13948,3 +13948,37 @@ moment remains a `CReal` problem, while the normalization-debt and positive-
 time rate-power branches are only reduced to explicit rational estimates.
 Their physical-exponential identification, projective/OS reconstruction,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## The three variation branches now retain one adaptive observable lineage (2026-08-24)
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath`
+specializes the rationalized variation interfaces to the completed family
+definitionally produced by one dynamic adaptive off-ray transition-product
+family.  It exposes three independently provable producer-indexed inputs: raw
+`CReal` representative variation, rational reciprocal-square debt variation,
+and rational positive-time scheduled-rate-power variation.  The time-zero
+rate branch is constructed by the preceding compiler.
+
+The branches rejoin without changing family or observable.  Raw/debt
+variation constructs the exact continuum limit of the normalized moving-cube
+connected autocorrelation; strict zero-time positivity survives; and the
+positive-time rate data joins it in the continuum squared-decay theorem.
+Thus the current frontier permits three-way parallel analytic work but only
+one causal proof path through the same vector, transfer, normalization,
+sampling schedule, and connected moment.
+
+Two guarded checks are not passes.  The first omitted the defining namespace
+of the scheduled-rate stream.  The second reached the 10M-heartbeat limit
+while generating a convenience dependent record over the deeply reducible
+adaptive-family types; all projection errors and `sorryAx` reports were
+failed-elaboration contamination.  Replacing that record by three explicit
+arguments preserved the indexed join and made the corrected focused check
+pass.  The exact one-worker dependency-complete target passes 5085 jobs, with
+the new module taking about 1.2 seconds after dependency replay.  All four
+audited exports use exactly `[propext, Quot.sound]`.
+
+No adaptive family or variation estimate is inhabited.  The next analytic
+work is genuinely parallel: obtain raw moment, normalization-debt, and
+positive-time rate-power step/tail bounds.  They must then support a uniform
+physical exponential and the later projective/OS identification of this exact
+observable.  Continuum Yang--Mills theory and the Clay theorem remain open.

@@ -12156,3 +12156,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and 1662 jobs for the BF4 adapter.  No variation estimate, adaptive family,
   physical-exponential identification, projective/OS reconstruction,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-rational-variation-path] Preserve one adaptive observable through three parallel variation branches — **CLOSED 2026-08-24**
+
+- **milestone**: specialize the raw representative, rational normalization-
+  debt, and rational positive-time rate-power variation inputs to the exact
+  completed family produced by one adaptive transition-product family;
+  construct the time-zero rate branch; compile raw/debt variation into the
+  continuum limit of the exact normalized moving-cube connected correlation;
+  retain strict zero-time positivity; and rejoin the third branch in its
+  continuum squared-decay inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.lean`.
+- **decl**:
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.MovingCubeRawVariation`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.MovingCubeNormalizationDebtRationalVariation`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.PositiveMovingCubeRatePowerRationalVariation`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeRatePowerRationalVariationOfPositive`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations_zero_isPositive`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations_sq_decay`.
+- **obligation**: independently prove all three explicit cross-scale inputs
+  for one adaptive producer, then identify its scheduled rate-power limit with
+  a uniform positive physical exponential and its exact connected correlation
+  through projective measure and OS reconstruction.
+- **constructive?**: yes — every input is indexed by the identical adaptive
+  family, the raw representatives remain pinned to its same-object `RC`
+  classes, and the branches rejoin only in the already checked product and
+  decay compilers.  The four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check omitted the scheduled-rate
+  definition's namespace.  The second timed out at 10M heartbeats while
+  generating a convenience dependent record over deeply reducible producer
+  types.  Neither is a pass; their later projection errors and `sorryAx` are
+  failed-elaboration contamination.  Three explicit indexed arguments remove
+  the unnecessary packaging cost.  The corrected focused check passes, and
+  the exact one-worker target passes 5085 jobs with the new module taking
+  about 1.2 seconds.  No variation estimate, adaptive family, physical-
+  exponential identification, projective/OS reconstruction, continuum Yang--
+  Mills theory, or Clay theorem is claimed.
