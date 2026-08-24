@@ -10200,3 +10200,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   focused check passes in about 1.0 seconds; the exact one-worker target passes
   5,030 jobs with the new module taking about 1.0 seconds.  The uniform raw-row
   comparison, full-sector gap, continuum QFT, and Clay theorem remain open.
+
+### [Z4-equal-pair-residual-multiplicity] Remove source-spin loss from local fusion bounds — **CLOSED 2026-08-23**
+
+- **milestone**: prove that the one-, two-, and three-channel fusion counts
+  beginning with an arbitrary equal pair are bounded by a cubic envelope
+  involving only the remaining labels, with no dependence on the equal spin
+  or the auxiliary cutoff.
+- **file**:
+  `lean/YMGap/Continuum/Z4EqualPairResidualMultiplicityBound.lean`.
+- **decl**:
+  `fusionOK_left_le_right_add_output`,
+  `oneChannelMultiplicity_equalPair_le_residualSpinSumCube`,
+  `twoChannelMultiplicity_equalPair_le_residualSpinSumCube`, and
+  `threeChannelMultiplicity_equalPair_le_residualSpinSumCube`.
+- **obligation**: transport these ordered equal-pair bounds through the
+  actual cube-incidence permutations, allocate the residual charges only to
+  non-source faces, and sum the resulting heat majorant uniformly in cutoff
+  and admitted source spin.
+- **constructive?**: yes — fusion symmetry, the triangle support inequality,
+  backward channel support, stable finite range counts, and literal
+  cardinality bounds suffice.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 0.5 seconds; the exact one-worker
+  target passes 473 jobs with the new module taking about 0.4 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.

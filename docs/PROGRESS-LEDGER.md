@@ -11935,3 +11935,37 @@ uniformly in cutoff and admitted spin.  Proving or refuting that estimate,
 extending beyond the spin ray, the completed vacuum-complement gap,
 thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
 open.
+
+## Equal source pairs have a spin-uniform residual fusion bound (2026-08-23)
+
+`Z4EqualPairResidualMultiplicityBound` removes the first false loss in the
+all-spin raw-row majorant.  The generic incidence estimate charges every face
+spin and therefore assigns powers of `(spin + 1)` to the six source faces even
+after their heat activity has been factored out.  At a link touched by the
+closed cube, however, those source labels occur as one equal pair.
+
+The new module reads the sequential SU(2) fusion constraints backwards from
+the vacuum endpoint.  For valence four, five, and six, every internal channel
+is bounded by the sum of the labels following that equal pair.  Stable finite
+channel enumeration then proves
+
+`multiplicity(spin, spin, residual labels)
+  <= spinSumCube(sum residual labels)`
+
+independently of `spin` and independently of the auxiliary cutoff.  The proof
+also exposes the needed backward triangle inequality for an arbitrary
+admissible fusion triple.
+
+One failed focused elaboration attempt exposed an incorrect symmetry rewrite,
+one definition-folding mismatch, product-type syntax, and unreduced triple
+projections; it is not a pass.  The corrected focused guarded check passes in
+about 0.5 seconds.  The exact one-worker, dependency-complete target passes
+473 jobs, with the new module taking about 0.4 seconds.  All four audited
+exports use exactly `[propext, Quot.sound]`.
+
+This is the local algebra required by the raw-row/activity ceiling, not that
+ceiling itself.  The next frontier is to transport the residual-only bound
+through the actual cube-incidence permutations, charge the residual factors
+to non-source faces, and perform the finite heat-activity sum.  Full-sector
+routing, the completed vacuum-complement gap, thermodynamic and continuum
+limits, continuum QFT, and the Clay theorem remain open.
