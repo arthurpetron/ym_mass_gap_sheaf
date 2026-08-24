@@ -12221,3 +12221,40 @@ spin-ray return/capacity compiler.  This remains a ray certificate, not a
 full vacuum-complement contraction.  Full-sector routing, completion,
 thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
 open.
+
+## The central spin-cube ray has a cutoff-uniform return floor and capacity (2026-08-23)
+
+`BF4CentralSpinCubeUniformRayCapacity` contracts the completed row estimate
+through the existing selected-term compiler.  The literal zero-boundary
+production term for spin `s` is exactly `(coeffW anchor s)^6`, while the whole
+positive raw row is at most that same activity times
+`centralSpinCubeResidualCarrierCeiling`.  A single rational factor
+reordering therefore inhabits
+`FixedNomeCofinalSpinCubeSelectedTermRowCeiling` with the explicit ceiling and
+`start = 0`.
+
+The compiler now yields concrete data, not a named hypothesis:
+
+* `anchorCentralSpinCubeReturnFloor > 0`, uniformly below every admitted
+  spin-cube-to-vacuum return probability at every cutoff;
+* `anchorCentralSpinCubeCofinalRayReturnFloor`, the corresponding Type-level
+  cofinal certificate;
+* `anchorCentralSpinCubeCofinalRayCapacity`, one positive `delta` paying both
+  orientations of every vacuum-star spoke on the complete spin-cube ray; and
+* `anchorCentralSpinCubeFiniteRayCapacityAt K`, an actual finite capacity
+  certificate at each cutoff using that same `delta`.
+
+One failed focused elaboration attempt exposed only that structure projection
+reduction did not unfold `start = 0` for `omega`; it is not a pass.  Replacing
+those goals by explicit `Nat.zero_le` witnesses gives a focused guarded check
+in about 1.1 seconds.  The exact one-worker dependency-complete target passes
+5040 jobs, with the new module taking about 1.2 seconds.  All six audited
+exports use exactly `[propext, Quot.sound]`.
+
+This closes the cofinal spin-ray return/capacity frontier but not the physical
+vacuum-complement gap.  The capacity controls only pairs routed through the
+explicit spin-cube ray.  The next causal wall is a cutoff-uniform routing or
+decomposition theorem bringing every remaining positive physical state into
+a controlled network with this ray/vacuum backbone, without carrier-size or
+vanishing-edge loss.  Completion, thermodynamic and continuum limits,
+continuum QFT, and the Clay theorem remain open.

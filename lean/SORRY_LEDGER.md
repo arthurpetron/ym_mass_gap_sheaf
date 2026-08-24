@@ -10429,3 +10429,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 0.9 seconds.  This is a cutoff-uniform certificate on one
   explicit spin-cube ray, not a full-sector gap, continuum QFT, or Clay
   theorem.
+
+### [BF4-central-spin-cube-uniform-ray-capacity] Compile the raw-row ceiling into cofinal ray capacity — **CLOSED 2026-08-23**
+
+- **milestone**: identify the selected zero-boundary production term with the
+  same six-face source activity in the raw-row bound, inhabit the cofinal
+  selected-term row-ceiling structure from cutoff zero, and compile it into a
+  positive uniform return floor and both-oriented spoke capacity.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeUniformRayCapacity.lean`.
+- **decl**:
+  `anchorCentralSpinCubeSelectedTermRowCeiling`,
+  `anchorCentralSpinCubeReturnFloor_pos`,
+  `anchorCentralSpinCubeReturnFloor_le_return`,
+  `anchorCentralSpinCubeCofinalRayReturnFloor`,
+  `anchorCentralSpinCubeCofinalRayCapacity`, and
+  `anchorCentralSpinCubeFiniteRayCapacityAt`.
+- **obligation**: construct a cutoff-uniform routing or decomposition that
+  connects every remaining positive physical vacuum-sector state to the
+  controlled spin-cube/vacuum backbone without carrier-size or vanishing-edge
+  loss, then contract that full-sector flow into a uniform Dirichlet or
+  transfer estimate.
+- **constructive?**: yes — the exact selected-term activity identity, the
+  literal raw-row ceiling, rational commutativity, and the already proved
+  witness-bearing return/capacity compiler suffice.  All six audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  dependency-complete target passes 5040 jobs with the new module taking about
+  1.2 seconds.  The certificate is uniform only on the explicit spin-cube ray;
+  it is not a full vacuum-complement gap, continuum QFT, or Clay theorem.
