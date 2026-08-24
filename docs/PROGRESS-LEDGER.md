@@ -13039,3 +13039,45 @@ scaling, the concrete observable pin, exact-log cutoff convergence/ceiling,
 projective OS correlation convergence, and the reconstruction spectral/rate
 identifications.  Continuum Yang--Mills existence itself and the Clay theorem
 remain open.
+
+## Both global-floor off-ray residual ratios are constructively ruled out (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualGlobalFloorNoGo` proves that neither scalar
+global-minimum compiler can provide the missing cofinal off-ray producer.  It
+applies both to the exact endpoint-mass linear cost and to its improved
+mass-free carrier-linear bound.  Since either cost is padded by one, its
+defining inequality and positive cancellation of the common half factor force
+the fixed cofinal ray `delta` below the complete-sector minimum positive edge
+at every later cutoff.
+
+The existing explicit spin-ray budget gives
+
+`edgeFloor_K * K <= 1`.
+
+Thus either alleged family forces `rayDelta*K <= 1` cofinally.  Taking `K`
+past the explicit square of `rayDelta.den + 1` contradicts the constructive
+positive-rational denominator estimate.  Consequently both
+
+`FixedNomeCofinalSpinCubeOffRayResidualLinearRatio hw rayCapacity`
+
+and
+
+`FixedNomeCofinalSpinCubeOffRayResidualNormalizedLinearRatio hw rayCapacity`
+
+are uninhabited for every positive nome and every positive cofinal spin-ray
+capacity.
+
+The focused guarded check passes in about 1.4 seconds.  The exact one-worker
+dependency-complete target passes 5059 jobs, with the new module taking about
+1.1 seconds.  All six audited exports use exactly `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+This strengthens the route diagnosis: carrier-size growth and endpoint mass
+are not the decisive obstruction to these two compilers.  Even a hypothetical
+unit cost cannot compensate for the collapsing global edge minimum.  The
+remaining viable analytic producer is therefore the already isolated exact
+pointwise residual-flow capacity, where local stationary weights and local
+kernel entries can cancel before any minimum is taken, or a genuinely
+multiscale/direct-operator alternative targeting the same dynamic completed
+family.  No cofinal local capacity, uniform completed gap, continuum
+Yang--Mills theory, or Clay theorem is proved here.

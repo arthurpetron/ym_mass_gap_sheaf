@@ -11227,3 +11227,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs, with the new module taking about 0.9 seconds.  No handoff, continuum
   measure, continuum Yang--Mills existence, OS spectral/rate pin, or Clay
   theorem is inhabited or claimed.
+
+### [BF4-spin-cube-off-ray-residual-global-floor-no-go] Rule out both global-minimum residual ratios — **CLOSED 2026-08-24**
+
+- **milestone**: cancel the common positive half factor in each cofinal
+  off-ray scalar ratio; use only that each scalar cost is at least one to
+  force the fixed cofinal ray `delta` below the complete finite-sector edge
+  minimum; combine `edgeFloor_K * K <= 1` with the explicit denominator
+  escape scale for a positive rational; prove both the endpoint-mass linear
+  ratio and the improved mass-free carrier-linear ratio are uninhabited.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualGlobalFloorNoGo.lean`.
+- **decl**:
+  `FixedNomeCofinalSpinCubeOffRayResidualLinearRatio.delta_le_edgeFloor`,
+  `FixedNomeCofinalSpinCubeOffRayResidualLinearRatio.impossible`,
+  `no_fixedNomeCofinalSpinCubeOffRayResidualLinearRatio`,
+  `FixedNomeCofinalSpinCubeOffRayResidualNormalizedLinearRatio.delta_le_edgeFloor`,
+  `FixedNomeCofinalSpinCubeOffRayResidualNormalizedLinearRatio.impossible`, and
+  `no_fixedNomeCofinalSpinCubeOffRayResidualNormalizedLinearRatio`.
+- **obligation**: do not spend further effort refining either scalar
+  global-minimum cost: even replacing that cost by one cannot overcome the
+  edge-floor decay.  Attack the exact pointwise residual-flow capacity by
+  comparing local loads with the matching local physical-kernel entries
+  before taking a minimum, or build a multiscale/direct-operator estimate
+  targeting the same dynamic completed-family interface.  The local
+  capacity, exact strength/spacing band, observable pin, and continuum
+  handoff remain uninhabited producers.
+- **constructive?**: yes — rational positive-factor cancellation, the padded
+  cost lower bound, the explicit all-spin spoke budget, and the denominator
+  witness suffice.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused guarded check passes in about 1.4 seconds.  The
+  exact one-worker dependency-complete target passes 5059 jobs, with the new
+  module taking about 1.1 seconds.  This excludes two proof compilers, not a
+  spectral gap: exact local capacity, continuum Yang--Mills, and the Clay
+  theorem remain open.
