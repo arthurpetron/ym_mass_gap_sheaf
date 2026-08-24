@@ -11999,3 +11999,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 5079 jobs, with the new module taking about 1.4 seconds.  No producer,
   strength band, normalized cutoff limit, projective/OS identification,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-normalized-moving-cube-limit-compiler] Factor normalized cutoff convergence into raw and debt limits — **CLOSED 2026-08-24**
+
+- **milestone**: state constructive-real convergence of the exact reciprocal-
+  square normalization debt; identify every normalized sampled moment with
+  that debt times the raw same-observable moment; combine the explicit raw
+  representative limit and debt limit through general constructive product
+  continuity; construct the normalized scheduled cutoff-limit record; prove
+  its continuum value is the quotient-real product of the two input limits;
+  and retain strict zero-time positivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeLimitCompiler.lean`.
+- **decl**:
+  `MovingCubeNormalizationNormDebtLimit`,
+  `normalizedMovingCubeSampledConnectedAutocorrelation_eq_scaled_raw`,
+  `compileNormalizedMovingCubeScheduledRCContinuumLimit`,
+  `compileNormalizedMovingCube_continuum_eq_product`, and
+  `compileNormalizedMovingCube_continuum_zero_isPositive`.
+- **obligation**: inhabit the raw sampled moving-cube representative limit and
+  the actual reciprocal-square debt limit for one adaptive producer.  For the
+  continuum decay inequality, also control the reciprocal-fourth-power debt
+  and the scheduled completed-rate powers, then connect the exact normalized
+  correlation to the projective/OS observable and reconstructed generator.
+- **constructive?**: yes — both sequences and their representatives are
+  explicit, and the compiler uses the general constructive product-
+  convergence modulus.  The four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two guarded checks lacked the general product-
+  convergence theorem in the import closure and then referenced its wrong
+  namespace; their downstream `sorryAx` reports are failed elaboration and not
+  passes.  The corrected focused check passes.  The exact one-worker
+  dependency-complete target passes 1658 jobs, with the new module taking
+  about 0.76 seconds.  No raw limit, debt limit, adaptive producer, strength
+  band, projective/OS identification, continuum Yang--Mills theory, or Clay
+  theorem is claimed.

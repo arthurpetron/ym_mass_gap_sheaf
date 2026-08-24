@@ -13812,3 +13812,36 @@ square debt, while squared-decay passage also tracks the reciprocal-fourth-
 power debt and sampled rate envelope.  Projective/OS identification,
 reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
 open.
+
+## Normalized cutoff convergence now factors into raw convergence and debt convergence (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeLimitCompiler` replaces the
+opaque normalized cutoff-limit input by two smaller exact inputs.  The first
+is the existing explicit representative/modulus limit of the raw sampled
+moving-cube correlation.  The second is a new constructive-real limit of the
+actual reciprocal-square normalization debt, embedded from its rational value
+at every scale.  Neither may be replaced by a majorant or unrelated sequence.
+
+The module proves the scale-by-scale normalized sample is exactly that debt
+times the raw same-observable sample.  General constructive multiplication
+continuity then builds the full normalized representative and convergence
+modulus.  The resulting continuum `RC` correlation is definitionally the
+product of the debt limit and the raw continuum correlation, and its zero-time
+value inherits the previously proved strict positivity.
+
+The first two guarded attempts are not passes: the general multiplication-
+continuity theorem was absent from the original import closure and then was
+addressed through the wrong `CReal` namespace, producing downstream failed-
+elaboration `sorryAx`.  The theorem is now imported and referenced through its
+defining namespace.  The corrected focused check passes.  The exact one-worker
+dependency-complete target passes 1658 jobs, with the new module taking about
+0.76 seconds after dependency replay.  All four audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This is an assumption factorization, not an analytic limit proof.  Raw
+same-observable cutoff convergence and reciprocal-square debt convergence
+remain uninhabited.  Passage of the squared decay estimate additionally needs
+the reciprocal-fourth-power debt and sampled rate envelope, after which the
+same limiting correlation must still be identified through projective/OS
+reconstruction.  Continuum Yang--Mills theory and the Clay theorem remain
+open.
