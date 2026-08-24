@@ -14342,3 +14342,37 @@ The matrix-coefficient pin and all-vector gap remain uninhabited.  Constructing
 the projective/OS/Wilson data, proving a uniform completed-vacuum-complement
 operator bound, establishing continuum Yang--Mills existence, and proving the
 Clay theorem remain open.
+
+## Scheduled physical-time graph norms now compile to an all-vector Wilson gap (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler` replaces the old
+fixed lattice-step `1/16` limit interface by the physically correct dynamic
+one.  For each explicit continuum Cauchy representative in the selected
+vacuum complement, it carries an approximant in the varying completed BF4
+sector, explicit finite norm representatives, and convergence of both the
+ordinary norm and the norm after the scheduled power representing one unit of
+physical time.
+
+At every cutoff, the existing `completedGap` contracts every sector
+vacuum-complement vector.  Its power theorem supplies the exact finite factor
+`((q_j*q_j)^floor(1/a_j))`.  Product convergence passes this all-vector bound
+to the continuum, and an explicit `CReal.Equiv` pin identifies that scheduled
+rate limit with the square of the selected Wilson separator.  Quotient
+induction then constructs `WilsonOperatorNormGapPin`, quantified over every
+completed Wilson vacuum-orthogonal vector.
+
+This compiler does not infer the operator gap from the one moving-cube
+channel.  It uses the stronger finite all-vector contraction and graph-norm
+compatibility, while the observable path remains a downstream semantic test
+of the same transfer.
+
+The first focused check passes; two unused proof-binder warnings were cleaned
+without changing the interface.  The corrected focused check and the exact
+one-worker dependency-complete target pass.  The latter builds 1660 jobs, with
+the new module taking about 0.71 seconds.  All three audited exports use only
+`[propext, Quot.sound]`.
+
+No graph-norm approximation or scheduled-rate/OS-separator pin is inhabited.
+The continuum projective measure, OS/Wilson semantics, exact positive
+reconstruction rate, continuum Yang--Mills existence, and Clay theorem remain
+open.

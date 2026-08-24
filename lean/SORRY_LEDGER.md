@@ -12612,3 +12612,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 1666 jobs, with the new module taking
   about 0.71 seconds.  No semantic pin, all-vector gap, continuum Yang--Mills
   theory, or Clay theorem is claimed.
+
+### [BF4-physical-dynamic-wilson-graph-norm-limit] Pass scheduled physical-time contractions to every Wilson vacuum vector — **CLOSED 2026-08-24**
+
+- **milestone**: formulate choice-free representative-level graph-norm data
+  for the varying completed BF4 vacuum sectors; use the scheduled power for
+  one unit of physical time rather than one lattice step; retain explicit
+  finite norm representatives and both convergence moduli; pin the exact
+  scheduled squared-rate limit to the selected Wilson separator squared; pass
+  the finite all-vector power contraction through those limits; and construct
+  `WilsonOperatorNormGapPin` by quotient induction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.lean`.
+- **decl**:
+  `DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit`,
+  `finitePhysicalTimeRepresentative_norm_gap`,
+  `physicalTimeOne_limit_operator_norm_gap`, and
+  `toWilsonOperatorNormGapPin`.
+- **obligation**: construct finite approximants for every explicit selected
+  Wilson vacuum-complement representative; prove ordinary and scheduled-image
+  graph-norm convergence; and identify the exact one-unit scheduled-rate limit
+  with the selected OS/Wilson separator squared.  Then combine this operator
+  gap with a positive exact reconstruction rate on the same measure thread.
+- **constructive?**: yes — the compiler quantifies finite approximants only
+  after vacuum orthogonality is supplied, retains explicit representatives,
+  and descends to all quotient vectors only through `Quotient.inductionOn`.
+  All three audited exports use only `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check passes with two unused binder
+  warnings; the binders were renamed and the corrected focused check passes.
+  The exact one-worker dependency-complete target passes 1660 jobs, with the
+  new module taking about 0.71 seconds.  No graph-norm or separator pin,
+  continuum measure, OS reconstruction, continuum Yang--Mills theory, or Clay
+  theorem is claimed.
