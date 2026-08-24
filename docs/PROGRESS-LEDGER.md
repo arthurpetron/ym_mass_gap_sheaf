@@ -11522,3 +11522,37 @@ cube in the finite carrier, use its positive vacuum edge to place its index
 in the root component, and derive `K + 1 <= stateCount(K)`.  Only then can
 the fixed positive simple-floor comparison be contradicted along unbounded
 cutoffs.  No uniform contraction, continuum QFT, or Clay theorem is claimed.
+
+## The canonical vacuum sector now grows at least linearly with cutoff (2026-08-23)
+
+`BF4PhysicalSpinCubeVacuumSectorGrowth` locates every spin cube with
+`spin <= K` in the exact finite positive carrier.  Its strictly positive raw
+kernel entry from the vacuum gives a Boolean support edge from index zero;
+root-component closure therefore places the represented state in the
+canonical finite vacuum sector.
+
+For constructive counting, the proof does not assume decidable equality for
+function-valued edge labellings.  It maps the `K + 1` cube states through the
+existing faithful natural-number BF4 state code, proves the resulting code
+list duplicate-free, and embeds it into the code list of the rooted sector.
+Finite-list length monotonicity then yields the literal quantitative theorem
+
+`K + 1 <= (centralPhysicalFiniteVacuumSectorIndices w hw K 0).length`
+
+at every strictly positive coupling.
+
+The first focused attempt exposed both the unavailable constructive global
+decidable equality on edge-labelling functions and a non-exported range
+nodup lemma; it is not a pass.  The proof was corrected by using faithful
+natural-number codes and a local constructive range audit.  The corrected
+focused check passes in about 0.6 seconds.  The exact one-worker,
+dependency-complete target passes 1,094 jobs, with the new module taking
+about 0.6 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is now arithmetic rather than geometric: combine this
+linear lower bound with the fixed quadratic budget forced by a cofinal
+simple-floor comparison, and choose an explicit cutoff large enough to
+contradict the positive rational fixed floor.  That will rule out this crude
+simple-path coercivity mechanism, not a uniform spectral gap by sharper
+means.  No continuum QFT or Clay theorem is claimed.

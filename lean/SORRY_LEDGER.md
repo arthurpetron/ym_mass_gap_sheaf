@@ -9849,3 +9849,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 982 jobs with the new module taking about 0.7
   seconds.  Root-component cardinality growth, failure of the cofinal simple
   floor, a uniform gap, continuum QFT, and the Clay theorem are not claimed.
+
+### [BF4-spin-cube-vacuum-sector-growth] Linear rooted-carrier growth — **CLOSED 2026-08-23**
+
+- **milestone**: locate every cutoff-admitted spin cube in the finite carrier,
+  close its direct positive support edge under the vacuum root component, and
+  prove the exact lower bound `K + 1 <= vacuumSectorIndices.length` at every
+  positive coupling and half-extent zero.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeVacuumSectorGrowth.lean`.
+- **decl**: `centralLowerSpinCubeState_mem_vacuumSector`,
+  `centralLowerSpinCubeStates_nodup`,
+  `centralLowerSpinCubeStates_subset_vacuumSector`,
+  `centralLowerSpinCubeCodes_nodup`,
+  `centralLowerSpinCubeCodes_subset_vacuumSectorStateCodes`, and
+  `centralPhysicalFiniteVacuumSectorIndices_length_ge_cutoff_succ`.
+- **obligation**: combine the linear lower bound with the existing fixed
+  quadratic state-count budget and construct an explicit large cutoff that
+  contradicts any proposed positive fixed-floor comparison family.
+- **constructive?**: yes — carrier location, direct rooted-edge closure,
+  faithful natural-number state coding, and finite-list injection suffice.
+  All six audited exports use exactly `[propext, Quot.sound]`; no global
+  decidable equality on edge-labelling functions or other forbidden
+  construct was added.
+- **status note**: one failed focused attempt is not a pass.  The corrected
+  focused check passes in about 0.6 seconds; the exact one-worker target
+  passes 1,094 jobs with the new module taking about 0.6 seconds.  Failure of
+  the cofinal simple floor, a uniform gap, continuum QFT, and the Clay theorem
+  are not yet claimed.
