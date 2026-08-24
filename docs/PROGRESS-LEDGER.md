@@ -14156,3 +14156,43 @@ to show both exponents approach the same physical value.  Those analytic
 inputs remain uninhabited; raw moment and normalization control, projective/OS
 reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
 open.
+
+## The literal scheduled powers now select the route-specific physical exponential (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler`
+closes the squeeze left after the two scheduled Euler exponents were shown to
+converge to `M*2*t`.  A reusable constructive lemma proves that rational
+exponent streams `u_j <= l_j` with one common `CReal` limit have exponentially
+small endpoint width: the full-range rational `expNeg` contraction is used
+only after a separate eventual unit-distance window has been computed.  A
+second lemma proves that if a convergent middle sequence lies between those
+endpoints, both endpoints converge to the middle limit.
+
+For the dynamic BF4 family, the compiler proves the linear upper exponent is
+below the odds-corrected lower exponent, applies the existing finite Euler
+corridor, and obtains convergence of both rational exponential streams to the
+complete limit of the literal scheduled powers
+
+`((q_j*q_j)^floor(t/a_j))`.
+
+The physical exponential is therefore not a freshly chosen unrelated object.
+It is definitionally the same limit representative already multiplying the
+zero-time connected moment in the normalized moving-cube continuum decay
+theorem.  `normalizedMovingCubePhysicalExponential_sq_decay` returns the
+same-observable squared-decay inequality and both endpoint identifications in
+one theorem, preserving family, observable, normalization, schedule, and rate
+lineage.
+
+The first guarded check is not a pass: four approximation applications needed
+parentheses in higher-order arguments, and the physical-time binder appeared
+after a dependent variation type that referenced it.  The resulting
+`sorryAx` reports were failed-elaboration contamination.  The corrected
+focused check passes.  The exact one-worker dependency-complete target passes
+5088 jobs, with the new module taking about 1.2 seconds.  The six audited
+exports use only `[propext]` or `[propext, Quot.sound]`.
+
+This compiler remains conditional on inhabited physical-gap and scheduled-
+power rational variations.  It does not prove the raw same-object moment or
+normalization-scale variations, construct the projective continuum measure or
+OS reconstruction, extend one channel to every completed vacuum-complement
+vector, construct continuum Yang--Mills theory, or prove the Clay theorem.

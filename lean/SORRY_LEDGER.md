@@ -12399,3 +12399,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exponential-value or scheduled-power convergence, adaptive analytic input,
   raw moment or normalization estimate, projective/OS reconstruction,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-scheduled-rate-exponential-squeeze] Identify the literal scheduled-power limit with the `2*M*t` exponential — **CLOSED 2026-08-24**
+
+- **milestone**: prove a reusable eventual-order squeeze: two nonnegative
+  rational exponent streams converging to the same constructive real have
+  `leRat`-vanishing exponential width, and any convergent middle stream
+  squeezed between those endpoints shares both endpoint limits; prove the
+  scheduled upper exponent is no larger than the odds-corrected lower
+  exponent; specialize the squeeze to the exact squared completed rate and
+  floor schedule; identify both Euler exponential streams with the already
+  constructed complete limit of the literal scheduled rational powers; and
+  return that identification together with the normalized same-observable
+  continuum squared-decay theorem.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.lean`.
+- **decl**:
+  `expNegEndpoints_leRat_close`,
+  `endpoints_converge_of_leRat_sandwich`,
+  `scheduledSquaredRateUpperExponent_le_lower`,
+  `scheduledSquaredRateUpperExponential`,
+  `scheduledSquaredRateLowerExponential`,
+  `scheduledSquaredRateEulerExponentials_converge`,
+  `normalizedMovingCubePhysicalExponentialLimit`,
+  `normalizedMovingCubePhysicalExponentialLimit_identification`, and
+  `normalizedMovingCubePhysicalExponential_sq_decay`.
+- **obligation**: inhabit the physical-gap and scheduled-rate-power rational
+  variations for one actual adaptive family.  The physical exponent is the
+  gap-variation limit times `2*t`; its positive uniform floor should be
+  exported explicitly.  The raw same-object moment and normalization-scale
+  variations, concrete observable pin, and projective/OS semantic
+  reconstruction remain independent open branches.
+- **constructive?**: yes — the compiler does not assume a global exponential
+  on arbitrary `CReal`s.  It defines the route-specific value by the complete
+  limit of the literal powers and proves both rational exponential endpoint
+  streams converge to that exact value.  All six audited exports use only
+  `[propext]` or `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check exposed four missing parentheses
+  around approximation applications and one binder ordered after the type
+  that referenced it.  It is not a pass; its downstream `sorryAx` reports are
+  failed-elaboration contamination.  The corrected focused check passes.  The
+  exact one-worker dependency-complete target passes 5088 jobs, with the new
+  module taking about 1.2 seconds.  No analytic variation input, continuum
+  measure, OS reconstruction, all-vector completed gap, continuum Yang--Mills
+  theory, or Clay theorem is claimed.
