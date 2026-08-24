@@ -9704,3 +9704,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 1.0 seconds.  No nontrivial moving step, uniform
   coercivity, completed contraction, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-simple-exact-new-mass-payment] Automatic finite new-mass payment — **CLOSED 2026-08-23**
+
+- **milestone**: prove generic exact new-block mass at most one; show that a
+  later carrier with at least four states automatically satisfies the
+  dimensionless linear-load versus quadratic-capacity inequality; compile it
+  to physical payment at the later simple coercivity floor; and inhabit the
+  certificate for every cutoff-two-and-later carrier using its certified
+  65-state old block.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorSimpleNewMassPayment.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorNewMass_le_one`,
+  `centralPhysicalFiniteMovingBaseSimpleNewMassLoad_le_capacity_of_four_le`,
+  `centralPhysicalFiniteMovingBaseSimpleNewMassPayment_iff_dimensionless`,
+  `CentralPhysicalFiniteMovingBaseSimpleNewMassPaymentAt.of_four_le_stateCount`,
+  `CentralPhysicalFiniteMovingBaseSimpleNewMassPaymentAt.physicalPayment`,
+  `cutoffTwoMovingBaseStateCount_eq_65_add_new`, and
+  `cutoffTwoMovingBaseSimpleNewMassPhysicalPayment`.
+- **obligation**: compare a single positive fixed coercivity floor with the
+  later cutoff-dependent simple floors along a cofinal schedule, then feed
+  that comparison into the established novel-flow capacity and completed-gap
+  compiler.
+- **constructive?**: yes — finite subsum injection, normalized stationary
+  mass, natural-number multiplication monotonicity, and positive rational
+  cancellation suffice.  All seven audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 10.1 seconds; the exact
+  one-worker target passes 5,022 jobs with the new module taking about 10
+  seconds.  The payment uses a possibly deteriorating later-sector floor; no
+  uniform contraction, completed gap, continuum QFT, or Clay theorem is
+  claimed.

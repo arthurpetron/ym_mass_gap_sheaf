@@ -11363,3 +11363,38 @@ normalized new-block mass, prove that mass is at most one, and determine
 whether the resulting dimensionless scalar payment follows automatically
 from a constructive lower bound on the carrier size.  Completed contraction,
 continuum QFT, and the Clay theorem remain open.
+
+## Exact new mass automatically fits the finite simple-coercivity capacity (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorSimpleNewMassPayment` replaces the coarse
+increment-plus-merger load by the exact stationary mass of the later vacuum
+component outside the embedded old block.  A direct finite-subsum argument
+proves that this new-block mass is nonnegative, is bounded by the full later
+vacuum-sector mass, and hence is at most one.
+
+For a later carrier of size `N >= 4`, the constructive arithmetic inequality
+`4*N <= N^2` then proves
+
+`N * (2 * newMass) <= (1/2) * (1 + N^2)`.
+
+The module also proves that this dimensionless condition is exactly
+equivalent to the physical payment formed from the later sector's simple
+coercivity floor and later positive edge floor.  Finally, the certified
+cutoff-two old-block identity `N = 65 + newShellLength` supplies `N >= 4`, so
+the physical payment is inhabited for every actual cutoff-two-and-later
+sector, including nontrivial enlargements.
+
+Three focused elaboration attempts exposed two missing namespace openings and
+an indexed-state mismatch; none is a pass.  After correction, the focused
+check passes in about 10.1 seconds.  The exact one-worker,
+dependency-complete target passes 5,022 jobs, with the new module taking about
+10 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+This result uses each later sector's own simple coercivity floor, which may
+decay.  It does not supply the single positive floor required for a
+cutoff-uniform contraction.  The next frontier is to prove a compiler from a
+fixed positive floor bounded by the later simple floors into the existing
+cutoff-two novel-flow capacity, thereby isolating the remaining cofinal floor
+comparison as an explicit certificate.  Completed contraction, continuum
+QFT, and the Clay theorem remain open.
