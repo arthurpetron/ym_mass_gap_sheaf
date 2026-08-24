@@ -11018,3 +11018,30 @@ path between cutoff-two components, making the required support-stability
 input explicit and deciding whether the fixed-base route is mathematically
 viable.  Completed contraction, continuum QFT, and the Clay theorem remain
 open.
+
+## A merger witness now yields a literal later support path (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentMergerSupportPath` packages the
+causal graph event behind component-merger mass.  From any merger witness at
+`later >= 2`, it constructs Type-level data consisting of a state that is
+already cutoff-two positive, is outside the cutoff-two vacuum component, lies
+in the later vacuum component, and carries a literal `ChainIn` path from the
+later vacuum root to its later carrier index.
+
+This is stronger than a membership recoding: it exhibits the later support
+connection by which a previously separate old positive state has joined the
+vacuum sector.  The module also proves that no such event exists at the equal
+cutoff `later = 2`.  It deliberately does not claim that the later path uses
+only old states; it may pass through newly positive states.
+
+The first focused attempt exposed one missing namespace for
+`centralHalfStates` and is not a pass.  The corrected focused check passes in
+about 3.2 seconds.  The exact one-worker, dependency-complete target passes
+5,010 jobs, with the new module taking about 3.2 seconds.  Both audited
+exports use exactly `[propext, Quot.sound]`.
+
+The next frontier is to split such a path at its first departure from the
+embedded cutoff-two vacuum component.  That will expose a concrete boundary
+edge from an old vacuum state to either a newly positive state or a previously
+separate old component, which is the local support-stability obligation.
+Completed contraction, continuum QFT, and the Clay theorem remain open.

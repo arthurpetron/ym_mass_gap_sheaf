@@ -9382,3 +9382,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   check passes in about 1.6 seconds; the exact one-worker target passes 5,009
   jobs with the new module taking about 1.7 seconds.  No larger-cutoff merger
   outcome, cofinal contraction, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-component-merger-support-path] Old positive state joins through a later path — **CLOSED 2026-08-23**
+
+- **milestone**: convert any component-merger witness at `later >= 2` into
+  Type-level data containing a cutoff-two-positive state outside the
+  cutoff-two vacuum component and a literal later `ChainIn` path from the
+  vacuum root to that state's later index; exclude this event at `later = 2`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentMergerSupportPath.lean`.
+- **decl**: `CutoffTwoOldPositiveStateMergePath`,
+  `CutoffTwoComponentMergerWitness.toOldPositiveStateMergePath`, and
+  `no_cutoffTwoOldPositiveStateMergePath_self`.
+- **obligation**: locate the first path edge leaving the embedded old vacuum
+  component and characterize whether its target is newly positive or belongs
+  to another old cutoff-two component; then prove stability or bound its mass.
+- **constructive?**: yes — the rooted-component compiler already carries a
+  Type-level `ChainIn`; the new construction combines it with the exact
+  state semantics.  Both audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the initial missing-namespace failure is not a pass.  The
+  corrected focused check passes in about 3.2 seconds; the exact one-worker
+  target passes 5,010 jobs with the new module taking about 3.2 seconds.  No
+  larger-cutoff event, cofinal contraction, continuum QFT, or Clay theorem is
+  claimed.
