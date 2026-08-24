@@ -9586,3 +9586,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,017 jobs with the new module taking about 1.0 seconds.  No
   merger ceiling, local capacity, cofinal contraction, continuum QFT, or Clay
   theorem is claimed.
+
+### [BF4-generic-component-merger-decision] Moving-base zero-or-positive merger data — **CLOSED 2026-08-23**
+
+- **milestone**: decide the arbitrary-base finite merger list, remove merger
+  mass in the empty branch, and expose an exact positive stationary-mass
+  witness in the nonempty branch.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorComponentMergerDecision.lean`.
+- **decl**:
+  `centralPhysicalFiniteNoComponentMergerCheck_true_iff_indices_empty`,
+  `centralPhysicalFiniteNoComponentMergerCheck_true_iff_all_new_outside`,
+  `centralPhysicalFiniteVacuumSectorNewMass_le_increment_of_check`,
+  `CentralPhysicalFiniteComponentMergerWitness.state_semantics`,
+  `CentralPhysicalFiniteComponentMergerWitness.later_weight_pos`,
+  `CentralPhysicalFiniteComponentMergerWitness.mergerMass_pos`,
+  `centralPhysicalFiniteComponentMergerDecision`, and
+  `centralPhysicalFiniteComponentMergerMassZeroOrPositiveData`.
+- **obligation**: bound or pay positive merger mass using explicit generic
+  base-sector size, coercivity, and later support-edge floor data, then inhabit
+  those certificates along a cofinal moving-cutoff schedule.
+- **constructive?**: yes — structural inspection of a finite list returns
+  Type-level evidence in both branches; positivity uses only a witnessed
+  positive term in a finite nonnegative rational sum.  All eleven audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: three failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 1.2 seconds; the exact one-worker
+  target passes 5,018 jobs with the new module taking about 1.2 seconds.  No
+  nontrivial step is certified merger-free and no merger upper bound, cofinal
+  contraction, continuum QFT, or Clay theorem is claimed.

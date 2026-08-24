@@ -11230,3 +11230,32 @@ is inhabited.  The next frontier is a generic Type-level merger decision and
 witness, followed by an explicit local residual-payment interface carrying
 the base-sector size, coercivity, and edge-floor data it actually needs.
 Completed contraction, continuum QFT, and the Clay theorem remain open.
+
+## Moving-base component mergers are now constructively decidable (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorComponentMergerDecision` defines an exact
+Boolean no-merger check for arbitrary constructive coupling, half-volume, and
+base/later cutoffs.  It proves that success is equivalent both to an empty
+merger-index list and to every new state lying outside the entire positive
+base carrier.
+
+The finite decision returns either a certificate eliminating merger mass or
+an explicit merger index.  A successful certificate contracts the generic
+new-mass estimate to the corrected-slab increment alone.  A witness exposes
+the exact new-block/base-positive state semantics, has strictly positive later
+stationary weight bounded by the merger submass, and therefore proves that the
+total merger mass is positive.  The equal-cutoff no-merger anchor is inhabited.
+
+Three focused elaboration attempts exposed missing namespace openings and an
+under-specified theorem application; none is a pass.  After correction, the
+focused check passes in about 1.2 seconds.  The exact one-worker,
+dependency-complete target passes 5,018 jobs, with the new module taking about
+1.2 seconds.  All eleven audited exports use exactly
+`[propext, Quot.sound]`.
+
+No nontrivial moving step is proved merger-free, and the positive witness has
+no uniform upper bound.  The next frontier is an honest generic local
+residual-payment certificate parameterized by the actual base-sector size,
+coercivity, and later edge floor; inhabiting those data along a cofinal moving
+schedule remains open.  Completed contraction, continuum QFT, and the Clay
+theorem remain open.
