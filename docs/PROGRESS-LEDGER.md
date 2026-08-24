@@ -10915,3 +10915,26 @@ positive components.  The next frontier is to compile the increment-plus-
 merger bound into the capacity payment and then determine whether component
 mergers can be excluded or quantitatively paid.  Completed contraction,
 continuum QFT, and the Clay theorem remain open.
+
+## The component-split payment now compiles to contraction (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentSplitEdgeFloorPayment` proves that
+the explicit scalar inequality
+`novelFloor * ((65+n) * (2*(cutoffIncrement+componentMergerMass)))
+<= half * edgeFloor` implies the new-shell payment.  It therefore supplies all
+four finite simple-flow capacity blocks and packages a cofinal family into the
+existing completed strict-contraction datum.
+
+The focused check passes in about 2.0 seconds.  The exact one-worker,
+dependency-complete target passes 5,006 jobs, with the new module taking about
+2.0 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The compiler does not inhabit its payment premise.  The analytic obstruction
+is now separated exactly: the corrected-slab increment, the component-merger
+mass, the linear route factor, the coercivity floor, and the finite positive
+edge floor must jointly satisfy the displayed inequality along a cofinal
+family.  The next frontier is an executable and sound no-component-merger
+certificate, followed by a semantic analysis of whether mergers can actually
+be excluded.  Completed contraction, continuum QFT, and the Clay theorem
+remain open.

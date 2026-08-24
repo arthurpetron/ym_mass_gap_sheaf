@@ -9271,3 +9271,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,005 jobs with the new module taking about 1.0 second.  The
   component-merger mass is uncontrolled, so no completed contraction,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-component-split-payment] Increment-plus-merger capacity compiler — **CLOSED 2026-08-23**
+
+- **milestone**: prove that
+  `novelFloor * ((65+n) * (2*(cutoffIncrement+componentMergerMass)))
+  <= half * edgeFloor` implies the new-shell payment, all four finite capacity
+  blocks, and, when given cofinally, completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentSplitEdgeFloorPayment.lean`.
+- **decl**:
+  `cutoffTwoNewShellMassEdgeFloorPayment_of_componentSplitPayment`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_componentSplitPayment`,
+  `CutoffTwoCofinalNovelComponentSplitEdgeFloorPayment.toCofinalNovelNewShellMassEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelComponentSplitEdgeFloorPayment.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalNovelComponentSplitEdgeFloorPayment.toCompletedStrictContractionData`.
+- **obligation**: inhabit the cofinal scalar payment by excluding or bounding
+  component mergers and comparing the resulting shell-weighted mass against
+  the finite positive routed-edge floor.
+- **constructive?**: yes — multiplication monotonicity by explicit
+  nonnegative rational factors and the proved component-split mass bound are
+  the only new proof ingredients.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 2.0 seconds; the exact
+  one-worker target passes 5,006 jobs with the new module taking about 2.0
+  seconds.  The cofinal payment is not inhabited, so no completed
+  contraction, continuum QFT, or Clay theorem is claimed.
