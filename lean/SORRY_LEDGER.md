@@ -12485,3 +12485,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5092 jobs, with the new module taking about 1.3 seconds.  No
   analytic input, projective/OS reconstruction, all-vector gap, continuum
   Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-raw-moving-cube-continuum-decay] Bypass normalization debt while retaining one observable — **CLOSED 2026-08-24**
+
+- **milestone**: retain the literal unnormalized moving-cube sampled
+  autocorrelation; compile its raw representative variation to the exact
+  scheduled continuum limit; pass the finite same-object squared-decay
+  estimate through raw-moment and scheduled-rate-power convergence; state
+  nontriviality only as positivity of that exact observable's zero-time limit;
+  and rejoin positivity and decay in one definitionally connected theorem.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler.lean`.
+- **decl**:
+  `rawMovingCubeContinuumLimitOfVariation`,
+  `MovingCubeRawContinuumNontriviality`,
+  `rawMovingCubeLimitRepresentativeSq_decay`,
+  `rawMovingCubeContinuumRepresentativeSq_decay`,
+  `rawMovingCubeContinuumConnectedAutocorrelationSq_decay`, and
+  `rawMovingCubeObservableConnectedContinuumPath`.
+- **obligation**: inhabit raw same-object representative variation and
+  positivity of its actual zero-time continuum limit for one adaptive
+  producer.  The rate branch remains the existing exact scheduled-power
+  variation and physical-exponential compiler.  Then construct the
+  projective/OS same-object identification and extend the estimate uniformly
+  from one channel to the completed vacuum complement.
+- **constructive?**: yes — no reciprocal normalization or unrelated amplitude
+  is inserted.  The same representative family supplies the finite moment,
+  continuum correlation, zero-time amplitude, and decay theorem.  All five
+  audited exports use only `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the focused guarded check passes.  The exact one-worker
+  dependency-complete target passes 1661 jobs, with the new module taking
+  about 0.85 seconds.  No analytic variation or positivity input, continuum
+  measure, OS reconstruction, all-vector completed gap, continuum Yang--Mills
+  theory, or Clay theorem is claimed.

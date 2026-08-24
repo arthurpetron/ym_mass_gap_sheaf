@@ -14230,3 +14230,31 @@ The raw same-object moment and normalization-scale controls remain the other
 two parallel inputs.  Projective/OS identification, dense/all-vector
 vacuum-complement control, continuum Yang--Mills existence, and the Clay
 theorem remain open.
+
+## The raw observable route removes normalization-debt convergence (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler` now
+formalizes the smaller alternative to reciprocal normalization.  The literal
+unnormalized moving-cube correlation is retained at every cutoff.  Its raw
+representative variation constructs the scheduled continuum limit, and the
+finite same-object squared-decay estimate passes to that exact limit together
+with the already-defined scheduled squared-rate-power limit.
+
+The resulting causal width is two parallel sequence-convergence inputs: raw
+same-object moments and scheduled rate powers.  Nontriviality is isolated as
+positivity of the single zero-time limit of the definitionally same raw
+observable.  This is not a third sequence-convergence compiler and does not
+introduce a reciprocal-floor or normalization-debt stream.  The final theorem
+returns that exact zero-time positivity and the raw continuum decay inequality
+together, with the actual zero-time correlation retained as its amplitude.
+
+The focused guarded check passes.  The exact one-worker dependency-complete
+target passes 1661 jobs, with the new module taking about 0.85 seconds.  All
+five audited exports use only `[propext, Quot.sound]`.
+
+No raw moment variation, zero-time nontriviality estimate, rate-power
+variation, projective/OS reconstruction, completed all-vector gap, continuum
+Yang--Mills theory, or Clay theorem is proved.  The normalization route remains
+available if a uniform norm floor makes its debt cheap; absent such an
+estimate, the raw route is now the strictly smaller observable-connected
+frontier.
