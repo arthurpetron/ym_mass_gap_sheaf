@@ -9675,3 +9675,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,020 jobs with the new module taking about 1.0 seconds.  The
   floor is finite-cutoff and no uniform lower bound, cofinal contraction,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-simple-payment-cancellation] Dimensionless moving-base payment — **CLOSED 2026-08-23**
+
+- **milestone**: substitute the explicit simple coercivity floor into the
+  component-split moving-base payment and constructively cancel its common
+  positive edge floor, leaving an exact dimensionless carrier-growth
+  inequality; compile the resulting Type-level certificate back to scaled
+  new-mass payment and inhabit it at equal cutoffs.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorSimplePaymentCancellation.lean`.
+- **decl**:
+  `centralPhysicalFiniteMovingBaseSimplePaymentCapacity_pos`,
+  `centralPhysicalFiniteMovingBaseSimpleComponentPayment_iff_dimensionless`,
+  `CentralPhysicalFiniteMovingBaseSimplePaymentAt`,
+  `CentralPhysicalFiniteMovingBaseSimplePaymentAt.componentSplitPayment`,
+  `CentralPhysicalFiniteMovingBaseSimplePaymentAt.newMassPayment`, and
+  `centralPhysicalFiniteMovingBaseSimplePaymentAt_self`.
+- **obligation**: bound the exact normalized new-block load by the quadratic
+  carrier capacity at nontrivial moving steps, and separately obtain a
+  cutoff-independent coercivity scale before any uniform spectral-gap claim.
+- **constructive?**: yes — cancellation uses only multiplication by witnessed
+  positive rationals and constructive order cancellation.  All five audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the focused guarded check passes on its first attempt in
+  about 1.0 seconds; the exact one-worker target passes 5,021 jobs with the
+  new module taking about 1.0 seconds.  No nontrivial moving step, uniform
+  coercivity, completed contraction, continuum QFT, or Clay theorem is
+  claimed.

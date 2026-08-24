@@ -11325,3 +11325,41 @@ frontier is to specialize the generic moving-base residual payment to this
 constructed coercivity floor and expose the remaining dimensionless demand-
 to-edge ratio whose nontrivial/cofinal control is still missing.  Completed
 contraction, continuum QFT, and the Clay theorem remain open.
+
+## The simple-path moving-base payment cancels to a dimensionless condition (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorSimplePaymentCancellation` substitutes the
+explicit finite-sector simple coercivity floor into the generic moving-base
+component-split payment.  Because that coercivity is the later positive edge
+floor divided by `1 + carrierSize^2`, the same strictly positive edge floor
+occurs on both sides and cancels constructively.  The module proves the exact
+equivalence
+
+`simpleCoercivityFloor * (carrierSize * 2 * (increment + mergerMass))
+  <= half * edgeFloor`
+
+if and only if
+
+`carrierSize * 2 * (increment + mergerMass)
+  <= half * (1 + carrierSize^2)`.
+
+A Type-level dimensionless-payment certificate compiles back to the original
+component-split scalar payment and hence to scaled new-block mass payment.
+The certificate is explicitly inhabited at equal cutoffs.  This is a genuine
+simplification: no lower estimate on the microscopic edge floor is needed for
+this particular comparison once the coercivity is derived from that same
+floor.
+
+The focused guarded check passes on its first attempt in about 1.0 seconds.
+The exact one-worker, dependency-complete target passes 5,021 jobs, with the
+new module taking about 1.0 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+No nontrivial moving step, state-count/new-mass growth bound, or cutoff-
+uniform coercivity is proved.  In particular the underlying simple
+coercivity floor may still decay with cutoff, volume, or lattice spacing.  The
+next frontier is to replace the coarse increment-plus-merger load by the exact
+normalized new-block mass, prove that mass is at most one, and determine
+whether the resulting dimensionless scalar payment follows automatically
+from a constructive lower bound on the carrier size.  Completed contraction,
+continuum QFT, and the Clay theorem remain open.
