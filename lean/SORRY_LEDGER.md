@@ -9355,3 +9355,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds.  Neither cofinal field is inhabited, and fixed-base increment decay
   is not claimed; no completed contraction, continuum QFT, or Clay theorem is
   proved.
+
+### [BF4-cutoff-two-component-merger-semantics] Merger witness semantics and decision — **CLOSED 2026-08-23**
+
+- **milestone**: characterize merger membership as a cutoff-two-bounded,
+  cutoff-two-positive state outside the 65-state vacuum component but inside
+  the later rooted component; construct a Type-level zero-or-witness decision
+  and prove every witness gives strictly positive merger mass.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentMergerSemantics.lean`.
+- **decl**: `mem_cutoffTwoNewComponentMergerIndices_iff`,
+  `cutoffTwoNewComponentMergerMass_pos_of_index`,
+  `CutoffTwoComponentMergerWitness.state_semantics`,
+  `CutoffTwoComponentMergerWitness.mergerMass_pos`,
+  `cutoffTwoComponentMergerDecision`, and
+  `cutoffTwoComponentMergerMassZeroOrPositiveData`.
+- **obligation**: connect any merger witness to a newly opened later support
+  edge/path between distinct cutoff-two components, then prove support
+  stability or quantify the resulting merger mass.
+- **constructive?**: yes — finite list cases return explicit Type-level proof
+  data, and positivity of one stationary summand forces positivity of the
+  merger mass.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused attempt failed on namespace, Boolean-iff,
+  and Type-level wrapper interfaces and is not a pass.  The corrected focused
+  check passes in about 1.6 seconds; the exact one-worker target passes 5,009
+  jobs with the new module taking about 1.7 seconds.  No larger-cutoff merger
+  outcome, cofinal contraction, continuum QFT, or Clay theorem is claimed.

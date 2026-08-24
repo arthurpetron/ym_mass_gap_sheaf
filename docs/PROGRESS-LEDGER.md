@@ -10988,3 +10988,33 @@ semantically characterize component stability and to determine whether the
 fixed-base route is viable or must be replaced by a moving-base/local-step
 construction.  Completed contraction, continuum QFT, and the Clay theorem
 remain open.
+
+## Component mergers now have exact state semantics and witnesses (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentMergerSemantics` proves that a
+merger index is exactly a later rooted-component state which lies outside the
+certified 65-state cutoff-two vacuum component while still satisfying the
+cutoff-two label bound and having strictly positive cutoff-two row marginal.
+Thus the residual really denotes a previously separate positive component
+that has joined the vacuum component; it is not merely an artifact of index
+recoding.
+
+The module packages a Type-level merger witness and constructs a finite
+decision returning either a proof-carrying no-merger certificate or such a
+witness.  Every witness contributes strictly positive later stationary
+weight, so the decision also returns an exact zero-merger-mass certificate or
+a proof that merger mass is strictly positive.
+
+The first focused attempt exposed missing namespace, Boolean-iff, and
+Type-versus-Prop wrapper interfaces; it is not a pass.  After correction, the
+focused check passes in about 1.6 seconds.  The exact one-worker,
+dependency-complete target passes 5,009 jobs, with the new module taking about
+1.7 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+No positive-cutoff witness or cofinal no-merger proof has been produced.  The
+next frontier is to relate a merger witness to a newly opened support edge or
+path between cutoff-two components, making the required support-stability
+input explicit and deciding whether the fixed-base route is mathematically
+viable.  Completed contraction, continuum QFT, and the Clay theorem remain
+open.
