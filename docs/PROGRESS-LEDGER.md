@@ -14486,3 +14486,38 @@ The uniform raw floor remains uninhabited.  So do the projective continuum
 measure and OS/Wilson identifications, exact-rate reconstruction convergence,
 all-vector graph-norm convergence, dense-unit vacuum pin, continuum
 Yang--Mills existence and QFT axioms, and the Clay theorem.
+
+## The dynamic graph-norm frontier is now a causal three-way join (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler` now factors its
+previous monolithic residual into three independently buildable certificates:
+the scheduled one-unit rate limit equals the selected Wilson separator
+squared; the selected quotient transfer has an explicit Cauchy-representative
+lift; and finite completed vacuum-complement vectors converge in the input and
+transferred graph norms for that exact lift.  A dependent constructor rejoins
+the three certificates, so mismatched families, rate limits, Wilson data, or
+transfer representatives cannot be silently combined.
+
+The semantic lift compiler is shortened when the selected transfer already
+has `WilsonLinearTimeTranslationPin`: its existing `TCauchy` map supplies the
+representative lift and its operator pin proves the quotient equation.  The
+raw observable capstone now accepts the three graph-norm branches separately,
+along with the uniform raw norm floor, and contracts them into the same
+observable-connected all-vector Wilson path.
+
+This formal decomposition gives a precise parallelism count at the current
+all-vector frontier: three compiler branches, with the finite approximation
+branch depending only on the transfer-lift output and the scalar rate branch
+fully independent.  It also fixes the proof direction: the joined all-vector
+limit proves the operator gap, and only then does the connected observable
+inherit decay.
+
+The focused guarded checks pass.  The exact one-worker graph-norm target
+passes 1660 jobs, with the changed module taking about 1.0 second; the
+connected capstone passes 5104 jobs, taking about 1.9 seconds.  All newly
+audited exports use only `[propext, Quot.sound]`.
+
+None of the three frontier certificates is inhabited here.  The scalar
+logarithm/exponential-to-separator identity, representative Wilson transfer,
+finite all-vector approximation, projective OS semantics, continuum theory,
+and Clay theorem remain open.

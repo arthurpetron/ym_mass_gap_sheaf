@@ -148,6 +148,39 @@ def ofUniformNormFloor
   graphNorm := graphNorm
   vacuumPin := vacuumPin
 
+/-- The same finite-source constructor with the all-vector graph-norm frontier
+split into its three independently buildable branches: scalar rate pin,
+representative transfer lift, and finite graph approximation. -/
+def ofUniformNormFloorAndParallelGraphNormCompilers
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation W)
+    (rateLimit : DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+      family ratePower W)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family W transfer)
+    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W :=
+  ofUniformNormFloor uniform projectiveOS matrixCoefficient exactRate
+    (DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelCompilers
+      rateLimit transfer finite)
+    vacuumPin
+
 /-! ## 3. Contract the all-vector branch -/
 
 /-- The exact-rate and graph-norm branches compile to the minimal bounded
@@ -414,6 +447,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.minimalBoundedMassGap
 #print axioms

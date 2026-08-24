@@ -12766,3 +12766,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   nontriviality target passes 5095 jobs, with the new module taking about 0.9
   seconds.  The connected capstone passes 5104 jobs, taking about 1.8 seconds.
   No uniform floor or later semantic/continuum residual is claimed inhabited.
+
+### [BF4-physical-dynamic-graph-norm-parallel-join] Factor the all-vector limit into three causal compilers — **CLOSED 2026-08-24**
+
+- **milestone**: split the dynamic physical-time graph-norm residual into a
+  scalar rate-limit pin, a Wilson representative-transfer lift, and a finite
+  all-vector graph approximation; rejoin them through shared dependent
+  indices; derive the transfer lift from an existing linear time-translation
+  pin; and expose the same three-way join on the raw observable-connected
+  capstone.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin`,
+  `WilsonPhysicalTimeRepresentativeTransferLift`,
+  `WilsonPhysicalTimeRepresentativeTransferLift.ofLinear`,
+  `DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation`,
+  `DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelCompilers`,
+  and
+  `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormCompilers`.
+- **obligation**: inhabit the rate pin by identifying the constructed
+  physical exponential with the selected separator square; construct or
+  import the selected representative transfer; and prove graph-norm
+  convergence for every explicit vacuum-orthogonal Wilson representative.
+  The projective OS, continuum existence, and QFT obligations remain open.
+- **constructive?**: yes — the join is ordinary dependent record assembly,
+  and the linear transfer constructor reuses its explicit `TCauchy` map.  No
+  quotient representative is chosen from an arbitrary completed point.  All
+  newly audited exports use only `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  The exact one-worker
+  graph-norm target passes 1660 jobs, taking about 1.0 second; the connected
+  capstone passes 5104 jobs, taking about 1.9 seconds.  No constituent
+  residual or endpoint beyond the conditional compiler is claimed inhabited.

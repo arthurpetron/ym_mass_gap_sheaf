@@ -26,6 +26,7 @@ is used.
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
+import YMGap.Continuum.WilsonLinearTimeTranslationHandoff
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 
@@ -46,8 +47,110 @@ open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
+open YMGap.Continuum.WilsonLinearTimeTranslationHandoff
 
-/-! ## 1. Choice-free physical-time graph-norm data -/
+/-! ## 1. Three independently buildable graph-norm compilers -/
+
+/-- Scalar branch: the scheduled one-unit squared-rate limit is the square of
+the separator used by the selected Wilson transfer. -/
+structure DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (ratePower : NormalizedMovingCubeSampledRatePowerLimit family)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 2 where
+  rateLimitPinned : CReal.Equiv
+    (ratePower.limitRepresentative 1)
+    (CReal.ofQ'
+      (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
+
+/-- Semantic branch: a representative-level lift of the already-selected
+quotient transfer.  It depends on the Wilson datum but not on the dynamic
+cutoff family or its rate estimates. -/
+structure WilsonPhysicalTimeRepresentativeTransferLift
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 2 where
+  transferredRepresentative :
+    SelectedWilsonCauchy D -> SelectedWilsonCauchy D
+  transferredRepresentative_class : forall X,
+    selectedWilsonPoint D (transferredRepresentative X) =
+      D.timeTranslation.op.T (selectedWilsonPoint D X)
+
+namespace WilsonPhysicalTimeRepresentativeTransferLift
+
+/-- An already-linear, representative-lifted Wilson time translation supplies
+the semantic transfer branch without a second representative choice. -/
+def ofLinear
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (linear : WilsonLinearTimeTranslationPin D.timeTranslation) :
+    WilsonPhysicalTimeRepresentativeTransferLift D where
+  transferredRepresentative := linear.linearOperator.TCauchy
+  transferredRepresentative_class := by
+    intro X
+    rw [← linear.operatorPinned]
+    exact (linear.linearOperator.T_ofCauchy X).symm
+
+end WilsonPhysicalTimeRepresentativeTransferLift
+
+/-- All-vector branch: finite completed vacuum-complement vectors approximate
+every explicit Wilson Cauchy representative in the graph norm of the supplied
+transfer lift.  This branch depends on the dynamic family and the semantic
+lift, but not on the scalar rate-limit identification. -/
+structure DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift D) : Type 3 where
+  approximant : forall (X : SelectedWilsonCauchy D),
+    D.selectedSpectralData.vacPerp (selectedWilsonPoint D X) ->
+      (scale : Nat) ->
+        CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+          (family.nome_pos scale) (family.nome_lt_one scale) 0
+  normRepresentative : forall (X : SelectedWilsonCauchy D)
+    (_hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)),
+      Nat -> CReal
+  normRepresents : forall (X : SelectedWilsonCauchy D)
+    (hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X))
+    (scale : Nat),
+    (Quotient.mk CReal.crealSetoid
+        (normRepresentative X hX scale) : CReal.RC) =
+      centralPhysicalVacuumSectorCylinderCompletedInner
+        (family.nome_pos scale) (family.nome_lt_one scale) 0
+        (approximant X hX scale).1 (approximant X hX scale).1
+  transferredNormRepresentative : forall (X : SelectedWilsonCauchy D)
+    (_hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)),
+      Nat -> CReal
+  transferredNormRepresents : forall (X : SelectedWilsonCauchy D)
+    (hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X))
+    (scale : Nat),
+    (Quotient.mk CReal.crealSetoid
+        (transferredNormRepresentative X hX scale) : CReal.RC) =
+      centralPhysicalVacuumSectorCylinderCompletedInner
+        (family.nome_pos scale) (family.nome_lt_one scale) 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (family.nome_pos scale) (family.nome_lt_one scale) 0
+          (centralPhysicalDynamicRCLatticeSteps family scale 1)
+          (approximant X hX scale)).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (family.nome_pos scale) (family.nome_lt_one scale) 0
+          (centralPhysicalDynamicRCLatticeSteps family scale 1)
+          (approximant X hX scale)).1
+  norm_converges : forall (X : SelectedWilsonCauchy D)
+    (hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)),
+    CReal.ConvergesTo (normRepresentative X hX)
+      (D.wilson.toGNSData.cinnerRep X X)
+  transferredNorm_converges : forall (X : SelectedWilsonCauchy D)
+    (hX : D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)),
+    CReal.ConvergesTo (transferredNormRepresentative X hX)
+      (D.wilson.toGNSData.cinnerRep
+        (transfer.transferredRepresentative X)
+        (transfer.transferredRepresentative X))
+
+/-! ## 2. Join the three compilers -/
 
 /-- Representative-level graph-norm convergence for the scheduled one-unit
 physical-time powers of one dynamic BF4 family.
@@ -132,7 +235,35 @@ structure DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
 
 namespace DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
 
-/-! ## 2. Finite and limiting all-vector inequalities -/
+/-- The exact causal join of the scalar, transfer-semantic, and all-vector
+finite-approximation branches.  Shared indices prevent mixing families,
+scheduled-rate limits, Wilson data, or representative transfers. -/
+def ofParallelCompilers
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (rate : DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+      family ratePower D)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift D)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family D transfer) :
+    DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family ratePower D where
+  rateLimitPinned := rate.rateLimitPinned
+  transferredRepresentative := transfer.transferredRepresentative
+  transferredRepresentative_class :=
+    transfer.transferredRepresentative_class
+  approximant := finite.approximant
+  normRepresentative := finite.normRepresentative
+  normRepresents := finite.normRepresents
+  transferredNormRepresentative := finite.transferredNormRepresentative
+  transferredNormRepresents := finite.transferredNormRepresents
+  norm_converges := finite.norm_converges
+  transferredNorm_converges := finite.transferredNorm_converges
+
+/-! ## 3. Finite and limiting all-vector inequalities -/
 
 /-- The dynamic family's finite all-vector contraction, specialized to the
 scheduled power for one unit of physical time and expressed in the exact
@@ -207,7 +338,7 @@ theorem physicalTimeOne_limit_operator_norm_gap
   intro scale
   exact data.finitePhysicalTimeRepresentative_norm_gap X hX scale
 
-/-! ## 3. Contract to the selected Wilson all-vector gap -/
+/-! ## 4. Contract to the selected Wilson all-vector gap -/
 
 /-- The physical-time graph-norm data construct the uniform operator-norm gap
 on every completed selected Wilson vacuum-complement vector. -/
@@ -271,6 +402,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.WilsonPhysicalTimeRepresentativeTransferLift.ofLinear
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.finitePhysicalTimeRepresentative_norm_gap
 #print axioms
