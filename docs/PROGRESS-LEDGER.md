@@ -14085,3 +14085,37 @@ then prove that both rational exponent streams converge to the same physical
 exponent.  The physical-gap and spacing variations remain uninhabited; raw
 same-object moment and normalization control, projective/OS reconstruction,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## The Euler corridor now follows the literal adaptive moving-cube schedule (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorScheduledRatePowerEulerCorridor` specializes
+the finite rational theorem to the exact factor already consumed by the
+normalized same-object decay estimate,
+
+`((q_j*q_j)^floor(t/a_j))`.
+
+For a generic completed family it needs strict positivity of the completed
+rate.  For the actual residual-coercivity and adaptive transition-product
+producers, that positivity is now proved rather than postulated: the completed
+rate unfolds to the positive reciprocal `1/(1+strength)`.  The squared rate is
+proved positive and at most one, and the exact scheduled power is bracketed by
+constructive exponentials with exponents
+
+`((1-q_j^2)/q_j^2) floor(t/a_j)` and
+`(1-q_j^2) floor(t/a_j)`.
+
+The first guarded check is not a pass: two producer facts were addressed
+without opening their defining namespaces, and extension lemmas were invoked
+as if they lived in the original type namespaces.  Its downstream `sorryAx`
+reports are failed-elaboration contamination.  After correcting those names,
+the focused check passes.  The exact one-worker dependency-complete target
+passes 5082 jobs, with the new module taking about 1.3 seconds after replay.
+All six audited exports use exactly `[propext, Quot.sound]`.
+
+This closes the finite specialization only.  It does not prove that either
+scheduled exponent converges across cutoffs.  The next rate compiler must use
+the physical-gap stream, rate-to-one control, and sampled-distance convergence
+to show both exponents approach the same physical value.  Those analytic
+inputs remain uninhabited; raw moment and normalization control, projective/OS
+reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
+open.

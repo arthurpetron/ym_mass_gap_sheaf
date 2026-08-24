@@ -12318,3 +12318,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 0.31 seconds.  No cross-scale convergence,
   physical exponential identification, projective/OS reconstruction,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-scheduled-rate-euler-corridor] Attach the finite corridor to the exact adaptive schedule — **CLOSED 2026-08-24**
+
+- **milestone**: define the literal squared completed rate and its two
+  scheduled Euler exponents; prove the squared rate is positive and at most
+  one; bracket the exact normalized moving-cube factor
+  `((q_j*q_j)^floor(t/a_j))` by the corresponding constructive exponentials;
+  prove strict completed-rate positivity from the residual-coercivity
+  producer's explicit positive reciprocal; and specialize the corridor to the
+  exact adaptive transition-product family with no new analytic hypothesis.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRatePowerEulerCorridor.lean`.
+- **decl**:
+  `completedSquaredRate`, `completedSquaredRate_pos`,
+  `completedSquaredRate_le_one`, `scheduledSquaredRateUpperExponent`,
+  `scheduledSquaredRateLowerExponent`,
+  `scheduledSquaredRateUpperExponent_nonnegative`,
+  `scheduledSquaredRateLowerExponent_nonnegative`,
+  `normalizedMovingCubeSampledRatePower_euler_sandwich`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.completedRate_pos`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.completedRate_pos`,
+  and the adaptive
+  `normalizedMovingCubeSampledRatePower_euler_sandwich`.
+- **obligation**: prove cross-scale convergence of both scheduled exponent
+  streams to the same physical exponent using the exact physical-gap stream,
+  rate-to-one control, and sampled-distance convergence; then squeeze the
+  scheduled rational powers and identify their existing complete limit.
+- **constructive?**: yes — strict positivity is derived by unfolding the
+  explicit positive rational quotient, and the finite corridor is inherited
+  without changing the producer, completed rate, squared power, or sampling
+  schedule.  All six audited exports use exactly `[propext, Quot.sound]`.
+- **status note**: the first guarded check omitted two defining namespace
+  opens and attempted field notation for extension theorems in a different
+  namespace.  It is not a pass; its downstream `sorryAx` reports are failed-
+  elaboration contamination.  The corrected focused check passes.  The exact
+  one-worker target passes 5082 dependency jobs, with the new module taking
+  about 1.3 seconds.  No cross-scale exponent convergence, rate-power limit,
+  raw moment or normalization estimate, projective/OS reconstruction,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
