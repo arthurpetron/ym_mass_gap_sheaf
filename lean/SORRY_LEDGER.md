@@ -9215,3 +9215,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.7 seconds; the exact one-worker target passes 5,003 jobs with the
   new module taking about 1.6 seconds.  No cofinal tail estimate, completed
   contraction, continuum QFT, or Clay theorem is proved.
+
+### [BF4-cutoff-two-novel-new-shell-payment] New-shell-only capacity compiler — **CLOSED 2026-08-23**
+
+- **milestone**: prove that
+  `novelFloor * ((65+n) * (2*newMass)) <= half * edgeFloor` implies the exact
+  stationary-mass payment, and compile its cofinal form to completed strict
+  contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelNewShellMassEdgeFloorPayment.lean`.
+- **decl**:
+  `cutoffTwoStationaryMassEdgeFloorPayment_of_newShellMassEdgeFloorPayment`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_newShellMassEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelNewShellMassEdgeFloorPayment.toCofinalNovelStationaryMassEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelNewShellMassEdgeFloorPayment.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalNovelNewShellMassEdgeFloorPayment.toCompletedStrictContractionData`.
+- **obligation**: prove the cofinal shell-weighted new-state stationary-mass
+  estimate against the finite positive routed-edge floor.
+- **constructive?**: yes — only monotonicity of multiplication by nonnegative
+  rational factors and the proved `novelMass <= 2*newMass` estimate are used.
+  All five audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused namespace failure is not a pass.  The
+  corrected focused check passes in about 2.2 seconds; the exact one-worker
+  target passes 5,004 jobs with the new module taking about 1.0 second.  The
+  cofinal payment is not inhabited, so no completed contraction, continuum
+  QFT, or Clay theorem is claimed.

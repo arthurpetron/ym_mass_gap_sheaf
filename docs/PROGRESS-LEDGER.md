@@ -10862,3 +10862,26 @@ compile the scalar payment
 mass-refined payment and completed-contraction interface.  Its cofinal
 inhabitation, controlled limits, continuum QFT, and the Clay theorem remain
 open.
+
+## The new-shell-only payment now compiles to contraction (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelNewShellMassEdgeFloorPayment` proves that the
+single scalar inequality
+`novelFloor * ((65+n) * (2*newMass)) <= half * edgeFloor` implies the exact
+novel-stationary-mass payment.  It therefore inherits all four finite
+capacity blocks and packages a cofinal family directly into the existing
+completed strict-contraction datum.
+
+The first focused attempt exposed one missing qualification for the
+constructive `ofNat` nonnegativity lemma and is not a pass.  After correction,
+the focused check passes in about 2.2 seconds.  The exact one-worker,
+dependency-complete target passes 5,004 jobs, with the new module taking about
+1.0 second.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The result is a compiler, not an inhabited estimate.  The next frontier is
+now the mathematical tail comparison itself: control the stationary mass of
+later canonical-sector states outside the embedded cutoff-two image strongly
+enough that its product with the linear route scale pays the finite positive
+routed-edge floor on a cofinal sequence.  Completed contraction, continuum
+QFT, and the Clay theorem remain open.
