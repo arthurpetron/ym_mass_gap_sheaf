@@ -12876,3 +12876,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the latter builds 5106 jobs, with the changed module taking about 2.1
   seconds.  Neither vacuum field nor any later continuum residual is claimed
   inhabited.
+
+### [BF4-physical-dynamic-scheduled-rate-separator-convergence] Derive the scalar graph-norm pin by same-stream limit uniqueness — **CLOSED 2026-08-24**
+
+- **milestone**: replace a free completed-value scalar equality by convergence
+  of the literal scheduled finite one-unit rate stream to the selected Wilson
+  separator square; derive the limit pin by constructive uniqueness; and
+  expose the convergence-form three-way graph-norm join on the raw connected
+  capstone.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `DynamicVacuumSectorWilsonPhysicalTimeRateConvergence`,
+  `DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin.ofScheduledRateConvergence`,
+  `DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelConvergenceCompilers`,
+  and
+  `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormConvergenceCompilers`.
+- **obligation**: prove convergence of
+  `normalizedMovingCubeSampledRatePower family scale 1` to the selected
+  separator square.  This is the concrete logarithm/exponential-to-Wilson
+  bridge; the transfer and graph approximation branches remain independent
+  open inputs.
+- **constructive?**: yes — the compiler applies uniqueness to two explicit
+  convergence moduli for the definitionally same cutoff stream.  It adds no
+  selected limit or free equality.  All four new audited exports use only
+  `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  The exact one-worker
+  graph-norm target passes 1660 jobs, taking about 1.1 seconds; the connected
+  capstone passes 5106 jobs, taking about 2.1 seconds.  The convergence theorem
+  and every later continuum residual remain uninhabited.

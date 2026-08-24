@@ -14610,3 +14610,35 @@ All audited exports remain within `[propext, Quot.sound]`.
 The completed vacuum equality and stationarity are not inhabited.  All other
 raw nontriviality, same-object, projective/Wilson, exact-rate, graph-norm,
 continuum, QFT, and Clay residuals remain open.
+
+## The separator-square rate pin now comes from the literal cutoff stream (2026-08-24)
+
+The scalar branch of the all-vector graph-norm compiler no longer needs to be
+presented only as a free equality between completed values.
+`DynamicVacuumSectorWilsonPhysicalTimeRateConvergence` states that the actual
+scheduled finite one-unit squared-rate stream converges to the square of the
+selected Wilson separator.  The independently supplied `ratePower` record
+already proves that the same stream converges to its constructive limit, so
+uniqueness of limits constructs the former rate pin.
+
+`ofParallelConvergenceCompilers` rejoins this same-stream scalar certificate
+with the representative transfer lift and finite all-vector graph
+approximation.  The raw observable capstone exposes the convergence-form join
+as well.  Shared dependent indices keep one cutoff family, scheduled-rate
+limit, Wilson separator, and transfer throughout.
+
+This identifies the exact analytic scalar frontier.  What remains is not an
+arbitrary completed-real equation, but the finite-to-Wilson convergence
+theorem
+`scheduledRate(scale, physicalTime=1) -> separator^2`.  Its expected proof
+must connect the already-compiled physical exponential of the dynamic rate
+to the selected reconstruction separator; that logarithm/exponential inverse
+step is not yet in the repository and is not claimed here.
+
+The focused guarded checks pass.  The exact one-worker graph-norm target
+passes 1660 jobs, with the changed module taking about 1.1 seconds; the
+connected capstone passes 5106 jobs, taking about 2.1 seconds.  All four new
+audited exports use only `[propext, Quot.sound]`.
+
+The scheduled-rate convergence, transfer lift, finite graph approximation,
+and all other semantic/continuum/QFT residuals remain uninhabited.

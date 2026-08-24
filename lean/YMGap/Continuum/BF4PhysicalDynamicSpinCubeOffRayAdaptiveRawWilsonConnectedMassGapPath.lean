@@ -186,6 +186,39 @@ def ofUniformNormFloorAndParallelGraphNormCompilers
       rateLimit transfer finite)
     vacuumPin
 
+/-- The parallel graph-norm constructor with its scalar branch stated as
+convergence of the actual scheduled finite rate stream to the selected Wilson
+separator square. -/
+def ofUniformNormFloorAndParallelGraphNormConvergenceCompilers
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation W)
+    (rate : DynamicVacuumSectorWilsonPhysicalTimeRateConvergence
+      family ratePower W)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W :=
+  ofUniformNormFloor uniform projectiveOS matrixCoefficient exactRate
+    (DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelConvergenceCompilers
+      rate transfer finite)
+    vacuumPin
+
 /-- Reuse an existing rational projective OS handoff on the raw connected
 path.  The only additional semantic input is the exact identification of the
 literal completed raw representative with that handoff's fixed sampled gap
@@ -527,6 +560,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormCompilers
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormConvergenceCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveOSCorrelationHandoff
 #print axioms

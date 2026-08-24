@@ -64,6 +64,45 @@ structure DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
     (CReal.ofQ'
       (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
 
+/-- Cutoff-stream formulation of the scalar branch.  The actual scheduled
+finite one-unit rate factors converge to the square of the selected Wilson
+separator.  This retains the generating stream instead of postulating a free
+equality between two completed values. -/
+structure DynamicVacuumSectorWilsonPhysicalTimeRateConvergence
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (ratePower : NormalizedMovingCubeSampledRatePowerLimit family)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 2 where
+  scheduledRateConverges : CReal.ConvergesTo
+    (fun scale => CReal.ofQ'
+      (normalizedMovingCubeSampledRatePower family scale 1))
+    (CReal.ofQ'
+      (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
+
+namespace DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+
+/-- Constructive uniqueness of limits compiles convergence of the literal
+scheduled finite stream into the scalar rate-limit pin. -/
+def ofScheduledRateConvergence
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : DynamicVacuumSectorWilsonPhysicalTimeRateConvergence
+      family ratePower D) :
+    DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+      family ratePower D where
+  rateLimitPinned :=
+    CReal.Equiv_of_limit_of_equal
+      (fun scale => CReal.Equiv.refl
+        (CReal.ofQ'
+          (normalizedMovingCubeSampledRatePower family scale 1)))
+      (ratePower.converges 1) data.scheduledRateConverges
+
+end DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin
+
 /-- Semantic branch: a representative-level lift of the already-selected
 quotient transfer.  It depends on the Wilson datum but not on the dynamic
 cutoff family or its rate estimates. -/
@@ -263,6 +302,26 @@ def ofParallelCompilers
   norm_converges := finite.norm_converges
   transferredNorm_converges := finite.transferredNorm_converges
 
+/-- Variant of the three-way join whose scalar input is stated as convergence
+of the literal scheduled finite stream. -/
+def ofParallelConvergenceCompilers
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (rate : DynamicVacuumSectorWilsonPhysicalTimeRateConvergence
+      family ratePower D)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift D)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family D transfer) :
+    DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family ratePower D :=
+  ofParallelCompilers
+    (DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin.ofScheduledRateConvergence
+      rate)
+    transfer finite
+
 /-! ## 3. Finite and limiting all-vector inequalities -/
 
 /-- The dynamic family's finite all-vector contraction, specialized to the
@@ -405,7 +464,11 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.WilsonPhysicalTimeRepresentativeTransferLift.ofLinear
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeRateLimitPin.ofScheduledRateConvergence
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelCompilers
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelConvergenceCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler.DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.finitePhysicalTimeRepresentative_norm_gap
 #print axioms
