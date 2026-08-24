@@ -11556,3 +11556,36 @@ simple-floor comparison, and choose an explicit cutoff large enough to
 contradict the positive rational fixed floor.  That will rule out this crude
 simple-path coercivity mechanism, not a uniform spectral gap by sharper
 means.  No continuum QFT or Clay theorem is claimed.
+
+## Linear carrier growth makes the cofinal simple-floor certificate impossible (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSimpleCoercivityGrowthNoGo` closes the arithmetic
+frontier left by the rooted-sector growth theorem.  For every positive
+constructive rational `value`, its own denominator supplies the explicit
+escape scale
+
+`1 < value * ((value.den + 1) * (value.den + 1))`.
+
+At cutoff `later`, the all-spin cube family gives at least `later + 1`
+distinct rooted states.  Therefore, once the denominator of the fixed
+cutoff-two simple floor is at most `later`, that floor cannot lie below the
+later simple coercivity floor: the existing state-count-square budget would
+force the displayed quantity to be at most one.  Applying this at the
+cofinal family's own requested anchor proves
+
+`Not (Nonempty CutoffTwoCofinalSimpleCoercivityFloorComparison)`.
+
+Two failed focused elaboration attempts exposed a namespace collision with
+Boolean `not`, missing namespace openings, and one denominator-cast
+simplification; none is a pass.  After correction, the focused guarded check
+passes in about 1.1 seconds.  The exact one-worker, dependency-complete target
+passes 5,028 jobs, with the new module taking about 1.1 seconds.  All five
+audited exports use exactly `[propext, Quot.sound]`.
+
+This is a no-go result for one proof mechanism only: the crude simple-path
+floor divides a finite edge minimum by `1 + N^2`, and the genuine carrier
+growth makes that estimate non-uniform.  It does not rule out a uniform
+spectral gap.  The next frontier is to return to the sharper weighted-flow
+capacity formulas, retain stationary-mass cancellation and local edge loads,
+and seek a cofinal estimate without the global carrier-count-square penalty.
+No continuum QFT or Clay theorem is claimed.

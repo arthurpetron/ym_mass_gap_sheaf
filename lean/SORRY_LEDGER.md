@@ -9877,3 +9877,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 1,094 jobs with the new module taking about 0.6 seconds.  Failure of
   the cofinal simple floor, a uniform gap, continuum QFT, and the Clay theorem
   are not yet claimed.
+
+### [BF4-simple-floor-growth-no-go] Cofinal simple-floor comparison — **IMPOSSIBLE 2026-08-23**
+
+- **milestone**: turn linear rooted-sector growth into an explicit rational
+  denominator escape and prove that no cofinal family can compare the fixed
+  cutoff-two floor with every later simple coercivity floor.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleCoercivityGrowthNoGo.lean`.
+- **decl**: `one_lt_mul_den_succ_square`,
+  `cutoffTwoMovingBaseStateCount_ge_cutoff_succ`,
+  `cutoffTwoFixedFloor_not_le_simpleFloor_of_den_le`,
+  `cutoffTwoCofinalSimpleCoercivityFloorComparison_impossible`, and
+  `no_cutoffTwoCofinalSimpleCoercivityFloorComparison`.
+- **obligation**: abandon the global `1 + N^2` simple-path loss and establish
+  a sharper cofinal weighted-flow, multiscale, or direct operator estimate
+  whose coercivity does not decay merely because the physical carrier grows.
+- **constructive?**: yes — the positive rational denominator is an explicit
+  escape witness, while the spin-cube code injection supplies the finite-list
+  cardinality lower bound.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two failed focused attempts are not passes.  The corrected
+  focused check passes in about 1.1 seconds; the exact one-worker target
+  passes 5,028 jobs with the new module taking about 1.1 seconds.  This rules
+  out only the crude global-state-count simple floor, not sharper capacity
+  estimates, a uniform spectral gap, continuum QFT, or the Clay theorem.
