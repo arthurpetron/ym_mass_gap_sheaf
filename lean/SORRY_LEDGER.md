@@ -10275,3 +10275,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 514 jobs with the new module taking about 0.35 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-central-spin-cube-residual-link] Remove source spin from the complete fusion product — **CLOSED 2026-08-23**
+
+- **milestone**: recode every actual arbitrary-spin cube-source incident list
+  as its selected source labels plus a vacuum-source residual list; split the
+  checked zero-or-two incidence cases; and bound both every local link factor
+  and the complete link product by source-spin-free residual quantities.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeResidualLinkBound.lean`.
+- **decl**:
+  `spinSource_incident_spins_perm_selected_residual`,
+  `centralSpinCube_linkMultiplicity_le_residual`, and
+  `centralSpinCube_linkProduct_le_residual`.
+- **obligation**: allocate the residual link-product factors to non-source
+  physical faces, combine them with the remaining heat coefficients, and sum
+  the finite boundary/target carrier with a cutoff-uniform constant.
+- **constructive?**: yes — explicit source labellings, finite list filters and
+  permutations, the checked zero-or-two cube incidence, bounded assembly, the
+  generic/equal-pair residual estimates, and natural product monotonicity
+  suffice.  All three audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 3.8 seconds; the exact one-worker
+  target passes 986 jobs with the new module taking about 3.6 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.

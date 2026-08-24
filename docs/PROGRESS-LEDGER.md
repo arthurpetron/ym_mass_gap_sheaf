@@ -12026,3 +12026,37 @@ No raw-row ceiling is claimed.  The next frontier remains the actual
 central-cube linkwise theorem and subsequent non-source-face allocation and
 heat summation.  Full-sector routing, completion, thermodynamic and continuum
 limits, continuum QFT, and the Clay theorem remain open.
+
+## The complete cube-source fusion product is source-spin free (2026-08-23)
+
+`BF4CentralSpinCubeResidualLinkBound` applies the residual multiplicity
+machinery to the actual corrected-slab geometry.  For arbitrary boundary and
+target labels it defines the spin-cube source physical labelling and proves
+that its incident spin list is a permutation of the selected source labels
+followed by the vacuum-source residual list.
+
+The checked cube incidence is exactly zero or two at every boundary-complete
+slab link.  Zero incidence invokes the generic permuted residual-list bound;
+two incidence invokes the equal-pair residual bound.  Both branches produce
+the same result:
+
+`slab link multiplicity(spin source) <= spinSumCube(sum residual labels)`.
+
+A finite natural-product monotonicity argument then bounds the complete
+production link product by `centralSpinCubeResidualMultiplicityProduct`, a
+quantity depending on the boundary and target but not on the admitted source
+spin.
+
+One failed focused elaboration attempt exposed only missing geometry and
+physical-state namespace openings; it is not a pass.  The corrected focused
+guarded check passes in about 3.8 seconds.  The exact one-worker,
+dependency-complete target passes 986 jobs, with the new module taking about
+3.6 seconds.  All three audited exports use exactly
+`[propext, Quot.sound]`.
+
+This removes the source-spin polynomial loss from the entire fusion product,
+but it is not yet the raw-row ceiling.  The remaining finite task is to
+allocate the residual product to non-source faces, combine it with their heat
+coefficients, and sum over boundary and target labellings uniformly in the
+cutoff.  Full-sector routing, completion, thermodynamic and continuum limits,
+continuum QFT, and the Clay theorem remain open.
