@@ -12519,3 +12519,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 0.85 seconds.  No analytic variation or positivity input, continuum
   measure, OS reconstruction, all-vector completed gap, continuum Yang--Mills
   theory, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-raw-exponential-path] Specialize the normalization-free path to one adaptive producer — **CLOSED 2026-08-24**
+
+- **milestone**: specialize the raw moving-cube continuum limit and its
+  zero-time nontriviality certificate to the off-ray adaptive
+  transition-product family; reuse the exact physical exponential already
+  selected by that producer's scheduled powers; and return positivity, raw
+  same-observable squared decay, and both Euler endpoint identifications in
+  one theorem without a normalization-debt input.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath.lean`.
+- **decl**:
+  adaptive `rawMovingCubeContinuumLimit`,
+  `RawMovingCubeContinuumNontriviality`,
+  `rawMovingCubeContinuumConnectedAutocorrelation`, and
+  `rawMovingCubePhysicalExponentialPath`.
+- **obligation**: inhabit the raw representative variation, its exact
+  zero-time continuum nontriviality, the physical-gap variation, and the
+  positive-time scheduled-power variation for one adaptive producer.  Then
+  identify this same correlation in the projective/OS continuum theory and
+  promote one-observable decay to a uniform completed vacuum-complement gap.
+- **constructive?**: yes — the theorem preserves producer, observable,
+  centering, sampling, rate, amplitude, and limit lineage, and removes the
+  reciprocal normalization branch entirely.  All three audited exports use
+  only `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first two guarded checks exposed namespace-resolution
+  mistakes in extension field notation and then one omitted base-field
+  projection.  Neither is a pass; their `sorryAx` output is failed-elaboration
+  contamination.  The corrected focused check passes.  The exact one-worker
+  dependency-complete target passes 5094 jobs, with the new module taking
+  about 1.1 seconds.  No analytic input, continuum measure, OS reconstruction,
+  all-vector gap, continuum Yang--Mills theory, or Clay theorem is claimed.

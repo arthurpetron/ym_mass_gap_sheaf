@@ -14258,3 +14258,33 @@ Yang--Mills theory, or Clay theorem is proved.  The normalization route remains
 available if a uniform norm floor makes its debt cheap; absent such an
 estimate, the raw route is now the strictly smaller observable-connected
 frontier.
+
+## The adaptive producer now has a normalization-free physical path (2026-08-24)
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath`
+specializes the raw continuum compiler to the exact off-ray adaptive
+transition-product producer and rejoins it with the previously verified
+physical-exponential limit.  The final theorem returns positivity of the raw
+zero-time limit, decay of the same raw correlation with that value as its
+amplitude, and convergence of both Euler exponential endpoints to the exact
+rate factor in the inequality.
+
+The theorem has no normalization-debt, reciprocal-scale variation, or uniform
+reciprocal-ceiling argument.  Its remaining analytic inputs are the raw moment
+variation, one scalar zero-time nontriviality certificate, the physical-gap
+variation, and the scheduled-rate-power variation, all indexed by one adaptive
+producer.  This makes the raw and normalized proof routes directly comparable
+at their actual join point.
+
+Two early guarded checks are not passes: extension-namespace field notation
+was resolved against the base producer namespace, and the subsequent explicit
+form omitted the one base `StrengthBand` field projection.  Their `sorryAx`
+output is failed-elaboration contamination.  After explicit extension names
+and the valid band projection were used, the focused check passes.  The exact
+one-worker dependency-complete target passes 5094 jobs, with the new module
+taking about 1.1 seconds.  All three audited exports use only
+`[propext, Quot.sound]`.
+
+No analytic input is inhabited.  Projective/OS identification, uniform
+extension to the completed vacuum complement, continuum Yang--Mills
+construction, and the Clay theorem remain open.
