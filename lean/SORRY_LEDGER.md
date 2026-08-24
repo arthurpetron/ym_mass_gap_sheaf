@@ -11908,3 +11908,51 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 1.3 seconds.  No producer inhabitant, strength-band inhabitant,
   cutoff-limit channel, uniform norm floor, projective/OS identification,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-normalized-moving-cube-channel] Normalize the exact sampled observable while exposing the cutoff debt — **CLOSED 2026-08-24**
+
+- **milestone**: prove the concrete cube-coordinate floor is at most one;
+  rescale the actual global completed vacuum-complement vector by its positive
+  reciprocal; name the reciprocal-square norm debt and reciprocal-fourth-
+  power squared-correlation debt; prove exact norm and matrix-coefficient
+  scaling; retain the same completed-rate decay; prove a scale-uniform norm
+  floor one; sample at canonical physical time; and show that any explicit
+  cutoff limit of this same normalized channel is nonzero at time zero.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCoordinateFloor_le_one`,
+  `movingCubeNormalizationScale`,
+  `movingCubeNormalizationNormDebt`,
+  `movingCubeNormalizationCorrelationSqDebt`,
+  `normalizedMovingCubeGlobalVectorAt`,
+  `normalizedMovingCubeNormSq`,
+  `normalizedMovingCubeConnectedAutocorrelation`,
+  `normalizedMovingCubeNormSq_eq_scaled`,
+  `normalizedMovingCubeConnectedAutocorrelation_eq_scaled`,
+  `normalizedMovingCubeConnectedAutocorrelationSq_decay`,
+  `one_le_normalizedMovingCubeNormSq`,
+  `normalizedMovingCubeSampledConnectedAutocorrelation`,
+  `normalizedMovingCubeSampledConnectedAutocorrelationSq_decay`,
+  `one_le_normalizedMovingCubeSampledConnectedAutocorrelation_zero`,
+  `NormalizedMovingCubeScheduledRCContinuumLimit`, and
+  `NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation_zero_isPositive`.
+- **obligation**: construct representative-level cutoff convergence for the
+  reciprocal-normalized same-observable channel.  That proof must control the
+  explicit norm and squared-correlation debts rather than silently replacing
+  the observable.  Specialize the compiler to the adaptive producer and its
+  physical strength band, then identify the exact limiting correlation with
+  the selected projective/OS observable and reconstructed generator.
+- **constructive?**: yes — reciprocal scaling uses the already supplied
+  positive rational floor; the actual completed vector is scaled through the
+  proved rational module operation; every moment identity remains in `RC`;
+  representative convergence is explicit Type-level data.  The fourteen
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: early guarded checks with missing carrier/completion
+  namespace openings and wrapper-unfolding mismatches emitted downstream
+  failed-elaboration `sorryAx`; none are passes.  The corrected focused check
+  passes.  The exact one-worker dependency-complete target passes 1657 jobs,
+  with the new module taking about 1.7 seconds.  No normalized cutoff-limit
+  inhabitant, producer inhabitant, strength band, projective/OS
+  identification, continuum Yang--Mills theory, or Clay theorem is claimed.

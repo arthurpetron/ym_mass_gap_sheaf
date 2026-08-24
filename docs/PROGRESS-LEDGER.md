@@ -13741,3 +13741,39 @@ correlation, and a nondegenerate uniform normalization (or an explicitly
 controlled renormalization).  Projective measure/OS identification,
 reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
 open.
+
+## Reciprocal normalization gives a uniform floor with explicit debt (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel` resolves the
+finite-scale nondegeneracy fork without pretending that the raw moving-cube
+floor is uniform.  The raw coordinate floor is proved at most one.  Its
+positive reciprocal therefore defines an actual rational rescaling of the
+same completed moving-cube vector in the global vacuum complement.  Norm
+scaling carries the reciprocal square, while squared-correlation scaling
+carries the reciprocal fourth power; both debts are named positive rational
+quantities and remain visible to later cutoff estimates.
+
+The module identifies the normalized vector's literal completed norm and
+global adaptive-transfer matrix coefficient with those rescaled raw
+quantities.  It transports the same completed-rate decay theorem to that
+actual normalized correlation and proves a scale-independent rational norm
+floor of one.  Canonical physical-time floor sampling preserves the estimate,
+and the sampled zero-time correlation is exactly the normalized norm.  An
+explicit representative-level `NormalizedMovingCubeScheduledRCContinuumLimit`
+then proves conditional strict positivity of the continuum zero-time value
+without a separate uniform-floor input.
+
+Several early guarded checks are not passes: missing carrier/completion
+namespace openings and wrapper-unfolding mismatches caused downstream
+failed-elaboration `sorryAx` contamination.  After resolving those exact
+definitions, the completed focused check passes.  The exact one-worker
+dependency-complete target passes 1657 jobs, with the new module taking about
+1.7 seconds after dependency replay.  All fourteen audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This changes, but does not discharge, the continuum obligation.  The separate
+raw uniform-floor hypothesis is replaced by convergence of the explicitly
+rescaled same-observable channel, which must control the reciprocal-square and
+reciprocal-fourth-power debts.  No such cutoff-limit inhabitant, adaptive
+producer, strength band, projective/OS identification, reconstructed
+generator, continuum Yang--Mills theory, or Clay theorem is proved here.
