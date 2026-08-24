@@ -14456,3 +14456,33 @@ builds 5103 jobs, with the refined module taking about 1.7 seconds.  All nine
 audited exports use only `[propext, Quot.sound]`.  The dense-unit vacuum pin
 itself, along with the other semantic and continuum residuals, remains an
 honest uninhabited input.
+
+## A uniform raw norm floor now compiles to continuum nontriviality (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler` isolates
+the extra scalar obligation carried by the raw-observable proof path.  One
+positive rational lower bound on the norm of the exact moving-cube vector at
+every cutoff passes through the already-constructed scheduled representative
+limit and proves strict positivity of the raw zero-time continuum
+correlation.  The connected Wilson path now has a constructor that consumes
+this finite uniform floor and derives its nontriviality field while leaving
+the projective OS, matrix-coefficient, exact-rate, graph-norm, and dense-unit
+vacuum inputs explicit.
+
+This sharpens the comparison of the two observable routes.  The raw route
+does not need a normalization-debt convergence compiler, but it must prove
+one cutoff-independent norm floor.  The normalized route makes zero-time
+nontriviality automatic, but must control the reciprocal normalization debt.
+The existing coordinate floors are positive separately at each scale and do
+not inhabit the uniform raw floor; no limiting nontriviality is inferred from
+them.
+
+The focused guarded checks pass.  The exact one-worker nontriviality target
+passes 5095 jobs, with the new module taking about 0.9 seconds; the connected
+capstone then passes 5104 jobs, taking about 1.8 seconds.  Every newly audited
+export uses only `[propext, Quot.sound]`.
+
+The uniform raw floor remains uninhabited.  So do the projective continuum
+measure and OS/Wilson identifications, exact-rate reconstruction convergence,
+all-vector graph-norm convergence, dense-unit vacuum pin, continuum
+Yang--Mills existence and QFT axioms, and the Clay theorem.

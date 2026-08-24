@@ -31,6 +31,7 @@ noncomputable declaration is used.
 
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 
@@ -53,8 +54,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
@@ -110,7 +114,41 @@ structure RawWilsonConnectedMassGapPath
 
 namespace RawWilsonConnectedMassGapPath
 
-/-! ## 2. Contract the all-vector branch -/
+/-! ## 2. Compile the finite nontriviality source -/
+
+/-- Constructor for the connected path in which raw continuum nontriviality is
+derived from one cutoff-independent lower norm floor on the exact finite
+moving-cube channel.  Every other semantic field remains explicit. -/
+def ofUniformNormFloor
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family ratePower W)
+    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W where
+  nontrivial := MovingCubeRawContinuumNontriviality.ofUniformNormFloor uniform
+  projectiveOS := projectiveOS
+  matrixCoefficient := matrixCoefficient
+  exactRate := exactRate
+  graphNorm := graphNorm
+  vacuumPin := vacuumPin
+
+/-! ## 3. Contract the all-vector branch -/
 
 /-- The exact-rate and graph-norm branches compile to the minimal bounded
 Wilson endpoint on the same selected datum. -/
@@ -194,7 +232,7 @@ theorem physicalRate_equiv_selectedSeparatorExactLog
       (exactLogGap W.reconstruction path.exactRate.positiveGapBound) :=
   path.exactRate.physicalGapLimit_equiv_exactLog
 
-/-! ## 3. Contract the observable branch onto that endpoint -/
+/-! ## 4. Contract the observable branch onto that endpoint -/
 
 /-- The literal raw cutoff limit is the autocorrelation of its exact embedded
 state under the same selected Wilson transfer carrying the all-vector gap. -/
@@ -316,7 +354,7 @@ theorem rawContinuumConnectedAutocorrelationSqDecay
 
 end RawWilsonConnectedMassGapPath
 
-/-! ## 4. Off-ray adaptive specialization -/
+/-! ## 5. Off-ray adaptive specialization -/
 
 namespace DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 
@@ -374,6 +412,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.minimalBoundedMassGap
 #print axioms
