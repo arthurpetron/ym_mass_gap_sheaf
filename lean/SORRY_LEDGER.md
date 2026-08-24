@@ -10859,3 +10859,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5025 jobs, with the new module taking about
   1.3 seconds.  No cofinal capacity inhabitant, physical-scale uniform gap,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-physical-vacuum-root-traffic-linear-moment] Bound local load by the first weighted path-length moment — **CLOSED 2026-08-24**
+
+- **milestone**: prove that every canonical loop-erased vacuum-root path has
+  no duplicate directed edge, bound the contribution of one state to any
+  fixed edge by its doubled weight times one path-length factor, sum that
+  pointwise estimate into a first-moment local-load ceiling, construct an
+  unconditional positive capacity ratio at each finite cutoff, and compile
+  the corresponding cofinal scalar-ratio interface through local capacity to
+  the completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootTrafficLinearMoment.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorRootSimplePath_directedEdges_nodup`,
+  `centralPhysicalFiniteVacuumSectorRootWeightedPathLoad_le_stateLinearLoad`,
+  `centralPhysicalFiniteVacuumSectorRootFlowLoad_le_linearMoment`,
+  `CentralPhysicalFiniteVacuumSectorRootLinearRatioAt.toRootTrafficCapacityAt`,
+  `centralPhysicalFiniteVacuumSectorRootFiniteLinearRatioAt`,
+  `FixedNomeCofinalVacuumRootLinearRatio.toRootTrafficCapacity`, and
+  `FixedNomeCofinalVacuumRootLinearRatio.toCompletedStrictContractionData`.
+- **obligation**: inhabit `FixedNomeCofinalVacuumRootLinearRatio` by proving
+  that one positive scalar times the explicit first weighted length cost is
+  bounded by the minimum used physical edge at every later cutoff, or replace
+  the generic component paths by geometric paths for which such a comparison
+  is provable.  Thermodynamic/continuum and weak-to-strong physical-scale
+  survival remain separate obligations.
+- **constructive?**: yes — constructive walk recursion, loop-erased vertex
+  simplicity, duplicate-free directed-edge occurrence, rational load
+  nonnegativity, exact flat-map regrouping, finite-list sum monotonicity, the
+  finite positive-edge floor, and constructive positive division suffice.
+  All seven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check failed on an unavailable list-sum
+  lemma name and an implicit dependent positivity argument and is not a pass.
+  The corrected complete focused guarded check passes in about 1.3 seconds.
+  The exact one-worker dependency-complete target passes 5026 jobs, with the
+  new module taking about 1.3 seconds.  The finite ratio is unconditional but
+  cutoff-dependent; no cofinal ratio, continuum QFT, or Clay theorem is
+  claimed.

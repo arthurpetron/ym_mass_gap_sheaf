@@ -12692,3 +12692,43 @@ that one local, observable-independent inequality is now the sole immediate
 analytic frontier; no additional finite-to-completed compiler is missing.
 The separate thermodynamic/continuum and weak-to-strong physical-scale bridges,
 continuum QFT, and the Clay theorem remain open.
+
+## Simple root paths reduce local traffic to a first length moment (2026-08-24)
+
+`BF4PhysicalFiniteVacuumSectorRootTrafficLinearMoment` sharpens the scalar
+ceiling on the existing literal vacuum-root flow.  The loop-erased path of
+each state is proved to have no duplicate directed edges.  Thus any fixed
+directed edge receives from that state at most
+
+`2 * stateWeight * rootPathLength`,
+
+and exact duplicate-preserving regrouping gives
+
+`rootFlowLoad_K(edge)
+  <= sum_state 2 * stateWeight * rootPathLength`.
+
+The previous total-traffic ceiling paid an additional path-length factor after
+summing all occurrences.  The new ceiling is the exact doubled first weighted
+length moment, not that implicit second moment.  Adding one makes a positive
+linear cost.  At every finite cutoff, the minimum positive physical edge
+divided by this cost constructs an unconditional positive root-capacity ratio.
+
+A separate cofinal structure now isolates the sharper scalar analytic claim:
+one positive `delta` must compare this first-moment cost with the minimum used
+physical edge at every later cutoff.  An inhabitant compiles to the existing
+cofinal local root capacity and hence directly to the completed physical
+vacuum-sector strict contraction.
+
+The first focused check failed on an unavailable list-sum lemma name and an
+implicit dependent positivity argument and is not a pass.  After supplying a
+local constructive list-sum proof and the positivity witness explicitly, the
+complete focused guarded check passes in about 1.3 seconds.  The exact
+one-worker dependency-complete target passes 5026 jobs, with the new module
+taking about 1.3 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+No cofinal linear-ratio inhabitant is claimed.  The generic connected-component
+paths are simple but not yet representation-monotone, so a cutoff-uniform
+ratio still requires new BF4 geometry or a multiscale comparison.  The
+thermodynamic/continuum and weak-to-strong physical-scale bridges, continuum
+QFT, and the Clay theorem remain open.
