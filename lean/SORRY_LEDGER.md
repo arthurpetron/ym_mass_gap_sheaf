@@ -12034,3 +12034,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 0.76 seconds.  No raw limit, debt limit, adaptive producer, strength
   band, projective/OS identification, continuum Yang--Mills theory, or Clay
   theorem is claimed.
+
+### [BF4-physical-normalized-moving-cube-continuum-decay] Pass exact finite decay through the same-channel cutoff limit — **CLOSED 2026-08-24**
+
+- **milestone**: name the exact scheduled squared-rate factor; state its
+  representative-level constructive convergence interface; rewrite the
+  finite normalized `RC` decay theorem on the exact representatives selected
+  by the same normalized cutoff-limit record; prove convergence of both sides
+  by constructive product continuity; pass the inequality to the limits; and
+  descend the resulting continuum squared-decay theorem to `RC`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler.lean`.
+- **decl**:
+  `normalizedMovingCubeSampledRatePower`,
+  `NormalizedMovingCubeSampledRatePowerLimit`,
+  `normalizedMovingCubeLimitRepresentativeSq_decay`,
+  `normalizedMovingCubeContinuumRepresentativeSq_decay`, and
+  `normalizedMovingCubeContinuumConnectedAutocorrelationSq_decay`.
+- **obligation**: inhabit the exact scheduled-rate-power limit and identify
+  its values with a physical exponential governed by the same completed rate
+  and a uniform positive physical gap.  Independently inhabit the raw
+  same-observable correlation limit and reciprocal-square debt limit that
+  construct the normalized correlation limit.  Then preserve this exact
+  continuum correlation through projective/OS reconstruction.
+- **constructive?**: yes — no new representative is selected; the existing
+  `represents` fields rewrite both sides of the finite inequality, and all
+  limit products carry explicit constructive convergence data.  The three
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first guarded check used a locally aliased polymorphic
+  product-convergence theorem whose implicit terms could not be inferred; its
+  downstream `sorryAx` is failed elaboration and not a pass.  Fully qualified
+  applications fixed the boundary.  The corrected focused check passes.  The
+  exact one-worker dependency-complete target passes 1659 jobs, with the new
+  module taking about 0.69 seconds.  No scheduled rate-power limit, normalized
+  correlation limit, physical exponential identification, projective/OS
+  identification, continuum Yang--Mills theory, or Clay theorem is claimed.

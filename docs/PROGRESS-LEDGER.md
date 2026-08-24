@@ -13845,3 +13845,36 @@ the reciprocal-fourth-power debt and sampled rate envelope, after which the
 same limiting correlation must still be identified through projective/OS
 reconstruction.  Continuum Yang--Mills theory and the Clay theorem remain
 open.
+
+## Finite normalized decay now passes through any exact scheduled-rate limit (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler`
+isolates the one remaining scalar input needed to pass the already-proved
+normalized decay estimate through cutoff removal: constructive convergence of
+the exact scheduled factors
+`((q_j * q_j) ^ floor(t / a_j))` at every integer physical time.
+
+The module first rewrites the finite `RC` decay theorem as an eventual-order
+inequality on the exact representatives selected by the normalized same-
+observable cutoff-limit record.  General multiplication continuity gives
+convergence of the squared correlation representatives and of the twice-
+multiplied rate/norm representatives.  The constructive limit-order theorem
+then yields the continuum squared-decay inequality, both on representatives
+and after descent to `RC`.
+
+The first guarded check is not a pass: a locally aliased polymorphic product-
+convergence theorem left its implicit sequences and limits unsolved, causing
+downstream failed-elaboration `sorryAx`.  Direct fully qualified applications
+resolved the inference boundary.  The corrected focused check passes.  The
+exact one-worker dependency-complete target passes 1659 jobs, with the new
+module taking about 0.69 seconds after dependency replay.  All three audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This result corrects the previous frontier description: no independent
+reciprocal-fourth-power debt limit is needed once the actual normalized
+correlation limit is constructed, because that finite debt is already
+absorbed in the same representatives.  Still open are the raw correlation
+limit, reciprocal-square debt limit, and the scheduled rate-power limit—most
+importantly its identification with a uniformly positive physical
+exponential.  Projective/OS identification, reconstruction, continuum Yang--
+Mills theory, and the Clay theorem remain open.
