@@ -14553,3 +14553,35 @@ use only `[propext, Quot.sound]`.
 The same-object adapter, the older projective OS handoff itself, the Wilson
 matrix-coefficient pin, and all later graph-norm, exact-rate, continuum, QFT,
 and Clay obligations remain uninhabited.
+
+## The dynamic raw channel now reuses the existing projective Wilson state (2026-08-24)
+
+`RawMovingCubeWilsonMatrixCoefficientPin.ofProjectiveWilsonOSMatrixCoefficientPin`
+transports the older projective path's Wilson GNS semantics across the new
+literal-representative adapter.  The embedded gap state, its vacuum-
+orthogonality proof, the selected Wilson time translation, and the exact
+autocorrelation equality are reused without choosing or postulating a second
+state.
+
+The connected capstone now accepts the older
+`ProjectiveWilsonOSMatrixCoefficientPin` directly.  Together with the prior
+projective adapter, this means the dynamic raw route contributes only its
+finite/limit observable analysis and the equality identifying that observable
+with the established projective gap channel.  Projective measure semantics
+and Wilson GNS semantics remain one pre-existing branch.
+
+This further contracts the semantic frontier: the dynamic route no longer
+has separate projective and matrix-coefficient obligations once the legacy
+projective-Wilson path is supplied.  The remaining new semantic theorem on
+this observable leg is the literal same-object sampled-gap equality.  The
+all-vector graph-norm route remains logically separate and still flows toward
+the observable, never backwards from it.
+
+The focused guarded checks pass.  The exact one-worker Wilson adapter target
+passes 1668 jobs, with the changed module taking about 0.8 seconds; the
+connected capstone passes 5106 jobs, taking about 2.1 seconds.  Both new
+audited exports use only `[propext, Quot.sound]`.
+
+The legacy projective and Wilson pins, literal same-object equality, uniform
+raw norm floor, all-vector graph-norm branches, exact rate, vacuum pin,
+continuum theory, QFT axioms, and Clay theorem remain uninhabited.

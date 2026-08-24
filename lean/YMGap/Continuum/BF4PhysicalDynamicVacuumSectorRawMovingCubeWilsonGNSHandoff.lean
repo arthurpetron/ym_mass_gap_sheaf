@@ -20,6 +20,7 @@ all-vector operator gap is inhabited here.  No `Classical.*`, choice,
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
+import YMGap.Continuum.ProjectiveWilsonConnectedDecayHandoff
 import YMGap.Continuum.WilsonOSConnectedDecayHandoff
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
@@ -39,6 +40,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariation
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
+open YMGap.Continuum.ProjectiveWilsonConnectedDecayHandoff
 open YMGap.Continuum.WilsonIteratedNormDecayHandoff
 open YMGap.Continuum.WilsonMatrixCoefficientDecayHandoff
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
@@ -78,6 +84,31 @@ structure RawMovingCubeWilsonMatrixCoefficientPin
         (embedV W.wilson.toGNSData B.osConnected.gapInsertion)
 
 namespace RawMovingCubeWilsonMatrixCoefficientPin
+
+/-- Reuse the Wilson matrix-coefficient semantics already proved for an
+existing rational projective OS handoff after adapting that handoff to the
+literal dynamic raw representatives.  No second GNS state or transfer
+identity is requested. -/
+def ofProjectiveWilsonOSMatrixCoefficientPin
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    {projective : ProjectiveOSCorrelationHandoff
+      P H W.measureLinked sampling}
+    {sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      family raw projective}
+    (C : ProjectiveWilsonOSMatrixCoefficientPin projective W) :
+    RawMovingCubeWilsonMatrixCoefficientPin family raw H W
+      (RawMovingCubeProjectiveOSCorrelationHandoff.ofProjectiveOSCorrelationHandoff
+        projective sameObject) where
+  gapState_vacPerp := C.gapState_vacPerp
+  osConnectedCorr_eq :=
+    C.toWilsonOSConnectedMatrixCoefficientPin.osConnectedCorr_eq
 
 /-- The exact completed Wilson GNS state selected by the raw moving-cube
 observable through the projective/OS handoff. -/
@@ -170,6 +201,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff.RawMovingCubeWilsonMatrixCoefficientPin.ofProjectiveWilsonOSMatrixCoefficientPin
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff.RawMovingCubeWilsonMatrixCoefficientPin.toWilsonOSConnectedMatrixCoefficientPin
 #print axioms

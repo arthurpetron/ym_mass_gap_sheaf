@@ -12827,3 +12827,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 1663 jobs, taking about 0.9 seconds; the connected capstone
   passes 5105 jobs, taking about 1.9 seconds.  No adapter input or later
   semantic/continuum residual is claimed inhabited.
+
+### [BF4-physical-dynamic-raw-wilson-adapter] Reuse the projective Wilson matrix coefficient on the completed raw path — **CLOSED 2026-08-24**
+
+- **milestone**: transport the existing projective Wilson gap state,
+  vacuum-orthogonality proof, and transfer-autocorrelation equality across the
+  dynamic raw projective adapter; and expose a connected-path constructor
+  consuming the pre-existing projective Wilson pin directly.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `RawMovingCubeWilsonMatrixCoefficientPin.ofProjectiveWilsonOSMatrixCoefficientPin`
+  and
+  `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin`.
+- **obligation**: inhabit the older projective OS and projective Wilson pins
+  and prove the literal raw-to-sampled-gap equality.  Uniform raw
+  nontriviality, exact rate, graph-norm convergence, vacuum stationarity,
+  continuum existence, and QFT closure remain open.
+- **constructive?**: yes — the compiler reuses the existing embedded state and
+  its direct `WilsonOSConnectedMatrixCoefficientPin`; it performs no quotient
+  representative choice and introduces no new semantic equality.  Both new
+  audited exports use only `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  The exact one-worker Wilson
+  adapter target passes 1668 jobs, taking about 0.8 seconds; the connected
+  capstone passes 5106 jobs, taking about 2.1 seconds.  No adapter input or
+  later all-vector/continuum residual is claimed inhabited.
