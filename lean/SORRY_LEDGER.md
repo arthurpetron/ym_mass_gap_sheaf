@@ -10898,3 +10898,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 1.3 seconds.  The finite ratio is unconditional but
   cutoff-dependent; no cofinal ratio, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-dynamic-vacuum-root-physical-band] Keep the rooted completed gap on one observable-connected physical trajectory — **CLOSED 2026-08-24**
+
+- **milestone**: package a scale-indexed family of the actual fixed-half
+  completed vacuum-root transfers and their cofinal linear-ratio inputs,
+  retain the literal completed same-object autocorrelation decay at every
+  scale, impose a two-sided physical scaling band on the definitionally same
+  rate, prove a uniform finite positive physical-gap band, derive an effective
+  lattice-margin-zero modulus, and construct the canonical sharp continuum
+  floor interfaces.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumRootLinearPhysicalBand.lean`.
+- **decl**:
+  `FixedHalfDynamicVacuumRootLinearFamily.completedGapAt`,
+  `FixedHalfDynamicVacuumRootLinearFamily.completedAutocorrelation_sq_decay`,
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.floor_le_physicalGap`,
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.physicalGap_le_ceiling`,
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.latticeMargin_le_epsilon`,
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.one_sub_epsilon_le_rate`,
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.toContinuumGapTheorem`, and
+  `FixedHalfDynamicVacuumRootPhysicalRateBand.toUniformPhysicalGapFloor`.
+- **obligation**: inhabit the dynamic family with one cofinal root-linear ratio
+  at each physical scale and prove the genuine two-sided RG estimate
+  `c*a_j <= 1-q_j <= C*a_j` for the compiled rate of that same transfer.
+  Independently construct graph-norm/OS convergence for those same carriers
+  and transfers; no abstract floor may substitute for this object-level seam.
+- **constructive?**: yes — dependent scale-indexed completed-gap compilation,
+  the existing same-object autocorrelation theorem, positive rational
+  division, two-sided quotient comparison, explicit spacing-zero moduli, and
+  exact rational cancellation suffice.  All eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on a missing namespace
+  opening and missing local rational-equivalence notation and is not a pass.
+  The corrected complete focused guarded check passes in about 1.5 seconds.
+  The exact one-worker dependency-complete target passes 5028 jobs, with the
+  new module taking about 1.6 seconds.  Neither the dynamic ratio family nor
+  the physical-rate band is inhabited; no continuum QFT or Clay theorem is
+  claimed.

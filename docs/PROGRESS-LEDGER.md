@@ -12732,3 +12732,38 @@ paths are simple but not yet representation-monotone, so a cutoff-uniform
 ratio still requires new BF4 geometry or a multiscale comparison.  The
 thermodynamic/continuum and weak-to-strong physical-scale bridges, continuum
 QFT, and the Clay theorem remain open.
+
+## The rooted completed gap is now tied to an honest dynamic physical-rate band (2026-08-24)
+
+`BF4PhysicalDynamicVacuumRootLinearPhysicalBand` puts the preceding fixed-nome
+compiler on a scale-indexed family without changing its object.  At scale `j`,
+the nome, fixed-half completed vacuum-sector carrier, cofinal root-linear
+ratio, completed transfer, compiled rate `q_j`, and same-object completed
+autocorrelation remain definitionally connected.  The wrapper exposes the
+literal completed autocorrelation decay theorem at every scale.
+
+The new physical seam is deliberately two-sided.  It identifies
+`a_j` as the physical length assigned to that concrete completed transfer and
+requires finite positive constants `c,C` with
+
+`c * a_j <= 1 - q_j <= C * a_j`.
+
+The lower inequality proves `c <= (1-q_j)/a_j` and constructs the existing
+sharp `ContinuumGapTheorem` and canonical `QFloor` interfaces.  The upper
+inequality proves `(1-q_j)/a_j <= C`; combined with the explicit Type-level
+modulus `a_j -> 0`, it constructs a margin modulus and proves `q_j -> 1` in
+lattice units.  Thus a fixed strict lattice rate cannot be silently reused at
+vanishing spacing to manufacture an infinite physical mass.
+
+The first focused check failed on one missing namespace opening and one missing
+local notation declaration and is not a pass.  After those corrections, the
+complete focused guarded check passes in about 1.5 seconds.  The exact
+one-worker dependency-complete target passes 5028 jobs, with the new module
+taking about 1.6 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+No dynamic family or two-sided physical-rate band is inhabited.  The three
+analytic lanes can now be developed independently but must meet on this same
+object: a cofinal root-linear ratio at each scale, its RG/physical rate
+matching, and graph-norm/OS convergence of the corresponding carriers and
+transfers.  Continuum Yang--Mills existence and the Clay theorem remain open.
