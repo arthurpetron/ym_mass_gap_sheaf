@@ -10664,3 +10664,31 @@ The next frontier remains endpoint and route recoding over the exact
 accept/reject partition, followed by a shell-local size or capacity estimate.
 Cofinal contraction, thermodynamic/continuum theory, and the Clay theorem
 remain open.
+
+## Novel endpoint complexity is exactly shell-polynomial (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelEndpointClassifierRecoding` transports the
+old/new classifier partition through the ordered endpoint enumeration.  A
+novel pair is now characterized exactly as two indices in the later vacuum
+component for which at least one represented state is rejected by the
+cutoff-two 65-sector classifier.
+
+Writing `n` for the classifier-reject shell length, the module proves the exact
+endpoint count `n^2 + 130 n`: the reject--reject block contributes `n^2`, and
+the two ordered mixed blocks each contribute `65 n`.  Consequently the fixed
+65-state inherited sector has been removed from all variable endpoint
+combinatorics; every variable route demand begins in the genuinely new shell.
+
+The first focused proof attempt exposed deficiencies in a local Cartesian
+length induction and nonlinear arithmetic normalization; it is not a pass.
+After repairing those proof steps, the corrected focused check passes in about
+2.7 seconds.  The exact one-worker dependency-complete target passes 4,997
+jobs, with the new module taking about 2.5 seconds.  All five audited exports
+use exactly `[propext, Quot.sound]`.
+
+This is an exact finite combinatorial reduction, not a bound on `n`, route
+congestion, or capacity.  The next causal frontier is to bound the total routed
+edge-occurrence list in terms of `n` and the certified simple-path length,
+then convert that global route-cost bound into local weighted load/capacity
+control.  Cofinal contraction, thermodynamic/continuum theory, and the Clay
+theorem remain open.

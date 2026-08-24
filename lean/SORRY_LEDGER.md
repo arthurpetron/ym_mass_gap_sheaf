@@ -9021,3 +9021,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the expanded module taking about 2.9 seconds.  The equality
   isolates but does not bound the new shell, and proves no cofinal capacity,
   completed uniform contraction, continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-two-novel-endpoint-classifier-recoding] Exact shell-polynomial endpoint count — **CLOSED 2026-08-23**
+
+- **milestone**: recode the novel ordered endpoint list by the state-level
+  accept/reject classifier; prove its semantic membership iff; and prove its
+  exact length is `n^2 + 130 n`, where `n` is the genuinely new shell length.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelEndpointClassifierRecoding.lean`.
+- **decl**: `cutoffTwoEdgeLoadOldStates_eq_classifierAcceptedIndices`,
+  `cutoffTwoEdgeLoadNewStates_eq_classifierRejectedIndices`,
+  `mem_cutoffTwoEdgeLoadOldStates_iff_classifier_accept`,
+  `cutoffTwoNovelEndpointPairs_eq_classifierPairs`,
+  `mem_cutoffTwoNovelEndpointPairs_iff_classifier_reject`, and
+  `cutoffTwoNovelEndpointPairs_length`.
+- **obligation**: bound routed edge occurrences in terms of shell length and
+  simple-path length, convert the aggregate route cost into edge-local
+  weighted load/capacity control, and then obtain a genuinely cutoff-uniform
+  estimate before attempting completed or continuum limits.
+- **constructive?**: yes — the proof uses Boolean filtering, finite Cartesian
+  products, structural list induction, and constructive natural-number
+  arithmetic.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused proof attempt failed during repair of a
+  local Cartesian length lemma and nonlinear arithmetic normalization and is
+  not a pass.  The corrected focused check passes in about 2.7 seconds; the
+  exact one-worker target passes 4,997 jobs with the new module taking about
+  2.5 seconds.  The theorem neither bounds `n` nor proves route capacity,
+  completed uniform contraction, continuum QFT, or the Clay theorem.
