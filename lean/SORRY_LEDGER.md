@@ -13015,3 +13015,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the connected capstone (5108 jobs, changed module about 2.5 seconds).
   Neither atomic evaluator nor any later semantic/continuum residual is
   claimed inhabited.
+
+### [BF4-physical-wilson-dyadic-one-seed] Collapse all dyadic exponents to one evaluator — **CLOSED 2026-08-24**
+
+- **milestone**: prove exact successor recurrences for the dyadic logarithmic
+  exponent stream, its negative exponential, and its rational square target;
+  construct the zero evaluator; generate every exponent from one exponent-one
+  seed; and expose the reduced scalar interface on the connected capstone.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `dyadicLogSquareExponent_one_add_eqv_succ`,
+  `dyadicLogSquareExponential_one_mul_equiv_succ`,
+  `scaleQ_one_mul_scaleQ_eqv_succ`,
+  `scaleQ_square_one_mul_square_eqv_succ`,
+  `DyadicLogSquareEulerEvaluation.zero`,
+  `DyadicLogSquareEulerEvaluation.allOfOne`,
+  `WilsonCanonicalExactLogEulerEvaluation.ofDyadicOneAndMantissa`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfDyadicOneAndMantissaEvaluationCompilers`.
+- **obligation**: inhabit the single universal
+  `DyadicLogSquareEulerEvaluation 1` seed and the
+  reconstruction-specific mantissa evaluator.  The dyadic family itself is
+  no longer an infinite family of independent assumptions.  Exact-rate,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, vacuum stationarity, continuum existence, and QFT closure
+  remain separate open inputs.
+- **constructive?**: yes — induction uses explicit rational equivalences, the
+  negative-exponential addition law, constructive multiplication continuity,
+  and convergence-limit retargeting.  No evaluator is selected, and no
+  logarithm/exponential inverse is assumed.  Every newly audited export uses
+  only `[propext, Quot.sound]`.
+- **status note**: focused guarded checks and exact one-worker targets pass.
+  The exact-log compiler passes 5096 jobs with the changed target taking about
+  1.9 seconds; the connected capstone passes 5108 jobs with the changed target
+  taking about 2.7 seconds.  The exponent-one seed, mantissa evaluator, and all
+  later semantic/continuum residuals are not claimed inhabited.

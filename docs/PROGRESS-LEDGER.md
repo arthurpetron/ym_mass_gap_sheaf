@@ -14760,3 +14760,41 @@ still needs constructive rational-series proofs of the dyadic `log 2`
 evaluation and the reduced-mantissa `artanh` evaluation.  The exact-rate,
 transfer, finite-graph, raw semantic/nontriviality, vacuum, continuum, QFT,
 and Clay residuals also remain open.
+
+## One log-two seed generates every dyadic evaluator (2026-08-24)
+
+The apparently cutoff-indexed dyadic analytic frontier has been contracted to
+one universal seed.  Exact rational recurrences prove that the exponent at
+`k + 1` is the sum of the exponent-one stream and the exponent-`k` stream,
+that their negative exponentials multiply termwise, and that the target
+dyadic squares obey the same multiplication recurrence.  The base evaluator
+at `k = 0` is constructed directly.
+
+`DyadicLogSquareEulerEvaluation.allOfOne` therefore generates an evaluator at
+every natural exponent from a single
+`DyadicLogSquareEulerEvaluation 1`.  The new
+`WilsonCanonicalExactLogEulerEvaluation.ofDyadicOneAndMantissa` contracts that
+universal seed with the reconstruction-specific mantissa evaluator, and
+`adaptivePathOfDyadicOneAndMantissaEvaluationCompilers` carries precisely
+those reduced scalar inputs through the same observable-connected capstone.
+
+This sharpens the parallelism claim.  There may be unboundedly many dyadic
+instances, but their irreducible analytic width is one; together with the
+mantissa branch, the scalar frontier has width two.  Wider exact-rate,
+transfer/finite-graph, raw nontriviality, projective OS/GNS, and vacuum
+branches can be engineered concurrently only after fixing their shared
+dependent data.  Their conclusions remain logically connected by the typed
+joins; observable decay is downstream of the all-vector operator gap and is
+not used to infer it.
+
+Focused guarded checks and exact one-worker targets pass.  The exact-log
+compiler passes 5096 jobs with the changed target taking about 1.9 seconds;
+the connected capstone passes 5108 jobs with the changed target taking about
+2.7 seconds.  All newly audited exports use only `[propext, Quot.sound]`.
+
+The exponent-one dyadic evaluator and the reconstruction-specific mantissa
+evaluator remain uninhabited.  A promising next reduction is to derive the
+former from the direct-window evaluator at mantissa `1/2` using constructive
+oddness of the `artanh` partial sums.  No such oddness compiler is yet proved.
+The exact-rate, transfer, finite-graph, raw semantic/nontriviality, vacuum,
+continuum, QFT, and Clay residuals also remain open.

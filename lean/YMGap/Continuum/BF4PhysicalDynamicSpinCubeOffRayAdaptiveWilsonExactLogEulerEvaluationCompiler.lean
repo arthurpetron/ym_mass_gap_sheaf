@@ -253,6 +253,186 @@ structure MantissaLogSquareEulerEvaluation
       (mantissaLogSquareExponent_nonnegative m hm1 hlt hyb stage))
     (CReal.ofQ' (m * m))
 
+/-- The dyadic square exponent at `k+1` is the sum of the one-copy
+`log 2` square exponent and the exponent at `k`. -/
+theorem dyadicLogSquareExponent_one_add_eqv_succ (k stage : Nat) :
+    (dyadicLogSquareExponent 1 stage +
+      dyadicLogSquareExponent k stage).eqv
+    (dyadicLogSquareExponent (k + 1) stage) := by
+  let A : Q' := CRealLog.log2.approx stage
+  let B : Q' := (HamiltonianAllSep.kLog2 k).approx stage
+  let two : Q' := (1 : Q') + 1
+  change (((A + 0) * two) + (B * two)).eqv ((A + B) * two)
+  refine Q'.eqv_trans _ ((A * two) + (B * two)) _ ?_ ?_
+  · exact ExpNeg.add_eqv_congr2
+      (Q'.mul_eqv_congr_right (A + 0) A two
+        (QPoly.q_add_zero_eqv A))
+      (Q'.eqv_refl (B * two))
+  · refine Q'.eqv_trans _ ((two * A) + (two * B)) _ ?_ ?_
+    · exact ExpNeg.add_eqv_congr2
+        (Q'.mul_comm_eqv A two) (Q'.mul_comm_eqv B two)
+    · exact Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_add_eqv two A B))
+        (Q'.mul_comm_eqv two (A + B))
+
+/-- Termwise exponential multiplication for the dyadic successor step. -/
+theorem dyadicLogSquareExponential_one_mul_equiv_succ (k stage : Nat) :
+    CReal.Equiv
+      (CReal.mul
+        (ExpNeg.expNeg
+          (dyadicLogSquareExponent 1 stage)
+          (dyadicLogSquareExponent_nonnegative 1 stage))
+        (ExpNeg.expNeg
+          (dyadicLogSquareExponent k stage)
+          (dyadicLogSquareExponent_nonnegative k stage)))
+      (ExpNeg.expNeg
+        (dyadicLogSquareExponent (k + 1) stage)
+        (dyadicLogSquareExponent_nonnegative (k + 1) stage)) :=
+  CReal.Equiv.trans
+    (expNeg_add_equiv
+      (dyadicLogSquareExponent 1 stage)
+      (dyadicLogSquareExponent k stage)
+      (dyadicLogSquareExponent_nonnegative 1 stage)
+      (dyadicLogSquareExponent_nonnegative k stage))
+    (expNeg_eqv_congr
+      (Q'.zero_le_add _ _
+        (dyadicLogSquareExponent_nonnegative 1 stage)
+        (dyadicLogSquareExponent_nonnegative k stage))
+      (dyadicLogSquareExponent_nonnegative (k + 1) stage)
+      (dyadicLogSquareExponent_one_add_eqv_succ k stage))
+
+/-- The exact dyadic rational scale satisfies
+`scaleQ 1 * scaleQ k = scaleQ (k+1)`. -/
+theorem scaleQ_one_mul_scaleQ_eqv_succ (k : Nat) :
+    (HamiltonianAllSep.scaleQ 1 * HamiltonianAllSep.scaleQ k).eqv
+      (HamiltonianAllSep.scaleQ (k + 1)) := by
+  unfold HamiltonianAllSep.scaleQ
+  show
+    ((Q'.mkPos 1 (2 ^ 1) (Nat.two_pow_pos 1) *
+        Q'.mkPos 1 (2 ^ k) (Nat.two_pow_pos k)).num *
+      ((Q'.mkPos 1 (2 ^ (k + 1))
+        (Nat.two_pow_pos (k + 1))).den : Int)) =
+    ((Q'.mkPos 1 (2 ^ (k + 1))
+        (Nat.two_pow_pos (k + 1))).num *
+      ((Q'.mkPos 1 (2 ^ 1) (Nat.two_pow_pos 1) *
+        Q'.mkPos 1 (2 ^ k) (Nat.two_pow_pos k)).den : Int))
+  rw [Q'.mul_num_cast, Q'.mul_den_cast, Q'.mkPos_num, Q'.mkPos_den,
+    Q'.mkPos_num, Q'.mkPos_den, Q'.mkPos_num, Q'.mkPos_den]
+  simp only [Nat.pow_one, Int.one_mul]
+  rw [Nat.pow_succ, Int.natCast_mul]
+  exact Int.mul_comm _ _
+
+/-- Squaring the dyadic successor scale factors into the square at one and
+the square at `k`. -/
+theorem scaleQ_square_one_mul_square_eqv_succ (k : Nat) :
+    ((HamiltonianAllSep.scaleQ 1 * HamiltonianAllSep.scaleQ 1) *
+      (HamiltonianAllSep.scaleQ k * HamiltonianAllSep.scaleQ k)).eqv
+    (HamiltonianAllSep.scaleQ (k + 1) *
+      HamiltonianAllSep.scaleQ (k + 1)) := by
+  let s1 := HamiltonianAllSep.scaleQ 1
+  let sk := HamiltonianAllSep.scaleQ k
+  let sn := HamiltonianAllSep.scaleQ (k + 1)
+  have hStep : (s1 * sk).eqv sn := scaleQ_one_mul_scaleQ_eqv_succ k
+  have hShuffle : ((s1 * s1) * (sk * sk)).eqv
+      ((s1 * sk) * (s1 * sk)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv s1 s1 (sk * sk)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left s1 _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv s1 sk sk))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv s1 (s1 * sk) sk)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right (s1 * (s1 * sk)) ((s1 * sk) * s1) sk
+        (Q'.mul_comm_eqv s1 (s1 * sk))) ?_
+    exact Q'.mul_assoc_eqv (s1 * sk) s1 sk
+  refine Q'.eqv_trans _ _ _ hShuffle ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (s1 * sk) sn (s1 * sk) hStep) ?_
+  exact Q'.mul_eqv_congr_left sn (s1 * sk) sn hStep
+
+namespace DyadicLogSquareEulerEvaluation
+
+/-- The zero-copy dyadic evaluator is constructive without an analytic
+inverse input: its exponent is identically zero and its target scale is one. -/
+def zero : DyadicLogSquareEulerEvaluation 0 where
+  exponentialConverges := by
+    have hTerm : forall stage : Nat, CReal.Equiv
+        (ExpNeg.expNeg
+          (dyadicLogSquareExponent 0 stage)
+          (dyadicLogSquareExponent_nonnegative 0 stage))
+        CReal.cone := by
+      intro stage
+      have hArg : (dyadicLogSquareExponent 0 stage).eqv (0 : Q') := by
+        unfold dyadicLogSquareExponent HamiltonianAllSep.kLog2
+        change ((0 : Q') * ((1 : Q') + 1)).eqv 0
+        ring_qeqv
+      exact CReal.Equiv.trans
+        (expNeg_eqv_congr
+          (dyadicLogSquareExponent_nonnegative 0 stage)
+          (by decide) hArg)
+        (CReal.expNeg_zero_equiv_cone (by decide))
+    have hCone : CReal.ConvergesTo (fun _ : Nat => CReal.cone) CReal.cone :=
+      CReal.convergesTo_const CReal.cone
+    have hSequence : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (dyadicLogSquareExponent 0 stage)
+          (dyadicLogSquareExponent_nonnegative 0 stage))
+        CReal.cone :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage => (hTerm stage).symm) hCone
+    exact CReal.convergesTo_limit_congr hSequence
+      (TrigAdd.equiv_ofQ'_of_eqv
+        (by decide : (1 : Q').eqv
+          (HamiltonianAllSep.scaleQ 0 * HamiltonianAllSep.scaleQ 0)))
+
+/-- A single evaluator at `k=1` generates the evaluator at every natural
+dyadic exponent.  The successor compiler uses only the exponential addition
+law, constructive multiplication continuity, and exact dyadic rational
+algebra; no further logarithm/exponential inverse input is required. -/
+def allOfOne (one : DyadicLogSquareEulerEvaluation 1) :
+    (k : Nat) -> DyadicLogSquareEulerEvaluation k
+  | 0 => zero
+  | k + 1 => by
+      let previous := allOfOne one k
+      refine { exponentialConverges := ?_ }
+      have hProduct : CReal.ConvergesTo
+          (fun stage => CReal.mul
+            (ExpNeg.expNeg
+              (dyadicLogSquareExponent 1 stage)
+              (dyadicLogSquareExponent_nonnegative 1 stage))
+            (ExpNeg.expNeg
+              (dyadicLogSquareExponent k stage)
+              (dyadicLogSquareExponent_nonnegative k stage)))
+          (CReal.mul
+            (CReal.ofQ'
+              (HamiltonianAllSep.scaleQ 1 * HamiltonianAllSep.scaleQ 1))
+            (CReal.ofQ'
+              (HamiltonianAllSep.scaleQ k * HamiltonianAllSep.scaleQ k))) :=
+        YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz.CReal.convergesTo_mul_general
+          one.exponentialConverges previous.exponentialConverges
+      have hSuccessor : CReal.ConvergesTo
+          (fun stage => ExpNeg.expNeg
+            (dyadicLogSquareExponent (k + 1) stage)
+            (dyadicLogSquareExponent_nonnegative (k + 1) stage))
+          (CReal.mul
+            (CReal.ofQ'
+              (HamiltonianAllSep.scaleQ 1 * HamiltonianAllSep.scaleQ 1))
+            (CReal.ofQ'
+              (HamiltonianAllSep.scaleQ k * HamiltonianAllSep.scaleQ k))) :=
+        YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+          (fun stage =>
+            dyadicLogSquareExponential_one_mul_equiv_succ k stage)
+          hProduct
+      exact CReal.convergesTo_limit_congr hSuccessor
+        (CReal.Equiv.trans
+          (CReal.Equiv.symm (CRealAlg.ofQ'_mul
+            (HamiltonianAllSep.scaleQ 1 * HamiltonianAllSep.scaleQ 1)
+            (HamiltonianAllSep.scaleQ k * HamiltonianAllSep.scaleQ k)))
+          (TrigAdd.equiv_ofQ'_of_eqv
+            (scaleQ_square_one_mul_square_eqv_succ k)))
+
+end DyadicLogSquareEulerEvaluation
+
 /-- At physical time one, the canonical exact Wilson exponent is the sum of
 the dyadic and reduced-mantissa exponent streams. -/
 theorem selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
@@ -447,6 +627,27 @@ def ofAtomicEvaluations
       (CReal.Equiv.trans
         (CReal.Equiv.symm (CRealAlg.ofQ'_mul (s * s) (m * m)))
         (TrigAdd.equiv_ofQ'_of_eqv hSquare))
+
+/-- The full dyadic input to `ofAtomicEvaluations` is generated by a single
+evaluation at exponent one.  Consequently a Wilson reconstruction needs only
+one universal log-two inverse seed, together with its reconstruction-specific
+mantissa evaluator. -/
+def ofDyadicOneAndMantissa
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (dyadicOne : DyadicLogSquareEulerEvaluation 1)
+    (mantissa : MantissaLogSquareEulerEvaluation
+      (gapMantissa D.reconstruction positiveGapBound)
+      (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+      (gapMantissa_lt_one D.reconstruction positiveGapBound)
+      (gapMantissa_window D.reconstruction positiveGapBound)) :
+    WilsonCanonicalExactLogEulerEvaluation D positiveGapBound :=
+  ofAtomicEvaluations D positiveGapBound
+    (DyadicLogSquareEulerEvaluation.allOfOne dyadicOne
+      (gapBinExp D.reconstruction positiveGapBound).k)
+    mantissa
 
 end WilsonCanonicalExactLogEulerEvaluation
 
@@ -680,11 +881,25 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.mantissaLogSquareExponent_nonnegative
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.dyadicLogSquareExponent_one_add_eqv_succ
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.dyadicLogSquareExponential_one_mul_equiv_succ
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.scaleQ_one_mul_scaleQ_eqv_succ
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.scaleQ_square_one_mul_square_eqv_succ
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DyadicLogSquareEulerEvaluation.zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DyadicLogSquareEulerEvaluation.allOfOne
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonCanonicalExponential_equiv_atomicProduct
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofDyadicOneAndMantissa
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation
 #print axioms
