@@ -11292,3 +11292,36 @@ next frontier is to identify an actual positive generic coercivity scale from
 the existing finite path/Poincare geometry and state the remaining nontrivial
 payment entirely as explicit finite ratios.  Completed contraction, continuum
 QFT, and the Clay theorem remain open.
+
+## Every finite vacuum sector now has an explicit simple-path coercivity floor (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorSimpleCoercivity` generalizes the earlier
+cutoff-two simple-path calculation to arbitrary constructive coupling,
+cutoff, and finite half-volume.  It first proves that the canonical vacuum
+component has stationary mass at most one, then combines loop-erased paths,
+the literal positive edge floor, and the carrier-size path bound to obtain
+
+`edgeFloor * pairwiseVariance <= (1 + carrierSize^2) * Dirichlet`.
+
+Constructive positive division defines the explicit rational floor
+
+`simpleCoercivityFloor = edgeFloor / (1 + carrierSize^2)`
+
+and proves that this floor times the entire finite-sector pairwise variance is
+bounded by finite Dirichlet energy.  Thus the moving-base scalar interface no
+longer needs a merely abstract positive scale at each finite cutoff: a genuine
+coercivity theorem supplies one.
+
+The first focused attempt exposed a missing finite-weighted-mean namespace
+and an index/state elaboration mismatch; it is not a pass.  After correction,
+the focused check passes in about 1.1 seconds.  The exact one-worker,
+dependency-complete target passes 5,020 jobs, with the new module taking about
+1.0 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+This explicit floor may shrink because the carrier size grows and the edge
+floor may decrease.  No cutoff-uniform lower bound follows.  The next
+frontier is to specialize the generic moving-base residual payment to this
+constructed coercivity floor and expose the remaining dimensionless demand-
+to-edge ratio whose nontrivial/cofinal control is still missing.  Completed
+contraction, continuum QFT, and the Clay theorem remain open.

@@ -9647,3 +9647,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,019 jobs with the new module taking about 1.2 seconds.  No
   nontrivial residual budget, moving-base flow, cofinal contraction, continuum
   QFT, or Clay theorem is claimed.
+
+### [BF4-generic-simple-coercivity] Explicit positive finite-sector coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: prove generic vacuum-component mass at most one, replace the
+  recursive path ceiling by the literal `1 + carrierSize^2` simple-path scale,
+  and divide the positive edge floor by that scale to obtain an actual finite
+  coercivity constant.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimpleCoercivity.lean`.
+- **decl**: `centralPhysicalFiniteVacuumSectorMass_le_one`,
+  `centralPhysicalFiniteVacuumSectorMass_square_le_one`,
+  `centralPhysicalFiniteVacuumSectorDirichlet_nonnegative`,
+  `centralPhysicalFiniteVacuumSector_edgeFloor_mul_pairwise_le_simpleScale_mul_Dirichlet`,
+  `centralPhysicalFiniteVacuumSectorSimpleCoercivityFloor`,
+  `centralPhysicalFiniteVacuumSectorSimpleCoercivityFloor_pos`, and
+  `centralPhysicalFiniteVacuumSectorSimpleCoercivityFloor_mul_pairwise_le_Dirichlet`.
+- **obligation**: compare the explicit coercivity-scaled moving-base
+  increment-plus-merger demand with the later edge budget at nontrivial steps
+  and then along a cofinal schedule.
+- **constructive?**: yes — finite subsum comparison, loop-erased Type-level
+  paths, explicit positive rational minima, and positive rational division
+  suffice.  All six audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: the first failed focused attempt is not a pass.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  target passes 5,020 jobs with the new module taking about 1.0 seconds.  The
+  floor is finite-cutoff and no uniform lower bound, cofinal contraction,
+  continuum QFT, or Clay theorem is claimed.
