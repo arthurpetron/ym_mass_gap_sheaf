@@ -10630,3 +10630,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5045 jobs with the new module taking about 1.4 seconds.  No
   inhabitant of the scalar ratio, cutoff-uniform full-sector gap, continuum
   QFT, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-endpoint-mass] Normalize the residual endpoint mass — **CLOSED 2026-08-23**
+
+- **milestone**: prove the three residual endpoint blocks are a duplicate-free
+  subcarrier of the full vacuum-sector Cartesian square, bound their literal
+  stationary-product mass by the full sector mass square and hence by one,
+  remove the endpoint-mass factor from the directed residual-load bound, and
+  compile the resulting mass-free scalar ratio into full finite coercivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualEndpointMassBound.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualEndpointPairs_nodup`,
+  `centralLowerExcitedSpinCubeOffRayResidualEndpointWeightSum_le_fullPairWeightSum`,
+  `centralPhysicalFiniteVacuumSectorFullPairWeightSum_eqv_massSquare`,
+  `centralLowerExcitedSpinCubeOffRayResidualEndpointWeightSum_le_one`,
+  `centralLowerExcitedSpinCubeOffRayResidualFlowLoad_le_sectorSize`,
+  `CentralLowerExcitedSpinCubeOffRayResidualNormalizedLinearRatioAt.toResidualFlowCapacityAt`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualNormalizedLinearRatio.sharedFloor_mul_fullPairwiseVariance_le_physicalDirichlet`.
+- **obligation**: replace the remaining full-carrier path-length and minimum
+  positive-edge comparison by structured local or multiscale routing with a
+  cutoff-uniform weighted congestion constant.  Separately establish the
+  uniform positive vacuum-sector mass floor needed to turn full pairwise
+  coercivity into a centered transfer contraction.
+- **constructive?**: yes — complementary Boolean filters, explicit Cartesian
+  block disjointness, finite-list nodup, identity injection, stationary-weight
+  nonnegativity, exact Cartesian-product factorization, and finite physical-law
+  normalization suffice.  All nine audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three slow focused attempts were interrupted and one
+  focused attempt failed on a missing target-weight unfolding; none is a
+  pass.  Replacing the expensive older-cost comparison by a direct mass-free
+  capacity compiler gives a complete focused check in about 1.25 seconds.
+  The exact one-worker dependency-complete target passes 5046 jobs with the
+  new module taking about 1.3 seconds.  No inhabitant of the mass-free ratio,
+  cutoff-uniform full-sector gap, continuum QFT, or Clay theorem is claimed.

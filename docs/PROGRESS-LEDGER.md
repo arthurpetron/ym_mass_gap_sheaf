@@ -12461,3 +12461,49 @@ routing can replace this carrier-wide loss by a cutoff-uniform congestion
 constant.  The uniform sector-mass floor, centered transfer contraction,
 completion, thermodynamic and continuum limits, continuum QFT, and the Clay
 theorem remain open.
+
+## The off-ray residual endpoint mass is a normalized subprobability (2026-08-23)
+
+`BF4PhysicalSpinCubeOffRayResidualEndpointMassBound` eliminates the unknown
+mass factor from the simple-path congestion estimate.  It proves directly
+that the ray--off, off--ray, and off--off Cartesian blocks are pairwise
+disjoint and individually duplicate-free.  Their concatenated endpoint list
+is therefore duplicate-free, and the identity map injects it into the
+Cartesian square of the complete finite physical vacuum sector.
+
+Nonnegativity of the literal stationary weights gives
+
+`residualEndpointWeightSum <= fullSectorMass * fullSectorMass <= 1`.
+
+This is a genuine finite subprobability argument: the first comparison is a
+duplicate-preserving weighted-list injection, the Cartesian product sum is
+identified exactly with the sector mass square, and the last comparison uses
+normalization of the complete finite physical law.  It follows that every
+directed residual-flow load is at most the carrier size, with no remaining
+endpoint-mass factor.
+
+The module also introduces the mass-free finite cost `1 + sectorSize`.  A
+single scalar comparison between the shared ray floor times this cost and
+half the finite positive-edge floor now compiles directly into pointwise
+residual-flow capacity and hence full finite-sector pairwise coercivity.  A
+cofinal family of these scalar comparisons compiles to the same conditional
+uniform conclusion.
+
+Three slow focused attempts were deliberately interrupted and one focused
+attempt failed on an omitted unfolding in a target-weight nonnegativity
+proof; none is a pass.  Section-boundary checks localized an expensive
+definitional comparison with the older mass-bearing cost.  Replacing that
+comparison by the stronger direct mass-free capacity compiler yields a
+complete focused guarded check in about 1.25 seconds.  The exact one-worker
+dependency-complete target passes 5046 jobs, with the new module taking about
+1.3 seconds.  All nine audited exports use exactly
+`[propext, Quot.sound]`.
+
+No inhabitant of the mass-free scalar ratio is claimed.  Normalization has
+now removed endpoint mass as an obstruction; what remains is purely
+geometric: the global simple path still pays the full carrier size and the
+capacity comparison still uses the minimum positive edge.  The next causal
+frontier is a structured local routing or multiscale decomposition whose
+weighted congestion can remain bounded as the cutoff grows.  The uniform
+sector-mass floor, centered transfer contraction, completion, thermodynamic
+and continuum limits, continuum QFT, and the Clay theorem remain open.
