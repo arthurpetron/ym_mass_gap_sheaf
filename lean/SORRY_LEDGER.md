@@ -11739,3 +11739,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 204 seconds.  No same-object transfer-moment join,
   dynamic observable pin, thermodynamic limit, continuum Yang--Mills theory,
   or Clay theorem is claimed.
+
+### [BF4-physical-moving-centered-positive-norm] Transport the cube floor to the completed same-object channel — **CLOSED 2026-08-24**
+
+- **milestone**: identify every dense moving cube diagonal pairing with its
+  squared distance from zero; retain the existing positive rational cube
+  coordinate floor at every stage; push that floor through the explicit outer
+  pairing limit; compute the actual completed sector inner product on the
+  moving representative; and prove that the literal zero-time same-object
+  completed autocorrelation has the same strict positive rational witness.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm.lean`.
+- **decl**:
+  `centralPhysicalCutoffOneCubeMovingCentered_stage_floor_le_pairing`,
+  `centralPhysicalCutoffOneCubeMovingCentered_floor_le_pairingLimit`,
+  `centralPhysicalCutoffOneCubeMovingCentered_completedInner_eq_pairingLimitR`,
+  `centralPhysicalCutoffOneCubeMovingCentered_floor_le_completedInner`,
+  `centralPhysicalCutoffOneCubeMovingCentered_completedInner_isPositive`,
+  `centralPhysicalCutoffOneCubeMovingCentered_autocorrelation_zero_eq_inner`,
+  and
+  `centralPhysicalCutoffOneCubeMovingCentered_autocorrelation_zero_isPositive`.
+- **obligation**: package this exact vector as a scale-indexed observable in
+  every nome of a `DynamicVacuumSectorCompletedFamily`, retain the literal
+  `RC` norm and autocorrelation, and derive its completed decay without the
+  unjustified rational-moment fields of the existing observable pin.  Then
+  connect that channel to one physical rate band and the later projective/OS
+  limit without replacing the vector, transfer, moment, sampling channel, or
+  rate.
+- **constructive?**: yes — the rational floor is an explicit function of the
+  nome; stagewise `CReal.leEv`, explicit `ConvergesTo` data, the constructive
+  limit-order theorem, and quotient soundness suffice.  The three audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.  No inference from mere nonzeroness to positivity is used.
+- **status note**: early guarded checks with unresolved nested namespaces for
+  the dense inner and moving presentation timed out during downstream
+  normalization and emitted failed-elaboration `sorryAx`; none are passes.
+  After the namespace corrections and the explicit representative bridge,
+  the corrected focused check passes.  The exact one-worker
+  dependency-complete target passes 1643 jobs, with the new module taking
+  about 0.65 seconds after dependency replay.  No dynamic observable path,
+  physical rate band, thermodynamic limit, continuum Yang--Mills theory, or
+  Clay theorem is claimed.

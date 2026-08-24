@@ -13590,3 +13590,39 @@ correlation, sampling channel, and rate.  The cofinal local transition-product
 estimate, physical strength scaling, exact-log cutoff control, projective/OS
 correlation convergence, reconstruction, continuum Yang--Mills theory, and
 the Clay theorem remain open.
+
+## The same completed cube channel has an explicit positive norm floor (2026-08-24)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm` strengthens the
+preceding quotient nonzeroness result without using the constructively invalid
+converse from nonzero to strictly positive.  At every dense stage, the same
+positive rational cube-coordinate floor is transported from squared distance
+to zero to the literal self-pairing by the proved diagonal identity.  The
+constructive limit-order theorem then sends this termwise lower bound through
+the explicit outer pairing convergence.  A named quotient-representative
+bridge identifies the resulting limit with the actual completed sector inner
+product of the exact moving cube vector.
+
+The output is a rational witness below that completed norm square in the
+stable `RCle` order.  At transfer time zero, the literal same-object completed
+autocorrelation is definitionally the same inner product, so the identical
+rational floor proves strict positivity of the same channel.  No completed
+norm or moment is asserted to be rational.
+
+Early guarded checks are not passes: unresolved nested namespaces for
+`innerLimit` and the moving presentation caused expensive downstream
+normalization timeouts and `sorryAx` contamination.  After opening the exact
+defining namespaces and factoring the quotient computation into a named
+representative equality, the corrected focused check passes.  The exact
+one-worker dependency-complete target passes 1643 jobs, with the new module
+taking about 0.65 seconds after replaying dependencies.  All three audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This closes the fixed-nome positive-norm and zero-time non-vacuity compiler,
+not the scale-indexed observable path.  The next frontier is to package this
+exact vacuum-orthogonal vector at every nome of a dynamic completed family,
+retain its genuine `RC` norm and autocorrelation values, and derive the
+same-object decay estimate directly.  The older rational observable pin must
+not be inhabited by assuming those completed moments are rational.  A uniform
+physical rate band, projective/OS correlation convergence, reconstruction,
+continuum Yang--Mills theory, and the Clay theorem remain open.
