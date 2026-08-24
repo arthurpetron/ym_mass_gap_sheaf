@@ -12963,3 +12963,42 @@ exact local strength, and graph-norm/OS convergence plus same-object
 observable identification for these completed transfers.  Their outputs must
 join before any continuum operator or connected-correlation mass-gap claim.
 Continuum Yang--Mills construction and the Clay theorem remain open.
+
+## The completed dynamic sector now compiles to a non-vacuous physical observable path (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorObservablePath` connects the literal completed
+same-object moments to the existing rational `PhysicalSeparator` interface.
+Its named `DynamicVacuumSectorObservablePin` keeps one cutoff-independent
+observable type, scale-wise vectors in the definitionally same completed
+vacuum complements, exact `RC` equalities identifying rational squared
+connected correlators and rational norm squares with those vectors' actual
+completed moments, a scale-uniform fourth-power normalization, strictly
+positive completed rates, and a distinguished nonzero gauge-invariant local
+channel.  These are semantic and normalization inputs; no time-decay estimate
+is assumed by the pin.
+
+The compiler reflects the existing completed `RC` autocorrelation inequality
+back to `Q'`.  Its native rate is the sharper `(q_j*q_j)^n`; constructive
+power monotonicity on `0 <= q_j < 1` weakens this to `q_j^n`, preserving the
+definitionally same completed norm rate used by the dynamic physical band.
+It therefore constructs a genuine `PhysicalSeparator`, transfers the
+two-sided dynamic band to a genuine `PhysicalGapFloor`, and uses the existing
+spacing-to-zero modulus to construct scheduled lattice powers `n_j(t)` with
+`a_j*n_j(t) -> t`.  No dimensionally wrong fixed-one-step continuum limit is
+used.
+
+The first focused attempt failed because the `PhysicalSeparator` namespace
+was not opened and is not a pass; its `sorryAx` lines were downstream
+elaboration contamination.  After the namespace correction, the complete
+focused guarded check passes in about 1.0 seconds.  The exact one-worker
+dependency-complete target passes 1379 jobs, with the new module taking about
+1.0 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+No observable pin is inhabited.  The remaining same-object producer must
+construct the actual gauge-invariant local embeddings, rational moment pins,
+uniform normalization, and nonzero channel.  The projective/OS lane must then
+identify the physically sampled correlators with one cutoff-independent OS
+insertion and the reconstructed spectral channel.  The local off-ray capacity
+and exact strength/spacing estimates remain independent analytic producers.
+Continuum Yang--Mills construction and the Clay theorem remain open.
