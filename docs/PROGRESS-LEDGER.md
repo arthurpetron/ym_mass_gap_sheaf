@@ -13180,3 +13180,36 @@ after that, explicit local or multiscale BF4 routing must bound those products
 and incidences.  The uniform completed gap, physical strength scaling,
 observable pin, continuum handoff, continuum Yang--Mills theory, and Clay
 theorem remain open.
+
+## Arbitrary-cutoff endpoint ratios telescope along the physical path (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualConditionalPathwiseDetailedBalance`
+generalizes the exact cutoff-two detailed-balance mechanism to every finite
+representation cutoff and to the off-ray residual paths now used by the
+frontier.  On the indexed physical carrier it proves detailed balance for the
+stationary weight and conditional transition, symmetry of positive joint
+edges, and positivity of the conditional transition in both orientations.
+
+For one positive edge it then proves the exact projective identity
+
+`weight(left) / weight(right)`
+`  = conditional(right,left) / conditional(left,right)`.
+
+A constructive recursion over the actual Type-level positive-kernel chain
+telescopes the endpoint/source stationary ratio into the product of these
+reverse/forward conditional ratios along that same path.  No path is replaced
+and no global minimum or carrier-wide estimate is introduced.
+
+The focused guarded check passes in about 1.4 seconds.  The exact one-worker
+dependency-complete target passes 5052 jobs, with the new module taking about
+1.4 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This is an exact identity compiler, not the missing estimate.  The next
+frontier is to substitute the path product into every Harnack summand and sum
+it, obtaining a transition-product target equivalent to local capacity.
+After that, a genuine analytic route must control the reverse/forward
+products together with path incidence and length uniformly in the cutoff, or
+replace canonical routing by a local/multiscale or direct-operator proof.  No
+uniform completed gap, continuum Yang--Mills theory, or Clay theorem is
+proved here.

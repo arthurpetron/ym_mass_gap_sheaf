@@ -11345,3 +11345,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.5 seconds.  The interface is inhabited at every finite cutoff but
   no cofinal uniform Harnack family, continuum Yang--Mills theory, or Clay
   theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-conditional-pathwise-detailed-balance] Telescope projective endpoint ratios along exact physical paths — **CLOSED 2026-08-24**
+
+- **milestone**: prove arbitrary-cutoff indexed conditional detailed balance,
+  symmetric joint-edge positivity, forward and reverse conditional
+  positivity, the one-edge stationary-ratio/reverse-forward identity, and
+  the exact product telescope along the unchanged Type-level positive path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualConditionalPathwiseDetailedBalance.lean`.
+- **decl**:
+  `centralPhysicalFiniteConditionalKernel_detailedBalance`,
+  `centralPhysicalFiniteKernel_reverse_pos_of_pos`,
+  `centralPhysicalFiniteConditionalKernel_pos_of_kernel_pos`,
+  `centralPhysicalFiniteConditionalKernel_reverse_pos_of_kernel_pos`,
+  `centralPhysicalFiniteWeightRatio_eqv_conditionalReverseForward`,
+  `centralLowerExcitedSpinCubeOffRayResidualEndpointWeightRatioAtSource_eqv_oneStep`,
+  and
+  `centralLowerExcitedSpinCubeOffRayResidualEndpointWeightRatioAtSource_eqv_pathProduct`.
+- **obligation**: substitute the exact path product into the summed Harnack
+  target, then construct a cutoff-uniform bound on transition products,
+  incidences, and path lengths, or supply a local/multiscale/direct-operator
+  route targeting the same completed dynamic interface.
+- **constructive?**: yes — finite-sector membership, support-graph symmetry,
+  physical detailed balance, positive rational division and cancellation,
+  and recursion over Type-level positive paths suffice.  All seven audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the focused guarded check passes in about 1.4 seconds.  The
+  exact one-worker dependency-complete target passes 5052 jobs, with the new
+  module taking about 1.4 seconds.  This is an exact equality compiler; no
+  cofinal Harnack bound, continuum Yang--Mills theory, or Clay theorem is
+  claimed.
