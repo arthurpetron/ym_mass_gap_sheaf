@@ -11262,3 +11262,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 1.1 seconds.  This excludes two proof compilers, not a
   spectral gap: exact local capacity, continuum Yang--Mills, and the Clay
   theorem remain open.
+
+### [BF4-spin-cube-off-ray-residual-conditional-congestion] Cancel stationary source mass from the exact local frontier — **CLOSED 2026-08-24**
+
+- **milestone**: define the indexed physical conditional transition; prove
+  stationary weight times conditional transition equals the literal physical
+  joint entry; divide each residual endpoint-pair edge contribution by the
+  positive edge-source weight; prove their relative sum reconstructs the
+  exact residual flow load; cancel the common source factor to obtain an
+  iff between joint capacity and dimensionless conditional congestion; and
+  compile a cofinal conditional family to the completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.lean`.
+- **decl**:
+  `centralPhysicalFiniteWeight_mul_conditional_eqv_kernel`,
+  `centralPhysicalFiniteWeight_mul_relativePairDemand_eqv_pathLoad`,
+  `centralPhysicalFiniteWeight_mul_relativeSourceFlowLoad_eqv_flowLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualEdgeCapacity_iff_conditionalCongestion`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.toResidualFlowCapacityAt`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualConditionalCongestion.toCompletedStrictContractionData`.
+- **obligation**: inhabit the cofinal conditional-congestion family by
+  comparing exact relative traffic with the matching physical conditional
+  transition on every used directed edge.  Preserve the explicit endpoint
+  pair and positive-path lineage; do not reintroduce a global edge minimum,
+  carrier-cardinality ceiling, or minimum stationary mass.  If the canonical
+  loop-erased paths cannot be controlled, replace them by explicit local or
+  multiscale BF4 routing while targeting this same dimensionless interface.
+- **constructive?**: yes — finite sector positivity, exact physical Markov
+  factorization, explicit positive rational division, duplicate-preserving
+  finite regrouping, and positive-factor order cancellation suffice.  All
+  six audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check failed on one missing namespace
+  and is not a pass; its downstream `sorryAx` lines were elaboration
+  contamination only.  The corrected focused guarded check passes in about
+  1.2 seconds.  The exact one-worker dependency-complete target passes 5048
+  jobs, with the new module taking about 1.2 seconds.  No conditional-family
+  inhabitant, continuum Yang--Mills theory, or Clay theorem is claimed.

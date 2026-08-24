@@ -13081,3 +13081,48 @@ kernel entries can cancel before any minimum is taken, or a genuinely
 multiscale/direct-operator alternative targeting the same dynamic completed
 family.  No cofinal local capacity, uniform completed gap, continuum
 Yang--Mills theory, or Clay theorem is proved here.
+
+## The arbitrary-cutoff residual capacity is reduced to conditional congestion (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualConditionalCongestion` performs the local
+stationary-weight cancellation that the two global-floor no-go theorems leave
+available.  On every actual finite vacuum-sector source it proves the exact
+indexed Markov factorization
+
+`physicalJoint(source,target)`
+`  = stationaryWeight(source) * physicalConditional(source,target)`.
+
+For each literal residual endpoint pair and its unchanged loop-erased
+positive-kernel path, the module divides the directed edge contribution by
+the strictly positive stationary mass of that edge's source.  Summing those
+relative contributions preserves the full witness lineage and proves
+
+`stationaryWeight(source) * relativeResidualLoad(source,target)`
+`  = residualFlowLoad(source,target)`.
+
+Positive-factor cancellation then gives an equivalence, not merely a
+sufficient relaxation, between the old joint capacity and the dimensionless
+frontier
+
+`sharedFloor * relativeResidualLoad(source,target)`
+`  <= (1/2) * physicalConditional(source,target)`.
+
+A cofinal family of those conditional comparisons compiles to the existing
+pointwise residual-flow capacity and from there to the actual completed
+vacuum-sector strict contraction.  No global minimum edge, carrier size, or
+minimum stationary mass appears in the new frontier.
+
+The first focused check failed on a missing ray-return-floor namespace and is
+not a pass; its downstream `sorryAx` output was elaboration contamination.
+After opening the correct namespace, the focused guarded check passes in
+about 1.2 seconds.  The exact one-worker dependency-complete target passes
+5048 jobs, with the new module taking about 1.2 seconds.  All six audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+No cofinal conditional-congestion family is inhabited.  The producer problem
+is now genuinely local and dimensionless: control exact relative routed
+traffic by the matching physical conditional transition before any minimum
+or carrier-wide bound is taken.  Proving that estimate requires new explicit
+BF4 routing/conditional-density geometry or a multiscale/direct-operator
+replacement.  Physical strength scaling, the observable pin, the continuum
+handoff, continuum Yang--Mills, and the Clay theorem remain open.
