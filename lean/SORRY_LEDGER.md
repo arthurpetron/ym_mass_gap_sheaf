@@ -9767,3 +9767,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,023 jobs with the new module taking about 2.6 seconds.  The
   cofinal comparison is not inhabited, and no completed gap claim without
   that certificate, continuum QFT, or Clay theorem is made.
+
+### [BF4-simple-floor-growth-obstruction] Quadratic carrier budget — **CLOSED 2026-08-23**
+
+- **milestone**: prove the generic finite edge floor is at most one, bound the
+  simple coercivity floor times its `1 + stateCount^2` divisor by one, and
+  show that every fixed-floor comparison forces
+  `fixedFloor * stateCount^2 <= 1`, pointwise and along the proposed cofinal
+  cutoff-two comparison family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleCoercivityGrowthObstruction.lean`.
+- **decl**: `listPositiveMinOne_le_one`,
+  `centralPhysicalFiniteVacuumSectorEdgeFloor_le_one`,
+  `centralPhysicalFiniteVacuumSectorSimpleCoercivityFloor_mul_scale_le_one`,
+  `fixedFloor_mul_vacuumStateCountSquare_le_one_of_le`,
+  `cutoffTwoFixedFloorComparison_forces_stateCountSquareBudget`, and
+  `CutoffTwoCofinalSimpleCoercivityFloorComparison.stateCountSquareBudget`.
+- **obligation**: prove the actual connected vacuum-sector state count escapes
+  this fixed quadratic budget by constructing distinct positive-row states
+  and support paths from the vacuum, or establish the unexpected alternative
+  that those connected sectors remain uniformly finite.
+- **constructive?**: yes — finite minimum recursion, positive rational
+  division cancellation, and multiplication monotonicity suffice.  The first
+  audited export uses `[propext]`; the remaining five use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes on its first attempt in about 1.0
+  seconds; the exact one-worker target passes 5,024 jobs with the new module
+  taking about 1.0 seconds.  Carrier unboundedness, failure of the cofinal
+  comparison, uniform contraction, continuum QFT, and the Clay theorem are
+  not claimed.

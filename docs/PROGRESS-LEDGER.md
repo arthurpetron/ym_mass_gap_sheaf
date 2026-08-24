@@ -11430,3 +11430,37 @@ constructively whether carrier growth and the normalized edge-floor ceiling
 force these particular simple floors to zero, which would rule out this
 route and identify the need for sharper multiscale coercivity.  No
 thermodynamic/continuum QFT or Clay theorem is claimed.
+
+## A fixed lower bound on the simple floor forces a quadratic carrier budget (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoSimpleCoercivityGrowthObstruction` proves directly
+from the finite-minimum definition that every constructed vacuum-sector edge
+floor is at most one.  Consequently the generic simple coercivity floor obeys
+
+`simpleCoercivityFloor * (1 + stateCount^2) <= 1`.
+
+Any nonnegative fixed floor below that simple floor therefore satisfies the
+stronger explicit obstruction
+
+`fixedFloor * stateCount^2 <= 1`.
+
+Specializing to the already constructed positive cutoff-two novel-flow floor
+shows that every member of a proposed cofinal simple-floor comparison family
+must obey the same fixed quadratic state-count budget.  Thus the analytic
+question has contracted to a concrete carrier-growth alternative: either the
+canonical connected vacuum sectors remain uniformly bounded in size, or an
+explicit growing connected family rules out this particular simple-path
+floor as a uniform mechanism.
+
+The focused guarded check passes on its first attempt in about 1.0 seconds.
+The exact one-worker, dependency-complete target passes 5,024 jobs, with the
+new module taking about 1.0 seconds.  The generic list-minimum lemma uses only
+`[propext]`; the five audited physical exports use exactly
+`[propext, Quot.sound]`.
+
+No unbounded connected-carrier theorem is yet proved, so the cofinal
+comparison is not declared impossible.  The next frontier is to construct a
+cutoff-indexed family of distinct positive-row states together with support
+paths from the vacuum root, yielding a lower bound on the literal vacuum-
+sector state count.  No uniform contraction, thermodynamic/continuum QFT, or
+Clay theorem is claimed.
