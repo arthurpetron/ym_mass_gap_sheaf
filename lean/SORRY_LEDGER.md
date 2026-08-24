@@ -10353,3 +10353,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 993 jobs with the new module taking about 3.7 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-central-spin-cube-term-decorated] Bound each production term by source activity times decorated residual — **CLOSED 2026-08-23**
+
+- **milestone**: cast the source-free link-product and face-allocation bounds
+  into rational order, multiply by the nonnegative literal face factor, and
+  contract the result through the exact source and decorated-face identities.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeTermDecoratedBound.lean`.
+- **decl**:
+  `centralSpinCubePhysicalTerm_le_activity_mul_decorated`.
+- **obligation**: sum this pointwise majorant over the finite physical
+  boundary/target carrier by an injective map into independent non-source face
+  labels, then use the anchor exponent-13 heat sum to obtain a cutoff-uniform
+  raw-row constant.
+- **constructive?**: yes — coefficient nonnegativity, recursive finite-product
+  nonnegativity, natural-to-rational monotonicity, and the two preceding exact
+  face equivalences suffice.  The audited export uses exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused guarded check passes on the first attempt in
+  about 0.6 seconds; the exact one-worker target passes 994 jobs with the new
+  module taking about 0.44 seconds.  No uniform raw-row ceiling, full-sector
+  gap, continuum QFT, or Clay theorem is claimed.

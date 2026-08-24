@@ -12125,3 +12125,29 @@ The next frontier is to combine this equivalence with the source-free natural
 link-product inequality and obtain a termwise production bound, then sum the
 decorated non-source carrier uniformly in cutoff.  No raw-row ceiling,
 full-sector gap, continuum QFT, or Clay theorem is claimed yet.
+
+## Every production cube-source summand has the decorated majorant (2026-08-23)
+
+`BF4CentralSpinCubeTermDecoratedBound` combines the complete link-product
+inequality with the exact face algebra.  For every nonnegative coupling,
+admitted source spin, physical boundary channel, and physical target state, it
+now proves directly on the production term
+
+`slabTerm(spin source, boundary, target)
+  <= (coeffW w spin)^6 * product_nonSourceFaces(tailTerm w 13 label)`.
+
+The proof casts the two natural-number link inequalities into rational order,
+uses nonnegativity of the literal face product, and then contracts the source
+factorization and exponent-13 absorption equalities.  Thus no source-spin
+polynomial prefactor remains anywhere in the residual carrier.
+
+The focused guarded check passes on the first attempt in about 0.6 seconds.
+The exact one-worker, dependency-complete target passes 994 jobs, with the new
+module taking about 0.44 seconds.  Its audited export uses exactly
+`[propext, Quot.sound]`.
+
+This is a termwise bound, not yet a row bound.  The next frontier is the finite
+boundary/target summation: map the assembled non-source face labels into a
+Cartesian carrier and bound its total decorated weight uniformly in cutoff.
+Full-sector routing, completion, thermodynamic and continuum limits,
+continuum QFT, and the Clay theorem remain open.
