@@ -12655,3 +12655,40 @@ cutoffs.  Given that input, an algebraic compiler can combine it with the mass
 floor to produce centered finite strict contraction and then the already
 available completion map.  Thermodynamic and continuum control, continuum
 QFT, and the Clay theorem remain open.
+
+## Uniform root traffic now compiles directly to the completed sector gap (2026-08-24)
+
+`BF4PhysicalFiniteVacuumSectorRootTrafficCompletedGap` closes the algebraic
+join between the rooted finite geometry and the existing completed physical
+vacuum-sector transfer.  At an arbitrary fixed `0 < w < 1`, half-extent and
+cutoff, a local root-traffic capacity with floor `delta`, together with any
+positive lower bound `massFloor` on the sector mass, gives
+
+`(delta * massFloor) * diagonal <= diagonal - matrix`.
+
+The proof uses the exact centered pairwise-variance identity and the exact
+Dirichlet/transfer-deficit identity, cancelling only the explicit positive
+factor two.  Finite Gram positivity then gives the strict absolute form rate
+
+`q = 1 / (1 + delta * massFloor)`, with `0 <= q < 1`.
+
+For a `FixedNomeCofinalVacuumRootTrafficCapacity`, the compiler chooses a
+cutoff beyond both the requested cutoff and the constructed uniform mass-floor
+anchor.  It returns the existing
+`FixedNomeCofinalVacuumSectorFiniteStrictGap` and, through the already checked
+completion machinery, the actual
+`CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`.
+
+Four focused attempts failed and are not passes: the first two exposed missing
+namespace openings that induced expensive reducibility searches, and the next
+two localized a residual unfolding and namespace-sensitive field-notation
+issue.  After those corrections, the complete focused guarded check passes in
+about 1.4 seconds.  The exact one-worker dependency-complete target passes
+5025 jobs, with the new module taking about 1.3 seconds.  All four audited
+exports use exactly `[propext, Quot.sound]`.
+
+No cofinal root-traffic capacity inhabitant is claimed.  On the rooted route,
+that one local, observable-independent inequality is now the sole immediate
+analytic frontier; no additional finite-to-completed compiler is missing.
+The separate thermodynamic/continuum and weak-to-strong physical-scale bridges,
+continuum QFT, and the Clay theorem remain open.

@@ -10827,3 +10827,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1188 jobs, with the new module taking about 0.512 seconds.  This closes the
   fixed-nome sector-mass lane; it does not inhabit the cofinal root-traffic
   capacity or prove a completed/continuum/Clay mass gap.
+
+### [BF4-physical-vacuum-root-traffic-completed-gap] Compile cofinal root capacity and uniform mass into the completed strict contraction — **CLOSED 2026-08-24**
+
+- **milestone**: prove the generic centered Poincare algebra from one finite
+  root-traffic capacity and one positive sector-mass lower bound, construct the
+  explicit strict rate `q = 1 / (1 + delta * massFloor)`, combine a cofinal
+  root-capacity family with the constructed fixed-nome uniform mass floor, and
+  return both the existing cofinal finite strict-gap interface and the actual
+  completed vacuum-sector strict-contraction datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootTrafficCompletedGap.lean`.
+- **decl**:
+  `rootTraffic_strength_mul_diagonal_le_deficit`,
+  `rootTraffic_abs_matrix_le_rate_mul_diagonal`,
+  `FixedNomeCofinalVacuumRootTrafficCapacity.toFiniteStrictGap`, and
+  `FixedNomeCofinalVacuumRootTrafficCapacity.toCompletedStrictContractionData`.
+- **obligation**: inhabit the already isolated
+  `FixedNomeCofinalVacuumRootTrafficCapacity` by proving one positive local
+  capacity floor for the explicit root flow at every later representation
+  cutoff.  No further rooted finite-to-completed compiler is missing.
+- **constructive?**: yes — exact centered pairwise variance, the pointwise
+  root-capacity Dirichlet compiler, the exact doubled transfer deficit,
+  rational positive-factor cancellation, Gram positivity, and explicit
+  rational division suffice.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: four focused attempts failed and are not passes.  Two slow
+  attempts exposed missing namespace openings and two fast attempts localized
+  a residual unfolding and field-notation namespace issue.  The corrected
+  focused check passes in about 1.4 seconds.  The exact one-worker
+  dependency-complete target passes 5025 jobs, with the new module taking about
+  1.3 seconds.  No cofinal capacity inhabitant, physical-scale uniform gap,
+  continuum QFT, or Clay theorem is claimed.
