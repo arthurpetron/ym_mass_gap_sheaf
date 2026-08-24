@@ -10108,3 +10108,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the new module taking about 1.0 seconds.  Neither equivalent frontier is
   inhabited here, and no full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-spin-ray-raw-return-ratio] Exact partition cancellation and selected term — **CLOSED 2026-08-23**
+
+- **milestone**: define the literal unnormalised positive-carrier row mass,
+  cancel the common slab-partition reciprocal from every physical conditional
+  row, specialize the result to every admitted excited spin cube, and locate
+  the explicit positive zero-boundary production term below both its vacuum
+  entry and its whole raw row.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRawReturnRatio.lean`.
+- **decl**:
+  `centralPhysicalPositiveRawRowMass_nonnegative`,
+  `centralPhysicalPositiveRawRowMass_pos`,
+  `centralNormalizedPhysicalReturn_eqv_rawRatio`,
+  `centralLowerExcitedSpinCubeVacuumReturnProbability_eqv_rawRatio`,
+  `centralLowerSpinCubePhysicalTerm_le_rawVacuumKernel`,
+  `centralLowerSpinCubeRawVacuumKernel_le_rawRowMass`,
+  `centralLowerSpinCubePhysicalTerm_le_rawRowMass`, and
+  `centralLowerSpinCubePhysicalTerm_pos_and_le_rawRowMass`.
+- **obligation**: prove or refute one cutoff- and spin-uniform upper bound on
+  the literal raw positive-carrier row by a fixed multiple of the explicit
+  selected zero-boundary term; if successful, compile it into the cofinal
+  return floor and then extend routing beyond the spin ray.
+- **constructive?**: yes — finite nonnegative row sums, positive retained-row
+  mass, exact positive rational division, common-factor cancellation, and a
+  located boundary-channel member suffice.  All eight audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused attempts are not passes.  The corrected
+  focused check passes in about 1.1 seconds; the exact one-worker target passes
+  5,027 jobs with the new module taking about 1.1 seconds.  No uniform raw-row
+  ceiling, full-sector gap, continuum QFT, or Clay theorem is claimed.

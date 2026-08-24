@@ -11834,3 +11834,35 @@ frontier is the cutoff-uniform arbitrary-spin kernel ratio itself.  Its raw
 BF4 term expansion, possible fixed-nome upper/lower estimates or concrete
 obstruction, remaining-sector routing, completed spectral gap, thermodynamic
 and continuum limits, continuum QFT, and the Clay theorem remain open.
+
+## The arbitrary-spin return is an exact raw BF4 row ratio (2026-08-23)
+
+`BF4PhysicalSpinCubeRawReturnRatio` removes the global finite-slab partition
+from the actual all-spin vacuum return.  It defines the literal unnormalised
+row mass over `centralPositiveHalfStates`, proves that this mass is positive
+for every retained source, and cancels the common positive partition
+reciprocal between the normalized joint entry and the stationary marginal.
+For every admitted excited spin cube the result is the exact identity
+
+`P(spin,vacuum) = rawKernel(spin,vacuum) / rawPositiveRowMass(spin)`.
+
+The module also descends one level further into the production spin foam.
+The zero boundary channel is proved to place the explicit term
+`slabParametricKPhysicalTerm w K 1 (centralLowerSpinCubePhysical spin)` below
+the raw spin-to-vacuum entry.  That entry is a nonnegative member of the full
+raw positive-carrier row, while the selected term is strictly positive for
+every admitted spin.  Thus the remaining scalar estimate is now concrete:
+upper-bound the whole raw row by one cutoff- and spin-uniform multiple of this
+selected zero-boundary term (or prove that no such multiple exists).
+
+Three failed focused elaboration attempts exposed missing namespace openings,
+implicit-argument ambiguity, and an underconstrained spin-index rewrite; none
+is a pass.  The corrected focused guarded check passes in about 1.1 seconds.
+The exact one-worker, dependency-complete target passes 5,027 jobs, with the
+new module taking about 1.1 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+This is a normalization and term-expansion theorem, not the required uniform
+row ceiling.  A cofinal selected-term row ceiling, extension beyond the spin
+ray, the completed vacuum-complement gap, thermodynamic and continuum limits,
+continuum QFT, and the Clay theorem remain open.
