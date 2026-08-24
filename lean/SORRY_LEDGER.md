@@ -10495,3 +10495,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1.6 seconds.  The theorem is uniform only for stationary pairwise variance
   restricted to the explicit spin-cube ray.  It is not a full
   vacuum-complement gap, continuum QFT, or Clay theorem.
+
+### [BF4-spin-cube-off-ray-residual-frontier] Isolate the exact nonempty residual after ray coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: filter the full finite vacuum sector by explicit ray
+  membership, identify the filtered ray with the spin-ordered ray up to
+  permutation, prove the complement contains the vacuum, split the full
+  stationary pairwise variance into ray--ray plus three literal residual
+  blocks, and compile a half-energy residual certificate into full-sector
+  pairwise Dirichlet coercivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualFrontier.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeFilteredRayIndices_perm_rayIndices`,
+  `zero_mem_centralLowerExcitedSpinCubeOffRayIndices`,
+  `centralPhysicalFiniteVacuumSectorPairwiseVariance_eqv_ray_add_offRayResidual`,
+  `centralLowerExcitedSpinCubeOffRayResidualPairwiseVariance_nonnegative`,
+  `CentralLowerExcitedSpinCubeOffRayResidualCoercivityAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualCoercivityAt.sharedFloor_mul_fullPairwiseVariance_le_physicalDirichlet`,
+  `FixedNomeCofinalSpinCubeOffRayResidualCoercivity`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualCoercivity.sharedFloor_mul_fullPairwiseVariance_le_physicalDirichlet`.
+- **obligation**: inhabit the cofinal residual structure by routing or
+  decomposing all ray--off, off--ray, and off--off stationary demands so their
+  weighted load fits the half of genuine physical Dirichlet capacity reserved
+  from the ray proof.  Then establish a uniform positive lower bound on the
+  physical vacuum-sector mass before applying the centered transfer and
+  completion bridges.
+- **constructive?**: yes — decidable finite filtering, nodup permutation,
+  nonzero excited-ray indices, the explicit vacuum root, exact four-block
+  finite sums, block nonnegativity, and rational half-energy allocation
+  suffice.  All eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 1.4 seconds; the exact one-worker
+  dependency-complete target passes 5042 jobs with the new module taking about
+  1.3 seconds.  No inhabitant of the cofinal off-ray residual certificate,
+  full vacuum-complement gap, continuum QFT, or Clay theorem is claimed.

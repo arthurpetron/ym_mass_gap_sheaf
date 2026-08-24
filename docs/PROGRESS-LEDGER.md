@@ -12303,3 +12303,46 @@ cutoff-uniform full-sector congestion bound.  Only that missing coverage can
 upgrade ray coercivity to a full finite vacuum-complement contraction.
 Completion, thermodynamic and continuum limits, continuum QFT, and the Clay
 theorem remain open.
+
+## Full pairwise variance splits exactly into ray and nonempty off-ray residual (2026-08-23)
+
+`BF4PhysicalSpinCubeOffRayResidualFrontier` makes the next wall literal.  It
+filters the complete finite physical vacuum sector by membership in the
+excited spin-cube ray and proves that the carrier-ordered filtered list is a
+permutation of the spin-ordered ray used by the uniform coercivity theorem.
+The complement is constructively nonempty at every cutoff: it contains the
+vacuum index, while every excited ray index is proved nonzero.
+
+Finite four-block partitioning then gives the exact identity
+
+`fullPairwise = rayRay + (rayOff + offRay + offOff)`.
+
+The parenthesized residual is nonnegative and contains every ordered endpoint
+demand involving at least one off-ray state.  This is not a subtraction
+proxy: all three terms are literal stationary-product Dirichlet blocks on
+explicit filtered lists.
+
+The module also performs the exact energy allocation needed downstream.
+Half of the genuine physical Dirichlet form pays the already proved ray
+coercivity at the positive floor `delta/2`.  A Type-level
+`CentralLowerExcitedSpinCubeOffRayResidualCoercivityAt` asks only that the
+other half pay the displayed residual at the same floor.  Its compiler proves
+full finite-sector pairwise Dirichlet coercivity.  The cofinal structure
+`FixedNomeCofinalSpinCubeOffRayResidualCoercivity` isolates the one uniform
+family now missing; if supplied, it yields the same full coercivity floor
+`delta/2` at every later cutoff.
+
+One failed focused elaboration attempt exposed a Boolean-complement rewrite,
+an over-broad unfold, and one associativity orientation; it is not a pass.
+The corrected focused check passes in about 1.4 seconds.  The exact
+one-worker, dependency-complete target passes 5042 jobs, with the new module
+taking about 1.3 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+No inhabitant of the cofinal off-ray residual structure is claimed.  The next
+constructive task is to build weighted paths or another decomposition for
+those three residual blocks and prove their load fits the reserved half of
+physical capacity uniformly.  A uniform physical sector-mass floor is then
+still required to turn full pairwise coercivity into a uniform centered
+transfer rate.  Completion, thermodynamic and continuum limits, continuum
+QFT, and the Clay theorem remain open.
