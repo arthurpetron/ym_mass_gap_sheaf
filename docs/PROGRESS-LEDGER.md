@@ -14402,3 +14402,36 @@ The convergence of the dynamic physical-gap stream to the selected
 reconstruction logarithm and the graph-norm data remain uninhabited.  So do
 the projective continuum measure, OS/Wilson semantics, continuum
 Yang--Mills existence, required QFT axioms, and the Clay theorem.
+
+## The parallel compilers now rejoin on one observable-connected Wilson path (2026-08-24)
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath`
+assembles the independently buildable branches into one type-indexed causal
+diagram.  Its generic `RawWilsonConnectedMassGapPath` fixes one completed
+family, raw observable, rate band, physical-gap variation, scheduled-rate
+limit, continuum measure thread, and selected Wilson datum.  The projective OS
+handoff is forced to use that Wilson datum's own `measureLinked` field, while
+the graph-norm and exact-rate compilers are forced to use the same family.
+
+The all-vector branch compiles to `WilsonMinimalBoundedMassGap`; an explicit
+vacuum-stationarity pin upgrades it to `WilsonIteratedBoundedMassGap`.  Only
+then does the raw observable inherit squared decay, after its literal cutoff
+limit has been identified with the autocorrelation of one exact embedded
+Wilson state.  Zero-time positivity and equality of the physical rate with
+the selected separator's exact logarithm survive on the same path.
+
+The adaptive specialization fixes the generic scheduled-rate parameter to
+the definitionally same `physicalExponentialLimit` used by the adaptive raw
+decay theorem.  A first attempt to state the whole record directly over the
+large adaptive producer timed out during weak-head normalization; factoring a
+lightweight generic compiler and a reducible specialization preserves the
+mathematics and eliminates that elaboration blow-up.
+
+The corrected focused guarded check passes.  The exact one-worker
+dependency-complete target passes 5102 jobs, with the new module taking about
+1.5 seconds.  All seven audited exports use only `[propext, Quot.sound]`.
+
+The record remains uninhabited: raw nontriviality, projective OS semantics,
+the Wilson matrix-coefficient pin, exact-rate reconstruction convergence,
+all-vector graph-norm convergence, vacuum stationarity, continuum existence,
+and the QFT/Clay endpoint are still open obligations.

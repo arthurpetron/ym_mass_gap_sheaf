@@ -12675,3 +12675,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5090 jobs, with the new module taking
   about 1.1 seconds.  No convergence handoff, graph-norm data, continuum
   measure, QFT existence theorem, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-raw-wilson-connected-path] Rejoin the parallel compilers on one observable-connected Wilson endpoint — **CLOSED 2026-08-24**
+
+- **milestone**: define one generic connected residual diagram fixing the
+  completed family, raw observable, rate band, physical-gap variation,
+  scheduled-rate limit, projective measure thread, and selected Wilson datum;
+  compile its exact-rate and graph-norm branches to the minimal all-vector
+  bounded gap; add vacuum stationarity to iterate it; identify the literal raw
+  limit with one embedded Wilson autocorrelation; derive raw-channel decay in
+  the valid operator-to-observable direction; and specialize the scheduled
+  rate definitionally to the adaptive physical-exponential limit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `RawWilsonConnectedMassGapPath`, `minimalBoundedMassGap`,
+  `iteratedBoundedMassGap`,
+  `physicalRate_equiv_selectedSeparatorExactLog`,
+  `rawContinuumConnectedAutocorrelation_eq_matrixCoefficient`,
+  `rawContinuumConnectedAutocorrelationSqDecay`,
+  `AdaptiveRawWilsonConnectedMassGapPath`, and
+  `adaptiveRawPhysicalExponentialPath`.
+- **obligation**: inhabit raw zero-time nontriviality; the selected projective
+  OS and Wilson matrix-coefficient semantics; convergence of the physical-gap
+  stream to the reconstruction logarithm; graph-norm approximation of all
+  completed vacuum vectors; vacuum stationarity; the common continuum
+  measure and Yang--Mills existence data; and the required QFT axioms.
+- **constructive?**: yes — every join is enforced by shared indices or direct
+  dependent fields.  The operator gap comes from the all-vector graph-norm
+  branch, and only then implies the observable decay.  All seven audited
+  exports use only `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: a first over-specialized adaptive record hit the guarded
+  heartbeat limit during normalization and contaminated downstream diagnostics
+  with `sorryAx`; it was discarded.  The generic-record plus reducible-adaptive
+  specialization passes the focused check.  Its exact one-worker target
+  passes 5102 jobs, with the new module taking about 1.5 seconds.  No residual
+  field, continuum theory, or Clay theorem is claimed inhabited.
