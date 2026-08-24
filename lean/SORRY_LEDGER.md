@@ -9996,3 +9996,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 5,026 jobs with the new module taking about 1.1 seconds.  Finite
   positivity does not imply a cutoff-uniform floor; the full-sector gap,
   continuum QFT, and the Clay theorem remain open.
+
+### [BF4-spin-ray-cofinal-return-compiler] Uniform scalar datum to cofinal spoke capacity — **CLOSED 2026-08-23**
+
+- **milestone**: state one honest Type-level positive cofinal lower bound for
+  the explicit finite return floors and compile it losslessly into one
+  positive capacity constant controlling both orientations of every later
+  spin-ray spoke.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayCofinalReturnFloor.lean`.
+- **decl**:
+  `FixedNomeCofinalSpinCubeRayReturnFloor.rayDelta_pos`,
+  `FixedNomeCofinalSpinCubeRayReturnFloor.twice_rayDelta_le_return`,
+  `FixedNomeCofinalSpinCubeRayReturnFloor.finiteCapacityAt`, and
+  `FixedNomeCofinalSpinCubeRayReturnFloor.toCofinalRayCapacity`.
+- **obligation**: inhabit `FixedNomeCofinalSpinCubeRayReturnFloor` from a
+  cutoff-independent arbitrary-spin conditional row ceiling, or prove that
+  the vacuum-star return probabilities decay and redesign the routes; then
+  cover the remaining rooted sector.
+- **constructive?**: yes — only the named Type-level premise, exact rational
+  division, finite-floor comparison, and the already proved spoke compiler
+  are used.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes on its first attempt in about 1.0
+  seconds; the exact one-worker target passes 5,027 jobs with the new module
+  taking about 1.0 seconds.  The cofinal premise is not inhabited here, and no
+  full-sector gap, continuum QFT, or Clay theorem is claimed.

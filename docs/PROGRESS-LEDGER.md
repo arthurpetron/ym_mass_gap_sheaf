@@ -11699,3 +11699,33 @@ cofinal spin-ray capacity, and analyze the concrete kernel/row formula for a
 cutoff-independent lower bound or obstruction.  The spin ray is still only a
 subsector; the full-sector gap, thermodynamic and continuum limits, continuum
 QFT, and Clay theorem remain open.
+
+## The cofinal spin-ray frontier is one explicit scalar lower bound (2026-08-23)
+
+`BF4PhysicalSpinCubeRayCofinalReturnFloor` isolates the precise uniform datum
+left by the finite construction.  `FixedNomeCofinalSpinCubeRayReturnFloor`
+contains one positive rational `floor`, one start cutoff, and the assertion
+that `floor` lies below the already explicit finite return floor at every
+later cutoff.  The structure is Type-level and intentionally has no inhabitant
+in this module.
+
+The compiler divides `floor` by two once.  Exact rational cancellation and
+the finite-minimum comparison then prove that this single `rayDelta` is below
+half of every actual spin-cube return at every later cutoff.  It consequently
+constructs, with no further loss, a finite ray-capacity certificate at each
+stage and a `FixedNomeCofinalSpinCubeRayCapacity` whose left and right spoke
+inequalities share the same positive `delta`.
+
+The focused guarded check passes on its first attempt in about 1.0 seconds.
+The exact one-worker, dependency-complete target passes 5,027 jobs, with the
+new module taking about 1.0 seconds.  All four audited compiler exports use
+exactly `[propext, Quot.sound]`.
+
+This closes a compiler frontier, not its analytic premise.  Existing
+fundamental-cube row domination is one-sided: it gives a lower comparison for
+the spin-one row but does not upper-bound an arbitrary-spin row by its vacuum
+joint entry, which is the direction needed for a uniform return probability.
+The next frontier is therefore an arbitrary-spin conditional row ceiling (or
+a concrete obstruction to one), after which the explicit spin ray would
+still need to be extended to the full rooted sector.  No completed uniform
+gap, continuum QFT, or Clay theorem is claimed.
