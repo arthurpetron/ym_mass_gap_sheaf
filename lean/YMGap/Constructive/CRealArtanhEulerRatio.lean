@@ -20,7 +20,7 @@ to any direct-window rational logarithm.  No `Classical.*`, choice,
 -/
 
 import YMGap.Constructive.CRealExpRationalStreamContinuity
-import YMGap.Constructive.CRealLogRatCongruence
+import YMGap.Constructive.CRealLogOddness
 
 namespace YMGap.Constructive.CRealArtanhEulerRatio
 
@@ -80,6 +80,139 @@ structure NegativeWindowArtanhSquareEulerCompiler : Type 2 where
     (y : Q') -> (hy : y < (0 : Q')) ->
     (hyb : Q'.abs y <= CRealLog.recipOdd 1) ->
     NegativeWindowArtanhSquareEulerEvaluation y hy hyb
+
+/-! ## A smaller positive-window, one-copy frontier -/
+
+/-- Strict negativity becomes strict positivity after rational negation. -/
+theorem neg_pos_of_strict_neg (y : Q') (hy : y < (0 : Q')) :
+    (0 : Q') < -y := by
+  have hynum : y.num < 0 := by
+    have hcross : y.num * (1 : Int) <
+        (0 : Int) * (y.den : Int) := hy
+    omega
+  show (0 : Int) * ((-y).den : Int) < (-y).num * (1 : Int)
+  rw [Int.zero_mul, Int.mul_one]
+  change (0 : Int) < (-y.num)
+  omega
+
+/-- Twice the positive artanh partial sum.  This is one copy of the direct
+logarithmic exponent, before the square used by the Wilson graph norm. -/
+def positiveArtanhExponent (z : Q') (stage : Nat) : Q' :=
+  CRealLog.partialSum z stage + CRealLog.partialSum z stage
+
+/-- The one-copy positive artanh exponent is pointwise nonnegative. -/
+theorem positiveArtanhExponent_nonnegative
+    (z : Q') (hz : (0 : Q') < z) (stage : Nat) :
+    (0 : Q') <= positiveArtanhExponent z stage := by
+  have hpartial : (0 : Q') <= CRealLog.partialSum z stage := by
+    have hmono := CRealLog.partialSum_mono_of_nonneg
+      z (Q'.le_of_lt hz) 0 stage
+    rw [CRealLog.partialSum_zero, Nat.zero_add] at hmono
+    exact hmono
+  exact Q'.zero_le_add _ _ hpartial hpartial
+
+/-- The denominator `1+z` of the positive-window decay ratio is positive. -/
+theorem one_add_pos_of_pos (z : Q') (hz : (0 : Q') < z) :
+    (0 : Q') < (1 : Q') + z :=
+  Q'.add_pos (by decide) hz
+
+/-- The rational decay ratio paired with `2*artanh z`:
+`(1-z)/(1+z)`. -/
+def positiveArtanhDecayRatio (z : Q') (hz : (0 : Q') < z) : Q' :=
+  ((1 : Q') + -z) *
+    Q'.recipPos ((1 : Q') + z) (one_add_pos_of_pos z hz)
+
+/-- The smaller family-independent evaluation: `exp(-2*artanh z)` converges
+to `(1-z)/(1+z)` on the positive direct window. -/
+structure PositiveWindowArtanhEulerEvaluation
+    (z : Q') (hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  exponentialConverges : CReal.ConvergesTo
+    (fun stage => ExpNeg.expNeg
+      (positiveArtanhExponent z stage)
+      (positiveArtanhExponent_nonnegative z hz stage))
+    (CReal.ofQ' (positiveArtanhDecayRatio z hz))
+
+/-- One uniform inverse compiler on the positive artanh window.  This is the
+smallest analytic compiler in the current scalar path: one sign branch, one
+copy of the exponent, and an unsquared rational target. -/
+structure PositiveWindowArtanhEulerCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerEvaluation z hz hzb
+
+/-- One copy of the negative-branch exponent. -/
+def negativeArtanhExponent (y : Q') (stage : Nat) : Q' :=
+  -(CRealLog.partialSum y stage + CRealLog.partialSum y stage)
+
+/-- Pointwise nonnegativity of the one-copy negative-branch exponent. -/
+theorem negativeArtanhExponent_nonnegative
+    (y : Q') (hy : y < (0 : Q')) (stage : Nat) :
+    (0 : Q') <= negativeArtanhExponent y stage := by
+  have hyNonpositive : y <= (0 : Q') := Q'.le_of_lt hy
+  have hpartial : CRealLog.partialSum y stage <= (0 : Q') := by
+    have hanti := CRealLog.partialSum_anti_of_nonpos y hyNonpositive 0 stage
+    rw [CRealLog.partialSum_zero, Nat.zero_add] at hanti
+    exact hanti
+  exact Q'.nonneg_neg_of_nonpos
+    (Q'.le_trans' _ _ _ (Q'.add_le_add hpartial hpartial)
+      (Q'.le_of_eqv (by decide : ((0 : Q') + 0).eqv 0)))
+
+/-- Oddness identifies the positive exponent at `-y` with the one-copy
+negative exponent at `y`. -/
+theorem positiveArtanhExponent_neg_eqv_negative
+    (y : Q') (stage : Nat) :
+    (positiveArtanhExponent (-y) stage).eqv
+      (negativeArtanhExponent y stage) := by
+  unfold positiveArtanhExponent negativeArtanhExponent
+  have hodd := CRealLogOddness.artanhPartial_neg_eqv y stage
+  refine Q'.eqv_trans _
+    ((-CRealLog.partialSum y stage) +
+      (-CRealLog.partialSum y stage)) _ ?_ ?_
+  · exact Q'.add_eqv_congr' hodd hodd
+  · exact Q'.eqv_symm
+      (Q'.neg_add_eqv
+        (CRealLog.partialSum y stage)
+        (CRealLog.partialSum y stage))
+
+/-- The two one-copy exponents add to the existing square exponent. -/
+theorem negativeArtanhExponent_add_self_eqv_square
+    (y : Q') (stage : Nat) :
+    (negativeArtanhExponent y stage + negativeArtanhExponent y stage).eqv
+      (negativeArtanhSquareExponent y stage) := by
+  let a : Q' := negativeArtanhExponent y stage
+  change (a + a).eqv (a * ((1 : Q') + 1))
+  refine Q'.eqv_trans _ (((1 : Q') + 1) * a) _ ?_ ?_
+  · exact Q'.eqv_symm
+      (Q'.eqv_trans _ ((1 : Q') * a + (1 : Q') * a) _
+        (Q'.add_mul_eqv 1 1 a)
+        (Q'.add_eqv_congr'
+          (Q'.one_mul_eqv a) (Q'.one_mul_eqv a)))
+  · exact Q'.mul_comm_eqv ((1 : Q') + 1) a
+
+/-- Negating the coordinate turns the positive-window decay ratio into the
+negative-window inverse Mobius ratio. -/
+theorem positiveArtanhDecayRatio_neg_eqv_artanhRatio
+    (y : Q') (hy : y < (0 : Q')) :
+    (positiveArtanhDecayRatio (-y) (neg_pos_of_strict_neg y hy)).eqv
+      (artanhRatio y hy) := by
+  unfold positiveArtanhDecayRatio artanhRatio
+  have hnum : ((1 : Q') + -(-y)).eqv ((1 : Q') + y) :=
+    Q'.add_eqv_congr_left 1 _ _ (Q'.neg_neg_eqv y)
+  have hden : ((1 : Q') + -y).eqv ((1 : Q') + -y) :=
+    Q'.eqv_refl _
+  have hrecip :
+      (Q'.recipPos ((1 : Q') + -y)
+        (one_add_pos_of_pos (-y) (neg_pos_of_strict_neg y hy))).eqv
+      (Q'.recipPos ((1 : Q') + -y) (one_sub_pos_of_neg y hy)) :=
+    Q'.recipPos_eqv_congr _ _ _ _ hden
+  refine Q'.eqv_trans _
+    (((1 : Q') + y) *
+      Q'.recipPos ((1 : Q') + -y)
+        (one_add_pos_of_pos (-y) (neg_pos_of_strict_neg y hy))) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_right _ _ _ hnum
+  · exact Q'.mul_eqv_congr_left _ _ _ hrecip
 
 /-- The inverse Mobius transform recovers the original rational exactly:
 if `y = (m-1)/(m+1)`, then `(1+y)/(1-y) = m`.  The proof uses only the positive
@@ -164,4 +297,10 @@ end YMGap.Constructive.CRealArtanhEulerRatio
 
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.one_sub_pos_of_neg
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhSquareExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.neg_pos_of_strict_neg
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_neg_eqv_negative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhExponent_add_self_eqv_square
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhDecayRatio_neg_eqv_artanhRatio
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.artanhRatio_yOf_eqv

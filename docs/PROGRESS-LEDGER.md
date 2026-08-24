@@ -14881,3 +14881,42 @@ exponential of the literal `-4 * artanhPartial y` stream converges uniformly
 on `-1/3 <= y < 0` to `((1+y)/(1-y))^2`.  Exact-rate, transfer, finite-graph,
 raw semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and
 Clay residuals remain open.
+
+## Artanh inversion reduced to one positive unsquared identity (2026-08-24)
+
+The negative-window square compiler is not irreducible.  The new
+`PositiveWindowArtanhEulerCompiler` asks only for the positive branch
+`0 < z <= 1/3`, one exponent copy `2 * artanhPartial z`, and the unsquared
+target `(1-z)/(1+z)`.  This removes both the sign transport and the graph-norm
+square from the analytic input.
+
+All removed structure is now generated constructively.  Rational oddness
+proves `positiveArtanhExponent (-y) ≃ negativeArtanhExponent y`; exact Mobius
+algebra proves the corresponding target identity; and
+`negativeArtanhExponent_add_self_eqv_square` identifies two one-copy
+exponents with the earlier square exponent.  The constructor
+`negativeWindowArtanhSquareEulerCompilerOfPositiveOne` combines those facts
+with the rational exponential addition law and constructive multiplication
+continuity.  `directWindowLogSquareEulerCompilerOfPositiveArtanh` then reaches
+the existing direct-log compiler, and
+`adaptivePathOfPositiveArtanhEvaluationCompiler` carries the same single
+input through the connected Wilson capstone.
+
+The scalar implementation width remains one, but the mathematical obligation
+is now canonical: prove
+`exp(-2*artanh z) = (1-z)/(1+z)` by explicit rational-series convergence on
+the positive compact window.  Squaring, the reciprocal sign branch, dyadic
+generation, Wilson specialization, and observable connection are all proved
+consumers rather than analytic assumptions.
+
+The constructive target passes 55 jobs with the changed module taking about
+0.3 seconds.  Exact one-worker targets pass 5098 jobs for the exact-log
+compiler (about 2.1 seconds) and 5110 jobs for the connected capstone (about
+3.0 seconds).  Every newly audited export uses only
+`[propext, Quot.sound]`.
+
+`PositiveWindowArtanhEulerCompiler` remains uninhabited.  The next scalar
+frontier is an explicit two-index rational error certificate for its one-copy
+identity, separating artanh truncation from exponential truncation.  The
+exact-rate, transfer, finite-graph, raw semantic/nontriviality, projective
+OS/GNS, vacuum, continuum, QFT, and Clay residuals remain open.

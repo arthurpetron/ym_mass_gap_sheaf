@@ -13128,3 +13128,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds), and 5110 jobs for the connected capstone (about 2.9 seconds).
   The universal artanh compiler and all later semantic/continuum residuals
   are not claimed inhabited.
+
+### [BF4-physical-positive-artanh-one-copy] Reduce signed square inversion to one positive unsquared identity — **CLOSED 2026-08-24**
+
+- **milestone**: isolate a positive-window, one-copy artanh/Euler evaluator;
+  prove sign transport of its exponent and Mobius target; derive the
+  negative-window square evaluator by exponential addition and multiplication
+  continuity; expose the smaller input through the direct-log and connected
+  Wilson paths.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerRatio.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealArtanhEulerRatio.positiveArtanhExponent`,
+  `CRealArtanhEulerRatio.positiveArtanhDecayRatio`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerEvaluation`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerCompiler`,
+  `CRealArtanhEulerRatio.positiveArtanhExponent_neg_eqv_negative`,
+  `CRealArtanhEulerRatio.negativeArtanhExponent_add_self_eqv_square`,
+  `CRealArtanhEulerRatio.positiveArtanhDecayRatio_neg_eqv_artanhRatio`,
+  `negativeWindowArtanhSquareEulerCompilerOfPositiveOne`,
+  `directWindowLogSquareEulerCompilerOfPositiveArtanh`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhEvaluationCompiler`.
+- **obligation**: inhabit the single uniform
+  `PositiveWindowArtanhEulerCompiler` by proving convergence of the literal
+  rational stream `expNeg(2 * artanhPartial z)` to `(1-z)/(1+z)` for
+  `0 < z <= 1/3`.  The negative branch, square, dyadic family, and Wilson
+  mantissa are no longer independent analytic inputs.  Exact-rate,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, projective OS/GNS, vacuum stationarity, continuum existence,
+  and QFT closure remain separate open inputs.
+- **constructive?**: yes — sign conversion, exact rational Mobius algebra,
+  termwise exponential congruence, the exponential addition law, general
+  multiplication continuity, and limit retargeting are all explicit.  The
+  positive compiler remains uninhabited.  Every new gate reports only
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass: 55 jobs for the constructive
+  module (about 0.3 seconds), 5098 jobs for the exact-log compiler (about 2.1
+  seconds), and 5110 jobs for the connected capstone (about 3.0 seconds).
+  The positive one-copy compiler and all later semantic/continuum residuals
+  are not claimed inhabited.

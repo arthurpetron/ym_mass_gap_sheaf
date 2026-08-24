@@ -313,6 +313,84 @@ def directWindowLogSquareEulerCompilerOfArtanh
           (Q'.mul_eqv_congr_right _ _ _ hRatio)
           (Q'.mul_eqv_congr_left _ _ _ hRatio)))
 
+/-- A positive-window one-copy compiler generates the negative-window square
+compiler.  Oddness transports `2*artanh(-y)` to `-2*artanh(y)`; constructive
+multiplication continuity and the exponential addition law then square both
+the exponential stream and its rational Mobius target. -/
+def negativeWindowArtanhSquareEulerCompilerOfPositiveOne
+    (compiler : PositiveWindowArtanhEulerCompiler) :
+    NegativeWindowArtanhSquareEulerCompiler where
+  evaluate y hy hyb := by
+    let z : Q' := -y
+    let hz : (0 : Q') < z := neg_pos_of_strict_neg y hy
+    have hzb : Q'.abs z <= CRealLog.recipOdd 1 :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_neg' y)) hyb
+    let oneEvaluation := compiler.evaluate z hz hzb
+    let r : Q' := artanhRatio y hy
+    have hOneAtPositiveTarget : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (negativeArtanhExponent y stage)
+          (negativeArtanhExponent_nonnegative y hy stage))
+        (CReal.ofQ' (positiveArtanhDecayRatio z hz)) :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage =>
+          expNeg_eqv_congr
+            (positiveArtanhExponent_nonnegative z hz stage)
+            (negativeArtanhExponent_nonnegative y hy stage)
+            (positiveArtanhExponent_neg_eqv_negative y stage))
+        oneEvaluation.exponentialConverges
+    have hRatio : (positiveArtanhDecayRatio z hz).eqv r :=
+      positiveArtanhDecayRatio_neg_eqv_artanhRatio y hy
+    have hOne : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (negativeArtanhExponent y stage)
+          (negativeArtanhExponent_nonnegative y hy stage))
+        (CReal.ofQ' r) :=
+      CReal.convergesTo_limit_congr hOneAtPositiveTarget
+        (TrigAdd.equiv_ofQ'_of_eqv hRatio)
+    have hProduct : CReal.ConvergesTo
+        (fun stage => CReal.mul
+          (ExpNeg.expNeg
+            (negativeArtanhExponent y stage)
+            (negativeArtanhExponent_nonnegative y hy stage))
+          (ExpNeg.expNeg
+            (negativeArtanhExponent y stage)
+            (negativeArtanhExponent_nonnegative y hy stage)))
+        (CReal.mul (CReal.ofQ' r) (CReal.ofQ' r)) :=
+      YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz.CReal.convergesTo_mul_general
+        hOne hOne
+    have hSquareSequence : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (negativeArtanhSquareExponent y stage)
+          (negativeArtanhSquareExponent_nonnegative y hy stage))
+        (CReal.mul (CReal.ofQ' r) (CReal.ofQ' r)) :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage =>
+          CReal.Equiv.trans
+            (expNeg_add_equiv
+              (negativeArtanhExponent y stage)
+              (negativeArtanhExponent y stage)
+              (negativeArtanhExponent_nonnegative y hy stage)
+              (negativeArtanhExponent_nonnegative y hy stage))
+            (expNeg_eqv_congr
+              (Q'.zero_le_add _ _
+                (negativeArtanhExponent_nonnegative y hy stage)
+                (negativeArtanhExponent_nonnegative y hy stage))
+              (negativeArtanhSquareExponent_nonnegative y hy stage)
+              (negativeArtanhExponent_add_self_eqv_square y stage)))
+        hProduct
+    refine { exponentialConverges := ?_ }
+    exact CReal.convergesTo_limit_congr hSquareSequence
+      (CReal.Equiv.symm (CRealAlg.ofQ'_mul r r))
+
+/-- The smallest current scalar compiler contracts directly to the original
+direct-window logarithm-square interface. -/
+def directWindowLogSquareEulerCompilerOfPositiveArtanh
+    (compiler : PositiveWindowArtanhEulerCompiler) :
+    DirectWindowLogSquareEulerCompiler :=
+  directWindowLogSquareEulerCompilerOfArtanh
+    (negativeWindowArtanhSquareEulerCompilerOfPositiveOne compiler)
+
 /-- At `m = 1/2`, negating the direct-window logarithm approximation produces
 the exponent-one dyadic logarithm approximation. -/
 theorem oneHalfMantissaLogSquareExponent_eqv_dyadicOne (stage : Nat) :
@@ -1055,6 +1133,10 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.negativeArtanhSquareExponent_yOf_eqv_mantissa
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.directWindowLogSquareEulerCompilerOfArtanh
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.negativeWindowArtanhSquareEulerCompilerOfPositiveOne
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.directWindowLogSquareEulerCompilerOfPositiveArtanh
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.oneHalfMantissaLogSquareExponent_eqv_dyadicOne
 #print axioms
