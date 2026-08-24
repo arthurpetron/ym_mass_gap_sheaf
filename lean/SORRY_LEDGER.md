@@ -11579,3 +11579,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 1.4 seconds.  No dynamic family, strength
   band, observable pin, continuum handoff, continuum Yang--Mills theory, or
   Clay theorem is claimed.
+
+### [BF4-physical-moving-centered-vacuum-pairing] Connect legal rational recentering to the actual completed vacuum pairing — **CLOSED 2026-08-24**
+
+- **milestone**: keep one fixed finite cylinder coefficient; recenter only its
+  root coordinate by the rational pulled mean/root-weight ratio at each
+  selected cutoff; prove exact selected-cutoff centering; prove the
+  constructive-real identity `headCorrectionLimit * rootWeightLimit =
+  rawMeanLimit`; expand every fixed moving-centered completed mean; prove
+  those completed means converge to zero; and identify every term with the
+  actual completed global-vacuum pairing of the embedded dense cylinder.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumPairing.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorMovingCenteredPresentation`,
+  `centralPhysicalVacuumSectorMovingCenteredPresentation_meanZero`,
+  `centralPhysicalHeadCorrection_mul_root_equiv_mean`,
+  `centralPhysicalMovingCenteredMeanLimit_equiv_expansion`,
+  `centralPhysicalMovingCenteredMeanLimit_converges_zero`, and
+  `centralPhysicalMovingCentered_completedVacuumPairing_eq`.
+- **obligation**: construct an explicit graph-norm cross-cutoff modulus for
+  these moving presentations, realize its completed vector, prove that vector
+  is nonzero, and connect its same-object transfer moments to the existing
+  dynamic completed family.  Do not assume that generic cutoff-limit moments
+  are rational merely to satisfy the current rational observable-pin
+  interface; refine that interface to retain genuine `CReal` moments if
+  necessary.
+- **constructive?**: yes — the moving correction is rational at every dense
+  stage; positive rational division, exact finite-list algebra,
+  approximation-wise lifting to Bishop reals, and explicit constructive
+  convergence suffice.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: early guarded checks timed out during repeated unfolding of
+  the large BF4 dependent terms and are not passes.  The direct
+  approximation-wise refactor passes the corrected focused guarded check in
+  about 19.3 seconds.  The exact one-worker dependency-complete target passes
+  1369 jobs in about 20 seconds.  This closes only the completed
+  vacuum-pairing convergence bridge; no graph-norm Cauchy completed vector,
+  nonzero observable channel, dynamic observable pin, continuum Yang--Mills
+  theory, or Clay theorem is claimed.

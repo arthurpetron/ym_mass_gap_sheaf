@@ -13427,3 +13427,45 @@ its exact normalized strength, the concrete gauge-invariant observable pin,
 exact-log cutoff control, projective/OS correlation convergence, and
 reconstruction spectral/rate identification.  Continuum Yang--Mills
 existence and the Clay theorem remain open.
+
+## Moving rational centering reaches the actual completed vacuum pairing (2026-08-24)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumPairing` keeps one fixed
+finite cylinder coefficient while recentering only its rational root
+coordinate against each later pulled stationary law.  Each stage is therefore
+a legal dense cylinder and has exactly zero pulled mean at its selected
+cutoff; no generally irrational Bishop-real coefficient is inserted into the
+dense carrier.
+
+The cutoff-Cauchy head correction `C`, cutoff-limit root weight `R`, and raw
+pulled mean `M` satisfy the genuine constructive-real identity
+
+`C * R = M`.
+
+This is proved approximation-wise from the exact rational positive-division
+identity, then lifted to `CReal.Equiv`.  For every fixed centering stage, the
+completed pulled mean is exactly the raw mean plus that rational root shift
+times `R`.  Continuity of negation, multiplication, and addition then proves
+that these completed mean representatives converge to zero.  Finally, the
+existing dense-vacuum-pairing theorem identifies every representative with
+the actual completed global-vacuum pairing of the embedded cylinder.
+
+This closes the vacuum-pairing half of the same-observable cutoff path.  It is
+not yet a single completed vacuum-complement vector: the moving presentations
+still need an explicit graph-norm cross-cutoff modulus, a completed-vector
+realization, and a nonzero persistence theorem.  Their same-object transfer
+moments must then be connected to the dynamic completed family without
+requiring generic Bishop-real limits to be rational.
+
+Early guarded attempts at the limit proof timed out while repeatedly
+normalizing the full BF4 dependent definitions and are not passes.  Replacing
+that elaboration-heavy route by direct approximation-wise `CReal` identities
+made the corrected focused guarded check pass in about 19.3 seconds.  The
+exact one-worker dependency-complete target passes 1369 jobs in about 20
+seconds.  All five audited exports use exactly `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+The cofinal local transition-product estimate, physical strength scaling,
+nonzero observable completion, exact-log cutoff control, projective/OS
+correlation convergence, reconstruction, continuum Yang--Mills theory, and
+the Clay theorem remain open.
