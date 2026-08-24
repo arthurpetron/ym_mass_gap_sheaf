@@ -14838,3 +14838,46 @@ frontier is now one uniform constructive exponential/logarithm inverse proof
 over the direct artanh window, rather than separate log-two and mantissa
 theorems.  Exact-rate, transfer, finite-graph, raw semantic/nontriviality,
 vacuum, continuum, QFT, and Clay residuals also remain open.
+
+## Direct-window inversion reduced to the universal artanh ratio (2026-08-24)
+
+`CRealArtanhEulerRatio` removes the rational mantissa, logarithm wrapper,
+Wilson datum, cutoff family, and reconstruction from the remaining scalar
+analytic obligation.  For a negative rational coordinate `y` in the direct
+artanh window it defines the literal exponent stream
+`-4 * artanhPartial y` and the inverse Mobius target
+`artanhRatio y = (1+y)/(1-y)`.  The Type-level
+`NegativeWindowArtanhSquareEulerCompiler` asks only for convergence of the
+corresponding rational negative-exponential stream to
+`artanhRatio(y)^2`.
+
+The rational algebra surrounding that one analytic statement is now closed.
+`one_sub_pos_of_neg` constructs the positive denominator, and
+`artanhRatio_yOf_eqv` proves exactly that
+`artanhRatio (yOf m) ≃ m`.  On the continuum compiler side,
+`negativeArtanhSquareExponent_yOf_eqv_mantissa` identifies the literal generic
+stream with the existing direct-log stream, while
+`directWindowLogSquareEulerCompilerOfArtanh` transports convergence and the
+Mobius target to `m^2`.  Therefore the universal artanh compiler supplies the
+previous direct-window compiler, its `m=1/2` specialization supplies every
+dyadic seed, and its Wilson specialization supplies the reconstruction
+mantissa.
+
+`adaptivePathOfArtanhEvaluationCompiler` exposes this reduced scalar input on
+the same connected observable capstone.  It does not change the causal
+direction: the all-vector graph-norm gap remains upstream and the raw
+connected autocorrelation remains a downstream realization.  Thus analytic
+implementation width is still one, but the remaining proof no longer carries
+any dynamic or reconstruction-specific indices.
+
+The constructive target passes 54 jobs, with the new module taking about 0.2
+seconds.  Exact one-worker targets pass 5098 jobs for the exact-log compiler
+(about 2.1 seconds) and 5110 jobs for the connected capstone (about 2.9
+seconds).  Every newly audited export uses only `[propext, Quot.sound]`.
+
+`NegativeWindowArtanhSquareEulerCompiler` remains uninhabited.  Its exact
+series estimate is the next scalar frontier: prove that the negative
+exponential of the literal `-4 * artanhPartial y` stream converges uniformly
+on `-1/3 <= y < 0` to `((1+y)/(1-y))^2`.  Exact-rate, transfer, finite-graph,
+raw semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and
+Clay residuals remain open.

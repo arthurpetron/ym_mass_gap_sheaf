@@ -13090,3 +13090,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 5097 jobs in about 2.0 seconds, and the connected capstone passes 5109
   jobs in about 2.8 seconds.  The uniform direct-window compiler and all later
   semantic/continuum residuals are not claimed inhabited.
+
+### [BF4-physical-artanh-ratio-inverse] Remove logarithm and Wilson indices from the scalar inverse — **CLOSED 2026-08-24**
+
+- **milestone**: isolate one family-independent negative-window artanh/Euler
+  compiler; prove positivity of its Mobius denominator; prove exact inversion
+  `artanhRatio (yOf m) ≃ m`; identify its exponent stream with the direct-log
+  mantissa stream; compile it through the direct-window, Wilson, and connected
+  observable paths.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerRatio.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealArtanhEulerRatio.one_sub_pos_of_neg`,
+  `CRealArtanhEulerRatio.negativeArtanhSquareExponent_nonnegative`,
+  `CRealArtanhEulerRatio.NegativeWindowArtanhSquareEulerEvaluation`,
+  `CRealArtanhEulerRatio.NegativeWindowArtanhSquareEulerCompiler`,
+  `CRealArtanhEulerRatio.artanhRatio_yOf_eqv`,
+  `negativeArtanhSquareExponent_yOf_eqv_mantissa`,
+  `directWindowLogSquareEulerCompilerOfArtanh`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfArtanhEvaluationCompiler`.
+- **obligation**: inhabit the single uniform
+  `NegativeWindowArtanhSquareEulerCompiler` by an explicit rational-series
+  estimate proving convergence of `expNeg(-4 * artanhPartial y)` to
+  `((1+y)/(1-y))^2` for `-1/3 <= y < 0`.  Exact-rate,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, projective OS/GNS, vacuum stationarity, continuum existence,
+  and QFT closure remain separate open inputs.
+- **constructive?**: yes — the reduction uses explicit sign witnesses,
+  positive rational reciprocals, exact `Q'.eqv` algebra, termwise exponential
+  transport, and convergence-limit retargeting.  It does not inhabit the
+  analytic compiler or select a limit.  Every new gate reports only
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass: 54 jobs for the constructive
+  module (about 0.2 seconds), 5098 jobs for the exact-log compiler (about 2.1
+  seconds), and 5110 jobs for the connected capstone (about 2.9 seconds).
+  The universal artanh compiler and all later semantic/continuum residuals
+  are not claimed inhabited.

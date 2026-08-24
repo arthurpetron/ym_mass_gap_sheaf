@@ -44,6 +44,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Constructive.CRealArtanhEulerRatio
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
@@ -704,6 +705,39 @@ def adaptivePathOfDirectWindowEvaluationCompiler
       W exactRate.positiveGapBound scalarInverse)
     transfer finite vacuumPin
 
+/-- The connected capstone with the scalar branch reduced to the universal
+negative-window artanh/Euler compiler.  Exact Mobius inversion first contracts
+that family-independent analytic witness to the direct-log compiler; all
+subsequent dyadic, Wilson, graph-norm, and observable joins are unchanged. -/
+def adaptivePathOfArtanhEvaluationCompiler
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (scalarInverse : NegativeWindowArtanhSquareEulerCompiler)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfDirectWindowEvaluationCompiler
+    uniform projectiveOS matrixCoefficient exactRate
+    (directWindowLogSquareEulerCompilerOfArtanh scalarInverse)
+    transfer finite vacuumPin
+
 /-- The adaptive path retains the direct scheduled physical-exponential
 bound, with the exact same rate-power limit consumed by its graph-norm field. -/
 def adaptiveRawPhysicalExponentialPath
@@ -778,5 +812,7 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfDyadicOneAndMantissaEvaluationCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfDirectWindowEvaluationCompiler
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfArtanhEvaluationCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptiveMinimalBoundedMassGap

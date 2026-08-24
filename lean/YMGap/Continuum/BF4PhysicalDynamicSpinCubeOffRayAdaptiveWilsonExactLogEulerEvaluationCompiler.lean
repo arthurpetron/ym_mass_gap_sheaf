@@ -31,6 +31,7 @@ or Clay conclusion is constructed here.  No `Classical.*`, choice,
 -/
 
 import YMGap.Constructive.CRealExpRationalStreamContinuity
+import YMGap.Constructive.CRealArtanhEulerRatio
 import YMGap.Constructive.CRealLogOddness
 import YMGap.Constructive.TrigAddCReal
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
@@ -45,6 +46,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Constructive.CRealExpRationalStreamContinuity
+open YMGap.Constructive.CRealArtanhEulerRatio
 open YMGap.Constructive.CRealLogOddness
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
@@ -265,6 +267,51 @@ structure DirectWindowLogSquareEulerCompiler : Type 2 where
     (m : Q') -> (hm1 : (0 : Q') < m + 1) -> (hlt : m < (1 : Q')) ->
     (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1) ->
     MantissaLogSquareEulerEvaluation m hm1 hlt hyb
+
+/-- The generic artanh exponent is the literal mantissa-log exponent after
+substituting `y = yOf m`. -/
+theorem negativeArtanhSquareExponent_yOf_eqv_mantissa
+    (m : Q') (hm1 : (0 : Q') < m + 1)
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1)
+    (stage : Nat) :
+    (negativeArtanhSquareExponent (CRealLog.yOf m hm1) stage).eqv
+      (mantissaLogSquareExponent m hm1 hyb stage) := by
+  unfold negativeArtanhSquareExponent mantissaLogSquareExponent
+  rw [CReal.neg_approx]
+  rw [CRealLog.logRat_approx]
+  exact Q'.eqv_refl _
+
+/-- A universal negative-window artanh compiler contracts to the original
+direct-window logarithm-square compiler.  The only non-analytic work is the
+proved exact Mobius inverse `artanhRatio (yOf m) = m`. -/
+def directWindowLogSquareEulerCompilerOfArtanh
+    (compiler : NegativeWindowArtanhSquareEulerCompiler) :
+    DirectWindowLogSquareEulerCompiler where
+  evaluate m hm1 hlt hyb := by
+    let y : Q' := CRealLog.yOf m hm1
+    let hy : y < (0 : Q') := YMGap.Continuum.yOf_sep_neg m hm1 hlt
+    let evaluation := compiler.evaluate y hy hyb
+    refine { exponentialConverges := ?_ }
+    have hSequence : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          (mantissaLogSquareExponent m hm1 hyb stage)
+          (mantissaLogSquareExponent_nonnegative m hm1 hlt hyb stage))
+        (CReal.ofQ' (artanhRatio y hy * artanhRatio y hy)) :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage =>
+          expNeg_eqv_congr
+            (negativeArtanhSquareExponent_nonnegative y hy stage)
+            (mantissaLogSquareExponent_nonnegative m hm1 hlt hyb stage)
+            (negativeArtanhSquareExponent_yOf_eqv_mantissa
+              m hm1 hyb stage))
+        evaluation.exponentialConverges
+    have hRatio : (artanhRatio y hy).eqv m :=
+      artanhRatio_yOf_eqv m hm1 hy
+    exact CReal.convergesTo_limit_congr hSequence
+      (TrigAdd.equiv_ofQ'_of_eqv
+        (Q'.eqv_trans _ (m * artanhRatio y hy) _
+          (Q'.mul_eqv_congr_right _ _ _ hRatio)
+          (Q'.mul_eqv_congr_left _ _ _ hRatio)))
 
 /-- At `m = 1/2`, negating the direct-window logarithm approximation produces
 the exponent-one dyadic logarithm approximation. -/
@@ -1004,6 +1051,10 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.logRat_approx_nonpositive_of_lt_one
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.mantissaLogSquareExponent_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.negativeArtanhSquareExponent_yOf_eqv_mantissa
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.directWindowLogSquareEulerCompilerOfArtanh
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.oneHalfMantissaLogSquareExponent_eqv_dyadicOne
 #print axioms
