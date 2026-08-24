@@ -13169,3 +13169,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds), and 5110 jobs for the connected capstone (about 3.0 seconds).
   The positive one-copy compiler and all later semantic/continuum residuals
   are not claimed inhabited.
+
+### [BF4-physical-positive-artanh-pivot] Reduce two-index convergence to one computed rational pivot — **CLOSED 2026-08-24**
+
+- **milestone**: define the explicit inner cutoff supplied by `ExpNeg.Mexp`;
+  isolate a Type-level outer-stage pivot certificate; derive the complete
+  two-index positive-artanh Euler evaluation from that certificate and the
+  existing exponential Cauchy modulus; expose the reduced compiler on the
+  connected Wilson capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerRatio.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealArtanhEulerRatio.positiveArtanhEulerPivot`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCertificate`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCompiler`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCertificate.toEvaluation`,
+  `CRealArtanhEulerRatio.positiveWindowArtanhEulerCompilerOfPivot`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPivotCompiler`.
+- **obligation**: inhabit the uniform pivot compiler by constructing its outer
+  modulus and proving the one rational two-sided comparison at the computed
+  inner cutoff.  The inner exponential approximation is no longer an
+  independent quantified residual.  Exact-rate, transfer/finite-graph
+  approximation, raw observable semantics, nontriviality, projective OS/GNS,
+  vacuum stationarity, continuum existence, and QFT closure remain separate
+  open inputs.
+- **constructive?**: yes — the certificate stores its modulus as data, the
+  conversion uses the explicit `ExpNeg.Mexp` Cauchy estimate, and the two
+  half-error budgets close by rational equivalence.  No evaluator is assumed
+  inhabited and no propositional witness is selected.  Every new gate reports
+  only `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass: 55 jobs for the constructive
+  module (about 0.3 seconds) and 5110 jobs for the connected capstone (about
+  3.1 seconds).  The pivot compiler and all later semantic/continuum
+  residuals are not claimed inhabited.

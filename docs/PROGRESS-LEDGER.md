@@ -14920,3 +14920,35 @@ frontier is an explicit two-index rational error certificate for its one-copy
 identity, separating artanh truncation from exponential truncation.  The
 exact-rate, transfer, finite-graph, raw semantic/nontriviality, projective
 OS/GNS, vacuum, continuum, QFT, and Clay residuals remain open.
+
+## Positive artanh convergence reduced to one computed pivot (2026-08-24)
+
+The two-index convergence obligation has been contracted to one explicit
+outer-stage certificate.  At an artanh stage `N` and tolerance `epsilon`,
+`positiveArtanhEulerPivot` computes the inner exponential cutoff as
+`ExpNeg.Mexp (positiveArtanhExponent z N) (epsilon / 2)`.  The Type-level
+`PositiveWindowArtanhEulerPivotCertificate` therefore asks only for a
+constructive outer modulus and the two rational inequalities comparing that
+single pivot value with `(1-z)/(1+z)` to half the requested tolerance.
+
+`PositiveWindowArtanhEulerPivotCertificate.toEvaluation` proves the full
+two-index convergence statement.  It combines the pivot comparison with the
+already-verified explicit Cauchy modulus for every later exponential partial
+sum and closes the two half-error budgets by exact rational algebra.  No
+witness is extracted from a proposition and no choice principle is used.
+`positiveWindowArtanhEulerCompilerOfPivot` packages the construction
+uniformly, while `adaptivePathOfPositiveArtanhPivotCompiler` carries the
+smaller input through the same direct-log, exact-rate, graph-norm, and raw
+connected-observable capstone.
+
+The constructive module passes a 55-job exact one-worker target, with the
+changed module taking about 0.3 seconds.  The connected capstone passes 5110
+jobs, with the changed target taking about 3.1 seconds.  Every newly audited
+export uses only `[propext, Quot.sound]`.
+
+`PositiveWindowArtanhEulerPivotCompiler` remains uninhabited.  The next
+analytic frontier is to construct its outer modulus and prove the single
+pivot inequality, preferably after clearing the positive denominator so the
+open estimate is division-free.  Exact-rate, transfer, finite-graph, raw
+semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and Clay
+residuals remain open.

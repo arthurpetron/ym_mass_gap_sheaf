@@ -142,6 +142,102 @@ structure PositiveWindowArtanhEulerCompiler : Type 2 where
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerEvaluation z hz hzb
 
+/-- The computed inner exponential-series cutoff used by the pivot
+certificate.  The outer stage controls the artanh partial sum; at that fixed
+stage, `ExpNeg.Mexp` controls every later exponential approximation. -/
+def positiveArtanhEulerPivot
+    (z : Q') (stage : Nat) (epsilon : Q') : Nat :=
+  ExpNeg.Mexp (positiveArtanhExponent z stage)
+    (HalfPow.half * epsilon)
+
+/-- A one-index quantitative certificate for the positive artanh identity.
+
+At every sufficiently late artanh stage it compares a single, computed
+exponential partial sum with `(1-z)/(1+z)` to half the requested tolerance.
+The already-proved explicit Cauchy modulus of `expNeg` then supplies every
+later inner approximation and the other half of the tolerance. -/
+structure PositiveWindowArtanhEulerPivotCertificate
+    (z : Q') (hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  stageModulus : Q' -> Nat
+  pivotClose : forall epsilon : Q', (0 : Q') < epsilon ->
+    forall stage : Nat, stageModulus epsilon <= stage ->
+      let q := HalfPow.half * epsilon
+      let exponent := positiveArtanhExponent z stage
+      let pivot := positiveArtanhEulerPivot z stage epsilon
+      ExpNeg.partialSum exponent pivot <=
+          positiveArtanhDecayRatio z hz + q /\
+        positiveArtanhDecayRatio z hz <=
+          ExpNeg.partialSum exponent pivot + q
+
+/-- A uniform producer of explicit pivot certificates. -/
+structure PositiveWindowArtanhEulerPivotCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPivotCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerPivotCertificate
+
+/-- The pivot certificate inhabits the one-copy Euler evaluation.  This
+constructor discharges the entire inner exponential truncation from
+`ExpNeg.expNeg_cauchy_explicit`; the remaining certificate is only the outer
+artanh-stage comparison at one computed pivot. -/
+def toEvaluation
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerPivotCertificate z hz hzb) :
+    PositiveWindowArtanhEulerEvaluation z hz hzb where
+  exponentialConverges := by
+    intro epsilon hepsilon
+    let q : Q' := HalfPow.half * epsilon
+    have hq : (0 : Q') < q := ExpNeg.half_mul_pos epsilon hepsilon
+    refine ⟨certificate.stageModulus epsilon, fun stage hstage => ?_⟩
+    let exponent : Q' := positiveArtanhExponent z stage
+    let pivot : Nat := positiveArtanhEulerPivot z stage epsilon
+    have hpivot := certificate.pivotClose epsilon hepsilon stage hstage
+    have hexponent : (0 : Q') <= exponent :=
+      positiveArtanhExponent_nonnegative z hz stage
+    refine ⟨pivot, fun n hn => ?_⟩
+    have hcauchy := ExpNeg.expNeg_cauchy_explicit
+      exponent hexponent q hq pivot n (Nat.le_refl pivot) hn
+    change
+      ExpNeg.partialSum exponent n <=
+          positiveArtanhDecayRatio z hz + epsilon /\
+        positiveArtanhDecayRatio z hz <=
+          ExpNeg.partialSum exponent n + epsilon
+    have hqq : (q + q).eqv epsilon := ExpNeg.two_halves epsilon
+    have hforward : ExpNeg.partialSum exponent n <=
+        (positiveArtanhDecayRatio z hz + q) + q :=
+      Q'.le_trans' _ _ _ hcauchy.2
+        (Q'.add_le_add_right _ _ q hpivot.1)
+    have hbackward : positiveArtanhDecayRatio z hz <=
+        (ExpNeg.partialSum exponent n + q) + q :=
+      Q'.le_trans' _ _ _ hpivot.2
+        (Q'.add_le_add_right _ _ q hcauchy.1)
+    refine ⟨Q'.le_trans' _ _ _ hforward (Q'.le_of_eqv ?_),
+      Q'.le_trans' _ _ _ hbackward (Q'.le_of_eqv ?_)⟩
+    · exact Q'.eqv_trans _
+        (positiveArtanhDecayRatio z hz + (q + q)) _
+        (Q'.add_assoc_eqv (positiveArtanhDecayRatio z hz) q q)
+        (Q'.add_eqv_congr_left
+          (positiveArtanhDecayRatio z hz) _ _ hqq)
+    · exact Q'.eqv_trans _
+        (ExpNeg.partialSum exponent n + (q + q)) _
+        (Q'.add_assoc_eqv (ExpNeg.partialSum exponent n) q q)
+        (Q'.add_eqv_congr_left
+          (ExpNeg.partialSum exponent n) _ _ hqq)
+
+end PositiveWindowArtanhEulerPivotCertificate
+
+/-- Uniform pivot certificates compile to the smallest current scalar inverse
+interface without any choice or extraction from a propositional existential. -/
+def positiveWindowArtanhEulerCompilerOfPivot
+    (compiler : PositiveWindowArtanhEulerPivotCompiler) :
+    PositiveWindowArtanhEulerCompiler where
+  evaluate z hz hzb :=
+    (compiler.evaluate z hz hzb).toEvaluation
+
 /-- One copy of the negative-branch exponent. -/
 def negativeArtanhExponent (y : Q') (stage : Nat) : Q' :=
   -(CRealLog.partialSum y stage + CRealLog.partialSum y stage)
@@ -299,6 +395,8 @@ end YMGap.Constructive.CRealArtanhEulerRatio
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhSquareExponent_nonnegative
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.neg_pos_of_strict_neg
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCertificate.toEvaluation
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveWindowArtanhEulerCompilerOfPivot
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhExponent_nonnegative
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_neg_eqv_negative
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhExponent_add_self_eqv_square

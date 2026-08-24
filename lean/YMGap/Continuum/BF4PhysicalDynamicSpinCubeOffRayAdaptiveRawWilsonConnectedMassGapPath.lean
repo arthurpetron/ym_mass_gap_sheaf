@@ -771,6 +771,39 @@ def adaptivePathOfPositiveArtanhEvaluationCompiler
     (directWindowLogSquareEulerCompilerOfPositiveArtanh scalarInverse)
     transfer finite vacuumPin
 
+/-- The connected capstone fed by an explicit one-index pivot certificate.
+The computed `ExpNeg.Mexp` cutoff discharges the inner exponential
+approximation, so the remaining scalar producer controls only the outer
+artanh stage at that pivot. -/
+def adaptivePathOfPositiveArtanhPivotCompiler
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (scalarInverse : PositiveWindowArtanhEulerPivotCompiler)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfPositiveArtanhEvaluationCompiler
+    uniform projectiveOS matrixCoefficient exactRate
+    (positiveWindowArtanhEulerCompilerOfPivot scalarInverse)
+    transfer finite vacuumPin
+
 /-- The adaptive path retains the direct scheduled physical-exponential
 bound, with the exact same rate-power limit consumed by its graph-norm field. -/
 def adaptiveRawPhysicalExponentialPath
@@ -849,5 +882,7 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfArtanhEvaluationCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhEvaluationCompiler
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPivotCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptiveMinimalBoundedMassGap
