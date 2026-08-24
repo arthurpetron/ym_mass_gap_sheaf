@@ -11099,3 +11099,27 @@ next frontier is an exact certificate-or-crossing-edge decision, followed by
 either proof of cofinal closure or quantitative payment for the exposed
 boundary edges.  Completed contraction, continuum QFT, and the Clay theorem
 remain open.
+
+## Boundary closure now has an explicit failure witness and trichotomy (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryClosureDecision` performs
+structural recursion over the exact finite Cartesian pair list behind the
+closure checker.  At every `later >= 2` it returns either a proof-carrying
+embedded-boundary closure certificate or a literal later support edge from an
+embedded cutoff-two vacuum state to a later new state.
+
+The failure edge is then constructively classified into the exact shell
+split: its target is either outside the entire cutoff-two positive carrier or
+belongs to a previously separate cutoff-two positive component.  Thus a
+failed closure check is not overinterpreted as a merger; the newly positive
+crossing and direct old-component crossing remain distinct Type-level data.
+
+The focused check passes in about 0.9 seconds.  The exact one-worker,
+dependency-complete target passes 5,013 jobs, with the new module taking about
+0.8 seconds.  Both audited exports use exactly `[propext, Quot.sound]`.
+
+This is a decision interface, not a larger-cutoff computation or cofinal
+theorem.  The next frontier is to quantify the stationary mass represented by
+the two crossing branches and compare it with the scalar edge-floor payment,
+or prove the closure branch along an appropriate moving-base schedule.
+Completed contraction, continuum QFT, and the Clay theorem remain open.

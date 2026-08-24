@@ -9460,3 +9460,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 2.4 seconds.  Only `later = 2` is
   inhabited, so no cofinal contraction, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-cutoff-two-component-boundary-decision] Closure-or-crossing trichotomy — **CLOSED 2026-08-23**
+
+- **milestone**: constructively inspect the exact closure pair list and return
+  either a successful closure certificate or a literal embedded-to-new later
+  support edge; classify every failure edge as newly outside old positive
+  support or directly entering a separate old-positive component.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryClosureDecision.lean`.
+- **decl**: `cutoffTwoEmbeddedVacuumBoundaryClosureDecision` and
+  `cutoffTwoEmbeddedVacuumBoundaryTrichotomy`.
+- **obligation**: quantify the two crossing branches against stationary shell
+  mass and edge-floor payment, or prove the closure branch on a moving-base
+  cofinal schedule.
+- **constructive?**: yes — local structural recursion returns membership and
+  Boolean edge proofs in `Type`; the existing exact shell split preserves the
+  semantic distinction between newly positive and old-component targets.
+  Both audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the focused check passes in about 0.9 seconds; the exact
+  one-worker target passes 5,013 jobs with the new module taking about 0.8
+  seconds.  The decision does not establish which branch occurs at any larger
+  cutoff, so no cofinal contraction, continuum QFT, or Clay theorem is
+  claimed.
