@@ -12188,3 +12188,36 @@ the boundary sum and the retained target row, yielding the promised uniform
 raw-row ceiling.  The transfer contraction, full-sector gap, completion,
 thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
 open.
+
+## The literal central spin-cube raw row has a cutoff-uniform ceiling (2026-08-23)
+
+`BF4CentralSpinCubeRawRowCeiling` closes the summational frontier on the
+production definitions.  It first enlarges the retained positive target
+filter to the complete bounded half-state carrier using nonnegativity of every
+unnormalised reflected-kernel entry.  It then transports the already proved
+termwise decorated majorant through both finite sums.  Finite Fubini and the
+literal Cartesian boundary-target definition identify the resulting nested
+decorated sum with the exact carrier bounded in the preceding module.
+
+For every cutoff-admitted source spin, the result is the production theorem
+
+`centralPhysicalPositiveRawRowMass anchor K 0 (spinCube spin)
+  <= (coeffW anchor spin)^6 * (1 + 1/7500)^66`.
+
+Thus the source activity and the full residual row mass now share a common
+cutoff-independent ratio ceiling.  No proxy row, asymptotic estimate, or new
+analytic hypothesis occurs in the proof.
+
+Three failed focused elaboration attempts exposed missing defining namespace
+openings; none is a pass.  The corrected focused guarded check passes in about
+0.9 seconds.  The exact one-worker dependency-complete target passes 5036
+jobs, with the new module taking about 0.9 seconds.  The audited export uses
+exactly `[propext, Quot.sound]`.
+
+The next frontier is to combine this literal row ceiling with the existing
+selected zero-boundary production term, cancel the common six-face source
+activity in the raw return ratio, and instantiate the witness-bearing uniform
+spin-ray return/capacity compiler.  This remains a ray certificate, not a
+full vacuum-complement contraction.  Full-sector routing, completion,
+thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
+open.

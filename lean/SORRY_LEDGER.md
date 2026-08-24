@@ -10403,3 +10403,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 995 jobs with the new module taking about 3.8 seconds.  No
   raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is claimed
   yet.
+
+### [BF4-central-spin-cube-raw-row-ceiling] Bound the literal positive raw row uniformly — **CLOSED 2026-08-23**
+
+- **milestone**: enlarge the retained positive target filter by kernel
+  nonnegativity, sum the source-activity decorated bound over all boundary and
+  target labellings, identify the nested sum with the literal Cartesian
+  residual carrier, and apply its fixed 66-face ceiling.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeRawRowCeiling.lean`.
+- **decl**:
+  `centralLowerSpinCubePositiveRawRow_le_activity_mul_ceiling`.
+- **obligation**: combine the exact selected zero-boundary summand with this
+  raw-row ceiling, cancel the common six-face source activity in the positive
+  raw return ratio, and instantiate the existing witness-bearing spin-ray
+  return/capacity compiler.
+- **constructive?**: yes — finite filter partition, production-kernel
+  nonnegativity, recursive termwise list order, finite Fubini, exact Cartesian
+  identification, rational power nonnegativity, and the preceding carrier
+  ceiling suffice.  The audited export uses exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 0.9 seconds; the exact
+  one-worker dependency-complete target passes 5036 jobs with the new module
+  taking about 0.9 seconds.  This is a cutoff-uniform certificate on one
+  explicit spin-cube ray, not a full-sector gap, continuum QFT, or Clay
+  theorem.
