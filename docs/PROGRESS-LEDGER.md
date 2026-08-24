@@ -11901,3 +11901,37 @@ frontier is its actual BF4 boundary-channel and fusion-factor estimate or a
 kernel-checked obstruction.  Extension beyond the spin ray, the completed
 vacuum-complement gap, thermodynamic and continuum limits, continuum QFT, and
 the Clay theorem remain open.
+
+## The selected arbitrary-spin cube term is exactly one heat activity (2026-08-23)
+
+`BF4CentralLowerSpinCubePhysicalTerm` computes the selected zero-boundary
+production term for every cutoff-admitted spin.  At each touched lattice link,
+the incident list is a permutation of one equal pair `spin, spin` followed by
+vacuum labels.  Ordered vacuum-extension invariance removes all zero labels;
+the remaining two-valent singlet count is exactly one.  Untouched links reduce
+to the all-vacuum computation.  Hence every local explicit valence
+multiplicity is one and their complete product is one.
+
+The face factor is computed independently.  Exactly the six central cube
+faces carry `spin`, every other physical face carries zero, and the finite
+elimination product is therefore `(coeffW w spin)^6`.  Combining the face and
+link computations proves the exact identity
+
+`selectedZeroBoundaryTerm(w,K,spin) = (coeffW w spin)^6`.
+
+Three failed focused elaboration attempts exposed the two-valent Boolean
+normal form, missing geometry/face namespaces, and explicit `Q'.eqv`
+reflexivity obligations; none is a pass.  The corrected focused guarded check
+passes in about 1.0 seconds.  The exact one-worker, dependency-complete target
+passes 5,030 jobs, with the new module taking about 1.0 seconds.  All four
+audited exports use exactly `[propext, Quot.sound]`.
+
+The open selected-term row ceiling has consequently contracted to the
+fully explicit estimate
+
+`rawPositiveRowMass(w,K,spin) <= C * (coeffW w spin)^6`
+
+uniformly in cutoff and admitted spin.  Proving or refuting that estimate,
+extending beyond the spin ray, the completed vacuum-complement gap,
+thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
+open.

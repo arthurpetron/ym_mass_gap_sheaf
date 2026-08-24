@@ -10175,3 +10175,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   5,029 jobs with the new module taking about 1.3 seconds.  The analytic datum
   remains uninhabited, and no full-sector gap, continuum QFT, or Clay theorem
   is claimed.
+
+### [BF4-all-spin-cube-exact-selected-term] Exact fusion product and heat activity — **CLOSED 2026-08-23**
+
+- **milestone**: compute every local link multiplicity of the selected
+  arbitrary-spin closed cube as exactly one, compute its face factor as the
+  sixth power of the corresponding heat coefficient, and identify the full
+  selected physical term with that explicit activity.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralLowerSpinCubePhysicalTerm.lean`.
+- **decl**:
+  `centralLowerSpinCube_linkMultiplicity_eq_one`,
+  `centralLowerSpinCube_linkProduct_eq_one`,
+  `centralLowerSpinCubePhysicalFaceFactor_eqv`, and
+  `centralLowerSpinCubePhysicalTerm_eqv`.
+- **obligation**: prove or refute a cutoff- and spin-uniform upper bound
+  `rawPositiveRowMass <= C * (coeffW w spin)^6`; if successful, use the
+  selected-term compiler and then extend routing beyond the spin ray.
+- **constructive?**: yes — finite incident-list permutations, inductive zero
+  extensions, the exact two-valent singlet Boolean, finite link products, and
+  finite face-product counting suffice.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused attempts are not passes.  The corrected
+  focused check passes in about 1.0 seconds; the exact one-worker target passes
+  5,030 jobs with the new module taking about 1.0 seconds.  The uniform raw-row
+  comparison, full-sector gap, continuum QFT, and Clay theorem remain open.
