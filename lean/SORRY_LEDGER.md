@@ -10564,3 +10564,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1.2 seconds.  The residual load is explicit, but no uniform pointwise
   congestion inequality, full vacuum-complement gap, continuum QFT, or Clay
   theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-flow-capacity] Compile local congestion into full finite coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: replace the coefficient-uniform residual form hypothesis by
+  one pointwise comparison between the explicit residual edge load and half
+  the genuine physical-kernel capacity, sum that comparison into the loaded
+  Dirichlet form, inhabit the residual coercivity certificate, and compile a
+  cofinal family into full finite-sector pairwise coercivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualFlowCapacity.lean`.
+- **decl**:
+  `CentralLowerExcitedSpinCubeOffRayResidualFlowCapacityAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualFlowCapacityAt.sharedFloor_mul_rawLoadedDirichlet_le_half_physicalDirichlet`,
+  `CentralLowerExcitedSpinCubeOffRayResidualFlowCapacityAt.toOffRayResidualCoercivityAt`,
+  `FixedNomeCofinalSpinCubeOffRayResidualFlowCapacity`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualFlowCapacity.sharedFloor_mul_fullPairwiseVariance_le_physicalDirichlet`.
+- **obligation**: inhabit the cofinal pointwise structure by proving that the
+  explicit residual flow load fits the reserved half physical-kernel capacity
+  on every carrier edge, with one cutoff-independent positive floor.  Then
+  establish the separate uniform sector-mass lower bound required for a
+  centered transfer contraction.
+- **constructive?**: yes — rational joint scaling, finite sum monotonicity,
+  square nonnegativity, the exact residual loaded-flow theorem, and the
+  existing half-energy compiler suffice.  All five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three initial focused attempts were interrupted or failed
+  because missing namespace openings caused expensive definitional reduction;
+  none is a pass.  A temporary profiler localized the issue and was removed.
+  The corrected focused check passes in about 1.3 seconds; the exact one-worker
+  dependency-complete target passes 5044 jobs with the new module taking about
+  1.2 seconds.  The pointwise capacity family is not inhabited, so no
+  unconditional full-sector gap, continuum QFT, or Clay theorem is claimed.

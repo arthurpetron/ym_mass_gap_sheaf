@@ -12381,3 +12381,40 @@ congestion inequality comparing the shared floor times this residual load
 with the reserved half of the genuine physical kernel on every carrier edge.
 No such uniform bound, full vacuum-complement gap, continuum QFT, or Clay
 theorem is claimed.
+
+## Pointwise residual-flow capacity now compiles to full finite coercivity (2026-08-23)
+
+`BF4PhysicalSpinCubeOffRayResidualFlowCapacity` replaces the preceding
+coefficient-uniform form hypothesis by a strictly local interface.  At a
+fixed cutoff, its sole analytic field asks that, on every ordered pair of
+physical carrier states,
+
+`(rayDelta / 2) * residualFlowLoad(source,target)
+  <= (1/2) * physicalKernel(source,target)`.
+
+Both the flow load and the physical kernel in this inequality are independent
+of the test coefficient.  Finite sum monotonicity scales the pointwise joint
+comparison into a loaded-Dirichlet inequality.  Combining it with the proved
+residual-to-load bound inhabits the exact residual coercivity certificate;
+the prior ray/residual half-energy compiler then yields full finite-sector
+pairwise Dirichlet coercivity at `rayDelta / 2`.
+
+The module also packages a cofinal family of these local capacity certificates
+and proves that it losslessly inhabits the cofinal residual structure.  Thus
+the former arbitrary-function form obligation is now reduced to one explicit
+coefficient-free weighted-congestion inequality on finite directed edges.
+
+Three initial focused attempts were interrupted or failed because missing
+namespace openings left metavariables that triggered expensive definitional
+reduction; none is a pass.  A temporary profiler localized the issue and was
+removed.  The corrected focused guarded check passes in about 1.3 seconds.
+The exact one-worker, dependency-complete target passes 5044 jobs, with the
+new module taking about 1.2 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+No inhabitant of the pointwise cofinal capacity family is claimed.  The next
+frontier is therefore quantitative rather than functional: bound the explicit
+residual load on every used positive-kernel edge uniformly in the cutoff.
+Only after that bound is constructed will full finite coercivity be
+unconditional.  The uniform sector-mass floor, centered transfer contraction,
+completion and continuum/Clay targets remain open.
