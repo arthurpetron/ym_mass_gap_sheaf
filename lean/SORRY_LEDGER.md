@@ -12070,3 +12070,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 0.69 seconds.  No scheduled rate-power limit, normalized
   correlation limit, physical exponential identification, projective/OS
   identification, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-normalized-moving-cube-variation-compiler] Compile three parallel scale variations into one continuum decay channel — **CLOSED 2026-08-24**
+
+- **milestone**: pin explicit representatives to the raw sampled moving-cube
+  `RC` classes; use summable consecutive-scale variation to construct their
+  scheduled cutoff limit; separately construct the reciprocal-square debt
+  limit and exact scheduled-rate-power limit from summable variations; feed
+  the raw/debt outputs into the normalized product-limit compiler; feed the
+  rate output into the continuum-decay compiler; and obtain one strictly
+  positive continuum same-observable channel with squared decay.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean`.
+- **decl**:
+  `MovingCubeRawScheduledRepresentativeVariation`,
+  `MovingCubeRawScheduledRepresentativeVariation.toScheduledRCContinuumLimit`,
+  `MovingCubeNormalizationNormDebtVariation`,
+  `movingCubeNormalizationNormDebtLimitOfVariation`,
+  `NormalizedMovingCubeSampledRatePowerVariation`,
+  `normalizedMovingCubeSampledRatePowerLimitOfVariation`,
+  `normalizedMovingCubeLimitOfVariations`,
+  `normalizedMovingCubeLimitOfVariations_zero_isPositive`, and
+  `normalizedMovingCubeLimitOfVariations_sq_decay`.
+- **obligation**: prove the three summable scale-variation inputs from one
+  adaptive producer.  The raw representatives must remain pinned to its exact
+  sampled moments; the debt variation must control its exact reciprocal
+  normalization; and the rate-power variation must be identified with a
+  physical exponential carrying the same positive rate.  Then connect that
+  continuum correlation to the projective/OS observable and reconstruction.
+- **constructive?**: yes — each local variation supplies an explicit tail
+  rate, hence a `ModCauchyEv`, complete limit, and convergence modulus.  The
+  three outputs rejoin only through the already checked same-object compiler
+  chain.  The five audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: two convenience-bundle attempts timed out during weak-head
+  normalization, first over reducible variation aliases and then in an opaque
+  wrapper declaration; their downstream `sorryAx` reports are failed
+  elaboration and not passes.  Replacing the bundle by three explicit compiler
+  arguments preserves the theorem and passes the corrected focused check.
+  The exact one-worker dependency-complete target passes 1660 jobs, with the
+  new module taking about 0.85 seconds.  No variation input, physical
+  exponential identification, projective/OS identification, continuum Yang--
+  Mills theory, or Clay theorem is claimed.

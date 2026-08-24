@@ -13878,3 +13878,40 @@ limit, reciprocal-square debt limit, and the scheduled rate-power limit—most
 importantly its identification with a uniformly positive physical
 exponential.  Projective/OS identification, reconstruction, continuum Yang--
 Mills theory, and the Clay theorem remain open.
+
+## Three parallel scale-variation estimates now compile to one continuum decay channel (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler` turns
+the three current convergence streams into concrete local analytic targets.
+The raw sampled moment stream carries explicit `CReal` representatives pinned
+to the same `RC` classes plus a summable consecutive-scale variation for every
+physical time.  The normalization stream is the summable variation of the
+actual reciprocal-square debt.  The rate stream is the summable variation of
+the exact scheduled squared-rate power at every physical time.
+
+Each stream independently constructs a `ModCauchyEv`, a complete constructive-
+real limit, and its convergence modulus.  The raw and debt limits feed the
+normalized product-limit compiler; the rate-power limit feeds the continuum-
+decay compiler.  With the three variation inputs supplied explicitly, the
+resulting same normalized moving-cube continuum correlation is strictly
+positive at zero and satisfies the proved continuum squared-decay inequality.
+
+Two guarded bundle designs are not passes.  A convenience dependent record
+over reducible variation aliases timed out during weak-head normalization;
+replacing the aliases by wrapper structures moved the timeout into the first
+large wrapper declaration.  Both attempts produced only downstream failed-
+elaboration `sorryAx`.  Removing the convenience bundle and taking the three
+compiler arguments explicitly preserves the causal theorem while avoiding
+the normalization blow-up.  The corrected focused check passes.  The exact
+one-worker dependency-complete target passes 1660 jobs, with the new module
+taking about 0.85 seconds after dependency replay.  All five audited exports
+use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This formalizes why parallel work is useful but does not create alternative
+proof paths: three independent variation estimates rejoin on one vector,
+transfer, normalization, sample, moment, and rate.  None of the variation
+inputs is inhabited yet.  The scheduled rate-power limit also still needs
+identification with a uniformly positive physical exponential; the raw/debt
+variations need finite analytic estimates from the adaptive producer.
+Projective/OS identification, reconstruction, continuum Yang--Mills theory,
+and the Clay theorem remain open.
