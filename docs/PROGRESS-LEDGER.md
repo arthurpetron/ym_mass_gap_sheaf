@@ -11627,3 +11627,43 @@ frontier is to aggregate stationary-product traffic on the explicit vacuum
 spokes and reduce its capacity to the concrete spin-cube return probabilities
 or raw row/kernel ratios.  No completed uniform gap, continuum QFT, or Clay
 theorem is claimed.
+
+## Spin-ray star-flow congestion contracts to a local return probability (2026-08-23)
+
+`BF4PhysicalSpinCubeRayFlowCapacity` puts the exact stationary-product demand
+on every ordered pair of excited spin cubes and routes it through the explicit
+two-spoke vacuum star.  The excited-spin indices are injective and nonzero,
+their list is duplicate-free and contained in the canonical rooted sector,
+and its stationary mass is a literal subsum of the sector mass, hence at most
+one.
+
+For every admitted spin, regrouping the ordered pairs proves that either
+orientation of its vacuum spoke has the exact load
+
+`2 * pi(spin) * rayMass`.
+
+The concrete return probability is defined by dividing that spoke's joint
+kernel capacity by the positive source weight.  Exact positive-division
+cancellation gives `pi(spin) * P(spin,vacuum) = joint(spin,vacuum)`.  Since
+`rayMass <= 1`, the local scalar condition
+
+`2 * delta <= P(spin,vacuum)`
+
+pays the complete directed load of both spoke orientations.  This removes
+the global carrier-count penalty from the explicit growing ray and identifies
+the remaining quantitative datum as a local return-probability floor.
+
+Three failed focused elaboration attempts exposed recursive list-sum
+unfolding, namespace, and state-index reduction issues; none is a pass.  The
+corrected focused guarded check passes in about 1.4 seconds.  The exact
+one-worker, dependency-complete target passes 5,025 jobs, with the new module
+taking about 1.6 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+This is a finite ray-flow capacity theorem, not a uniform spectral gap.  The
+next frontier is to take the constructive positive minimum of the finitely
+many ray return probabilities at each cutoff, compile it into a non-vacuous
+finite ray capacity certificate, and then determine whether those minima have
+a positive cofinal lower bound.  Routing the rest of the vacuum sector,
+thermodynamic and continuum control, continuum QFT, and the Clay theorem all
+remain open.

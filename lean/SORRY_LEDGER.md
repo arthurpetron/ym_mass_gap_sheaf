@@ -9937,3 +9937,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 3.7 seconds.  This removes the carrier-size path-length loss on
   the spin-cube ray only; spoke capacity, a full-sector uniform gap, continuum
   QFT, and the Clay theorem remain open.
+
+### [BF4-spin-ray-flow-capacity] Exact star-flow spoke payment — **CLOSED 2026-08-23**
+
+- **milestone**: put stationary-product demand on every ordered pair of
+  excited spin cubes, regroup it exactly on each oriented vacuum spoke, bound
+  the total ray mass by one, and reduce both spoke-capacity inequalities to
+  `2 * delta <= P(spin,vacuum)`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayFlowCapacity.lean`.
+- **decl**: `centralLowerExcitedSpinCubeIndex_injective_on`,
+  `centralLowerExcitedSpinCubeIndices_nodup`,
+  `centralLowerExcitedSpinCubeRayMass_le_one`,
+  `centralLowerExcitedSpinCubeRayFlowLoad_leftSpoke_eqv`,
+  `centralLowerExcitedSpinCubeRayFlowLoad_rightSpoke_eqv`,
+  `centralLowerExcitedSpinCube_weight_mul_return_eqv_kernel`,
+  `delta_mul_leftSpokeLoad_le_kernel_of_twice_delta_le_return`, and
+  `delta_mul_rightSpokeLoad_le_kernel_of_twice_delta_le_return`.
+- **obligation**: construct the positive minimum of the finite list of ray
+  return probabilities at each cutoff, compile the resulting finite capacity
+  witness, and then prove or refute a positive cofinal lower bound before
+  extending the routing beyond the explicit spin ray.
+- **constructive?**: yes — finite list sums, faithful-code injectivity,
+  positive rational division, exact kernel symmetry, and multiplication
+  monotonicity suffice.  All eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: three failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 1.4 seconds; the exact
+  one-worker target passes 5,025 jobs with the new module taking about 1.6
+  seconds.  This is a finite local-flow reduction only; a cutoff-uniform
+  return floor, full-sector gap, continuum QFT, and the Clay theorem remain
+  open.
