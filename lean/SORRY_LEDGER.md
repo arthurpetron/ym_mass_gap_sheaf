@@ -9192,3 +9192,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 5,002 jobs with the new module taking about 2.3
   seconds.  The scalar payment premise is not inhabited, so no completed
   contraction, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-novel-endpoint-new-shell-bound] Novel mass versus new-shell mass — **CLOSED 2026-08-23**
+
+- **milestone**: prove the exact old/new stationary-mass partition, its
+  subprobability bound, and the uniform estimate `novelMass <= 2*newMass`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelEndpointMassNewShellBound.lean`.
+- **decl**: `cutoffTwoOldMass_nonnegative`,
+  `cutoffTwoNewMass_nonnegative`,
+  `cutoffTwoOldMass_add_newMass_eqv_fullSectorMass`,
+  `cutoffTwoOldMass_add_newMass_le_one`,
+  `cutoffTwoNovelEndpointWeightMass_le_newMass_add_newMass`, and
+  `cutoffTwoNovelEndpointWeightMass_le_two_mul_newMass`.
+- **obligation**: compile the resulting shell-weighted new-state tail payment,
+  then prove that tail pays the positive routed edge floor cofinally.
+- **constructive?**: yes — the proof is a finite filter partition,
+  nonnegative finite sums, and rational monotonicity.  All six audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two initial focused failures (missing namespace and
+  unreduced `ofNat 2`) are not passes.  The corrected focused check passes in
+  about 1.7 seconds; the exact one-worker target passes 5,003 jobs with the
+  new module taking about 1.6 seconds.  No cofinal tail estimate, completed
+  contraction, continuum QFT, or Clay theorem is proved.

@@ -10837,3 +10837,28 @@ novel endpoint mass by a quantity depending only on the new-shell stationary
 mass, using the old/new partition and the full-sector mass bound by one.  A
 cofinal new-shell tail versus positive-edge-floor estimate, completed
 contraction, continuum QFT, and the Clay theorem remain open.
+
+## Novel endpoint traffic is controlled by new-shell mass alone (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelEndpointMassNewShellBound` proves that the
+old and new block masses are nonnegative, partition the full canonical vacuum
+sector exactly, and hence sum to at most one.  Combining this subprobability
+identity with the already proved decomposition
+`novelMass = N^2 + O*N + N*O` yields the cutoff-uniform estimate
+`novelMass <= 2*N`, where `N` is precisely the new-shell stationary mass.
+
+The first focused attempt exposed a missing partition-helper namespace and a
+second showed that the rational normalization tactic did not automatically
+reduce `ofNat 2`; neither is a pass.  The corrected proof uses the explicit
+equivalence `2*N = N+N`.  Its focused check passes in about 1.7 seconds.  The
+exact one-worker, dependency-complete target passes 5,003 jobs, with the new
+module taking about 1.6 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+This contracts the open analytic input to one directly interpretable tail:
+the stationary probability of genuinely new states.  The next frontier is to
+compile the scalar payment
+`novelFloor * ((65+n) * (2*N)) <= half * edgeFloor` into the existing
+mass-refined payment and completed-contraction interface.  Its cofinal
+inhabitation, controlled limits, continuum QFT, and the Clay theorem remain
+open.
