@@ -10596,3 +10596,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5044 jobs with the new module taking about
   1.2 seconds.  The pointwise capacity family is not inhabited, so no
   unconditional full-sector gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-linear-congestion] Reduce simple-path congestion to one scalar ratio — **CLOSED 2026-08-23**
+
+- **milestone**: prove that every chosen residual path has no repeated directed
+  edge and length at most the finite carrier size, sum its stationary-product
+  charge exactly over the residual endpoint list, and compile one scalar
+  comparison against the minimum positive physical edge into pointwise
+  residual capacity and full finite-sector coercivity.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualLinearCongestion.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorSimplePositivePath_directedEdges_nodup`,
+  `centralLowerExcitedSpinCubeOffRayResidualWeightedPathEdgeLoad_le`,
+  `centralLowerExcitedSpinCubeOffRayResidualFlowLoad_le_sectorSize_mul_endpointWeightSum`,
+  `CentralLowerExcitedSpinCubeOffRayResidualLinearRatioAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualLinearRatioAt.toResidualFlowCapacityAt`,
+  `FixedNomeCofinalSpinCubeOffRayResidualLinearRatio`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualLinearRatio.sharedFloor_mul_fullPairwiseVariance_le_physicalDirichlet`.
+- **obligation**: first bound the literal residual endpoint stationary mass;
+  then replace the displayed carrier-size/minimum-edge ratio by a structured
+  local flow estimate whose capacity is uniform in the cutoff.  A separate
+  uniform positive sector-mass floor is still required before deriving a
+  centered transfer contraction.
+- **constructive?**: yes — loop-erased finite walks, no-duplicate directed
+  edges, finite carrier length, nonnegative stationary products, exact
+  duplicate-preserving list flattening, minimum-positive-edge comparison, and
+  the prior pointwise capacity compiler suffice.  All nine audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: all earlier interrupted, profiler-prefix, and failed
+  focused attempts are not passes.  The corrected complete focused guarded
+  check passes in about 1.3 seconds; the exact one-worker dependency-complete
+  target passes 5045 jobs with the new module taking about 1.4 seconds.  No
+  inhabitant of the scalar ratio, cutoff-uniform full-sector gap, continuum
+  QFT, or Clay theorem is claimed.

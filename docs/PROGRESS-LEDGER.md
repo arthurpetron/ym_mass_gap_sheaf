@@ -12418,3 +12418,46 @@ residual load on every used positive-kernel edge uniformly in the cutoff.
 Only after that bound is constructed will full finite coercivity be
 unconditional.  The uniform sector-mass floor, centered transfer contraction,
 completion and continuum/Clay targets remain open.
+
+## Simple residual paths reduce congestion to one scalar edge-floor ratio (2026-08-23)
+
+`BF4PhysicalSpinCubeOffRayResidualLinearCongestion` bounds the explicit
+residual flow without introducing a coefficient-dependent hypothesis.  The
+constructive positive-kernel path chosen for every residual endpoint pair is
+loop-erased, so its directed-edge list has no duplicates and its length is at
+most the full finite vacuum-sector carrier size.  Consequently a fixed
+directed edge receives at most the endpoint stationary-product weight times
+that carrier size from each path.  Exact finite-sum flattening gives the
+coefficient-independent aggregate estimate
+
+`residualFlowLoad(source,target)
+  <= sectorSize * residualEndpointWeightSum`.
+
+Here `residualEndpointWeightSum` is the literal stationary-product mass of
+the ray--off, off--ray, and off--off endpoint list; it is not an asymptotic
+proxy.  Adding one gives a strictly positive finite scalar cost.  The module
+then proves that the single cutoff-level inequality
+
+`sharedFloor * (1 + sectorSize * residualEndpointWeightSum)
+  <= (1/2) * finitePositiveEdgeFloor`
+
+constructively inhabits every pointwise residual-flow capacity comparison.
+The preceding compiler therefore yields full finite-sector pairwise
+Dirichlet coercivity, and a cofinal family of these scalar ratios yields the
+corresponding conditional uniform family.
+
+All earlier interrupted, profiler-prefix, and failed focused attempts are not
+passes.  After restoring the two defining namespace openings and removing
+the temporary profiler and `#exit`, the complete focused guarded check passes
+in about 1.3 seconds.  The exact one-worker dependency-complete target passes
+5045 jobs, with the new module taking about 1.4 seconds.  All nine audited
+exports use exactly `[propext, Quot.sound]`.
+
+No inhabitant of the scalar ratio is claimed.  The current simple-path route
+exposes the actual obstruction: carrier size grows with the cutoff while the
+minimum positive physical edge may shrink.  The next frontier is to bound the
+literal residual endpoint mass and then determine whether a structured local
+routing can replace this carrier-wide loss by a cutoff-uniform congestion
+constant.  The uniform sector-mass floor, centered transfer contraction,
+completion, thermodynamic and continuum limits, continuum QFT, and the Clay
+theorem remain open.
