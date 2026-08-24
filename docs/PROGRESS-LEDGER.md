@@ -14677,3 +14677,46 @@ the required constructive rational logarithm/exponential inverse theorem.
 The exact-rate handoff, transfer lift, finite graph approximation, raw
 nontriviality and semantic pins, continuum construction, QFT axioms, and Clay
 theorem remain open.
+
+## The exact-log evaluator is now family-independent (2026-08-24)
+
+The dynamic scalar residual no longer depends on an adaptive cutoff family,
+strength band, rate variation, or Euler schedule.
+`WilsonCanonicalExactLogEulerEvaluation` asks only for the canonical rational
+approximants of twice the exact Wilson logarithmic gap to exponentiate to the
+square of the separator selected by that same Wilson reconstruction.
+
+The new rational-stream continuity compiler proves globally that two
+nonnegative rational exponent streams converging to one constructive real
+have interchangeable negative-exponential limits.  Its proof derives
+antitonicity from the exponential addition law and positivity, obtains a
+two-sided unit-corridor contraction, and then uses an explicit capped
+quarter-tolerance.  It requires neither a global exponent bound nor an
+`ExpNegCData` witness.  The exact Wilson logarithm and its canonical
+physical-time exponent are also proved pointwise nonnegative.
+
+Consequently, the static canonical evaluator can be built independently of
+the dynamic producer.  A proved common-limit transport compiles it into the
+scheduled dynamic Euler evaluation, then into the literal one-time rate
+limit, and finally rejoins it with the independent transfer-lift and finite
+all-vector approximation branches.  The raw connected capstone exposes this
+smaller four-input causal join.
+
+This is the current expanding/contracting boundary.  Expansion separates the
+static scalar inverse, dynamic cutoff convergence, representative transfer,
+finite graph approximation, and observable OS/GNS semantics.  Contraction is
+allowed only through the proved common-limit transport and the all-vector
+graph-norm join; observable decay remains a downstream consequence of the
+operator gap and is not used to infer it.
+
+Focused guarded checks pass.  Exact one-worker targets pass for the rational
+continuity module (47 jobs, changed module about 0.6 seconds), the exact-log
+compiler (5096 jobs, changed module about 1.6 seconds), and the connected
+capstone (5108 jobs, changed module about 2.4 seconds).  Every newly audited
+export uses only `[propext, Quot.sound]`.
+
+The canonical evaluator itself is not inhabited.  The remaining scalar
+frontier is the family-independent constructive identity that the negative
+exponential of twice the exact logarithmic gap equals `sep^2`.  The transfer
+lift, finite graph approximation, raw nontriviality and same-object semantic
+pins, continuum theory, QFT axioms, and Clay theorem also remain open.

@@ -30,6 +30,7 @@ or Clay conclusion is constructed here.  No `Classical.*`, choice,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration is used.
 -/
 
+import YMGap.Constructive.CRealExpRationalStreamContinuity
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 
@@ -40,6 +41,7 @@ set_option maxHeartbeats 10000000
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Constructive.CRealExpRationalStreamContinuity
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
@@ -55,6 +57,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.OSExactLogGap
+open YMGap.Continuum.OSReconstruction
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
@@ -74,6 +77,69 @@ def selectedWilsonExactPhysicalTimeExponent
       (exactLogGap D.reconstruction positiveGapBound)
       (CReal.add CReal.cone CReal.cone))
     (CReal.ofQ' (Q'.ofNat time))
+
+/-- Every approximation of the exact Wilson logarithmic gap is nonnegative.
+This strengthens the existing limit-level strict positivity only at the
+representation actually used here.  The binary `k * log 2` summand has
+nonnegative partial sums, while the mantissa lies below one, so its artanh
+partial sums are nonpositive and their negation is nonnegative. -/
+theorem exactLogGap_approx_nonnegative
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    (rec : OSReconstruction mu)
+    (positiveGapBound : PositiveTransferGapBound rec)
+    (stage : Nat) :
+    (0 : Q') <= (exactLogGap rec positiveGapBound).approx stage := by
+  let mantissa : Q' := gapMantissa rec positiveGapBound
+  let hm1 : (0 : Q') < mantissa + 1 :=
+    gapMantissaPlusOne_pos rec positiveGapBound
+  let hyb : Q'.abs (CRealLog.yOf mantissa hm1) <= CRealLog.recipOdd 1 :=
+    gapMantissa_window rec positiveGapBound
+  have hyNonpositive : CRealLog.yOf mantissa hm1 <= (0 : Q') :=
+    Q'.le_of_lt
+      (YMGap.Continuum.yOf_sep_neg mantissa hm1
+        (gapMantissa_lt_one rec positiveGapBound))
+  have hpartial : CRealLog.partialSum (CRealLog.yOf mantissa hm1) stage <= 0 := by
+    have hanti := CRealLog.partialSum_anti_of_nonpos
+      (CRealLog.yOf mantissa hm1) hyNonpositive 0 stage
+    rw [CRealLog.partialSum_zero, Nat.zero_add] at hanti
+    exact hanti
+  have hlog : (CRealLog.logRat mantissa hm1 hyb).approx stage <= 0 := by
+    rw [CRealLog.logRat_approx]
+    have hsum := Q'.add_le_add hpartial hpartial
+    exact Q'.le_trans' _ _ _ hsum
+      (Q'.le_of_eqv (by decide : ((0 : Q') + 0).eqv 0))
+  have hnegLog : (0 : Q') <=
+      (CReal.neg (CRealLog.logRat mantissa hm1 hyb)).approx stage :=
+    Q'.nonneg_neg_of_nonpos hlog
+  change (0 : Q') <=
+    (HamiltonianAllSep.kLog2 (gapBinExp rec positiveGapBound).k).approx stage +
+      (CReal.neg (CRealLog.logRat mantissa hm1 hyb)).approx stage
+  exact Q'.zero_le_add _ _
+    (HamiltonianAllSep.kLog2_approx_nonneg
+      (gapBinExp rec positiveGapBound).k stage)
+    hnegLog
+
+/-- Pointwise nonnegativity of every canonical rational approximation of the
+selected physical-time exponent.  This is the sign datum required by rational
+`expNeg`; unlike `ExpNegCData`, it imposes no global upper bound. -/
+theorem selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (time stage : Nat) :
+    (0 : Q') <=
+      (selectedWilsonExactPhysicalTimeExponent
+        D positiveGapBound time).approx stage := by
+  show (0 : Q') <=
+    ((exactLogGap D.reconstruction positiveGapBound).approx stage *
+      ((1 : Q') + 1)) * Q'.ofNat time
+  exact Q'.mul_nonneg _ _
+    (Q'.mul_nonneg _ _
+      (exactLogGap_approx_nonnegative
+        D.reconstruction positiveGapBound stage)
+      (by decide))
+    (ExpNeg.ofNat_nonneg' time)
 
 /-- The actual upper Euler exponent stream converges to the exact Wilson
 logarithmic exponent.  This is fully derived from the same-stream exact-rate
@@ -112,6 +178,26 @@ theorem scheduledSquaredRateUpperExponent_converges_selectedWilsonExact
 
 /-! ## 2. The one remaining exact-log Euler evaluation -/
 
+/-- The family-independent analytic frontier for one Wilson reconstruction.
+It evaluates the negative exponential on the canonical rational approximation
+stream of twice the exact logarithmic gap.  Unlike the older dynamic record,
+this datum mentions no cutoff family, rate variation, strength band, or Euler
+schedule, so the analytic inverse proof can be developed independently of all
+dynamic producer work. -/
+structure WilsonCanonicalExactLogEulerEvaluation
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction) : Type 2 where
+  canonicalExponentialConverges : CReal.ConvergesTo
+    (fun stage => ExpNeg.expNeg
+      ((selectedWilsonExactPhysicalTimeExponent
+        D positiveGapBound 1).approx stage)
+      (selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+        D positiveGapBound 1 stage))
+    (CReal.ofQ'
+      (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
+
 /-- The minimal scalar analytic frontier: the upper Euler exponential built
 from this exact-rate family converges at one physical-time unit to the square
 of the separator selected by the same Wilson reconstruction.
@@ -134,6 +220,44 @@ structure DynamicVacuumSectorWilsonExactLogEulerEvaluation
       (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
 
 namespace DynamicVacuumSectorWilsonExactLogEulerEvaluation
+
+/-- Compile the family-independent Wilson evaluation into the dynamic Euler
+evaluation.  The proved rational-stream continuity theorem transports along
+the fact that both exponent streams converge to the same exact Wilson
+physical-time exponent. -/
+def ofCanonicalWilsonEvaluation
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation D}
+    (evaluation : WilsonCanonicalExactLogEulerEvaluation
+      D exactRate.positiveGapBound) :
+    DynamicVacuumSectorWilsonExactLogEulerEvaluation
+      family gapVariation D exactRate where
+  upperEulerExponentialConverges := by
+    change CReal.ConvergesTo
+      (fun scale => ExpNeg.expNeg
+        (scheduledSquaredRateUpperExponent family scale 1)
+        (scheduledSquaredRateUpperExponent_nonnegative family scale 1))
+      (CReal.ofQ'
+        (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
+    exact
+      YMGap.Constructive.CRealExpRationalStreamContinuity.CReal.convergesTo_expNeg_of_common_rational_exponent_limit
+        (fun scale =>
+          scheduledSquaredRateUpperExponent_nonnegative family scale 1)
+        (fun stage =>
+          selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+            D exactRate.positiveGapBound 1 stage)
+        (scheduledSquaredRateUpperExponent_converges_selectedWilsonExact
+          family band gapVariation exactRate 1)
+        (CReal.convergesTo_self
+          (selectedWilsonExactPhysicalTimeExponent
+            D exactRate.positiveGapBound 1))
+        evaluation.canonicalExponentialConverges
 
 /-- An upper-endpoint identification compiles the exact-log Euler evaluation
 to convergence of the literal scheduled finite one-time rate stream. -/
@@ -236,6 +360,55 @@ def wilsonPhysicalTimeGraphNormLimitOfExactLogEulerEvaluation
       family band gapVariation positiveRatePower evaluation)
     transfer finite
 
+/-- Adaptive scalar convergence directly from the family-independent
+canonical Wilson evaluator. -/
+def wilsonPhysicalTimeRateConvergenceOfCanonicalWilsonEvaluation
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (band : family.StrengthBand)
+    (gapVariation : PhysicalGapRationalVariation family)
+    (positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation D}
+    (evaluation : WilsonCanonicalExactLogEulerEvaluation
+      D exactRate.positiveGapBound) :
+    DynamicVacuumSectorWilsonPhysicalTimeRateConvergence
+      family.toCompletedFamily
+      (physicalExponentialLimit family positiveRatePower) D :=
+  wilsonPhysicalTimeRateConvergenceOfExactLogEulerEvaluation
+    family band gapVariation positiveRatePower
+    (DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation
+      (family.physicalRateBand band) evaluation)
+
+/-- Adaptive graph-norm compiler with the dynamic Euler-specific assumption
+removed.  Only the static Wilson inverse evaluator remains on the scalar
+branch; the transfer lift and finite graph approximation remain independent
+parallel inputs. -/
+def wilsonPhysicalTimeGraphNormLimitOfCanonicalWilsonEvaluation
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (band : family.StrengthBand)
+    (gapVariation : PhysicalGapRationalVariation family)
+    (positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation D}
+    (evaluation : WilsonCanonicalExactLogEulerEvaluation
+      D exactRate.positiveGapBound)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift D)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily D transfer) :
+    DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family.toCompletedFamily
+      (physicalExponentialLimit family positiveRatePower) D :=
+  DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelConvergenceCompilers
+    (wilsonPhysicalTimeRateConvergenceOfCanonicalWilsonEvaluation
+      family band gapVariation positiveRatePower evaluation)
+    transfer finite
+
 end DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 
 end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler
@@ -243,7 +416,13 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
 /-! ## Axiom-dependency gates -/
 
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.exactLogGap_approx_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.scheduledSquaredRateUpperExponent_converges_selectedWilsonExact
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicVacuumSectorWilsonExactLogEulerEvaluation.toPhysicalTimeRateConvergence
 #print axioms
@@ -252,3 +431,7 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.wilsonPhysicalTimeRateConvergenceOfExactLogEulerEvaluation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.wilsonPhysicalTimeGraphNormLimitOfExactLogEulerEvaluation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.wilsonPhysicalTimeRateConvergenceOfCanonicalWilsonEvaluation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.wilsonPhysicalTimeGraphNormLimitOfCanonicalWilsonEvaluation

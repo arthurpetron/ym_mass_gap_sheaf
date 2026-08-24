@@ -12941,3 +12941,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds; the connected capstone passes 5107 jobs, taking about 2.3 seconds.
   The evaluation record and all later semantic/continuum residuals are not
   claimed inhabited.
+
+### [BF4-physical-wilson-canonical-exact-log-evaluation] Remove dynamic-family dependence from the scalar inverse frontier — **CLOSED 2026-08-24**
+
+- **milestone**: prove rational-stream continuity of the constructive
+  negative exponential for arbitrary nonnegative rational exponent streams;
+  prove pointwise nonnegativity of the canonical exact Wilson exponent;
+  replace the family-specific scalar residual by a static canonical Wilson
+  evaluator; and compile that evaluator back through the scheduled rate,
+  graph-norm, and connected-path joins.
+- **files**:
+  `lean/YMGap/Constructive/CRealExpRationalStreamContinuity.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CReal.expNeg_antitone_sub_le_zero`,
+  `CReal.expNeg_twoSided_contraction`,
+  `CReal.convergesTo_expNeg_of_common_rational_exponent_limit`,
+  `exactLogGap_approx_nonnegative`,
+  `selectedWilsonExactPhysicalTimeExponent_approx_nonnegative`,
+  `WilsonCanonicalExactLogEulerEvaluation`,
+  `DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.wilsonPhysicalTimeGraphNormLimitOfCanonicalWilsonEvaluation`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalWilsonEvaluationCompilers`.
+- **obligation**: inhabit the family-independent canonical evaluator by a
+  constructive rational identity connecting `expNeg` of twice
+  `exactLogGap` to the square of the selected separator.  Representative
+  transfer, finite all-vector approximation, raw observable semantics,
+  continuum existence, and QFT closure remain separate open inputs.
+- **constructive?**: yes — the stream transport uses explicit convergence
+  moduli and a proved two-sided contraction.  It chooses no limit and assumes
+  no logarithm/exponential inverse.  Every newly audited export uses only
+  `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  Exact one-worker targets pass
+  for the rational continuity module (47 jobs, changed module about 0.6
+  seconds), the exact-log compiler (5096 jobs, changed module about 1.6
+  seconds), and the connected capstone (5108 jobs, changed module about 2.4
+  seconds).  The canonical evaluator and all later semantic/continuum
+  residuals are not claimed inhabited.
