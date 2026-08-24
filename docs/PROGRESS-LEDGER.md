@@ -12572,3 +12572,56 @@ simple positive path to the vacuum, regroup the resulting one-body traffic by
 directed edge, and isolate a cutoff-uniform local capacity/traffic comparison.
 The uniform sector-mass floor, centered transfer contraction, completion and
 continuum/Clay targets remain open.
+
+## A literal one-body root flow exposes the local uniform-capacity frontier (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorRootTraffic` attaches to every physical state
+its existing constructive loop-erased positive-kernel path to the vacuum.
+Twice the state weight times the path length is placed on each literal
+directed occurrence.  Finite Cauchy--Schwarz pays the root square, and exact
+duplicate-preserving regrouping constructs the coefficient-independent load
+
+`rootFlowLoad_K(source,target)`.
+
+Every occurrence is proved to remain in the finite physical vacuum sector and
+to traverse a strictly positive physical-kernel edge.  For the same arbitrary
+rational coefficient `f`, with no independently chosen moment or observable,
+the production theorem is
+
+`fullPairwiseVariance_K(f)
+  <= loadedDirichlet(rootFlowLoad_K, f)`.
+
+This is an alternate proof path to the spin-cube-ray plus off-ray-residual
+split.  It replaces quadratic endpoint-pair routing by one literal path per
+state and exposes local root traffic as the only remaining coefficient-free
+object.
+
+`BF4PhysicalFiniteVacuumSectorRootTrafficCapacity` then proves the exact
+pointwise compiler
+
+`delta * rootFlowLoad_K(edge) <= physicalKernel_K(edge)`
+
+implies full finite pairwise Dirichlet coercivity at `delta`.  The interface is
+non-vacuous: at every finite cutoff it constructs the positive inhabitant
+
+`delta_K = finitePositiveEdgeFloor_K / (1 + totalRootTraffic_K) > 0`
+
+and the corresponding unconditional full-sector theorem.  A separate cofinal
+structure states precisely the stronger open claim that one common positive
+`delta` satisfies the local comparison at all later cutoffs.
+
+The root-flow focused check passes on its first attempt in about 1.17 seconds,
+and its exact one-worker target passes 5022 jobs with the new module taking
+about 1.2 seconds.  The capacity module's first focused check failed only on a
+missing finite-sum namespace and is not a pass; the corrected focused check
+passes in about 1.23 seconds, and its exact one-worker target passes 5023 jobs
+with the new module taking about 1.3 seconds.  All fifteen audited exports use
+exactly `[propext, Quot.sound]`.
+
+No cofinal root-traffic capacity inhabitant is claimed.  The next analytic
+frontier is now local and observable-independent: exploit the BF4 state/path
+geometry and stationary weights to compare the mass of all root paths crossing
+an edge with that edge's physical kernel uniformly in cutoff.  In parallel,
+the uniform sector-mass floor is still required for centered transfer
+contraction.  Completion, thermodynamic and continuum limits, continuum QFT,
+and the Clay theorem remain open.

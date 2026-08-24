@@ -10732,3 +10732,70 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5021 jobs with the new module taking about
   0.94 seconds.  No rooted traffic capacity, cutoff-uniform full-sector gap,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-physical-vacuum-root-traffic] Route the same rooted observable into one local edge load — **CLOSED 2026-08-23**
+
+- **milestone**: attach one loop-erased positive physical-kernel path from
+  every finite-sector state to the vacuum, weight each directed occurrence by
+  twice the state mass times path length, prove the rooted Cauchy budget, and
+  regroup all duplicate occurrences into a coefficient-independent directed
+  root-flow load.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootTraffic.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSector_root_sq_le_rawPathBudget`,
+  `centralPhysicalFiniteVacuumSectorPairwiseVariance_le_rootRawBudget`,
+  `centralPhysicalFiniteVacuumSectorRootRawOccurrenceEnergy_eqv_rawBudget`,
+  `centralPhysicalFiniteVacuumSectorRootOccurrence_mem_sector`,
+  `centralPhysicalFiniteVacuumSectorRootOccurrence_kernel_pos`,
+  `centralPhysicalFiniteVacuumSectorRootRawOccurrenceEnergy_eqv_loadedDirichlet`,
+  and
+  `centralPhysicalFiniteVacuumSectorPairwiseVariance_le_rootRawLoadedDirichlet`.
+- **obligation**: prove a cutoff-independent positive comparison between the
+  genuine physical kernel and the explicit local root traffic, either directly
+  or via a structured local/multiscale decomposition of the states whose root
+  paths cross each edge.
+- **constructive?**: yes — the prior same-observable root contraction, literal
+  loop-erased positive paths, finite Cauchy--Schwarz, occurrence membership and
+  positivity, and duplicate-preserving finite regrouping suffice.  All seven
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the focused check passes on its first attempt in about 1.17
+  seconds; the exact one-worker dependency-complete target passes 5022 jobs
+  with the new module taking about 1.2 seconds.  No local uniform capacity,
+  completed gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-physical-vacuum-root-traffic-capacity] Compile local root capacity and inhabit it at every finite cutoff — **CLOSED 2026-08-23**
+
+- **milestone**: bound every local root-flow load by its exact total traffic,
+  prove positive load witnesses a strictly positive physical edge, compile a
+  pointwise `delta * load <= kernel` comparison into full pairwise Dirichlet
+  coercivity, construct a positive finite-cutoff capacity using the minimum
+  positive edge divided by `1 + totalRootTraffic`, and isolate the exact
+  cofinal common-`delta` structure.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootTrafficCapacity.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorRootFlowLoad_le_totalTraffic`,
+  `centralPhysicalFiniteVacuumSectorRootFlowLoad_pos_implies_kernel_pos`,
+  `CentralPhysicalFiniteVacuumSectorRootTrafficCapacityAt.delta_mul_pairwiseVariance_le_physicalDirichlet`,
+  `centralPhysicalFiniteVacuumSectorRootFiniteDelta_pos`,
+  `centralPhysicalFiniteVacuumSectorRootFiniteCapacityAt`,
+  `centralPhysicalFiniteVacuumSectorRootFiniteDelta_mul_pairwiseVariance_le_physicalDirichlet`,
+  `FixedNomeCofinalVacuumRootTrafficCapacity`, and
+  `FixedNomeCofinalVacuumRootTrafficCapacity.delta_mul_pairwiseVariance_le_physicalDirichlet`.
+- **obligation**: inhabit the cofinal structure by one positive `delta` whose
+  pointwise root-traffic comparison holds at every later cutoff.  Separately
+  establish the uniform positive physical sector-mass floor needed by the
+  centered transfer compiler.
+- **constructive?**: yes — nonnegative finite traffic, pointwise indicator
+  monotonicity, positive-load occurrence witnessing, the finite positive-edge
+  floor, constructive rational division, and finite Dirichlet summation
+  suffice.  All eight audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: the first focused check failed only on a missing finite-sum
+  namespace and is not a pass.  The corrected focused check passes in about
+  1.23 seconds; the exact one-worker dependency-complete target passes 5023
+  jobs with the new module taking about 1.3 seconds.  The finite capacities are
+  unconditional but cutoff-dependent; no cofinal uniform capacity, completed
+  gap, continuum QFT, or Clay theorem is claimed.
