@@ -13469,3 +13469,50 @@ The cofinal local transition-product estimate, physical strength scaling,
 nonzero observable completion, exact-log cutoff control, projective/OS
 correlation convergence, reconstruction, continuum Yang--Mills theory, and
 the Clay theorem remain open.
+
+## Moving rational centering constructs one actual completed vector (2026-08-24)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion` upgrades the moving
+same-observable sequence from termwise vacuum-pairing convergence to an
+explicit Cauchy representative in the actual cutoff-removed physical sector
+seminorm.  The fixed raw cylinder and the fixed root cylinder are unchanged
+at every stage; only the rational head-correction coefficient moves.
+
+The supporting form modules now expose their cutoff witnesses as executable
+Type-level rates, rather than hiding them under a Prop-level existential:
+the pulled weighted-mean rate, pulled root-weight rate, and quotient head-
+correction rate, together with their pairwise regularity theorems.  Using the
+head-correction rate at `min epsilon 1`, the new module proves the global
+pointwise estimate
+
+`(moving[first] - moving[second])^2 <= epsilon`
+
+for every state and every two stages beyond the computed cutoff.  Integration
+then supplies the physical squared-distance bound and hence an explicit-
+modulus completion representative.  Its quotient class gives one sector
+completed vector and, through the existing injective sector embedding, one
+global cutoff-removed physical vector.  The exact semantic expansion proves
+that every representative is the same raw observable plus a moving scalar
+multiple of the same root observable; this is not a sequence of unrelated
+observable choices.
+
+The first guarded attempt timed out while normalizing quotient-rational
+algebra in the full dependent BF4 context.  A second attempt exposed an
+unfinished denominator identity and one missing namespace qualification; its
+downstream `sorryAx` reports were elaboration contamination.  After factoring
+the affine cancellation, sign reversal, and product-square rearrangement into
+small kernel-checked compilers, the corrected focused check passes.  The
+exact one-worker dependency-complete target passes 1370 jobs, with the new
+module taking about 136 seconds.  All five audited new exports and all newly
+audited Type-level rate interfaces use at most `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+This closes the completed-vector construction, not its membership in the
+completed vacuum complement and not its nonzero persistence.  The next
+observable-connected frontier is to identify the completed vector's pairing
+with the completed vacuum as the already proved zero limit, then prove a
+strictly positive norm lower bound for the same vector and connect its
+same-object transfer moments to the dynamic completed family.  The cofinal
+local transition-product estimate, physical strength scaling, exact-log
+cutoff control, projective/OS correlation convergence, reconstruction,
+continuum Yang--Mills theory, and the Clay theorem remain open.

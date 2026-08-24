@@ -72,15 +72,44 @@ def centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
 
 /-! ## 2. Constructive cutoff limits of the three sector forms -/
 
-/-- The pulled weighted mean on the embedded old canonical vacuum component
-is a constructive cutoff-Cauchy sequence. -/
-def centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
+/-- Executable cutoff rate for the pulled weighted mean on one fixed old
+canonical vacuum component.  This exposes the witness already used by the
+legacy `CReal.cauchy` proof so later Type-level completion data need not
+extract a cutoff from `Prop`. -/
+def centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+    {w : Q'} (hw0 : (0 : Q') < w)
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') : Nat :=
+  let states := centralPhysicalFiniteVacuumSectorIndices
+    w (Q'.le_of_lt hw0) base half
+  let baseScale := coefficientL1 states coefficient
+  let tolerance := Q'.divPos epsilon (baseScale + 1)
+    (positive_scale (coefficientL1_nonnegative_local states coefficient))
+  max base
+    (slabNomeBoundedObservableModulus
+      w (centralExtent half) tolerance)
+
+/-- The explicit weighted-mean cutoff rate controls every pair of later
+pulled means. -/
+theorem centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoff_regular
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (base half : Nat) (coefficient : Nat → Q') : CReal where
-  approx later := centralPhysicalFinitePulledVacuumSectorWeightedMean
-    w (Q'.le_of_lt hw0) base later half coefficient
-  cauchy := by
-    intro epsilon hepsilon
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (first second : Nat)
+    (hfirst :
+      centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+        hw0 base half coefficient epsilon ≤ first)
+    (hsecond :
+      centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+        hw0 base half coefficient epsilon ≤ second) :
+    centralPhysicalFinitePulledVacuumSectorWeightedMean
+        w (Q'.le_of_lt hw0) base first half coefficient ≤
+      centralPhysicalFinitePulledVacuumSectorWeightedMean
+          w (Q'.le_of_lt hw0) base second half coefficient + epsilon ∧
+    centralPhysicalFinitePulledVacuumSectorWeightedMean
+        w (Q'.le_of_lt hw0) base second half coefficient ≤
+      centralPhysicalFinitePulledVacuumSectorWeightedMean
+          w (Q'.le_of_lt hw0) base first half coefficient + epsilon := by
     let states := centralPhysicalFiniteVacuumSectorIndices
       w (Q'.le_of_lt hw0) base half
     let baseScale := coefficientL1 states coefficient
@@ -91,10 +120,17 @@ def centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
     have htolerance : (0 : Q') < tolerance :=
       Q'.divPos_pos epsilon (baseScale + 1)
         (positive_scale hbaseScale) hepsilon
-    refine ⟨max base
-      (slabNomeBoundedObservableModulus
-        w (centralExtent half) tolerance), ?_⟩
-    intro first second hfirst hsecond
+    have hrate :
+        centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+            hw0 base half coefficient epsilon =
+          max base
+            (slabNomeBoundedObservableModulus
+              w (centralExtent half) tolerance) := by
+      rfl
+    have hbaseFirst := Nat.le_trans (Nat.le_max_left _ _) (hrate ▸ hfirst)
+    have hbaseSecond := Nat.le_trans (Nat.le_max_left _ _) (hrate ▸ hsecond)
+    have hmodFirst := Nat.le_trans (Nat.le_max_right _ _) (hrate ▸ hfirst)
+    have hmodSecond := Nat.le_trans (Nat.le_max_right _ _) (hrate ▸ hsecond)
     have hbaseFirst := Nat.le_trans (Nat.le_max_left _ _) hfirst
     have hbaseSecond := Nat.le_trans (Nat.le_max_left _ _) hsecond
     have hmodFirst := Nat.le_trans (Nat.le_max_right _ _) hfirst
@@ -136,6 +172,23 @@ def centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
     exact two_sided_add_of_abs_sub_le_local
       (Q'.le_trans' _ _ _ habs
         (scaled_divPos_le_epsilon hbaseScale hepsilon))
+
+/-- The pulled weighted mean on the embedded old canonical vacuum component
+is a constructive cutoff-Cauchy sequence. -/
+def centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q') : CReal where
+  approx later := centralPhysicalFinitePulledVacuumSectorWeightedMean
+    w (Q'.le_of_lt hw0) base later half coefficient
+  cauchy := by
+    intro epsilon hepsilon
+    exact
+      ⟨centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+          hw0 base half coefficient epsilon,
+        fun first second hfirst hsecond =>
+          centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoff_regular
+            hw0 hw1 base half coefficient epsilon hepsilon
+            first second hfirst hsecond⟩
 
 /-- The pulled diagonal quadratic on the embedded old canonical vacuum
 component is a constructive cutoff-Cauchy sequence. -/
@@ -364,6 +417,10 @@ def centralPhysicalFinitePulledVacuumSectorMatrixQuadraticInnerRegularity
 
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoff_regular
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
 #print axioms

@@ -11618,3 +11618,52 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   vacuum-pairing convergence bridge; no graph-norm Cauchy completed vector,
   nonzero observable channel, dynamic observable pin, continuum Yang--Mills
   theory, or Clay theorem is claimed.
+
+### [BF4-physical-moving-centered-completion] Complete the same moving rational observable — **CLOSED 2026-08-24**
+
+- **milestone**: expose executable Type-level cutoff rates for the pulled
+  weighted mean, pulled root weight, and rational head correction; prove an
+  exact fixed-raw-plus-moving-root semantic expansion; derive a uniform
+  pointwise squared-difference estimate from the head-correction rate; lift it
+  to the actual cutoff-removed physical sector squared distance; construct an
+  explicit-modulus Cauchy representative; and define its sector and global
+  completed vectors.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFormCauchy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumPairing.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate`,
+  `centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoff_regular`,
+  `centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate`,
+  `centralPhysicalFinitePulledVacuumSectorRootWeightCutoff_regular`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoff_regular`,
+  `centralPhysicalVacuumSectorMovingCentered_value_equiv_expansion`,
+  `centralPhysicalVacuumSectorMovingCentered_pointwiseSq`,
+  `centralPhysicalVacuumSectorMovingCenteredCauchy`,
+  `centralPhysicalVacuumSectorMovingCenteredCompletion`, and
+  `centralPhysicalVacuumSectorMovingCenteredGlobalVector`.
+- **obligation**: prove that this same completed vector is orthogonal to the
+  completed vacuum by identifying its completion pairing with the already
+  proved zero limit; prove a positive norm lower bound so the quotient class
+  is nonzero; then identify its same-object completed transfer moments with
+  the observable channel accepted by the common dynamic completed family.
+  Do not replace the vector, transfer, correlation, sampling channel, or rate
+  at any compiler join.
+- **constructive?**: yes — the dense coefficients stay rational, the cutoff
+  witnesses are explicit functions `Q' -> Nat`, and finite rational
+  cancellation, bounded state-cylinder values, and physical seminorm
+  monotonicity suffice.  The audited interfaces use at most
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded attempt timed out inside large-context
+  quotient-rational normalization.  The second exposed an unfinished
+  denominator identity and a missing qualification; all associated
+  downstream `sorryAx` output was failed-elaboration contamination.  After
+  factoring the small algebra compilers, the corrected focused check passes.
+  The exact one-worker dependency-complete target passes 1370 jobs, with the
+  new module taking about 136 seconds.  No completed vacuum-orthogonality,
+  nonzero observable, dynamic observable pin, continuum Yang--Mills theory,
+  or Clay theorem is claimed.

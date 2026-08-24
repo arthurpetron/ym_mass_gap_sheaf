@@ -183,7 +183,7 @@ private theorem listQSum_ite_root_local
             (listQSum_ite_root_local value tail hparts.2 htail))
           (Q'.eqv_of_eq (Q'.zero_add' _))
 
-private theorem finiteListRootShiftedWeightedMean
+theorem finiteListRootShiftedWeightedMean
     (states : List Nat) (weight coefficient : Nat -> Q')
     (hnodup : states.Nodup) (hroot : 0 ∈ states)
     (scalar : Q') :

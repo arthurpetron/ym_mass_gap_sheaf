@@ -36,6 +36,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCentering
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4SU2CorrectedSlabBoundedObservableTail
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -43,6 +44,7 @@ open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4FiniteCylinderQuadraticStability
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -327,24 +329,97 @@ def centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
       (centralPhysicalFinitePulledWeight_zero_pos
         w (Q'.le_of_lt hw0) base later half)
 
-/-- The rational head-correction sequence is cutoff-Cauchy.  Naming this
-modulus separately keeps the final Bishop-real constructor transparent to the
-elaborator and makes the quantitative estimate reusable by centered forms. -/
-theorem centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy
+/-- Executable cutoff rate for the distinguished pulled root weight. -/
+def centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+    {w : Q'} (_hw0 : (0 : Q') < w)
+    (base half : Nat) (epsilon : Q') : Nat :=
+  max base
+    (slabNomeBoundedObservableModulus
+      w (centralExtent half) epsilon)
+
+/-- The explicit root-weight rate controls every pair of later pulled root
+weights. -/
+theorem centralPhysicalFinitePulledVacuumSectorRootWeightCutoff_regular
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (base half : Nat) (coefficient : Nat → Q') :
-    ∀ epsilon : Q', (0 : Q') < epsilon →
-      ∃ cutoff : Nat, ∀ first second : Nat,
-        cutoff ≤ first → cutoff ≤ second →
-          centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
-              hw0 base half coefficient first ≤
-            centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
-                hw0 base half coefficient second + epsilon ∧
-          centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
-              hw0 base half coefficient second ≤
-            centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
-                hw0 base half coefficient first + epsilon := by
-    intro epsilon hepsilon
+    (base half : Nat) (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (first second : Nat)
+    (hfirst : centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+      hw0 base half epsilon ≤ first)
+    (hsecond : centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+      hw0 base half epsilon ≤ second) :
+    centralPhysicalFinitePulledWeight
+        w (Q'.le_of_lt hw0) base first half 0 ≤
+      centralPhysicalFinitePulledWeight
+          w (Q'.le_of_lt hw0) base second half 0 + epsilon ∧
+    centralPhysicalFinitePulledWeight
+        w (Q'.le_of_lt hw0) base second half 0 ≤
+      centralPhysicalFinitePulledWeight
+          w (Q'.le_of_lt hw0) base first half 0 + epsilon := by
+  change max base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) epsilon) ≤ first at hfirst
+  change max base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) epsilon) ≤ second at hsecond
+  exact centralPhysicalFinitePulledWeight_twoSided_of_modulus
+    hw0 hw1 hepsilon
+    (Nat.le_trans (Nat.le_max_left _ _) hfirst)
+    (Nat.le_trans (Nat.le_max_left _ _) hsecond)
+    (Nat.le_trans (Nat.le_max_right _ _) hfirst)
+    (Nat.le_trans (Nat.le_max_right _ _) hsecond)
+    (centralPhysicalFiniteVacuumSectorIndex_lt
+      w (Q'.le_of_lt hw0) base half
+      (zero_mem_centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw0) base half))
+
+/-- A Type-level rate for the rational mean/root head-correction sequence.
+Its formula is the witness formerly hidden under `CReal.cauchy`: it pays the
+old carrier, the uniform positive root floor, and explicit mean/root entry
+rates at the quotient-stability tolerance. -/
+def centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+    {w : Q'} (hw0 : (0 : Q') < w)
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') : Nat :=
+  let states := centralPhysicalFiniteVacuumSectorIndices
+    w (Q'.le_of_lt hw0) base half
+  let bound := coefficientL1 states coefficient
+  let floor := centralPhysicalUniformPositiveRowFloor
+    w (Q'.le_of_lt hw0) half
+  let floorSquare := floor * floor
+  let scale := (bound + 1) + 1
+  let tolerance := Q'.divPos (epsilon * floorSquare) scale
+    (positive_scale
+      (Q'.zero_le_add _ _
+        (coefficientL1_nonnegative_local states coefficient)
+        (by decide)))
+  max (max base (centralPhysicalUniformRowFloorCutoff w half))
+    (max
+      (centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+        hw0 base half coefficient tolerance)
+      (centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+        hw0 base half tolerance))
+
+/-- The explicit head-correction rate controls every pair of rational
+corrections. -/
+theorem centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoff_regular
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (first second : Nat)
+    (hfirst :
+      centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+        hw0 base half coefficient epsilon ≤ first)
+    (hsecond :
+      centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+        hw0 base half coefficient epsilon ≤ second) :
+    centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+          hw0 base half coefficient first ≤
+        centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+            hw0 base half coefficient second + epsilon ∧
+      centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+          hw0 base half coefficient second ≤
+        centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+            hw0 base half coefficient first + epsilon := by
     unfold centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
     let states := centralPhysicalFiniteVacuumSectorIndices
       w (Q'.le_of_lt hw0) base half
@@ -366,48 +441,53 @@ theorem centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy
     let tolerance := Q'.divPos (epsilon * floorSquare) scale hscale
     have htolerance : (0 : Q') < tolerance :=
       Q'.divPos_pos _ _ hscale (Q'.mul_pos hepsilon hfloorSquare)
-    let meanLimit :=
-      centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit
-        hw0 hw1 base half coefficient
-    let rootLimit :=
-      centralPhysicalFinitePulledWeightCutoffLimit
-        hw0 hw1 base half 0
-        (centralPhysicalFiniteVacuumSectorIndex_lt
-          w (Q'.le_of_lt hw0) base half
-          (zero_mem_centralPhysicalFiniteVacuumSectorIndices
-            w (Q'.le_of_lt hw0) base half))
-    obtain ⟨meanCutoff, hmean⟩ := meanLimit.cauchy tolerance htolerance
-    obtain ⟨rootCutoff, hroot⟩ := rootLimit.cauchy tolerance htolerance
-    refine ⟨max
-      (max base (centralPhysicalUniformRowFloorCutoff w half))
-      (max meanCutoff rootCutoff), ?_⟩
-    intro first second hfirst hsecond
+    let meanCutoff :=
+      centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffRate
+        hw0 base half coefficient tolerance
+    let rootCutoff :=
+      centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+        hw0 base half tolerance
+    have hrate :
+        centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+            hw0 base half coefficient epsilon =
+          max
+            (max base (centralPhysicalUniformRowFloorCutoff w half))
+            (max meanCutoff rootCutoff) := by
+      rfl
+    have hfirst' := hrate ▸ hfirst
+    have hsecond' := hrate ▸ hsecond
     have hbaseFirst : base ≤ first :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _)
-        (Nat.le_max_left _ _)) hfirst
+        (Nat.le_max_left _ _)) hfirst'
     have hbaseSecond : base ≤ second :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _)
-        (Nat.le_max_left _ _)) hsecond
+        (Nat.le_max_left _ _)) hsecond'
     have hfloorFirst :
         centralPhysicalUniformRowFloorCutoff w half ≤ first :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _)
-        (Nat.le_max_left _ _)) hfirst
+        (Nat.le_max_left _ _)) hfirst'
     have hfloorSecond :
         centralPhysicalUniformRowFloorCutoff w half ≤ second :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _)
-        (Nat.le_max_left _ _)) hsecond
+        (Nat.le_max_left _ _)) hsecond'
     have hmeanFirst : meanCutoff ≤ first :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _)
-        (Nat.le_max_right _ _)) hfirst
+        (Nat.le_max_right _ _)) hfirst'
     have hmeanSecond : meanCutoff ≤ second :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _)
-        (Nat.le_max_right _ _)) hsecond
+        (Nat.le_max_right _ _)) hsecond'
     have hrootFirst : rootCutoff ≤ first :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _)
-        (Nat.le_max_right _ _)) hfirst
+        (Nat.le_max_right _ _)) hfirst'
     have hrootSecond : rootCutoff ≤ second :=
       Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _)
-        (Nat.le_max_right _ _)) hsecond
+        (Nat.le_max_right _ _)) hsecond'
+    have hmean :=
+      centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoff_regular
+        hw0 hw1 base half coefficient tolerance htolerance
+    have hroot :=
+      centralPhysicalFinitePulledVacuumSectorRootWeightCutoff_regular
+        hw0 hw1 base half tolerance htolerance
     have hmeanAbs :
         Q'.abs
           (centralPhysicalFinitePulledVacuumSectorWeightedMean
@@ -486,6 +566,31 @@ theorem centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy
     exact two_sided_add_of_abs_sub_le_local
       (Q'.le_trans' _ _ _ hratio hquotient)
 
+/-- The rational head-correction sequence is cutoff-Cauchy, with the witness
+provided by the explicit Type-level rate above. -/
+theorem centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q') :
+    ∀ epsilon : Q', (0 : Q') < epsilon →
+      ∃ cutoff : Nat, ∀ first second : Nat,
+        cutoff ≤ first → cutoff ≤ second →
+          centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+              hw0 base half coefficient first ≤
+            centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+                hw0 base half coefficient second + epsilon ∧
+          centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+              hw0 base half coefficient second ≤
+            centralPhysicalFinitePulledVacuumSectorHeadCorrectionApprox
+                hw0 base half coefficient first + epsilon := by
+  intro epsilon hepsilon
+  exact
+    ⟨centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+        hw0 base half coefficient epsilon,
+      fun first second hfirst hsecond =>
+        centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoff_regular
+          hw0 hw1 base half coefficient epsilon hepsilon
+          first second hfirst hsecond⟩
+
 /-- The positive root correction `pulledMean / pulledRootWeight` is a Bishop
 real.  The centering coefficient uses its negative. -/
 def centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffLimit
@@ -506,6 +611,14 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorWeightedMean_abs_le_l1
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalUniformPositiveRowFloor_le_pulledWeight_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorRootWeightCutoffRate
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorRootWeightCutoff_regular
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffRate
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoff_regular
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy
 #print axioms
