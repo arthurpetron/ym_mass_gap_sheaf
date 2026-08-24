@@ -11464,3 +11464,29 @@ cutoff-indexed family of distinct positive-row states together with support
 paths from the vacuum root, yielding a lower bound on the literal vacuum-
 sector state count.  No uniform contraction, thermodynamic/continuum QFT, or
 Clay theorem is claimed.
+
+## The singlet injection now accepts every equal spin pair (2026-08-23)
+
+`Z4FusionEqualPairSingletInjection` generalizes the earlier fundamental-spin
+local injection from the pair `1,1` to an arbitrary equal pair `spin,spin`.
+The proof selects the explicit channel zero in `spin tensor spin`, identifies
+its continuation with the original fusion path by constructive zero
+insertion, and bounds that named summand by the complete finite resolver sum.
+
+The result is also lifted through permutation and the production valence-six
+encoding: replacing a local vacuum pair `0,0` by any equal pair admitted by a
+bounded physical incident-spin list cannot decrease the explicit link
+multiplicity.  This is the reusable algebraic input needed to prove positive
+vacuum support for closed cubes of every cutoff-admitted spin.
+
+The first focused attempt exposed one missing namespace opening and is not a
+pass.  After correction, the focused guarded check passes in about 0.3
+seconds.  The exact one-worker, dependency-complete target passes 512 jobs,
+with the new module taking about 0.3 seconds.  All three audited exports use
+exactly `[propext, Quot.sound]`.
+
+This local injection is not yet a positive-row or carrier-growth theorem.
+The next frontier is to construct the all-spin lower-cube states, prove their
+physical terms and vacuum kernel entries strictly positive, and then compile
+their distinctness into a lower bound on the canonical vacuum-sector state
+count.  No uniform contraction, continuum QFT, or Clay theorem is claimed.

@@ -9796,3 +9796,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 1.0 seconds.  Carrier unboundedness, failure of the cofinal
   comparison, uniform contraction, continuum QFT, and the Clay theorem are
   not claimed.
+
+### [Z4-equal-pair-singlet-injection] Arbitrary equal-spin local injection — **CLOSED 2026-08-23**
+
+- **milestone**: generalize the named singlet-channel injection from the
+  fundamental pair `1,1` to every equal pair `spin,spin`, and lift it through
+  physical permutation to the production explicit-valence multiplicity.
+- **file**:
+  `lean/YMGap/Continuum/Z4FusionEqualPairSingletInjection.lean`.
+- **decl**: `fusionPathMultiplicity_le_equal_pair`,
+  `fusionPathMultiplicity_physical_le_equal_pair`, and
+  `explicitValenceMultiplicity_physical_equal_pair_replacement_le`.
+- **obligation**: apply the local injection at every touched link of the
+  spin-labelled lower cube, prove positive vacuum support, and derive actual
+  connected-carrier growth.
+- **constructive?**: yes — one named channel-zero summand, zero insertion,
+  finite natural-sum monotonicity, and constructive permutation transport
+  suffice.  All three audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: one failed focused elaboration attempt is not a pass.  The
+  corrected focused check passes in about 0.3 seconds; the exact one-worker
+  target passes 512 jobs with the new module taking about 0.3 seconds.  No
+  positive-row family, carrier-growth theorem, uniform gap, continuum QFT,
+  or Clay theorem is claimed.
