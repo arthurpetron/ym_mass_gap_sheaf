@@ -27,6 +27,7 @@ or noncomputable declaration is used.
 
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualLinearCongestion
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualCompletedGap
+import YMGap.Continuum.BF4PhysicalSpinCubeFiniteLinearFullSectorCoercivity
 
 namespace YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion
 
@@ -45,6 +46,8 @@ open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFlowCapacity
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFrontier
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualLinearCongestion
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualEndpointMassBound
+open YMGap.Continuum.BF4PhysicalSpinCubeFiniteLinearFullSectorCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeRayDirichletCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayReturnFloor
@@ -281,6 +284,22 @@ structure CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
 
 namespace CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
 
+/-- The cancellation is lossless: every original pointwise flow-capacity
+certificate also gives the corresponding dimensionless conditional
+congestion certificate. -/
+def ofResidualFlowCapacityAt
+    {w : Q'} {hw : (0 : Q') < w} {K : Nat}
+    {rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K}
+    (flowCapacity :
+      CentralLowerExcitedSpinCubeOffRayResidualFlowCapacityAt
+        hw K rayCapacity) :
+    CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
+      hw K rayCapacity where
+  edge_capacity := fun source hsource target htarget =>
+    (centralLowerExcitedSpinCubeOffRayResidualEdgeCapacity_iff_conditionalCongestion
+      hsource target).mp
+      (flowCapacity.edge_capacity source hsource target htarget)
+
 def toResidualFlowCapacityAt
     {w : Q'} {hw : (0 : Q') < w} {K : Nat}
     {rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K}
@@ -295,6 +314,38 @@ def toResidualFlowCapacityAt
       (congestion.edge_capacity source hsource target htarget)
 
 end CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
+
+/-! ## 5. A genuine finite-cutoff conditional-congestion inhabitant -/
+
+/-- At every fixed cutoff, the concrete carrier-linear restriction of any
+finite spin-ray capacity gives an actual conditional-congestion certificate.
+Its floor may depend on the cutoff; this is the non-vacuous finite theorem,
+not a cofinal uniform claim. -/
+def centralLowerExcitedSpinCubeFiniteLinearConditionalCongestionAt
+    {w : Q'} {hw : (0 : Q') < w} {K : Nat}
+    (rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K) :
+    CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
+      hw K
+      (centralLowerExcitedSpinCubeFiniteLinearRestrictedRayCapacity
+        rayCapacity) :=
+  CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.ofResidualFlowCapacityAt
+    (centralLowerExcitedSpinCubeFiniteLinearNormalizedRatioAt rayCapacity
+      |>.toResidualFlowCapacityAt)
+
+/-- Concrete strong-coupling specialization of the finite conditional
+congestion theorem at every representation cutoff. -/
+def anchorCentralSpinCubeFiniteLinearConditionalCongestionAt
+    (K : Nat) :
+    CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt
+      (by decide : (0 : Q') <
+        YMGap.Continuum.Z4StrongCouplingParametricAnchor.anchorCoupling)
+      K
+      (centralLowerExcitedSpinCubeFiniteLinearRestrictedRayCapacity
+        (YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity.anchorCentralSpinCubeFiniteRayCapacityAt
+          K)) :=
+  centralLowerExcitedSpinCubeFiniteLinearConditionalCongestionAt
+    (YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity.anchorCentralSpinCubeFiniteRayCapacityAt
+      K)
 
 structure FixedNomeCofinalSpinCubeOffRayResidualConditionalCongestion
     {w : Q'} (hw : (0 : Q') < w)
@@ -343,5 +394,11 @@ end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.centralLowerExcitedSpinCubeOffRayResidualEdgeCapacity_iff_conditionalCongestion
 #print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.toResidualFlowCapacityAt
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.ofResidualFlowCapacityAt
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.centralLowerExcitedSpinCubeFiniteLinearConditionalCongestionAt
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.anchorCentralSpinCubeFiniteLinearConditionalCongestionAt
 #print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion.FixedNomeCofinalSpinCubeOffRayResidualConditionalCongestion.toCompletedStrictContractionData

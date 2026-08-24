@@ -11279,7 +11279,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `centralPhysicalFiniteWeight_mul_relativePairDemand_eqv_pathLoad`,
   `centralPhysicalFiniteWeight_mul_relativeSourceFlowLoad_eqv_flowLoad`,
   `centralLowerExcitedSpinCubeOffRayResidualEdgeCapacity_iff_conditionalCongestion`,
+  `CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.ofResidualFlowCapacityAt`,
   `CentralLowerExcitedSpinCubeOffRayResidualConditionalCongestionAt.toResidualFlowCapacityAt`,
+  `centralLowerExcitedSpinCubeFiniteLinearConditionalCongestionAt`,
+  `anchorCentralSpinCubeFiniteLinearConditionalCongestionAt`,
   and
   `FixedNomeCofinalSpinCubeOffRayResidualConditionalCongestion.toCompletedStrictContractionData`.
 - **obligation**: inhabit the cofinal conditional-congestion family by
@@ -11292,11 +11295,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **constructive?**: yes — finite sector positivity, exact physical Markov
   factorization, explicit positive rational division, duplicate-preserving
   finite regrouping, and positive-factor order cancellation suffice.  All
-  six audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  nine audited exports use exactly `[propext, Quot.sound]`; no forbidden
   construct was added.
 - **status note**: the first focused check failed on one missing namespace
   and is not a pass; its downstream `sorryAx` lines were elaboration
-  contamination only.  The corrected focused guarded check passes in about
-  1.2 seconds.  The exact one-worker dependency-complete target passes 5048
-  jobs, with the new module taking about 1.2 seconds.  No conditional-family
-  inhabitant, continuum Yang--Mills theory, or Clay theorem is claimed.
+  contamination only.  The final focused guarded check passes in about
+  1.3 seconds.  The exact one-worker dependency-complete target passes 5050
+  jobs, with the new module taking about 1.4 seconds.  The conditional
+  interface is inhabited at every finite cutoff by the concrete restricted
+  carrier-linear certificate, but no cofinal uniform conditional family,
+  continuum Yang--Mills theory, or Clay theorem is claimed.

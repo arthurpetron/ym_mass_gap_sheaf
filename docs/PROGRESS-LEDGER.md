@@ -13112,11 +13112,18 @@ pointwise residual-flow capacity and from there to the actual completed
 vacuum-sector strict contraction.  No global minimum edge, carrier size, or
 minimum stationary mass appears in the new frontier.
 
+The cancellation is lossless in both directions.  In particular, the
+already constructed carrier-linear finite flow capacity transports back to
+an actual conditional-congestion certificate at every finite cutoff.  The
+anchor specialization therefore inhabits the new interface unconditionally
+for every `K`; its restricted positive floor still depends on `K`, so this is
+a genuine finite theorem rather than a hidden cofinal claim.
+
 The first focused check failed on a missing ray-return-floor namespace and is
 not a pass; its downstream `sorryAx` output was elaboration contamination.
-After opening the correct namespace, the focused guarded check passes in
-about 1.2 seconds.  The exact one-worker dependency-complete target passes
-5048 jobs, with the new module taking about 1.2 seconds.  All six audited
+After opening the correct namespace, the final focused guarded check passes
+in about 1.3 seconds.  The exact one-worker dependency-complete target passes
+5050 jobs, with the new module taking about 1.4 seconds.  All nine audited
 exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
 
 No cofinal conditional-congestion family is inhabited.  The producer problem
