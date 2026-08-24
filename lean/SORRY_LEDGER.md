@@ -9902,3 +9902,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 5,028 jobs with the new module taking about 1.1 seconds.  This rules
   out only the crude global-state-count simple floor, not sharper capacity
   estimates, a uniform spectral gap, continuum QFT, or the Clay theorem.
+
+### [BF4-spin-cube-vacuum-spokes] Explicit constant-length ray routing — **CLOSED 2026-08-23**
+
+- **milestone**: construct a reusable faithful-code carrier locator, locate
+  every cutoff-admitted spin cube, prove its indexed physical kernel edge to
+  and from the vacuum strictly positive, and connect any two such vertices by
+  an exact two-edge positive-kernel star path.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorEmbedding.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeVacuumSpokes.lean`.
+- **decl**: `centralPhysicalFiniteIndexOfState_lt`,
+  `centralPhysicalFiniteStateAt_indexOfState_eq`,
+  `centralLowerSpinCubeIndex_lt`,
+  `centralPhysicalFiniteStateAt_spinCubeIndex_eq`,
+  `centralPhysicalFiniteKernel_spinCubeIndex_zero_pos`,
+  `centralPhysicalFiniteKernel_zero_spinCubeIndex_pos`,
+  `centralLowerSpinCubeIndex_mem_vacuumSector`,
+  `centralVacuumToLowerSpinCubeSpoke_edgeLength`,
+  `centralLowerSpinCubeStarPath_edgeLength`,
+  `centralLowerSpinCubeStarPath_directedEdges`, and
+  `centralLowerSpinCube_endpoint_sq_le_two_spoke_square_sum`.
+- **obligation**: aggregate the stationary-product demands of the spin-ray
+  star flow on each vacuum spoke and compare that exact load with the same
+  spoke's physical joint capacity; then extend or recursively glue this local
+  routing beyond the explicit ray to the full vacuum sector.
+- **constructive?**: yes — decidable equality is used only on faithful natural
+  codes, all carrier and path witnesses remain Type-level, and all eleven
+  audited exports use exactly `[propext, Quot.sound]`.
+- **status note**: two failed focused attempts are not passes.  The corrected
+  focused spoke check passes in about 0.9 seconds.  The exact one-worker spoke
+  target passes 1,197 jobs with the new module taking about 0.8 seconds; the
+  separately rebuilt locator target passes 1,170 jobs with its modified module
+  taking about 3.7 seconds.  This removes the carrier-size path-length loss on
+  the spin-cube ray only; spoke capacity, a full-sector uniform gap, continuum
+  QFT, and the Clay theorem remain open.

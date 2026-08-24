@@ -86,6 +86,83 @@ private theorem firstNatCodeIndex_getElem_eq (target : Nat) :
           List.getElem_cons_succ] using
             (firstNatCodeIndex_getElem_eq target htail)
 
+/-! ## 1a. A reusable code-based locator inside one physical carrier -/
+
+/-- Locate a literal positive physical state by its faithful BF4 code.  The
+value is total, but the useful range and state-identification theorems below
+require the honest carrier-membership proof. -/
+def centralPhysicalFiniteIndexOfState
+    (w : Q') (hw : (0 : Q') ≤ w) (K half : Nat)
+    (state : EdgeLabelling) : Nat :=
+  firstNatCodeIndex (bf4StateCode K half state)
+    ((centralPositiveHalfStates w hw K half).map
+      (bf4StateCode K half))
+
+theorem centralPhysicalFiniteIndexOfState_lt
+    {w : Q'} {hw : (0 : Q') ≤ w} {K half : Nat}
+    {state : EdgeLabelling}
+    (hstate : state ∈ centralPositiveHalfStates w hw K half) :
+    centralPhysicalFiniteIndexOfState w hw K half state <
+      centralPhysicalFiniteCarrierSize w hw K half := by
+  unfold centralPhysicalFiniteIndexOfState
+    centralPhysicalFiniteCarrierSize
+  rw [← List.length_map (bf4StateCode K half)]
+  exact firstNatCodeIndex_lt_length_of_mem _
+    (List.mem_map.mpr ⟨state, hstate, rfl⟩)
+
+/-- Looking up the code-located index recovers the original literal state.
+Faithfulness is used only on the bounded positive carrier. -/
+theorem centralPhysicalFiniteStateAt_indexOfState_eq
+    {w : Q'} {hw : (0 : Q') ≤ w} {K half : Nat}
+    {state : EdgeLabelling}
+    (hstate : state ∈ centralPositiveHalfStates w hw K half) :
+    centralPhysicalFiniteStateAt w hw K half
+        (centralPhysicalFiniteIndexOfState w hw K half state) = state := by
+  let states := centralPositiveHalfStates w hw K half
+  let codes := states.map (bf4StateCode K half)
+  have hcodeMem : bf4StateCode K half state ∈ codes :=
+    List.mem_map.mpr ⟨state, hstate, rfl⟩
+  have hltCodes :
+      firstNatCodeIndex (bf4StateCode K half state) codes < codes.length :=
+    firstNatCodeIndex_lt_length_of_mem _ hcodeMem
+  have hltStates :
+      firstNatCodeIndex (bf4StateCode K half state) codes < states.length := by
+    simpa [codes] using hltCodes
+  have hcodeEq :
+      codes[firstNatCodeIndex (bf4StateCode K half state) codes] =
+        bf4StateCode K half state :=
+    firstNatCodeIndex_getElem_eq _ hcodeMem
+  have hlocated :
+      states.getD
+          (firstNatCodeIndex (bf4StateCode K half state) codes)
+          zeroEdgeLabelling ∈ states := by
+    rw [← List.getElem_eq_getD
+      (l := states)
+      (i := firstNatCodeIndex (bf4StateCode K half state) codes)
+      (h := hltStates)
+      zeroEdgeLabelling]
+    exact List.getElem_mem hltStates
+  have hlocatedCode :
+      bf4StateCode K half
+          (states.getD
+            (firstNatCodeIndex (bf4StateCode K half state) codes)
+            zeroEdgeLabelling) =
+        bf4StateCode K half state := by
+    rw [← List.getElem_eq_getD
+      (l := states)
+      (i := firstNatCodeIndex (bf4StateCode K half state) codes)
+      (h := hltStates)
+      zeroEdgeLabelling]
+    simpa [codes] using hcodeEq
+  have hstateEq :
+      states.getD
+          (firstNatCodeIndex (bf4StateCode K half state) codes)
+          zeroEdgeLabelling = state :=
+    bf4StateCode_injective_on_positive
+      hlocated hstate hlocatedCode
+  simpa [centralPhysicalFiniteStateAt,
+    centralPhysicalFiniteIndexOfState, states, codes] using hstateEq
+
 /-- Locate an old finite-carrier state in the later positive carrier by the
 faithful code computed with the later cutoff. -/
 def centralPhysicalFiniteCutoffIndexMap
@@ -351,6 +428,10 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding
 
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding.centralPhysicalFiniteCutoffIndexMap_lt
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding.centralPhysicalFiniteIndexOfState_lt
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding.centralPhysicalFiniteStateAt_indexOfState_eq
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding.centralPhysicalFiniteStateAt_cutoffIndexMap_eq
 #print axioms

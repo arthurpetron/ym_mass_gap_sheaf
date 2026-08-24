@@ -11589,3 +11589,41 @@ spectral gap.  The next frontier is to return to the sharper weighted-flow
 capacity formulas, retain stationary-mass cancellation and local edge loads,
 and seek a cofinal estimate without the global carrier-count-square penalty.
 No continuum QFT or Clay theorem is claimed.
+
+## The growing spin-cube ray has cutoff-independent two-edge geometry (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorEmbedding` now exports a reusable constructive
+locator for any literal positive physical state: it searches the finite
+carrier's faithful natural-number BF4 codes, returns an in-range index, and
+proves that totalized lookup at that index recovers the original state.
+
+`BF4PhysicalSpinCubeVacuumSpokes` applies the locator to every spin cube with
+`spin <= K`.  The previously proved raw vacuum/cube positivity becomes
+strict positivity of the indexed normalized kernel in both orientations.
+The located index is therefore in the rooted component, and the module
+constructs literal positive-kernel paths
+
+`spinCube(spin) -> vacuum` and `vacuum -> spinCube(spin)`
+
+of length one.  Their composite connects any two admitted spin cubes through
+the vacuum in exactly two edges, with the directed-edge list displayed
+exactly.  Finite Cauchy--Schwarz consequently bounds every spin-cube endpoint
+difference using the two spoke increments with the cutoff-independent factor
+two.
+
+Two failed focused attempts first exposed a stale compiled dependency and
+then one missing normalized-kernel namespace; neither is a pass.  After an
+exact rebuild of the locator dependency and correction, the focused spoke
+check passes in about 0.9 seconds.  The exact one-worker spoke target passes
+1,197 jobs, with the new module taking about 0.8 seconds; one invalidated
+dependency took about 73 seconds.  The locator target separately passes 1,170
+jobs, with its modified module taking about 3.7 seconds.  Both locator audits
+and all nine spoke audits use exactly `[propext, Quot.sound]`.
+
+This is the first constructive replacement for the disproved global path
+scale on an actual growing family: carrier cardinality does not make these
+paths long.  It is not yet a full-sector flow or capacity estimate.  The next
+frontier is to aggregate stationary-product traffic on the explicit vacuum
+spokes and reduce its capacity to the concrete spin-cube return probabilities
+or raw row/kernel ratios.  No completed uniform gap, continuum QFT, or Clay
+theorem is claimed.
