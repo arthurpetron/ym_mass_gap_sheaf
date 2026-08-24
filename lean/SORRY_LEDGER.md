@@ -10375,3 +10375,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 0.6 seconds; the exact one-worker target passes 994 jobs with the new
   module taking about 0.44 seconds.  No uniform raw-row ceiling, full-sector
   gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-central-spin-cube-residual-carrier-sum] Sum the residual boundary-target carrier uniformly — **CLOSED 2026-08-23**
+
+- **milestone**: inject every physical boundary/target pair into its assembled
+  non-source label vector, prove exact Cartesian factorization of the vector
+  weight, certify the 66-face count, and apply the uniform exponent-13 one-face
+  envelope.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeResidualCarrierSumBound.lean`.
+- **decl**:
+  `mem_boundedSpinVectors_iff`,
+  `centralSpinCubeResidualCarrierSum_le_vectorPower`,
+  `centralSpinCubeNonSourceFaceIds_length`, and
+  `centralSpinCubeResidualCarrierSum_le_ceiling`.
+- **obligation**: transport the termwise source-activity majorant through the
+  production boundary sum and retained target sum to obtain the actual
+  cutoff-uniform raw-row ceiling, then feed that theorem to the previously
+  proved selected-term return/capacity compiler.
+- **constructive?**: yes — explicit zero-through-cutoff vectors, list
+  membership induction, supported-function extensionality, the existing
+  assembly injection, finite weighted injection, exact Cartesian sums, and
+  rational power monotonicity suffice.  All audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two failed focused elaboration attempts are not passes.  The
+  corrected focused check passes in about 3.9 seconds; the exact one-worker
+  target passes 995 jobs with the new module taking about 3.8 seconds.  No
+  raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is claimed
+  yet.

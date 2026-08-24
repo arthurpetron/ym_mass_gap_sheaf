@@ -12151,3 +12151,40 @@ boundary/target summation: map the assembled non-source face labels into a
 Cartesian carrier and bound its total decorated weight uniformly in cutoff.
 Full-sector routing, completion, thermodynamic and continuum limits,
 continuum QFT, and the Clay theorem remain open.
+
+## The complete residual boundary-target carrier has a cutoff-uniform ceiling (2026-08-23)
+
+`BF4CentralSpinCubeResidualCarrierSumBound` constructs the missing finite
+carrier map explicitly.  A boundary/target pair is sent to its assembled list
+of labels on the non-source physical faces.  The map is injective: equality of
+those lists extends to equality of the supported slab labellings, and the
+existing restriction-after-assembly theorem recovers both inputs.
+
+The corrected extent-one slab has 72 physical faces and the source cube uses
+six, so the residual list has exactly 66 faces.  The actual carrier embeds in
+independent vectors with labels `0, ..., K` on those faces.  Their product
+weight factors exactly, including the spin-zero contribution, as
+
+`(1 + anchorDecoratedPlaqActivity K)^66`.
+
+Using the already proved cutoff-uniform one-face bound gives the scalar
+
+`centralSpinCubeResidualCarrierCeiling = (1 + 1/7500)^66`
+
+and the total decorated weight of every physical boundary/target pair is at
+most that number for every cutoff.  This deliberately overcounts the 18
+non-cube faces on the fixed zero source slice; retaining them as independent
+coordinates keeps the injection and summation transparent while preserving a
+small uniform constant.
+
+Two failed focused elaboration attempts exposed namespace omissions and the
+support proof's Boolean case split; neither is a pass.  The corrected focused
+guarded check passes in about 3.9 seconds.  The exact one-worker,
+dependency-complete target passes 995 jobs, with the new module taking about
+3.8 seconds.  All audited exports use exactly `[propext, Quot.sound]`.
+
+The next frontier is now purely summational: lift the termwise bound through
+the boundary sum and the retained target row, yielding the promised uniform
+raw-row ceiling.  The transfer contraction, full-sector gap, completion,
+thermodynamic and continuum limits, continuum QFT, and the Clay theorem remain
+open.
