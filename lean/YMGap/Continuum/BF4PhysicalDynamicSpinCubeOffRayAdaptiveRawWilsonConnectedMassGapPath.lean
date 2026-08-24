@@ -112,10 +112,10 @@ structure RawWilsonConnectedMassGapPath
   vectors using the exact scheduled-rate limit parameter. -/
   graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
     family ratePower W
-  /-- The selected vacuum is the embedded constant observable and the
-  observable time shift preserves that unit.  Dense intertwining derives the
-  stationarity needed to iterate the operator gap. -/
-  vacuumPin : WilsonDenseUnitVacuumPin W
+  /-- The selected vacuum is the embedded constant observable and is fixed by
+  the completed transfer.  This is the smallest concrete-vacuum datum needed
+  to iterate the operator gap; no carrier-level `tau one` law is required. -/
+  vacuumPin : WilsonDenseUnitStationaryVacuumPin W
 
 namespace RawWilsonConnectedMassGapPath
 
@@ -143,7 +143,7 @@ def ofUniformNormFloor
       family gapVariation W)
     (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
       family ratePower W)
-    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
     RawWilsonConnectedMassGapPath family raw band gapVariation
       ratePower H W where
   nontrivial := MovingCubeRawContinuumNontriviality.ofUniformNormFloor uniform
@@ -178,7 +178,7 @@ def ofUniformNormFloorAndParallelGraphNormCompilers
     (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
     (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
       family W transfer)
-    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
     RawWilsonConnectedMassGapPath family raw band gapVariation
       ratePower H W :=
   ofUniformNormFloor uniform projectiveOS matrixCoefficient exactRate
@@ -216,7 +216,7 @@ def ofUniformNormFloorAndProjectiveOSCorrelationHandoff
       family gapVariation W)
     (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
       family ratePower W)
-    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
     RawWilsonConnectedMassGapPath family raw band gapVariation
       ratePower H W :=
   ofUniformNormFloor uniform
@@ -250,7 +250,7 @@ def ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin
       family gapVariation W)
     (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
       family ratePower W)
-    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
     RawWilsonConnectedMassGapPath family raw band gapVariation
       ratePower H W :=
   ofUniformNormFloorAndProjectiveOSCorrelationHandoff uniform projective
@@ -293,7 +293,7 @@ def iteratedBoundedMassGap
       ratePower H W) :
     WilsonIteratedBoundedMassGap W where
   boundedGap := path.minimalBoundedMassGap
-  stationarity := path.vacuumPin.toStationarity
+  stationarity := path.vacuumPin.stationarity
 
 /-- The endpoint's physical rate is definitionally the limit selected by the
 same dynamic physical-gap variation. -/

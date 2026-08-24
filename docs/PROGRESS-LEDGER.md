@@ -14585,3 +14585,28 @@ audited exports use only `[propext, Quot.sound]`.
 The legacy projective and Wilson pins, literal same-object equality, uniform
 raw norm floor, all-vector graph-norm branches, exact rate, vacuum pin,
 continuum theory, QFT axioms, and Clay theorem remain uninhabited.
+
+## The connected path now requires only the stationary dense-unit vacuum (2026-08-24)
+
+The raw Wilson capstone previously required `WilsonDenseUnitVacuumPin`, which
+includes a carrier-level proof that the observable shift preserves the unit.
+Its actual downstream uses are strictly smaller: identification of the
+selected completed vacuum with the embedded unit, and stationarity of that
+completed vacuum.  The record now consumes the existing
+`WilsonDenseUnitStationaryVacuumPin` directly.
+
+This preserves both semantic consequences already proved on the connected
+path.  The selected gap state is still orthogonal to the concrete embedded
+constant, and the all-vector one-step gap still iterates because completed
+stationarity preserves the vacuum complement.  But a future continuum
+construction need not prove the stronger `tau one` carrier equation unless it
+uses that equation elsewhere.  The stronger pin still refines the new input
+through its existing `toStationaryVacuumPin` compiler.
+
+The focused guarded check and exact one-worker capstone target pass.  The
+latter builds 5106 jobs, with the changed module taking about 2.1 seconds.
+All audited exports remain within `[propext, Quot.sound]`.
+
+The completed vacuum equality and stationarity are not inhabited.  All other
+raw nontriviality, same-object, projective/Wilson, exact-rate, graph-norm,
+continuum, QFT, and Clay residuals remain open.

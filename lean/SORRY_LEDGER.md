@@ -12854,3 +12854,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   adapter target passes 1668 jobs, taking about 0.8 seconds; the connected
   capstone passes 5106 jobs, taking about 2.1 seconds.  No adapter input or
   later all-vector/continuum residual is claimed inhabited.
+
+### [BF4-physical-connected-stationary-dense-unit] Remove the unnecessary carrier-level unit-preservation obligation — **CLOSED 2026-08-24**
+
+- **milestone**: replace `WilsonDenseUnitVacuumPin` on the connected path by
+  the strictly smaller `WilsonDenseUnitStationaryVacuumPin`; use its completed
+  stationarity directly for iteration while retaining the embedded-unit
+  vacuum equality used by observable orthogonality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `RawWilsonConnectedMassGapPath.vacuumPin` and
+  `RawWilsonConnectedMassGapPath.iteratedBoundedMassGap`.
+- **obligation**: identify the selected completed vacuum with the embedded
+  unit and prove that the completed transfer fixes it.  The stronger
+  carrier-level `tau one` law is no longer required by this capstone.
+- **constructive?**: yes — this is a weakening of the residual interface, not
+  a new assumption.  The previous stronger pin already maps to the new one by
+  `WilsonDenseUnitVacuumPin.toStationaryVacuumPin`.  Audited exports remain
+  within `[propext, Quot.sound]`.
+- **status note**: the focused guarded check and exact one-worker target pass;
+  the latter builds 5106 jobs, with the changed module taking about 2.1
+  seconds.  Neither vacuum field nor any later continuum residual is claimed
+  inhabited.
