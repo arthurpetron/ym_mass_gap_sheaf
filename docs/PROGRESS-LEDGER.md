@@ -10964,3 +10964,27 @@ certificate and an increment-only scalar payment into completed strict
 contraction.  The existence of such a cofinal family, component stability at
 larger cutoffs, thermodynamic/continuum control, and the Clay theorem remain
 open.
+
+## Checked no-merger increments now compile to contraction (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelNoMergerIncrementEdgeFloorPayment` proves
+that a successful no-merger check reduces the component-split scalar payment
+to the increment-only inequality
+`novelFloor * ((65+n) * (2*cutoffIncrement)) <= half * edgeFloor`.  This
+inequality supplies all four finite novel-flow capacity blocks.  A cofinal
+family now exposes exactly two independent fields—successful no-merger checks
+and increment-only payments—and compiles them to the existing completed
+strict-contraction datum.
+
+The focused check passes in about 2.0 seconds.  The exact one-worker,
+dependency-complete target passes 5,008 jobs, with the new module taking about
+2.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+Neither cofinal field is inhabited.  In particular, the corrected-slab
+increment here has fixed base cutoff two; no claim is made that it decays as
+the later cutoff recedes.  The next frontier is therefore to test and
+semantically characterize component stability and to determine whether the
+fixed-base route is viable or must be replaced by a moving-base/local-step
+construction.  Completed contraction, continuum QFT, and the Clay theorem
+remain open.

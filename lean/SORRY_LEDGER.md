@@ -9326,3 +9326,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,007 jobs with the new module taking about 1.0 second.  Only
   the anchor `later = 2` is inhabited, so no cofinal contraction, continuum
   QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-no-merger-increment-payment] Checked increment-only capacity compiler — **CLOSED 2026-08-23**
+
+- **milestone**: under a successful no-merger check, reduce the component-
+  split payment to
+  `novelFloor * ((65+n) * (2*cutoffIncrement)) <= half * edgeFloor`; compile
+  its cofinal checked form to all finite capacity blocks and completed strict
+  contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelNoMergerIncrementEdgeFloorPayment.lean`.
+- **decl**:
+  `cutoffTwoComponentSplitPayment_of_noMergerIncrementPayment`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_noMergerIncrementPayment`,
+  `CutoffTwoCofinalNovelNoMergerIncrementEdgeFloorPayment.toCofinalNovelComponentSplitEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelNoMergerIncrementEdgeFloorPayment.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalNovelNoMergerIncrementEdgeFloorPayment.toCompletedStrictContractionData`.
+- **obligation**: inhabit both cofinal fields: component stability and the
+  increment-only comparison against the finite positive routed-edge floor;
+  otherwise replace the fixed-base route by a moving-base construction.
+- **constructive?**: yes — exact rational equivalence removes the certified
+  zero merger mass before invoking the existing capacity compiler.  All five
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the focused check passes in about 2.0 seconds; the exact
+  one-worker target passes 5,008 jobs with the new module taking about 2.1
+  seconds.  Neither cofinal field is inhabited, and fixed-base increment decay
+  is not claimed; no completed contraction, continuum QFT, or Clay theorem is
+  proved.
