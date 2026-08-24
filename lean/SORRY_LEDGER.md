@@ -10049,3 +10049,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 5,027 jobs with the new module taking about 1.0
   seconds.  No cutoff-uniform escape ceiling, full-sector gap, continuum QFT,
   or Clay theorem is claimed.
+
+### [BF4-spin-ray-cofinal-escape-compiler] Uniform escape ratio to cofinal capacity — **CLOSED 2026-08-23**
+
+- **milestone**: state one cutoff-independent nonnegative escape-ratio ceiling
+  as Type-level data and compile it through the exact reciprocal return floor,
+  the literal finite return minimum, and the existing cofinal spoke-capacity
+  machinery without additional loss.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayCofinalEscapeCeiling.lean`.
+- **decl**:
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.returnFloor_pos`,
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.returnFloor_le_return`,
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.returnFloor_le_finiteReturnFloor`,
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.toCofinalRayReturnFloor`,
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.finiteRayCapacityAt`, and
+  `FixedNomeCofinalSpinCubeEscapeRatioCeiling.toCofinalRayCapacity`.
+- **obligation**: inhabit `FixedNomeCofinalSpinCubeEscapeRatioCeiling` from
+  actual arbitrary-spin BF4 kernel estimates, or construct a concrete
+  spin/cutoff obstruction and redesign the ray routing; then control the
+  remaining rooted sector.
+- **constructive?**: yes — the honest named Type-level premise, exact rational
+  reciprocal, pointwise escape compiler, finite-minimum recursion, and prior
+  spoke-capacity compiler suffice.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes on its first attempt in about 1.3
+  seconds; the exact one-worker target passes 5,029 jobs with the new module
+  taking about 1.1 seconds.  The escape-ceiling datum remains uninhabited, and
+  no full-sector gap, continuum QFT, or Clay theorem is claimed.

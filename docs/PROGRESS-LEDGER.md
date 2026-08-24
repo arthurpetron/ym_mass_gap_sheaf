@@ -11770,3 +11770,33 @@ floor and ray capacity.  Constructing that ceiling from arbitrary-spin BF4
 row estimates, extending routing beyond the spin ray, the completed spectral
 gap, thermodynamic and continuum limits, continuum QFT, and the Clay theorem
 all remain open.
+
+## One cofinal escape ceiling compiles to the full spin-ray capacity (2026-08-23)
+
+`BF4PhysicalSpinCubeRayCofinalEscapeCeiling` states the remaining quantitative
+spin-ray estimate as `FixedNomeCofinalSpinCubeEscapeRatioCeiling`: one explicit
+nonnegative rational `ceiling`, one start cutoff, and a proof that every later
+admitted spin row has non-vacuum escape mass at most `ceiling` times its vacuum
+joint entry.  The structure is Type-level and intentionally uninhabited here.
+
+The compiler constructs the common return floor exactly as
+`1 / (1 + ceiling)`.  The preceding escape theorem puts it below each literal
+return probability.  A constructive recursion over `List.range K`, including
+the unit fallback, then puts the same scalar below the explicit finite return
+minimum at every later cutoff.  This produces an actual
+`FixedNomeCofinalSpinCubeRayReturnFloor`, a finite ray-capacity certificate at
+each stage, and the final `FixedNomeCofinalSpinCubeRayCapacity` without any
+additional carrier-count or path-length loss.
+
+The focused guarded check passes on its first attempt in about 1.3 seconds.
+The exact one-worker, dependency-complete target passes 5,029 jobs, with the
+new module taking about 1.1 seconds.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+This closes the logical compiler from a uniform escape ratio, not the
+arbitrary-spin BF4 estimate itself.  The next frontier is to expand the escape
+sum to its physical kernel/plaquette terms and determine whether existing
+fixed-nome domination, fusion, and row-mass estimates furnish one uniform
+`ceiling`, or instead expose a concrete spin/cutoff obstruction.  The remaining
+rooted sector, completed spectral gap, thermodynamic and continuum limits,
+continuum QFT, and the Clay theorem remain open.
