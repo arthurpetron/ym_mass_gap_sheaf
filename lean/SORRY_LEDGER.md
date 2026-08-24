@@ -9484,3 +9484,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds.  The decision does not establish which branch occurs at any larger
   cutoff, so no cofinal contraction, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-cutoff-two-component-boundary-mass-witness] Quantitative crossing data — **CLOSED 2026-08-23**
+
+- **milestone**: prove every embedded-boundary crossing has positive later
+  kernel and target stationary weight, bound that weight by its exact shell
+  submass, and return a quantitative closed/outside/merger trichotomy.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryMassWitness.lean`.
+- **decl**: `cutoffTwoEmbeddedVacuumBoundaryExit_kernel_pos`,
+  `cutoffTwoEmbeddedVacuumBoundaryExit_targetWeight_pos`,
+  `cutoffTwoBoundaryExitOutsidePositive_targetWeight_le_mass`,
+  `cutoffTwoBoundaryExitOutsidePositive_mass_pos`,
+  `cutoffTwoBoundaryExitComponentMerger_targetWeight_le_mass`,
+  `cutoffTwoBoundaryExitComponentMerger_mass_pos`, and
+  `cutoffTwoEmbeddedVacuumBoundaryMassTrichotomy`.
+- **obligation**: provide an upper budget for component-merger mass sufficient
+  for edge-floor payment, then construct it cofinally or replace the fixed
+  base by a moving-base schedule.
+- **constructive?**: yes — finite nonnegative summation retains the witnessed
+  target weight, support adjacency gives positive normalized kernel, and all
+  seven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: two missing-namespace attempts are not passes.  The
+  corrected focused check passes in about 1.3 seconds; the exact one-worker
+  target passes 5,014 jobs with the new module taking about 1.3 seconds.  No
+  uniform crossing floor, merger-mass ceiling, cofinal contraction, continuum
+  QFT, or Clay theorem is claimed.

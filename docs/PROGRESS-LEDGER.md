@@ -11123,3 +11123,32 @@ theorem.  The next frontier is to quantify the stationary mass represented by
 the two crossing branches and compare it with the scalar edge-floor payment,
 or prove the closure branch along an appropriate moving-base schedule.
 Completed contraction, continuum QFT, and the Clay theorem remain open.
+
+## Boundary crossings now carry exact positive kernel and mass data (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryMassWitness` proves that
+every explicit embedded-boundary crossing has a strictly positive normalized
+later kernel entry and a strictly positive target stationary weight.  The
+target weight is bounded by exactly the submass named by its semantic branch:
+outside-positive mass for a genuinely new target, or component-merger mass
+for a previously separate old-positive target.
+
+The module contracts the boundary decision into a quantitative Type-level
+trichotomy.  The closed branch carries no-merger, zero-merger-mass, and
+increment-only new-shell control.  The outside-positive crossing branch
+carries positive witnessed mass bounded above by the corrected-slab cutoff
+increment.  The component-merger crossing branch carries a positive witnessed
+merger mass, with no fabricated uniform bound.
+
+Two focused attempts exposed missing namespace openings and are not passes.
+After correction, the focused check passes in about 1.3 seconds.  The exact
+one-worker, dependency-complete target passes 5,014 jobs, with the new module
+taking about 1.3 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+No uniform lower bound on a crossing weight and no upper bound on merger mass
+has been proved.  The next frontier is to express a quantitative merger-mass
+budget sufficient for the existing component-split edge-floor payment, then
+separate that exact finite compiler from the still-open cofinal/moving-base
+construction.  Completed contraction, continuum QFT, and the Clay theorem
+remain open.
