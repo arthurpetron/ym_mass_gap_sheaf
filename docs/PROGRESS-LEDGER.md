@@ -12093,3 +12093,35 @@ heat coefficient, identify the resulting exponent-13 decorated activity, and
 sum the finite non-source carrier uniformly in cutoff.  Full-sector routing,
 completion, thermodynamic and continuum limits, continuum QFT, and the Clay
 theorem remain open.
+
+## Residual charges are absorbed exactly into decorated face activities (2026-08-23)
+
+`BF4CentralSpinCubeResidualDecoratedFaceBound` completes the facewise algebra
+behind the prospective row ceiling.  For every admitted source spin it first
+factors the six source-cube heat coefficients exactly as
+
+`(coeffW w spin)^6 * vacuum-source face factor`.
+
+It then removes the six vacuum-labelled source faces from that residual face
+factor and pairs every remaining heat coefficient with the twelfth-power
+fusion charge.  The existing one-face identity turns each pair into
+`tailTerm w 13 label`, producing the exact equality
+
+`vacuum-source face factor * residual twelfth product
+  ~= product_nonSourceFaces (tailTerm w 13 label)`.
+
+This is an exact rational equivalence, not an asymptotic estimate.  Boundary
+and target membership are used only to justify that the production heat
+packet exposes `coeffW` at every physical non-source label.
+
+Two failed focused elaboration attempts exposed missing namespace openings
+and a wrongly oriented intermediate product regrouping; neither is a pass.
+The corrected focused guarded check passes in about 3.7 seconds.  The exact
+one-worker, dependency-complete target passes 993 jobs, with the new module
+taking about 3.7 seconds.  All three audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to combine this equivalence with the source-free natural
+link-product inequality and obtain a termwise production bound, then sum the
+decorated non-source carrier uniformly in cutoff.  No raw-row ceiling,
+full-sector gap, continuum QFT, or Clay theorem is claimed yet.

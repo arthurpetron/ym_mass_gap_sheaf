@@ -10327,3 +10327,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 992 jobs with the new module taking about 7.7 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-central-spin-cube-decorated-face] Absorb the residual charge into heat activities — **CLOSED 2026-08-23**
+
+- **milestone**: factor the six arbitrary-spin source heat coefficients,
+  discard the six unit vacuum-source coefficients, and pair the source-free
+  twelfth-power residual charge with every remaining heat coefficient to
+  obtain the exact exponent-13 decorated face product.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeResidualDecoratedFaceBound.lean`.
+- **decl**:
+  `centralSpinCube_faceCoefficient_factor`,
+  `centralSpinCubePhysicalFaceFactor_eqv_activity_mul_vacuum`, and
+  `centralVacuumFaceFactor_mul_twelfth_eqv_decorated`.
+- **obligation**: combine the exact face factorization with the residual
+  link-product inequality to dominate each production summand, then sum the
+  non-source boundary/target carrier uniformly in cutoff.
+- **constructive?**: yes — recursive rational products, explicit filtering of
+  the source cube, bounded physical assembly, finite cube-face counting, and
+  the existing coefficient-times-twelfth-power identity suffice.  All three
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: two failed focused elaboration attempts are not passes.  The
+  corrected focused check passes in about 3.7 seconds; the exact one-worker
+  target passes 993 jobs with the new module taking about 3.7 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.
