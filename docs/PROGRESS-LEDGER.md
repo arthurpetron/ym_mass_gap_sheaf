@@ -11866,3 +11866,38 @@ This is a normalization and term-expansion theorem, not the required uniform
 row ceiling.  A cofinal selected-term row ceiling, extension beyond the spin
 ray, the completed vacuum-complement gap, thermodynamic and continuum limits,
 continuum QFT, and the Clay theorem remain open.
+
+## One selected-term row ceiling compiles to cofinal spin-ray capacity (2026-08-23)
+
+`BF4PhysicalSpinCubeSelectedTermRowCeiling` states the now-literal analytic
+frontier as `FixedNomeCofinalSpinCubeSelectedTermRowCeiling`: one rational
+`ceiling`, one start cutoff, and the uniform later-cutoff/all-admitted-spin
+comparison
+
+`rawPositiveRowMass(spin) <= ceiling * selectedZeroBoundaryTerm(spin)`.
+
+The structure contains no redundant positivity premise.  At cutoff
+`start + 1`, spin one supplies a strictly positive selected term; the already
+proved selected-term subsum and the structure's row ceiling force
+`1 <= ceiling` by constructive positive cancellation.  Hence `ceiling > 0`
+and `1 / ceiling <= 1` follow internally.
+
+Pointwise, multiplying the raw-row ceiling by `1 / ceiling` collapses its
+right side exactly to the selected term.  That term lies below the raw vacuum
+entry, so positive division by the raw row and the exact raw-return identity
+give `1 / ceiling <= P(spin,vacuum)`.  A finite-list recursion puts the same
+floor below every literal finite spin-ray minimum, after which the existing
+compiler yields a cofinal return-floor certificate, each finite ray-capacity
+certificate, and one cofinal two-oriented-spoke capacity.
+
+One failed focused attempt exposed the missing raw-kernel namespace and is
+not a pass.  The corrected focused guarded check passes in about 1.3 seconds.
+The exact one-worker, dependency-complete target passes 5,029 jobs, with the
+new module taking about 1.3 seconds.  All eleven audited compiler exports use
+exactly `[propext, Quot.sound]`.
+
+The selected-term ceiling remains intentionally uninhabited.  The next
+frontier is its actual BF4 boundary-channel and fusion-factor estimate or a
+kernel-checked obstruction.  Extension beyond the spin ray, the completed
+vacuum-complement gap, thermodynamic and continuum limits, continuum QFT, and
+the Clay theorem remain open.

@@ -10139,3 +10139,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   focused check passes in about 1.1 seconds; the exact one-worker target passes
   5,027 jobs with the new module taking about 1.1 seconds.  No uniform raw-row
   ceiling, full-sector gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-spin-ray-selected-term-row-ceiling] Concrete raw ceiling to cofinal capacity — **CLOSED 2026-08-23**
+
+- **milestone**: state one cofinal upper comparison of the literal raw
+  positive-carrier row by a fixed multiple of the explicit selected
+  zero-boundary physical term; derive `1 <= ceiling` from that comparison;
+  and compile its reciprocal through the exact raw-return formula, finite
+  minimum, and cofinal two-oriented-spoke capacity machinery.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeSelectedTermRowCeiling.lean`.
+- **decl**:
+  `spinCubeSelectedTermReturnFloor_pos`,
+  `spinCubeSelectedTermReturnFloor_le_one`,
+  `spinCubeSelectedTermReturnFloor_le_return_of_rawRow_le`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.one_le_ceiling`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.ceiling_pos`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.returnFloor_pos`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.returnFloor_le_return`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.returnFloor_le_finiteReturnFloor`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.toCofinalRayReturnFloor`,
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.finiteRayCapacityAt`, and
+  `FixedNomeCofinalSpinCubeSelectedTermRowCeiling.toCofinalRayCapacity`.
+- **obligation**: inhabit the selected-term row-ceiling structure from actual
+  arbitrary-spin BF4 boundary-channel and fusion estimates, or prove a
+  concrete obstruction and choose a less concentrated reference witness;
+  then extend successful routing beyond the spin ray.
+- **constructive?**: yes — a Type-level uniform comparison, one concrete
+  spin-one witness, positive-factor cancellation, exact rational reciprocal,
+  the raw-return identity, and finite-list recursion suffice.  All eleven
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: one failed focused attempt is not a pass.  The corrected
+  focused check passes in about 1.3 seconds; the exact one-worker target passes
+  5,029 jobs with the new module taking about 1.3 seconds.  The analytic datum
+  remains uninhabited, and no full-sector gap, continuum QFT, or Clay theorem
+  is claimed.
