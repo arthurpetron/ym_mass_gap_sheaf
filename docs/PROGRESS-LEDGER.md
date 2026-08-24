@@ -12875,3 +12875,39 @@ the existing spin-ray return/escape estimates plus an off-ray residual
 compiler—or through a multiscale/direct-operator estimate.  Same-object
 graph-norm/OS continuum convergence, continuum Yang--Mills, and the Clay
 theorem remain open.
+
+## Local spin-ray/off-ray capacity now reaches the completed sector gap (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualCompletedGap` closes the finite-to-completed
+compiler on the viable local route.  Any positive full-sector pairwise
+Dirichlet coercivity floor, together with a positive sector-mass floor, gives
+the exact centered deficit estimate and the strict rational form rate
+
+`q = 1 / (1 + coercivityFloor * massFloor)`.
+
+The fixed-nome specialization consumes the existing cofinal spin-ray/off-ray
+residual coercivity, whose full-sector floor is
+`(1/2) * rayCapacity.delta`, and the already constructed uniform vacuum-sector
+mass floor.  It returns both the cofinal finite strict-gap family and the
+actual completed vacuum-sector strict-contraction datum.  The stronger
+pointwise residual-flow-capacity interface reaches the same outputs through
+its existing coercivity compiler.  No global minimum physical edge is used,
+so the root-linear no-go does not apply to this route.
+
+The first focused attempt failed only on explicit dependent positivity and
+namespace-sensitive theorem selection and is not a pass; its `sorryAx` lines
+were downstream elaboration contamination.  After supplying the positivity
+arguments and fully qualified compiler calls, the focused guarded check
+passes in about 1.6 seconds.  The exact one-worker dependency-complete target
+passes 5046 jobs, with the new module taking about 1.4 seconds.  All six
+audited exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+added.
+
+No cofinal off-ray residual-flow capacity is inhabited here.  At the anchor
+nome the ray-capacity lane is already constructive; the remaining fixed-nome
+analytic producer is the cutoff-uniform local off-ray capacity.  The next
+compiler frontier is to package this viable local source dynamically and keep
+its completed transfer, same-object moments, physical spacing, and later
+graph-norm/OS limit maps definitionally connected.  Thermodynamic and
+continuum construction, continuum Yang--Mills, and the Clay theorem remain
+open.

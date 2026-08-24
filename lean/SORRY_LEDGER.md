@@ -11047,3 +11047,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete target passes 5037 jobs, with the new module
   taking about 1.1 seconds.  This proves a route-specific no-go, not a no-gap
   theorem; continuum QFT and the Clay theorem remain open.
+
+### [BF4-spin-cube-off-ray-residual-completed-gap] Compile local residual capacity to the completed sector contraction — **CLOSED 2026-08-24**
+
+- **milestone**: prove the generic centered deficit and strict rational form
+  estimates from an arbitrary positive full-sector pairwise Dirichlet
+  coercivity floor and positive sector-mass floor; specialize the result to
+  the cofinal spin-ray/off-ray residual coercivity; compile both that interface
+  and the stronger pointwise residual-flow-capacity interface into the
+  existing cofinal finite strict gap and actual completed vacuum-sector
+  strict-contraction datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCompletedGap.lean`.
+- **decl**:
+  `pairwiseCoercivity_strength_mul_diagonal_le_deficit`,
+  `pairwiseCoercivity_abs_matrix_le_rate_mul_diagonal`,
+  `FixedNomeCofinalSpinCubeOffRayResidualCoercivity.toFiniteStrictGap`,
+  `FixedNomeCofinalSpinCubeOffRayResidualCoercivity.toCompletedStrictContractionData`,
+  `FixedNomeCofinalSpinCubeOffRayResidualFlowCapacity.toFiniteStrictGap`, and
+  `FixedNomeCofinalSpinCubeOffRayResidualFlowCapacity.toCompletedStrictContractionData`.
+- **obligation**: inhabit one cofinal positive off-ray residual-flow capacity
+  at the desired fixed nome, then build the dynamic same-object family and
+  prove that its resulting local strength has the required two-sided physical
+  spacing scaling.  Independently construct graph-norm/OS convergence for
+  those same completed carriers and transfers.  No global minimum-edge ratio
+  is required by this route.
+- **constructive?**: yes — exact centered pairwise variance, exact doubled
+  transfer deficit, rational positive-factor cancellation, finite Gram
+  positivity, the constructed uniform sector-mass floor, the existing local
+  ray/residual coercivity split, and the completion map suffice.  All six
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused attempt failed on dependent positivity
+  inference and homonymous-namespace field notation and is not a pass; its
+  downstream `sorryAx` lines were elaboration contamination only.  The
+  corrected focused guarded check passes in about 1.6 seconds.  The exact
+  one-worker dependency-complete target passes 5046 jobs, with the new module
+  taking about 1.4 seconds.  No residual-capacity inhabitant, dynamic family,
+  continuum QFT, or Clay theorem is claimed.
