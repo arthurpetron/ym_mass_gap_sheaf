@@ -11741,6 +11741,9 @@ proves
 
 `pi(spin) = joint(spin,vacuum) + escape(spin)`.
 
+Nonnegativity of the vacuum joint term also proves the useful subsum bound
+`escape(spin) <= pi(spin)`.
+
 The module then closes the rational comparison step.  For any explicit
 nonnegative `C`, the pointwise estimate
 
@@ -11761,7 +11764,7 @@ namespace openings, and the orientation of rational distributivity and
 reciprocal cancellation; none is a pass.  After correction, the focused
 guarded check passes in about 1.2 seconds.  The exact one-worker,
 dependency-complete target passes 5,027 jobs, with the new module taking
-about 1.0 seconds.  All five audited exports use exactly
+about 1.0 seconds.  All six audited exports use exactly
 `[propext, Quot.sound]`.
 
 The next frontier is to package one cutoff-independent escape-ratio ceiling
@@ -11800,3 +11803,34 @@ fixed-nome domination, fusion, and row-mass estimates furnish one uniform
 `ceiling`, or instead expose a concrete spin/cutoff obstruction.  The remaining
 rooted sector, completed spectral gap, thermodynamic and continuum limits,
 continuum QFT, and the Clay theorem remain open.
+
+## Cofinal return floors and escape ceilings are the same frontier (2026-08-23)
+
+`BF4PhysicalSpinCubeRayCofinalEscapeEquivalence` proves the converse to the
+escape compiler.  Given any positive cofinal return floor `r`, multiplying
+its pointwise bound by the positive stationary weight gives
+
+`r * pi(spin) <= joint(spin,vacuum)`.
+
+The literal subsum bound `escape(spin) <= pi(spin)` therefore yields
+`r * escape(spin) <= joint(spin,vacuum)`.  Constructive positive division by
+`r` produces the uniform escape ceiling `C = 1 / r`, with the same start
+cutoff.  The module packages this as an actual
+`FixedNomeCofinalSpinCubeEscapeRatioCeiling` and supplies Type-level maps in
+both directions between the named cofinal return-floor and escape-ceiling
+frontiers.
+
+Two failed focused attempts exposed namespace placement and missing openings;
+neither is a pass.  After rebuilding the modified escape dependency, the
+corrected focused check passes in about 1.3 seconds.  The exact one-worker,
+dependency-complete target passes 5,030 jobs, with the new equivalence module
+taking about 1.0 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`; the added escape-subsum theorem also uses exactly
+that permitted pair.
+
+This proves an equivalence of open interfaces, not an inhabitant.  It rules
+out treating the escape ceiling as independent progress: the genuine next
+frontier is the cutoff-uniform arbitrary-spin kernel ratio itself.  Its raw
+BF4 term expansion, possible fixed-nome upper/lower estimates or concrete
+obstruction, remaining-sector routing, completed spectral gap, thermodynamic
+and continuum limits, continuum QFT, and the Clay theorem remain open.

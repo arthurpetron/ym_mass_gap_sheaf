@@ -10034,6 +10034,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **decl**:
   `centralLowerExcitedSpinCubeNonVacuumEscapeMass_nonnegative`,
   `centralLowerExcitedSpinCube_weight_eqv_vacuumJoint_add_escape`,
+  `centralLowerExcitedSpinCubeNonVacuumEscapeMass_le_weight`,
   `spinCubeEscapeReturnFloor_pos`, `spinCubeEscapeReturnFloor_le_one`, and
   `spinCubeEscapeReturnFloor_le_return_of_escape_le`.
 - **obligation**: construct one cutoff-independent nonnegative escape-ratio
@@ -10042,7 +10043,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   successful routing mechanism beyond the explicit spin-ray subsector.
 - **constructive?**: yes — duplicate-free finite lists, literal filtering,
   exact sector stationarity, rational order monotonicity, and a positive
-  reciprocal suffice.  All five audited exports use exactly
+  reciprocal suffice.  All six audited exports use exactly
   `[propext, Quot.sound]`; no forbidden construct was added.
 - **status note**: three failed focused elaboration attempts are not passes.
   The corrected focused check passes in about 1.2 seconds; the exact
@@ -10077,3 +10078,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds; the exact one-worker target passes 5,029 jobs with the new module
   taking about 1.1 seconds.  The escape-ceiling datum remains uninhabited, and
   no full-sector gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-spin-ray-cofinal-escape-equivalence] Return floor iff escape ceiling — **CLOSED 2026-08-23**
+
+- **milestone**: prove that a positive cofinal return floor constructs a
+  cofinal escape-ratio ceiling by reciprocal scaling, completing Type-level
+  maps in both directions between the two exact named frontiers.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayEscapeMass.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayCofinalEscapeEquivalence.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeNonVacuumEscapeMass_le_weight`,
+  `ReturnFloorCompiler.escapeCeiling_pos`,
+  `ReturnFloorCompiler.escape_le_ceiling_mul_vacuumJoint`,
+  `ReturnFloorCompiler.toCofinalEscapeRatioCeiling`,
+  `returnFloorToEscapeCeilingToReturnFloor`, and
+  `escapeCeilingToReturnFloorToEscapeCeiling`.
+- **obligation**: stop recoding the same scalar wall and prove or refute the
+  actual cutoff-uniform arbitrary-spin ratio between stationary row mass and
+  its vacuum joint entry; a successful estimate must then be extended beyond
+  the explicit spin ray.
+- **constructive?**: yes — nonnegative row splitting, stationary-weight
+  scaling, exact detailed-balance return cancellation, positive reciprocal,
+  and Type-level structure maps suffice.  Every audited declaration uses
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two failed focused attempts are not passes.  After the
+  modified escape dependency was rebuilt, the corrected focused check passes
+  in about 1.3 seconds.  The exact one-worker target passes 5,030 jobs with
+  the new module taking about 1.0 seconds.  Neither equivalent frontier is
+  inhabited here, and no full-sector gap, continuum QFT, or Clay theorem is
+  claimed.

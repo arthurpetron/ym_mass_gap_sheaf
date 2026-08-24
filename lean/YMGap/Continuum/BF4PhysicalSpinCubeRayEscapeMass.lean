@@ -166,6 +166,32 @@ theorem centralLowerExcitedSpinCube_weight_eqv_vacuumJoint_add_escape
         w (Q'.le_of_lt hw) K 0)
   exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hstationary) hsplit
 
+/-- The non-vacuum escape is a literal nonnegative part of the stationary
+row, hence is bounded above by the source weight. -/
+theorem centralLowerExcitedSpinCubeNonVacuumEscapeMass_le_weight
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) :
+    centralLowerExcitedSpinCubeNonVacuumEscapeMass hw K offset ≤
+      centralPhysicalFiniteWeight w (Q'.le_of_lt hw) K 0
+        (centralLowerExcitedSpinCubeIndex
+          w (Q'.le_of_lt hw) K offset) := by
+  let joint := centralPhysicalFiniteKernel w (Q'.le_of_lt hw) K 0
+    (centralLowerExcitedSpinCubeIndex
+      w (Q'.le_of_lt hw) K offset) 0
+  let escape := centralLowerExcitedSpinCubeNonVacuumEscapeMass hw K offset
+  have hjoint : (0 : Q') ≤ joint := by
+    unfold joint centralPhysicalFiniteKernel
+    exact centralNormalizedPhysicalReflectedKernel_nonnegative
+      (Q'.le_of_lt hw) K 0 _ _
+  have hpart : escape ≤ joint + escape := by
+    have h := Q'.add_le_add_right 0 joint escape hjoint
+    rw [Q'.zero_add'] at h
+    exact h
+  exact Q'.le_trans' _ _ _ hpart
+    (Q'.ge_of_eqv
+      (centralLowerExcitedSpinCube_weight_eqv_vacuumJoint_add_escape
+        hw hoffset))
+
 /-! ## 3. A pointwise escape ceiling forces a return floor -/
 
 def spinCubeEscapeReturnFloor (ceiling : Q')
@@ -264,6 +290,7 @@ end YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass
 
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.centralLowerExcitedSpinCubeNonVacuumEscapeMass_nonnegative
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.centralLowerExcitedSpinCube_weight_eqv_vacuumJoint_add_escape
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.centralLowerExcitedSpinCubeNonVacuumEscapeMass_le_weight
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.spinCubeEscapeReturnFloor_pos
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.spinCubeEscapeReturnFloor_le_one
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeRayEscapeMass.spinCubeEscapeReturnFloor_le_return_of_escape_le
