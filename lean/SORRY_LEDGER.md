@@ -9559,3 +9559,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact one-worker target passes 5,016 jobs with the new module taking about
   0.9 seconds.  No larger-cutoff emptiness, cofinal contraction, continuum QFT,
   or Clay theorem is claimed.
+
+### [BF4-generic-new-mass-component-split] Moving-base increment-plus-merger bound — **CLOSED 2026-08-23**
+
+- **milestone**: partition arbitrary `base <= later` vacuum-sector new mass
+  into newly positive and old-component-merger submasses, identify merger
+  membership exactly, and bound the newly positive part by the local
+  corrected-slab cutoff increment.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorNewMassComponentSplit.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorNewMass_eqv_outside_add_merger`,
+  `mem_centralPhysicalFiniteNewComponentMergerIndices_iff`,
+  `centralPhysicalFiniteNewOutsideBasePositiveMass_le_tail`,
+  `centralPhysicalFiniteNewOutsideBasePositiveMass_le_increment`, and
+  `centralPhysicalFiniteVacuumSectorNewMass_le_increment_add_merger`.
+- **obligation**: decide and quantify the generic component-merger residual,
+  then provide the base-sector size, coercivity, and edge-floor certificates
+  required to pay it along a moving-cutoff schedule.
+- **constructive?**: yes — the proof uses finite filters, injective finite-sum
+  comparison, exact rational equivalence, and the existing corrected-slab
+  tail bound.  All eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two missing-namespace attempts are not passes.  The
+  corrected focused check passes in about 1.0 seconds; the exact one-worker
+  target passes 5,017 jobs with the new module taking about 1.0 seconds.  No
+  merger ceiling, local capacity, cofinal contraction, continuum QFT, or Clay
+  theorem is claimed.

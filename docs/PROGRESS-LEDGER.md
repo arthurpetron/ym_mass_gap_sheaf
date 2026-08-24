@@ -11205,3 +11205,28 @@ generic base/later decomposition of new stationary mass into newly positive
 mass and old-component merger mass, with the first part controlled by the
 local corrected-slab increment.  Uniform moving-base payment, continuum QFT,
 and the Clay theorem remain open.
+
+## Generic moving-base new mass now splits into increment plus merger residual (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorNewMassComponentSplit` defines the generic
+new-block, outside-base-positive, and component-merger stationary masses for
+an arbitrary constructive coupling, finite half-volume, and cutoffs
+`base <= later`.  It proves their exact partition and state semantics, embeds
+the outside-positive submass into the full stationary-source tail, and bounds
+that submass by the local corrected-slab cutoff increment.
+
+The resulting moving-base estimate is
+
+`newMass(base,later) <= increment(base,later) + mergerMass(base,later)`.
+
+Two focused attempts exposed missing namespace openings and are not passes.
+After correction, the focused check passes in about 1.0 seconds.  The exact
+one-worker, dependency-complete target passes 5,017 jobs, with the new module
+taking about 1.0 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+No merger-mass ceiling, local capacity comparison, or cofinal moving schedule
+is inhabited.  The next frontier is a generic Type-level merger decision and
+witness, followed by an explicit local residual-payment interface carrying
+the base-sector size, coercivity, and edge-floor data it actually needs.
+Completed contraction, continuum QFT, and the Clay theorem remain open.
