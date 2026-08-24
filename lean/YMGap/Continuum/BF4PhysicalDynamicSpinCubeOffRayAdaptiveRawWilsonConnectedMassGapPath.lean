@@ -66,6 +66,10 @@ open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.OSExactLogGap
+open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.TuranPositivity
@@ -180,6 +184,44 @@ def ofUniformNormFloorAndParallelGraphNormCompilers
     (DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit.ofParallelCompilers
       rateLimit transfer finite)
     vacuumPin
+
+/-- Reuse an existing rational projective OS handoff on the raw connected
+path.  The only additional semantic input is the exact identification of the
+literal completed raw representative with that handoff's fixed sampled gap
+observable. -/
+def ofUniformNormFloorAndProjectiveOSCorrelationHandoff
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family))
+    (projective : ProjectiveOSCorrelationHandoff
+      P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      family raw projective)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family raw H W
+        (RawMovingCubeProjectiveOSCorrelationHandoff.ofProjectiveOSCorrelationHandoff
+          projective sameObject))
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family ratePower W)
+    (vacuumPin : WilsonDenseUnitVacuumPin W) :
+    RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W :=
+  ofUniformNormFloor uniform
+    (RawMovingCubeProjectiveOSCorrelationHandoff.ofProjectiveOSCorrelationHandoff
+      projective sameObject)
+    matrixCoefficient exactRate graphNorm vacuumPin
 
 /-! ## 3. Contract the all-vector branch -/
 
@@ -449,6 +491,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormCompilers
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveOSCorrelationHandoff
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.minimalBoundedMassGap
 #print axioms

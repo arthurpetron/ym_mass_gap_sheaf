@@ -24,6 +24,7 @@ axiom, or noncomputable declaration is used.
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.MeasureLinkedOSReconstruction
 import YMGap.Continuum.PhysicalSeparatorContinuumRealization
+import YMGap.Continuum.ProjectiveOSCorrelationHandoff
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
 
@@ -40,6 +41,9 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariation
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.RCStrictPositivity
 
 /-! ## 1. The one projective-thread same-object bridge -/
@@ -76,9 +80,60 @@ structure RawMovingCubeProjectiveOSCorrelationHandoff
       (CReal.ofQ' (H.os_axioms.E.E
         (osConnected.connectedInsertion osConnected.gapInsertion time)))
 
+/-! ## 2. Reuse the existing projective OS path through one exact adapter -/
+
+/-- The one remaining same-object equality needed to connect a dynamic raw
+moving-cube representative to an existing rational
+`ProjectiveOSCorrelationHandoff`.  It fixes that handoff's own gap observable
+and physical sampling schedule, so neither can drift during the adapter. -/
+structure RawMovingCubeSampledGapCorrelationIdentification
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (raw : MovingCubeRawScheduledRepresentativeVariation family)
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : MeasureLinkedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (projective : ProjectiveOSCorrelationHandoff P H D sampling) : Type 2 where
+  rawRepresentative_eq_sampledGap : forall (time scale : Nat),
+    CReal.Equiv
+      (raw.representative time scale)
+      (CReal.ofQ'
+        (projective.stageCorrelators.corrFromStage scale (mu.pick scale)
+          projective.gapObservable (sampling.latticeSteps scale time)))
+
 namespace RawMovingCubeProjectiveOSCorrelationHandoff
 
-/-! ## 2. Contract the projective diagram by limit uniqueness -/
+/-- Compile the dynamic completed-real projective handoff from the existing
+rational projective OS route plus the single literal-representative adapter.
+All projective-measure and connected-OS semantics are reused unchanged. -/
+def ofProjectiveOSCorrelationHandoff
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : MeasureLinkedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (projective : ProjectiveOSCorrelationHandoff P H D sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      family raw projective) :
+    RawMovingCubeProjectiveOSCorrelationHandoff family raw H D where
+  continuumInsertion := fun time =>
+    projective.continuumInsertion projective.gapObservable time
+  rawRepresentative_eq_stageExpectation := by
+    intro time scale
+    exact CReal.Equiv.trans
+      (sameObject.rawRepresentative_eq_sampledGap time scale)
+      (projective.sampledCorr_eq_stageExpectation
+        scale projective.gapObservable time)
+  osConnected := projective.osConnectedTwoPoint
+  continuumInsertion_eq_connectedFunctional := fun time =>
+    CReal.Equiv.symm (projective.gapFunctional_eq time)
+
+/-! ## 3. Contract the projective diagram by limit uniqueness -/
 
 /-- The complete limit already selected by the raw variation is the OS
 functional value of the fixed insertion on the selected projective thread. -/
@@ -137,7 +192,7 @@ theorem rawContinuumConnectedAutocorrelation_eq_osConnected
   apply Quotient.sound
   exact B.rawLimitRepresentative_eq_osConnected time
 
-/-! ## 3. Nontriviality survives the same-object handoff -/
+/-! ## 4. Nontriviality survives the same-object handoff -/
 
 /-- Positivity of the raw zero-time limit transfers to the definitionally
 connected OS channel; no independent OS nonzero observable is selected. -/
@@ -162,6 +217,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorre
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff.RawMovingCubeProjectiveOSCorrelationHandoff.ofProjectiveOSCorrelationHandoff
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff.RawMovingCubeProjectiveOSCorrelationHandoff.rawLimitRepresentative_eq_osFunctional
 #print axioms

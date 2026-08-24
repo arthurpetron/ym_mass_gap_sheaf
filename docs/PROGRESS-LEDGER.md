@@ -14521,3 +14521,35 @@ None of the three frontier certificates is inhabited here.  The scalar
 logarithm/exponential-to-separator identity, representative Wilson transfer,
 finite all-vector approximation, projective OS semantics, continuum theory,
 and Clay theorem remain open.
+
+## The dynamic raw channel now reuses the existing projective OS compiler (2026-08-24)
+
+The completed-real raw route and the older rational separator route no longer
+require independent projective-measure and connected-OS constructions.
+`RawMovingCubeSampledGapCorrelationIdentification` isolates the sole new
+same-object statement: every literal dynamic raw representative equals the
+older handoff's physically sampled value of its already-fixed gap observable.
+Given that equality, `ofProjectiveOSCorrelationHandoff` reuses the older
+stage functional, continuum insertion, connected insertion, projective
+measure thread, and OS functional compatibility unchanged.
+
+The observable-connected Wilson capstone has a corresponding constructor.
+Its matrix-coefficient pin is dependently indexed by the newly adapted
+projective handoff, so the completed raw observable, sampled legacy gap
+observable, OS insertion, and Wilson GNS state form one path rather than four
+merely propositionally adjacent claims.
+
+This contracts two apparent proof paths into one: retain the dynamic raw
+finite/limit analysis, retain the established rational projective OS
+semantics, and prove only their literal representative equality.  The
+load-bearing analytic frontier is therefore smaller but still honest; no
+projective or continuum datum is manufactured.
+
+The focused guarded checks pass.  The exact one-worker adapter target passes
+1663 jobs, with the changed module taking about 0.9 seconds; the connected
+capstone passes 5105 jobs, taking about 1.9 seconds.  Both new audited exports
+use only `[propext, Quot.sound]`.
+
+The same-object adapter, the older projective OS handoff itself, the Wilson
+matrix-coefficient pin, and all later graph-norm, exact-rate, continuum, QFT,
+and Clay obligations remain uninhabited.

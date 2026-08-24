@@ -12799,3 +12799,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   graph-norm target passes 1660 jobs, taking about 1.0 second; the connected
   capstone passes 5104 jobs, taking about 1.9 seconds.  No constituent
   residual or endpoint beyond the conditional compiler is claimed inhabited.
+
+### [BF4-physical-dynamic-raw-projective-adapter] Reuse the rational projective OS path for the completed raw observable — **CLOSED 2026-08-24**
+
+- **milestone**: isolate the equality between each literal completed raw
+  representative and the existing projective handoff's physically sampled
+  gap observable; compile that equality with the existing projective/OS
+  semantics into the dynamic raw handoff; and expose the adapter on the
+  observable-connected Wilson capstone.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `RawMovingCubeSampledGapCorrelationIdentification`,
+  `RawMovingCubeProjectiveOSCorrelationHandoff.ofProjectiveOSCorrelationHandoff`,
+  and
+  `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveOSCorrelationHandoff`.
+- **obligation**: prove the literal representative equality on the same
+  physical sampling schedule and inhabit the existing rational projective OS
+  handoff.  The Wilson matrix coefficient and all all-vector, continuum, and
+  QFT residuals remain separate open inputs.
+- **constructive?**: yes — the compiler composes explicit `CReal.Equiv`
+  witnesses and reverses the existing gap-functional equivalence.  It does
+  not choose a new insertion, observable, measure thread, or representative.
+  Both new audited exports use only `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  The exact one-worker adapter
+  target passes 1663 jobs, taking about 0.9 seconds; the connected capstone
+  passes 5105 jobs, taking about 1.9 seconds.  No adapter input or later
+  semantic/continuum residual is claimed inhabited.
