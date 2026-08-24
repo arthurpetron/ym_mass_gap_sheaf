@@ -11698,3 +11698,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 0.5 seconds.  No nonzero observable,
   dynamic observable pin, continuum Yang--Mills theory, or Clay theorem is
   claimed.
+
+### [BF4-physical-moving-centered-nonzero] Preserve one cube coordinate through completion — **CLOSED 2026-08-24**
+
+- **milestone**: constructively locate the central lower-cube state in the
+  cutoff-one canonical vacuum component; define its fixed indicator
+  coefficient; prove moving root centering preserves its nonroot value one;
+  prove a reusable positive-row-floor domination theorem for every fixed
+  base-sector coordinate; specialize it to a uniform positive stagewise
+  distance from zero; rule out completion closeness at half that floor; and
+  transport sector nonzeroness through the injective sector-to-global map to
+  the exact public completed moving vector.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_coordinateDifferenceSq_floor_le_distSq`,
+  `centralPhysicalCutoffOneCubeIndex_mem_vacuumSector`,
+  `centralPhysicalCutoffOneCubeMovingCenteredCoefficient_at_cube`,
+  `centralPhysicalCutoffOneCubeMovingCentered_stage_floor_le_zeroPresentationDistSq`,
+  `centralPhysicalCutoffOneCubeMovingCenteredSector_not_close_zero`,
+  `centralPhysicalCutoffOneCubeMovingCenteredCompletion_ne_sectorZero`,
+  `centralPhysicalCutoffOneSectorZeroCompletion_toGlobal_eq_zero`, and
+  `centralPhysicalCutoffOneCubeMovingCenteredGlobalVector_ne_zero`.
+- **obligation**: identify the completed transfer moments of this exact
+  nonzero vacuum-orthogonal vector with the same observable channel used by
+  the common dynamic completed family, and then inhabit or refine the dynamic
+  observable pin without replacing the vector, transfer, correlation,
+  sampling channel, or rate.  This fixed-nome, half-extent-zero anti-vacuity
+  result is not a thermodynamic or continuum nontriviality theorem.
+- **constructive?**: yes — finite carrier lookup, decidable index equality,
+  exact rational coordinate preservation, a positive rational row floor,
+  explicit Cauchy/close moduli, semantic nullity, and quotient injectivity
+  suffice.  The three audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: early guarded attempts with missing namespace imports, an
+  unbridged zero-presentation/global-zero distinction, and direct nested
+  global-Cauchy normalization failed or timed out and are not passes.  The
+  sector-first refactor passes the corrected focused guarded check.  The
+  exact one-worker dependency-complete target passes 1641 jobs, with the new
+  module taking about 204 seconds.  No same-object transfer-moment join,
+  dynamic observable pin, thermodynamic limit, continuum Yang--Mills theory,
+  or Clay theorem is claimed.

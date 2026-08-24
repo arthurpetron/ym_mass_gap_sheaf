@@ -13546,3 +13546,47 @@ dynamic completed family.  The cofinal local transition-product estimate,
 physical strength scaling, exact-log cutoff control, projective/OS correlation
 convergence, reconstruction, continuum Yang--Mills theory, and the Clay
 theorem remain open.
+
+## The same completed cube observable is genuinely nonzero (2026-08-24)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero` closes the anti-vacuity
+frontier for the exact vector from the preceding two milestones.  The module
+constructively locates the central lower-cube state in the cutoff-one
+canonical vacuum component and uses its indicator as the fixed raw
+coefficient.  Moving rational centering changes only coordinate zero, while
+the cube index is proved distinct from zero, so the cube coordinate remains
+exactly one at every stage.
+
+A reusable coordinate compiler proves that the moving positive-row floor at
+`max base uniformFloorCutoff`, multiplied by the square of any fixed
+base-sector coordinate difference, is below the actual cutoff-removed sector
+squared distance.  Specializing it to the preserved cube coordinate gives one
+strictly positive rational lower bound for every dense moving stage.  Hence
+the moving sector Cauchy representative cannot be close to the constant
+zero-valued sector presentation at half that floor.  The resulting distinct
+sector completion is transported through the already proved injective
+sector-to-global completion map; a semantic-null bridge identifies the image
+of the zero-valued sector presentation with the public completed zero.  Thus
+the already constructed public global moving vector is nonzero.  Combined
+with the preceding vacuum-orthogonality theorem, this is one concrete nonzero
+vector in the actual completed vacuum complement at fixed nome and
+half-extent zero.
+
+Several guarded development attempts are not passes: initial checks exposed
+missing namespace qualifications and a zero-presentation/global-zero type
+distinction, while direct normalization of the nested global Cauchy wrapper
+timed out.  Expanding that descent into a sector-level non-closeness theorem,
+the injective completion embedding, and an explicit semantic-null zero bridge
+eliminated the normalization bottleneck.  The corrected focused guarded check
+passes.  The exact one-worker dependency-complete target passes 1641 jobs,
+with the new module taking about 204 seconds.  All three audited exports use
+exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This does not yet identify the same vector's completed transfer moments or
+inhabit the dynamic observable pin.  The next observable-connected frontier
+must compare the transfer of this exact moving cube representative with the
+existing completed dynamic family, retaining the same vector, transfer,
+correlation, sampling channel, and rate.  The cofinal local transition-product
+estimate, physical strength scaling, exact-log cutoff control, projective/OS
+correlation convergence, reconstruction, continuum Yang--Mills theory, and
+the Clay theorem remain open.
