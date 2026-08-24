@@ -11496,3 +11496,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs, with the new module taking about 1.5 seconds.  No cofinal adaptive
   conditional family, physical strength-scaling theorem, same-object
   observable pin, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-spin-cube-off-ray-residual-adaptive-transition-product-target] Expose the multiplicity-aware routed analytic sum — **CLOSED 2026-08-24**
+
+- **milestone**: retain repeated directed-edge occurrences for arbitrary
+  positive routes; extract a constructive prefix to every selected edge
+  source; telescope the endpoint/source stationary ratio into exact
+  reverse/forward conditional-transition products; prove equality with the
+  routed relative flow load; prove the pointwise target iff; provide finite
+  and cofinal compilers, a canonical finite inhabitant, and exact two-way
+  compatibility with the previous simple-path product interface.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveTransitionProductTarget.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedDirectedEdgeMultiplicity`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedPathPairRelativeSourceDemand_eqv_transitionProduct`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedRelativeSourceFlowLoad_eqv_transitionProductLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTarget_iff_transitionProductTarget`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt.ofRoutedConditionalCongestionAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt.toRoutedConditionalCongestionAt`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoad_canonical_eqv`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt.ofCanonical`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt.toCanonical`,
+  `centralLowerExcitedSpinCubeFiniteLinearRoutedConditionalTransitionProductAt`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveConditionalTransitionProduct.toCompletedStrictContractionData`.
+- **obligation**: construct a cofinal family of explicit BF4-local or
+  multiscale positive routes and prove that the exact prefix-transition
+  products times endpoint weight, route length, and repeated-edge
+  multiplicity fit inside the matching conditional transition uniformly in
+  representation cutoff.  Preserve these observable factors; do not replace
+  them by a complete-sector minimum or carrier-cardinality ceiling.
+- **constructive?**: yes — literal Type-level positive routes, exact finite
+  occurrence sums, positive rational division, constructive prefix
+  extraction, pathwise detailed balance, and equality transport suffice.  All
+  eleven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check failed on two missing opened
+  namespaces and is not a pass; its downstream `sorryAx` output was
+  elaboration contamination only.  The corrected focused check passes in
+  about 1.5 seconds.  The exact one-worker dependency-complete target passes
+  5056 jobs, with the new module taking about 1.6 seconds.  A finite canonical
+  inhabitant exists, but no cofinal uniform adaptive product family,
+  continuum Yang--Mills theory, or Clay theorem is claimed.

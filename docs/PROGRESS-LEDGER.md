@@ -13341,3 +13341,50 @@ multiscale positive paths and bound their relative traffic by the matching
 conditional transitions uniformly in cutoff.  Physical strength scaling,
 the same-object observable pin, the thermodynamic/continuum handoff,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## Adaptive routed traffic is an exact multiplicity-aware transition product (2026-08-24)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveTransitionProductTarget` exposes
+the analytic content of every adaptively supplied route without assuming the
+route is simple.  That distinction is essential: a positive route may revisit
+one directed physical edge, whereas the previous canonical route had
+duplicate-free directed edges.
+
+For each residual endpoint pair and selected directed edge, the module keeps
+the literal rational occurrence multiplicity, constructively extracts a
+prefix ending at the selected edge source, and proves that the quotient-defined
+relative pair demand is exactly
+
+`product_prefix(conditional(reverse) / conditional(forward))`
+`  * weight(endpointRight) * routeLength * edgeMultiplicity`.
+
+Summing over the retained endpoint-pair list proves exact equality between
+adaptive relative traffic and this transition-product load.  The pointwise
+transition-product inequality is therefore iff-equivalent to adaptive
+conditional congestion.  Finite and cofinal certificates convert losslessly
+to the existing adaptive consumer and hence to the already constructed
+completed vacuum-sector strict contraction.
+
+The refinement is conservative.  On the canonical loop-erased routing, the
+new multiplicity-aware load is exactly equivalent to the previous
+simple-path transition-product load, and the two certificate interfaces
+convert in both directions.  A genuine finite-cutoff inhabitant is obtained
+from the existing carrier-linear certificate using the canonical routing;
+its restricted ray floor still depends on the cutoff.
+
+The first focused guarded check failed on two missing opened namespaces and
+is not a pass; its downstream `sorryAx` output was elaboration contamination.
+After opening the finite-sum and path-length namespaces, the corrected focused
+check passes in about 1.5 seconds.  The exact one-worker dependency-complete
+target passes 5056 jobs, with the new module taking about 1.6 seconds.  All
+eleven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+construct was added.
+
+No cofinal adaptive transition-product family is inhabited.  The remaining
+analytic producer must now choose positive BF4-local or multiscale routes and
+prove the displayed multiplicity-aware transition-product capacity bound
+uniformly in cutoff.  This compiler makes route choice, prefix transition
+ratios, route length, and edge congestion separately observable; it does not
+bound any of them.  Physical strength scaling, the same-object observable
+pin, thermodynamic/continuum control, continuum Yang--Mills theory, and the
+Clay theorem remain open.
