@@ -14314,3 +14314,31 @@ The handoff remains uninhabited: the projective measure and continuum
 Yang--Mills existence data, stage-expectation equality, connected OS
 insertion, and the Wilson GNS matrix-coefficient identification are open.  An
 all-vector operator gap and the Clay theorem are not claimed.
+
+## The raw OS channel now reaches the selected Wilson GNS matrix coefficient (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff` isolates the
+next same-object semantic equality.  It embeds the connected OS gap insertion
+selected by the raw/projective handoff into the completed Wilson GNS carrier,
+requires vacuum orthogonality there, and identifies its OS functional with
+the autocorrelation under powers of the selected Wilson transfer.
+
+The projective handoff is indexed by `W.measureLinked` itself.  Consequently
+the selected stage measures, OS functional, Wilson expectation, completed GNS
+carrier, state, and transfer are definitionally constrained to one thread.
+The compiler proves that the literal raw continuum correlation equals this
+matrix coefficient and exports the generic connected-OS/Wilson pin.
+
+It also preserves the correct causal direction for the gap: a separately
+supplied all-vector `WilsonIteratedBoundedMassGap` implies squared decay of the
+raw channel.  The one-channel decay is not used to manufacture an operator
+gap on the whole vacuum complement.
+
+The focused guarded check passes.  The exact one-worker dependency-complete
+target passes 1666 jobs, with the new module taking about 0.71 seconds.  All
+three audited exports use only `[propext, Quot.sound]`.
+
+The matrix-coefficient pin and all-vector gap remain uninhabited.  Constructing
+the projective/OS/Wilson data, proving a uniform completed-vacuum-complement
+operator bound, establishing continuum Yang--Mills existence, and proving the
+Clay theorem remain open.

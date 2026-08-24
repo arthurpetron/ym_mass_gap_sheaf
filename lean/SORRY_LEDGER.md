@@ -12583,3 +12583,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 1662 jobs, with the new module taking
   about 0.76 seconds.  No projective measure, OS/GNS semantics, all-vector
   gap, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-raw-wilson-gns-handoff] Identify the raw OS channel with the selected completed-GNS matrix coefficient — **CLOSED 2026-08-24**
+
+- **milestone**: index the raw projective/OS handoff by the selected Wilson
+  datum's own `measureLinked` field; embed its exact connected insertion in the
+  completed Wilson GNS carrier; retain its vacuum-orthogonality proof; identify
+  the raw continuum correlation with the selected transfer autocorrelation;
+  export the generic connected-OS/Wilson pin; and prove that a separately
+  supplied all-vector iterated gap implies decay of this channel.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff.lean`.
+- **decl**:
+  `RawMovingCubeWilsonMatrixCoefficientPin`, `gapState`,
+  `toWilsonOSConnectedMatrixCoefficientPin`,
+  `rawContinuumConnectedAutocorrelation_eq_matrixCoefficient`, and
+  `rawContinuumConnectedAutocorrelationSqDecay`.
+- **obligation**: inhabit the projective/OS handoff, selected Wilson GNS data,
+  exact matrix-coefficient equality, and vacuum-orthogonality pin.  Separately
+  prove a uniform operator-norm estimate on every selected
+  vacuum-orthogonal completed vector and identify its separator with the
+  dynamic physical-rate limit.
+- **constructive?**: yes — the measure thread is fixed definitionally by
+  `W.measureLinked`, and the one-channel theorem only consumes the all-vector
+  gap in the valid direction.  All three audited exports use only
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused guarded check passes.  The exact one-worker
+  dependency-complete target passes 1666 jobs, with the new module taking
+  about 0.71 seconds.  No semantic pin, all-vector gap, continuum Yang--Mills
+  theory, or Clay theorem is claimed.
