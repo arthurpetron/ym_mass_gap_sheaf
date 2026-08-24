@@ -13202,3 +13202,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module (about 0.3 seconds) and 5110 jobs for the connected capstone (about
   3.1 seconds).  The pivot compiler and all later semantic/continuum
   residuals are not claimed inhabited.
+
+### [BF4-physical-positive-artanh-cleared-defect] Clear the final scalar denominator — **CLOSED 2026-08-24**
+
+- **milestone**: express the finite pivot error as one rational
+  cross-difference; prove that a denominator-scaled absolute defect bound
+  implies the previous two-sided ratio comparison; compile the division-free
+  certificate through the pivot, convergence, Wilson, graph-norm, and raw
+  connected-observable path.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerRatio.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealArtanhEulerRatio.positiveArtanhEulerClearedDefect`,
+  `CRealArtanhEulerRatio.close_to_positiveArtanhDecayRatio_of_clearedDefect`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerClearedDefectCertificate`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerClearedDefectCompiler`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerClearedDefectCertificate.toPivot`,
+  `CRealArtanhEulerRatio.positiveWindowArtanhEulerPivotCompilerOfClearedDefect`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhClearedDefectCompiler`.
+- **obligation**: inhabit the uniform cleared-defect compiler by constructing
+  its outer modulus and proving
+  `abs((1+z) * E - (1-z)) <= (epsilon/2) * (1+z)` at the computed rational
+  pivot.  No reciprocal remains in the open analytic field.  Exact-rate,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, projective OS/GNS, vacuum stationarity, continuum existence,
+  and QFT closure remain separate open inputs.
+- **constructive?**: yes — the conversion uses positive-denominator witnesses,
+  exact `Q'.eqv` algebra, and constructive cross-multiplied division lemmas.
+  It does not inhabit the defect certificate or select a modulus from a
+  proposition.  Every new gate reports only `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass: 57 jobs for the constructive
+  module (about 0.4 seconds) and 5110 jobs for the connected capstone (about
+  3.3 seconds).  The cleared-defect compiler and all later
+  semantic/continuum residuals are not claimed inhabited.

@@ -21,6 +21,7 @@ to any direct-window rational logarithm.  No `Classical.*`, choice,
 
 import YMGap.Constructive.CRealExpRationalStreamContinuity
 import YMGap.Constructive.CRealLogOddness
+import YMGap.Constructive.RegularCRealArith
 
 namespace YMGap.Constructive.CRealArtanhEulerRatio
 
@@ -150,6 +151,110 @@ def positiveArtanhEulerPivot
   ExpNeg.Mexp (positiveArtanhExponent z stage)
     (HalfPow.half * epsilon)
 
+/-- The denominator-cleared defect at a finite positive-artanh/exponential
+approximation.  Its vanishing equation is
+
+`(1+z) * exponentialApproximation = 1-z`,
+
+so the remaining analytic estimate can be stated without a reciprocal. -/
+def positiveArtanhEulerClearedDefect
+    (z : Q') (stage inner : Nat) : Q' :=
+  (((1 : Q') + z) *
+      ExpNeg.partialSum (positiveArtanhExponent z stage) inner) +
+    -((1 : Q') + -z)
+
+/-- A denominator-cleared relative-error bound implies the desired
+two-sided ratio comparison.  The proof uses positive rational division only
+after the open estimate has already been supplied in cross-multiplied form. -/
+theorem close_to_positiveArtanhDecayRatio_of_clearedDefect
+    (z : Q') (hz : (0 : Q') < z) (value q : Q')
+    (hdefect :
+      Q'.abs ((((1 : Q') + z) * value) + -((1 : Q') + -z)) <=
+        q * ((1 : Q') + z)) :
+    value <= positiveArtanhDecayRatio z hz + q /\
+      positiveArtanhDecayRatio z hz <= value + q := by
+  let denominator : Q' := (1 : Q') + z
+  let numerator : Q' := (1 : Q') + -z
+  let budget : Q' := q * denominator
+  let defect : Q' := denominator * value + -numerator
+  have hdenominator : (0 : Q') < denominator := one_add_pos_of_pos z hz
+  have hdefect' : Q'.abs defect <= budget := hdefect
+  have hupper : defect <= budget :=
+    Q'.le_trans' _ _ _ (Q'.le_abs_self defect) hdefect'
+  have hlower : -budget <= defect :=
+    Q'.le_trans' _ _ _ (Q'.neg_le_neg hdefect')
+      (ExpNeg.neg_abs_le defect)
+  have hcancel : (defect + numerator).eqv (denominator * value) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv (denominator * value) (-numerator) numerator) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (denominator * value) _ _
+        (Q'.neg_add_self_eqv numerator)) ?_
+    exact Q'.eqv_of_eq (Q'.add_zero' (denominator * value))
+  have hvalueMul : value * denominator <= numerator + budget := by
+    have hstep : defect + numerator <= budget + numerator :=
+      Q'.add_le_add_right _ _ numerator hupper
+    have hdenMul : denominator * value <= budget + numerator :=
+      Q'.le_trans' _ _ _ (Q'.ge_of_eqv hcancel) hstep
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_comm_eqv value denominator))
+      (Q'.le_trans' _ _ _ hdenMul
+        (Q'.le_of_eqv (Q'.add_comm_eqv budget numerator)))
+  have hupperDiv : value <=
+      Q'.divPos (numerator + budget) denominator hdenominator :=
+    Q'.le_divPos_of_mul_le (numerator + budget) denominator
+      hdenominator hvalueMul
+  have hbudgetDiv :
+      (Q'.divPos (numerator + budget) denominator hdenominator).eqv
+        (positiveArtanhDecayRatio z hz + q) := by
+    unfold Q'.divPos positiveArtanhDecayRatio
+    refine Q'.eqv_trans _
+      (numerator * Q'.recipPos denominator hdenominator +
+        budget * Q'.recipPos denominator hdenominator) _
+      (Q'.add_mul_eqv numerator budget
+        (Q'.recipPos denominator hdenominator)) ?_
+    refine Q'.add_eqv_congr' (Q'.eqv_refl _) ?_
+    refine Q'.eqv_trans _
+      (q * (denominator * Q'.recipPos denominator hdenominator)) _
+      (Q'.mul_assoc_eqv q denominator
+        (Q'.recipPos denominator hdenominator)) ?_
+    refine Q'.eqv_trans _ (q * 1) _
+      (Q'.mul_eqv_congr_left q _ _
+        (Q'.mul_recipPos_eqv denominator hdenominator)) ?_
+    exact Q'.mul_one_eqv q
+  have hnumeratorLe : numerator <= denominator * value + budget := by
+    have hstep : -budget + numerator <= defect + numerator :=
+      Q'.add_le_add_right _ _ numerator hlower
+    have hshift : numerator + -budget <= denominator * value := by
+      refine Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.add_comm_eqv numerator (-budget))) ?_
+      exact Q'.le_trans' _ _ _ hstep (Q'.le_of_eqv hcancel)
+    have hrestore : (numerator + -budget) + budget <=
+        denominator * value + budget :=
+      Q'.add_le_add_right _ _ budget hshift
+    refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv ?_) hrestore
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv numerator (-budget) budget) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left numerator _ _
+        (Q'.neg_add_self_eqv budget)) ?_
+    exact Q'.eqv_of_eq (Q'.add_zero' numerator)
+  have hsumMul : ((value + q) * denominator).eqv
+      (denominator * value + budget) := by
+    refine Q'.eqv_trans _
+      (value * denominator + q * denominator) _
+      (Q'.add_mul_eqv value q denominator) ?_
+    exact Q'.add_eqv_congr'
+      (Q'.mul_comm_eqv value denominator) (Q'.eqv_refl _)
+  have hlowerMul : numerator <= (value + q) * denominator :=
+    Q'.le_trans' _ _ _ hnumeratorLe
+      (Q'.le_of_eqv (Q'.eqv_symm hsumMul))
+  have hlowerDiv : Q'.divPos numerator denominator hdenominator <= value + q :=
+    Q'.divPos_le_of_le_mul numerator denominator hdenominator hlowerMul
+  exact
+    ⟨Q'.le_trans' _ _ _ hupperDiv (Q'.le_of_eqv hbudgetDiv),
+      hlowerDiv⟩
+
 /-- A one-index quantitative certificate for the positive artanh identity.
 
 At every sufficiently late artanh stage it compares a single, computed
@@ -176,6 +281,55 @@ structure PositiveWindowArtanhEulerPivotCompiler : Type 2 where
     (z : Q') -> (hz : (0 : Q') < z) ->
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPivotCertificate z hz hzb
+
+/-- A division-free one-index certificate for the remaining positive-artanh
+identity.  At the computed pivot it controls the absolute cleared defect by
+`q * (1+z)`, which is exactly the cross-multiplied form of a `q`-error in the
+target ratio. -/
+structure PositiveWindowArtanhEulerClearedDefectCertificate
+    (z : Q') (hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  stageModulus : Q' -> Nat
+  pivotDefect : forall epsilon : Q', (0 : Q') < epsilon ->
+    forall stage : Nat, stageModulus epsilon <= stage ->
+      let q := HalfPow.half * epsilon
+      let pivot := positiveArtanhEulerPivot z stage epsilon
+      Q'.abs (positiveArtanhEulerClearedDefect z stage pivot) <=
+        q * ((1 : Q') + z)
+
+/-- A uniform producer of denominator-cleared pivot certificates. -/
+structure PositiveWindowArtanhEulerClearedDefectCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerClearedDefectCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerClearedDefectCertificate
+
+/-- Clearing the positive denominator loses no information: a cleared-defect
+certificate constructs the existing pivot certificate with the same outer
+modulus and computed inner cutoff. -/
+def toPivot
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerClearedDefectCertificate z hz hzb) :
+    PositiveWindowArtanhEulerPivotCertificate z hz hzb where
+  stageModulus := certificate.stageModulus
+  pivotClose epsilon hepsilon stage hstage := by
+    exact close_to_positiveArtanhDecayRatio_of_clearedDefect z hz
+      (ExpNeg.partialSum (positiveArtanhExponent z stage)
+        (positiveArtanhEulerPivot z stage epsilon))
+      (HalfPow.half * epsilon)
+      (certificate.pivotDefect epsilon hepsilon stage hstage)
+
+end PositiveWindowArtanhEulerClearedDefectCertificate
+
+/-- Uniform cleared-defect certificates compile to the one-index pivot
+interface; all later convergence and Wilson consumers are therefore reused. -/
+def positiveWindowArtanhEulerPivotCompilerOfClearedDefect
+    (compiler : PositiveWindowArtanhEulerClearedDefectCompiler) :
+    PositiveWindowArtanhEulerPivotCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toPivot
 
 namespace PositiveWindowArtanhEulerPivotCertificate
 
@@ -395,6 +549,9 @@ end YMGap.Constructive.CRealArtanhEulerRatio
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhSquareExponent_nonnegative
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.neg_pos_of_strict_neg
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.close_to_positiveArtanhDecayRatio_of_clearedDefect
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerClearedDefectCertificate.toPivot
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveWindowArtanhEulerPivotCompilerOfClearedDefect
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCertificate.toEvaluation
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveWindowArtanhEulerCompilerOfPivot
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhExponent_nonnegative

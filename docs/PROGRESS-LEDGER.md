@@ -14952,3 +14952,43 @@ pivot inequality, preferably after clearing the positive denominator so the
 open estimate is division-free.  Exact-rate, transfer, finite-graph, raw
 semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and Clay
 residuals remain open.
+
+## The positive-artanh pivot frontier is now division-free (2026-08-24)
+
+`positiveArtanhEulerClearedDefect` removes the last reciprocal from the open
+scalar estimate.  For a positive artanh coordinate `z`, outer stage `N`, and
+computed inner pivot `P`, it is the literal rational cross-difference
+
+`(1+z) * ExpNeg.partialSum (positiveArtanhExponent z N) P - (1-z)`.
+
+The new `PositiveWindowArtanhEulerClearedDefectCertificate` asks for an
+explicit outer modulus and the single bound
+
+`abs(defect) <= (epsilon/2) * (1+z)`.
+
+`close_to_positiveArtanhDecayRatio_of_clearedDefect` proves constructively
+that this cross-multiplied inequality implies the previous two-sided
+comparison with `(1-z)/(1+z)`.  Positive rational division occurs only in the
+proved consumer, after the analytic certificate is supplied.  The conversion
+uses exact distributivity, cancellation, and the constructive
+`le_divPos_of_mul_le` / `divPos_le_of_le_mul` lemmas.
+`PositiveWindowArtanhEulerClearedDefectCertificate.toPivot` retains the same
+outer modulus and computed `ExpNeg.Mexp` cutoff;
+`positiveWindowArtanhEulerPivotCompilerOfClearedDefect` then reaches the
+existing convergence compiler.  Finally,
+`adaptivePathOfPositiveArtanhClearedDefectCompiler` transports precisely this
+division-free scalar input through the unchanged Wilson graph-norm and raw
+same-object connected-observable path.
+
+The constructive target passes 57 jobs, with the changed module taking about
+0.4 seconds.  The connected capstone passes 5110 jobs, with the changed target
+taking about 3.3 seconds.  All newly audited exports use only
+`[propext, Quot.sound]`.
+
+`PositiveWindowArtanhEulerClearedDefectCompiler` remains uninhabited.  The
+next analytic frontier is an explicit outer modulus for this finite rational
+cross-difference.  Its proof must now separate the artanh-series tail from the
+finite exponential response, or establish a finite recurrence/product
+identity with a controlled residual.  Exact-rate, transfer, finite-graph, raw
+semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and Clay
+residuals remain open.
