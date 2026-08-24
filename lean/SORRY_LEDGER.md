@@ -12279,3 +12279,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs, with the new module taking about 65 seconds.  No variation input,
   ceiling, observable pin, log/power identification, projective/OS
   reconstruction, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-rational-euler-power-sandwich] Bound finite rational powers by constructive exponentials — **CLOSED 2026-08-24**
+
+- **milestone**: for every rational decrement `0 <= d < 1`, construct the
+  Euler margin `1-d`, its rational odds `d/(1-d)`, prove the exact denominator
+  cancellation, and derive the constructive-real corridor
+  `exp(-(d/(1-d))*n) <= (1-d)^n <= exp(-d*n)`; restate the result for a
+  positive transfer rate `q <= 1` as
+  `exp(-((1-q)/q)*n) <= q^n <= exp(-(1-q)*n)`.
+- **file**:
+  `lean/YMGap/Continuum/RationalEulerPowerSandwich.lean`.
+- **decl**:
+  `eulerMargin`, `eulerMargin_pos`, `eulerOdds`,
+  `eulerOdds_nonnegative`,
+  `one_add_eulerOdds_mul_eulerMargin_eqv_one`,
+  `oneOver1p_eulerOdds_le_margin`, `expNeg_eulerOdds_le_margin`,
+  `eulerMargin_geRat_expNeg`, `expNeg_cpow_ge_eulerMargin_pow`,
+  `expNeg_cpow_equiv_scaled`, `rationalEulerPower_lower`,
+  `rationalEulerPower_upper`, `rationalEulerPower_sandwich`,
+  `eulerMargin_one_sub_eqv`, and `rationalRatePower_sandwich`.
+- **obligation**: specialize the finite corridor to the exact squared
+  moving-cube rate and floor schedule, and prove convergence of its lower and
+  upper exponent streams to one physical exponent.  This still requires
+  inhabited physical-gap/spacing control and does not discharge the raw
+  moment, normalization, or projective/OS branches.
+- **constructive?**: yes — the proof uses rational ordered algebra, the
+  constructive Pade and alternating-series exponential estimates,
+  constructive-real powers, and explicit eventual order.  Audited exports use
+  only `[propext]` or `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check used nonexistent names for
+  definitional constructive-real power equations; the second addressed a
+  multiplication lemma through the wrong namespace; and the first
+  transfer-currency corollary used a nonexistent zero-addition lemma.  These
+  are not passes.  Replacing them with definitional `change`, the defining
+  namespace, and the available rational equivalences made the corrected
+  focused check pass.  The exact one-worker target passes 175 dependency jobs,
+  with the new module taking about 0.31 seconds.  No cross-scale convergence,
+  physical exponential identification, projective/OS reconstruction,
+  continuum Yang--Mills theory, or Clay theorem is claimed.

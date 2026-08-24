@@ -14056,3 +14056,32 @@ does not yet identify the actual scheduled rational powers with the physical
 exponential; that is the next rate branch.  Raw same-object moment variation,
 normalization control, continuum Yang--Mills theory, and the Clay theorem
 remain open.
+
+## Finite rational transfer powers now have a constructive exponential corridor (2026-08-24)
+
+`RationalEulerPowerSandwich` proves the finite scalar estimate needed before
+the scheduled-power limit can be identified.  For rational `0 <= d < 1`, it
+sets `rho = 1-d` and `odds = d/(1-d)` and proves, in constructive-real eventual
+order, the two-sided corridor
+
+`exp(-odds*n) <= rho^n <= exp(-d*n)`.
+
+The lower comparison uses the proved Pade upper bound for `exp(-x)` and the
+exact rational cancellation `1/(1+odds) = 1-d`.  The upper comparison uses the
+alternating-series estimate `1-d <= exp(-d)`, constructive-real
+multiplication, and the exponential addition law.  A transfer-rate corollary
+puts the result directly in the required currency: for `0 < q <= 1`,
+
+`exp(-((1-q)/q)*n) <= q^n <= exp(-(1-q)*n)`.
+
+The corrected focused check passes.  The exact one-worker target passes 175
+dependency jobs, with the new module taking about 0.31 seconds after replay.
+The audited declarations use only `[propext]` or `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+This is a finite sandwich, not a cross-scale convergence theorem.  The next
+step must substitute the actual squared moving-cube rate and floor schedule,
+then prove that both rational exponent streams converge to the same physical
+exponent.  The physical-gap and spacing variations remain uninhabited; raw
+same-object moment and normalization control, projective/OS reconstruction,
+continuum Yang--Mills theory, and the Clay theorem remain open.
