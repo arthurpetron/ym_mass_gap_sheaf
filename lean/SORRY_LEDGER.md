@@ -8928,3 +8928,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the exact one-worker target passes 4,994 jobs with the new module taking
   about 1.0 second.  No evaluated cardinality, payment, cofinal capacity,
   completed uniform contraction, continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-carrier-recoding] Exact 65-state anchor recoding and capacity — **CLOSED 2026-08-23**
+
+- **milestone**: derive the opaque canonical component's exact length from the
+  certified 65-state permutation; prove generic equal-cutoff old/full and
+  new/empty identities; contract the cutoff-two novel endpoint, occurrence,
+  and routed-support lists to empty; and inhabit the resulting cutoff-two
+  routed-ceiling capacity certificate symbolically.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCarrierRecoding.lean`.
+- **decl**: `cutoffTwoEdgeLoadFullStates_length`,
+  `centralPhysicalFiniteEmbeddedVacuumSectorIndices_self`,
+  `centralPhysicalFiniteVacuumSectorOldBlockIndices_self`,
+  `centralPhysicalFiniteVacuumSectorNewBlockIndices_self`, the specialized
+  old/new and novel-list identities,
+  `cutoffTwoConditionalReverseForwardRoutedFiniteCeiling_self`,
+  `cutoffTwoNovelSymmetricRoutedSupportFiniteRatioCeilingLoad_self_eqv_zero`,
+  and `cutoffTwoNovelSymmetricAnchorRoutedCeilingCapacity`.
+- **obligation**: construct an equally tractable recoding of the first genuine
+  positive cutoff increment, expose its new shell and routed transitions, and
+  prove or refute the local capacity payments; then lift a successful estimate
+  cofinally and construct the thermodynamic and continuum limits.
+- **constructive?**: yes — the proof transports a finite permutation and uses
+  structural list induction, proof-carrying membership, rational
+  nonnegativity, and the existing routed-prefix certificate.  All eight
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: a prior guarded cardinality `#eval` stopped at the 12 GiB
+  reserve before any output and is inconclusive.  Early focused proof
+  iterations hit the heartbeat limit during proof repair and are not passes.
+  The corrected focused check passes in about 1.7 seconds; the exact one-worker
+  target passes 4,995 jobs with the new module taking about 1.5 seconds.  The
+  anchor certificate is not a cofinal family and proves no completed uniform
+  contraction, continuum QFT, or Clay theorem.

@@ -10573,3 +10573,36 @@ The next diagnostic frontier is staged evaluation of the distinct support:
 measure its cutoff-2 cardinality before attempting the maximum or block
 payments.  Analytically, cofinal exact capacity, completed uniform
 contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## The cutoff-two anchor is recoded without root-component normalization (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoCarrierRecoding` transports the existing
+permutation between the canonical vacuum-component state list and the
+explicit table back to the opaque index presentation.  It proves that the
+cutoff-two component has exactly 65 indices without evaluating the
+root-component search.  A generic equal-cutoff theorem proves that the cutoff
+index map is pointwise the identity, hence the old block is the full component
+and the new block is empty when `base = later`.
+
+At `later = 2`, the novel endpoint list, weighted occurrence list, routed-edge
+list, and deduplicated routed support are therefore all empty.  The routed
+ratio ceiling is literally zero and every symmetric routed-ceiling load is
+equivalent to zero.  This symbolically inhabits the non-vacuous cutoff-two
+three-block routed-capacity certificate: its old--old field ranges over the
+actual 65-state component, while the traffic it pays is zero; the cross and
+new--new fields are empty because no state is new relative to itself.
+
+A guarded cardinality `#eval` attempted before this recoding reached no first
+output and was stopped by the configured 12 GiB memory reserve; it is
+inconclusive and not a pass.  Early focused proof iterations also hit the
+heartbeat limit while elaborating generic list congruence and a discarded
+Boolean-check converse; neither is counted as a pass.  The corrected focused
+check passes in about 1.7 seconds.  The exact one-worker dependency-complete
+target passes 4,995 jobs, with the new module taking about 1.5 seconds.  All
+eight audited exports use exactly `[propext, Quot.sound]`.
+
+This closes only the equal-cutoff anchor.  The next causal frontier is the
+first genuine increment `later > 2`: recode its old image and new shell so the
+transition-product or routed-ceiling payment can be decided or bounded without
+normalizing the general carrier.  Cofinal capacity, completed uniform
+contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
