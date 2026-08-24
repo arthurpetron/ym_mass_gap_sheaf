@@ -9511,3 +9511,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,014 jobs with the new module taking about 1.3 seconds.  No
   uniform crossing floor, merger-mass ceiling, cofinal contraction, continuum
   QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-component-merger-residual-budget] Division-free merger reserve compiler — **CLOSED 2026-08-23**
+
+- **milestone**: split the exact component payment into increment and merger
+  demands; compile a rational reserve paying both into finite capacity and a
+  cofinal reserve family into completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentMergerResidualBudget.lean`.
+- **decl**:
+  `cutoffTwoNovelComponentSplitPaymentDemand_eqv_increment_add_merger`,
+  `CutoffTwoNovelComponentMergerResidualBudgetAt`,
+  `CutoffTwoNovelComponentMergerResidualBudgetAt.reserve_nonnegative`,
+  `cutoffTwoComponentSplitPayment_of_mergerResidualBudget`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_mergerResidualBudget`, and the three
+  `CutoffTwoCofinalNovelComponentMergerResidualBudget` contraction compilers.
+- **obligation**: construct residual budgets along a cofinal moving-base
+  schedule; fixed cutoff-two increment decay is neither assumed nor proved.
+- **constructive?**: yes — only exact rational distributivity, monotonicity,
+  and proof-carrying reserve inequalities are used.  All eight audited exports
+  use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 2.3 seconds; the exact
+  one-worker target passes 5,015 jobs with the new module taking about 2.2
+  seconds.  No reserve is inhabited, so no cofinal contraction, continuum QFT,
+  or Clay theorem is claimed.

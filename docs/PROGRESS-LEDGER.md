@@ -11152,3 +11152,29 @@ budget sufficient for the existing component-split edge-floor payment, then
 separate that exact finite compiler from the still-open cofinal/moving-base
 construction.  Completed contraction, continuum QFT, and the Clay theorem
 remain open.
+
+## Component-merger mass now has an exact residual edge-floor budget (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentMergerResidualBudget` distributes
+the component-split scalar payment exactly into corrected-slab increment
+demand plus component-merger demand.  It introduces a division-free finite
+certificate carrying a rational reserve, a proof that increment demand plus
+that reserve fits below the later edge-payment budget, and a proof that merger
+demand fits inside the reserve.
+
+Every such certificate compiles to the existing component-split payment and
+all four finite novel-flow capacity blocks.  A cofinal family of residual
+budgets compiles further to the existing completed strict-contraction datum.
+The reserve's nonnegativity is derived constructively from nonnegative merger
+demand and its certified upper comparison; it is not a redundant premise.
+
+The focused check passes in about 2.3 seconds.  The exact one-worker,
+dependency-complete target passes 5,015 jobs, with the new module taking about
+2.2 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+No residual budget or cofinal family is inhabited.  The next frontier is to
+rebase this fixed cutoff-two interface to a general base/later pair, because a
+fixed-base increment need not decay cofinally; a moving-base local-step budget
+is the mathematically viable route to investigate.  Completed contraction,
+continuum QFT, and the Clay theorem remain open.
