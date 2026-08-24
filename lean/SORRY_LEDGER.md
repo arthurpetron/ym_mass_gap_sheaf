@@ -12238,3 +12238,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   estimate, adaptive family, physical-exponential identification,
   projective/OS reconstruction, continuum Yang--Mills theory, or Clay theorem
   is claimed.
+
+### [BF4-physical-exact-log-rate-variation] Join physical-gap and spacing tails into exact-log cutoff removal — **CLOSED 2026-08-24**
+
+- **milestone**: turn the same-family upper rate band into a linear margin
+  tail and computed direct-log half-window; identify its rational margin proxy
+  with the completed family's exact physical gap; join summable rational gap
+  variation with inverse-square physical-spacing control; construct the
+  full-range exact logarithmic rate's `ModCauchyEv`, complete limit, and
+  convergence modulus; construct exact-rate cutoff removal after an
+  independent full-log ceiling is supplied; and inject the derived modulus
+  into the existing observable-connected continuum handoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean`.
+- **decl**:
+  `DynamicVacuumSectorObservablePin.exactLogLinearMarginTail`,
+  `DynamicVacuumSectorObservablePin.exactLogRateStart`,
+  `DynamicVacuumSectorObservablePin.marginRate_eqv_physicalGap`,
+  `DynamicVacuumSectorObservablePin.exactLogRateCauchy`,
+  `DynamicVacuumSectorObservablePin.exactLogRateLimit`,
+  `DynamicVacuumSectorObservablePin.exactLogRateConverges`,
+  `DynamicVacuumSectorObservablePin.exactRateCutoffRemovalOfVariations`, and
+  `DynamicVacuumSectorContinuumHandoff.ofExactLogVariations`.
+- **obligation**: prove summable physical-gap variation and an inverse-square
+  spacing tail for one actual adaptive family; supply its observable pin and
+  a finite full-log ceiling; then prove that its actual scheduled rational
+  powers converge to the physical exponential governed by this same exact
+  logarithmic mass.  Raw moment and normalization variation plus the
+  projective/OS semantic identification remain independent branches.
+- **constructive?**: yes — the half-window start, shifted tail controls,
+  approximation-index regularity, global Cauchy modulus, limit, and convergence
+  witness are all Type-level data.  The six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check addressed imported extension
+  declarations through the wrong namespace and reduced the computed tail
+  start to an invalid reflexive bound.  It is not a pass; its downstream
+  `sorryAx` reports are failed-elaboration contamination.  After opening the
+  defining namespace and keeping the `Nat.le_max_left` proof, the focused
+  check passes.  The exact one-worker dependency-complete target passes 1400
+  jobs, with the new module taking about 65 seconds.  No variation input,
+  ceiling, observable pin, log/power identification, projective/OS
+  reconstruction, continuum Yang--Mills theory, or Clay theorem is claimed.

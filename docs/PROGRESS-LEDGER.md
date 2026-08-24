@@ -14018,3 +14018,41 @@ or a redesigned observable/normalization whose debt is controllable.  Neither
 is proved.  Raw moment variation, positive-time rate-power variation and its
 physical-exponential identification, projective/OS reconstruction, continuum
 Yang--Mills theory, and the Clay theorem remain open.
+
+## Exact logarithmic cutoff removal now joins two dynamic variation branches (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler` removes the
+opaque exact-rate Cauchy field from the dynamic completed-family path.  The
+upper half of the same-family physical rate band constructs a linear margin
+tail and a computed eventual direct-log half-window.  The pinned separator's
+rational margin rate is proved definitionally equivalent to the exact
+physical gap of the completed family.
+
+Two independently provable inputs then rejoin: summable two-sided rational
+step variation of that physical gap controls the linear logarithmic proxy,
+while a global inverse-square spacing tail controls the quadratic remainder
+`3(1-q_j)^2/a_j`.  The existing eventual proxy compiler constructs a global
+`CReal.ModCauchyEv` for the full binary range-reduced exact rate
+`-log(q_j)/a_j`, its complete limit, and its convergence modulus.  With the
+independent exact full-log ceiling supplied, this also constructs the standard
+exact-rate cutoff-removal record, preserving its positive floor and finite
+ceiling.  A final constructor injects the derived modulus into the existing
+same-object projective/OS continuum handoff.
+
+The first guarded check is not a pass: extension declarations from the
+continuum-realization namespace were initially addressed through the source
+observable-pin namespace, and the linear-tail start proof was simplified too
+far.  The resulting downstream `sorryAx` reports were failed-elaboration
+contamination.  Explicitly opening the defining namespace and retaining the
+computed `max` bound resolved both issues.  The corrected focused check
+passes.  The exact one-worker dependency-complete target passes 1400 jobs,
+with the new module taking about 65 seconds after dependency replay.  All six
+audited exports use exactly `[propext, Quot.sound]`.
+
+Neither analytic branch is inhabited here.  The exact full-log ceiling,
+observable pin, projective/OS semantic fields, and reconstruction-rate
+identification also remain explicit.  Most importantly, exact-log convergence
+does not yet identify the actual scheduled rational powers with the physical
+exponential; that is the next rate branch.  Raw same-object moment variation,
+normalization control, continuum Yang--Mills theory, and the Clay theorem
+remain open.
