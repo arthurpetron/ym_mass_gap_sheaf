@@ -9616,3 +9616,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,018 jobs with the new module taking about 1.2 seconds.  No
   nontrivial step is certified merger-free and no merger upper bound, cofinal
   contraction, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-generic-moving-base-residual-payment] Inhabited scalar payment interface — **CLOSED 2026-08-23**
+
+- **milestone**: define the exact generic increment, merger, combined, and
+  edge-floor payment quantities using the literal later carrier size; compile
+  a division-free merger reserve to scaled new-mass payment; and inhabit the
+  certificate at equal cutoffs.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingBaseResidualPayment.lean`.
+- **decl**:
+  `centralPhysicalFiniteMovingBaseComponentSplitPaymentDemand_eqv_increment_add_merger`,
+  `CentralPhysicalFiniteMovingBaseMergerResidualBudgetAt`,
+  `CentralPhysicalFiniteMovingBaseMergerResidualBudgetAt.componentSplitPayment`,
+  `centralPhysicalFiniteMovingBaseNewMassPayment_of_componentSplitPayment`,
+  `CentralPhysicalFiniteMovingBaseMergerResidualBudgetAt.newMassPayment`,
+  `centralPhysicalFiniteMovingBaseComponentSplitPayment_of_noMergerIncrementPayment`,
+  `slabParametricKCutoffIncrement_self_eqv_zero`, and
+  `centralPhysicalFiniteMovingBaseMergerResidualBudgetAt_self`.
+- **obligation**: derive a useful positive moving-base coercivity scale from
+  the existing finite path/Poincare geometry and inhabit the residual payment
+  at nontrivial moving steps, ultimately along a cofinal schedule.
+- **constructive?**: yes — all quantities are explicit finite rational data;
+  the reserve compiler is division-free; and the equal-cutoff inhabitant uses
+  exact finite-filter emptiness and the constructed positive edge floor.  All
+  eleven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: two failed focused elaboration attempts are not passes.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  target passes 5,019 jobs with the new module taking about 1.2 seconds.  No
+  nontrivial residual budget, moving-base flow, cofinal contraction, continuum
+  QFT, or Clay theorem is claimed.

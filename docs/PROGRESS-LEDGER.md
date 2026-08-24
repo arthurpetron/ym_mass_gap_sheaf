@@ -11259,3 +11259,36 @@ residual-payment certificate parameterized by the actual base-sector size,
 coercivity, and later edge floor; inhabiting those data along a cofinal moving
 schedule remains open.  Completed contraction, continuum QFT, and the Clay
 theorem remain open.
+
+## Generic moving-base scalar payment is now an exact inhabited interface (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorMovingBaseResidualPayment` defines the literal
+later vacuum-sector state count and the exact increment, merger, combined,
+and later-edge payment quantities for arbitrary constructive coupling,
+half-volume, and moving cutoffs.  The combined demand splits exactly into its
+increment and merger parts.
+
+A division-free residual certificate carries a strictly positive coercivity
+floor and a rational reserve.  It compiles to the combined scalar payment,
+which in turn bounds the correspondingly scaled new-block mass by half the
+literal later positive-edge floor.  A successful generic no-merger check
+reduces the same obligation to increment-only payment.
+
+The module also proves that the corrected-slab increment vanishes at equal
+cutoffs and explicitly inhabits the residual certificate there for every
+positive coercivity floor.  Thus the interface is not merely a vacuous
+uninhabited bundle; its open content is exactly the nontrivial moving step.
+
+Two focused attempts exposed missing namespace openings and a wrong rational
+congruence orientation; neither is a pass.  After correction, the focused
+check passes in about 1.1 seconds.  The exact one-worker,
+dependency-complete target passes 5,019 jobs, with the new module taking about
+1.2 seconds.  All eleven audited exports use exactly
+`[propext, Quot.sound]`.
+
+No generic moving-base path flow, transported old-block coercivity,
+nontrivial residual budget, or cofinal moving schedule is constructed.  The
+next frontier is to identify an actual positive generic coercivity scale from
+the existing finite path/Poincare geometry and state the remaining nontrivial
+payment entirely as explicit finite ratios.  Completed contraction, continuum
+QFT, and the Clay theorem remain open.
