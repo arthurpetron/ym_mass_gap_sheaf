@@ -12911,3 +12911,55 @@ its completed transfer, same-object moments, physical spacing, and later
 graph-norm/OS limit maps definitionally connected.  Thermodynamic and
 continuum construction, continuum Yang--Mills, and the Clay theorem remain
 open.
+
+## The viable local gap now has a source-independent dynamic same-object path (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorCompletedFamily` introduces the common dynamic
+interface that every viable finite coercivity route can target.  At each
+physical scale it retains the actual nome, completed canonical vacuum-sector
+strict contraction, physical transfer spacing, and effective zero-spacing
+modulus.  Its same-object theorem is still the literal completed
+autocorrelation of that transfer.  A two-sided band on its definitionally same
+lattice margin compiles to a uniform rational physical-gap floor, an upper
+physical-gap ceiling, an effective margin-zero modulus, and the existing
+sharp scalar `ContinuumGapTheorem` interface.
+
+The same module also factors physical matching through a source-independent
+normalized strength law
+
+`1 - q_j = s_j / (1 + s_j)`.
+
+A positive lower spacing multiple, finite upper spacing multiple, and common
+finite cap on `s_j` compile to the physical rate band without knowing which
+finite proof produced `s_j`.  This is the common junction that allows the
+rate-scaling, graph-norm, and observable-identification compiler lanes to be
+built independently without changing the carrier or transfer.
+
+`BF4PhysicalDynamicSpinCubeOffRayResidualFamily` attaches the viable local
+spin-ray/off-ray source to that common path.  A scale-wise cofinal residual
+coercivity family constructs the actual completed family and the exact local
+strength
+
+`s_j = ((1/2) * rayCapacity_j.delta) * uniformSectorMassFloor_j`.
+
+The stronger scale-wise pointwise residual-flow-capacity family compiles into
+the same source through the existing local coercivity map.  Thus the dynamic
+physical-band route no longer depends on the impossible global root-linear
+source interface.
+
+The common module's final focused check passes in about 1.7 seconds; its exact
+one-worker target passes 1374 jobs, with the module taking about 1.5 seconds.
+The local-source module's final focused check passes in about 2.0 seconds; its
+exact one-worker target passes 5056 jobs, with the module taking about 1.8
+seconds.  Earlier local-source focused attempts failed on missing physical
+spacing namespaces, a stale dependency artifact, and one definitional rewrite
+and are not passes.  All thirteen common exports and all eleven local-source
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+No dynamic residual family or strength band is inhabited.  The remaining
+analytic producer lanes are now explicit and parallelizable: cofinal local
+off-ray capacity along the physical nome trajectory, two-sided scaling of the
+exact local strength, and graph-norm/OS convergence plus same-object
+observable identification for these completed transfers.  Their outputs must
+join before any continuum operator or connected-correlation mass-gap claim.
+Continuum Yang--Mills construction and the Clay theorem remain open.

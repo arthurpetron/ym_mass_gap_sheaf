@@ -11085,3 +11085,69 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete target passes 5046 jobs, with the new module
   taking about 1.4 seconds.  No residual-capacity inhabitant, dynamic family,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-dynamic-completed-vacuum-sector-family] Factor all viable finite producers through one dynamic same-object completed path — **CLOSED 2026-08-24**
+
+- **milestone**: define a source-independent scale-indexed family of the
+  actual completed canonical vacuum-sector transfers; retain literal
+  same-object autocorrelation decay; compile a two-sided rate/spacing band to
+  rational physical-gap bounds and the sharp scalar continuum-gap interface;
+  factor the rate law through an exact normalized strength and compile
+  two-sided strength scaling plus a finite cap to that same physical band.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean`.
+- **decl**: `DynamicVacuumSectorCompletedFamily`,
+  `DynamicVacuumSectorCompletedFamily.completedAutocorrelation_sq_decay`,
+  `DynamicVacuumSectorPhysicalRateBand`,
+  `DynamicVacuumSectorPhysicalRateBand.toContinuumGapTheorem`,
+  `DynamicVacuumSectorNormalizedStrengthLaw`,
+  `DynamicVacuumSectorStrengthBand`, and
+  `DynamicVacuumSectorStrengthBand.toPhysicalRateBand`.
+- **obligation**: construct a dynamic finite producer, prove its exact
+  strength/spacing band, and provide graph-norm/OS convergence and
+  observable-identification maps for the same completed transfers.  The
+  scalar continuum-gap output alone is not a continuum Yang--Mills theory.
+- **constructive?**: yes — the existing completed strict contraction and
+  same-object moments, rational positive division, Type-level spacing modulus,
+  normalized-strength comparison, and explicit finite cap suffice.  All
+  thirteen audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the final focused guarded check passes in about 1.7 seconds.
+  The exact one-worker dependency-complete target passes 1374 jobs, with the
+  module taking about 1.5 seconds.  No dynamic family, graph-norm limit,
+  continuum QFT, or Clay theorem is inhabited or claimed.
+
+### [BF4-dynamic-spin-cube-off-ray-residual-family] Attach local residual capacity to the common dynamic path — **CLOSED 2026-08-24**
+
+- **milestone**: package scale-wise cofinal spin-ray and off-ray residual
+  coercivity data; construct the actual completed vacuum-sector transfer at
+  every scale; erase the finite source into the common dynamic family only
+  after completion; identify the exact local strength
+  `((1/2) * rayCapacity.delta) * uniformSectorMassFloor`; and compile the
+  stronger dynamic pointwise residual-flow capacity into the same path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayResidualFamily.lean`.
+- **decl**: `DynamicSpinCubeOffRayResidualCoercivityFamily`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.toCompletedFamily`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.completedGapAt_rate_eq`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.toNormalizedStrengthLaw`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.toContinuumGapTheorem`,
+  `DynamicSpinCubeOffRayResidualFlowCapacityFamily`, and
+  `DynamicSpinCubeOffRayResidualFlowCapacityFamily.toResidualCoercivityFamily`.
+- **obligation**: inhabit the scale-wise local residual family and prove a
+  positive lower spacing multiple, finite upper spacing multiple, and finite
+  cap for its exact local strength.  In parallel, construct graph-norm/OS
+  convergence and a same-object continuum observable pin for these completed
+  transfers.
+- **constructive?**: yes — the fixed-nome local completed-gap compiler, exact
+  gluing rate identity, explicit sector-mass floor, dependent scale-wise
+  source data, and common normalized-strength compiler suffice.  All eleven
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: early focused attempts failed on missing physical-spacing
+  namespaces, a stale imported artifact, and one definitional rewrite and are
+  not passes; their `sorryAx` output was downstream elaboration contamination.
+  The corrected focused guarded check passes in about 2.0 seconds.  The exact
+  one-worker dependency-complete target passes 5056 jobs, with the module
+  taking about 1.8 seconds.  No dynamic capacity family, strength band,
+  continuum QFT, or Clay theorem is claimed.
