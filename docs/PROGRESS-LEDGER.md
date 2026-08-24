@@ -13742,6 +13742,43 @@ controlled renormalization).  Projective measure/OS identification,
 reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
 open.
 
+## Both scheduled Euler exponents now converge to one physical value (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorScheduledRatePowerExponentLimitCompiler`
+removes the remaining asymmetry between the two sides of the finite Euler
+corridor.  A summable rational variation of the exact physical-gap stream
+selects its constructive-real limit `M`.  The physical rate band independently
+forces the completed rates `q_j` to converge to one, while the canonical floor
+sampler already proves `a_j floor(t/a_j) -> t`.
+
+The upper exponent is factored exactly as
+
+`(1-q_j^2) floor(t/a_j)
+ = ((1-q_j)/a_j) (1+q_j) (a_j floor(t/a_j))`,
+
+so it converges to `M*2*t`.  For the lower exponent, the compiler proves
+`1/q_j^2 -> 1` constructively, using the rate band's computed half-window as
+an eventual reciprocal floor.  The exact odds exponent is then factored as the
+upper exponent times `1/q_j^2`, hence converges to the identical `M*2*t`.
+
+Two guarded checks are not passes.  The first exposed reversed fixed-left /
+fixed-right rational congruence calls, one unopened rate-band namespace, and a
+local abbreviation that needed an explicit `change`.  The second exposed the
+available multiplication-distribution orientation, the actual negated-product
+orientation, and the required final addition commutation.  Their downstream
+`sorryAx` reports are failed-elaboration contamination.  The corrected focused
+check passes.  The exact one-worker dependency-complete target passes 5084
+jobs, with the new module taking about 1.2 seconds after replay.  Audited
+exports use only `[propext]` or `[propext, Quot.sound]`.
+
+This proves exponent convergence, not exponential-value or rational-power
+convergence.  The next compiler must transport convergence through the
+constructive exponential and squeeze the exact scheduled powers.  The
+physical band and gap variation are still analytic inputs, not inhabited
+adaptive estimates.  Raw moment and normalization control, projective/OS
+reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
+open.
+
 ## Reciprocal normalization gives a uniform floor with explicit debt (2026-08-24)
 
 `BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel` resolves the

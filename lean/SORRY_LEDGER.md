@@ -12357,3 +12357,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.3 seconds.  No cross-scale exponent convergence, rate-power limit,
   raw moment or normalization estimate, projective/OS reconstruction,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-scheduled-rate-exponent-limit] Contract both Euler exponents to `M*2*t` — **CLOSED 2026-08-24**
+
+- **milestone**: factor `1-q^2` as `(1-q)(1+q)` in the rational setoid;
+  cancel the exact physical-gap denominator; prove the completed rate tends to
+  one from the physical rate band; prove its square and exact positive
+  reciprocal tend to one; factor the upper scheduled exponent into physical
+  gap, `1+q`, and sampled distance; and prove both the upper and odds-corrected
+  lower exponents converge to the identical constructive-real product
+  `M*2*t` selected by the physical-gap variation limit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRatePowerExponentLimitCompiler.lean`.
+- **decl**:
+  `one_sub_square_eqv`, `physicalGap_mul_spacing_eqv_latticeMargin`,
+  `scheduledSquaredRateUpperExponent_factor_eqv`,
+  `completedRate_converges_one`, `one_add_completedRate_converges_two`,
+  `completedSquaredRate_converges_one`,
+  `completedSquaredRateReciprocal`,
+  `completedSquaredRateReciprocal_converges_one`,
+  `scheduledSquaredRatePhysicalExponentLimit`,
+  `scheduledSquaredRateUpperExponent_converges`,
+  `scheduledSquaredRateLowerExponent_factor_eqv`, and
+  `scheduledSquaredRateLowerExponent_converges`.
+- **obligation**: transport the common exponent limit through the
+  constructive exponential, use the finite Euler corridor to squeeze the
+  literal scheduled rational powers, and identify the already constructed
+  rate-power complete limit with that physical exponential.  The physical
+  band and gap variation must still be inhabited for one adaptive producer.
+- **constructive?**: yes — the rate convergence uses the computed band modulus;
+  reciprocal convergence uses an explicit half-window and a positive rational
+  square floor; all products use constructive-real sequential continuity.
+  Audited exports use only `[propext]` or `[propext, Quot.sound]`.
+- **status note**: the first guarded check exposed reversed congruence-helper
+  orientations, an unopened rate-band namespace, and a reducible local name
+  that required `change`.  The second exposed the available distribution and
+  negated-product orientations plus a final commutation.  Neither is a pass;
+  their downstream `sorryAx` is failed-elaboration contamination.  The
+  corrected focused check passes.  The exact one-worker target passes 5084
+  dependency jobs, with the new module taking about 1.2 seconds.  No
+  exponential-value or scheduled-power convergence, adaptive analytic input,
+  raw moment or normalization estimate, projective/OS reconstruction,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
