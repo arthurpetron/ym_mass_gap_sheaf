@@ -11866,3 +11866,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 0.83 seconds after dependency replay.  No RC cutoff-
   limit inhabitant, uniform norm floor, physical rate envelope, projective/OS
   identification, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-moving-cube-path] Compose the viable local producer with the exact sampled observable — **CLOSED 2026-08-24**
+
+- **milestone**: compile a supplied dynamic adaptive off-ray transition-
+  product family into its actual completed family and exact moving-centered
+  cube `CReal` channel; use the same physical-time sampling powers; prove
+  sampled squared decay at the actual completed rate; identify the unsquared
+  sample with the same global adaptive-transfer matrix coefficient; retain
+  strict time-zero positivity; and attach an optional strength band to that
+  definitionally identical rate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveMovingCubePath.lean`.
+- **decl**:
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.toMovingCubeRCChannel`,
+  `movingCubeLatticeSteps`,
+  `movingCubeSampledConnectedAutocorrelation`,
+  `movingCubeSampledConnectedAutocorrelationSq`,
+  `movingCubeSampledConnectedAutocorrelationSq_decay`,
+  `movingCubeSampledConnectedAutocorrelation_eq_global`,
+  `movingCubeSampledConnectedAutocorrelation_zero_isPositive`,
+  `movingCube_completedRate_physicalBand`, and
+  `movingCube_physicalGap_twoSided`.
+- **obligation**: inhabit the adaptive transition-product family and its
+  uniform strength band; construct representative-level cutoff convergence
+  for this exact sampled `CReal` correlation; and prove a scale-uniform
+  positive normalization or explicitly track a controlled observable
+  renormalization.  Then identify that same limiting correlation through the
+  projective measure and OS reconstruction.  A rate or moment for a different
+  vector, transfer, normalization, or representative is not a substitute.
+- **constructive?**: yes — every compiler is an explicit definition or proof
+  over the supplied Type-level producer; the vector, transfer, sampling power,
+  moment, and rate are preserved definitionally at the joins.  The five
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused check failed only because field notation
+  searched the producer namespace instead of this module's compiler namespace;
+  its downstream `sorryAx` was failed-elaboration contamination.  Explicit
+  compiler calls fixed the issue.  The focused check passes, and the exact
+  one-worker dependency-complete target passes 5077 jobs with the new module
+  taking about 1.3 seconds.  No producer inhabitant, strength-band inhabitant,
+  cutoff-limit channel, uniform norm floor, projective/OS identification,
+  continuum Yang--Mills theory, or Clay theorem is claimed.

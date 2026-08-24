@@ -13704,3 +13704,40 @@ norm floor, and a sampled-rate envelope limit from the physical strength/rate
 band.  Projective measure/OS identification must later pin that very continuum
 correlation to the reconstructed generator.  None of those inputs, continuum
 Yang--Mills theory, or the Clay theorem is inhabited here.
+
+## Adaptive transition products now feed one sampled moving-cube path (2026-08-24)
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptiveMovingCubePath` closes the direct
+producer-to-observable composition.  A supplied
+`DynamicSpinCubeOffRayAdaptiveTransitionProductFamily` now compiles into its
+actual `DynamicVacuumSectorCompletedFamily`, the exact moving-centered
+cutoff-one cube vector on that family, the corresponding same-object `CReal`
+connected autocorrelation, and the canonical physical-time floor sampling.
+The sampled squared moment obeys the rate of that same completed transfer,
+and the unsquared moment is exactly its global adaptive-transfer matrix
+coefficient.  Its time-zero value retains the explicit positive norm witness.
+
+An optional `StrengthBand` is also attached to the definitionally identical
+completed rate.  Its two-sided lattice-margin and physical-gap estimates
+therefore govern the rate occurring in the sampled moving-cube decay theorem,
+not a parallel scalar surrogate.  No transition-product family or strength
+band is manufactured by this module; it only proves the causal compiler once
+those Type-level inputs are supplied.
+
+The first focused check failed because field notation searched the producer's
+original namespace rather than this separate compiler namespace; its
+downstream `sorryAx` was failed-elaboration contamination and is not a pass.
+After replacing local field-notation uses with explicit compiler names, the
+focused check passed.  The exact one-worker dependency-complete target passed
+5077 jobs, with the new module taking about 1.3 seconds after dependency
+replay.  All five audited exports use exactly `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+This establishes one observable-connected finite/dynamic path rather than
+several interchangeable proof paths.  The open next inputs are an inhabited
+adaptive transition-product family with the required uniform strength band,
+representative-level cutoff convergence for this exact sampled `CReal`
+correlation, and a nondegenerate uniform normalization (or an explicitly
+controlled renormalization).  Projective measure/OS identification,
+reconstruction, continuum Yang--Mills theory, and the Clay theorem remain
+open.
