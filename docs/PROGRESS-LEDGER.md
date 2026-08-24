@@ -10938,3 +10938,29 @@ family.  The next frontier is an executable and sound no-component-merger
 certificate, followed by a semantic analysis of whether mergers can actually
 be excluded.  Completed contraction, continuum QFT, and the Clay theorem
 remain open.
+
+## Component-merger absence has an executable sound certificate (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentMergerCertificate` defines the
+Boolean check `cutoffTwoNoComponentMergerCheck later` as exact emptiness of
+the finite component-merger index list.  Its soundness theorem identifies a
+successful check with the pointwise statement that every later new-block
+state lies outside the entire cutoff-two positive carrier.  A successful
+check forces the component-merger mass to be exactly zero and sharpens the
+mass estimate to `newMass <= cutoffIncrement`.
+
+The check is proved successful at the equal-cutoff anchor `later = 2`, where
+the new block is structurally empty.  No success at a larger cutoff is
+claimed.  The first proof attempt used a generic library filter theorem whose
+axiom audit imported `Classical.choice`; it is not a pass.  Replacing it with
+a local structural recursion removes that dependency.  The corrected focused
+check passes in about 0.9 seconds.  The exact one-worker,
+dependency-complete target passes 5,007 jobs, with the new module taking about
+1.0 second.  All six audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to compile a cofinal family carrying this Boolean
+certificate and an increment-only scalar payment into completed strict
+contraction.  The existence of such a cofinal family, component stability at
+larger cutoffs, thermodynamic/continuum control, and the Clay theorem remain
+open.

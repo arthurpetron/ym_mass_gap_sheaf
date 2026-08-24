@@ -9298,3 +9298,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target passes 5,006 jobs with the new module taking about 2.0
   seconds.  The cofinal payment is not inhabited, so no completed
   contraction, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-no-component-merger-check] Executable merger-absence certificate — **CLOSED 2026-08-23**
+
+- **milestone**: define an executable emptiness check for the component-merger
+  index list; prove that success is equivalent to every new state lying
+  outside the cutoff-two positive carrier, forces merger mass to vanish, and
+  yields `newMass <= cutoffIncrement`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentMergerCertificate.lean`.
+- **decl**: `cutoffTwoNoComponentMergerCheck`,
+  `cutoffTwoNoComponentMergerCheck_true_iff_indices_empty`,
+  `cutoffTwoNoComponentMergerCheck_true_iff_all_new_outside`,
+  `cutoffTwoNewComponentMergerMass_eqv_zero_of_check`,
+  `cutoffTwoNewMass_le_increment_of_noComponentMergerCheck`,
+  `cutoffTwoNoComponentMergerCheck_self`, and
+  `cutoffTwoNewComponentMergerMass_self_eqv_zero`.
+- **obligation**: prove the check succeeds beyond the trivial equal-cutoff
+  anchor or replace it by a quantitative merger bound; then pay the positive
+  routed-edge floor cofinally.
+- **constructive?**: yes — the soundness proof is a local structural recursion
+  over the finite list.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: an initial version using the generic
+  `List.filter_eq_nil_iff` audited with `Classical.choice` and is not a pass.
+  The corrected focused check passes in about 0.9 seconds; the exact one-worker
+  target passes 5,007 jobs with the new module taking about 1.0 second.  Only
+  the anchor `later = 2` is inhabited, so no cofinal contraction, continuum
+  QFT, or Clay theorem is claimed.
