@@ -10459,3 +10459,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5040 jobs with the new module taking about
   1.2 seconds.  The certificate is uniform only on the explicit spin-cube ray;
   it is not a full vacuum-complement gap, continuum QFT, or Clay theorem.
+
+### [BF4-central-spin-cube-ray-Dirichlet-coercivity] Contract uniform spoke capacity into ray-sector coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: enumerate the stationary-product pairwise variance of all
+  excited spin-cube ray endpoints, pay each endpoint square by its literal
+  two-spoke occurrence budget, regroup repeated directed spokes exactly,
+  extend the spoke capacity to every carrier edge by an occurrence-support
+  dichotomy, and sum the pointwise comparison into the genuine physical
+  Dirichlet form.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayDirichletCoercivity.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeRayPairwiseVariance_eqv_offset`,
+  `centralLowerExcitedSpinCubeRayPairwiseVariance_le_rawOccurrenceEnergy`,
+  `centralLowerExcitedSpinCubeRayRawOccurrenceEnergy_eqv_loadedDirichlet`,
+  `CentralLowerExcitedSpinCubeFiniteRayCapacityAt.delta_mul_rayFlowLoad_le_physicalKernel`,
+  `CentralLowerExcitedSpinCubeFiniteRayCapacityAt.delta_mul_rayPairwiseVariance_le_physicalDirichlet`,
+  `FixedNomeCofinalSpinCubeRayCapacity.delta_mul_rayPairwiseVariance_le_physicalDirichlet`,
+  and
+  `anchorCentralSpinCube_delta_mul_rayPairwiseVariance_le_physicalDirichlet`.
+- **obligation**: cover every off-ray state in the finite physical vacuum
+  sector by a controlled path or decomposition into the ray/vacuum backbone,
+  with a cutoff-uniform full-sector congestion bound; only then contract the
+  full stationary pairwise variance into a uniform finite transfer estimate.
+- **constructive?**: yes — finite Cartesian reindexing, the exact two-edge
+  Cauchy path, nonnegative stationary demand, literal occurrence support,
+  duplicate-preserving edge-load regrouping, the positive-load witness, and
+  finite sum monotonicity suffice.  All eight audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: five failed focused elaboration attempts and one
+  deliberately interrupted expensive guarded attempt are not passes.  The
+  corrected focused check passes in about 1.7 seconds; the exact one-worker
+  dependency-complete target passes 5041 jobs with the new module taking about
+  1.6 seconds.  The theorem is uniform only for stationary pairwise variance
+  restricted to the explicit spin-cube ray.  It is not a full
+  vacuum-complement gap, continuum QFT, or Clay theorem.

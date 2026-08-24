@@ -12258,3 +12258,48 @@ decomposition theorem bringing every remaining positive physical state into
 a controlled network with this ray/vacuum backbone, without carrier-size or
 vanishing-edge loss.  Completion, thermodynamic and continuum limits,
 continuum QFT, and the Clay theorem remain open.
+
+## The uniform ray capacity yields genuine ray-sector Dirichlet coercivity (2026-08-23)
+
+`BF4PhysicalSpinCubeRayDirichletCoercivity` contracts the spoke-capacity
+certificate into an analytic inequality on the explicit growing ray.  It
+defines the stationary-product pairwise variance on the `K` excited central
+spin cubes, reindexes it exactly by spin-offset pairs, and bounds each
+endpoint square by its literal two-spoke vacuum-star occurrence energy.
+Summing over all ordered pairs retains the exact stationary demand.
+
+Every literal occurrence is then proved to lie in the full finite physical
+vacuum sector and to have nonnegative load.  The existing finite occurrence
+regrouping theorem identifies the ungrouped budget exactly with the
+directed-edge loaded Dirichlet form.  A positive grouped load supplies an
+actual occurrence witness, so it must be one of the two certified spoke
+orientations; if the grouped load is not positive, nonnegativity makes it
+exactly zero.  Thus the spoke certificate extends constructively to the
+pointwise all-edge comparison needed to sum capacity against the genuine
+normalized physical kernel.
+
+At the strong-coupling anchor, for every cutoff `K` and rational coefficient
+function `f`, the production theorem is
+
+`anchorDelta * finiteWeightedPairwiseVariance(ray_K, pi_K, f)
+  <= finiteJointDirichletEnergy(fullVacuumSector_K, f, physicalKernel_K)`.
+
+The same strictly positive `anchorDelta` works at every cutoff.  This is a
+uniform Poincare/Dirichlet coercivity statement on the explicit ray
+subsector, not on the full physical vacuum complement: the left side omits
+all off-ray states and all pairs involving them.
+
+Five failed focused elaboration attempts and one deliberately interrupted
+over-expensive guarded attempt are not passes.  After factoring the costly
+reduction through an explicit two-edge sum, the corrected focused guarded
+check passes in about 1.7 seconds.  The exact one-worker,
+dependency-complete target passes 5041 jobs, with the new module taking about
+1.6 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next causal frontier is now sharply isolated: construct controlled paths
+or a decomposition for off-ray positive physical states and prove a
+cutoff-uniform full-sector congestion bound.  Only that missing coverage can
+upgrade ray coercivity to a full finite vacuum-complement contraction.
+Completion, thermodynamic and continuum limits, continuum QFT, and the Clay
+theorem remain open.
