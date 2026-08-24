@@ -8962,3 +8962,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 4,995 jobs with the new module taking about 1.5 seconds.  The
   anchor certificate is not a cofinal family and proves no completed uniform
   contraction, continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-two-novel-shell-state-recoding] Executable later-shell classifier — **CLOSED 2026-08-23**
+
+- **milestone**: identify embedded base indices exactly by represented-state
+  membership; specialize old/new cutoff-two blocks to the certified 65-sector
+  and its complement; construct a direct Boolean state classifier; and prove
+  the new block equals the later vacuum component filtered by classifier
+  rejection.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.lean`.
+- **decl**:
+  `mem_centralPhysicalFiniteEmbeddedVacuumSectorIndices_iff_state_mem`,
+  `mem_cutoffTwoEdgeLoadOldStates_iff_state_mem_cubeSector`,
+  `mem_cutoffTwoEdgeLoadNewStates_iff_state_not_mem_cubeSector`,
+  `cutoffTwoCubeSectorStateB`,
+  `cutoffTwoCubeSectorStateB_true_iff_mem`,
+  `cutoffTwoEdgeLoadNewStates_eq_classifierRejectFilter`, and
+  `mem_cutoffTwoEdgeLoadNewStates_iff_classifier_reject`.
+- **obligation**: recode novel endpoint pairs and routed transitions through
+  the classifier-reject shell; derive a tractable finite or symbolic shell
+  description and prove/refute its local capacity payments; then lift a
+  successful bound cofinally and construct controlled limits.
+- **constructive?**: yes — index injectivity, explicit cutoff embeddings,
+  finite-list induction, 24-coordinate bounds, and a natural-number terminal
+  classifier provide all decisions.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed during namespace and
+  decidability repair and is not a pass.  The corrected focused check passes
+  in about 2.4 seconds; the exact one-worker target passes 4,996 jobs with the
+  new module taking about 2.2 seconds.  The result classifies but neither
+  enumerates nor bounds the later shell, and proves no cofinal capacity,
+  completed uniform contraction, continuum QFT, or Clay theorem.

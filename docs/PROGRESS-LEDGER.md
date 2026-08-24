@@ -10606,3 +10606,34 @@ first genuine increment `later > 2`: recode its old image and new shell so the
 transition-product or routed-ceiling payment can be decided or bounded without
 normalizing the general carrier.  Cofinal capacity, completed uniform
 contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## The later novel shell now has an executable state-level classifier (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding` proves a general
+index/state bridge for cutoff embeddings: an in-range later index belongs to
+the embedded base component exactly when its represented edge labelling
+belongs to the base component's state list.  Specializing the base to cutoff
+two identifies the old block exactly with represented states in the certified
+65-state cube sector and the new block with its complement inside the later
+vacuum component.
+
+The module then combines the 24-coordinate cutoff-two label bound with the
+existing cube-subset terminal classifier into `cutoffTwoCubeSectorStateB`.
+On every state drawn from any later half-carrier, this Boolean is true exactly
+for membership in the 65-state sector.  A structural filter congruence finally
+rewrites the opaque new-block list as the later component filtered by
+classifier rejection, with a pointwise membership iff.
+
+The first focused check exposed missing namespace imports and an unavailable
+decidable instance for the wrapped classifier proposition; it is not a pass.
+After using the terminal natural-number comparison directly, the corrected
+focused check passes in about 2.4 seconds.  The exact one-worker
+dependency-complete target passes 4,996 jobs, with the new module taking about
+2.2 seconds.  All six audited exports use exactly `[propext, Quot.sound]`.
+
+The classification removes the embedded-base root-component comparison but
+does not enumerate or bound the later vacuum component itself.  The next
+frontier is to express novel endpoint pairs and route selection over this
+classifier-reject presentation, then isolate a finite or symbolic shell
+description adequate for capacity estimates.  Cofinal contraction,
+thermodynamic/continuum theory, and the Clay theorem remain open.
