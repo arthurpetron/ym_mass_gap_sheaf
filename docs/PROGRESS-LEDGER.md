@@ -14196,3 +14196,37 @@ power rational variations.  It does not prove the raw same-object moment or
 normalization-scale variations, construct the projective continuum measure or
 OS reconstruction, extend one channel to every completed vacuum-complement
 vector, construct continuum Yang--Mills theory, or prove the Clay theorem.
+
+## The adaptive producer now retains a positive physical exponential channel (2026-08-24)
+
+The generic squeeze now also exports the missing positivity data.  The
+physical rate band's literal rational floor passes to the complete limit
+selected by the exact physical-gap variation, making that mass `PosEv`.  Its
+common scheduled exponent `M*2*t` is consequently positive at every positive
+physical time.  This is positivity of the same scalar exponent; it is not yet
+an all-vector continuum spectral-gap theorem.
+
+`BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath` specializes
+these results to one off-ray adaptive transition-product family.  Its strength
+band, physical-gap variation, positive-time scheduled-power variation,
+normalized moving-cube correlation, and Euler exponential endpoints all stay
+indexed by the same completed producer.  The final compiler returns the
+adaptive continuum squared-decay inequality together with convergence of both
+endpoint exponentials to the exact rate factor appearing in that inequality.
+
+One intermediate positivity proof audited with `Classical.choice`: `omega`
+had been used only to eliminate the impossible positive-zero natural case.
+That version was rejected.  Direct `Nat.not_lt_zero` restores the allowed
+gate.  The first adaptive check is also not a pass: it ran before the changed
+physical-exponential dependency had been rebuilt and omitted two nested
+extension-namespace opens.  Its `sorryAx` output was failed-elaboration
+contamination.  Corrected focused checks pass.  The exact one-worker adaptive
+target passes 5092 jobs, with the new module taking about 1.3 seconds.  Every
+audited export uses only `[propext]` or `[propext, Quot.sound]`.
+
+The dynamic rate tributary is now compiler-complete but analytically
+uninhabited: it still needs actual gap and scheduled-power variation estimates.
+The raw same-object moment and normalization-scale controls remain the other
+two parallel inputs.  Projective/OS identification, dense/all-vector
+vacuum-complement control, continuum Yang--Mills existence, and the Clay
+theorem remain open.

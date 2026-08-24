@@ -12443,3 +12443,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 1.2 seconds.  No analytic variation input, continuum
   measure, OS reconstruction, all-vector completed gap, continuum Yang--Mills
   theory, or Clay theorem is claimed.
+
+### [BF4-physical-adaptive-exponential-path] Preserve the adaptive producer through the positive physical exponential join — **CLOSED 2026-08-24**
+
+- **milestone**: pass the physical rate band's explicit positive floor to the
+  physical-gap variation limit; prove the common exponent `M*2*t` is `PosEv`
+  at every positive physical time; specialize the scheduled-power physical
+  exponential to the exact off-ray adaptive transition-product producer;
+  preserve its positive-time rate variation; and return one theorem containing
+  the adaptive normalized moving-cube squared decay together with convergence
+  of both Euler exponential endpoints to its exact rate factor.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath.lean`.
+- **decl**:
+  `physicalGapVariationLimit_floor`,
+  `physicalGapVariationLimit_posEv`,
+  `scheduledSquaredRatePhysicalExponentLimit_posEv`, adaptive
+  `PhysicalGapRationalVariation`, adaptive
+  `physicalExponentialLimit`, adaptive
+  `physicalExponentialLimit_identification`, and adaptive
+  `normalizedMovingCubePhysicalExponential_sq_decay`.
+- **obligation**: inhabit one adaptive producer, its strength band, exact
+  physical-gap rational variation, raw same-object moment variation,
+  normalization-debt or bounded-scale variation, and positive-time scheduled-
+  power variation.  Then identify the exact connected continuum correlation
+  through the projective measure and OS reconstruction and extend a uniform
+  estimate to the completed vacuum complement.
+- **constructive?**: yes — the physical floor remains the literal rational
+  floor of the same strength band, and the exponential/decay result retains
+  the identical adaptive family and observable.  All audited exports use only
+  `[propext]` or `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: a first positive-exponent formulation audited with
+  `Classical.choice` because `omega` was used to eliminate the impossible
+  zero-time branch.  It was rejected and replaced by direct
+  `Nat.not_lt_zero`, restoring the allowed gate.  The first adaptive check ran
+  before the changed dependency `.olean` was rebuilt and also omitted opens
+  for two nested extension namespaces; it is not a pass, and all associated
+  `sorryAx` output is failed-elaboration contamination.  The corrected
+  focused checks pass.  The exact one-worker dependency-complete adaptive
+  target passes 5092 jobs, with the new module taking about 1.3 seconds.  No
+  analytic input, projective/OS reconstruction, all-vector gap, continuum
+  Yang--Mills theory, or Clay theorem is claimed.

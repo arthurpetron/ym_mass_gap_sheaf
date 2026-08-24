@@ -41,6 +41,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerEulerCorrid
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerExponentLimitCompiler
 open YMGap.Continuum.RationalEulerPowerSandwich
 open YMGap.Continuum.SummableRationalStepVariation
+open YMGap.Continuum.TuranPositivity
 
 /-! ## 1. A reusable constructive exponential squeeze -/
 
@@ -405,7 +406,66 @@ theorem scheduledSquaredRateEulerExponentials_converge
     (scheduledSquaredRateLowerExponent_converges
       family band rate_pos gapVariation time)
 
-/-! ## 3. Rejoin with the exact normalized observable decay -/
+/-! ## 3. The positive physical exponent selected by the gap stream -/
+
+/-- The explicit uniform physical-gap floor passes to the complete limit
+selected by the rational gap variation. -/
+theorem physicalGapVariationLimit_floor
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (gapVariation : SummableRationalStepVariation family.physicalGap) :
+    CReal.leEv (CReal.ofQ' band.floor) gapVariation.limit := by
+  unfold SummableRationalStepVariation.limit
+  apply CReal.leEv_ofQ'_completeLimitCauchy
+  intro scale approximation
+  simpa only [CReal.ofQ'_approx] using
+    band.floor_le_physicalGap scale
+
+/-- Consequently the exact physical-gap limit is strictly positive, with the
+original rate-band floor retained as its explicit witness. -/
+theorem physicalGapVariationLimit_posEv
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (gapVariation : SummableRationalStepVariation family.physicalGap) :
+    PosEv gapVariation.limit :=
+  ⟨band.floor, band.floor_pos,
+    physicalGapVariationLimit_floor family band gapVariation⟩
+
+theorem posEv_ofQ'_positive (value : Q')
+    (value_pos : (0 : Q') < value) :
+    PosEv (CReal.ofQ' value) :=
+  ⟨value, value_pos, CReal.leEv_refl (CReal.ofQ' value)⟩
+
+theorem two_posEv : PosEv (CReal.add CReal.cone CReal.cone) := by
+  refine ⟨(1 : Q'), by decide, ?_⟩
+  apply CReal.leEv_ofQ'_of_approx_ge
+  intro approximation
+  change (1 : Q') <= 1 + 1
+  decide
+
+theorem positiveNat_posEv (time : Nat) (time_pos : 0 < time) :
+    PosEv (CReal.ofQ' (Q'.ofNat time)) := by
+  cases time with
+  | zero => exact False.elim (Nat.not_lt_zero 0 time_pos)
+  | succ prior =>
+      exact posEv_ofQ'_positive (Q'.ofNat (prior + 1))
+        (Q'.ofNat_succ_pos prior)
+
+/-- At every positive physical time, the common exponent `M*2*t` is strictly
+positive.  This is exponent positivity, not yet an all-vector spectral-gap
+statement. -/
+theorem scheduledSquaredRatePhysicalExponentLimit_posEv
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (gapVariation : SummableRationalStepVariation family.physicalGap)
+    (time : Nat) (time_pos : 0 < time) :
+    PosEv (scheduledSquaredRatePhysicalExponentLimit gapVariation time) := by
+  have hgap : PosEv gapVariation.limit :=
+    physicalGapVariationLimit_posEv family band gapVariation
+  exact posEv_mul (posEv_mul hgap two_posEv)
+    (positiveNat_posEv time time_pos)
+
+/-! ## 4. Rejoin with the exact normalized observable decay -/
 
 /-- The rate-power limit already consumed by the normalized moving-cube decay
 theorem, now named as the route-specific physical exponential. -/
@@ -501,6 +561,18 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExpo
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.scheduledSquaredRateUpperExponent_le_lower
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.scheduledSquaredRateEulerExponentials_converge
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.physicalGapVariationLimit_floor
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.physicalGapVariationLimit_posEv
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.posEv_ofQ'_positive
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.two_posEv
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.positiveNat_posEv
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.scheduledSquaredRatePhysicalExponentLimit_posEv
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler.normalizedMovingCubePhysicalExponentialLimit_identification
 #print axioms
