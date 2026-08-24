@@ -12803,3 +12803,37 @@ physical analytic target is now the observable-connected scalar estimate
 `s_j` comparable to `a_j`, plus a finite common cap.  The cofinal root-ratio
 producer and graph-norm/OS continuum producer also remain open.  Continuum
 Yang--Mills existence and the Clay theorem remain open.
+
+## The dynamic rooted strength has the automatic cap one (2026-08-24)
+
+`BF4PhysicalDynamicVacuumRootStrengthNormalization` proves that the finite cap
+in the preceding strength-band record is not an independent analytic input.
+The explicit uniform sector-mass floor lies below the complete vacuum-sector
+probability mass at its own anchor and is therefore at most one.  For every
+cofinal root-linear ratio, its cost is at least one and its defining product is
+bounded by the finite edge floor; because that edge floor includes one as its
+fallback minimum candidate, the ratio's `delta` is also at most one.  Hence
+
+`0 < s_j = delta_j * uniformMassFloor_j <= 1`
+
+for every scale of every dynamic family.
+
+The normalized compiler replaces the five-field strength band by the genuine
+two-sided spacing comparison: one positive lower coefficient and lower/upper
+inequalities `lower*a_j <= s_j <= upper*a_j`.  Positivity of `upper` follows
+from the scale-zero inequality, positive strength, and positive spacing.  The
+previous strength band is constructed canonically with `cap = 1`, so its
+physical lower floor is `lower/(1+1)`.
+
+The first focused attempt failed on one missing namespace opening and is not a
+pass; its temporary downstream `sorryAx` output was elaboration contamination.
+After adding the namespace, the complete focused guarded check passes in about
+1.2 seconds.  The exact one-worker dependency-complete target passes 5034
+jobs, with the new module taking about 1.3 seconds.  All seven audited exports
+use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+No dynamic family or two-sided strength/spacing scaling inhabitant is claimed.
+The rate lane is now reduced to `s_j` comparable to the actual transfer spacing
+on the same completed object.  Producing the cofinal root ratios and proving
+graph-norm/OS convergence of the same carriers and transfers remain open, as
+do continuum Yang--Mills existence and the Clay theorem.

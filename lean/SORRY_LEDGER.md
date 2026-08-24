@@ -10974,3 +10974,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   in about 1.5 seconds.  The exact one-worker dependency-complete target passes
   5029 jobs, with the new module taking about 1.5 seconds.  No dynamic family,
   strength band, continuum QFT, or Clay theorem is inhabited or claimed.
+
+### [BF4-dynamic-vacuum-root-strength-normalization] Derive the cap and upper positivity from normalized BF4 data — **CLOSED 2026-08-24**
+
+- **milestone**: prove the explicit uniform vacuum-sector mass floor is at
+  most one, prove every admissible cofinal root-linear `delta` is at most one,
+  deduce the unconditional dynamic strength cap `s_j <= 1`, derive positivity
+  of any upper spacing multiplier from its inequality, and construct the
+  previous strength and physical-rate bands from only the two-sided
+  strength/spacing comparison.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumRootStrengthNormalization.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorUniformMassFloor_le_one`,
+  `cofinalVacuumRootLinearRatio_delta_le_one`,
+  `dynamicVacuumRootStrength_le_one`,
+  `FixedHalfDynamicVacuumRootStrengthScaling.upper_pos`,
+  `FixedHalfDynamicVacuumRootStrengthScaling.toStrengthBand`,
+  `FixedHalfDynamicVacuumRootStrengthScaling.toPhysicalRateBand`, and
+  `FixedHalfDynamicVacuumRootStrengthScaling.toContinuumGapTheorem`.
+- **obligation**: inhabit the dynamic cofinal root-ratio family and prove the
+  two genuine analytic inequalities
+  `lower*a_j <= delta_j*uniformMassFloor_j <= upper*a_j` on its actual
+  transfer spacing.  No separate strength cap or proof that `upper > 0` is
+  needed.  Graph-norm/OS convergence of those same carriers and transfers
+  remains a separate open producer lane.
+- **constructive?**: yes — the explicit anchor mass comparison, total
+  probability bound, root cost lower bound by one, normalized edge-floor upper
+  bound by one, rational product monotonicity, and positive division suffice.
+  All seven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused attempt failed on one missing namespace
+  opening and is not a pass; its downstream `sorryAx` lines were elaboration
+  contamination only.  The corrected focused guarded check passes in about
+  1.2 seconds.  The exact one-worker dependency-complete target passes 5034
+  jobs, with the new module taking about 1.3 seconds.  No dynamic family,
+  strength scaling, continuum QFT, or Clay theorem is inhabited or claimed.
