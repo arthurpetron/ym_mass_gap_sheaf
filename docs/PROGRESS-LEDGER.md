@@ -11045,3 +11045,29 @@ embedded cutoff-two vacuum component.  That will expose a concrete boundary
 edge from an old vacuum state to either a newly positive state or a previously
 separate old component, which is the local support-stability obligation.
 Completed contraction, continuum QFT, and the Clay theorem remain open.
+
+## A merger path now exposes its first embedded-component boundary edge (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentMergerBoundaryExit` proves a
+generic constructive first-exit lemma for finite Type-level `ChainIn` paths
+and specializes it to the cutoff-two embedding.  Every component-merger
+witness at `later >= 2` now yields a literal later support edge whose source
+lies in the embedded cutoff-two vacuum component and whose target lies in the
+later vacuum component but outside that embedded image.
+
+The exit target is then decided into the existing exact shell partition: it
+is either newly outside the entire cutoff-two positive carrier or belongs to
+a previously separate cutoff-two positive component.  This is the local
+causal boundary event required by a support-stability proof or a quantitative
+boundary-mass estimate; no stability assumption is silently introduced.
+
+Two focused namespace-resolution failures are not passes.  After correction,
+the focused check passes in about 1.2 seconds.  The exact one-worker,
+dependency-complete target passes 5,011 jobs, with the new module taking about
+1.2 seconds.  All three audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to make absence of such boundary edges an executable
+certificate and prove that certificate rules out component mergers.  Its
+cofinal inhabitation, the increment-only payment, completed contraction,
+thermodynamic/continuum control, and the Clay theorem remain open.

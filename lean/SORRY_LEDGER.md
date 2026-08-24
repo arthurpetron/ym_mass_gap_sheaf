@@ -9406,3 +9406,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,010 jobs with the new module taking about 3.2 seconds.  No
   larger-cutoff event, cofinal contraction, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-cutoff-two-component-merger-boundary-exit] First embedded-component exit edge — **CLOSED 2026-08-23**
+
+- **milestone**: constructively locate the first later support edge leaving
+  the embedded cutoff-two vacuum component along any merger path, and decide
+  whether the target is outside all cutoff-two positive support or belongs to
+  a previously separate positive component.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentMergerBoundaryExit.lean`.
+- **decl**: `CutoffTwoEmbeddedVacuumBoundaryExit`,
+  `CutoffTwoOldPositiveStateMergePath.toEmbeddedVacuumBoundaryExit`,
+  `CutoffTwoComponentMergerWitness.toEmbeddedVacuumBoundaryExit`, and
+  `CutoffTwoEmbeddedVacuumBoundaryExit.targetShellDecision`.
+- **obligation**: construct an executable boundary-closure certificate, prove
+  that it excludes all merger witnesses, and determine whether it can hold
+  cofinally or whether boundary mass must instead be paid quantitatively.
+- **constructive?**: yes — a local structural recursion over `ChainIn`
+  produces the boundary edge; finite Boolean shell membership gives the exact
+  target decision.  All three audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two namespace-resolution failures are not passes.  The
+  corrected focused check passes in about 1.2 seconds; the exact one-worker
+  target passes 5,011 jobs with the new module taking about 1.2 seconds.  No
+  boundary-closure certificate is inhabited, so no cofinal contraction,
+  continuum QFT, or Clay theorem is claimed.
