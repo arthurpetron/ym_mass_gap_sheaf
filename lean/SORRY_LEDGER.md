@@ -12551,3 +12551,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 5094 jobs, with the new module taking
   about 1.1 seconds.  No analytic input, continuum measure, OS reconstruction,
   all-vector gap, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-raw-projective-os-correlation-handoff] Identify the exact raw limit with one connected OS insertion — **CLOSED 2026-08-24**
+
+- **milestone**: retain completed-real raw representatives; require their
+  equality with expectations of a cutoff-independent insertion on the
+  selected projective measure thread; use constructive limit uniqueness to
+  identify the exact raw continuum limit with the selected OS functional;
+  identify that functional with one connected OS two-point insertion; descend
+  to `RC`; and transport the same zero-time nontriviality certificate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff.lean`.
+- **decl**:
+  `RawMovingCubeProjectiveOSCorrelationHandoff`,
+  `rawLimitRepresentative_eq_osFunctional`,
+  `rawLimitRepresentative_eq_osConnected`,
+  `rawContinuumConnectedAutocorrelation_eq_osConnected`, and
+  `osConnected_zero_isPositive`.
+- **obligation**: construct a continuum projective measure and its
+  measure-linked OS data; prove that the literal raw moving-cube
+  representatives are the selected stage expectations of a fixed OS
+  insertion; and supply its connected two-point interpretation.  The next
+  semantic frontier is equality with the selected Wilson GNS transfer matrix
+  coefficient, followed separately by a uniform completed-vacuum-complement
+  operator gap.
+- **constructive?**: yes — limit uniqueness consumes the two explicit
+  convergence moduli and termwise representative equivalence.  No new
+  representative, rational separator surrogate, or positivity witness is
+  chosen.  All four audited exports use only `[propext, Quot.sound]`.
+- **status note**: the focused guarded check passes.  The exact one-worker
+  dependency-complete target passes 1662 jobs, with the new module taking
+  about 0.76 seconds.  No projective measure, OS/GNS semantics, all-vector
+  gap, continuum Yang--Mills theory, or Clay theorem is claimed.

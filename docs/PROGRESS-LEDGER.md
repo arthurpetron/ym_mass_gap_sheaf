@@ -14288,3 +14288,29 @@ taking about 1.1 seconds.  All three audited exports use only
 No analytic input is inhabited.  Projective/OS identification, uniform
 extension to the completed vacuum complement, continuum Yang--Mills
 construction, and the Clay theorem remain open.
+
+## The raw continuum observable now has an exact projective/OS handoff (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff`
+bridges the completed-real dynamic channel to the selected projective measure
+thread without coercing it through the older rational `PhysicalSeparator`
+interface.  Its load-bearing field equates every literal raw representative
+with the expectation of one cutoff-independent OS insertion on `mu.pick j`.
+Constructive uniqueness of limits then identifies the already-selected raw
+continuum limit with the fixed OS functional.
+
+A second explicit equality identifies that insertion with one connected OS
+two-point channel.  Quotient descent yields equality of the exact raw `RC`
+correlation and the OS connected correlation, and the raw zero-time positivity
+certificate transports along this equality.  Thus family, observable,
+centering, projective measure thread, OS insertion, and nontriviality remain on
+one causal line.
+
+The focused guarded check passes.  The exact one-worker dependency-complete
+target passes 1662 jobs, with the new module taking about 0.76 seconds.  All
+four audited exports use only `[propext, Quot.sound]`.
+
+The handoff remains uninhabited: the projective measure and continuum
+Yang--Mills existence data, stage-expectation equality, connected OS
+insertion, and the Wilson GNS matrix-coefficient identification are open.  An
+all-vector operator gap and the Clay theorem are not claimed.
