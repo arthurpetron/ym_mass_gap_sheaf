@@ -12507,3 +12507,39 @@ frontier is a structured local routing or multiscale decomposition whose
 weighted congestion can remain bounded as the cutoff grows.  The uniform
 sector-mass floor, centered transfer contraction, completion, thermodynamic
 and continuum limits, continuum QFT, and the Clay theorem remain open.
+
+## Every finite cutoff has an explicit carrier-linear full-sector coercivity floor (2026-08-23)
+
+`BF4PhysicalSpinCubeFiniteLinearFullSectorCoercivity` inhabits the preceding
+mass-free ratio at each individual cutoff.  Given the already constructed
+positive ray capacity, it restricts the ray floor to
+
+`min(rayDelta, finitePositiveEdgeFloor / (1 + sectorSize))`.
+
+The minimum remains strictly positive at every finite cutoff.  Restricting the
+ray certificate preserves both oriented spoke inequalities, while the quotient
+identity makes the new floor times `1 + sectorSize` fit the minimum positive
+physical edge.  The normalized residual-flow compiler therefore yields the
+unconditional full-sector estimate
+
+`(1/2 * min(rayDelta, edgeFloor / (1 + sectorSize))) * fullPairwiseVariance
+  <= physicalDirichletEnergy`.
+
+At the strong-coupling anchor this is a concrete positive theorem for every
+cutoff `K` and every rational coefficient function.  Compared with the generic
+all-pairs simple-path estimate, the explicit denominator is linear rather than
+quadratic in the carrier size.
+
+The first focused check failed only on missing namespace openings and is not a
+pass.  After resolving those names, the complete focused guarded check passes
+in about 2.1 seconds.  The exact one-worker dependency-complete target passes
+5047 jobs, with the new module taking about 2.1 seconds.  All eight audited
+exports use exactly `[propext, Quot.sound]`.
+
+This is a finite-cutoff theorem, not a uniform gap: the carrier size grows and
+the minimum positive edge can shrink with `K`, so no positive cutoff-independent
+lower bound on the displayed floor has been proved.  The next causal frontier
+is to replace those global factors by a structured local or multiscale weighted
+congestion estimate.  A separate uniform physical sector-mass floor is still
+needed before a centered transfer contraction.  Completion, thermodynamic and
+continuum limits, continuum QFT, and the Clay theorem remain open.
