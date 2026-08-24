@@ -10692,3 +10692,30 @@ edge-occurrence list in terms of `n` and the certified simple-path length,
 then convert that global route-cost bound into local weighted load/capacity
 control.  Cofinal contraction, thermodynamic/continuum theory, and the Clay
 theorem remain open.
+
+## Novel routed-support complexity is shell-polynomial (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelRouteClassifierComplexity` composes the
+exact `n^2 + 130 n` novel endpoint count with the existing loop-erased path
+length bound.  Since the full later component has length `65 + n`, the complete
+literal weighted occurrence list has length at most
+`(n^2 + 130 n) * (65 + n)`.
+
+Projecting weighted occurrences to directed edges preserves length exactly,
+while duplicate erasure can only reduce length.  The raw routed support and
+the distinct routed support used by the finite ratio ceilings therefore obey
+the same shell-only polynomial ceiling.  This is a symbolic theorem for every
+`later >= 2`; no carrier enumeration is performed.
+
+The first focused check exposed a multiplication reassociation that the
+Presburger tactic could not infer and an underspecified `List.length_map`
+application; it is not a pass.  After making both steps explicit, the corrected
+focused check passes in about 1.6 seconds.  The exact one-worker
+dependency-complete target passes 4,998 jobs, with the new module taking about
+1.7 seconds.  All six audited exports use exactly `[propext, Quot.sound]`.
+
+The result bounds enumeration complexity, not `n`, occurrence weights,
+edge-local load, or reverse/forward ratio ceilings.  The next causal frontier
+is to factor those analytic quantities from the now-controlled support count
+and identify a shell-level sufficient condition for capacity.  Cofinal
+contraction, thermodynamic/continuum theory, and the Clay theorem remain open.

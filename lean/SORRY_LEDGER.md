@@ -9049,3 +9049,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact one-worker target passes 4,997 jobs with the new module taking about
   2.5 seconds.  The theorem neither bounds `n` nor proves route capacity,
   completed uniform contraction, continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-novel-route-classifier-complexity] Shell-polynomial routed support — **CLOSED 2026-08-23**
+
+- **milestone**: bound every selected loop-erased route by carrier length;
+  aggregate that bound over the exact novel endpoint list; and transport it to
+  both the routed edge projection and its duplicate-free support.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelRouteClassifierComplexity.lean`.
+- **decl**:
+  `cutoffTwoSimpleWeightedPathOccurrences_length_le_carrier`,
+  `cutoffTwoNovelSimpleWeightedEdgeOccurrences_length_le_pair_mul_carrier`,
+  `cutoffTwoNovelSimpleWeightedEdgeOccurrences_length_le_shellPolynomial`,
+  `cutoffTwoNovelRoutedDirectedEdges_length_eq_occurrences`,
+  `cutoffTwoNovelRoutedDistinctDirectedEdges_length_le_occurrences`, and
+  `cutoffTwoNovelRoutedDistinctDirectedEdges_length_le_shellPolynomial`.
+- **obligation**: bound the occurrence weights and routed reverse/forward
+  ratios, turn the aggregate support ceiling into edge-local load/capacity
+  control, and obtain a genuinely cutoff-uniform contraction before attempting
+  completion or continuum limits.
+- **constructive?**: yes — the proof uses the loop-erased path certificate,
+  structural `flatMap` induction, natural-number arithmetic, projection, and
+  constructive duplicate erasure.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on multiplication
+  reassociation and an underspecified list-map theorem and is not a pass.  The
+  corrected focused check passes in about 1.6 seconds; the exact one-worker
+  target passes 4,998 jobs with the new module taking about 1.7 seconds.  This
+  bounds list sizes only: it does not bound shell size, route weights, local
+  congestion, completed uniform contraction, continuum QFT, or the Clay
+  theorem.
