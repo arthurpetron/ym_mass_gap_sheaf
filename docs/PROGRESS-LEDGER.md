@@ -14720,3 +14720,43 @@ frontier is the family-independent constructive identity that the negative
 exponential of twice the exact logarithmic gap equals `sep^2`.  The transfer
 lift, finite graph approximation, raw nontriviality and same-object semantic
 pins, continuum theory, QFT axioms, and Clay theorem also remain open.
+
+## The canonical scalar inverse now has two atomic parallel branches (2026-08-24)
+
+The family-independent canonical evaluator has been expanded at its last
+known algebraic seam.  `DyadicLogSquareEulerEvaluation` evaluates twice
+`k * log 2` to the square of the exact dyadic scale `2^-k`, while
+`MantissaLogSquareEulerEvaluation` evaluates twice the negative direct-window
+logarithm to the square of the reduced mantissa.  These are independent
+analytic tasks and can be built in parallel.
+
+The surrounding join is now proved.  Every dyadic and mantissa exponent
+approximant is nonnegative; the physical-time-one Wilson exponent is exactly
+their rational sum; the exponential addition law factors the canonical
+exponential termwise; general constructive multiplication continuity joins
+the two convergence moduli; and the already-proved rational identity
+`scaleQ k * mantissa = separator` retargets the product limit to `sep^2`.
+`WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations` packages that
+contraction, and the connected raw Wilson capstone now accepts the two atomic
+evaluators directly.
+
+Thus the narrow scalar frontier has exact parallel width two.  In the wider
+connected proof DAG, it is one branch alongside the dynamic exact-rate
+producer, the representative-transfer/finite-graph branch, the raw
+nontriviality branch, the projective OS/GNS same-object branch, and the vacuum
+stationarity branch.  Some of those wider branches have internal causal
+edges: finite graph approximation follows the transfer lift, and the Wilson
+matrix coefficient follows the projective OS handoff.  The code therefore
+records a dependency graph, not a misleading claim that every residual is
+mutually independent.
+
+Focused guarded checks pass.  Exact one-worker targets pass for the exact-log
+compiler (5096 jobs, changed module about 1.8 seconds) and the connected
+capstone (5108 jobs, changed module about 2.5 seconds).  Every newly audited
+export uses only `[propext, Quot.sound]`.
+
+Neither atomic inverse evaluator is inhabited.  In particular, the project
+still needs constructive rational-series proofs of the dyadic `log 2`
+evaluation and the reduced-mantissa `artanh` evaluation.  The exact-rate,
+transfer, finite-graph, raw semantic/nontriviality, vacuum, continuum, QFT,
+and Clay residuals also remain open.

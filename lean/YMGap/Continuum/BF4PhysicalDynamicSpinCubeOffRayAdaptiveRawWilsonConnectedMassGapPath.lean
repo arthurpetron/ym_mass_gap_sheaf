@@ -592,6 +592,46 @@ def adaptivePathOfCanonicalWilsonEvaluationCompilers
       family band gapVariation positiveRatePower evaluation transfer finite)
     vacuumPin
 
+/-- The connected capstone with the static scalar branch expanded into its
+two independent analytic atoms.  The dyadic and reduced-mantissa evaluators
+join algebraically before the resulting canonical evaluator is transported
+through the dynamic schedule. -/
+def adaptivePathOfAtomicWilsonEvaluationCompilers
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (dyadic : DyadicLogSquareEulerEvaluation
+      (gapBinExp W.reconstruction exactRate.positiveGapBound).k)
+    (mantissa : MantissaLogSquareEulerEvaluation
+      (gapMantissa W.reconstruction exactRate.positiveGapBound)
+      (gapMantissaPlusOne_pos W.reconstruction exactRate.positiveGapBound)
+      (gapMantissa_lt_one W.reconstruction exactRate.positiveGapBound)
+      (gapMantissa_window W.reconstruction exactRate.positiveGapBound))
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfCanonicalWilsonEvaluationCompilers
+    uniform projectiveOS matrixCoefficient exactRate
+    (WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations
+      W exactRate.positiveGapBound dyadic mantissa)
+    transfer finite vacuumPin
+
 /-- The adaptive path retains the direct scheduled physical-exponential
 bound, with the exact same rate-power limit consumed by its graph-norm field. -/
 def adaptiveRawPhysicalExponentialPath
@@ -660,5 +700,7 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfExactLogEulerEvaluationCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalWilsonEvaluationCompilers
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfAtomicWilsonEvaluationCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptiveMinimalBoundedMassGap

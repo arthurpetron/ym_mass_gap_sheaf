@@ -12980,3 +12980,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds), and the connected capstone (5108 jobs, changed module about 2.4
   seconds).  The canonical evaluator and all later semantic/continuum
   residuals are not claimed inhabited.
+
+### [BF4-physical-wilson-atomic-exact-log-evaluation] Split the canonical inverse into dyadic and mantissa compilers — **CLOSED 2026-08-24**
+
+- **milestone**: isolate independent dyadic-`log 2` and reduced-mantissa
+  inverse evaluators; prove sign data, exact exponent splitting, termwise
+  exponential factorization, product-limit recombination, and the exact
+  rational retargeting to the selected separator square; expose the two-atom
+  join on the observable-connected capstone.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `DyadicLogSquareEulerEvaluation`,
+  `MantissaLogSquareEulerEvaluation`,
+  `logRat_approx_nonpositive_of_lt_one`,
+  `selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split`,
+  `selectedWilsonCanonicalExponential_equiv_atomicProduct`,
+  `WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfAtomicWilsonEvaluationCompilers`.
+- **obligation**: inhabit the two atomic analytic records by constructive
+  rational-series inverse proofs.  The dyadic branch must evaluate twice
+  `k * log 2` to `(2^-k)^2`; the mantissa branch must evaluate twice the
+  negative direct-window logarithm to `m^2`.  Exact-rate reconstruction,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, vacuum stationarity, continuum existence, and QFT closure
+  remain separate open inputs.
+- **constructive?**: yes — the join uses explicit convergence moduli,
+  termwise `CReal.Equiv`, general multiplication continuity, and exact `Q'`
+  algebra.  It chooses no limit and assumes no combined Wilson conclusion.
+  Every newly audited export uses only `[propext, Quot.sound]`.
+- **status note**: focused guarded checks pass.  Exact one-worker targets pass
+  for the exact-log compiler (5096 jobs, changed module about 1.8 seconds) and
+  the connected capstone (5108 jobs, changed module about 2.5 seconds).
+  Neither atomic evaluator nor any later semantic/continuum residual is
+  claimed inhabited.

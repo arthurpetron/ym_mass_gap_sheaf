@@ -31,8 +31,10 @@ or Clay conclusion is constructed here.  No `Classical.*`, choice,
 -/
 
 import YMGap.Constructive.CRealExpRationalStreamContinuity
+import YMGap.Constructive.TrigAddCReal
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
+import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 
 namespace YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler
 
@@ -178,6 +180,174 @@ theorem scheduledSquaredRateUpperExponent_converges_selectedWilsonExact
 
 /-! ## 2. The one remaining exact-log Euler evaluation -/
 
+/-- The rational exponent stream for the dyadic part of the separator-square
+identity: twice the `k * log 2` approximant. -/
+def dyadicLogSquareExponent (k stage : Nat) : Q' :=
+  (HamiltonianAllSep.kLog2 k).approx stage * ((1 : Q') + 1)
+
+/-- Pointwise nonnegativity of the dyadic exponent stream. -/
+theorem dyadicLogSquareExponent_nonnegative (k stage : Nat) :
+    (0 : Q') <= dyadicLogSquareExponent k stage :=
+  Q'.mul_nonneg _ _
+    (HamiltonianAllSep.kLog2_approx_nonneg k stage) (by decide)
+
+/-- The rational exponent stream for the reduced-mantissa part of the
+separator-square identity: twice the negative logarithm approximant. -/
+def mantissaLogSquareExponent
+    (m : Q') (hm1 : (0 : Q') < m + 1)
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1)
+    (stage : Nat) : Q' :=
+  (CReal.neg (CRealLog.logRat m hm1 hyb)).approx stage *
+    ((1 : Q') + 1)
+
+/-- Every direct-window logarithm approximant is nonpositive when its rational
+argument lies below one. -/
+theorem logRat_approx_nonpositive_of_lt_one
+    (m : Q') (hm1 : (0 : Q') < m + 1) (hlt : m < (1 : Q'))
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1)
+    (stage : Nat) :
+    (CRealLog.logRat m hm1 hyb).approx stage <= (0 : Q') := by
+  have hyNonpositive : CRealLog.yOf m hm1 <= (0 : Q') :=
+    Q'.le_of_lt (YMGap.Continuum.yOf_sep_neg m hm1 hlt)
+  have hpartial : CRealLog.partialSum (CRealLog.yOf m hm1) stage <= 0 := by
+    have hanti := CRealLog.partialSum_anti_of_nonpos
+      (CRealLog.yOf m hm1) hyNonpositive 0 stage
+    rw [CRealLog.partialSum_zero, Nat.zero_add] at hanti
+    exact hanti
+  rw [CRealLog.logRat_approx]
+  have hsum := Q'.add_le_add hpartial hpartial
+  exact Q'.le_trans' _ _ _ hsum
+    (Q'.le_of_eqv (by decide : ((0 : Q') + 0).eqv 0))
+
+/-- Pointwise nonnegativity of the reduced-mantissa exponent stream. -/
+theorem mantissaLogSquareExponent_nonnegative
+    (m : Q') (hm1 : (0 : Q') < m + 1) (hlt : m < (1 : Q'))
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1)
+    (stage : Nat) :
+    (0 : Q') <= mantissaLogSquareExponent m hm1 hyb stage :=
+  Q'.mul_nonneg _ _
+    (Q'.nonneg_neg_of_nonpos
+      (logRat_approx_nonpositive_of_lt_one m hm1 hlt hyb stage))
+    (by decide)
+
+/-- The first independent atomic inverse frontier.  It identifies the
+negative exponential of twice `k * log 2` with the square of `2^-k`.
+The record is static and depends only on the computable dyadic exponent. -/
+structure DyadicLogSquareEulerEvaluation (k : Nat) : Type 1 where
+  exponentialConverges : CReal.ConvergesTo
+    (fun stage => ExpNeg.expNeg
+      (dyadicLogSquareExponent k stage)
+      (dyadicLogSquareExponent_nonnegative k stage))
+    (CReal.ofQ'
+      (HamiltonianAllSep.scaleQ k * HamiltonianAllSep.scaleQ k))
+
+/-- The second independent atomic inverse frontier.  It identifies the
+negative exponential of twice the negative direct-window logarithm with the
+square of the reduced mantissa. -/
+structure MantissaLogSquareEulerEvaluation
+    (m : Q') (hm1 : (0 : Q') < m + 1) (hlt : m < (1 : Q'))
+    (hyb : Q'.abs (CRealLog.yOf m hm1) <= CRealLog.recipOdd 1) : Type 1 where
+  exponentialConverges : CReal.ConvergesTo
+    (fun stage => ExpNeg.expNeg
+      (mantissaLogSquareExponent m hm1 hyb stage)
+      (mantissaLogSquareExponent_nonnegative m hm1 hlt hyb stage))
+    (CReal.ofQ' (m * m))
+
+/-- At physical time one, the canonical exact Wilson exponent is the sum of
+the dyadic and reduced-mantissa exponent streams. -/
+theorem selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (stage : Nat) :
+    ((selectedWilsonExactPhysicalTimeExponent
+      D positiveGapBound 1).approx stage).eqv
+      (dyadicLogSquareExponent (gapBinExp
+          D.reconstruction positiveGapBound).k stage +
+        mantissaLogSquareExponent
+          (gapMantissa D.reconstruction positiveGapBound)
+          (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+          (gapMantissa_window D.reconstruction positiveGapBound) stage) := by
+  unfold selectedWilsonExactPhysicalTimeExponent exactLogGap
+    HamiltonianAllSep.hamiltonianGapRealAll dyadicLogSquareExponent
+    mantissaLogSquareExponent
+  let A : Q' := (HamiltonianAllSep.kLog2
+    (gapBinExp D.reconstruction positiveGapBound).k).approx stage
+  let B : Q' := (CReal.neg (CRealLog.logRat
+    (gapMantissa D.reconstruction positiveGapBound)
+    (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+    (gapMantissa_window D.reconstruction positiveGapBound))).approx stage
+  let two : Q' := (1 : Q') + 1
+  change (((A + B) * two) * Q'.ofNat 1).eqv
+    ((A * two) + (B * two))
+  have hOne : (Q'.ofNat 1).eqv (1 : Q') := by decide
+  refine Q'.eqv_trans _ ((A + B) * two) _ ?_ ?_
+  · refine Q'.eqv_trans _ (((A + B) * two) * (1 : Q')) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_left ((A + B) * two)
+        (Q'.ofNat 1) 1 hOne
+    · exact Q'.mul_one_eqv ((A + B) * two)
+  · refine Q'.eqv_trans _ (two * (A + B)) _
+      (Q'.mul_comm_eqv (A + B) two) ?_
+    refine Q'.eqv_trans _ (two * A + two * B) _
+      (Q'.mul_add_eqv two A B) ?_
+    exact ExpNeg.add_eqv_congr2
+      (Q'.mul_comm_eqv two A) (Q'.mul_comm_eqv two B)
+
+/-- Termwise exponential factorization of the canonical Wilson stream into
+the two independent atomic inverse streams. -/
+theorem selectedWilsonCanonicalExponential_equiv_atomicProduct
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (stage : Nat) :
+    CReal.Equiv
+      (CReal.mul
+        (ExpNeg.expNeg
+          (dyadicLogSquareExponent
+            (gapBinExp D.reconstruction positiveGapBound).k stage)
+          (dyadicLogSquareExponent_nonnegative
+            (gapBinExp D.reconstruction positiveGapBound).k stage))
+        (ExpNeg.expNeg
+          (mantissaLogSquareExponent
+            (gapMantissa D.reconstruction positiveGapBound)
+            (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+            (gapMantissa_window D.reconstruction positiveGapBound) stage)
+          (mantissaLogSquareExponent_nonnegative
+            (gapMantissa D.reconstruction positiveGapBound)
+            (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+            (gapMantissa_lt_one D.reconstruction positiveGapBound)
+            (gapMantissa_window D.reconstruction positiveGapBound) stage)))
+      (ExpNeg.expNeg
+        ((selectedWilsonExactPhysicalTimeExponent
+          D positiveGapBound 1).approx stage)
+        (selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+          D positiveGapBound 1 stage)) := by
+  let k := (gapBinExp D.reconstruction positiveGapBound).k
+  let m := gapMantissa D.reconstruction positiveGapBound
+  let hm1 := gapMantissaPlusOne_pos D.reconstruction positiveGapBound
+  let hyb := gapMantissa_window D.reconstruction positiveGapBound
+  let a := dyadicLogSquareExponent k stage
+  let b := mantissaLogSquareExponent m hm1 hyb stage
+  have ha : (0 : Q') <= a := dyadicLogSquareExponent_nonnegative k stage
+  have hb : (0 : Q') <= b :=
+    mantissaLogSquareExponent_nonnegative m hm1
+      (gapMantissa_lt_one D.reconstruction positiveGapBound) hyb stage
+  have hab : (a + b).eqv
+      ((selectedWilsonExactPhysicalTimeExponent
+        D positiveGapBound 1).approx stage) :=
+    Q'.eqv_symm
+      (selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
+        D positiveGapBound stage)
+  exact CReal.Equiv.trans
+    (expNeg_add_equiv a b ha hb)
+    (expNeg_eqv_congr
+      (Q'.zero_le_add a b ha hb)
+      (selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+        D positiveGapBound 1 stage)
+      hab)
+
 /-- The family-independent analytic frontier for one Wilson reconstruction.
 It evaluates the negative exponential on the canonical rational approximation
 stream of twice the exact logarithmic gap.  Unlike the older dynamic record,
@@ -197,6 +367,88 @@ structure WilsonCanonicalExactLogEulerEvaluation
         D positiveGapBound 1 stage))
     (CReal.ofQ'
       (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep))
+
+namespace WilsonCanonicalExactLogEulerEvaluation
+
+/-- Recombine the two independent atomic inverse evaluators into the static
+canonical Wilson evaluator.  All remaining work in this compiler is algebraic:
+the exponential addition law, multiplication continuity, and the exact
+identity `scaleQ k * mantissa = separator`. -/
+def ofAtomicEvaluations
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (positiveGapBound : PositiveTransferGapBound D.reconstruction)
+    (dyadic : DyadicLogSquareEulerEvaluation
+      (gapBinExp D.reconstruction positiveGapBound).k)
+    (mantissa : MantissaLogSquareEulerEvaluation
+      (gapMantissa D.reconstruction positiveGapBound)
+      (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+      (gapMantissa_lt_one D.reconstruction positiveGapBound)
+      (gapMantissa_window D.reconstruction positiveGapBound)) :
+    WilsonCanonicalExactLogEulerEvaluation D positiveGapBound where
+  canonicalExponentialConverges := by
+    let k := (gapBinExp D.reconstruction positiveGapBound).k
+    let m := gapMantissa D.reconstruction positiveGapBound
+    let s := HamiltonianAllSep.scaleQ k
+    have hProduct : CReal.ConvergesTo
+        (fun stage => CReal.mul
+          (ExpNeg.expNeg
+            (dyadicLogSquareExponent k stage)
+            (dyadicLogSquareExponent_nonnegative k stage))
+          (ExpNeg.expNeg
+            (mantissaLogSquareExponent m
+              (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+              (gapMantissa_window D.reconstruction positiveGapBound) stage)
+            (mantissaLogSquareExponent_nonnegative m
+              (gapMantissaPlusOne_pos D.reconstruction positiveGapBound)
+              (gapMantissa_lt_one D.reconstruction positiveGapBound)
+              (gapMantissa_window D.reconstruction positiveGapBound) stage)))
+        (CReal.mul (CReal.ofQ' (s * s)) (CReal.ofQ' (m * m))) :=
+      YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz.CReal.convergesTo_mul_general
+        dyadic.exponentialConverges mantissa.exponentialConverges
+    have hCanonical : CReal.ConvergesTo
+        (fun stage => ExpNeg.expNeg
+          ((selectedWilsonExactPhysicalTimeExponent
+            D positiveGapBound 1).approx stage)
+          (selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
+            D positiveGapBound 1 stage))
+        (CReal.mul (CReal.ofQ' (s * s)) (CReal.ofQ' (m * m))) :=
+      YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+        (fun stage =>
+          selectedWilsonCanonicalExponential_equiv_atomicProduct
+            D positiveGapBound stage)
+        hProduct
+    have hScaleMantissa : (s * m).eqv
+        D.selectedSpectralData.gap.sep :=
+      HamiltonianAllSep.scaleQ_mul_mant_eqv
+        D.selectedSpectralData.gap.sep k
+    have hShuffle : ((s * s) * (m * m)).eqv ((s * m) * (s * m)) := by
+      refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv s s (m * m)) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left s _ _
+          (Q'.eqv_symm (Q'.mul_assoc_eqv s m m))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv s (s * m) m)) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (s * (s * m)) ((s * m) * s) m
+          (Q'.mul_comm_eqv s (s * m))) ?_
+      exact Q'.mul_assoc_eqv (s * m) s m
+    have hSquare : ((s * s) * (m * m)).eqv
+        (D.selectedSpectralData.gap.sep *
+          D.selectedSpectralData.gap.sep) := by
+      refine Q'.eqv_trans _ _ _ hShuffle ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (s * m)
+          D.selectedSpectralData.gap.sep (s * m) hScaleMantissa) ?_
+      exact Q'.mul_eqv_congr_left D.selectedSpectralData.gap.sep
+        (s * m) D.selectedSpectralData.gap.sep hScaleMantissa
+    exact CReal.convergesTo_limit_congr hCanonical
+      (CReal.Equiv.trans
+        (CReal.Equiv.symm (CRealAlg.ofQ'_mul (s * s) (m * m)))
+        (TrigAdd.equiv_ofQ'_of_eqv hSquare))
+
+end WilsonCanonicalExactLogEulerEvaluation
 
 /-- The minimal scalar analytic frontier: the upper Euler exponential built
 from this exact-rate family converges at one physical-time unit to the square
@@ -421,6 +673,18 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerE
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonExactPhysicalTimeExponent_approx_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.scheduledSquaredRateUpperExponent_converges_selectedWilsonExact
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.dyadicLogSquareExponent_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.logRat_approx_nonpositive_of_lt_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.mantissaLogSquareExponent_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonExactPhysicalTimeExponent_one_approx_eqv_split
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.selectedWilsonCanonicalExponential_equiv_atomicProduct
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.WilsonCanonicalExactLogEulerEvaluation.ofAtomicEvaluations
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler.DynamicVacuumSectorWilsonExactLogEulerEvaluation.ofCanonicalWilsonEvaluation
 #print axioms
