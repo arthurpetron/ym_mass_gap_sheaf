@@ -12645,3 +12645,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 0.71 seconds.  No graph-norm or separator pin,
   continuum measure, OS reconstruction, continuum Yang--Mills theory, or Clay
   theorem is claimed.
+
+### [BF4-physical-dynamic-wilson-exact-rate-handoff] Identify the dynamic rate with the selected Wilson logarithm and assemble the minimal bounded gap — **CLOSED 2026-08-24**
+
+- **milestone**: retain the actual rational stream `family.physicalGap` in a
+  reconstruction convergence handoff; identify its variation-selected limit
+  with the exact logarithm of the selected Wilson separator by constructive
+  uniqueness; derive positivity from the same family's physical rate band;
+  and combine that exact-rate witness with the all-vector graph-norm compiler
+  into `WilsonMinimalBoundedMassGap`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff.lean`.
+- **decl**:
+  `DynamicVacuumSectorWilsonExactRateHandoff`,
+  `physicalGapLimit_equiv_exactLog`, `toExactLogGapAt`,
+  `toPositiveExactLogGapWitness`, and
+  `compileWilsonMinimalBoundedMassGap`.
+- **obligation**: prove that the actual dynamic physical-gap stream converges
+  to the exact logarithm computed from the selected OS/Wilson reconstruction;
+  construct the all-vector graph-norm approximation and scheduled-rate pin;
+  and inhabit the common projective measure, OS/Wilson reconstruction, and
+  continuum Yang--Mills existence data.
+- **constructive?**: yes — the equality is derived from two convergence
+  moduli for the same explicit stream, the positive floor comes from the
+  physical rate band, and the operator gap comes only from the all-vector
+  finite contraction.  All four audited exports use only
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused guarded check passes.  The exact one-worker
+  dependency-complete target passes 5090 jobs, with the new module taking
+  about 1.1 seconds.  No convergence handoff, graph-norm data, continuum
+  measure, QFT existence theorem, or Clay theorem is claimed.

@@ -14376,3 +14376,29 @@ No graph-norm approximation or scheduled-rate/OS-separator pin is inhabited.
 The continuum projective measure, OS/Wilson semantics, exact positive
 reconstruction rate, continuum Yang--Mills existence, and Clay theorem remain
 open.
+
+## The dynamic physical rate now contracts with the all-vector Wilson gap (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff` supplies the scalar
+companion to the graph-norm compiler without postulating a free equality of
+completed values.  It requires the actual rational cutoff stream
+`family.physicalGap` to converge to the exact logarithmic gap computed from
+the selected Wilson reconstruction.  The summable variation of that same
+stream already gives its constructive limit, so uniqueness of limits proves
+that the physical rate is exactly `-log` of the selected Wilson separator.
+
+The dynamic rate band supplies the positive rational floor of this same
+limit.  The resulting `PositiveExactLogGapWitness` and the previously compiled
+all-vector `WilsonOperatorNormGapPin` assemble the existing
+`WilsonMinimalBoundedMassGap`.  Both compiler branches are indexed by the same
+dynamic family and selected Wilson datum; no one-observable decay is promoted
+backwards into an operator statement.
+
+The focused guarded check passes.  The exact one-worker dependency-complete
+target passes 5090 jobs, with the new module taking about 1.1 seconds.  All
+four audited exports use only `[propext, Quot.sound]`.
+
+The convergence of the dynamic physical-gap stream to the selected
+reconstruction logarithm and the graph-norm data remain uninhabited.  So do
+the projective continuum measure, OS/Wilson semantics, continuum
+Yang--Mills existence, required QFT axioms, and the Clay theorem.
