@@ -9079,3 +9079,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   bounds list sizes only: it does not bound shell size, route weights, local
   congestion, completed uniform contraction, continuum QFT, or the Clay
   theorem.
+
+### [BF4-cutoff-two-novel-shell-edge-load] Shell-linear stationary load — **CLOSED 2026-08-23**
+
+- **milestone**: prove the classifier-normal novel endpoint list is
+  duplicate-free, embed its nonnegative one-path loads into the full ordered
+  endpoint square, and derive the pointwise analytic estimate
+  `novelEdgeLoad <= ofNat (65 + n)`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelShellEdgeLoadBound.lean`.
+- **decl**: `cutoffTwoNovelEndpointPairs_nodup`,
+  `cutoffTwoSimpleWeightedPathEdgeLoad_nonnegative`,
+  `cutoffTwoNovelSimpleEdgeLoad_le_fullSimpleEdgeLoad`,
+  `cutoffTwoNovelSimpleEdgeLoad_le_sectorSize`, and
+  `cutoffTwoNovelSimpleEdgeLoad_le_shellLinear`.
+- **obligation**: prove that allocated routed transition capacity dominates
+  the fixed coercivity scale times this linear load, uniformly along a cofinal
+  cutoff family; then compile the resulting contraction through completion
+  and construct controlled thermodynamic/continuum limits.
+- **constructive?**: yes — the proof uses Boolean-filter disjointness,
+  Cartesian-list nodup, a finite weighted identity injection, stationary
+  nonnegativity, and the existing full-flow mass bound.  All five audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the first focused check failed only because two required
+  namespaces were not open and is not a pass.  The corrected focused check
+  passes in about 2.2 seconds; the exact one-worker target passes 4,999 jobs
+  with the new module taking about 2.2 seconds.  No cutoff-uniform transition
+  floor, completed contraction, continuum QFT, or Clay theorem is proved.

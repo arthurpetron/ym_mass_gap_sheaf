@@ -10719,3 +10719,32 @@ edge-local load, or reverse/forward ratio ceilings.  The next causal frontier
 is to factor those analytic quantities from the now-controlled support count
 and identify a shell-level sufficient condition for capacity.  Cofinal
 contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## Stationary normalization contracts novel load to shell-linear size (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelShellEdgeLoadBound` proves that the
+classifier-normal novel endpoint list is duplicate-free and embeds by the
+identity map into the full ordered endpoint square.  Nonnegativity of each
+one-path directed-edge load therefore makes the novel flow a genuine subflow
+of the existing full simple flow on every fixed directed edge.
+
+The full-flow stationary-mass estimate then gives
+`novelEdgeLoad <= fullEdgeLoad <= |full carrier|`.  Substituting the exact
+carrier decomposition yields the shell-linear analytic estimate
+`novelEdgeLoad <= ofNat (65 + n)`.  Thus the cubic raw occurrence count is not
+the analytic load scale: stationary endpoint weights absorb its multiplicity.
+
+The first focused check exposed two missing namespace openings and is not a
+pass.  The corrected focused check passes in about 2.2 seconds.  The exact
+one-worker dependency-complete target passes 4,999 jobs, with the new module
+taking about 2.2 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The unresolved comparison is now local and quantitative: the allocated
+physical or conditional transition on each routed edge must dominate the
+fixed coercivity scale times this load.  The linear bound does not provide a
+cutoff-uniform lower transition bound.  The next frontier is to state and
+compile the sharp scalar transition-floor payment needed for capacity, then
+determine whether the physical kernel can supply it cofinally.  Completed
+uniform contraction, thermodynamic/continuum theory, and the Clay theorem
+remain open.
