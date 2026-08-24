@@ -11823,3 +11823,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 0.82 seconds after dependency replay.  No
   rational observable pin, physical separator, continuum correlation limit,
   continuum Yang--Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-dynamic-scheduled-rc-channel] Sample the exact channel at fixed physical time and isolate its cutoff limit — **CLOSED 2026-08-24**
+
+- **milestone**: construct floor lattice powers from the dynamic family's
+  spacing-to-zero data; prove sampled physical-distance convergence; preserve
+  the exact completed-rate decay and global adaptive-transfer matrix-
+  coefficient identity under those powers; retain zero-time norm positivity;
+  state explicit representative/modulus data for the genuine `RC` cutoff
+  limit; separate a scale-uniform norm floor from per-scale positivity; and
+  prove conditional strict positivity of the continuum zero-time channel.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRCChannel.lean`.
+- **decl**:
+  `centralPhysicalDynamicRCSampling`,
+  `centralPhysicalDynamicRCLatticeSteps`,
+  `centralPhysicalDynamicRCSampledDistance_converges`,
+  `sampledConnectedAutocorrelation`,
+  `sampledConnectedAutocorrelationSq`,
+  `sampledConnectedAutocorrelationSq_decay`,
+  `sampledConnectedAutocorrelation_eq_global`,
+  `sampledConnectedAutocorrelation_zero_isPositive`,
+  `DynamicVacuumSectorUniformRCNormFloor`,
+  `ScheduledRCContinuumLimit`, and
+  `ScheduledRCContinuumLimit.continuumConnectedAutocorrelation_zero_isPositive`.
+- **obligation**: construct, for the actual moving cube channel and one actual
+  dynamic completed family, the representative-level cutoff correlation
+  convergence and a positive scale-uniform norm floor.  Separately derive the
+  sampled rate-envelope limit from the same family's physical strength/rate
+  band, then identify the resulting continuum correlation with one selected
+  projective/OS observable and reconstructed generator.  Per-scale positivity
+  must not be substituted for the uniform floor.
+- **constructive?**: yes — sampling is an explicit Nat function; distance and
+  correlation limits carry moduli; quotient representatives are supplied as
+  Type-level data with class-identification proofs; the norm floor is rational
+  Type-level data.  The five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check missed the definitional unfolding
+  of the floor-sampling constructor at time zero and its downstream `sorryAx`
+  was failed-elaboration contamination.  The corrected focused check passes.
+  The exact one-worker dependency-complete target passes 1656 jobs, with the
+  new module taking about 0.83 seconds after dependency replay.  No RC cutoff-
+  limit inhabitant, uniform norm floor, physical rate envelope, projective/OS
+  identification, continuum Yang--Mills theory, or Clay theorem is claimed.

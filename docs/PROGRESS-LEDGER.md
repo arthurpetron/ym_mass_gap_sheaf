@@ -13666,3 +13666,41 @@ with explicit error/modulus data sufficient to compile the RC channel into an
 approximate rational interface.  In both routes, the strength/rate band,
 projective OS correlation limit, reconstructed generator identification,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## Physical-time sampling is closed; RC cutoff removal is isolated (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorScheduledRCChannel` applies the already
+constructed spacing-to-zero floor sampling to the exact dynamic RC channel.
+The sampled physical distance converges to each requested integer physical
+time, the sampled squared connected autocorrelation obeys the same completed
+rate estimate at the selected transfer power, and the sampled correlation is
+still exactly the global adaptive-transfer matrix coefficient of the same
+embedded vector.  At physical time zero the sampled power is zero, so the
+channel is definitionally its norm square and retains its explicit positive
+rational witness at every finite scale.
+
+The module then isolates the actual cutoff-removal frontier.  A
+`ScheduledRCContinuumLimit` must carry explicit `CReal` representatives of the
+sampled `RC` classes, proofs that those representatives are the same moments,
+limit representatives, and constructive convergence moduli.  This avoids any
+choice of quotient representatives.  A separate
+`DynamicVacuumSectorUniformRCNormFloor` records the stronger estimate that one
+positive rational lies below the same channel norm at every scale; pointwise
+positivity does not suffice.  Given both inputs, the uniform floor passes
+through the representative limit and proves strict positivity of the
+continuum zero-time same-object correlation.
+
+The first guarded check failed only because the zero-time simplifier had not
+unfolded the constructor of `physicalSeparationSamplingOfSpacingToZero`; its
+downstream `sorryAx` output is failed-elaboration contamination.  After the
+explicit unfolding, the focused check passes.  The exact one-worker
+dependency-complete target passes 1656 jobs, with the new module taking about
+0.83 seconds after dependency replay.  All five audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This proves that sampling is not the current obstruction.  The next live
+producer obligations are the same-channel RC cutoff-limit modulus, a uniform
+norm floor, and a sampled-rate envelope limit from the physical strength/rate
+band.  Projective measure/OS identification must later pin that very continuum
+correlation to the reconstructed generator.  None of those inputs, continuum
+Yang--Mills theory, or the Clay theorem is inhabited here.
