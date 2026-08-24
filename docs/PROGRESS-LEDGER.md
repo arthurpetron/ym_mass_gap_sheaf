@@ -11667,3 +11667,35 @@ finite ray capacity certificate, and then determine whether those minima have
 a positive cofinal lower bound.  Routing the rest of the vacuum sector,
 thermodynamic and continuum control, continuum QFT, and the Clay theorem all
 remain open.
+
+## Every finite spin ray has an explicit positive capacity (2026-08-23)
+
+`BF4PhysicalSpinCubeRayReturnFloor` proves that every concrete excited
+spin-cube return probability is strictly positive: its numerator is the
+already constructed positive spin-to-vacuum joint kernel entry and its
+denominator is the positive stationary source weight.  It totalizes these
+returns by the positive unit off the admitted range and folds the constructive
+finite minimum over the literal list `List.range K`.
+
+The resulting `centralLowerExcitedSpinCubeReturnFloor` is strictly positive
+at every finite cutoff and lies below every actual ray return.  Dividing it by
+two constructs the explicit positive rational
+`centralLowerExcitedSpinCubeRayCapacity`.  Exact positive-division
+cancellation proves that twice this capacity is equivalent to the return
+floor, so the preceding local-flow theorem pays every left- and right-oriented
+vacuum spoke.  These witnesses are packaged as the Type-level, explicitly
+inhabited `CentralLowerExcitedSpinCubeFiniteRayCapacityAt` certificate.
+
+The first focused attempt exposed one missing namespace opening and is not a
+pass.  After correction, the focused guarded check passes in about 1.1
+seconds.  The exact one-worker, dependency-complete target passes 5,026 jobs,
+with the new module taking about 1.1 seconds.  All six audited exports use
+exactly `[propext, Quot.sound]`.
+
+The construction proves finite positivity, not uniform persistence: a finite
+minimum can still converge to zero as `K` grows.  The next frontier is to
+state the exact cofinal return-floor datum, compile it without loss into a
+cofinal spin-ray capacity, and analyze the concrete kernel/row formula for a
+cutoff-independent lower bound or obstruction.  The spin ray is still only a
+subsector; the full-sector gap, thermodynamic and continuum limits, continuum
+QFT, and Clay theorem remain open.

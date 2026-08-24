@@ -9968,3 +9968,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   seconds.  This is a finite local-flow reduction only; a cutoff-uniform
   return floor, full-sector gap, continuum QFT, and the Clay theorem remain
   open.
+
+### [BF4-spin-ray-finite-return-floor] Explicit finite ray capacity — **CLOSED 2026-08-23**
+
+- **milestone**: prove strict positivity of every excited spin-cube vacuum
+  return, take their literal constructive finite minimum, divide it by two,
+  and package the resulting positive rational and both oriented spoke
+  inequalities as an inhabited Type-level finite capacity certificate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeRayReturnFloor.lean`.
+- **decl**: `centralLowerExcitedSpinCubeVacuumReturnProbability_pos`,
+  `centralLowerExcitedSpinCubeReturnFloor_pos`,
+  `centralLowerExcitedSpinCubeReturnFloor_le`,
+  `centralLowerExcitedSpinCubeRayCapacity_pos`,
+  `twice_centralLowerExcitedSpinCubeRayCapacity_le_return`, and
+  `centralLowerExcitedSpinCubeFiniteRayCapacityAt`.
+- **obligation**: isolate a positive cofinal lower bound for these explicit
+  finite return floors, or prove an obstruction and redesign the ray routes;
+  then extend any successful capacity mechanism beyond the spin-ray
+  subsector.
+- **constructive?**: yes — positive numerator and denominator witnesses,
+  finite `Q'.min'` recursion, and positive rational division suffice.  All six
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: one failed focused attempt is not a pass.  The corrected
+  focused check passes in about 1.1 seconds; the exact one-worker target
+  passes 5,026 jobs with the new module taking about 1.1 seconds.  Finite
+  positivity does not imply a cutoff-uniform floor; the full-sector gap,
+  continuum QFT, and the Clay theorem remain open.
