@@ -9107,3 +9107,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes in about 2.2 seconds; the exact one-worker target passes 4,999 jobs
   with the new module taking about 2.2 seconds.  No cutoff-uniform transition
   floor, completed contraction, continuum QFT, or Clay theorem is proved.
+
+### [BF4-cutoff-two-novel-shell-edge-floor-payment] One scalar capacity payment — **CLOSED 2026-08-23**
+
+- **milestone**: reduce all four pointwise novel-flow capacity blocks to the
+  scalar payment
+  `novelFloor * ofNat (65 + n) <= half * finitePositiveEdgeFloor`,
+  and compile a cofinal family of those payments to completed strict
+  contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelShellEdgeFloorPayment.lean`.
+- **decl**:
+  `cutoffTwoNovelFloor_mul_load_le_halfKernel_of_shellEdgeFloorPayment`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_shellEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelShellEdgeFloorPayment.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalNovelShellEdgeFloorPayment.toCompletedStrictContractionData`.
+- **obligation**: construct the cofinal scalar payment, preferably after
+  sharpening carrier size by the actual novel stationary endpoint mass; then
+  obtain completed contraction and continue to thermodynamic/continuum
+  control.
+- **constructive?**: yes — positive-load route support invokes the located
+  finite positive-edge floor, while the zero-load case is closed by rational
+  order and kernel nonnegativity.  All four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed only because the completed
+  gap namespace was not open and is not a pass.  The corrected focused check
+  passes in about 2.3 seconds; the exact one-worker target passes 5,000 jobs
+  with the new module taking about 2.3 seconds.  The payment premise is not
+  inhabited, so no completed contraction, continuum QFT, or Clay theorem is
+  claimed.

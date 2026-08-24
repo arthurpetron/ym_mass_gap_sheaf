@@ -10748,3 +10748,33 @@ compile the sharp scalar transition-floor payment needed for capacity, then
 determine whether the physical kernel can supply it cofinally.  Completed
 uniform contraction, thermodynamic/continuum theory, and the Clay theorem
 remain open.
+
+## Four capacity blocks contract to one shell/edge-floor payment (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelShellEdgeFloorPayment` proves that the
+single scalar inequality
+`novelFloor * ofNat (65 + n) <= half * finitePositiveEdgeFloor`
+is sufficient for the complete finite novel-flow capacity certificate.  On a
+positive-load edge, route positivity makes the physical kernel positive and
+the located edge floor applies; on a zero-load edge, kernel nonnegativity
+closes the comparison directly.  The common half-floor pays old--old reserved
+capacity and is below full capacity in the other three blocks.
+
+The module also packages a cofinal family of exactly these scalar payments and
+compiles it through the existing finite capacity and gap machinery to
+completed strict contraction.  This makes the expand/contract boundary
+explicit: four pointwise block fields contract to one scalar sequence, while
+the sequence itself remains a genuine analytic obligation.
+
+The first focused check exposed one missing completed-gap namespace and is not
+a pass.  The corrected focused check passes in about 2.3 seconds.  The exact
+one-worker dependency-complete target passes 5,000 jobs, with the new module
+taking about 2.3 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+No cofinal payment is constructed.  The current scalar estimate also pays the
+entire carrier scale even when the new shell has small stationary mass.  The
+next frontier is to retain the novel endpoint mass in the fixed-edge load
+bound, producing a sharper payment that vanishes at the cutoff-two anchor and
+isolates new-shell mass against positive-edge decay.  Continuum QFT and the
+Clay theorem remain open.
