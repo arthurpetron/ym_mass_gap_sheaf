@@ -13982,3 +13982,39 @@ work is genuinely parallel: obtain raw moment, normalization-debt, and
 positive-time rate-power step/tail bounds.  They must then support a uniform
 physical exponential and the later projective/OS identification of this exact
 observable.  Continuum Yang--Mills theory and the Clay theorem remain open.
+
+## Bounded reciprocal-scale variation now compiles the squared normalization debt (2026-08-24)
+
+`SummableRationalSquareStepVariation` proves the reusable rational estimate
+needed by the normalization branch.  Multiplication of a variation stream by
+one positive rational constant preserves its explicit antitone tail modulus.
+If a nonnegative stream is uniformly bounded by `K`, its two-sided step budget
+`v_j` therefore gives the square stream the summable budget
+`(K + K) * v_j`.  The local square inequality is proved directly in `Q'`.
+
+The BF4 rational variation compiler applies this result to the reciprocal
+moving-cube normalization scale.  Variation of that scale plus a positive
+uniform ceiling now constructs variation of the exact reciprocal-square norm
+debt.  The adaptive producer path retains the same family index through this
+smaller input, constructs the same normalized continuum correlation, preserves
+strict zero-time positivity, and rejoins the positive-time rate branch in the
+same continuum squared-decay theorem.
+
+Two guarded checks are not passes.  The first generic check lacked the
+positive-division import, skipped one associativity intermediate, and used two
+rational positivity helpers at the wrong arity.  The first BF4 specialization
+check asked field notation to find an extension theorem in its source
+namespace.  Their `sorryAx` reports were failed-elaboration contamination.
+Corrected focused checks pass.  Exact one-worker targets pass 45 jobs for the
+generic square compiler, 1663 for the BF4 adapter, and 5086 for the adaptive
+producer path.  The new modules take about 0.23, 1.1, and 1.5 seconds,
+respectively, after dependency replay.  Audited exports use only `[propext]`
+or `[propext, Quot.sound]`.
+
+This exposes a real proof-path decision.  The normalization route now needs
+either a uniform lower bound on the raw moving-cube floor (equivalently a
+uniform upper bound on its reciprocal scale) together with scale variation,
+or a redesigned observable/normalization whose debt is controllable.  Neither
+is proved.  Raw moment variation, positive-time rate-power variation and its
+physical-exponential identification, projective/OS reconstruction, continuum
+Yang--Mills theory, and the Clay theorem remain open.

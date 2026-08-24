@@ -11,7 +11,9 @@ The time-zero scheduled-rate stream is pointwise equivalent to one, so its
 zero variation certificate is constructed unconditionally.  Consequently a
 family of rational rate-power variations is reduced to positive physical
 times only.  The raw sampled connected moment remains genuinely `CReal`; no
-claim that it is rational is made.
+claim that it is rational is made.  The squared normalization debt can also be
+compiled from variation of the reciprocal scale itself, provided one honest
+uniform ceiling for that scale is supplied.
 
 No positive-time rate variation, normalization-debt variation, raw moment
 variation, adaptive producer, physical-exponential identification, projective
@@ -21,6 +23,7 @@ axiom, or noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
+import YMGap.Continuum.SummableRationalSquareStepVariation
 import YMGap.Continuum.SummableRationalStepVariation
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
@@ -36,6 +39,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuum
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.PhysicalSeparationSamplingOfSpacingToZero
+open YMGap.Continuum.SummableRationalSquareStepVariation
 open YMGap.Continuum.SummableRationalStepVariation
 
 local infix:50 " ≈ " => Q'.eqv
@@ -48,6 +52,34 @@ def MovingCubeNormalizationNormDebtRationalVariation
     (family : DynamicVacuumSectorCompletedFamily 0) : Type 1 :=
   SummableRationalStepVariation
     (fun scale => movingCubeNormalizationNormDebt family scale)
+
+/-- Summable rational variation of the reciprocal normalization scale before
+squaring.  This is a smaller local analytic quantity than the norm debt. -/
+def MovingCubeNormalizationScaleRationalVariation
+    (family : DynamicVacuumSectorCompletedFamily 0) : Type 1 :=
+  SummableRationalStepVariation
+    (fun scale => movingCubeNormalizationScale family scale)
+
+/-- A varying reciprocal scale with one positive uniform ceiling has summable
+variation after squaring, hence supplies the exact normalization-debt input.
+The ceiling is an honest extra requirement; pointwise positivity alone does
+not bound the reciprocal scales uniformly. -/
+def movingCubeNormalizationNormDebtRationalVariationOfScale
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family)
+    (ceiling : Q') (ceiling_pos : (0 : Q') < ceiling)
+    (scale_le_ceiling : forall scale,
+      movingCubeNormalizationScale family scale <= ceiling) :
+    MovingCubeNormalizationNormDebtRationalVariation family := by
+  change SummableRationalStepVariation
+    (fun scale =>
+      movingCubeNormalizationScale family scale *
+        movingCubeNormalizationScale family scale)
+  exact SummableRationalSquareStepVariation.SummableRationalStepVariation.square
+    scaleVariation ceiling ceiling_pos
+    (fun scale => Q'.le_of_lt
+      (movingCubeNormalizationScale_pos family scale))
+    scale_le_ceiling
 
 /-- A rational normalization-debt budget supplies the previously required
 constructive-real variation with no additional analytic input. -/
@@ -178,6 +210,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVa
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.movingCubeNormalizationNormDebtVariationOfRational
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.movingCubeNormalizationNormDebtRationalVariationOfScale
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.normalizedMovingCubeSampledRatePowerVariationOfRational
 #print axioms

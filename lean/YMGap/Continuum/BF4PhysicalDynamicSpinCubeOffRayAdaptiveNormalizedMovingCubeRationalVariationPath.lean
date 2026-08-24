@@ -13,6 +13,9 @@ cross-cutoff inputs required by its continuum connected-correlation path:
 The time-zero rate branch is compiled automatically.  The three branches then
 rejoin, for the same adaptive family and the same normalized observable, in a
 strictly nonzero continuum channel and its squared-decay theorem.
+Alternatively, the debt branch is compiled from variation of the reciprocal
+scale plus one positive uniform ceiling, making the normalization fork
+explicit without changing the observable lineage.
 
 No cross-scale variation estimate or adaptive family is inhabited here.  In
 particular this file does not prove a physical-exponential identification,
@@ -53,6 +56,26 @@ normalized moving cube of this adaptive producer. -/
 def MovingCubeNormalizationDebtRationalVariation
     (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily) : Type 1 :=
   MovingCubeNormalizationNormDebtRationalVariation family.toCompletedFamily
+
+/-- Rational variation of the reciprocal normalization scale before its norm-
+debt square is formed. -/
+def MovingCubeNormalizationScaleRationalVariation
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily) : Type 1 :=
+  BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.MovingCubeNormalizationScaleRationalVariation
+    family.toCompletedFamily
+
+/-- Scale variation plus a positive uniform reciprocal ceiling compiles to the
+exact reciprocal-square normalization-debt variation for this producer. -/
+def movingCubeNormalizationDebtRationalVariationOfScale
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family)
+    (ceiling : Q') (ceiling_pos : (0 : Q') < ceiling)
+    (scale_le_ceiling : forall scale,
+      movingCubeNormalizationScale family.toCompletedFamily scale <= ceiling) :
+    MovingCubeNormalizationDebtRationalVariation family :=
+  movingCubeNormalizationNormDebtRationalVariationOfScale
+    family.toCompletedFamily scaleVariation ceiling ceiling_pos
+    scale_le_ceiling
 
 /-- Positive-time rational rate-power variation for the exact physical-time
 sampling schedule and completed rate of this adaptive producer. -/
@@ -99,6 +122,41 @@ theorem normalizedMovingCubeContinuumLimitOfRationalVariations_zero_isPositive
   normalizedMovingCubeLimitOfRationalDebtVariation_zero_isPositive
     family.toCompletedFamily raw normalizationDebt
 
+/-! ## 3. Rejoin through the smaller normalization-scale frontier -/
+
+/-- The raw moment and bounded reciprocal-scale variation construct the exact
+continuum limit without asking for squared-debt variation separately. -/
+def normalizedMovingCubeContinuumLimitOfScaleRationalVariation
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (raw : MovingCubeRawVariation family)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family)
+    (ceiling : Q') (ceiling_pos : (0 : Q') < ceiling)
+    (scale_le_ceiling : forall scale,
+      movingCubeNormalizationScale family.toCompletedFamily scale <= ceiling) :
+    BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.NormalizedMovingCubeContinuumLimit
+      family :=
+  normalizedMovingCubeContinuumLimitOfRationalVariations family raw
+    (movingCubeNormalizationDebtRationalVariationOfScale family
+      scaleVariation ceiling ceiling_pos scale_le_ceiling)
+
+/-- The scale-variation route retains strict zero-time positivity of the same
+normalized producer-connected continuum correlation. -/
+theorem normalizedMovingCubeContinuumLimitOfScaleRationalVariation_zero_isPositive
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (raw : MovingCubeRawVariation family)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family)
+    (ceiling : Q') (ceiling_pos : (0 : Q') < ceiling)
+    (scale_le_ceiling : forall scale,
+      movingCubeNormalizationScale family.toCompletedFamily scale <= ceiling) :
+    RCStrictPositivity.RCIsPositive
+      (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation
+        (normalizedMovingCubeContinuumLimitOfScaleRationalVariation family raw
+          scaleVariation ceiling ceiling_pos scale_le_ceiling) 0) :=
+  normalizedMovingCubeContinuumLimitOfRationalVariations_zero_isPositive
+    family raw
+    (movingCubeNormalizationDebtRationalVariationOfScale family
+      scaleVariation ceiling ceiling_pos scale_le_ceiling)
+
 /-- The three independently provable frontier branches reconverge in one
 continuum squared-decay theorem for the actual adaptive-producer observable. -/
 theorem normalizedMovingCubeContinuumLimitOfRationalVariations_sq_decay
@@ -135,6 +193,46 @@ theorem normalizedMovingCubeContinuumLimitOfRationalVariations_sq_decay
     family.toCompletedFamily raw normalizationDebt
     (movingCubeRatePowerRationalVariationOfPositive family positiveRatePower) time
 
+/-- The smaller bounded-scale normalization route and the positive-time rate
+branch reconverge in the same continuum squared-decay theorem. -/
+theorem normalizedMovingCubeContinuumLimitOfScaleRationalVariation_sq_decay
+    (family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily)
+    (raw : MovingCubeRawVariation family)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family)
+    (ceiling : Q') (ceiling_pos : (0 : Q') < ceiling)
+    (scale_le_ceiling : forall scale,
+      movingCubeNormalizationScale family.toCompletedFamily scale <= ceiling)
+    (positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation
+          (normalizedMovingCubeContinuumLimitOfScaleRationalVariation family raw
+            scaleVariation ceiling ceiling_pos scale_le_ceiling) time)
+        (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation
+          (normalizedMovingCubeContinuumLimitOfScaleRationalVariation family raw
+            scaleVariation ceiling ceiling_pos scale_le_ceiling) time))
+      (CReal.RCmul
+        (CReal.RCmul
+          (Quotient.mk CReal.crealSetoid
+            ((BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.normalizedMovingCubeSampledRatePowerLimitOfVariation
+              family.toCompletedFamily
+              (normalizedMovingCubeSampledRatePowerVariationOfRational
+                family.toCompletedFamily
+                (movingCubeRatePowerRationalVariationOfPositive
+                  family positiveRatePower))).limitRepresentative
+              time))
+          (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation
+            (normalizedMovingCubeContinuumLimitOfScaleRationalVariation family raw
+              scaleVariation ceiling ceiling_pos scale_le_ceiling) 0))
+        (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubePath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumConnectedAutocorrelation
+          (normalizedMovingCubeContinuumLimitOfScaleRationalVariation family raw
+            scaleVariation ceiling ceiling_pos scale_le_ceiling) 0)) :=
+  normalizedMovingCubeContinuumLimitOfRationalVariations_sq_decay family raw
+    (movingCubeNormalizationDebtRationalVariationOfScale family
+      scaleVariation ceiling ceiling_pos scale_le_ceiling)
+    positiveRatePower time
+
 end DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 
 end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
@@ -144,8 +242,14 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCube
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeRatePowerRationalVariationOfPositive
 #print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeNormalizationDebtRationalVariationOfScale
+#print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations_zero_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfRationalVariations_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfScaleRationalVariation_zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfScaleRationalVariation_sq_decay

@@ -12195,3 +12195,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.2 seconds.  No variation estimate, adaptive family, physical-
   exponential identification, projective/OS reconstruction, continuum Yang--
   Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-bounded-normalization-scale-variation] Compile reciprocal-scale variation into squared debt — **CLOSED 2026-08-24**
+
+- **milestone**: prove that positive constant scaling preserves an antitone
+  rational tail control; prove `y^2 <= x^2 + (K+K)*v` from nonnegativity,
+  ceiling `K`, and `y <= x+v`; compile summable variation of a bounded rational
+  stream into variation of its square; apply this to the reciprocal moving-
+  cube normalization scale; and preserve the exact adaptive producer,
+  normalized continuum correlation, zero-time positivity, and squared-decay
+  join through that smaller normalization input.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalSquareStepVariation.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.lean`.
+- **decl**:
+  `scaledAntitoneTailControl`, `square_step_le`,
+  `SummableRationalStepVariation.square`,
+  `MovingCubeNormalizationScaleRationalVariation`,
+  `movingCubeNormalizationNormDebtRationalVariationOfScale`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeNormalizationDebtRationalVariationOfScale`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfScaleRationalVariation`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfScaleRationalVariation_zero_isPositive`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.normalizedMovingCubeContinuumLimitOfScaleRationalVariation_sq_decay`.
+- **obligation**: prove a positive uniform ceiling and summable step/tail
+  variation for the exact reciprocal normalization scales of one adaptive
+  producer, or choose and justify a different normalization.  Independently
+  prove its raw moment and positive-time rate-power variation, then identify
+  the rate limit with a uniform physical exponential and the same correlation
+  through projective/OS reconstruction.
+- **constructive?**: yes — rational tail rescaling uses explicit positive
+  division, the square bound is direct ordered rational algebra, and all
+  downstream objects retain the same producer index.  Audited exports use only
+  `[propext]` or `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first generic check lacked the division import, one
+  association intermediate, and correct positivity-helper arities.  The first
+  BF4 specialization check used field notation across an extension namespace.
+  Neither is a pass; their `sorryAx` is failed-elaboration contamination.
+  Corrected focused checks pass.  Exact one-worker targets pass 45, 1663, and
+  5086 jobs for the generic, BF4, and adaptive modules, with the new modules
+  taking about 0.23, 1.1, and 1.5 seconds after replay.  No ceiling, variation
+  estimate, adaptive family, physical-exponential identification,
+  projective/OS reconstruction, continuum Yang--Mills theory, or Clay theorem
+  is claimed.
