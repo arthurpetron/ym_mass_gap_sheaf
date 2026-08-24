@@ -10301,3 +10301,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 986 jobs with the new module taking about 3.6 seconds.  No
   uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-central-spin-cube-residual-face] Allocate the residual product to non-source faces — **CLOSED 2026-08-23**
+
+- **milestone**: flatten the residual incident-face identifiers over the
+  corrected extent-one slab, certify that they are exactly four copies of the
+  non-source physical faces, and convert the complete cubic link envelope into
+  a twelfth-power factor on each such face.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralSpinCubeResidualFaceBound.lean`.
+- **decl**:
+  `centralSpinCubeResidualIncidenceIds_perm_fourfoldNonSource` and
+  `centralSpinCubeResidualMultiplicityProduct_le_faceTwelfth`.
+- **obligation**: multiply this twelfth-power factor by the non-source heat
+  coefficients, rewrite each result as exponent-13 decorated activity, and
+  sum the finite boundary/target carrier with a cutoff-uniform constant.
+- **constructive?**: yes — a transparent sorting-based natural-list
+  permutation checker, explicit corrected-slab incidence, recursive natural
+  products, monotonicity, and exact power arithmetic suffice.  Both audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.  Direct `List.Perm` decision was rejected because its audit exposed
+  `Classical.choice`.
+- **status note**: two failed focused elaboration attempts are not passes.  The
+  corrected focused check passes in about 7.6 seconds; the exact one-worker
+  target passes 992 jobs with the new module taking about 7.7 seconds.  No
+  uniform raw-row ceiling, full-sector gap, continuum QFT, or Clay theorem is
+  claimed.

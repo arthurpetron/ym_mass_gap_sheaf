@@ -12060,3 +12060,36 @@ allocate the residual product to non-source faces, combine it with their heat
 coefficients, and sum over boundary and target labellings uniformly in the
 cutoff.  Full-sector routing, completion, thermodynamic and continuum limits,
 continuum QFT, and the Clay theorem remain open.
+
+## The residual fusion product is allocated to non-source faces (2026-08-23)
+
+`BF4CentralSpinCubeResidualFaceBound` flattens the source-free incident-face
+lists over every boundary-complete extent-one slab link.  A transparent
+natural-list sorting certificate verifies the exact finite incidence identity:
+the flattened residual list is a permutation of four copies of every
+non-source physical face and contains no source-cube face.
+
+The local cubic residual envelope is then transported through finite products.
+Each non-source face contributes `(label + 1)^4` before cubing, hence exactly
+`(label + 1)^12` afterwards.  The resulting theorem is
+
+`centralSpinCubeResidualMultiplicityProduct boundary target
+  <= product_nonSourceFaces (label + 1)^12`.
+
+The bound remains independent of the source spin and the auxiliary cutoff.
+The permutation proof deliberately uses the constructive checker rather than
+the standard `List.Perm` decider, whose direct use exposed an inadmissible
+`Classical.choice` dependency.
+
+Two failed focused elaboration attempts exposed that axiom leak and elementary
+natural-product normalization errors; neither is a pass.  The corrected
+focused guarded check passes in about 7.6 seconds.  The exact one-worker,
+dependency-complete target passes 992 jobs, with the new module taking about
+7.7 seconds.  Both audited exports use exactly `[propext, Quot.sound]`.
+
+This closes the geometric allocation subfrontier, not the raw-row ceiling.
+The next frontier is to combine the twelfth-power charge with each non-source
+heat coefficient, identify the resulting exponent-13 decorated activity, and
+sum the finite non-source carrier uniformly in cutoff.  Full-sector routing,
+completion, thermodynamic and continuum limits, continuum QFT, and the Clay
+theorem remain open.
