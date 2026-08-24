@@ -10547,3 +10547,29 @@ derive block- and path-local symbolic bounds on the explicit transition
 products, or change the route family when an exact counteredge can be exposed
 within bounded resources.  Cofinal capacity, completed uniform contraction,
 thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## Repeated routed occurrences are contracted to a distinct edge list (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportDeduplicatedCeiling`
+erases duplicate directed edges from the flattened novel-route support before
+taking the conditional reverse/forward ratio maximum.  Membership in the
+distinct list is proved equivalent to membership in the repeated occurrence
+list.
+
+Finite maximum induction proves both inequalities between the distinct-list
+and repeated-list maxima.  Power monotonicity then reconstructs both routed
+prefix-product fields from the distinct maximum, and the two resulting
+symmetric ceiling loads also bound one another.  Thus the contraction removes
+only redundant evaluations; it neither weakens nor strengthens the semantic
+ceiling obligation.
+
+The first focused check exposed two missing namespace openings and is not a
+pass.  The corrected focused monitored check passes in about 1.0 second.  The
+exact one-worker dependency-complete target passes 4,994 jobs, with the new
+module taking about 1.0 second.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next diagnostic frontier is staged evaluation of the distinct support:
+measure its cutoff-2 cardinality before attempting the maximum or block
+payments.  Analytically, cofinal exact capacity, completed uniform
+contraction, thermodynamic/continuum theory, and the Clay theorem remain open.

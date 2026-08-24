@@ -8901,3 +8901,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1.1 seconds.  The hierarchy supplies implications only: no scan result,
   cofinal capacity, completed uniform contraction, continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-cutoff-two-novel-flow-symmetric-routed-support-deduplicated-ceiling] Distinct routed-edge ceiling — **CLOSED 2026-08-23**
+
+- **milestone**: erase repeated directed edges from the flattened novel-route
+  support; prove support membership is unchanged; prove the distinct-list and
+  repeated-list finite maxima bound each other; reconstruct both routed prefix
+  product bounds; and prove the associated symmetric ceiling loads bound each
+  other.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportDeduplicatedCeiling.lean`.
+- **decl**: `cutoffTwoNovelRoutedDistinctDirectedEdges`, its membership iff,
+  `cutoffTwoConditionalReverseForwardDistinctRoutedFiniteCeiling`, both maximum
+  comparisons, `cutoffTwoNovelDistinctRoutedSupportFiniteRatioCeilingData`,
+  `cutoffTwoNovelSymmetricDistinctRoutedSupportFiniteRatioCeilingLoad`, and both
+  load comparisons.
+- **obligation**: stage evaluation by first measuring the distinct cutoff-2
+  support, then evaluate the reduced maximum/payment only within the monitored
+  memory reserve; independently seek symbolic route-local bounds sufficient
+  for cofinal exact capacity and later continuum control.
+- **constructive?**: yes — `eraseDups`, finite maximum induction, and power
+  monotonicity are explicit; all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on missing namespace openings
+  and is not a pass.  The corrected focused check passes in about 1.0 second;
+  the exact one-worker target passes 4,994 jobs with the new module taking
+  about 1.0 second.  No evaluated cardinality, payment, cofinal capacity,
+  completed uniform contraction, continuum QFT, or Clay theorem is asserted.
