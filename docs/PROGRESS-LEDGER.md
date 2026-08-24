@@ -12543,3 +12543,32 @@ is to replace those global factors by a structured local or multiscale weighted
 congestion estimate.  A separate uniform physical sector-mass floor is still
 needed before a centered transfer contraction.  Completion, thermodynamic and
 continuum limits, continuum QFT, and the Clay theorem remain open.
+
+## Full pairwise variance contracts to the same observable rooted at the vacuum (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorRootVariance` opens a distinct rooted proof path.
+For an arbitrary finite nonnegative law of mass at most one, it subtracts the
+value of the same coefficient at a chosen root and proves
+
+`pairwiseVariance(f) <= 2 * sum_x weight(x) * (f(x) - f(root))^2`.
+
+The factor two comes from the exact ordered pairwise-variance identity, not a
+triangle inequality.  Pairwise differences are proved invariant under the
+root shift; the only term discarded is the explicitly nonnegative square of
+the shifted weighted mean.  Specializing `root = 0` gives the theorem for the
+complete finite physical vacuum sector.  Thus the all-pairs observable demand
+has contracted to one path demand per physical state without replacing `f` by
+an independently chosen observable or moment.
+
+The first two focused checks failed on missing namespace openings and rational
+shift normalization and are not passes.  The corrected complete focused check
+passes in about 0.9 seconds.  The exact one-worker dependency-complete target
+passes 5021 jobs, with the new module taking about 0.94 seconds.  All five
+audited exports use only `[propext]` or `[propext, Quot.sound]`.
+
+This algebraic contraction does not yet route the root squares through the
+physical kernel.  The next frontier is to attach to every state its literal
+simple positive path to the vacuum, regroup the resulting one-body traffic by
+directed edge, and isolate a cutoff-uniform local capacity/traffic comparison.
+The uniform sector-mass floor, centered transfer contraction, completion and
+continuum/Clay targets remain open.

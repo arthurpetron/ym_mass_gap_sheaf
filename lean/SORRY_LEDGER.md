@@ -10700,3 +10700,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 2.1 seconds.  The theorem constructs
   a positive floor at each cutoff but no cutoff-uniform lower bound, completed
   gap, continuum QFT, or Clay theorem.
+
+### [BF4-physical-vacuum-root-variance] Contract full pairwise demand to the same rooted observable — **CLOSED 2026-08-23**
+
+- **milestone**: prove root-shift invariance of finite weighted pairwise
+  variance, use the exact mass/diagonal/mean-square identity to drop only the
+  nonnegative shifted mean square, remove the mass factor for a nonnegative
+  law of mass at most one, and specialize the result to the physical vacuum
+  root `0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorRootVariance.lean`.
+- **decl**:
+  `finiteWeightedRootVariance_nonnegative`,
+  `finiteWeightedPairwiseVariance_shiftRoot_eqv`,
+  `finiteWeightedPairwiseVariance_le_twice_mass_rootVariance`,
+  `finiteWeightedPairwiseVariance_le_twice_rootVariance`, and
+  `centralPhysicalFiniteVacuumSectorPairwiseVariance_le_twice_rootVariance`.
+- **obligation**: route each literal state-to-vacuum square along a positive
+  physical-kernel path, regroup the one-body demands into a directed local
+  traffic function, and prove a common positive capacity comparison for that
+  traffic.  The separate uniform sector-mass floor is still required for the
+  centered transfer compiler.
+- **constructive?**: yes — rational additive congruence, the exact finite
+  pairwise identity, rational square nonnegativity, nonnegative finite sums,
+  and the proved physical sector mass upper bound suffice.  All five audited
+  exports use only `[propext]` or `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first two focused checks failed on missing namespace
+  openings and rational shift normalization and are not passes.  The corrected
+  focused check passes in about 0.9 seconds; the exact one-worker
+  dependency-complete target passes 5021 jobs with the new module taking about
+  0.94 seconds.  No rooted traffic capacity, cutoff-uniform full-sector gap,
+  continuum QFT, or Clay theorem is claimed.
