@@ -11071,3 +11071,31 @@ The next frontier is to make absence of such boundary edges an executable
 certificate and prove that certificate rules out component mergers.  Its
 cofinal inhabitation, the increment-only payment, completed contraction,
 thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Embedded cutoff-two boundary closure is now executable (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryClosureCertificate`
+defines an exact Boolean scan over every ordered pair from the embedded
+cutoff-two vacuum component to the later new-state block.  The scan succeeds
+exactly when all those candidate later support adjacencies are false.
+
+Using the first-exit theorem, a successful scan constructively excludes every
+component-merger witness.  It therefore compiles to the existing no-merger
+certificate, forces component-merger mass to vanish, and bounds new-shell
+mass by the corrected-slab cutoff increment alone.  The checker is inhabited
+at the equal-cutoff anchor `later = 2`, where the new-state block is empty.
+
+The first focused attempt exposed omitted namespace openings and is not a
+pass.  A second attempt timed out while definitionally reducing a large
+irrelevant Cartesian source against an empty target and is also not a pass;
+the anchor was recast through the proved completeness theorem.  The corrected
+focused check passes in about 2.4 seconds.  The exact one-worker,
+dependency-complete target passes 5,012 jobs, with the new module taking about
+2.4 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+No larger-cutoff or cofinal boundary-closure certificate is inhabited.  The
+next frontier is an exact certificate-or-crossing-edge decision, followed by
+either proof of cofinal closure or quantitative payment for the exposed
+boundary edges.  Completed contraction, continuum QFT, and the Clay theorem
+remain open.

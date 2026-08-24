@@ -9431,3 +9431,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 5,011 jobs with the new module taking about 1.2 seconds.  No
   boundary-closure certificate is inhabited, so no cofinal contraction,
   continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-component-boundary-closure] Executable embedded-boundary closure — **CLOSED 2026-08-23**
+
+- **milestone**: scan all embedded-cutoff-two-to-new-state candidate edges,
+  prove exact soundness and completeness, and compile successful closure to
+  no component mergers, zero merger mass, and the increment-only new-shell
+  bound.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelComponentBoundaryClosureCertificate.lean`.
+- **decl**: `cutoffTwoEmbeddedVacuumBoundaryClosedCheck`,
+  `cutoffTwoEmbeddedVacuumBoundaryClosedCheck_sound`,
+  `cutoffTwoEmbeddedVacuumBoundaryClosedCheck_complete`,
+  `cutoffTwoNoComponentMergerCheck_of_boundaryClosedCheck`,
+  `CutoffTwoEmbeddedVacuumBoundaryClosedCertificate.toNoComponentMergerCertificate`,
+  `cutoffTwoNewComponentMergerMass_eqv_zero_of_boundaryClosedCheck`, and
+  `cutoffTwoNewMass_le_increment_of_boundaryClosedCheck`.
+- **obligation**: inspect failures as literal crossing edges and either prove
+  the checker cofinally or quantify the mass/capacity cost of those crossings.
+- **constructive?**: yes — the checker is a finite `List.all` scan, its
+  successful branch contradicts the Type-level first-exit witness, and all
+  seven audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the omitted-namespace failure and the subsequent timeout
+  caused by reducing a large irrelevant source against an empty target are
+  not passes.  After routing the anchor through completeness, the focused
+  check passes in about 2.4 seconds; the exact one-worker target passes 5,012
+  jobs with the new module taking about 2.4 seconds.  Only `later = 2` is
+  inhabited, so no cofinal contraction, continuum QFT, or Clay theorem is
+  claimed.
