@@ -13915,3 +13915,36 @@ identification with a uniformly positive physical exponential; the raw/debt
 variations need finite analytic estimates from the adaptive producer.
 Projective/OS identification, reconstruction, continuum Yang--Mills theory,
 and the Clay theorem remain open.
+
+## Rational step budgets now discharge two of the three variation interfaces (2026-08-24)
+
+`SummableRationalStepVariation` states a nonnegative rational consecutive-step
+budget, an explicit antitone tail control, and two-sided rational step bounds.
+The generic compiler embeds that data through `CReal.ofQ'`, supplies the exact
+zero inner regularity of rational representatives, and constructs the existing
+constructive-real variation, Cauchy modulus, complete limit, and convergence
+modulus.  A pointwise-rationally-constant stream receives the canonical zero
+variation certificate.
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler`
+applies this smaller interface to the two literal rational streams in the
+normalized moving-cube frontier: reciprocal-square normalization debt and the
+scheduled squared-rate power.  The time-zero rate stream is proved pointwise
+equivalent to one, so only positive physical times require analytic rate-power
+variation.  These rational inputs rejoin the still-genuine `CReal` raw-moment
+variation in the existing same-observable limit and squared-decay compilers.
+
+Three guarded failures are not passes: the generic module first lacked its
+local rational-equivalence notation; the adapter was initially checked before
+the generic `.olean` existed; and simplification of the time-zero theorem left
+the reflexive goal `1 ≈ 1`.  Their downstream `sorryAx` reports were failed-
+elaboration contamination.  The corrected focused checks pass.  Exact one-
+worker targets pass 38 jobs for the generic compiler and 1662 jobs for the
+BF4 adapter.  Every audited load-bearing export stays within
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+No variation estimate is inhabited.  In particular, the raw same-object
+moment remains a `CReal` problem, while the normalization-debt and positive-
+time rate-power branches are only reduced to explicit rational estimates.
+Their physical-exponential identification, projective/OS reconstruction,
+continuum Yang--Mills theory, and the Clay theorem remain open.

@@ -12112,3 +12112,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 0.85 seconds.  No variation input, physical
   exponential identification, projective/OS identification, continuum Yang--
   Mills theory, or Clay theorem is claimed.
+
+### [BF4-physical-rational-step-variation] Rationalize the debt and rate-power variation frontiers — **CLOSED 2026-08-24**
+
+- **milestone**: compile a nonnegative rational consecutive-step budget with
+  antitone tail control into the existing constructive-real variation and
+  complete limit; construct zero variation for pointwise-rationally-constant
+  streams; specialize this interface to the exact reciprocal-square
+  normalization debt and scheduled squared-rate power; prove the time-zero
+  rate stream is pointwise equivalent to one; reduce the full rate branch to
+  positive physical times; and rejoin both rational branches with the genuine
+  raw `CReal` representative variation in the same continuum decay theorem.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariation.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler.lean`.
+- **decl**:
+  `SummableRationalStepVariation`,
+  `SummableRationalStepVariation.toSummableCRealStepVariation`,
+  `SummableRationalStepVariation.toModCauchyEv`,
+  `SummableRationalStepVariation.limit`,
+  `SummableRationalStepVariation.converges`,
+  `SummableRationalStepVariation.ofPointwiseEqvConstant`,
+  `MovingCubeNormalizationNormDebtRationalVariation`,
+  `NormalizedMovingCubeSampledRatePowerRationalVariation`,
+  `normalizedMovingCubeSampledRatePower_zero_eqv_one`,
+  `normalizedMovingCubeSampledRatePowerRationalVariationOfPositive`,
+  `normalizedMovingCubeLimitOfRationalDebtVariation`, and
+  `normalizedMovingCubeLimitOfRationalVariations_sq_decay`.
+- **obligation**: prove rational step/tail estimates for the exact reciprocal-
+  square debt and positive-time scheduled rate powers of one adaptive
+  producer, and prove `CReal` representative variation for its exact raw
+  same-object moments.  Identify the resulting rate-power limit with a
+  physical exponential before projective/OS reconstruction.
+- **constructive?**: yes — the rational embedding has zero inner regularity,
+  every tail modulus is explicit, and the raw moment is not falsely recoded as
+  rational.  The audited exports use only `[propext]` or
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first generic check lacked the local `Q'.eqv` notation;
+  one adapter check ran before the generic `.olean` existed; and the first
+  time-zero proof left `1 ≈ 1`.  None is a pass, and their downstream
+  `sorryAx` reports are failed-elaboration contamination.  Corrected focused
+  checks pass.  Exact one-worker targets pass 38 jobs for the generic module
+  and 1662 jobs for the BF4 adapter.  No variation estimate, adaptive family,
+  physical-exponential identification, projective/OS reconstruction,
+  continuum Yang--Mills theory, or Clay theorem is claimed.
