@@ -10810,3 +10810,30 @@ the mass-refined scalar payment
 estimate comparing new-shell probability with the decay of positive routed
 edge capacity.  Completed contraction, continuum QFT, and the Clay theorem
 remain open.
+
+## The mass-refined scalar payment now compiles to contraction (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelStationaryMassEdgeFloorPayment` replaces the
+carrier-only payment by the probability-sensitive inequality
+`novelFloor * ((65+n) * novelMass) <= half * edgeFloor`.  The proved
+fixed-edge load bound sends this one scalar inequality into the common
+half-kernel capacity estimate.  That estimate fills the reserved old--old
+half-capacity and, by `half * kernel <= kernel`, all three remaining capacity
+blocks.
+
+The module also packages a cofinal family of these scalar payments and
+compiles it through `CutoffTwoCofinalNovelSimpleFlowCapacity` to the existing
+completed strict-contraction datum.  This is a genuine reduction of the open
+analytic obligation: the shell count and novel stationary mass now occur
+together, so small probability can compensate for carrier growth.
+
+The focused check passes in about 2.4 seconds.  The exact one-worker,
+dependency-complete target passes 5,002 jobs, with the new module taking about
+2.3 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+No cofinal payment witness is inhabited.  The next frontier is to bound the
+novel endpoint mass by a quantity depending only on the new-shell stationary
+mass, using the old/new partition and the full-sector mass bound by one.  A
+cofinal new-shell tail versus positive-edge-floor estimate, completed
+contraction, continuum QFT, and the Clay theorem remain open.

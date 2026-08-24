@@ -9166,3 +9166,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the exact one-worker target passes 5,001 jobs with the new module taking
   about 1.4 seconds.  No cofinal mass decay, completed contraction, continuum
   QFT, or Clay theorem is proved.
+
+### [BF4-cutoff-two-novel-stationary-mass-payment] Mass-refined capacity compiler — **CLOSED 2026-08-23**
+
+- **milestone**: prove that the scalar payment
+  `novelFloor * ((65+n) * novelMass) <= half * edgeFloor` implies all four
+  pointwise novel-flow capacity blocks, and package its cofinal form into the
+  existing completed strict-contraction datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelStationaryMassEdgeFloorPayment.lean`.
+- **decl**:
+  `cutoffTwoNovelFloor_mul_load_le_halfKernel_of_stationaryMassEdgeFloorPayment`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_stationaryMassEdgeFloorPayment`,
+  `CutoffTwoCofinalNovelStationaryMassEdgeFloorPayment.toCofinalNovelSimpleFlowCapacity`,
+  and
+  `CutoffTwoCofinalNovelStationaryMassEdgeFloorPayment.toCompletedStrictContractionData`.
+- **obligation**: bound novel endpoint mass by new-shell stationary mass and
+  then prove that the resulting shell-weighted tail pays the positive routed
+  edge floor along a cofinal family.
+- **constructive?**: yes — the compiler uses only the proved mass-refined
+  load estimate, finite positive-edge floor, and rational order algebra.  All
+  four audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the focused check passes in about 2.4 seconds; the exact
+  one-worker target passes 5,002 jobs with the new module taking about 2.3
+  seconds.  The scalar payment premise is not inhabited, so no completed
+  contraction, continuum QFT, or Clay theorem is claimed.
