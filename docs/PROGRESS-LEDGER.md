@@ -12767,3 +12767,39 @@ analytic lanes can now be developed independently but must meet on this same
 object: a cofinal root-linear ratio at each scale, its RG/physical rate
 matching, and graph-norm/OS convergence of the corresponding carriers and
 transfers.  Continuum Yang--Mills existence and the Clay theorem remain open.
+
+## The physical-rate band is reduced to the explicit rooted strength (2026-08-24)
+
+`BF4PhysicalDynamicVacuumRootStrengthPhysicalBand` removes the compiled rate
+as an independent analytic variable.  For the actual completed rooted
+vacuum-sector transfer at every scale it proves the exact rational identities
+
+`q_j = 1 / (1 + s_j)`,
+
+`1 - q_j = s_j / (1 + s_j)`,
+
+where
+
+`s_j = rootCapacityDelta_j * uniformSectorMassFloor_j`.
+
+A positive lower multiple and positive upper multiple of the concrete
+transfer spacing, together with one finite nonnegative cap on `s_j`, now
+compile to the preceding two-sided physical-rate band.  The resulting lower
+physical floor is explicitly `lower / (1 + cap)`; the upper physical ceiling
+is the strength upper multiplier.  Because this construction reuses the same
+dynamic family, the rate remains definitionally attached to the completed
+transfer and its literal same-object centered autocorrelation.
+
+The first focused attempt failed on rational reassociation and an accidental
+nested namespace and is not a pass.  After flattening the declarations and
+supplying explicit constructive rational-equivalence chains, the complete
+focused guarded check passes in about 1.5 seconds.  The exact one-worker
+dependency-complete target passes 5029 jobs, with the new module taking about
+1.5 seconds.  All eight audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+No dynamic family or strength-band inhabitant is claimed.  The immediate
+physical analytic target is now the observable-connected scalar estimate
+`s_j` comparable to `a_j`, plus a finite common cap.  The cofinal root-ratio
+producer and graph-norm/OS continuum producer also remain open.  Continuum
+Yang--Mills existence and the Clay theorem remain open.

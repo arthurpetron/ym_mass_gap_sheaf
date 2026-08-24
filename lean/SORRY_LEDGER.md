@@ -10936,3 +10936,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 1.6 seconds.  Neither the dynamic ratio family nor
   the physical-rate band is inhabited; no continuum QFT or Clay theorem is
   claimed.
+
+### [BF4-dynamic-vacuum-root-strength-band] Reduce physical-rate matching to the explicit rooted strength — **CLOSED 2026-08-24**
+
+- **milestone**: prove that the completed rooted vacuum-sector rate is exactly
+  `q_j = 1/(1+s_j)` and its margin is rationally equivalent to
+  `s_j/(1+s_j)`, where
+  `s_j = rootCapacityDelta_j * uniformSectorMassFloor_j`; compile a two-sided
+  spacing estimate and finite cap for this explicit strength into the existing
+  same-object physical-rate band and sharp continuum-gap interface.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumRootStrengthPhysicalBand.lean`.
+- **decl**:
+  `cutoffTwoDirichletGluingMargin_eqv_strengthRatio`,
+  `dynamicVacuumRootCompletedGapAt_rate_eq`,
+  `dynamicVacuumRootLatticeMargin_eqv_strengthRatio`,
+  `FixedHalfDynamicVacuumRootStrengthBand.physicalFloor_pos`,
+  `FixedHalfDynamicVacuumRootStrengthBand.physicalFloor_mul_spacing_le_strengthRatio`,
+  `FixedHalfDynamicVacuumRootStrengthBand.strengthRatio_le_strength`,
+  `FixedHalfDynamicVacuumRootStrengthBand.toPhysicalRateBand`, and
+  `FixedHalfDynamicVacuumRootStrengthBand.toContinuumGapTheorem`.
+- **obligation**: inhabit the scale-indexed dynamic family and prove that its
+  concrete rooted strength is bounded above and below by positive multiples
+  of the physical transfer spacing, with one finite cap.  Equivalently, the
+  remaining rate-matching work is now an estimate on the product of the
+  cofinal root-capacity ratio and the already explicit sector-mass floor, not
+  an unrelated abstract gap constant.  Graph-norm/OS continuum convergence of
+  the same carriers and transfers remains independent and open.
+- **constructive?**: yes — exact rational division identities, positivity of
+  the rooted capacity and explicit sector-mass floor, monotonicity under a
+  finite denominator cap, and the preceding same-object completed-gap compiler
+  suffice.  All eight audited exports use exactly `[propext, Quot.sound]`; no
+  forbidden construct was added.
+- **status note**: the first focused attempt failed on rational reassociation
+  and an accidental nested namespace and is not a pass.  After explicit
+  constructive equivalence chains, the complete focused guarded check passes
+  in about 1.5 seconds.  The exact one-worker dependency-complete target passes
+  5029 jobs, with the new module taking about 1.5 seconds.  No dynamic family,
+  strength band, continuum QFT, or Clay theorem is inhabited or claimed.
