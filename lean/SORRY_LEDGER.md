@@ -11667,3 +11667,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 136 seconds.  No completed vacuum-orthogonality,
   nonzero observable, dynamic observable pin, continuum Yang--Mills theory,
   or Clay theorem is claimed.
+
+### [BF4-physical-moving-centered-vacuum-orthogonal] Descend the zero pairing to the same completed vector — **CLOSED 2026-08-24**
+
+- **milestone**: identify the moving completed representative's dense vacuum
+  pairing sequence term by term with the pulled-mean sequence; combine its
+  convergence to the completed pairing with the pulled means' convergence to
+  zero; apply constructive limit uniqueness; and descend the result to prove
+  actual completed global-vacuum orthogonality for the exact previously
+  constructed vector.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorMovingCentered_pairingLimit_equiv_zero` and
+  `centralPhysicalVacuumSectorMovingCenteredGlobalVector_vacuumOrthogonal`.
+- **obligation**: prove a strictly positive completed diagonal/norm lower
+  bound for this same vector, so it is not the zero quotient class; then
+  identify its completed transfer moments with the observable channel used by
+  the common dynamic completed family.  Preserve the vector, transfer,
+  correlation, sampling channel, and rate at every compiler join.
+- **constructive?**: yes — termwise `CReal.Equiv`, explicit outer pairing
+  convergence, explicit moving-mean convergence, constructive limit
+  uniqueness, and quotient soundness suffice.  Both audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first guarded check had one missing opened form
+  namespace; its later timeouts and `sorryAx` lines were failed-elaboration
+  contamination only.  After using an explicit definitional change through
+  the completion maps, the corrected focused check passes in about 0.5
+  seconds.  The exact one-worker dependency-complete target passes 1371 jobs,
+  with the new module taking about 0.5 seconds.  No nonzero observable,
+  dynamic observable pin, continuum Yang--Mills theory, or Clay theorem is
+  claimed.

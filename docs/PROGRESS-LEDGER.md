@@ -13516,3 +13516,33 @@ same-object transfer moments to the dynamic completed family.  The cofinal
 local transition-product estimate, physical strength scaling, exact-log
 cutoff control, projective/OS correlation convergence, reconstruction,
 continuum Yang--Mills theory, and the Clay theorem remain open.
+
+## The moving completed vector lies in the actual vacuum complement (2026-08-24)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal` closes the next
+same-object join.  The representative pairing sequence of the newly
+constructed moving Cauchy vector against the constant normalized vacuum is,
+at every stage, constructively equivalent to the pulled-mean sequence already
+proved to converge to zero.  The completed-inner construction proves that the
+same representative pairing sequence converges to the actual completed
+pairing.  Constructive limit uniqueness therefore identifies that completed
+pairing with zero, and quotient descent proves
+`CentralPhysicalCutoffCompletedVacuumOrthogonal` for the exact global vector
+defined in the preceding milestone.
+
+The first guarded check had one missing opened form namespace.  Its subsequent
+timeouts and `sorryAx` reports were elaboration contamination and are not
+passes.  After the namespace correction and an explicit definitional `change`
+through the sector and global quotient maps, the corrected focused check
+passes in about 0.5 seconds.  The exact one-worker dependency-complete target
+passes 1371 jobs, with the new module taking about 0.5 seconds.  Both audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+This proves vacuum-complement membership but not that the quotient vector is
+nonzero.  The next frontier must produce a uniform positive lower bound for
+the same moving vector's completed diagonal/norm, strong enough to survive
+the cutoff limit.  Its same-object transfer moments must then join the common
+dynamic completed family.  The cofinal local transition-product estimate,
+physical strength scaling, exact-log cutoff control, projective/OS correlation
+convergence, reconstruction, continuum Yang--Mills theory, and the Clay
+theorem remain open.
