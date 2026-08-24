@@ -9819,3 +9819,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target passes 512 jobs with the new module taking about 0.3 seconds.  No
   positive-row family, carrier-growth theorem, uniform gap, continuum QFT,
   or Clay theorem is claimed.
+
+### [BF4-all-spin-cube-positive-ray] Cutoff-admitted positive support ray — **CLOSED 2026-08-23**
+
+- **milestone**: construct the six-face cube carrying every label
+  `spin <= K`; prove state and slab boundedness, link-product positivity,
+  slab-term positivity, both orientations of the raw vacuum kernel entry,
+  positive-row carrier membership, and injectivity in the spin parameter.
+- **file**:
+  `lean/YMGap/Continuum/BF4CentralLowerSpinCubePositiveRay.lean`.
+- **decl**: `centralLowerSpinCubePhysical_eq_state`,
+  `centralLowerSpinCubeState_mem_centralHalfStates`,
+  `centralLowerSpinCubeState_injective`,
+  `vacuum_linkMultiplicity_le_spinCube`,
+  `centralLowerSpinCube_linkProduct_pos`,
+  `centralLowerSpinCubePhysicalTerm_pos`,
+  `centralLowerSpinCubePhysicalReflectedKernel_pos`,
+  `centralPhysicalReflectedKernel_vacuum_spinCube_pos`, and
+  `centralLowerSpinCubeState_mem_centralPositiveHalfStates`.
+- **obligation**: locate these distinct states in the finite carrier, close
+  each under its direct positive edge from the vacuum root, and compile the
+  family into the quantitative root-component state-count bound.
+- **constructive?**: yes — finite face incidence, an explicit singlet
+  channel, bounded finite products and sums, and exact reflected-kernel
+  symmetry suffice.  All nine audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two failed focused elaboration attempts are not passes.
+  The corrected focused check passes in about 0.7 seconds; the exact
+  one-worker target passes 982 jobs with the new module taking about 0.7
+  seconds.  Root-component cardinality growth, failure of the cofinal simple
+  floor, a uniform gap, continuum QFT, and the Clay theorem are not claimed.

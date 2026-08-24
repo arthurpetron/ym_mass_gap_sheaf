@@ -11490,3 +11490,35 @@ The next frontier is to construct the all-spin lower-cube states, prove their
 physical terms and vacuum kernel entries strictly positive, and then compile
 their distinctness into a lower bound on the canonical vacuum-sector state
 count.  No uniform contraction, continuum QFT, or Clay theorem is claimed.
+
+## Every cutoff-admitted spin cube is a positive carrier state (2026-08-23)
+
+`BF4CentralLowerSpinCubePositiveRay` defines the literal six-face lower cube
+carrying an arbitrary label `spin`.  For `spin <= K`, the state and its
+assembled corrected-slab labelling are bounded at cutoff `K`.  The existing
+zero-or-two cube incidence theorem and the new equal-pair singlet injection
+show linkwise that its multiplicity is at least the vacuum multiplicity one.
+Hence the complete natural-number link product is positive.
+
+Every heat-kernel face coefficient in the bounded labelling is strictly
+positive at positive coupling.  Combining the positive face product with the
+positive link product gives a strictly positive selected slab term, then a
+strictly positive raw reflected kernel entry from the spin cube to the
+vacuum.  Exact kernel symmetry supplies the reverse vacuum-to-cube entry, and
+normalization plus finite-sum inclusion proves that every such state belongs
+to the genuine positive physical carrier.  Evaluation on face zero proves
+that the spin-to-state map is injective.
+
+Two failed focused attempts exposed missing namespace openings and the exact
+non-strict meaning of `SlabFaceLabellingBounded`; neither is a pass.  After
+correction, the focused guarded check passes in about 0.7 seconds.  The exact
+one-worker, dependency-complete target passes 982 jobs, with the new module
+taking about 0.7 seconds.  All nine audited exports use exactly
+`[propext, Quot.sound]`.
+
+This proves a distinct positive support ray but has not yet counted it inside
+the canonical rooted component.  The next frontier is to locate every spin
+cube in the finite carrier, use its positive vacuum edge to place its index
+in the root component, and derive `K + 1 <= stateCount(K)`.  Only then can
+the fixed positive simple-floor comparison be contradicted along unbounded
+cutoffs.  No uniform contraction, continuum QFT, or Clay theorem is claimed.
