@@ -11189,3 +11189,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete target passes 1379 jobs, with the new module
   taking about 1.0 seconds.  No observable pin, projective continuum measure,
   OS identification, continuum QFT, or Clay theorem is inhabited or claimed.
+
+### [BF4-dynamic-vacuum-sector-continuum-realization] Join the same exact rate and sampled correlator to one OS reconstruction — **CLOSED 2026-08-24**
+
+- **milestone**: build the full-range exact logarithmic certificate for the
+  observable-generated separator; name the exact-log upper bound, exact-rate
+  Cauchy modulus, projective/OS sampled-correlation handoff, nonzero
+  reconstruction spectral channel, and exact-rate reconstruction convergence;
+  and compile them into the standard same-object continuum realization,
+  conditional exact-log-gap endpoint, positive continuum mass, and exact OS
+  connected-correlator/spectral-correlator identification.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumRealization.lean`.
+- **decl**: `DynamicVacuumSectorObservablePin.fullRangeRateFamily`,
+  `DynamicVacuumSectorObservablePin.exactCertificate`,
+  `DynamicVacuumSectorContinuumHandoff`,
+  `DynamicVacuumSectorContinuumHandoff.toContinuumRealization`,
+  `DynamicVacuumSectorContinuumHandoff.continuumMass_posEv`, and
+  `DynamicVacuumSectorContinuumHandoff.osGapCorr_equiv_spectral`.
+- **obligation**: inhabit the explicit exact-log ceiling and Cauchy modulus for
+  the actual dynamic separator, construct the selected projective continuum
+  measure and OS functional, prove that its cutoff-independent insertion is
+  the limit of the physically sampled completed-path correlator, and identify
+  both that correlator and the same exact rate limit with the reconstruction's
+  nonzero spectral channel and logarithmic gap.  The local capacity, physical
+  strength scaling, and observable pin remain separate upstream producers.
+- **constructive?**: yes — the existing physical margin floor compiler,
+  full-range exact-log certificate, constructive-real Cauchy completion,
+  spacing modulus, projective-functional convergence compiler, uniqueness of
+  exact-rate limits, and OS correlation composition suffice.  All six audited
+  exports use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the first focused attempt failed on helper field-notation
+  namespaces and the positivity namespace and is not a pass.  After explicit
+  helper applications, the corrected focused guarded check passes in about
+  0.9 seconds.  The exact one-worker dependency-complete target passes 1382
+  jobs, with the new module taking about 0.9 seconds.  No handoff, continuum
+  measure, continuum Yang--Mills existence, OS spectral/rate pin, or Clay
+  theorem is inhabited or claimed.

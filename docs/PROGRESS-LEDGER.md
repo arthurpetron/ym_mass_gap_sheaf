@@ -13002,3 +13002,40 @@ identify the physically sampled correlators with one cutoff-independent OS
 insertion and the reconstructed spectral channel.  The local off-ray capacity
 and exact strength/spacing estimates remain independent analytic producers.
 Continuum Yang--Mills construction and the Clay theorem remain open.
+
+## The dynamic observable path now has one rate-and-correlator continuum join (2026-08-24)
+
+`BF4PhysicalDynamicVacuumSectorContinuumRealization` connects the preceding
+completed observable path to the existing projective/OS realization without
+changing its separator, spacing, sampled powers, correlator, or exact rate
+sequence.  It first builds the full-range exact logarithmic certificate from
+the observable-generated `PhysicalSeparator` and physical margin floor while
+keeping the independent full-log rate ceiling explicit.
+
+The named `DynamicVacuumSectorContinuumHandoff` then isolates four remaining
+continuum inputs on that exact certificate: a Type-level Cauchy modulus for
+the exact cutoff-rate sequence, one projective/OS correlation handoff for the
+physically sampled separator correlators, a nonzero reconstruction spectral
+channel for that same correlator, and convergence of the same exact rate
+sequence to the reconstruction's logarithmic gap.  Given these fields, the
+module constructs `PhysicalSeparatorContinuumRealization`, the conditional
+`ContinuumYMWithExactLogGap`, a positive continuum mass witness, and the exact
+OS-connected-correlator/reconstructed-spectral-correlator equivalence.
+
+The first focused attempt failed because new helper declarations were placed
+outside the structure's field-notation namespace and because the positive
+eventual-order namespace was not opened; it is not a pass and its downstream
+errors are not evidence.  After using explicit helper applications and the
+correct positivity namespace, the complete focused guarded check passes in
+about 0.9 seconds.  The exact one-worker dependency-complete target passes
+1382 jobs, with the new module taking about 0.9 seconds.  All six audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+No continuum handoff is inhabited.  In particular, the physical margin
+ceiling is not silently treated as an exact-log ceiling, and correlation
+convergence is not silently treated as rate or operator convergence.  The
+remaining analytic producers are the local off-ray capacity and strength
+scaling, the concrete observable pin, exact-log cutoff convergence/ceiling,
+projective OS correlation convergence, and the reconstruction spectral/rate
+identifications.  Continuum Yang--Mills existence itself and the Clay theorem
+remain open.
