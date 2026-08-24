@@ -9137,3 +9137,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 2.3 seconds.  The payment premise is not
   inhabited, so no completed contraction, continuum QFT, or Clay theorem is
   claimed.
+
+### [BF4-cutoff-two-novel-stationary-mass-load] Mass-refined fixed-edge load — **CLOSED 2026-08-23**
+
+- **milestone**: define the exact novel stationary endpoint mass, decompose it
+  into new--new and both directed cross products, prove it vanishes at cutoff
+  two, and retain it in the bound
+  `novelEdgeLoad <= (65+n) * novelMass`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelStationaryMassLoadBound.lean`.
+- **decl**: `cutoffTwoNovelEndpointWeightMass`,
+  `cutoffTwoNovelEndpointWeightMass_eqv_newNew_add_cross`,
+  `cutoffTwoNovelEndpointWeightMass_nonnegative`,
+  `cutoffTwoNovelEndpointWeightMass_self_eqv_zero`,
+  `cutoffTwoNovelPathLoadSum_le_sizeWeightedPairSum`,
+  `cutoffTwoNovelSimpleEdgeLoad_le_size_mul_endpointMass`, and
+  `cutoffTwoNovelSimpleEdgeLoad_le_shellSize_mul_endpointMass`.
+- **obligation**: compile the mass-refined edge-floor payment and prove that
+  new-shell stationary mass compensates for path-length growth and
+  positive-edge decay along a cofinal cutoff family.
+- **constructive?**: yes — all quantities are finite rational sums, the proof
+  uses exact Cartesian factorization and path-load monotonicity, and cutoff-two
+  vanishing is structural.  All six audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused attempts failed on missing namespaces and
+  a deterministic elaboration timeout before local expression recoding; they
+  are not passes.  The corrected focused check passes in about 1.4 seconds;
+  the exact one-worker target passes 5,001 jobs with the new module taking
+  about 1.4 seconds.  No cofinal mass decay, completed contraction, continuum
+  QFT, or Clay theorem is proved.

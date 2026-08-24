@@ -10778,3 +10778,35 @@ next frontier is to retain the novel endpoint mass in the fixed-edge load
 bound, producing a sharper payment that vanishes at the cutoff-two anchor and
 isolates new-shell mass against positive-edge decay.  Continuum QFT and the
 Clay theorem remain open.
+
+## The fixed-edge bound now retains novel stationary mass (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelStationaryMassLoadBound` defines the exact
+stationary-product mass of the novel ordered endpoint list.  It proves the
+identity
+`novelMass = newMass^2 + oldMass*newMass + newMass*oldMass`, its
+nonnegativity, and exact vanishing at cutoff two.
+
+Repeating the one-path estimate without discarding endpoint weights gives the
+sharper pointwise analytic bound
+`novelEdgeLoad <= (65 + n) * novelMass`.  The two factors now have distinct
+causal roles: shell cardinality bounds loop-erased path length, while the
+stationary mass of pairs touching the new shell controls actual routed
+traffic.  Unlike the earlier carrier-only bound, this estimate detects the
+zero-traffic anchor and can benefit from probabilistic suppression of new
+states.
+
+The first focused attempts exposed missing sum/mass namespaces and a
+deterministic elaboration timeout caused by expanding the long expression
+instead of naming its size, weight, and pair-list components; neither is a
+pass.  After the local recoding, the corrected focused check passes in about
+1.4 seconds.  The exact one-worker dependency-complete target passes 5,001
+jobs, with the new module taking about 1.4 seconds.  All six audited exports
+use exactly `[propext, Quot.sound]`.
+
+No decay estimate for `novelMass` is proved.  The next frontier is to compile
+the mass-refined scalar payment
+`novelFloor * ((65+n) * novelMass) <= half * edgeFloor`, then seek a cofinal
+estimate comparing new-shell probability with the decay of positive routed
+edge capacity.  Completed contraction, continuum QFT, and the Clay theorem
+remain open.
