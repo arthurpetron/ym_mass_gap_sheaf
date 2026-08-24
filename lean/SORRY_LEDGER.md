@@ -8994,3 +8994,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   new module taking about 2.2 seconds.  The result classifies but neither
   enumerates nor bounds the later shell, and proves no cofinal capacity,
   completed uniform contraction, continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-two-novel-shell-cardinality-balance] Constant 65-state old block — **CLOSED 2026-08-23**
+
+- **milestone**: rewrite the old block as the classifier-accept filter; prove
+  that its length is exactly 65 at every later cutoff; and prove the exact
+  cardinality balance `|full later| = 65 + |new later|`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.lean`.
+- **decl**: `cutoffTwoEdgeLoadOldStates_eq_classifierAcceptFilter`,
+  `cutoffTwoEdgeLoadOldStates_length_of_later`,
+  `cutoffTwoEdgeLoadOld_add_new_length`, and
+  `cutoffTwoEdgeLoadFullStates_length_eq_65_add_new`.
+- **obligation**: bound or recode the classifier-reject shell itself, express
+  novel endpoint pairs and routes over that shell, and prove/refute their
+  local capacity payments before attempting a cofinal lift and controlled
+  limits.
+- **constructive?**: yes — the proof uses the existing injective cutoff map,
+  finite-list permutations, Boolean filter congruence, and structural length
+  induction.  Both newly audited exports, and all eight audited exports in the
+  module, use exactly `[propext, Quot.sound]`; no forbidden construct was
+  added.
+- **status note**: the first focused check of the added balance failed on a
+  natural-number reassociation goal and is not a pass.  The corrected focused
+  check passes in about 3.1 seconds; the exact one-worker target passes 4,996
+  jobs with the expanded module taking about 2.9 seconds.  The equality
+  isolates but does not bound the new shell, and proves no cofinal capacity,
+  completed uniform contraction, continuum QFT, or Clay theorem.

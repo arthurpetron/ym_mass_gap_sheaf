@@ -24,6 +24,7 @@ noncomputable declaration is used.
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCarrierRecoding
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSubsetClassifierEnumeration
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLinearRealization
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
 
 namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding
 
@@ -43,6 +44,7 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorBlockDecomposition
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLinearRealization
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
@@ -258,6 +260,21 @@ private theorem embeddedB_eq_cubeSectorStateB_of_mem_full
           rw [hclassifier] at htrue
           cases htrue
 
+theorem cutoffTwoEdgeLoadOldStates_eq_classifierAcceptFilter
+    {later : Nat} (hcutoff : 2 ≤ later) :
+    cutoffTwoEdgeLoadOldStates later =
+      (cutoffTwoEdgeLoadFullStates later).filter
+        (fun index =>
+          cutoffTwoCubeSectorStateB
+            (centralPhysicalFiniteStateAt cutoffTwoHalfCoupling
+              (by decide) later 0 index)) := by
+  unfold cutoffTwoEdgeLoadOldStates
+    centralPhysicalFiniteVacuumSectorOldBlockIndices
+    cutoffTwoEdgeLoadFullStates
+  apply filter_eq_filter_of_eq_on_local
+  intro index hindex
+  exact embeddedB_eq_cubeSectorStateB_of_mem_full hcutoff hindex
+
 theorem cutoffTwoEdgeLoadNewStates_eq_classifierRejectFilter
     {later : Nat} (hcutoff : 2 ≤ later) :
     cutoffTwoEdgeLoadNewStates later =
@@ -273,6 +290,51 @@ theorem cutoffTwoEdgeLoadNewStates_eq_classifierRejectFilter
   intro index hindex
   exact congrArg Bool.not
     (embeddedB_eq_cubeSectorStateB_of_mem_full hcutoff hindex)
+
+/-! ## 4. Exact old/shell cardinality balance -/
+
+theorem cutoffTwoEdgeLoadOldStates_length_of_later
+    {later : Nat} (hcutoff : 2 ≤ later) :
+    (cutoffTwoEdgeLoadOldStates later).length = 65 := by
+  have hperm :=
+    centralPhysicalFiniteVacuumSectorOldBlockIndices_perm_embedded
+      (w := cutoffTwoHalfCoupling) (hw := by decide)
+      (base := 2) (later := later) (half := 0) hcutoff
+  have hlength := hperm.length_eq
+  unfold centralPhysicalFiniteEmbeddedVacuumSectorIndices at hlength
+  simp only [List.length_map] at hlength
+  exact hlength.trans
+    YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCarrierRecoding.cutoffTwoEdgeLoadFullStates_length
+
+private theorem filter_length_partition_local
+    {A : Type} (test : A → Bool) : ∀ items : List A,
+    (items.filter test).length +
+        (items.filter (fun item => !(test item))).length =
+      items.length
+  | [] => rfl
+  | head :: tail => by
+      have ih := filter_length_partition_local test tail
+      cases htest : test head <;>
+        simp [htest] <;> omega
+
+theorem cutoffTwoEdgeLoadOld_add_new_length
+    (later : Nat) :
+    (cutoffTwoEdgeLoadOldStates later).length +
+        (cutoffTwoEdgeLoadNewStates later).length =
+      (cutoffTwoEdgeLoadFullStates later).length := by
+  unfold cutoffTwoEdgeLoadOldStates cutoffTwoEdgeLoadNewStates
+    cutoffTwoEdgeLoadFullStates
+    centralPhysicalFiniteVacuumSectorOldBlockIndices
+    centralPhysicalFiniteVacuumSectorNewBlockIndices
+  exact filter_length_partition_local _ _
+
+theorem cutoffTwoEdgeLoadFullStates_length_eq_65_add_new
+    {later : Nat} (hcutoff : 2 ≤ later) :
+    (cutoffTwoEdgeLoadFullStates later).length =
+      65 + (cutoffTwoEdgeLoadNewStates later).length := by
+  have hpartition := cutoffTwoEdgeLoadOld_add_new_length later
+  rw [cutoffTwoEdgeLoadOldStates_length_of_later hcutoff] at hpartition
+  exact hpartition.symm
 
 theorem mem_cutoffTwoEdgeLoadNewStates_iff_classifier_reject
     {later index : Nat} (hcutoff : 2 ≤ later) :
@@ -305,3 +367,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.cutoffTwoEdgeLoadNewStates_eq_classifierRejectFilter
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.mem_cutoffTwoEdgeLoadNewStates_iff_classifier_reject
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.cutoffTwoEdgeLoadOldStates_length_of_later
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelShellStateRecoding.cutoffTwoEdgeLoadFullStates_length_eq_65_add_new

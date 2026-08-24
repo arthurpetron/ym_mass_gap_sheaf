@@ -10637,3 +10637,30 @@ frontier is to express novel endpoint pairs and route selection over this
 classifier-reject presentation, then isolate a finite or symbolic shell
 description adequate for capacity estimates.  Cofinal contraction,
 thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## All later growth is isolated in the classifier-reject shell (2026-08-23)
+
+The state-recoding module now also rewrites the old block as the
+classifier-accept filter.  The existing injective cutoff map and permutation
+between the target-ordered old block and the mapped base component then prove
+that the old block has exactly 65 entries at every `later >= 2`.
+
+A structural two-filter length identity gives the exact balance
+`|full later| = 65 + |new later|`.  Thus no inherited-state multiplicity is
+hidden in the growing carrier: all cardinality growth is carried by the
+classifier-reject shell.  This does not bound that shell, but it cleanly
+separates the constant base-sector cost from the only variable combinatorics
+that later route and capacity arguments must control.
+
+The first focused check of the added balance theorem exposed an arithmetic
+reassociation goal and is not a pass.  After an explicit constructive
+arithmetic discharge, the corrected focused check passes in about 3.1
+seconds.  The exact one-worker dependency-complete target passes 4,996 jobs,
+with the expanded module taking about 2.9 seconds.  Both newly audited exports,
+and all eight audited exports in the module, use exactly
+`[propext, Quot.sound]`.
+
+The next frontier remains endpoint and route recoding over the exact
+accept/reject partition, followed by a shell-local size or capacity estimate.
+Cofinal contraction, thermodynamic/continuum theory, and the Clay theorem
+remain open.
