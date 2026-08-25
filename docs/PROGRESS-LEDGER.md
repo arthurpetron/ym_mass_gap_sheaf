@@ -15608,3 +15608,44 @@ with the alternating recoding of the reflected Euler polynomial, and prove
 coefficientwise monotonicity toward the magnitude-two stable target.  All
 physical-carrier, projective OS/GNS, transfer/operator, thermodynamic and
 continuum, QFT, and Clay obligations remain open.
+
+## Reflected Euler magnitudes recoded as a nonnegative positive companion (2026-08-24)
+
+`CRealArtanhEulerPositiveCompanion` defines the finite positive-sign Euler
+step, term, and partial-sum polynomials.  Alternating substitution is proved to
+send the odd artanh exponent, every reflected exponential term, and every
+finite reflected Euler partial sum to these positive companions.  Separate
+finite coefficient proofs establish nonnegativity for the positive artanh
+polynomials and for every positive Euler companion.
+
+The coefficient-level contraction is exact: for every artanh stage, Euler
+depth, and padded index, the rational absolute value of the reflected Euler
+coefficient is equivalent to the coefficient of its positive companion.
+Consequently
+`PositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler` asks only
+for the pointwise inequality that each nonnegative companion coefficient is at
+most two.  Its adapter inhabits the former reflected coefficient-magnitude
+compiler without exposing sign bookkeeping downstream.
+
+The connected
+`adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler` preserves
+the same dynamic family, raw Wilson observable, continuum datum, selected
+Wilson GNS datum, projective OS handoff, matrix-coefficient pin, exact-rate
+handoff, representative transfer lift, finite graph approximation, and dense
+unit vacuum pin.  After those common data are fixed, the current capstone still
+has six independent root compilers; the matrix-coefficient pin follows the OS
+handoff and the finite graph approximation follows the transfer lift before
+the single typed observable-preserving join.
+
+Exact one-worker targets pass 67 jobs for the positive-companion module and
+5120 jobs for the connected capstone.  The six audited positive-companion
+exports and its connected adapter use exactly `[propext, Quot.sound]`; no
+forbidden construct was added.
+
+The positive-companion upper-bound compiler remains uninhabited.  The next
+scalar frontier is coefficientwise monotonicity in artanh stage and Euler
+depth, followed by comparison at a stable enlarged cutoff with the target
+coefficients `1,2,2,...`.  No scalar inverse, concrete physical carrier,
+projective OS/GNS construction, all-vector transfer/operator gap,
+thermodynamic or continuum limit, QFT axiom package, or Clay mass-gap theorem
+is claimed.

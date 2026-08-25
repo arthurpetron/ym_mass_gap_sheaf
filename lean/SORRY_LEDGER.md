@@ -13860,3 +13860,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use exactly `[propext, Quot.sound]`.  This is an algebraic
   prerequisite only; it does not prove coefficient positivity, the bound of
   two, a scalar inverse, a physical mass gap, or the continuum/Clay endpoint.
+
+### [BF4-positive-artanh-euler-positive-companion] Recode reflected magnitudes as nonnegative companion coefficients — **CLOSED 2026-08-24**
+
+- **milestone**: define the finite positive-sign Euler companion; prove that
+  alternating substitution carries the odd artanh exponent and every finite
+  reflected Euler partial sum to that companion; prove all companion
+  coefficients nonnegative; identify each reflected coefficient magnitude
+  exactly with the corresponding companion coefficient; and compile a
+  pointwise companion upper bound through the same raw Wilson connected
+  capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPositiveCompanion.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPositiveCompanion.positiveExpStepPoly`,
+  `positiveExpTermPoly`, `positiveExpPartialPoly`,
+  `alternate_positiveArtanhExponentPoly`,
+  `alternate_expPartialPoly_positiveArtanh`,
+  `CoeffNonnegative`, `coeffNonnegative_positiveExpPartialPoly`,
+  `abs_coeff_expPartialPoly_eqv_positiveCompanionCoeff`,
+  `PositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler`,
+  `positiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompilerOfPositiveCompanion`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler`.
+- **obligation**: prove every padded coefficient of every finite positive
+  companion is at most two.  The intended constructive route is
+  coefficientwise monotonicity in artanh stage and Euler depth, enlargement to
+  a cutoff stable at the requested index, and comparison with the already
+  proved stable target coefficient `1` or `2`.  Scalar inverse,
+  physical-carrier, projective OS/GNS, transfer/operator,
+  thermodynamic/continuum, QFT, and Clay inputs remain separate and open.
+- **constructive?**: yes.  Recoding, nonnegativity, and coefficient identities
+  use finite polynomial/list recursion and `Q'.eqv`; no normalized rational
+  representative, `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.  Audited gates are exactly
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 67 jobs for the positive
+  companion and 5120 jobs for the connected capstone.  The capstone still has
+  six independent roots, two causally dependent children, and one typed join
+  on the same raw Wilson observable.  This does not inhabit the remaining
+  upper-bound compiler or prove a physical/continuum/Clay mass gap.
