@@ -15,6 +15,7 @@ Euler pivot remain.
 
 import YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 import YMGap.Constructive.QPolyWeightedL1
+import YMGap.Constructive.QPolyJetOne
 
 namespace YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 
@@ -25,6 +26,7 @@ open YMGap.Constructive.QPoly
 open YMGap.Constructive.CRealArtanhEulerRatio
 open YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 open YMGap.Constructive.QPolyWeightedL1
+open YMGap.Constructive.QPolyJetOne
 
 local infix:50 " ~q " => Q'.eqv
 
@@ -443,6 +445,550 @@ theorem eval_positiveArtanhEulerGeometricDifferencePoly
     (Q'.neg_eqv_congr _ _
       (eval_positiveArtanhGeometricApproxPoly z degree))
 
+/-! ## Constant and linear formal jets -/
+
+theorem constantCoeff_pconst (c : Q') :
+    (constantCoeff (pconst c)).eqv c := Q'.eqv_refl c
+
+theorem linearCoeff_pconst (c : Q') :
+    (linearCoeff (pconst c)).eqv 0 := Q'.eqv_refl 0
+
+theorem constantCoeff_pvar : (constantCoeff pvar).eqv 0 :=
+  Q'.eqv_refl 0
+
+theorem linearCoeff_pvar : (linearCoeff pvar).eqv 1 :=
+  Q'.eqv_refl 1
+
+/-- A positive power of a zero-constant polynomial again has zero constant
+coefficient. -/
+theorem constantCoeff_ppow_succ_eqv_zero
+    (p : Poly) (hconstant : (constantCoeff p).eqv 0) (n : Nat) :
+    (constantCoeff (ppow p (n + 1))).eqv 0 := by
+  refine Q'.eqv_trans _
+    (constantCoeff p * constantCoeff (ppow p n)) _
+    (constantCoeff_pmul p (ppow p n)) ?_
+  exact Q'.eqv_trans _ (0 * constantCoeff (ppow p n)) _
+    (Q'.mul_eqv_congr_right _ 0 _ hconstant)
+    (q_zero_mul _)
+
+/-- The linear jet of the first power is the original linear jet when the
+constant coefficient vanishes. -/
+theorem linearCoeff_ppow_one
+    (p : Poly) (hconstant : (constantCoeff p).eqv 0) :
+    (linearCoeff (ppow p 1)).eqv (linearCoeff p) := by
+  refine Q'.eqv_trans _
+    (constantCoeff p * linearCoeff (pconst 1) +
+      linearCoeff p * constantCoeff (pconst 1)) _
+    (linearCoeff_pmul p (pconst 1)) ?_
+  refine Q'.eqv_trans _
+    (0 * 0 + linearCoeff p * 1) _
+    (q_add_congr
+      (Q'.eqv_trans _ (0 * linearCoeff (pconst 1)) _
+        (Q'.mul_eqv_congr_right _ 0 _ hconstant)
+        (q_zero_mul _))
+      (Q'.mul_eqv_congr_left (linearCoeff p) _ 1
+        (constantCoeff_pconst 1))) ?_
+  exact Q'.eqv_trans _ (0 + linearCoeff p) _
+    (q_add_congr (q_zero_mul 0) (Q'.mul_one_eqv _))
+    (q_zero_add_eqv _)
+
+/-- Every power of degree at least two has zero linear coefficient when its
+base has zero constant coefficient. -/
+theorem linearCoeff_ppow_add_two_eqv_zero
+    (p : Poly) (hconstant : (constantCoeff p).eqv 0) (n : Nat) :
+    (linearCoeff (ppow p (n + 2))).eqv 0 := by
+  have htail := constantCoeff_ppow_succ_eqv_zero p hconstant n
+  refine Q'.eqv_trans _
+    (constantCoeff p * linearCoeff (ppow p (n + 1)) +
+      linearCoeff p * constantCoeff (ppow p (n + 1))) _
+    (linearCoeff_pmul p (ppow p (n + 1))) ?_
+  refine Q'.eqv_trans _ (0 * linearCoeff (ppow p (n + 1)) +
+      linearCoeff p * 0) _
+    (q_add_congr
+      (Q'.mul_eqv_congr_right _ 0 _ hconstant)
+      (Q'.mul_eqv_congr_left (linearCoeff p) _ 0 htail)) ?_
+  exact Q'.eqv_trans _ (0 + 0) _
+    (q_add_congr (q_zero_mul _) (q_mul_zero _))
+    (q_add_zero_eqv 0)
+
+theorem constantCoeff_artanhTermPoly_eqv_zero (k : Nat) :
+    (constantCoeff (artanhTermPoly k)).eqv 0 := by
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd k *
+      constantCoeff (ppow pvar (2 * k + 1))) _
+    (constantCoeff_pscale _ _) ?_
+  exact Q'.eqv_trans _ (CRealLog.recipOdd k * 0) _
+    (Q'.mul_eqv_congr_left _ _ 0
+      (constantCoeff_ppow_succ_eqv_zero pvar constantCoeff_pvar (2 * k)))
+    (q_mul_zero _)
+
+theorem linearCoeff_artanhTermPoly_zero_eqv_one :
+    (linearCoeff (artanhTermPoly 0)).eqv 1 := by
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd 0 * linearCoeff (ppow pvar 1)) _
+    (linearCoeff_pscale _ _) ?_
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd 0 * linearCoeff pvar) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (linearCoeff_ppow_one pvar constantCoeff_pvar)) ?_
+  exact Q'.eqv_trans _ (CRealLog.recipOdd 0 * 1) _
+    (Q'.mul_eqv_congr_left _ _ 1 linearCoeff_pvar)
+    (by decide)
+
+theorem linearCoeff_artanhTermPoly_succ_eqv_zero (k : Nat) :
+    (linearCoeff (artanhTermPoly (k + 1))).eqv 0 := by
+  have hexponent : 2 * (k + 1) + 1 = (2 * k + 1) + 2 := by omega
+  unfold artanhTermPoly
+  rw [hexponent]
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd (k + 1) *
+      linearCoeff (ppow pvar ((2 * k + 1) + 2))) _
+    (linearCoeff_pscale _ _) ?_
+  exact Q'.eqv_trans _ (CRealLog.recipOdd (k + 1) * 0) _
+    (Q'.mul_eqv_congr_left _ _ 0
+      (linearCoeff_ppow_add_two_eqv_zero
+        pvar constantCoeff_pvar (2 * k + 1)))
+    (q_mul_zero _)
+
+theorem constantCoeff_artanhPartialPoly_eqv_zero :
+    forall stage : Nat,
+      (constantCoeff (artanhPartialPoly stage)).eqv 0
+  | 0 => Q'.eqv_refl 0
+  | stage + 1 => by
+      refine Q'.eqv_trans _
+        (constantCoeff (artanhPartialPoly stage) +
+          constantCoeff (artanhTermPoly stage)) _
+        (constantCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (0 + 0) _
+        (q_add_congr
+          (constantCoeff_artanhPartialPoly_eqv_zero stage)
+          (constantCoeff_artanhTermPoly_eqv_zero stage))
+        (q_add_zero_eqv 0)
+
+theorem linearCoeff_artanhPartialPoly_succ_eqv_one :
+    forall stage : Nat,
+      (linearCoeff (artanhPartialPoly (stage + 1))).eqv 1
+  | 0 => by
+      refine Q'.eqv_trans _
+        (linearCoeff (artanhPartialPoly 0) +
+          linearCoeff (artanhTermPoly 0)) _
+        (linearCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (0 + 1) _
+        (q_add_congr (Q'.eqv_refl 0)
+          linearCoeff_artanhTermPoly_zero_eqv_one)
+        (q_zero_add_eqv 1)
+  | stage + 1 => by
+      refine Q'.eqv_trans _
+        (linearCoeff (artanhPartialPoly (stage + 1)) +
+          linearCoeff (artanhTermPoly (stage + 1))) _
+        (linearCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (1 + 0) _
+        (q_add_congr
+          (linearCoeff_artanhPartialPoly_succ_eqv_one stage)
+          (linearCoeff_artanhTermPoly_succ_eqv_zero stage))
+        (q_add_zero_eqv 1)
+
+theorem constantCoeff_positiveArtanhExponentPoly_eqv_zero (stage : Nat) :
+    (constantCoeff (positiveArtanhExponentPoly stage)).eqv 0 := by
+  refine Q'.eqv_trans _
+    (constantCoeff (artanhPartialPoly stage) +
+      constantCoeff (artanhPartialPoly stage)) _
+    (constantCoeff_padd _ _) ?_
+  exact Q'.eqv_trans _ (0 + 0) _
+    (q_add_congr
+      (constantCoeff_artanhPartialPoly_eqv_zero stage)
+      (constantCoeff_artanhPartialPoly_eqv_zero stage))
+    (q_add_zero_eqv 0)
+
+theorem linearCoeff_positiveArtanhExponentPoly_succ_eqv_two
+    (stage : Nat) :
+    (linearCoeff (positiveArtanhExponentPoly (stage + 1))).eqv
+      ((1 : Q') + 1) := by
+  refine Q'.eqv_trans _
+    (linearCoeff (artanhPartialPoly (stage + 1)) +
+      linearCoeff (artanhPartialPoly (stage + 1))) _
+    (linearCoeff_padd _ _) ?_
+  exact q_add_congr
+    (linearCoeff_artanhPartialPoly_succ_eqv_one stage)
+    (linearCoeff_artanhPartialPoly_succ_eqv_one stage)
+
+/-- Closed rational representative used by the linear jets of both sides. -/
+def negativeTwo : Q' := (-1 : Q') + (-1 : Q')
+
+theorem constantCoeff_expStepPoly_eqv_zero
+    (exponent : Poly) (hconstant : (constantCoeff exponent).eqv 0)
+    (k : Nat) :
+    (constantCoeff (expStepPoly exponent k)).eqv 0 := by
+  refine Q'.eqv_trans _
+    (Q'.invSucc k * constantCoeff (pneg exponent)) _
+    (constantCoeff_pscale _ _) ?_
+  refine Q'.eqv_trans _
+    (Q'.invSucc k * ((-1 : Q') * constantCoeff exponent)) _
+    (Q'.mul_eqv_congr_left _ _ _ (constantCoeff_pneg exponent)) ?_
+  refine Q'.eqv_trans _
+    (Q'.invSucc k * ((-1 : Q') * 0)) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (Q'.mul_eqv_congr_left (-1) _ 0 hconstant)) ?_
+  exact Q'.eqv_trans _ (Q'.invSucc k * 0) _
+    (Q'.mul_eqv_congr_left _ _ 0 (q_mul_zero (-1)))
+    (q_mul_zero _)
+
+theorem linearCoeff_expStepPoly_eqv
+    (exponent : Poly) (k : Nat) :
+    (linearCoeff (expStepPoly exponent k)).eqv
+      (Q'.invSucc k * ((-1 : Q') * linearCoeff exponent)) := by
+  exact Q'.eqv_trans _ _ _ (linearCoeff_pscale _ _)
+    (Q'.mul_eqv_congr_left _ _ _ (linearCoeff_pneg exponent))
+
+theorem constantCoeff_expTermPoly_zero (exponent : Poly) :
+    (constantCoeff (expTermPoly exponent 0)).eqv 1 :=
+  constantCoeff_pconst 1
+
+theorem constantCoeff_expTermPoly_succ_eqv_zero
+    (exponent : Poly) (hconstant : (constantCoeff exponent).eqv 0) :
+    forall k : Nat,
+      (constantCoeff (expTermPoly exponent (k + 1))).eqv 0
+  | k => by
+      refine Q'.eqv_trans _
+        (constantCoeff (expTermPoly exponent k) *
+          constantCoeff (expStepPoly exponent k)) _
+        (constantCoeff_pmul _ _) ?_
+      exact Q'.eqv_trans _
+        (constantCoeff (expTermPoly exponent k) * 0) _
+        (Q'.mul_eqv_congr_left _ _ 0
+          (constantCoeff_expStepPoly_eqv_zero exponent hconstant k))
+        (q_mul_zero _)
+
+theorem linearCoeff_expTermPoly_zero (exponent : Poly) :
+    (linearCoeff (expTermPoly exponent 0)).eqv 0 :=
+  linearCoeff_pconst 1
+
+theorem linearCoeff_expTermPoly_one_eqv_negativeTwo
+    (stage : Nat) :
+    (linearCoeff
+      (expTermPoly (positiveArtanhExponentPoly (stage + 1)) 1)).eqv
+      negativeTwo := by
+  let exponent := positiveArtanhExponentPoly (stage + 1)
+  have hconstant :=
+    constantCoeff_positiveArtanhExponentPoly_eqv_zero (stage + 1)
+  refine Q'.eqv_trans _
+    (constantCoeff (expTermPoly exponent 0) *
+        linearCoeff (expStepPoly exponent 0) +
+      linearCoeff (expTermPoly exponent 0) *
+        constantCoeff (expStepPoly exponent 0)) _
+    (linearCoeff_pmul _ _) ?_
+  refine Q'.eqv_trans _
+    (1 * (Q'.invSucc 0 * ((-1 : Q') * ((1 : Q') + 1))) +
+      0 * 0) _
+    (q_add_congr
+      (Q'.eqv_trans _
+        (1 * linearCoeff (expStepPoly exponent 0)) _
+        (Q'.mul_eqv_congr_right _ 1 _
+          (constantCoeff_expTermPoly_zero exponent))
+        (Q'.mul_eqv_congr_left 1 _ _
+          (Q'.eqv_trans _ _ _
+            (linearCoeff_expStepPoly_eqv exponent 0)
+            (Q'.mul_eqv_congr_left _ _ _
+              (Q'.mul_eqv_congr_left (-1) _ _
+                (linearCoeff_positiveArtanhExponentPoly_succ_eqv_two stage))))))
+      (Q'.eqv_trans _
+        (0 * constantCoeff (expStepPoly exponent 0)) _
+        (Q'.mul_eqv_congr_right _ 0 _
+          (linearCoeff_expTermPoly_zero exponent))
+        (Q'.mul_eqv_congr_left 0 _ 0
+          (constantCoeff_expStepPoly_eqv_zero exponent hconstant 0)))) ?_
+  exact Q'.eqv_trans _
+    (Q'.invSucc 0 * ((-1 : Q') * ((1 : Q') + 1))) _
+    (Q'.eqv_trans _ _ _
+      (q_add_congr (Q'.one_mul_eqv _) (q_mul_zero 0))
+      (q_add_zero_eqv _))
+    (by decide)
+
+theorem linearCoeff_expTermPoly_add_two_eqv_zero
+    (stage k : Nat) :
+    (linearCoeff
+      (expTermPoly (positiveArtanhExponentPoly (stage + 1)) (k + 2))).eqv
+      0 := by
+  let exponent := positiveArtanhExponentPoly (stage + 1)
+  have hconstant :=
+    constantCoeff_positiveArtanhExponentPoly_eqv_zero (stage + 1)
+  refine Q'.eqv_trans _
+    (constantCoeff (expTermPoly exponent (k + 1)) *
+        linearCoeff (expStepPoly exponent (k + 1)) +
+      linearCoeff (expTermPoly exponent (k + 1)) *
+        constantCoeff (expStepPoly exponent (k + 1))) _
+    (linearCoeff_pmul _ _) ?_
+  refine Q'.eqv_trans _
+    (0 * linearCoeff (expStepPoly exponent (k + 1)) +
+      linearCoeff (expTermPoly exponent (k + 1)) * 0) _
+    (q_add_congr
+      (Q'.mul_eqv_congr_right _ 0 _
+        (constantCoeff_expTermPoly_succ_eqv_zero exponent hconstant k))
+      (Q'.mul_eqv_congr_left _ _ 0
+        (constantCoeff_expStepPoly_eqv_zero exponent hconstant (k + 1)))) ?_
+  exact Q'.eqv_trans _ (0 + 0) _
+    (q_add_congr (q_zero_mul _) (q_mul_zero _))
+    (q_add_zero_eqv 0)
+
+theorem constantCoeff_expPartialPoly_succ_eqv_one
+    (exponent : Poly) (hconstant : (constantCoeff exponent).eqv 0) :
+    forall inner : Nat,
+      (constantCoeff (expPartialPoly exponent (inner + 1))).eqv 1
+  | 0 => by
+      refine Q'.eqv_trans _
+        (constantCoeff (expPartialPoly exponent 0) +
+          constantCoeff (expTermPoly exponent 0)) _
+        (constantCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (0 + 1) _
+        (q_add_congr (Q'.eqv_refl 0)
+          (constantCoeff_expTermPoly_zero exponent))
+        (q_zero_add_eqv 1)
+  | inner + 1 => by
+      refine Q'.eqv_trans _
+        (constantCoeff (expPartialPoly exponent (inner + 1)) +
+          constantCoeff (expTermPoly exponent (inner + 1))) _
+        (constantCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (1 + 0) _
+        (q_add_congr
+          (constantCoeff_expPartialPoly_succ_eqv_one exponent hconstant inner)
+          (constantCoeff_expTermPoly_succ_eqv_zero
+            exponent hconstant inner))
+        (q_add_zero_eqv 1)
+
+theorem linearCoeff_expPartialPoly_add_two_eqv_negativeTwo :
+    forall stage inner : Nat,
+      (linearCoeff
+        (expPartialPoly (positiveArtanhExponentPoly (stage + 1))
+          (inner + 2))).eqv negativeTwo
+  | stage, 0 => by
+      let exponent := positiveArtanhExponentPoly (stage + 1)
+      refine Q'.eqv_trans _
+        (linearCoeff (expPartialPoly exponent 1) +
+          linearCoeff (expTermPoly exponent 1)) _
+        (linearCoeff_padd _ _) ?_
+      have hpartialOne :
+          (linearCoeff (expPartialPoly exponent 1)).eqv 0 := by
+        refine Q'.eqv_trans _
+          (linearCoeff (expPartialPoly exponent 0) +
+            linearCoeff (expTermPoly exponent 0)) _
+          (linearCoeff_padd _ _) ?_
+        exact Q'.eqv_trans _ (0 + 0) _
+          (q_add_congr (Q'.eqv_refl 0)
+            (linearCoeff_expTermPoly_zero exponent))
+          (q_add_zero_eqv 0)
+      exact Q'.eqv_trans _ (0 + negativeTwo) _
+        (q_add_congr hpartialOne
+          (linearCoeff_expTermPoly_one_eqv_negativeTwo stage))
+        (q_zero_add_eqv negativeTwo)
+  | stage, inner + 1 => by
+      let exponent := positiveArtanhExponentPoly (stage + 1)
+      refine Q'.eqv_trans _
+        (linearCoeff (expPartialPoly exponent (inner + 2)) +
+          linearCoeff (expTermPoly exponent (inner + 2))) _
+        (linearCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (negativeTwo + 0) _
+        (q_add_congr
+          (linearCoeff_expPartialPoly_add_two_eqv_negativeTwo stage inner)
+          (linearCoeff_expTermPoly_add_two_eqv_zero stage inner))
+        (q_add_zero_eqv negativeTwo)
+
+theorem constantCoeff_neg_pvar_eqv_zero :
+    (constantCoeff (pneg pvar)).eqv 0 := by
+  exact Q'.eqv_trans _ ((-1 : Q') * 0) _
+    (Q'.eqv_trans _ _ _ (constantCoeff_pneg pvar)
+      (Q'.mul_eqv_congr_left (-1) _ 0 constantCoeff_pvar))
+    (q_mul_zero (-1))
+
+theorem linearCoeff_neg_pvar_eqv_neg_one :
+    (linearCoeff (pneg pvar)).eqv (-1 : Q') := by
+  exact Q'.eqv_trans _ ((-1 : Q') * 1) _
+    (Q'.eqv_trans _ _ _ (linearCoeff_pneg pvar)
+      (Q'.mul_eqv_congr_left (-1) _ 1 linearCoeff_pvar))
+    (Q'.mul_one_eqv (-1))
+
+theorem constantCoeff_geometricSumPoly_eqv_one :
+    forall degree : Nat,
+      (constantCoeff (geometricSumPoly degree)).eqv 1
+  | 0 => constantCoeff_pconst 1
+  | degree + 1 => by
+      refine Q'.eqv_trans _
+        (constantCoeff (geometricSumPoly degree) +
+          constantCoeff (ppow (pneg pvar) (degree + 1))) _
+        (constantCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (1 + 0) _
+        (q_add_congr
+          (constantCoeff_geometricSumPoly_eqv_one degree)
+          (constantCoeff_ppow_succ_eqv_zero
+            (pneg pvar) constantCoeff_neg_pvar_eqv_zero degree))
+        (q_add_zero_eqv 1)
+
+theorem linearCoeff_geometricSumPoly_succ_eqv_neg_one :
+    forall degree : Nat,
+      (linearCoeff (geometricSumPoly (degree + 1))).eqv (-1 : Q')
+  | 0 => by
+      refine Q'.eqv_trans _
+        (linearCoeff (geometricSumPoly 0) +
+          linearCoeff (ppow (pneg pvar) 1)) _
+        (linearCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ (0 + (-1 : Q')) _
+        (q_add_congr
+          (linearCoeff_pconst 1)
+          (Q'.eqv_trans _ _ _
+            (linearCoeff_ppow_one
+              (pneg pvar) constantCoeff_neg_pvar_eqv_zero)
+            linearCoeff_neg_pvar_eqv_neg_one))
+        (q_zero_add_eqv (-1))
+  | degree + 1 => by
+      refine Q'.eqv_trans _
+        (linearCoeff (geometricSumPoly (degree + 1)) +
+          linearCoeff (ppow (pneg pvar) (degree + 2))) _
+        (linearCoeff_padd _ _) ?_
+      exact Q'.eqv_trans _ ((-1 : Q') + 0) _
+        (q_add_congr
+          (linearCoeff_geometricSumPoly_succ_eqv_neg_one degree)
+          (linearCoeff_ppow_add_two_eqv_zero
+            (pneg pvar) constantCoeff_neg_pvar_eqv_zero degree))
+        (q_add_zero_eqv (-1))
+
+theorem constantCoeff_positiveArtanhNumeratorPoly_eqv_one :
+    (constantCoeff positiveArtanhNumeratorPoly).eqv 1 := by
+  refine Q'.eqv_trans _
+    (constantCoeff (pconst 1) + constantCoeff (pneg pvar)) _
+    (constantCoeff_padd _ _) ?_
+  exact Q'.eqv_trans _ (1 + 0) _
+    (q_add_congr (constantCoeff_pconst 1)
+      constantCoeff_neg_pvar_eqv_zero)
+    (q_add_zero_eqv 1)
+
+theorem linearCoeff_positiveArtanhNumeratorPoly_eqv_neg_one :
+    (linearCoeff positiveArtanhNumeratorPoly).eqv (-1 : Q') := by
+  refine Q'.eqv_trans _
+    (linearCoeff (pconst 1) + linearCoeff (pneg pvar)) _
+    (linearCoeff_padd _ _) ?_
+  exact Q'.eqv_trans _ (0 + (-1 : Q')) _
+    (q_add_congr (linearCoeff_pconst 1)
+      linearCoeff_neg_pvar_eqv_neg_one)
+    (q_zero_add_eqv (-1))
+
+theorem constantCoeff_positiveArtanhGeometricApproxPoly_eqv_one
+    (degree : Nat) :
+    (constantCoeff (positiveArtanhGeometricApproxPoly degree)).eqv 1 := by
+  refine Q'.eqv_trans _
+    (constantCoeff (geometricSumPoly degree) *
+      constantCoeff positiveArtanhNumeratorPoly) _
+    (constantCoeff_pmul _ _) ?_
+  exact Q'.eqv_trans _ (1 * 1) _
+    (Q'.eqv_trans _
+      (1 * constantCoeff positiveArtanhNumeratorPoly) _
+      (Q'.mul_eqv_congr_right _ 1 _
+        (constantCoeff_geometricSumPoly_eqv_one degree))
+      (Q'.mul_eqv_congr_left 1 _ 1
+        constantCoeff_positiveArtanhNumeratorPoly_eqv_one))
+    (Q'.one_mul_eqv 1)
+
+theorem linearCoeff_positiveArtanhGeometricApproxPoly_succ_eqv_negativeTwo
+    (degree : Nat) :
+    (linearCoeff
+      (positiveArtanhGeometricApproxPoly (degree + 1))).eqv negativeTwo := by
+  refine Q'.eqv_trans _
+    (constantCoeff (geometricSumPoly (degree + 1)) *
+        linearCoeff positiveArtanhNumeratorPoly +
+      linearCoeff (geometricSumPoly (degree + 1)) *
+        constantCoeff positiveArtanhNumeratorPoly) _
+    (linearCoeff_pmul _ _) ?_
+  refine Q'.eqv_trans _
+    (1 * (-1 : Q') + (-1 : Q') * 1) _
+    (q_add_congr
+      (Q'.eqv_trans _
+        (1 * linearCoeff positiveArtanhNumeratorPoly) _
+        (Q'.mul_eqv_congr_right _ 1 _
+          (constantCoeff_geometricSumPoly_eqv_one (degree + 1)))
+        (Q'.mul_eqv_congr_left 1 _ (-1)
+          linearCoeff_positiveArtanhNumeratorPoly_eqv_neg_one))
+      (Q'.eqv_trans _
+        ((-1 : Q') * constantCoeff positiveArtanhNumeratorPoly) _
+        (Q'.mul_eqv_congr_right _ (-1) _
+          (linearCoeff_geometricSumPoly_succ_eqv_neg_one degree))
+        (Q'.mul_eqv_congr_left (-1) _ 1
+          constantCoeff_positiveArtanhNumeratorPoly_eqv_one))) ?_
+  decide
+
+theorem constantCoeff_positiveArtanhEulerGeometricDifferencePoly_eqv_zero
+    (stage inner degree : Nat) (hstage : 1 <= stage)
+    (hinner : 1 <= inner) :
+    (constantCoeff (positiveArtanhEulerGeometricDifferencePoly
+      stage inner degree)).eqv 0 := by
+  cases stage with
+  | zero => omega
+  | succ stage =>
+      cases inner with
+      | zero => omega
+      | succ inner =>
+          let exponent := positiveArtanhExponentPoly (stage + 1)
+          refine Q'.eqv_trans _
+            (constantCoeff (expPartialPoly exponent (inner + 1)) +
+              ((-1 : Q') *
+                constantCoeff (positiveArtanhGeometricApproxPoly degree))) _
+            (constantCoeff_psub _ _) ?_
+          refine Q'.eqv_trans _ (1 + ((-1 : Q') * 1)) _
+            (q_add_congr
+              (constantCoeff_expPartialPoly_succ_eqv_one exponent
+                (constantCoeff_positiveArtanhExponentPoly_eqv_zero
+                  (stage + 1)) inner)
+              (Q'.mul_eqv_congr_left (-1) _ 1
+                (constantCoeff_positiveArtanhGeometricApproxPoly_eqv_one
+                  degree))) ?_
+          decide
+
+theorem linearCoeff_positiveArtanhEulerGeometricDifferencePoly_eqv_zero
+    (stage inner degree : Nat)
+    (hstage : 1 <= stage) (hinner : 2 <= inner)
+    (hdegree : 1 <= degree) :
+    (linearCoeff (positiveArtanhEulerGeometricDifferencePoly
+      stage inner degree)).eqv 0 := by
+  cases stage with
+  | zero => omega
+  | succ stage =>
+      cases inner with
+      | zero => omega
+      | succ inner =>
+          cases inner with
+          | zero => omega
+          | succ inner =>
+              cases degree with
+              | zero => omega
+              | succ degree =>
+                  let exponent := positiveArtanhExponentPoly (stage + 1)
+                  refine Q'.eqv_trans _
+                    (linearCoeff (expPartialPoly exponent (inner + 2)) +
+                      ((-1 : Q') *
+                        linearCoeff
+                          (positiveArtanhGeometricApproxPoly (degree + 1)))) _
+                    (linearCoeff_psub _ _) ?_
+                  refine Q'.eqv_trans _
+                    (negativeTwo + ((-1 : Q') * negativeTwo)) _
+                    (q_add_congr
+                      (linearCoeff_expPartialPoly_add_two_eqv_negativeTwo
+                        stage inner)
+                      (Q'.mul_eqv_congr_left (-1) _ _
+                        (linearCoeff_positiveArtanhGeometricApproxPoly_succ_eqv_negativeTwo
+                          degree))) ?_
+                  decide
+
+/-- The constant and linear coefficients cancel whenever all three finite
+truncations have reached the orders at which those jets stabilize. -/
+theorem zeroPrefix_two_positiveArtanhEulerGeometricDifferencePoly
+    (stage inner degree : Nat)
+    (hstage : 1 <= stage) (hinner : 2 <= inner)
+    (hdegree : 1 <= degree) :
+    zeroPrefix 2
+      (positiveArtanhEulerGeometricDifferencePoly stage inner degree) :=
+  zeroPrefix_two_of_coefficients_zero _
+    (constantCoeff_positiveArtanhEulerGeometricDifferencePoly_eqv_zero
+      stage inner degree hstage (Nat.le_trans (by decide) hinner))
+    (linearCoeff_positiveArtanhEulerGeometricDifferencePoly_eqv_zero
+      stage inner degree hstage hinner hdegree)
+
 /-! ## The first exact cancellation -/
 
 /-- Every nonconstant Euler term vanishes when its exponent is zero. -/
@@ -566,6 +1112,82 @@ theorem one_le_positiveArtanhEulerAnchorPivot (z epsilon : Q') :
   unfold positiveArtanhEulerAnchorPivot
   exact one_le_expNegMexp _ _
 
+/-- Positive rational powers remain positive. -/
+theorem qpow_pos (z : Q') (hz : (0 : Q') < z) :
+    forall n : Nat, (0 : Q') < z ^ n
+  | 0 => by
+      rw [Q'.pow_zero]
+      decide
+  | n + 1 => Q'.mul_pos hz (qpow_pos z hz n)
+
+theorem artanhTerm_pos (z : Q') (hz : (0 : Q') < z) (k : Nat) :
+    (0 : Q') < CRealLog.term z k :=
+  Q'.mul_pos (qpow_pos z hz (2 * k + 1)) (CRealLog.recipOdd_pos k)
+
+theorem artanhPartialSum_succ_pos (z : Q') (hz : (0 : Q') < z) :
+    forall stage : Nat,
+      (0 : Q') < CRealLog.partialSum z (stage + 1)
+  | 0 => by
+      rw [CRealLog.partialSum_succ, CRealLog.partialSum_zero, Q'.zero_add']
+      exact artanhTerm_pos z hz 0
+  | stage + 1 => by
+      rw [CRealLog.partialSum_succ]
+      exact Q'.add_pos
+        (artanhPartialSum_succ_pos z hz stage)
+        (artanhTerm_pos z hz (stage + 1))
+
+theorem one_le_positiveArtanhEulerAnchorStage (epsilon : Q') :
+    1 <= positiveArtanhEulerAnchorStage epsilon := by
+  unfold positiveArtanhEulerAnchorStage positiveArtanhExponentModulus
+    CRealLog.Martanh
+  have hden :=
+    (Q'.mkPos 8 9 (by decide) *
+      (HalfPow.half * positiveArtanhAnchorOuterTolerance epsilon)).den_pos
+  omega
+
+theorem positiveArtanhExponent_pos_of_one_le
+    (z : Q') (hz : (0 : Q') < z) (stage : Nat)
+    (hstage : 1 <= stage) :
+    (0 : Q') < positiveArtanhExponent z stage := by
+  cases stage with
+  | zero => omega
+  | succ stage =>
+      unfold positiveArtanhExponent
+      exact Q'.add_pos
+        (artanhPartialSum_succ_pos z hz stage)
+        (artanhPartialSum_succ_pos z hz stage)
+
+theorem two_le_halfRatioCutoff_of_pos
+    (x : Q') (hx : (0 : Q') < x) :
+    2 <= RatNat.halfRatioCutoff x := by
+  have hnum : 0 < x.num := Q'.num_pos_of_pos hx
+  have hcast : (x.num.toNat : Int) = x.num :=
+    Int.toNat_of_nonneg (Int.le_of_lt hnum)
+  have hnat : 0 < x.num.toNat := by omega
+  unfold RatNat.halfRatioCutoff
+  omega
+
+theorem two_le_expNegMexp_of_pos
+    (x epsilon : Q') (hx : (0 : Q') < x) :
+    2 <= ExpNeg.Mexp x epsilon := by
+  unfold ExpNeg.Mexp
+  exact Nat.le_trans (two_le_halfRatioCutoff_of_pos x hx)
+    (Nat.le_max_left _ _)
+
+theorem two_le_positiveArtanhEulerAnchorPivot
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    2 <= positiveArtanhEulerAnchorPivot z epsilon := by
+  unfold positiveArtanhEulerAnchorPivot
+  exact two_le_expNegMexp_of_pos _ _
+    (positiveArtanhExponent_pos_of_one_le z hz _
+      (one_le_positiveArtanhEulerAnchorStage epsilon))
+
+theorem one_le_positiveArtanhGeometricAnchorDegree (epsilon : Q') :
+    1 <= positiveArtanhGeometricAnchorDegree epsilon := by
+  unfold positiveArtanhGeometricAnchorDegree
+  have hden := (positiveArtanhGeometricComparisonTolerance epsilon).den_pos
+  omega
+
 /-- The first coefficient cancels for every positive-length Euler truncation.
 This is the first proved segment of the expected full formal prefix. -/
 theorem zeroPrefix_one_positiveArtanhEulerGeometricDifferencePoly
@@ -600,6 +1222,17 @@ theorem zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
   unfold positiveArtanhEulerAnchorDifferencePoly
   exact zeroPrefix_one_positiveArtanhEulerGeometricDifferencePoly _ _ _
     (one_le_positiveArtanhEulerAnchorPivot z epsilon)
+
+/-- At every positive input, the fully computed anchor cancels both its
+constant and linear coefficients. -/
+theorem zeroPrefix_two_positiveArtanhEulerAnchorDifferencePoly
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    zeroPrefix 2 (positiveArtanhEulerAnchorDifferencePoly z epsilon) := by
+  unfold positiveArtanhEulerAnchorDifferencePoly
+  exact zeroPrefix_two_positiveArtanhEulerGeometricDifferencePoly _ _ _
+    (one_le_positiveArtanhEulerAnchorStage epsilon)
+    (two_le_positiveArtanhEulerAnchorPivot z hz epsilon)
+    (one_le_positiveArtanhGeometricAnchorDegree epsilon)
 
 /-- The fully computed cancellation-prefix length. -/
 def positiveArtanhEulerAnchorCancellationCount
@@ -709,6 +1342,24 @@ structure PositiveWindowArtanhEulerPolynomialOneTailCompiler : Type 2 where
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialOneTailCertificate z hz hzb
 
+/-- Tail-only presentation after both the constant and linear coefficients
+have been proved to cancel. -/
+structure PositiveWindowArtanhEulerPolynomialTwoTailCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    (Q'.abs z) ^ 2 *
+        weightedL1 (Q'.abs z)
+          (List.drop 2 (positiveArtanhEulerAnchorDifferencePoly z epsilon)) <=
+      positiveArtanhGeometricComparisonTolerance epsilon
+
+/-- Uniform producer of the quadratic-radius tail certificate. -/
+structure PositiveWindowArtanhEulerPolynomialTwoTailCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialTwoTailCertificate z hz hzb
+
 namespace PositiveWindowArtanhEulerPolynomialOneTailCertificate
 
 /-- The proved constant cancellation contracts the sole remaining tail field
@@ -731,6 +1382,31 @@ end PositiveWindowArtanhEulerPolynomialOneTailCertificate
 /-- A tail-only compiler produces the full coefficient compiler. -/
 def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfOneTail
     (compiler : PositiveWindowArtanhEulerPolynomialOneTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toCoefficient
+
+namespace PositiveWindowArtanhEulerPolynomialTwoTailCertificate
+
+/-- The proved constant and linear cancellations contract the quadratic tail
+to the full coefficient inequality. -/
+def toCoefficient
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerPolynomialTwoTailCertificate
+      z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCertificate z hz hzb where
+  coefficientBound epsilon hepsilon := by
+    have hfactor := weightedL1_eqv_pow_mul_drop_of_zeroPrefix
+      (Q'.abs z) 2 (positiveArtanhEulerAnchorDifferencePoly z epsilon)
+      (zeroPrefix_two_positiveArtanhEulerAnchorDifferencePoly z hz epsilon)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hfactor)
+      (certificate.tailBound epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialTwoTailCertificate
+
+/-- A quadratic-tail compiler produces the full coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTwoTail
+    (compiler : PositiveWindowArtanhEulerPolynomialTwoTailCompiler) :
     PositiveWindowArtanhEulerPolynomialCoefficientCompiler where
   evaluate z hz hzb := (compiler.evaluate z hz hzb).toCoefficient
 
@@ -867,6 +1543,13 @@ def positiveWindowArtanhEulerCompilerOfPolynomialOneTail
   positiveWindowArtanhEulerCompilerOfPolynomial
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfOneTail compiler)
 
+/-- The quadratic-radius tail compiler compiles to the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialTwoTail
+    (compiler : PositiveWindowArtanhEulerPolynomialTwoTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTwoTail compiler)
+
 /-- Uniform executable coefficient checks compile all the way to the scalar
 inverse. -/
 def positiveWindowArtanhEulerCompilerOfPolynomialChecked
@@ -894,7 +1577,11 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_two_positiveArtanhEulerAnchorDifferencePoly
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialOneTailCertificate.toCoefficient
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialTwoTailCertificate.toCoefficient
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientCertificate.toGeometricValueAnchor
 #print axioms

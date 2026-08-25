@@ -15199,3 +15199,44 @@ expose a much higher power of `abs z`.  Exact-rate, transfer/finite-graph
 approximation, raw-observable semantics and nontriviality, projective OS/GNS,
 vacuum stationarity, continuum existence, QFT axioms, and the Clay conclusion
 remain open.
+
+## Linear jet cancelled; quadratic-radius tail exposed (2026-08-24)
+
+A reusable constructive two-jet layer now extracts the constant and linear
+coefficients of `QPoly` lists and proves their laws under polynomial addition,
+scaling, multiplication, negation, and subtraction.  These laws are kept in
+`QPolyJetOne`; the two-coefficient Boolean prefix follows from two rational
+jet equalities without any axiom.
+
+The artanh-Euler anchor has been propagated through that layer.  At every
+positive-length outer artanh stage its exponent has jets `(0,2)`.  With at
+least two exponential terms, the finite Euler polynomial has jets `(1,-2)`.
+With at least one geometric degree, the finite comparison polynomial also has
+jets `(1,-2)`.  The computed anchor indices satisfy exactly those lower
+bounds: the outer stage and geometric degree are positive denominators, and a
+positive input makes the exponent positive, forcing `halfRatioCutoff >= 2`
+and hence `Mexp >= 2`.
+
+Therefore
+`zeroPrefix_two_positiveArtanhEulerAnchorDifferencePoly` proves the first two
+anchor coefficients cancel uniformly on the positive window.
+`PositiveWindowArtanhEulerPolynomialTwoTailCertificate` leaves the single
+explicit obligation
+
+`abs(z)^2 * weightedL1 (abs z) (drop 2 anchorDifference) <= tolerance`,
+
+and its adapter contracts this through the existing scalar inverse and the
+same connected Wilson observable path.
+
+Exact one-worker targets pass 48 jobs for `QPolyJetOne`, 62 jobs for the
+polynomial anchor, and 5115 jobs for the connected capstone.  The audited gates
+remain within `[propext, Quot.sound]`.
+
+The quadratic-tail compiler is uninhabited.  This does not prove the full
+computed cancellation prefix; the next formal frontier is a general
+finite-jet/prefix induction, while the next analytic frontier is a weighted
+bound on the remaining tail.  The current evidence favors continuing the
+formal-prefix path because each extra cancellation supplies another uniform
+factor `abs z <= 1/3`, whereas a fixed two-jet bound alone cannot obviously
+track arbitrarily small tolerances.  All later physical and continuum
+residuals remain open.

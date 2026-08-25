@@ -13427,3 +13427,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   61 jobs for the polynomial anchor, and 5114 jobs for the connected capstone.
   This closes one exact coefficient only; it does not close the full formal
   prefix, weighted tail, scalar inverse, operator gap, or continuum target.
+
+### [BF4-physical-positive-artanh-polynomial-two-tail] Prove the linear cancellation and expose a quadratic tail — **CLOSED 2026-08-24**
+
+- **milestone**: build constant/linear formal jets for the constructive
+  coefficient-list algebra; compute the artanh exponent, finite Euler sum, and
+  finite geometric comparison jets; prove the computed anchor stage is at
+  least one, the positive-input Euler pivot is at least two, and the geometric
+  degree is at least one; use those facts to prove a uniform two-coefficient
+  zero prefix and compile the residual quadratic-radius tail through the
+  connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyJetOne.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyJetOne.constantCoeff`, `QPolyJetOne.linearCoeff`,
+  `QPolyJetOne.linearCoeff_pmul`,
+  `QPolyJetOne.zeroPrefix_two_of_coefficients_zero`,
+  `CRealArtanhEulerPolynomialAnchor.linearCoeff_expPartialPoly_add_two_eqv_negativeTwo`,
+  `CRealArtanhEulerPolynomialAnchor.linearCoeff_positiveArtanhGeometricApproxPoly_succ_eqv_negativeTwo`,
+  `CRealArtanhEulerPolynomialAnchor.two_le_positiveArtanhEulerAnchorPivot`,
+  `CRealArtanhEulerPolynomialAnchor.zeroPrefix_two_positiveArtanhEulerAnchorDifferencePoly`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialTwoTailCertificate.toCoefficient`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialTwoTailCompiler`.
+- **obligation**: inhabit the quadratic-tail compiler, or continue the formal
+  prefix induction to the full computed count before estimating the tail.  A
+  fixed quadratic factor does not by itself provide arbitrary-precision
+  decay at the endpoint `abs z = 1/3`; the general prefix remains the likely
+  sharp route.  Exact-rate, transfer/finite-graph, raw-observable,
+  projective OS/GNS, vacuum, continuum, QFT, and Clay inputs remain separate
+  and open.
+- **constructive?**: yes.  The jet carrier is explicit rational data; all
+  algebraic laws are recursive `Q'.eqv` proofs; index lower bounds come from
+  positive natural denominators and positive rational numerators; and the
+  resulting prefix is an executable Boolean certificate.  No tail compiler
+  is claimed inhabited.  Gates stay within `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 48 jobs for `QPolyJetOne`, 62
+  jobs for the polynomial anchor, and 5115 jobs for the connected capstone.
+  This closes two coefficients only, not the full formal prefix or any later
+  scalar, operator, or continuum target.
