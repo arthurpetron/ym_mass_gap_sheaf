@@ -15177,3 +15177,59 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   reports zero hits, the source declaration scan finds no custom axiom or
   noncomputable definition, and the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-explicit-subunit-ray] Construct the selected ray at every positive subunit nome — **CLOSED 2026-08-25**
+
+- **milestone**: construct an explicit degree-thirteen decorated-face tail
+  cutoff for every rational `0 < w < 1`; bound the spin-summed face activity
+  by a computed finite prefix and geometric tail; lift that ceiling through
+  the exact 66-face residual carrier and full raw row; package the resulting
+  selected-term row ceiling, positive return floor, and ray capacity; and
+  install them scale-wise at the literal matched BF4/AF nome without changing
+  the physical spacing or downstream completed objects.
+- **files**:
+  `lean/YMGap/Continuum/Z4SpinSummedFaceActivityParametricEnvelope.lean`,
+  `lean/YMGap/Continuum/BF4CentralSpinCubeResidualCarrierSumBound.lean`,
+  `lean/YMGap/Continuum/BF4CentralSpinCubeRawRowCeiling.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeExplicitSubunitSelectedTermRowCeiling.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayCompiler.lean`.
+- **decl**:
+  `explicitDecoratedFaceOffsetCutoff`,
+  `explicitDecoratedFaceTailRatio_le_half`,
+  `explicitFixedNomeDecoratedFaceCeiling`,
+  `fixedNomeDecoratedPlaqActivity_le_explicitCeiling`,
+  `explicitFixedNomeCentralSpinCubeResidualCarrierCeiling`,
+  `centralSpinCubeResidualCarrierSum_le_explicitFixedNomeCeiling`,
+  `centralLowerSpinCubePositiveRawRow_le_activity_mul_explicitFixedNomeCeiling`,
+  `explicitSubunitCentralSpinCubeSelectedTermRowCeiling`,
+  `explicitSubunitCentralSpinCubeRayCapacity_pos`,
+  `explicitSelectedTermRayProducer`,
+  `ExplicitTransitionProductExtension`,
+  `explicitMatchedRayCapacity_delta_pos`,
+  `toDynamicFamily`, `toCompletedFamily`,
+  `toNormalizedStrengthLaw`, `StrengthBand`, and
+  `SameObjectObservablePin`.
+- **obligation**: inhabit the sole remaining matched local field,
+  `ExplicitTransitionProductExtension trajectory`, by constructing the
+  adaptive off-ray transition product at the exact nome-dependent ray
+  capacity.  After that common completed family exists, the normalized
+  strength/spacing band and nonzero same-object observable pin are independent
+  downstream branches.  Physical cubic and spacing data, full trajectory
+  identification, projective OS/GNS reconstruction, thermodynamic/continuum
+  compatibility, continuum Yang--Mills existence, and Clay closure remain
+  open.  The explicit ceiling depends on `w` and is not a scale-uniform mass
+  estimate.
+- **constructive?**: yes.  The tail cutoff is explicit natural data, all
+  prefix sums and carrier products are finite, every comparison is over
+  `Q'`, and the matched specialization uses the already proved pointwise
+  nome window.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: focused monitored checks pass.  Dependency-complete
+  one-worker targets pass 532 jobs for the face envelope, 996 for the carrier
+  sum, 5037 for the raw row, 5041 for the selected-term package, and 5079 for
+  the matched bridge.  Newly printed exports use only
+  `[propext, Quot.sound]` or `[propext]`.  The root aggregator imports the
+  matched bridge.  A monitored root source check stopped immediately because
+  the pre-existing `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean`
+  artifact is absent; no root check or full-root audit is claimed.

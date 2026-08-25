@@ -14,6 +14,7 @@ noncomputable declaration is used.
 import YMGap.Continuum.BF4CentralSpinCubeTermDecoratedBound
 import YMGap.Continuum.Z4BoundedEdgeLabellingNodup
 import YMGap.Continuum.Z4HalfTimeReflectionPhysicalReindex
+import YMGap.Continuum.Z4SpinSummedFaceActivityParametricEnvelope
 
 namespace YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound
 
@@ -40,6 +41,7 @@ open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalReindex
 open YMGap.Continuum.Z4SpinSummedFaceActivityBound
+open YMGap.Continuum.Z4SpinSummedFaceActivityParametricEnvelope
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
 local infix:50 " ≈ " => Q'.eqv
@@ -167,6 +169,45 @@ theorem boundedSpinVectors_weight_sum (cutoff : Nat) : forall size : Nat,
         (Q'.mul_eqv_congr_left
           (1 + anchorDecoratedPlaqActivity cutoff) _ _
           (boundedSpinVectors_weight_sum cutoff size))
+
+/-! The same Cartesian factorization at an arbitrary literal nome. -/
+
+theorem allSpinValues_fixedNome_weight_sum (w : Q') (cutoff : Nat) :
+    listQSum (fixedNomeDecoratedFaceActivity w) (allSpinValues cutoff) ≈
+      1 + fixedNomeDecoratedPlaqActivity w cutoff := by
+  unfold allSpinValues
+  change fixedNomeDecoratedFaceActivity w 0 +
+      listQSum (fixedNomeDecoratedFaceActivity w)
+        (positiveSpinValues cutoff) ≈
+    1 + fixedNomeDecoratedPlaqActivity w cutoff
+  exact Q'.add_eqv_congr'
+    (fixedNomeDecoratedFaceActivity_zero_eqv_one w)
+    (positiveSpinValues_fixedNome_weight_sum w cutoff)
+
+theorem boundedSpinVectors_fixedNome_weight_sum
+    (w : Q') (cutoff : Nat) : forall size : Nat,
+    listQSum (fixedNomeSpinVectorWeight w)
+        (boundedSpinVectors cutoff size) ≈
+      (1 + fixedNomeDecoratedPlaqActivity w cutoff) ^ size
+  | 0 => by
+      change (1 : Q') + 0 ≈ 1
+      exact Q'.eqv_of_eq (Q'.add_zero' 1)
+  | size + 1 => by
+      unfold boundedSpinVectors
+      rw [listQSum_map]
+      refine Q'.eqv_trans _ _ _
+        (listQSum_cartesian_product
+          (fixedNomeDecoratedFaceActivity w)
+          (fixedNomeSpinVectorWeight w)
+          (allSpinValues cutoff)
+          (boundedSpinVectors cutoff size)) ?_
+      rw [Q'.pow_succ]
+      exact Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ _
+          (allSpinValues_fixedNome_weight_sum w cutoff))
+        (Q'.mul_eqv_congr_left
+          (1 + fixedNomeDecoratedPlaqActivity w cutoff) _ _
+          (boundedSpinVectors_fixedNome_weight_sum w cutoff size))
 
 /-! ## 2. The actual boundary-target carrier embeds in those vectors -/
 
@@ -320,6 +361,16 @@ private theorem eliminateLinks_eq_vectorWeight
       simp only [eliminateLinks, List.map_cons, anchorSpinVectorWeight]
       rw [eliminateLinks_eq_vectorWeight physical rest]
 
+private theorem eliminateLinks_eq_fixedNomeVectorWeight
+    (w : Q') (physical : EdgeLabelling) : forall ids : List Nat,
+    eliminateLinks
+        (fun id => fixedNomeDecoratedFaceActivity w (physical id)) ids =
+      fixedNomeSpinVectorWeight w (ids.map physical)
+  | [] => rfl
+  | id :: rest => by
+      simp only [eliminateLinks, List.map_cons, fixedNomeSpinVectorWeight]
+      rw [eliminateLinks_eq_fixedNomeVectorWeight w physical rest]
+
 theorem centralSpinCubeResidualCarrierSum_le_vectorPower
     (cutoff : Nat) :
     listQSum
@@ -357,6 +408,46 @@ theorem centralSpinCubeResidualCarrierSum_le_vectorPower
   exact Q'.le_trans' _ _ _ hinjection
     (Q'.le_of_eqv
       (boundedSpinVectors_weight_sum cutoff
+        centralSpinCubeNonSourceFaceIds.length))
+
+/-- The exact boundary-target carrier at an arbitrary nonnegative nome embeds
+in the independent product of the corresponding degree-thirteen face sums. -/
+theorem centralSpinCubeResidualCarrierSum_le_vectorPower_fixedNome
+    {w : Q'} (hw0 : (0 : Q') <= w) (cutoff : Nat) :
+    listQSum
+        (fun pair => centralSpinCubeResidualDecoratedFaceProduct
+          w pair.1 pair.2)
+        (centralSpinCubeBoundaryTargetPairs cutoff) <=
+      (1 + fixedNomeDecoratedPlaqActivity w cutoff) ^
+        centralSpinCubeNonSourceFaceIds.length := by
+  let source := centralSpinCubeBoundaryTargetPairs cutoff
+  let target := boundedSpinVectors cutoff
+    centralSpinCubeNonSourceFaceIds.length
+  let sourceWeight := fun pair : EdgeLabelling × EdgeLabelling =>
+    centralSpinCubeResidualDecoratedFaceProduct w pair.1 pair.2
+  have hinjection :
+      listQSum sourceWeight source <=
+        listQSum (fixedNomeSpinVectorWeight w) target := by
+    apply listQSum_le_of_injective source target
+      sourceWeight (fixedNomeSpinVectorWeight w) centralSpinCubePairVector
+    · exact centralSpinCubeBoundaryTargetPairs_nodup cutoff
+    · intro pair hpair
+      exact centralSpinCubePairVector_mem hpair
+    · intro left hleft right hright heq
+      exact centralSpinCubePairVector_injective_on hleft hright heq
+    · intro pair _hpair
+      apply Q'.le_of_eqv
+      apply Q'.eqv_of_eq
+      unfold sourceWeight centralSpinCubeResidualDecoratedFaceProduct
+        centralSpinCubePairVector
+      exact eliminateLinks_eq_fixedNomeVectorWeight
+        w (centralVacuumSourcePhysical pair.1 pair.2)
+          centralSpinCubeNonSourceFaceIds
+    · intro vector _hvector
+      exact fixedNomeSpinVectorWeight_nonnegative hw0 vector
+  exact Q'.le_trans' _ _ _ hinjection
+    (Q'.le_of_eqv
+      (boundedSpinVectors_fixedNome_weight_sum w cutoff
         centralSpinCubeNonSourceFaceIds.length))
 
 /-! ## 3. The fixed 66-face uniform scalar ceiling -/
@@ -408,6 +499,50 @@ theorem centralSpinCubeResidualCarrierSum_le_ceiling (cutoff : Nat) :
   exact Q'.le_trans' _ _ _ hsum
     (qpow_le_qpow_of_le hbase0 hbase 66)
 
+/-! ## 4. The explicit nome-dependent 66-face ceiling -/
+
+def explicitFixedNomeCentralSpinCubeResidualCarrierCeiling
+    (w : Q') : Q' :=
+  (1 + explicitFixedNomeDecoratedFaceCeiling w) ^ 66
+
+theorem explicitFixedNomeCentralSpinCubeResidualCarrierCeiling_nonnegative
+    {w : Q'} (hw0 : (0 : Q') < w) :
+    (0 : Q') <=
+      explicitFixedNomeCentralSpinCubeResidualCarrierCeiling w := by
+  unfold explicitFixedNomeCentralSpinCubeResidualCarrierCeiling
+  exact Q'.pow_nonneg _
+    (Q'.zero_le_add _ _ Q'.zero_le_one
+      (explicitFixedNomeDecoratedFaceCeiling_nonnegative hw0)) 66
+
+/-- For every rational `0 < w < 1`, the literal 66-face residual carrier has
+a computed cutoff-independent ceiling.  The ceiling may grow with `w`; no
+nome-uniform weak-coupling bound is claimed. -/
+theorem centralSpinCubeResidualCarrierSum_le_explicitFixedNomeCeiling
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (cutoff : Nat) :
+    listQSum
+        (fun pair => centralSpinCubeResidualDecoratedFaceProduct
+          w pair.1 pair.2)
+        (centralSpinCubeBoundaryTargetPairs cutoff) <=
+      explicitFixedNomeCentralSpinCubeResidualCarrierCeiling w := by
+  have hsum :=
+    centralSpinCubeResidualCarrierSum_le_vectorPower_fixedNome
+      (Q'.le_of_lt hw0) cutoff
+  rw [centralSpinCubeNonSourceFaceIds_length] at hsum
+  have hbase :
+      1 + fixedNomeDecoratedPlaqActivity w cutoff <=
+        1 + explicitFixedNomeDecoratedFaceCeiling w :=
+    Q'.add_le_add_left 1 _ _
+      (fixedNomeDecoratedPlaqActivity_le_explicitCeiling
+        hw0 hw1 cutoff)
+  have hbase0 :
+      (0 : Q') <= 1 + fixedNomeDecoratedPlaqActivity w cutoff :=
+    Q'.zero_le_add _ _ Q'.zero_le_one
+      (fixedNomeDecoratedPlaqActivity_nonnegative
+        (Q'.le_of_lt hw0) cutoff)
+  exact Q'.le_trans' _ _ _ hsum
+    (qpow_le_qpow_of_le hbase0 hbase 66)
+
 end YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound
 
 /-! ## Dependency gates -/
@@ -416,3 +551,5 @@ end YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound
 #print axioms YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound.centralSpinCubePairVector_injective_on
 #print axioms YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound.centralSpinCubeResidualCarrierSum_le_vectorPower
 #print axioms YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound.centralSpinCubeResidualCarrierSum_le_ceiling
+#print axioms YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound.centralSpinCubeResidualCarrierSum_le_vectorPower_fixedNome
+#print axioms YMGap.Continuum.BF4CentralSpinCubeResidualCarrierSumBound.centralSpinCubeResidualCarrierSum_le_explicitFixedNomeCeiling

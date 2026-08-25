@@ -16896,3 +16896,64 @@ pass; the target completes all 5076 jobs.  Its eight printed exports use only
 reports zero hits, the module declares no custom axiom or noncomputable
 definition, and the root aggregator imports it.  No full-root audit is
 claimed.
+
+## Every positive subunit matched nome now has an explicit ray capacity (2026-08-25)
+
+`Z4SpinSummedFaceActivityParametricEnvelope` replaces the anchor-only
+spin-summed face estimate by an arbitrary-nome construction.  For every
+rational `0 < w < 1`, the existing constructive power cutoff is applied to
+the degree-thirteen tail ratio
+
+`2^13 * w^(2*S + 3)`.
+
+Choosing the explicit power target `2^-14` makes that ratio at most `1/2`.
+The finite geometric-tail compiler then bounds every later decorated face
+activity by a computed finite prefix plus twice its first tail term.  The
+ceiling is an explicit rational depending on `w`; no compactness, choice, or
+unlocated supremum is used.
+
+`BF4CentralSpinCubeResidualCarrierSumBound` applies this face envelope to all
+66 non-source faces of the exact central spin-cube residual carrier.  The
+resulting ceiling is `(1 + faceCeiling w)^66`.
+`BF4CentralSpinCubeRawRowCeiling` factors the six source faces as the literal
+selected physical term and proves the complete positive raw-row comparison
+at every cutoff and every positive subunit nome.
+
+`BF4PhysicalSpinCubeExplicitSubunitSelectedTermRowCeiling` packages that
+comparison in the pre-existing selected-term interface.  Its positive
+reciprocal return floor and half-floor ray capacity are therefore constructed
+for every `0 < w < 1`, not merely for the fixed `1/400` anchor.
+
+Finally, `BF4PhysicalMatchedAFDynamicExplicitRayCompiler` installs this
+ceiling at the exact scale-wise nome
+`blockedWeight family (trajectory.coupling scale)`.  The matched local
+frontier has consequently contracted from two serial analytic fields to one:
+only the adaptive transition-product extension at the exact compiled
+capacity remains.  Any inhabitant still produces the same completed carrier,
+transfer, vacuum complement, strength law, and same-object observable
+interface, with nome and spacing definitionally pinned to the matched action.
+
+The concurrency count must be read causally.  The selected-row ceiling and
+transition product were serial, not parallel.  After the remaining extension
+constructs the common completed family, the strength-band and same-object-pin
+consumers can be developed in parallel.  At the broader connected/normalized
+continuum frontier, as already recorded, up to seven producers may be worked
+on in parallel, but all must rejoin on the same typed family, raw observable,
+Wilson datum, and transfer.  Parallel estimates for different observables do
+not constitute a connected proof.
+
+Focused monitored checks pass for all four changed/new analytic modules and
+the matched bridge.  Dependency-complete one-worker targets pass 532, 996,
+5037, 5041, and 5079 jobs respectively.  Every newly printed export uses only
+`[propext, Quot.sound]` or the smaller `[propext]` subset.  The root aggregator
+imports the matched bridge.  A monitored root source check could not proceed
+because the pre-existing
+`BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` artifact is absent; no
+root check or full-root audit is claimed.
+
+The nome-dependent ceiling may grow without a uniform bound as `w -> 1`.
+Thus the result does not inhabit the remaining transition-product extension,
+prove a normalized strength/spacing band, construct a nonzero same-object
+observable pin, identify the physical four-dimensional trajectory, establish
+projective OS/GNS or thermodynamic/continuum compatibility, construct
+continuum Yang--Mills theory, or prove the Clay mass gap.

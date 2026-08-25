@@ -98,36 +98,36 @@ private theorem listQSum_cartesian_eq_nested_local
   exact Q'.eqv_refl _
 
 private theorem centralSpinCubeDecoratedNestedSum_eqv_carrierSum
-    (cutoff : Nat) :
+    (w : Q') (cutoff : Nat) :
     listQSum
         (fun target =>
           listQSum
             (fun boundary =>
               centralSpinCubeResidualDecoratedFaceProduct
-                anchorCoupling boundary target)
+                w boundary target)
             (centralBoundaryChannels cutoff 0))
         (centralHalfStates cutoff 0) ≈
       listQSum
         (fun pair =>
           centralSpinCubeResidualDecoratedFaceProduct
-            anchorCoupling pair.1 pair.2)
+            w pair.1 pair.2)
         (centralSpinCubeBoundaryTargetPairs cutoff) := by
   let value := fun pair : EdgeLabelling × EdgeLabelling =>
     centralSpinCubeResidualDecoratedFaceProduct
-      anchorCoupling pair.1 pair.2
+      w pair.1 pair.2
   refine Q'.eqv_trans _
     (listQSum
       (fun boundary =>
         listQSum
           (fun target =>
             centralSpinCubeResidualDecoratedFaceProduct
-              anchorCoupling boundary target)
+              w boundary target)
           (centralHalfStates cutoff 0))
       (centralBoundaryChannels cutoff 0)) _
     (listQSum_swap
       (fun boundary target =>
         centralSpinCubeResidualDecoratedFaceProduct
-          anchorCoupling boundary target)
+          w boundary target)
       (centralBoundaryChannels cutoff 0)
       (centralHalfStates cutoff 0)) ?_
   unfold centralSpinCubeBoundaryTargetPairs
@@ -249,7 +249,8 @@ theorem centralLowerSpinCubePositiveRawRow_le_activity_mul_ceiling
             (fun pair => decorated pair.1 pair.2)
             (centralSpinCubeBoundaryTargetPairs cutoff) := by
       unfold decorated
-      exact centralSpinCubeDecoratedNestedSum_eqv_carrierSum cutoff
+      exact centralSpinCubeDecoratedNestedSum_eqv_carrierSum
+        anchorCoupling cutoff
     exact Q'.le_trans' _ _ _ houter
       (Q'.le_of_eqv
         (Q'.eqv_trans _ _ _ hfactor
@@ -272,8 +273,143 @@ theorem centralLowerSpinCubePositiveRawRow_le_activity_mul_ceiling
   exact Q'.le_trans' _ _ _ hfiltered
     (Q'.le_trans' _ _ _ hfull hmul)
 
+/-- At every rational `0 < w < 1`, the same literal raw row is bounded by
+the exact six-face source activity times the computed nome-dependent 66-face
+ceiling.  No ceiling uniform in `w` is asserted. -/
+theorem centralLowerSpinCubePositiveRawRow_le_activity_mul_explicitFixedNomeCeiling
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {cutoff spin : Nat} (hspin : spin <= cutoff) :
+    centralPhysicalPositiveRawRowMass
+        w (Q'.le_of_lt hw0) cutoff 0
+        (centralLowerSpinCubeState spin) <=
+      (coeffW w spin) ^ 6 *
+        explicitFixedNomeCentralSpinCubeResidualCarrierCeiling w := by
+  let activity := (coeffW w spin) ^ 6
+  let source := centralLowerSpinCubeState spin
+  let kernel := centralPhysicalReflectedKernel w cutoff 0 source
+  let decorated := fun boundary target =>
+    centralSpinCubeResidualDecoratedFaceProduct w boundary target
+  have hfiltered :
+      listQSum kernel
+          (centralPositiveHalfStates w (Q'.le_of_lt hw0) cutoff 0) <=
+        listQSum kernel (centralHalfStates cutoff 0) := by
+    unfold centralPositiveHalfStates
+    apply listQSum_filter_le_nonnegative_local
+    intro target
+    unfold kernel
+    exact
+      BF4PhysicalCutoffKernelSupportPersistence.centralPhysicalReflectedKernel_nonnegative
+        (Q'.le_of_lt hw0) cutoff 0 source target
+  have htarget : forall target,
+      target ∈ centralHalfStates cutoff 0 ->
+      kernel target <=
+        activity *
+          listQSum (fun boundary => decorated boundary target)
+            (centralBoundaryChannels cutoff 0) := by
+    intro target htarget
+    unfold kernel centralPhysicalReflectedKernel
+    have htermwise :
+        listQSum
+            (fun boundary =>
+              slabParametricKPhysicalTerm w cutoff (centralExtent 0)
+                (assembleReflectedSlabLabelling
+                  0 source boundary target))
+            (centralBoundaryChannels cutoff 0) <=
+          listQSum
+            (fun boundary => activity * decorated boundary target)
+            (centralBoundaryChannels cutoff 0) := by
+      apply listQSum_le_termwise_local
+      intro boundary hboundary
+      change
+        slabParametricKPhysicalTerm w cutoff 1
+            (centralSpinCubeSourcePhysical spin boundary target) <=
+          (coeffW w spin) ^ 6 *
+            centralSpinCubeResidualDecoratedFaceProduct
+              w boundary target
+      exact centralSpinCubePhysicalTerm_le_activity_mul_decorated
+        (Q'.le_of_lt hw0) hspin boundary target hboundary htarget
+    exact Q'.le_trans' _ _ _ htermwise
+      (Q'.le_of_eqv
+        (listQSum_mul_left activity
+          (fun boundary => decorated boundary target)
+          (centralBoundaryChannels cutoff 0)))
+  have hfull :
+      listQSum kernel (centralHalfStates cutoff 0) <=
+        activity *
+          listQSum
+            (fun pair => decorated pair.1 pair.2)
+            (centralSpinCubeBoundaryTargetPairs cutoff) := by
+    have houter :
+        listQSum kernel (centralHalfStates cutoff 0) <=
+          listQSum
+            (fun target =>
+              activity *
+                listQSum
+                  (fun boundary => decorated boundary target)
+                  (centralBoundaryChannels cutoff 0))
+            (centralHalfStates cutoff 0) := by
+      apply listQSum_le_termwise_local
+      exact htarget
+    have hfactor :
+        listQSum
+            (fun target =>
+              activity *
+                listQSum
+                  (fun boundary => decorated boundary target)
+                  (centralBoundaryChannels cutoff 0))
+            (centralHalfStates cutoff 0) ≈
+          activity *
+            listQSum
+              (fun target =>
+                listQSum
+                  (fun boundary => decorated boundary target)
+                  (centralBoundaryChannels cutoff 0))
+              (centralHalfStates cutoff 0) :=
+      listQSum_mul_left activity
+        (fun target =>
+          listQSum (fun boundary => decorated boundary target)
+            (centralBoundaryChannels cutoff 0))
+        (centralHalfStates cutoff 0)
+    have hcarrier :
+        listQSum
+            (fun target =>
+              listQSum
+                (fun boundary => decorated boundary target)
+                (centralBoundaryChannels cutoff 0))
+            (centralHalfStates cutoff 0) ≈
+          listQSum
+            (fun pair => decorated pair.1 pair.2)
+            (centralSpinCubeBoundaryTargetPairs cutoff) := by
+      unfold decorated
+      exact centralSpinCubeDecoratedNestedSum_eqv_carrierSum w cutoff
+    exact Q'.le_trans' _ _ _ houter
+      (Q'.le_of_eqv
+        (Q'.eqv_trans _ _ _ hfactor
+          (Q'.mul_eqv_congr_left activity _ _ hcarrier)))
+  have hactivity0 : (0 : Q') <= activity := by
+    unfold activity
+    exact Q'.pow_nonneg _ (coeffW_nonneg (Q'.le_of_lt hw0) spin) 6
+  have hceiling :=
+    centralSpinCubeResidualCarrierSum_le_explicitFixedNomeCeiling
+      hw0 hw1 cutoff
+  have hmul :
+      activity *
+          listQSum
+            (fun pair => decorated pair.1 pair.2)
+            (centralSpinCubeBoundaryTargetPairs cutoff) <=
+        activity *
+          explicitFixedNomeCentralSpinCubeResidualCarrierCeiling w := by
+    apply Q'.mul_le_mul_of_nonneg_left
+    · unfold decorated
+      exact hceiling
+    · exact hactivity0
+  unfold centralPhysicalPositiveRawRowMass
+  exact Q'.le_trans' _ _ _ hfiltered
+    (Q'.le_trans' _ _ _ hfull hmul)
+
 end YMGap.Continuum.BF4CentralSpinCubeRawRowCeiling
 
 /-! ## Dependency gate -/
 
 #print axioms YMGap.Continuum.BF4CentralSpinCubeRawRowCeiling.centralLowerSpinCubePositiveRawRow_le_activity_mul_ceiling
+#print axioms YMGap.Continuum.BF4CentralSpinCubeRawRowCeiling.centralLowerSpinCubePositiveRawRow_le_activity_mul_explicitFixedNomeCeiling
