@@ -1478,6 +1478,27 @@ def positiveArtanhEulerStableCoeff (stage index : Nat) : Q' :=
     (expPartialPoly (positiveArtanhExponentPoly stage) (index + 1))
     index
 
+/-- The canonical stabilized Euler coefficient starts at one, independently
+of the artanh stage. -/
+theorem positiveArtanhEulerStableCoeff_zero_eqv_one (stage : Nat) :
+    (positiveArtanhEulerStableCoeff stage 0).eqv 1 := by
+  unfold positiveArtanhEulerStableCoeff
+  exact Q'.eqv_trans _ _ _
+    (coeff_zero_eq_constantCoeff _)
+    (constantCoeff_expPartialPoly_succ_eqv_one
+      (positiveArtanhExponentPoly stage)
+      (constantCoeff_positiveArtanhExponentPoly_eqv_zero stage) 0)
+
+/-- At every positive artanh stage, the stabilized linear Euler coefficient
+is the closed value `-2`. -/
+theorem positiveArtanhEulerStableCoeff_one_eqv_negativeTwo
+    (stage : Nat) :
+    (positiveArtanhEulerStableCoeff (stage + 1) 1).eqv negativeTwo := by
+  unfold positiveArtanhEulerStableCoeff
+  exact Q'.eqv_trans _ _ _
+    (coeff_one_eq_linearCoeff _)
+    (linearCoeff_expPartialPoly_add_two_eqv_negativeTwo stage 0)
+
 /-- Every finite Euler truncation containing coefficient `index` agrees with
 the canonical stabilized coefficient.  This removes the moving inner Euler
 pivot from the remaining formal coefficient identity. -/
@@ -1638,6 +1659,47 @@ structure PositiveArtanhEulerPolynomialTargetCoefficientCertificate : Type 1 whe
       (positiveArtanhEulerStableCoeff stage index).eqv
         (positiveArtanhFormalTargetCoeff index)
 
+/-- The closed comparison target starts at the same constant coefficient. -/
+theorem positiveArtanhFormalTargetCoeff_zero_eqv_one :
+    (positiveArtanhFormalTargetCoeff 0).eqv 1 :=
+  Q'.eqv_refl 1
+
+/-- The first positive comparison coefficient is `-2`. -/
+theorem positiveArtanhFormalTargetCoeff_one_eqv_negativeTwo :
+    (positiveArtanhFormalTargetCoeff 1).eqv negativeTwo := by
+  decide
+
+/-- After the exceptional constant-to-linear step, the closed target
+coefficients alternate by multiplication with `-1`. -/
+theorem positiveArtanhFormalTargetCoeff_succ_eqv_neg
+    (index : Nat) (hindex : 1 <= index) :
+    (positiveArtanhFormalTargetCoeff (index + 1)).eqv
+      ((-1 : Q') * positiveArtanhFormalTargetCoeff index) := by
+  cases index with
+  | zero => omega
+  | succ index =>
+      change
+        (((-1 : Q') ^ ((index + 1) + 1)) +
+            ((-1 : Q') ^ ((index + 1) + 1))).eqv
+          ((-1 : Q') *
+            (((-1 : Q') ^ (index + 1)) +
+              ((-1 : Q') ^ (index + 1))))
+      rw [Q'.pow_succ]
+      exact Q'.eqv_symm
+        (Q'.mul_add_eqv (-1)
+          ((-1 : Q') ^ (index + 1))
+          ((-1 : Q') ^ (index + 1)))
+
+/-- Strictly smaller algebraic frontier: the constant and linear seeds are
+proved internally, so only the local alternating successor recurrence remains
+for the stabilized Euler coefficients. -/
+structure PositiveArtanhEulerPolynomialStableRecurrenceCertificate : Type 1 where
+  coefficientSucc :
+    forall (stage index : Nat), 1 <= index ->
+      index + 1 < 2 * stage + 1 ->
+      (positiveArtanhEulerStableCoeff stage (index + 1)).eqv
+        ((-1 : Q') * positiveArtanhEulerStableCoeff stage index)
+
 /-- The algebraic rib of the scalable cancellation proof.  This statement is
 independent of the evaluation point and tolerance: every coefficient below the
 first possible truncation error agrees in the finite Euler and geometric
@@ -1709,6 +1771,49 @@ def toStable
           degree index hdegree))
 
 end PositiveArtanhEulerPolynomialTargetCoefficientCertificate
+
+namespace PositiveArtanhEulerPolynomialStableRecurrenceCertificate
+
+/-- The proved two coefficient seeds plus the local successor recurrence
+generate every closed target coefficient below the artanh truncation order. -/
+def toTarget
+    (certificate :
+      PositiveArtanhEulerPolynomialStableRecurrenceCertificate) :
+    PositiveArtanhEulerPolynomialTargetCoefficientCertificate where
+  coefficientTarget := by
+    intro stage index hindex
+    induction index generalizing stage with
+    | zero =>
+        exact Q'.eqv_trans _ 1 _
+          (positiveArtanhEulerStableCoeff_zero_eqv_one stage)
+          (Q'.eqv_symm positiveArtanhFormalTargetCoeff_zero_eqv_one)
+    | succ index ih =>
+        cases index with
+        | zero =>
+            cases stage with
+            | zero => omega
+            | succ stage =>
+                exact Q'.eqv_trans _ negativeTwo _
+                  (positiveArtanhEulerStableCoeff_one_eqv_negativeTwo stage)
+                  (Q'.eqv_symm
+                    positiveArtanhFormalTargetCoeff_one_eqv_negativeTwo)
+        | succ index =>
+            have hprevious : index + 1 < 2 * stage + 1 := by omega
+            exact Q'.eqv_trans _
+              ((-1 : Q') *
+                positiveArtanhEulerStableCoeff stage (index + 1)) _
+              (certificate.coefficientSucc stage (index + 1)
+                (by omega) hindex)
+              (Q'.eqv_trans _
+                ((-1 : Q') *
+                  positiveArtanhFormalTargetCoeff (index + 1)) _
+                (Q'.mul_eqv_congr_left (-1) _ _
+                  (ih stage hprevious))
+                (Q'.eqv_symm
+                  (positiveArtanhFormalTargetCoeff_succ_eqv_neg
+                    (index + 1) (by omega))))
+
+end PositiveArtanhEulerPolynomialStableRecurrenceCertificate
 
 /-- The analytic rib after the entire formally cancelling prefix has been
 removed.  It contains no algebraic cancellation field and can therefore be
@@ -1888,6 +1993,16 @@ def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
   positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
     target.toStable tail
 
+/-- The local stabilized-coefficient recurrence and analytic tail contract to
+the same weighted coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfRecurrenceAndTail
+    (recurrence :
+      PositiveArtanhEulerPolynomialStableRecurrenceCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler :=
+  positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
+    recurrence.toTarget tail
+
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
 kernel computation. -/
@@ -2014,6 +2129,17 @@ def positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
       target tail)
 
+/-- The reduced local recurrence plus the independent analytic tail compiles
+to the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail
+    (recurrence :
+      PositiveArtanhEulerPolynomialStableRecurrenceCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfRecurrenceAndTail
+      recurrence tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -2073,6 +2199,8 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialTargetCoefficientCertificate.toStable
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableRecurrenceCertificate.toTarget
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
@@ -2080,6 +2208,8 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

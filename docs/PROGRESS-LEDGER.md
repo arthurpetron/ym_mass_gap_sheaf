@@ -15343,3 +15343,39 @@ cutoff-specific certificate.  The analytic tail can be developed in parallel,
 but the scalar inverse exists only after both proof objects rejoin.  The
 physical-carrier, OS/operator, limit, continuum, QFT, and Clay residuals remain
 open.
+
+## Formal target contracted to one local successor recurrence (2026-08-24)
+
+The remaining stage/index target has been reduced again.  The canonical
+stabilized Euler constant coefficient is proved to be `1` at every stage, and
+its linear coefficient is proved to be `-2` at every positive stage.  The
+closed geometric target has the same two seeds, and all later target
+coefficients are proved to alternate by multiplication with `-1`.
+
+`PositiveArtanhEulerPolynomialStableRecurrenceCertificate` therefore retains
+only one field: for positive coefficient indices below the artanh truncation
+boundary, the next stabilized Euler coefficient is the negative of the
+previous coefficient.  Its `toTarget` constructor proves by natural induction
+that this one local recurrence generates the full closed target certificate.
+The recurrence/full-tail adapters then preserve the same scalar inverse and
+same connected Wilson/OS observable path.
+
+This also sharpens the parallelism count at the connected local capstone.
+After fixing the common dynamic family, raw observable, continuum witness, and
+Wilson datum, there are nine named proof inputs.  Seven are dependency roots
+that can start concurrently: the uniform norm floor, projective OS handoff,
+exact-rate handoff, scalar recurrence, scalar tail, representative transfer
+lift, and vacuum pin.  The matrix-coefficient pin waits on the projective OS
+handoff, while the finite graph approximation waits on the transfer lift.
+Those two dependent children can then be built concurrently before the single
+observable-preserving join.
+
+Exact one-worker targets pass 64 jobs for the polynomial anchor and 5117 jobs
+for the connected capstone.  The new audited exports use only
+`[propext, Quot.sound]`.
+
+The successor-recurrence certificate and analytic full-tail compiler remain
+uninhabited.  A finite formal derivative or convolution recurrence is now the
+single exact algebraic frontier.  This is still only the scalar branch; all
+physical-carrier, projective/OS, operator, limit, continuum, QFT, and Clay
+residuals remain open.

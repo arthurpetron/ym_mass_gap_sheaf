@@ -13583,3 +13583,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   elimination only; it does not close the stabilized Euler recurrence,
   analytic tail, scalar inverse, physical operator gap, continuum theory, or
   Clay conclusion.
+
+### [BF4-physical-positive-artanh-stable-successor-reduction] Reduce the formal target to one local stabilized-coefficient recurrence — **CLOSED 2026-08-24**
+
+- **milestone**: prove the stabilized Euler constant and linear coefficients;
+  prove the same two closed comparison seeds and its alternating successor
+  law; show one local Euler successor recurrence generates every target
+  coefficient below the artanh truncation order; and carry that reduced input
+  with the independent analytic tail through the unchanged scalar and
+  connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_zero_eqv_one`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_one_eqv_negativeTwo`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhFormalTargetCoeff_succ_eqv_neg`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableRecurrenceCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableRecurrenceCertificate.toTarget`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialRecurrenceAndTailCompilers`.
+- **obligation**: inhabit the recurrence certificate by proving that every
+  positive stabilized Euler coefficient below `2*stage+1` is the negative of
+  its predecessor; independently inhabit the full-tail compiler.  The two
+  coefficient seeds and the induction from recurrence to the closed target
+  are no longer open.  Physical-carrier, OS/operator, limit, continuum, QFT,
+  and Clay inputs remain separate and open.
+- **constructive?**: yes.  The seeds are finite coefficient-list proofs, the
+  closed target recurrence is exact `Q'.eqv` algebra, and `toTarget` is natural
+  induction carrying all witnesses in `Type`.  No recurrence or tail
+  certificate is claimed inhabited.  Gates remain within
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 64 jobs for the polynomial
+  anchor and 5117 jobs for the connected capstone.  This closes the recurrence
+  reduction and observable-preserving adapters only, not the recurrence
+  itself, analytic tail, scalar inverse, physical operator gap, continuum
+  theory, or Clay conclusion.
