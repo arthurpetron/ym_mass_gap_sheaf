@@ -18258,6 +18258,45 @@ closure, AF identification, physical-scale uniformity, a nonzero same-object
 observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
 
+## Transition products telescope to facewise endpoint/source ratios (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceEndpointRatio`
+telescopes the reverse/forward conditional-transition product on every actual
+routed prefix back to the stationary weight of its left endpoint divided by
+the stationary weight of the exact mapped edge source.  The right endpoint
+weight, full path length, directed-edge incidence, and repeated-edge
+multiplicity are retained literally.
+
+The telescope is preserved through the old--new, new--old, and new--new masks
+and finite endpoint rows.  Three endpoint-ratio/conditional-capacity inverse-
+square controls compile losslessly to the transition-product controls and the
+unchanged exact new-traffic debt maximum.
+
+This exact recoding reveals a genuine analytic asymmetry.  In the old--new
+row the newly admitted mass is the explicit right-endpoint weight.  In the
+new--old row it is the numerator of the left/source projective ratio.  In the
+new--new row both factors are new.  Thus a direct endpoint-weight tail is most
+immediately aligned with old--new; new--old additionally needs a projective
+ratio or source-weight comparison; and new--new can exploit two new factors
+but still carries that denominator.  No path-reversal symmetry is assumed.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5140 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+None of the three endpoint-ratio/capacity estimates is inhabited.  The next
+frontier is to factor the old--new row first into an explicit new-right shell
+mass and a route/projective ceiling, while preserving the exact mapped-edge
+capacity.  The other two lanes can proceed independently through a new-left
+ratio estimate, and new--new should retain both new factors rather than drop
+one.  Old-traffic drift, route churn, shell returns, merger or no-merger
+control, tail allowance and initial closure, AF identification, physical-scale
+uniformity, a nonzero same-object observable pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.
+
 ## Weighted amplification reconnects new-block mass to exact new debt (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficWeightedAmplification`

@@ -16604,3 +16604,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-face-endpoint-ratio] Telescope all three face products to projective endpoint weights — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact adaptive Harnack summand on the same mapped
+  cell; telescope the routed prefix product to the left-endpoint/source
+  stationary ratio; retain the right-endpoint weight, route incidence, full
+  path length, and directed multiplicity; preserve the identity through the
+  old--new, new--old, and new--new face masks and endpoint rows; expose three
+  endpoint-ratio/conditional-capacity inverse-square controls; and compile
+  them to the transition-product controls and unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceEndpointRatio.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficTransitionProductOnCell_eqv_endpointRatioOnCell`,
+  the three
+  `matchedEventualCanonicalNewEndpointTraffic*FaceTransitionProductRow_eqv_endpointRatioRow`
+  theorems, the three
+  `MatchedEventualCanonicalNewEndpointTraffic*FaceEndpointRatioCapacityBalanceInverseSquareControl.toTransitionProductControl`
+  declarations, and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_threeFaceEndpointRatioCapacityBalances`.
+- **obligation**: prove the three exact endpoint-ratio rows decay relative to
+  the same mapped-edge conditional capacity.  Start with old--new, where the
+  new right-endpoint weight is explicit, by separating a new-shell mass from
+  a route/projective ceiling.  New--old needs control of the new left/source
+  ratio; new--new should retain both new factors.  Do not use path reversal
+  without a checked directed-multiplicity theorem.  Also close old traffic,
+  route churn, shell returns, merger or no-merger, tail allowance, and initial
+  closure.
+- **constructive?**: yes.  The prefix is constructed from literal directed-
+  edge incidence, the telescope is the checked pathwise detailed-balance
+  theorem, and the masks and sums retain the same finite occurrences.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5140 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
