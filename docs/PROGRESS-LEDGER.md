@@ -17658,3 +17658,43 @@ new analytic frontier is the cutoff family, followed by physical-scale
 uniformity of its coefficients, capacity slack, and same-object observable
 pin.  Thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## Mapped canonical paths split matched transport into data drift and route churn (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtRouteBridge`
+constructs a positive path at the next cutoff by mapping every vertex of the
+current canonical path through the exact old-index embedding.  Its kernel
+positivity and its recovery of current indices on the embedded old carrier
+are proved directly.  The transported routing uses this mapped path exactly
+for embedded-old endpoint pairs and the next canonical routing for pairs with
+a new endpoint.
+
+The module defines routed capacity debt for an arbitrary exact routing and
+proves that its canonical specialization is the existing matched observable.
+It then inserts the transported routing as an exact intermediate observable.
+The triangle inequality yields, first on every common transported pair and
+then after taking the finite maximum,
+
+`transported deficit <= data deficit + route deficit`.
+
+Here data deficit changes cutoff data while holding transported routes fixed;
+route deficit changes only transported routes to next-cutoff canonical routes
+while holding next-cutoff data fixed.  A regional inverse-square interface
+combines these two estimates with the three already exact shell-face deficits
+(old-new, new-old, and new-new) and compiles all five leaves to the existing
+single total-deficit tail.  Thus five cutoff estimates may be developed in
+parallel without changing the final observable or weakening the serial
+certificate.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5119 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+No inverse-square leaf estimate is inhabited.  The next analytic frontier is
+to split the data leaf into old-endpoint traffic drift and genuinely new-
+endpoint traffic, then establish estimates for those two leaves, route churn,
+and the three shell faces.  Tail allowance and initial capacity closure, AF
+identification and cutoff-family uniformity, a nonzero same-object observable
+pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.

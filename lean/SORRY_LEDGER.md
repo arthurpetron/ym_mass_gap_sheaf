@@ -15869,3 +15869,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5125 jobs.  All four audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-route-bridge] Split transported matched debt into exact data and route deficits — **CLOSED 2026-08-25**
+
+- **milestone**: map every positive current canonical path into an exact
+  positive next-cutoff path; define the transported routing; generalize the
+  same capacity-debt observable to arbitrary exact routings; split its common-
+  pair deficit and maximum into data drift and route churn; and combine those
+  two leaves with the three exact shell-face deficits into the existing total
+  inverse-square tail compiler.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtRouteBridge.lean`.
+- **decl**: `matchedEventualCanonicalMapPositivePathToNext`,
+  `matchedEventualCanonicalTransportedRoutingAtNext`,
+  `matchedEventualRoutedCapacityDebtOnPairForRouting`,
+  `matchedEventualCanonicalTransportedCapacityDebtDeficitMaximum_le_bridge_split`,
+  `MatchedEventualCanonicalTransportedCapacityDebtBridgeInverseSquareControl`,
+  `MatchedEventualCanonicalCapacityDebtBridgeRegionalInverseSquareControl`,
+  and its `toTotalDeficitTail`.
+- **obligation**: prove inverse-square estimates for data drift, route churn,
+  old-new, new-old, and new-new deficits.  The data leaf can next be factored
+  into old-endpoint traffic drift and genuinely new-endpoint traffic.
+- **constructive?**: yes.  Every route is an explicit finite positive path and
+  every comparison is an equality or rational triangle inequality on the same
+  exact matched carrier, nome, floor, conditional kernel, routed load, and
+  ordered pair.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5119 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
