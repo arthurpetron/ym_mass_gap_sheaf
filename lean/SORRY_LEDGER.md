@@ -17042,3 +17042,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the executable forbidden-token scan
   reports zero hits, `git diff --check` passes, and the root aggregator imports
   the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-corrected-slab-joint-tolerance-schedule] Reduce the corrected-slab product to an exact retained-cutoff condition — **CLOSED 2026-08-25**
+
+- **milestone**: define at every cutoff offset the positive joint tolerance
+  `invSqTerm / (activePathRawCapacityAmplificationMaximum + 1)`; prove its
+  product with the same-cutoff amplification is at most the inverse-square
+  term; expose a Type-level schedule certificate requiring the current cutoff
+  to dominate the arbitrary-nome retained cutoff requested by that exact
+  tolerance; use cutoff-increment antitonicity plus the arbitrary-nome
+  corrected-slab tail theorem to bound the consecutive slab increment; and
+  compile the schedule certificate to the corrected-slab product control with
+  coefficient one.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewCorrectedSlabJointToleranceSchedule.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointTolerance_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointTolerance_mul_amplification_le_invSq`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointToleranceSchedule.toCorrectedSlabControl`.
+- **obligation**: inhabit the schedule certificate.  Its exact field is a
+  natural inequality: for every cutoff offset, the linear current cutoff
+  `transitionStart physicalScale + cutoffOffset` must dominate the executable
+  arbitrary-nome retained cutoff at a tolerance depending on the joint
+  amplification computed at that same current/later pair.  The dependence is
+  potentially circular.  The next adjudication must either prove an a priori
+  amplification-growth bound strong enough for one linear start, or introduce
+  and connect an admissible adaptive cutoff sequence.  Merger/no-merger and
+  the two other directed face lanes remain independent.
+- **constructive?**: yes.  Positivity comes from the explicit rational
+  inverse-square term and denominator `1 + amplification`; the tail cutoff is
+  the existing executable arbitrary-nome modulus; and the compiler uses only
+  exact rational monotonicity and finite-cutoff definitions.  No schedule is
+  inhabited by assertion, and no `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5162 jobs.  All three
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

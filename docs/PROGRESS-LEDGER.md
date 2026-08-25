@@ -19056,3 +19056,47 @@ their existing endpoint-ratio/capacity certificates.  Old traffic, route
 churn, shell returns, total tail closure, AF physical-scale uniformity,
 same-object completion, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## The corrected-slab product is now an exact joint-tolerance schedule problem (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewCorrectedSlabJointToleranceSchedule`
+uses the existing arbitrary-nome corrected-slab tail modulus at a tolerance
+chosen from the actual same-cutoff obstruction.  At offset `k`, write `A_k`
+for the exact active-path/raw-capacity amplification maximum and request
+
+`epsilon_k = invSqTerm(k) / (A_k + 1)`.
+
+This tolerance is constructively positive.  Since `A_k <= A_k + 1`, exact
+rational division proves
+
+`epsilon_k * A_k <= invSqTerm(k)`.
+
+The new Type-level schedule record requires the current cutoff to dominate the
+executable retained cutoff produced by the arbitrary-nome slab theorem at
+`epsilon_k`.  Cutoff-increment antitonicity then moves the actual consecutive
+increment outward from that retained cutoff, the tail theorem bounds it by
+`epsilon_k`, and multiplication by `A_k` gives the corrected-slab product
+control with coefficient one.
+
+This is a real contraction of the analytic frontier, but not an inhabited
+rate theorem.  The remaining condition is the explicit natural inequality
+
+`retainedCutoff(nome, epsilon_k) <= transitionStart(scale) + k`.
+
+It is potentially self-referential because `A_k` is computed on the carrier
+at that same current/later cutoff.  The next proof-path decision is therefore
+causal: either derive an a priori growth bound on `A_k` that one linear start
+can dominate, or generalize the bridge to a constructively chosen adaptive
+cutoff sequence and prove compatibility with all downstream exact observables.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5162 jobs.  All three audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+The joint-tolerance schedule record is not inhabited.  Component-merger or
+uniform no-merger control, new--old and new--new directed face estimates, old
+traffic, route churn, shell returns, total tail closure, AF physical-scale
+uniformity, same-object completion, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.
