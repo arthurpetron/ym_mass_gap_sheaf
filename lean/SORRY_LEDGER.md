@@ -13620,3 +13620,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   reduction and observable-preserving adapters only, not the recurrence
   itself, analytic tail, scalar inverse, physical operator gap, continuum
   theory, or Clay conclusion.
+
+### [BF4-physical-positive-artanh-stable-successor-proof] Prove the finite stabilized Euler recurrence and close the algebraic rib — **CLOSED 2026-08-24**
+
+- **milestone**: construct coefficient-level formal differentiation and the
+  finite Leibniz rule; differentiate the finite artanh exponent and Euler
+  partial polynomial; telescope the exponent derivative with `1-z^2`; extract
+  the local stabilized differential recurrence; prove the alternating
+  successor law by strong induction and positive-factor cancellation; inhabit
+  the recurrence, target, stabilized, and formal coefficient certificates;
+  and expose the connected adapter whose sole scalar input is the analytic
+  full-tail compiler.
+- **files**:
+  `lean/YMGap/Constructive/QPolyFormalDerivative.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `QPolyFormalDerivative.coeff_pderiv_pmul`,
+  `QPolyFormalDerivative.pderiv_pmul`,
+  `CRealArtanhEulerPolynomialAnchor.pderiv_positiveArtanhExponentPoly`,
+  `CRealArtanhEulerPolynomialAnchor.pderiv_expPartialPoly_succ`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhExpPartialPoly_finiteDifferentialEquation`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_differentialRecurrence`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_succ_eqv_neg`,
+  `CRealArtanhEulerPolynomialAnchor.canonicalPositiveArtanhEulerPolynomialFormalCoefficientCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFullTail`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialFullTailCompiler`.
+- **obligation**: inhabit
+  `PositiveWindowArtanhEulerPolynomialFullTailCompiler`.  The algebraic
+  recurrence and every coefficient-cancellation certificate derived from it
+  are no longer open inputs.  Physical-carrier, projective OS/GNS,
+  transfer/operator, thermodynamic/continuum, QFT, and Clay inputs remain
+  separate and open.
+- **constructive?**: yes.  Differentiation and convolution are structurally
+  recursive finite-list constructions; all equality is `Q'.eqv`; the only
+  coefficient division is discharged by explicit positive-factor
+  cancellation.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  or new axiom is introduced.  Audited gates remain within
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 50 jobs for
+  `QPolyFormalDerivative`, 65 jobs for the polynomial anchor, and 5118 jobs
+  for the connected capstone.  This closes only the finite algebraic scalar
+  rib.  It does not prove the analytic full-tail estimate, scalar inverse,
+  physical mass gap, continuum theory, or Clay conclusion.

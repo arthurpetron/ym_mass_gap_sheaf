@@ -15379,3 +15379,37 @@ uninhabited.  A finite formal derivative or convolution recurrence is now the
 single exact algebraic frontier.  This is still only the scalar branch; all
 physical-carrier, projective/OS, operator, limit, continuum, QFT, and Clay
 residuals remain open.
+
+## Finite Euler recurrence proved; algebraic rib closed (2026-08-24)
+
+The local successor recurrence is now a theorem rather than a certificate
+input.  The new `QPolyFormalDerivative` module constructs padded coefficient
+equality, finite Cauchy coefficients, reindexing, polynomial congruence laws,
+and the coefficientwise Leibniz rule without quotient choice or an infinite
+power-series carrier.
+
+In the positive-artanh anchor, formal differentiation first cancels each odd
+artanh denominator.  The finite exponential recursion is then differentiated
+using the exact adjacent-factorial identity.  Multiplication by `1-z^2`
+telescopes the even-power derivative to the constant term and one explicit
+degree-`2*stage` boundary.  Below that boundary this yields a local
+differential recurrence for the stabilized Euler coefficients.  Positive
+rational-factor cancellation and strong natural induction prove
+`positiveArtanhEulerStableCoeff_succ_eqv_neg` throughout the required window.
+
+Consequently the recurrence, target, stabilized, and full formal coefficient
+certificates now have canonical internal inhabitants.  The new
+`positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFullTail` and
+connected
+`adaptivePathOfPositiveArtanhPolynomialFullTailCompiler` remove the algebraic
+certificate from the public join while preserving the same raw Wilson
+observable, OS handoff, transfer lift, vacuum pin, and downstream endpoint.
+
+The generic derivative target passes 50 jobs, the polynomial anchor passes 65
+jobs, and the exact connected capstone passes 5118 jobs.  All audited new
+exports remain within `[propext, Quot.sound]`.
+
+The full analytic tail compiler is now the sole scalar inverse input at this
+join and remains open.  This finite algebraic closure does not supply the
+physical carrier, projective OS/GNS handoff, transfer/operator uniformity,
+thermodynamic or continuum limits, QFT axioms, or the Clay mass-gap theorem.

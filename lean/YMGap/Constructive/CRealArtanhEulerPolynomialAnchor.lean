@@ -18,6 +18,7 @@ import YMGap.Constructive.QPolyWeightedL1
 import YMGap.Constructive.QPolyJetOne
 import YMGap.Constructive.QPolyCoefficient
 import YMGap.Constructive.QPolyValuation
+import YMGap.Constructive.QPolyFormalDerivative
 
 namespace YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 
@@ -31,6 +32,7 @@ open YMGap.Constructive.QPolyWeightedL1
 open YMGap.Constructive.QPolyJetOne
 open YMGap.Constructive.QPolyCoefficient
 open YMGap.Constructive.QPolyValuation
+open YMGap.Constructive.QPolyFormalDerivative
 
 local infix:50 " ~q " => Q'.eqv
 
@@ -40,10 +42,175 @@ def pconst (c : Q') : Poly := [c]
 /-- The polynomial variable. -/
 def pvar : Poly := [0, 1]
 
+/-- Closed rational representative `-2`. -/
+def negativeTwo : Q' := (-1 : Q') + (-1 : Q')
+
 /-- Natural power in the coefficient-list polynomial algebra. -/
 def ppow (p : Poly) : Nat -> Poly
   | 0 => pconst 1
   | n + 1 => pmul p (ppow p n)
+
+/-- Multiplication by `z` has zero constant coefficient. -/
+theorem coeff_pmul_pvar_zero (q : Poly) :
+    (coeff (pmul pvar q) 0).eqv 0 := by
+  unfold pvar
+  refine Q'.eqv_trans _ ((0 : Q') * coeff q 0) _
+    (coeff_pmul_pair_left_zero 0 1 q) ?_
+  exact q_zero_mul _
+
+/-- Multiplication by `z` shifts the previous coefficient without changing
+its value. -/
+theorem coeff_pmul_pvar_succ (q : Poly) (index : Nat) :
+    (coeff (pmul pvar q) (index + 1)).eqv (coeff q index) := by
+  unfold pvar
+  refine Q'.eqv_trans _
+    ((0 : Q') * coeff q (index + 1) +
+      (1 : Q') * coeff q index) _
+    (coeff_pmul_pair_left_succ 0 1 q index) ?_
+  exact Q'.eqv_trans _
+    ((0 : Q') + coeff q index) _
+    (q_add_congr (q_zero_mul _) (Q'.one_mul_eqv _))
+    (q_zero_add_eqv _)
+
+/-- Exact coefficient formula for the pure monomial `z^power`. -/
+theorem coeff_ppow_pvar : forall (power index : Nat),
+    (coeff (ppow pvar power) index).eqv
+      (if index = power then (1 : Q') else 0)
+  | 0, 0 => Q'.eqv_refl 1
+  | 0, index + 1 => Q'.eqv_refl 0
+  | power + 1, 0 => by
+      rw [if_neg (by omega : 0 ≠ power + 1)]
+      exact coeff_pmul_pvar_zero _
+  | power + 1, index + 1 => by
+      by_cases heq : index = power
+      · subst index
+        rw [if_pos rfl]
+        exact Q'.eqv_trans _ (coeff (ppow pvar power) power) _
+          (coeff_pmul_pvar_succ _ power)
+          (Q'.eqv_trans _
+            (if power = power then (1 : Q') else 0) _
+            (coeff_ppow_pvar power power)
+            (by rw [if_pos rfl]; exact Q'.eqv_refl 1))
+      · have hsucc : index + 1 ≠ power + 1 := by omega
+        rw [if_neg hsucc]
+        exact Q'.eqv_trans _ (coeff (ppow pvar power) index) _
+          (coeff_pmul_pvar_succ _ index)
+          (Q'.eqv_trans _
+            (if index = power then (1 : Q') else 0) _
+            (coeff_ppow_pvar power index)
+            (by rw [if_neg heq]; exact Q'.eqv_refl 0))
+
+/-- Formal differentiation of a positive monomial. -/
+theorem pderiv_ppow_pvar_succ (power : Nat) :
+    CoeffEqv (pderiv (ppow pvar (power + 1)))
+      (pscale (Q'.ofNat (power + 1)) (ppow pvar power)) := by
+  intro index
+  by_cases heq : index = power
+  · subst index
+    exact Q'.eqv_trans _
+      (Q'.ofNat (power + 1) *
+        coeff (ppow pvar (power + 1)) (power + 1)) _
+      (coeff_pderiv _ power)
+      (Q'.eqv_trans _
+        (Q'.ofNat (power + 1) * 1) _
+        (Q'.mul_eqv_congr_left _ _ 1
+          (Q'.eqv_trans _
+            (if power + 1 = power + 1 then (1 : Q') else 0) _
+            (coeff_ppow_pvar (power + 1) (power + 1))
+            (by rw [if_pos rfl]; exact Q'.eqv_refl 1)))
+        (Q'.eqv_trans _
+          (Q'.ofNat (power + 1) *
+            coeff (ppow pvar power) power) _
+          (Q'.mul_eqv_congr_left _ _ _
+            (Q'.eqv_symm
+              (Q'.eqv_trans _
+                (if power = power then (1 : Q') else 0) _
+                (coeff_ppow_pvar power power)
+                (by rw [if_pos rfl]; exact Q'.eqv_refl 1))))
+          (Q'.eqv_symm
+            (coeff_pscale (Q'.ofNat (power + 1))
+              (ppow pvar power) power))))
+  · have hsucc : index + 1 ≠ power + 1 := by omega
+    exact Q'.eqv_trans _
+      (Q'.ofNat (index + 1) *
+        coeff (ppow pvar (power + 1)) (index + 1)) _
+      (coeff_pderiv _ index)
+      (Q'.eqv_trans _
+        (Q'.ofNat (index + 1) * 0) _
+        (Q'.mul_eqv_congr_left _ _ 0
+          (Q'.eqv_trans _
+            (if index + 1 = power + 1 then (1 : Q') else 0) _
+            (coeff_ppow_pvar (power + 1) (index + 1))
+            (by rw [if_neg hsucc]; exact Q'.eqv_refl 0)))
+        (Q'.eqv_trans _
+          (0 : Q') _
+          (q_mul_zero _)
+          (Q'.eqv_symm
+            (Q'.eqv_trans _
+              (Q'.ofNat (power + 1) *
+                coeff (ppow pvar power) index) _
+              (coeff_pscale (Q'.ofNat (power + 1))
+                (ppow pvar power) index)
+              (Q'.eqv_trans _
+                (Q'.ofNat (power + 1) * 0) _
+                (Q'.mul_eqv_congr_left _ _ 0
+                  (Q'.eqv_trans _
+                    (if index = power then (1 : Q') else 0) _
+                    (coeff_ppow_pvar power index)
+                    (by rw [if_neg heq]; exact Q'.eqv_refl 0)))
+                (q_mul_zero _))))))
+
+/-- Products of pure monomials add their exponents coefficientwise. -/
+theorem coeffEqv_ppow_pvar_add : forall (left right : Nat),
+    CoeffEqv (pmul (ppow pvar left) (ppow pvar right))
+      (ppow pvar (left + right))
+  | 0, right => by
+      simpa only [ppow, pconst, Nat.zero_add] using
+        (coeffEqv_pmul_one_left (ppow pvar right))
+  | left + 1, right => by
+      have hsum : (left + 1) + right = (left + right) + 1 := by omega
+      rw [hsum]
+      exact CoeffEqv.trans
+        (coeffEqv_pmul_assoc pvar (ppow pvar left) (ppow pvar right))
+        (CoeffEqv.pmul (CoeffEqv.refl pvar)
+          (coeffEqv_ppow_pvar_add left right))
+
+/-- Multiplication by `z^power` shifts padded coefficients by exactly
+`power`. -/
+theorem coeff_pmul_ppow_pvar : forall (power : Nat) (p : Poly) (index : Nat),
+    (coeff (pmul (ppow pvar power) p) index).eqv
+      (if power <= index then coeff p (index - power) else 0)
+  | 0, p, index => by
+      rw [if_pos (Nat.zero_le index), Nat.sub_zero]
+      exact coeffEqv_pmul_one_left p index
+  | power + 1, p, 0 => by
+      have hfalse : Not (power + 1 <= 0) := by omega
+      rw [if_neg hfalse]
+      exact Q'.eqv_trans _
+        (coeff (pmul pvar (pmul (ppow pvar power) p)) 0) _
+        (coeffEqv_pmul_assoc pvar (ppow pvar power) p 0)
+        (coeff_pmul_pvar_zero _)
+  | power + 1, p, index + 1 => by
+      have hassoc := coeffEqv_pmul_assoc
+        pvar (ppow pvar power) p (index + 1)
+      refine Q'.eqv_trans _
+        (coeff (pmul pvar (pmul (ppow pvar power) p)) (index + 1)) _
+        hassoc ?_
+      refine Q'.eqv_trans _
+        (coeff (pmul (ppow pvar power) p) index) _
+        (coeff_pmul_pvar_succ _ index) ?_
+      refine Q'.eqv_trans _
+        (if power <= index then coeff p (index - power) else 0) _
+        (coeff_pmul_ppow_pvar power p index) ?_
+      by_cases hle : power <= index
+      · have hsucc : power + 1 <= index + 1 := by omega
+        rw [if_pos hle, if_pos hsucc]
+        have hsub : index + 1 - (power + 1) = index - power := by omega
+        rw [hsub]
+        exact Q'.eqv_refl _
+      · have hsucc : Not (power + 1 <= index + 1) := by omega
+        rw [if_neg hle, if_neg hsucc]
+        exact Q'.eqv_refl 0
 
 /-- Multiplication by `-z` has zero constant coefficient. -/
 theorem coeff_pmul_neg_pvar_zero (q : Poly) :
@@ -275,6 +442,181 @@ theorem weightedL1_artanhPartialPoly_le (z : Q') :
 def positiveArtanhExponentPoly (stage : Nat) : Poly :=
   padd (artanhPartialPoly stage) (artanhPartialPoly stage)
 
+/-- Polynomial for the first `stage` even powers
+`1 + z^2 + ... + z^(2(stage-1))`.  This is the exact formal derivative of
+the finite artanh polynomial. -/
+def evenPowerPartialPoly : Nat -> Poly
+  | 0 => []
+  | stage + 1 => padd (evenPowerPartialPoly stage) (ppow pvar (2 * stage))
+
+/-- The polynomial `1 - z^2` used to contract the finite even-power
+derivative into its two boundary monomials. -/
+def oneSubSquarePoly : Poly :=
+  padd (pconst 1) (pneg (ppow pvar 2))
+
+/-- Multiplying one even monomial by `1-z^2` produces adjacent boundary
+monomials. -/
+theorem coeffEqv_oneSubSquarePoly_mul_evenPower (stage : Nat) :
+    CoeffEqv
+      (pmul oneSubSquarePoly (ppow pvar (2 * stage)))
+      (padd (ppow pvar (2 * stage))
+        (pneg (ppow pvar (2 * (stage + 1))))) := by
+  let monomial : Poly := ppow pvar (2 * stage)
+  have hpower := coeffEqv_ppow_pvar_add 2 (2 * stage)
+  have hdegree : 2 + 2 * stage = 2 * (stage + 1) := by omega
+  rw [hdegree] at hpower
+  have hnegative :
+      CoeffEqv
+        (pmul (pneg (ppow pvar 2)) monomial)
+        (pneg (ppow pvar (2 * (stage + 1)))) :=
+    CoeffEqv.trans
+      (coeffEqv_pscale_pmul (-1) (ppow pvar 2) monomial)
+      (CoeffEqv.pneg hpower)
+  unfold oneSubSquarePoly
+  exact CoeffEqv.trans
+    (coeffEqv_padd_pmul_left
+      (pconst 1) (pneg (ppow pvar 2)) monomial)
+    (CoeffEqv.padd
+      (coeffEqv_pmul_one_left monomial) hnegative)
+
+/-- Exact finite geometric telescoping:
+`(1-z^2)(1+z^2+...+z^(2(stage-1))) = 1-z^(2stage)`. -/
+theorem coeffEqv_oneSubSquarePoly_mul_evenPowerPartial :
+    forall stage : Nat,
+      CoeffEqv (pmul oneSubSquarePoly (evenPowerPartialPoly stage))
+        (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+  | 0 => by
+      have hleft : CoeffEqv (pmul oneSubSquarePoly []) [] := by
+        simpa only [pmul] using
+          (coeffEqv_pmul_comm oneSubSquarePoly [])
+      have hright :
+          CoeffEqv (padd (pconst 1) (pneg (ppow pvar 0))) [] := by
+        simpa only [ppow] using
+          (coeffEqv_padd_pneg_self (pconst 1))
+      exact CoeffEqv.trans hleft (CoeffEqv.symm hright)
+  | stage + 1 => by
+      refine CoeffEqv.trans
+        (coeffEqv_pmul_padd_right oneSubSquarePoly
+          (evenPowerPartialPoly stage) (ppow pvar (2 * stage))) ?_
+      refine CoeffEqv.trans
+        (CoeffEqv.padd
+          (coeffEqv_oneSubSquarePoly_mul_evenPowerPartial stage)
+          (coeffEqv_oneSubSquarePoly_mul_evenPower stage)) ?_
+      exact coeffEqv_padd_pneg_cancel
+        (pconst 1) (ppow pvar (2 * stage))
+        (pneg (ppow pvar (2 * (stage + 1))))
+
+/-- The odd denominator in the `k`th artanh term cancels its derivative
+coefficient. -/
+theorem recipOdd_mul_ofNat_odd_eqv_one (k : Nat) :
+    (CRealLog.recipOdd k * Q'.ofNat (2 * k + 1)).eqv (1 : Q') := by
+  exact Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv (CRealLog.recipOdd k) (Q'.ofNat (2 * k + 1)))
+    (by
+      unfold CRealLog.recipOdd
+      exact Q'.ofNat_succ_mul_invSucc (2 * k))
+
+/-- Cancellation of the odd artanh denominator remains exact after
+multiplying an arbitrary coefficient. -/
+theorem recipOdd_mul_ofNat_odd_mul (k : Nat) (c : Q') :
+    (CRealLog.recipOdd k * (Q'.ofNat (2 * k + 1) * c)).eqv c := by
+  exact Q'.eqv_trans _
+    ((CRealLog.recipOdd k * Q'.ofNat (2 * k + 1)) * c) _
+    (Q'.eqv_symm
+      (Q'.mul_assoc_eqv (CRealLog.recipOdd k)
+        (Q'.ofNat (2 * k + 1)) c))
+    (Q'.eqv_trans _ ((1 : Q') * c) _
+      (Q'.mul_eqv_congr_right _ _ c
+        (recipOdd_mul_ofNat_odd_eqv_one k))
+      (Q'.one_mul_eqv c))
+
+/-- Exact formal derivative of one reflected artanh term. -/
+theorem pderiv_artanhTermPoly (k : Nat) :
+    CoeffEqv (pderiv (artanhTermPoly k)) (ppow pvar (2 * k)) := by
+  refine CoeffEqv.trans
+    (pderiv_pscale (CRealLog.recipOdd k)
+      (ppow pvar (2 * k + 1))) ?_
+  refine CoeffEqv.trans
+    (CoeffEqv.pscale (CRealLog.recipOdd k)
+      (pderiv_ppow_pvar_succ (2 * k))) ?_
+  intro index
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd k *
+      coeff (pscale (Q'.ofNat (2 * k + 1))
+        (ppow pvar (2 * k))) index) _
+    (coeff_pscale (CRealLog.recipOdd k)
+      (pscale (Q'.ofNat (2 * k + 1))
+        (ppow pvar (2 * k))) index) ?_
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd k *
+      (Q'.ofNat (2 * k + 1) *
+        coeff (ppow pvar (2 * k)) index)) _
+    (Q'.mul_eqv_congr_left (CRealLog.recipOdd k) _ _
+      (coeff_pscale (Q'.ofNat (2 * k + 1))
+        (ppow pvar (2 * k)) index)) ?_
+  exact recipOdd_mul_ofNat_odd_mul k _
+
+/-- Formal differentiation of the finite artanh partial polynomial produces
+the matching finite even-power sum. -/
+theorem pderiv_artanhPartialPoly : forall stage : Nat,
+    CoeffEqv (pderiv (artanhPartialPoly stage))
+      (evenPowerPartialPoly stage)
+  | 0 => CoeffEqv.refl []
+  | stage + 1 => by
+      refine CoeffEqv.trans
+        (pderiv_padd (artanhPartialPoly stage) (artanhTermPoly stage)) ?_
+      exact CoeffEqv.padd
+        (pderiv_artanhPartialPoly stage)
+        (pderiv_artanhTermPoly stage)
+
+/-- The finite positive-artanh exponent has derivative twice the finite
+even-power sum. -/
+theorem pderiv_positiveArtanhExponentPoly (stage : Nat) :
+    CoeffEqv (pderiv (positiveArtanhExponentPoly stage))
+      (padd (evenPowerPartialPoly stage) (evenPowerPartialPoly stage)) := by
+  refine CoeffEqv.trans
+    (pderiv_padd (artanhPartialPoly stage) (artanhPartialPoly stage)) ?_
+  exact CoeffEqv.padd
+    (pderiv_artanhPartialPoly stage)
+    (pderiv_artanhPartialPoly stage)
+
+/-- Multiplication by `1-z^2` contracts the negative derivative of the
+finite positive-artanh exponent to its constant and truncation-boundary
+terms. -/
+theorem coeffEqv_oneSubSquare_mul_negativeExponentDerivative
+    (stage : Nat) :
+    CoeffEqv
+      (pmul oneSubSquarePoly
+        (pneg (pderiv (positiveArtanhExponentPoly stage))))
+      (pneg
+        (padd
+          (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+          (padd (pconst 1) (pneg (ppow pvar (2 * stage)))))) := by
+  let evenSum : Poly := evenPowerPartialPoly stage
+  let boundary : Poly :=
+    padd (pconst 1) (pneg (ppow pvar (2 * stage)))
+  have hnegativeDerivative :
+      CoeffEqv
+        (pneg (pderiv (positiveArtanhExponentPoly stage)))
+        (pneg (padd evenSum evenSum)) :=
+    CoeffEqv.pneg (pderiv_positiveArtanhExponentPoly stage)
+  have hdistributed :
+      CoeffEqv
+        (pmul oneSubSquarePoly (padd evenSum evenSum))
+        (padd boundary boundary) :=
+    CoeffEqv.trans
+      (coeffEqv_pmul_padd_right oneSubSquarePoly evenSum evenSum)
+      (CoeffEqv.padd
+        (coeffEqv_oneSubSquarePoly_mul_evenPowerPartial stage)
+        (coeffEqv_oneSubSquarePoly_mul_evenPowerPartial stage))
+  exact CoeffEqv.trans
+    (CoeffEqv.pmul (CoeffEqv.refl oneSubSquarePoly)
+      hnegativeDerivative)
+    (CoeffEqv.trans
+      (coeffEqv_pmul_pscale (-1) oneSubSquarePoly
+        (padd evenSum evenSum))
+      (CoeffEqv.pneg hdistributed))
+
 theorem eval_positiveArtanhExponentPoly (z : Q') (stage : Nat) :
     (eval (positiveArtanhExponentPoly stage) z).eqv
       (positiveArtanhExponent z stage) := by
@@ -328,6 +670,396 @@ def expPartialPoly (exponent : Poly) : Nat -> Poly
   | 0 => []
   | inner + 1 => padd (expPartialPoly exponent inner)
       (expTermPoly exponent inner)
+
+/-- Formal differentiation commutes with coefficientwise negation. -/
+theorem pderiv_pneg (p : Poly) :
+    CoeffEqv (pderiv (pneg p)) (pneg (pderiv p)) := by
+  unfold pneg
+  exact pderiv_pscale (-1) p
+
+/-- Formal derivative of one exponential recursion step. -/
+theorem pderiv_expStepPoly (exponent : Poly) (k : Nat) :
+    CoeffEqv (pderiv (expStepPoly exponent k))
+      (pscale (Q'.invSucc k) (pneg (pderiv exponent))) := by
+  unfold expStepPoly
+  exact CoeffEqv.trans
+    (pderiv_pscale (Q'.invSucc k) (pneg exponent))
+    (CoeffEqv.pscale (Q'.invSucc k) (pderiv_pneg exponent))
+
+/-- The two Leibniz summands in the exponential-term induction combine by
+the exact adjacent reciprocal cancellation. -/
+theorem expTermDerivativeStepAlgebra
+    (term factor differential : Poly) (k : Nat) :
+    CoeffEqv
+      (padd
+        (pmul (pmul term differential)
+          (pscale (Q'.invSucc (k + 1)) factor))
+        (pmul (pmul term (pscale (Q'.invSucc k) factor))
+          (pscale (Q'.invSucc (k + 1)) differential)))
+      (pmul (pmul term (pscale (Q'.invSucc k) factor))
+        differential) := by
+  let a : Q' := Q'.invSucc k
+  let b : Q' := Q'.invSucc (k + 1)
+  let base : Poly := pmul (pmul term factor) differential
+  have hswap :
+      CoeffEqv (pmul (pmul term differential) factor) base := by
+    exact CoeffEqv.trans
+      (coeffEqv_pmul_assoc term differential factor)
+      (CoeffEqv.trans
+        (CoeffEqv.pmul (CoeffEqv.refl term)
+          (coeffEqv_pmul_comm differential factor))
+        (CoeffEqv.symm
+          (coeffEqv_pmul_assoc term factor differential)))
+  have hfirst :
+      CoeffEqv
+        (pmul (pmul term differential) (pscale b factor))
+        (pscale b base) :=
+    CoeffEqv.trans
+      (coeffEqv_pmul_pscale b (pmul term differential) factor)
+      (CoeffEqv.pscale b hswap)
+  have hinner :
+      CoeffEqv
+        (pmul (pmul term (pscale a factor)) differential)
+        (pscale a base) :=
+    CoeffEqv.trans
+      (CoeffEqv.pmul
+        (coeffEqv_pmul_pscale a term factor)
+        (CoeffEqv.refl differential))
+      (coeffEqv_pscale_pmul a (pmul term factor) differential)
+  have hsecond :
+      CoeffEqv
+        (pmul (pmul term (pscale a factor))
+          (pscale b differential))
+        (pscale (b * a) base) :=
+    CoeffEqv.trans
+      (coeffEqv_pmul_pscale b
+        (pmul term (pscale a factor)) differential)
+      (CoeffEqv.trans
+        (CoeffEqv.pscale b hinner)
+        (coeffEqv_pscale_comp b a base))
+  have hscalar : (b + b * a).eqv a := by
+    exact Q'.eqv_trans _
+      (b * 1 + b * a) _
+      (q_add_congr
+        (Q'.eqv_symm (Q'.mul_one_eqv b)) (Q'.eqv_refl _))
+      (Q'.eqv_trans _
+        (b * (1 + a)) _
+        (Q'.eqv_symm (Q'.mul_add_eqv b 1 a))
+        (Q'.eqv_trans _
+          (b * (a + 1)) _
+          (Q'.mul_eqv_congr_left b _ _ (Q'.add_comm_eqv 1 a))
+          (by
+            unfold a b
+            exact ExpNeg.invSucc_cancel k)))
+  have hleft :
+      CoeffEqv
+        (padd
+          (pmul (pmul term differential) (pscale b factor))
+          (pmul (pmul term (pscale a factor))
+            (pscale b differential)))
+        (pscale a base) :=
+    CoeffEqv.trans
+      (CoeffEqv.padd hfirst hsecond)
+      (CoeffEqv.trans
+        (coeffEqv_padd_pscale b (b * a) base)
+        (coeffEqv_pscale_scalar hscalar base))
+  exact CoeffEqv.trans hleft (CoeffEqv.symm hinner)
+
+/-- Exact formal derivative of a positive-index finite exponential term.
+The proof stays in finite coefficient lists; the only division is discharged
+by `ExpNeg.invSucc_cancel`. -/
+theorem pderiv_expTermPoly_succ (exponent : Poly) : forall k : Nat,
+    CoeffEqv (pderiv (expTermPoly exponent (k + 1)))
+      (pmul (expTermPoly exponent k) (pneg (pderiv exponent)))
+  | 0 => by
+      refine CoeffEqv.trans
+        (pderiv_pmul (pconst 1) (expStepPoly exponent 0)) ?_
+      change
+        CoeffEqv
+          (pmul [(1 : Q')] (pderiv (expStepPoly exponent 0)))
+          (pmul [(1 : Q')] (pneg (pderiv exponent)))
+      refine CoeffEqv.pmul (CoeffEqv.refl [(1 : Q')]) ?_
+      refine CoeffEqv.trans (pderiv_expStepPoly exponent 0) ?_
+      exact CoeffEqv.trans
+        (coeffEqv_pscale_scalar
+          (by decide : (Q'.invSucc 0).eqv (1 : Q'))
+          (pneg (pderiv exponent)))
+        (coeffEqv_pscale_one (pneg (pderiv exponent)))
+  | k + 1 => by
+      refine CoeffEqv.trans
+        (pderiv_pmul
+          (expTermPoly exponent (k + 1))
+          (expStepPoly exponent (k + 1))) ?_
+      refine CoeffEqv.trans
+        (CoeffEqv.padd
+          (CoeffEqv.pmul
+            (pderiv_expTermPoly_succ exponent k)
+            (CoeffEqv.refl (expStepPoly exponent (k + 1))))
+          (CoeffEqv.pmul
+            (CoeffEqv.refl (expTermPoly exponent (k + 1)))
+            (pderiv_expStepPoly exponent (k + 1)))) ?_
+      change
+        CoeffEqv
+          (padd
+            (pmul
+              (pmul (expTermPoly exponent k) (pneg (pderiv exponent)))
+              (pscale (Q'.invSucc (k + 1)) (pneg exponent)))
+            (pmul
+              (pmul (expTermPoly exponent k)
+                (pscale (Q'.invSucc k) (pneg exponent)))
+              (pscale (Q'.invSucc (k + 1))
+                (pneg (pderiv exponent)))))
+          (pmul
+            (pmul (expTermPoly exponent k)
+              (pscale (Q'.invSucc k) (pneg exponent)))
+            (pneg (pderiv exponent)))
+      exact expTermDerivativeStepAlgebra
+        (expTermPoly exponent k) (pneg exponent)
+        (pneg (pderiv exponent)) k
+
+/-- The derivative of an exponential partial polynomial with `inner+1`
+terms is the previous partial polynomial times the negative exponent
+derivative. -/
+theorem pderiv_expPartialPoly_succ (exponent : Poly) : forall inner : Nat,
+    CoeffEqv (pderiv (expPartialPoly exponent (inner + 1)))
+      (pmul (expPartialPoly exponent inner) (pneg (pderiv exponent)))
+  | 0 => CoeffEqv.refl []
+  | inner + 1 => by
+      refine CoeffEqv.trans
+        (pderiv_padd
+          (expPartialPoly exponent (inner + 1))
+          (expTermPoly exponent (inner + 1))) ?_
+      refine CoeffEqv.trans
+        (CoeffEqv.padd
+          (pderiv_expPartialPoly_succ exponent inner)
+          (pderiv_expTermPoly_succ exponent inner)) ?_
+      exact CoeffEqv.symm
+        (coeffEqv_padd_pmul_left
+          (expPartialPoly exponent inner)
+          (expTermPoly exponent inner)
+          (pneg (pderiv exponent)))
+
+/-- Exact finite differential equation for the reflected positive-artanh
+Euler polynomial.  It includes the explicit degree-`2*stage` boundary term;
+no infinite-series identity is used. -/
+theorem positiveArtanhExpPartialPoly_finiteDifferentialEquation
+    (stage inner : Nat) :
+    CoeffEqv
+      (pmul oneSubSquarePoly
+        (pderiv
+          (expPartialPoly (positiveArtanhExponentPoly stage) (inner + 1))))
+      (pmul
+        (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+        (pneg
+          (padd
+            (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+            (padd (pconst 1) (pneg (ppow pvar (2 * stage))))))) := by
+  let exponent : Poly := positiveArtanhExponentPoly stage
+  let truncated : Poly := expPartialPoly exponent inner
+  let differential : Poly := pneg (pderiv exponent)
+  have hderivative := pderiv_expPartialPoly_succ exponent inner
+  have hreorder :
+      CoeffEqv
+        (pmul oneSubSquarePoly (pmul truncated differential))
+        (pmul truncated (pmul oneSubSquarePoly differential)) :=
+    CoeffEqv.trans
+      (CoeffEqv.symm
+        (coeffEqv_pmul_assoc oneSubSquarePoly truncated differential))
+      (CoeffEqv.trans
+        (CoeffEqv.pmul
+          (coeffEqv_pmul_comm oneSubSquarePoly truncated)
+          (CoeffEqv.refl differential))
+        (coeffEqv_pmul_assoc truncated oneSubSquarePoly differential))
+  exact CoeffEqv.trans
+    (CoeffEqv.pmul (CoeffEqv.refl oneSubSquarePoly) hderivative)
+    (CoeffEqv.trans hreorder
+      (CoeffEqv.pmul (CoeffEqv.refl truncated)
+        (coeffEqv_oneSubSquare_mul_negativeExponentDerivative stage)))
+
+/-- Normalize the doubled boundary polynomial into two negative constants
+and two positive degree-`2*stage` monomials. -/
+theorem coeffEqv_negativeDoubledArtanhBoundary (stage : Nat) :
+    CoeffEqv
+      (pneg
+        (padd
+          (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+          (padd (pconst 1) (pneg (ppow pvar (2 * stage))))))
+      (padd
+        (padd (pneg (pconst 1)) (pneg (pconst 1)))
+        (padd (ppow pvar (2 * stage))
+          (ppow pvar (2 * stage)))) := by
+  let one : Poly := pconst 1
+  let boundary : Poly := ppow pvar (2 * stage)
+  have hsingle :
+      CoeffEqv (pneg (padd one (pneg boundary)))
+        (padd (pneg one) boundary) :=
+    CoeffEqv.trans (coeffEqv_pneg_padd one (pneg boundary))
+      (CoeffEqv.padd (CoeffEqv.refl (pneg one))
+        (coeffEqv_pneg_pneg boundary))
+  exact CoeffEqv.trans
+    (coeffEqv_pneg_padd
+      (padd one (pneg boundary)) (padd one (pneg boundary)))
+    (CoeffEqv.trans (CoeffEqv.padd hsingle hsingle)
+      (coeffEqv_padd_interchange
+        (pneg one) boundary (pneg one) boundary))
+
+/-- Right multiplication by the negative constant-one polynomial negates
+each coefficient. -/
+theorem coeff_pmul_pneg_pconst_one (p : Poly) (index : Nat) :
+    (coeff (pmul p (pneg (pconst 1))) index).eqv
+      (-(coeff p index)) := by
+  have hrightIdentity : CoeffEqv (pmul p (pconst 1)) p :=
+    CoeffEqv.trans (coeffEqv_pmul_comm p (pconst 1))
+      (coeffEqv_pmul_one_left p)
+  have hpoly :
+      CoeffEqv (pmul p (pneg (pconst 1))) (pneg p) :=
+    CoeffEqv.trans
+      (coeffEqv_pmul_pscale (-1) p (pconst 1))
+      (CoeffEqv.pscale (-1) hrightIdentity)
+  exact Q'.eqv_trans _ (coeff (pneg p) index) _
+    (hpoly index) (coeff_pneg_eqv p index)
+
+/-- A monomial on the right contributes no coefficient below its degree. -/
+theorem coeff_pmul_ppow_pvar_right_eqv_zero_of_lt
+    (p : Poly) (power index : Nat) (hindex : index < power) :
+    (coeff (pmul p (ppow pvar power)) index).eqv 0 := by
+  exact Q'.eqv_trans _
+    (coeff (pmul (ppow pvar power) p) index) _
+    (coeffEqv_pmul_comm p (ppow pvar power) index)
+    (Q'.eqv_trans _
+      (if power <= index then coeff p (index - power) else 0) _
+      (coeff_pmul_ppow_pvar power p index)
+      (by
+        rw [if_neg (by omega : Not (power <= index))]
+        exact Q'.eqv_refl 0))
+
+/-- `-2` times a coefficient is the sum of two copies of its negation. -/
+theorem negativeTwo_mul_eqv_neg_add_neg (a : Q') :
+    (negativeTwo * a).eqv ((-a) + (-a)) := by
+  unfold negativeTwo
+  refine Q'.eqv_trans _
+    ((-1 : Q') * a + (-1 : Q') * a) _
+    (q_add_mul (-1) (-1) a) ?_
+  exact q_add_congr
+    (Q'.eqv_trans _ (-(1 * a)) _
+      (Q'.neg_mul_eqv 1 a)
+      (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv a)))
+    (Q'.eqv_trans _ (-(1 * a)) _
+      (Q'.neg_mul_eqv 1 a)
+      (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv a)))
+
+/-- Below the explicit artanh boundary, multiplying by the contracted
+boundary polynomial is exactly scalar multiplication by `-2`. -/
+theorem coeff_pmul_negativeDoubledArtanhBoundary_of_lt
+    (p : Poly) (stage index : Nat) (hindex : index < 2 * stage) :
+    (coeff
+      (pmul p
+        (pneg
+          (padd
+            (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+            (padd (pconst 1) (pneg (ppow pvar (2 * stage)))))))
+      index).eqv (negativeTwo * coeff p index) := by
+  let negativeOne : Poly := pneg (pconst 1)
+  let boundary : Poly := ppow pvar (2 * stage)
+  let expanded : Poly :=
+    padd
+      (padd (pmul p negativeOne) (pmul p negativeOne))
+      (padd (pmul p boundary) (pmul p boundary))
+  have hexpanded :
+      CoeffEqv
+        (pmul p
+          (pneg
+            (padd
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage)))))))
+        expanded :=
+    CoeffEqv.trans
+      (CoeffEqv.pmul (CoeffEqv.refl p)
+        (coeffEqv_negativeDoubledArtanhBoundary stage))
+      (CoeffEqv.trans
+        (coeffEqv_pmul_padd_right p
+          (padd negativeOne negativeOne) (padd boundary boundary))
+        (CoeffEqv.padd
+          (coeffEqv_pmul_padd_right p negativeOne negativeOne)
+          (coeffEqv_pmul_padd_right p boundary boundary)))
+  refine Q'.eqv_trans _ (coeff expanded index) _
+    (hexpanded index) ?_
+  refine Q'.eqv_trans _
+    ((coeff (pmul p negativeOne) index +
+        coeff (pmul p negativeOne) index) +
+      (coeff (pmul p boundary) index +
+        coeff (pmul p boundary) index)) _
+    (Q'.eqv_trans _
+      (coeff (padd (pmul p negativeOne) (pmul p negativeOne)) index +
+        coeff (padd (pmul p boundary) (pmul p boundary)) index) _
+      (coeff_padd index
+        (padd (pmul p negativeOne) (pmul p negativeOne))
+        (padd (pmul p boundary) (pmul p boundary)))
+      (q_add_congr
+        (coeff_padd index (pmul p negativeOne) (pmul p negativeOne))
+        (coeff_padd index (pmul p boundary) (pmul p boundary)))) ?_
+  refine Q'.eqv_trans _
+    (((-(coeff p index)) + (-(coeff p index))) + (0 + 0)) _
+    (q_add_congr
+      (q_add_congr
+        (coeff_pmul_pneg_pconst_one p index)
+        (coeff_pmul_pneg_pconst_one p index))
+      (q_add_congr
+        (coeff_pmul_ppow_pvar_right_eqv_zero_of_lt
+          p (2 * stage) index hindex)
+        (coeff_pmul_ppow_pvar_right_eqv_zero_of_lt
+          p (2 * stage) index hindex))) ?_
+  refine Q'.eqv_trans _
+    ((-(coeff p index)) + (-(coeff p index))) _
+    (Q'.eqv_trans _
+      (((-(coeff p index)) + (-(coeff p index))) + 0) _
+      (Q'.add_eqv_congr_left _ _ 0 (q_zero_add_eqv 0))
+      (q_add_zero_eqv _)) ?_
+  exact Q'.eqv_symm (negativeTwo_mul_eqv_neg_add_neg (coeff p index))
+
+/-- Coefficients of `(1-z^2)p` are the local two-step difference of the
+coefficients of `p`. -/
+theorem coeff_oneSubSquarePoly_pmul (p : Poly) (index : Nat) :
+    (coeff (pmul oneSubSquarePoly p) index).eqv
+      (coeff p index +
+        (if 2 <= index then -(coeff p (index - 2)) else 0)) := by
+  have hexpanded :
+      CoeffEqv (pmul oneSubSquarePoly p)
+        (padd p (pneg (pmul (ppow pvar 2) p))) := by
+    unfold oneSubSquarePoly
+    exact CoeffEqv.trans
+      (coeffEqv_padd_pmul_left
+        (pconst 1) (pneg (ppow pvar 2)) p)
+      (CoeffEqv.padd
+        (coeffEqv_pmul_one_left p)
+        (coeffEqv_pscale_pmul (-1) (ppow pvar 2) p))
+  refine Q'.eqv_trans _
+    (coeff (padd p (pneg (pmul (ppow pvar 2) p))) index) _
+    (hexpanded index) ?_
+  refine Q'.eqv_trans _
+    (coeff p index + coeff (pneg (pmul (ppow pvar 2) p)) index) _
+    (coeff_padd index p (pneg (pmul (ppow pvar 2) p))) ?_
+  refine Q'.eqv_trans _
+    (coeff p index + -(coeff (pmul (ppow pvar 2) p) index)) _
+    (Q'.add_eqv_congr_left _ _ _
+      (coeff_pneg_eqv (pmul (ppow pvar 2) p) index)) ?_
+  by_cases htwo : 2 <= index
+  · rw [if_pos htwo]
+    exact Q'.add_eqv_congr_left _ _ _
+      (Q'.neg_eqv_congr _ _
+        (Q'.eqv_trans _
+          (if 2 <= index then coeff p (index - 2) else 0) _
+          (coeff_pmul_ppow_pvar 2 p index)
+          (by rw [if_pos htwo]; exact Q'.eqv_refl _)))
+  · rw [if_neg htwo]
+    exact Q'.add_eqv_congr_left _ _ _
+      (Q'.eqv_trans _ (-(0 : Q')) _
+        (Q'.neg_eqv_congr _ 0
+          (Q'.eqv_trans _
+            (if 2 <= index then coeff p (index - 2) else 0) _
+            (coeff_pmul_ppow_pvar 2 p index)
+            (by rw [if_neg htwo]; exact Q'.eqv_refl 0)))
+        (by decide))
 
 /-- A zero-constant exponent makes its `k`-th Euler term start in degree
 `k`.  This is the formal reason a finite Euler sum with `inner` terms already
@@ -875,9 +1607,6 @@ theorem linearCoeff_positiveArtanhExponentPoly_succ_eqv_two
   exact q_add_congr
     (linearCoeff_artanhPartialPoly_succ_eqv_one stage)
     (linearCoeff_artanhPartialPoly_succ_eqv_one stage)
-
-/-- Closed rational representative used by the linear jets of both sides. -/
-def negativeTwo : Q' := (-1 : Q') + (-1 : Q')
 
 theorem constantCoeff_expStepPoly_eqv_zero
     (exponent : Poly) (hconstant : (constantCoeff exponent).eqv 0)
@@ -1522,6 +2251,268 @@ theorem coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt :
         subst index
         exact Q'.eqv_refl _
 
+/-- Solve `x+y ≃ z` for `x` using only constructive rational ring laws. -/
+theorem q_left_eqv_add_neg_of_add_eqv {x y z : Q'}
+    (h : (x + y).eqv z) : x.eqv (z + -y) := by
+  exact Q'.eqv_trans _ (x + 0) _
+    (Q'.eqv_symm (q_add_zero_eqv x))
+    (Q'.eqv_trans _ (x + (y + -y)) _
+      (Q'.add_eqv_congr_left x 0 _
+        (Q'.eqv_symm (Q'.add_neg_self_eqv y)))
+      (Q'.eqv_trans _ ((x + y) + -y) _
+        (Q'.eqv_symm (Q'.add_assoc_eqv x y (-y)))
+        (Q'.add_eqv_congr_right _ z (-y) h)))
+
+/-- Multiplication by the rational representative `-1` is negation. -/
+theorem negOne_mul_eqv_neg (a : Q') : ((-1 : Q') * a).eqv (-a) :=
+  Q'.eqv_trans _ (-(1 * a)) _
+    (Q'.neg_mul_eqv 1 a)
+    (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv a))
+
+/-- Multiplication by natural two is duplication. -/
+theorem ofNat_two_mul_eqv_add_self (a : Q') :
+    (Q'.ofNat 2 * a).eqv (a + a) := by
+  have htwo : (Q'.ofNat 2).eqv ((1 : Q') + 1) :=
+    Q'.eqv_trans _ (Q'.ofNat 1 + Q'.ofNat 1) _
+      (Q'.ofNat_add_eqv 1 1)
+      (q_add_congr (by decide) (by decide))
+  exact Q'.eqv_trans _ (((1 : Q') + 1) * a) _
+    (Q'.mul_eqv_congr_right _ _ a htwo)
+    (Q'.eqv_trans _ (1 * a + 1 * a) _
+      (q_add_mul 1 1 a)
+      (q_add_congr (Q'.one_mul_eqv a) (Q'.one_mul_eqv a)))
+
+/-- The closed `-2` scalar is natural two acting on the negated input. -/
+theorem negativeTwo_mul_eqv_ofNat_two_mul_neg (a : Q') :
+    (negativeTwo * a).eqv (Q'.ofNat 2 * (-a)) :=
+  Q'.eqv_trans _ ((-a) + (-a)) _
+    (negativeTwo_mul_eqv_neg_add_neg a)
+    (Q'.eqv_symm (ofNat_two_mul_eqv_add_self (-a)))
+
+/-- Combine the `-2` term and a natural multiple of the negated coefficient
+into one successor natural multiple. -/
+theorem negativeTwo_add_ofNat_mul_neg (a : Q') (count : Nat) :
+    (negativeTwo * a + Q'.ofNat count * (-a)).eqv
+      (Q'.ofNat (count + 2) * (-a)) := by
+  refine Q'.eqv_trans _
+    (Q'.ofNat 2 * (-a) + Q'.ofNat count * (-a)) _
+    (q_add_congr (negativeTwo_mul_eqv_ofNat_two_mul_neg a)
+      (Q'.eqv_refl _)) ?_
+  refine Q'.eqv_trans _
+    ((Q'.ofNat 2 + Q'.ofNat count) * (-a)) _
+    (Q'.eqv_symm (q_add_mul (Q'.ofNat 2) (Q'.ofNat count) (-a))) ?_
+  have hscalar : (Q'.ofNat 2 + Q'.ofNat count).eqv
+      (Q'.ofNat (count + 2)) :=
+    Q'.eqv_trans _ (Q'.ofNat count + Q'.ofNat 2) _
+      (Q'.add_comm_eqv _ _)
+      (Q'.eqv_symm (Q'.ofNat_add_eqv count 2))
+  exact Q'.mul_eqv_congr_right _ _ (-a) hscalar
+
+/-- Local coefficient form of the finite differential equation.  All Euler
+coefficients have already been moved to their canonical stabilized
+representatives, and the explicit artanh boundary is absent below
+`2*stage`. -/
+theorem positiveArtanhEulerStableCoeff_differentialRecurrence
+    (stage index : Nat) (hbound : index < 2 * stage) :
+    (Q'.ofNat (index + 1) *
+          positiveArtanhEulerStableCoeff stage (index + 1) +
+        (if 2 <= index then
+          -(Q'.ofNat (index - 1) *
+            positiveArtanhEulerStableCoeff stage (index - 1))
+        else 0)).eqv
+      (negativeTwo * positiveArtanhEulerStableCoeff stage index) := by
+  let exponent : Poly := positiveArtanhExponentPoly stage
+  let nextPartial : Poly := expPartialPoly exponent (index + 2)
+  let currentPartial : Poly := expPartialPoly exponent (index + 1)
+  have hstableMain :
+      (coeff nextPartial (index + 1)).eqv
+        (positiveArtanhEulerStableCoeff stage (index + 1)) :=
+    coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+      stage (index + 2) (index + 1) (by omega)
+  have hderivMain :
+      (coeff (pderiv nextPartial) index).eqv
+        (Q'.ofNat (index + 1) *
+          positiveArtanhEulerStableCoeff stage (index + 1)) :=
+    Q'.eqv_trans _
+      (Q'.ofNat (index + 1) * coeff nextPartial (index + 1)) _
+      (coeff_pderiv nextPartial index)
+      (Q'.mul_eqv_congr_left _ _ _ hstableMain)
+  have hleft :
+      (coeff (pmul oneSubSquarePoly (pderiv nextPartial)) index).eqv
+        (Q'.ofNat (index + 1) *
+            positiveArtanhEulerStableCoeff stage (index + 1) +
+          (if 2 <= index then
+            -(Q'.ofNat (index - 1) *
+              positiveArtanhEulerStableCoeff stage (index - 1))
+          else 0)) := by
+    refine Q'.eqv_trans _
+      (coeff (pderiv nextPartial) index +
+        (if 2 <= index then
+          -(coeff (pderiv nextPartial) (index - 2)) else 0)) _
+      (coeff_oneSubSquarePoly_pmul (pderiv nextPartial) index) ?_
+    by_cases htwo : 2 <= index
+    · simp only [if_pos htwo]
+      have hminus : index - 2 + 1 = index - 1 := by omega
+      have hstableBack :
+          (coeff nextPartial (index - 1)).eqv
+            (positiveArtanhEulerStableCoeff stage (index - 1)) :=
+        coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+          stage (index + 2) (index - 1) (by omega)
+      have hderivBack := coeff_pderiv nextPartial (index - 2)
+      rw [hminus] at hderivBack
+      exact q_add_congr hderivMain
+        (Q'.neg_eqv_congr _ _
+          (Q'.eqv_trans _
+            (Q'.ofNat (index - 1) *
+              coeff nextPartial (index - 1)) _
+            hderivBack
+            (Q'.mul_eqv_congr_left _ _ _ hstableBack)))
+    · simp only [if_neg htwo]
+      exact q_add_congr hderivMain (Q'.eqv_refl 0)
+  have hdifferential :=
+    positiveArtanhExpPartialPoly_finiteDifferentialEquation
+      stage (index + 1) index
+  have hcurrent :
+      (coeff currentPartial index).eqv
+        (positiveArtanhEulerStableCoeff stage index) :=
+    coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+      stage (index + 1) index (by omega)
+  have hright :
+      (coeff
+        (pmul currentPartial
+          (pneg
+            (padd
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage)))))))
+        index).eqv
+        (negativeTwo * positiveArtanhEulerStableCoeff stage index) :=
+    Q'.eqv_trans _
+      (negativeTwo * coeff currentPartial index) _
+      (coeff_pmul_negativeDoubledArtanhBoundary_of_lt
+        currentPartial stage index hbound)
+      (Q'.mul_eqv_congr_left negativeTwo _ _ hcurrent)
+  exact Q'.eqv_trans _
+    (coeff (pmul oneSubSquarePoly (pderiv nextPartial)) index) _
+    (Q'.eqv_symm hleft)
+    (Q'.eqv_trans _
+      (coeff
+        (pmul currentPartial
+          (pneg
+            (padd
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage))))
+              (padd (pconst 1) (pneg (ppow pvar (2 * stage)))))))
+        index) _
+      hdifferential hright)
+
+/-- The stabilized Euler coefficients alternate after the exceptional
+constant-to-linear step.  This discharges the former recurrence certificate
+field directly from the finite differential equation. -/
+theorem positiveArtanhEulerStableCoeff_succ_eqv_neg
+    (stage : Nat) : forall index : Nat, 1 <= index ->
+      index + 1 < 2 * stage + 1 ->
+      (positiveArtanhEulerStableCoeff stage (index + 1)).eqv
+        ((-1 : Q') * positiveArtanhEulerStableCoeff stage index) := by
+  intro index
+  induction index using Nat.strongRecOn with
+  | ind index ih =>
+      intro hone hwindow
+      have hboundary : index < 2 * stage := by omega
+      by_cases hbase : index = 1
+      · subst index
+        have htwoFalse : Not (2 <= 1) := by omega
+        have hrec :
+            (Q'.ofNat 2 * positiveArtanhEulerStableCoeff stage 2 + 0).eqv
+              (negativeTwo * positiveArtanhEulerStableCoeff stage 1) := by
+          simpa only [if_neg htwoFalse] using
+            (positiveArtanhEulerStableCoeff_differentialRecurrence
+              stage 1 hboundary)
+        have hfactor :
+            (Q'.ofNat 2 * positiveArtanhEulerStableCoeff stage 2).eqv
+              (Q'.ofNat 2 *
+                (-(positiveArtanhEulerStableCoeff stage 1))) :=
+          Q'.eqv_trans _
+            (Q'.ofNat 2 * positiveArtanhEulerStableCoeff stage 2 + 0) _
+            (Q'.eqv_symm
+              (q_add_zero_eqv
+                (Q'.ofNat 2 * positiveArtanhEulerStableCoeff stage 2)))
+            (Q'.eqv_trans _
+              (negativeTwo * positiveArtanhEulerStableCoeff stage 1) _
+              hrec
+              (negativeTwo_mul_eqv_ofNat_two_mul_neg
+                (positiveArtanhEulerStableCoeff stage 1)))
+        have hcancel :
+            (positiveArtanhEulerStableCoeff stage 2).eqv
+              (-(positiveArtanhEulerStableCoeff stage 1)) :=
+          Q'.mul_left_cancel_of_pos (Q'.ofNat_succ_pos 1) hfactor
+        exact Q'.eqv_trans _ _ _ hcancel
+          (Q'.eqv_symm
+            (negOne_mul_eqv_neg
+              (positiveArtanhEulerStableCoeff stage 1)))
+      · have htwo : 2 <= index := by omega
+        have hprevious : 1 <= index - 1 := by omega
+        have hpreviousWindow : index - 1 + 1 < 2 * stage + 1 := by omega
+        have hinduction := ih (index - 1) (by omega)
+          hprevious hpreviousWindow
+        have hpreviousSucc : index - 1 + 1 = index := by omega
+        rw [hpreviousSucc] at hinduction
+        have hcurrentEqNegPrevious :
+            (positiveArtanhEulerStableCoeff stage index).eqv
+              (-(positiveArtanhEulerStableCoeff stage (index - 1))) :=
+          Q'.eqv_trans _ _ _ hinduction
+            (negOne_mul_eqv_neg
+              (positiveArtanhEulerStableCoeff stage (index - 1)))
+        have hpreviousEqNegCurrent :
+            (positiveArtanhEulerStableCoeff stage (index - 1)).eqv
+              (-(positiveArtanhEulerStableCoeff stage index)) :=
+          Q'.eqv_symm
+            (Q'.eqv_trans _
+              (-(-(positiveArtanhEulerStableCoeff stage (index - 1)))) _
+              (Q'.neg_eqv_congr _ _ hcurrentEqNegPrevious)
+              (Q'.neg_neg_eqv
+                (positiveArtanhEulerStableCoeff stage (index - 1))))
+        have hrec :
+            (Q'.ofNat (index + 1) *
+                  positiveArtanhEulerStableCoeff stage (index + 1) +
+                -(Q'.ofNat (index - 1) *
+                  positiveArtanhEulerStableCoeff stage (index - 1))).eqv
+              (negativeTwo * positiveArtanhEulerStableCoeff stage index) := by
+          simpa only [if_pos htwo] using
+            (positiveArtanhEulerStableCoeff_differentialRecurrence
+              stage index hboundary)
+        have hsolved := q_left_eqv_add_neg_of_add_eqv hrec
+        have hrest :
+            (negativeTwo * positiveArtanhEulerStableCoeff stage index +
+                -(-(Q'.ofNat (index - 1) *
+                  positiveArtanhEulerStableCoeff stage (index - 1)))).eqv
+              (negativeTwo * positiveArtanhEulerStableCoeff stage index +
+                Q'.ofNat (index - 1) *
+                  (-(positiveArtanhEulerStableCoeff stage index))) := by
+          exact Q'.add_eqv_congr_left _ _ _
+            (Q'.eqv_trans _
+              (Q'.ofNat (index - 1) *
+                positiveArtanhEulerStableCoeff stage (index - 1)) _
+              (Q'.neg_neg_eqv _)
+              (Q'.mul_eqv_congr_left _ _ _ hpreviousEqNegCurrent))
+        have hcombine := negativeTwo_add_ofNat_mul_neg
+          (positiveArtanhEulerStableCoeff stage index) (index - 1)
+        have hcount : index - 1 + 2 = index + 1 := by omega
+        rw [hcount] at hcombine
+        have hfactor :
+            (Q'.ofNat (index + 1) *
+                positiveArtanhEulerStableCoeff stage (index + 1)).eqv
+              (Q'.ofNat (index + 1) *
+                (-(positiveArtanhEulerStableCoeff stage index))) :=
+          Q'.eqv_trans _ _ _ hsolved
+            (Q'.eqv_trans _ _ _ hrest hcombine)
+        have hcancel :
+            (positiveArtanhEulerStableCoeff stage (index + 1)).eqv
+              (-(positiveArtanhEulerStableCoeff stage index)) :=
+          Q'.mul_left_cancel_of_pos (Q'.ofNat_succ_pos index) hfactor
+        exact Q'.eqv_trans _ _ _ hcancel
+          (Q'.eqv_symm
+            (negOne_mul_eqv_neg
+              (positiveArtanhEulerStableCoeff stage index)))
+
 /-- The fully computed anchor difference polynomial. -/
 def positiveArtanhEulerAnchorDifferencePoly
     (z epsilon : Q') : Poly :=
@@ -1700,6 +2691,12 @@ structure PositiveArtanhEulerPolynomialStableRecurrenceCertificate : Type 1 wher
       (positiveArtanhEulerStableCoeff stage (index + 1)).eqv
         ((-1 : Q') * positiveArtanhEulerStableCoeff stage index)
 
+/-- Canonical internally proved inhabitant of the stabilized recurrence
+certificate. -/
+def canonicalPositiveArtanhEulerPolynomialStableRecurrenceCertificate :
+    PositiveArtanhEulerPolynomialStableRecurrenceCertificate where
+  coefficientSucc := positiveArtanhEulerStableCoeff_succ_eqv_neg
+
 /-- The algebraic rib of the scalable cancellation proof.  This statement is
 independent of the evaluation point and tolerance: every coefficient below the
 first possible truncation error agrees in the finite Euler and geometric
@@ -1814,6 +2811,24 @@ def toTarget
                     (index + 1) (by omega))))
 
 end PositiveArtanhEulerPolynomialStableRecurrenceCertificate
+
+/-- Canonical target-coefficient certificate generated from the internally
+proved recurrence. -/
+def canonicalPositiveArtanhEulerPolynomialTargetCoefficientCertificate :
+    PositiveArtanhEulerPolynomialTargetCoefficientCertificate :=
+  canonicalPositiveArtanhEulerPolynomialStableRecurrenceCertificate.toTarget
+
+/-- Canonical stabilized coefficient agreement with every finite geometric
+truncation in range. -/
+def canonicalPositiveArtanhEulerPolynomialStableCoefficientCertificate :
+    PositiveArtanhEulerPolynomialStableCoefficientCertificate :=
+  canonicalPositiveArtanhEulerPolynomialTargetCoefficientCertificate.toStable
+
+/-- Canonical exact formal cancellation certificate for the entire common
+finite Euler/geometric prefix. -/
+def canonicalPositiveArtanhEulerPolynomialFormalCoefficientCertificate :
+    PositiveArtanhEulerPolynomialFormalCoefficientCertificate :=
+  canonicalPositiveArtanhEulerPolynomialStableCoefficientCertificate.toFormal
 
 /-- The analytic rib after the entire formally cancelling prefix has been
 removed.  It contains no algebraic cancellation field and can therefore be
@@ -2003,6 +3018,14 @@ def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfRecurrenceAndTail
   positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
     recurrence.toTarget tail
 
+/-- With the algebraic recurrence now proved internally, the full analytic
+tail is the sole remaining input to the scalable coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFullTail
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler :=
+  positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
+    canonicalPositiveArtanhEulerPolynomialFormalCoefficientCertificate tail
+
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
 kernel computation. -/
@@ -2140,6 +3163,14 @@ def positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfRecurrenceAndTail
       recurrence tail)
 
+/-- The internally proved algebraic prefix leaves only the full analytic
+tail compiler as an input to the scalar inverse path. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialFullTail
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFullTail tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -2201,6 +3232,18 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableRecurrenceCertificate.toTarget
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.pderiv_positiveArtanhExponentPoly
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.pderiv_expPartialPoly_succ
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhExpPartialPoly_finiteDifferentialEquation
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_differentialRecurrence
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_succ_eqv_neg
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.canonicalPositiveArtanhEulerPolynomialFormalCoefficientCertificate
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
@@ -2210,6 +3253,8 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFullTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms
