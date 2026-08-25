@@ -15085,3 +15085,44 @@ power-series composition plus a checked remainder bound.  This milestone does
 not inhabit any exact-rate, transfer/finite-graph approximation, raw
 observable semantic/nontriviality, projective OS/GNS, vacuum stationarity,
 continuum, QFT, or Clay residual.
+
+## Finite artanh-Euler anchor reflected to executable coefficients (2026-08-24)
+
+The remaining nested rational expression is now reflected into the existing
+constructive `QPoly` algebra.  `artanhPartialPoly` represents the finite odd
+artanh series; `positiveArtanhExponentPoly` doubles it; `expTermPoly` and
+`expPartialPoly` build the finite Euler composition; and
+`positiveArtanhGeometricApproxPoly` represents the comparison polynomial.
+The theorem `eval_positiveArtanhEulerGeometricDifferencePoly` proves that the
+resulting coefficient list evaluates exactly, up to `Q'.eqv`, to the previous
+finite Euler-versus-geometric difference.
+
+`QPolyWeightedL1.weightedL1` supplies a rational weighted coefficient norm.
+`abs_eval_le_weightedL1` proves constructively that this norm controls Horner
+evaluation throughout a chosen radius.  The anchor uses the actual radius
+`abs z`, rather than the entire `1/3` window: this keeps the norm causally
+matched to the input-dependent Euler pivot and avoids imposing an artificial
+worst-window obligation on small inputs.
+
+Consequently the only new scalar field is
+`positiveArtanhEulerPolynomialCoefficientBound z epsilon`: one decidable
+rational inequality on a fully computed coefficient list.  The total
+`auditPositiveArtanhEulerPolynomialCoefficientBound` returns either a proof of
+that inequality or a proof of failure for every concrete input, and uses no
+axioms.  A successful Boolean check compiles through
+`PositiveWindowArtanhEulerPolynomialCheckedCertificate.toCoefficient`, then
+through the geometric anchor, scalar inverse, and the unchanged connected
+Wilson capstone.
+
+The exact one-worker constructive target passes 61 jobs.  Guarded checks pass
+for both coefficient and Boolean-check capstone adapters.  The semantic and
+window-bound exports use only `[propext, Quot.sound]`; the finite audit and
+Boolean-to-proposition conversion use no axioms.
+
+`PositiveWindowArtanhEulerPolynomialCheckedCompiler` remains uninhabited.
+The next frontier is no longer an opaque transcendental comparison: prove that
+every admissible computed Boolean coefficient check succeeds.  The intended
+causal split is exact cancellation of the low formal coefficients plus a
+weighted high-degree tail estimate.  All later exact-rate, transfer/finite-
+graph approximation, raw observable semantic/nontriviality, projective
+OS/GNS, vacuum stationarity, continuum, QFT, and Clay residuals remain open.

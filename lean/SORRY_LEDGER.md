@@ -13317,3 +13317,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   guarded checks for both connected capstone adapters pass.  This closes the
   reduction milestone only, not the finite comparison or any later physical
   or continuum obligation.
+
+### [BF4-physical-positive-artanh-polynomial-coefficient-anchor] Reflect the finite scalar anchor to an executable coefficient check — **CLOSED 2026-08-24**
+
+- **milestone**: construct explicit coefficient polynomials for the finite
+  artanh series, its finite Euler exponential composition, and the geometric
+  comparison; prove their exact evaluation semantics; prove a weighted
+  coefficient-`L1` evaluation bound; compile one decidable coefficient
+  inequality and its Boolean presentation through the scalar inverse and
+  connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyWeightedL1.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyWeightedL1.weightedL1`,
+  `QPolyWeightedL1.abs_eval_le_weightedL1`,
+  `CRealArtanhEulerPolynomialAnchor.eval_positiveArtanhEulerGeometricDifferencePoly`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerPolynomialCoefficientBound`,
+  `CRealArtanhEulerPolynomialAnchor.auditPositiveArtanhEulerPolynomialCoefficientBound`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCheckedCertificate.toCoefficient`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialCheckedCompiler`.
+- **obligation**: inhabit the uniform checked compiler by proving that every
+  admissible `z` and positive `epsilon` passes the computed coefficient
+  Boolean.  The remaining mathematical work should factor into exact
+  low-degree formal coefficient cancellation and a weighted high-degree tail
+  estimate.  Exact-rate, transfer/finite-graph approximation, raw observable
+  semantics, nontriviality, projective OS/GNS, vacuum stationarity, continuum
+  existence, and QFT closure remain separate open inputs.
+- **constructive?**: yes — coefficient lists and their Horner semantics are
+  explicit, the weighted norm is proved by recursion, and each concrete audit
+  returns proof-carrying success or failure.  The audit and Boolean conversion
+  use no axioms; downstream semantics stay within `[propext, Quot.sound]`.
+  No uniform successful compiler is claimed.
+- **status note**: the exact one-worker constructive target passes 61 jobs;
+  guarded connected-capstone checks pass.  This closes the reflection and
+  decision-procedure milestone only, not uniform success or any later
+  physical/continuum obligation.
