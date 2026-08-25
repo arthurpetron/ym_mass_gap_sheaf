@@ -15273,3 +15273,39 @@ Their Lean interfaces can now be developed in parallel, but the scalar inverse
 closes only after both meet at the computed count.  All exact-rate,
 transfer/finite-graph, raw-observable, projective OS/GNS, vacuum, continuum,
 QFT, and Clay residuals remain open.
+
+## Euler valuation removes the moving inner truncation (2026-08-24)
+
+The arbitrary coefficient layer now carries a constructive polynomial
+valuation calculus.  `QPolyValuation.zeroPrefix_pmul_add` proves that zero
+prefix lengths add under multiplication; addition and scaling preserve a
+fixed prefix; and prepending an exact zero raises the valuation by one.  These
+are coefficient-list theorems, not semantic appeals to an unformalized power
+series ring.
+
+Applied to the reflected Euler construction,
+`zeroPrefix_expTermPoly` proves that Euler term `k` starts in degree `k`
+whenever the exponent has zero constant coefficient.  The finite reflected
+artanh exponent has that property at every stage.  Consequently
+`coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt` proves that coefficient
+`index` of any Euler partial sum with `index < inner` equals the canonical
+coefficient obtained using exactly `index + 1` terms.
+
+This discharges the entire Euler-truncation component of the formal prefix.
+The former four-index formal certificate has been reduced to
+`PositiveArtanhEulerPolynomialStableCoefficientCertificate`, whose only field
+compares the canonical stabilized Euler coefficient against the geometric
+coefficient below `2*stage+1` and `degree+1`.  Its `toFormal` adapter restores
+the original certificate, and the stable-certificate/full-tail adapter feeds
+the same scalar inverse and same-object connected Wilson/OS capstone.
+
+Exact one-worker targets pass 50 jobs for `QPolyValuation`, 64 jobs for the
+polynomial anchor, and 5117 jobs for the connected capstone.  All new audited
+exports remain within `[propext, Quot.sound]`.
+
+The stabilized coefficient certificate and full analytic tail compiler remain
+uninhabited.  The immediate exact frontier is now smaller: compute the
+geometric coefficient below its truncation order and prove that the canonical
+Euler coefficient obeys the matching recurrence below the artanh truncation
+order.  The independent weighted-tail, physical carrier, OS/operator, limit,
+continuum, QFT, and Clay residuals remain open.

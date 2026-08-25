@@ -67,6 +67,24 @@ theorem coeff_psub (p q : Poly) (n : Nat) :
   Q'.eqv_trans _ _ _ (coeff_padd n p (pneg q))
     (q_add_congr (Q'.eqv_refl _) (coeff_pneg q n))
 
+/-- Equal input coefficients make the corresponding subtraction coefficient
+vanish. -/
+theorem coeff_psub_eqv_zero_of_eqv
+    (p q : Poly) (n : Nat)
+    (hcoeff : (coeff p n).eqv (coeff q n)) :
+    (coeff (psub p q) n).eqv 0 := by
+  have hneg : (((-1 : Q') * coeff q n)).eqv (-(coeff q n)) :=
+    Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 (coeff q n))
+      (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv (coeff q n)))
+  exact Q'.eqv_trans _
+    (coeff p n + ((-1 : Q') * coeff q n)) _
+    (coeff_psub p q n)
+    (Q'.eqv_trans _ (coeff p n + -(coeff q n)) _
+      (q_add_congr (Q'.eqv_refl _) hneg)
+      (Q'.eqv_trans _ (coeff q n + -(coeff q n)) _
+        (Q'.add_eqv_congr_right _ _ (-(coeff q n)) hcoeff)
+        (Q'.add_neg_self_eqv (coeff q n))))
+
 /-- Recursive convolution coefficient.  The recursion follows the first
 polynomial, matching the implementation of `pmul`. -/
 def mulCoeff : Poly -> Poly -> Nat -> Q'
@@ -141,6 +159,7 @@ end YMGap.Constructive.QPolyCoefficient
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Constructive.QPolyCoefficient.coeff_pmul
+#print axioms YMGap.Constructive.QPolyCoefficient.coeff_psub_eqv_zero_of_eqv
 #print axioms YMGap.Constructive.QPolyCoefficient.coeff_eqv_zero_of_zeroPrefix
 #print axioms YMGap.Constructive.QPolyCoefficient.zeroPrefix_of_coeff_eqv_zero
 #print axioms YMGap.Constructive.QPolyCoefficient.zeroPrefix_iff_coeff_eqv_zero

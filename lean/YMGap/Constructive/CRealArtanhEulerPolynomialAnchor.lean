@@ -17,6 +17,7 @@ import YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 import YMGap.Constructive.QPolyWeightedL1
 import YMGap.Constructive.QPolyJetOne
 import YMGap.Constructive.QPolyCoefficient
+import YMGap.Constructive.QPolyValuation
 
 namespace YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 
@@ -29,6 +30,7 @@ open YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 open YMGap.Constructive.QPolyWeightedL1
 open YMGap.Constructive.QPolyJetOne
 open YMGap.Constructive.QPolyCoefficient
+open YMGap.Constructive.QPolyValuation
 
 local infix:50 " ~q " => Q'.eqv
 
@@ -263,6 +265,58 @@ def expPartialPoly (exponent : Poly) : Nat -> Poly
   | 0 => []
   | inner + 1 => padd (expPartialPoly exponent inner)
       (expTermPoly exponent inner)
+
+/-- A zero-constant exponent makes its `k`-th Euler term start in degree
+`k`.  This is the formal reason a finite Euler sum with `inner` terms already
+has all coefficients below `inner` stabilized. -/
+theorem zeroPrefix_expTermPoly
+    (exponent : Poly) (hexponent : zeroPrefix 1 exponent) :
+    forall k : Nat, zeroPrefix k (expTermPoly exponent k)
+  | 0 => by rfl
+  | k + 1 => by
+      have hstep : zeroPrefix 1 (expStepPoly exponent k) := by
+        unfold expStepPoly pneg
+        exact zeroPrefix_pscale 1 (Q'.invSucc k) _
+          (zeroPrefix_pscale 1 (-1) exponent hexponent)
+      exact zeroPrefix_pmul_add k 1
+        (expTermPoly exponent k) (expStepPoly exponent k)
+        (zeroPrefix_expTermPoly exponent hexponent k) hstep
+
+/-- Adding the next Euler term cannot change any coefficient below the
+current truncation length. -/
+theorem coeff_expPartialPoly_succ_stable
+    (exponent : Poly) (hexponent : zeroPrefix 1 exponent)
+    (inner index : Nat) (hindex : index < inner) :
+    (coeff (expPartialPoly exponent (inner + 1)) index).eqv
+      (coeff (expPartialPoly exponent inner) index) := by
+  refine Q'.eqv_trans _
+    (coeff (expPartialPoly exponent inner) index +
+      coeff (expTermPoly exponent inner) index) _
+    (coeff_padd index _ _) ?_
+  exact Q'.eqv_trans _
+    (coeff (expPartialPoly exponent inner) index + 0) _
+    (q_add_congr (Q'.eqv_refl _)
+      (coeff_eqv_zero_of_zeroPrefix inner _
+        (zeroPrefix_expTermPoly exponent hexponent inner) index hindex))
+    (q_add_zero_eqv _)
+
+/-- Once an Euler coefficient is present, every later finite partial sum has
+exactly the same coefficient. -/
+theorem coeff_expPartialPoly_add_stable
+    (exponent : Poly) (hexponent : zeroPrefix 1 exponent)
+    (inner extra index : Nat) (hindex : index < inner) :
+    (coeff (expPartialPoly exponent (inner + extra)) index).eqv
+      (coeff (expPartialPoly exponent inner) index) := by
+  induction extra with
+  | zero => exact Q'.eqv_refl _
+  | succ extra ih =>
+      have hlt : index < inner + extra :=
+        Nat.lt_of_lt_of_le hindex (Nat.le_add_right inner extra)
+      rw [Nat.add_succ]
+      exact Q'.eqv_trans _ _ _
+        (coeff_expPartialPoly_succ_stable exponent hexponent
+          (inner + extra) index hlt)
+        ih
 
 theorem eval_expTermPoly
     (exponent : Poly) (z value : Q')
@@ -601,6 +655,26 @@ theorem constantCoeff_positiveArtanhExponentPoly_eqv_zero (stage : Nat) :
       (constantCoeff_artanhPartialPoly_eqv_zero stage)
       (constantCoeff_artanhPartialPoly_eqv_zero stage))
     (q_add_zero_eqv 0)
+
+/-- The reflected finite artanh exponent has constructive valuation at least
+one at every outer stage. -/
+theorem zeroPrefix_one_positiveArtanhExponentPoly (stage : Nat) :
+    zeroPrefix 1 (positiveArtanhExponentPoly stage) :=
+  zeroPrefix_of_coeff_eqv_zero 1 _ (fun index hindex => by
+    have hzero : index = 0 := by omega
+    subst index
+    exact Q'.eqv_trans _ _ _
+      (coeff_zero_eq_constantCoeff _)
+      (constantCoeff_positiveArtanhExponentPoly_eqv_zero stage))
+
+/-- The `k`-th reflected Euler term starts in degree `k`, uniformly in the
+finite artanh stage. -/
+theorem zeroPrefix_positiveArtanhExpTermPoly
+    (stage k : Nat) :
+    zeroPrefix k
+      (expTermPoly (positiveArtanhExponentPoly stage) k) :=
+  zeroPrefix_expTermPoly _
+    (zeroPrefix_one_positiveArtanhExponentPoly stage) k
 
 theorem linearCoeff_positiveArtanhExponentPoly_succ_eqv_two
     (stage : Nat) :
@@ -1208,6 +1282,37 @@ def positiveArtanhEulerPolynomialCancellationCount
     (stage inner degree : Nat) : Nat :=
   min inner (min (2 * stage + 1) (degree + 1))
 
+/-- Canonical stabilized Euler coefficient.  Exactly `index + 1` Euler terms
+are sufficient to determine coefficient `index`; later terms have valuation
+strictly above it. -/
+def positiveArtanhEulerStableCoeff (stage index : Nat) : Q' :=
+  coeff
+    (expPartialPoly (positiveArtanhExponentPoly stage) (index + 1))
+    index
+
+/-- Every finite Euler truncation containing coefficient `index` agrees with
+the canonical stabilized coefficient.  This removes the moving inner Euler
+pivot from the remaining formal coefficient identity. -/
+theorem coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt :
+    forall (stage inner index : Nat), index < inner ->
+      (coeff
+        (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+        index).eqv
+        (positiveArtanhEulerStableCoeff stage index)
+  | stage, 0, index, hindex => by omega
+  | stage, inner + 1, index, hindex => by
+      by_cases hlt : index < inner
+      · exact Q'.eqv_trans _ _ _
+          (coeff_expPartialPoly_succ_stable
+            (positiveArtanhExponentPoly stage)
+            (zeroPrefix_one_positiveArtanhExponentPoly stage)
+            inner index hlt)
+          (coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+            stage inner index hlt)
+      · have heq : index = inner := by omega
+        subst index
+        exact Q'.eqv_refl _
+
 /-- The fully computed anchor difference polynomial. -/
 def positiveArtanhEulerAnchorDifferencePoly
     (z epsilon : Q') : Poly :=
@@ -1325,6 +1430,17 @@ structure PositiveWindowArtanhEulerPolynomialPrefixTailCompiler : Type 2 where
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialPrefixTailCertificate z hz hzb
 
+/-- Reduced algebraic frontier after Euler-truncation stability has been
+proved internally.  The remaining identity compares one canonical stabilized
+Euler coefficient with the finite geometric coefficient, only below the
+artanh and geometric truncation orders. -/
+structure PositiveArtanhEulerPolynomialStableCoefficientCertificate : Type 1 where
+  coefficientAgreement :
+    forall (stage degree index : Nat),
+      index < 2 * stage + 1 -> index < degree + 1 ->
+      (positiveArtanhEulerStableCoeff stage index).eqv
+        (coeff (positiveArtanhGeometricApproxPoly degree) index)
+
 /-- The algebraic rib of the scalable cancellation proof.  This statement is
 independent of the evaluation point and tolerance: every coefficient below the
 first possible truncation error agrees in the finite Euler and geometric
@@ -1352,6 +1468,33 @@ def prefixZero
     (certificate.coefficientZero stage inner degree)
 
 end PositiveArtanhEulerPolynomialFormalCoefficientCertificate
+
+namespace PositiveArtanhEulerPolynomialStableCoefficientCertificate
+
+/-- Euler valuation removes the `inner` truncation from the formal
+certificate.  A proof of the stabilized artanh/geometric identity therefore
+inhabits the original four-index coefficient certificate. -/
+def toFormal
+    (certificate :
+      PositiveArtanhEulerPolynomialStableCoefficientCertificate) :
+    PositiveArtanhEulerPolynomialFormalCoefficientCertificate where
+  coefficientZero stage inner degree index hindex := by
+    have hinner : index < inner :=
+      Nat.lt_of_lt_of_le hindex (Nat.min_le_left _ _)
+    have hrest : index < min (2 * stage + 1) (degree + 1) :=
+      Nat.lt_of_lt_of_le hindex (Nat.min_le_right _ _)
+    have hstage : index < 2 * stage + 1 :=
+      Nat.lt_of_lt_of_le hrest (Nat.min_le_left _ _)
+    have hdegree : index < degree + 1 :=
+      Nat.lt_of_lt_of_le hrest (Nat.min_le_right _ _)
+    have heuler := coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+      stage inner index hinner
+    have hagreement := certificate.coefficientAgreement
+      stage degree index hstage hdegree
+    exact coeff_psub_eqv_zero_of_eqv _ _ index
+      (Q'.eqv_trans _ _ _ heuler hagreement)
+
+end PositiveArtanhEulerPolynomialStableCoefficientCertificate
 
 /-- The analytic rib after the entire formally cancelling prefix has been
 removed.  It contains no algebraic cancellation field and can therefore be
@@ -1513,6 +1656,15 @@ def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
     (positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
       formal tail)
 
+/-- The reduced stabilized-coefficient certificate and the independent
+analytic tail compiler rejoin at the same coefficient interface. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
+    (stable : PositiveArtanhEulerPolynomialStableCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler :=
+  positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
+    stable.toFormal tail
+
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
 kernel computation. -/
@@ -1619,6 +1771,16 @@ def positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
       formal tail)
 
+/-- The stabilized-coefficient frontier plus the full analytic tail compiles
+to the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail
+    (stable : PositiveArtanhEulerPolynomialStableCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
+      stable tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -1662,9 +1824,19 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialFormalCoefficientCertificate.prefixZero
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_expTermPoly
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_expPartialPoly_add_stable
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableCoefficientCertificate.toFormal
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

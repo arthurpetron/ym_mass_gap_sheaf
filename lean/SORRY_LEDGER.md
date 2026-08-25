@@ -13505,3 +13505,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   connected-capstone check passes.  This closes the compiler architecture and
   observable-preserving join only, not either open rib or any scalar inverse,
   operator gap, continuum theory, or Clay conclusion.
+
+### [BF4-physical-positive-artanh-euler-valuation-stability] Remove the moving Euler truncation from the formal coefficient frontier — **CLOSED 2026-08-24**
+
+- **milestone**: prove constructive zero-prefix valuation laws for polynomial
+  addition, scaling, and multiplication; prove Euler term `k` has valuation at
+  least `k` for every zero-constant exponent; prove every coefficient below a
+  finite Euler truncation is already stable; factor the remaining formal
+  certificate through canonical stabilized coefficients; and carry that
+  reduced input through the unchanged scalar and connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyCoefficient.lean`,
+  `lean/YMGap/Constructive/QPolyValuation.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyValuation.zeroPrefix_pmul_add`,
+  `CRealArtanhEulerPolynomialAnchor.zeroPrefix_expTermPoly`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_expPartialPoly_add_stable`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableCoefficientCertificate.toFormal`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialStableAndTailCompilers`.
+- **obligation**: inhabit the stabilized coefficient certificate by proving
+  the canonical Euler coefficient equals the finite geometric coefficient
+  below the artanh and geometric truncation orders; independently inhabit the
+  full-tail compiler.  The inner Euler cutoff is no longer an open formal
+  parameter.  Physical-carrier, OS/operator, limit, continuum, QFT, and Clay
+  inputs remain separate and open.
+- **constructive?**: yes.  Prefix valuation is proved by recursive coefficient
+  reflection and rational equivalence.  Stability follows because each added
+  Euler term has an explicitly proved zero prefix.  No formal infinite series,
+  normalization, classical choice, or successful residual certificate is
+  postulated.  Gates remain within `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 50 jobs for
+  `QPolyValuation`, 64 jobs for the polynomial anchor, and 5117 jobs for the
+  connected capstone.  This closes Euler-truncation stability only; it does
+  not close the stabilized artanh/geometric identity, analytic tail, scalar
+  inverse, physical operator gap, continuum theory, or Clay conclusion.
