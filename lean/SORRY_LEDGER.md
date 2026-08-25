@@ -16096,3 +16096,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-raw-kernel-amplification] Cancel endpoint weight into the raw physical kernel — **CLOSED 2026-08-25**
+
+- **milestone**: factor the actual routed path load into stationary endpoint-
+  pair weight times path-length/directed-edge multiplicity; identify the
+  transition term after source-weight division; prove source weight times the
+  conditional capacity equals half the literal raw physical kernel; factor
+  every actual normalized new-debt term through an endpoint-free raw-kernel
+  amplification; take constructive maxima on the same actual carriers; and
+  compile the resulting raw-kernel envelope into the preceding weighted
+  inverse-square control.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelAmplification.lean`.
+- **decl**:
+  `matchedEventualCanonicalTransportedBridgeNewEndpointPathLoad_eqv_stationaryWeight_mul_routeFactor`,
+  `matchedEventualCanonicalTransportedBridgeSourceWeightedConditionalCapacityOnEdge_eqv_rawKernelCapacity`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtTermOnMappedPair_eqv_stationaryWeight_mul_rawKernelAmplification`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtAmplificationMaximum_le_rawKernelAmplificationMaximum`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_rawKernelNewBlockDebtEnvelope`, and
+  `MatchedEventualCanonicalNewEndpointTrafficRawKernelInverseSquareControl.toWeightedControl`.
+- **obligation**: prove inverse-square decay of the explicit product of later
+  new-block mass and raw-kernel amplification maximum.  This now requires a
+  bound on path length/multiplicity and reciprocal raw physical-kernel
+  capacity on the actually traversed mapped edges, not a uniform endpoint-
+  stationary-weight floor.  Also prove a uniform no-merger branch or estimate
+  the component-merger residual.
+- **constructive?**: yes.  Every path, membership, load, maximum, quotient,
+  and positivity witness is explicit finite data.  The cancellation uses only
+  rational setoid equalities on the unchanged matched observable.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5127 jobs.  All eleven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.

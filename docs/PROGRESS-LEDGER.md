@@ -17957,3 +17957,57 @@ Old-traffic drift, route churn, the three shell-return faces, tail allowance
 and initial closure, AF identification, physical-scale uniformity, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## Endpoint stationary weights cancel into raw physical-kernel capacity (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelAmplification`
+opens the quotient left by the weighted-amplification milestone on the same
+actual complementary endpoint list and mapped current-edge carrier.  Its
+literal route factor is path edge length times directed-edge multiplicity when
+the edge is traversed, and zero otherwise.  The routed path load is exactly
+
+`stationaryPairWeight * routeFactor`,
+
+so division by the source stationary weight gives the unchanged transition-
+product term.  In the capacity normalization, that source weight multiplies
+the conditional kernel.  The existing physical Markov identity then proves
+
+`sourceWeight * (half * conditionalKernel) = half * rawPhysicalKernel`
+
+in the rational setoid.  Consequently every actual normalized new-debt term
+is exactly stationary pair weight times an endpoint-free amplification whose
+denominator is the raw physical-kernel capacity.  This removes the artificial
+need for a cutoff-uniform lower bound on endpoint stationary weights.
+
+Constructive maxima over the same actual endpoint and current-pair lists show
+that the preceding amplification maximum is bounded by the raw-kernel
+amplification maximum.  Hence the exact new-debt maximum is bounded by
+
+`(2 * laterNewBlockMass) * rawKernelAmplificationMaximum`,
+
+and this envelope is further controlled by the corrected-slab increment plus
+component-merger mass, or by the increment alone under the executable
+no-merger check.  A new Type-level raw-kernel inverse-square input contracts
+to the already verified weighted control and therefore reaches the unchanged
+exact-traffic, regional, and total-deficit consumers.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5127 jobs.  All eleven audited
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No inverse-square estimate is inhabited.  The next quantitative frontier is
+to bound the actual maximum of
+
+`sharedFloor * (pathLength * directedEdgeMultiplicity) / rawKernelCapacity`
+
+on traversed mapped edges and combine that growth with adjacent-cutoff new-
+block mass decay.  A useful next compiler should separate finite route
+geometry from the reciprocal positive raw-kernel capacity without replacing
+the observable or demanding a floor on unused edges.  A uniform no-merger
+certificate or merger-residual estimate also remains open.  Old-traffic
+drift, route churn, the three shell-return faces, tail allowance and initial
+closure, AF identification, physical-scale uniformity, a nonzero same-object
+observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
