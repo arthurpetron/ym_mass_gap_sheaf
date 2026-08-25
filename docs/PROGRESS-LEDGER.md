@@ -17150,3 +17150,57 @@ the physical cubic/spacing laws, the strength band, a nonzero same-object pin,
 the full nonperturbative trajectory, projective OS/GNS reconstruction,
 thermodynamic or continuum compatibility, continuum Yang--Mills theory, or
 the Clay mass gap.
+
+## The matched eventual lower proxy is now constructed from exact support data (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportProxy`
+specializes the existing arbitrary-nome support-aware capacity margin to the
+canonical routing at the literal matched nome and cutoff
+`transitionStart scale + offset`.  Its numerator is half the conditional-
+kernel floor on positively loaded routed edges; its denominator is one plus
+the maximum of the literal routed transition-product load.  Existing theorems
+prove this rational positive and below the exact canonical finite capacity
+margin on the same carrier.  Thus the lower proxy and its comparison proof
+are now constructed data rather than analytic fields.
+
+Directly indexing a dependent summable-variation structure by the expanded
+finite support term exceeded the deterministic elaboration budget.  The
+verified implementation therefore places the explicit rational in a
+proof-bearing opaque package.  Its public value carries a kernel-checked
+`Q'.eqv` to the exact support debt.  This is not an axiom or an unrelated
+surrogate: `SummableRationalStepVariationAlgebra.ofPointwiseEqv` transports
+variation from the compact stream back to the exact matched proxy-debt stream
+before the prefix-tail or eventual-check compiler consumes it.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportDebtPrefixTailCompiler`
+removes the free proxy from the preceding producer.  At every physical scale,
+its remaining local inputs are now summable two-sided variation of the sealed
+but exactly identified support debt, a positive tail allowance, and the one
+computed inequality
+`supportDebt(0) + (finite variation prefix + tail allowance) <= 1`.
+Setoid transport preserves the variation stream and tail modulus literally;
+the initial inequality is transported in the correct order to the exact debt.
+These data still contract to the exact eventual canonical checks, transition
+product, completed carrier/transfer/vacuum family, normalized strength law,
+rate-band consumer, and same-object observable-pin interface.
+
+Causally, proxy construction is no longer an open branch.  The immediate
+serial frontier is summable variation and scalar closure for this particular
+support debt.  Only after that common local gate do the strength/spacing band
+and nonzero same-object pin become parallel consumers of the same completed
+family.  Estimates for any different proxy, routing, or observable cannot be
+substituted without an explicit checked transport edge.
+
+Focused monitored checks pass for both modules.  The support-proxy dependency
+target completes 5088 jobs; the final support-debt compiler target completes
+5093 jobs.  Every newly printed export uses only `[propext, Quot.sound]`.
+The root aggregator imports both modules.  Two earlier same-module forms were
+not accepted: one was interrupted after impractical elaboration and one hit
+the deterministic 10M-heartbeat limit.  Neither is counted as a pass.  No
+full-root audit is claimed.
+
+No summable support-debt variation, positive tail allowance, or initial slack
+is inhabited.  Physical cubic/spacing laws, the local persistence result,
+strength band, nonzero same-object pin, full trajectory identification,
+projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.

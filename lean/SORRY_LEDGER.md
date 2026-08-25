@@ -15403,3 +15403,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target completes 5087 jobs.  All printed exports use only
   `[propext, Quot.sound]` or `[propext]`; the root aggregator imports both
   modules.  No full-root audit is claimed.
+
+### [matched-physical-eventual-canonical-support-proxy] Construct the exact matched lower proxy from routed support data — **CLOSED 2026-08-25**
+
+- **milestone**: specialize the support-aware conditional-kernel floor and
+  routed-load maximum to the exact canonical matched nome/cutoff; construct a
+  positive lower proxy below the exact same-routing finite capacity margin;
+  seal its normalized debt in a proof-bearing rational package to control
+  elaboration; transport variation along the stored `Q'.eqv`; and remove the
+  free proxy field from the matched prefix-tail persistence producer while
+  preserving every completed and same-object observable consumer.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportProxy.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportDebtPrefixTailCompiler.lean`.
+- **decl**: `matchedEventualCanonicalRoutingAt`,
+  `matchedEventualCanonicalSupportCapacityMarginLower`,
+  `matchedEventualCanonicalSupportCapacityMarginLower_pos`,
+  `matchedEventualCanonicalSupportCapacityMarginLower_le_exact`,
+  `matchedEventualCanonicalSupportMarginLowerProxy`,
+  `MatchedEventualCanonicalSupportCapacityDebtValue`,
+  `matchedEventualCanonicalSupportCapacityDebtValue`,
+  `matchedEventualCanonicalSupportCapacityDebt`,
+  `matchedEventualCanonicalSupportCapacityDebt_eqv_exact`,
+  `MatchedPhysicalDynamicExplicitRayEventualCanonicalSupportDebtPrefixTailProducer`,
+  `exactDebtVariation`, `toPrefixTailProducer`, `debt_le_one`,
+  `toCompletedFamily`, `toNormalizedStrengthLaw`, `StrengthBand`,
+  `toPhysicalRateBand`, and `SameObjectObservablePin`.
+- **obligation**: prove summable two-sided variation of the now-fixed compact
+  support-debt stream at every physical scale, choose a positive analytic tail
+  allowance, and verify the one computed initial-slack inequality.  Exact
+  setoid transport then discharges the former free-proxy interface.  The
+  strength/spacing band and nonzero same-object pin remain downstream parallel
+  obligations only after this serial local persistence gate closes.
+- **constructive?**: yes.  The proxy is an explicit finite rational
+  construction.  The opaque boundary has a kernel-checked body and returns a
+  structure carrying its exact rational setoid equality; it introduces no
+  axiom and erases no witness.  Variation transport is constructive and keeps
+  its modulus as data.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: focused monitored checks pass for both modules.  The proxy
+  dependency target completes 5088 jobs and the final dependency-complete
+  target completes 5093 jobs.  All printed exports use only
+  `[propext, Quot.sound]`, and the root aggregator imports both modules.  One
+  long elaboration was interrupted and a second same-module form hit the
+  deterministic 10M-heartbeat limit; neither is claimed as a pass.  No
+  full-root audit is claimed.
