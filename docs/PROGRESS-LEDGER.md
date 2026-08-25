@@ -15413,3 +15413,49 @@ The full analytic tail compiler is now the sole scalar inverse input at this
 join and remains open.  This finite algebraic closure does not supply the
 physical carrier, projective OS/GNS handoff, transfer/operator uniformity,
 thermodynamic or continuum limits, QFT axioms, or the Clay mass-gap theorem.
+
+## Computed cutoff decay contracts the analytic frontier to one fixed tail-size bound (2026-08-24)
+
+The three-way truncation minimum in the analytic full-tail certificate is no
+longer opaque.  Exact denominator arithmetic proves that the reserved
+comparison tolerance has denominator `16 * epsilon.den`, while the outer
+artanh stage is `432 * epsilon.den`.  The positive-exponent Euler pivot is at
+least two beyond the comparison-tolerance denominator.  Since the geometric
+degree is exactly that denominator, the theorem
+`positiveArtanhEulerAnchorCancellationCount_eq_geometricDegree_succ` proves
+that the common cancellation count is always exactly `degree + 1`; the
+geometric truncation is the first active boundary, independently of `z`.
+
+On the direct window `0 < z` and `|z| <= 1/3`, base monotonicity gives
+`|z|^count <= (1/2)^count`.  The extra successor in the computed count pays a
+factor of two exactly, and the explicit half-power modulus then proves
+`positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance`.  Thus the
+entire epsilon-dependent cutoff/radius half of the former analytic full-tail
+obligation is now a theorem.
+
+`PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate` is the
+strictly smaller remaining analytic input.  At each tolerance it asks only
+for the fixed shifted coefficient estimate
+`weightedL1 |z| (drop (degree+1) differencePoly) <= 2`.
+`PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate.toFullTail`
+combines that estimate with the proved radius decay; the compiler adapters
+then reach the existing scalar inverse.  The connected
+`adaptivePathOfPositiveArtanhPolynomialResidualTailSizeCompiler` carries the
+same reduced scalar input through the same dynamic family, raw Wilson
+observable, projective OS handoff, matrix coefficient, exact-rate handoff,
+transfer lift, finite graph approximation, and vacuum pin.
+
+The first guarded connected check, run before rebuilding the changed
+constructive dependency, is not a pass: it reported the two new imported
+identifiers as unknown and consequently printed `sorryAx` for the failed
+declaration.  After the exact anchor target rebuilt its `.olean`, the corrected
+guarded check passes.  Exact one-worker targets pass 65 jobs for the polynomial
+anchor and 5118 jobs for the connected capstone.  Every newly audited export
+uses exactly `[propext, Quot.sound]`; no forbidden construct was added.
+
+The residual shifted-tail-size compiler remains uninhabited.  The next scalar
+frontier is to exploit the exact first geometric-boundary coefficient and
+bound the later shifted Euler tail uniformly by the remaining unit budget.
+No scalar inverse, physical carrier, projective OS/GNS construction,
+transfer/operator uniformity, thermodynamic or continuum limit, QFT axiom, or
+Clay mass-gap theorem is claimed.

@@ -13664,3 +13664,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for the connected capstone.  This closes only the finite algebraic scalar
   rib.  It does not prove the analytic full-tail estimate, scalar inverse,
   physical mass gap, continuum theory, or Clay conclusion.
+
+### [BF4-physical-positive-artanh-cutoff-radius-decay] Prove the computed cutoff decay and reduce the analytic tail to a fixed shifted-size bound — **CLOSED 2026-08-24**
+
+- **milestone**: compute the exact denominators of the comparison tolerance
+  and outer stage; prove the positive Euler pivot lies beyond the geometric
+  cutoff; identify the common cancellation count exactly with the successor
+  of the geometric degree; prove that its radius power times two fits inside
+  the reserved tolerance throughout the positive artanh window; replace the
+  former epsilon-dependent full-tail input by one fixed shifted-tail-size
+  certificate; and carry that smaller input through the unchanged scalar and
+  observable-connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhGeometricComparisonTolerance_den`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorStage_eq`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorPivot_ge_comparisonDen_add_two`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorCancellationCount_eq_geometricDegree_succ`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate.toFullTail`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialResidualTailSizeCompiler`.
+- **obligation**: inhabit
+  `PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler` by proving,
+  uniformly on `0 < z` and `|z| <= 1/3`, that the weighted coefficient tail
+  after the explicit geometric boundary `degree + 1` has shifted norm at most
+  two.  The cutoff choice, radius decay, and epsilon budget are no longer open
+  inputs.  Physical-carrier, projective OS/GNS, transfer/operator,
+  thermodynamic/continuum, QFT, and Clay inputs remain separate and open.
+- **constructive?**: yes.  Denominators and cutoffs are exact natural-number
+  computations, the dyadic decay uses the explicit `HalfPow` modulus, and the
+  residual bound remains named `Type`-level data rather than a postulated
+  successful evaluation.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.  Audited gates
+  remain within `[propext, Quot.sound]`.
+- **status note**: after rebuilding the changed constructive dependency,
+  exact one-worker targets pass 65 jobs for the polynomial anchor and 5118
+  jobs for the connected capstone.  The earlier guarded connected check with
+  stale imports is not counted as a pass.  This closes only the cutoff/radius
+  half of the analytic scalar tail; it does not inhabit the residual tail-size
+  compiler, construct a scalar inverse or physical mass gap, or prove the
+  continuum/Clay endpoint.

@@ -2549,6 +2549,177 @@ def positiveArtanhEulerAnchorCancellationCount
     (positiveArtanhEulerAnchorPivot z epsilon)
     (positiveArtanhGeometricAnchorDegree epsilon)
 
+/-! ## The computed cancellation count pays the geometric radius factor -/
+
+/-- The stored denominator of a rational product is the product of the
+stored positive denominators.  `Q'.mul_den_cast` already proves the integer
+version; this is the natural-number form needed by the explicit cutoffs. -/
+theorem qmul_den_eq_nat (a b : Q') :
+    (a * b).den = a.den * b.den := by
+  exact_mod_cast Q'.mul_den_cast a b
+
+/-- The reserved geometric comparison tolerance is exactly
+`epsilon / 16` at the level of stored denominators. -/
+theorem positiveArtanhGeometricComparisonTolerance_den (epsilon : Q') :
+    (positiveArtanhGeometricComparisonTolerance epsilon).den =
+      16 * epsilon.den := by
+  unfold positiveArtanhGeometricComparisonTolerance
+    positiveArtanhAnchorInnerTolerance HalfPow.half
+  repeat rw [qmul_den_eq_nat]
+  repeat rw [Q'.mkPos_den]
+  omega
+
+/-- The explicit outer Euler stage is much larger than the geometric
+tolerance denominator: its exact value is `432 * epsilon.den`. -/
+theorem positiveArtanhEulerAnchorStage_eq (epsilon : Q') :
+    positiveArtanhEulerAnchorStage epsilon = 432 * epsilon.den := by
+  unfold positiveArtanhEulerAnchorStage positiveArtanhExponentModulus
+    CRealLog.Martanh positiveArtanhAnchorOuterTolerance HalfPow.half
+  repeat rw [qmul_den_eq_nat]
+  repeat rw [Q'.mkPos_den]
+  omega
+
+/-- Multiplying by a positive-denominator rational cannot decrease the
+stored denominator. -/
+theorem den_le_mul_den (a b : Q') :
+    a.den <= (a * b).den := by
+  rw [qmul_den_eq_nat]
+  have hb : 1 <= b.den := by
+    have := b.den_pos
+    omega
+  simpa using Nat.mul_le_mul_left a.den hb
+
+/-- The exponential pivot exceeds the comparison-tolerance denominator by
+two.  One part comes from the positive exponent's ratio cutoff, and the
+other from the explicit term-modulus denominator. -/
+theorem positiveArtanhEulerAnchorPivot_ge_comparisonDen_add_two
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    (positiveArtanhGeometricComparisonTolerance epsilon).den + 2 <=
+      positiveArtanhEulerAnchorPivot z epsilon := by
+  let x : Q' := positiveArtanhExponent z
+    (positiveArtanhEulerAnchorStage epsilon)
+  let tolerance : Q' := positiveArtanhGeometricComparisonTolerance epsilon
+  have hx : (0 : Q') < x :=
+    positiveArtanhExponent_pos_of_one_le z hz _
+      (one_le_positiveArtanhEulerAnchorStage epsilon)
+  have hcut : 2 <= RatNat.halfRatioCutoff x :=
+    two_le_halfRatioCutoff_of_pos x hx
+  have hden : tolerance.den <=
+      (tolerance * Q'.invSucc
+        (ExpNeg.termAbs x (RatNat.halfRatioCutoff x)).num.toNat).den :=
+    den_le_mul_den _ _
+  change tolerance.den + 2 <= ExpNeg.Mexp x
+    (positiveArtanhAnchorInnerTolerance epsilon)
+  unfold ExpNeg.Mexp
+  refine Nat.le_trans ?_ (Nat.le_max_right _ _)
+  change tolerance.den + 2 <= RatNat.halfRatioCutoff x +
+    (tolerance * Q'.invSucc
+      (ExpNeg.termAbs x (RatNat.halfRatioCutoff x)).num.toNat).den
+  omega
+
+/-- All three finite truncations lie beyond one successor of the comparison
+tolerance denominator.  This is the exact common cutoff needed to extract
+one additional factor `1/2`. -/
+theorem positiveArtanhEulerAnchorCancellationCount_ge_comparisonDen_succ
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    (positiveArtanhGeometricComparisonTolerance epsilon).den + 1 <=
+      positiveArtanhEulerAnchorCancellationCount z epsilon := by
+  let tolerance : Q' := positiveArtanhGeometricComparisonTolerance epsilon
+  have hpivot : tolerance.den + 1 <=
+      positiveArtanhEulerAnchorPivot z epsilon := by
+    have hpivotBase :=
+      positiveArtanhEulerAnchorPivot_ge_comparisonDen_add_two z hz epsilon
+    change tolerance.den + 2 <=
+      positiveArtanhEulerAnchorPivot z epsilon at hpivotBase
+    omega
+  have hstage : tolerance.den + 1 <=
+      2 * positiveArtanhEulerAnchorStage epsilon + 1 := by
+    rw [positiveArtanhGeometricComparisonTolerance_den,
+      positiveArtanhEulerAnchorStage_eq]
+    omega
+  have hdegree : tolerance.den + 1 <=
+      positiveArtanhGeometricAnchorDegree epsilon + 1 := by
+    unfold positiveArtanhGeometricAnchorDegree
+    exact Nat.le_refl _
+  unfold positiveArtanhEulerAnchorCancellationCount
+    positiveArtanhEulerPolynomialCancellationCount
+  exact Nat.le_min.mpr ⟨hpivot, Nat.le_min.mpr ⟨hstage, hdegree⟩⟩
+
+/-- The geometric truncation is always the first of the three computed
+cutoffs.  Thus the common cancellation count is exactly one past the
+geometric degree; neither the input-dependent Euler pivot nor the outer
+artanh stage controls the residual interface. -/
+theorem positiveArtanhEulerAnchorCancellationCount_eq_geometricDegree_succ
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    positiveArtanhEulerAnchorCancellationCount z epsilon =
+      positiveArtanhGeometricAnchorDegree epsilon + 1 := by
+  apply Nat.le_antisymm
+  · unfold positiveArtanhEulerAnchorCancellationCount
+      positiveArtanhEulerPolynomialCancellationCount
+    exact Nat.le_trans (Nat.min_le_right _ _) (Nat.min_le_right _ _)
+  · have hcount :=
+      positiveArtanhEulerAnchorCancellationCount_ge_comparisonDen_succ
+        z hz epsilon
+    unfold positiveArtanhGeometricAnchorDegree
+    exact hcount
+
+/-- One extra dyadic power pays a factor of two exactly. -/
+theorem half_pow_succ_mul_two_eqv (n : Nat) :
+    ((HalfPow.half ^ (n + 1)) * Q'.ofNat 2).eqv
+      (HalfPow.half ^ n) := by
+  show ((HalfPow.half * HalfPow.half ^ n) * Q'.ofNat 2).eqv
+    (HalfPow.half ^ n)
+  refine Q'.eqv_trans _
+    (HalfPow.half * ((HalfPow.half ^ n) * Q'.ofNat 2)) _
+    (Q'.mul_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _
+    (HalfPow.half * (Q'.ofNat 2 * (HalfPow.half ^ n))) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (Q'.mul_comm_eqv (HalfPow.half ^ n) (Q'.ofNat 2))) ?_
+  refine Q'.eqv_trans _
+    ((HalfPow.half * Q'.ofNat 2) * (HalfPow.half ^ n)) _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)) ?_
+  refine Q'.eqv_trans _ ((1 : Q') * (HalfPow.half ^ n)) _
+    (Q'.mul_eqv_congr_right _ _ _ (by decide)) ?_
+  exact Q'.one_mul_eqv _
+
+/-- On the direct artanh window, the computed cancellation radius alone
+pays the full comparison tolerance against any residual tail of weighted
+size at most two. -/
+theorem positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance
+    (z : Q') (hz : (0 : Q') < z)
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    (Q'.abs z) ^ (positiveArtanhEulerAnchorCancellationCount z epsilon) *
+        Q'.ofNat 2 <= positiveArtanhGeometricComparisonTolerance epsilon := by
+  let tolerance : Q' := positiveArtanhGeometricComparisonTolerance epsilon
+  let count : Nat := positiveArtanhEulerAnchorCancellationCount z epsilon
+  have htolerance : (0 : Q') < tolerance :=
+    positiveArtanhGeometricComparisonTolerance_pos epsilon hepsilon
+  have hcount :=
+    positiveArtanhEulerAnchorCancellationCount_ge_comparisonDen_succ
+      z hz epsilon
+  change tolerance.den + 1 <= count at hcount
+  obtain ⟨extra, hcountEq⟩ := Nat.exists_eq_add_of_le hcount
+  have hradius : Q'.abs z <= HalfPow.half :=
+    Q'.le_trans' _ _ _ hzb (by decide)
+  have hbase : (Q'.abs z) ^ count <= HalfPow.half ^ count :=
+    CRealLog.pow_le_pow_base _ _ (Q'.abs_nonneg z) hradius count
+  have hanti : HalfPow.half ^ count <=
+      HalfPow.half ^ (tolerance.den + 1) := by
+    rw [hcountEq]
+    exact ExpNeg.pow_half_antitone (tolerance.den + 1) extra
+  have hpower : (Q'.abs z) ^ count <=
+      HalfPow.half ^ (tolerance.den + 1) :=
+    Q'.le_trans' _ _ _ hbase hanti
+  have htwice : (Q'.abs z) ^ count * Q'.ofNat 2 <=
+      HalfPow.half ^ (tolerance.den + 1) * Q'.ofNat 2 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hpower (by decide)
+  exact Q'.le_trans' _ _ _ htwice
+    (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (half_pow_succ_mul_two_eqv tolerance.den))
+      (HalfPow.pow_half_le tolerance htolerance))
+
 /-- The executable coefficient inequality at one rational input and
 tolerance. -/
 def positiveArtanhEulerPolynomialCoefficientBound
@@ -2849,6 +3020,68 @@ structure PositiveWindowArtanhEulerPolynomialFullTailCompiler : Type 2 where
     (z : Q') -> (hz : (0 : Q') < z) ->
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialFullTailCertificate z hz hzb
+
+/-- Strictly smaller analytic residue after the computed cancellation radius
+has been proved to pay the tolerance.  The caller need only bound the shifted
+weighted coefficient tail by the fixed rational constant two; no
+epsilon-dependent radius estimate remains in the interface. -/
+structure PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailSizeBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    weightedL1 (Q'.abs z) (List.drop (degree + 1) polynomial) <=
+      Q'.ofNat 2
+
+/-- Uniform producer of the residual shifted-tail-size certificates. -/
+structure PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
+
+/-- The proved cutoff/radius decay compiles a fixed tail-size bound into the
+previous full analytic tail certificate. -/
+def toFullTail
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate :
+      PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
+        z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialFullTailCertificate z hz hzb where
+  tailBound epsilon hepsilon := by
+    let count := positiveArtanhEulerAnchorCancellationCount z epsilon
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    have hcount : count = degree + 1 :=
+      positiveArtanhEulerAnchorCancellationCount_eq_geometricDegree_succ
+        z hz epsilon
+    have hsize :
+        weightedL1 (Q'.abs z) (List.drop count polynomial) <= Q'.ofNat 2 := by
+      rw [hcount]
+      exact certificate.tailSizeBound epsilon hepsilon
+    have hscaled :
+        (Q'.abs z) ^ count *
+            weightedL1 (Q'.abs z) (List.drop count polynomial) <=
+          (Q'.abs z) ^ count * Q'.ofNat 2 :=
+      Q'.mul_le_mul_of_nonneg_left _ _ _ hsize
+        (Q'.pow_nonneg _ (Q'.abs_nonneg z) count)
+    exact Q'.le_trans' _ _ _ hscaled
+      (positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance
+        z hz hzb epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
+
+/-- A fixed residual tail-size compiler supplies the former full analytic
+tail compiler. -/
+def positiveWindowArtanhEulerPolynomialFullTailCompilerOfResidualTailSize
+    (compiler :
+      PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler) :
+    PositiveWindowArtanhEulerPolynomialFullTailCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toFullTail
 
 /-- Tail-only presentation after the constant-coefficient cancellation has
 been proved internally.  Unlike `PositiveWindowArtanhEulerPolynomialPrefixTailCertificate`,
@@ -3171,6 +3404,14 @@ def positiveWindowArtanhEulerCompilerOfPolynomialFullTail
   positiveWindowArtanhEulerCompilerOfPolynomial
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFullTail tail)
 
+/-- The residual shifted-tail-size compiler now reaches the scalar inverse:
+the cancellation-count and radius-decay factors are internal theorems. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
+    (tail : PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomialFullTail
+    (positiveWindowArtanhEulerPolynomialFullTailCompilerOfResidualTailSize tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -3255,6 +3496,16 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialRecurrenceAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFullTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorCancellationCount_ge_comparisonDen_succ
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorCancellationCount_eq_geometricDegree_succ
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate.toFullTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

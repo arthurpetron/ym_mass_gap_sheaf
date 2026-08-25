@@ -1213,6 +1213,41 @@ def adaptivePathOfPositiveArtanhPolynomialFullTailCompiler
       scalarTail)
     transfer finite vacuumPin
 
+/-- The computed cancellation cutoff and its geometric radius decay are now
+internal.  The sole scalar input is the fixed shifted-tail-size bound, while
+the dynamic family, raw observable, Wilson reconstruction, transfer lift,
+finite graph approximation, and vacuum pin remain definitionally unchanged. -/
+def adaptivePathOfPositiveArtanhPolynomialResidualTailSizeCompiler
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (scalarTail :
+      PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfPositiveArtanhPolynomialFullTailCompiler
+    uniform projectiveOS matrixCoefficient exactRate
+    (positiveWindowArtanhEulerPolynomialFullTailCompilerOfResidualTailSize
+      scalarTail)
+    transfer finite vacuumPin
+
 /-- The connected capstone after the constant coefficient has been cancelled
 internally.  The scalar input now contains only the weighted tail obligation;
 the observable, Wilson reconstruction, and operator inputs are unchanged. -/
@@ -1382,6 +1417,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialRecurrenceAndTailCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialFullTailCompiler
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialResidualTailSizeCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialOneTailCompiler
 #print axioms
