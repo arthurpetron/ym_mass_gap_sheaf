@@ -464,31 +464,54 @@ theorem recurrence_from_term (y : Q') (N₀ : Nat) (ε : Q')
     exact Q'.one_mul_eqv ε
   exact Q'.le_of_eqv e
 
+/-- The explicit outer modulus for the artanh partial sums.  It is exposed as
+Type-level data because the existential modulus stored in a general
+`CReal.cauchy` proof cannot be selected constructively by later compilers. -/
+def Martanh (ε : Q') : Nat :=
+  (Q'.mkPos 8 9 (by decide) * ε).den
+
+/-- The artanh partial sums have the explicit modulus `Martanh`.  This is the
+standalone quantitative form of the Cauchy proof used by `artanh`. -/
+theorem artanh_cauchy_explicit
+    (y : Q') (hy : Q'.abs y ≤ recipOdd 1)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    ∀ m n, Martanh ε ≤ m → Martanh ε ≤ n →
+      partialSum y m ≤ partialSum y n + ε ∧
+        partialSum y n ≤ partialSum y m + ε := by
+  intro m n hm hn
+  have hεnn : (0 : Q') ≤ ε := Q'.le_of_lt hε
+  have h89 : (0 : Q') < Q'.mkPos 8 9 (by decide) * ε :=
+    eightNinths_eps_pos ε hε
+  have dir : ∀ k l : Nat, Martanh ε ≤ k → k ≤ l →
+      partialSum y l ≤ partialSum y k + ε ∧
+        partialSum y k ≤ partialSum y l + ε := by
+    intro k l hk hkl
+    obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hkl
+    have hterm : termAbs y k ≤ Q'.mkPos 8 9 (by decide) * ε :=
+      termAbs_le_of_den_le y hy (Q'.mkPos 8 9 (by decide) * ε)
+        h89 k hk
+    have hrec : termAbs y k + oneNinth * ε ≤ ε :=
+      recurrence_from_term y k ε hterm
+    have htail : blockAbs y k d ≤ ε :=
+      blockAbs_le y hy ε k hεnn hrec d
+    exact
+      ⟨Q'.le_trans' _ _ _ (block_upper y k d)
+          (Q'.add_le_add_left (partialSum y k) (blockAbs y k d) ε htail),
+        Q'.le_trans' _ _ _ (block_lower y k d)
+          (Q'.add_le_add_left (partialSum y (k + d))
+            (blockAbs y k d) ε htail)⟩
+  rcases Nat.le_total m n with hmn | hnm
+  · exact ⟨(dir m n hm hmn).2, (dir m n hm hmn).1⟩
+  · exact ⟨(dir n m hn hnm).1, (dir n m hn hnm).2⟩
+
 /-- **The constructive `artanh y` for `|y| ≤ 1/3`** — the genuine artanh-series
 limit, with the geometric Cauchy modulus.  Its approximations are the rational
 partial sums `partialSum y`. -/
 def artanh (y : Q') (hy : Q'.abs y ≤ recipOdd 1) : CReal where
   approx := partialSum y
-  cauchy := by
-    intro ε hε
-    have hεnn : (0 : Q') ≤ ε := Q'.le_of_lt hε
-    have h89 : (0 : Q') < Q'.mkPos 8 9 (by decide) * ε := eightNinths_eps_pos ε hε
-    refine ⟨(Q'.mkPos 8 9 (by decide) * ε).den, fun m n hm hn => ?_⟩
-    have dir : ∀ k l : Nat, (Q'.mkPos 8 9 (by decide) * ε).den ≤ k → k ≤ l →
-        partialSum y l ≤ partialSum y k + ε ∧ partialSum y k ≤ partialSum y l + ε := by
-      intro k l hk hkl
-      obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hkl
-      have hterm : termAbs y k ≤ Q'.mkPos 8 9 (by decide) * ε :=
-        termAbs_le_of_den_le y hy (Q'.mkPos 8 9 (by decide) * ε) h89 k hk
-      have hrec : termAbs y k + oneNinth * ε ≤ ε := recurrence_from_term y k ε hterm
-      have htail : blockAbs y k d ≤ ε := blockAbs_le y hy ε k hεnn hrec d
-      exact ⟨Q'.le_trans' _ _ _ (block_upper y k d)
-               (Q'.add_le_add_left (partialSum y k) (blockAbs y k d) ε htail),
-             Q'.le_trans' _ _ _ (block_lower y k d)
-               (Q'.add_le_add_left (partialSum y (k + d)) (blockAbs y k d) ε htail)⟩
-    rcases Nat.le_total m n with hmn | hnm
-    · exact ⟨(dir m n hm hmn).2, (dir m n hm hmn).1⟩
-    · exact ⟨(dir n m hn hnm).1, (dir n m hn hnm).2⟩
+  cauchy := fun ε hε =>
+    ⟨Martanh ε, fun m n hm hn =>
+      artanh_cauchy_explicit y hy ε hε m n hm hn⟩
 
 @[simp] theorem artanh_approx (y : Q') (hy : Q'.abs y ≤ recipOdd 1) (n : Nat) :
     (artanh y hy).approx n = partialSum y n := rfl
@@ -912,6 +935,7 @@ no `native_decide`, no `sorry`. -/
 #print axioms YMGap.Constructive.CRealLog.term_two_sided
 #print axioms YMGap.Constructive.CRealLog.termAbs_geom_dom
 #print axioms YMGap.Constructive.CRealLog.blockAbs_le
+#print axioms YMGap.Constructive.CRealLog.artanh_cauchy_explicit
 #print axioms YMGap.Constructive.CRealLog.artanh
 #print axioms YMGap.Constructive.CRealLog.artanh_zero
 #print axioms YMGap.Constructive.CRealLog.artanh_geRat_of_pos

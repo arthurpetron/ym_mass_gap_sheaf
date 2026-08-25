@@ -112,6 +112,105 @@ theorem positiveArtanhExponent_nonnegative
     exact hmono
   exact Q'.zero_le_add _ _ hpartial hpartial
 
+/-- On the direct artanh window the one-copy exponent is uniformly at most
+one.  The proof sums the literal positive artanh series into the geometric
+half bound; no completed logarithm or inverse identity is used. -/
+theorem positiveArtanhExponent_le_one
+    (z : Q') (hzb : Q'.abs z <= CRealLog.recipOdd 1) (stage : Nat) :
+    positiveArtanhExponent z stage <= (1 : Q') := by
+  have htermZeroEqv : (CRealLog.termAbs z 0).eqv (Q'.abs z) := by
+    show ((Q'.abs z) ^ (2 * 0 + 1) * CRealLog.recipOdd 0).eqv
+      (Q'.abs z)
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ (Q'.abs z) (CRealLog.recipOdd 0) ?_) ?_
+    · show (Q'.abs z * (Q'.abs z) ^ 0).eqv (Q'.abs z)
+      exact Q'.mul_one_eqv (Q'.abs z)
+    · refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (Q'.abs z) _ 1 (by decide)) ?_
+      exact Q'.mul_one_eqv (Q'.abs z)
+  have hterm : CRealLog.termAbs z 0 <=
+      Q'.mkPos 8 9 (by decide) * HalfPow.half :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv htermZeroEqv)
+      (Q'.le_trans' _ _ _ hzb (by decide))
+  have hrec : CRealLog.termAbs z 0 +
+      CRealLog.oneNinth * HalfPow.half <= HalfPow.half :=
+    CRealLog.recurrence_from_term z 0 HalfPow.half hterm
+  have hblock : CRealLog.blockAbs z 0 stage <= HalfPow.half :=
+    CRealLog.blockAbs_le z hzb HalfPow.half 0 HalfPow.half_nonneg hrec stage
+  have hpartial : CRealLog.partialSum z stage <= HalfPow.half := by
+    have hupper := CRealLog.block_upper z 0 stage
+    rw [Nat.zero_add, CRealLog.partialSum_zero] at hupper
+    exact Q'.le_trans' _ _ _ hupper
+      (Q'.le_trans' _ _ _
+        (Q'.add_le_add_left 0 (CRealLog.blockAbs z 0 stage)
+          HalfPow.half hblock)
+        (Q'.le_of_eqv (QPoly.q_zero_add_eqv HalfPow.half)))
+  exact Q'.le_trans' _ _ _ (Q'.add_le_add hpartial hpartial)
+    (Q'.le_of_eqv (ExpNeg.two_halves 1))
+
+/-- The explicit outer modulus for the doubled positive-artanh exponent. -/
+def positiveArtanhExponentModulus (epsilon : Q') : Nat :=
+  CRealLog.Martanh (HalfPow.half * epsilon)
+
+/-- The doubled artanh exponent has an explicit Type-level Cauchy modulus.
+This exposes the quantitative outer-stage stability needed by the finite
+cleared-defect proof rather than hiding it in a `CReal.cauchy` existential. -/
+theorem positiveArtanhExponent_cauchy_explicit
+    (z : Q') (hzb : Q'.abs z <= CRealLog.recipOdd 1)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    forall m n,
+      positiveArtanhExponentModulus epsilon <= m ->
+      positiveArtanhExponentModulus epsilon <= n ->
+      positiveArtanhExponent z m <= positiveArtanhExponent z n + epsilon /\
+        positiveArtanhExponent z n <=
+          positiveArtanhExponent z m + epsilon := by
+  intro m n hm hn
+  let q : Q' := HalfPow.half * epsilon
+  have hq : (0 : Q') < q := ExpNeg.half_mul_pos epsilon hepsilon
+  have hpartial := CRealLog.artanh_cauchy_explicit z hzb q hq m n hm hn
+  have hbudget : (q + q).eqv epsilon := ExpNeg.two_halves epsilon
+  have close : forall a b : Q', a <= b + q ->
+      a + a <= (b + b) + epsilon := by
+    intro a b hab
+    have hadd : a + a <= (b + q) + (b + q) :=
+      Q'.add_le_add hab hab
+    refine Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv ?_)
+    refine Q'.eqv_trans _ ((b + b) + (q + q)) _
+      (Q'.add_swap_inner b q b q) ?_
+    exact Q'.add_eqv_congr_left (b + b) _ _ hbudget
+  exact
+    ⟨close (CRealLog.partialSum z m) (CRealLog.partialSum z n) hpartial.1,
+      close (CRealLog.partialSum z n) (CRealLog.partialSum z m) hpartial.2⟩
+
+/-- Uniform finite-series response to the outer artanh stage.  Once both
+outer stages are past the explicit exponent modulus, every exponential
+partial sum, at every inner index, differs by at most three times the outer
+tolerance. -/
+theorem positiveArtanhExpPartialSum_cauchy_explicit
+    (z : Q') (hz : (0 : Q') < z)
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (m n : Nat)
+    (hm : positiveArtanhExponentModulus epsilon <= m)
+    (hn : positiveArtanhExponentModulus epsilon <= n)
+    (inner : Nat) :
+    Q'.abs
+        (ExpNeg.partialSum (positiveArtanhExponent z m) inner +
+          -(ExpNeg.partialSum (positiveArtanhExponent z n) inner)) <=
+      epsilon * Q'.ofNat 3 := by
+  have hclose := positiveArtanhExponent_cauchy_explicit
+    z hzb epsilon hepsilon m n hm hn
+  have hlipschitz := ExpNeg.partialSumDiff_le
+    (positiveArtanhExponent_nonnegative z hz m)
+    (positiveArtanhExponent_le_one z hzb m)
+    (positiveArtanhExponent_nonnegative z hz n)
+    (positiveArtanhExponent_le_one z hzb n)
+    (Q'.le_of_lt hepsilon) hclose.1 hclose.2 inner
+  exact Q'.le_trans' _ _ _ hlipschitz
+    (Q'.mul_le_mul_of_nonneg_left
+      (ExpNeg.sumBound inner) (Q'.ofNat 3) epsilon
+      (ExpNeg.sumBound_le_three inner) (Q'.le_of_lt hepsilon))
+
 /-- The denominator `1+z` of the positive-window decay ratio is positive. -/
 theorem one_add_pos_of_pos (z : Q') (hz : (0 : Q') < z) :
     (0 : Q') < (1 : Q') + z :=
@@ -150,6 +249,187 @@ def positiveArtanhEulerPivot
     (z : Q') (stage : Nat) (epsilon : Q') : Nat :=
   ExpNeg.Mexp (positiveArtanhExponent z stage)
     (HalfPow.half * epsilon)
+
+/-- Moving computed exponential pivots are quantitatively stable in the
+outer artanh stage.  The comparison passes through the maximum of the two
+inner cutoffs: two explicit exponential Cauchy errors surround one uniform
+finite-series response error. -/
+theorem positiveArtanhEulerMovingPivot_cauchy_explicit
+    (z : Q') (hz : (0 : Q') < z)
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1)
+    (innerTolerance outerTolerance : Q')
+    (hinner : (0 : Q') < innerTolerance)
+    (houter : (0 : Q') < outerTolerance)
+    (m n : Nat)
+    (hm : positiveArtanhExponentModulus outerTolerance <= m)
+    (hn : positiveArtanhExponentModulus outerTolerance <= n) :
+    let exponentM := positiveArtanhExponent z m
+    let exponentN := positiveArtanhExponent z n
+    let pivotM := ExpNeg.Mexp exponentM innerTolerance
+    let pivotN := ExpNeg.Mexp exponentN innerTolerance
+    let valueM := ExpNeg.partialSum exponentM pivotM
+    let valueN := ExpNeg.partialSum exponentN pivotN
+    let response := outerTolerance * Q'.ofNat 3
+    valueM <= ((valueN + innerTolerance) + response) + innerTolerance /\
+      valueN <= ((valueM + innerTolerance) + response) + innerTolerance := by
+  let exponentM : Q' := positiveArtanhExponent z m
+  let exponentN : Q' := positiveArtanhExponent z n
+  let pivotM : Nat := ExpNeg.Mexp exponentM innerTolerance
+  let pivotN : Nat := ExpNeg.Mexp exponentN innerTolerance
+  let common : Nat := max pivotM pivotN
+  let valueM : Q' := ExpNeg.partialSum exponentM pivotM
+  let valueN : Q' := ExpNeg.partialSum exponentN pivotN
+  let commonM : Q' := ExpNeg.partialSum exponentM common
+  let commonN : Q' := ExpNeg.partialSum exponentN common
+  let response : Q' := outerTolerance * Q'.ofNat 3
+  have hcauchyM := ExpNeg.expNeg_cauchy_explicit exponentM
+    (positiveArtanhExponent_nonnegative z hz m)
+    innerTolerance hinner pivotM common
+    (Nat.le_refl pivotM) (Nat.le_max_left pivotM pivotN)
+  have hcauchyN := ExpNeg.expNeg_cauchy_explicit exponentN
+    (positiveArtanhExponent_nonnegative z hz n)
+    innerTolerance hinner common pivotN
+    (Nat.le_max_right pivotM pivotN) (Nat.le_refl pivotN)
+  have hresponseMN := positiveArtanhExpPartialSum_cauchy_explicit
+    z hz hzb outerTolerance houter m n hm hn common
+  have hresponseNM := positiveArtanhExpPartialSum_cauchy_explicit
+    z hz hzb outerTolerance houter n m hn hm common
+  have subUpper : forall a b bound : Q',
+      Q'.abs (a + -b) <= bound -> a <= b + bound := by
+    intro a b bound habs
+    have hsub : a + -b <= bound :=
+      Q'.le_trans' _ _ _ (Q'.le_abs_self (a + -b)) habs
+    have hshift : (a + -b) + b <= bound + b :=
+      Q'.add_le_add_right _ _ b hsub
+    have hmain : a <= bound + b := by
+      refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv ?_) hshift
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv a (-b) b) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left a _ _ (Q'.neg_add_self_eqv b)) ?_
+      exact Q'.eqv_of_eq (Q'.add_zero' a)
+    exact Q'.le_trans' _ _ _ hmain
+      (Q'.le_of_eqv (Q'.add_comm_eqv bound b))
+  have hcommonMN : commonM <= commonN + response :=
+    subUpper commonM commonN response hresponseMN
+  have hcommonNM : commonN <= commonM + response :=
+    subUpper commonN commonM response hresponseNM
+  have forward : valueM <=
+      ((valueN + innerTolerance) + response) + innerTolerance :=
+    Q'.le_trans' _ _ _ hcauchyM.1
+      (Q'.le_trans' _ _ _
+        (Q'.add_le_add_right _ _ innerTolerance hcommonMN)
+        (Q'.add_le_add_right _ _ innerTolerance
+          (Q'.add_le_add_right _ _ response hcauchyN.1)))
+  have backward : valueN <=
+      ((valueM + innerTolerance) + response) + innerTolerance :=
+    Q'.le_trans' _ _ _ hcauchyN.2
+      (Q'.le_trans' _ _ _
+        (Q'.add_le_add_right _ _ innerTolerance hcommonNM)
+        (Q'.add_le_add_right _ _ innerTolerance
+          (Q'.add_le_add_right _ _ response hcauchyM.2)))
+  exact ⟨forward, backward⟩
+
+/-- Inner exponential tolerance used by the single-anchor compiler: one
+eighth of the requested final tolerance. -/
+def positiveArtanhAnchorInnerTolerance (epsilon : Q') : Q' :=
+  HalfPow.half * (HalfPow.half * (HalfPow.half * epsilon))
+
+/-- Outer exponent tolerance used by the single-anchor compiler: one
+twenty-fourth of the requested tolerance.  The finite exponential response
+constant three turns this exactly into the inner one-eighth budget. -/
+def positiveArtanhAnchorOuterTolerance (epsilon : Q') : Q' :=
+  Q'.mkPos 1 24 (by decide) * epsilon
+
+theorem positiveArtanhAnchorInnerTolerance_pos
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    (0 : Q') < positiveArtanhAnchorInnerTolerance epsilon :=
+  ExpNeg.half_mul_pos _
+    (ExpNeg.half_mul_pos _ (ExpNeg.half_mul_pos epsilon hepsilon))
+
+theorem positiveArtanhAnchorOuterTolerance_pos
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    (0 : Q') < positiveArtanhAnchorOuterTolerance epsilon :=
+  Q'.mul_pos (by decide) hepsilon
+
+/-- The outer-stage response budget is exactly the inner exponential budget:
+`(epsilon/24) * 3 = epsilon/8`. -/
+theorem positiveArtanhAnchor_response_eqv_inner (epsilon : Q') :
+    (positiveArtanhAnchorOuterTolerance epsilon * Q'.ofNat 3).eqv
+      (positiveArtanhAnchorInnerTolerance epsilon) := by
+  unfold positiveArtanhAnchorOuterTolerance positiveArtanhAnchorInnerTolerance
+  refine Q'.eqv_trans _
+    (Q'.mkPos 1 24 (by decide) *
+      (epsilon * Q'.ofNat 3)) _
+    (Q'.mul_assoc_eqv (Q'.mkPos 1 24 (by decide)) epsilon
+      (Q'.ofNat 3)) ?_
+  refine Q'.eqv_trans _
+    (Q'.mkPos 1 24 (by decide) *
+      (Q'.ofNat 3 * epsilon)) _
+    (Q'.mul_eqv_congr_left (Q'.mkPos 1 24 (by decide)) _ _
+      (Q'.mul_comm_eqv epsilon (Q'.ofNat 3))) ?_
+  refine Q'.eqv_trans _
+    ((Q'.mkPos 1 24 (by decide) * Q'.ofNat 3) * epsilon) _
+    (Q'.eqv_symm
+      (Q'.mul_assoc_eqv (Q'.mkPos 1 24 (by decide))
+        (Q'.ofNat 3) epsilon)) ?_
+  refine Q'.eqv_trans _
+    ((HalfPow.half * (HalfPow.half * HalfPow.half)) * epsilon) _
+    (Q'.mul_eqv_congr_right _ _ epsilon (by decide)) ?_
+  refine Q'.eqv_trans _
+    (HalfPow.half *
+      ((HalfPow.half * HalfPow.half) * epsilon)) _
+    (Q'.mul_assoc_eqv HalfPow.half
+      (HalfPow.half * HalfPow.half) epsilon) ?_
+  exact Q'.mul_eqv_congr_left HalfPow.half _ _
+    (Q'.mul_assoc_eqv HalfPow.half HalfPow.half epsilon)
+
+/-- Five one-eighth error contributions fit inside the requested tolerance.
+This is the complete budget used by the single-anchor evaluation compiler. -/
+theorem positiveArtanhAnchor_five_budget_le (epsilon : Q')
+    (hepsilon : (0 : Q') < epsilon) :
+    let t := positiveArtanhAnchorInnerTolerance epsilon
+    let response :=
+      positiveArtanhAnchorOuterTolerance epsilon * Q'.ofNat 3
+    t + (t + (response + (t + t))) <= epsilon := by
+  let t : Q' := positiveArtanhAnchorInnerTolerance epsilon
+  let response : Q' :=
+    positiveArtanhAnchorOuterTolerance epsilon * Q'.ofNat 3
+  let four : Q' := (t + t) + (t + t)
+  have ht0 : (0 : Q') <= t :=
+    Q'.le_of_lt (positiveArtanhAnchorInnerTolerance_pos epsilon hepsilon)
+  have hresponse : response.eqv t :=
+    positiveArtanhAnchor_response_eqv_inner epsilon
+  have htwo : (t + t).eqv
+      (HalfPow.half * (HalfPow.half * epsilon)) :=
+    ExpNeg.two_halves (HalfPow.half * (HalfPow.half * epsilon))
+  have hfour : four.eqv (HalfPow.half * epsilon) := by
+    refine Q'.eqv_trans _
+      ((HalfPow.half * (HalfPow.half * epsilon)) +
+        (HalfPow.half * (HalfPow.half * epsilon))) _
+      (Q'.add_eqv_congr' htwo htwo) ?_
+    exact ExpNeg.two_halves (HalfPow.half * epsilon)
+  have hfourFour : (four + four).eqv epsilon := by
+    refine Q'.eqv_trans _
+      ((HalfPow.half * epsilon) + (HalfPow.half * epsilon)) _
+      (Q'.add_eqv_congr' hfour hfour) ?_
+    exact ExpNeg.two_halves epsilon
+  have htFour : t <= four := by
+    have htTwo : t <= t + t := Q'.add_le_self_of_nonneg t t ht0
+    have htwoFour : t + t <= four :=
+      Q'.add_le_self_of_nonneg (t + t) (t + t)
+        (Q'.zero_le_add t t ht0 ht0)
+    exact Q'.le_trans' _ _ _ htTwo htwoFour
+  have hrest : (t + (response + (t + t))).eqv four := by
+    refine Q'.eqv_trans _ ((t + response) + (t + t)) _
+      (Q'.eqv_symm (Q'.add_assoc_eqv t response (t + t))) ?_
+    exact Q'.add_eqv_congr_right _ _ (t + t)
+      (Q'.add_eqv_congr_left t _ _ hresponse)
+  have hfive : t + (t + (response + (t + t))) <= t + four :=
+    Q'.le_of_eqv (Q'.add_eqv_congr_left t _ _ hrest)
+  exact Q'.le_trans' _ _ _ hfive
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add_right t four four htFour)
+      (Q'.le_of_eqv hfourFour))
 
 /-- The denominator-cleared defect at a finite positive-artanh/exponential
 approximation.  Its vanishing equation is
@@ -254,6 +534,177 @@ theorem close_to_positiveArtanhDecayRatio_of_clearedDefect
   exact
     ⟨Q'.le_trans' _ _ _ hupperDiv (Q'.le_of_eqv hbudgetDiv),
       hlowerDiv⟩
+
+/-- The completely computed outer anchor stage for the positive-artanh
+identity at tolerance `epsilon`. -/
+def positiveArtanhEulerAnchorStage (epsilon : Q') : Nat :=
+  positiveArtanhExponentModulus
+    (positiveArtanhAnchorOuterTolerance epsilon)
+
+/-- The completely computed inner exponential cutoff at the outer anchor. -/
+def positiveArtanhEulerAnchorPivot (z : Q') (epsilon : Q') : Nat :=
+  ExpNeg.Mexp
+    (positiveArtanhExponent z (positiveArtanhEulerAnchorStage epsilon))
+    (positiveArtanhAnchorInnerTolerance epsilon)
+
+/-- The smallest current scalar certificate: for every tolerance it checks
+one denominator-cleared rational defect at one fully computed outer stage and
+one fully computed inner cutoff.  There is no stored modulus and no
+quantification over all later stages. -/
+structure PositiveWindowArtanhEulerSingleAnchorCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  anchorDefect : forall epsilon : Q', (0 : Q') < epsilon ->
+    Q'.abs
+        (positiveArtanhEulerClearedDefect z
+          (positiveArtanhEulerAnchorStage epsilon)
+          (positiveArtanhEulerAnchorPivot z epsilon)) <=
+      positiveArtanhAnchorInnerTolerance epsilon * ((1 : Q') + z)
+
+/-- A uniform producer of the single computed-anchor certificates. -/
+structure PositiveWindowArtanhEulerSingleAnchorCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerSingleAnchorCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerSingleAnchorCertificate
+
+/-- One computed cleared-defect anchor constructs the full two-index Euler
+evaluation.  Explicit artanh Cauchy control, the uniform finite exponential
+response bound, and the explicit exponential Cauchy modulus propagate that
+single anchor to every later outer and inner stage. -/
+def toEvaluation
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerSingleAnchorCertificate z hz hzb) :
+    PositiveWindowArtanhEulerEvaluation z hz hzb where
+  exponentialConverges := by
+    intro epsilon hepsilon
+    let innerTolerance : Q' :=
+      positiveArtanhAnchorInnerTolerance epsilon
+    let outerTolerance : Q' :=
+      positiveArtanhAnchorOuterTolerance epsilon
+    let response : Q' := outerTolerance * Q'.ofNat 3
+    let anchorStage : Nat := positiveArtanhEulerAnchorStage epsilon
+    let anchorExponent : Q' := positiveArtanhExponent z anchorStage
+    let anchorPivot : Nat := positiveArtanhEulerAnchorPivot z epsilon
+    let anchorValue : Q' := ExpNeg.partialSum anchorExponent anchorPivot
+    have hinner : (0 : Q') < innerTolerance :=
+      positiveArtanhAnchorInnerTolerance_pos epsilon hepsilon
+    have houter : (0 : Q') < outerTolerance :=
+      positiveArtanhAnchorOuterTolerance_pos epsilon hepsilon
+    have hbudget : innerTolerance +
+        (innerTolerance + (response + (innerTolerance + innerTolerance))) <=
+        epsilon :=
+      positiveArtanhAnchor_five_budget_le epsilon hepsilon
+    have hanchorDefect := certificate.anchorDefect epsilon hepsilon
+    have hanchorClose : anchorValue <=
+          positiveArtanhDecayRatio z hz + innerTolerance /\
+        positiveArtanhDecayRatio z hz <= anchorValue + innerTolerance :=
+      close_to_positiveArtanhDecayRatio_of_clearedDefect
+        z hz anchorValue innerTolerance hanchorDefect
+    refine ⟨anchorStage, fun stage hstage => ?_⟩
+    let stageExponent : Q' := positiveArtanhExponent z stage
+    let stagePivot : Nat := ExpNeg.Mexp stageExponent innerTolerance
+    let stageValue : Q' := ExpNeg.partialSum stageExponent stagePivot
+    have hmoving := positiveArtanhEulerMovingPivot_cauchy_explicit
+      z hz hzb innerTolerance outerTolerance hinner houter
+      stage anchorStage hstage (Nat.le_refl anchorStage)
+    change stageValue <=
+          ((anchorValue + innerTolerance) + response) + innerTolerance /\
+        anchorValue <=
+          ((stageValue + innerTolerance) + response) + innerTolerance at hmoving
+    refine ⟨stagePivot, fun n hn => ?_⟩
+    have hcauchy := ExpNeg.expNeg_cauchy_explicit stageExponent
+      (positiveArtanhExponent_nonnegative z hz stage)
+      innerTolerance hinner stagePivot n (Nat.le_refl stagePivot) hn
+    have regroup : forall x : Q',
+        (((((x + innerTolerance) + innerTolerance) + response) +
+              innerTolerance) + innerTolerance).eqv
+          (x + (innerTolerance +
+            (innerTolerance + (response +
+              (innerTolerance + innerTolerance))))) := by
+      intro x
+      refine Q'.eqv_trans _
+        ((((x + innerTolerance) + innerTolerance) + response) +
+          (innerTolerance + innerTolerance)) _
+        (Q'.add_assoc_eqv
+          (((x + innerTolerance) + innerTolerance) + response)
+          innerTolerance innerTolerance) ?_
+      refine Q'.eqv_trans _
+        (((x + innerTolerance) + innerTolerance) +
+          (response + (innerTolerance + innerTolerance))) _
+        (Q'.add_assoc_eqv ((x + innerTolerance) + innerTolerance)
+          response (innerTolerance + innerTolerance)) ?_
+      refine Q'.eqv_trans _
+        ((x + innerTolerance) +
+          (innerTolerance +
+            (response + (innerTolerance + innerTolerance)))) _
+        (Q'.add_assoc_eqv (x + innerTolerance) innerTolerance
+          (response + (innerTolerance + innerTolerance))) ?_
+      exact Q'.add_assoc_eqv x innerTolerance
+        (innerTolerance + (response +
+          (innerTolerance + innerTolerance)))
+    have closeBudget : forall x : Q',
+        (((((x + innerTolerance) + innerTolerance) + response) +
+              innerTolerance) + innerTolerance) <= x + epsilon := by
+      intro x
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (regroup x))
+        (Q'.add_le_add_left x _ epsilon hbudget)
+    change
+      ExpNeg.partialSum stageExponent n <=
+          positiveArtanhDecayRatio z hz + epsilon /\
+        positiveArtanhDecayRatio z hz <=
+          ExpNeg.partialSum stageExponent n + epsilon
+    have hforwardAnchor :
+        (((anchorValue + innerTolerance) + response) + innerTolerance) +
+            innerTolerance <=
+          ((((positiveArtanhDecayRatio z hz + innerTolerance) +
+              innerTolerance) + response) + innerTolerance) +
+            innerTolerance :=
+      Q'.add_le_add_right _ _ innerTolerance
+        (Q'.add_le_add_right _ _ innerTolerance
+          (Q'.add_le_add_right _ _ response
+            (Q'.add_le_add_right _ _ innerTolerance hanchorClose.1)))
+    have hforward : ExpNeg.partialSum stageExponent n <=
+        ((((positiveArtanhDecayRatio z hz + innerTolerance) +
+            innerTolerance) + response) + innerTolerance) + innerTolerance :=
+      Q'.le_trans' _ _ _ hcauchy.2
+        (Q'.le_trans' _ _ _
+          (Q'.add_le_add_right _ _ innerTolerance hmoving.1)
+          hforwardAnchor)
+    have hbackwardStage :
+        (((stageValue + innerTolerance) + response) + innerTolerance) +
+            innerTolerance <=
+          ((((ExpNeg.partialSum stageExponent n + innerTolerance) +
+              innerTolerance) + response) + innerTolerance) +
+            innerTolerance :=
+      Q'.add_le_add_right _ _ innerTolerance
+        (Q'.add_le_add_right _ _ innerTolerance
+          (Q'.add_le_add_right _ _ response
+            (Q'.add_le_add_right _ _ innerTolerance hcauchy.1)))
+    have hbackward : positiveArtanhDecayRatio z hz <=
+        ((((ExpNeg.partialSum stageExponent n + innerTolerance) +
+            innerTolerance) + response) + innerTolerance) + innerTolerance :=
+      Q'.le_trans' _ _ _ hanchorClose.2
+        (Q'.le_trans' _ _ _
+          (Q'.add_le_add_right _ _ innerTolerance hmoving.2)
+          hbackwardStage)
+    exact
+      ⟨Q'.le_trans' _ _ _ hforward
+          (closeBudget (positiveArtanhDecayRatio z hz)),
+        Q'.le_trans' _ _ _ hbackward
+          (closeBudget (ExpNeg.partialSum stageExponent n))⟩
+
+end PositiveWindowArtanhEulerSingleAnchorCertificate
+
+/-- Uniform single-anchor certificates compile directly to the smallest
+positive-artanh evaluation interface. -/
+def positiveWindowArtanhEulerCompilerOfSingleAnchor
+    (compiler : PositiveWindowArtanhEulerSingleAnchorCompiler) :
+    PositiveWindowArtanhEulerCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toEvaluation
 
 /-- A one-index quantitative certificate for the positive artanh identity.
 
@@ -549,7 +1000,15 @@ end YMGap.Constructive.CRealArtanhEulerRatio
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.negativeArtanhSquareExponent_nonnegative
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.neg_pos_of_strict_neg
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_nonnegative
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_le_one
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExponent_cauchy_explicit
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhExpPartialSum_cauchy_explicit
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhEulerMovingPivot_cauchy_explicit
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhAnchor_response_eqv_inner
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveArtanhAnchor_five_budget_le
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.close_to_positiveArtanhDecayRatio_of_clearedDefect
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerSingleAnchorCertificate.toEvaluation
+#print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveWindowArtanhEulerCompilerOfSingleAnchor
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerClearedDefectCertificate.toPivot
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.positiveWindowArtanhEulerPivotCompilerOfClearedDefect
 #print axioms YMGap.Constructive.CRealArtanhEulerRatio.PositiveWindowArtanhEulerPivotCertificate.toEvaluation

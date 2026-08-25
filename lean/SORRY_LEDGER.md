@@ -13236,3 +13236,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module (about 0.4 seconds) and 5110 jobs for the connected capstone (about
   3.3 seconds).  The cleared-defect compiler and all later
   semantic/continuum residuals are not claimed inhabited.
+
+### [BF4-physical-positive-artanh-single-anchor] Collapse all late stages to one computed anchor — **CLOSED 2026-08-24**
+
+- **milestone**: expose the explicit artanh modulus; prove a uniform finite
+  exponential response bound on the positive window; compare moving computed
+  pivots through a common maximum cutoff; compile one anchor defect inequality
+  into the complete two-index convergence evaluator and connected Wilson
+  capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealLog.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerRatio.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `CRealLog.Martanh`, `CRealLog.artanh_cauchy_explicit`,
+  `CRealArtanhEulerRatio.positiveArtanhExponent_le_one`,
+  `CRealArtanhEulerRatio.positiveArtanhExponent_cauchy_explicit`,
+  `CRealArtanhEulerRatio.positiveArtanhExpPartialSum_cauchy_explicit`,
+  `CRealArtanhEulerRatio.positiveArtanhEulerMovingPivot_cauchy_explicit`,
+  `CRealArtanhEulerRatio.positiveArtanhEulerAnchorStage`,
+  `CRealArtanhEulerRatio.positiveArtanhEulerAnchorPivot`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerSingleAnchorCertificate`,
+  `CRealArtanhEulerRatio.PositiveWindowArtanhEulerSingleAnchorCertificate.toEvaluation`,
+  `CRealArtanhEulerRatio.positiveWindowArtanhEulerCompilerOfSingleAnchor`, and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhSingleAnchorCompiler`.
+- **obligation**: inhabit the uniform
+  `PositiveWindowArtanhEulerSingleAnchorCompiler` by proving, for each positive
+  `epsilon`, the one rational inequality
+  `abs((1+z) * E - (1-z)) <= (epsilon/8) * (1+z)` at
+  `positiveArtanhEulerAnchorStage epsilon` and
+  `positiveArtanhEulerAnchorPivot z epsilon`.  No modulus and no quantified
+  later-stage estimate remain in the open certificate.  Exact-rate,
+  transfer/finite-graph approximation, raw observable semantics,
+  nontriviality, projective OS/GNS, vacuum stationarity, continuum existence,
+  and QFT closure remain separate open inputs.
+- **constructive?**: yes — the proof uses explicit artanh and exponential
+  moduli, the `[0,1]` exponent bound, a finite response constant `3`, a common
+  maximum cutoff, and five explicit eighth-budgets.  It does not extract a
+  witness from a proposition and does not inhabit the single-anchor compiler.
+  Every new gate reports only `[propext, Quot.sound]` or `[propext]`.
+- **status note**: guarded checks pass.  Exact one-worker targets pass 32 jobs
+  for `CRealLog` and 57 jobs for `CRealArtanhEulerRatio`; the connected
+  capstone also passes its exact one-worker target.  The single-anchor
+  compiler and all later semantic/continuum residuals are not claimed
+  inhabited.

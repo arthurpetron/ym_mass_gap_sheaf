@@ -14992,3 +14992,54 @@ finite exponential response, or establish a finite recurrence/product
 identity with a controlled residual.  Exact-rate, transfer, finite-graph, raw
 semantic/nontriviality, projective OS/GNS, vacuum, continuum, QFT, and Clay
 residuals remain open.
+
+## Positive artanh inversion reduced to one computed anchor (2026-08-24)
+
+The remaining outer modulus and all-late-stage estimate have now been
+eliminated from the open certificate.  `CRealLog.Martanh` exposes the existing
+artanh tail calculation as a standalone Type-level modulus, and
+`CRealLog.artanh_cauchy_explicit` proves the corresponding two-index rational
+Cauchy bound.  On the compact positive window,
+`positiveArtanhExponent_le_one` bounds every literal exponent in `[0,1]`.
+This makes the finite exponential response uniform:
+`positiveArtanhExpPartialSum_cauchy_explicit` transfers an outer exponent
+error `epsilon` to an inner partial-sum error `3 * epsilon`, independently of
+the exponential cutoff.
+
+`positiveArtanhEulerMovingPivot_cauchy_explicit` then compares the two
+computed `ExpNeg.Mexp` pivots belonging to any two late artanh stages.  It
+passes through their maximum inner cutoff and uses two explicit inner Cauchy
+bounds plus the finite response estimate.  With outer tolerance `epsilon/24`
+and inner tolerance `epsilon/8`, the response term is exactly `epsilon/8` and
+the five resulting eighth-budgets sum to at most `epsilon`.
+
+Consequently `positiveArtanhEulerAnchorStage` and
+`positiveArtanhEulerAnchorPivot` compute the only indices stored by the new
+frontier.  `PositiveWindowArtanhEulerSingleAnchorCertificate` asks, for each
+positive tolerance, only for the single finite rational inequality
+
+`abs((1+z) * E(anchorStage, anchorPivot) - (1-z))
+  <= (epsilon/8) * (1+z)`.
+
+It stores neither a modulus nor a proposition quantified over all later
+stages.  `PositiveWindowArtanhEulerSingleAnchorCertificate.toEvaluation`
+reconstructs full two-index convergence from that one anchor inequality and
+the explicit moduli.  `positiveWindowArtanhEulerCompilerOfSingleAnchor`
+packages the uniform construction, while
+`adaptivePathOfPositiveArtanhSingleAnchorCompiler` carries exactly the same
+single input through the existing direct-log, Wilson, graph-norm, and raw
+same-object connected-observable capstone.
+
+Guarded checks pass for the constructive-real, positive-artanh, and connected
+capstone modules.  Exact one-worker targets pass 32 jobs for `CRealLog` and 57
+jobs for `CRealArtanhEulerRatio`; the connected capstone also passes its exact
+one-worker target.  Every newly audited export uses only
+`[propext, Quot.sound]` (or the smaller `[propext]` gate).
+
+`PositiveWindowArtanhEulerSingleAnchorCompiler` remains uninhabited.  The next
+scalar frontier is now exactly one finite symbolic cross-difference estimate
+at fully computed indices for every `0 < z <= 1/3` and positive tolerance.
+No limit bookkeeping remains in that analytic input.  A finite formal-series
+recurrence or residual estimate must still prove it.  Exact-rate, transfer,
+finite-graph, raw semantic/nontriviality, projective OS/GNS, vacuum,
+continuum, QFT, and Clay residuals remain open.
