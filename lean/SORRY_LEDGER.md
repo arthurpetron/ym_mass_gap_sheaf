@@ -13985,3 +13985,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the opaque raw-floor root with a finite certificate shared by both proof
   paths; it does not inhabit that root, reduce the five-way physical parallel
   width, prove debt convergence, or construct a continuum/Clay mass gap.
+
+### [BF4-moving-cube-normalization-scale-ceiling-variation-fork] Compile the shared ceiling into normalized debt variation — **CLOSED 2026-08-25**
+
+- **milestone**: connect the exact reciprocal normalization-scale ceiling to
+  the existing normalized reciprocal-square variation compiler, thereby
+  exposing one checked raw/normalized fork: the ceiling alone yields raw
+  nontriviality, while the same ceiling plus summable scale variation yields
+  normalized norm-debt variation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.lean`.
+- **decl**:
+  `MovingCubeNormalizationScaleCeiling.toNormDebtRationalVariation`.
+- **obligation**: the generic adaptive family still supplies neither a
+  cutoff-independent ceiling nor summable variation of its exact reciprocal
+  normalization scale.  A trajectory-specific finite marginal theorem must
+  produce the ceiling for the raw route; the normalized route additionally
+  needs scale variation and a same-observable semantic pin.  Projective
+  OS/GNS, transfer/operator, thermodynamic/continuum, QFT, and Clay inputs
+  remain separate and open.
+- **constructive?**: yes.  The new definition merely composes named finite
+  rational certificates already inside the axiom gate.  It changes no family,
+  raw observable, representative sequence, OS insertion, or Wilson state.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or
+  new axiom is introduced; the audited gate is exactly
+  `[propext, Quot.sound]`.
+- **status note**: a guarded bundled-structure experiment timed out during
+  elaboration and is not counted as a pass.  The final lightweight method
+  passes the exact 5095-job one-worker target, and the connected capstone
+  passes 5121 jobs.  This proves only the compiler edge; it does not inhabit
+  the ceiling or scale-variation inputs, select a physical route, prove an
+  all-vector gap, or construct the continuum/Clay endpoint.

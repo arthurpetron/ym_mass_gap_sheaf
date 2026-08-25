@@ -15739,3 +15739,45 @@ requires new trajectory-specific finite control, or the normalized route must
 instead prove reciprocal-debt variation/convergence.  Projective OS/GNS,
 all-vector transfer/graph-norm control, thermodynamic/continuum
 reconstruction, QFT axioms, and the Clay mass-gap theorem remain open.
+
+## The reciprocal ceiling is now the exact raw/normalized proof fork (2026-08-25)
+
+The common obstruction now feeds both routes through checked code.
+`MovingCubeNormalizationScaleCeiling.toNormDebtRationalVariation` combines
+the already exposed ceiling `scale_j <= C` with a summable rational variation
+certificate for the same exact reciprocal normalization scale.  The existing
+finite reciprocal-square compiler then yields summable variation of the
+normalized norm debt.  In contrast, the raw route needs only the ceiling and
+receives the uniform floor `1/C`.  This makes the route comparison causal:
+boundedness is shared, while reciprocal-scale variation is exactly the
+normalized route's additional analytic input.
+
+After common `family`, raw Wilson observable, `H`, and `W` data are fixed, the
+connected raw capstone still has maximum parallel width five: reciprocal-scale
+ceiling, projective OS handoff, exact-rate handoff, representative transfer
+lift, and dense-unit stationary vacuum pin.  The OS handoff must precede its
+matrix-coefficient pin, and the transfer lift must precede its finite graph
+approximation.  Inside the normalized cutoff-limit compiler there is a
+separate three-wide analytic subfrontier: raw representative variation,
+normalization-scale/debt variation, and scheduled positive-time rate-power
+variation.  These are parallel implementations, not alternative observables;
+their types must rejoin on the same indexed family.
+
+The generic adaptive family cannot inhabit either missing scalar input: its
+fields provide only pointwise `0 < nome scale < 1`, with no nome-uniform
+coordinate-floor estimate and no summable nome or normalization-scale
+variation.  A guarded attempt to package the ceiling and variation in one
+new structure timed out during elaboration and is not counted as a pass; the
+lightweight method on the already checked ceiling avoids that elaboration
+cost without weakening the dependency.  Exact guarded one-worker targets
+pass 5095 jobs for the modified reciprocal-ceiling compiler and 5121 jobs for
+the connected capstone.  The new export uses exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+This milestone chooses no route by fiat.  The raw path is shorter if a
+trajectory-specific finite marginal estimate supplies the ceiling.  If the
+physical normalization scale is not uniformly bounded, the normalized path
+is the honest alternative, but it must supply summable scale variation and a
+same-Wilson semantic identification of the normalized limit.  Neither route
+yet constructs projective OS/GNS data, an all-vector operator gap,
+thermodynamic/continuum reconstruction, QFT axioms, or the Clay theorem.

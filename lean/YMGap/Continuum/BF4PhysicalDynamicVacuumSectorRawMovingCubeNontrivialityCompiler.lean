@@ -31,6 +31,7 @@ noncomputable declaration is used.
 
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 
@@ -46,6 +47,7 @@ open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawPhysicalExponent
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
@@ -154,6 +156,18 @@ theorem correlationSqDebt_le_ceiling_fourth
       (Q'.le_of_lt bound.ceiling_pos))
     (Q'.le_of_lt (movingCubeNormalizationNormDebt_pos family scale))
 
+/-- If the exact reciprocal normalization scale also has summable rational
+step variation, the same ceiling compiles that stream to the normalized
+route's reciprocal-square debt variation.  Boundedness therefore feeds both
+routes, while variation is precisely the normalized route's extra input. -/
+def toNormDebtRationalVariation
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    (bound : MovingCubeNormalizationScaleCeiling family)
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation family) :
+    MovingCubeNormalizationNormDebtRationalVariation family :=
+  movingCubeNormalizationNormDebtRationalVariationOfScale family
+    scaleVariation bound.ceiling bound.ceiling_pos bound.scale_le
+
 end MovingCubeNormalizationScaleCeiling
 
 /-! ## 2. Raw continuum nontriviality -/
@@ -217,5 +231,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityComp
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.MovingCubeNormalizationScaleCeiling.toUniformNormFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.MovingCubeNormalizationScaleCeiling.correlationSqDebt_le_ceiling_fourth
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.MovingCubeNormalizationScaleCeiling.toNormDebtRationalVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.rawMovingCubeContinuumNontrivialityOfNormalizationScaleCeiling
