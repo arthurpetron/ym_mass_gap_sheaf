@@ -16,6 +16,7 @@ Euler pivot remain.
 import YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 import YMGap.Constructive.QPolyWeightedL1
 import YMGap.Constructive.QPolyJetOne
+import YMGap.Constructive.QPolyCoefficient
 
 namespace YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 
@@ -27,6 +28,7 @@ open YMGap.Constructive.CRealArtanhEulerRatio
 open YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 open YMGap.Constructive.QPolyWeightedL1
 open YMGap.Constructive.QPolyJetOne
+open YMGap.Constructive.QPolyCoefficient
 
 local infix:50 " ~q " => Q'.eqv
 
@@ -1323,6 +1325,54 @@ structure PositiveWindowArtanhEulerPolynomialPrefixTailCompiler : Type 2 where
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialPrefixTailCertificate z hz hzb
 
+/-- The algebraic rib of the scalable cancellation proof.  This statement is
+independent of the evaluation point and tolerance: every coefficient below the
+first possible truncation error agrees in the finite Euler and geometric
+polynomials. -/
+structure PositiveArtanhEulerPolynomialFormalCoefficientCertificate : Type 1 where
+  coefficientZero :
+    forall (stage inner degree index : Nat),
+      index < positiveArtanhEulerPolynomialCancellationCount
+        stage inner degree ->
+      (coeff
+        (positiveArtanhEulerGeometricDifferencePoly stage inner degree)
+        index).eqv 0
+
+namespace PositiveArtanhEulerPolynomialFormalCoefficientCertificate
+
+/-- Pointwise formal coefficient cancellation compiles exactly to the
+executable zero-prefix predicate used by weighted coefficient factoring. -/
+def prefixZero
+    (certificate : PositiveArtanhEulerPolynomialFormalCoefficientCertificate)
+    (stage inner degree : Nat) :
+    zeroPrefix
+      (positiveArtanhEulerPolynomialCancellationCount stage inner degree)
+      (positiveArtanhEulerGeometricDifferencePoly stage inner degree) :=
+  zeroPrefix_of_coeff_eqv_zero _ _
+    (certificate.coefficientZero stage inner degree)
+
+end PositiveArtanhEulerPolynomialFormalCoefficientCertificate
+
+/-- The analytic rib after the entire formally cancelling prefix has been
+removed.  It contains no algebraic cancellation field and can therefore be
+developed independently of the formal coefficient proof. -/
+structure PositiveWindowArtanhEulerPolynomialFullTailCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    let count := positiveArtanhEulerAnchorCancellationCount z epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    (Q'.abs z) ^ count *
+        weightedL1 (Q'.abs z) (List.drop count polynomial) <=
+      positiveArtanhGeometricComparisonTolerance epsilon
+
+/-- Uniform producer of the analytic full-tail certificates. -/
+structure PositiveWindowArtanhEulerPolynomialFullTailCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialFullTailCertificate z hz hzb
+
 /-- Tail-only presentation after the constant-coefficient cancellation has
 been proved internally.  Unlike `PositiveWindowArtanhEulerPolynomialPrefixTailCertificate`,
 there is no exact-prefix field left for callers to inhabit. -/
@@ -1438,6 +1488,31 @@ def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail
     PositiveWindowArtanhEulerPolynomialCoefficientCompiler where
   evaluate z hz hzb := (compiler.evaluate z hz hzb).toCoefficient
 
+/-- The independently proved algebraic and analytic ribs rejoin at the
+prefix/tail interface.  From this point onward there is one scalar compiler
+path: no evaluation point or observable is changed by the join. -/
+def positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
+    (formal : PositiveArtanhEulerPolynomialFormalCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialPrefixTailCompiler where
+  evaluate z hz hzb :=
+    { prefixZero := fun epsilon hepsilon => by
+        unfold positiveArtanhEulerAnchorCancellationCount
+          positiveArtanhEulerAnchorDifferencePoly
+        exact formal.prefixZero _ _ _
+      tailBound := fun epsilon hepsilon =>
+        (tail.evaluate z hz hzb).tailBound epsilon hepsilon }
+
+/-- The algebraic/analytic join contracts directly to the original weighted
+coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
+    (formal : PositiveArtanhEulerPolynomialFormalCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler :=
+  positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail
+    (positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
+      formal tail)
+
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
 kernel computation. -/
@@ -1534,6 +1609,16 @@ def positiveWindowArtanhEulerCompilerOfPolynomialPrefixTail
   positiveWindowArtanhEulerCompilerOfPolynomial
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail compiler)
 
+/-- Independent formal-cancellation and analytic-tail compilers rejoin and
+compile all the way to the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
+    (formal : PositiveArtanhEulerPolynomialFormalCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
+      formal tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -1574,6 +1659,12 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCheckedCertificate.toCoefficient
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPrefixTailCertificate.toCoefficient
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialFormalCoefficientCertificate.prefixZero
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

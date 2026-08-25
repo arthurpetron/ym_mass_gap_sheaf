@@ -13467,3 +13467,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs for the polynomial anchor, and 5115 jobs for the connected capstone.
   This closes two coefficients only, not the full formal prefix or any later
   scalar, operator, or continuum target.
+
+### [BF4-physical-positive-artanh-arbitrary-coefficient-join] Expose arbitrary formal coefficients and join independent algebraic/analytic ribs — **CLOSED 2026-08-24**
+
+- **milestone**: define an arbitrary padded coefficient extractor and its
+  constructive algebraic laws, prove exact equivalence between pointwise
+  coefficient vanishing and executable prefix cancellation, separate the
+  remaining scalar frontier into a formal coefficient compiler and an
+  analytic full-tail compiler, and rejoin them before the existing scalar
+  inverse and connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyCoefficient.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyCoefficient.coeff`,
+  `QPolyCoefficient.coeff_pmul`,
+  `QPolyCoefficient.zeroPrefix_iff_coeff_eqv_zero`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialFormalCoefficientCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialFullTailCompiler`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialFormalAndTailCompilers`.
+- **obligation**: inhabit the formal coefficient certificate by proving every
+  coefficient below the computed truncation minimum is zero, and independently
+  inhabit the full-tail compiler by a uniform weighted residual estimate.
+  Neither input is currently constructed.  Exact-rate, transfer/finite-graph,
+  raw-observable, projective OS/GNS, vacuum, continuum, QFT, and Clay inputs
+  remain separate and open.
+- **constructive?**: yes.  The arbitrary coefficient and convolution functions
+  are recursive, the prefix equivalence constructs the Boolean certificate,
+  and the join carries both proof objects into one unchanged downstream path.
+  No classical choice or successful compiler instance is introduced.  The new
+  gates stay within `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 49 jobs for
+  `QPolyCoefficient` and 63 jobs for the polynomial anchor; the guarded
+  connected-capstone check passes.  This closes the compiler architecture and
+  observable-preserving join only, not either open rib or any scalar inverse,
+  operator gap, continuum theory, or Clay conclusion.

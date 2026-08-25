@@ -15240,3 +15240,36 @@ formal-prefix path because each extra cancellation supplies another uniform
 factor `abs z <= 1/3`, whereas a fixed two-jet bound alone cannot obviously
 track arbitrarily small tolerances.  All later physical and continuum
 residuals remain open.
+
+## Arbitrary coefficient interface and parallel-rib join (2026-08-24)
+
+The fixed constant/linear jet layer has been generalized to an arbitrary
+padded coefficient extractor.  `QPolyCoefficient.coeff` has proved laws for
+addition, scaling, negation, subtraction, and polynomial multiplication; the
+multiplication law exposes an explicit recursive convolution.  Pointwise
+vanishing of every coefficient below `count` is now proved equivalent to the
+existing executable `zeroPrefix count` predicate in both directions.
+
+This makes the causal split at the scalar frontier precise.
+`PositiveArtanhEulerPolynomialFormalCoefficientCertificate` is the algebraic
+rib: it asserts the finite formal identity below
+`min inner (min (2*stage+1) (degree+1))`, independently of `z` and `epsilon`.
+`PositiveWindowArtanhEulerPolynomialFullTailCompiler` is the analytic rib: it
+bounds only the dropped tail at the fully computed radius and indices.
+`positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail` is the
+unique join; it contracts both ribs into the earlier prefix/tail interface,
+then into the same scalar inverse and the same connected Wilson/OS capstone.
+Thus parallel work below the join cannot silently substitute an observable or
+produce a second semantic proof path.
+
+Exact one-worker targets pass 49 jobs for `QPolyCoefficient` and 63 jobs for
+the polynomial anchor; the guarded connected-capstone check passes.  The new
+audited exports use only `[propext, Quot.sound]`.
+
+Neither rib is inhabited yet.  The immediate formal frontier is a pointwise
+coefficient induction for the finite artanh/exponential composition; the
+independent analytic frontier is a weighted bound on the residual full tail.
+Their Lean interfaces can now be developed in parallel, but the scalar inverse
+closes only after both meet at the computed count.  All exact-rate,
+transfer/finite-graph, raw-observable, projective OS/GNS, vacuum, continuum,
+QFT, and Clay residuals remain open.

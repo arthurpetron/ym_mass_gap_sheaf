@@ -1038,6 +1038,42 @@ def adaptivePathOfPositiveArtanhPolynomialPrefixTailCompiler
       scalarInverse)
     transfer finite vacuumPin
 
+/-- The observable-connected capstone after the scalar frontier is split into
+two independent ribs: formal coefficient cancellation and analytic control of
+the remaining tail.  They rejoin at the computed prefix/tail interface, then
+feed the same scalar inverse, Wilson observable, OS reconstruction, transfer
+operator, and vacuum sector as every other capstone adapter in this file. -/
+def adaptivePathOfPositiveArtanhPolynomialFormalAndTailCompilers
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (formal : PositiveArtanhEulerPolynomialFormalCoefficientCertificate)
+    (scalarTail : PositiveWindowArtanhEulerPolynomialFullTailCompiler)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfPositiveArtanhPolynomialCoefficientCompiler
+    uniform projectiveOS matrixCoefficient exactRate
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
+      formal scalarTail)
+    transfer finite vacuumPin
+
 /-- The connected capstone after the constant coefficient has been cancelled
 internally.  The scalar input now contains only the weighted tail obligation;
 the observable, Wilson reconstruction, and operator inputs are unchanged. -/
@@ -1197,6 +1233,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialCheckedCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialPrefixTailCompiler
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialFormalAndTailCompilers
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialOneTailCompiler
 #print axioms
