@@ -16760,3 +16760,43 @@ both pass; the target completes all 5099 jobs.  Its eight printed exports use
 only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
 zero hits, the module declares no custom axiom or noncomputable definition,
 and the root aggregator imports it.  No full-root audit is claimed.
+
+## New endpoint traffic is now one exact nonnegative debt (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtNewTraffic` sharpens
+the new-traffic branch of the endpoint-provenance split.  It proves by
+structural recursion that every reverse/forward conditional-transition
+product along a positive physical path is nonnegative.  Directed-edge
+multiplicity is a sum of unit loads, so every complete routed endpoint-pair
+transition-product summand is nonnegative as well.
+
+Finite summation transfers this sign to the filtered new-endpoint load.
+Multiplication by the positive shared coercivity floor and the positive
+reciprocal of the matched conditional-kernel capacity then proves that the
+corresponding normalized new-endpoint capacity debt is nonnegative, including
+the zero fallback when capacity is not positive.
+
+Because the previous module proved `fullDebt = oldDebt + newDebt` exactly,
+the two orientations of the old-to-full difference are respectively
+`-newDebt` and `newDebt` in the rational setoid.  Their absolute values are
+therefore both the nonnegative `newDebt`.  The symmetric new-traffic deficit
+is bounded by the exact new-traffic debt with no factor two; the same result
+holds for their located maxima over the literal earlier edge carrier.
+
+The six-stream inverse-square route can now request a bound directly on this
+positive complementary debt rather than on an absolute-difference proxy.
+That estimate compiles back into the existing traffic, bridge, regional, and
+one-total-tail consumers.  This sharpens one analytic interface but does not
+inhabit it.
+
+No inverse-square estimate, positive tail allowance satisfying initial
+slack, or physical AF transport is supplied.  The result remains at the fixed
+strong-coupling anchor.  Same-object thermodynamic compatibility, projective
+OS/GNS reconstruction, a completed all-vector uniform gap, continuum
+Yang--Mills construction, and the Clay theorem remain open.
+
+The focused monitored check and dependency-complete one-worker target both
+pass; the target completes all 5100 jobs.  Its nine printed exports use only
+`[propext, Quot.sound]`.  The executable forbidden-token scan reports zero
+hits, the module declares no custom axiom or noncomputable definition, and
+the root aggregator imports it.  No full-root audit is claimed.

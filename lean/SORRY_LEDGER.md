@@ -15028,3 +15028,54 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   hits, the source declaration scan finds no custom axiom or noncomputable
   definition, and the root aggregator imports the module.  No full-root audit
   is claimed.
+
+### [canonical-correlated-debt-exact-new-traffic] Contract the new-traffic deficit to its exact positive debt — **CLOSED 2026-08-25**
+
+- **milestone**: prove nonnegativity of every reverse/forward path product,
+  routed directed-edge multiplicity, and routed endpoint-pair transition
+  product; transfer that sign through the filtered complementary endpoint
+  sum and matched capacity normalization; use the exact old-plus-new debt
+  identity to bound both orientations of the new-traffic deficit by the
+  literal new-traffic debt; lift the result to located maxima; and compile an
+  inverse-square estimate on that exact positive debt into the existing
+  six-stream, regional, total-tail, persistence, and completed fixed-anchor
+  consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtNewTraffic.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualPathReverseForwardProduct_nonnegative`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedDirectedEdgeMultiplicity_nonnegative`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedPathPairConditionalTransitionProductTerm_nonnegative`,
+  `anchorTransportedBridgeNewEndpointTrafficLoadOnPair_nonnegative`,
+  `anchorCapacityDebtFromLoadOnPair_nonnegative`,
+  `anchorTransportedBridgeNewEndpointTrafficDebtOnPair_nonnegative`,
+  `anchorTransportedBridgeNewTrafficDeficitOnPair_le_exactDebt`,
+  `anchorTransportedBridgeNewEndpointTrafficDebtMaximum`,
+  `anchorTransportedBridgeNewTrafficDeficitMaximum_le_exactDebtMaximum`,
+  `AnchorCanonicalTransportedCapacityDebtExactTrafficInverseSquareControl`,
+  `AnchorCanonicalTransportedCapacityDebtExactTrafficInverseSquareControl.toTrafficControl`,
+  `AnchorCanonicalCapacityDebtExactTrafficRegionalInverseSquareControl`,
+  `AnchorCanonicalCapacityDebtExactTrafficRegionalInverseSquareControl.toTotalControl`,
+  `anchorCanonicalCapacityDebtPersistenceOfExactTrafficInverseSquare`, and
+  `anchorGeometricCompletedFamilyOfExactTrafficInverseSquare`.
+- **obligation**: bound the exact located new-endpoint traffic debt, together
+  with same-route old-traffic physical drift, route churn, and the three shell
+  faces, by a common constructive summable majorant; or prove any coarser
+  route reaching the same total tail.  Then provide a positive tail allowance
+  satisfying the executable cutoff-zero total-budget slack inequality.  No
+  such analytic estimate or allowance is supplied.  Physical AF persistence,
+  same-object thermodynamic compatibility, projective OS/GNS reconstruction,
+  completed all-vector uniform gap, continuum QFT, and Clay closure remain
+  open.
+- **constructive?**: yes.  Path induction retains positivity witnesses,
+  multiplicity is a finite sum of unit loads, filtered sums remain literal,
+  the normalized debt uses its matching conditional-kernel capacity, and all
+  witnesses and compilers are Type-level or exact rational data.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  The dependency-complete
+  one-worker target passes all 5100 jobs.  Its nine printed exports use only
+  `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+  hits, the source declaration scan finds no custom axiom or noncomputable
+  definition, and the root aggregator imports the module.  No full-root audit
+  is claimed.
