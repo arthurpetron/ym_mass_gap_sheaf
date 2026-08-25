@@ -15738,3 +15738,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass, the latter completing all 5105 jobs.  All seven
   audited exports use at most `[propext, Quot.sound]`; the root aggregator
   imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-deficits] Reduce four regional envelope proofs to tail control of four exact finite deficit maxima — **CLOSED 2026-08-25**
+
+- **milestone**: compute the two-sided transported-old capacity-debt deficit
+  and the three return-face capacity-debt deficits; locate their exact finite
+  maxima; prove nonnegativity and every pointwise upper bound; seal each large
+  maximum behind a proof-bearing rational value carrying its exact `Q'.eqv`;
+  and convert four independent antitone tail controls into the existing
+  transported and return envelope interfaces.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtDeficitCompiler.lean`.
+- **decl**: `matchedEventualCanonicalTransportedCapacityDebtDeficitOnPair`,
+  `matchedEventualCanonicalTransportedCapacityDebtDeficitExactMaximum`,
+  `matchedEventualCanonicalTransportedCapacityDebtDeficitMaximum`,
+  `MatchedEventualCanonicalTransportedCapacityDebtDeficitTail`,
+  `MatchedEventualCanonicalTransportedCapacityDebtDeficitTail.toEnvelope`,
+  `matchedEventualCanonicalOldNewReturnCapacityDebtDeficitOnPair`,
+  `matchedEventualCanonicalNewOldReturnCapacityDebtDeficitOnPair`,
+  `matchedEventualCanonicalNewNewReturnCapacityDebtDeficitOnPair`,
+  `matchedEventualCanonicalOldNewReturnCapacityDebtDeficitMaximum`,
+  `matchedEventualCanonicalNewOldReturnCapacityDebtDeficitMaximum`,
+  `matchedEventualCanonicalNewNewReturnCapacityDebtDeficitMaximum`,
+  `MatchedEventualCanonicalOldNewCapacityDebtDeficitTail`,
+  `MatchedEventualCanonicalNewOldCapacityDebtDeficitTail`,
+  `MatchedEventualCanonicalNewNewCapacityDebtDeficitTail`, and the three
+  `toReturnEnvelope` conversions.
+- **obligation**: prove four scale-indexed `AntitoneTailControl` witnesses for
+  the exact-identified compact deficit streams.  Their four envelope outputs
+  rejoin explicitly through the already checked transport-and-returns
+  compiler; the positive tail allowance and initial closure then remain.
+- **constructive?**: yes.  All deficits and exact maxima are finite rational
+  computations.  Each opaque boundary has a kernel-checked body and returns a
+  structure carrying its exact setoid equality, so it introduces no axiom and
+  cannot change the observable.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the corrected focused check passes at 1M heartbeats and the
+  dependency-complete target passes all 5106 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.
+  Two earlier all-in-one convenience-join audits were intentionally
+  interrupted after stable but impractical elaboration and are not counted as
+  passes.  Their wrappers were removed; all individual conversions remain.
+  No full-root audit is claimed.

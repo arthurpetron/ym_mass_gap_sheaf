@@ -17507,3 +17507,51 @@ positive part of its exact debt deficit and a located maximum, separating
 finite algebra from the still-open decay estimate.  Strength/spacing, the
 nonzero same-object pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## The four parallel matched lanes are exact scalar deficit sequences (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtDeficitCompiler`
+computes the exact finite one-step deficit on the embedded-old carrier and on
+each of the three return-explicit shell faces.  The transported deficit is the
+maximum of both absolute debt differences.  Each shell deficit is the absolute
+difference between later face debt and its literal earlier return-pair debt,
+with a decidable zero outside that face.  Located finite maxima automatically
+prove every regional pointwise envelope inequality.
+
+The exact maxima are large dependent rational terms.  Four proof-bearing
+opaque values seal them into compact scalar streams while retaining a
+kernel-checked `Q'.eqv` to the literal finite maxima.  Nonnegativity and all
+pointwise upper bounds are transported back through those equalities.  This
+boundary changes elaboration cost, not mathematics or observable identity.
+
+The remaining regional frontier is now exactly four `AntitoneTailControl`
+witnesses, one for each compact-but-exactly-identified scalar sequence.  Each
+witness converts constructively to its transported or return envelope.  At a
+call site the four results rejoin through the already checked
+`matchedEventualCanonicalCorrelatedCapacityDebtEnvelopeOfTransportAndReturns`,
+after which the unique maximum-debt, prefix-tail, exact edge-capacity, local-
+producer, and completed-family path is unchanged.
+
+This is the strongest current parallelism statement: four analytic proofs can
+be built independently, but their types are observations of one same-edge
+capacity debt.  The separated route instead has three component proofs at its
+top level.  Four is not automatically easier than three: the correlated route
+wins when cancellation makes the deficit sequences summable without a uniform
+kernel floor; the separated route wins if independent kernel noncollapse and
+load/kernel variation bounds are already natural.
+
+The corrected focused check passes at the stricter 1M-heartbeat bound, and the
+dependency-complete one-worker target completes all 5106 jobs.  All eight
+audited exports use only `[propext, Quot.sound]`.  The executable forbidden-
+token scan is run before commit, and the root aggregator imports the module.
+Two earlier convenience-join audits were deliberately interrupted after
+stable but impractical elaboration and are not counted as passes; the final
+surface removes only those wrappers and retains the individual exact
+conversions.  No full-root audit is claimed.
+
+No one of the four tail controls is inhabited; neither are the tail allowance
+or initial closure.  The next analytic expansion is to bound these four exact
+deficit maxima by tractable shell-traffic or route-change quantities with a
+summable physical-scale/cutoff law.  Strength/spacing, the nonzero same-object
+pin, thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and the Clay mass gap remain open.
