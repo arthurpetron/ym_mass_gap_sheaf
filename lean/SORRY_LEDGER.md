@@ -14794,3 +14794,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its ten printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-total-deficit] Contract four regional tails to one necessary total tail — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact sum of the transported-old and three
+  shell-face deficit maxima; prove that it dominates each region; show that
+  four regional tail controls construct one total tail control; and prove
+  directly that one total tail control constructs the exact correlated debt
+  envelope, persistence package, and completed fixed-anchor family once its
+  budget and initial slack are supplied.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtTotalDeficitCompiler.lean`.
+- **decl**:
+  `anchorCanonicalCapacityDebtTotalDeficit`,
+  `anchorCanonicalCapacityDebtTotalDeficit_nonnegative`,
+  `anchorTransportedCapacityDebtDeficitMaximum_le_total`,
+  `anchorOldNewReturnCapacityDebtDeficitMaximum_le_total`,
+  `anchorNewOldReturnCapacityDebtDeficitMaximum_le_total`,
+  `anchorNewNewReturnCapacityDebtDeficitMaximum_le_total`,
+  `AnchorCanonicalCapacityDebtTotalDeficitTail`,
+  `anchorCanonicalCapacityDebtTotalDeficitTailOfRegionalTails`,
+  `AnchorCanonicalCapacityDebtTotalDeficitTail.toEnvelope`,
+  `anchorCanonicalCapacityDebtPersistenceOfTotalDeficitTail`, and
+  `anchorGeometricCompletedFamilyOfTotalDeficitTail`.
+- **obligation**: inhabit one `AntitoneTailControl` for the displayed total
+  deficit stream, either directly or by four parallel regional proofs; then
+  cover its full prefix by a positive total budget and verify the cutoff-zero
+  debt plus that budget is at most one.  The current persistence interface's
+  `tailRate budget = 0` should next be generated from the tail modulus and a
+  computed finite prefix, not retained as an independent analytic premise.
+  A regional failure remains the precise signal for localized adaptive
+  routing.  Physical AF persistence, the literal same-observable
+  thermodynamic bridge, projective OS/GNS reconstruction, completed all-vector
+  gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The total is an executable rational sum; regional
+  domination uses nonnegativity; old/shell/face classification is finite and
+  decidable; the tail is `Type`-level data; and the direct envelope proof never
+  changes the exact observable or routing.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5085 jobs.
+  Its ten printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.

@@ -16531,3 +16531,44 @@ The exact monitored one-worker target passes all 5084 jobs.  Its ten printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## Four diagnosable deficits contract to one necessary tail (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtTotalDeficitCompiler`
+defines the pointwise sum of the transported-old and three shell-face deficit
+maxima.  Each regional maximum is proved nonnegative and bounded by this same
+total.  A direct old/shell/face case split therefore builds the exact
+correlated capacity-debt envelope from one `AntitoneTailControl` for the total
+stream.  No four-way split is required in the final theorem statement.
+
+The module also proves the complementary construction: four independently
+proved regional tail controls add to the one total-tail control.  Hence the
+parallelism count and the causal-input count are different.  There are four
+useful analytic work packages that can be developed and diagnosed in
+parallel, but only one necessary summability certificate at their join.  The
+five pointwise inequalities are already compiled from exact finite maxima and
+are no longer analytic work packages.
+
+This sharpens path selection.  The canonical proof is the preferred direct
+path if the total deficit is summable, whether that theorem is proved globally
+or assembled from four regional arguments.  Adaptive routing should be
+introduced only if the regional diagnostics locate a nonsummable face and a
+face-local rerouting can lower it; otherwise it merely adds route-selection
+and coherence obligations.  All diagnostic branches and the joined stream
+remain definitionally connected to the same normalized debt, routed load,
+conditional kernel, ordered pairs, canonical routing, carrier maps, and
+vacuum return points.
+
+No total-tail inhabitant, total budget, or cutoff-zero slack is supplied.  A
+tail modulus alone also need not report zero as its rate for a budget that
+covers the finite prefix; the next compiler should compute that prefix and
+normalize the budget interface rather than make this an opaque extra input.
+The fixed anchor is not the physical AF/grouped-BF4 trajectory.  Physical AF
+persistence, same-observable thermodynamic compatibility, projective OS/GNS
+reconstruction, a completed all-vector gap, continuum QFT, and the Clay
+theorem remain open.
+
+The exact monitored one-worker target passes all 5085 jobs.  Its ten printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.
