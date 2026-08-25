@@ -15321,3 +15321,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete one-worker target passes all 5083 jobs, and every
   printed export uses only `[propext, Quot.sound]`.  The root aggregator
   imports the module; no full-root audit is claimed.
+
+### [matched-physical-eventual-canonical-debt] Compile summable proxy debt to the eventual exact checks — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact shared matched-ray floor divided by a
+  positive cutoff-dependent lower proxy; require an explicit same-cutoff
+  comparison from that proxy into the canonical routed finite margin; prove
+  debt at most one pays the proxy; and compile summable two-sided debt
+  variation plus one initial total-budget slack inequality into every
+  eventual canonical Boolean check and the unchanged matched completed and
+  observable interfaces.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalDebtCompiler.lean`.
+- **decl**:
+  `fixedNomeFiniteCapacityDebt`,
+  `fixedNomeFiniteCapacityDebt_pos`,
+  `sharedFloor_le_marginLower_of_debt_le_one`,
+  `MatchedEventualCanonicalMarginLowerProxy`,
+  `matchedEventualCanonicalCapacityDebt`,
+  `matchedEventualCanonicalCapacityDebt_pos`,
+  `MatchedPhysicalDynamicExplicitRayEventualCanonicalDebtVariationProducer`,
+  `debt_le_one`, `toEventualCanonicalCapacityCheckProducer`,
+  `toCompletedFamily`, `toNormalizedStrengthLaw`, `StrengthBand`,
+  `toPhysicalRateBand`, and `SameObjectObservablePin`.
+- **obligation**: at every physical scale construct a positive lower proxy
+  below the exact canonical finite margin, prove summable two-sided cutoff
+  variation of its normalized debt, provide a total budget controlled from
+  offset zero, and prove `debt(0) + budget <= 1`.  These serial fields then
+  close the local transition-product gate.  Strength/spacing and the nonzero
+  same-object pin remain independent downstream obligations, followed by
+  projective and continuum compatibility.
+- **constructive?**: yes.  All streams and bounds are rational, the proxy-to-
+  exact-margin edge is explicit at the same nome/cutoff/routing, and the
+  persistence theorem uses constructive finite telescoping and an antitone
+  tail modulus.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: an attempted quotient by the literal exact finite minimum
+  was interrupted twice after impractical elaboration and is not counted as a
+  pass.  The final lower-proxy formulation passes its focused monitored check
+  and its dependency-complete one-worker target, which completes all 5085
+  jobs.  All eight printed exports use only `[propext, Quot.sound]`; the root
+  aggregator imports the module.  No full-root audit is claimed.

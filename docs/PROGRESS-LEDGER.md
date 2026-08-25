@@ -17058,3 +17058,49 @@ band, nonzero same-object pin, full nonperturbative trajectory identification,
 projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay theorem remain open.  No
 full-root audit is claimed.
+
+## The eventual matched check has an observable-connected summable-debt route (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalDebtCompiler` turns
+the remaining eventual canonical Boolean family into a standard constructive
+persistence problem.  At each physical scale it chooses a positive rational
+lower proxy for the exact canonical routed finite margin, with a mandatory
+pointwise proof that the proxy lies below that exact minimum at the same nome,
+cutoff, routing, load, and conditional kernel.  The proxy therefore cannot
+silently refer to a different observable.
+
+The normalized debt is the unchanged shared explicit-ray floor divided by
+that positive proxy.  Debt at most one reconstructs the shared-floor versus
+proxy inequality; transitivity through the proxy comparison supplies the
+exact canonical margin inequality and hence the already verified Boolean
+check.  The exact explicit ray delta remains unchanged by the earlier cofinal
+start shift.
+
+For each matched physical scale, a `SummableRationalStepVariation` of this
+one debt stream, a positive total-variation budget available from offset zero,
+and the initial inequality `debt(0) + budget <= 1` now construct every later
+canonical check.  The result contracts through the eventual-check compiler
+to the existing matched completed carrier, transfer, vacuum complement,
+normalized strength law, rate-band consumer, and same-object observable-pin
+interface, with the same definitional nome and physical spacing.
+
+This makes the immediate analytic proof path causal.  First construct a
+tractable positive lower proxy that stays tied to the exact routed margin;
+then prove summable two-sided cutoff variation of its normalized debt; then
+pay one initial-slack budget.  Only after this serial persistence compiler is
+inhabited do the strength/spacing band and nonzero same-object observable pin
+become genuinely parallel downstream branches.
+
+An attempted debt quotient by the literal exact finite minimum was interrupted
+twice after impractical elaboration and is not counted as a pass.  The final
+lower-proxy formulation keeps the exact comparison as a proof field and passes
+both the focused monitored check and the dependency-complete one-worker target;
+the target completes all 5085 jobs.  All eight printed exports use only
+`[propext, Quot.sound]`.  The root aggregator imports the module.
+
+No matched proxy, summable variation, budget, or initial slack is inhabited.
+Physical cubic and spacing laws, the local persistence result, strength band,
+nonzero same-object pin, full nonperturbative trajectory identification,
+projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay theorem remain open.  No
+full-root audit is claimed.
