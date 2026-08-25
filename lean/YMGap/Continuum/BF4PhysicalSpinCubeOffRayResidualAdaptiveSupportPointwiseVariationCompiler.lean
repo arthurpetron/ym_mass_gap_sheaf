@@ -65,6 +65,17 @@ private theorem listQMaxZero_le_of_member_bound_local
             (fun state hstate =>
               hall state (List.mem_cons_of_mem head hstate))⟩
 
+private theorem listQMaxZero_nonnegative_on_local
+    {State : Type} (value : State -> Q') :
+    forall states : List State,
+      (forall state, state ∈ states -> (0 : Q') <= value state) ->
+      (0 : Q') <= listQMaxZero value states
+  | [], _ => Q'.le_refl' 0
+  | head :: _tail, hvalue =>
+      Q'.le_trans' _ _ _
+        (hvalue head List.mem_cons_self)
+        (Q'.le_max'_left _ _)
+
 /-- Summable pointwise recoding data sufficient to control a located maximum
 on a changing finite carrier.  The two maps are explicit computational data;
 the estimates are oriented exactly as maximum comparison requires. -/
@@ -75,7 +86,8 @@ structure DynamicFiniteMaximumVariation
   variation : Nat -> Q'
   variation_nonnegative : forall scale, (0 : Q') <= variation scale
   tailControl : AntitoneTailControl variation
-  value_nonnegative : forall scale state, (0 : Q') <= value scale state
+  value_nonnegative : forall scale state,
+    state ∈ carrier scale -> (0 : Q') <= value scale state
   currentToNext : Nat -> State -> State
   currentToNext_mem : forall scale state,
     state ∈ carrier scale -> currentToNext scale state ∈ carrier (scale + 1)
@@ -108,10 +120,11 @@ def toSummableRationalStepVariation
   stepBound := fun scale => by
     have currentMaximum_nonnegative : (0 : Q') <=
         listQMaxZero (value scale) (carrier scale) :=
-      listQMaxZero_nonnegative _ (data.value_nonnegative scale) _
+      listQMaxZero_nonnegative_on_local _ _ (data.value_nonnegative scale)
     have nextMaximum_nonnegative : (0 : Q') <=
         listQMaxZero (value (scale + 1)) (carrier (scale + 1)) :=
-      listQMaxZero_nonnegative _ (data.value_nonnegative (scale + 1)) _
+      listQMaxZero_nonnegative_on_local _ _
+        (data.value_nonnegative (scale + 1))
     constructor
     · apply listQMaxZero_le_of_member_bound_local
       · exact Q'.zero_le_add _ _ currentMaximum_nonnegative
@@ -279,17 +292,17 @@ theorem DynamicFiniteMinimumFloor.le_minimum
 
 /-! ## 3. Exact BF4 pointwise specializations -/
 
-private def anchorVacuumSectorPairs (scale : Nat) : List (Nat × Nat) :=
+def anchorVacuumSectorPairs (scale : Nat) : List (Nat × Nat) :=
   centralPhysicalFiniteVacuumSectorPairs
     anchorCoupling (Q'.le_of_lt anchorCoupling_pos) scale 0
 
-private def anchorRoutedLoadOnPair
+def anchorRoutedLoadOnPair
     (routing : AnchorAdaptivePositiveRoutingSequence)
     (scale : Nat) (pair : Nat × Nat) : Q' :=
   centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoadOnPair
     (routing scale) pair
 
-private def anchorSupportedKernelCandidateOnPair
+def anchorSupportedKernelCandidateOnPair
     (routing : AnchorAdaptivePositiveRoutingSequence)
     (scale : Nat) (pair : Nat × Nat) : Q' :=
   centralLowerExcitedSpinCubeOffRayResidualRoutedSupportedConditionalKernelCandidate

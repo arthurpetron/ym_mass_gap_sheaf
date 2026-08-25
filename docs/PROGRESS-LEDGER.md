@@ -16276,3 +16276,55 @@ The exact monitored one-worker target passes all 5078 jobs.  Its nine printed
 exports use only `[propext, Quot.sound]` or smaller subsets.  The executable
 forbidden-token scan reports zero hits, and the root aggregator imports the
 module; no full-root audit is claimed.
+
+## Canonical consecutive-carrier recodings are now constructed (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalPairRecoding` removes the two
+carrier maps from the canonical path's analytic input.  The current-to-next
+map applies the already verified physical cutoff embedding to both indices.
+The next-to-current map performs a constructive finite preimage search in the
+earlier vacuum component and uses vacuum index zero as a total fallback for a
+genuinely new-shell index.  On the embedded old component the search is a
+proved left inverse.  Cartesian products of these index maps land in the
+exact consecutive vacuum-sector pair lists used by the existing routed-load
+and support-kernel functions.
+
+Consequently the canonical frontier has three, rather than five, atomic
+analytic producers that can be constructed in parallel: a summable load
+envelope along the fixed maps, a summable support-kernel envelope along the
+same maps, and a uniform positive pointwise kernel floor.  The kernel envelope
+and kernel floor contract into one reciprocal/numerator lane, so only two
+top-level analytic lanes reach the debt compiler.  Their output then enters a
+serial chain: minimum/maximum folds, half scaling, reciprocal transport,
+product variation, exact debt recoding, total-budget selection, and
+initial-slack closure.
+
+This makes the canonical-versus-adaptive choice causal.  Canonical routing is
+the shorter path because both routing and carrier recodings are already
+fixed.  Its hard analytic obligation is now visible at the new shell: the
+vacuum fallback forces proofs that new routed loads do not create
+nonsummable upward jumps and that new kernel candidates do not collapse the
+minimum.  If those estimates are false or inaccessible for canonical
+routing, the adaptive path can choose cutoff-dependent routings to improve
+them, but must first construct coherent routing data and then prove estimates
+for that one routing sequence.
+
+Observable connectedness is preserved definitionally: both envelope
+structures use the same canonical routing term, the exact existing routed
+load and support-kernel candidate, the exact existing pair lists, and the
+same fixed pair maps.  The resulting compiler produces variation for the
+already defined normalized support-capacity debt; it does not introduce a
+surrogate observable or permit load and kernel estimates from different
+routings to be mixed.
+
+No analytic envelope or kernel-floor inhabitant is supplied.  The debt budget
+and initial slack remain open after their join.  This remains a fixed-anchor
+construction rather than the physical AF/grouped-BF4 trajectory, and it does
+not establish same-observable thermodynamic compatibility, projective OS/GNS
+reconstruction, a completed all-vector gap, continuum QFT, or the Clay
+mass-gap theorem.
+
+The exact monitored one-worker target passes all 5079 jobs.  Its eight printed
+exports use only `[propext, Quot.sound]` or smaller subsets.  The executable
+forbidden-token scan reports zero hits, and the root aggregator imports the
+module; no full-root audit is claimed.

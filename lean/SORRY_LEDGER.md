@@ -14507,3 +14507,53 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs.  Its nine printed exports use only `[propext, Quot.sound]` or smaller
   subsets.  The executable forbidden-token scan reports zero hits, and the
   root aggregator imports the module; no full-root audit is claimed.
+
+### [canonical-support-pair-recoding] Construct canonical consecutive-carrier maps — **CLOSED 2026-08-25**
+
+- **milestone**: construct the canonical current-to-next index map from the
+  physical cutoff embedding; construct a total next-to-current map by finite
+  preimage search with vacuum fallback; prove that it lands in the earlier
+  vacuum component and is a left inverse on the embedded old component; lift
+  both maps to the exact consecutive vacuum-sector pair carriers; and install
+  those maps in canonical load-maximum and kernel-minimum envelope interfaces.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalPairRecoding.lean`,
+  with the exact routed functions exposed for reuse in
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportPointwiseVariationCompiler.lean`.
+- **decl**:
+  `firstMappedPreimageOr`,
+  `firstMappedPreimageOr_mem`,
+  `map_firstMappedPreimageOr_eq_of_mem_map`,
+  `anchorCurrentIndexToNext`,
+  `anchorNextIndexToCurrent`,
+  `anchorNextIndexToCurrent_currentToNext`,
+  `anchorCurrentPairToNext`,
+  `anchorNextPairToCurrent`,
+  `anchorCurrentPairToNext_mem`,
+  `anchorNextPairToCurrent_mem`,
+  `anchorNextPairToCurrent_currentToNext`,
+  `AnchorCanonicalRoutedLoadEnvelope`,
+  `AnchorCanonicalSupportedKernelEnvelope`,
+  `AnchorCanonicalRoutedLoadEnvelope.toMaximumVariation`,
+  `AnchorCanonicalSupportedKernelEnvelope.toMinimumVariation`, and
+  `anchorCanonicalSupportCapacityDebtVariationOfEnvelopes`.
+- **obligation**: inhabit three remaining canonical analytic certificates:
+  the summable load envelope, summable kernel envelope, and uniform positive
+  kernel floor.  The difficult cases are the genuinely new-shell items that
+  the reverse map sends to vacuum.  After these producers join, a positive
+  total debt budget from cutoff zero and adequate initial slack are still
+  required.  Failure of canonical new-shell estimates would justify the
+  longer adaptive-routing path.  Physical AF persistence, the literal
+  same-observable thermodynamic bridge, projective OS/GNS reconstruction,
+  completed all-vector gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The reverse map is a recursive finite-list search
+  with an explicit vacuum fallback; its old-component inverse proof uses the
+  existing constructive embedding injectivity; pair membership targets the
+  exact existing carrier; and both analytic envelope interfaces mention the
+  same canonical routing and exact existing observables.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is
+  introduced.
+- **status note**: the exact monitored one-worker target passes all 5079
+  jobs.  Its eight printed exports use only `[propext, Quot.sound]` or smaller
+  subsets.  The executable forbidden-token scan reports zero hits, and the
+  root aggregator imports the module; no full-root audit is claimed.
