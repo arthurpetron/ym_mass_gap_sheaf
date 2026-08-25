@@ -13391,3 +13391,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: exact one-worker targets pass 47 jobs for the weighted norm,
   61 for the polynomial anchor, and 5114 for the connected capstone.  The split
   exposes two parallel proof ribs but does not close either one uniformly.
+
+### [BF4-physical-positive-artanh-polynomial-one-tail] Prove the constant cancellation and remove its certificate field — **CLOSED 2026-08-24**
+
+- **milestone**: prove that the explicit exponential pivot is at least one;
+  prove both finite comparison expressions equal one at input zero; infer that
+  the anchor difference vanishes at zero; turn that semantic equality into an
+  executable one-coefficient zero prefix; and compile the remaining weighted
+  tail through the unchanged scalar and connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyWeightedL1.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyWeightedL1.zeroPrefix_one_of_eval_zero`,
+  `CRealArtanhEulerPolynomialAnchor.one_le_expNegMexp`,
+  `CRealArtanhEulerPolynomialAnchor.eval_positiveArtanhEulerGeometricDifferencePoly_zero`,
+  `CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialOneTailCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialOneTailCertificate.toCoefficient`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialOneTailCompiler`.
+- **obligation**: inhabit the one-tail compiler by proving the displayed
+  weighted norm after dropping the constant coefficient.  In parallel, prove
+  the stronger exact prefix through
+  `min inner (min (2*stage+1) (degree+1))`; that stronger rib is not logically
+  needed by the new interface, but its larger radius power may be needed for a
+  sharp uniform tail estimate.  All later exact-rate, transfer/finite-graph,
+  raw-observable, projective OS/GNS, vacuum, continuum, QFT, and Clay inputs
+  remain separate and open.
+- **constructive?**: yes.  The proof uses recursive rational-series identities,
+  positivity of an explicit natural denominator, Boolean zero-prefix
+  reflection, and kernel-checked `Q'.eqv`.  No successful tail compiler is
+  claimed inhabited.  Gates stay inside `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 47 jobs for the weighted norm,
+  61 jobs for the polynomial anchor, and 5114 jobs for the connected capstone.
+  This closes one exact coefficient only; it does not close the full formal
+  prefix, weighted tail, scalar inverse, operator gap, or continuum target.

@@ -15165,3 +15165,37 @@ The prefix/tail compiler remains uninhabited.  The immediate next frontier is
 to prove the generic low-coefficient identity, which is purely formal and
 parallelizable from the analytic tail estimate.  The high-degree weighted tail
 and all later physical/continuum residuals remain open.
+
+## First formal coefficient cancelled; frontier contracts to one tail (2026-08-24)
+
+The first exact coefficient of the finite artanh-Euler difference is now
+proved to vanish uniformly.  The proof is semantic and constructive:
+evaluation at zero recovers the constant coefficient; every positive-length
+Euler partial sum at zero is rationally equivalent to one; the finite
+geometric comparison at zero is also one; and the explicit `Mexp` pivot is at
+least one because its term-modulus denominator summand is positive.
+
+`zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly` therefore supplies
+the first prefix cancellation without a certificate input.
+`PositiveWindowArtanhEulerPolynomialOneTailCertificate` removes the old
+`prefixZero` field entirely and retains only the explicit inequality
+
+`abs(z)^1 * weightedL1 (abs z) (drop 1 anchorDifference) <= tolerance`.
+
+Its `toCoefficient` adapter contracts that tail through the proved constant
+cancellation, the existing polynomial coefficient compiler, the scalar
+inverse, and the same connected Wilson capstone.  No observable is exchanged
+along that path.
+
+Exact one-worker targets pass 47 jobs for `QPolyWeightedL1`, 61 jobs for the
+polynomial anchor, and 5114 jobs for the connected capstone.  The relevant
+gates are within `[propext, Quot.sound]`.
+
+The new one-tail compiler remains uninhabited.  This closes exactly one formal
+coefficient, not the expected full prefix.  The immediate scalar frontier is
+now the weighted tail after one proved cancellation; independently, the
+stronger all-orders formal prefix theorem remains valuable because it would
+expose a much higher power of `abs z`.  Exact-rate, transfer/finite-graph
+approximation, raw-observable semantics and nontriviality, projective OS/GNS,
+vacuum stationarity, continuum existence, QFT axioms, and the Clay conclusion
+remain open.

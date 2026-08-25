@@ -443,6 +443,141 @@ theorem eval_positiveArtanhEulerGeometricDifferencePoly
     (Q'.neg_eqv_congr _ _
       (eval_positiveArtanhGeometricApproxPoly z degree))
 
+/-! ## The first exact cancellation -/
+
+/-- Every nonconstant Euler term vanishes when its exponent is zero. -/
+theorem expTerm_zero_succ_eqv (k : Nat) :
+    (ExpNeg.term (0 : Q') (k + 1)).eqv 0 := by
+  rw [ExpNeg.term_succ]
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (ExpNeg.term 0 k) _ 0 ?_) ?_
+  · refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ 0 _
+        (by decide : (-(0 : Q')).eqv 0)) ?_
+    exact q_zero_mul _
+  · exact q_mul_zero _
+
+/-- Every positive-length Euler partial sum at exponent zero is exactly one
+up to rational equivalence. -/
+theorem expPartialSum_zero_succ_eqv :
+    forall n : Nat,
+      (ExpNeg.partialSum (0 : Q') (n + 1)).eqv 1
+  | 0 => by
+      rw [ExpNeg.partialSum_one]
+      exact Q'.eqv_refl 1
+  | n + 1 => by
+      rw [ExpNeg.partialSum_succ]
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left _ _ 0 (expTerm_zero_succ_eqv n)) ?_
+      exact Q'.eqv_trans _ _ _ (q_add_zero_eqv _) (expPartialSum_zero_succ_eqv n)
+
+/-- The finite geometric sum at the rational representative `-0` is one. -/
+theorem geometricSum_neg_zero_eqv_one :
+    forall degree : Nat,
+      (QGeometricSum.geomSum (-(0 : Q')) degree).eqv 1
+  | 0 => by
+      rw [QGeometricSum.geomSum_zero]
+      exact Q'.eqv_refl 1
+  | degree + 1 => by
+      rw [QGeometricSum.geomSum_succ]
+      have hnegZero : (-(0 : Q')).eqv 0 := by decide
+      have hpower : ((-(0 : Q')) ^ (degree + 1)).eqv 0 :=
+        Q'.eqv_trans _ _ _
+          (pow_eqv_congr hnegZero (degree + 1))
+          (CRealLog.zero_pow_succ_eqv degree)
+      exact Q'.eqv_trans _ (1 + 0) _
+        (q_add_congr (geometricSum_neg_zero_eqv_one degree) hpower)
+        (q_add_zero_eqv 1)
+
+/-- The reflected positive-artanh exponent vanishes at zero. -/
+theorem positiveArtanhExponent_zero_eqv_zero (stage : Nat) :
+    (positiveArtanhExponent (0 : Q') stage).eqv 0 := by
+  unfold positiveArtanhExponent
+  exact Q'.eqv_trans _ (0 + 0) _
+    (q_add_congr
+      (CRealLog.partialSum_zero_eqv stage)
+      (CRealLog.partialSum_zero_eqv stage))
+    (q_add_zero_eqv 0)
+
+/-- The finite geometric comparison has constant value one. -/
+theorem positiveArtanhGeometricApprox_zero_eqv_one (degree : Nat) :
+    (positiveArtanhGeometricApprox (0 : Q') degree).eqv 1 := by
+  unfold positiveArtanhGeometricApprox
+  have hnegZero : (-(0 : Q')).eqv 0 := by decide
+  have hfactor : ((1 : Q') + -(0 : Q')).eqv 1 :=
+    Q'.eqv_trans _ (1 + 0) _
+      (q_add_congr (Q'.eqv_refl 1) hnegZero)
+      (q_add_zero_eqv 1)
+  exact Q'.eqv_trans _ (1 * 1) _
+    (Q'.eqv_trans _ (1 * ((1 : Q') + -(0 : Q'))) _
+      (Q'.mul_eqv_congr_right _ 1 _
+        (geometricSum_neg_zero_eqv_one degree))
+      (Q'.mul_eqv_congr_left 1 _ 1 hfactor))
+    (Q'.one_mul_eqv 1)
+
+/-- With at least one Euler term, the constant coefficient of the reflected
+Euler-versus-geometric difference vanishes semantically. -/
+theorem eval_positiveArtanhEulerGeometricDifferencePoly_zero
+    (stage n degree : Nat) :
+    (eval (positiveArtanhEulerGeometricDifferencePoly
+      stage (n + 1) degree) 0).eqv 0 := by
+  have hexponent := positiveArtanhExponent_zero_eqv_zero stage
+  have heuler :
+      (ExpNeg.partialSum (positiveArtanhExponent 0 stage) (n + 1)).eqv 1 :=
+    Q'.eqv_trans _ _ _
+      (YMGap.Constructive.partialSum_eqv hexponent (n + 1))
+      (expPartialSum_zero_succ_eqv n)
+  have hgeometric := positiveArtanhGeometricApprox_zero_eqv_one degree
+  have hdifference :
+      (ExpNeg.partialSum (positiveArtanhExponent 0 stage) (n + 1) +
+        -(positiveArtanhGeometricApprox 0 degree)).eqv 0 :=
+    Q'.eqv_trans _ (1 + -1) _
+      (q_add_congr heuler (Q'.neg_eqv_congr _ _ hgeometric))
+      (Q'.add_neg_self_eqv 1)
+  exact Q'.eqv_trans _ _ _
+    (eval_positiveArtanhEulerGeometricDifferencePoly 0 stage (n + 1) degree)
+    hdifference
+
+/-- The explicit exponential term modulus is never zero: its denominator
+summand is a positive natural. -/
+theorem one_le_expNegTermAbsModulus (x epsilon : Q') :
+    1 <= ExpNeg.termAbsModulus x epsilon := by
+  unfold ExpNeg.termAbsModulus
+  have hden : 1 <=
+      (epsilon *
+        Q'.invSucc
+          (ExpNeg.termAbs x (RatNat.halfRatioCutoff x)).num.toNat).den := by
+    exact (epsilon *
+      Q'.invSucc
+        (ExpNeg.termAbs x (RatNat.halfRatioCutoff x)).num.toNat).den_pos
+  omega
+
+/-- Consequently the explicit Euler Cauchy pivot always contains at least its
+constant term. -/
+theorem one_le_expNegMexp (x epsilon : Q') :
+    1 <= ExpNeg.Mexp x epsilon := by
+  unfold ExpNeg.Mexp
+  exact Nat.le_trans
+    (one_le_expNegTermAbsModulus x (HalfPow.half * epsilon))
+    (Nat.le_max_right _ _)
+
+theorem one_le_positiveArtanhEulerAnchorPivot (z epsilon : Q') :
+    1 <= positiveArtanhEulerAnchorPivot z epsilon := by
+  unfold positiveArtanhEulerAnchorPivot
+  exact one_le_expNegMexp _ _
+
+/-- The first coefficient cancels for every positive-length Euler truncation.
+This is the first proved segment of the expected full formal prefix. -/
+theorem zeroPrefix_one_positiveArtanhEulerGeometricDifferencePoly
+    (stage inner degree : Nat) (hinner : 1 <= inner) :
+    zeroPrefix 1
+      (positiveArtanhEulerGeometricDifferencePoly stage inner degree) := by
+  cases inner with
+  | zero => omega
+  | succ n =>
+      exact zeroPrefix_one_of_eval_zero _
+        (eval_positiveArtanhEulerGeometricDifferencePoly_zero stage n degree)
+
 /-- Number of low coefficients expected to agree before any of the three
 finite truncations can affect the formal identity. -/
 def positiveArtanhEulerPolynomialCancellationCount
@@ -456,6 +591,15 @@ def positiveArtanhEulerAnchorDifferencePoly
     (positiveArtanhEulerAnchorStage epsilon)
     (positiveArtanhEulerAnchorPivot z epsilon)
     (positiveArtanhGeometricAnchorDegree epsilon)
+
+/-- The fully computed anchor therefore has one exact zero coefficient with
+no certificate input. -/
+theorem zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
+    (z epsilon : Q') :
+    zeroPrefix 1 (positiveArtanhEulerAnchorDifferencePoly z epsilon) := by
+  unfold positiveArtanhEulerAnchorDifferencePoly
+  exact zeroPrefix_one_positiveArtanhEulerGeometricDifferencePoly _ _ _
+    (one_le_positiveArtanhEulerAnchorPivot z epsilon)
 
 /-- The fully computed cancellation-prefix length. -/
 def positiveArtanhEulerAnchorCancellationCount
@@ -545,6 +689,50 @@ structure PositiveWindowArtanhEulerPolynomialPrefixTailCompiler : Type 2 where
     (z : Q') -> (hz : (0 : Q') < z) ->
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialPrefixTailCertificate z hz hzb
+
+/-- Tail-only presentation after the constant-coefficient cancellation has
+been proved internally.  Unlike `PositiveWindowArtanhEulerPolynomialPrefixTailCertificate`,
+there is no exact-prefix field left for callers to inhabit. -/
+structure PositiveWindowArtanhEulerPolynomialOneTailCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    (Q'.abs z) ^ 1 *
+        weightedL1 (Q'.abs z)
+          (List.drop 1 (positiveArtanhEulerAnchorDifferencePoly z epsilon)) <=
+      positiveArtanhGeometricComparisonTolerance epsilon
+
+/-- Uniform producer of the reduced, tail-only certificates. -/
+structure PositiveWindowArtanhEulerPolynomialOneTailCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialOneTailCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialOneTailCertificate
+
+/-- The proved constant cancellation contracts the sole remaining tail field
+to the original full coefficient inequality. -/
+def toCoefficient
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerPolynomialOneTailCertificate
+      z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCertificate z hz hzb where
+  coefficientBound epsilon hepsilon := by
+    have hfactor := weightedL1_eqv_pow_mul_drop_of_zeroPrefix
+      (Q'.abs z) 1 (positiveArtanhEulerAnchorDifferencePoly z epsilon)
+      (zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly z epsilon)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hfactor)
+      (certificate.tailBound epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialOneTailCertificate
+
+/-- A tail-only compiler produces the full coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfOneTail
+    (compiler : PositiveWindowArtanhEulerPolynomialOneTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toCoefficient
 
 namespace PositiveWindowArtanhEulerPolynomialPrefixTailCertificate
 
@@ -670,6 +858,15 @@ def positiveWindowArtanhEulerCompilerOfPolynomialPrefixTail
   positiveWindowArtanhEulerCompilerOfPolynomial
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail compiler)
 
+/-- The reduced tail-only compiler also compiles all the way to the scalar
+inverse; its constant cancellation is a theorem, not a caller-supplied
+field. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialOneTail
+    (compiler : PositiveWindowArtanhEulerPolynomialOneTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfOneTail compiler)
+
 /-- Uniform executable coefficient checks compile all the way to the scalar
 inverse. -/
 def positiveWindowArtanhEulerCompilerOfPolynomialChecked
@@ -694,6 +891,10 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCheckedCertificate.toCoefficient
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPrefixTailCertificate.toCoefficient
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialOneTailCertificate.toCoefficient
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientCertificate.toGeometricValueAnchor
 #print axioms

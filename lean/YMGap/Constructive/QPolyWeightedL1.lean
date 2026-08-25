@@ -242,6 +242,27 @@ instance zeroPrefixDecidable (count : Nat) (p : Poly) :
     Decidable (zeroPrefix count p) :=
   inferInstanceAs (Decidable (zeroPrefixB count p = true))
 
+/-- Vanishing at zero proves that the constant coefficient vanishes.  This is
+the first nontrivial zero-prefix certificate, phrased through polynomial
+semantics so downstream formal identities need not inspect coefficient-list
+implementations. -/
+theorem zeroPrefix_one_of_eval_zero
+    (p : Poly) (hzero : (eval p 0).eqv 0) :
+    zeroPrefix 1 p := by
+  cases p with
+  | nil => rfl
+  | cons c cs =>
+      have heval : (eval (c :: cs) 0).eqv c := by
+        show (c + (0 : Q') * eval cs 0).eqv c
+        exact Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left c _ 0 (q_zero_mul (eval cs 0)))
+          (q_add_zero_eqv c)
+      have hc : c.eqv 0 :=
+        Q'.eqv_trans _ _ _ (Q'.eqv_symm heval) hzero
+      unfold zeroPrefix zeroPrefixB
+      rw [show decide (c.eqv 0) = true from decide_eq_true hc]
+      rfl
+
 /-- A checked zero prefix factors the weighted norm into the corresponding
 power of the radius times the norm of the remaining coefficient tail. -/
 theorem weightedL1_eqv_pow_mul_drop_of_zeroPrefix
@@ -292,5 +313,7 @@ end YMGap.Constructive.QPolyWeightedL1
   YMGap.Constructive.QPolyWeightedL1.weightedL1_pmul_le
 #print axioms
   YMGap.Constructive.QPolyWeightedL1.weightedL1_psub_le
+#print axioms
+  YMGap.Constructive.QPolyWeightedL1.zeroPrefix_one_of_eval_zero
 #print axioms
   YMGap.Constructive.QPolyWeightedL1.weightedL1_eqv_pow_mul_drop_of_zeroPrefix
