@@ -15700,3 +15700,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass, the latter completing all 5104 jobs.  All six audited
   exports use only `[propext, Quot.sound]`; the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-shell-returns] Rewrite all three matched shell faces to explicit earlier return pairs — **CLOSED 2026-08-25**
+
+- **milestone**: prove finite preimage search equals its fallback outside a
+  mapped carrier; specialize this to every matched new index; identify the
+  canonical reverse pair on old-new, new-old, and new-new faces with
+  `(recoveredOld,0)`, `(0,recoveredOld)`, and `(0,0)`; prove all return pairs
+  belong to the earlier carrier; define return-explicit envelope interfaces;
+  and compile them through the same faces and correlated completed family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellReturns.lean`.
+- **decl**: `firstMappedPreimageOr_eq_fallback_of_not_mem_map`,
+  `matchedEventualCanonicalNextIndexToCurrent_eq_zero_of_newShell`,
+  `matchedEventualCanonicalOldNewReturnPair`,
+  `matchedEventualCanonicalNewOldReturnPair`,
+  `matchedEventualCanonicalNewNewReturnPair`,
+  `matchedEventualCanonicalNextPairToCurrent_eq_oldNewReturn`,
+  `matchedEventualCanonicalNextPairToCurrent_eq_newOldReturn`,
+  `matchedEventualCanonicalNextPairToCurrent_eq_newNewReturn`,
+  `MatchedEventualCanonicalOldNewReturnCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalNewOldReturnCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalNewNewReturnCapacityDebtEnvelope`,
+  `matchedEventualCanonicalNewShellCapacityDebtEnvelopeOfReturns`, and
+  `matchedEventualCanonicalCorrelatedCapacityDebtCompletedFamilyOfTransportAndReturns`.
+- **obligation**: inhabit the transported-old envelope and the three
+  return-explicit face envelopes at every physical scale, then provide the
+  unchanged positive tail allowance and initial closure.  The next algebraic
+  frontier is to compile exact positive-part return deficits into these three
+  envelope variations.
+- **constructive?**: yes.  Fallback selection is proved by recursion on a
+  finite list, return pairs are explicit data, and every rewrite is an equality
+  to the same canonical recoding.  No observable, nome, cutoff, routed load,
+  kernel, or ray floor is exchanged.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass, the latter completing all 5105 jobs.  All seven
+  audited exports use at most `[propext, Quot.sound]`; the root aggregator
+  imports the module.  No full-root audit is claimed.

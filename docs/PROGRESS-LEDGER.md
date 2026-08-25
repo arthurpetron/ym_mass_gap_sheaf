@@ -17472,3 +17472,38 @@ recoding on each shell face to its literal return point, exposing old-new as
 `(recoveredOld, 0)`, new-old as `(0, recoveredOld)`, and new-new as `(0, 0)`.
 Strength/spacing, a nonzero same-object pin, thermodynamic/continuum control,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## Matched shell-face compilers now target literal return observables (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellReturns`
+proves that the constructive next-to-current preimage search returns its
+vacuum-index fallback exactly when a coordinate lies outside the embedded
+current image.  It rewrites the three matched shell faces to the literal
+earlier return pairs `(recoveredOld, 0)`, `(0, recoveredOld)`, and `(0, 0)` and
+proves those pairs lie in the exact earlier carrier.
+
+The three shell envelope interfaces are correspondingly rewritten from an
+abstract reverse-map value to comparisons against those explicit pairwise
+observables.  Checked conversions return each interface to its face envelope;
+the three faces then rejoin the shell, transported-old control, the single
+correlated maximum, and the exact matched completed family.
+
+This makes observable connectedness operational.  An analytic estimate may
+now be proved directly at the physically meaningful return endpoint, but it
+counts toward the gap only through the explicit equality to the canonical
+reverse recoding and the existing same-edge debt.  The new-new lane is reduced
+to comparison with the fixed vacuum pair `(0,0)`; the mixed lanes retain one
+recovered old coordinate rather than losing that dependence in a global
+maximum.
+
+The focused monitored check passes, and the dependency-complete one-worker
+target completes all 5105 jobs.  All seven audited exports use at most
+`[propext, Quot.sound]`.  The root aggregator imports the module.  No full-root
+audit is claimed.
+
+No return-envelope family, tail allowance, or initial closure is inhabited.
+The next analytic compiler can replace each one-step return comparison by the
+positive part of its exact debt deficit and a located maximum, separating
+finite algebra from the still-open decay estimate.  Strength/spacing, the
+nonzero same-object pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
