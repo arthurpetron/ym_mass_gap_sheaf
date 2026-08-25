@@ -17823,3 +17823,46 @@ other five cutoff estimates, tail allowance and initial closure, AF
 identification, physical-scale uniformity, a nonzero same-object observable
 pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## New dynamic endpoint traffic is bounded by its literal vacuum-pair shell (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficCarrierBound`
+constructs the full later vacuum-pair shell by filtering the literal next
+vacuum-sector Cartesian square against the same embedded-old membership test
+already used by the exact traffic partition.  Every genuinely new residual
+endpoint pair lies in this shell.  Duplicate-freeness of the residual list
+therefore gives the constructive count bound
+
+`newEndpointPairCount <= laterVacuumPairShellCount`.
+
+This intermediate is deliberately retained: it excludes every wholly
+embedded-old pair and is therefore sharper than paying for the complete later
+pair carrier.  A second checked bound uses the existing exact 24-coordinate
+ambient enumeration to prove
+
+`laterVacuumPairShellCount <= (((laterCutoff + 1)^24)^2)`.
+
+Multiplication by the unchanged nonnegative normalized endpoint-term maximum
+transports both inequalities to the exact new-traffic envelope.  Two Type-level
+interfaces expose the corresponding analytic choices.  A shell-carrier
+inverse-square estimate compiles directly to the preceding factorized control;
+an explicit ambient-square estimate first contracts to the shell control and
+then follows the identical exact-new-debt, six-leaf traffic, regional, and
+one-total-tail route.  No routing, capacity denominator, edge carrier, or
+observable is replaced.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5124 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No shell-growth decay or inverse-square normalized-term estimate is inhabited.
+The sharp remaining new-traffic frontier is to control the literal shell count
+and normalized routed term jointly.  The explicit ambient fallback shows that
+a term-only proof using that coarse route must overcome a polynomial carrier
+factor of degree 48.  Old-traffic drift, route churn, the three shell-return
+faces, tail allowance and initial closure, AF identification, physical-scale
+uniformity, a nonzero same-object observable pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap remain
+open.

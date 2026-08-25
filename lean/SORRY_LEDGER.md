@@ -15990,3 +15990,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5123 jobs.  All eight audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-carrier-bound] Bound new traffic by the literal later shell and ambient square — **CLOSED 2026-08-25**
+
+- **milestone**: embed the duplicate-free complementary residual endpoint list
+  into the literal later vacuum-pair shell; bound its count by that sharper
+  shell count and then by the square of the explicit `(laterCutoff + 1)^24`
+  ambient carrier; multiply both bounds by the unchanged normalized-term
+  maximum; and compile shell-aware or ambient-square inverse-square inputs to
+  the existing factorized new-traffic control.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficCarrierBound.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointPairs_length_le_laterVacuumPairShell`,
+  `matchedEventualCanonicalLaterVacuumPairShell_length_le_ambientSquare`,
+  `matchedEventualCanonicalNewEndpointPairCount_le_ambientPairCount`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtEnvelope_le_shellEnvelope`,
+  `MatchedEventualCanonicalNewEndpointTrafficShellCarrierInverseSquareControl.toFactorizedControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficAmbientCarrierInverseSquareControl.toFactorizedControl`.
+- **obligation**: establish inverse-square decay of the shell-count-weighted
+  normalized routed term, preferably using actual shell growth; the explicit
+  ambient fallback pays a degree-48 polynomial carrier factor and therefore
+  requires correspondingly stronger term decay.
+- **constructive?**: yes.  The carrier comparison is an explicit list
+  injection into a Boolean-filtered later pair list followed by the existing
+  24-coordinate finite enumeration.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5124 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
