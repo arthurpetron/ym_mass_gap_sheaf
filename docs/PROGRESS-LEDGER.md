@@ -17698,3 +17698,46 @@ and the three shell faces.  Tail allowance and initial capacity closure, AF
 identification and cutoff-family uniformity, a nonzero same-object observable
 pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## Matched cutoff data drift is now exactly old traffic plus new traffic (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTrafficBridge`
+partitions the literal later residual endpoint list by whether both endpoints
+belong to the exact embedded-old index carrier.  The complementary filtered
+list is therefore genuinely new endpoint traffic.  The partition preserves
+all multiplicities and uses the same matched trajectory, physical scale,
+transition start, next cutoff, transported routing, transition-product
+summand, ordered edge, shared floor, and conditional-kernel capacity.
+
+Finite-sum partition and rational distributivity prove that the full later
+bridge load and debt are exactly their old-traffic plus new-traffic parts.  By
+inserting the old-traffic debt, the previous data-deficit maximum is bounded
+by old-traffic physical drift plus new-traffic entry.  A new inverse-square
+interface then exposes six independent cutoff leaves:
+
+1. old-endpoint traffic drift;
+2. genuinely new endpoint traffic;
+3. route churn;
+4. old-new shell return;
+5. new-old shell return; and
+6. new-new shell return.
+
+Those six estimates contract by kernel-checked maps to the previous five-leaf
+route bridge, four-region control, and one total cutoff-deficit tail.  The AF
+trajectory/physical-spacing identification remains an independent seventh
+workstream, but it has a physical-scale index and cannot be added to these six
+cutoff-index estimates.  The two axes must meet through a later uniform
+two-parameter observable theorem.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5120 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+No inverse-square estimate is inhabited.  The next analytic frontier is to
+bound the exact new-traffic debt by its nonnegative new summand and expose an
+estimator suitable for carrier-growth and transition-product bounds.  The
+other five cutoff estimates, tail allowance and initial closure, AF
+identification, physical-scale uniformity, a nonzero same-object observable
+pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.

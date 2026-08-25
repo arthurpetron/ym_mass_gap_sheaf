@@ -15899,3 +15899,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5119 jobs.  All nine audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-traffic-bridge] Split matched data drift into exact old and new endpoint traffic — **CLOSED 2026-08-25**
+
+- **milestone**: partition the literal next-cutoff residual endpoint list by
+  embedded-old membership; prove the full transported-route load and debt are
+  exactly the sum of old-traffic and new-traffic terms; split the data-deficit
+  maximum through the old-traffic intermediate; and compile six independent
+  inverse-square leaves to the existing route, regional, and total controls.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTrafficBridge.lean`.
+- **decl**:
+  `matchedEventualCanonicalTransportedBridgeRoutedLoadOnPair_eqv_old_add_new`,
+  `matchedEventualCanonicalTransportedBridgeCapacityDebtOnPair_eqv_old_add_new`,
+  `matchedEventualCanonicalTransportedBridgeDataDeficitMaximum_le_traffic_split`,
+  `MatchedEventualCanonicalTransportedCapacityDebtTrafficInverseSquareControl`,
+  `MatchedEventualCanonicalCapacityDebtTrafficRegionalInverseSquareControl`,
+  and its `toTotalDeficitTail`.
+- **obligation**: prove inverse-square estimates for old traffic, new traffic,
+  route churn, and the three ordered shell faces.  The next useful factor is a
+  pointwise nonnegative upper bound for the exact new-traffic deficit.
+- **constructive?**: yes.  The split is a Boolean filter partition of the
+  actual later residual list and rational distributivity through one unchanged
+  conditional-kernel denominator.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5120 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
