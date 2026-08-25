@@ -14262,3 +14262,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module.  This closes finite positivity and the compiler reduction, not the
   cutoff-uniform estimate, physical dynamic family, continuum theory, or Clay
   mass gap.
+
+### [adaptive-finite-capacity-debt-compiler] Reduce fixed-anchor uniform margins to initial slack plus summable normalized debt — **CLOSED 2026-08-25**
+
+- **milestone**: prove the reusable global-ceiling theorem for a summable
+  rational variation budget available from scale zero; define the fixed-anchor
+  shared-floor debt against any explicit positive lower proxy to the exact
+  routed margin; prove debt at most one reconstructs the floor-versus-proxy
+  comparison; and compile a routing/proxy sequence with summable debt,
+  total-budget control, and sufficient initial slack into the existing
+  cofinal margin family and completed fixed-anchor geometric dynamic family.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariation.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDebtCompiler.lean`.
+- **decl**:
+  `SummableRationalStepVariation.le_of_initial_add_totalBudget_le`,
+  `AnchorAdaptivePositiveRoutingSequence`,
+  `anchorAdaptiveFiniteCapacityMarginAt`,
+  `anchorAdaptiveSharedCoercivityFloor`,
+  `anchorAdaptiveFiniteCapacityDebt`,
+  `anchorAdaptiveSharedCoercivityFloor_le_marginLower_of_debt_le_one`,
+  `AnchorAdaptiveFiniteCapacityDebtVariation`,
+  `AnchorAdaptiveFiniteCapacityDebtVariation.debt_le_one`,
+  `AnchorAdaptiveFiniteCapacityDebtVariation.toAdaptiveFiniteCapacityMargin`,
+  `AnchorAdaptiveFiniteCapacityDebtVariation.toAnchorGeometricExtension`, and
+  `AnchorAdaptiveFiniteCapacityDebtVariation.toAnchorGeometricCompletedFamily`.
+- **obligation**: construct a routing sequence and explicit positive margin
+  lower proxies tied by `marginLower_le_exact` to the same exact routed
+  observable, then prove summable two-sided variation of the normalized debt,
+  a positive total budget available from zero, and initial debt plus budget at
+  most one.  The canonical route fixes the routing; the adaptive route may
+  optimize it with cutoff.  Neither route is inhabited.  Actual grouped
+  BF4/AF identification, same raw observable across physical cutoffs,
+  projective OS/GNS compatibility, all-vector gap, continuum QFT, and Clay
+  closure remain open.
+- **constructive?**: yes.  The debt denominator has an explicit positivity
+  witness, the global ceiling is rational telescoping plus the stored
+  antitone tail bound, and the proxy is accepted only with a proof below the
+  exact finite routed margin.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker compiler target passes all
+  5072 jobs.  Its six audited exports and the added reusable variation theorem
+  use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+  reports zero hits, and the root aggregator imports the module.  This closes
+  a sufficient persistence compiler, not its analytic inhabitant, the
+  physical dynamic family, continuum theory, or Clay mass gap.

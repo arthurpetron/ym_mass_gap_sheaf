@@ -16025,3 +16025,42 @@ module.  No full-root audit is claimed.  The fixed anchor is not relabelled as
 an AF or physical BF4 trajectory.  The physical dynamic family,
 same-observable thermodynamic bridge, completed all-vector spectral gap,
 continuum QFT, and Clay mass-gap theorem remain open.
+
+## Fixed-anchor margin persistence is reduced to normalized debt variation (2026-08-25)
+
+`SummableRationalStepVariation.le_of_initial_add_totalBudget_le` turns a
+summable two-sided rational variation certificate into a global pointwise
+ceiling when one positive budget controls the whole series from scale zero
+and the initial value plus that budget lies below the ceiling.  Unlike the
+earlier eventual-ceiling theorem, this conclusion preserves a prescribed
+threshold such as one rather than merely producing some finite upper bound.
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDebtCompiler`
+specializes that reusable lemma at the fixed `1/400` anchor.  For a routing
+sequence it accepts an explicit positive lower proxy certified below the exact
+finite routed margin and normalizes the remaining inequality to
+`sharedFloor / marginLower`.  Debt at most one reconstructs
+`sharedFloor <= marginLower <= exactMargin`.  Summable debt variation, a
+total budget available from cutoff zero, and enough initial slack therefore
+construct the preceding cofinal margin family, adaptive transition product,
+and completed fixed-anchor geometric dynamic family.
+
+The lower proxy is not a replacement observable.  Its `marginLower_le_exact`
+field is a kernel-checked edge back to the exact finite minimum built from the
+same routing, conditional kernel, routed transition-product load, and literal
+vacuum-sector carrier.  It is an elaboration-safe analytic bound on that
+observable-connected quantity.  The canonical route remains shorter if one
+can exhibit such a proxy and summable debt for its fixed routing.  The
+adaptive route admits cutoff-dependent routings and proxies, allowing local
+route optimization before the same debt-variation compiler is applied.
+
+No debt certificate is inhabited here.  In particular, convergence or
+summable variation alone is insufficient: the finite initial slack must
+absorb the total variation budget below one.  The exact monitored one-worker
+compiler target passes all 5072 jobs; its six audited exports and the new
+generic variation theorem use no axioms beyond `[propext, Quot.sound]`.  The
+repository-wide executable forbidden-token scan reports zero hits, and the
+root aggregator imports the module; no full-root audit is claimed.  The
+fixed anchor is not an AF or physical BF4 trajectory, and the physical
+same-observable dynamic family, all-vector completed gap, continuum QFT, and
+Clay mass-gap theorem remain open.

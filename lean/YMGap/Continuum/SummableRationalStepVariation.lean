@@ -133,6 +133,33 @@ theorem le_tailCeiling
   exact Q'.le_trans' _ _ _ htelescope
     (Q'.add_le_add_left _ _ _ htail)
 
+/-- If one positive budget controls the entire variation tail from zero, then
+initial slack plus that budget gives a pointwise global ceiling.  This is the
+direct compiler used when a normalized analytic debt must stay below one at
+every cutoff, rather than merely converge. -/
+theorem le_of_initial_add_totalBudget_le
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream)
+    {budget ceiling : Q'}
+    (hbudget : (0 : Q') < budget)
+    (hfromZero : data.tailControl.tailRate budget = 0)
+    (hclose : stream 0 + budget <= ceiling)
+    (scale : Nat) :
+    stream scale <= ceiling := by
+  have htelescope :=
+    data.toSummableCRealStepVariation.telescope_up 0 0 scale
+  simp only [CReal.ofQ'_approx, Nat.zero_add] at htelescope
+  have htail :
+      finSum (fun offset => data.variation offset) scale <= budget := by
+    simpa only [Nat.zero_add] using
+      data.tailControl.tailBound budget hbudget 0 (by
+        rw [hfromZero]
+        exact Nat.le_refl 0) scale
+  exact Q'.le_trans' _ _ _ htelescope
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add_left _ _ _ htail)
+      hclose)
+
 /-- A rational stream pointwise equivalent to one constant has the zero
 variation certificate.  This uses setoid equality rather than requiring the
 chosen rational representations to be definitionally identical. -/
@@ -185,5 +212,7 @@ end YMGap.Continuum.SummableRationalStepVariation
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.converges
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_tailCeiling
+#print axioms
+  YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_of_initial_add_totalBudget_le
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.ofPointwiseEqvConstant
