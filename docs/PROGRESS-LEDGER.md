@@ -17432,3 +17432,43 @@ new pair shell into old-new, new-old, and new-new faces so those three shell
 estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## Four leaf estimates are the parallel correlated matched frontier (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellFaces`
+constructs the embedded current index carrier inside the next cutoff and
+proves that embedded pair membership is exactly coordinatewise embedded index
+membership.  The new Cartesian pair shell is then exhausted by three ordered
+faces: embedded-old source with new target, new source with embedded-old
+target, and new source with new target.
+
+Each face has an independent summable same-edge capacity-debt envelope.  Their
+three nonnegative budgets add to the exact new-shell envelope.  Together with
+the independent embedded-old transport envelope, this yields four leaf-level
+analytic producers that can be developed in parallel:
+
+1. embedded-old two-sided transport;
+2. old-new shell debt;
+3. new-old shell debt; and
+4. new-new shell debt.
+
+The four-way parallelism does not create four observables.  Every inequality
+uses the same matched pairwise quantity
+`sharedFloor * routedLoad / (half * conditionalKernel)`, and all four lanes
+rejoin by addition of their summable budgets before the unique maximum-debt,
+prefix-tail, exact edge-capacity, local-producer, and completed-family path.
+This is the observable-connected meaning of parallel compiler construction:
+regional proofs can diverge, but their types force a checked return to the
+same carrier, routing, transfer product, and vacuum family.
+
+The focused monitored check passes, and the dependency-complete one-worker
+target completes all 5104 jobs.  All six audited exports use only
+`[propext, Quot.sound]`.  The root aggregator imports the module.  No full-root
+audit is claimed.
+
+None of the four analytic envelopes, the positive tail allowance, or the
+initial closure is inhabited.  The next expansion is to rewrite the reverse
+recoding on each shell face to its literal return point, exposing old-new as
+`(recoveredOld, 0)`, new-old as `(0, recoveredOld)`, and new-new as `(0, 0)`.
+Strength/spacing, a nonzero same-object pin, thermodynamic/continuum control,
+continuum Yang--Mills construction, and the Clay mass gap remain open.

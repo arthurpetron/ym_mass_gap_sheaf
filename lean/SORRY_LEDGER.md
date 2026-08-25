@@ -15660,3 +15660,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass, the latter completing all 5103 jobs.  All six audited
   exports use only `[propext, Quot.sound]`; the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-shell-faces] Decompose the exact new pair shell into three parallel ordered faces — **CLOSED 2026-08-25**
+
+- **milestone**: define the embedded-old and new index regions at each matched
+  scale and offset; prove embedded pair membership is coordinatewise; prove
+  the exact new pair shell is exhausted by old-new, new-old, and new-new
+  faces; assign each face an independently summable correlated-debt envelope;
+  add all three budgets into the exact shell envelope; and join those three
+  lanes with transported-old control to construct the unchanged completed
+  matched family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellFaces.lean`.
+- **decl**: `matchedEventualCanonicalVacuumSectorIndices`,
+  `matchedEventualCanonicalEmbeddedOldIndexCarrier`,
+  `MatchedEventualCanonicalIndexInNewShell`,
+  `mem_matchedEventualCanonicalEmbeddedOldPairCarrier_iff`,
+  `MatchedEventualCanonicalPairInOldNewShell`,
+  `MatchedEventualCanonicalPairInNewOldShell`,
+  `MatchedEventualCanonicalPairInNewNewShell`,
+  `matchedEventualCanonicalNewShellPair_face_cases`,
+  `MatchedEventualCanonicalOldNewCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalNewOldCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalNewNewCapacityDebtEnvelope`,
+  `matchedEventualCanonicalNewShellCapacityDebtEnvelopeOfFaces`,
+  `matchedEventualCanonicalCorrelatedCapacityDebtEnvelopeOfTransportAndFaces`,
+  and
+  `matchedEventualCanonicalCorrelatedCapacityDebtCompletedFamilyOfTransportAndFaces`.
+- **obligation**: construct four scale-indexed analytic envelope families in
+  parallel: embedded-old transport and the three ordered shell faces.  Then
+  provide the positive tail allowance and computed initial closure.  All four
+  outputs are typed on the identical correlated capacity-debt observable.
+- **constructive?**: yes.  All region predicates use decidable finite-list
+  membership, face exhaustion is an explicit case split, and each budget has
+  an antitone tail modulus.  The join is constructive rational addition.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass, the latter completing all 5104 jobs.  All six audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  No full-root audit is claimed.
