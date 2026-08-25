@@ -19228,7 +19228,7 @@ as the missing uniform rate.  The fallback is useful only if a separate
 cutoff-sensitive payment defeats that decay.
 
 The focused monitored check passes at 10M heartbeats, and the dependency-
-complete one-worker target passes all 5167 jobs.  The five audited exports use
+complete one-worker target passes all 5167 jobs.  The six audited exports use
 only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
 hits, `git diff --check` passes, and the root aggregator imports the module.
 No full-root audit is claimed.
@@ -19240,3 +19240,48 @@ testable fallback.  Merger versus uniform no-merger, new--old, new--new, old
 traffic, route churn, shell returns, total tail closure, AF physical-scale
 uniformity, same-object completion, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## Exact old--new amplification now separates used-row capacity from path growth (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowCapacityFloorFactorization`
+replaces the sector-wide diagnostic denominator by the constructive minimum
+of exact capacity over precisely the current rows with positive old--new route
+activity.  Membership in this filtered list retains the unchanged physical
+carrier and proves strict capacity positivity; inactive rows remain exact
+zeros and never acquire a fictitious denominator.
+
+The primary comparison is now
+
+`exactOldNewAmplificationMaximum`
+`  <= sharedFloor * oldNewFacePathSquareMaximum / activeRowCapacityFloor`.
+
+This is strictly at least as sharp as the preceding sector fallback: the
+later-sector raw-kernel floor is proved below the active-row floor, so
+reciprocal antitonicity puts the new envelope below the sector envelope.  The
+old--new face path maximum is also bounded directly, on its literal endpoint
+list, by the explicit later ambient-carrier square scale.  This avoids the
+computationally expensive unmasked maximum-to-maximum detour and reduces the
+analytic frontier to two independently measurable streams: explicit carrier
+growth and decay of capacity on rows actually used by the observable.
+
+A cross-multiplied dyadic payment against the sharper face/floor envelope
+bounds the least exact joint precision and compiles into the unchanged
+consecutive-cutoff linear schedule.  The record remains deliberately
+uninhabited.  The next causal test is a quantitative lower-growth law for the
+active-row capacity floor strong enough, together with the explicit ambient
+numerator, to pay that dyadic inequality.  If this fails at linear precision,
+it supplies concrete evidence for switching the old--new compiler to an
+adaptive cutoff path; the generic tail compiler itself does not force that
+switch.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5168 jobs.  The nine audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No active-row floor growth law, fixed physical-scale burn payment,
+merger/no-merger closure, new--old or new--new face estimate, old-traffic
+estimate, route-churn or shell-return closure, total tail theorem, AF
+physical-scale uniformity, same-object completion, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, or Clay mass gap is proved.

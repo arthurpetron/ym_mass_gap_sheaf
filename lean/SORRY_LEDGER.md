@@ -17187,7 +17187,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
   is introduced.
 - **status note**: the focused monitored check passes at 10M heartbeats and
-  the dependency-complete one-worker target passes all 5167 jobs.  The five
+  the dependency-complete one-worker target passes all 5167 jobs.  The six
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-active-row-capacity-floor-factorization] Separate exact used-row capacity from face path growth — **CLOSED 2026-08-25**
+
+- **milestone**: filter the unchanged literal current-pair carrier by positive
+  old--new route activity; prove exact current-pair capacity is positive on
+  precisely that list; take its constructive positive minimum; factor the
+  exact amplification maximum through the old--new face path maximum and the
+  reciprocal active-row floor; prove this envelope is below the sector-floor
+  fallback; bound the face numerator by the explicit later ambient-carrier
+  square; and compile a cross-multiplied payment into the existing least
+  joint-precision and consecutive-cutoff linear data.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowCapacityFloorFactorization.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRowCapacityFloor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_le_oldNewFaceActiveRowCapacityFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationMaximum_le_activeRowCapacityFloorPathEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRoutedPathLengthSquareMaximum_le_laterAmbientCarrierSquareScale`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicPrecision_le_of_activeRowCapacityFloorPayment`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabActiveRowCapacityFloorDyadicLinearData.toLinearData`.
+- **obligation**: prove a cutoff-growth estimate for the active-row capacity
+  floor strong enough, after the explicit ambient numerator is inserted, to
+  inhabit the dyadic payment.  This is the sharp observable-connected
+  denominator residual.  The fixed-start nome/dimension burn and all other
+  face, merger, traffic, completion, and continuum frontiers remain open.
+- **constructive?**: yes.  The active list is a decidable finite filter;
+  positivity comes from a literal positive route witness and exact same-row
+  capacity; the positive minimum and maxima are located folds; and every
+  comparison uses rational inequalities.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5168 jobs.  The nine
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.

@@ -124,7 +124,7 @@ private theorem sectorFloorPathAmplificationEnvelope_nonnegative_local
           (matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_pos
             trajectory transitionStart physicalScale cutoffOffset))))
 
-private theorem amplificationOnCurrentPair_eqv_zero_of_routeMaximum_not_pos_local
+theorem matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_eqv_zero_of_routeMaximum_not_pos
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
     (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
@@ -247,7 +247,7 @@ theorem matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacit
             trajectory transitionStart physicalScale)))
   · exact Q'.le_trans' _ _ _
       (Q'.le_of_eqv
-        (amplificationOnCurrentPair_eqv_zero_of_routeMaximum_not_pos_local
+        (matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_eqv_zero_of_routeMaximum_not_pos
           trajectory transitionStart physicalScale cutoffOffset pair hroute))
       (sectorFloorPathAmplificationEnvelope_nonnegative_local
         trajectory transitionStart physicalScale cutoffOffset)
@@ -375,6 +375,8 @@ def MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabSectorFloor
 
 #print axioms
   matchedEventualCanonicalNewEndpointTrafficOldNewFaceSectorFloorPathAmplificationEnvelope
+#print axioms
+  matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_eqv_zero_of_routeMaximum_not_pos
 #print axioms
   matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_le_sectorFloorPathEnvelope
 #print axioms
