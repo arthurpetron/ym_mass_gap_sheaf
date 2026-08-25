@@ -80,6 +80,45 @@ theorem eval_ppow_pvar (x : Q') (n : Nat) :
   Q'.eqv_trans _ _ _ (eval_ppow pvar x n)
     (pow_eqv_congr (eval_pvar x) n)
 
+/-- Weighted norm of a constant polynomial. -/
+theorem weightedL1_pconst_eqv (rho c : Q') :
+    (weightedL1 rho (pconst c)).eqv (Q'.abs c) := by
+  change (Q'.abs c + rho * 0).eqv (Q'.abs c)
+  exact Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (Q'.abs c) _ 0 (q_mul_zero rho))
+    (q_add_zero_eqv (Q'.abs c))
+
+/-- At radius `rho`, the polynomial variable has weighted norm `rho`. -/
+theorem weightedL1_pvar_eqv (rho : Q') :
+    (weightedL1 rho pvar).eqv rho := by
+  change (Q'.abs (0 : Q') +
+      rho * (Q'.abs (1 : Q') + rho * 0)).eqv rho
+  have hzero : (Q'.abs (0 : Q')).eqv 0 := by decide
+  have hone : (Q'.abs (1 : Q')).eqv 1 := by decide
+  have hinner : (Q'.abs (1 : Q') + rho * 0).eqv 1 := by
+    refine Q'.eqv_trans _ (1 + 0) _
+      (q_add_congr hone (q_mul_zero rho)) ?_
+    exact q_add_zero_eqv 1
+  refine Q'.eqv_trans _ (0 + rho * 1) _
+    (q_add_congr hzero
+      (Q'.mul_eqv_congr_left rho _ 1 hinner)) ?_
+  refine Q'.eqv_trans _ (rho * 1) _ (q_zero_add_eqv _) ?_
+  exact Q'.mul_one_eqv rho
+
+/-- Polynomial powers inherit submultiplicativity of the weighted norm. -/
+theorem weightedL1_ppow_le
+    (rho : Q') (hrho : (0 : Q') <= rho) (p : Poly) :
+    forall n : Nat,
+      weightedL1 rho (ppow p n) <= (weightedL1 rho p) ^ n
+  | 0 => Q'.le_of_eqv (weightedL1_pconst_eqv rho 1)
+  | n + 1 => by
+      have hmul := weightedL1_pmul_le rho hrho p (ppow p n)
+      have htail := Q'.mul_le_mul_of_nonneg_left
+        (weightedL1 rho (ppow p n)) ((weightedL1 rho p) ^ n)
+        (weightedL1 rho p) (weightedL1_ppow_le rho hrho p n)
+        (weightedL1_nonnegative rho hrho p)
+      exact Q'.le_trans' _ _ _ hmul htail
+
 /-- Polynomial for the `k`th odd-power artanh term. -/
 def artanhTermPoly (k : Nat) : Poly :=
   pscale (CRealLog.recipOdd k) (ppow pvar (2 * k + 1))
@@ -99,6 +138,40 @@ theorem eval_artanhTermPoly (z : Q') (k : Nat) :
       (eval_ppow_pvar z (2 * k + 1))) ?_
   exact Q'.mul_comm_eqv (CRealLog.recipOdd k) (z ^ (2 * k + 1))
 
+/-- The weighted norm of each reflected artanh term is bounded by its usual
+magnitude term at the same rational input. -/
+theorem weightedL1_artanhTermPoly_le (z : Q') (k : Nat) :
+    weightedL1 (Q'.abs z) (artanhTermPoly k) <=
+      CRealLog.termAbs z k := by
+  let rho : Q' := Q'.abs z
+  let odd : Nat := 2 * k + 1
+  have hrho : (0 : Q') <= rho := Q'.abs_nonneg z
+  have hscale := weightedL1_pscale_le rho hrho
+    (CRealLog.recipOdd k) (ppow pvar odd)
+  have hpower := weightedL1_ppow_le rho hrho pvar odd
+  have hvarPower : (weightedL1 rho pvar ^ odd).eqv (rho ^ odd) :=
+    pow_eqv_congr (weightedL1_pvar_eqv rho) odd
+  have hpower' : weightedL1 rho (ppow pvar odd) <= rho ^ odd :=
+    Q'.le_trans' _ _ _ hpower (Q'.le_of_eqv hvarPower)
+  have hcoefficient :
+      (Q'.abs (CRealLog.recipOdd k)).eqv
+        (CRealLog.recipOdd k) := by
+    exact Q'.eqv_of_eq
+      (ExpNeg.abs_of_nonneg (CRealLog.recipOdd_nonneg k))
+  have hscaledPower :
+      Q'.abs (CRealLog.recipOdd k) *
+          weightedL1 rho (ppow pvar odd) <=
+        Q'.abs (CRealLog.recipOdd k) * rho ^ odd :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hpower'
+      (Q'.abs_nonneg (CRealLog.recipOdd k))
+  refine Q'.le_trans' _ _ _ hscale
+    (Q'.le_trans' _ _ _ hscaledPower ?_)
+  refine Q'.le_of_eqv ?_
+  refine Q'.eqv_trans _
+    (CRealLog.recipOdd k * rho ^ odd) _
+    (Q'.mul_eqv_congr_right _ _ _ hcoefficient) ?_
+  exact Q'.mul_comm_eqv (CRealLog.recipOdd k) (rho ^ odd)
+
 theorem eval_artanhPartialPoly (z : Q') :
     forall stage : Nat,
       (eval (artanhPartialPoly stage) z).eqv
@@ -113,6 +186,22 @@ theorem eval_artanhPartialPoly (z : Q') :
             (eval_artanhTermPoly z stage))
           (Q'.eqv_refl _))
 
+/-- The reflected artanh partial polynomial is controlled by the exact
+magnitude block beginning at zero. -/
+theorem weightedL1_artanhPartialPoly_le (z : Q') :
+    forall stage : Nat,
+      weightedL1 (Q'.abs z) (artanhPartialPoly stage) <=
+        CRealLog.blockAbs z 0 stage
+  | 0 => Q'.le_refl' 0
+  | stage + 1 => by
+      rw [artanhPartialPoly, CRealLog.blockAbs_succ, Nat.zero_add]
+      have hadd := weightedL1_padd_le (Q'.abs z) (Q'.abs_nonneg z)
+        (artanhPartialPoly stage) (artanhTermPoly stage)
+      exact Q'.le_trans' _ _ _ hadd
+        (Q'.add_le_add
+          (weightedL1_artanhPartialPoly_le z stage)
+          (weightedL1_artanhTermPoly_le z stage))
+
 /-- Polynomial for twice the finite artanh partial sum. -/
 def positiveArtanhExponentPoly (stage : Nat) : Poly :=
   padd (artanhPartialPoly stage) (artanhPartialPoly stage)
@@ -125,6 +214,18 @@ theorem eval_positiveArtanhExponentPoly (z : Q') (stage : Nat) :
     (q_add_congr
       (eval_artanhPartialPoly z stage)
       (eval_artanhPartialPoly z stage))
+
+/-- Coefficient-norm majorant for the reflected positive-artanh exponent. -/
+theorem weightedL1_positiveArtanhExponentPoly_le
+    (z : Q') (stage : Nat) :
+    weightedL1 (Q'.abs z) (positiveArtanhExponentPoly stage) <=
+      CRealLog.blockAbs z 0 stage + CRealLog.blockAbs z 0 stage := by
+  have hadd := weightedL1_padd_le (Q'.abs z) (Q'.abs_nonneg z)
+    (artanhPartialPoly stage) (artanhPartialPoly stage)
+  exact Q'.le_trans' _ _ _ hadd
+    (Q'.add_le_add
+      (weightedL1_artanhPartialPoly_le z stage)
+      (weightedL1_artanhPartialPoly_le z stage))
 
 /-- Polynomial factor representing `(-x)/(k+1)` when `x` is itself a
 polynomial. -/
@@ -178,6 +279,52 @@ theorem eval_expTermPoly
             ((-value) * Q'.invSucc k)
             (eval_expStepPoly exponent z value hvalue k)))
 
+/-- Generic coefficient-norm majorant for a reflected finite exponential
+term. -/
+theorem weightedL1_expTermPoly_le
+    (rho : Q') (hrho : (0 : Q') <= rho) (exponent : Poly) :
+    forall k : Nat,
+      weightedL1 rho (expTermPoly exponent k) <=
+        ExpNeg.termAbs (weightedL1 rho exponent) k
+  | 0 => Q'.le_of_eqv (weightedL1_pconst_eqv rho 1)
+  | k + 1 => by
+      let normExponent : Q' := weightedL1 rho exponent
+      let normTerm : Q' := weightedL1 rho (expTermPoly exponent k)
+      let normStep : Q' := weightedL1 rho (expStepPoly exponent k)
+      have hmul := weightedL1_pmul_le rho hrho
+        (expTermPoly exponent k) (expStepPoly exponent k)
+      have hterm : normTerm <= ExpNeg.termAbs normExponent k :=
+        weightedL1_expTermPoly_le rho hrho exponent k
+      have hscale := weightedL1_pscale_le rho hrho (Q'.invSucc k)
+        (pneg exponent)
+      have hinvAbs : (Q'.abs (Q'.invSucc k)).eqv (Q'.invSucc k) :=
+        Q'.eqv_of_eq (ExpNeg.abs_of_nonneg (Q'.invSucc_nonneg k))
+      have hneg := weightedL1_pneg_le rho hrho exponent
+      have hstep : normStep <= normExponent * Q'.invSucc k := by
+        refine Q'.le_trans' _ _ _ hscale ?_
+        have hscaledNeg :
+            Q'.abs (Q'.invSucc k) * weightedL1 rho (pneg exponent) <=
+              Q'.abs (Q'.invSucc k) * normExponent :=
+          Q'.mul_le_mul_of_nonneg_left _ _ _ hneg
+            (Q'.abs_nonneg (Q'.invSucc k))
+        refine Q'.le_trans' _ _ _ hscaledNeg (Q'.le_of_eqv ?_)
+        refine Q'.eqv_trans _ (Q'.invSucc k * normExponent) _
+          (Q'.mul_eqv_congr_right _ _ _ hinvAbs) ?_
+        exact Q'.mul_comm_eqv (Q'.invSucc k) normExponent
+      have hfirst : normTerm * normStep <=
+          ExpNeg.termAbs normExponent k * normStep :=
+        Q'.mul_le_mul_of_nonneg_right _ _ normStep hterm
+          (weightedL1_nonnegative rho hrho (expStepPoly exponent k))
+      have hsecond : ExpNeg.termAbs normExponent k * normStep <=
+          ExpNeg.termAbs normExponent k *
+            (normExponent * Q'.invSucc k) :=
+        Q'.mul_le_mul_of_nonneg_left _ _
+          (ExpNeg.termAbs normExponent k) hstep
+          (ExpNeg.termAbs_nonneg normExponent
+            (weightedL1_nonnegative rho hrho exponent) k)
+      exact Q'.le_trans' _ _ _ hmul
+        (Q'.le_trans' _ _ _ hfirst hsecond)
+
 theorem eval_expPartialPoly
     (exponent : Poly) (z value : Q')
     (hvalue : (eval exponent z).eqv value) :
@@ -192,6 +339,22 @@ theorem eval_expPartialPoly
         (q_add_congr
           (eval_expPartialPoly exponent z value hvalue inner)
           (eval_expTermPoly exponent z value hvalue inner))
+
+/-- Generic coefficient-norm majorant for the reflected finite exponential
+partial sum. -/
+theorem weightedL1_expPartialPoly_le
+    (rho : Q') (hrho : (0 : Q') <= rho) (exponent : Poly) :
+    forall inner : Nat,
+      weightedL1 rho (expPartialPoly exponent inner) <=
+        ExpNeg.partialSumAbs (weightedL1 rho exponent) inner
+  | 0 => Q'.le_refl' 0
+  | inner + 1 => by
+      have hadd := weightedL1_padd_le rho hrho
+        (expPartialPoly exponent inner) (expTermPoly exponent inner)
+      exact Q'.le_trans' _ _ _ hadd
+        (Q'.add_le_add
+          (weightedL1_expPartialPoly_le rho hrho exponent inner)
+          (weightedL1_expTermPoly_le rho hrho exponent inner))
 
 theorem eval_positiveArtanhExpPartialPoly
     (z : Q') (stage inner : Nat) :
@@ -280,15 +443,34 @@ theorem eval_positiveArtanhEulerGeometricDifferencePoly
     (Q'.neg_eqv_congr _ _
       (eval_positiveArtanhGeometricApproxPoly z degree))
 
+/-- Number of low coefficients expected to agree before any of the three
+finite truncations can affect the formal identity. -/
+def positiveArtanhEulerPolynomialCancellationCount
+    (stage inner degree : Nat) : Nat :=
+  min inner (min (2 * stage + 1) (degree + 1))
+
+/-- The fully computed anchor difference polynomial. -/
+def positiveArtanhEulerAnchorDifferencePoly
+    (z epsilon : Q') : Poly :=
+  positiveArtanhEulerGeometricDifferencePoly
+    (positiveArtanhEulerAnchorStage epsilon)
+    (positiveArtanhEulerAnchorPivot z epsilon)
+    (positiveArtanhGeometricAnchorDegree epsilon)
+
+/-- The fully computed cancellation-prefix length. -/
+def positiveArtanhEulerAnchorCancellationCount
+    (z epsilon : Q') : Nat :=
+  positiveArtanhEulerPolynomialCancellationCount
+    (positiveArtanhEulerAnchorStage epsilon)
+    (positiveArtanhEulerAnchorPivot z epsilon)
+    (positiveArtanhGeometricAnchorDegree epsilon)
+
 /-- The executable coefficient inequality at one rational input and
 tolerance. -/
 def positiveArtanhEulerPolynomialCoefficientBound
     (z epsilon : Q') : Prop :=
   weightedL1 (Q'.abs z)
-      (positiveArtanhEulerGeometricDifferencePoly
-        (positiveArtanhEulerAnchorStage epsilon)
-        (positiveArtanhEulerAnchorPivot z epsilon)
-        (positiveArtanhGeometricAnchorDegree epsilon)) <=
+      (positiveArtanhEulerAnchorDifferencePoly z epsilon) <=
     positiveArtanhGeometricComparisonTolerance epsilon
 
 instance coefficientBoundDecidable (z epsilon : Q') :
@@ -340,6 +522,57 @@ structure PositiveWindowArtanhEulerPolynomialCoefficientCompiler : Type 2 where
     (z : Q') -> (hz : (0 : Q') < z) ->
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialCoefficientCertificate z hz hzb
+
+/-- Prefix/tail presentation of the coefficient bound.  The prefix is an
+executable exact-zero check; the tail is multiplied by the corresponding
+power of the actual input radius. -/
+structure PositiveWindowArtanhEulerPolynomialPrefixTailCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  prefixZero : forall epsilon : Q', (0 : Q') < epsilon ->
+    zeroPrefix (positiveArtanhEulerAnchorCancellationCount z epsilon)
+      (positiveArtanhEulerAnchorDifferencePoly z epsilon)
+  tailBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    let count := positiveArtanhEulerAnchorCancellationCount z epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    (Q'.abs z) ^ count *
+        weightedL1 (Q'.abs z) (List.drop count polynomial) <=
+      positiveArtanhGeometricComparisonTolerance epsilon
+
+/-- Uniform producer of prefix/tail coefficient certificates. -/
+structure PositiveWindowArtanhEulerPolynomialPrefixTailCompiler : Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialPrefixTailCertificate z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialPrefixTailCertificate
+
+/-- Exact zero-prefix factoring contracts the two prefix/tail fields to the
+single full coefficient inequality. -/
+def toCoefficient
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate : PositiveWindowArtanhEulerPolynomialPrefixTailCertificate
+      z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCertificate z hz hzb where
+  coefficientBound epsilon hepsilon := by
+    let count := positiveArtanhEulerAnchorCancellationCount z epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    have hfactor := weightedL1_eqv_pow_mul_drop_of_zeroPrefix
+      (Q'.abs z) count polynomial
+      (certificate.prefixZero epsilon hepsilon)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hfactor)
+      (certificate.tailBound epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialPrefixTailCertificate
+
+/-- Uniform prefix/tail certificates compile to the full coefficient
+compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail
+    (compiler : PositiveWindowArtanhEulerPolynomialPrefixTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler where
+  evaluate z hz hzb := (compiler.evaluate z hz hzb).toCoefficient
 
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
@@ -429,6 +662,14 @@ def positiveWindowArtanhEulerCompilerOfPolynomial
   positiveWindowArtanhEulerCompilerOfGeometricValueAnchor
     (positiveWindowArtanhEulerGeometricValueAnchorCompilerOfPolynomial compiler)
 
+/-- Uniform prefix/tail coefficient certificates compile all the way to the
+scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialPrefixTail
+    (compiler : PositiveWindowArtanhEulerPolynomialPrefixTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfPrefixTail compiler)
+
 /-- Uniform executable coefficient checks compile all the way to the scalar
 inverse. -/
 def positiveWindowArtanhEulerCompilerOfPolynomialChecked
@@ -444,9 +685,15 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.eval_positiveArtanhEulerGeometricDifferencePoly
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.weightedL1_positiveArtanhExponentPoly_le
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.weightedL1_expPartialPoly_le
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.auditPositiveArtanhEulerPolynomialCoefficientBound
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCheckedCertificate.toCoefficient
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPrefixTailCertificate.toCoefficient
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientCertificate.toGeometricValueAnchor
 #print axioms

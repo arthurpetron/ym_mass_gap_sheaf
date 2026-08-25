@@ -13354,3 +13354,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   guarded connected-capstone checks pass.  This closes the reflection and
   decision-procedure milestone only, not uniform success or any later
   physical/continuum obligation.
+
+### [BF4-physical-positive-artanh-polynomial-prefix-tail] Split the coefficient check into exact cancellation and a weighted tail — **CLOSED 2026-08-24**
+
+- **milestone**: prove the weighted coefficient norm is subadditive and
+  submultiplicative; propagate it through reflected artanh and Euler
+  polynomials; implement an executable zero-prefix predicate; factor a passed
+  zero prefix into an explicit radius power times the dropped tail; compile
+  the resulting prefix/tail certificate through the scalar and connected
+  Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyWeightedL1.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyWeightedL1.weightedL1_pmul_le`,
+  `QPolyWeightedL1.zeroPrefix`,
+  `QPolyWeightedL1.weightedL1_eqv_pow_mul_drop_of_zeroPrefix`,
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_positiveArtanhExponentPoly_le`,
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_expPartialPoly_le`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerPolynomialCancellationCount`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPrefixTailCertificate`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialPrefixTailCompiler`.
+- **obligation**: inhabit the prefix/tail compiler.  The exact formal task is
+  to prove that the first
+  `min inner (min (2*stage+1) (degree+1))` coefficients cancel.  Independently,
+  the analytic task is to bound the dropped tail after multiplication by the
+  corresponding power of `abs z`.  Exact-rate, transfer/finite-graph
+  approximation, raw observable semantics, nontriviality, projective OS/GNS,
+  vacuum stationarity, continuum existence, and QFT closure remain separate
+  open inputs.
+- **constructive?**: yes — all polynomial operations, zero-prefix checks,
+  list drops, radius powers, and norm inequalities are explicit data or
+  recursive proofs.  No successful prefix or tail compiler is postulated as
+  inhabited.  Gates remain within `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 47 jobs for the weighted norm,
+  61 for the polynomial anchor, and 5114 for the connected capstone.  The split
+  exposes two parallel proof ribs but does not close either one uniformly.

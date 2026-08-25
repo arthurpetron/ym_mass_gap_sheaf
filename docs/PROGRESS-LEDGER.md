@@ -15126,3 +15126,42 @@ causal split is exact cancellation of the low formal coefficients plus a
 weighted high-degree tail estimate.  All later exact-rate, transfer/finite-
 graph approximation, raw observable semantic/nontriviality, projective
 OS/GNS, vacuum stationarity, continuum, QFT, and Clay residuals remain open.
+
+## Coefficient audit split into exact prefix and weighted tail (2026-08-24)
+
+The weighted coefficient norm is now a proved constructive polynomial
+seminorm at the operations needed by the scalar frontier.
+`weightedL1_padd_le`, `weightedL1_pscale_le`, `weightedL1_pmul_le`, and
+`weightedL1_psub_le` establish addition, scaling, multiplication, and
+subtraction control.  The reflected artanh and finite Euler polynomials inherit
+explicit magnitude-series bounds through
+`weightedL1_positiveArtanhExponentPoly_le` and
+`weightedL1_expPartialPoly_le`.
+
+`QPolyWeightedL1.zeroPrefix` is an executable Boolean-backed predicate saying
+that the first `K` coefficients vanish up to rational equivalence.  The theorem
+`weightedL1_eqv_pow_mul_drop_of_zeroPrefix` proves the exact factorization
+
+`weightedL1 rho p = rho^K * weightedL1 rho (drop K p)`
+
+whenever that prefix check passes.  For the artanh-Euler difference, the
+computed cancellation count is
+
+`min inner (min (2*stage+1) (degree+1))`,
+
+the first degree at which respectively the Euler truncation, artanh
+truncation, or geometric truncation can affect the formal identity.
+`PositiveWindowArtanhEulerPolynomialPrefixTailCertificate` therefore splits
+the former full coefficient inequality into (1) exact prefix cancellation and
+(2) a radius-power-weighted tail bound.  Its `toCoefficient` adapter and the
+new connected-capstone adapter contract those two fields back into the
+unchanged observable path.
+
+Exact one-worker targets pass 47 jobs for `QPolyWeightedL1`, 61 jobs for the
+polynomial anchor, and 5114 jobs for the connected capstone.  All audited
+exports remain inside `[propext, Quot.sound]`.
+
+The prefix/tail compiler remains uninhabited.  The immediate next frontier is
+to prove the generic low-coefficient identity, which is purely formal and
+parallelizable from the analytic tail estimate.  The high-degree weighted tail
+and all later physical/continuum residuals remain open.
