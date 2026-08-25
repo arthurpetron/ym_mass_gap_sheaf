@@ -16835,3 +16835,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   eight audited exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits, `git diff --check` passes, and the
   root aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-path-length-square] Contract old--new route factors to a face-specific quadratic path scale — **CLOSED 2026-08-25**
+
+- **milestone**: mask the checked routed path-length square by the exact old--
+  new endpoint predicate; take its located maximum on the literal endpoint
+  carrier; use the repeated-edge multiplicity bound to prove every old--new
+  route factor is at most its masked quadratic path scale; bound each row-
+  local route maximum by the face-specific path maximum; retain a pointwise
+  comparison to the unmasked path scale; expose general-merger and executable
+  no-merger raw-capacity interfaces using the quadratic scale; and compile
+  both with independent new--old and new--new controls to exact debt.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewPathLengthSquare.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRoutedPathLengthSquareOnPair_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRoutedPathLengthSquareMaximum_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorOnCell_le_routedPathLengthSquareOnPair`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorMaximumOnCurrentPair_le_routedPathLengthSquareMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRoutedPathLengthSquareOnPair_le_unmasked`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitPathLengthSquareRawCapacityInverseSquareControl.toRawCapacityControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitPathLengthSquareRawCapacity_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerPathLengthSquareRawCapacityInverseSquareControl.toRawCapacityControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerPathLengthSquareRawCapacity_and_otherFaces`.
+- **obligation**: bound corrected-slab increment (plus merger residual in the
+  general branch) times the face-specific path-length-square maximum against
+  each mapped current-pair raw capacity with an inverse-square cutoff rate.
+  Treat global/ambient path bounds and sector-wide capacity floors as explicit
+  coarser fallbacks, not as sharp identities.  Preserve new--old and new--new
+  as directed lanes.
+- **constructive?**: yes.  The face is selected by the existing decidable
+  predicate, maxima are finite located folds, and repeated edge occurrences
+  are counted rather than discarded.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5157 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, `git diff --check` passes, and the root aggregator imports the
+  module.  No full-root audit is claimed.

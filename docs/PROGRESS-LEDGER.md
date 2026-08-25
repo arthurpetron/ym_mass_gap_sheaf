@@ -18832,3 +18832,50 @@ cutoff dependence.  New--old and new--new remain directed lanes.  Old
 traffic, route churn, shell returns, total tail closure, AF physical-scale
 uniformity, same-object completion, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## Old--new route geometry contracts to a face-specific path-length square (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewPathLengthSquare`
+preserves the exact old--new endpoint face while importing the already
+verified repeated-edge multiplicity theorem.  For every mapped current edge
+and endpoint pair,
+
+`routeFactor = pathLength * directedEdgeMultiplicity`
+`            <= pathLength^2`.
+
+The bound does not assume that routes are simple.  The quadratic path scale is
+masked by the same old--new predicate and maximized only over the literal new-
+endpoint list.  Hence every row-local old--new route maximum is bounded by one
+face-specific endpoint maximum that is independent of the selected mapped
+current pair.  Each masked endpoint term is also bounded by the existing
+unmasked path-length-square term, leaving a checked route to coarser global or
+ambient bounds without using it in the primary interface.
+
+The general division-free analytic interface is now
+
+`sharedFloor`
+`  * ((correctedSlabIncrement + componentMergerResidual)`
+`       * oldNewPathLengthSquareMaximum)`
+`  <= coefficient * invSqTerm * mappedPairRawCapacity`.
+
+Under the executable no-merger check, only corrected-slab increment remains.
+Both interfaces compile through the prior raw-capacity control and rejoin the
+independent new--old and new--new lanes at the unchanged exact debt maximum.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5157 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+Neither path/raw-capacity interface is inhabited.  The current sharp old--new
+frontier is the cutoff behavior of corrected-slab increment times the
+face-specific quadratic path maximum against the raw capacity of each mapped
+current pair, plus merger control in the general branch.  The path maximum can
+be enlarged to the known global or ambient carrier-square bounds, and raw
+capacity can be reduced to a sector floor, but both are deliberately retained
+as fallback contractions because they may destroy the needed uniform rate.
+New--old and new--new remain directed lanes.  Old traffic, route churn, shell
+returns, total tail closure, AF physical-scale uniformity, same-object
+completion, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
