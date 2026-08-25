@@ -13943,3 +13943,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   parallel width from six to five, but it does not construct a physical
   carrier, OS/GNS reconstruction, transfer/operator gap, continuum QFT, or
   Clay mass gap.
+
+### [BF4-moving-cube-normalization-scale-ceiling] Factor raw nontriviality and normalized debt through one finite certificate — **CLOSED 2026-08-25**
+
+- **milestone**: define a uniform positive rational ceiling on the exact
+  reciprocal moving-cube coordinate floor; prove that its reciprocal is a
+  cutoff-independent raw channel norm floor; prove simultaneous square and
+  fourth-power bounds on the normalized norm and squared-correlation debts;
+  compile it to raw continuum nontriviality; and thread it through the same
+  raw Wilson connected capstone after the canonical scalar inverse.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `MovingCubeNormalizationScaleCeiling`,
+  `MovingCubeNormalizationScaleCeiling.rawFloor`,
+  `rawFloor_le_channelFloor`, `toUniformNormFloor`,
+  `normDebt_le_ceiling_sq`, `correlationSqDebt_le_ceiling_fourth`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.rawMovingCubeContinuumNontrivialityOfNormalizationScaleCeiling`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalPositiveArtanhAndNormalizationScaleCeiling`.
+- **obligation**: inhabit
+  `MovingCubeNormalizationScaleCeiling family.toCompletedFamily` from
+  trajectory-specific control of the exact finite coordinate floors.  The
+  generic adaptive family carries only pointwise `0 < nome scale < 1`, so its
+  present interface cannot supply a nome-uniform ceiling.  Alternatively, the
+  normalized route still needs variation/convergence of the reciprocal-square
+  debt; boundedness alone does not provide it.  The projective OS handoff,
+  matrix-coefficient child, exact-rate handoff, transfer lift, finite graph
+  approximation child, vacuum pin, upstream continuum existence/selected
+  Wilson datum, and downstream QFT/Clay endpoints remain separate and open.
+- **constructive?**: yes.  Reciprocal cancellation and every debt estimate are
+  finite `Q'` order calculations; passage to the norm uses the existing exact
+  same-object completed-real inequality.  No observable, representative, or
+  selected Wilson state is replaced.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: exact one-worker targets pass 5095 jobs for the
+  reciprocal-ceiling compiler and 5121 jobs for the connected capstone.  All
+  newly audited exports use exactly `[propext, Quot.sound]`.  This replaces
+  the opaque raw-floor root with a finite certificate shared by both proof
+  paths; it does not inhabit that root, reduce the five-way physical parallel
+  width, prove debt convergence, or construct a continuum/Clay mass gap.

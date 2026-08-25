@@ -15697,3 +15697,45 @@ the selected Wilson OS/GNS datum, the five physical roots, their two dependent
 children, thermodynamic/continuum reconstruction, the QFT axiom package, and
 the Clay mass-gap theorem remain unconstructed or open at their respective
 interfaces.
+
+## Raw and normalized nontriviality share one exact scalar obstruction (2026-08-25)
+
+The raw moving-cube norm floor is no longer exposed at the capstone as an
+opaque completed-real hypothesis.  `MovingCubeNormalizationScaleCeiling`
+asks for one positive rational `C` with the exact finite condition
+`movingCubeNormalizationScale family scale <= C` at every cutoff.  Since the
+normalization scale is definitionally the reciprocal of the channel's
+retained rational coordinate floor, finite rational order proves
+`1/C <= normFloor scale`.  The existing same-object norm theorem then embeds
+this bound into the completed-real uniform norm-floor interface.
+
+The same certificate also proves pointwise bounds `debt <= C*C` for normalized
+norms and `correlationSqDebt <= (C*C)*(C*C)` for squared connected
+correlations.  Thus the raw and normalized proof routes no longer advertise
+unrelated scalar obstructions: bounded reciprocal normalization is the common
+finite condition.  This does not by itself prove convergence or summable
+variation of either debt.
+
+`adaptivePathOfCanonicalPositiveArtanhAndNormalizationScaleCeiling` feeds the
+derived raw floor through the already-closed scalar inverse and into the same
+connected capstone.  The family, literal moving-cube vector, raw continuum
+representatives, fixed OS insertion, selected Wilson state, transfer, and
+connected autocorrelation are unchanged.  After common data are fixed, the
+parallel width remains five physical roots: the reciprocal-scale ceiling,
+projective OS handoff, exact-rate handoff, representative transfer lift, and
+dense-unit vacuum pin.  The matrix-coefficient pin still depends on the OS
+handoff, and the finite graph approximation still depends on the transfer
+lift before the single typed join.
+
+Exact guarded one-worker targets pass 5095 jobs for the reciprocal-ceiling
+compiler and 5121 jobs for the connected capstone.  The newly audited floor,
+debt, adaptive nontriviality, and capstone adapters use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+The ceiling certificate remains uninhabited.  The arbitrary dynamic family
+assumes only `0 < nome scale < 1`, so no nome-uniform lower coordinate floor
+can honestly be inferred from its present fields.  Constructing such a bound
+requires new trajectory-specific finite control, or the normalized route must
+instead prove reciprocal-debt variation/convergence.  Projective OS/GNS,
+all-vector transfer/graph-norm control, thermodynamic/continuum
+reconstruction, QFT axioms, and the Clay mass-gap theorem remain open.

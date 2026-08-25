@@ -1421,6 +1421,39 @@ def adaptivePathOfCanonicalPositiveArtanhCoefficientBound
     canonicalPositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler
     transfer finite vacuumPin
 
+/-- The finite scalar inverse and the abstract raw completed-real floor have
+both been contracted.  A single ceiling on the literal reciprocal
+normalization scale supplies the raw nontriviality input while simultaneously
+remaining available as the `C²`/`C⁴` debt bound for the normalized route.  The
+remaining arguments are exactly the five physical roots and two dependent
+children attached to the same raw Wilson observable. -/
+def adaptivePathOfCanonicalPositiveArtanhAndNormalizationScaleCeiling
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (normalizationCeiling :
+      MovingCubeNormalizationScaleCeiling family.toCompletedFamily)
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfCanonicalPositiveArtanhCoefficientBound
+    normalizationCeiling.toUniformNormFloor
+    projectiveOS matrixCoefficient exactRate transfer finite vacuumPin
+
 /-- The connected capstone after the constant coefficient has been cancelled
 internally.  The scalar input now contains only the weighted tail obligation;
 the observable, Wilson reconstruction, and operator inputs are unchanged. -/
@@ -1602,6 +1635,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalPositiveArtanhCoefficientBound
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalPositiveArtanhAndNormalizationScaleCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialOneTailCompiler
 #print axioms
