@@ -19424,3 +19424,46 @@ Neither support payment, the corrected-increment bound, the fixed-start burn,
 nor either merger alternative is inhabited.  The remaining regional, total-
 tail, two-axis uniformity, completed-gap, thermodynamic/continuum, continuum
 Yang--Mills, and Clay frontiers remain open.
+
+## Activated support now gives an executable canonical-versus-adaptive trigger (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationRouteDecision`
+structurally inspects the exact finite activated-row list at each cutoff.  It
+returns one of two proof-bearing outcomes:
+
+* `avoided`: the activated list is literally empty; or
+* `used`: a literal row on the route whose current kernel entry is not
+  positive while its mapped later raw-kernel capacity is positive.
+
+The avoided case is compiled further.  Its activated positive-minimum floor
+is exactly the empty-list fallback `1`, while the persistent floor is always
+at most `1`.  Therefore the support-split reciprocal envelope is bounded by
+the persistent envelope, and a persistent payment alone supplies the exact
+support payment.  Uniform activated-list emptiness, persistent payment,
+corrected-increment control, and fixed-start absorption now form a checked
+persistent-only route to the existing consecutive schedule.
+
+This turns the proof-path comparison into an observable fact.  Canonical
+routing is retained when activation is uniformly avoided or when the
+activated payment succeeds.  Adaptive routing is called for only when the
+decision returns genuine activated rows and their exact later floor cannot
+meet the required dyadic payment.  The adaptive change can then be local to
+those witnessed rows; it need not replace persistent routes, other directed
+faces, or the downstream total-tail compiler.
+
+The decision remains observable-connected because its list is a filter of the
+same active current rows used by the exact old--new path/raw-capacity maximum.
+The witness carries the same pair, matched trajectory, cutoff map, route, and
+later raw capacity.  Nothing is inferred merely from a detached sector-wide
+support statistic.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5172 jobs.  The seven audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No uniform avoidance theorem, activated payment, adaptive route, persistent
+payment, corrected-increment theorem, fixed-start absorption, remaining
+regional tail, completed gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.

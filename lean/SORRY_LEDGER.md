@@ -17340,3 +17340,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-route-decision] Decide avoided versus genuinely used activated support — **CLOSED 2026-08-25**
+
+- **milestone**: execute a finite avoided-or-used decision on the exact
+  activated active-row list at every cutoff; return either literal emptiness
+  or a row that is active, nonpositive at the current kernel, and positive in
+  the mapped later raw capacity; prove that empty activated support gives
+  activated floor exactly one and contracts the support-split path envelope
+  to the persistent envelope; and compile a uniform no-activation plus
+  persistent-payment record into the unchanged consecutive-cutoff data.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationRouteDecision.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportUseDecision`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedPair_is_genuine_later_support`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedRawKernelCapacityFloor_eq_one_of_pairs_eq_nil`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSupportSplitPathEnvelope_le_persistentEnvelope_of_activatedPairs_eq_nil`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSupportSplitPayment_of_persistentPayment_and_activatedPairs_eq_nil`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabPersistentOnlyDyadicLinearData.toLinearData`.
+- **obligation**: prove uniform activated-list emptiness and the persistent
+  payment, or retain the literal activation witnesses and prove the activated
+  payment.  A local adaptive route is justified only for witnessed activated
+  rows whose exact later floor cannot meet that payment.  No all-cutoff
+  emptiness or nonemptiness theorem is supplied here.
+- **constructive?**: yes.  The route decision is structural recursion on the
+  finite exact list, and both outcomes retain literal membership/equality
+  witnesses.  Empty-list contraction uses the positive-minimum fallback and
+  rational reciprocal antitonicity.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5172 jobs.  The seven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
