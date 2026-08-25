@@ -16609,3 +16609,49 @@ The exact monitored one-worker target passes all 5086 jobs.  Its ten printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## The one total tail has a concrete inverse-square proof route (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtInverseSquareTail`
+turns an explicit pointwise inverse-square majorant into the one total-deficit
+tail required by the computed-prefix closure.  The direct interface asks for
+an offset at least two, a nonnegative rational coefficient, and a proof that
+the exact total deficit at scale `k` is at most that coefficient times
+`1 / (k + offset)^2`.  The existing constructive inverse-square tail compiler
+then supplies the antitone tail modulus.
+
+The module also exposes the diagnostic parallel route.  With one common
+offset, the transported-old, old-new, new-old, and new-new deficit bounds are
+four independent proof packages.  Their four nonnegative coefficients and
+pointwise estimates add to the direct total control, after which the proof is
+serial: one total tail, one computed prefix-plus-allowance budget, one scalar
+cutoff-zero slack check, edge capacity, and the completed fixed-anchor family.
+Thus four analytic compilers can be built in parallel, but only one joined
+tail certificate is logically necessary downstream.  The five former
+pointwise envelope tasks have already been compiled away by exact maxima.
+
+This is a sufficient route, not an assertion that the inverse-square estimate
+is inhabited and not a claim that inverse-square decay is logically
+necessary.  The exact total stream might instead be shown summable by another
+constructive modulus.  Canonical routing remains the shorter proof path while
+the total deficit is summable; adaptive routing becomes warranted only if a
+regional diagnostic proves that a particular canonical face is nonsummable
+and a localized rerouting improves it.
+
+Observable connectedness is preserved by type and construction: every
+regional estimate concerns the same exact normalized capacity debt, routed
+load, conditional kernel, ordered pair, fixed routing, carrier recoding, and
+return point; the joined total is their literal rational sum.  An estimate for
+an unrelated observable cannot satisfy these fields without an explicit
+comparison theorem.
+
+No direct or regional inverse-square majorant, total-tail inhabitant, positive
+allowance satisfying the computed scalar slack, or physical AF transport is
+supplied.  The module still concerns a fixed strong-coupling anchor.
+Same-observable thermodynamic compatibility, projective OS/GNS reconstruction,
+a completed all-vector gap, continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5097 jobs.  Its six printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.

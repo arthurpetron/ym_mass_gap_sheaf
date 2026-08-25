@@ -14879,3 +14879,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its ten printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-inverse-square-tail] Compile regional inverse-square estimates into the one total tail — **CLOSED 2026-08-25**
+
+- **milestone**: expose a direct inverse-square majorant for the exact total
+  canonical capacity-debt deficit; compile it to the required antitone tail;
+  expose four independently provable regional inverse-square majorants with a
+  common offset; add their coefficients and pointwise estimates into the one
+  direct total control; and connect either route to computed-prefix
+  persistence and the completed fixed-anchor family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtInverseSquareTail.lean`.
+- **decl**:
+  `AnchorCanonicalCapacityDebtInverseSquareControl`,
+  `AnchorCanonicalCapacityDebtInverseSquareControl.toTotalDeficitTail`,
+  `AnchorCanonicalCapacityDebtRegionalInverseSquareControl`,
+  `AnchorCanonicalCapacityDebtRegionalInverseSquareControl.totalCoefficient`,
+  `AnchorCanonicalCapacityDebtRegionalInverseSquareControl.totalCoefficient_nonnegative`,
+  `AnchorCanonicalCapacityDebtRegionalInverseSquareControl.toTotalControl`,
+  `AnchorCanonicalCapacityDebtRegionalInverseSquareControl.toTotalDeficitTail`,
+  `anchorCanonicalCapacityDebtPersistenceOfInverseSquare`, and
+  `anchorGeometricCompletedFamilyOfInverseSquare`.
+- **obligation**: inhabit either the direct total inverse-square bound or the
+  four regional bounds with a common offset, then exhibit a positive tail
+  allowance satisfying the executable prefix-plus-allowance cutoff-zero slack
+  inequality.  Inverse-square domination is sufficient rather than necessary;
+  another constructive total-tail modulus would enter the same closure.
+  Physical AF persistence, the literal same-observable thermodynamic bridge,
+  projective OS/GNS reconstruction, completed all-vector gap, continuum QFT,
+  and Clay closure remain open.
+- **constructive?**: yes.  All coefficients are nonnegative rationals, the
+  four regional estimates add by explicit setoid arithmetic, the common
+  inverse-square tail is a constructive modulus, and every estimate remains
+  attached to the exact canonical observable.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is
+  introduced.
+- **status note**: the exact monitored one-worker target passes all 5097 jobs.
+  Its six printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.
