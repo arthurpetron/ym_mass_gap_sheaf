@@ -14137,3 +14137,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The exact guarded compiler target passes all 5096 jobs.  Nine newly audited
   exports use only `[propext, Quot.sound]` or the smaller `[propext]` subset.
   The root aggregator imports the new module; no full-root pass is claimed.
+
+### [canonical-af-dynamic-scalar-spine] Reduce the dynamic family to its two local analytic fields — **CLOSED 2026-08-25**
+
+- **milestone**: separate the dynamic nome/spacing trajectory from the
+  dependent local spin-sector estimates; inhabit a strictly positive shifted
+  canonical AF nome and a geometric physical spacing with an explicit
+  spacing-to-zero modulus; expose only scale-wise cofinal ray capacity and the
+  adaptive transition product for that exact capacity; and compile any such
+  local producer to the existing completed dynamic family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCanonicalAFDynamicFamilyCompiler.lean`.
+- **decl**:
+  `DynamicSpinCubeOffRayAdaptiveScalarTrajectory`,
+  `DynamicSpinCubeOffRayAdaptiveLocalProducer`,
+  `DynamicSpinCubeOffRayAdaptiveLocalProducer.toDynamicFamily`,
+  `DynamicSpinCubeOffRayAdaptiveLocalProducer.toCompletedFamily`,
+  `canonicalAFPositiveNome`, `canonicalAFPositiveNome_pos`,
+  `canonicalAFPositiveNome_lt_one`, `canonicalAFGeometricSpacing`,
+  `canonicalAFGeometricSpacingToZero`,
+  `canonicalAFGeometricScalarTrajectory`,
+  `CanonicalAFGeometricLocalProducer`, and
+  `canonicalAFGeometricCompletedFamily`.
+- **obligation**: inhabit `CanonicalAFGeometricLocalProducer`, or its physical
+  analogue, by first constructing a cutoff-uniform cofinal spin-ray capacity
+  at every actual nome and then an adaptive transition product indexed by that
+  exact capacity.  The existing finite linear product shrinks its input by a
+  cutoff-dependent cost and therefore does not supply this cofinal datum.  The
+  fixed `1/400` strong-coupling capacity also cannot be relabelled as the
+  shifted AF trajectory.  Separately, identify the scalar spine with the real
+  4D grouped BF4/AF evolution and pin the same physical observable across its
+  completed sectors.
+- **constructive?**: yes.  Nome positivity is finite rational order on the
+  shifted `1 - invSucc` schedule.  Spacing convergence uses the explicit
+  denominator modulus for `(1/2)^scale`.  The local compiler is structural and
+  preserves all dependent family/capacity indices.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is used.
+- **status note**: the exact monitored one-worker target passes all 5068 jobs;
+  nine audited exports stay within `[propext, Quot.sound]`, with the spacing
+  lemmas using `[propext]` only.  The executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  This closes five
+  scalar fields and the compiler seam, not the two analytic fields, the
+  physical dynamic family, continuum reconstruction, QFT axioms, or the Clay
+  mass gap.

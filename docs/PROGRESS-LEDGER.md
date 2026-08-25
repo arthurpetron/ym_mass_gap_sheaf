@@ -15909,3 +15909,45 @@ audited exports use only `[propext, Quot.sound]` (some use the smaller
 full-root audit is claimed.  No physical tail ceiling or reciprocal-scale
 variation is inhabited; the dynamic adaptive family, projective OS/GNS join,
 all-vector completed gap, continuum QFT, and Clay theorem remain open.
+
+## The dynamic family gate is reduced from seven fields to two local analytic fields (2026-08-25)
+
+`BF4PhysicalCanonicalAFDynamicFamilyCompiler` separates the common scalar
+trajectory from the local spin-sector estimates.  The reusable
+`DynamicSpinCubeOffRayAdaptiveScalarTrajectory` carries the nome, its strict
+window, positive physical spacing, and spacing-to-zero modulus.  Once that
+spine is fixed, `DynamicSpinCubeOffRayAdaptiveLocalProducer` has only two
+dependent fields: a cofinal spin-ray capacity at each scale and an adaptive
+conditional transition product for that exact capacity.  Its lossless
+compiler reconstructs the existing seven-field dynamic family and therefore
+the same completed carrier, transfer, vacuum sector, and normalized strength
+law.
+
+The scalar side is now genuinely inhabited.  `canonicalAFPositiveNome` shifts
+the canonical AF sanity trajectory once, giving
+`w_scale = 1 - 1/(scale+2)`, so every nome is strictly between zero and one.
+`canonicalAFGeometricSpacing` is `(1/2)^scale`; the denominator of an arbitrary
+positive rational tolerance is an explicit spacing-to-zero cutoff.  Together
+they inhabit `canonicalAFGeometricScalarTrajectory`.  This is a constructive
+AF/geometric scalar spine, not an identification with the actual 4D grouped
+BF4 block map.
+
+The remaining local certificate is deliberately uninhabited.  Existing
+finite transition-product constructors shrink a supplied ray capacity by a
+cutoff-dependent linear cost, so they do not manufacture the positive
+cutoff-uniform capacity required by the cofinal structure.  Likewise the
+proved strong-coupling cofinal capacity lives only at the fixed nome `1/400`,
+not along the shifted AF trajectory beginning at `1/2`.  The next analytic
+frontier is therefore honest and serial: first produce scale-wise cofinal
+ray capacities along the actual trajectory, then prove the adaptive product
+for those same capacities; independently, the real grouped BF4 evolution
+must be identified with the scalar schedule before the resulting family is
+physical.
+
+The exact monitored one-worker target passes all 5068 jobs.  The nine audited
+exports use only `[propext, Quot.sound]` or the smaller `[propext]` subset, and
+the repository-wide executable forbidden-token scan reports zero hits.  The
+root aggregator imports the module; no full-root audit is claimed.  No local
+producer, physical dynamic family, same-observable physical trajectory,
+projective OS/GNS join, all-vector completed gap, continuum QFT, or Clay
+theorem is constructed.
