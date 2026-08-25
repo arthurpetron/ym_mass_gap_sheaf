@@ -15958,3 +15958,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   three exports at `[propext, Quot.sound]`; the dynamic focused and 5122-job
   target checks pass with all seven exports at `[propext, Quot.sound]`.  The
   root aggregator imports both modules.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-estimator] Factor exact new debt into carrier count and normalized term maximum — **CLOSED 2026-08-25**
+
+- **milestone**: distribute the common matched normalization through the
+  literal complementary endpoint sum; prove exact equality with the sum of
+  nonnegative normalized endpoint contributions; locate their edgewise and
+  current-carrier maxima; bound the exact new-debt and symmetric-deficit
+  maxima by complementary endpoint count times the global normalized-term
+  maximum; and compile an inverse-square bound on that product through all
+  existing traffic and total-tail consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficEstimator.lean`.
+- **decl**:
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtOnPair_eqv_sum_terms`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_envelope`,
+  `matchedEventualCanonicalTransportedBridgeNewTrafficDeficitMaximum_le_envelope`,
+  `MatchedEventualCanonicalNewEndpointTrafficFactorizedInverseSquareControl`,
+  `MatchedEventualCanonicalTransportedCapacityDebtFactorizedTrafficInverseSquareControl.toExactTrafficControl`,
+  and
+  `MatchedEventualCanonicalCapacityDebtFactorizedTrafficRegionalInverseSquareControl.toTotalDeficitTail`.
+- **obligation**: prove an inverse-square bound on the explicit product of
+  complementary endpoint count and maximum normalized endpoint contribution.
+  The latter still contains the exact route product, length/multiplicity,
+  endpoint weight, shared floor, and matched capacity denominator.
+- **constructive?**: yes.  Finite distribution, maxima, and the length-times-
+  maximum estimate operate on literal lists and return explicit rational
+  quantities.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5123 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

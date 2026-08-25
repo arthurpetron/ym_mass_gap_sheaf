@@ -17781,3 +17781,45 @@ estimates, tail allowance and initial closure, AF identification, physical-
 scale uniformity, a nonzero same-object observable pin, thermodynamic/
 continuum compatibility, continuum Yang--Mills construction, and the Clay
 mass gap remain open.
+
+## Exact dynamic new traffic is count times a normalized term maximum (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficEstimator`
+distributes the unchanged matched shared floor and conditional-kernel
+normalization through the literal complementary endpoint list.  The exact
+new-endpoint debt on one mapped current edge is proved equal in the rational
+setoid to the finite sum of its individually normalized endpoint-pair
+contributions.  Every such contribution is nonnegative by the preceding
+shared routed-traffic sign compiler.
+
+Located maxima are then taken first over the actual new endpoint list and
+then over the actual current edge carrier.  The standard constructive finite-
+sum argument proves
+
+`newDebtMaximum <= newEndpointPairCount * normalizedTermMaximum`.
+
+The same envelope bounds the symmetric new-traffic deficit.  It pays exactly
+one complementary carrier-cardinality factor and retains the joint routed-
+term/capacity normalization inside the maximum, which is sharper than taking
+separate global numerator and reciprocal-denominator maxima.
+
+A new Type-level inverse-square control asks for a bound on that explicit
+product and compiles it to the exact-new-debt control.  Factorized transport
+and regional controls then rejoin the existing six-leaf traffic, route,
+four-region, and one-total-tail compilers.  Thus the new-traffic analytic
+field has been strictly reduced from an opaque debt-maximum estimate to an
+estimate on two concrete independently inspectable finite quantities.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5123 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+No inverse-square product estimate is inhabited.  The next quantitative
+frontier is to bound the exact complementary endpoint count and the maximum
+normalized term using cutoff-shell cardinality, path transition products,
+path length/multiplicity, and the matched conditional-kernel capacity.  The
+other five cutoff estimates, tail allowance and initial closure, AF
+identification, physical-scale uniformity, a nonzero same-object observable
+pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
