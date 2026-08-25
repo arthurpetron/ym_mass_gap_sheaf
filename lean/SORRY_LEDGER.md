@@ -16753,3 +16753,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, `git diff --check` passes, and the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-source-normalized-route] Cancel endpoint mass and expose the source-normalized route residual — **CLOSED 2026-08-25**
+
+- **milestone**: define the old--new masked literal route factor divided by
+  the mapped source stationary weight; prove that the transition product is
+  endpoint stationary pair weight times this factor; preserve that identity
+  through the exact endpoint telescope and old--new mask; cancel the strictly
+  positive endpoint weight from the previous projective amplification; move
+  the resulting exact identity through the row-local maximum, new-block mass,
+  corrected-slab/component-merger split, and executable no-merger branch; and
+  compile both source-normalized interfaces with independent new--old and
+  new--new controls to the unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewSourceNormalizedRoute.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficTransitionProductOnCell_eqv_stationaryWeight_mul_sourceNormalizedRouteFactor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatio_eqv_stationaryWeight_mul_sourceNormalizedRouteFactor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceProjectiveAmplificationOnCell_eqv_sourceNormalizedRouteFactor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceProjectiveAmplificationMaximum_le_sourceNormalizedRouteMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_increment_add_merger_mul_sourceNormalizedRouteMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_increment_mul_sourceNormalizedRouteMaximum_of_noMerger`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitSourceNormalizedRouteInverseSquareControl.toEndpointRatioControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitSourceNormalizedRoute_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerSourceNormalizedRouteInverseSquareControl.toEndpointRatioControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerSourceNormalizedRoute_and_otherFaces`.
+- **obligation**: prove a cutoff-summable coupled bound for corrected-slab
+  increment (plus the explicit merger residual in the general branch) times
+  the maximum of literal route length and multiplicity divided by mapped
+  source stationary weight, relative to the same mapped conditional capacity.
+  Do not cancel the source weight against the shared floor without a genuine
+  comparison theorem.  Preserve the new--old and new--new directed lanes.
+- **constructive?**: yes.  Both divisions carry explicit strict positivity
+  witnesses from actual carrier membership; endpoint cancellation uses the
+  rational setoid's positive left-cancellation theorem; and every mask and
+  maximum stays on the literal finite observable carrier.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check passes with the file's 10M-
+  heartbeat cap and the dependency-complete target passes all 5155 jobs.  All
+  eleven audited exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits, `git diff --check` passes, and the
+  root aggregator imports the module.  No full-root audit is claimed.

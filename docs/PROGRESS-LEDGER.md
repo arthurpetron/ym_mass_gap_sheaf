@@ -18727,3 +18727,58 @@ directed lanes.  Old traffic, route churn, shell returns, total tail closure,
 AF physical-scale uniformity, same-object completion, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Old--new endpoint mass cancels to a source-normalized route factor (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewSourceNormalizedRoute`
+removes the endpoint stationary-weight artifact from the row-local
+projective amplification.  On an actual mapped current pair and actual new
+endpoint pair, the already checked transition factorization identifies the
+transition product with
+
+`endpointStationaryPairWeight`
+`  * (routeLength * directedMultiplicity) / mappedSourceWeight`.
+
+The endpoint telescope identifies the same transition product with the exact
+endpoint-ratio summand.  Multiplying both the old projective amplification and
+the new source-normalized route factor by the strictly positive endpoint
+weight therefore gives the same old--new masked summand.  Constructive
+left-cancellation proves the exact cellwise identity
+
+`oldNewProjectiveAmplification`
+`  ≈ oldNewMask ((routeLength * directedMultiplicity) / mappedSourceWeight)`.
+
+Taking a located maximum on the unchanged literal endpoint list transfers the
+new expression through the coefficient-one new-block-mass bound and then
+through both adjacent-cutoff mass branches:
+
+`oldNewEndpointRatioRow`
+`  <= (correctedSlabIncrement + componentMergerResidual)`
+`       * sourceNormalizedRouteMaximum`,
+
+and, under the executable no-merger check,
+
+`oldNewEndpointRatioRow`
+`  <= correctedSlabIncrement * sourceNormalizedRouteMaximum`.
+
+Separate Type-level inverse-square interfaces compile these two explicit
+products to the unchanged old--new endpoint-ratio control and then rejoin the
+independent new--old and new--new controls at the exact debt maximum.
+
+The focused monitored check passes with the file's 10M-heartbeat cap, and the
+dependency-complete one-worker target completes all 5155 jobs.  All eleven
+audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+token scan reports zero hits, `git diff --check` passes, and the root
+aggregator imports the module.  No full-root audit is claimed.
+
+The source-normalized route maximum is not bounded.  In particular, this
+module does not assert that the shared support floor lies below every mapped
+source weight.  The next sharp old--new frontier is a coupled estimate in
+which corrected-slab decay (and, in the general branch, merger decay) absorbs
+the reciprocal mapped source weight together with literal route length and
+multiplicity, relative to the mapped conditional capacity.  A separate
+uniform source-weight/Harnack lower bound is a valid but potentially much
+coarser path.  New--old and new--new remain directed lanes.  Old traffic,
+route churn, shell returns, total tail closure, AF physical-scale uniformity,
+same-object completion, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
