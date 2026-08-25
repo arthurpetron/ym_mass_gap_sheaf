@@ -19100,3 +19100,49 @@ uniform no-merger control, new--old and new--new directed face estimates, old
 traffic, route churn, shell returns, total tail closure, AF physical-scale
 uniformity, same-object completion, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## The arbitrary-nome tensor-tail compiler now has an affine dyadic schedule (2026-08-25)
+
+`SU2PhysicalOuterCutoffNomeDyadicTolerance` removes an avoidable asymptotic
+loss in the generic cutoff compiler.  The prior arbitrary-rational theorem
+scaled a requested tolerance by the tensor coefficient and then used the
+denominator of that rational as a dyadic exponent.  On dyadic targets this
+could turn a linearly growing precision request into a quadratic-looking
+retained cutoff.
+
+The new compiler pays the fixed tensor coefficient once.  For nome `w` and
+finite tensor dimension `d`, it computes a natural burn `B(w,d)` and proves
+
+`dyad(B(w,d)) * tensorCoefficient(w,d) <= 1`.
+
+It then uses source precision `r + B(w,d)` for target `dyad(r)`.  Exact
+power-add and rational associativity give
+
+`tensorEnvelope(w,d,r+B) <= dyad(r)`.
+
+The bound is propagated through the literal outside-union mass, the
+finite-Fubini outside-face mass, and the genuine interacting fixed-volume
+cutoff increment, uniformly in every later cutoff.  The retained cutoff is
+definitionally
+
+`physicalNomeBaseCutoff(w) - 1 + (r + B(w,d))`,
+
+so it is affine in requested dyadic precision at fixed nome and dimension.
+This materially favors retaining the existing consecutive-cutoff observable
+compiler chain instead of immediately generalizing all recodings, routes, and
+debt identities to an adaptive cutoff sequence.
+
+The focused monitored check passes at 10M heartbeats, and the
+dependency-complete one-worker target passes all 748 jobs.  The six audited
+exports use only `[]`, `[propext]`, or `[propext, Quot.sound]`; the executable
+forbidden-token scan reports zero hits, `git diff --check` passes, and the root
+aggregator imports the module.  No full-root audit is claimed.
+
+The exact joint tolerance is not yet converted to a dyadic precision with a
+useful cutoff-offset bound.  The active-path/raw-capacity amplification still
+lacks an a priori growth estimate; the nome- and dimension-dependent burn is
+not yet uniform in physical scale; and the old--new schedule record remains
+uninhabited.  Merger/no-merger, new--old, new--new, old traffic, route churn,
+shell returns, total tail closure, AF physical-scale uniformity, same-object
+completion, thermodynamic/continuum compatibility, continuum Yang--Mills,
+and the Clay mass gap remain open.

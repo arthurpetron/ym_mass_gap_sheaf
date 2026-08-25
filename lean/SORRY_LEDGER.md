@@ -17081,3 +17081,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [su2-physical-outer-cutoff-nome-dyadic-tolerance] Replace denominator precision by a fixed tensor burn — **CLOSED 2026-08-25**
+
+- **milestone**: define a nome- and dimension-dependent natural-number dyadic
+  burn that pays the full tensor-tail coefficient once; prove that source
+  precision `targetPrecision + burn` makes the tensor envelope, outside-union
+  mass, finite-Fubini outside-face mass, and actual interacting fixed-volume
+  cutoff increment at most `dyad targetPrecision`; and expose the retained
+  cutoff as an affine function of the requested target precision.
+- **file**:
+  `lean/YMGap/Continuum/SU2PhysicalOuterCutoffNomeDyadicTolerance.lean`.
+- **decl**: `physicalNomeTensorDyadicBurn_pays`,
+  `physicalNomeTensorDyadicRetainedCutoff_eq`,
+  `physicalNomeTensorTailEnvelope_le_dyad_linear`, and
+  `physicalNomeCutoffIncrement_le_dyad_linear`.
+- **obligation**: convert the exact same-cutoff joint tolerance
+  `invSqTerm / (1 + amplification)` to a dyadic target precision with a useful
+  a priori growth bound.  This module removes the previous quadratic-looking
+  denominator loss after that conversion, but it does not bound the
+  amplification, inhabit the old--new schedule, or make the nome/dimension
+  burn uniform in physical scale.
+- **constructive?**: yes.  The burn is the denominator of an explicit positive
+  unit fraction.  `HalfPow.pow_half_le` and the exact coefficient payment
+  `ExpNeg.mul_invSucc_toNat_le_one` prove the one-time burn bound; subsequent
+  decay uses the exact power-add law.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and the
+  dependency-complete one-worker target passes all 748 jobs.  The six audited
+  exports use only `[]`, `[propext]`, or `[propext, Quot.sound]`; the
+  executable forbidden-token scan reports zero hits, `git diff --check`
+  passes, and the root aggregator imports the module.  No full-root audit is
+  claimed.
