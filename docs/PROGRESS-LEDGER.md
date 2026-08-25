@@ -19285,3 +19285,42 @@ merger/no-merger closure, new--old or new--new face estimate, old-traffic
 estimate, route-churn or shell-return closure, total tail theorem, AF
 physical-scale uniformity, same-object completion, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, or Clay mass gap is proved.
+
+## The active old--new denominator is exactly a used raw-kernel floor (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowRawKernelFloor`
+removes a spurious analytic branch from the frontier.  On every mapped
+current pair, the stationary source weight in the source-weighted conditional
+capacity cancels the conditional normalization, giving the setoid equality
+
+`exactCurrentPairCapacity = half * genuineLaterRawKernel(mappedEdge)`.
+
+The equality is transported through the constructive positive minimum on the
+same filtered active-row list.  Thus the active-row capacity floor is exactly
+the used mapped raw-kernel capacity floor; there is no independent stationary-
+mass lower-bound problem.  The exact amplification is consequently bounded by
+the old--new face path maximum divided by this literal used-edge floor, and a
+cross-multiplied payment stated with that raw floor compiles into the unchanged
+least joint precision and consecutive-cutoff schedule.
+
+This sharpens the proof-path decision.  The canonical loop-erased route can
+use an embedded current edge that is positive only after the next cutoff is
+opened.  Such an edge is not covered by a persistence theorem whose premise
+is positivity at the current cutoff.  The next causal split is therefore
+between persistent mapped support edges and cutoff-activated mapped edges.
+Either the activation floor must receive a quantitative growth estimate, or
+the routing must be changed constructively to avoid uncontrolled activated
+edges.  This is concrete evidence about canonical versus adaptive routing,
+not a generic preference for one architecture.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5169 jobs.  The seven audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No used-edge raw-kernel growth law, persistent/activated support split,
+adaptive rerouting theorem, fixed physical-scale burn payment, merger/no-
+merger closure, other traffic-face estimate, total tail theorem, completed
+uniform gap, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, or Clay mass gap is proved.

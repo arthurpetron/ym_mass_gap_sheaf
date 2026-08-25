@@ -17228,3 +17228,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-active-row-raw-kernel-floor] Cancel source normalization on the exact used rows — **CLOSED 2026-08-25**
+
+- **milestone**: specialize the existing source-weighted conditional/raw-
+  kernel equality to every mapped current pair; transport it through the
+  positive minimum on the unchanged old--new active-row list; identify the
+  active capacity floor setoid-exactly with one half of the genuine later raw
+  physical kernel on precisely those mapped edges; and compile a raw-floor
+  dyadic payment into the exact least-joint-precision and consecutive-cutoff
+  linear data.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowRawKernelFloor.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficCapacityOnCurrentPair_eqv_mappedRawKernelCapacity`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRowCapacityFloor_eqv_rawKernelCapacityFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationMaximum_le_activeRowRawKernelFloorPathEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicPrecision_le_of_activeRowRawKernelFloorPayment`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabActiveRowRawKernelFloorDyadicLinearData.toLinearData`.
+- **obligation**: control the genuine later raw physical kernel on the mapped
+  current edges actually used by old--new routes.  The next exact split is
+  persistent current-support edges versus edges activated only at the later
+  cutoff.  A quantitative activation floor or an adaptive routing that avoids
+  uncontrolled activated edges is required; stationary-source mass is not a
+  separate denominator frontier.
+- **constructive?**: yes.  The cancellation is the checked finite stationary
+  identity, positive minima are located folds, and list-level equality is
+  proved recursively through rational setoid order.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5169 jobs.  The seven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
