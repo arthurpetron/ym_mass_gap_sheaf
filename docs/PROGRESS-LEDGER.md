@@ -16800,3 +16800,53 @@ pass; the target completes all 5100 jobs.  Its nine printed exports use only
 `[propext, Quot.sound]`.  The executable forbidden-token scan reports zero
 hits, the module declares no custom axiom or noncomputable definition, and
 the root aggregator imports it.  No full-root audit is claimed.
+
+## The dynamic completed family now has an exact matched-BF4/AF scalar join (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicFamilyCompiler` replaces the earlier canonical
+rational scalar example by a trajectory whose nome at scale `s` is
+definitionally the exact observable- or exponent-Gram-matched finite BF4
+block output `blockedWeight family (coupling s)`, and whose transfer spacing
+is definitionally the supplied physical spacing `spacing.a (coupling s)`.
+The compiler therefore cannot silently substitute the Padé envelope or an
+unrelated geometric spacing after the local estimate is proved.
+
+Nome positivity is discharged by the existing positive finite-atlas selector.
+Strict subunity is no longer a trajectory hypothesis: the existing cubic
+matched-action law gives a positive blocked margin and hence proves the exact
+blocked weight is below one.  After the matched family, cubic law, and spacing
+envelope are fixed, the scalar trajectory record retains only a coupling
+schedule inside the declared chart and a constructive to-zero modulus for
+that same scheduled spacing.
+
+The remaining local analytic certificate has exactly two dependent fields:
+a cofinal spin-ray capacity and an adaptive conditional transition product,
+both indexed by the literal matched block weight at the same scale.  Any
+inhabitant now constructs the existing concrete completed canonical BF4
+carrier, transfer, and vacuum complement, together with its exact normalized
+strength law.  Definitional theorems pin both the dynamic and completed
+families back to the matched weight and physical spacing.
+
+The module also names the remaining same-object semantic certificate on that
+exact completed family.  Its existing equality fields identify rational norm
+squares and connected-correlator squares with literal completed inner
+products and autocorrelations.  From such a pin the compiler proves the
+connected-correlator bound using the same completed transfer rate, retains a
+distinguished nonzero time-zero channel, and combines an exact strength band
+with the pin to construct the physical gap floor on the same separator and
+spacing.
+
+This closes the scalar-surrogate mismatch at the dynamic-family join, but it
+does not inhabit the four-dimensional `CubicMarginLaw`, physical dimensional-
+transmutation spacing envelope and modulus, local capacity/product producer,
+strength band, or observable pin.  The freely supplied finite matched family
+is not yet identified with the full nonperturbative continuum trajectory.
+Projective OS/GNS reconstruction, thermodynamic and continuum compatibility,
+continuum Yang--Mills existence, and the Clay theorem remain open.
+
+The focused monitored check and dependency-complete one-worker target both
+pass; the target completes all 5074 jobs.  Its twelve printed exports use
+only `[propext, Quot.sound]`.  The repository-wide executable forbidden-token
+scan reports zero hits, the module declares no custom axiom or noncomputable
+definition, and the root aggregator imports it.  No full-root audit is
+claimed.

@@ -15079,3 +15079,55 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   hits, the source declaration scan finds no custom axiom or noncomputable
   definition, and the root aggregator imports the module.  No full-root audit
   is claimed.
+
+### [matched-physical-af-dynamic-family-join] Pin the completed dynamic family to the exact matched BF4 action — **CLOSED 2026-08-25**
+
+- **milestone**: derive strict subunity of the exact matched block weight from
+  the existing cubic matched-action law; package a coupling schedule and the
+  to-zero modulus of its literal supplied physical spacing; index the cofinal
+  spin-ray capacity and adaptive conditional transition product by
+  `blockedWeight family (coupling scale)`; compile those data to the concrete
+  completed carrier, transfer, vacuum complement, and normalized strength
+  law; and pin the remaining nonzero same-object observable certificate,
+  connected-correlation bound, and physical gap floor to that exact completed
+  family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicFamilyCompiler.lean`.
+- **decl**:
+  `lt_one_of_one_add_neg_pos`,
+  `blockedWeight_lt_one_of_cubicMarginLaw`,
+  `matchedPhysicalDynamicSpacing`,
+  `MatchedPhysicalDynamicScalarTrajectory`,
+  `MatchedPhysicalDynamicScalarTrajectory.toAdaptiveScalarTrajectory`,
+  `MatchedPhysicalDynamicScalarTrajectory.LocalProducer`,
+  `MatchedPhysicalDynamicScalarTrajectory.toDynamicFamily`,
+  `MatchedPhysicalDynamicScalarTrajectory.toCompletedFamily`,
+  `MatchedPhysicalDynamicScalarTrajectory.toNormalizedStrengthLaw`,
+  `MatchedPhysicalDynamicScalarTrajectory.StrengthBand`,
+  `MatchedPhysicalDynamicScalarTrajectory.toPhysicalRateBand`,
+  `MatchedPhysicalDynamicScalarTrajectory.toDynamicFamily_nome_eq_physicalAFEnvelope`,
+  `MatchedPhysicalDynamicScalarTrajectory.SameObjectObservablePin`,
+  `MatchedPhysicalDynamicScalarTrajectory.physicalSeparator`,
+  `MatchedPhysicalDynamicScalarTrajectory.connectedCorrSq_control`,
+  `MatchedPhysicalDynamicScalarTrajectory.physicalGapFloor`, and
+  `MatchedPhysicalDynamicScalarTrajectory.physicalSeparator_gapObservable_zero_pos`.
+- **obligation**: construct the physical four-dimensional cubic matched-action
+  law and dimensional-transmutation spacing envelope with a scheduled
+  spacing-to-zero modulus; inhabit the exact matched-weight cofinal spin-ray
+  capacity and adaptive transition-product producer; prove the two-sided
+  normalized-strength/spacing band; and build the nonzero gauge-invariant
+  same-object observable pin.  The supplied finite matched family also still
+  needs identification with the full nonperturbative trajectory.  Projective
+  OS/GNS reconstruction, thermodynamic/continuum compatibility, continuum
+  Yang--Mills existence, and Clay closure remain open.
+- **constructive?**: yes.  The nome is the literal finite matched selector,
+  nome positivity and subunity are derived, spacing and local analytic data
+  share the exact coupling index, and all remaining certificates are
+  Type-valued.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  The dependency-complete
+  one-worker target passes all 5074 jobs.  Its twelve printed exports use only
+  `[propext, Quot.sound]`; the repository-wide executable forbidden-token scan
+  reports zero hits, the source declaration scan finds no custom axiom or
+  noncomputable definition, and the root aggregator imports the module.  No
+  full-root audit is claimed.
