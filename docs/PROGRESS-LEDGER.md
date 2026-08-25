@@ -17347,3 +17347,53 @@ persistence, the strength band, nonzero same-object pin, full trajectory
 identification, projective OS/GNS reconstruction, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Correlated matched capacity debt gives a one-producer alternative (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler`
+defines, on each ordered pair of the literal matched vacuum-sector carrier,
+the exact same-edge debt
+
+`shared ray floor * routed load / (half * conditional kernel)`.
+
+The zero branch only totalizes the ambient rational function.  On the exact
+carrier, positive routed load already implies positive conditional kernel.
+Consequently debt at most one proves the literal edge-capacity inequality;
+when load is zero, nonnegativity of the same conditional kernel closes the
+edge directly.  No separated lower proxy and no uniform kernel-noncollapse
+floor occurs in this contraction.
+
+The located maximum of this pairwise debt is the single scalar stream.  A
+`MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope` carries one summable
+budget and the two pointwise comparisons along the already constructed
+current-to-next and next-to-current canonical pair maps.  The generic dynamic-
+maximum compiler folds that envelope to summable variation of the maximum.
+A positive tail allowance and the computed initial inequality
+`maximumDebt(0) + prefixTailTotalBudget <= 1` then bound every later maximum
+by one.  The result constructs the exact canonical adaptive transition
+product, the matched `LocalProducer`, and the unchanged completed carrier,
+transfer, and vacuum-complement family.
+
+This changes the causal proof-path comparison.  The separated route exposes
+three analytic producers that may be developed in parallel: load variation,
+kernel variation, and a uniform kernel floor.  The correlated route has one
+analytic producer and is therefore the shortest interface, while asking for
+a stronger compound estimate on a quotient.  It is now the primary route when
+same-edge cancellation can be estimated directly.  The separated route
+remains a modular fallback when independent load and kernel estimates are
+available more naturally.  Results from the routes may be compared or joined
+only after they return to the same exact matched carrier, canonical routing,
+ray floor, transition product, and completed family; estimates of a surrogate
+observable are not cumulative progress toward the physical gap.
+
+The focused monitored check passes, and the dependency-complete one-worker
+target completes all 5102 jobs.  All seven audited exports use only
+`[propext, Quot.sound]`.  The root aggregator imports the module.  No full-root
+audit is claimed.
+
+No correlated debt envelope, positive tail allowance, or initial closure is
+inhabited.  The separated load/kernel/floor certificates are also still open.
+Physical cubic/spacing laws, a strength band, nonzero same-object observable
+pin, full trajectory identification, projective OS/GNS reconstruction,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and the Clay mass gap remain open.

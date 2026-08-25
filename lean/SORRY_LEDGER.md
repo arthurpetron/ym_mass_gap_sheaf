@@ -15584,3 +15584,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
   hits and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt] Compile one same-edge debt envelope to the exact matched completed family — **CLOSED 2026-08-25**
+
+- **milestone**: define the literal routed-load-to-conditional-kernel capacity
+  debt on every ordered pair of the exact matched carrier; prove that debt at
+  most one gives the exact canonical edge-capacity field; fold a single
+  two-sided pointwise envelope along the constructed pair recodings to
+  summable maximum-debt variation; close the maximum by a prefix-plus-tail
+  budget; and construct the existing matched local producer and completed
+  carrier/transfer/vacuum family directly.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler.lean`.
+- **decl**: `matchedEventualCanonicalRoutedCapacityDebtOnPair`,
+  `matchedEventualCanonicalRoutedCapacityDebtOnPair_nonnegative`,
+  `matchedEventualCanonicalRoutedCapacityDebtOnPair_le_one_implies_edge_capacity`,
+  `matchedEventualCanonicalRoutedCapacityDebtMaximum`,
+  `MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope.toMaximumVariation`,
+  `matchedEventualCanonicalRoutedCapacityDebtMaximumVariation`,
+  `matchedEventualCanonicalRoutedCapacityDebtMaximum_le_one`,
+  `matchedEventualCanonicalCorrelatedCapacityDebtLocalProducer`, and
+  `matchedEventualCanonicalCorrelatedCapacityDebtCompletedFamily`.
+- **obligation**: inhabit, at every physical scale, the two exact pointwise
+  comparisons and summable budget of the one correlated debt envelope along
+  the fixed canonical pair maps; choose a positive tail allowance; and prove
+  the computed initial closure.  This is the one-producer alternative to the
+  separated three-producer load/kernel/kernel-floor frontier.  The strength
+  band and nonzero same-object observable pin remain downstream after local
+  persistence.
+- **constructive?**: yes.  The debt retains the identical pair, routed load,
+  conditional kernel, canonical routing, matched nome/cutoff, and explicit-ray
+  floor.  Positive load supplies denominator positivity; zero load is handled
+  constructively.  Pair maps are executable and the envelope carries an
+  explicit antitone tail modulus.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass, the latter completing all 5102 jobs.  All seven
+  audited exports use only `[propext, Quot.sound]`; the root aggregator imports
+  the module.  No full-root audit is claimed.
