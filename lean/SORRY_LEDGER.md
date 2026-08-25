@@ -15623,3 +15623,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass, the latter completing all 5102 jobs.  All seven
   audited exports use only `[propext, Quot.sound]`; the root aggregator imports
   the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-shell] Split the exact matched correlated envelope into embedded-old and new-shell estimates — **CLOSED 2026-08-25**
+
+- **milestone**: construct the literal embedded image of each current matched
+  pair carrier; prove it lies in the next carrier and that canonical reverse
+  recoding is inverse there; define the exact new-shell complement; split the
+  correlated analytic input into independently summable transported-old and
+  new-shell envelopes; add their budgets constructively; and contract
+  scale-indexed regional envelopes through the unchanged correlated compiler
+  to the exact matched completed family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellCompiler.lean`.
+- **decl**: `matchedEventualCanonicalEmbeddedOldPairCarrier`,
+  `matchedEventualCanonicalCurrentPairToNext_mem_embeddedOld`,
+  `matchedEventualCanonicalEmbeddedOldPairCarrier_mem_next`,
+  `matchedEventualCanonicalCurrentPairToNext_nextToCurrent_of_mem_embeddedOld`,
+  `MatchedEventualCanonicalPairInNewShell`,
+  `matchedEventualCanonicalPair_old_or_newShell`,
+  `MatchedEventualCanonicalTransportedCapacityDebtEnvelope`,
+  `MatchedEventualCanonicalNewShellCapacityDebtEnvelope`,
+  `matchedEventualCanonicalCorrelatedCapacityDebtEnvelopeOfTransportAndShell`,
+  and
+  `matchedEventualCanonicalCorrelatedCapacityDebtCompletedFamilyOfTransportAndShell`.
+- **obligation**: inhabit both regional envelope families at every physical
+  scale, then provide the unchanged positive tail allowance and computed
+  initial closure.  The next expansion splits the new Cartesian pair shell
+  into old-new, new-old, and new-new analytic faces.
+- **constructive?**: yes.  Embedded membership is a finite-list witness; the
+  complement uses decidable membership; the reverse search remains executable;
+  and both budgets retain explicit antitone tail moduli.  Every estimate is on
+  the identical matched capacity-debt observable.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass, the latter completing all 5103 jobs.  All six audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  No full-root audit is claimed.

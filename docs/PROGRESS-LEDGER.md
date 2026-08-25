@@ -17397,3 +17397,38 @@ Physical cubic/spacing laws, a strength band, nonzero same-object observable
 pin, full trajectory identification, projective OS/GNS reconstruction,
 thermodynamic/continuum compatibility, continuum Yang--Mills construction,
 and the Clay mass gap remain open.
+
+## The correlated matched envelope splits into old transport and new shell (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellCompiler`
+partitions each next matched pair carrier into the literal image of the
+current carrier and its decidable complement.  The existing cutoff embedding
+and constructive reverse search prove that the canonical recodings are
+inverse on the embedded-old component.  The complement is definitionally the
+genuinely new pair shell.
+
+This expands the correlated analytic frontier into two independent producers
+at every physical scale: a two-sided transported-old debt envelope and a
+one-sided new-shell debt envelope.  Each carries its own summable variation
+budget.  Their constructive sum recreates the single correlated envelope,
+then the previously checked prefix-tail compiler contracts it to the exact
+matched local producer and completed carrier/transfer/vacuum family.
+
+The proof graph therefore has one observable stream but two parallel regional
+estimate lanes.  They may be proved independently because their only join is
+addition of nonnegative summable budgets.  They cannot be replaced by estimates
+for a different routing, pair carrier, or debt: both lanes retain the same
+matched nome, cutoff, canonical routing, routed load, conditional kernel, and
+ray floor before rejoining.
+
+The focused monitored check passes, and the dependency-complete one-worker
+target completes all 5103 jobs.  All six audited exports use only
+`[propext, Quot.sound]`.  The root aggregator imports the module.  No full-root
+audit is claimed.
+
+No transported-old or new-shell envelope, tail allowance, or initial closure
+is inhabited.  The next geometric expansion is to decompose the Cartesian
+new pair shell into old-new, new-old, and new-new faces so those three shell
+estimates can be developed in parallel.  Strength/spacing, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
