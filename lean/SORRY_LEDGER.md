@@ -16023,6 +16023,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-active-cell-payment] Preserve stationary-weight, route, and capacity correlation cell by cell — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact stationary-weighted routed numerator on one
+  literal current-pair/new-endpoint cell; introduce a nonnegative allowance
+  which pays that numerator against the capacity of the same active cell;
+  cancel the positive capacity constructively to bound the exact normalized
+  debt term; sum the allowances over the unchanged actual endpoint row; take
+  the existing maximum over unchanged current pairs; obtain the inverse-square
+  exact new-traffic debt bound; and rejoin the existing exact-traffic compiler
+  with independent old-traffic and route inputs.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellPayment.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficActiveCellWeightedNumerator_nonnegative`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellPaymentInverseSquareControl.debtTermOnMappedPair_le_allowance`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellPaymentInverseSquareControl.debtOnMappedPair_le_rowAllowance`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellPaymentInverseSquareControl.debtOnMappedPair_le`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellPaymentInverseSquareControl.debtMaximum_le`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellPaymentInverseSquareControl.toExactTrafficControl`.
+- **obligation**: construct a concrete allowance from the same stationary pair
+  weight, same transported route occurrence, and same raw-kernel capacity,
+  then prove its row sum is inverse-square without replacing those quantities
+  by independent worst-case extrema.  Existing global-floor no-go results
+  rule out a fixed positive cofinal sector minimum, but do not rule out this
+  correlated payment.  Also close old traffic, route churn, shell returns,
+  and merger or no-merger obligations.
+- **constructive?**: yes.  The active carrier is the existing Boolean-filtered
+  literal Cartesian list; all payment, cancellation, row-sum, and maximum
+  arguments are finite rational proofs.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5133 jobs.  All six audited exports use
+  only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [matched-physical-correlated-capacity-debt-new-traffic-active-capacity-sector-floor] Compare the active used-cell floor with the later vacuum-sector edge floor — **CLOSED 2026-08-25**
 
 - **milestone**: use positive route-factor membership on the exact active

@@ -17433,6 +17433,54 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Exact active-cell payments preserve observable correlation (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellPayment`
+opens a sharper branch after auditing the sector-floor fallback.  The existing
+spin-ray no-go theorem proves
+
+`sectorEdgeFloor(K) * K <= 1`,
+
+so the expanding sector minimum cannot have a fixed positive cofinal lower
+bound.  This does not prohibit a joint weighted estimate, because new endpoint
+weights may decay on exactly the cells whose capacities become small.
+
+The new module therefore keeps a nonnegative allowance on each literal cell
+
+`(current vacuum-sector pair, actual new endpoint pair)`.
+
+On an active cell it asks that the stationary endpoint-pair weight times the
+same shared floor and same routed factor be paid by that allowance times the
+same source-weighted raw-kernel capacity.  Constructive positive-denominator
+cancellation proves that the exact normalized debt term is at most its cell
+allowance.  Termwise finite summation gives a row bound, and the existing
+current-pair maximum gives the unchanged exact new-traffic debt bound.
+
+This route avoids all three earlier decorrelations: it does not replace the
+actual endpoint stationary mass by twice the new-block mass, does not take a
+worst routed-path maximum, and does not take a reciprocal minimum capacity.
+The Type-level compiler explicitly rejoins
+`MatchedEventualCanonicalTransportedCapacityDebtExactTrafficInverseSquareControl`,
+so old-traffic and route estimates can be supplied independently without
+changing the new-traffic observable.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5133 jobs.  All six audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+The allowance and its inverse-square row-sum estimate remain explicit,
+uninhabited fields.  The next analytic frontier is to construct an allowance
+from the exact stationary pair weight, routed edge occurrence, and raw-kernel
+capacity, then bound its row sum without separating those quantities into
+independent maxima.  The active-minimum and sector-minimum branches remain
+valid fallbacks, but the cellwise path is now preferred.  Old-traffic drift,
+route churn, the three shell-return faces, tail allowance and initial closure,
+AF identification, physical-scale uniformity, a nonzero same-object
+observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
+
 ## Active capacity admits a vacuum-sector edge-floor fallback (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCapacitySectorFloor`
