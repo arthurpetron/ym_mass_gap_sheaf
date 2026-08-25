@@ -13837,3 +13837,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   analytic scalar interface; it does not inhabit the new magnitude compiler,
   construct a scalar inverse or physical mass gap, or prove the
   continuum/Clay endpoint.
+
+### [QPoly-alternating-recoding] Build the finite substitution needed for the positive Euler companion — **CLOSED 2026-08-24**
+
+- **milestone**: define finite coefficient-list substitution `p(z) -> p(-z)`;
+  prove its exact padded coefficient formula; and prove that it respects
+  addition, scalar multiplication, and multiplication up to `CoeffEqv`.
+- **file**: `lean/YMGap/Constructive/QPolyAlternate.lean`.
+- **decl**: `QPolyAlternate.alternate`, `coeff_alternate`, `alternate_padd`,
+  `alternate_pscale`, and `alternate_pmul`.
+- **obligation**: define the corresponding finite positive-Euler companion,
+  prove that alternating recoding sends the reflected Euler polynomial to that
+  companion, and prove nonnegativity plus coefficientwise domination by the
+  stable magnitude-two target.  The coefficient-magnitude compiler and every
+  downstream scalar, OS/operator, continuum, QFT, and Clay endpoint remain
+  uninhabited.
+- **constructive?**: yes.  The operation and proofs recurse only over finite
+  rational coefficient lists and use the project's `Q'.eqv`; no normalized
+  representative, classical choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.
+- **status note**: the exact one-worker target passes 51 jobs.  All four
+  audited exports use exactly `[propext, Quot.sound]`.  This is an algebraic
+  prerequisite only; it does not prove coefficient positivity, the bound of
+  two, a scalar inverse, a physical mass gap, or the continuum/Clay endpoint.

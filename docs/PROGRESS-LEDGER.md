@@ -15528,11 +15528,11 @@ same dynamic family, raw Wilson observable, projective OS handoff, matrix
 coefficient pin, exact-rate handoff, transfer lift, finite graph
 approximation, and vacuum pin.
 
-This contraction does not alter the capstone parallelism: after common data
-are fixed, the scalar Euler-tail compiler remains one of seven independent
-root inputs; the matrix-coefficient pin still follows the OS handoff and the
-finite graph approximation still follows the transfer lift before the
-observable-preserving join.
+This contraction reduces the capstone parallelism by one: after common data
+are fixed, the former formal and analytic scalar roots have become one Euler-
+tail root.  The exact current width is six independent roots; the matrix-
+coefficient pin still follows the OS handoff and the finite graph approximation
+still follows the transfer lift before the observable-preserving join.
 
 One guarded anchor check containing a misspelled proof variable is not counted
 as a pass.  After correction, exact one-worker targets pass 65 jobs for the
@@ -15568,7 +15568,9 @@ The connected
 the same dynamic family, raw Wilson observable, projective OS handoff, matrix
 coefficient pin, exact-rate handoff, transfer lift, finite graph
 approximation, and vacuum pin.  At the capstone this coefficient compiler is
-still one of seven independent root inputs; no new serialization was added.
+one of six independent root inputs; no new serialization was added.  The two
+remaining dependent inputs are the matrix-coefficient pin after the OS handoff
+and the finite graph approximation after the transfer lift.
 
 Exact one-worker targets pass 65 jobs for the polynomial anchor and 5118 jobs
 for the connected capstone.  The generic geometric folding theorem uses only
@@ -15582,3 +15584,27 @@ companion and coefficientwise domination by the rational target
 `(1+z)/(1-z)`.  No scalar inverse, physical carrier, projective OS/GNS
 construction, transfer/operator uniformity, thermodynamic or continuum limit,
 QFT axiom, or Clay mass-gap theorem is claimed.
+
+## Finite alternating-sign polynomial recoding (2026-08-24)
+
+`QPolyAlternate` supplies the first algebraic prerequisite for the remaining
+coefficient-magnitude compiler.  Its recursive `alternate` operation is the
+finite coefficient-list substitution `p(z) -> p(-z)`.  The padded coefficient
+formula is exact up to the project's rational equivalence, and the operation
+is proved to preserve polynomial addition, scalar multiplication, and
+multiplication coefficientwise.
+
+This recoding can therefore transport the reflected finite Euler polynomial
+to a positive-sign companion without changing the polynomial representation
+or selecting normalized rational representatives.  It does not yet prove that
+the companion coefficients are nonnegative or bounded by the stable target,
+so it does not inhabit
+`PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompiler`.
+
+The exact one-worker target passes 51 jobs.  All four audited exports use
+exactly `[propext, Quot.sound]`; no forbidden construct was added.  The next
+scalar frontier is to define the finite positive-Euler companion, identify it
+with the alternating recoding of the reflected Euler polynomial, and prove
+coefficientwise monotonicity toward the magnitude-two stable target.  All
+physical-carrier, projective OS/GNS, transfer/operator, thermodynamic and
+continuum, QFT, and Clay obligations remain open.
