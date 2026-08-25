@@ -17519,6 +17519,54 @@ allowance and initial closure, AF identification, physical-scale uniformity,
 a nonzero same-object observable pin, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
 
+## The exact old--new face removes the cross-face factor two (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewFaceMass`
+filters the literal complementary endpoint list by the same old--new predicate
+already used by the endpoint-ratio row.  Every retained pair is proved to lie
+in the exact Cartesian product of the later old index block and later new
+index block.  Constructive finite weighted injection and the Cartesian-product
+sum identity therefore give
+
+`oldNewFaceStationaryMass`
+`  <= laterOldBlockMass * laterNewBlockMass`
+`  <= laterNewBlockMass`.
+
+The second inequality uses the existing full-sector normalization
+`oldMass + newMass <= 1`; no probabilistic normalization is postulated.  A
+masked-sum/filter identity then charges the old--new endpoint-ratio row only
+for this exact face mass.  Consequently the previous bound sharpens from
+
+`(2 * newMass) * rowLocalProjectiveMaximum`
+
+to
+
+`newMass * rowLocalProjectiveMaximum`.
+
+A coefficient-one Type-level inverse-square interface compiles directly to
+the unchanged old--new endpoint-ratio control and rejoins the independent
+new--old and new--new lanes at the exact debt maximum.  The mapped edge,
+directed route, endpoint list occurrences, conditional capacity, and
+observable remain unchanged.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5153 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No projective-amplification estimate or new-block-mass decay estimate is
+inhabited.  The old--new analytic residual is now exactly the product of one
+adjacent-cutoff new-block mass and one row-local projective maximum against
+the same mapped conditional capacity.  The next compiler should connect the
+mass factor to the already verified corrected-slab increment plus explicit
+component-merger residual (and its executable no-merger branch), leaving a
+single honest amplification-versus-capacity estimate.  New--old and new--new
+remain directed lanes.  Old traffic, route churn, shell returns, tail closure,
+AF physical-scale uniformity, same-object completion, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.
+
 ## The canonical cell allowance removes the shared payment hypothesis (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellCanonicalPayment`

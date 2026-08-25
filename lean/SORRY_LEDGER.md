@@ -16680,3 +16680,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, `git diff --check` passes, and the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-face-mass] Remove the old--new cross-face factor two — **CLOSED 2026-08-25**
+
+- **milestone**: filter the exact complementary endpoint list by its existing
+  old--new face predicate; prove every retained pair lies in the later
+  old-block/new-block Cartesian product; inject its stationary mass into that
+  block carrier; identify the block mass with the product of old and new
+  masses; use full-sector normalization to bound it by new mass alone; charge
+  the endpoint-ratio row only for this masked face mass; expose a coefficient-
+  one inverse-square interface; and rejoin it with the independent new--old
+  and new--new controls at the unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewFaceMass.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointPair_mem_oldNewBlocks`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceStationaryMass_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewBlockStationaryMass_eqv_old_mul_new`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceStationaryMass_le_old_mul_new`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceStationaryMass_le_newBlockMass`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_faceMass_mul_projectiveAmplificationMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_newBlockMass_mul_projectiveAmplificationMaximum`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceSharpProjectiveAmplificationInverseSquareControl.toEndpointRatioControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_sharpOldNewProjectiveAmplification_and_otherFaces`.
+- **obligation**: combine the coefficient-one new-block factor with the exact
+  corrected-slab increment/component-merger split, then quantitatively control
+  the remaining row-local projective amplification against the same mapped-
+  edge conditional capacity.  Preserve new--old and new--new as separate
+  directed lanes unless a path-reversal/multiplicity theorem is established.
+- **constructive?**: yes.  Face selection is an executable Boolean filter,
+  carrier inclusion is an explicit identity injection, and every mass and
+  maximum is a finite rational fold on the literal endpoint carrier.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5153 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, `git diff --check` passes, and the root aggregator imports the
+  module.  No full-root audit is claimed.
