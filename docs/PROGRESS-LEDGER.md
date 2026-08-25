@@ -16121,3 +16121,46 @@ root aggregation audit was attempted but stopped automatically at job 3217
 of 7104 when available memory reached 11.6 GiB, below the launcher's 12.0 GiB
 reserve.  It is not reported as a pass; the verified boundary is the exact
 narrow target.
+
+## The automatic fixed-anchor debt now factors into exactly two parallel analytic lanes (2026-08-25)
+
+`SummableRationalStepVariationAlgebra` supplies constructive closure of
+summable rational step variation under pointwise setoid transport, positive
+fixed scaling, addition, and bounded products.  Its product compiler accepts
+two independent variation certificates plus positive uniform ceilings and
+uses the explicit one-step budget
+`rightCeiling * leftVariation + leftCeiling * rightVariation`.
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor` applies
+that algebra to the automatic support-aware BF4 proxy without changing the
+underlying observable.  Its reciprocal condition number is definitionally
+the product of exactly two cutoff streams: `(1 + routedLoadMaximum)` and the
+reciprocal of `((1/2) * supportedConditionalKernelFloor)`.  These are the two
+independent analytic producers at this local frontier.  Their product is
+proved to cancel the automatic margin, and the normalized debt is proved
+setoid-equal to the product scaled by the already fixed shared coercivity
+floor.  Product join, scaling, equality transport, and the existing
+budget/slack compiler are serial consumers after the two lanes meet.
+
+The proof-path choice is therefore causal rather than cosmetic.  The
+canonical route now has a literal loop-erased routing sequence and removes
+routing construction from its obligations; it still must prove summable
+variation and uniform ceilings for both component streams.  It is the shorter
+path if those estimates remain uniform.  The adaptive route uses the same
+two-lane compiler but may choose cutoff-dependent routes to prevent either
+the load ceiling from growing or the supported-kernel floor from collapsing.
+No conclusion can be assembled by mixing a load estimate from one routing
+with a kernel estimate from another: both compiler inputs are indexed by the
+same routing sequence and feed the same exact routed finite margin.
+
+Neither component variation certificate nor either uniform ceiling is
+inhabited here, and budget-from-zero plus initial slack remain required after
+the join.  This fixed-anchor lane is not the physical AF/grouped-BF4
+trajectory.  The same-observable thermodynamic bridge, projective OS/GNS
+compatibility, completed all-vector gap, continuum QFT, and Clay theorem
+remain open.
+
+The exact monitored one-worker application target passes all 5076 jobs; the
+generic algebra target passes all 46 jobs.  All thirteen printed exports use
+only `[propext, Quot.sound]` or the smaller `[propext]` subset.  The root
+aggregator imports both modules; no new full-root audit is claimed.

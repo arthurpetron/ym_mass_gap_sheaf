@@ -14353,3 +14353,56 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   7104 when available memory reached 11.6 GiB, below the 12.0 GiB reserve; it
   is not reported as a pass.  The verified boundary is the exact narrow
   target.
+
+### [adaptive-support-debt-two-lane-factor] Factor automatic debt variation into two observable-connected producers — **CLOSED 2026-08-25**
+
+- **milestone**: prove reusable constructive closure of summable rational
+  step variation under pointwise setoid transport, positive scaling,
+  addition, and bounded products; factor the reciprocal automatic BF4 margin
+  into the routed-load denominator and inverse supported-kernel numerator;
+  prove exact cancellation with the existing margin and exact factorization
+  of the existing normalized debt; compile independent component variation
+  certificates with positive uniform ceilings into the preceding
+  budget/slack debt certificate; and expose the canonical loop-erased routing
+  sequence as a specialization of the same compiler.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariationAlgebra.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.lean`.
+- **decl**:
+  `SummableRationalStepVariationAlgebra.ofPointwiseEqv`,
+  `SummableRationalStepVariationAlgebra.scale`,
+  `SummableRationalStepVariationAlgebra.add`,
+  `SummableRationalStepVariationAlgebra.product_step_le`,
+  `SummableRationalStepVariationAlgebra.mulOfCeilings`,
+  `anchorAdaptiveSupportedKernelNumerator`,
+  `anchorAdaptiveRoutedLoadDenominator`,
+  `anchorAdaptiveInverseSupportedKernelNumerator`,
+  `anchorAdaptiveSupportCapacityReciprocalProxy`,
+  `anchorAdaptiveSupportCapacityReciprocalProxy_mul_marginLower_eqv_one`,
+  `anchorAdaptiveSupportCapacityDebt_eqv_sharedFloor_mul_reciprocalProxy`,
+  `anchorAdaptiveSupportCapacityReciprocalProxyVariationOfComponents`,
+  `anchorAdaptiveSupportCapacityDebtVariationOfComponents`,
+  `anchorAdaptiveSupportCapacityDebtVariationFromComponents`,
+  `anchorCanonicalPositiveRoutingSequence`, and
+  `anchorCanonicalSupportCapacityDebtVariationOfComponents`.
+- **obligation**: on one common routing sequence, prove summable two-sided
+  variation and a positive uniform ceiling for `(1 + routedLoadMaximum)`, and
+  separately prove the same for the reciprocal of
+  `((1/2) * supportedConditionalKernelFloor)`.  Then exhibit a positive total
+  debt budget available from cutoff zero and enough initial slack.  The
+  canonical route fixes the routing and is shorter if its estimates remain
+  uniform; the adaptive route may optimize the same routing-dependent pair of
+  streams if the canonical proxy collapses.  Estimates from different
+  routings cannot be mixed.  The physical grouped-BF4/AF identification,
+  literal same-observable thermodynamic bridge, projective OS/GNS join,
+  completed all-vector gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  Both factors use explicit positive rational
+  witnesses; quotient cancellation is proved by `Q'.eqv`; the bounded-product
+  variation budget is explicit; and every input is indexed by the same
+  routing, conditional kernel, exact routed load, and literal finite carrier.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, `noncomputable`,
+  or new axiom is introduced.
+- **status note**: the exact monitored one-worker application target passes
+  all 5076 jobs and the generic algebra target passes all 46 jobs.  The
+  thirteen printed exports use only `[propext, Quot.sound]` or `[propext]`.
+  The root aggregator imports both modules; no full-root audit is claimed.
