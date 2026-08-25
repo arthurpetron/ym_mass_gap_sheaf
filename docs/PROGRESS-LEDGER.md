@@ -16215,3 +16215,64 @@ specialization.  The twelve newly audited exports use only
 `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
 hits.  The root aggregator imports the new reciprocal module, but no full-root
 audit is claimed.
+
+## Dynamic extrema expose three parallel pointwise producers on one observable (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportPointwiseVariationCompiler`
+pushes the remaining aggregate variation hypotheses down to the literal
+consecutive finite carriers.  Its generic maximum compiler carries explicit
+current-to-next and next-to-current recodings, carrier-membership proofs, and
+the one-sided pointwise estimates needed to control `listQMaxZero`.  Its dual
+minimum compiler carries the oppositely oriented estimates needed to control
+`listPositiveMinOne`.  A third structure turns one positive pointwise lower
+bound, including the unit fallback, into a uniform floor for every dynamic
+minimum.
+
+At the exact fixed-anchor BF4 specialization, this exposes three atomic
+analytic producers that can be developed in parallel once one routing
+sequence is fixed:
+
+1. a summable bidirectional recoding budget for the literal routed-load
+   function on consecutive vacuum-sector pair lists;
+2. a summable bidirectional recoding budget for the literal support-aware
+   conditional-kernel candidate on those same pair lists; and
+3. a positive pointwise lower bound for that kernel candidate on all those
+   lists.
+
+There are therefore three immediate parallel certificate families, but only
+two top-level analytic lanes: producer 1 becomes the load-denominator lane,
+while producers 2 and 3 jointly become the kernel-variation/noncollapse lane.
+After those lanes meet, minimum/maximum folding, half scaling, reciprocal
+transport, product variation, exact debt recoding, total-budget selection, and
+initial-slack closure are serial consumers.
+
+This sharpened decomposition explains the proof-path choice.  The canonical
+route remains shortest because its loop-erased routing is already a term; it
+needs only the three pointwise estimates and can exploit the existing
+old-to-new physical carrier embedding when constructing recodings.  Its hard
+direction is the genuinely new shell: later carrier items must be compared
+back to earlier ones without allowing the maximum to jump or the minimum to
+collapse.  The adaptive route can choose cutoff-dependent routings designed
+to make those recodings and estimates summable, but routing coherence becomes
+an additional upstream construction.  It is useful only if that freedom
+solves the shell estimates that canonical routing cannot.
+
+The path is observable-connected in a machine-checkable sense.  All three
+inputs are indexed by the same `AnchorAdaptivePositiveRoutingSequence`; their
+values are definitionally the existing exact routed load and support-aware
+kernel candidate; and their carriers are definitionally the existing finite
+vacuum-sector pair lists.  The compiler returns variation of the already
+defined normalized debt and then the already defined finite-margin family.
+It is impossible to combine a load estimate from one routing with a kernel
+estimate from another without a type mismatch.
+
+No one of the three input structures is inhabited here.  Total budget and
+initial slack also remain open after their join.  The fixed anchor is not the
+physical AF/grouped-BF4 trajectory; same-observable thermodynamic
+compatibility, projective OS/GNS reconstruction, a completed all-vector gap,
+continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5078 jobs.  Its nine printed
+exports use only `[propext, Quot.sound]` or smaller subsets.  The executable
+forbidden-token scan reports zero hits, and the root aggregator imports the
+module; no full-root audit is claimed.

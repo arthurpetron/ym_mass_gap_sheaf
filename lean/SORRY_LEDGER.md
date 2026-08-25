@@ -14456,3 +14456,54 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   printed exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits.  The root aggregator imports the
   reciprocal compiler; no full-root audit is claimed.
+
+### [adaptive-support-pointwise-extrema] Reduce dynamic extrema to three observable-connected pointwise producers — **CLOSED 2026-08-25**
+
+- **milestone**: construct generic dynamic finite maximum and minimum
+  variation compilers from explicit bidirectional carrier recodings,
+  membership proofs, summable pointwise budgets, and the correctly oriented
+  one-sided estimates; construct a uniform dynamic minimum floor from one
+  positive pointwise bound; specialize all three mechanisms to the literal
+  routed-load and support-aware kernel-candidate functions on the exact
+  fixed-anchor BF4 vacuum-sector pair lists; and feed their results into the
+  existing primitive debt compiler.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportPointwiseVariationCompiler.lean`.
+- **decl**:
+  `DynamicFiniteMaximumVariation`,
+  `DynamicFiniteMaximumVariation.toSummableRationalStepVariation`,
+  `DynamicFiniteMinimumVariation`,
+  `DynamicFiniteMinimumVariation.toSummableRationalStepVariation`,
+  `DynamicFiniteMinimumFloor`,
+  `DynamicFiniteMinimumFloor.le_minimum`,
+  `AnchorAdaptiveRoutedLoadMaximumVariation`,
+  `AnchorAdaptiveSupportedKernelMinimumVariation`,
+  `AnchorAdaptiveSupportedKernelMinimumFloor`,
+  `anchorAdaptiveRoutedLoadDenominatorVariationOfPointwise`,
+  `anchorAdaptiveSupportedKernelNumeratorVariationOfPointwise`,
+  `anchorAdaptiveSupportedKernelNumeratorFloor_le`,
+  `anchorAdaptiveSupportCapacityDebtVariationOfPointwise`,
+  `anchorAdaptiveSupportCapacityDebtVariationFromPointwise`, and
+  `anchorCanonicalSupportCapacityDebtVariationOfPointwise`.
+- **obligation**: after fixing one routing sequence, build three independent
+  pointwise certificates: summable two-way load recoding, summable two-way
+  kernel-candidate recoding, and a uniform positive kernel-candidate floor.
+  These are three parallel producers but contract to two analytic lanes
+  because kernel variation and kernel noncollapse join before reciprocal
+  transport.  Then supply a positive total debt budget available from zero
+  and enough initial slack.  Canonical routing removes route construction but
+  must control the new shell; adaptive routing may optimize the shell at the
+  cost of an additional coherent-routing construction.  Fixed-anchor
+  persistence is not the physical grouped BF4/AF trajectory.  The literal
+  same-observable thermodynamic bridge, projective OS/GNS reconstruction,
+  completed all-vector gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  Both recoding maps are `Type`-level data; every
+  membership proof targets the exact dynamic list; extrema are recursive
+  located folds; all three BF4 inputs share the same routing parameter and
+  exact pair carrier; and the output is the pre-existing exact normalized
+  debt.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5078
+  jobs.  Its nine printed exports use only `[propext, Quot.sound]` or smaller
+  subsets.  The executable forbidden-token scan reports zero hits, and the
+  root aggregator imports the module; no full-root audit is claimed.
