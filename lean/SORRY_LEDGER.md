@@ -2887,6 +2887,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion, thermodynamic/continuum theory, QFT axioms, or Clay theorem is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-face-routed-load] Rewrite the three face numerators as literal transported path loads — **CLOSED 2026-08-25**
+
+- **milestone**: define the weighted load deposited on the mapped current edge
+  by one actual endpoint's transported path; use the existing exact path-load
+  factorization to identify it with stationary pair weight times route factor;
+  commute the shared floor into the exact cell numerator; preserve the
+  identity through each of the three shell-face masks and finite endpoint-row
+  sums; expose independent routed-load/capacity inverse-square controls; and
+  compile all three controls to the existing capacity-balance and exact debt-
+  maximum path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceRoutedLoad.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficWeightedNumerator_eqv_sharedFloor_mul_routedPathLoad`,
+  the three
+  `matchedEventualCanonicalNewEndpointTraffic*FaceWeightedNumeratorRow_eqv_sharedFloor_mul_routedPathLoadRow`
+  theorems, the three
+  `MatchedEventualCanonicalNewEndpointTraffic*FaceRoutedLoadCapacityBalanceInverseSquareControl.toCapacityBalanceControl`
+  declarations, and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_threeFaceRoutedLoadCapacityBalances`.
+- **obligation**: bound each exact face-restricted routed path-load row by an
+  inverse-square coefficient times the capacity of the same mapped current
+  pair.  Next cancel the strictly positive mapped-source stationary weight and
+  identify the reduced rows with face-restricted relative-source transition-
+  product loads.  Do not identify old--new with new--old unless a checked path
+  reversal preserves directed multiplicity and the mapped edge; no such
+  theorem is currently present.  Also close old traffic, route churn, shell
+  returns, merger or no-merger, tail allowance, and initial closure.
+- **constructive?**: yes.  The routed occurrence list, edge load, face masks,
+  and endpoint rows are all literal finite data.  The compiler uses only exact
+  rational reassociation and finite-sum congruence.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5137 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [matched-physical-correlated-capacity-debt-new-traffic-face-capacity-balance] Cross-multiply the three exact canonical face rows — **CLOSED 2026-08-25**
 
 - **milestone**: rewrite the canonical cell allowance as the exact weighted

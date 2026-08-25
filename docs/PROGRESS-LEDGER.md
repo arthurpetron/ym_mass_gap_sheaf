@@ -17433,6 +17433,51 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Face numerators are now literal routed path loads (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceRoutedLoad`
+uses the existing exact routed-occurrence theorem on every actual new endpoint
+to identify
+
+`stationary endpoint-pair weight * route factor`
+
+with the weighted load deposited by that endpoint's actual transported path
+on the actual mapped current edge.  Rational reassociation then proves the
+cell numerator is exactly the shared coercivity floor times that literal path
+load.
+
+The equality is preserved separately through the old--new, new--old, and
+new--new shell predicates and then through the unchanged finite new-endpoint
+row.  Each denominator-free face numerator row is therefore exactly
+
+`sharedFloor * faceRestrictedRoutedPathLoadRow`.
+
+Three independent routed-load/capacity inverse-square controls compile to the
+preceding face capacity balances and rejoin the unchanged exact new-traffic
+debt maximum.  This removes presentation-level stationary-weight and route-
+factor products from the analytic frontier: the remaining comparison is a
+literal routed load versus the capacity of the same edge.
+
+An audit found no checked reversal theorem for the transported routing or its
+directed-edge multiplicities.  Consequently source/target symmetry is not
+assumed, and old--new and new--old remain distinct proof lanes alongside the
+new--new lane.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5137 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+None of the three routed-load/capacity estimates is inhabited.  The next
+frontier is to cancel the positive mapped-source stationary weight and rewrite
+each face path-load row as a face-restricted relative-source transition-
+product load.  Old-traffic drift, route churn, shell-return estimates, merger
+or no-merger control, tail allowance and initial closure, AF identification,
+physical-scale uniformity, a nonzero same-object observable pin,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and the Clay mass gap remain open.
+
 ## Canonical face rows now expose denominator-free capacity balances (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceCapacityBalance`
