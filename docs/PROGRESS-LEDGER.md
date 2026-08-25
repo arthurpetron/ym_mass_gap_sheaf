@@ -18879,3 +18879,47 @@ New--old and new--new remain directed lanes.  Old traffic, route churn, shell
 returns, total tail closure, AF physical-scale uniformity, same-object
 completion, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## The old--new sector floor is now conditional on literal row activity (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewRouteSectorCapacityFloor`
+repairs the logical mismatch between the row-local route maximum and the
+row-independent path-square fallback.  A positive finite route maximum is
+recursively converted into a literal endpoint witness on the exact old--new
+carrier.  Positivity of that masked route factor forces the mapped current
+edge to occur in the endpoint's transported positive-kernel path.  The path
+certificate then proves both mapped endpoints lie in the later vacuum sector
+and that their raw kernel entry is strictly positive.
+
+Consequently, and only under that row-activity witness,
+
+`half * laterSectorEdgeFloor <= mappedPairRawCapacity`.
+
+The Type-level compiler splits constructively on the row route maximum.  In
+the positive branch it substitutes this sector-floor comparison into either
+the general corrected-slab-plus-merger estimate or the executable no-merger
+estimate.  In the nonpositive branch, prior nonnegativity of the located
+maximum makes it exactly zero, so the raw-capacity inequality follows from
+capacity nonnegativity without inventing a positive floor for an unused row.
+Both branches return the preceding exact raw-capacity controls and rejoin the
+unchanged new--old and new--new lanes at the same debt maximum.
+
+This is a sound coarse fallback but not the sharp observable-connected
+contraction.  The face-specific path-square maximum remains independent of
+the current row and therefore must not be substituted before activity is
+retained.  The next sharp compiler should mask quadratic path length by
+occurrence of the selected mapped edge, so its row maximum vanishes exactly
+when the row is unused and remains attached to the same capacity denominator.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5157 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No sector-floor cutoff asymptotic, inverse-square estimate, mass-decay bound,
+merger control, or no-merger theorem is inhabited.  New--old and new--new
+remain directed lanes.  Old traffic, route churn, shell returns, total tail
+closure, AF physical-scale uniformity, same-object completion,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and the Clay mass gap remain open.

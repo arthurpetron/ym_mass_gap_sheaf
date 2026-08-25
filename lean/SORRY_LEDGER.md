@@ -16875,3 +16875,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, `git diff --check` passes, and the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-route-sector-capacity-floor] Restrict the sector-floor fallback to rows carrying literal old--new traffic — **CLOSED 2026-08-25**
+
+- **milestone**: constructively extract an actual positive endpoint term from
+  a positive row-local old--new route maximum; prove that the mapped current
+  edge then occurs in that endpoint's positive-kernel path; recover later
+  vacuum-sector membership and strict raw-kernel positivity for exactly that
+  row; compare half the later sector edge floor with the row's exact raw
+  capacity; split the compiler on positive versus zero route maximum so unused
+  rows require only capacity nonnegativity; and compile general-merger and
+  executable no-merger sector-floor interfaces to the preceding exact raw-
+  capacity controls and unchanged three-face debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewRouteSectorCapacityFloor.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactor_pos_mappedEdge_mem_sector_and_kernel_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_le_capacityOnCurrentPair_of_oldNewRouteFactor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_le_capacityOnCurrentPair_of_oldNewRouteFactorMaximum_pos`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitRouteSectorFloorInverseSquareControl.toRawCapacityControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitRouteSectorFloor_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerRouteSectorFloorInverseSquareControl.toRawCapacityControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerRouteSectorFloor_and_otherFaces`.
+- **obligation**: inhabit a cutoff-summable bound for corrected-slab increment
+  (plus merger residual in the general branch) times the row-local literal
+  route maximum against the later sector raw-kernel floor.  This is a coarse
+  fallback only on rows with actual traffic.  The sharper next route should
+  retain mapped-edge incidence while replacing route multiplicity by a
+  row-active quadratic path scale; it must not reuse the row-independent path
+  maximum as though it vanished on unused rows.  Preserve new--old and
+  new--new as directed lanes.
+- **constructive?**: yes.  The positive maximum witness is obtained by
+  recursion over the exact finite located fold; route occurrence supplies the
+  positive-kernel certificate; and the inactive branch uses a rational-setoid
+  zero proof plus exact capacity nonnegativity.  No assertion that every
+  mapped row has positive capacity is introduced.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5157 jobs.  All seven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
