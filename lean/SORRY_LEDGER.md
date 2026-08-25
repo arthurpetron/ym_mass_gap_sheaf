@@ -16056,3 +16056,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-weighted-amplification] Factor exact new debt through stationary mass and route amplification — **CLOSED 2026-08-25**
+
+- **milestone**: prove strict positivity of the stationary pair weight on the
+  actual complementary endpoint list; divide each exact normalized new-debt
+  term by that weight; prove exact multiplication cancellation; take located
+  amplification maxima over the same endpoint and mapped-current-edge
+  carriers; sum the pointwise estimates; contract actual stationary mass to
+  twice the exact new-block mass; and compile an inverse-square estimate on
+  that weighted envelope through the unchanged exact-traffic, regional, and
+  total-deficit consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficWeightedAmplification.lean`.
+- **decl**:
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtTermOnPair_eqv_stationaryWeight_mul_amplification`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_stationaryDebtEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficStationaryDebtEnvelope_le_newBlockDebtEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficNewBlockDebtEnvelope_le_increment_add_merger_amplification`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficNewBlockDebtEnvelope_le_increment_amplification_of_noMerger`,
+  `MatchedEventualCanonicalNewEndpointTrafficWeightedInverseSquareControl.debtMaximum_le`,
+  `MatchedEventualCanonicalTransportedCapacityDebtWeightedTrafficInverseSquareControl.toExactTrafficControl`,
+  and
+  `MatchedEventualCanonicalCapacityDebtWeightedTrafficRegionalInverseSquareControl.toTotalDeficitTail`.
+- **obligation**: establish inverse-square decay of
+  `(2 * laterNewBlockMass) * amplificationMaximum`.  This requires an explicit
+  estimate for the route/capacity amplification, including its reverse-forward
+  transition product, path length, multiplicity, shared floor, conditional-
+  kernel denominator, and stationary-weight division.  Also prove a uniform
+  no-merger branch or control the merger residual.
+- **constructive?**: yes.  Positivity comes from literal later vacuum-sector
+  membership; every quotient uses a carried positive rational witness; every
+  maximum and sum is over an explicit finite list; and the final conversion
+  targets the pre-existing exact new-debt observable.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5126 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.

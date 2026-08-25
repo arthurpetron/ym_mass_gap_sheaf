@@ -17907,3 +17907,53 @@ Old-traffic drift, route churn, the three shell-return faces, tail allowance
 and initial closure, AF identification, physical-scale uniformity, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## Weighted amplification reconnects new-block mass to exact new debt (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficWeightedAmplification`
+closes the algebraic bridge left open by the stationary-mass milestone.  Every
+endpoint in the actual complementary residual list has strictly positive
+later-cutoff stationary pair weight.  The module therefore defines its exact
+amplification as the already normalized endpoint debt term divided by that
+positive pair weight, and proves the checked cancellation
+
+`normalizedTerm = stationaryPairWeight * amplification`.
+
+Constructive located maxima are taken over the same actual complementary
+endpoint list and the same mapped current-edge carrier.  Termwise summation
+and finite multiplication then prove
+
+`exactNewDebtMaximum`
+`  <= actualNewEndpointStationaryMass * amplificationMaximum`
+`  <= (2 * laterNewBlockMass) * amplificationMaximum`.
+
+This is the observable-connected weighted alternative to the earlier
+`count * normalizedTermMaximum` path.  It does not pay the degree-48 ambient
+pair count.  The preceding adjacent-cutoff compiler further bounds the new-
+block factor by corrected-slab increment plus explicit component-merger mass;
+under the executable no-merger check, only the slab increment remains.
+
+A new inverse-square interface requests a quantitative estimate on the exact
+new-block-mass/amplification product.  Its conversions rejoin the existing
+old-traffic, route-churn, three shell-face, exact-traffic, regional, and total-
+deficit consumers.  Thus the estimator ends at the same capacity-debt
+observable and does not introduce a support proxy or a second proof object.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5126 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No inverse-square bound is inhabited.  The sharp new-traffic frontier is now
+the size of the literal amplification maximum: it still contains the routed
+reverse-forward transition product, path length and multiplicity, shared
+floor, conditional-kernel capacity, and division by endpoint stationary
+weight.  The next causal compiler must expose cancellations or uniform bounds
+among those factors and combine them with slab-increment decay; a small new-
+block mass alone is insufficient if amplification grows too quickly.  A
+uniform no-merger certificate or a merger-residual estimate is also open.
+Old-traffic drift, route churn, the three shell-return faces, tail allowance
+and initial closure, AF identification, physical-scale uniformity, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
