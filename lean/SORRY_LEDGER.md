@@ -13901,3 +13901,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   six independent roots, two causally dependent children, and one typed join
   on the same raw Wilson observable.  This does not inhabit the remaining
   upper-bound compiler or prove a physical/continuum/Clay mass gap.
+
+### [BF4-positive-artanh-euler-positive-companion-bound] Close the finite scalar compiler by cutoff monotonicity — **CLOSED 2026-08-24**
+
+- **milestone**: define coefficientwise polynomial order; prove its
+  preservation by addition, nonnegative scaling, and finite Cauchy
+  multiplication; prove positive-companion monotonicity in both truncation
+  indices; enlarge each arbitrary cutoff beyond the requested coefficient;
+  compare with the proved stabilized target of magnitude at most two; inhabit
+  the positive-companion compiler; and remove the scalar input from the same
+  raw Wilson connected capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPositiveCompanionBound.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPositiveCompanionBound.CoeffLe`, `coeffLe_pmul`,
+  `coeffLe_positiveExpPartialPoly_stage_add`,
+  `coeffLe_positiveExpPartialPoly_inner_add`,
+  `abs_positiveArtanhFormalTargetCoeff_le_two`,
+  `coeff_positiveExpPartialPoly_le_two`,
+  `canonicalPositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalPositiveArtanhCoefficientBound`.
+- **obligation**: none remains in the finite scalar-inverse branch.  After
+  common `family`, `raw`, `H`, and `W` data are fixed, the local capstone still
+  requires five independent physical roots: uniform raw norm floor,
+  projective OS handoff, exact-rate handoff, representative transfer lift, and
+  dense-unit vacuum pin.  The matrix-coefficient pin depends on the OS handoff,
+  and finite graph approximation depends on the transfer lift.  Upstream
+  continuum existence and Wilson OS/GNS construction and all downstream QFT
+  and Clay obligations remain open.
+- **constructive?**: yes.  All monotonicity is finite coefficient/list
+  recursion; the comparison enlarges natural cutoffs explicitly and uses the
+  already proved finite stable coefficient theorem.  No infinite series,
+  normalized rational representative, `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: exact one-worker targets pass 68 jobs for the coefficient
+  bound and 5121 jobs for the connected capstone.  The magnitude target uses
+  `[propext]`; the audited compiler and connected adapter use exactly
+  `[propext, Quot.sound]`.  This closes the scalar root and reduces the local
+  parallel width from six to five, but it does not construct a physical
+  carrier, OS/GNS reconstruction, transfer/operator gap, continuum QFT, or
+  Clay mass gap.

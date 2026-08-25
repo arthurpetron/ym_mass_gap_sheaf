@@ -15649,3 +15649,51 @@ coefficients `1,2,2,...`.  No scalar inverse, concrete physical carrier,
 projective OS/GNS construction, all-vector transfer/operator gap,
 thermodynamic or continuum limit, QFT axiom package, or Clay mass-gap theorem
 is claimed.
+
+## The finite positive companion closes the scalar compiler (2026-08-24)
+
+`CRealArtanhEulerPositiveCompanionBound` introduces coefficientwise order on
+the project's padded finite rational polynomials.  Addition and nonnegative
+scaling preserve this order.  A finite Cauchy-sum proof shows multiplication
+is monotone when the necessary factors have nonnegative coefficients.  These
+lemmas prove monotonicity of the positive companion in both the artanh stage
+and the Euler depth.
+
+For an arbitrary requested `(stage, inner, index)`, the proof enlarges the
+stage to `stage + index + 1` and the Euler depth to
+`inner + index + 1`.  Nonnegativity gives coefficientwise domination by this
+enlarged companion.  At those enlarged finite cutoffs, the requested
+coefficient is already Euler-stable and lies strictly below the artanh
+boundary.  The previously proved finite differential recurrence identifies
+the corresponding reflected coefficient with the closed alternating target;
+the positive-companion recoding turns its absolute value into the target
+magnitude `1` at zero and `2` thereafter.  Thus every finite positive
+companion coefficient is at most two.
+
+`canonicalPositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler`
+inhabits the last scalar interface.  It compiles through the coefficient norm,
+Euler tail, polynomial anchor, direct-window artanh/Euler scalar inverse, and
+the connected capstone.  The new
+`adaptivePathOfCanonicalPositiveArtanhCoefficientBound` takes no scalar proof
+input and preserves the same dynamic family, raw Wilson observable, continuum
+datum `H`, and selected Wilson datum `W`.
+
+After those common data are fixed, the connected capstone now has five
+independent physical roots: the uniform raw norm floor, projective OS handoff,
+exact-rate handoff, representative transfer lift, and dense-unit vacuum pin.
+The Wilson matrix-coefficient pin remains a child of the OS handoff, and the
+finite graph approximation remains a child of the transfer lift.  All seven
+then meet at one typed same-observable join.  The scalar root has been proved,
+so it is no longer part of this parallel width.
+
+Exact one-worker targets pass 68 jobs for the coefficient bound and 5121 jobs
+for the connected capstone.  The target magnitude lemma uses `[propext]`; the
+coefficientwise product, cutoff monotonicity, uniform coefficient theorem,
+canonical compiler, and connected adapter use exactly
+`[propext, Quot.sound]`.  No forbidden construct was added.
+
+This closes only the finite scalar inverse branch.  `ContinuumYMExistence`,
+the selected Wilson OS/GNS datum, the five physical roots, their two dependent
+children, thermodynamic/continuum reconstruction, the QFT axiom package, and
+the Clay mass-gap theorem remain unconstructed or open at their respective
+interfaces.

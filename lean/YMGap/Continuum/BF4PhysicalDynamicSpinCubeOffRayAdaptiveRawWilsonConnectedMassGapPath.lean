@@ -37,6 +37,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveWilsonExactLogEulerEvaluationCompiler
 import YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 import YMGap.Constructive.CRealArtanhEulerPositiveCompanion
+import YMGap.Constructive.CRealArtanhEulerPositiveCompanionBound
 
 namespace YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
 
@@ -50,6 +51,7 @@ open YMGap.Constructive.CRealArtanhEulerRatio
 open YMGap.Constructive.CRealArtanhEulerGeometricAnchor
 open YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 open YMGap.Constructive.CRealArtanhEulerPositiveCompanion
+open YMGap.Constructive.CRealArtanhEulerPositiveCompanionBound
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
@@ -1387,6 +1389,38 @@ def adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler
       scalarCoefficients)
     transfer finite vacuumPin
 
+/-- The positive-companion coefficient bound is now proved internally.  The
+scalar root has disappeared, leaving the five independent physical roots and
+their two causally dependent children to join on the exact same raw Wilson
+observable. -/
+def adaptivePathOfCanonicalPositiveArtanhCoefficientBound
+    {family : DynamicSpinCubeOffRayAdaptiveTransitionProductFamily}
+    {raw : MovingCubeRawVariation family}
+    {band : family.StrengthBand}
+    {gapVariation : PhysicalGapRationalVariation family}
+    {positiveRatePower : PositiveMovingCubeRatePowerRationalVariation family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      family.toCompletedFamily gapVariation W)
+    (transfer : WilsonPhysicalTimeRepresentativeTransferLift W)
+    (finite : DynamicVacuumSectorWilsonPhysicalTimeFiniteGraphApproximation
+      family.toCompletedFamily W transfer)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    AdaptiveRawWilsonConnectedMassGapPath family raw band gapVariation
+      positiveRatePower H W :=
+  adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler
+    uniform projectiveOS matrixCoefficient exactRate
+    canonicalPositiveArtanhEulerPositiveCompanionCoefficientUpperBoundCompiler
+    transfer finite vacuumPin
+
 /-- The connected capstone after the constant coefficient has been cancelled
 internally.  The scalar input now contains only the weighted tail obligation;
 the observable, Wilson reconstruction, and operator inputs are unchanged. -/
@@ -1566,6 +1600,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialCoefficientMagnitudeCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPositiveCompanionCoefficientCompiler
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfCanonicalPositiveArtanhCoefficientBound
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialOneTailCompiler
 #print axioms
