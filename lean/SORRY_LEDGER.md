@@ -16023,6 +16023,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-active-capacity-sector-floor] Compare the active used-cell floor with the later vacuum-sector edge floor — **CLOSED 2026-08-25**
+
+- **milestone**: use positive route-factor membership on the exact active
+  carrier to prove that the mapped current edge occurs in the actual
+  transported positive-kernel path; extract later-sector membership of both
+  endpoints and strict positivity of the corresponding raw kernel entry;
+  prove that half the later finite-sector raw-kernel edge floor bounds every
+  active source-weighted capacity and hence the active capacity minimum;
+  reverse the comparison through constructive rational reciprocals; and
+  compile the resulting sector-floor path envelope back to the unchanged
+  exact new-debt observable and the sharper active-floor consumer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCapacitySectorFloor.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficActiveCell_mappedEdge_mem_sector_and_kernel_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_le_capacityOnActiveCell`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterSectorRawKernelCapacityFloor_le_activeCapacityFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficReciprocalActiveCapacityFloor_le_reciprocalLaterSectorRawKernelCapacityFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveCapacityFloorPathAmplificationEnvelope_le_sectorFloorPathEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_sectorFloorPathNewBlockDebtEnvelope`,
+  `MatchedEventualCanonicalNewEndpointTrafficSectorFloorPathInverseSquareControl.toActiveCapacityFloorControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficSectorFloorPathInverseSquareControl.debtMaximum_le`.
+- **obligation**: determine whether an existing physical-kernel or support
+  estimate yields a useful cutoff-asymptotic lower bound for this exact later
+  sector floor.  Because the sector minimum includes unused positive entries,
+  retain the sharper active used-cell floor as the preferred interface and
+  seek used-edge asymptotics or a joint weighted cancellation if the sector
+  fallback is too lossy.  Combine the chosen capacity control with actual
+  routed-path growth and exact later new-block-mass decay to prove an inverse-
+  square estimate.  Also prove a uniform no-merger branch or estimate the
+  merger residual.
+- **constructive?**: yes.  Route occurrence, endpoint support, raw-kernel
+  positivity, the sector minimum, the active minimum, and reciprocal
+  comparison are all explicit finite data or rational proofs.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5132 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [matched-physical-correlated-capacity-debt-new-traffic-stationary-mass] Bound actual new endpoint stationary mass by the new block — **CLOSED 2026-08-25**
 
 - **milestone**: partition the literal later vacuum carrier into embedded-old

@@ -17433,6 +17433,60 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Active capacity admits a vacuum-sector edge-floor fallback (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCapacitySectorFloor`
+connects the exact active new-traffic carrier to the previously constructed
+finite vacuum-sector raw-kernel floor.  Active-cell membership gives a
+strictly positive literal route factor.  Because the cell's endpoint pair is
+drawn from the actual new-endpoint list, this positivity forces the mapped
+current edge to occur in the directed-edge list of that pair's transported
+positive-kernel path.  The path certificate then places both mapped endpoints
+in the later vacuum sector and proves strict positivity of the corresponding
+later raw physical kernel entry.
+
+The existing sector edge-floor theorem therefore proves, for every active
+cell,
+
+`half * laterSectorEdgeFloor <= activeCellCapacity`.
+
+Taking the constructive positive minimum over the same active list gives
+
+`half * laterSectorEdgeFloor <= activeCapacityFloor`,
+
+and direct rational reciprocal antitonicity reverses this into the needed
+denominator comparison.  Substitution produces the explicit fallback
+
+`sharedFloor * (actualRoutedPathLengthSquareMaximum`
+`               * reciprocal(half * laterSectorEdgeFloor))`,
+
+whose product with twice the exact later new-block mass bounds the unchanged
+new-traffic debt maximum.  The new Type-level inverse-square interface
+contracts to the sharper active-capacity-floor interface and all earlier
+exact observable consumers.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5132 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+This sector fallback is deliberately weaker than the observable-connected
+active floor: it takes a minimum over every positive entry between later
+sector indices, including entries unused by the actual routed observable.
+No cutoff-asymptotic lower bound for either floor is inhabited.  The preferred
+analytic frontier remains the three-factor balance of exact later new-block
+mass, actual routed path-length-square maximum, and reciprocal active used-
+cell capacity.  The sector-floor path is useful only if an existing kernel or
+support estimate controls it cheaply; otherwise the next proof should retain
+used-edge connectivity and seek direct cancellation or a joint weighted
+estimate.  A uniform no-merger certificate or merger-residual estimate also
+remains open.  Old-traffic drift, route churn, the three shell-return faces,
+tail allowance and initial closure, AF identification, physical-scale
+uniformity, a nonzero same-object observable pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.
+
 ## Four leaf estimates are the parallel correlated matched frontier (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellFaces`
