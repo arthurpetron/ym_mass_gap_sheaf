@@ -2887,6 +2887,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion, thermodynamic/continuum theory, QFT axioms, or Clay theorem is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-face-capacity-balance] Cross-multiply the three exact canonical face rows — **CLOSED 2026-08-25**
+
+- **milestone**: rewrite the canonical cell allowance as the exact weighted
+  numerator divided by its mapped-cell capacity; mask that identity by each
+  of the three literal shell faces; move the common row capacity outside each
+  exact finite endpoint sum; name the common denominator directly from the
+  mapped current pair; formulate independent denominator-free old--new,
+  new--old, and new--new capacity-balance controls; compile each balance by
+  constructive positive division; and rejoin all three to the unchanged exact
+  debt-maximum bound.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceCapacityBalance.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficCanonicalCellAllowance_eqv_dividedWeightedNumerator`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRowAllowance_eqv_dividedNumerator`,
+  `matchedEventualCanonicalNewEndpointTrafficNewOldFaceRowAllowance_eqv_dividedNumerator`,
+  `matchedEventualCanonicalNewEndpointTrafficNewNewFaceRowAllowance_eqv_dividedNumerator`,
+  the three
+  `MatchedEventualCanonicalNewEndpointTraffic*FaceCapacityBalanceInverseSquareControl.toCanonicalFaceControl`
+  declarations, and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_threeFaceCapacityBalances`.
+- **obligation**: prove the three face numerator sums are bounded by inverse-
+  square coefficients times the capacity of the exact same mapped current
+  pair.  First identify them with face-restricted routed transition-product
+  loads.  Use source/target symmetry only if a kernel-checked swap preserves
+  endpoint membership, routing multiplicity, and the mapped edge; otherwise
+  retain all three independent lanes.  Also close old traffic, route churn,
+  shell returns, merger or no-merger, tail allowance, and initial closure.
+- **constructive?**: yes.  The quotient rewrite is exact rational algebra;
+  each face is the existing decidable shell predicate; all sums use the same
+  literal endpoint list; and division is eliminated only under the exact
+  positive denominator carried by the row.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5136 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [matched-physical-correlated-capacity-debt-new-traffic-canonical-cell-payment] Inhabit the shared payment with the exact debt allowance — **CLOSED 2026-08-25**
 
 - **milestone**: prove global nonnegativity of the later stationary pair

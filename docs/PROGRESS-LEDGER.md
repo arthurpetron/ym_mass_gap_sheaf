@@ -17433,6 +17433,47 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Canonical face rows now expose denominator-free capacity balances (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceCapacityBalance`
+unfolds the canonical allowance without changing its cell.  It proves that
+the allowance is the exact stationary-weighted routed numerator divided by
+the source-weighted raw-kernel capacity of the same mapped current pair.
+
+For a fixed current-pair row, that capacity is independent of the endpoint
+pair.  The module names it directly as the mapped-current-pair capacity and
+moves its positive denominator outside each exact finite face sum.  Thus the
+old--new, new--old, and new--new canonical allowance rows are respectively
+equal to their exact face numerator sums divided by one common capacity; when
+that capacity is not positive, both sides are exactly zero.
+
+The remaining estimates are consequently expressed without reciprocals:
+
+`faceWeightedNumeratorRow`
+`  <= coefficient * invSqTerm * mappedCurrentPairCapacity`.
+
+There is one independently inhabitable Type-level certificate for each face.
+Constructive positive-division cancellation compiles each certificate to its
+canonical face-row control, and the three controls rejoin the unchanged exact
+new-traffic debt maximum.  This is the precise target for the existing routed
+transition-product machinery: it must control a face-restricted numerator
+against the capacity of the same mapped edge, not against a global minimum.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5136 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+None of the three denominator-free capacity balances is inhabited.  The next
+frontier is to identify each numerator row with the corresponding face-
+restricted routed transition-product load and determine whether checked
+source/target symmetry reduces three analytic estimates to two.  Old-traffic
+drift, route churn, shell-return estimates, merger or no-merger control, tail
+allowance and initial closure, AF identification, physical-scale uniformity,
+a nonzero same-object observable pin, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.
+
 ## The canonical cell allowance removes the shared payment hypothesis (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellCanonicalPayment`
