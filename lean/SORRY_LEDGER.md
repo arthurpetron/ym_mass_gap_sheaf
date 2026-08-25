@@ -15449,3 +15449,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   long elaboration was interrupted and a second same-module form hit the
   deterministic 10M-heartbeat limit; neither is claimed as a pass.  No
   full-root audit is claimed.
+
+### [matched-physical-support-debt-component-variation] Factor exact matched support debt into load variation, kernel variation, and kernel floor — **CLOSED 2026-08-25**
+
+- **milestone**: prove generic positive-ratio debt factorization and variation
+  algebra; specialize its numerator, denominator, and fixed shared floor to
+  the exact matched canonical support proxy; identify the generic debt with
+  both the exact matched debt and its compact proof-bearing representative;
+  and compile three independently provable component certificates into the
+  previously required support-debt variation.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalPositiveRatioDebtVariation.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportDebtVariationFactor.lean`.
+- **decl**: `positiveRatio`, `reciprocalPositiveRatio`,
+  `reciprocalPositiveRatio_mul_positiveRatio_eqv_one`,
+  `positiveRatioDebt`,
+  `positiveRatioDebt_eqv_sharedFloor_mul_reciprocal`,
+  `reciprocalNumeratorVariation`,
+  `reciprocalPositiveRatioVariationOfPrimitiveComponents`,
+  `positiveRatioDebtVariationOfPrimitiveComponents`,
+  `matchedEventualCanonicalSupportSharedFloor`,
+  `matchedEventualCanonicalSupportedKernelNumerator`,
+  `matchedEventualCanonicalRoutedLoadDenominator`,
+  `matchedEventualCanonicalPositiveRatioDebt_eqv_exact`,
+  `matchedEventualCanonicalPositiveRatioDebt_eqv_compact`, and
+  `matchedEventualCanonicalSupportCapacityDebtVariationOfPrimitiveComponents`.
+- **obligation**: at every matched physical scale, construct summable
+  two-sided variation of the literal routed-load denominator, summable
+  two-sided variation of the literal supported-kernel numerator, and one
+  positive rational floor below that numerator at every later offset.  These
+  now construct exact compact support-debt variation.  A positive tail
+  allowance and the computed initial-slack inequality are still required by
+  the unchanged persistence compiler.  Strength/spacing and the nonzero
+  same-object pin remain downstream obligations after that common gate.
+- **constructive?**: yes.  Both variation streams, their tail moduli, and the
+  kernel floor are explicit data.  The matched specialization retains the
+  literal nome, cutoff, canonical routing, finite carrier, conditional kernel,
+  routed load, and explicit-ray delta.  Its transports use `Q'.eqv` proofs;
+  no `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: focused monitored checks pass for both modules.  The
+  generic dependency target completes 48 jobs and the matched target completes
+  all 5093 jobs.  Every printed export uses only `[propext, Quot.sound]`; the
+  root aggregator imports both modules.  No full-root audit is claimed.

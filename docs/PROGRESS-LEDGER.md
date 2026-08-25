@@ -17204,3 +17204,50 @@ is inhabited.  Physical cubic/spacing laws, the local persistence result,
 strength band, nonzero same-object pin, full trajectory identification,
 projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## Matched support debt now factors into three parallel analytic inputs (2026-08-25)
+
+`SummableRationalPositiveRatioDebtVariation` isolates the constructive
+rational algebra behind a positive proxy `numerator / denominator`.  Variation
+of the denominator and variation of the numerator remain independent until
+the product join.  One positive uniform numerator floor compiles reciprocal
+variation, the two variations construct their own product ceilings, and a
+fixed positive shared floor then scales the result.  The generic theorem proves
+the resulting debt is exactly the shared floor times the reciprocal ratio; it
+does not assume a physical estimate.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportDebtVariationFactor`
+specializes that algebra at every matched physical scale.  Its numerator is
+half the literal supported conditional-kernel floor on the existing canonical
+routing at `transitionStart scale + offset`.  Its denominator is one plus the
+literal routed-load maximum on the same finite carrier.  The generic positive
+ratio is kernel-checked equal to the already constructed support-margin lower
+proxy, and its debt is kernel-checked equal first to the exact matched debt and
+then to the compact proof-bearing support-debt stream.
+
+Consequently the former single opaque support-debt variation obligation now
+contracts from three independently developable analytic certificates:
+
+1. summable two-sided variation of the routed-load denominator;
+2. summable two-sided variation of the supported-kernel numerator; and
+3. one positive uniform floor for that same supported-kernel numerator.
+
+The load variation is one top-level lane; kernel variation and kernel
+noncollapse form the other lane before the reciprocal join.  After they meet,
+reciprocal transport, product variation, shared-floor scaling, and exact debt
+transport are proved serially.  The next expansion is to push the two aggregate
+variation certificates and the floor down to explicit bidirectional recodings
+and pointwise estimates on consecutive matched vacuum-sector pair carriers.
+
+Focused monitored checks pass for both new modules.  The generic dependency
+target completes 48 jobs, and the matched dependency-complete one-worker
+target completes all 5093 jobs.  Every printed export uses only
+`[propext, Quot.sound]`.  The root aggregator imports both modules.  No
+full-root audit is claimed.
+
+No load variation, kernel variation, uniform kernel floor, positive tail
+allowance, or initial slack family is inhabited.  The physical cubic/spacing
+laws, completed local persistence result, strength band, nonzero same-object
+pin, full trajectory identification, projective OS/GNS reconstruction,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and Clay mass gap remain open.
