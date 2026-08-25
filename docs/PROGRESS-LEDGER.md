@@ -18108,3 +18108,54 @@ return faces, tail allowance and initial closure, AF identification, physical-
 scale uniformity, a nonzero same-object observable pin, thermodynamic/
 continuum compatibility, continuum Yang--Mills construction, and the Clay
 mass gap remain open.
+
+## Actual new-endpoint routes contract to an explicit ambient square (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelPathLengthAmbientBound`
+uses the Boolean definition of the actual new-endpoint list to prove that
+every member fails the embedded-old/embedded-old test.  Unfolding the
+transported routing then shows that each such pair takes the later-cutoff
+canonical branch.  That branch is definitionally the loop-erased simple
+positive path, rather than an arbitrary repeated route.
+
+The existing simple-path length theorem and finite-carrier enumeration give
+
+`actualRoutedPathLengthSquareMaximum`
+`  <= laterSimpleCarrierSquareScale`
+`  <= laterAmbientCarrierSquareScale`.
+
+At half-volume zero, the last scale is checked equal to
+
+`1 + (((K + 1)^24) * ((K + 1)^24))`,
+
+where `K = transitionStart physicalScale + (cutoffOffset + 1)`.  Substitution
+into the preceding active-capacity factorization gives an explicit envelope
+
+`sharedFloor * (laterAmbientCarrierSquareScale`
+`               * activeCapacityReciprocalMaximum)`.
+
+Multiplying by twice the later new-block mass bounds the unchanged exact new-
+traffic debt maximum.  A new Type-level inverse-square interface contracts to
+the path-factorized, active, raw-kernel, weighted, exact-traffic, regional,
+and total-deficit consumers.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5130 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No reciprocal-capacity, new-block-mass decay, or inverse-square estimate is
+inhabited.  The explicit ambient fallback grows like degree 48 in `K` before
+the active reciprocal-capacity factor is included.  It is therefore a valid
+finite compiler and a useful worst-case comparison, but it is probably too
+lossy to be the preferred final analytic path.  The sharper observable-
+connected path should retain the actual routed path maximum or derive a much
+smaller geometric route bound, while the capacity lane proves a lower bound
+only on used raw-kernel cells and the mass lane proves sufficiently strong
+new-block decay.  A uniform no-merger certificate or merger-residual estimate
+also remains open.  Old-traffic drift, route churn, the three shell-return
+faces, tail allowance and initial closure, AF identification, physical-scale
+uniformity, a nonzero same-object observable pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.

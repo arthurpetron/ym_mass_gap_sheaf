@@ -16209,3 +16209,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-path-length-ambient] Identify new routes and expose the degree-48 ambient fallback — **CLOSED 2026-08-25**
+
+- **milestone**: extract from actual new-endpoint-list membership that the
+  embedded-old/embedded-old Boolean is false; prove the transported routing
+  consequently equals the later canonical routing on every such endpoint;
+  unfold that routing to the loop-erased simple positive path; bound its
+  quadratic length maximum first by the later vacuum-sector carrier square
+  and then by the full lower-face ambient carrier square; expose the exact
+  half-volume-zero formula using `(K+1)^24`; and compile the ambient route
+  envelope back to the unchanged exact new-debt observable and all prior
+  consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelPathLengthAmbientBound.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointPair_not_both_embeddedOld`,
+  `matchedEventualCanonicalTransportedRoutingAtNext_path_eq_laterCanonical_of_not_both_embeddedOld`,
+  `matchedEventualCanonicalNewEndpointTrafficRoutedPathLengthSquareMaximum_le_laterSimpleCarrierSquareScale`,
+  `matchedEventualCanonicalNewEndpointTrafficRoutedPathLengthSquareMaximum_le_laterAmbientCarrierSquareScale`,
+  `matchedEventualCanonicalNewEndpointTrafficLaterAmbientCarrierSquareScale_eq_explicit`,
+  `matchedEventualCanonicalNewEndpointTrafficPathFactorizedAmplificationEnvelope_le_ambientPathEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_ambientPathNewBlockDebtEnvelope`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficAmbientPathInverseSquareControl.toPathFactorizedControl`.
+- **obligation**: prove quantitative lower control of raw-kernel capacity only
+  on active used cells and quantitative new-block-mass decay strong enough to
+  dominate route and reciprocal-capacity growth.  The explicit ambient route
+  factor has degree 48 in the cutoff and is a deliberately coarse fallback;
+  seek a sharper actual-route or geometric bound before selecting it as the
+  final analytic path.  Also prove a uniform no-merger branch or estimate its
+  residual.
+- **constructive?**: yes.  The new/old branch is selected by the literal
+  Boolean filter carried by the same endpoint list; path equality unfolds the
+  existing transported routing; and all carrier bounds are explicit finite
+  enumerations.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5130 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
