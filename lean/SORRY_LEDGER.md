@@ -14055,3 +14055,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   by `YMGap.lean`; the connected moment is an actual ambient Wilson-GNS matrix
   coefficient induced from the finite compressed sector, not yet an ambient
   full-state transfer or a continuum correlation theorem.
+
+### [completed-positive-time-observable-trajectory] Preserve one literal observable across cutoff-indexed embedded sectors — **CLOSED 2026-08-25**
+
+- **milestone**: factor a generic embedded positive-time sector that transports
+  exact source transfer moments and vacuum orthogonality through a
+  Gram-preserving completion embedding; index such sectors by cutoff while
+  pinning every stage to one shared completed observable; expose summable
+  variation only on the derived exact rational moment stream; and inhabit both
+  stage and comparison interfaces with the canonical constant trajectory.
+- **file**:
+  `lean/YMGap/Continuum/CompletedPositiveTimeObservableTrajectory.lean`.
+- **decl**:
+  `EmbeddedPositiveTimeObservableSector`,
+  `EmbeddedPositiveTimeObservableSector.ambientVectorAt_vacuum_orthogonal`,
+  `EmbeddedPositiveTimeObservableSector.ambientConnectedMoment_exact`,
+  `CompletedPositiveTimeObservableTrajectory`,
+  `CompletedPositiveTimeObservableTrajectory.vectorAt_zero`,
+  `CompletedPositiveTimeObservableTrajectory.connectedMoment_exact`,
+  `CompletedPositiveTimeObservableTrajectory.rationalMoment`,
+  `ConnectedMomentVariation`, `ConnectedMomentVariation.converges`,
+  `canonicalEmbeddedPositiveTimeObservableSector`,
+  `canonicalConstantCompletedPositiveTimeObservableTrajectory`, and
+  `canonicalConstantConnectedMomentVariation`.
+- **obligation**: inhabit the trajectory with the actual cutoff-indexed
+  BF4/AF carrier and the literal moving-cube/Wilson observable, then prove
+  summable variation of its derived exact moments.  The canonical inhabitant
+  is constant and finite, so it proves compiler consistency but not physical
+  scaling.  The five physical roots of the connected capstone, their two
+  dependent children, all-vector graph-norm limit, continuum reconstruction,
+  QFT axioms, and Clay endpoint remain separate and open.
+- **constructive?**: yes.  Ambient identities use only pairwise Gram
+  preservation and quotient completion; cutoff comparison uses the existing
+  explicit rational step-budget compiler.  The same completed observable is
+  pinned before variation is admitted.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the focused monitored one-worker check passes, all nine
+  audited exports use exactly `[propext, Quot.sound]`, and the exact guarded
+  module target passes all 440 jobs.  A root audit reached 2115/3693 jobs
+  without a Lean error before the safety monitor stopped it at the 12 GiB
+  reserve, so it is not reported as a root pass.  A later lightweight root
+  source check could not start because the interrupted audit left the
+  pre-existing `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` absent.
+  This milestone closes the typed finite trajectory/compiler edge, not the
+  physical dynamic trajectory, all-vector operator gap, continuum theory, or
+  Clay mass gap.

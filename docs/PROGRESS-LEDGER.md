@@ -15815,3 +15815,51 @@ vacuum-complement bound, or construct thermodynamic/continuum limits, QFT
 axioms, or the Clay mass-gap theorem.  The next causal frontier is to factor
 the dynamic trajectory producer so that this literal carrier-and-observable
 path can be instantiated at every cutoff and compared across scales.
+
+## The completed finite sector now has a typed same-observable cutoff trajectory (2026-08-25)
+
+`CompletedPositiveTimeObservableTrajectory` factors the next semantic seam
+without identifying the canonical finite calculation with the physical BF4/AF
+family.  `EmbeddedPositiveTimeObservableSector` packages one source transfer,
+one Gram-preserving completion embedding, one literal ambient vacuum, and one
+literal ambient observable.  Exact source transfer moments and
+vacuum-orthogonality then compile to ambient Wilson-GNS identities; the
+ambient correlator is derived rather than supplied independently.
+
+`CompletedPositiveTimeObservableTrajectory` indexes those sectors by cutoff
+and pins every ambient representative to one shared observable label in the
+completed carrier.  Its `rationalMoment` is definitionally derived from the
+same stage rate and norm.  `ConnectedMomentVariation` therefore compares only
+that exact moment stream; it cannot replace the observable, transfer, carrier,
+or finite formula before constructing the `CReal` cutoff limit.
+
+The canonical quaternion calculation inhabits the stage interface and a
+constant trajectory.  At every fixed time its moment is exactly
+`(1/8)^n * (1/8)`, and the constant stream has the zero-variation certificate.
+This proves that the trajectory and comparison compilers are non-vacuous, but
+the constant trajectory is explicitly not a shrinking-lattice or BF4/AF
+trajectory.  A physical inhabitant still needs one stage certificate for each
+actual cutoff plus summable variation of the derived same-observable moments.
+
+The focused monitored one-worker check passes and all nine audited exports use
+exactly `[propext, Quot.sound]`; the exact guarded module target also passes all
+440 jobs.  The preceding root `YMGap` audit reached 2115 of 3693 jobs with no
+Lean error, then the safety monitor stopped it when available memory crossed
+the configured 12 GiB reserve; it is therefore an interrupted audit, not a
+root pass.  The root aggregator imports the new module.  A subsequent
+lightweight root source check could not start because that interrupted audit
+left the pre-existing
+`BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` absent, so no completed
+root audit or root source-check pass is claimed.
+
+At the connected dynamic capstone, after common family/raw/`H`/`W` data are
+fixed, the maximum parallel width remains five physical roots: reciprocal
+normalization-scale ceiling, projective OS handoff, exact-rate handoff,
+representative transfer lift, and stationary-vacuum pin.  The Wilson
+matrix-coefficient pin is a child of the OS handoff, and finite graph
+approximation is a child of the transfer lift.  These branches must rejoin on
+one typed observable and transfer.  The normalized route has its separate
+three-wide variation subfrontier; the raw route is shorter only if the common
+reciprocal-scale ceiling can actually be inhabited.  All-vector graph-norm
+control, physical BF4/AF trajectory realization, thermodynamic and continuum
+limits, QFT axioms, and the Clay mass-gap theorem remain open.
