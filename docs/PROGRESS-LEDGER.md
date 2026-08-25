@@ -16451,3 +16451,40 @@ The exact monitored one-worker target passes all 5082 jobs.  Its five printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## Shell-face comparisons now have explicit vacuum return points (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellReturns` proves
+that the constructive finite preimage search returns its vacuum fallback zero
+whenever a later index is not in the embedded-old image.  This identifies the
+canonical reverse recoding on each shell face exactly: old-new returns to
+`(recoveredOld, 0)`, new-old returns to `(0, recoveredOld)`, and new-new
+returns to `(0, 0)`.  All three return pairs are proved to lie in the exact
+earlier vacuum-sector pair carrier.
+
+New analytic interfaces state their debt comparisons directly against those
+literal return pairs.  Each compiles definitionally to its existing face
+envelope; the three faces then rejoin the shell and the shell rejoins the
+transported-old region without changing the observable, routing, carrier, or
+downstream maximum.  In particular, the new-new producer is now visibly a
+comparison to the vacuum-vacuum debt, while the mixed producers compare to
+the two vacuum axes.
+
+The parallel count remains four regional compiler families, or five atomic
+inequalities because old transport is bidirectional.  The gain is that the
+three shell tasks now have concrete observable endpoints suitable for direct
+kernel/load estimates.  The next causal question is whether existing cutoff
+pushforward identities make the transported-old correlated debt exactly
+invariant; if so, its two estimates acquire zero variation and the live
+analytic frontier contracts to the three shell faces alone.
+
+No return-envelope inhabitant is supplied, and no total budget or initial
+slack is proved.  The fixed anchor is not the physical AF/grouped-BF4
+trajectory.  Same-observable thermodynamic compatibility, projective OS/GNS
+reconstruction, a completed all-vector gap, continuum QFT, and the Clay
+theorem remain open.
+
+The exact monitored one-worker target passes all 5083 jobs.  Its seven
+printed exports use only `[propext, Quot.sound]` or the smaller `[propext]`
+subset.  The executable forbidden-token scan reports zero hits, and the root
+aggregator imports the module; no full-root audit is claimed.

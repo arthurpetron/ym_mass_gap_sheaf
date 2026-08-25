@@ -14693,3 +14693,52 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its five printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-shell-returns] Identify the three shell faces' literal vacuum return points — **CLOSED 2026-08-25**
+
+- **milestone**: prove that finite preimage search returns its fallback when
+  the target is outside the mapped list; specialize this to show that a new
+  shell index returns to vacuum index zero; identify the old-new, new-old, and
+  new-new pair recodings with recovered-old/vacuum, vacuum/recovered-old, and
+  vacuum/vacuum pairs; prove those return pairs lie in the exact earlier
+  carrier; expose analytic envelopes against the literal return points; and
+  compile them back into the unchanged face, shell, and full debt envelopes.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellReturns.lean`.
+- **decl**:
+  `firstMappedPreimageOr_eq_fallback_of_not_mem_map`,
+  `anchorNextIndexToCurrent_eq_zero_of_newShell`,
+  `anchorOldNewReturnPair`,
+  `anchorNewOldReturnPair`,
+  `anchorNewNewReturnPair`,
+  `anchorNextPairToCurrent_eq_oldNewReturn`,
+  `anchorNextPairToCurrent_eq_newOldReturn`,
+  `anchorNextPairToCurrent_eq_newNewReturn`,
+  `anchorOldNewReturnPair_mem`,
+  `anchorNewOldReturnPair_mem`,
+  `anchorNewNewReturnPair_mem`,
+  `AnchorCanonicalOldNewReturnCapacityDebtEnvelope`,
+  `AnchorCanonicalNewOldReturnCapacityDebtEnvelope`,
+  `AnchorCanonicalNewNewReturnCapacityDebtEnvelope`,
+  `anchorCanonicalNewShellCapacityDebtEnvelopeOfReturns`, and
+  `anchorCanonicalCapacityDebtEnvelopeOfTransportAndReturns`.
+- **obligation**: prove summable exact-debt comparisons from each later shell
+  face to its displayed earlier return pair, plus the transported-old
+  two-sided estimates, then supply total budget and initial slack.  Existing
+  cutoff pushforward identities should next be tested for exact transported-old
+  invariance; success would reduce the live analytic frontier from four
+  regional families to the three shell faces.  Face-specific failure remains
+  the precise reason for localized adaptive routing.  Physical AF persistence,
+  the literal same-observable thermodynamic bridge, projective OS/GNS
+  reconstruction, completed all-vector gap, continuum QFT, and Clay closure
+  remain open.
+- **constructive?**: yes.  The fallback theorem is structural recursion on a
+  finite list; all pair identities are literal product equalities; carrier
+  membership is inherited from the proved reverse map; and every analytic
+  interface retains the exact correlated debt and fixed canonical routing.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, `noncomputable`,
+  or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5083 jobs.
+  Its seven printed exports use only `[propext, Quot.sound]` or `[propext]`.
+  The executable forbidden-token scan reports zero hits, and the root
+  aggregator imports the module; no full-root audit is claimed.
