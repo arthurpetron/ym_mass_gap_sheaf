@@ -14100,3 +14100,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   This milestone closes the typed finite trajectory/compiler edge, not the
   physical dynamic trajectory, all-vector operator gap, continuum theory, or
   Clay mass gap.
+
+### [moving-cube-normalization-tail-ceiling] Reduce the global reciprocal ceiling to an eventual tail — **CLOSED 2026-08-25**
+
+- **milestone**: compute an exact located maximum for every finite prefix of
+  reciprocal moving-cube normalization scales; glue it to one eventual tail
+  ceiling; compile summable reciprocal-scale variation to its own automatic
+  tail and global ceilings; and feed the resulting single producer to both raw
+  nontriviality and normalized reciprocal-square debt variation.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariation.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler.lean`.
+- **decl**:
+  `SummableRationalStepVariation.tailCeilingStart`,
+  `SummableRationalStepVariation.tailCeiling`,
+  `SummableRationalStepVariation.le_tailCeiling`,
+  `movingCubeNormalizationFiniteMaximum`,
+  `movingCubeNormalizationScale_le_prefixCeiling`,
+  `MovingCubeNormalizationScaleTailCeiling`,
+  `MovingCubeNormalizationScaleTailCeiling.toGlobalCeiling`,
+  `MovingCubeNormalizationScaleCeiling.ofScaleVariation`,
+  `MovingCubeNormalizationScaleCeiling.normDebtRationalVariationOfScaleVariation`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.rawMovingCubeContinuumNontrivialityOfNormalizationScaleVariation`.
+- **obligation**: prove either an eventual ceiling or, more strongly,
+  summable variation for the exact reciprocal coordinate floor along the
+  actual BF4/AF trajectory.  No such physical estimate or adaptive-family
+  inhabitant is constructed.  Projective OS/GNS compatibility, exact physical
+  rate realization, representative transfer lift, stationary vacuum,
+  all-vector graph-norm control, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The finite prefix uses recursive located maxima;
+  the automatic tail ceiling uses rational telescoping and the stored
+  antitone tail budget.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: focused monitored one-worker checks pass for both files.
+  The exact guarded compiler target passes all 5096 jobs.  Nine newly audited
+  exports use only `[propext, Quot.sound]` or the smaller `[propext]` subset.
+  The root aggregator imports the new module; no full-root pass is claimed.

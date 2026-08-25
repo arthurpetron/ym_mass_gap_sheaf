@@ -94,6 +94,45 @@ theorem converges
   CReal.convergesTo_completeLimitCauchy
     (fun scale => CReal.ofQ' (stream scale)) data.toModCauchyEv
 
+/-! ## An automatic eventual ceiling -/
+
+/-- A canonical tail start, obtained by asking the summable variation budget
+to make every later finite variation sum at most one. -/
+def tailCeilingStart
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream) : Nat :=
+  data.tailControl.tailRate 1
+
+/-- The stream value at the canonical tail start plus one.  Summable
+two-sided step variation forces this rational to bound the entire tail. -/
+def tailCeiling
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream) : Q' :=
+  stream data.tailCeilingStart + 1
+
+/-- Every rational stream with summable two-sided step variation is
+eventually bounded above by an explicit rational. -/
+theorem le_tailCeiling
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream)
+    {scale : Nat} (hscale : data.tailCeilingStart <= scale) :
+    stream scale <= data.tailCeiling := by
+  obtain ⟨length, rfl⟩ := Nat.exists_eq_add_of_le hscale
+  have htelescope :=
+    data.toSummableCRealStepVariation.telescope_up
+      0 data.tailCeilingStart length
+  simp only [CReal.ofQ'_approx] at htelescope
+  have htail :
+      finSum
+          (fun offset => data.variation
+            (data.tailCeilingStart + offset)) length <= (1 : Q') := by
+    exact data.tailControl.tailBound 1 (by decide)
+      data.tailCeilingStart (by
+        unfold tailCeilingStart
+        exact Nat.le_refl _) length
+  exact Q'.le_trans' _ _ _ htelescope
+    (Q'.add_le_add_left _ _ _ htail)
+
 /-- A rational stream pointwise equivalent to one constant has the zero
 variation certificate.  This uses setoid equality rather than requiring the
 chosen rational representations to be definitionally identical. -/
@@ -144,5 +183,7 @@ end YMGap.Continuum.SummableRationalStepVariation
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.toModCauchyEv
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.converges
+#print axioms
+  YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_tailCeiling
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.ofPointwiseEqvConstant

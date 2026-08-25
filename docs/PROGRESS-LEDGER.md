@@ -15863,3 +15863,49 @@ three-wide variation subfrontier; the raw route is shorter only if the common
 reciprocal-scale ceiling can actually be inhabited.  All-vector graph-norm
 control, physical BF4/AF trajectory realization, thermodynamic and continuum
 limits, QFT axioms, and the Clay mass-gap theorem remain open.
+
+## The reciprocal moving-cube ceiling is now an asymptotic tail problem (2026-08-25)
+
+`SummableRationalStepVariation` now computes a canonical tail start by asking
+its antitone budget for remaining variation at most one.  Rational
+telescoping proves that the stream value at that start plus one bounds every
+later value.  Thus summable two-sided rational variation constructively
+contains an eventual rational ceiling; no completeness, choice, or
+unrecorded boundedness principle is used.
+
+`BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler`
+specializes that fact to the exact reciprocal moving-cube coordinate floor.
+Every finite prefix has an executable located maximum.  Gluing this maximum
+to one supplied eventual tail ceiling produces the existing global
+`MovingCubeNormalizationScaleCeiling`; conversely, a global ceiling restricts
+to every tail.  The formerly all-cutoff scalar frontier is therefore exactly
+an asymptotic-tail frontier up to finite computation.
+
+More strongly, summable variation of the reciprocal scale constructs its own
+tail ceiling and hence its own global ceiling.  That one producer now supplies
+both the raw channel's uniform norm floor/nontriviality and the normalized
+channel's reciprocal-square debt variation.  This removes an artificial
+independent ceiling premise from the scale-variation proof strategy without
+changing the moving-cube vector, completed carrier, or connected observable.
+
+The causal proof-path comparison is now sharper.  If an eventual reciprocal
+ceiling can be proved but summable reciprocal-scale variation cannot, the raw
+route is strictly shorter.  If scale variation can be proved, it pays the
+ceiling and square-debt branches simultaneously, but the normalized route
+still owes raw representative variation and positive-time rate-power
+variation.  At the union of the completed connected frontier and normalized
+cutoff-limit frontier, up to seven independent producers can proceed after
+the common typed spine: projective OS handoff, exact-rate handoff,
+representative transfer lift, stationary-vacuum pin, raw-representative
+variation, reciprocal-scale variation, and positive-time rate-power
+variation.  The scale-variation lane derives the old reciprocal-ceiling root,
+so it is not counted a second time.  The connected capstone's own maximum root
+width remains five when the scalar ceiling is treated directly.
+
+Focused monitored one-worker checks pass for both modified files.  The exact
+guarded target for the new compiler passes all 5096 jobs, and all nine newly
+audited exports use only `[propext, Quot.sound]` (some use the smaller
+`[propext]` subset).  The root aggregator imports the compiler, but no new
+full-root audit is claimed.  No physical tail ceiling or reciprocal-scale
+variation is inhabited; the dynamic adaptive family, projective OS/GNS join,
+all-vector completed gap, continuum QFT, and Clay theorem remain open.
