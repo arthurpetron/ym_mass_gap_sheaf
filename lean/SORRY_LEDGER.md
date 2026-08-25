@@ -16963,3 +16963,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-active-path-raw-capacity-amplification] Contract row-active path geometry and exact capacity into one observable-connected scalar — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact row quotient of shared ray floor times the
+  row-active routed path-length-square maximum by the raw capacity of that
+  same mapped current pair; totalize it to zero only when the denominator is
+  not positive; prove losslessness of the totalization by deriving strict
+  capacity positivity from any positive used-edge route cell and, conversely,
+  forcing every active cell and its row maximum to zero when capacity is not
+  positive; take a finite located maximum only over the literal current-pair
+  carrier; and compile general-merger and executable no-merger bounds on the
+  new-mass term times this joint maximum to the preceding exact raw-capacity
+  controls and unchanged three-face debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacityAmplification.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficSharedFloor_mul_activePathLengthSquareMaximum_le_activePathRawCapacityAmplification_mul_capacity`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationMaximum_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_le_maximum`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitActivePathRawCapacityAmplificationInverseSquareControl.toActivePathLengthSquareRawCapacityControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitActivePathRawCapacityAmplification_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerActivePathRawCapacityAmplificationInverseSquareControl.toActivePathLengthSquareRawCapacityControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerActivePathRawCapacityAmplification_and_otherFaces`.
+- **obligation**: inhabit a uniform inverse-square bound for corrected-slab
+  increment times this exact joint amplification maximum, with component
+  merger residual added in the general branch.  The next audit must separate
+  the corrected-slab and merger factors and determine whether the finite
+  path/raw-kernel library yields a cutoff-uniform bound on this same-carrier
+  quotient.  No positive denominator is postulated on unused rows, and no
+  sector-wide minimum is used in the sharp interface.  Preserve new--old and
+  new--new as directed lanes.
+- **constructive?**: yes.  The quotient uses the existing positive rational
+  reciprocal only under a decidable positivity witness; the nonpositive
+  branch is proved lossless by exact finite-carrier recursion and the existing
+  used-edge kernel-positivity certificate; and all maxima are located finite
+  folds.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5160 jobs.  All eight
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

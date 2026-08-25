@@ -18969,3 +18969,48 @@ New--old and new--new remain directed lanes.  Old traffic, route churn, shell
 returns, total tail closure, AF physical-scale uniformity, same-object
 completion, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## Row-active path geometry and exact capacity now form one joint scalar stream (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacityAmplification`
+packages the sharp old--new finite-carrier obstruction without separating its
+numerator and denominator.  For each literal mapped current pair it forms
+
+`sharedFloor * rowActivePathLengthSquareMaximum / mappedPairRawCapacity`,
+
+using the positive rational reciprocal only when that same row capacity is
+strictly positive.  This totalization is not an assumption: positive literal
+route traffic supplies an actually used mapped edge, the prior path witness
+gives strict positivity of its raw kernel, and detailed balance transports
+that positivity to the source-weighted capacity.  Therefore a row whose
+capacity is not positive has no positive active cell, so its active maximum is
+setoid-equal to zero and the zero quotient loses nothing.
+
+A finite located maximum over the exact current-pair carrier is now the single
+observable-connected old--new amplification stream.  The checked algebraic
+compiler reduces the remaining general obligation to
+
+`(correctedSlabIncrement + componentMergerResidual)`
+`  * activePathRawCapacityAmplificationMaximum`
+`  <= coefficient * invSqTerm`,
+
+and the executable no-merger branch removes the merger residual.  Either
+certificate returns the preceding exact active-path/raw-capacity control and
+rejoins the independent new--old and new--new lanes at the unchanged exact
+three-face debt maximum.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5160 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No inverse-square bound for this joint stream is inhabited.  The next analytic
+frontier is to factor corrected-slab and merger contributions and determine
+whether existing finite path occurrence, detailed-balance, and raw-kernel
+identities yield a cutoff-uniform bound on the same-carrier quotient.  A
+sector-wide capacity floor remains only a coarse fallback.  New--old and
+new--new remain directed lanes.  Old traffic, route churn, shell returns,
+total tail closure, AF physical-scale uniformity, same-object completion,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and the Clay mass gap remain open.
