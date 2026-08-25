@@ -16655,3 +16655,60 @@ The exact monitored one-worker target passes all 5097 jobs.  Its six printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## Route churn is now an explicit observable-connected branch (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtRouteBridge`
+constructs a genuine positive routing that transports the preceding
+canonical paths into the next cutoff wherever both endpoints are embedded
+old indices.  A generic Type-level path mapper preserves the recursive path
+witness, while the physical cutoff graph homomorphism and the equivalence
+between support adjacency and normalized-kernel positivity prove that every
+mapped edge remains strictly positive.  If either endpoint is genuinely new,
+the bridge uses the ordinary canonical later path, so it is total on the
+literal later vacuum-sector carrier.
+
+The exact transported-old deficit now factors by a proved rational triangle
+inequality through that bridge.  The first maximum measures change from the
+earlier canonical debt to the later mapped-path debt; it contains physical
+weight/kernel drift and the genuinely new endpoint traffic at the later
+cutoff.  The second maximum holds the later physical data fixed and compares
+the mapped-path routing with the later canonical routing, thereby isolating
+route churn.  Their sum dominates the original transported-old maximum.
+
+This produces two valid concurrency counts at different expansion levels.
+The shortest regional interface still has four parallel estimates:
+transported-old plus old-new, new-old, and new-new.  If the transported-old
+branch is diagnostically expanded, it has two independently estimable terms,
+so there are five parallel analytic packages: data-plus-new-traffic drift,
+route churn, and the three shell faces.  Both arrangements contract to the
+same four-region inverse-square control, then the one necessary total tail,
+computed prefix, allowance, and scalar slack check.  Neither four nor five is
+the logical number of final assumptions; that number remains one total-tail
+certificate.
+
+This factorization makes the proof-path decision causal.  Prove the direct
+four-region bound when the transported-old estimate is tractable as a whole.
+Use the five-package bridge path when route churn can be controlled separately
+or diagnosed as the obstruction.  A more general adaptive routing should be
+introduced only if the bridge route-churn or a particular shell-face stream
+is nonsummable and a localized replacement decreases it.  Otherwise adaptive
+selection adds coherence work without reducing the necessary total tail.
+
+Every branch remains observable-connected: both sides of every comparison
+use the exact normalized capacity debt, and hence the matched routed load and
+conditional-kernel capacity on the same ordered edge.  The cutoff carrier
+map, mapped positive path, bridge routing, shell return, rational maxima, and
+sum are explicit terms.  No estimate on an unrelated observable or routing
+can enter without an explicit comparison edge.
+
+No inverse-square estimate for either bridge term or any shell face is
+inhabited, and no allowance satisfying the computed cutoff-zero slack is
+proved.  The fixed anchor is not the physical AF/grouped-BF4 trajectory.
+Same-observable thermodynamic compatibility, projective OS/GNS reconstruction,
+a completed all-vector gap, continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5098 jobs.  Its eight printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.

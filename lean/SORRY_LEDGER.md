@@ -14918,3 +14918,55 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its six printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-route-bridge] Split transported-old debt into mapped-path drift and route churn — **CLOSED 2026-08-25**
+
+- **milestone**: map Type-level positive paths through the physical cutoff
+  embedding; prove mapped normalized-kernel edges remain positive; construct
+  a total later routing that uses mapped old paths and canonical new-endpoint
+  paths; split the exact transported-old capacity-debt deficit through this
+  bridge; dominate its finite maximum by data-plus-new-traffic drift and route
+  churn maxima; and compile inverse-square bounds on those two streams plus
+  the three shell streams into the existing one-total-tail persistence path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtRouteBridge.lean`.
+- **decl**:
+  `mapPositiveKernelChainIn`,
+  `anchorCurrentIndexToNext_kernel_pos`,
+  `anchorMapPositivePathToNext`,
+  `anchorCurrentIndexToNext_nextToCurrent_of_mem_embeddedOldIndex`,
+  `anchorTransportedCanonicalRoutingAtNext`,
+  `anchorTransportedCanonicalRoutingSequence`,
+  `anchorTransportedBridgeDataDeficitOnPair`,
+  `anchorTransportedBridgeRouteDeficitOnPair`,
+  `anchorTransportedBridgeDataDeficitMaximum`,
+  `anchorTransportedBridgeRouteDeficitMaximum`,
+  `anchorTransportedCapacityDebtDeficitOnPair_le_bridge_split`,
+  `anchorTransportedCapacityDebtDeficitMaximum_le_bridge_split`,
+  `AnchorCanonicalTransportedCapacityDebtBridgeInverseSquareControl`,
+  `AnchorCanonicalTransportedCapacityDebtBridgeInverseSquareControl.transported_le`,
+  `AnchorCanonicalCapacityDebtBridgeRegionalInverseSquareControl`,
+  `AnchorCanonicalCapacityDebtBridgeRegionalInverseSquareControl.toRegionalControl`,
+  `AnchorCanonicalCapacityDebtBridgeRegionalInverseSquareControl.toTotalControl`,
+  `anchorCanonicalCapacityDebtPersistenceOfBridgeInverseSquare`, and
+  `anchorGeometricCompletedFamilyOfBridgeInverseSquare`.
+- **obligation**: either prove the original four regional inverse-square
+  estimates directly, or prove the five expanded estimates consisting of
+  mapped-path data-plus-new-traffic drift, route churn, and the three shell
+  faces.  Then provide a positive allowance satisfying the executable
+  cutoff-zero slack.  The expanded split is diagnostic and sufficient, not a
+  claim that five independent hypotheses are logically necessary; the joined
+  consumer still needs only one total-tail modulus.  Physical AF persistence,
+  the literal same-observable thermodynamic bridge, projective OS/GNS
+  reconstruction, completed all-vector gap, continuum QFT, and Clay closure
+  remain open.
+- **constructive?**: yes.  Paths, carrier maps, membership decisions,
+  positivity witnesses, bridge routing, deficits, maxima, and moduli are
+  Type-level or kernel-computable data.  Both split terms retain the same
+  normalized capacity debt and exact routed observable.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is
+  introduced.
+- **status note**: the exact monitored one-worker target passes all 5098 jobs.
+  Its eight printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.
