@@ -15043,3 +15043,45 @@ No limit bookkeeping remains in that analytic input.  A finite formal-series
 recurrence or residual estimate must still prove it.  Exact-rate, transfer,
 finite-graph, raw semantic/nontriviality, projective OS/GNS, vacuum,
 continuum, QFT, and Clay residuals remain open.
+
+## Positive artanh anchor reduced to a finite geometric polynomial (2026-08-24)
+
+`QGeometricSum.geomSum_telescope` and `one_sub_mul_geomSum` now prove the
+division-free finite geometric identity over constructive rationals.  Applied
+to `-z`, this identifies the exact denominator-cleared residual of
+
+`positiveArtanhGeometricApprox z degree
+  = (sum_{k=0}^{degree} (-z)^k) * (1-z)`
+
+as `-(1-z) * (-z)^(degree+1)`.  On the direct positive-artanh window
+`0 < z` and `abs z <= 1/3`, the residual is bounded by
+`(1/2)^(degree+1)`.  Choosing
+`degree = (epsilon/16).den` therefore places this entire polynomial residual
+inside one half of the previous anchor budget.
+
+The exact cancellation theorem
+`clearedDefect_sub_geometricDefect_eqv` removes the common numerator and
+reduces the remaining input to the direct finite comparison
+
+`abs(ExpNeg.partialSum (positiveArtanhExponent z anchorStage) anchorPivot
+     - positiveArtanhGeometricApprox z degree) <= epsilon/16`.
+
+All three indices are explicit functions of `z` and `epsilon`.
+`PositiveWindowArtanhEulerGeometricValueAnchorCertificate.toGeometricAnchor`
+multiplies this inequality by the positive denominator;
+`PositiveWindowArtanhEulerGeometricAnchorCertificate.toSingleAnchor` spends
+the two half-budgets; and the compiler adapters reach the existing
+positive-artanh evaluation and raw same-object Wilson connected capstone.
+
+The exact one-worker target for
+`YMGap.Constructive.CRealArtanhEulerGeometricAnchor` passes 59 jobs.  Guarded
+checks for both new capstone adapters pass.  The audited exports use only
+`[propext, Quot.sound]` or the smaller `[propext]` gate.
+
+`PositiveWindowArtanhEulerGeometricValueAnchorCompiler` remains uninhabited.
+The next scalar frontier is to prove the displayed finite Euler-versus-
+geometric-polynomial estimate, most naturally by an explicit finite formal
+power-series composition plus a checked remainder bound.  This milestone does
+not inhabit any exact-rate, transfer/finite-graph approximation, raw
+observable semantic/nontriviality, projective OS/GNS, vacuum stationarity,
+continuum, QFT, or Clay residual.

@@ -13279,3 +13279,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   capstone also passes its exact one-worker target.  The single-anchor
   compiler and all later semantic/continuum residuals are not claimed
   inhabited.
+
+### [BF4-physical-positive-artanh-geometric-value-anchor] Reduce the scalar anchor to one finite Euler-versus-polynomial inequality — **CLOSED 2026-08-24**
+
+- **milestone**: prove the finite geometric telescope and its dyadic residual
+  bound; cancel the common cleared numerator; compile one direct finite value
+  comparison at computed artanh, Euler, and polynomial indices through the
+  positive-artanh inverse and connected Wilson capstone.
+- **files**:
+  `lean/YMGap/Constructive/QGeometricSum.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerGeometricAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QGeometricSum.geomSum_telescope`,
+  `QGeometricSum.one_sub_mul_geomSum`,
+  `CRealArtanhEulerGeometricAnchor.positiveArtanhGeometricDefect_eqv`,
+  `CRealArtanhEulerGeometricAnchor.positiveArtanhGeometricAnchorDefect_abs_le`,
+  `CRealArtanhEulerGeometricAnchor.clearedDefect_sub_geometricDefect_eqv`,
+  `CRealArtanhEulerGeometricAnchor.PositiveWindowArtanhEulerGeometricValueAnchorCertificate`,
+  `CRealArtanhEulerGeometricAnchor.positiveWindowArtanhEulerCompilerOfGeometricValueAnchor`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhGeometricValueAnchorCompiler`.
+- **obligation**: inhabit the uniform geometric-value-anchor compiler by
+  proving, for each `0 < z <= 1/3` and positive `epsilon`, the explicit finite
+  inequality comparing the computed Euler partial sum with
+  `(1-z) * sum_{k=0}^{degree} (-z)^k`, at
+  `degree = (epsilon/16).den`.  No limit, reciprocal, modulus, or quantified
+  late-stage statement remains in this field.  Exact-rate, transfer/finite-
+  graph approximation, raw observable semantics, nontriviality, projective
+  OS/GNS, vacuum stationarity, continuum existence, and QFT closure remain
+  separate open inputs.
+- **constructive?**: yes — the geometric residual is an exact `Q'.eqv`
+  telescope, its bound uses explicit dyadic powers, and the two half-budgets
+  are combined without choice or classical extraction.  The new compiler is
+  not claimed inhabited.  Every new gate reports only `[propext, Quot.sound]`
+  or `[propext]`.
+- **status note**: the exact one-worker constructive target passes 59 jobs;
+  guarded checks for both connected capstone adapters pass.  This closes the
+  reduction milestone only, not the finite comparison or any later physical
+  or continuum obligation.
