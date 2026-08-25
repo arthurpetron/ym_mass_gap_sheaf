@@ -15493,3 +15493,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   generic dependency target completes 48 jobs and the matched target completes
   all 5093 jobs.  Every printed export uses only `[propext, Quot.sound]`; the
   root aggregator imports both modules.  No full-root audit is claimed.
+
+### [matched-physical-support-pointwise-variation] Reduce matched support-debt persistence to three pointwise dynamic-carrier certificates — **CLOSED 2026-08-25**
+
+- **milestone**: define the literal consecutive matched vacuum-sector pair
+  carriers, exact routed-load and supported-kernel pointwise functions, and
+  three pointwise certificate types; fold their recodings and estimates into
+  the exact maximum, minimum, denominator, numerator, and numerator floor;
+  contract them into compact support-debt variation; and construct the
+  existing matched prefix-tail producer from the three scale-indexed families
+  plus its tail allowance and computed initial slack.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportPointwiseVariationCompiler.lean`.
+- **decl**: `matchedEventualCanonicalVacuumSectorPairs`,
+  `matchedEventualCanonicalRoutedLoadOnPair`,
+  `matchedEventualCanonicalSupportedKernelCandidateOnPair`,
+  `MatchedEventualCanonicalRoutedLoadMaximumVariation`,
+  `MatchedEventualCanonicalSupportedKernelMinimumVariation`,
+  `MatchedEventualCanonicalSupportedKernelMinimumFloor`,
+  `matchedEventualCanonicalRoutedLoadMaximumVariationOfPointwise`,
+  `matchedEventualCanonicalRoutedLoadDenominatorVariationOfPointwise`,
+  `matchedEventualCanonicalSupportedKernelMinimumVariationOfPointwise`,
+  `matchedEventualCanonicalSupportedKernelNumeratorVariationOfPointwise`,
+  `matchedEventualCanonicalSupportedKernelNumeratorFloor`,
+  `matchedEventualCanonicalSupportedKernelNumeratorFloor_le`,
+  `matchedEventualCanonicalSupportCapacityDebtVariationOfPointwise`, and
+  `matchedEventualCanonicalSupportDebtPrefixTailProducerOfPointwise`.
+- **obligation**: inhabit, at every physical scale, the exact bidirectional
+  routed-load recoding/variation data, exact bidirectional supported-kernel
+  recoding/variation data, and exact positive pointwise supported-kernel floor.
+  Then choose a positive tail allowance and verify the computed initial-slack
+  inequality.  These inputs construct the unchanged completed family; the
+  strength/spacing band and nonzero same-object observable pin remain parallel
+  downstream obligations only after this common gate closes.
+- **constructive?**: yes.  Both recoding directions and carrier-membership
+  proofs are computational fields; variation streams carry explicit antitone
+  tail moduli; and the floor is returned as positive rational data.  Every
+  specialization retains the same trajectory, transition start, scale,
+  canonical routing, finite carrier, load, kernel, debt, and ray capacity.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the corrected focused monitored check and the
+  dependency-complete one-worker target pass, the latter completing all 5099
+  jobs.  All eight audited exports use only `[propext, Quot.sound]`.  A
+  dependent convenience-record form reached the deterministic 10M-heartbeat
+  limit and is not counted as a pass; the final explicit constructor preserves
+  the same inputs and conclusion.  The root aggregator imports the module.  No
+  full-root audit is claimed.

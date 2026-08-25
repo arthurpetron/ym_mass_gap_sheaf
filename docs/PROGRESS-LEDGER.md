@@ -17251,3 +17251,54 @@ laws, completed local persistence result, strength band, nonzero same-object
 pin, full trajectory identification, projective OS/GNS reconstruction,
 thermodynamic/continuum compatibility, continuum Yang--Mills construction,
 and Clay mass gap remain open.
+
+## The matched debt frontier reaches literal consecutive finite carriers (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalSupportPointwiseVariationCompiler`
+specializes the existing constructive dynamic-maximum, dynamic-minimum, and
+minimum-floor compilers to the exact matched physical trajectory.  At a fixed
+physical scale and varying tail offset, its carrier is definitionally the
+literal vacuum-sector pair list at nome `trajectory.nome scale` and cutoff
+`transitionStart scale + offset`.  Its two pointwise functions are
+definitionally the existing routed transition-product load and support-aware
+conditional-kernel candidate for the existing canonical routing.
+
+The immediate matched analytic frontier is now three concurrent pointwise
+certificate families:
+
+1. explicit current-to-next and next-to-current pair recodings, membership
+   proofs, one-sided routed-load comparisons, and a summable variation modulus;
+2. the same bidirectional recoding data with the dual one-sided comparisons
+   for the support-aware kernel candidate; and
+3. one positive pointwise lower bound for that exact kernel candidate on every
+   later carrier, including the unit fallback.
+
+The first family folds to the exact routed-load maximum and then its unit-
+seeded denominator.  The second folds to the exact supported-kernel minimum
+and then its half-scaled numerator.  The third folds to a positive uniform
+floor for that numerator.  The matched ratio compiler joins the three into
+variation of the exact compact support debt.  Finally,
+`matchedEventualCanonicalSupportDebtPrefixTailProducerOfPointwise` takes the
+three scale-indexed families, a positive tail allowance, and the computed
+initial-slack inequality and constructs the unchanged no-free-proxy
+prefix-tail producer.  Its existing consumers therefore retain the same
+eventual checks, completed carrier, transfer, vacuum complement, normalized
+strength law, and same-object observable interface.
+
+A dependent convenience record containing all three families reached the
+deterministic 10M-heartbeat limit after a stable monitored attempt.  The final
+explicit-argument constructor carries the same data and conclusion and checks
+in about 2.5 seconds; errors after the timed-out record were elaboration
+contamination and are not counted as passes.  The focused corrected check and
+the dependency-complete one-worker target pass; the latter completes all 5099
+jobs.  All eight audited exports use only `[propext, Quot.sound]`.  The root
+aggregator imports the module, and no full-root audit is claimed.
+
+No one of the three pointwise certificate families, tail allowance, or
+initial slack is inhabited.  In particular, the compiler does not prove that
+the new cutoff shell has summably small load/kernel effect or a uniform kernel
+noncollapse bound.  Physical cubic/spacing laws, the completed local
+persistence result, strength band, nonzero same-object pin, full trajectory
+identification, projective OS/GNS reconstruction, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.
