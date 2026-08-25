@@ -15309,3 +15309,37 @@ geometric coefficient below its truncation order and prove that the canonical
 Euler coefficient obeys the matching recurrence below the artanh truncation
 order.  The independent weighted-tail, physical carrier, OS/operator, limit,
 continuum, QFT, and Clay residuals remain open.
+
+## Finite geometric degree eliminated from the formal frontier (2026-08-24)
+
+The finite geometric comparison has now been computed coefficient by
+coefficient.  The coefficient algebra includes exact formulas for multiplying
+by a two-coefficient polynomial.  From those formulas,
+`coeff_ppow_neg_pvar` proves that `(-z)^power` is a pure monomial with
+coefficient `(-1)^power`, and `coeff_geometricSumPoly` proves that the finite
+geometric sum has coefficient `(-1)^index` throughout its truncation window
+and zero above it.
+
+Multiplication by the numerator `1-z` then gives the closed comparison target:
+coefficient zero is `1`, and every positive coefficient is twice its
+alternating sign.  The theorem
+`coeff_positiveArtanhGeometricApproxPoly_eq_target` proves that formula below
+the geometric truncation boundary.  Thus
+`PositiveArtanhEulerPolynomialTargetCoefficientCertificate` has only the
+variables `(stage,index)`: it asks the canonical stabilized finite-Euler
+coefficient to equal that explicit target below `2*stage+1`.  Its `toStable`
+adapter removes `degree` from the caller-supplied algebraic frontier and
+contracts through the existing formal/full-tail join, scalar inverse, and same
+connected Wilson/OS observable path.
+
+The exact one-worker connected target passes 5117 jobs.  All newly audited
+exports use only `[propext, Quot.sound]`.
+
+The stage/index target certificate and the independent full analytic tail
+compiler remain uninhabited.  The next exact formal frontier is the stabilized
+Euler recurrence for the coefficients of the finite composition; the likely
+route is a finite differential or coefficient recurrence, not another
+cutoff-specific certificate.  The analytic tail can be developed in parallel,
+but the scalar inverse exists only after both proof objects rejoin.  The
+physical-carrier, OS/operator, limit, continuum, QFT, and Clay residuals remain
+open.

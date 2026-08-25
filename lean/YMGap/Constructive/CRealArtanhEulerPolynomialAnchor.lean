@@ -45,6 +45,69 @@ def ppow (p : Poly) : Nat -> Poly
   | 0 => pconst 1
   | n + 1 => pmul p (ppow p n)
 
+/-- Multiplication by `-z` has zero constant coefficient. -/
+theorem coeff_pmul_neg_pvar_zero (q : Poly) :
+    (coeff (pmul (pneg pvar) q) 0).eqv 0 := by
+  unfold pneg pvar
+  refine Q'.eqv_trans _ (((-1 : Q') * 0) * coeff q 0) _
+    (coeff_pmul_pair_left_zero _ _ q) ?_
+  exact Q'.eqv_trans _ (0 * coeff q 0) _
+    (Q'.mul_eqv_congr_right _ 0 _ (q_mul_zero (-1)))
+    (q_zero_mul (coeff q 0))
+
+/-- Multiplication by `-z` shifts the previous coefficient and scales it by
+`-1`. -/
+theorem coeff_pmul_neg_pvar_succ (q : Poly) (n : Nat) :
+    (coeff (pmul (pneg pvar) q) (n + 1)).eqv
+      ((-1 : Q') * coeff q n) := by
+  unfold pneg pvar
+  refine Q'.eqv_trans _
+    (((-1 : Q') * 0) * coeff q (n + 1) +
+      ((-1 : Q') * 1) * coeff q n) _
+    (coeff_pmul_pair_left_succ _ _ q n) ?_
+  refine Q'.eqv_trans _
+    (0 * coeff q (n + 1) + (-1 : Q') * coeff q n) _
+    (q_add_congr
+      (Q'.mul_eqv_congr_right _ 0 _ (q_mul_zero (-1)))
+      (Q'.mul_eqv_congr_right _ (-1) _ (Q'.mul_one_eqv (-1)))) ?_
+  exact Q'.eqv_trans _ (0 + (-1 : Q') * coeff q n) _
+    (q_add_congr (q_zero_mul _) (Q'.eqv_refl _))
+    (q_zero_add_eqv _)
+
+/-- Exact coefficient formula for the pure monomial `(-z)^power`. -/
+theorem coeff_ppow_neg_pvar : forall (power index : Nat),
+    (coeff (ppow (pneg pvar) power) index).eqv
+      (if index = power then ((-1 : Q') ^ power) else 0)
+  | 0, 0 => Q'.eqv_refl 1
+  | 0, index + 1 => Q'.eqv_refl 0
+  | power + 1, 0 => by
+      rw [if_neg (by omega : 0 ≠ power + 1)]
+      exact coeff_pmul_neg_pvar_zero _
+  | power + 1, index + 1 => by
+      by_cases heq : index = power
+      · subst index
+        rw [if_pos rfl]
+        exact Q'.eqv_trans _
+          ((-1 : Q') * coeff (ppow (pneg pvar) power) power) _
+          (coeff_pmul_neg_pvar_succ _ power)
+          (Q'.mul_eqv_congr_left (-1) _ _
+            (Q'.eqv_trans _
+              (if power = power then ((-1 : Q') ^ power) else 0) _
+              (coeff_ppow_neg_pvar power power)
+              (by rw [if_pos rfl]; exact Q'.eqv_refl _)))
+      · have hsucc : index + 1 ≠ power + 1 := by omega
+        rw [if_neg hsucc]
+        exact Q'.eqv_trans _
+          ((-1 : Q') * coeff (ppow (pneg pvar) power) index) _
+          (coeff_pmul_neg_pvar_succ _ index)
+          (Q'.eqv_trans _ ((-1 : Q') * 0) _
+            (Q'.mul_eqv_congr_left (-1) _ 0
+              (Q'.eqv_trans _
+                (if index = power then ((-1 : Q') ^ power) else 0) _
+                (coeff_ppow_neg_pvar power index)
+                (by rw [if_neg heq]; exact Q'.eqv_refl 0)))
+            (q_mul_zero (-1)))
+
 theorem eval_pconst (c x : Q') : (eval (pconst c) x).eqv c := by
   show (c + x * 0).eqv c
   exact Q'.eqv_trans _ _ _
@@ -428,6 +491,65 @@ def geometricSumPoly : Nat -> Poly
   | degree + 1 => padd (geometricSumPoly degree)
       (ppow (pneg pvar) (degree + 1))
 
+/-- Exact coefficients of the finite geometric sum.  Inside its truncation
+window they are `(-1)^index`; all higher coefficients vanish. -/
+theorem coeff_geometricSumPoly : forall (degree index : Nat),
+    (coeff (geometricSumPoly degree) index).eqv
+      (if index <= degree then ((-1 : Q') ^ index) else 0)
+  | 0, 0 => Q'.eqv_refl 1
+  | 0, index + 1 => by
+      rw [if_neg (by omega : ¬ index + 1 <= 0)]
+      exact Q'.eqv_refl 0
+  | degree + 1, index => by
+      refine Q'.eqv_trans _
+        (coeff (geometricSumPoly degree) index +
+          coeff (ppow (pneg pvar) (degree + 1)) index) _
+        (coeff_padd index _ _) ?_
+      by_cases hle : index <= degree
+      · rw [if_pos (by omega : index <= degree + 1)]
+        have hne : index ≠ degree + 1 := by omega
+        exact Q'.eqv_trans _ (((-1 : Q') ^ index) + 0) _
+          (q_add_congr
+            (Q'.eqv_trans _
+              (if index <= degree then ((-1 : Q') ^ index) else 0) _
+              (coeff_geometricSumPoly degree index)
+              (by rw [if_pos hle]; exact Q'.eqv_refl _))
+            (Q'.eqv_trans _
+              (if index = degree + 1 then
+                ((-1 : Q') ^ (degree + 1)) else 0) _
+              (coeff_ppow_neg_pvar (degree + 1) index)
+              (by rw [if_neg hne]; exact Q'.eqv_refl 0)))
+          (q_add_zero_eqv _)
+      · by_cases heq : index = degree + 1
+        · subst index
+          rw [if_pos (by omega : degree + 1 <= degree + 1)]
+          exact Q'.eqv_trans _ (0 + ((-1 : Q') ^ (degree + 1))) _
+            (q_add_congr
+              (Q'.eqv_trans _
+                (if degree + 1 <= degree then
+                  ((-1 : Q') ^ (degree + 1)) else 0) _
+                (coeff_geometricSumPoly degree (degree + 1))
+                (by rw [if_neg (by omega)]; exact Q'.eqv_refl 0))
+              (Q'.eqv_trans _
+                (if degree + 1 = degree + 1 then
+                  ((-1 : Q') ^ (degree + 1)) else 0) _
+                (coeff_ppow_neg_pvar (degree + 1) (degree + 1))
+                (by rw [if_pos rfl]; exact Q'.eqv_refl _)))
+            (q_zero_add_eqv _)
+        · rw [if_neg (by omega : ¬ index <= degree + 1)]
+          exact Q'.eqv_trans _ (0 + 0) _
+            (q_add_congr
+              (Q'.eqv_trans _
+                (if index <= degree then ((-1 : Q') ^ index) else 0) _
+                (coeff_geometricSumPoly degree index)
+                (by rw [if_neg hle]; exact Q'.eqv_refl 0))
+              (Q'.eqv_trans _
+                (if index = degree + 1 then
+                  ((-1 : Q') ^ (degree + 1)) else 0) _
+                (coeff_ppow_neg_pvar (degree + 1) index)
+                (by rw [if_neg heq]; exact Q'.eqv_refl 0)))
+            (q_add_zero_eqv 0)
+
 theorem eval_neg_pvar (z : Q') :
     (eval (pneg pvar) z).eqv (-z) :=
   Q'.eqv_trans _ _ _ (eval_pneg pvar z)
@@ -460,6 +582,72 @@ theorem eval_positiveArtanhNumeratorPoly (z : Q') :
 /-- Coefficient polynomial for the finite geometric approximation. -/
 def positiveArtanhGeometricApproxPoly (degree : Nat) : Poly :=
   pmul (geometricSumPoly degree) positiveArtanhNumeratorPoly
+
+/-- Closed coefficient target for `(1-z)/(1+z)`: constant coefficient one,
+then twice the alternating sign. -/
+def positiveArtanhFormalTargetCoeff : Nat -> Q'
+  | 0 => 1
+  | index + 1 =>
+      ((-1 : Q') ^ (index + 1)) + ((-1 : Q') ^ (index + 1))
+
+/-- Below its truncation boundary, the finite geometric comparison already
+has the closed target coefficient. -/
+theorem coeff_positiveArtanhGeometricApproxPoly_eq_target :
+    forall (degree index : Nat), index < degree + 1 ->
+      (coeff (positiveArtanhGeometricApproxPoly degree) index).eqv
+        (positiveArtanhFormalTargetCoeff index)
+  | degree, 0, hindex => by
+      unfold positiveArtanhGeometricApproxPoly
+        positiveArtanhNumeratorPoly pconst pneg pvar
+      change (coeff
+        (pmul (geometricSumPoly degree)
+          [(1 : Q') + (-1 : Q') * 0, (-1 : Q') * 1]) 0).eqv 1
+      refine Q'.eqv_trans _
+        (coeff (geometricSumPoly degree) 0 *
+          ((1 : Q') + (-1 : Q') * 0)) _
+        (coeff_pmul_pair_zero _ _ _) ?_
+      have hgeom := coeff_geometricSumPoly degree 0
+      rw [if_pos (by omega : 0 <= degree)] at hgeom
+      have hb0 : ((1 : Q') + (-1 : Q') * 0).eqv 1 :=
+        Q'.eqv_trans _ (1 + 0) _
+          (Q'.add_eqv_congr_left 1 _ 0 (q_mul_zero (-1)))
+          (q_add_zero_eqv 1)
+      exact Q'.eqv_trans _ (1 * 1) _
+        (q_mul_congr hgeom hb0)
+        (Q'.one_mul_eqv 1)
+  | degree, index + 1, hindex => by
+      unfold positiveArtanhGeometricApproxPoly
+        positiveArtanhNumeratorPoly pconst pneg pvar
+      change (coeff
+        (pmul (geometricSumPoly degree)
+          [(1 : Q') + (-1 : Q') * 0, (-1 : Q') * 1])
+        (index + 1)).eqv
+          (((-1 : Q') ^ (index + 1)) +
+            ((-1 : Q') ^ (index + 1)))
+      refine Q'.eqv_trans _
+        (coeff (geometricSumPoly degree) (index + 1) *
+            ((1 : Q') + (-1 : Q') * 0) +
+          coeff (geometricSumPoly degree) index * ((-1 : Q') * 1)) _
+        (coeff_pmul_pair_succ _ _ _ index) ?_
+      have hnext := coeff_geometricSumPoly degree (index + 1)
+      have hprev := coeff_geometricSumPoly degree index
+      rw [if_pos (by omega : index + 1 <= degree)] at hnext
+      rw [if_pos (by omega : index <= degree)] at hprev
+      have hb0 : ((1 : Q') + (-1 : Q') * 0).eqv 1 :=
+        Q'.eqv_trans _ (1 + 0) _
+          (Q'.add_eqv_congr_left 1 _ 0 (q_mul_zero (-1)))
+          (q_add_zero_eqv 1)
+      have hb1 : ((-1 : Q') * 1).eqv (-1 : Q') :=
+        Q'.mul_one_eqv (-1)
+      refine Q'.eqv_trans _
+        (((-1 : Q') ^ (index + 1)) * 1 +
+          ((-1 : Q') ^ index) * (-1 : Q')) _
+        (q_add_congr
+          (q_mul_congr hnext hb0)
+          (q_mul_congr hprev hb1)) ?_
+      exact q_add_congr
+        (Q'.mul_one_eqv ((-1 : Q') ^ (index + 1)))
+        (Q'.mul_comm_eqv ((-1 : Q') ^ index) (-1))
 
 theorem eval_positiveArtanhGeometricApproxPoly
     (z : Q') (degree : Nat) :
@@ -1441,6 +1629,15 @@ structure PositiveArtanhEulerPolynomialStableCoefficientCertificate : Type 1 whe
       (positiveArtanhEulerStableCoeff stage index).eqv
         (coeff (positiveArtanhGeometricApproxPoly degree) index)
 
+/-- Further-reduced algebraic frontier after the finite geometric coefficient
+has been computed internally.  Only the artanh stage and coefficient index
+remain. -/
+structure PositiveArtanhEulerPolynomialTargetCoefficientCertificate : Type 1 where
+  coefficientTarget :
+    forall (stage index : Nat), index < 2 * stage + 1 ->
+      (positiveArtanhEulerStableCoeff stage index).eqv
+        (positiveArtanhFormalTargetCoeff index)
+
 /-- The algebraic rib of the scalable cancellation proof.  This statement is
 independent of the evaluation point and tolerance: every coefficient below the
 first possible truncation error agrees in the finite Euler and geometric
@@ -1495,6 +1692,23 @@ def toFormal
       (Q'.eqv_trans _ _ _ heuler hagreement)
 
 end PositiveArtanhEulerPolynomialStableCoefficientCertificate
+
+namespace PositiveArtanhEulerPolynomialTargetCoefficientCertificate
+
+/-- The closed finite-geometric coefficient formula removes `degree` from the
+caller-supplied algebraic frontier. -/
+def toStable
+    (certificate :
+      PositiveArtanhEulerPolynomialTargetCoefficientCertificate) :
+    PositiveArtanhEulerPolynomialStableCoefficientCertificate where
+  coefficientAgreement stage degree index hstage hdegree :=
+    Q'.eqv_trans _ _ _
+      (certificate.coefficientTarget stage index hstage)
+      (Q'.eqv_symm
+        (coeff_positiveArtanhGeometricApproxPoly_eq_target
+          degree index hdegree))
+
+end PositiveArtanhEulerPolynomialTargetCoefficientCertificate
 
 /-- The analytic rib after the entire formally cancelling prefix has been
 removed.  It contains no algebraic cancellation field and can therefore be
@@ -1665,6 +1879,15 @@ def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
   positiveWindowArtanhEulerPolynomialCoefficientCompilerOfFormalAndTail
     stable.toFormal tail
 
+/-- The stage/index target certificate and analytic tail contract to the same
+weighted coefficient compiler. -/
+def positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
+    (target : PositiveArtanhEulerPolynomialTargetCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerPolynomialCoefficientCompiler :=
+  positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
+    target.toStable tail
+
 /-- Boolean-check presentation of the coefficient certificate.  It is useful
 for generated finite certificates because each field reduces to an executable
 kernel computation. -/
@@ -1781,6 +2004,16 @@ def positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail
     (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfStableAndTail
       stable tail)
 
+/-- The reduced stage/index target certificate plus the analytic tail compiles
+to the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail
+    (target : PositiveArtanhEulerPolynomialTargetCoefficientCertificate)
+    (tail : PositiveWindowArtanhEulerPolynomialFullTailCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomial
+    (positiveWindowArtanhEulerPolynomialCoefficientCompilerOfTargetAndTail
+      target tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -1832,11 +2065,21 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialStableCoefficientCertificate.toFormal
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_ppow_neg_pvar
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_geometricSumPoly
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhGeometricApproxPoly_eq_target
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialTargetCoefficientCertificate.toStable
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialPrefixTailCompilerOfFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialFormalAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialStableAndTail
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

@@ -22,6 +22,14 @@ open YMGap.Constructive.QPoly
 open YMGap.Constructive.QPolyWeightedL1
 open YMGap.Constructive.QPolyJetOne
 
+/-- Congruence for multiplication on both rational arguments. -/
+theorem q_mul_congr {a a' b b' : Q'}
+    (ha : a.eqv a') (hb : b.eqv b') :
+    (a * b).eqv (a' * b') :=
+  Q'.eqv_trans _ (a' * b) _
+    (Q'.mul_eqv_congr_right a a' b ha)
+    (Q'.mul_eqv_congr_left a' b b' hb)
+
 /-- Coefficient at an arbitrary degree, with implicit zero padding. -/
 def coeff : Poly -> Nat -> Q'
   | [], _ => 0
@@ -110,6 +118,78 @@ theorem coeff_pmul : forall (p q : Poly) (n : Nat),
       exact q_add_congr (coeff_pscale a q (n + 1))
         (coeff_pmul ps q n)
 
+theorem mulCoeff_singleton (a : Q') (q : Poly) :
+    forall n : Nat, (mulCoeff [a] q n).eqv (a * coeff q n)
+  | 0 => Q'.eqv_refl _
+  | _n + 1 => Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ 0 (Q'.eqv_refl 0))
+      (q_add_zero_eqv _)
+
+theorem coeff_pmul_pair_left_zero
+    (a0 a1 : Q') (q : Poly) :
+    (coeff (pmul [a0, a1] q) 0).eqv (a0 * coeff q 0) :=
+  Q'.eqv_trans _ _ _ (coeff_pmul [a0, a1] q 0) (Q'.eqv_refl _)
+
+theorem coeff_pmul_pair_left_succ
+    (a0 a1 : Q') (q : Poly) (n : Nat) :
+    (coeff (pmul [a0, a1] q) (n + 1)).eqv
+      (a0 * coeff q (n + 1) + a1 * coeff q n) :=
+  Q'.eqv_trans _
+    (a0 * coeff q (n + 1) + mulCoeff [a1] q n) _
+    (coeff_pmul [a0, a1] q (n + 1))
+    (Q'.add_eqv_congr_left _ _ _ (mulCoeff_singleton a1 q n))
+
+/-- Constant coefficient of multiplication by a two-coefficient polynomial. -/
+theorem coeff_pmul_pair_zero
+    (p : Poly) (b0 b1 : Q') :
+    (coeff (pmul p [b0, b1]) 0).eqv (coeff p 0 * b0) := by
+  refine Q'.eqv_trans _ (mulCoeff p [b0, b1] 0) _
+    (coeff_pmul p [b0, b1] 0) ?_
+  cases p with
+  | nil => exact Q'.eqv_symm (q_zero_mul b0)
+  | cons a ps => exact Q'.eqv_refl _
+
+/-- Positive coefficients of multiplication by `[b0,b1]` use exactly the
+two adjacent coefficients of the left factor. -/
+theorem coeff_pmul_pair_succ
+    (b0 b1 : Q') : forall (p : Poly) (n : Nat),
+    (coeff (pmul p [b0, b1]) (n + 1)).eqv
+      (coeff p (n + 1) * b0 + coeff p n * b1)
+  | [], n => by
+      refine Q'.eqv_trans _ (mulCoeff [] [b0, b1] (n + 1)) _
+        (coeff_pmul [] [b0, b1] (n + 1)) ?_
+      exact Q'.eqv_symm
+        (Q'.eqv_trans _ (0 + 0) _
+          (q_add_congr (q_zero_mul b0) (q_zero_mul b1))
+          (q_add_zero_eqv 0))
+  | a :: ps, 0 => by
+      refine Q'.eqv_trans _ (mulCoeff (a :: ps) [b0, b1] 1) _
+        (coeff_pmul (a :: ps) [b0, b1] 1) ?_
+      change (a * b1 + mulCoeff ps [b0, b1] 0).eqv
+        (coeff ps 0 * b0 + a * b1)
+      exact Q'.eqv_trans _ (a * b1 + coeff ps 0 * b0) _
+        (Q'.add_eqv_congr_left _ _ _
+          (by
+            cases ps with
+            | nil => exact Q'.eqv_symm (q_zero_mul b0)
+            | cons c cs => exact Q'.eqv_refl _))
+        (Q'.add_comm_eqv _ _)
+  | a :: ps, n + 1 => by
+      refine Q'.eqv_trans _
+        (mulCoeff (a :: ps) [b0, b1] (n + 2)) _
+        (coeff_pmul (a :: ps) [b0, b1] (n + 2)) ?_
+      change (a * 0 + mulCoeff ps [b0, b1] (n + 1)).eqv
+        (coeff ps (n + 1) * b0 + coeff ps n * b1)
+      exact Q'.eqv_trans _
+        (0 + mulCoeff ps [b0, b1] (n + 1)) _
+        (Q'.add_eqv_congr_right _ 0 _ (q_mul_zero a))
+        (Q'.eqv_trans _ (mulCoeff ps [b0, b1] (n + 1)) _
+          (q_zero_add_eqv _)
+          (Q'.eqv_trans _
+            (coeff (pmul ps [b0, b1]) (n + 1)) _
+            (Q'.eqv_symm (coeff_pmul ps [b0, b1] (n + 1)))
+            (coeff_pmul_pair_succ b0 b1 ps n)))
+
 /-- A passed executable prefix check yields pointwise coefficient vanishing at
 every smaller degree. -/
 theorem coeff_eqv_zero_of_zeroPrefix :
@@ -159,6 +239,8 @@ end YMGap.Constructive.QPolyCoefficient
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Constructive.QPolyCoefficient.coeff_pmul
+#print axioms YMGap.Constructive.QPolyCoefficient.coeff_pmul_pair_left_succ
+#print axioms YMGap.Constructive.QPolyCoefficient.coeff_pmul_pair_succ
 #print axioms YMGap.Constructive.QPolyCoefficient.coeff_psub_eqv_zero_of_eqv
 #print axioms YMGap.Constructive.QPolyCoefficient.coeff_eqv_zero_of_zeroPrefix
 #print axioms YMGap.Constructive.QPolyCoefficient.zeroPrefix_of_coeff_eqv_zero

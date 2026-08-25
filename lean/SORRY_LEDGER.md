@@ -13544,3 +13544,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   connected capstone.  This closes Euler-truncation stability only; it does
   not close the stabilized artanh/geometric identity, analytic tail, scalar
   inverse, physical operator gap, continuum theory, or Clay conclusion.
+
+### [BF4-physical-positive-artanh-geometric-degree-elimination] Compute the finite geometric coefficients and remove degree from the formal frontier — **CLOSED 2026-08-24**
+
+- **milestone**: prove exact coefficient formulas for multiplication by a
+  two-coefficient polynomial, pure powers of `-z`, and the finite geometric
+  sum; compute the closed coefficients of `(1-z)/(1+z)` inside its finite
+  truncation window; reduce the formal certificate to a stage/index target;
+  and carry that target plus the independent analytic tail through the
+  unchanged scalar and connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/QPolyCoefficient.lean`,
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**: `QPolyCoefficient.coeff_pmul_pair_left_succ`,
+  `QPolyCoefficient.coeff_pmul_pair_succ`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_ppow_neg_pvar`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_geometricSumPoly`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhFormalTargetCoeff`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhGeometricApproxPoly_eq_target`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveArtanhEulerPolynomialTargetCoefficientCertificate.toStable`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialTargetAndTail`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialTargetAndTailCompilers`.
+- **obligation**: inhabit the target coefficient certificate by proving that
+  the canonical stabilized finite-Euler coefficient equals the explicit
+  alternating target below `2*stage+1`; independently inhabit the full-tail
+  compiler.  The geometric degree is no longer an open formal parameter.
+  Physical-carrier, OS/operator, limit, continuum, QFT, and Clay inputs remain
+  separate and open.
+- **constructive?**: yes.  Every coefficient formula is a recursive
+  `Q'.eqv` proof over finite lists and natural indices.  The reduced target is
+  Type-level data, no successful target or tail certificate is postulated,
+  and the observable-preserving join uses the same downstream parameters.
+  Gates remain within `[propext, Quot.sound]`.
+- **status note**: the exact one-worker connected capstone passes 5117 jobs.
+  This closes the finite-geometric coefficient computation and degree
+  elimination only; it does not close the stabilized Euler recurrence,
+  analytic tail, scalar inverse, physical operator gap, continuum theory, or
+  Clay conclusion.
