@@ -14180,3 +14180,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   scalar fields and the compiler seam, not the two analytic fields, the
   physical dynamic family, continuum reconstruction, QFT axioms, or the Clay
   mass gap.
+
+### [anchor-dynamic-ray-capacity-compiler] Reduce the fixed-anchor dynamic family to one local field — **CLOSED 2026-08-25**
+
+- **milestone**: factor a dynamic ray-capacity producer from its dependent
+  adaptive transition product; construct a geometric-spacing scalar
+  trajectory with nome fixed literally at `anchorCoupling = 1/400`; install
+  the existing cutoff-uniform cofinal ray capacity at every scale; and compile
+  any one-field transition-product extension to the existing completed
+  dynamic family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalAnchorDynamicRayCapacityCompiler.lean`.
+- **decl**:
+  `DynamicSpinCubeOffRayAdaptiveRayCapacityProducer`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductExtension`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductExtension.toLocalProducer`,
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductExtension.toCompletedFamily`,
+  `anchorCoupling_pos`, `anchorCoupling_lt_one`,
+  `anchorGeometricScalarTrajectory`,
+  `anchorGeometricRayCapacityProducer`,
+  `anchorGeometricRayCapacityProducer_delta_pos`,
+  `AnchorGeometricAdaptiveTransitionProductExtension`, and
+  `anchorGeometricCompletedFamily`.
+- **obligation**: inhabit
+  `AnchorGeometricAdaptiveTransitionProductExtension` by proving one
+  cutoff-uniform adaptive off-ray conditional transition product for the
+  exact anchor capacity.  The known finite linear product shrinks capacity by
+  a cutoff-dependent cost and does not supply this field.  Separately, the
+  canonical AF lane still needs cofinal capacity at each changing nome, and
+  the actual grouped BF4 trajectory, same raw observable, projective OS/GNS
+  join, completed all-vector gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The anchor order facts are decidable rational
+  computations; the scalar spacing reuses the explicit geometric modulus;
+  and the capacity is the existing selected-row construction without
+  weakening or transport to another nome.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5069 jobs.
+  Nine audited exports use only `[propext, Quot.sound]` or smaller subsets;
+  the executable forbidden-token scan reports zero hits, and the root
+  aggregator imports the module.  This closes the capacity field only on the
+  fixed-anchor/geometric lane, not on the AF or physical continuum lane.

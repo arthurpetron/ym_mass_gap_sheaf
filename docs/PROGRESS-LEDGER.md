@@ -15951,3 +15951,40 @@ root aggregator imports the module; no full-root audit is claimed.  No local
 producer, physical dynamic family, same-observable physical trajectory,
 projective OS/GNS join, all-vector completed gap, continuum QFT, or Clay
 theorem is constructed.
+
+## The fixed-anchor dynamic family is reduced to one local analytic field (2026-08-25)
+
+`BF4PhysicalAnchorDynamicRayCapacityCompiler` separates a scale-indexed
+cofinal ray-capacity producer from the adaptive transition product that
+depends on its exact capacity.  The generic
+`DynamicSpinCubeOffRayAdaptiveTransitionProductExtension` therefore has one
+field.  Its lossless compiler reconstructs the preceding two-field local
+producer and hence the existing seven-field dynamic family, completed
+carriers, transfers, vacuum sectors, and normalized-strength law.
+
+This reduction is non-vacuous on the fixed strong-coupling lane.
+`anchorGeometricScalarTrajectory` keeps the nome literally equal to
+`anchorCoupling = 1/400` while reusing the proved geometric positive spacing
+and spacing-to-zero modulus.  Because the nome does not change,
+`anchorGeometricRayCapacityProducer` legitimately installs the already-proved
+`anchorCentralSpinCubeCofinalRayCapacity` at every scale, with the same
+positive capacity constant.  Thus six of the seven dynamic inputs are
+inhabited on this anchor/geometric trajectory; only the adaptive conditional
+transition product remains.
+
+The causal proof-path split is now explicit.  On the fixed-anchor lane, the
+selected-row ceiling has already discharged the ray-capacity gate, so the
+next local theorem is exactly
+`AnchorGeometricAdaptiveTransitionProductExtension`.  On the canonical AF
+lane, a new capacity theorem is still required at each changing nome before
+the same product theorem can even be stated.  The fixed anchor must not be
+relabelled as asymptotic freedom, and neither scalar trajectory has yet been
+identified with the actual four-dimensional grouped BF4 evolution.
+
+The exact monitored one-worker target passes all 5069 jobs.  The nine audited
+exports use no axioms beyond `[propext, Quot.sound]` (with smaller subsets for
+some arithmetic and scalar declarations), and the executable forbidden-token
+scan reports zero hits.  The root aggregator imports the module; no full-root
+audit is claimed.  No transition-product extension, physical dynamic family,
+same-observable thermodynamic bridge, all-vector completed spectral gap,
+continuum QFT, or Clay theorem is constructed.
