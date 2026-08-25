@@ -19196,3 +19196,47 @@ merger/no-merger alternatives, new--old and new--new faces, old traffic, route
 churn, shell returns, total tail closure, AF physical-scale uniformity,
 same-object completion, thermodynamic/continuum compatibility, continuum
 Yang--Mills, and the Clay mass gap remain open.
+
+## Exact old--new amplification is below a face-specific sector-floor fallback (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacitySectorFloorMajorant`
+compares the primary same-row obstruction with a coarser denominator while
+retaining its old--new numerator.  For a literal current pair with positive
+route activity, the prior used-edge theorem places the mapped edge in the
+later vacuum sector and proves
+
+`laterSectorRawKernelFloor <= exactMappedPairRawCapacity`.
+
+Reciprocal antitonicity and the existing row-active-to-face path bound give
+
+`exactActivePathRawCapacityAmplification`
+`  <= sharedFloor * oldNewFacePathSquareMaximum / laterSectorRawKernelFloor`.
+
+If the row has no positive route activity, the exact row amplification is
+already setoid-equal to zero, so no denominator hypothesis is introduced for
+an unused row.  A located finite maximum transports this pointwise comparison
+to the exact joint amplification.  A cross-multiplied dyadic payment against
+the face-specific sector envelope then bounds the least exact joint precision
+and compiles into the unchanged consecutive-cutoff linear schedule.
+
+This adds a verified diagnostic branch, not a second physical conclusion.
+The sharp route still keeps each selected mapped row's exact raw capacity.
+The sector floor ranges over all positive later-sector entries and can decay
+because of entries unused by the observable.  In particular, the existing
+global-floor no-go precludes treating a fixed positive cofinal sector minimum
+as the missing uniform rate.  The fallback is useful only if a separate
+cutoff-sensitive payment defeats that decay.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5167 jobs.  The five audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+The next primary frontier is still an a priori dyadic growth bound for the
+exact same-row amplification, in parallel with physical-scale control of the
+nome/dimension fixed burn.  The sector-floor payment is an independently
+testable fallback.  Merger versus uniform no-merger, new--old, new--new, old
+traffic, route churn, shell returns, total tail closure, AF physical-scale
+uniformity, same-object completion, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.

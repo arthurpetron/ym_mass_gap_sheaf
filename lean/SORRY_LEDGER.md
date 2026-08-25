@@ -17153,3 +17153,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the executable forbidden-token scan
   reports zero hits, `git diff --check` passes, and the root aggregator imports
   all three modules.  No full-root audit is claimed.
+
+### [matched-physical-old-new-active-path-sector-floor-majorant] Compare exact row amplification with a face-specific sector-floor fallback — **CLOSED 2026-08-25**
+
+- **milestone**: retain the old--new face-specific routed path-square maximum;
+  prove that every active same-row exact path/raw-capacity quotient is below
+  the same numerator divided by the later-sector raw-kernel floor; handle an
+  inactive row by the existing exact zero theorem; take the located maximum
+  on the unchanged literal current-pair carrier; and compile a cross-multiplied
+  dyadic payment against this majorant into the exact least-joint-precision
+  bound and existing consecutive-cutoff linear data.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacitySectorFloorMajorant.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSectorFloorPathAmplificationEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationOnCurrentPair_le_sectorFloorPathEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationMaximum_le_sectorFloorPathEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicPrecision_le_of_sectorFloorPayment`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabSectorFloorDyadicLinearData.toLinearData`.
+- **obligation**: inhabit the sector-floor dyadic payment and fixed-start
+  fields, or preferably prove a sharper growth law directly for the exact
+  same-row amplification.  The sector minimum ranges over positive entries
+  unused by the selected observable and is therefore only a diagnostic
+  fallback.  The proved global-floor no-go rules out treating a fixed positive
+  cofinal sector floor as a solution; exact local capacity remains the primary
+  route.  Merger/no-merger, new--old, new--new, and the other downstream
+  frontiers remain open.
+- **constructive?**: yes.  Positive route activity supplies the exact
+  capacity lower comparison; inactive rows reduce to zero; finite maxima are
+  located folds; and the dyadic compiler uses only rational inequalities and
+  the already verified least-precision theorem.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5167 jobs.  The five
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
