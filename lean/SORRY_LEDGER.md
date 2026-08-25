@@ -16132,3 +16132,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-active-factorization] Restrict reciprocal capacity to used traffic cells — **CLOSED 2026-08-25**
+
+- **milestone**: form the explicit Cartesian carrier of current vacuum-sector
+  pairs and actual new endpoint pairs; Boolean-filter it to cells with both
+  positive route factor and positive source-weighted conditional capacity;
+  take constructive maxima of route factor and reciprocal capacity only on
+  that active carrier; prove inactive cells have zero guarded raw-kernel
+  amplification; bound the actual raw-kernel amplification maximum by the
+  product of the two active maxima and shared floor; and compile the resulting
+  active-factorized new-block envelope back to the unchanged raw-kernel,
+  weighted, exact-traffic, regional, and total-deficit consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveFactorization.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficActiveCells`,
+  `matchedEventualCanonicalNewEndpointTrafficCell_mem_activeCells`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficRawKernelAmplificationOnMappedPair_le_activeFactorizedEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficRawKernelAmplificationMaximum_le_activeFactorizedEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_activeFactorizedNewBlockDebtEnvelope`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveFactorizedInverseSquareControl.toRawKernelControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficActiveFactorizedInverseSquareControl.debtMaximum_le`.
+- **obligation**: bound directed-edge multiplicity by routed path length and
+  reduce the route maximum to a routing-specific path-length-square maximum on
+  the same actual endpoint carrier.  Then establish quantitative decay of
+  later new-block mass against that path geometry and the reciprocal positive
+  raw-kernel capacity on active cells.  Also prove a uniform no-merger branch
+  or estimate the component-merger residual.
+- **constructive?**: yes.  Every carrier and filter is an explicit finite list,
+  active membership supplies every positivity witness used by a quotient, and
+  all inactive cases reduce the guarded amplification to zero.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5128 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.

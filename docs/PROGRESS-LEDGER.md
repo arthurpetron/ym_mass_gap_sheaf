@@ -18011,3 +18011,49 @@ drift, route churn, the three shell-return faces, tail allowance and initial
 closure, AF identification, physical-scale uniformity, a nonzero same-object
 observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## Raw-kernel amplification factors only through active traffic cells (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveFactorization`
+refines the raw-kernel maximum without changing the endpoint observable or
+its routed carrier.  A literal cell is a current vacuum-sector pair together
+with an actual new endpoint pair.  The module filters the finite Cartesian
+cell carrier to those cells on which both the route factor and the source-
+weighted conditional capacity are strictly positive.  It then takes two
+constructive located maxima on exactly that active list: the route-factor
+maximum and the reciprocal-capacity maximum.
+
+If a cell is inactive, either its route factor is zero or its capacity is
+zero; the defining guarded raw-kernel amplification is then zero.  If it is
+active, membership supplies the positive capacity witness needed for the
+rational reciprocal.  These two branches prove pointwise, and then on the
+actual carrier maximum,
+
+`rawKernelAmplificationMaximum`
+`  <= sharedFloor * (activeRouteFactorMaximum`
+`                    * activeCapacityReciprocalMaximum)`.
+
+Multiplication by twice the later new-block mass yields the corresponding
+active-factorized new-block debt envelope, and the exact new-debt maximum is
+bounded by it.  A new Type-level inverse-square interface contracts directly
+to the previous raw-kernel control, so all unchanged exact-traffic, regional,
+and total-deficit consumers remain connected to the same observable.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5128 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No inverse-square estimate is inhabited.  The factorization deliberately
+does not ask for a reciprocal-capacity bound on unused edges.  The next
+compiler should bound directed-edge multiplicity by the routed path length,
+replace the route factor by a routing-specific path-length square on the same
+actual endpoint carrier, and leave the genuinely analytic task as decay of
+new-block mass against path-length-square and active reciprocal raw-kernel
+capacity growth.  A uniform no-merger certificate or merger-residual estimate
+also remains open.  Old-traffic drift, route churn, the three shell-return
+faces, tail allowance and initial closure, AF identification, physical-scale
+uniformity, a nonzero same-object observable pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.
