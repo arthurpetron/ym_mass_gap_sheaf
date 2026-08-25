@@ -16171,3 +16171,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-path-length-factorization] Bound repeated-edge route load by path length squared — **CLOSED 2026-08-25**
+
+- **milestone**: prove a zero-one indicator sum bound for unit weighted
+  directed-edge occurrences; identify the occurrence-list length with the
+  positive path's edge length; bound arbitrary repeated-edge multiplicity by
+  total path length; bound every literal route factor by the quadratic length
+  scale; take its located maximum on the same actual new-endpoint carrier;
+  substitute it for the active route-factor maximum; and compile the resulting
+  path-factorized new-block envelope back to the unchanged exact new-debt
+  observable and all prior consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelPathLengthFactorization.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedDirectedEdgeMultiplicity_le_pathLength`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficRouteFactorOnPair_le_routedPathLengthSquare`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveRouteFactorMaximum_le_routedPathLengthSquareMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveFactorizedAmplificationEnvelope_le_pathFactorizedEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_pathFactorizedNewBlockDebtEnvelope`,
+  `MatchedEventualCanonicalNewEndpointTrafficPathFactorizedInverseSquareControl.toActiveFactorizedControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficPathFactorizedInverseSquareControl.debtMaximum_le`.
+- **obligation**: establish quantitative growth control for the transported
+  routing's path-length-square maximum and for reciprocal raw-kernel capacity
+  on the active cells, then prove that their product with later new-block mass
+  has a summable inverse-square bound.  This may require an observable-
+  preserving bounded-simple-routing recoding.  Also prove a uniform no-merger
+  branch or estimate the component-merger residual.
+- **constructive?**: yes.  The multiplicity proof sums explicit zero-one
+  indicators over the literal occurrence list, permits repeated edges, and
+  every maximum remains on an explicit actual carrier.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5129 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.

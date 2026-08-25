@@ -18057,3 +18057,54 @@ faces, tail allowance and initial closure, AF identification, physical-scale
 uniformity, a nonzero same-object observable pin, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Repeated-edge route multiplicity contracts to path length squared (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelPathLengthFactorization`
+removes directed-edge multiplicity as an independent analytic factor.  For
+an arbitrary positive routed path, the exact multiplicity of a selected
+directed edge is a sum of zero-one indicators over the literal directed-edge
+occurrence list.  Termwise comparison with one bounds that sum by the list
+length.  The existing checked identity between directed-edge-list length and
+path edge length therefore proves, without a simple-path or no-repeat
+assumption,
+
+`directedEdgeMultiplicity <= pathLength`.
+
+Multiplying by the nonnegative path length shows that every literal route
+factor is at most the route's quadratic length scale.  The module takes a
+constructive located maximum of that square on the same actual new-endpoint
+list and proves
+
+`activeRouteFactorMaximum <= routedPathLengthSquareMaximum`.
+
+Substitution into the active-cell factorization gives the explicit envelope
+
+`sharedFloor * (routedPathLengthSquareMaximum`
+`               * activeCapacityReciprocalMaximum)`.
+
+After multiplication by twice the later new-block mass, this bounds the same
+exact new-debt maximum.  A Type-level inverse-square interface contracts to
+the prior active-factorized control and hence preserves all downstream exact-
+traffic, regional, and total-deficit consumers.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5129 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No path-growth, reciprocal-capacity, or inverse-square estimate is inhabited.
+The remaining new-traffic analytic product is now exactly later new-block
+mass times routed path-length-square times the active reciprocal raw-kernel
+capacity maximum, with the already explicit shared floor.  The next causal
+choice is either to recode the transported routing through a quantitatively
+bounded simple routing while proving equality or domination on the same
+observable, or to derive a direct length bound for the supplied routing; in
+parallel, the active raw-kernel capacity needs a quantitative positive lower
+bound on used cells.  A uniform no-merger certificate or merger-residual
+estimate also remains open.  Old-traffic drift, route churn, the three shell-
+return faces, tail allowance and initial closure, AF identification, physical-
+scale uniformity, a nonzero same-object observable pin, thermodynamic/
+continuum compatibility, continuum Yang--Mills construction, and the Clay
+mass gap remain open.
