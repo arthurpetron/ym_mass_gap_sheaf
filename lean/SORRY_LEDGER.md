@@ -14970,3 +14970,61 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its eight printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-endpoint-traffic-bridge] Split mapped-path data drift by endpoint provenance — **CLOSED 2026-08-25**
+
+- **milestone**: filter the exact later residual endpoint list into pairs with
+  two embedded-old endpoints and its Boolean complement; prove the full later
+  mapped-route load is their exact finite-sum partition; prove the normalized
+  full bridge debt is the exact sum of the corresponding old/new traffic
+  debts through the same physical conditional-kernel denominator; split the
+  bridge data deficit and its located maximum into old-traffic physical drift
+  plus genuinely new endpoint traffic; and compile inverse-square controls on
+  those two streams, route churn, and the three shell faces back into the
+  existing one-total-tail persistence path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtTrafficBridge.lean`.
+- **decl**:
+  `anchorTransportedBridgeEndpointPairOldB`,
+  `anchorTransportedBridgeOldEndpointPairs`,
+  `anchorTransportedBridgeNewEndpointPairs`,
+  `anchorTransportedBridgeOldEndpointTrafficLoadOnPair`,
+  `anchorTransportedBridgeNewEndpointTrafficLoadOnPair`,
+  `anchorTransportedBridgeRoutedLoadOnPair_eqv_old_add_new`,
+  `anchorCapacityDebtFromLoadOnPair`,
+  `anchorTransportedBridgeOldEndpointTrafficDebtOnPair`,
+  `anchorTransportedBridgeNewEndpointTrafficDebtOnPair`,
+  `anchorTransportedBridgeCapacityDebtOnPair_eqv_old_add_new`,
+  `anchorTransportedBridgeOldTrafficDataDeficitOnPair`,
+  `anchorTransportedBridgeNewTrafficDeficitOnPair`,
+  `anchorTransportedBridgeDataDeficitOnPair_le_traffic_split`,
+  `anchorTransportedBridgeDataDeficitMaximum_le_traffic_split`,
+  `AnchorCanonicalTransportedCapacityDebtTrafficInverseSquareControl`,
+  `AnchorCanonicalTransportedCapacityDebtTrafficInverseSquareControl.toBridgeControl`,
+  `AnchorCanonicalCapacityDebtTrafficRegionalInverseSquareControl`,
+  `AnchorCanonicalCapacityDebtTrafficRegionalInverseSquareControl.toTotalControl`,
+  `anchorCanonicalCapacityDebtPersistenceOfTrafficInverseSquare`, and
+  `anchorGeometricCompletedFamilyOfTrafficInverseSquare`.
+- **obligation**: either prove a direct total-tail estimate, the four regional
+  inverse-square estimates, the five bridge estimates, or the six expanded
+  endpoint-provenance estimates.  On the six-stream route these are
+  same-route old-traffic physical drift, new endpoint traffic, route churn,
+  and the three ordered shell faces.  Then provide a positive tail allowance
+  satisfying the executable cutoff-zero total-budget slack inequality.  The
+  expanded interface is diagnostic and sufficient; only the joined total
+  tail is logically required downstream.  Physical AF persistence,
+  same-object thermodynamic compatibility, projective OS/GNS reconstruction,
+  completed all-vector uniform gap, continuum QFT, and Clay closure remain
+  open.
+- **constructive?**: yes.  Endpoint provenance is decided inside the literal
+  later endpoint carrier; the complement uses the same Boolean; finite sums,
+  matched denominators, debts, deficits, maxima, coefficients, and compilers
+  are explicit rational or Type-level data.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes.  The dependency-complete
+  one-worker target passes all 5099 jobs.  Its eight printed exports use only
+  `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+  hits, the source declaration scan finds no custom axiom or noncomputable
+  definition, and the root aggregator imports the module.  No full-root audit
+  is claimed.

@@ -16712,3 +16712,51 @@ The exact monitored one-worker target passes all 5098 jobs.  Its eight printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## Endpoint provenance now separates old physical drift from new traffic (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtTrafficBridge`
+refines the data branch of the mapped-path bridge without changing its
+observable.  At cutoff `k+1`, the literal residual endpoint-pair list is
+filtered by the decidable predicate that both demand endpoints lie in the
+embedded cutoff-`k` vacuum-sector carrier.  The Boolean complement is the
+genuinely new endpoint traffic.  Both lists retain the exact later physical
+weights, mapped positive route, transition-product multiplicity, ordered
+edge, and conditional-kernel capacity.
+
+Finite-sum partition proves that the full later mapped-route load is exactly
+the sum of the old-endpoint and new-endpoint loads.  Distributivity through
+the single matched capacity denominator then proves the stronger normalized
+statement: the full later bridge capacity debt is the exact rational sum of
+its old-endpoint and new-endpoint debts.  No separate global kernel floor or
+unmatched observable is introduced.
+
+The earlier canonical debt is first compared with the later old-endpoint
+debt on the transported earlier route.  A second deficit adds exactly the
+complementary new endpoint traffic, and the already constructed route-churn
+deficit then reaches the later canonical debt.  Two rational triangle
+inequalities and finite located maxima prove that the former bridge data
+maximum is bounded by the old-traffic physical-drift maximum plus the
+new-traffic maximum.
+
+The diagnostic concurrency frontier therefore expands from five to six
+independently attackable inverse-square packages: same-route old-traffic
+physical drift, new endpoint traffic, route churn, old-new shell, new-old
+shell, and new-new shell.  A new compiler adds the first two coefficients
+back into the existing bridge data coefficient; the rest of the contraction
+is unchanged: six packages become five, then four regions, one total-deficit
+tail, one total budget, one scalar initial-slack check, and the completed
+fixed-anchor family.  The logical downstream requirement remains one
+summable total-tail certificate, not six final assumptions.
+
+No inverse-square estimate, positive tail allowance satisfying initial
+slack, or physical AF transport is supplied.  The result concerns the fixed
+strong-coupling anchor only.  Same-object thermodynamic compatibility,
+projective OS/GNS reconstruction, a completed all-vector uniform gap,
+continuum Yang--Mills construction, and the Clay theorem remain open.
+
+The focused monitored check and the dependency-complete one-worker target
+both pass; the target completes all 5099 jobs.  Its eight printed exports use
+only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, the module declares no custom axiom or noncomputable definition,
+and the root aggregator imports it.  No full-root audit is claimed.
