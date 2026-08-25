@@ -17007,3 +17007,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-active-path-raw-capacity-mass-factor-split] Split corrected-slab and merger products into independent analytic lanes — **CLOSED 2026-08-25**
+
+- **milestone**: expose separate inverse-square controls for corrected-slab
+  increment times the exact joint active-path/raw-capacity amplification and
+  for component-merger residual times that same scalar stream; recombine the
+  two controls constructively by rational distributivity with the sum of
+  their coefficients; expose an independent uniform executable no-merger
+  certificate; compile corrected-slab control plus that certificate directly
+  to the no-merger joint-amplification interface; and return both branches to
+  the unchanged exact three-face debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacityMassFactorSplit.lean`.
+- **decl**:
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabActivePathRawCapacityAmplificationInverseSquareControl.andComponentMerger`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabActivePathRawCapacityAmplificationInverseSquareControl.withNoMerger`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewCorrectedSlab_and_componentMerger_activePathRawCapacityAmplification_and_otherFaces`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewCorrectedSlab_noMerger_activePathRawCapacityAmplification_and_otherFaces`.
+- **obligation**: inhabit at least the corrected-slab product control; either
+  separately inhabit the merger-product control or prove the uniform
+  executable no-merger certificate.  These three lanes can now be developed
+  independently.  The existing arbitrary-nome corrected-slab tolerance
+  theorem controls the slab increment only after choosing its retained cutoff;
+  the remaining schedule must absorb the cutoff-dependent joint amplification
+  without circularity.  Preserve new--old and new--new as directed lanes.
+- **constructive?**: yes.  Both recombinations use only exact rational
+  distributivity, monotonicity, and the supplied dependent records.  No lane
+  is inhabited by assertion, and no `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete one-worker target passes all 5161 jobs.  All four audited
+  exports use only `[propext, Quot.sound]`; the executable forbidden-token scan
+  reports zero hits, `git diff --check` passes, and the root aggregator imports
+  the module.  No full-root audit is claimed.

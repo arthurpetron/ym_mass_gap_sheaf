@@ -19014,3 +19014,45 @@ new--new remain directed lanes.  Old traffic, route churn, shell returns,
 total tail closure, AF physical-scale uniformity, same-object completion,
 thermodynamic/continuum compatibility, continuum Yang--Mills construction,
 and the Clay mass gap remain open.
+
+## The old--new mass product now has three independent analytic lanes (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathRawCapacityMassFactorSplit`
+turns the remaining old--new scalar estimate into independently inhabitable
+certificates.  The first controls
+
+`correctedSlabIncrement * jointAmplificationMaximum`,
+
+the second controls
+
+`componentMergerResidual * jointAmplificationMaximum`,
+
+and the third is a uniform executable certificate that the component-merger
+check succeeds at every cutoff offset.  The first two product controls combine
+by exact rational distributivity, adding their coefficients.  Alternatively,
+the corrected-slab control plus the no-merger certificate compiles directly
+to the residual-free branch.  Both routes preserve the same observable-
+connected amplification maximum and return to the unchanged exact three-face
+debt observable.
+
+This makes the analytic parallelism explicit: corrected-slab scheduling,
+component-merger control, and the no-merger decision theorem are three
+independent old--new work lanes.  Merger control and no-merger are alternative
+routes, whereas corrected-slab control is common to both.  The existing
+arbitrary-nome corrected-slab tolerance theorem supplies small tail mass after
+a chosen retained cutoff, but it does not yet solve the coupled schedule: the
+cutoff choice must absorb the same cutoff-dependent joint amplification
+without circular reasoning.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target passes all 5161 jobs.  All four audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+None of the three new analytic records is inhabited.  New--old and new--new
+remain separate directed lanes, so a total exact debt estimate also requires
+their existing endpoint-ratio/capacity certificates.  Old traffic, route
+churn, shell returns, total tail closure, AF physical-scale uniformity,
+same-object completion, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
