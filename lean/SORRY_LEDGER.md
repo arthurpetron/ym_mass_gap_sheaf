@@ -2887,6 +2887,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion, thermodynamic/continuum theory, QFT axioms, or Clay theorem is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-canonical-cell-payment] Inhabit the shared payment with the exact debt allowance — **CLOSED 2026-08-25**
+
+- **milestone**: prove global nonnegativity of the later stationary pair
+  weight; define the canonical cell allowance as that weight times the exact
+  mapped raw-kernel amplification; prove its global nonnegativity; cancel the
+  same positive cell capacity on every active cell to inhabit the payment
+  condition; prove the allowance is exactly the existing mapped debt term on
+  actual rows; expose independent old--new, new--old, and new--new canonical
+  face-row controls; and compile those three controls to the verified
+  three-face payment and exact debt-maximum bound.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellCanonicalPayment.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointStationaryPairWeight_nonnegative_all`,
+  `matchedEventualCanonicalNewEndpointTrafficCanonicalCellAllowance_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficCanonicalCellAllowance_active_payment`,
+  `matchedEventualCanonicalNewEndpointTrafficCanonicalCellAllowance_eqv_debtTermOnMappedPair`,
+  `matchedEventualCanonicalNewEndpointTrafficCanonicalThreeFacePaymentControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_canonicalThreeFaceControls`.
+- **obligation**: prove inverse-square row-sum bounds for the three literal
+  canonical face allowances.  These are now the exact stationary-weighted
+  raw-kernel debt terms, so each proof must retain the same current-pair row,
+  endpoint shell face, routed occurrence, and capacity.  Prefer facewise
+  transition-product or direct weighted cancellation over the ruled-out fixed
+  cofinal global-floor route.  Also close old traffic, route churn, shell
+  returns, merger or no-merger, tail allowance, and initial closure.
+- **constructive?**: yes.  Positivity comes from finite physical row sums;
+  payment is the defining positive-rational division identity; and the three
+  analytic inputs rejoin through the existing exact finite carrier.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5135 jobs.  All six audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [BF4-cutoff-embedded-entry-cauchy] Pulled weight and kernel entry limits — **CLOSED 2026-08-22**
 
 - **milestone**: quantitative representation-cutoff comparison on a fixed

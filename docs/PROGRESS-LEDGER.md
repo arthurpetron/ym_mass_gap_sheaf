@@ -17433,6 +17433,45 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## The canonical cell allowance removes the shared payment hypothesis (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellCanonicalPayment`
+identifies the nonnegative canonical allowance on a literal cell as
+
+`stationary endpoint-pair weight * exact raw-kernel amplification`
+
+for the mapped current pair and the same actual endpoint pair.  Global
+nonnegativity follows from the physical row marginal and the existing
+raw-kernel amplification theorem.  On an active cell, strict positivity of
+the same source-weighted capacity unfolds the amplification quotient, and
+`divPos_mul_eqv` cancels that capacity exactly.  The canonical allowance
+therefore pays the exact stationary-weighted routed numerator automatically.
+
+For every actual current pair and new endpoint, the allowance is also
+kernel-checked equal to the existing exact debt term.  It is not a proxy,
+extremal majorant, changed carrier, or different observable.  The module then
+factors the remaining analytic obligation into three independent Type-level
+certificates: canonical old--new, new--old, and new--new face-row inverse-
+square controls.  Their constructor supplies the canonical allowance and its
+payment proof automatically, rejoins the checked three-face compiler, and
+bounds the unchanged exact new-traffic debt maximum by the sum of the three
+coefficients.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5135 jobs.  All six audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+Only the three canonical face-row inverse-square bounds remain open on this
+new-traffic branch; the shared payment is no longer an assumption.  Each face
+estimate must still control the literal stationary-weighted raw-kernel ratio
+uniformly over the exact current-pair row.  Old-traffic drift, route churn,
+shell-return estimates, merger or no-merger control, tail allowance and
+initial closure, AF identification, physical-scale uniformity, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
+
 ## Exact cell payments split into three parallel shell-face producers (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFacePayment`
