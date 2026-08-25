@@ -18218,6 +18218,46 @@ closure, AF identification, physical-scale uniformity, a nonzero same-object
 observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
 
+## The three face rows are exact routed transition-product rows (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceTransitionProduct`
+specializes the checked adaptive transition-product theorem to the same
+mapped current edge and every literal new endpoint.  On one cell it identifies
+the relative-source demand exactly with the reverse/forward conditional-
+transition product along the transported route prefix, including directed-
+edge multiplicity.
+
+The pointwise identity is retained through the old--new, new--old, and new--
+new masks and summed over the unchanged literal new-endpoint list.  Therefore
+each dimensionless face row is exactly a face-restricted transition-product
+row.  Three independently inhabitable interfaces now ask directly for
+
+`sharedFloor * faceTransitionProductRow`
+`  <= coefficient * invSqTerm * conditionalCapacityOnCurrentPair`.
+
+Each interface contracts losslessly to its relative-source control, and the
+three results rejoin the unchanged exact new-traffic debt maximum.  This is
+the end of the present representation-compilation chain: the remaining face
+obligations are quantitative transition-product tail estimates on the exact
+observable-connected carrier.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5139 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+None of the three transition-product/capacity estimates is inhabited.  A
+useful next expansion must expose which prefix factors, endpoint weights,
+route lengths, and directed multiplicities carry cutoff decay on each face;
+the generic total conditional-congestion inequality alone has coefficient
+one and supplies no inverse-square tail.  Old--new and new--old remain distinct
+absent a checked directed path-reversal theorem.  Old-traffic drift, route
+churn, shell returns, merger or no-merger control, tail allowance and initial
+closure, AF identification, physical-scale uniformity, a nonzero same-object
+observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
+
 ## Weighted amplification reconnects new-block mass to exact new debt (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficWeightedAmplification`

@@ -16567,3 +16567,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-face-transition-product] Identify all three relative-source rows with exact transition products — **CLOSED 2026-08-25**
+
+- **milestone**: specialize the existing adaptive relative-source/transition-
+  product theorem to the exact mapped current edge and each literal new
+  endpoint; retain directed-edge multiplicity; preserve the identity through
+  the old--new, new--old, and new--new masks and finite endpoint rows; expose
+  one transition-product/conditional-capacity inverse-square interface per
+  face; and compile all three interfaces to the previous relative-source
+  controls and unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceTransitionProduct.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficRelativeSourceDemand_eqv_transitionProductOnCell`,
+  the three
+  `matchedEventualCanonicalNewEndpointTraffic*FaceRelativeSourceLoadRow_eqv_transitionProductRow`
+  theorems, the three
+  `MatchedEventualCanonicalNewEndpointTraffic*FaceTransitionProductCapacityBalanceInverseSquareControl.toRelativeSourceControl`
+  declarations, and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_threeFaceTransitionProductCapacityBalances`.
+- **obligation**: prove a cutoff-decaying bound for each exact face-restricted
+  transition-product row against the conditional capacity of the same mapped
+  current edge.  First expose the relevant prefix products, endpoint weights,
+  route-length factors, and directed multiplicities face by face.  A total
+  conditional-congestion bound with coefficient one is insufficient for the
+  inverse-square tail.  Also close old traffic, route churn, shell returns,
+  merger or no-merger, tail allowance, and initial closure.
+- **constructive?**: yes.  Endpoint membership comes from the same literal
+  filtered list; mapped-source membership comes from the checked current-to-
+  next pair map; and every row equality is finite-sum congruence over the same
+  list and face predicate.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5139 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
