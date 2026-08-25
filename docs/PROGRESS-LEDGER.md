@@ -17591,3 +17591,34 @@ quantities carrying a summable cutoff law.  Tail allowance and initial closure,
 the physical strength/spacing laws, a nonzero same-object pin,
 thermodynamic/continuum compatibility, continuum Yang--Mills construction, and
 the Clay mass gap remain open.
+
+## The matched serial bottleneck has a concrete inverse-square interface (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtInverseSquareTail`
+reduces the single total-tail obligation to an explicit analytic estimate
+
+`totalDeficit(k) <= A * invSqTerm B hB k`,
+
+where `B >= 2` and `A` is a nonnegative rational.  The existing constructive,
+representation-invariant inverse-square compiler supplies the antitone tail
+rate and therefore the exact total-deficit tail.
+
+A regional interface retains maximum useful parallelism: transported-old,
+old-new, new-old, and new-new may each be proved against the same inverse-
+square term with independent nonnegative coefficients.  The four estimates
+and coefficients add exactly to the single total control.  Hence the one-bound
+and four-bound proof organizations are kernel-checked routes to the identical
+serial certificate rather than competing observable claims.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5118 jobs.  All four audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+No inverse-square inequality or coefficient is inhabited.  The next frontier
+is to connect the known physical spacing/coupling tail and explicit cutoff-
+carrier growth to route-change and new-shell traffic bounds strong enough to
+prove one or four of these inequalities.  Tail allowance and initial closure,
+the physical strength law, a nonzero same-object pin, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.

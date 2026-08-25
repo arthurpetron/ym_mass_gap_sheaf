@@ -15812,3 +15812,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5107 jobs.  All eleven audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-inverse-square] Compile one or four inverse-square estimates into the exact total deficit tail — **CLOSED 2026-08-25**
+
+- **milestone**: define a total inverse-square control with offset `B >= 2`,
+  nonnegative coefficient `A`, and a pointwise bound on the exact matched total
+  deficit; compile it to the constructive antitone total tail; define the four
+  regional inverse-square controls with a common offset; and prove their
+  coefficients and estimates add to the identical total control.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtInverseSquareTail.lean`.
+- **decl**: `MatchedEventualCanonicalCapacityDebtInverseSquareControl`, its
+  `toTotalDeficitTail`,
+  `MatchedEventualCanonicalCapacityDebtRegionalInverseSquareControl`,
+  `totalCoefficient`, `totalCoefficient_nonnegative`, `toTotalControl`, and
+  `toTotalDeficitTail`.
+- **obligation**: prove either one total or four regional pointwise inverse-
+  square inequalities from the physical matched AF trajectory.  Then provide
+  the still-open positive tail allowance and initial capacity closure.
+- **constructive?**: yes.  The antitone modulus is the existing constructive
+  inverse-square tail compiler; the regional join uses rational addition and
+  distributivity.  All estimates refer to exact deficits of the same matched
+  routed capacity-debt observable.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5118 jobs.  All four audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
