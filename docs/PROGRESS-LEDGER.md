@@ -19146,3 +19146,53 @@ uninhabited.  Merger/no-merger, new--old, new--new, old traffic, route churn,
 shell returns, total tail closure, AF physical-scale uniformity, same-object
 completion, thermodynamic/continuum compatibility, continuum Yang--Mills,
 and the Clay mass gap remain open.
+
+## The exact joint tolerance now enters the affine tail compiler through its least dyadic precision (2026-08-25)
+
+`DyadicPrecision` constructively searches the certified finite interval up to
+`epsilon.den` and returns the first exponent `r` satisfying
+`dyad(r) <= epsilon`.  The denominator remains only a termination witness for
+the finite search, not the retained precision.  Its minimality theorem says
+that any analytically supplied candidate exponent bounds the executable result.
+
+`BF4SU2CorrectedSlabNomeDyadicTail` transports the affine ambient dyadic
+cutoff bound through the literal supported zero-extension injection.  The
+corrected slab therefore inherits the same one-label-per-dyadic-power schedule.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewCorrectedSlabDyadicJointToleranceSchedule`
+then applies these compilers to the exact tolerance
+
+`invSqTerm(k) / (1 + activePathRawCapacityAmplificationMaximum(k))`.
+
+The amplification is still computed on the same current/later carrier used by
+the route, raw kernel, endpoint stationary weights, and three-face debt.  Thus
+the observable connection has not been replaced by a disconnected global
+majorant.  A direct dyadic retained-cutoff schedule compiles to the corrected-
+slab product control with coefficient one.
+
+Most importantly, the direct consecutive-cutoff schedule is now derived from
+two causal fields:
+
+1. the starting cutoff absorbs the fixed nome/dimension base cutoff, tensor
+   burn, and one precision intercept; and
+2. the least joint dyadic precision grows by at most one for every cutoff
+   offset.
+
+This makes the proof-path decision precise.  A consecutive-cutoff path remains
+viable exactly if the observable-connected amplification admits a dyadic lower
+bound yielding that linear precision growth.  An adaptive cutoff architecture
+is warranted only if this fails; it is no longer forced by the tail modulus.
+
+The focused monitored checks pass at 10M heartbeats, and the
+dependency-complete one-worker target passes all 5166 jobs.  The audited
+exports use only `[propext, Quot.sound]`; the executable forbidden-token scan
+reports zero hits, `git diff --check` passes, and the root aggregator imports
+all three modules.  No full-root audit is claimed.
+
+Neither linear field is inhabited here.  The fixed field additionally needs
+physical-scale control of the nome-dependent burn, and the growth field needs
+an a priori bound on the exact active-path/raw-capacity amplification.  The
+merger/no-merger alternatives, new--old and new--new faces, old traffic, route
+churn, shell returns, total tail closure, AF physical-scale uniformity,
+same-object completion, thermodynamic/continuum compatibility, continuum
+Yang--Mills, and the Clay mass gap remain open.

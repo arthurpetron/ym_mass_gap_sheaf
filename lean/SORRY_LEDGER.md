@@ -17114,3 +17114,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   executable forbidden-token scan reports zero hits, `git diff --check`
   passes, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-old-new-corrected-slab-least-dyadic-joint-schedule] Factor consecutive-cutoff feasibility into fixed burn and precision growth — **CLOSED 2026-08-25**
+
+- **milestone**: add a constructive bounded search for the least dyadic
+  exponent below any positive rational; transport the affine arbitrary-nome
+  dyadic cutoff bound through the supported corrected-slab injection; apply
+  both to the exact same-carrier joint tolerance; compile direct retained-
+  cutoff domination to the corrected-slab product control; and prove that the
+  direct schedule follows from one fixed start payment plus an at-most-one-
+  per-offset growth bound for the least joint precision.
+- **files**:
+  `lean/YMGap/Constructive/DyadicPrecision.lean`,
+  `lean/YMGap/Continuum/BF4SU2CorrectedSlabNomeDyadicTail.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewCorrectedSlabDyadicJointToleranceSchedule.lean`.
+- **decl**: `DyadicPrecision.half_pow_le_at_least`,
+  `DyadicPrecision.least_le_of_half_pow_le`,
+  `slabPhysicalNomeCutoffIncrement_le_dyad_linear`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicSchedule.toCorrectedSlabControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicLinearData.toSchedule`.
+- **obligation**: inhabit the linear data.  The fixed start field pays the
+  nome/dimension base cutoff and tensor burn.  The live analytic field is now
+  exactly
+  `jointDyadicPrecision(k) <= precisionIntercept + k`, equivalently obtainable
+  from a dyadic lower bound on
+  `invSqTerm(k) / (1 + exact observable-connected amplification(k))`.
+  Bounding the amplification without severing its same-carrier observable
+  connection remains open.
+- **constructive?**: yes.  The least exponent is found by finite `Nat`/`Bool`
+  recursion with the existing denominator exponent as a proof-only search
+  witness; minimality exposes any sharper analytic candidate.  All transport
+  uses exact rational inequalities and literal finite carriers.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored checks pass at 10M heartbeats and the
+  dependency-complete one-worker target passes all 5166 jobs.  The audited
+  exports use only `[propext, Quot.sound]`; the executable forbidden-token scan
+  reports zero hits, `git diff --check` passes, and the root aggregator imports
+  all three modules.  No full-root audit is claimed.
