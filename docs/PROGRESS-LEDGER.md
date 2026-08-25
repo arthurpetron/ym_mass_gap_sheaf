@@ -18923,3 +18923,49 @@ remain directed lanes.  Old traffic, route churn, shell returns, total tail
 closure, AF physical-scale uniformity, same-object completion,
 thermodynamic/continuum compatibility, continuum Yang--Mills construction,
 and the Clay mass gap remain open.
+
+## Quadratic route geometry now remains attached to the selected mapped row (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathLengthSquare`
+replaces the row-independent old--new quadratic fallback by a sharper
+row-local quantity.  On one literal current-pair/endpoint-pair cell, the
+existing routed path-length square is retained only when the route factor for
+the selected mapped current edge is strictly positive; it is zero otherwise.
+Taking the located maximum on the exact endpoint row gives the checked
+sandwich
+
+`rowRouteFactorMaximum`
+`  <= rowActivePathLengthSquareMaximum`
+`  <= faceWidePathLengthSquareMaximum`.
+
+The first inequality uses the verified repeated-edge multiplicity bound.  The
+second shows that no prior fallback is lost.  More importantly, a separate
+theorem proves that if the literal route maximum is setoid-equal to zero, then
+the row-active quadratic maximum is also setoid-equal to zero.  Thus the
+quadratic contraction no longer creates an artificial positive obligation on
+an unused mapped row.
+
+General-merger and executable no-merger Type-level interfaces now accept this
+active quadratic maximum against either the exact mapped-pair raw capacity or
+the coarser later-sector floor.  The exact-capacity route contracts directly
+to the preceding raw-capacity compiler.  The sector route first contracts to
+the new activity-conditional sector-floor compiler, which performs the
+positive/zero row split.  Both paths rejoin the same old--new endpoint ratio,
+independent new--old and new--new lanes, and exact debt maximum.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target passes all 5159 jobs.  All eleven audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No active path-square/raw-capacity estimate is inhabited.  The preferred
+frontier is now the joint cutoff behavior of corrected-slab increment, the
+row-active used-edge path square, and the exact same-row raw capacity, plus
+merger control in the general branch.  The next audit should search the
+existing path-occurrence, detailed-balance, and raw-kernel factorization
+library for a direct used-edge estimate before accepting the sector minimum.
+New--old and new--new remain directed lanes.  Old traffic, route churn, shell
+returns, total tail closure, AF physical-scale uniformity, same-object
+completion, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.

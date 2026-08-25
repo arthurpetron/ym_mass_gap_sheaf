@@ -16918,3 +16918,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-active-path-length-square] Preserve mapped-row activity through the quadratic route contraction — **CLOSED 2026-08-25**
+
+- **milestone**: define a literal old--new cellwise path square masked by
+  strict positivity of the selected mapped edge's route factor; take its
+  located maximum only on the exact endpoint row; prove the row-local route
+  maximum is below this active quadratic maximum and that the active maximum
+  is below the preceding face-wide path maximum; prove explicitly that a zero
+  route maximum forces a zero active quadratic maximum; expose general-merger
+  and executable no-merger interfaces against both exact mapped-pair raw
+  capacity and the conditional later-sector floor; and compile every branch
+  to the unchanged exact old--new row and three-face debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActivePathLengthSquare.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRoutedPathLengthSquareOnCell_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorOnCell_le_activeRoutedPathLengthSquareOnCell`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRoutedPathLengthSquareOnCell_le_facePathLengthSquare`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRoutedPathLengthSquareMaximumOnCurrentPair_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorMaximumOnCurrentPair_le_activeRoutedPathLengthSquareMaximumOnCurrentPair`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRoutedPathLengthSquareMaximumOnCurrentPair_le_faceMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActiveRoutedPathLengthSquareMaximumOnCurrentPair_eqv_zero_of_routeFactorMaximum_eqv_zero`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitActivePathLengthSquareRawCapacityInverseSquareControl.toRawCapacityControl`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerActivePathLengthSquareRawCapacityInverseSquareControl.toRawCapacityControl`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitActivePathLengthSquareSectorFloorInverseSquareControl.toRouteSectorFloorControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerActivePathLengthSquareSectorFloorInverseSquareControl.toRouteSectorFloorControl`.
+- **obligation**: inhabit a cutoff-summable joint estimate for corrected-slab
+  increment (plus merger residual in the general branch) times this row-active
+  quadratic path maximum against the exact mapped-pair raw capacity.  The
+  sector-floor variant is a checked fallback, not the preferred asymptotic
+  route.  The next audit should seek an existing raw-kernel/path occurrence or
+  detailed-balance estimate that controls the used edge without taking a
+  sector-wide minimum.  Preserve new--old and new--new as directed lanes.
+- **constructive?**: yes.  Activity is the located strict comparison for the
+  exact rational route factor; all maxima are finite located folds; the zero-
+  row theorem uses exact maximum membership and rational-setoid antisymmetry;
+  and both denominator routes return to pre-existing exact observable types.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete one-worker target passes all 5159 jobs.  All eleven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
