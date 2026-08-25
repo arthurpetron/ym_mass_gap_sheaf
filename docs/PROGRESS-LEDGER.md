@@ -17104,3 +17104,49 @@ nonzero same-object pin, full nonperturbative trajectory identification,
 projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay theorem remain open.  No
 full-root audit is claimed.
+
+## Matched debt now uses a computed prefix plus analytic tail (2026-08-25)
+
+`SummableRationalStepVariationPrefixTailClosure` factors the fixed-anchor
+prefix/tail argument into a reusable constructive compiler.  For any summable
+rational step variation and positive tail allowance, its antitone modulus
+selects a concrete natural cutoff.  The compiler evaluates the exact finite
+variation prefix through that cutoff and defines the total budget as the tail
+allowance plus that prefix.  It proves that this budget controls every finite
+variation window and installs a normalized tail control whose rate at the
+computed total budget is definitionally zero.  The stream, variation, and
+two-sided local step bounds are unchanged.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalDebtPrefixTailCompiler`
+applies that generic result independently at every physical scale.  The
+matched producer no longer asks for a hand-supplied total budget or a separate
+proof that its tail rate is zero.  Its analytic fields are now the same
+observable-connected lower proxy, summable two-sided proxy-debt variation, a
+positive tail allowance, and one exact scalar check
+`debt(0) + (finite prefix + tail allowance) <= 1`.  These data construct the
+previous debt-variation producer and hence the exact eventual canonical
+checks, transition product, completed carrier/transfer/vacuum family,
+normalized strength law, rate-band consumer, and same-object observable-pin
+interface.  Nome and spacing remain definitionally pinned to the matched
+BF4/AF trajectory.
+
+Causally, the manually normalized global-budget premise has disappeared.
+Constructing the exact-margin lower proxy and proving its debt variation are
+still serial local obligations.  Once those are available, finite prefix
+evaluation and the analytic tail modulus combine into one computed budget;
+only the resulting scalar slack inequality remains.  After that common gate,
+the strength/spacing band and nonzero same-object observable pin are genuinely
+parallel consumers, but they must still inhabit the same completed family.
+
+The generic focused check and its dependency target pass (43 jobs).  The
+matched focused check and dependency-complete one-worker target also pass;
+the latter completes all 5087 jobs.  Every newly printed export uses only
+`[propext, Quot.sound]` or the smaller `[propext]` subset.  The root aggregator
+imports both modules.  No full-root audit is claimed.
+
+No matched proxy, summable debt-variation family, positive tail allowance, or
+initial slack is inhabited.  In particular, this compiler does not establish
+the physical cubic/spacing laws, the strength band, a nonzero same-object pin,
+the full nonperturbative trajectory, projective OS/GNS reconstruction,
+thermodynamic or continuum compatibility, continuum Yang--Mills theory, or
+the Clay mass gap.

@@ -15362,3 +15362,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and its dependency-complete one-worker target, which completes all 5085
   jobs.  All eight printed exports use only `[propext, Quot.sound]`; the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-eventual-canonical-debt-prefix-tail] Compute the total debt budget from a finite prefix and analytic tail — **CLOSED 2026-08-25**
+
+- **milestone**: factor a generic prefix/tail normalization for any
+  `SummableRationalStepVariation`; compute the exact finite variation prefix
+  selected by a positive tail allowance; prove the resulting total budget
+  controls every finite window; normalize the tail modulus at that budget;
+  and specialize the compiler scale-wise to the matched eventual canonical
+  debt, preserving the completed and same-object observable interfaces.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariationPrefixTailClosure.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalDebtPrefixTailCompiler.lean`.
+- **decl**: `prefixTailStart`, `prefixTailPrefix`,
+  `prefixTailTotalBudget`, `prefixTailTotalBudget_pos`,
+  `variationPartialSum_le_totalBudget`,
+  `variationWindow_le_totalBudget`, `budgetedTailControl`,
+  `budgetedTailControl_rate_totalBudget`, `budgetedVariation`,
+  `MatchedPhysicalDynamicExplicitRayEventualCanonicalDebtPrefixTailProducer`,
+  `totalBudget`, `toDebtVariationProducer`, `debt_le_one`,
+  `toEventualCanonicalCapacityCheckProducer`, `toCompletedFamily`,
+  `toNormalizedStrengthLaw`, `StrengthBand`, `toPhysicalRateBand`, and
+  `SameObjectObservablePin`.
+- **obligation**: construct, at every matched physical scale, a positive lower
+  proxy below the exact same-cutoff canonical margin, summable two-sided
+  variation of its normalized debt, a positive analytic tail allowance, and
+  the single computed inequality
+  `debt(0) + (exact finite prefix + tail allowance) <= 1`.  The former manual
+  total-budget and rate-from-zero fields are no longer premises.  The
+  strength/spacing band and nonzero same-object pin remain independent
+  downstream obligations, followed by projective and continuum compatibility.
+- **constructive?**: yes.  The cutoff is returned by the explicit antitone
+  modulus, the prefix is a finite rational sum, the total budget is executable,
+  and no witness is selected through propositional existence.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable
+  declaration is introduced.
+- **status note**: focused monitored checks pass for both modules.  The generic
+  dependency target completes 43 jobs and the matched dependency-complete
+  one-worker target completes 5087 jobs.  All printed exports use only
+  `[propext, Quot.sound]` or `[propext]`; the root aggregator imports both
+  modules.  No full-root audit is claimed.
