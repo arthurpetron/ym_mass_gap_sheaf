@@ -17302,3 +17302,48 @@ persistence result, strength band, nonzero same-object pin, full trajectory
 identification, projective OS/GNS reconstruction, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Canonical matched carrier recodings are constructed, not analytic inputs (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalPairRecoding`
+constructs both directions between consecutive matched vacuum-sector pair
+carriers at fixed physical scale.  The old-to-new map is the existing physical
+cutoff index embedding at
+`transitionStart physicalScale + offset <= ... + 1`, applied coordinatewise.
+The new-to-old map constructively searches the current finite vacuum component
+for a mapped preimage and returns the vacuum index zero on the genuinely new
+shell.  Existing cutoff support theorems prove both maps land in the required
+carriers, and cutoff-map injectivity proves the search is a literal left
+inverse on the embedded old component.
+
+The exact matched pointwise frontier consequently no longer asks an analyst to
+construct recoding functions or membership proofs.  A
+`MatchedEventualCanonicalRoutedLoadEnvelope` carries only a summable rational
+budget and the two load inequalities along the fixed maps.  A
+`MatchedEventualCanonicalSupportedKernelEnvelope` carries the dual two kernel
+inequalities and its summable budget.  Their conversion to the already checked
+dynamic-maximum and dynamic-minimum structures is explicit.  Together with
+the independent pointwise kernel floor, they compile to exact compact support-
+debt variation and, after a tail allowance and computed initial slack, to the
+unchanged matched prefix-tail producer.
+
+Causally, the separated support-proxy path now has three analytic producers:
+the load envelope, kernel envelope, and kernel noncollapse floor.  Geometry is
+no longer counted as a fourth producer.  Its hard direction is exposed
+honestly: the new-shell fallback may make the next-to-current load or kernel
+comparison expensive.  This motivates the next proof-path comparison with a
+single correlated same-edge capacity-debt envelope, which can allow a small
+kernel whenever the routed load on that exact edge is comparably small.
+
+The focused monitored check and dependency-complete one-worker target pass;
+the latter completes all 5101 jobs.  All ten audited exports use only
+`[propext, Quot.sound]`.  The executable forbidden-token scan reports zero
+hits, the root aggregator imports the module, and no full-root audit is
+claimed.
+
+No load envelope, kernel envelope, pointwise kernel floor, tail allowance, or
+initial slack is inhabited.  Physical cubic/spacing laws, completed local
+persistence, the strength band, nonzero same-object pin, full trajectory
+identification, projective OS/GNS reconstruction, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.

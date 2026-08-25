@@ -15540,3 +15540,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   limit and is not counted as a pass; the final explicit constructor preserves
   the same inputs and conclusion.  The root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-canonical-pair-recoding] Construct consecutive matched carrier maps and remove recoding data from the analytic frontier — **CLOSED 2026-08-25**
+
+- **milestone**: specialize the existing cutoff index embedding to every
+  matched physical scale and eventual-tail offset; construct a finite preimage
+  search with vacuum fallback in the reverse direction; prove carrier
+  membership and the left-inverse law on the embedded old component; apply the
+  maps coordinatewise to exact vacuum-sector pair carriers; install them in
+  load and kernel envelope interfaces; and contract scale-indexed envelopes
+  plus kernel floors to the existing matched prefix-tail producer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalPairRecoding.lean`.
+- **decl**: `matchedEventualCanonicalCurrentIndexToNext`,
+  `matchedEventualCanonicalNextIndexToCurrent`,
+  `matchedEventualCanonicalCurrentIndexToNext_mem`,
+  `matchedEventualCanonicalNextIndexToCurrent_mem`,
+  `matchedEventualCanonicalNextIndexToCurrent_currentToNext`,
+  `matchedEventualCanonicalCurrentPairToNext`,
+  `matchedEventualCanonicalNextPairToCurrent`,
+  `matchedEventualCanonicalCurrentPairToNext_mem`,
+  `matchedEventualCanonicalNextPairToCurrent_mem`,
+  `matchedEventualCanonicalNextPairToCurrent_currentToNext`,
+  `MatchedEventualCanonicalRoutedLoadEnvelope`,
+  `MatchedEventualCanonicalSupportedKernelEnvelope`,
+  `MatchedEventualCanonicalRoutedLoadEnvelope.toMaximumVariation`,
+  `MatchedEventualCanonicalSupportedKernelEnvelope.toMinimumVariation`,
+  `matchedEventualCanonicalSupportCapacityDebtVariationOfEnvelopes`, and
+  `matchedEventualCanonicalSupportDebtPrefixTailProducerOfEnvelopes`.
+- **obligation**: construct at every physical scale the two summable pointwise
+  load inequalities and the dual two supported-kernel inequalities along the
+  now-fixed canonical pair maps, plus one positive pointwise kernel floor.
+  Then supply a positive tail allowance and the computed initial-slack
+  inequality.  The reverse-map fallback exposes the genuinely new-shell
+  analytic comparison rather than hiding it in geometric data.
+- **constructive?**: yes.  Both maps are executable; reverse search occurs on
+  a finite list and has an explicit vacuum fallback; membership and left-
+  inverse proofs retain the exact matched nome and cutoff.  Envelope budgets
+  carry antitone tail moduli.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete target
+  pass, the latter completing all 5101 jobs.  All ten audited exports use only
+  `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+  hits and the root aggregator imports the module.  No full-root audit is
+  claimed.
