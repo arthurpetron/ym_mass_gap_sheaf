@@ -2404,6 +2404,37 @@ theorem positiveArtanhEulerStableCoeff_differentialRecurrence
         index) _
       hdifferential hright)
 
+/-- The closed comparison target starts at the same constant coefficient. -/
+theorem positiveArtanhFormalTargetCoeff_zero_eqv_one :
+    (positiveArtanhFormalTargetCoeff 0).eqv 1 :=
+  Q'.eqv_refl 1
+
+/-- The first positive comparison coefficient is `-2`. -/
+theorem positiveArtanhFormalTargetCoeff_one_eqv_negativeTwo :
+    (positiveArtanhFormalTargetCoeff 1).eqv negativeTwo := by
+  decide
+
+/-- After the exceptional constant-to-linear step, the closed target
+coefficients alternate by multiplication with `-1`. -/
+theorem positiveArtanhFormalTargetCoeff_succ_eqv_neg
+    (index : Nat) (hindex : 1 <= index) :
+    (positiveArtanhFormalTargetCoeff (index + 1)).eqv
+      ((-1 : Q') * positiveArtanhFormalTargetCoeff index) := by
+  cases index with
+  | zero => omega
+  | succ index =>
+      change
+        (((-1 : Q') ^ ((index + 1) + 1)) +
+            ((-1 : Q') ^ ((index + 1) + 1))).eqv
+          ((-1 : Q') *
+            (((-1 : Q') ^ (index + 1)) +
+              ((-1 : Q') ^ (index + 1))))
+      rw [Q'.pow_succ]
+      exact Q'.eqv_symm
+        (Q'.mul_add_eqv (-1)
+          ((-1 : Q') ^ (index + 1))
+          ((-1 : Q') ^ (index + 1)))
+
 /-- The stabilized Euler coefficients alternate after the exceptional
 constant-to-linear step.  This discharges the former recurrence certificate
 field directly from the finite differential equation. -/
@@ -2512,6 +2543,43 @@ theorem positiveArtanhEulerStableCoeff_succ_eqv_neg
           (Q'.eqv_symm
             (negOne_mul_eqv_neg
               (positiveArtanhEulerStableCoeff stage index)))
+
+/-- Every stabilized Euler coefficient strictly below the artanh truncation
+boundary is the closed two-copy alternating target. -/
+theorem positiveArtanhEulerStableCoeff_eq_target_of_lt
+    (stage index : Nat) (hindex : index < 2 * stage + 1) :
+    (positiveArtanhEulerStableCoeff stage index).eqv
+      (positiveArtanhFormalTargetCoeff index) := by
+  induction index generalizing stage with
+  | zero =>
+      exact Q'.eqv_trans _ 1 _
+        (positiveArtanhEulerStableCoeff_zero_eqv_one stage)
+        (Q'.eqv_symm positiveArtanhFormalTargetCoeff_zero_eqv_one)
+  | succ index ih =>
+      cases index with
+      | zero =>
+          cases stage with
+          | zero => omega
+          | succ stage =>
+              exact Q'.eqv_trans _ negativeTwo _
+                (positiveArtanhEulerStableCoeff_one_eqv_negativeTwo stage)
+                (Q'.eqv_symm
+                  positiveArtanhFormalTargetCoeff_one_eqv_negativeTwo)
+      | succ index =>
+          have hprevious : index + 1 < 2 * stage + 1 := by omega
+          exact Q'.eqv_trans _
+            ((-1 : Q') *
+              positiveArtanhEulerStableCoeff stage (index + 1)) _
+            (positiveArtanhEulerStableCoeff_succ_eqv_neg
+              stage (index + 1) (by omega) hindex)
+            (Q'.eqv_trans _
+              ((-1 : Q') *
+                positiveArtanhFormalTargetCoeff (index + 1)) _
+              (Q'.mul_eqv_congr_left (-1) _ _
+                (ih stage hprevious))
+              (Q'.eqv_symm
+                (positiveArtanhFormalTargetCoeff_succ_eqv_neg
+                  (index + 1) (by omega))))
 
 /-- The fully computed anchor difference polynomial. -/
 def positiveArtanhEulerAnchorDifferencePoly
@@ -2720,6 +2788,224 @@ theorem positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance
       (Q'.le_of_eqv (half_pow_succ_mul_two_eqv tolerance.den))
       (HalfPow.pow_half_le tolerance htolerance))
 
+/-! ## The first active geometric-boundary coefficient -/
+
+/-- At its first coefficient outside the formal comparison window, the
+finite geometric polynomial carries one copy of the alternating sign rather
+than the two copies in the infinite target. -/
+theorem coeff_positiveArtanhGeometricApproxPoly_boundary (degree : Nat) :
+    (coeff (positiveArtanhGeometricApproxPoly degree) (degree + 1)).eqv
+      ((-1 : Q') ^ (degree + 1)) := by
+  unfold positiveArtanhGeometricApproxPoly
+    positiveArtanhNumeratorPoly pconst pneg pvar
+  change (coeff
+    (pmul (geometricSumPoly degree)
+      [(1 : Q') + (-1 : Q') * 0, (-1 : Q') * 1])
+    (degree + 1)).eqv ((-1 : Q') ^ (degree + 1))
+  refine Q'.eqv_trans _
+    (coeff (geometricSumPoly degree) (degree + 1) *
+        ((1 : Q') + (-1 : Q') * 0) +
+      coeff (geometricSumPoly degree) degree * ((-1 : Q') * 1)) _
+    (coeff_pmul_pair_succ _ _ _ degree) ?_
+  have hnext := coeff_geometricSumPoly degree (degree + 1)
+  rw [if_neg (by omega : ¬ degree + 1 <= degree)] at hnext
+  have hprev := coeff_geometricSumPoly degree degree
+  rw [if_pos (by omega : degree <= degree)] at hprev
+  have hb0 : ((1 : Q') + (-1 : Q') * 0).eqv 1 :=
+    Q'.eqv_trans _ (1 + 0) _
+      (Q'.add_eqv_congr_left 1 _ 0 (q_mul_zero (-1)))
+      (q_add_zero_eqv 1)
+  have hb1 : ((-1 : Q') * 1).eqv (-1 : Q') :=
+    Q'.mul_one_eqv (-1)
+  refine Q'.eqv_trans _
+    ((0 : Q') * 1 + ((-1 : Q') ^ degree) * (-1 : Q')) _
+    (q_add_congr (q_mul_congr hnext hb0) (q_mul_congr hprev hb1)) ?_
+  refine Q'.eqv_trans _ (((-1 : Q') ^ degree) * (-1 : Q')) _
+    (Q'.eqv_trans _ (0 + (((-1 : Q') ^ degree) * (-1 : Q'))) _
+      (q_add_congr (q_zero_mul 1) (Q'.eqv_refl _))
+      (q_zero_add_eqv _)) ?_
+  exact Q'.mul_comm_eqv ((-1 : Q') ^ degree) (-1)
+
+/-- The first geometric-boundary index remains strictly inside the much
+later outer artanh truncation. -/
+theorem positiveArtanhGeometricAnchorDegree_succ_lt_stageBoundary
+    (epsilon : Q') :
+    positiveArtanhGeometricAnchorDegree epsilon + 1 <
+      2 * positiveArtanhEulerAnchorStage epsilon + 1 := by
+  unfold positiveArtanhGeometricAnchorDegree
+  rw [positiveArtanhGeometricComparisonTolerance_den,
+    positiveArtanhEulerAnchorStage_eq]
+  have hden := epsilon.den_pos
+  omega
+
+/-- The first geometric-boundary index also remains strictly inside the
+input-dependent Euler pivot. -/
+theorem positiveArtanhGeometricAnchorDegree_succ_lt_pivot
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    positiveArtanhGeometricAnchorDegree epsilon + 1 <
+      positiveArtanhEulerAnchorPivot z epsilon := by
+  have hpivot :=
+    positiveArtanhEulerAnchorPivot_ge_comparisonDen_add_two z hz epsilon
+  unfold positiveArtanhGeometricAnchorDegree
+  omega
+
+/-- The Euler polynomial still has its stabilized infinite-target
+coefficient at the first geometric boundary. -/
+theorem coeff_positiveArtanhEulerAnchorExpPoly_boundary_eq_target
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    let stage := positiveArtanhEulerAnchorStage epsilon
+    let inner := positiveArtanhEulerAnchorPivot z epsilon
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    (coeff
+      (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+      (degree + 1)).eqv
+        (positiveArtanhFormalTargetCoeff (degree + 1)) := by
+  let stage := positiveArtanhEulerAnchorStage epsilon
+  let inner := positiveArtanhEulerAnchorPivot z epsilon
+  let degree := positiveArtanhGeometricAnchorDegree epsilon
+  have hinner : degree + 1 < inner :=
+    positiveArtanhGeometricAnchorDegree_succ_lt_pivot z hz epsilon
+  have hstage : degree + 1 < 2 * stage + 1 :=
+    positiveArtanhGeometricAnchorDegree_succ_lt_stageBoundary epsilon
+  exact Q'.eqv_trans _ _ _
+    (coeff_positiveArtanhExpPartialPoly_eq_stable_of_lt
+      stage inner (degree + 1) hinner)
+    (positiveArtanhEulerStableCoeff_eq_target_of_lt
+      stage (degree + 1) hstage)
+
+/-- Subtracting the one-copy geometric boundary from the two-copy Euler
+target leaves exactly one alternating-sign coefficient. -/
+theorem coeff_positiveArtanhEulerAnchorDifferencePoly_boundary
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    (coeff (positiveArtanhEulerAnchorDifferencePoly z epsilon)
+      (degree + 1)).eqv ((-1 : Q') ^ (degree + 1)) := by
+  let stage := positiveArtanhEulerAnchorStage epsilon
+  let inner := positiveArtanhEulerAnchorPivot z epsilon
+  let degree := positiveArtanhGeometricAnchorDegree epsilon
+  let sign : Q' := (-1 : Q') ^ (degree + 1)
+  have heuler :=
+    coeff_positiveArtanhEulerAnchorExpPoly_boundary_eq_target z hz epsilon
+  change (coeff
+    (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+    (degree + 1)).eqv
+      (positiveArtanhFormalTargetCoeff (degree + 1)) at heuler
+  have heuler' :
+      (coeff (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+        (degree + 1)).eqv (sign + sign) := by
+    exact Q'.eqv_trans _ _ _ heuler (Q'.eqv_refl _)
+  have hgeom :
+      (coeff (positiveArtanhGeometricApproxPoly degree) (degree + 1)).eqv
+        sign :=
+    coeff_positiveArtanhGeometricApproxPoly_boundary degree
+  unfold positiveArtanhEulerAnchorDifferencePoly
+    positiveArtanhEulerGeometricDifferencePoly
+  refine Q'.eqv_trans _
+    (coeff (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+        (degree + 1) +
+      (-1 : Q') *
+        coeff (positiveArtanhGeometricApproxPoly degree) (degree + 1)) _
+    (coeff_psub _ _ _) ?_
+  have hneg :
+      ((-1 : Q') *
+          coeff (positiveArtanhGeometricApproxPoly degree) (degree + 1)).eqv
+        (-sign) :=
+    Q'.eqv_trans _ ((-1 : Q') * sign) _
+      (Q'.mul_eqv_congr_left (-1) _ _ hgeom)
+      (negOne_mul_eqv_neg sign)
+  refine Q'.eqv_trans _ ((sign + sign) + (-sign)) _
+    (q_add_congr heuler' hneg) ?_
+  refine Q'.eqv_trans _ (sign + (sign + (-sign))) _
+    (Q'.add_assoc_eqv sign sign (-sign)) ?_
+  refine Q'.eqv_trans _ (sign + 0) _
+    (Q'.add_eqv_congr_left sign _ 0 (Q'.add_neg_self_eqv sign)) ?_
+  exact q_add_zero_eqv sign
+
+/-- Every rational power of `-1` has absolute value one. -/
+theorem abs_negOne_pow_eqv_one : forall n : Nat,
+    (Q'.abs ((-1 : Q') ^ n)).eqv 1
+  | 0 => by decide
+  | n + 1 => by
+      refine Q'.eqv_trans _ (Q'.abs (-(((-1 : Q') ^ n)))) _
+        (Q'.abs_eqv_congr (negOne_mul_eqv_neg (((-1 : Q') ^ n)))) ?_
+      exact Q'.eqv_trans _ _ _ (Q'.abs_neg' (((-1 : Q') ^ n)))
+        (abs_negOne_pow_eqv_one n)
+
+/-- The first uncancelled coefficient of the full computed difference has
+absolute value exactly one. -/
+theorem abs_coeff_positiveArtanhEulerAnchorDifferencePoly_boundary_eqv_one
+    (z : Q') (hz : (0 : Q') < z) (epsilon : Q') :
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    (Q'.abs (coeff (positiveArtanhEulerAnchorDifferencePoly z epsilon)
+      (degree + 1))).eqv 1 := by
+  let degree := positiveArtanhGeometricAnchorDegree epsilon
+  exact Q'.eqv_trans _ _ _
+    (Q'.abs_eqv_congr
+      (coeff_positiveArtanhEulerAnchorDifferencePoly_boundary z hz epsilon))
+    (abs_negOne_pow_eqv_one (degree + 1))
+
+/-- Splitting a dropped weighted coefficient list exposes its boundary
+coefficient and the next shifted tail, including implicit zero padding. -/
+theorem weightedL1_drop_eqv_boundary_add_tail
+    (rho : Q') : forall (p : Poly) (index : Nat),
+    (weightedL1 rho (List.drop index p)).eqv
+      (Q'.abs (coeff p index) +
+        rho * weightedL1 rho (List.drop (index + 1) p))
+  | [], 0 => by
+      change (0 : Q').eqv (Q'.abs 0 + rho * 0)
+      refine Q'.eqv_symm (Q'.eqv_trans _ ((0 : Q') + 0) _
+        (q_add_congr (by decide) (q_mul_zero rho)) ?_)
+      exact q_add_zero_eqv 0
+  | [], index + 1 => by
+      change (0 : Q').eqv (Q'.abs 0 + rho * 0)
+      refine Q'.eqv_symm (Q'.eqv_trans _ ((0 : Q') + 0) _
+        (q_add_congr (by decide) (q_mul_zero rho)) ?_)
+      exact q_add_zero_eqv 0
+  | _ :: _, 0 => Q'.eqv_refl _
+  | _ :: cs, index + 1 =>
+      weightedL1_drop_eqv_boundary_add_tail rho cs index
+
+/-- After spending one unit on the exact first boundary coefficient, a
+shifted post-boundary tail of size at most three fits the former residual
+size-two budget because `|z| <= 1/3`. -/
+theorem positiveArtanhEulerResidualTailSize_two_of_postBoundary_three
+    (z : Q') (hz : (0 : Q') < z)
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1)
+    (epsilon : Q')
+    (htail :
+      let degree := positiveArtanhGeometricAnchorDegree epsilon
+      let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+      weightedL1 (Q'.abs z) (List.drop (degree + 2) polynomial) <=
+        Q'.ofNat 3) :
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    weightedL1 (Q'.abs z) (List.drop (degree + 1) polynomial) <=
+      Q'.ofNat 2 := by
+  let degree := positiveArtanhGeometricAnchorDegree epsilon
+  let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+  let rho := Q'.abs z
+  have hrho : (0 : Q') <= rho := Q'.abs_nonneg z
+  have hscaleTail :
+      rho * weightedL1 rho (List.drop (degree + 2) polynomial) <=
+        rho * Q'.ofNat 3 :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ htail hrho
+  have hscaleRadius : rho * Q'.ofNat 3 <=
+      CRealLog.recipOdd 1 * Q'.ofNat 3 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hzb (by decide)
+  have htailOne :
+      rho * weightedL1 rho (List.drop (degree + 2) polynomial) <= 1 :=
+    Q'.le_trans' _ _ _ hscaleTail
+      (Q'.le_trans' _ _ _ hscaleRadius (Q'.le_of_eqv (by decide)))
+  have hboundary : (Q'.abs (coeff polynomial (degree + 1))).eqv 1 :=
+    abs_coeff_positiveArtanhEulerAnchorDifferencePoly_boundary_eqv_one
+      z hz epsilon
+  have hsplit := weightedL1_drop_eqv_boundary_add_tail
+    rho polynomial (degree + 1)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit)
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add (Q'.le_of_eqv hboundary) htailOne)
+      (Q'.le_of_eqv (by decide)))
+
 /-- The executable coefficient inequality at one rational input and
 tolerance. -/
 def positiveArtanhEulerPolynomialCoefficientBound
@@ -2820,37 +3106,6 @@ structure PositiveArtanhEulerPolynomialTargetCoefficientCertificate : Type 1 whe
     forall (stage index : Nat), index < 2 * stage + 1 ->
       (positiveArtanhEulerStableCoeff stage index).eqv
         (positiveArtanhFormalTargetCoeff index)
-
-/-- The closed comparison target starts at the same constant coefficient. -/
-theorem positiveArtanhFormalTargetCoeff_zero_eqv_one :
-    (positiveArtanhFormalTargetCoeff 0).eqv 1 :=
-  Q'.eqv_refl 1
-
-/-- The first positive comparison coefficient is `-2`. -/
-theorem positiveArtanhFormalTargetCoeff_one_eqv_negativeTwo :
-    (positiveArtanhFormalTargetCoeff 1).eqv negativeTwo := by
-  decide
-
-/-- After the exceptional constant-to-linear step, the closed target
-coefficients alternate by multiplication with `-1`. -/
-theorem positiveArtanhFormalTargetCoeff_succ_eqv_neg
-    (index : Nat) (hindex : 1 <= index) :
-    (positiveArtanhFormalTargetCoeff (index + 1)).eqv
-      ((-1 : Q') * positiveArtanhFormalTargetCoeff index) := by
-  cases index with
-  | zero => omega
-  | succ index =>
-      change
-        (((-1 : Q') ^ ((index + 1) + 1)) +
-            ((-1 : Q') ^ ((index + 1) + 1))).eqv
-          ((-1 : Q') *
-            (((-1 : Q') ^ (index + 1)) +
-              ((-1 : Q') ^ (index + 1))))
-      rw [Q'.pow_succ]
-      exact Q'.eqv_symm
-        (Q'.mul_add_eqv (-1)
-          ((-1 : Q') ^ (index + 1))
-          ((-1 : Q') ^ (index + 1)))
 
 /-- Strictly smaller algebraic frontier: the constant and linear seeds are
 proved internally, so only the local alternating successor recurrence remains
@@ -3040,6 +3295,54 @@ structure PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler : Type 2 w
     (z : Q') -> (hz : (0 : Q') < z) ->
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate z hz hzb
+
+/-- Smaller analytic frontier after computing the first uncancelled
+coefficient exactly.  Only the tail strictly beyond that boundary remains,
+with the fixed size-three budget paid down to size two by `|z| <= 1/3`. -/
+structure PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailSizeBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    let polynomial := positiveArtanhEulerAnchorDifferencePoly z epsilon
+    weightedL1 (Q'.abs z) (List.drop (degree + 2) polynomial) <=
+      Q'.ofNat 3
+
+/-- Uniform producer of the post-boundary shifted-tail-size certificates. -/
+structure PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler :
+    Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+      z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+
+/-- The exact unit boundary coefficient and direct-window radius compile the
+post-boundary size-three certificate to the former residual size-two one. -/
+def toResidualTailSize
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate :
+      PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+        z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
+      z hz hzb where
+  tailSizeBound epsilon hepsilon :=
+    positiveArtanhEulerResidualTailSize_two_of_postBoundary_three
+      z hz hzb epsilon (certificate.tailSizeBound epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+
+/-- A post-boundary tail compiler supplies the residual shifted-tail
+compiler while retaining the same rational input. -/
+def positiveWindowArtanhEulerPolynomialResidualTailSizeCompilerOfPostBoundary
+    (compiler :
+      PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler) :
+    PositiveWindowArtanhEulerPolynomialResidualTailSizeCompiler where
+  evaluate z hz hzb :=
+    (compiler.evaluate z hz hzb).toResidualTailSize
 
 namespace PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate
 
@@ -3412,6 +3715,16 @@ def positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
   positiveWindowArtanhEulerCompilerOfPolynomialFullTail
     (positiveWindowArtanhEulerPolynomialFullTailCompilerOfResidualTailSize tail)
 
+/-- The exact first boundary coefficient is internal, so a post-boundary
+size-three compiler reaches the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
+    (tail :
+      PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
+    (positiveWindowArtanhEulerPolynomialResidualTailSizeCompilerOfPostBoundary
+      tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -3503,9 +3816,19 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerAnchorRadiusPow_mul_two_le_comparisonTolerance
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhEulerAnchorDifferencePoly_boundary
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.abs_coeff_positiveArtanhEulerAnchorDifferencePoly_boundary_eqv_one
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerResidualTailSize_two_of_postBoundary_three
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate.toResidualTailSize
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate.toFullTail
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

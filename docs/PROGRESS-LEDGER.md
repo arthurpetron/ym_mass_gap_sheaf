@@ -15459,3 +15459,46 @@ bound the later shifted Euler tail uniformly by the remaining unit budget.
 No scalar inverse, physical carrier, projective OS/GNS construction,
 transfer/operator uniformity, thermodynamic or continuum limit, QFT axiom, or
 Clay mass-gap theorem is claimed.
+
+## First active Euler boundary computed; tail frontier shifted once more (2026-08-24)
+
+The first coefficient outside the now-canonical cancellation prefix is no
+longer hidden inside the analytic tail.  The finite geometric approximation
+has coefficient `(-1)^(degree+1)` at its first truncation boundary, while the
+Euler polynomial is still inside both its outer stage and moving pivot and
+therefore has the stabilized two-copy target coefficient.  Their difference
+is exactly one alternating-sign copy, so its rational absolute value is
+exactly one.
+
+The generic weighted-list identity
+`weightedL1 rho (drop i p) = abs (coeff p i) + rho * weightedL1 rho (drop (i+1) p)`
+then exposes that coefficient constructively.  On the direct window
+`|z| <= 1/3`, a size-three bound on the tail strictly after the boundary costs
+at most one after multiplication by `|z|`.  Together with the exact unit
+boundary coefficient this proves the former residual size-two bound.
+
+`PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate` is the
+new strictly smaller scalar input.  At each tolerance it asks only for
+`weightedL1 |z| (drop (degree+2) differencePoly) <= 3`.
+Its adapter reaches the pre-existing residual/full-tail and scalar-inverse
+compilers.  The connected
+`adaptivePathOfPositiveArtanhPolynomialPostBoundaryTailSizeCompiler` reaches
+the same `AdaptiveRawWilsonConnectedMassGapPath` with definitionally the same
+dynamic family, raw Wilson observable, projective OS handoff, matrix
+coefficient, exact-rate handoff, transfer lift, finite graph approximation,
+and vacuum pin.
+
+The first guarded anchor check after copying the scratch proof is not counted
+as a pass: it found a source-order forward reference to a canonical
+certificate.  The proof was reorganized around the earlier stabilized
+coefficient recurrence and all subsequent guarded checks pass.  Exact
+one-worker targets pass 65 jobs for the polynomial anchor and 5118 jobs for
+the connected capstone.  Every newly audited export uses exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+The post-boundary size-three compiler remains uninhabited.  The next scalar
+frontier is a uniform finite-Euler coefficient majorant for the tail after
+`degree+2`, likely separating the still-stable target segment from the high
+Euler-truncation residual.  No scalar inverse, physical carrier, projective
+OS/GNS construction, transfer/operator uniformity, thermodynamic or continuum
+limit, QFT axiom, or Clay mass-gap theorem is claimed.

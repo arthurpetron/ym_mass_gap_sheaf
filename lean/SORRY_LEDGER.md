@@ -13709,3 +13709,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   half of the analytic scalar tail; it does not inhabit the residual tail-size
   compiler, construct a scalar inverse or physical mass gap, or prove the
   continuum/Clay endpoint.
+
+### [BF4-physical-positive-artanh-first-active-boundary] Compute the first uncancelled coefficient and shift the analytic frontier past it — **CLOSED 2026-08-24**
+
+- **milestone**: prove that the first geometric-boundary coefficient is one
+  alternating-sign copy, prove that the finite Euler coefficient there is
+  still the stabilized two-copy target, compute their difference and its
+  absolute value exactly, split the shifted weighted coefficient norm at that
+  boundary, and use `|z| <= 1/3` to compile a post-boundary size-three bound
+  into the former residual size-two bound.  Carry the smaller input through
+  the unchanged scalar inverse and same-observable connected Wilson path.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerStableCoeff_eq_target_of_lt`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhGeometricApproxPoly_boundary`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhEulerAnchorDifferencePoly_boundary`,
+  `CRealArtanhEulerPolynomialAnchor.abs_coeff_positiveArtanhEulerAnchorDifferencePoly_boundary_eqv_one`,
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_drop_eqv_boundary_add_tail`,
+  `CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerResidualTailSize_two_of_postBoundary_three`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate.toResidualTailSize`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialPostBoundaryTailSizeCompiler`.
+- **obligation**: inhabit
+  `PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler` by proving,
+  uniformly on `0 < z` and `|z| <= 1/3`, that the weighted coefficient tail
+  strictly after the exact first boundary has norm at most three.  The first
+  boundary coefficient, cutoff choice, radius decay, and tolerance accounting
+  are no longer open inputs.  Physical-carrier, projective OS/GNS,
+  transfer/operator, thermodynamic/continuum, QFT, and Clay inputs remain
+  separate and open.
+- **constructive?**: yes.  Coefficients are computed in finite rational
+  polynomials, the tail split is structural recursion on lists, and all
+  equality is `Q'.eqv`.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.  Audited gates
+  remain exactly `[propext, Quot.sound]`.
+- **status note**: the first guarded anchor check exposed a source-order
+  forward reference and is not counted as a pass.  After reorganizing the
+  proof around the earlier recurrence theorem, exact one-worker targets pass
+  65 jobs for the polynomial anchor and 5118 jobs for the connected capstone.
+  This contracts only the finite scalar-tail interface; it does not inhabit
+  the new compiler, construct a scalar inverse or physical mass gap, or prove
+  the continuum/Clay endpoint.
