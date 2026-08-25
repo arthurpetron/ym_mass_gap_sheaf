@@ -17304,3 +17304,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-support-activation-parallel-payment] Contract two support payments to one exact schedule — **CLOSED 2026-08-25**
+
+- **milestone**: give the persistent and cutoff-activated used-row floors
+  separate observable-connected path-amplification envelopes; prove that a
+  dyadic payment for both branches pays the single support-split envelope by
+  an internal exact comparison of the two floors; feed that payment to the
+  unchanged least-joint-precision compiler; and expose a two-payment linear-
+  data record whose checked maps return to the single consecutive-cutoff
+  schedule.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationParallelPayment.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFacePersistentSupportPathAmplificationEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportPathAmplificationEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSupportSplitPayment_of_parallelBranchPayments`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicPrecision_le_of_parallelSupportBranchPayments`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabParallelSupportBranchDyadicLinearData.toSupportSplitData`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabParallelSupportBranchDyadicLinearData.toLinearData`.
+- **obligation**: inhabit both branch payments with one common affine dyadic
+  precision, prove the corrected-increment bound, and absorb the fixed nome/
+  dimension cost.  Failure localized to the activated payment is the exact
+  trigger for testing a face-local adaptive rerouting; it is not evidence
+  against the persistent payment or against the downstream tail compiler.
+- **constructive?**: yes.  The branch selection is the decidable rational
+  comparison already defining the minimum; reciprocal antitonicity transports
+  the chosen branch payment, and both branches retain the same exact path
+  numerator, trajectory, carrier, and observable.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5171 jobs.  The four
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

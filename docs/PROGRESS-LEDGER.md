@@ -19370,3 +19370,57 @@ burn, merger/no-merger, new--old and new--new faces, old traffic, route churn,
 shell returns, total tail closure, completed uniform gap, thermodynamic and
 continuum limits, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Two support payments now rejoin without splitting the observable (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationParallelPayment`
+defines separate path-amplification envelopes for the persistent used-row
+floor and the cutoff-activated used-row floor.  If the same dyadic precision
+pays both envelopes, a decidable comparison of the exact rational floors
+selects the smaller one internally and proves payment of the single support-
+split envelope.  The result feeds the unchanged least joint precision and
+consecutive-cutoff schedule.
+
+Thus the narrow denominator frontier has exact parallel width two, but serial
+width one after its join.  Both branch proofs use the same path-square
+numerator, matched trajectory, physical carrier, canonical route, and raw-
+kernel observable.  They are not two candidate physical theories.
+
+At the wider cutoff frontier, the useful counts depend on how far the proof
+graph is expanded:
+
+1. six regional leaves before decomposing new traffic: old traffic, new
+   traffic, route churn, and the three shell-return faces;
+2. eight leaves after replacing new traffic by its old--new, new--old, and
+   new--new directed faces; and
+3. twelve presently exposed work packages on either chosen old--new merger
+   route, after replacing the old--new face by its corrected-increment bound,
+   persistent payment, activated payment, fixed-start burn, and one of the
+   alternative merger-residual or uniform-no-merger certificates.
+
+The AF physical-scale identification/uniformity stream is an additional
+independent axis, but it is not a thirteenth term in the cutoff-deficit sum.
+It must meet the cutoff work through a later two-parameter uniformity theorem.
+Likewise, merger control and no-merger are alternatives, so developing both
+is useful hedging but does not increase the number of logically necessary
+inputs on a selected proof path.
+
+This favors the current correlated canonical path while both support payments
+remain analytically plausible.  It preserves same-edge cancellation and
+avoids the already diagnosed weakness of a sector-wide kernel-floor fallback.
+Adaptive routing is justified locally if the activated-support payment fails;
+then only that face compiler and its route-coherence proof need change.  A
+direct proof of the one total deficit tail could also bypass the regional
+parallel packages, so maximum parallel width is a work-plan measure, not a
+measure of logical necessity or proof quality.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5171 jobs.  The four audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+Neither support payment, the corrected-increment bound, the fixed-start burn,
+nor either merger alternative is inhabited.  The remaining regional, total-
+tail, two-axis uniformity, completed-gap, thermodynamic/continuum, continuum
+Yang--Mills, and Clay frontiers remain open.
