@@ -14557,3 +14557,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs.  Its eight printed exports use only `[propext, Quot.sound]` or smaller
   subsets.  The executable forbidden-token scan reports zero hits, and the
   root aggregator imports the module; no full-root audit is claimed.
+
+### [canonical-correlated-capacity-debt] Preserve load/kernel compensation in one dynamic observable — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact normalized routed capacity debt on each
+  literal vacuum-sector pair; prove constructively that pair debt at most one
+  implies the exact edge-capacity inequality, using the existing positive-load
+  implication to exclude the totalization fallback; take its located finite
+  maximum; compile a two-sided canonical pointwise envelope into summable
+  maximum variation; and show that total budget plus initial slack constructs
+  the existing cofinal transition product and completed fixed-anchor family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtCompiler.lean`.
+- **decl**:
+  `anchorRoutedCapacityDebtOnPair`,
+  `anchorRoutedCapacityDebtOnPair_nonnegative`,
+  `anchorRoutedCapacityDebtOnPair_le_one_implies_edge_capacity`,
+  `anchorRoutedCapacityDebtMaximum`,
+  `anchorRoutedCapacityDebtOnPair_le_maximum`,
+  `AnchorCanonicalCapacityDebtEnvelope`,
+  `AnchorCanonicalCapacityDebtEnvelope.toMaximumVariation`,
+  `anchorCanonicalCapacityDebtMaximumVariation`,
+  `AnchorCanonicalCapacityDebtPersistence`,
+  `AnchorCanonicalCapacityDebtPersistence.maximum_le_one`,
+  `AnchorCanonicalCapacityDebtPersistence.toAdaptiveConditionalTransitionProduct`,
+  `AnchorCanonicalCapacityDebtPersistence.toAnchorGeometricExtension`, and
+  `AnchorCanonicalCapacityDebtPersistence.toAnchorGeometricCompletedFamily`.
+- **obligation**: inhabit one correlated two-sided canonical debt envelope,
+  choose a positive total variation budget whose tail index from zero is zero,
+  and prove the cutoff-zero maximum plus that budget is at most one.  This is
+  a smaller and more faithful analytic obligation than separately controlling
+  a routed-load maximum, a kernel minimum, and a uniform kernel floor, because
+  exact load/kernel compensation is retained.  The difficult cases are still
+  the genuinely new-shell pairs.  Physical AF persistence, the literal
+  same-observable thermodynamic bridge, projective OS/GNS reconstruction,
+  completed all-vector gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The observable uses the exact routed load and exact
+  conditional kernel on the same pair and routing; extrema are recursive
+  located folds; both carrier recodings are the previously constructed terms;
+  division requires explicit positivity; and all cancellation is through
+  `Q'.eqv`.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5080 jobs.
+  Its seven printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.

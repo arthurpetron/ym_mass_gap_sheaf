@@ -16328,3 +16328,47 @@ The exact monitored one-worker target passes all 5079 jobs.  Its eight printed
 exports use only `[propext, Quot.sound]` or smaller subsets.  The executable
 forbidden-token scan reports zero hits, and the root aggregator imports the
 module; no full-root audit is claimed.
+
+## Correlated capacity debt removes the separated kernel-floor wall (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtCompiler` replaces the
+support-proxy route's separated load maximum and supported-kernel minimum by
+one observable-connected quantity on each literal ordered pair:
+
+`sharedFloor * routedLoad / ((1/2) * conditionalKernel)`.
+
+The definition uses a zero fallback only to totalize the ambient function.
+On the exact vacuum-sector pair carrier, positive routed load already proves
+positive conditional kernel.  Consequently a pair debt at most one implies
+the exact edge-capacity inequality without first demanding a cutoff-uniform
+lower bound on every supported kernel entry.  A recursively located maximum
+over the exact carrier then reduces the finite transition-product condition
+to one scalar bound.
+
+The compiler installs the already constructed canonical current-to-next and
+next-to-current pair maps in a single two-sided pointwise envelope.  Summable
+variation of that envelope, a positive total budget available from cutoff
+zero, and finite initial slack imply that every maximum debt is at most one.
+This contracts directly into the existing cofinal conditional transition
+product and thence into the completed carrier, transfer, and vacuum-sector
+family.
+
+Thus the immediate canonical analytic frontier is now one correlated
+envelope rather than three separated producer certificates.  It still has
+two directional inequalities, and its hard cases remain the genuinely new
+shell and any change of the exact canonical routed load/kernel ratio there.
+The older support-proxy path remains a valid sufficient alternative, but it
+can discard compensation between a small load and a small kernel.  Adaptive
+routing is justified only if the correlated new-shell estimate fails for the
+fixed canonical routing.
+
+No correlated envelope, total-budget witness, or initial-slack proof is
+supplied.  This is a fixed strong-coupling anchor, not the physical
+AF/grouped-BF4 trajectory.  Same-observable thermodynamic compatibility,
+projective OS/GNS reconstruction, a completed all-vector gap, continuum QFT,
+and the Clay mass-gap theorem remain open.
+
+The exact monitored one-worker target passes all 5080 jobs.  Its seven
+printed exports use only `[propext, Quot.sound]`.  The executable
+forbidden-token scan reports zero hits, and the root aggregator imports the
+module; no full-root audit is claimed.
