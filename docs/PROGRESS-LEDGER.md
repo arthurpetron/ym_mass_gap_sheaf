@@ -16064,3 +16064,60 @@ root aggregator imports the module; no full-root audit is claimed.  The
 fixed anchor is not an AF or physical BF4 trajectory, and the physical
 same-observable dynamic family, all-vector completed gap, continuum QFT, and
 Clay mass-gap theorem remain open.
+
+## Routed support and maximum load now generate the fixed-anchor debt proxy (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportMarginProxy` removes the two
+free analytic inputs left by the preceding debt compiler: the positive lower
+proxy and its proof of comparison with the exact finite routed margin.  For a
+given routing at a finite cutoff, it replaces the conditional kernel by one
+only on edges with zero routed load and takes the located minimum on the
+literal vacuum-sector pair list.  It separately takes the zero-seeded located
+maximum of the exact routed transition-product load on that same list.  The
+resulting explicit rational
+
+`((1/2) * supportedConditionalKernelFloor) / (1 + routedLoadMaximum)`
+
+is proved positive, at most one, below every exact edge-capacity ratio, and
+therefore below the exact finite capacity margin.  This is an
+observable-connected compiler: the routing, support test, conditional kernel,
+load, carrier, edge ratio, and final exact margin are unchanged objects, not
+parallel surrogates connected only by informal interpretation.
+
+At the fixed `1/400` anchor, the automatic proxy determines the normalized
+debt stream.  A direct compiler now accepts only the routing, a summable
+two-sided variation certificate for that debt, a positive total budget
+available from cutoff zero, and initial slack.  It returns the preceding
+generic debt certificate, whose existing projections reach the adaptive
+transition product and completed fixed-anchor geometric dynamic family.  The
+direct function interface also avoids repeatedly normalizing the large
+dependent routing expression; the same factoring reduced final-module build
+time from a nonterminating practical elaboration attempt to 1.3 seconds under
+a stricter heartbeat ceiling.
+
+This sharpens the causal choice of proof path.  The canonical lane fixes one
+routing sequence and now owes only variation, budget, and slack for the
+automatically generated debt.  The adaptive lane may optimize the routing at
+each cutoff before proving those same three facts.  The canonical lane is
+shorter if its proxy does not collapse; the adaptive lane is necessary if
+route optimization is what prevents collapse.  These are alternative
+upstream producers meeting one debt interface, not two conclusions that may
+be combined to manufacture a gap.
+
+The remaining obstruction is still uniform.  Positivity at every finite
+cutoff does not show that this proxy stays large enough, nor that its
+reciprocal-normalized debt has summable variation and fits below one after
+adding the full budget.  No routing or debt certificate is inhabited here.
+The fixed anchor is not the physical AF trajectory, and the actual grouped
+BF4 identification, literal same-observable thermodynamic bridge, projective
+OS/GNS join, completed all-vector gap, continuum QFT, and Clay theorem remain
+open.
+
+The exact monitored one-worker target passes all 5073 jobs under a local
+500000-heartbeat ceiling.  Seven audited exports use only
+`[propext, Quot.sound]`, the repository-wide executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module.  A monitored
+root aggregation audit was attempted but stopped automatically at job 3217
+of 7104 when available memory reached 11.6 GiB, below the launcher's 12.0 GiB
+reserve.  It is not reported as a pass; the verified boundary is the exact
+narrow target.

@@ -14307,3 +14307,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   reports zero hits, and the root aggregator imports the module.  This closes
   a sufficient persistence compiler, not its analytic inhabitant, the
   physical dynamic family, continuum theory, or Clay mass gap.
+
+### [adaptive-support-margin-proxy] Derive the debt proxy from routed support and load — **CLOSED 2026-08-25**
+
+- **milestone**: for every positive routing at every finite cutoff, restrict
+  the physical conditional kernel to the literal positively loaded support,
+  take its located positive minimum, take the located maximum of the exact
+  routed transition-product loads, and prove that
+  `((1/2) * supportFloor) / (1 + loadMaximum)` is positive and lies below
+  every exact edge ratio and hence below the exact finite capacity margin.
+  At the fixed anchor, compile routing plus summable normalized-debt
+  variation, total budget, and initial slack directly into the preceding
+  finite-capacity debt certificate, with no free margin or comparison input.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportMarginProxy.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportedConditionalKernelFloor`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportedConditionalKernelFloor_pos`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoadMaximum`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportCapacityMarginLower`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportCapacityMarginLower_pos`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportCapacityMarginLower_le_edgeRatio`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedSupportCapacityMarginLower_le_finiteCapacityMargin`,
+  `anchorAdaptiveSupportCapacityDebt`, and
+  `anchorAdaptiveSupportCapacityDebtVariation`.
+- **obligation**: supply an actual routing sequence and prove that the
+  resulting automatic debt stream has summable two-sided variation, a
+  positive total budget available from cutoff zero, and enough initial slack.
+  Finite positivity of the proxy does not prevent it from decaying with the
+  cutoff.  The fixed anchor is not the physical AF trajectory.  The grouped
+  BF4 identification, same raw observable across physical cutoffs,
+  projective OS/GNS join, completed all-vector gap, continuum QFT, and Clay
+  closure remain open.
+- **constructive?**: yes.  Both finite extrema are recursive located list
+  folds; unloaded edges use one; every division carries an explicit positive
+  denominator witness; and the proxy comparison stays on the same routing,
+  conditional kernel, exact routed load, and literal finite carrier.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or
+  new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5073 jobs
+  under a stricter 500000-heartbeat module ceiling.  Seven audited exports use
+  only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  A monitored root
+  aggregation audit was attempted but stopped automatically at job 3217 of
+  7104 when available memory reached 11.6 GiB, below the 12.0 GiB reserve; it
+  is not reported as a pass.  The verified boundary is the exact narrow
+  target.
