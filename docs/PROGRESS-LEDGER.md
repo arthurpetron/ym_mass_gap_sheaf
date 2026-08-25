@@ -16850,3 +16850,49 @@ only `[propext, Quot.sound]`.  The repository-wide executable forbidden-token
 scan reports zero hits, the module declares no custom axiom or noncomputable
 definition, and the root aggregator imports it.  No full-root audit is
 claimed.
+
+## Matched dynamic ray capacity is reduced to the exact selected physical term (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicSelectedTermRayCompiler` removes the opaque
+scale-wise ray-capacity record from the physical matched trajectory.  At each
+scale its replacement is the existing geometric selected-term comparison:
+the complete positive spin-cube raw row is bounded by one cutoff-independent
+multiple of its literal zero-boundary physical production term, at the exact
+nome `blockedWeight family (coupling scale)`.
+
+The existing lossless finite compiler applies scale by scale.  It takes the
+positive reciprocal of the row ceiling as a cofinal return floor and half of
+that floor as the cofinal ray capacity.  The new theorem makes this delta
+formula definitional and retains strict positivity.  The off-ray transition
+product is then a one-field dependent extension indexed by precisely that
+compiled capacity, preventing a proof at another nome or with another ray
+floor from entering silently.
+
+Any selected-term family plus its transition-product extension now contracts
+to the exact matched local producer and hence to the same dynamic completed
+carrier, transfer, vacuum complement, normalized strength law, optional
+strength band, and same-object observable-pin interface already constructed.
+The compiled nome and spacing remain definitionally the exact matched block
+weight and physical spacing.
+
+The repository has no arbitrary-nome inhabitant of the selected-term ceiling.
+Its only concrete cofinal instance is the fixed `1/400` anchor, whose proof
+uses an anchor-specific raw-row ceiling and therefore cannot be substituted
+for a changing AF nome.  Thus the physical ray frontier is now located at an
+explicit raw-row inequality rather than an opaque capacity assumption.  The
+transition-product estimate can be developed parametrically in a supplied
+capacity, but its final specialization is causally downstream of this ray
+ceiling.
+
+No matched selected-term ceiling, transition-product extension, strength
+band, or nonzero same-object observable pin is inhabited.  The physical
+cubic law, dimensional-transmutation spacing, full nonperturbative trajectory
+identification, projective OS/GNS reconstruction, continuum Yang--Mills
+existence, and the Clay theorem remain open.
+
+The focused monitored check and dependency-complete one-worker target both
+pass; the target completes all 5076 jobs.  Its eight printed exports use only
+`[propext, Quot.sound]`.  The repository-wide executable forbidden-token scan
+reports zero hits, the module declares no custom axiom or noncomputable
+definition, and the root aggregator imports it.  No full-root audit is
+claimed.

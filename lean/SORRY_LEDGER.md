@@ -15131,3 +15131,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   reports zero hits, the source declaration scan finds no custom axiom or
   noncomputable definition, and the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-selected-term-ray] Reduce the matched ray capacity to its selected physical raw-row comparison — **CLOSED 2026-08-25**
+
+- **milestone**: replace the opaque cofinal ray-capacity field at every exact
+  matched BF4/AF scale by a cofinal selected-term raw-row ceiling; compile its
+  reciprocal return floor and half-floor capacity scale by scale; make the
+  remaining adaptive transition product depend on that exact capacity; and
+  contract the result to the matched dynamic and completed families,
+  normalized strength law, strength-band consumer, and same-object observable
+  interface without changing nome or spacing.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicSelectedTermRayCompiler.lean`.
+- **decl**:
+  `MatchedPhysicalDynamicSelectedTermRayProducer`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toRayCapacityProducer`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.TransitionProductExtension`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toLocalProducer`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toDynamicFamily`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toCompletedFamily`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toNormalizedStrengthLaw`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toDynamicFamily_nome`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toDynamicFamily_spacing`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toRayCapacityProducer_delta`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toRayCapacityProducer_delta_pos`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.StrengthBand`,
+  `MatchedPhysicalDynamicSelectedTermRayProducer.toPhysicalRateBand`, and
+  `MatchedPhysicalDynamicSelectedTermRayProducer.SameObjectObservablePin`.
+- **obligation**: prove the selected-term raw-row ceiling uniformly over the
+  cofinal spin cutoff at each changing matched nome, then inhabit the adaptive
+  off-ray transition-product extension at the capacity it constructs.  The
+  concrete `1/400` anchor ceiling is not an arbitrary-nome theorem.  Physical
+  cubic and spacing data, the two-sided strength/spacing band, nonzero
+  same-object observable pin, full trajectory identification, projective
+  OS/GNS reconstruction, continuum Yang--Mills existence, and Clay closure
+  remain open.
+- **constructive?**: yes.  Every selected-term certificate is indexed by the
+  literal matched nome; reciprocal floors, half-floor capacities, dependent
+  transition products, completed objects, and consumers are explicit
+  Type-level data.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  The dependency-complete
+  one-worker target passes all 5076 jobs.  Its eight printed exports use only
+  `[propext, Quot.sound]`; the repository-wide executable forbidden-token scan
+  reports zero hits, the source declaration scan finds no custom axiom or
+  noncomputable definition, and the root aggregator imports the module.  No
+  full-root audit is claimed.
