@@ -19324,3 +19324,49 @@ adaptive rerouting theorem, fixed physical-scale burn payment, merger/no-
 merger closure, other traffic-face estimate, total tail theorem, completed
 uniform gap, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, or Clay mass gap is proved.
+
+## Used old--new support now splits into two independently payable compilers (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationSplit`
+partitions the exact filtered active-row list without changing its carrier or
+observable.  A row is persistent when its current physical kernel entry is
+positive, and activated when that entry is not positive even though route
+activity forces its mapped later capacity to be positive.
+
+For a persistent row, the existing adjacent-cutoff cylinder theorem gives
+
+`half * currentRawKernel <= mappedLaterRawKernel`
+
+whenever the corrected-slab increment is at most one.  Including the existing
+capacity half-factor yields the retained persistent capacity
+
+`half * (half * currentRawKernel)`.
+
+The activated branch keeps the exact later mapped raw-kernel capacity.  Each
+filtered branch has a constructive positive minimum, with fallback `1` when
+empty.  Their minimum is proved below the unchanged exact active-row floor, so
+the exact amplification and least-joint-precision compiler now accept one
+support-split payment.
+
+This establishes a genuine parallel proof architecture.  The persistent-edge
+floor and activated-edge floor can be analyzed independently and later
+contracted by a kernel-checked minimum.  The canonical consecutive-cutoff
+route survives only if both floors, together with the known path numerator,
+meet the required dyadic payment.  Failure of the activated branch has a
+specific alternative: constructively reroute around uncontrolled activated
+edges.  It does not invalidate the persistent branch or force a wholesale
+change to the tail compiler.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5170 jobs.  The eight audited exports
+use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No asymptotic lower-growth law for either support floor is proved.  The
+corrected-increment bound is a named field of the new linear data, not an
+inhabited theorem.  The adaptive rerouting alternative, fixed physical-scale
+burn, merger/no-merger, new--old and new--new faces, old traffic, route churn,
+shell returns, total tail closure, completed uniform gap, thermodynamic and
+continuum limits, continuum Yang--Mills construction, and the Clay mass gap
+remain open.

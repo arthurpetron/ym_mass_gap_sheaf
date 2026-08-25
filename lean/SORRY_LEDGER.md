@@ -17263,3 +17263,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-active-row-support-activation-split] Split used raw edges into persistent and cutoff-activated support — **CLOSED 2026-08-25**
+
+- **milestone**: classify the exact old--new active current rows by whether
+  their current physical kernel entry is already positive; give persistent
+  rows the twice-halved current raw-kernel capacity supplied by adjacent-
+  cutoff cylinder retention when the corrected increment is at most one;
+  retain the exact later mapped raw-kernel capacity on activated rows; take
+  constructive positive minima on the two filtered lists; contract them by
+  one minimum below the unchanged exact active-row raw-kernel floor; and
+  compile payment against the resulting support-split envelope into the exact
+  least joint precision and existing consecutive-cutoff linear data.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationSplit.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRetainedCurrentRawKernelCapacity_le_mappedRawKernelCapacity`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFacePersistentRetainedRawKernelCapacityFloor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedRawKernelCapacityFloor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSupportSplitRawKernelCapacityFloor_le_activeRowRawKernelCapacityFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivePathRawCapacityAmplificationMaximum_le_supportSplitPathEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabJointDyadicPrecision_le_of_supportSplitPayment`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceCorrectedSlabSupportSplitDyadicLinearData.toLinearData`.
+- **obligation**: inhabit two independent moving scalar estimates: a lower-
+  growth law for retained positive current entries on persistent used rows,
+  and a lower-growth law for exact later entries on activated used rows.
+  The second may instead be discharged by a constructive adaptive routing
+  theorem that avoids uncontrolled activated edges.  The corrected-increment
+  bound, fixed physical-scale burn, other traffic faces, merger/no-merger,
+  route churn, shell returns, completion, and continuum frontiers remain open.
+- **constructive?**: yes.  Both support classes are decidable filters of the
+  unchanged literal active-row list; all positive minima are located folds
+  with the existing empty-list fallback `1`; persistence is the checked
+  adjacent-cutoff cylinder inequality; and contraction uses only rational
+  order.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5170 jobs.  The eight
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
