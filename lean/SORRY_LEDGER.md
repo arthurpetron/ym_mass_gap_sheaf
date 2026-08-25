@@ -15282,3 +15282,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The missing pre-existing
   `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` artifact prevents a
   root source check; no root check or full-root audit is claimed.
+
+### [matched-physical-eventual-transition-product-check] Remove the unnecessary finite-prefix transition checks — **CLOSED 2026-08-25**
+
+- **milestone**: raise the start of any cofinal ray capacity without changing
+  its positive rational delta; specialize that operation to the explicit
+  matched ray at a scale-dependent cutoff; package eventual adaptive and
+  canonical Boolean-check producers; and compile either producer to the same
+  matched dynamic family, completed carrier/transfer/vacuum family,
+  normalized strength law, physical-rate-band consumer, and same-object
+  observable interface.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler.lean`.
+- **decl**:
+  `raiseCofinalRayCapacityStart`,
+  `raiseCofinalRayCapacityStart_delta`,
+  `eventualExplicitRayCapacity`,
+  `eventualExplicitRayCapacity_delta`,
+  `eventualExplicitRayCapacity_start`,
+  `MatchedPhysicalDynamicExplicitRayEventualAdaptiveCapacityCheckProducer`,
+  `MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer`,
+  `toAdaptiveProducer`, `toLocalProducer`, `toCompletedFamily`,
+  `toNormalizedStrengthLaw`, `toLocalProducer_rayCapacity_delta`,
+  `StrengthBand`, `toPhysicalRateBand`, and `SameObjectObservablePin`.
+- **obligation**: prove eventual canonical check success at every physical
+  scale, or supply eventual cutoff-dependent routings if the canonical tail
+  fails.  Finite-prefix checks are no longer required.  Pointwise Boolean
+  decidability does not prove the remaining eventual quantifier.  After this
+  serial gate, the strength/spacing band and nonzero same-object observable
+  pin remain independent consumers, followed by the projective and continuum
+  compatibility frontier.
+- **constructive?**: yes.  The new start is an explicit natural maximum, the
+  ray delta is definitionally unchanged, and every later capacity proof is
+  obtained by natural-number transitivity.  Eventual success remains explicit
+  dependent Type-level data.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored source check passes.  The
+  dependency-complete one-worker target passes all 5083 jobs, and every
+  printed export uses only `[propext, Quot.sound]`.  The root aggregator
+  imports the module; no full-root audit is claimed.

@@ -17014,3 +17014,47 @@ impractical elaboration and is not counted as a check; the final exact scalar
 refutation result is the verified implementation.  The pre-existing missing
 `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` still prevents a root
 source check, so no full-root audit is claimed.
+
+## The matched transition-product check is now honestly cofinal, not prefix-bound (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler`
+removes a finite-prefix overconstraint from the preceding exact-check
+interface.  The completed cutoff-limit machinery consumes a
+`FixedNomeCofinalSpinCubeRayCapacity`, whose `start` field already records the
+first cutoff at which its estimates are needed.  The explicit arbitrary-nome
+row ceiling was stronger than necessary and happened to set that start to
+zero; this did not make transition-product checks below an eventual analytic
+tail logically necessary.
+
+`raiseCofinalRayCapacityStart` replaces the start by the maximum of its old
+value and any requested cutoff.  Its rational `delta`, positivity proof, and
+all later spoke/return comparisons are retained exactly.  For the explicit
+matched ray, the old start is zero, so the raised start is definitionally the
+requested scale-dependent transition start, while the ray delta is
+definitionally unchanged.
+
+The new adaptive and canonical eventual producers choose one transition
+start at every physical scale and ask for the already verified exact Boolean
+checks only at later cutoffs.  The canonical producer still maps into the
+adaptive one.  Either compiles directly to the same matched local producer,
+dynamic family, completed carrier/transfer/vacuum family, normalized strength
+law, physical-rate-band consumer, and same-object observable-pin interface.
+Nome and physical spacing remain definitionally pinned to the same matched
+BF4/AF trajectory.
+
+This changes the causal analytic target.  Exact checks at `K = 0`, `K = 1`,
+or any other finite prefix cannot close or obstruct the completed theory.
+The shortest local route is now an eventual canonical theorem: for every
+physical scale, exhibit a finite start after which every exact canonical
+capacity comparison succeeds.  Adaptive routing remains the fallback if a
+canonical tail fails.  Pointwise decidability still does not provide that
+eventual theorem, and no eventual success producer is inhabited.
+
+The focused monitored check and dependency-complete one-worker target pass;
+the target completes all 5083 jobs.  Every printed export uses only
+`[propext, Quot.sound]`.  The root aggregator imports the module.  Physical
+cubic and spacing laws, eventual transition-product success, the strength
+band, nonzero same-object pin, full nonperturbative trajectory identification,
+projective OS/GNS reconstruction, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay theorem remain open.  No
+full-root audit is claimed.
