@@ -14602,3 +14602,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its seven printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-shell] Split correlated variation into transported-old and new-shell regions — **CLOSED 2026-08-25**
+
+- **milestone**: define the literal embedded-old pair carrier; prove it lies
+  in the next exact carrier and that the canonical forward/reverse maps form a
+  retraction there; define the genuinely new shell as the decidable complement
+  in the later carrier; split every later pair into those two regions; expose
+  independent summable transported-old and shell envelope interfaces; add
+  their budgets; and contract the regional inputs back into the existing
+  correlated envelope, persistence package, and completed fixed-anchor family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellCompiler.lean`.
+- **decl**:
+  `anchorEmbeddedOldPairCarrier`,
+  `anchorCurrentPairToNext_mem_embeddedOld`,
+  `anchorEmbeddedOldPairCarrier_mem_next`,
+  `anchorCurrentPairToNext_nextToCurrent_of_mem_embeddedOld`,
+  `AnchorPairInNewShell`,
+  `anchorPair_old_or_newShell`,
+  `AnchorCanonicalTransportedCapacityDebtEnvelope`,
+  `AnchorCanonicalNewShellCapacityDebtEnvelope`,
+  `anchorCanonicalCapacityDebtEnvelopeOfTransportAndShell`,
+  `anchorCanonicalCapacityDebtPersistenceOfTransportAndShell`, and
+  `anchorGeometricCompletedFamilyOfTransportAndShell`.
+- **obligation**: independently inhabit the transported-old two-sided debt
+  envelope and the incoming new-shell debt envelope, then exhibit a positive
+  total budget available from cutoff zero and enough initial slack.  The shell
+  itself has three ordered coordinate faces, old-new, new-old, and new-new,
+  which are the next exact parallelization frontier.  Failure localized to a
+  shell face would justify adaptive routing targeted at that face.  Physical
+  AF persistence, the literal same-observable thermodynamic bridge, projective
+  OS/GNS reconstruction, completed all-vector gap, continuum QFT, and Clay
+  closure remain open.
+- **constructive?**: yes.  Embedded membership is ordinary finite-list
+  membership with an explicit preimage; the shell is its decidable complement;
+  the old-region proof uses the already proved left inverse; both regional
+  structures mention the same exact correlated debt and canonical routing;
+  and tail budgets join through constructive rational addition.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or
+  new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5081 jobs.
+  Its seven printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.

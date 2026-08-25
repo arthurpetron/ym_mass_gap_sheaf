@@ -16372,3 +16372,42 @@ The exact monitored one-worker target passes all 5080 jobs.  Its seven
 printed exports use only `[propext, Quot.sound]`.  The executable
 forbidden-token scan reports zero hits, and the root aggregator imports the
 module; no full-root audit is claimed.
+
+## Correlated debt variation splits into old transport and a genuine shell (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellCompiler`
+identifies the literal image of each earlier vacuum-sector pair carrier under
+the physical cutoff embedding.  Membership in this embedded-old list returns
+an actual earlier preimage, and the previously verified canonical reverse map
+is a left inverse there.  Its decidable complement inside the exact later
+carrier is the genuinely new pair shell.
+
+This turns the single uninhabited correlated envelope into two independently
+estimable compiler families.  The transported-old family supplies both
+directions of debt comparison along the exact embedding.  The new-shell
+family supplies the one incoming comparison from a later shell pair to the
+same canonical earlier recoding used downstream.  Their nonnegative summable
+variations are added constructively; a finite old/shell case split then
+reconstructs the exact correlated envelope, after which the existing maximum,
+budget/slack, transition-product, and completed-family contractions apply
+unchanged.
+
+The split is causal rather than cosmetic.  If old-component transport is
+summable but the shell is not, canonical routing fails for a located reason
+and adaptive routing should target shell traffic.  If both estimates are
+summable, the canonical route stays shorter because neither a route-selection
+compiler nor coherence between separately chosen observables is needed.  The
+types keep both regions connected to the same exact capacity debt, canonical
+routing, physical pair carriers, and reverse recoding.
+
+Neither regional envelope is inhabited, and no total budget or initial slack
+is proved.  The shell can be decomposed further into the three ordered
+coordinate faces old-new, new-old, and new-new.  The fixed anchor is not the
+physical AF/grouped-BF4 trajectory.  Same-observable thermodynamic
+compatibility, projective OS/GNS reconstruction, a completed all-vector gap,
+continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5081 jobs.  Its seven
+printed exports use only `[propext, Quot.sound]`.  The executable
+forbidden-token scan reports zero hits, and the root aggregator imports the
+module; no full-root audit is claimed.
