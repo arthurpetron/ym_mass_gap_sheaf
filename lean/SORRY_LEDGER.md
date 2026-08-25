@@ -14836,3 +14836,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its ten printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-prefix-tail] Compute the cutoff-zero budget from one total tail — **CLOSED 2026-08-25**
+
+- **milestone**: let the total-tail modulus select a cutoff for any positive
+  tail allowance; compute the exact total-deficit prefix through that cutoff;
+  add prefix and allowance into a positive global budget; prove that budget
+  controls every finite prefix and shifted window; normalize the tail control
+  so its rate at the global budget is zero; and construct the existing
+  persistence and completed fixed-anchor family from only the total tail and
+  the final scalar slack check.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtPrefixTailClosure.lean`.
+- **decl**:
+  `anchorCanonicalCapacityDebtTotalDeficitTailStart`,
+  `anchorCanonicalCapacityDebtTotalDeficitPrefix`,
+  `anchorCanonicalCapacityDebtTotalBudget`,
+  `anchorCanonicalCapacityDebtTotalDeficitPrefix_nonnegative`,
+  `anchorCanonicalCapacityDebtTotalBudget_pos`,
+  `anchorCanonicalCapacityDebtTotalDeficitPartialSum_le_budget`,
+  `anchorCanonicalCapacityDebtTotalDeficitWindow_le_budget`,
+  `anchorCanonicalCapacityDebtBudgetedTailControl`,
+  `anchorCanonicalCapacityDebtBudgetedTailControl_rate_budget`,
+  `anchorCanonicalCapacityDebtBudgetedEnvelope`,
+  `anchorCanonicalCapacityDebtPersistenceOfPrefixTail`, and
+  `anchorGeometricCompletedFamilyOfPrefixTail`.
+- **obligation**: inhabit the single `AntitoneTailControl` for the exact total
+  deficit, directly or from four regional proofs, and provide a positive tail
+  allowance for which the executable cutoff-zero debt plus computed finite
+  prefix plus allowance is at most one.  The previous independent
+  `tailRate budget = 0` premise is now generated and is not analytic work.
+  Failure of a regional tail remains the exact reason for localized adaptive
+  routing.  Physical AF persistence, the literal same-observable
+  thermodynamic bridge, projective OS/GNS reconstruction, completed all-vector
+  gap, continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The cutoff is Type-level modulus data, the prefix is
+  a recursive exact rational sum, the prefix/tail split is a setoid equality,
+  the budget decision is kernel-computable, and the normalized modulus retains
+  its antitone witness.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5086 jobs.
+  Its ten printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.

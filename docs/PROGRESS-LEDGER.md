@@ -16572,3 +16572,40 @@ The exact monitored one-worker target passes all 5085 jobs.  Its ten printed
 exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
 reports zero hits, and the root aggregator imports the module; no full-root
 audit is claimed.
+
+## The total tail now computes its full cutoff-zero budget (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtPrefixTailClosure`
+removes the last artificial bookkeeping premise between a total-tail modulus
+and cutoff-zero persistence.  For any positive tail allowance, the modulus
+chooses its own tail start.  Lean then evaluates the exact finite sum of the
+total-deficit stream before that start and defines the global budget as the
+tail allowance plus this computed prefix.
+
+Nonnegativity and an exact finite-sum split prove that every partial sum and
+every shifted finite window is bounded by the computed budget.  A new
+budget-normalized tail control returns rate zero whenever a requested
+tolerance covers that budget, and otherwise reuses the original analytic
+modulus.  Its antitonicity and tail bound are proved constructively.  This
+automatically supplies the existing persistence field
+`tailRate budget = 0`; it is no longer an independent hypothesis.
+
+The causal fixed-anchor path has therefore contracted to one analytic object
+plus one finite check: an `AntitoneTailControl` for the exact total deficit,
+then a positive tail allowance whose automatically computed prefix-plus-tail
+budget fits inside the cutoff-zero debt slack.  The four regional streams can
+still be attacked in parallel to prove the one tail or to locate failure, but
+they are not separate downstream assumptions.  Every value in the prefix and
+tail is computed from the same normalized capacity debt and exact canonical
+routing, so the path remains observable-connected.
+
+No total-tail inhabitant or final scalar slack inequality is supplied.  The
+fixed anchor is not the physical AF/grouped-BF4 trajectory.  A proof of this
+fixed-anchor tail must not be mistaken for AF transport, same-observable
+thermodynamic compatibility, projective OS/GNS reconstruction, a completed
+all-vector gap, continuum QFT, or the Clay theorem; all remain open.
+
+The exact monitored one-worker target passes all 5086 jobs.  Its ten printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.
