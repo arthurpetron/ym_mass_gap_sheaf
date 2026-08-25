@@ -16528,3 +16528,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-face-relative-source-load] Cancel the common mapped source weight on all three faces — **CLOSED 2026-08-25**
+
+- **milestone**: name the exact stationary weight of the mapped source and the
+  exact conditional capacity on the mapped current pair; factor raw pair
+  capacity as source weight times conditional capacity; factor one literal
+  routed path load as source weight times relative-source demand; preserve
+  this identity through the old--new, new--old, and new--new face masks and
+  finite endpoint rows; expose three dimensionless relative-source capacity-
+  balance controls; and compile all three, without division by source weight,
+  to the prior routed-load controls and unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceRelativeSourceLoad.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficCapacityOnCurrentPair_eqv_sourceWeight_mul_conditionalCapacity`,
+  `matchedEventualCanonicalNewEndpointTrafficMappedSourceWeight_mul_relativeDemand_eqv_routedPathLoad`,
+  the three
+  `matchedEventualCanonicalNewEndpointTraffic*FaceRoutedPathLoadRow_eqv_sourceWeight_mul_relativeSourceLoadRow`
+  theorems, the three
+  `MatchedEventualCanonicalNewEndpointTraffic*FaceRelativeSourceCapacityBalanceInverseSquareControl.toRoutedLoadControl`
+  declarations, and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_threeFaceRelativeSourceCapacityBalances`.
+- **obligation**: identify each exact relative-source face row with its
+  transported transition-product row on the same literal route and mapped
+  current edge, then prove the three facewise transition-product/capacity
+  inverse-square bounds.  Do not merge old--new with new--old without a checked
+  directed path-reversal and multiplicity theorem.  Also close old traffic,
+  route churn, shell returns, merger or no-merger, tail allowance, and initial
+  closure.
+- **constructive?**: yes.  Both exact raw quantities are expanded through the
+  same mapped source weight, and the implication to raw load/capacity is
+  obtained by multiplying an inequality by its proved nonnegative weight.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5138 jobs.  All nine audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.

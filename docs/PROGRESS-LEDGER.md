@@ -18176,6 +18176,48 @@ and initial closure, AF identification, physical-scale uniformity, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Three face loads now cancel to dimensionless relative-source traffic (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFaceRelativeSourceLoad`
+factors both sides of the same-cell routed-load/capacity comparison through
+the stationary weight of the exact mapped source.  The mapped pair capacity
+is exactly
+
+`mappedSourceWeight * conditionalCapacityOnCurrentPair`,
+
+while one literal routed path load is exactly
+
+`mappedSourceWeight * relativeSourceDemandOnCell`.
+
+These identities are preserved separately through the old--new, new--old,
+and new--new face masks and their finite endpoint rows.  The resulting three
+interfaces are dimensionless comparisons
+
+`sharedFloor * faceRelativeSourceLoadRow`
+`  <= coefficient * invSqTerm * conditionalCapacityOnCurrentPair`.
+
+Each interface compiles constructively to its prior routed-load/capacity
+balance by multiplying with the nonnegative source weight.  Thus no division
+by a possibly zero weight is used, and all three interfaces rejoin the
+unchanged exact new-traffic debt maximum.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5138 jobs.  All nine audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+None of the three relative-source capacity estimates is inhabited.  The next
+compiler must identify each relative-source face row with the existing exact
+transported transition-product term on the same routed cell.  The subsequent
+analytic frontier is then a facewise transition-product tail estimate against
+the exact conditional capacity.  Old--new and new--old remain distinct absent
+a checked directed path-reversal theorem.  Old-traffic drift, route churn,
+shell returns, merger or no-merger control, tail allowance and initial
+closure, AF identification, physical-scale uniformity, a nonzero same-object
+observable pin, thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
+
 ## Weighted amplification reconnects new-block mass to exact new debt (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficWeightedAmplification`
