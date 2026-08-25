@@ -17866,3 +17866,44 @@ faces, tail allowance and initial closure, AF identification, physical-scale
 uniformity, a nonzero same-object observable pin, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap remain
 open.
+
+## Actual new traffic is controlled by adjacent-cutoff stationary mass (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficStationaryMass`
+replaces the coarse degree-48 carrier payment by a weighted alternative on the
+same observable path.  It partitions the literal later vacuum-sector indices
+into embedded-old and genuinely new blocks, and proves that every actual
+complementary residual endpoint pair lies in one of the old-new, new-old, or
+new-new Cartesian blocks.  Injectivity of the actual duplicate-free endpoint
+list then bounds its stationary product mass by the mass of those three
+blocks.
+
+Finite Cartesian factorization identifies that block mass with
+
+`oldMass * newMass + newMass * oldMass + newMass * newMass`.
+
+The later vacuum-sector mass is at most one, so constructive rational
+monotonicity contracts the expression to `2 * newMass`.  The existing exact
+moving-base compiler then bounds `newMass` by the adjacent corrected-slab
+cutoff increment plus the explicit component-merger residual.  When the
+executable no-merger check returns true, the merger term vanishes and the
+actual endpoint stationary mass is controlled solely by the known slab
+increment.  All objects retain the same matched nome, consecutive cutoffs,
+vacuum carrier, actual residual endpoint list, and row-marginal weights.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5125 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+This does not yet bound the exact normalized new debt: the next compiler must
+factor each normalized endpoint contribution into its stationary pair weight
+times a route/capacity amplification and maximize that amplification on the
+actual endpoint and edge carriers.  It must then combine the present weighted-
+mass estimate with a quantitative amplification estimate.  The no-merger
+check is only a conditional branch until a uniform certificate is supplied.
+Old-traffic drift, route churn, the three shell-return faces, tail allowance
+and initial closure, AF identification, physical-scale uniformity, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.

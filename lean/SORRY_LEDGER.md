@@ -16022,3 +16022,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-stationary-mass] Bound actual new endpoint stationary mass by the new block — **CLOSED 2026-08-25**
+
+- **milestone**: partition the literal later vacuum carrier into embedded-old
+  and new blocks; place every actual complementary residual endpoint pair in
+  the old-new, new-old, or new-new block; inject its stationary-product sum
+  into the three-block sum; factor that sum into block-mass products; bound it
+  by twice the exact new-block mass; and compile the new mass to corrected-slab
+  increment plus component-merger residual, or to the increment alone under
+  the executable no-merger check.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficStationaryMass.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointPair_mem_stationaryBlocks`,
+  `matchedEventualCanonicalNewEndpointStationaryMass_le_blockMass`,
+  `matchedEventualCanonicalNewEndpointStationaryBlockMass_eqv_products`,
+  `matchedEventualCanonicalNewEndpointStationaryMass_le_two_newMass`,
+  `matchedEventualCanonicalLaterNewBlockMass_le_increment_add_merger`, and
+  `matchedEventualCanonicalLaterNewBlockMass_le_increment_of_noMerger`.
+- **obligation**: factor each exact normalized new-debt summand as stationary
+  pair weight times a route/capacity amplification, take constructive maxima
+  of the amplification over the same actual endpoint and current-edge lists,
+  and combine that estimate with this weighted-mass bound.  A uniform proof of
+  the no-merger branch or an estimate for the merger residual is also open.
+- **constructive?**: yes.  The carrier partition is Boolean, all sums are over
+  explicit duplicate-free lists, and every comparison is a rational setoid
+  equality or monotonicity argument on the same matched finite data.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5125 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
