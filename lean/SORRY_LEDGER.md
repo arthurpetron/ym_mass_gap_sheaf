@@ -13797,3 +13797,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   This eliminates only the dead geometric tail; it does not inhabit the
   Euler-only compiler, construct a scalar inverse or physical mass gap, or
   prove the continuum/Clay endpoint.
+
+### [BF4-physical-positive-artanh-coefficient-magnitude] Contract the Euler-only tail to a pointwise bound of two — **CLOSED 2026-08-24**
+
+- **milestone**: prove by finite-list induction that coefficient magnitudes at
+  most two yield weighted norm at most three on `rho <= 1/3`; expose a
+  pointwise magnitude certificate for every coefficient of each finite Euler
+  truncation; compile it through the shifted Euler tail and every existing
+  scalar adapter; and preserve the same connected raw Wilson observable at the
+  capstone.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_le_three_of_coeff_abs_le_two`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate.toEulerOnlyTailSize`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompilerOfCoefficientMagnitude`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialCoefficientMagnitude`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialCoefficientMagnitudeCompiler`.
+- **obligation**: inhabit
+  `PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompiler` by proving
+  that every padded coefficient of every anchor-selected finite reflected
+  Euler polynomial has rational absolute value at most two.  Weighted-tail
+  summation, the geometric comparison, first boundary coefficient, cutoff
+  choice, radius decay, and tolerance bookkeeping are no longer open scalar
+  inputs.  Physical-carrier, projective OS/GNS, transfer/operator,
+  thermodynamic/continuum, QFT, and Clay inputs remain separate and open.
+- **constructive?**: yes.  The norm estimate is structural recursion over a
+  finite coefficient list and uses the exact rational identity
+  `2 + (1/3)*3 = 3`.  The pointwise field retains all coefficient witnesses as
+  named `Type`-level data.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.  The generic
+  folding theorem uses `[propext]`; audited downstream adapters remain within
+  `[propext, Quot.sound]`.
+- **status note**: exact one-worker targets pass 65 jobs for the polynomial
+  anchor and 5118 jobs for the connected capstone.  This reduces only the
+  analytic scalar interface; it does not inhabit the new magnitude compiler,
+  construct a scalar inverse or physical mass gap, or prove the
+  continuum/Clay endpoint.

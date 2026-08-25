@@ -3006,6 +3006,34 @@ theorem weightedL1_eqv_of_coeffEqv
         (Q'.mul_eqv_congr_left rho _ _
           (weightedL1_eqv_of_coeffEqv rho as bs htail))
 
+/-- A uniform coefficient magnitude bound of two sums to at most three in
+every finite weighted list on the direct radius window `rho <= 1/3`. -/
+theorem weightedL1_le_three_of_coeff_abs_le_two
+    (rho : Q') (hrho : (0 : Q') <= rho)
+    (hrhoWindow : rho <= CRealLog.recipOdd 1) : forall p : Poly,
+    (forall index : Nat, Q'.abs (coeff p index) <= Q'.ofNat 2) ->
+      weightedL1 rho p <= Q'.ofNat 3
+  | [], _ => by
+      change (0 : Q') <= Q'.ofNat 3
+      decide
+  | c :: cs, hcoeff => by
+      have hhead : Q'.abs c <= Q'.ofNat 2 := hcoeff 0
+      have htailCoefficients : forall index : Nat,
+          Q'.abs (coeff cs index) <= Q'.ofNat 2 :=
+        fun index => hcoeff (index + 1)
+      have htail : weightedL1 rho cs <= Q'.ofNat 3 :=
+        weightedL1_le_three_of_coeff_abs_le_two
+          rho hrho hrhoWindow cs htailCoefficients
+      have hscaled : rho * weightedL1 rho cs <= 1 :=
+        Q'.le_trans' _ _ _
+          (Q'.mul_le_mul_of_nonneg_left _ _ rho htail hrho)
+          (Q'.le_trans' _ _ _
+            (Q'.mul_le_mul_of_nonneg_right _ _ _ hrhoWindow (by decide))
+            (Q'.le_of_eqv (by decide)))
+      exact Q'.le_trans' _ _ _
+        (Q'.add_le_add hhead hscaled)
+        (Q'.le_of_eqv (by decide))
+
 /-- Dropping an initial coefficient segment shifts the padded coefficient
 index by exactly the number dropped. -/
 theorem coeff_drop (p : Poly) : forall index offset : Nat,
@@ -3475,6 +3503,67 @@ structure PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler :
     PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
       z hz hzb
 
+/-- Pointwise analytic frontier for the finite reflected Euler polynomial.
+Every padded coefficient must have magnitude at most two; the geometric
+weighted-tail summation is then an internal theorem. -/
+structure PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  coefficientBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    forall index : Nat,
+    let stage := positiveArtanhEulerAnchorStage epsilon
+    let inner := positiveArtanhEulerAnchorPivot z epsilon
+    Q'.abs (coeff
+      (expPartialPoly (positiveArtanhExponentPoly stage) inner) index) <=
+      Q'.ofNat 2
+
+/-- Uniform producer of pointwise finite-Euler magnitude certificates. -/
+structure PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompiler :
+    Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate
+      z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate
+
+/-- The coefficientwise bound-two certificate folds through the direct-window
+geometric invariant to the Euler-only shifted-tail size-three certificate. -/
+def toEulerOnlyTailSize
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate :
+      PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate
+        z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+      z hz hzb where
+  tailSizeBound epsilon hepsilon := by
+    let stage := positiveArtanhEulerAnchorStage epsilon
+    let inner := positiveArtanhEulerAnchorPivot z epsilon
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    let polynomial :=
+      expPartialPoly (positiveArtanhExponentPoly stage) inner
+    apply weightedL1_le_three_of_coeff_abs_le_two
+      (Q'.abs z) (Q'.abs_nonneg z) hzb
+    intro offset
+    have hdrop := coeff_drop polynomial (degree + 2) offset
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.abs_eqv_congr hdrop))
+      (certificate.coefficientBound epsilon hepsilon
+        (degree + 2 + offset))
+
+end PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate
+
+/-- A pointwise coefficient-magnitude compiler supplies the Euler-only tail
+compiler at the same rational input. -/
+def positiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompilerOfCoefficientMagnitude
+    (compiler :
+      PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompiler) :
+    PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler where
+  evaluate z hz hzb :=
+    (compiler.evaluate z hz hzb).toEulerOnlyTailSize
+
 namespace PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
 
 /-- Vanishing of the geometric support compiles an Euler-only tail bound to
@@ -3925,6 +4014,16 @@ def positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize
     (positiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompilerOfEulerOnly
       tail)
 
+/-- A uniform pointwise bound of two on finite Euler coefficients reaches the
+same scalar inverse through the internal geometric tail summation. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialCoefficientMagnitude
+    (compiler :
+      PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize
+    (positiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompilerOfCoefficientMagnitude
+      compiler)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -4024,6 +4123,10 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.weightedL1_drop_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.weightedL1_le_three_of_coeff_abs_le_two
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate.toEulerOnlyTailSize
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate.toPostBoundaryTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate.toResidualTailSize
@@ -4035,6 +4138,8 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialCoefficientMagnitude
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

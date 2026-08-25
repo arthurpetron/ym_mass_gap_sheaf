@@ -15546,3 +15546,39 @@ majorant for the finite reflected exponential.  No scalar inverse, physical
 carrier, projective OS/GNS construction, transfer/operator uniformity,
 thermodynamic or continuum limit, QFT axiom, or Clay mass-gap theorem is
 claimed.
+
+## Euler tail norm contracted to pointwise coefficient magnitudes (2026-08-24)
+
+The Euler-only size-three norm is no longer the public scalar obligation.
+For any finite rational coefficient list, structural induction now proves the
+geometric invariant
+`(forall n, |a_n| <= 2) -> weightedL1 rho p <= 3`
+whenever `0 <= rho <= 1/3`.  Each induction step is exactly the closed budget
+`2 + (1/3) * 3 <= 3`; no infinite series or completeness principle enters.
+
+`PositiveWindowArtanhEulerPolynomialCoefficientMagnitudeCertificate` exposes
+the remaining analytic content pointwise: at every tolerance and every padded
+index, the corresponding coefficient of the finite reflected Euler polynomial
+must have magnitude at most two.  Its adapter applies the bound to the shifted
+tail using the proved `coeff_drop` identity, then reaches the Euler-only,
+post-boundary, residual, full-tail, scalar inverse, and connected compilers.
+
+The connected
+`adaptivePathOfPositiveArtanhPolynomialCoefficientMagnitudeCompiler` retains
+the same dynamic family, raw Wilson observable, projective OS handoff, matrix
+coefficient pin, exact-rate handoff, transfer lift, finite graph
+approximation, and vacuum pin.  At the capstone this coefficient compiler is
+still one of seven independent root inputs; no new serialization was added.
+
+Exact one-worker targets pass 65 jobs for the polynomial anchor and 5118 jobs
+for the connected capstone.  The generic geometric folding theorem uses only
+`[propext]`; the audited adapters remain within `[propext, Quot.sound]`.  No
+forbidden construct was added.
+
+The pointwise coefficient-magnitude compiler remains uninhabited.  The next
+analytic frontier is to prove `|coeff| <= 2` for every finite Euler
+truncation, most naturally by alternating-sign recoding to a nonnegative
+companion and coefficientwise domination by the rational target
+`(1+z)/(1-z)`.  No scalar inverse, physical carrier, projective OS/GNS
+construction, transfer/operator uniformity, thermodynamic or continuum limit,
+QFT axiom, or Clay mass-gap theorem is claimed.
