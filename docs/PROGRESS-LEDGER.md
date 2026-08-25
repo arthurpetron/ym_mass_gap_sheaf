@@ -17555,3 +17555,39 @@ deficit maxima by tractable shell-traffic or route-change quantities with a
 summable physical-scale/cutoff law.  Strength/spacing, the nonzero same-object
 pin, thermodynamic/continuum compatibility, continuum Yang--Mills construction,
 and the Clay mass gap remain open.
+
+## Four parallel matched deficits now contract to one exact tail (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTotalDeficitCompiler`
+defines one nonnegative scalar stream as the pointwise sum of the transported-
+old, old-new, new-old, and new-new exact deficit maxima.  Each regional maximum
+is constructively bounded by this total.
+
+The compiler is deliberately bidirectional.  Four independently constructed
+regional `AntitoneTailControl` witnesses add to one total-tail witness.  In the
+other direction, one total-tail witness supplies a tail control for each
+regional stream by finite-sum domination.  Those four derived interfaces feed
+the already checked transported/return envelopes and hence the unique matched
+correlated capacity-debt path.  No surrogate observable or independent
+normalization enters at the join.
+
+This fixes the current useful compiler count.  The correlated route has four
+parallel leaf compilers but only one serial analytic certificate.  The
+separated route instead exposes three top-level producers--routed-load
+variation, supported-kernel variation, and a positive kernel floor.  The
+correlated route is preferable when same-edge cancellation yields a summable
+total deficit without proving uniform kernel noncollapse; the separated route
+is preferable only when its three component estimates are analytically more
+natural.  Parallel width alone does not rank the two proof paths.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5107 jobs.  All eleven audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+The total-tail witness is not inhabited.  The next expansion must dominate
+the exact total deficit by tractable route-change and new-shell traffic
+quantities carrying a summable cutoff law.  Tail allowance and initial closure,
+the physical strength/spacing laws, a nonzero same-object pin,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction, and
+the Clay mass gap remain open.

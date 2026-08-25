@@ -15780,3 +15780,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   interrupted after stable but impractical elaboration and are not counted as
   passes.  Their wrappers were removed; all individual conversions remain.
   No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-total-deficit] Contract four exact regional tails to one observable-connected total tail — **CLOSED 2026-08-25**
+
+- **milestone**: define the pointwise sum of the four exact matched deficit
+  maxima; prove it nonnegative and prove every regional stream lies below it;
+  add four independently constructed regional tail controls into one total
+  tail; and, conversely, derive each of the four regional tail controls from a
+  single total tail by constructive finite-sum domination.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTotalDeficitCompiler.lean`.
+- **decl**: `matchedEventualCanonicalCapacityDebtTotalDeficit`,
+  `matchedEventualCanonicalCapacityDebtTotalDeficit_nonnegative`, the four
+  `*DeficitMaximum_le_total` theorems,
+  `MatchedEventualCanonicalCapacityDebtTotalDeficitTail`,
+  `matchedEventualCanonicalCapacityDebtTotalDeficitTailOfRegionalTails`, and
+  the `toTransportedTail`, `toOldNewTail`, `toNewOldTail`, and `toNewNewTail`
+  conversions.
+- **obligation**: inhabit one scale-indexed total-deficit
+  `AntitoneTailControl`, either directly or from four parallel regional
+  estimates.  The resulting regional tails then rejoin through the existing
+  exact envelope compiler.  Positive tail allowance and initial closure still
+  follow that analytic input.
+- **constructive?**: yes.  The total is rational addition, regional domination
+  uses nonnegativity, and tail-control restriction uses termwise finite-sum
+  monotonicity.  Every component remains an exact deficit of the identical
+  matched routed capacity-debt observable.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5107 jobs.  All eleven audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
