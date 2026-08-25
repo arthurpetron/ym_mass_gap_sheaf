@@ -15839,3 +15839,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5118 jobs.  All four audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-two-axis] Separate receding-cutoff control from AF physical-scale decay — **CLOSED 2026-08-25**
+
+- **milestone**: package exact identification of the matched coupling with a
+  proved shifted AF schedule and recover its known inverse-square physical-
+  spacing tail; independently package one inverse-square cutoff-debt control
+  at every physical scale and compile it to the exact total-deficit tail; and
+  expose their conjunction as a two-axis input without deriving one axis from
+  the other.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTwoAxisFrontier.lean`.
+- **decl**: `MatchedPhysicalDynamicAFTrajectoryIdentification`, its
+  `physicalSpacingInverseSquare`,
+  `MatchedEventualCanonicalCapacityDebtCutoffInverseSquareFamily`, its
+  `toTotalDeficitTails`, `MatchedEventualCanonicalCapacityDebtTwoAxisControl`,
+  `physicalSpacingTail`, and `cutoffDeficitTail`.
+- **obligation**: identify the exact matched trajectory with an AF
+  certificate; prove the independent cutoff-debt inverse-square family; then
+  prove physical-scale uniformity/compatibility of the resulting cutoff
+  limits.  Tail allowance and initial closure remain open at each physical
+  scale.
+- **constructive?**: yes.  The AF tail is the existing exact constructive
+  theorem and each cutoff tail is the existing exact total-deficit compiler.
+  The structure records both axes without an invalid cross-index implication.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5125 jobs.  All four audited exports
+  use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

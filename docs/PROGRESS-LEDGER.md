@@ -17622,3 +17622,39 @@ prove one or four of these inequalities.  Tail allowance and initial closure,
 the physical strength law, a nonzero same-object pin, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Cutoff convergence and AF spacing are now typed as distinct axes (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTwoAxisFrontier`
+prevents a potentially serious index conflation.  The new capacity-debt
+inverse-square control is a tail in `cutoffOffset` at each fixed
+`physicalScale`.  The already proved AF inverse-square spacing law is a tail
+in `physicalScale`.  Neither statement implies the other.
+
+An exact `MatchedPhysicalDynamicAFTrajectoryIdentification` now recovers the
+known inverse-square physical-spacing witness for the matched trajectory.  An
+independent `MatchedEventualCanonicalCapacityDebtCutoffInverseSquareFamily`
+requires one cutoff-debt inverse-square control at every physical scale and
+compiles each to the exact total-deficit tail.  Their conjunction is exposed
+as a two-axis control, explicitly as a conjunction rather than a false
+implication from small spacing to small capacity debt.
+
+This refines the parallel proof plan.  At any physical scale, the four
+regional cutoff estimators can run in parallel and contract to one cutoff
+tail.  AF identification and physical-spacing decay can also be developed
+independently.  The two axes must serialize through a single two-parameter
+observable family and a later compatibility/uniformity theorem; their budgets
+cannot merely be added because they govern different indices.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5125 jobs.  All four audited exports
+use only `[propext, Quot.sound]`.  The root aggregator imports the module.  No
+full-root audit is claimed.
+
+Neither the AF identification nor the cutoff inverse-square family is
+inhabited here.  The former is available from the existing shifted AF
+certificate once the exact matched trajectory is tied to it.  The genuinely
+new analytic frontier is the cutoff family, followed by physical-scale
+uniformity of its coefficients, capacity slack, and same-object observable
+pin.  Thermodynamic/continuum compatibility, continuum Yang--Mills
+construction, and the Clay mass gap remain open.
