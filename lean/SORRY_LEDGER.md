@@ -17375,3 +17375,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-graph-birth] Identify every activated row as a support-graph edge birth — **CLOSED 2026-08-25**
+
+- **milestone**: transport an activated used-row witness through the exact
+  vacuum-sector equivalence between normalized-kernel positivity and Boolean
+  support adjacency; prove its current support test is false and its mapped
+  later support test is true; package the literal pair and both checked tests
+  as a graph-birth witness; and lift the executable activation decision to an
+  avoided-or-birth decision.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationGraphBirth.lean`.
+- **decl**:
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportGraphBirth`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportGraphBirth_of_pair`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportGraphBirthDecision`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceActivatedSupportGraphBirthDecision`.
+- **obligation**: prove these births are uniformly absent, prove their exact
+  later capacities satisfy the activated payment, or construct a coherent
+  local route that avoids selected uncontrolled births and reconnects to the
+  same old--new debt.  No one of those three analytic/geometric alternatives
+  is inhabited here.
+- **constructive?**: yes.  The current false test is obtained by Boolean case
+  analysis against the exact positivity equivalence; later raw-capacity
+  positivity yields later normalized-kernel positivity and hence a true
+  support test.  The returned pair remains a member of the literal activated
+  active-row list.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5173 jobs.  The two
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

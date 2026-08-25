@@ -19467,3 +19467,38 @@ No uniform avoidance theorem, activated payment, adaptive route, persistent
 payment, corrected-increment theorem, fixed-start absorption, remaining
 regional tail, completed gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## Activated rows are now exact support-graph births (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationGraphBirth`
+uses the established vacuum-sector theorem that Boolean support adjacency is
+equivalent to strict positivity of the normalized physical kernel.  Every
+activated used-row witness now carries the exact checked transition
+
+`currentSupport(pair) = false`
+`laterSupport(mappedPair) = true`.
+
+The later truth is extracted from positivity of the same half-scaled raw
+capacity already used in the old--new amplification denominator.  The current
+falsity uses the same current pair and the activation predicate.  Thus the
+birth is not inferred from carrier growth alone; it is a change in the literal
+support graph on the observable's used row.
+
+This narrows the adaptive alternative.  A future adaptive compiler should
+preserve all persistent mapped support edges and change routing only around
+the returned birth witnesses whose later capacities cannot satisfy the
+activated payment.  The competing canonical proof has two ways to remain
+shorter: prove births are uniformly absent, or prove their exact later floor
+is quantitatively payable.  The executable avoided-or-birth decision now
+selects the geometric obligation without changing the downstream observable.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5173 jobs.  The two audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No uniform birth exclusion, activated-floor rate, birth-avoiding route,
+route-coherence theorem, remaining regional tail, completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.
