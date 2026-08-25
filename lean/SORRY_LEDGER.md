@@ -16796,3 +16796,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   eleven audited exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits, `git diff --check` passes, and the
   root aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-raw-capacity-cross-multiplication] Move the row source denominator into raw mapped-pair capacity — **CLOSED 2026-08-25**
+
+- **milestone**: define the old--new masked literal route-factor maximum before
+  source division; prove exact cellwise multiplication-back by the mapped
+  source weight; bound the source-normalized row maximum by the route maximum
+  divided by that positive row-constant source weight; cross-multiply the
+  quotient into source-weighted conditional capacity; expose general merger
+  and executable no-merger inverse-square interfaces stated against the exact
+  raw mapped-pair capacity; and compile both with independent new--old and
+  new--new controls to the unchanged debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewRawCapacityCrossMultiplication.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorOnCell_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficMappedSourceWeight_mul_oldNewFaceSourceNormalizedRouteFactor_eqv_routeFactor`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceRouteFactorMaximumOnCurrentPair_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceSourceNormalizedRouteMaximum_le_routeFactorMaximum_div_sourceWeight`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitRawCapacityInverseSquareControl.toEndpointRatioControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitRawCapacity_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerRawCapacityInverseSquareControl.toEndpointRatioControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerRawCapacity_and_otherFaces`.
+- **obligation**: establish a cutoff-summable bound for corrected-slab
+  increment (plus merger residual in the general branch) times the literal
+  old--new route-factor maximum against the exact mapped-pair raw capacity.
+  Prefer used-cell/used-edge kernel estimates; a uniform sector floor is only
+  a coarser fallback.  Preserve the new--old and new--new directed lanes.
+- **constructive?**: yes.  Source division and cross-multiplication use an
+  explicit positivity witness from current-pair carrier membership; maximum
+  comparison is a finite located fold; and raw capacity is the existing exact
+  source-weighted conditional-capacity object.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes with the file's 10M-
+  heartbeat cap and the dependency-complete target passes all 5156 jobs.  All
+  eight audited exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits, `git diff --check` passes, and the
+  root aggregator imports the module.  No full-root audit is claimed.

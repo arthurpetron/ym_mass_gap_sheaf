@@ -18782,3 +18782,53 @@ coarser path.  New--old and new--new remain directed lanes.  Old traffic,
 route churn, shell returns, total tail closure, AF physical-scale uniformity,
 same-object completion, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## Old--new source normalization cross-multiplies to raw mapped-pair capacity (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewRawCapacityCrossMultiplication`
+uses the fact that the mapped source stationary weight is constant across one
+current row.  It defines the located maximum of the literal old--new masked
+route factor before source division.  Cellwise multiplication by the positive
+row source weight cancels the source-normalized quotient exactly.  A finite
+maximum argument then proves
+
+`sourceNormalizedRouteMaximum`
+`  <= routeFactorMaximum / mappedSourceWeight`.
+
+The route factor remains the checked combinatorial quantity
+
+`pathLength * directedEdgeMultiplicity`
+
+on the same old--new face and literal endpoint carrier.  Positive quotient
+algebra cross-multiplies the row source weight into the capacity side.  Since
+
+`mappedPairCapacity`
+`  ≈ mappedSourceWeight * mappedConditionalCapacity`,
+
+the new general analytic interface is the division-free condition
+
+`sharedFloor`
+`  * ((correctedSlabIncrement + componentMergerResidual)`
+`       * routeFactorMaximum)`
+`  <= coefficient * invSqTerm * mappedPairCapacity`.
+
+The no-merger interface removes the merger residual under the same executable
+all-cutoff Boolean check.  Both compile to the exact old--new endpoint-ratio
+control and then rejoin the independent new--old and new--new lanes at the
+unchanged debt maximum.
+
+The focused monitored check passes with the file's 10M-heartbeat cap, and the
+dependency-complete one-worker target completes all 5156 jobs.  All eight
+audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+token scan reports zero hits, `git diff --check` passes, and the root
+aggregator imports the module.  No full-root audit is claimed.
+
+Neither raw-capacity interface is inhabited.  The preferred sharp next path
+is now a used-cell or used-edge estimate of literal route
+length/multiplicity against the actual mapped-pair raw capacity, coupled to
+corrected-slab decay and, where needed, merger decay.  A uniform sector
+raw-capacity floor supplies a coarser fallback but may introduce severe
+cutoff dependence.  New--old and new--new remain directed lanes.  Old
+traffic, route churn, shell returns, total tail closure, AF physical-scale
+uniformity, same-object completion, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.
