@@ -18686,3 +18686,44 @@ directed estimates; no path-reversal symmetry is assumed.  Old traffic, route
 churn, shell returns, merger or no-merger, tail closure, AF physical-scale
 uniformity, same-object completion, thermodynamic/continuum compatibility,
 continuum Yang--Mills construction, and the Clay mass gap remain open.
+
+## Old--new mass now has general-merger and executable no-merger branches (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewMassSplit`
+substitutes the already verified adjacent-cutoff new-block theorem into the
+coefficient-one old--new face bound.  In the general branch it proves
+
+`oldNewEndpointRatioRow`
+`  <= (correctedSlabIncrement + componentMergerResidual)`
+`       * rowLocalProjectiveMaximum`.
+
+The merger term is the exact finite stationary mass of newly connected old
+components; it is not discarded or renamed as decay.  In the second branch,
+an explicit Boolean no-component-merger check at the same two cutoffs proves
+
+`oldNewEndpointRatioRow`
+`  <= correctedSlabIncrement * rowLocalProjectiveMaximum`.
+
+Separate Type-level inverse-square interfaces preserve those two causal
+routes.  The general interface requires control of the increment-plus-merger
+product.  The no-merger interface carries an all-cutoff executable check and
+requires only the increment product.  Each compiles to the unchanged
+old--new endpoint-ratio control and rejoins the independent new--old and
+new--new controls at the exact debt maximum.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5154 jobs.  All six audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+Neither analytic interface is inhabited.  The next sharp old--new task is to
+unfold the row-local projective maximum far enough to compare its source
+weight ratio, route incidence/length/multiplicity, and mapped conditional
+capacity with the corrected-slab increment.  Independently, the general
+branch needs a summable merger-residual estimate or the no-merger branch needs
+an all-cutoff proof of its Boolean check.  New--old and new--new remain
+directed lanes.  Old traffic, route churn, shell returns, total tail closure,
+AF physical-scale uniformity, same-object completion, thermodynamic/continuum
+compatibility, continuum Yang--Mills construction, and the Clay mass gap
+remain open.

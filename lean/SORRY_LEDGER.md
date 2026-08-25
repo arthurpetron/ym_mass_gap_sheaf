@@ -16719,3 +16719,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, `git diff --check` passes, and the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-mass-split] Connect old--new face mass to slab increment and merger residual — **CLOSED 2026-08-25**
+
+- **milestone**: name the exact corrected-slab increment, component-merger
+  residual, and executable no-merger check on the same adjacent matched
+  cutoffs; substitute the general new-block mass bound into the coefficient-
+  one old--new row; specialize it under the no-merger check; expose separate
+  general and uniform-no-merger inverse-square interfaces; and compile both
+  routes with independent new--old and new--new controls to the unchanged
+  exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewMassSplit.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_increment_add_merger_mul_projectiveAmplificationMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_increment_mul_projectiveAmplificationMaximum_of_noMerger`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceMassSplitProjectiveAmplificationInverseSquareControl.toEndpointRatioControl`,
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewMassSplitProjectiveAmplification_and_otherFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNoMergerProjectiveAmplificationInverseSquareControl.toEndpointRatioControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNoMergerProjectiveAmplification_and_otherFaces`.
+- **obligation**: quantitatively control the exact corrected-slab increment
+  times row-local projective amplification relative to the same mapped-edge
+  conditional capacity; additionally either prove the no-merger Boolean at
+  every cutoff or bound the explicit component-merger residual with a
+  summable tail.  Preserve the new--old and new--new directed lanes.
+- **constructive?**: yes.  The merger alternative remains an explicit finite
+  mass, and the sharper branch carries an executable Boolean equality at every
+  cutoff.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5154 jobs.  All six audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, `git diff --check` passes, and the root aggregator imports the
+  module.  No full-root audit is claimed.
