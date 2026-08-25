@@ -18159,3 +18159,50 @@ faces, tail allowance and initial closure, AF identification, physical-scale
 uniformity, a nonzero same-object observable pin, thermodynamic/continuum
 compatibility, continuum Yang--Mills construction, and the Clay mass gap
 remain open.
+
+## Reciprocal capacity contracts through the actual used-cell minimum (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCapacityFloor`
+keeps the capacity estimate on the exact active traffic carrier.  Active-list
+membership unfolds to strict positivity of both the literal route factor and
+the source-weighted conditional capacity.  The module therefore folds the
+positive capacity itself with the constructive `listPositiveMinOne` operator
+over precisely that filtered cell list.  The fallback value one applies only
+when the active list is empty; no unused positive edge is included.
+
+The resulting `activeCapacityFloor` is strictly positive and below the
+capacity of every active cell.  Direct rational reciprocal antitonicity and a
+located maximum argument then prove
+
+`activeCapacityReciprocalMaximum <= reciprocal(activeCapacityFloor)`.
+
+Substitution into the sharper actual-route envelope gives
+
+`sharedFloor * (actualRoutedPathLengthSquareMaximum`
+`               * reciprocal(activeCapacityFloor))`.
+
+Multiplying by twice the exact later new-block mass bounds the unchanged new-
+traffic debt maximum.  The same reciprocal-floor substitution is also proved
+for the explicit degree-48 ambient-route fallback, but the primary Type-level
+inverse-square interface contracts from the sharper actual-path/active-floor
+product to every preceding exact observable consumer.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5131 jobs.  All eight audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+No cutoff-uniform lower bound or persistence estimate for the active capacity
+floor is inhabited, and no inverse-square estimate is proved.  The preferred
+observable-connected new-traffic frontier is now the quantitative balance of
+three actual-carrier quantities: later new-block mass, routed path-length-
+square maximum, and reciprocal active capacity floor.  The next compiler may
+compare the active floor with the raw physical vacuum-sector edge floor as an
+explicit but coarser fallback; the genuinely sharp route should instead seek
+used-edge kernel asymptotics or direct cancellation with new-block mass.  A
+uniform no-merger certificate or merger-residual estimate also remains open.
+Old-traffic drift, route churn, the three shell-return faces, tail allowance
+and initial closure, AF identification, physical-scale uniformity, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.

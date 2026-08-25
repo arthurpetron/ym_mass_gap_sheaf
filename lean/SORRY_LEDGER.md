@@ -16250,3 +16250,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-active-capacity-floor] Replace active reciprocal maximum by the reciprocal used-cell minimum — **CLOSED 2026-08-25**
+
+- **milestone**: extract strict route and capacity positivity from literal
+  active-cell membership; construct the positive minimum of capacity over
+  exactly the active filtered cell list; prove it lies below every active
+  capacity; prove rational reciprocal antitonicity; bound the located active
+  reciprocal-capacity maximum by the reciprocal active floor; substitute that
+  floor into both the actual routed-path envelope and the explicit ambient-
+  path fallback; and compile the sharper actual-path/active-floor new-block
+  envelope back to the unchanged exact new-debt observable and all prior
+  consumers.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCapacityFloor.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficActiveCell_route_capacity_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveCapacityFloor_pos`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveCapacityFloor_le_capacityOnCell`,
+  `matchedEventualCanonicalNewEndpointTrafficActiveCapacityReciprocalMaximum_le_reciprocalActiveFloor`,
+  `matchedEventualCanonicalNewEndpointTrafficPathFactorizedAmplificationEnvelope_le_activeCapacityFloorPathEnvelope`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtMaximum_le_activeCapacityFloorPathNewBlockDebtEnvelope`,
+  `matchedEventualCanonicalNewEndpointTrafficAmbientPathAmplificationEnvelope_le_activeCapacityFloorAmbientEnvelope`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCapacityFloorPathInverseSquareControl.toPathFactorizedControl`.
+- **obligation**: prove quantitative persistence or a lower asymptotic bound
+  for the active used-cell capacity floor, and combine it with actual routed
+  path-square growth and later new-block-mass decay to obtain a summable
+  inverse-square estimate.  A sector-wide raw-kernel edge floor can provide a
+  coarser fallback but may reintroduce unused-edge loss.  Also prove a uniform
+  no-merger branch or estimate its residual.
+- **constructive?**: yes.  Strict positivity is read from the same Boolean
+  active filter, the minimum and maximum are explicit finite folds on that
+  exact list, and reciprocal antitonicity is proved by rational cross-
+  multiplication.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5131 jobs.  All eight audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
