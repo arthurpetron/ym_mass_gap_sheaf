@@ -2965,6 +2965,141 @@ theorem weightedL1_drop_eqv_boundary_add_tail
   | _ :: cs, index + 1 =>
       weightedL1_drop_eqv_boundary_add_tail rho cs index
 
+/-- A finite polynomial whose every padded coefficient is zero has zero
+weighted coefficient norm. -/
+theorem weightedL1_eqv_zero_of_coeff_eqv_zero
+    (rho : Q') : forall p : Poly,
+    (forall index : Nat, (coeff p index).eqv 0) ->
+      (weightedL1 rho p).eqv 0
+  | [], _ => Q'.eqv_refl 0
+  | c :: cs, hzero => by
+      have hhead : (Q'.abs c).eqv 0 :=
+        Q'.eqv_trans _ (Q'.abs (0 : Q')) _
+          (Q'.abs_eqv_congr (hzero 0)) (by decide)
+      have htail : forall index : Nat, (coeff cs index).eqv 0 :=
+        fun index => hzero (index + 1)
+      exact Q'.eqv_trans _ (0 + rho * 0) _
+        (q_add_congr hhead
+          (Q'.mul_eqv_congr_left rho _ _
+            (weightedL1_eqv_zero_of_coeff_eqv_zero rho cs htail)))
+        (Q'.eqv_trans _ (0 + 0) _
+          (Q'.add_eqv_congr_left 0 _ 0 (q_mul_zero rho))
+          (q_add_zero_eqv 0))
+
+/-- Padded coefficient equivalence preserves the weighted coefficient norm,
+including harmless trailing zero representatives. -/
+theorem weightedL1_eqv_of_coeffEqv
+    (rho : Q') : forall p q : Poly, CoeffEqv p q ->
+      (weightedL1 rho p).eqv (weightedL1 rho q)
+  | [], [], _ => Q'.eqv_refl 0
+  | [], b :: bs, h =>
+      Q'.eqv_symm
+        (weightedL1_eqv_zero_of_coeff_eqv_zero rho (b :: bs)
+          (fun index => Q'.eqv_symm (h index)))
+  | a :: as, [], h =>
+      weightedL1_eqv_zero_of_coeff_eqv_zero rho (a :: as) h
+  | a :: as, b :: bs, h => by
+      have hhead : (Q'.abs a).eqv (Q'.abs b) :=
+        Q'.abs_eqv_congr (h 0)
+      have htail : CoeffEqv as bs := fun index => h (index + 1)
+      exact q_add_congr hhead
+        (Q'.mul_eqv_congr_left rho _ _
+          (weightedL1_eqv_of_coeffEqv rho as bs htail))
+
+/-- Dropping an initial coefficient segment shifts the padded coefficient
+index by exactly the number dropped. -/
+theorem coeff_drop (p : Poly) : forall index offset : Nat,
+    (coeff (List.drop index p) offset).eqv (coeff p (index + offset))
+  | 0, offset => by
+      simpa only [List.drop_zero, Nat.zero_add] using
+        (Q'.eqv_refl (coeff p offset))
+  | index + 1, offset => by
+      cases p with
+      | nil => exact Q'.eqv_refl 0
+      | cons c cs =>
+          have hsum : index + 1 + offset = (index + offset) + 1 := by omega
+          rw [hsum]
+          exact coeff_drop cs index offset
+
+/-- The finite geometric comparison has no coefficient strictly beyond its
+first boundary at `degree+1`. -/
+theorem coeff_positiveArtanhGeometricApproxPoly_eqv_zero_of_boundary
+    (degree index : Nat) (hindex : degree + 2 <= index) :
+    (coeff (positiveArtanhGeometricApproxPoly degree) index).eqv 0 := by
+  cases index with
+  | zero => omega
+  | succ index =>
+      unfold positiveArtanhGeometricApproxPoly
+        positiveArtanhNumeratorPoly pconst pneg pvar
+      change (coeff
+        (pmul (geometricSumPoly degree)
+          [(1 : Q') + (-1 : Q') * 0, (-1 : Q') * 1])
+        (index + 1)).eqv 0
+      refine Q'.eqv_trans _
+        (coeff (geometricSumPoly degree) (index + 1) *
+            ((1 : Q') + (-1 : Q') * 0) +
+          coeff (geometricSumPoly degree) index * ((-1 : Q') * 1)) _
+        (coeff_pmul_pair_succ _ _ _ index) ?_
+      have hnext := coeff_geometricSumPoly degree (index + 1)
+      rw [if_neg (by omega : ¬ index + 1 <= degree)] at hnext
+      have hprev := coeff_geometricSumPoly degree index
+      rw [if_neg (by omega : ¬ index <= degree)] at hprev
+      exact Q'.eqv_trans _ ((0 : Q') *
+          ((1 : Q') + (-1 : Q') * 0) +
+        (0 : Q') * ((-1 : Q') * 1)) _
+        (q_add_congr
+          (Q'.mul_eqv_congr_right _ _ _ hnext)
+          (Q'.mul_eqv_congr_right _ _ _ hprev))
+        (Q'.eqv_trans _ (0 + 0) _
+          (q_add_congr (q_zero_mul _) (q_zero_mul _))
+          (q_add_zero_eqv 0))
+
+/-- Every coefficient of the Euler/geometric difference after the geometric
+boundary is exactly the corresponding finite Euler coefficient. -/
+theorem coeff_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial_after_boundary
+    (stage inner degree offset : Nat) :
+    (coeff (positiveArtanhEulerGeometricDifferencePoly stage inner degree)
+      (degree + 2 + offset)).eqv
+      (coeff (expPartialPoly (positiveArtanhExponentPoly stage) inner)
+        (degree + 2 + offset)) := by
+  let euler := expPartialPoly (positiveArtanhExponentPoly stage) inner
+  let geometric := positiveArtanhGeometricApproxPoly degree
+  have hgeom : (coeff geometric (degree + 2 + offset)).eqv 0 :=
+    coeff_positiveArtanhGeometricApproxPoly_eqv_zero_of_boundary
+      degree (degree + 2 + offset) (by omega)
+  unfold positiveArtanhEulerGeometricDifferencePoly
+  exact Q'.eqv_trans _
+    (coeff euler (degree + 2 + offset) +
+      (-1 : Q') * coeff geometric (degree + 2 + offset)) _
+    (coeff_psub euler geometric (degree + 2 + offset))
+    (Q'.eqv_trans _
+      (coeff euler (degree + 2 + offset) + (-1 : Q') * 0) _
+      (Q'.add_eqv_congr_left _ _ _
+        (Q'.mul_eqv_congr_left (-1) _ _ hgeom))
+      (Q'.eqv_trans _
+        (coeff euler (degree + 2 + offset) + 0) _
+        (Q'.add_eqv_congr_left _ _ 0 (q_mul_zero (-1)))
+        (q_add_zero_eqv _)))
+
+/-- At the weighted-tail level, dropping through the first geometric
+boundary removes the geometric comparison completely. -/
+theorem weightedL1_drop_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial
+    (rho : Q') (stage inner degree : Nat) :
+    (weightedL1 rho
+      (List.drop (degree + 2)
+        (positiveArtanhEulerGeometricDifferencePoly stage inner degree))).eqv
+      (weightedL1 rho
+        (List.drop (degree + 2)
+          (expPartialPoly (positiveArtanhExponentPoly stage) inner))) := by
+  apply weightedL1_eqv_of_coeffEqv
+  intro offset
+  exact Q'.eqv_trans _ _ _
+    (coeff_drop _ (degree + 2) offset)
+    (Q'.eqv_trans _ _ _
+      (coeff_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial_after_boundary
+        stage inner degree offset)
+      (Q'.eqv_symm (coeff_drop _ (degree + 2) offset)))
+
 /-- After spending one unit on the exact first boundary coefficient, a
 shifted post-boundary tail of size at most three fits the former residual
 size-two budget because `|z| <= 1/3`. -/
@@ -3316,6 +3451,62 @@ structure PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler :
     (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
     PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
       z hz hzb
+
+/-- Euler-only form of the post-boundary frontier.  The finite geometric
+comparison is absent because its support has already ended. -/
+structure PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+    (z : Q') (_hz : (0 : Q') < z)
+    (_hzb : Q'.abs z <= CRealLog.recipOdd 1) : Type 1 where
+  tailSizeBound : forall epsilon : Q', (0 : Q') < epsilon ->
+    let stage := positiveArtanhEulerAnchorStage epsilon
+    let inner := positiveArtanhEulerAnchorPivot z epsilon
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    weightedL1 (Q'.abs z)
+      (List.drop (degree + 2)
+        (expPartialPoly (positiveArtanhExponentPoly stage) inner)) <=
+      Q'.ofNat 3
+
+/-- Uniform producer of Euler-only post-boundary tail certificates. -/
+structure PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler :
+    Type 2 where
+  evaluate :
+    (z : Q') -> (hz : (0 : Q') < z) ->
+    (hzb : Q'.abs z <= CRealLog.recipOdd 1) ->
+    PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+      z hz hzb
+
+namespace PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+
+/-- Vanishing of the geometric support compiles an Euler-only tail bound to
+the post-boundary difference-polynomial bound. -/
+def toPostBoundaryTailSize
+    {z : Q'} {hz : (0 : Q') < z}
+    {hzb : Q'.abs z <= CRealLog.recipOdd 1}
+    (certificate :
+      PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+        z hz hzb) :
+    PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
+      z hz hzb where
+  tailSizeBound epsilon hepsilon := by
+    let stage := positiveArtanhEulerAnchorStage epsilon
+    let inner := positiveArtanhEulerAnchorPivot z epsilon
+    let degree := positiveArtanhGeometricAnchorDegree epsilon
+    have heq :=
+      weightedL1_drop_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial
+        (Q'.abs z) stage inner degree
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv heq)
+      (certificate.tailSizeBound epsilon hepsilon)
+
+end PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate
+
+/-- An Euler-only tail compiler supplies the difference-polynomial
+post-boundary compiler without changing the input or cutoff. -/
+def positiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompilerOfEulerOnly
+    (compiler :
+      PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler) :
+    PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompiler where
+  evaluate z hz hzb :=
+    (compiler.evaluate z hz hzb).toPostBoundaryTailSize
 
 namespace PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate
 
@@ -3725,6 +3916,15 @@ def positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
     (positiveWindowArtanhEulerPolynomialResidualTailSizeCompilerOfPostBoundary
       tail)
 
+/-- With the geometric support theorem internal, the Euler-only tail
+compiler reaches the same scalar inverse. -/
+def positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize
+    (tail : PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler) :
+    PositiveWindowArtanhEulerCompiler :=
+  positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
+    (positiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCompilerOfEulerOnly
+      tail)
+
 /-- The reduced tail-only compiler also compiles all the way to the scalar
 inverse; its constant cancellation is a theorem, not a caller-supplied
 field. -/
@@ -3822,6 +4022,10 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveArtanhEulerResidualTailSize_two_of_postBoundary_three
 #print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.weightedL1_drop_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate.toPostBoundaryTailSize
+#print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialPostBoundaryTailSizeCertificate.toResidualTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialResidualTailSizeCertificate.toFullTail
@@ -3829,6 +4033,8 @@ end YMGap.Constructive.CRealArtanhEulerPolynomialAnchor
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialResidualTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialPostBoundaryTailSize
+#print axioms
+  YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize
 #print axioms
   YMGap.Constructive.CRealArtanhEulerPolynomialAnchor.zeroPrefix_one_positiveArtanhEulerAnchorDifferencePoly
 #print axioms

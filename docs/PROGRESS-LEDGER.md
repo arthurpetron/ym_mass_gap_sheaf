@@ -15502,3 +15502,47 @@ frontier is a uniform finite-Euler coefficient majorant for the tail after
 Euler-truncation residual.  No scalar inverse, physical carrier, projective
 OS/GNS construction, transfer/operator uniformity, thermodynamic or continuum
 limit, QFT axiom, or Clay mass-gap theorem is claimed.
+
+## Geometric support eliminated from the post-boundary tail (2026-08-24)
+
+The remaining size-three obligation no longer mentions an
+Euler-minus-geometric difference.  Padded coefficient equivalence is now
+proved to preserve `weightedL1`, including unequal list representatives with
+trailing rational zeros.  A drop-index lemma connects each shifted list
+coefficient to its original padded coefficient.
+
+Using the exact two-term numerator convolution, every coefficient of
+`positiveArtanhGeometricApproxPoly degree` at index at least `degree+2` is
+zero.  Hence every coefficient of the difference polynomial after the first
+boundary is exactly the corresponding coefficient of
+`expPartialPoly (positiveArtanhExponentPoly stage) inner`, and the two shifted
+weighted norms are rationally equivalent.
+
+`PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate` is now the
+smallest scalar input at this join.  It asks only that the shifted finite Euler
+tail after `degree+2` have weighted norm at most three.  Its adapters reach the
+post-boundary, residual, full-tail, scalar-inverse, and connected compilers.
+The connected
+`adaptivePathOfPositiveArtanhPolynomialEulerOnlyTailSizeCompiler` retains the
+same dynamic family, raw Wilson observable, projective OS handoff, matrix
+coefficient pin, exact-rate handoff, transfer lift, finite graph
+approximation, and vacuum pin.
+
+This contraction does not alter the capstone parallelism: after common data
+are fixed, the scalar Euler-tail compiler remains one of seven independent
+root inputs; the matrix-coefficient pin still follows the OS handoff and the
+finite graph approximation still follows the transfer lift before the
+observable-preserving join.
+
+One guarded anchor check containing a misspelled proof variable is not counted
+as a pass.  After correction, exact one-worker targets pass 65 jobs for the
+polynomial anchor and 5118 jobs for the connected capstone.  Every newly
+audited export uses exactly `[propext, Quot.sound]`; no forbidden construct was
+added.
+
+The Euler-only size-three compiler remains uninhabited.  The next analytic
+frontier is a coefficient sign/positivity recoding and a uniform magnitude
+majorant for the finite reflected exponential.  No scalar inverse, physical
+carrier, projective OS/GNS construction, transfer/operator uniformity,
+thermodynamic or continuum limit, QFT axiom, or Clay mass-gap theorem is
+claimed.

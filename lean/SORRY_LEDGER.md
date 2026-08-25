@@ -13754,3 +13754,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   This contracts only the finite scalar-tail interface; it does not inhabit
   the new compiler, construct a scalar inverse or physical mass gap, or prove
   the continuum/Clay endpoint.
+
+### [BF4-physical-positive-artanh-euler-only-tail] Eliminate the finite geometric polynomial after its support boundary — **CLOSED 2026-08-24**
+
+- **milestone**: prove weighted-L1 invariance under padded coefficient
+  equivalence, prove the exact coefficient shift induced by `List.drop`, prove
+  that the geometric comparison vanishes from `degree+2` onward, identify the
+  post-boundary difference tail coefficientwise with the finite Euler tail,
+  and carry an Euler-only size-three input through the unchanged scalar and
+  observable-connected paths.
+- **files**:
+  `lean/YMGap/Constructive/CRealArtanhEulerPolynomialAnchor.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.lean`.
+- **decl**:
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_eqv_of_coeffEqv`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_drop`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhGeometricApproxPoly_eqv_zero_of_boundary`,
+  `CRealArtanhEulerPolynomialAnchor.coeff_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial_after_boundary`,
+  `CRealArtanhEulerPolynomialAnchor.weightedL1_drop_positiveArtanhEulerGeometricDifferencePoly_eqv_expPartial`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate`,
+  `CRealArtanhEulerPolynomialAnchor.PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCertificate.toPostBoundaryTailSize`,
+  `CRealArtanhEulerPolynomialAnchor.positiveWindowArtanhEulerCompilerOfPolynomialEulerOnlyTailSize`,
+  and
+  `DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.adaptivePathOfPositiveArtanhPolynomialEulerOnlyTailSizeCompiler`.
+- **obligation**: inhabit
+  `PositiveWindowArtanhEulerPolynomialEulerOnlyTailSizeCompiler` by proving,
+  uniformly on `0 < z` and `|z| <= 1/3`, that the shifted finite Euler tail
+  after `degree+2` has weighted norm at most three.  No geometric comparison,
+  first boundary coefficient, cutoff choice, radius decay, or tolerance
+  bookkeeping remains in this scalar input.  Physical-carrier, projective
+  OS/GNS, transfer/operator, thermodynamic/continuum, QFT, and Clay inputs
+  remain separate and open.
+- **constructive?**: yes.  Support and list-drop arguments are structurally
+  recursive on finite rational coefficient lists, all equality is `Q'.eqv`,
+  and the compiler remains named `Type`-level data rather than a proposition
+  asserted to hold.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.  Audited gates
+  remain exactly `[propext, Quot.sound]`.
+- **status note**: one guarded anchor check with a misspelled proof variable is
+  not counted as a pass.  After correction, exact one-worker targets pass 65
+  jobs for the polynomial anchor and 5118 jobs for the connected capstone.
+  This eliminates only the dead geometric tail; it does not inhabit the
+  Euler-only compiler, construct a scalar inverse or physical mass gap, or
+  prove the continuum/Clay endpoint.
