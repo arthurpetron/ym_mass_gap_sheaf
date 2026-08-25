@@ -16488,3 +16488,46 @@ The exact monitored one-worker target passes all 5083 jobs.  Its seven
 printed exports use only `[propext, Quot.sound]` or the smaller `[propext]`
 subset.  The executable forbidden-token scan reports zero hits, and the root
 aggregator imports the module; no full-root audit is claimed.
+
+## Exact finite deficits remove all pointwise envelope hypotheses (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtDeficitCompiler`
+computes four explicit rational streams from the same exact correlated debt:
+the two-sided transported-old deficit maximum and the old-new, new-old, and
+new-new shell-return deficit maxima.  Each maximum is a recursively located
+fold over the literal finite carrier at that cutoff transition.
+
+The elementary absolute-difference inequality and the located-maximum theorem
+now construct all five pointwise envelope inequalities automatically.  Thus
+the four regional compiler families are no longer open at the pointwise
+level.  Their only remaining analytic content is four independent
+`AntitoneTailControl` witnesses saying that these four computed streams are
+summable.  Those witnesses can be proved in parallel; they then rejoin
+serially through the exact correlated envelope, maximum variation, a positive
+total budget available from cutoff zero, and the initial debt slack.
+
+Exact transported-old invariance was checked and is not available from the
+current library: pulled normalized entries genuinely change with cutoff before
+their limit, and no cutoff-pushforward coherence theorem exists for the
+canonical loop-erased routing.  The deficit stream therefore records real
+dynamic variation rather than pretending the old component has zero cost.
+This favors the canonical route if the four deficits, or their sum, admit a
+summable tail.  Adaptive routing becomes justified only if a localized face
+deficit fails that test.
+
+Observable connectedness is preserved at every join.  All four streams are
+computed from the same exact normalized capacity debt, which itself uses the
+same exact routed load and conditional kernel on the same ordered pair and
+fixed canonical routing.  The carrier recodings, shell classification, and
+vacuum return points are explicit terms.  No unrelated observable estimate
+can enter the chain without changing the required type.
+
+No tail-control witness, total budget, or initial slack is supplied.  The
+fixed anchor is not the physical AF/grouped-BF4 trajectory.  Same-observable
+thermodynamic compatibility, projective OS/GNS reconstruction, a completed
+all-vector gap, continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5084 jobs.  Its ten printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.

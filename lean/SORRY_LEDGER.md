@@ -14742,3 +14742,55 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its seven printed exports use only `[propext, Quot.sound]` or `[propext]`.
   The executable forbidden-token scan reports zero hits, and the root
   aggregator imports the module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-deficit-maxima] Compute exact regional deficit maxima and eliminate pointwise envelope inputs — **CLOSED 2026-08-25**
+
+- **milestone**: compute the exact two-sided transported-old debt deficit and
+  each of the three one-sided shell-return deficits; fold each stream to a
+  located finite maximum on the literal carrier; derive all five pointwise
+  envelope inequalities from those maxima; expose only summability of the
+  four explicit streams as named `Type`-level inputs; and compile four such
+  inputs through the unchanged budget/slack persistence path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtDeficitCompiler.lean`.
+- **decl**:
+  `anchorTransportedCapacityDebtDeficitOnPair`,
+  `anchorTransportedCapacityDebtDeficitMaximum`,
+  `anchorTransportedCapacityDebtDeficitOnPair_le_maximum`,
+  `AnchorCanonicalTransportedCapacityDebtDeficitTail`,
+  `AnchorCanonicalTransportedCapacityDebtDeficitTail.toEnvelope`,
+  `anchorOldNewReturnCapacityDebtDeficitOnPair`,
+  `anchorNewOldReturnCapacityDebtDeficitOnPair`,
+  `anchorNewNewReturnCapacityDebtDeficitOnPair`,
+  `anchorOldNewReturnCapacityDebtDeficitMaximum`,
+  `anchorNewOldReturnCapacityDebtDeficitMaximum`,
+  `anchorNewNewReturnCapacityDebtDeficitMaximum`,
+  `anchorOldNewReturnCapacityDebtDeficitOnPair_le_maximum`,
+  `anchorNewOldReturnCapacityDebtDeficitOnPair_le_maximum`,
+  `anchorNewNewReturnCapacityDebtDeficitOnPair_le_maximum`,
+  `AnchorCanonicalOldNewCapacityDebtDeficitTail`,
+  `AnchorCanonicalNewOldCapacityDebtDeficitTail`,
+  `AnchorCanonicalNewNewCapacityDebtDeficitTail`,
+  `anchorCanonicalCapacityDebtEnvelopeOfDeficitTails`, and
+  `anchorCanonicalCapacityDebtPersistenceOfDeficitTails`.
+- **obligation**: prove four `AntitoneTailControl` witnesses in parallel for
+  the displayed computed deficit maxima, or prove one summability theorem for
+  a total stream dominating their sum; then exhibit a positive budget whose
+  tail index is zero and enough cutoff-zero debt slack.  Exact zero variation
+  on the transported-old component is not currently justified because both
+  normalized physical entries and canonical routing data can change across
+  cutoffs.  A localized failure of a shell-face tail is the precise signal for
+  a face-specific adaptive-routing alternative.  Physical AF persistence, the
+  literal same-observable thermodynamic bridge, projective OS/GNS
+  reconstruction, completed all-vector gap, continuum QFT, and Clay closure
+  remain open.
+- **constructive?**: yes.  The deficits and maxima are executable rational
+  functions over finite lists; shell decisions unfold to kernel-computable
+  list membership; analytic tails remain explicit `Type`-level fields; and
+  all four regions use the same exact debt, routing, carriers, and return
+  maps.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5084 jobs.
+  Its ten printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.
