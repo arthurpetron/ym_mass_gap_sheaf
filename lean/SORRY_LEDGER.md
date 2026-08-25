@@ -15927,3 +15927,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes all 5120 jobs.  All eight audited exports
   use only `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic] Contract dynamic new traffic to its exact nonnegative debt — **CLOSED 2026-08-25**
+
+- **milestone**: factor routed summand nonnegativity into an anchor-independent
+  compiler; prove the matched complementary load and normalized debt are
+  nonnegative; identify both orientations of old-to-full debt variation with
+  the absolute value of the same exact new debt; bound their located maximum;
+  and compile an inverse-square exact-debt estimate to the existing six-leaf
+  traffic and total-tail controls.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualRoutedTrafficNonnegativity.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTraffic.lean`.
+- **decl**: `residualRoutedPathPairConditionalTransitionProductTerm_nonnegative`,
+  `matchedEventualCanonicalTransportedBridgeNewEndpointTrafficDebtOnPair_nonnegative`,
+  `matchedEventualCanonicalTransportedBridgeNewTrafficDeficitMaximum_le_exactDebtMaximum`,
+  `MatchedEventualCanonicalTransportedCapacityDebtExactTrafficInverseSquareControl`,
+  and
+  `MatchedEventualCanonicalCapacityDebtExactTrafficRegionalInverseSquareControl.toTotalDeficitTail`.
+- **obligation**: prove an inverse-square estimate for the literal exact new-
+  endpoint debt using complementary carrier growth, route weights and lengths,
+  multiplicity, and the unchanged matched capacity denominator.
+- **constructive?**: yes.  Every sign proof follows an explicit positive path,
+  finite list sum, positive rational product, or the zero capacity fallback.
+  The contraction uses the exact old-plus-new debt identity.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable
+  declaration is introduced.
+- **status note**: the shared focused and 5075-job target checks pass with all
+  three exports at `[propext, Quot.sound]`; the dynamic focused and 5122-job
+  target checks pass with all seven exports at `[propext, Quot.sound]`.  The
+  root aggregator imports both modules.  No full-root audit is claimed.

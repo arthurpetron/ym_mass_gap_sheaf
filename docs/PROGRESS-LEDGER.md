@@ -17741,3 +17741,43 @@ other five cutoff estimates, tail allowance and initial closure, AF
 identification, physical-scale uniformity, a nonzero same-object observable
 pin, thermodynamic/continuum compatibility, continuum Yang--Mills
 construction, and the Clay mass gap remain open.
+
+## Dynamic new endpoint traffic contracts to one exact nonnegative debt (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualRoutedTrafficNonnegativity` factors the
+anchor-independent sign argument into a shared compiler.  Structural
+recursion on an explicit positive path proves nonnegativity of the reverse-
+forward conditional-transition product.  Unit directed-edge multiplicity and
+the remaining nonnegative physical factors then prove every literal routed
+endpoint-pair transition-product summand is nonnegative.  The dynamic proof
+therefore does not depend on fixed strong-coupling anchor data.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTraffic`
+transfers that sign through the exact complementary filtered sum and through
+the unchanged matched conditional-kernel normalization.  Since the preceding
+traffic bridge proved `fullDebt = oldDebt + newDebt` exactly, the two
+old-to-full differences are `-newDebt` and `newDebt`.  Their symmetric
+absolute deficit is bounded by the exact nonnegative new debt with no factor
+two.  The located maximum has the same sharp bound.
+
+The new inverse-square interface requests an estimate directly on that
+positive complementary debt and compiles it through the six-leaf traffic
+control to the one total cutoff tail.  The new-traffic lane is now an
+observable compiler path from a literal newly admitted endpoint list to the
+same final capacity-debt observable, rather than an unrelated proxy.
+
+The shared compiler's focused check passes at 1M heartbeats and its
+dependency-complete target completes all 5075 jobs; its three audited exports
+use only `[propext, Quot.sound]`.  The dynamic compiler's focused check passes
+at 1M heartbeats and its dependency-complete target completes all 5122 jobs;
+its seven audited exports use only `[propext, Quot.sound]`.  The root
+aggregator imports both modules.  No full-root audit is claimed.
+
+No inverse-square new-debt estimate is inhabited.  Its next analytic layer
+must bound the literal complementary filtered sum using new-carrier growth,
+positive route-transition weights, path length/multiplicity, and the matched
+capacity denominator.  Old-traffic drift, route churn, the three shell-face
+estimates, tail allowance and initial closure, AF identification, physical-
+scale uniformity, a nonzero same-object observable pin, thermodynamic/
+continuum compatibility, continuum Yang--Mills construction, and the Clay
+mass gap remain open.
