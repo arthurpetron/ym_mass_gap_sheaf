@@ -16164,3 +16164,54 @@ The exact monitored one-worker application target passes all 5076 jobs; the
 generic algebra target passes all 46 jobs.  All thirteen printed exports use
 only `[propext, Quot.sound]` or the smaller `[propext]` subset.  The root
 aggregator imports both modules; no new full-root audit is claimed.
+
+## Component variation now supplies its own ceilings and reciprocal control (2026-08-25)
+
+`SummableRationalStepVariation.globalCeiling` removes an artificial input from
+the two-lane compiler.  For any rational stream with summable two-sided step
+variation, the finite prefix is bounded by explicit telescoping and the stored
+antitone tail supplies the remaining unit budget.  A nonnegative stream thus
+gets a positive global ceiling as a theorem output, not an independent
+analytic hypothesis.  `SummableRationalStepVariationAlgebra.mul` uses these
+constructed ceilings to close products of nonnegative summable-variation
+streams.
+
+`SummableRationalReciprocalStepVariation.reciprocal` removes a second opaque
+input.  A positive stream whose values stay above one supplied positive
+rational floor has reciprocal variation bounded by the original variation
+times the explicit inverse-square Lipschitz factor `(recipPos floor)^2`.
+Consequently the BF4 kernel lane no longer assumes variation of an already
+inverted quantity: it supplies variation of the literal supported-kernel
+numerator together with its uniform positive floor, and the reciprocal
+certificate is compiled internally.
+
+The strongest current fixed-anchor compiler therefore has exactly two
+parallel analytic lanes on one common routing sequence:
+
+1. summable variation of `1 + routedLoadMaximum`; and
+2. summable variation plus a uniform positive floor for
+   `(1/2) * supportedConditionalKernelFloor`.
+
+The first lane controls congestion; the second controls noncollapse.  Their
+ceilings, reciprocal transport, product join, shared-floor scaling, and exact
+debt recoding are now constructive serial consumers.  This favors the
+canonical proof path when loop-erased routing makes both primitive estimates
+uniform: it eliminates route selection and reaches the join directly.  The
+adaptive path remains necessary if cutoff-dependent routing is what prevents
+load growth or kernel collapse.  The types prohibit mixing estimates from
+different routings, so both routes remain connected to the same finite
+observable and exact routed capacity margin.
+
+No analytic inhabitant is supplied.  The load variation, numerator variation,
+uniform numerator floor, total debt budget from cutoff zero, and initial slack
+remain open.  The construction is at a fixed anchor and is not the physical
+AF/grouped-BF4 trajectory.  Same-observable thermodynamic compatibility,
+projective OS/GNS reconstruction, a completed all-vector gap, continuum QFT,
+and the Clay mass-gap theorem remain open.
+
+The monitored one-worker targets pass all 46 jobs for the generic algebra,
+all 47 jobs for the reciprocal compiler, and all 5077 jobs for the BF4
+specialization.  The twelve newly audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits.  The root aggregator imports the new reciprocal module, but no full-root
+audit is claimed.

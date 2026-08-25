@@ -7,7 +7,8 @@ large cutoff-dependent rational debt into independently estimable pieces.
 * pointwise `Q'.eqv` transports an existing variation certificate;
 * multiplication by a fixed positive rational preserves summable variation;
 * two summable variation streams may be added; and
-* two nonnegative streams with positive uniform ceilings may be multiplied.
+* two nonnegative streams may be multiplied, with their required positive
+  uniform ceilings constructed automatically from their variation data.
 
 The product compiler uses the explicit one-step budget
 `rightCeiling * leftVariation + leftCeiling * rightVariation`.  Thus two
@@ -352,6 +353,26 @@ def mulOfCeilings
           (right_le scale)
           (left.stepBound scale).2 (right.stepBound scale).2⟩
 
+/-- Pointwise multiplication preserves summable two-sided variation for
+nonnegative streams.  No separate uniform ceiling is required: each source
+variation computes a positive global ceiling from its finite prefix and
+summable unit tail. -/
+def mul
+    {leftStream rightStream : Nat -> Q'}
+    (left : SummableRationalStepVariation leftStream)
+    (right : SummableRationalStepVariation rightStream)
+    (left_nonnegative : forall scale, (0 : Q') <= leftStream scale)
+    (right_nonnegative : forall scale, (0 : Q') <= rightStream scale) :
+    SummableRationalStepVariation
+      (fun scale => leftStream scale * rightStream scale) :=
+  mulOfCeilings left right
+    left.globalCeiling right.globalCeiling
+    (left.globalCeiling_pos left_nonnegative)
+    (right.globalCeiling_pos right_nonnegative)
+    left_nonnegative right_nonnegative
+    (fun scale => left.le_globalCeiling scale)
+    (fun scale => right.le_globalCeiling scale)
+
 end YMGap.Continuum.SummableRationalStepVariationAlgebra
 
 /-! ## Axiom-dependency gates -/
@@ -368,3 +389,5 @@ end YMGap.Continuum.SummableRationalStepVariationAlgebra
   YMGap.Continuum.SummableRationalStepVariationAlgebra.product_step_le
 #print axioms
   YMGap.Continuum.SummableRationalStepVariationAlgebra.mulOfCeilings
+#print axioms
+  YMGap.Continuum.SummableRationalStepVariationAlgebra.mul

@@ -11,9 +11,12 @@ estimable cutoff streams:
 * the positive routed-load denominator; and
 * the reciprocal of the positive supported-kernel numerator.
 
-This module compiles summable variation certificates for those two streams,
-under positive uniform ceilings, into summable variation of their product and
-then of the normalized capacity debt.  Scaling by the already fixed shared
+This module compiles summable variation certificates for those two streams
+into summable variation of their product and then of the normalized capacity
+debt.  The variation data construct their own positive global ceilings, so no
+separate boundedness fields are needed.  Its strongest interface also derives
+variation of the reciprocal numerator from ordinary numerator variation and a
+uniform positive numerator floor.  Scaling by the already fixed shared
 coercivity floor and setoid transport are serial algebraic consumers after the
 two analytic lanes meet.
 
@@ -30,6 +33,7 @@ noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportMarginProxy
+import YMGap.Continuum.SummableRationalReciprocalStepVariation
 import YMGap.Continuum.SummableRationalStepVariationAlgebra
 
 namespace YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor
@@ -43,6 +47,7 @@ open YMGap.Continuum.BF4PhysicalAnchorDynamicRayCapacityCompiler
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDebtCompiler
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportMarginProxy
+open YMGap.Continuum.SummableRationalReciprocalStepVariation
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
@@ -239,6 +244,26 @@ def anchorAdaptiveSupportCapacityReciprocalProxyVariationOfComponents
       (anchorAdaptiveInverseSupportedKernelNumerator_pos routing K))
     load_le inverseKernel_le
 
+/-- Stronger ceiling-free join: summable variation of each positive component
+already constructs the global ceilings needed by the product estimate. -/
+def anchorAdaptiveSupportCapacityReciprocalProxyVariationOfVariations
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator routing))
+    (inverseKernelVariation : SummableRationalStepVariation
+      (anchorAdaptiveInverseSupportedKernelNumerator routing)) :
+    SummableRationalStepVariation
+      (anchorAdaptiveSupportCapacityReciprocalProxy routing) := by
+  change SummableRationalStepVariation
+    (fun K =>
+      anchorAdaptiveRoutedLoadDenominator routing K *
+        anchorAdaptiveInverseSupportedKernelNumerator routing K)
+  exact mul loadVariation inverseKernelVariation
+    (fun K => Q'.le_of_lt
+      (anchorAdaptiveRoutedLoadDenominator_pos routing K))
+    (fun K => Q'.le_of_lt
+      (anchorAdaptiveInverseSupportedKernelNumerator_pos routing K))
+
 /-- Serially scale the joined condition-number variation by the fixed shared
 floor and transport it through the exact debt factorization. -/
 def anchorAdaptiveSupportCapacityDebtVariationOfComponents
@@ -262,6 +287,27 @@ def anchorAdaptiveSupportCapacityDebtVariationOfComponents
       routing loadVariation inverseKernelVariation
       loadCeiling inverseKernelCeiling
       loadCeiling_pos inverseKernelCeiling_pos load_le inverseKernel_le
+  let scaledVariation := scale reciprocalVariation
+    anchorAdaptiveSharedCoercivityFloor
+    anchorAdaptiveSharedCoercivityFloor_pos
+  exact ofPointwiseEqv scaledVariation (fun K =>
+    Q'.eqv_symm
+      (anchorAdaptiveSupportCapacityDebt_eqv_sharedFloor_mul_reciprocalProxy
+        routing K))
+
+/-- Ceiling-free serial join from the two component variation certificates to
+the exact normalized automatic debt. -/
+def anchorAdaptiveSupportCapacityDebtVariationOfVariations
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator routing))
+    (inverseKernelVariation : SummableRationalStepVariation
+      (anchorAdaptiveInverseSupportedKernelNumerator routing)) :
+    SummableRationalStepVariation
+      (anchorAdaptiveSupportCapacityDebt routing) := by
+  let reciprocalVariation :=
+    anchorAdaptiveSupportCapacityReciprocalProxyVariationOfVariations
+      routing loadVariation inverseKernelVariation
   let scaledVariation := scale reciprocalVariation
     anchorAdaptiveSharedCoercivityFloor
     anchorAdaptiveSharedCoercivityFloor_pos
@@ -306,7 +352,101 @@ def anchorAdaptiveSupportCapacityDebtVariationFromComponents
       load_le inverseKernel_le)
     budget budget_pos budget_from_zero initial_closure
 
-/-! ## 4. The canonical proof-path specialization -/
+/-- End-to-end fixed-anchor compiler whose only analytic stream inputs are the
+two summable component variations.  Their ceilings are derived internally. -/
+def anchorAdaptiveSupportCapacityDebtVariationFromVariations
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator routing))
+    (inverseKernelVariation : SummableRationalStepVariation
+      (anchorAdaptiveInverseSupportedKernelNumerator routing))
+    (budget : Q')
+    (budget_pos : (0 : Q') < budget)
+    (budget_from_zero :
+      (anchorAdaptiveSupportCapacityDebtVariationOfVariations
+        routing loadVariation inverseKernelVariation).tailControl.tailRate
+          budget = 0)
+    (initial_closure :
+      anchorAdaptiveSupportCapacityDebt routing 0 + budget <= (1 : Q')) :
+    AnchorAdaptiveFiniteCapacityDebtVariation :=
+  anchorAdaptiveSupportCapacityDebtVariation
+    routing
+    (anchorAdaptiveSupportCapacityDebtVariationOfVariations
+      routing loadVariation inverseKernelVariation)
+    budget budget_pos budget_from_zero initial_closure
+
+/-! ## 4. Remove the opaque inverse-variation input -/
+
+/-- Variation of the supported-kernel numerator plus one uniform positive
+floor constructs variation of its reciprocal.  The floor is the exact
+noncollapse condition that reciprocal continuity genuinely needs. -/
+def anchorAdaptiveInverseSupportedKernelNumeratorVariation
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (numeratorVariation : SummableRationalStepVariation
+      (anchorAdaptiveSupportedKernelNumerator routing))
+    (kernelFloor : Q')
+    (kernelFloor_pos : (0 : Q') < kernelFloor)
+    (kernelFloor_le : forall K,
+      kernelFloor <= anchorAdaptiveSupportedKernelNumerator routing K) :
+    SummableRationalStepVariation
+      (anchorAdaptiveInverseSupportedKernelNumerator routing) :=
+  reciprocal
+    (anchorAdaptiveSupportedKernelNumerator_pos routing)
+    numeratorVariation kernelFloor kernelFloor_pos kernelFloor_le
+
+/-- The strongest current two-lane debt compiler.  The load lane supplies
+summable variation of the routed-load denominator.  The kernel lane supplies
+summable variation and a uniform positive floor for the non-inverted
+supported-kernel numerator.  All ceilings and reciprocal variation are
+constructed internally. -/
+def anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator routing))
+    (numeratorVariation : SummableRationalStepVariation
+      (anchorAdaptiveSupportedKernelNumerator routing))
+    (kernelFloor : Q')
+    (kernelFloor_pos : (0 : Q') < kernelFloor)
+    (kernelFloor_le : forall K,
+      kernelFloor <= anchorAdaptiveSupportedKernelNumerator routing K) :
+    SummableRationalStepVariation
+      (anchorAdaptiveSupportCapacityDebt routing) :=
+  anchorAdaptiveSupportCapacityDebtVariationOfVariations
+    routing loadVariation
+    (anchorAdaptiveInverseSupportedKernelNumeratorVariation
+      routing numeratorVariation
+      kernelFloor kernelFloor_pos kernelFloor_le)
+
+/-- End-to-end fixed-anchor compiler from the two primitive analytic lanes,
+followed by the unchanged total-debt budget and initial-slack check. -/
+def anchorAdaptiveSupportCapacityDebtVariationFromPrimitiveComponents
+    (routing : AnchorAdaptivePositiveRoutingSequence)
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator routing))
+    (numeratorVariation : SummableRationalStepVariation
+      (anchorAdaptiveSupportedKernelNumerator routing))
+    (kernelFloor : Q')
+    (kernelFloor_pos : (0 : Q') < kernelFloor)
+    (kernelFloor_le : forall K,
+      kernelFloor <= anchorAdaptiveSupportedKernelNumerator routing K)
+    (budget : Q')
+    (budget_pos : (0 : Q') < budget)
+    (budget_from_zero :
+      (anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents
+        routing loadVariation numeratorVariation
+        kernelFloor kernelFloor_pos kernelFloor_le).tailControl.tailRate
+          budget = 0)
+    (initial_closure :
+      anchorAdaptiveSupportCapacityDebt routing 0 + budget <= (1 : Q')) :
+    AnchorAdaptiveFiniteCapacityDebtVariation :=
+  anchorAdaptiveSupportCapacityDebtVariation
+    routing
+    (anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents
+      routing loadVariation numeratorVariation
+      kernelFloor kernelFloor_pos kernelFloor_le)
+    budget budget_pos budget_from_zero initial_closure
+
+/-! ## 5. The canonical proof-path specialization -/
 
 /-- The canonical loop-erased routing at every anchor cutoff.  This removes
 routing construction from the canonical proof path without asserting that
@@ -346,6 +486,43 @@ def anchorCanonicalSupportCapacityDebtVariationOfComponents
     loadCeiling_pos inverseKernelCeiling_pos
     load_le inverseKernel_le
 
+/-- Canonical routing specialization with both formerly separate ceiling
+obligations discharged automatically. -/
+def anchorCanonicalSupportCapacityDebtVariationOfVariations
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator
+        anchorCanonicalPositiveRoutingSequence))
+    (inverseKernelVariation : SummableRationalStepVariation
+      (anchorAdaptiveInverseSupportedKernelNumerator
+        anchorCanonicalPositiveRoutingSequence)) :
+    SummableRationalStepVariation
+      (anchorAdaptiveSupportCapacityDebt
+        anchorCanonicalPositiveRoutingSequence) :=
+  anchorAdaptiveSupportCapacityDebtVariationOfVariations
+    anchorCanonicalPositiveRoutingSequence
+    loadVariation inverseKernelVariation
+
+/-- Canonical routing specialization of the primitive two-lane compiler. -/
+def anchorCanonicalSupportCapacityDebtVariationOfPrimitiveComponents
+    (loadVariation : SummableRationalStepVariation
+      (anchorAdaptiveRoutedLoadDenominator
+        anchorCanonicalPositiveRoutingSequence))
+    (numeratorVariation : SummableRationalStepVariation
+      (anchorAdaptiveSupportedKernelNumerator
+        anchorCanonicalPositiveRoutingSequence))
+    (kernelFloor : Q')
+    (kernelFloor_pos : (0 : Q') < kernelFloor)
+    (kernelFloor_le : forall K,
+      kernelFloor <= anchorAdaptiveSupportedKernelNumerator
+        anchorCanonicalPositiveRoutingSequence K) :
+    SummableRationalStepVariation
+      (anchorAdaptiveSupportCapacityDebt
+        anchorCanonicalPositiveRoutingSequence) :=
+  anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents
+    anchorCanonicalPositiveRoutingSequence
+    loadVariation numeratorVariation
+    kernelFloor kernelFloor_pos kernelFloor_le
+
 end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor
 
 /-! ## Dependency gates -/
@@ -357,10 +534,26 @@ end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariatio
 #print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityReciprocalProxyVariationOfComponents
 #print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityReciprocalProxyVariationOfVariations
+#print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationOfComponents
 #print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationOfVariations
+#print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationFromComponents
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationFromVariations
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveInverseSupportedKernelNumeratorVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorAdaptiveSupportCapacityDebtVariationFromPrimitiveComponents
 #print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorCanonicalPositiveRoutingSequence
 #print axioms
   YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorCanonicalSupportCapacityDebtVariationOfComponents
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorCanonicalSupportCapacityDebtVariationOfVariations
+#print axioms
+  YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.anchorCanonicalSupportCapacityDebtVariationOfPrimitiveComponents

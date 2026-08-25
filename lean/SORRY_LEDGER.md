@@ -14406,3 +14406,53 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   all 5076 jobs and the generic algebra target passes all 46 jobs.  The
   thirteen printed exports use only `[propext, Quot.sound]` or `[propext]`.
   The root aggregator imports both modules; no full-root audit is claimed.
+
+### [adaptive-support-debt-primitive-two-lane] Remove ceiling and inverse-variation premises — **CLOSED 2026-08-25**
+
+- **milestone**: derive a positive global ceiling from every nonnegative
+  summable rational step-variation certificate; use it to close nonnegative
+  products without separate ceiling premises; prove inverse-square Lipschitz
+  transport of summable variation through `recipPos` under one explicit
+  positive stream floor; and specialize the BF4 debt compiler so its primitive
+  analytic inputs are load-denominator variation plus supported-kernel
+  numerator variation and noncollapse.
+- **files**:
+  `lean/YMGap/Continuum/SummableRationalStepVariation.lean`,
+  `lean/YMGap/Continuum/SummableRationalStepVariationAlgebra.lean`,
+  `lean/YMGap/Continuum/SummableRationalReciprocalStepVariation.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSupportDebtVariationFactor.lean`.
+- **decl**:
+  `SummableRationalStepVariation.globalCeiling`,
+  `SummableRationalStepVariation.globalCeiling_pos`,
+  `SummableRationalStepVariation.le_globalCeiling`,
+  `SummableRationalStepVariationAlgebra.mul`,
+  `SummableRationalReciprocalStepVariation.reciprocal_step_le`,
+  `SummableRationalReciprocalStepVariation.reciprocal`,
+  `anchorAdaptiveSupportCapacityReciprocalProxyVariationOfVariations`,
+  `anchorAdaptiveSupportCapacityDebtVariationOfVariations`,
+  `anchorAdaptiveSupportCapacityDebtVariationFromVariations`,
+  `anchorAdaptiveInverseSupportedKernelNumeratorVariation`,
+  `anchorAdaptiveSupportCapacityDebtVariationOfPrimitiveComponents`,
+  `anchorAdaptiveSupportCapacityDebtVariationFromPrimitiveComponents`, and
+  `anchorCanonicalSupportCapacityDebtVariationOfPrimitiveComponents`.
+- **obligation**: for one common routing sequence, prove summable two-sided
+  variation of `1 + routedLoadMaximum`; prove summable two-sided variation and
+  one uniform positive floor for
+  `(1/2) * supportedConditionalKernelFloor`; then exhibit a positive total
+  debt budget available from zero and enough initial slack.  Canonical routing
+  is the shorter path if these estimates hold; adaptive routing may vary with
+  cutoff to prevent load growth or kernel collapse.  Fixed-anchor persistence
+  is not the grouped BF4/AF trajectory.  Same-observable thermodynamic
+  compatibility, projective OS/GNS reconstruction, completed all-vector gap,
+  continuum QFT, and Clay closure remain open.
+- **constructive?**: yes.  The global ceiling is explicit rational data; the
+  reciprocal compiler carries its positive floor as `Type`-level input; all
+  cancellation is through `Q'.eqv`; and the two lanes are indexed by the same
+  routing and exact observable-connected carrier.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is
+  introduced.
+- **status note**: the monitored one-worker algebra, reciprocal, and BF4
+  targets pass all 46, 47, and 5077 jobs respectively.  The twelve newly
+  printed exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits.  The root aggregator imports the
+  reciprocal compiler; no full-root audit is claimed.

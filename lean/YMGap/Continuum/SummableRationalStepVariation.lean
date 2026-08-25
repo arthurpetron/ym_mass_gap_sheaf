@@ -133,6 +133,94 @@ theorem le_tailCeiling
   exact Q'.le_trans' _ _ _ htelescope
     (Q'.add_le_add_left _ _ _ htail)
 
+/-! ## An automatic global ceiling -/
+
+/-- A global ceiling obtained without a separate boundedness hypothesis.
+The finite prefix is paid by its explicitly computed variation sum, and the
+tail contributes the unit budget already built into `tailCeilingStart`. -/
+def globalCeiling
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream) : Q' :=
+  1 +
+    (stream 0 +
+      finSum data.variation data.tailCeilingStart)
+
+/-- For a nonnegative stream, the automatic global ceiling is strictly
+positive and may therefore be used to scale summable tail controls. -/
+theorem globalCeiling_pos
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream)
+    (stream_nonnegative : forall scale, (0 : Q') <= stream scale) :
+    (0 : Q') < data.globalCeiling := by
+  have sum_nonnegative : (0 : Q') <=
+      finSum data.variation data.tailCeilingStart := by
+    simpa only [finSum_zero] using
+      finSum_monotone_of_nonneg
+        data.variation data.variation_nonnegative
+        0 data.tailCeilingStart (Nat.zero_le _)
+  let remainder :=
+    stream 0 + finSum data.variation data.tailCeilingStart
+  have remainder_nonnegative : (0 : Q') <= remainder :=
+    Q'.zero_le_add _ _ (stream_nonnegative 0) sum_nonnegative
+  change (0 : Q') < 1 + remainder
+  show (0 : Int) * (((1 : Q') + remainder).den : Int) <
+    ((1 : Q') + remainder).num * (1 : Int)
+  rw [Int.zero_mul, Int.mul_one]
+  show (0 : Int) <
+    (1 : Q').num * (remainder.den : Int) +
+      remainder.num * ((1 : Q').den : Int)
+  have first_pos : (0 : Int) <
+      (1 : Q').num * (remainder.den : Int) :=
+    Int.mul_pos (by decide) (by exact_mod_cast remainder.den_pos)
+  have second_nonnegative : (0 : Int) <=
+      remainder.num * ((1 : Q').den : Int) :=
+    Int.mul_nonneg
+      ((Q'.zero_le_iff_num_nonneg remainder).mp remainder_nonnegative)
+      (by exact_mod_cast Nat.zero_le (1 : Q').den)
+  omega
+
+/-- Every scale lies below the automatic global ceiling.  Below the
+canonical tail start, rational telescoping is bounded by the computed finite
+variation prefix.  At and above it, the existing unit tail ceiling applies. -/
+theorem le_globalCeiling
+    {stream : Nat -> Q'}
+    (data : SummableRationalStepVariation stream)
+    (scale : Nat) :
+    stream scale <= data.globalCeiling := by
+  let start := data.tailCeilingStart
+  let prefixVariation := finSum data.variation start
+  let prefixTop := stream 0 + prefixVariation
+  have start_telescope : stream start <= prefixTop := by
+    have bound :=
+      data.toSummableCRealStepVariation.telescope_up 0 0 start
+    simpa only [CReal.ofQ'_approx, Nat.zero_add] using bound
+  rcases Nat.lt_or_ge scale start with before | after
+  · have scale_telescope :
+        stream scale <= stream 0 + finSum data.variation scale := by
+      have bound :=
+        data.toSummableCRealStepVariation.telescope_up 0 0 scale
+      simpa only [CReal.ofQ'_approx, Nat.zero_add] using bound
+    have variation_le :
+        finSum data.variation scale <= prefixVariation := by
+      exact finSum_monotone_of_nonneg
+        data.variation data.variation_nonnegative
+        scale start (Nat.le_of_lt before)
+    have scale_le_prefixTop : stream scale <= prefixTop :=
+      Q'.le_trans' _ _ _ scale_telescope
+        (Q'.add_le_add_left _ _ _ variation_le)
+    exact Q'.le_trans' _ _ _ scale_le_prefixTop
+      (Q'.le_trans' _ _ _
+        (Q'.add_le_self_of_nonneg prefixTop 1 (by decide))
+        (Q'.le_of_eqv (Q'.add_comm_eqv prefixTop 1)))
+  · have tail_bound : stream scale <= stream start + 1 := by
+      change stream scale <= stream data.tailCeilingStart + 1
+      exact data.le_tailCeiling after
+    have tail_le_prefixTop : stream start + 1 <= prefixTop + 1 :=
+      Q'.add_le_add_right _ _ _ start_telescope
+    exact Q'.le_trans' _ _ _ tail_bound
+      (Q'.le_trans' _ _ _ tail_le_prefixTop
+        (Q'.le_of_eqv (Q'.add_comm_eqv prefixTop 1)))
+
 /-- If one positive budget controls the entire variation tail from zero, then
 initial slack plus that budget gives a pointwise global ceiling.  This is the
 direct compiler used when a normalized analytic debt must stay below one at
@@ -212,6 +300,10 @@ end YMGap.Continuum.SummableRationalStepVariation
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.converges
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_tailCeiling
+#print axioms
+  YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.globalCeiling_pos
+#print axioms
+  YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_globalCeiling
 #print axioms
   YMGap.Continuum.SummableRationalStepVariation.SummableRationalStepVariation.le_of_initial_add_totalBudget_le
 #print axioms
