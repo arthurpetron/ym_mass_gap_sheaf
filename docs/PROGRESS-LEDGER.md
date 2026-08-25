@@ -15781,3 +15781,37 @@ is the honest alternative, but it must supply summable scale variation and a
 same-Wilson semantic identification of the normalized limit.  Neither route
 yet constructs projective OS/GNS data, an all-vector operator gap,
 thermodynamic/continuum reconstruction, QFT axioms, or the Clay theorem.
+
+## The canonical two-mode sector now inhabits the completed interacting Wilson GNS space (2026-08-25)
+
+`SU2QuaternionCanonicalEightCompletedPositiveTimeSector` closes the missing
+completion bridge for the already verified canonical positive-time
+compression.  Its reusable `DenseGNSGramIsometry` asks only for preservation
+of all pairwise rational Gram coefficients.  Bilinear difference expansion
+then proves squared-distance preservation, maps Cauchy representatives and
+their null relation, descends to the quotient completion, preserves every
+completed `CReal.RC` inner product, and reflects null sequences strongly enough
+to prove injectivity.  No false full-state time isometry or additional strict
+representative-level linearity is assumed.
+
+The specialization `canonicalCompletedModeEmbedding` maps the completed
+vacuum/fundamental carrier into the actual canonical interacting Wilson GNS
+completion.  The vacuum is proved equal there to the literal polynomial unit,
+and the excitation is proved equal there to the literal
+`canonicalFundamentalBoundaryMode8`.  Iterating the already constructed
+compressed transfer gives an ambient vector path whose every term remains
+orthogonal to that literal vacuum.  Its actual Wilson-GNS matrix coefficient
+is exactly
+`(1/8)^n * (1/8)`.  Thus the finite connected path preserves one observable
+through carrier, completion, transfer power, and matrix coefficient; it is not
+an independently relabelled spectral surrogate.
+
+The focused monitored one-worker check passes for the new file, and every
+audited load-bearing export reports exactly `[propext, Quot.sound]`.  The root
+aggregator now imports the module.  This result is deliberately finite and
+two-dimensional: it does not define a transfer on the whole ambient Wilson
+completion, supply the dynamic BF4/AF family, establish a uniform all-vector
+vacuum-complement bound, or construct thermodynamic/continuum limits, QFT
+axioms, or the Clay mass-gap theorem.  The next causal frontier is to factor
+the dynamic trajectory producer so that this literal carrier-and-observable
+path can be instantiated at every cutoff and compared across scales.

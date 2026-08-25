@@ -14016,3 +14016,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes 5121 jobs.  This proves only the compiler edge; it does not inhabit
   the ceiling or scale-variation inputs, select a physical route, prove an
   all-vector gap, or construct the continuum/Clay endpoint.
+
+### [canonical-eight-completed-positive-time-sector] Embed the literal two-mode Wilson sector into the actual completion — **CLOSED 2026-08-25**
+
+- **milestone**: construct an injective completed map from the canonical
+  vacuum/fundamental GNS completion to the actual interacting canonical Wilson
+  GNS completion using pairwise Gram preservation; preserve every completed
+  inner product; identify the completed vacuum with the literal polynomial
+  unit and the excitation with the literal canonical boundary Wilson
+  observable; and compute its embedded connected transfer-power moment.
+- **file**:
+  `lean/YMGap/Continuum/SU2QuaternionCanonicalEightCompletedPositiveTimeSector.lean`.
+- **decl**:
+  `DenseGNSGramIsometry`, `DenseGNSGramIsometry.distSq_eqv`,
+  `DenseGNSGramIsometry.completed`,
+  `DenseGNSGramIsometry.completed_cinner`,
+  `DenseGNSGramIsometry.completed_injective`,
+  `canonicalCompletedModeEmbedding`,
+  `canonicalCompletedModeEmbedding_vacuum`,
+  `canonicalCompletedModeEmbedding_fundamental`,
+  `canonicalCompleted_fundamental_Tpow`,
+  `canonicalEmbeddedFundamentalAt_vacuum_orthogonal`, and
+  `canonicalEmbeddedFundamentalConnectedMoment_exact`.
+- **obligation**: construct an operator on the whole ambient Wilson completion
+  or a proved invariant closed subspace formulation as required by downstream
+  all-vector interfaces; instantiate the same literal carrier and observable
+  over the dynamic BF4/AF cutoff family; prove cross-scale compatibility,
+  uniform vacuum-complement control, thermodynamic and continuum persistence,
+  the required QFT axioms, and the Clay mass gap.  The finite two-mode result
+  does not discharge any of those open analytic atoms.
+- **constructive?**: yes.  The completion map uses explicit Cauchy moduli and
+  quotient descent; distance reflection proves injectivity.  The literal
+  vector identities and transfer powers use finite rational/quaternion data
+  and kernel `decide`.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, `noncomputable`, or new axiom is introduced.
+- **status note**: the focused monitored one-worker check passes and the
+  audited exports use exactly `[propext, Quot.sound]`.  The module is imported
+  by `YMGap.lean`; the connected moment is an actual ambient Wilson-GNS matrix
+  coefficient induced from the finite compressed sector, not yet an ambient
+  full-state transfer or a continuum correlation theorem.
