@@ -16023,6 +16023,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
 
+### [matched-physical-correlated-capacity-debt-new-traffic-active-cell-three-face-payment] Split one exact payment row into three shell-face budgets — **CLOSED 2026-08-25**
+
+- **milestone**: prove that every member of the literal new-endpoint list is
+  in the exact later shell and hence in the old--new, new--old, or new--new
+  face; prove pairwise face exclusion; define three face indicators of one
+  shared active-cell allowance; prove their pointwise sum equals that
+  allowance on every actual endpoint; lift the equality to the exact finite
+  endpoint-row sum; accept independent inverse-square bounds for the three
+  face sums; add their nonnegative coefficients; and compile the joined row
+  bound to the existing active-cell payment and exact debt-maximum control.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFacePayment.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointPair_face_cases`,
+  `matchedEventualCanonicalNewEndpointTrafficAllowance_eqv_threeFaces`,
+  `matchedEventualCanonicalNewEndpointTrafficRowAllowance_eqv_threeFaces`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellThreeFacePaymentInverseSquareControl.coefficient_nonnegative`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellThreeFacePaymentInverseSquareControl.row_allowance_le`,
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellThreeFacePaymentInverseSquareControl.toActiveCellPaymentControl`,
+  and
+  `MatchedEventualCanonicalNewEndpointTrafficActiveCellThreeFacePaymentInverseSquareControl.debtMaximum_le`.
+- **obligation**: inhabit the shared active-payment field and prove the three
+  facewise row-sum bounds from concrete stationary-weight, route-occurrence,
+  and raw-kernel estimates on exactly the same cells.  Prefer direct weighted
+  cancellation or facewise transition-product control over a uniform global
+  sector floor, whose cofinal lower-bound route is already ruled out.  Also
+  close old traffic, route churn, shell returns, merger or no-merger, tail
+  allowance, and initial closure.
+- **constructive?**: yes.  The split uses decidable finite list membership,
+  Boolean filtering, exact rational indicator functions, and finite list-sum
+  congruence.  All three lanes share one allowance and one active-payment
+  witness.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5134 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, and the root aggregator imports the module.  No full-root audit is
+  claimed.
+
 ### [matched-physical-correlated-capacity-debt-new-traffic-active-cell-payment] Preserve stationary-weight, route, and capacity correlation cell by cell — **CLOSED 2026-08-25**
 
 - **milestone**: define the exact stationary-weighted routed numerator on one

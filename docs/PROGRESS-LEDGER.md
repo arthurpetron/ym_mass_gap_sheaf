@@ -17433,6 +17433,47 @@ estimates can be developed in parallel.  Strength/spacing, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
 
+## Exact cell payments split into three parallel shell-face producers (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellFacePayment`
+proves that every endpoint in the literal new-traffic list lies in the later
+vacuum-pair shell and therefore occupies one of its three ordered faces:
+old--new, new--old, or new--new.  The proof uses the same Boolean new-endpoint
+filter and the same coordinatewise embedded-old carrier; it does not enlarge
+the endpoint list or change cutoffs.
+
+Three indicator allowances are then cut from one shared cell allowance.
+Pairwise face exclusion and exhaustive shell classification prove pointwise
+that their sum is exactly the original allowance on every actual new
+endpoint.  Constructive finite-sum congruence and distributivity lift this to
+an exact row decomposition.  A new Type-level control takes three independent
+inverse-square row estimates and adds their nonnegative coefficients, while
+retaining one shared `active_payment` witness against the exact same
+stationary-weighted numerator and exact same source-weighted raw-kernel
+capacity.  It contracts directly to the preceding active-cell payment
+control and hence to the unchanged exact new-traffic debt maximum.
+
+This is three-way analytic parallelism with one observable path.  The lanes
+may separately exploit old--new, new--old, and new--new geometry, but the type
+forces them to use the same current pair, endpoint row, allowance, active
+carrier, route numerator, and capacity before their checked additive rejoin.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5134 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, and the root aggregator imports the module.  No full-root audit is
+claimed.
+
+The shared active-cell payment and the three facewise inverse-square row
+estimates remain explicit, uninhabited fields.  The next analytic frontier is
+to define a concrete allowance on the same literal cells and prove the three
+face row budgets, preferentially by cellwise stationary-weight/raw-kernel
+cancellation rather than a global sector minimum.  Old-traffic drift, route
+churn, shell-return estimates, merger or no-merger control, tail allowance and
+initial closure, AF identification, physical-scale uniformity, a nonzero
+same-object observable pin, thermodynamic/continuum compatibility, continuum
+Yang--Mills construction, and the Clay mass gap remain open.
+
 ## Exact active-cell payments preserve observable correlation (2026-08-25)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellPayment`
