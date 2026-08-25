@@ -16957,3 +16957,60 @@ prove a normalized strength/spacing band, construct a nonzero same-object
 observable pin, identify the physical four-dimensional trajectory, establish
 projective OS/GNS or thermodynamic/continuum compatibility, construct
 continuum Yang--Mills theory, or prove the Clay mass gap.
+
+## The matched transition-product frontier is now an exact all-cutoff decision family (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision` isolates the
+remaining local transition-product obligation at any positive rational nome,
+spin cutoff, ray capacity, and positive routing.  It is exactly the rational
+comparison between the shared coercivity floor and the located minimum of the
+directed-edge capacity/load ratios.  The Boolean
+`adaptiveFiniteCapacityMarginCheck` is proved sound and complete for this
+comparison.  Total inspection returns either the finite routed certificate or
+a constructive refutation of that exact scalar inequality; no finite search
+is hidden behind an existential statement.
+
+There are two cofinal producer shapes.  The adaptive producer may choose a
+different positive routing for each cutoff.  The shorter canonical producer
+uses the existing loop-erased positive routing and asks only that its exact
+check succeed.  The canonical producer maps into the adaptive producer, and
+both contract to the same pre-existing conditional transition product.  They
+are alternative proofs of one serial gate; conclusions from different routes
+are not mixed.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler` specializes
+these checks at every physical scale to the literal matched BF4/AF nome and
+the already constructed explicit ray capacity.  An all-check producer now
+constructs the sole `ExplicitTransitionProductExtension`, hence the unchanged
+dynamic family, completed carrier/transfer/vacuum family, normalized strength
+law, physical-rate-band consumer, and same-object observable-pin interface.
+Nome and physical spacing remain definitionally pinned to the matched action.
+
+The causal concurrency is therefore explicit.  Before this gate, canonical
+and adaptive routing are competing proof paths and should not be counted as
+parallel required outputs.  After either closes the shared completed-family
+gate, the normalized strength/spacing band and the nonzero same-object
+observable pin are two genuinely parallel necessary compilers.  At the wider
+connected/normalized continuum frontier, up to seven named producers can be
+developed in parallel, but they must rejoin on the same typed family,
+observable, Wilson datum, and transfer.  A collection of estimates attached
+to different objects is not an observable connected proof path.
+
+No all-scale/all-cutoff success family is inhabited.  Per-cutoff decidability
+does not prove uniform success.  The canonical route should be attempted
+first because it has less dependent data; the adaptive route remains a
+strictly more flexible fallback if a canonical finite check fails.  The
+physical cubic and spacing laws, two-sided strength band, nonzero same-object
+pin, full trajectory identification, projective OS/GNS reconstruction,
+thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+and Clay theorem remain open.
+
+The focused monitored checks and dependency-complete one-worker targets pass;
+the final matched target completes all 5082 jobs.  Newly printed exports use
+only `[propext, Quot.sound]`.  The executable forbidden-token scan and source
+declaration scans report no violation, and the root aggregator imports the
+matched compiler.  A heavier located-edge failure result was abandoned after
+impractical elaboration and is not counted as a check; the final exact scalar
+refutation result is the verified implementation.  The pre-existing missing
+`BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` still prevents a root
+source check, so no full-root audit is claimed.

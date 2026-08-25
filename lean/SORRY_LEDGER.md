@@ -15233,3 +15233,52 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   matched bridge.  A monitored root source check stopped immediately because
   the pre-existing `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean`
   artifact is absent; no root check or full-root audit is claimed.
+
+### [matched-physical-transition-product-finite-decision] Reduce the exact matched extension to all-cutoff Boolean success — **CLOSED 2026-08-25**
+
+- **milestone**: reflect the arbitrary-nome finite routed capacity margin into
+  a sound and complete Boolean check; return either its exact finite
+  certificate or a constructive scalar refutation; package adaptive and
+  canonical cofinal success families; and compile either success family at
+  every matched physical scale into the existing explicit-ray transition
+  product, dynamic family, completed family, normalized strength law, rate
+  band consumer, and same-object observable interface.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler.lean`.
+- **decl**:
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedFiniteCapacityMarginAt`,
+  `adaptiveFiniteCapacityMarginCheck`,
+  `adaptiveFiniteCapacityMarginCheck_sound`,
+  `adaptiveFiniteCapacityMarginCheck_complete`,
+  `inspectAdaptiveFiniteCapacityMargin`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityCheckSuccess`,
+  `FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess`,
+  `MatchedPhysicalDynamicExplicitRayAdaptiveCapacityCheckProducer`,
+  `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer`,
+  `toTransitionProductExtension`, `toCompletedFamily`,
+  `toNormalizedStrengthLaw`, `StrengthBand`, `toPhysicalRateBand`, and
+  `SameObjectObservablePin`.
+- **obligation**: inhabit one all-scale/all-cutoff success family.  The
+  canonical route asks only for the already fixed loop-erased-routing checks;
+  the adaptive route may choose cutoff-dependent routings if the canonical
+  comparison fails.  These are alternative routes to the same serial gate.
+  Once either route closes it, the strength/spacing band and nonzero
+  same-object observable pin are independent downstream obligations.  The
+  physical laws, full trajectory identification, projective OS/GNS,
+  thermodynamic/continuum compatibility, continuum Yang--Mills construction,
+  and Clay mass gap remain open.
+- **constructive?**: yes.  Each check is a decidable comparison in `Q'`, every
+  minimum and carrier is finite, failed inspection retains a proof of the
+  negated exact inequality, and all cofinal data remain explicit dependent
+  functions.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, or noncomputable declaration is introduced.
+- **status note**: focused monitored checks pass.  Dependency-complete
+  one-worker targets pass 5072 jobs for the decision module and 5082 for the
+  matched compiler.  Every printed export uses only `[propext, Quot.sound]`;
+  the repository executable forbidden-token scan and source declaration scans
+  report no violation, and the root aggregator imports the matched compiler.
+  The missing pre-existing
+  `BF4ExactCutoffOneSurfaceForestGaugeMask1C66F8.olean` artifact prevents a
+  root source check; no root check or full-root audit is claimed.
