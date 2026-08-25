@@ -15988,3 +15988,40 @@ scan reports zero hits.  The root aggregator imports the module; no full-root
 audit is claimed.  No transition-product extension, physical dynamic family,
 same-observable thermodynamic bridge, all-vector completed spectral gap,
 continuum QFT, or Clay theorem is constructed.
+
+## Adaptive transition products are reduced to exact finite margins (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin` removes a
+false global-kernel-floor bottleneck.  For each fixed cutoff and each supplied
+positive routing it assigns every directed edge its literal ratio of allocated
+half conditional-kernel capacity to exact routed transition-product load,
+using one only on unloaded edges.  Positive exact load is proved to force a
+positive conditional kernel on that same edge.  A constructive located finite
+minimum over the literal vacuum-sector pairs is therefore strictly positive
+and pays every pointwise edge inequality.
+
+The cofinal adaptive product is now factored through one exact scalar
+comparison at each cutoff.  A routing family plus the assertion that the
+unchanged shared ray-coercivity floor lies below its exact finite margin
+constructs the existing adaptive transition-product certificate, completed
+strict-contraction data, and—at the fixed `1/400` anchor—the preceding
+one-field geometric dynamic extension.  This is an observable-connected
+reduction: support, flow, exact load, capacity ratio, and contraction all use
+the same physical finite conditional kernel and routed vacuum-sector carrier.
+
+The remaining obstruction is uniform, not finite.  One path fixes a canonical
+routing and proves that its explicit margin sequence stays above the shared
+floor; this path is shorter but rigid.  The alternative chooses routing
+adaptively with the cutoff and proves the same uniform comparison; it has a
+larger search space and can avoid a decaying canonical margin.  Both routes
+meet the same generic interface and preserve the same observable.  Neither
+uniform margin family is inhabited here.  In particular, positivity at every
+finite cutoff does not imply a cutoff-uniform lower bound.
+
+The exact monitored one-worker target passes all 5070 jobs.  All nine audited
+exports use exactly `[propext, Quot.sound]`, the repository-wide executable
+forbidden-token scan reports zero hits, and the root aggregator imports the
+module.  No full-root audit is claimed.  The fixed anchor is not relabelled as
+an AF or physical BF4 trajectory.  The physical dynamic family,
+same-observable thermodynamic bridge, completed all-vector spectral gap,
+continuum QFT, and Clay mass-gap theorem remain open.

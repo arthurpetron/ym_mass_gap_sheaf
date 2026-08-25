@@ -14220,3 +14220,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the executable forbidden-token scan reports zero hits, and the root
   aggregator imports the module.  This closes the capacity field only on the
   fixed-anchor/geometric lane, not on the AF or physical continuum lane.
+
+### [adaptive-transition-product-finite-capacity-margin] Reduce pointwise edge capacity to an exact finite scalar margin — **CLOSED 2026-08-25**
+
+- **milestone**: for any positive routing at any fixed cutoff, prove
+  nonnegativity of its exact transition-product loads, prove that positive
+  load forces positive conditional-kernel support on the same edge, construct
+  the located positive minimum of the exact edge-capacity ratios, prove that
+  this minimum pays every pointwise edge load, and compile any cofinal routing
+  family whose margins dominate the shared coercivity floor to the existing
+  completed strict-contraction data and fixed-anchor dynamic extension.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoad_nonnegative`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoad_pos_implies_conditionalKernel_pos`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductEdgeRatio`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductFiniteCapacityMargin`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductFiniteCapacityMargin_pos`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductFiniteCapacityMargin_mul_load_le_half_conditionalKernel`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin.toAdaptiveConditionalTransitionProduct`,
+  `FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin.toCompletedStrictContractionData`,
+  `AnchorAdaptiveFiniteCapacityMargin.toAnchorGeometricExtension`, and
+  `AnchorAdaptiveFiniteCapacityMargin.toAnchorGeometricCompletedFamily`.
+- **obligation**: inhabit the cofinal margin structure.  The shorter route is
+  to prove one uniform lower comparison for the canonical routing's exact
+  finite margins.  If that margin decays, select cutoff-dependent routings and
+  prove the adaptive margins uniformly dominate the same shared floor.  No
+  such uniform comparison is proved.  The actual grouped BF4/AF trajectory,
+  same raw observable across cutoffs, projective OS/GNS join, completed
+  all-vector gap, continuum QFT, and Clay conclusion remain open.
+- **constructive?**: yes.  The ratio is divided only by a witnessed positive
+  exact load, unloaded edges use one, and the margin is a recursive located
+  minimum over the literal finite vacuum-sector pairs.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, `noncomputable`, or new axiom is
+  introduced.
+- **status note**: the exact monitored one-worker target passes all 5070 jobs;
+  all nine audited exports use exactly `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module.  This closes finite positivity and the compiler reduction, not the
+  cutoff-uniform estimate, physical dynamic family, continuum theory, or Clay
+  mass gap.
