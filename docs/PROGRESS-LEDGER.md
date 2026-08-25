@@ -16411,3 +16411,43 @@ The exact monitored one-worker target passes all 5081 jobs.  Its seven
 printed exports use only `[propext, Quot.sound]`.  The executable
 forbidden-token scan reports zero hits, and the root aggregator imports the
 module; no full-root audit is claimed.
+
+## The new pair shell is exactly three parallel coordinate faces (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellFaces` proves
+that pair embedding is equivalent to coordinatewise index embedding.  Since
+the later carrier is the Cartesian square of its index carrier, the genuinely
+new pair shell is exhausted by three ordered faces: embedded-old source with
+new target, new source with embedded-old target, and new source with new
+target.
+
+Each face now has its own correlated capacity-debt envelope and independent
+summable variation.  A constructive finite case split adds the three budgets
+and reconstructs the single shell envelope, which then joins the earlier
+transported-old compiler and the unchanged maximum/persistence contraction.
+There are therefore four regional compiler families available in parallel at
+the current canonical frontier: one transported-old family and three shell
+faces.  At the atomic inequality level there are five tasks, because the old
+family must control both directions while each shell face has one incoming
+comparison.
+
+This decomposition also makes proof-path selection observable.  A failure on
+only one ordered face identifies exactly where adaptive routing could help;
+it need not replace canonical routing everywhere.  Conversely, if all four
+regional budgets are summable, the canonical path remains the direct route.
+Every regional type contains the same exact routed-load/conditional-kernel
+capacity debt, fixed canonical routing, physical carrier, and reverse map, so
+the parallel work rejoins through definitional and kernel-checked connections
+rather than through unrelated proxy observables.
+
+No regional envelope is inhabited, and no total budget or initial slack is
+proved.  The reverse recoding points on the three shell faces can still be
+made explicit as old-vacuum, vacuum-old, and vacuum-vacuum pairs.  The fixed
+anchor is not the physical AF/grouped-BF4 trajectory.  Same-observable
+thermodynamic compatibility, projective OS/GNS reconstruction, a completed
+all-vector gap, continuum QFT, and the Clay theorem remain open.
+
+The exact monitored one-worker target passes all 5082 jobs.  Its five printed
+exports use only `[propext, Quot.sound]`.  The executable forbidden-token scan
+reports zero hits, and the root aggregator imports the module; no full-root
+audit is claimed.

@@ -14646,3 +14646,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Its seven printed exports use only `[propext, Quot.sound]`.  The executable
   forbidden-token scan reports zero hits, and the root aggregator imports the
   module; no full-root audit is claimed.
+
+### [canonical-correlated-debt-shell-faces] Split the new shell into three ordered coordinate faces — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact embedded-old and new index regions; prove
+  that embedded pair membership is equivalent to coordinatewise embedded
+  index membership; prove that every genuinely new pair lies in the old-new,
+  new-old, or new-new face; expose an independent summable correlated-debt
+  envelope for each face; add the three budgets; and reconstruct both the
+  single new-shell envelope and the full transported-old-plus-shell envelope.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualCanonicalCapacityDebtShellFaces.lean`.
+- **decl**:
+  `anchorVacuumSectorIndices`,
+  `anchorEmbeddedOldIndexCarrier`,
+  `AnchorIndexInNewShell`,
+  `anchorEmbeddedOldIndexCarrier_mem_next`,
+  `mem_anchorEmbeddedOldPairCarrier_iff`,
+  `AnchorPairInOldNewShell`,
+  `AnchorPairInNewOldShell`,
+  `AnchorPairInNewNewShell`,
+  `anchorNewShellPair_face_cases`,
+  `AnchorCanonicalOldNewCapacityDebtEnvelope`,
+  `AnchorCanonicalNewOldCapacityDebtEnvelope`,
+  `AnchorCanonicalNewNewCapacityDebtEnvelope`,
+  `anchorCanonicalNewShellCapacityDebtEnvelopeOfFaces`, and
+  `anchorCanonicalCapacityDebtEnvelopeOfTransportAndFaces`.
+- **obligation**: inhabit four regional summable compiler families in
+  parallel: transported-old debt control and the three ordered shell-face
+  controls.  There are five atomic estimates because old transport is
+  bidirectional.  Then exhibit a positive total budget available from cutoff
+  zero and enough initial slack.  The next geometric simplification is to
+  identify the reverse recoding on the three shell faces with old-vacuum,
+  vacuum-old, and vacuum-vacuum comparison pairs.  A face-specific failure is
+  the precise reason to introduce localized adaptive routing.  Physical AF
+  persistence, the literal same-observable thermodynamic bridge, projective
+  OS/GNS reconstruction, completed all-vector gap, continuum QFT, and Clay
+  closure remain open.
+- **constructive?**: yes.  All regions are decidable finite-list membership
+  predicates; face exhaustion is a finite coordinate case split; the three
+  independent variations join through constructive rational tail addition;
+  and every face uses the same exact capacity-debt observable and canonical
+  routing.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  `noncomputable`, or new axiom is introduced.
+- **status note**: the exact monitored one-worker target passes all 5082 jobs.
+  Its five printed exports use only `[propext, Quot.sound]`.  The executable
+  forbidden-token scan reports zero hits, and the root aggregator imports the
+  module; no full-root audit is claimed.
