@@ -18595,3 +18595,46 @@ Old-traffic drift, route churn, the three shell-return faces, tail allowance
 and initial closure, AF identification, physical-scale uniformity, a nonzero
 same-object observable pin, thermodynamic/continuum compatibility, continuum
 Yang--Mills construction, and the Clay mass gap remain open.
+
+## Old--new traffic factors through new-block mass and a row-local projective maximum (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewProjectiveAmplification`
+isolates the old--new face without changing its mapped current pair, literal
+new-endpoint list, route, or conditional capacity.  On every actual endpoint
+pair its stationary pair weight is strictly positive, so the exact old--new
+endpoint-ratio summand is divided by that same weight to define a local
+projective amplification.  Multiplication back by the weight is proved as an
+exact rational-setoid identity.
+
+A constructive maximum is then taken only over the exact endpoint list for
+one mapped current row and the old--new face.  Termwise comparison and finite
+summation prove
+
+`oldNewEndpointRatioRow`
+`  <= newEndpointStationaryMass * rowLocalProjectiveMaximum`
+`  <= (2 * laterNewBlockMass) * rowLocalProjectiveMaximum`.
+
+The resulting Type-level inverse-square interface compiles this combined
+new-block-mass/projective-amplification estimate to the previous old--new
+endpoint-ratio control while accepting the new--old and new--new controls as
+separate directed lanes.  Thus the observable-connected old--new path now
+contains one explicit small mass factor and one precisely located residual
+amplification, rather than a global maximum over unrelated rows or faces.
+
+The focused monitored check passes at 1M heartbeats, and the dependency-
+complete one-worker target completes all 5152 jobs.  All seven audited exports
+use only `[propext, Quot.sound]`.  The executable forbidden-token scan reports
+zero hits, `git diff --check` passes, and the root aggregator imports the
+module.  No full-root audit is claimed.
+
+No projective-amplification bound, inverse-square estimate, or new-block decay
+certificate is inhabited.  The factor two currently comes from bounding by
+the full complementary endpoint mass, which includes all three shell faces.
+The next compiler should define the exact old--new masked stationary mass and
+bound it by `laterOldBlockMass * laterNewBlockMass`, then by the new-block mass
+alone.  This removes cross-face pollution before attacking the actual
+quantitative projective ratio.  New--old and new--new still require their own
+directed estimates; no path-reversal symmetry is assumed.  Old traffic, route
+churn, shell returns, merger or no-merger, tail closure, AF physical-scale
+uniformity, same-object completion, thermodynamic/continuum compatibility,
+continuum Yang--Mills construction, and the Clay mass gap remain open.

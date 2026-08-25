@@ -16642,3 +16642,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
   zero hits, and the root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [matched-physical-correlated-capacity-debt-new-traffic-old-new-projective-amplification] Factor old--new through new-block mass and a row-local projective maximum — **CLOSED 2026-08-25**
+
+- **milestone**: divide the exact old--new endpoint-ratio summand by its
+  strictly positive actual endpoint-pair stationary weight; prove exact
+  multiplication back; take a constructive amplification maximum only over
+  the literal new-endpoint list for the selected mapped row and old--new face;
+  bound the row by exact complementary stationary mass times that maximum and
+  then by twice later new-block mass times the same maximum; expose a combined
+  inverse-square interface; and compile it with independent new--old and
+  new--new controls to the unchanged exact debt maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewProjectiveAmplification.lean`.
+- **decl**:
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceProjectiveAmplificationOnCell_nonnegative_on_actual`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatio_eqv_stationaryWeight_mul_projectiveAmplification`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceProjectiveAmplificationMaximumOnCurrentPair_nonnegative`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_stationaryMass_mul_projectiveAmplificationMaximum`,
+  `matchedEventualCanonicalNewEndpointTrafficOldNewFaceEndpointRatioRow_le_twoNewBlockMass_mul_projectiveAmplificationMaximum`,
+  `MatchedEventualCanonicalNewEndpointTrafficOldNewFaceNewBlockProjectiveAmplificationInverseSquareControl.toEndpointRatioControl`,
+  and
+  `matchedEventualCanonicalNewEndpointTrafficDebtMaximum_le_of_oldNewNewBlockProjectiveAmplification_and_otherFaces`.
+- **obligation**: sharpen the full complementary stationary-mass bound to the
+  exact old--new masked mass, prove that mass is at most old-block mass times
+  new-block mass and hence at most new-block mass, and then quantitatively
+  control the remaining row-local projective amplification against the same
+  mapped-edge conditional capacity.  Treat the new--old and new--new lanes
+  separately unless a directed path-reversal/multiplicity theorem is proved.
+- **constructive?**: yes.  Division is performed only with a strict positivity
+  witness read from literal endpoint-list membership, and the maximum and sum
+  remain finite folds on the exact observable carrier.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check passes at 1M heartbeats and the
+  dependency-complete target passes all 5152 jobs.  All seven audited exports
+  use only `[propext, Quot.sound]`; the executable forbidden-token scan reports
+  zero hits, `git diff --check` passes, and the root aggregator imports the
+  module.  No full-root audit is claimed.
