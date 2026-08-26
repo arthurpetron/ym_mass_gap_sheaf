@@ -19017,3 +19017,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs.  All twelve new audited declarations use at most
   `[propext, Quot.sound]`, with no `sorryAx`; the root aggregator imports the
   generic descent module.  No full-root audit is claimed.
+
+### [compact-dual-slab-face-strand-seed-component] Compile one rooted global strand component into every local removal selection -- **COMPONENT CHARACTERISTIC AND LINKWISE KIRCHHOFF INPUT CLOSED; EXTERNAL-DROP EQUALITY OPEN 2026-08-26**
+
+- **milestone**: symmetrize the literal global face-strand edge list as a
+  finite Boolean graph; retain an explicit root and endpoint-membership
+  witness; compute its constructive rooted component; prove its characteristic
+  function constant across every displayed edge; prove each local canonical
+  terminal-partner edge belongs to the same global list; and restrict the
+  component to the mate-closed selection consumed by the Kirchhoff removal
+  compiler.
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabGlobalFaceStrandEdges.lean` and
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandSeedComponent.lean`.
+- **principal declarations**:
+  `slabLinkFaceStrandEdgeOfTerminal_mem`,
+  `slabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem`,
+  `slabFaceStrandAdjacentB`,
+  `slabFaceStrandAdjacentB_symmetric`,
+  `slabFaceStrandVertices`,
+  `SlabFaceStrandSeed`,
+  `SlabFaceStrandSeed.ofEdge`,
+  `SlabFaceStrandSeed.component`,
+  `SlabFaceStrandSeed.selected`,
+  `SlabFaceStrandSeed.selected_eq_of_edge_mem`,
+  `SlabFusionWitnessFaceStrandSeed.atLinkSelection`, and
+  `SlabFusionWitnessFaceStrandSeed.atLinkMateClosedSelection`.
+- **obligation**: define the global face-incidence drop by counting selected
+  copies and prove the single commuting equality identifying it with the
+  compiled external-edge drop at every incident link.  Then use the existing
+  lowering theorem to assemble one accepted global target assignment and
+  construct a cutoff-independent inverse component encoding.
+- **constructive?**: yes.  The graph and its support are finite lists, the
+  seed is retained in `Type`, and component closure uses explicit Boolean
+  adjacency plus the constructive rooted-component engine.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused source check and dependency-complete monitored
+  target pass all 710 jobs.  All seventeen new audited declarations use at
+  most `[propext, Quot.sound]`; several computational graph declarations are
+  axiom-free.  The root aggregator imports the module.  No full-root audit is
+  claimed.

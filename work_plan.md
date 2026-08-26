@@ -22669,3 +22669,51 @@ count required by the target external labelling.  Global target-assignment
 assembly, cutoff-independent inverse encoding, the uniform conditional-
 variance estimate, completed physical transfer gap, continuum limit, and Clay
 conclusion remain open.
+
+## 128. Rooted strand components induce every local removal selection (2026-08-26)
+
+**Status. THE GLOBAL COMPONENT CHARACTERISTIC FUNCTION AND ITS LINKWISE
+KIRCHHOFF INPUT ARE CONSTRUCTED; THE EXTERNAL-DROP COMMUTING EQUALITY REMAINS
+OPEN.**
+
+`CompactDualSlabFaceStrandSeedComponent.lean` packages the literal global
+face-strand edge list of one accepted fusion assignment as a finite undirected
+Boolean graph.  Its vertex carrier is the explicit list of displayed edge
+endpoints, and a `SlabFaceStrandSeed` retains both a root and its literal
+membership witness as `Type`-level data.  The existing constructive
+`rootComponent` algorithm then computes the rooted component without choice.
+
+The mathematical invariant is one edge-closure theorem:
+
+```text
+edge = (source,target) belongs to the global strand graph
+  ==> chi_component(target) = chi_component(source).
+```
+
+The proof treats both Boolean values constructively.  Forward component
+closure handles a selected source; symmetry handles a selected target; if
+neither endpoint is selected both indicators reduce to `false`.  Two literal
+membership lemmas in `CompactDualSlabGlobalFaceStrandEdges.lean` show that
+every canonical terminal-partner edge of every displayed link occurs in the
+same global list.  Therefore restricting the global characteristic function
+to a link produces an actual `SlabLinkPartnerClosedFaceSelection`, and
+`atLinkMateClosedSelection` composes it directly with milestones 126--127 to
+obtain the exact Kirchhoff-compiler input.
+
+The focused source check and dependency-complete monitored target pass all
+710 jobs.  All seventeen new audited declarations use at most
+`[propext, Quot.sound]`; the adjacency, symmetry, endpoint carrier, seed
+structure, and edge-connectivity predicate are axiom-free.  No `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  The root aggregator
+imports the new module; no full-root audit is claimed.
+
+This is the final standalone component-selection adapter.  The next proof is
+one observable commuting theorem, not another representation layer: define
+the physical face drop as the finite count of selected strand copies and
+prove that the compiled external-edge drop at every incident link equals that
+same count.  That equality will feed the already-proved accepted-lowering
+theorem and permit global target-assignment assembly.  The inverse component
+encoding, cutoff-independent counting or posterior-variance bound, completed
+physical transfer gap, thermodynamic/continuum limits, and Clay theorem remain
+open.

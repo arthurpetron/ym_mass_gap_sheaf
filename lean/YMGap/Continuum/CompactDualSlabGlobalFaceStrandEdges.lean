@@ -186,6 +186,25 @@ def slabLinkFaceStrandEdges
       (slabLinkFaceStrandEdgeOfTerminal
         K extent physical link auxiliary hmem)
 
+/-- Every displayed terminal-pair edge occurs in the literal local edge
+list. -/
+theorem slabLinkFaceStrandEdgeOfTerminal_mem
+    (K extent : Nat) (physical : SlabLabelling) (link : SlabLink)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈ slabLinkFusionWitnesses K extent physical link)
+    (terminal : SlabLinkPhysicalStrandTerminal
+      K extent physical link auxiliary hmem) :
+    slabLinkFaceStrandEdgeOfTerminal
+        K extent physical link auxiliary hmem terminal ∈
+      slabLinkFaceStrandEdges
+        K extent physical link auxiliary hmem := by
+  unfold slabLinkFaceStrandEdges
+  exact List.mem_map.mpr
+    ⟨terminal,
+      SlabLinkPhysicalStrandTerminal.mem_all
+        K extent physical link auxiliary hmem terminal,
+      rfl⟩
+
 /-! ## 4. Concatenate the edge lists over a complete assignment -/
 
 /-- The physical face-strand edges contributed by one link of a complete
@@ -217,6 +236,35 @@ def slabFusionWitnessAssignmentFaceStrandEdges
     (slabFusionWitnessAssignmentFaceStrandEdgesAt
       K extent physical links assignment hassignment)
 
+/-- Every terminal-pair edge of every displayed link is literally present in
+the concatenated global assignment edge list. -/
+theorem slabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem
+    (K extent : Nat) (physical : SlabLabelling)
+    (links : List SlabLink) (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links)
+    (linked : {link // link ∈ links}) :
+    let auxiliary := slabFusionWitnessAssignmentAt linked.1 assignment
+    let hmem := slabFusionWitnessAssignmentAt_mem_local
+      K extent physical links assignment hassignment linked.1 linked.2
+    ∀ terminal : SlabLinkPhysicalStrandTerminal
+        K extent physical linked.1 auxiliary hmem,
+      slabLinkFaceStrandEdgeOfTerminal
+          K extent physical linked.1 auxiliary hmem terminal ∈
+        slabFusionWitnessAssignmentFaceStrandEdges
+          K extent physical links assignment hassignment := by
+  dsimp
+  intro terminal
+  unfold slabFusionWitnessAssignmentFaceStrandEdges
+  apply List.mem_flatMap.mpr
+  refine ⟨linked, List.mem_attach links linked, ?_⟩
+  exact slabLinkFaceStrandEdgeOfTerminal_mem
+    K extent physical linked.1
+      (slabFusionWitnessAssignmentAt linked.1 assignment)
+      (slabFusionWitnessAssignmentAt_mem_local
+        K extent physical links assignment hassignment linked.1 linked.2)
+      terminal
+
 /-- Specialization to one literal member of the production corrected-slab
 global fusion-witness list. -/
 def slabFineFusionWitnessFaceStrandEdges
@@ -238,8 +286,10 @@ def slabFineFusionWitnessFaceStrandEdges
 #print axioms SlabFaceStrandEdge
 #print axioms slabLinkFaceStrandEdgeOfTerminal
 #print axioms slabLinkFaceStrandEdges
+#print axioms slabLinkFaceStrandEdgeOfTerminal_mem
 #print axioms slabFusionWitnessAssignmentFaceStrandEdgesAt
 #print axioms slabFusionWitnessAssignmentFaceStrandEdges
+#print axioms slabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem
 #print axioms slabFineFusionWitnessFaceStrandEdges
 
 end YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
