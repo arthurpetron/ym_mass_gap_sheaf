@@ -17662,3 +17662,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits, `git diff --check` passes, and the
   root aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-all-cutoff-reachability] Recode all-cutoff detour success as literal Boolean reachability — **CLOSED 2026-08-25**
+
+- **milestone**: name the exact fixed-cutoff proposition that every endpoint
+  pair in the literal new-traffic list makes the deleted-support Warshall
+  check return true; quantify that same proposition over all cutoffs at one
+  matched physical scale; prove constructive soundness and completeness
+  between the Boolean interface and the existing Type-level path families;
+  extract the simple birth-avoiding hybrid route at every cutoff; and recover
+  zero activated route factor, load, and debt on the same mapped old--new edge.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffReachability.lean`.
+- **decl**:
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportReachabilityAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffReachability`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportReachabilityAt_of_pathFamily`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt_of_reachabilityAt`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffReachability_of_pathFamilies`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffSimpleBirthAvoidingRoutingAt`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffSimpleLoad_eqv_zero`,
+  and
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffSimpleDebt_eqv_zero`.
+- **obligation**: prove the all-cutoff Boolean reachability proposition.  This
+  module makes every finite conjunct executable and shows that the aggregate
+  proposition is neither stronger nor weaker than supplying the demanded
+  path families, but it does not prove that no blocked pair occurs.  Uniform
+  weighted capacity and cutoff-to-cutoff coherence of the extracted routes
+  remain separate adaptive inputs; persistent traffic and other regional
+  terms remain open.
+- **constructive?**: yes.  True Boolean checks are converted directly to
+  support-certified chains by Warshall soundness, while path families imply
+  the same equations by Warshall completeness.  No propositional existence
+  is eliminated into data.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5179 jobs.  The eight
+  audited exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits, `git diff --check` passes, and the
+  root aggregator imports the module.  No full-root audit is claimed.

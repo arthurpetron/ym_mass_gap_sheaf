@@ -19773,3 +19773,43 @@ No cutoff-uniform weighted-capacity certificate, all-cutoff detour success,
 route-coherence theorem, persistent payment, remaining regional total tail,
 completed uniform gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## All-cutoff detour success is now one exact Boolean frontier (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffReachability`
+replaces the vague phrase "paths exist at every cutoff" by a literal
+proposition: for every cutoff and every endpoint pair in that cutoff's exact
+new-traffic list, the already implemented deleted-support Warshall check is
+`true`.
+
+This is an exact recoding, not a relaxation.  Warshall soundness constructs
+the existing Type-level path family from the Boolean equations, and Warshall
+completeness proves those same equations from any existing path family.  The
+all-cutoff Boolean certificate therefore compiles to the same loop-erased
+simple routes, the same old-preserving/new-adaptive hybrid routing, and the
+same zero activated route-factor, load, and debt conclusions at every cutoff.
+
+The causal gain is diagnostic.  All-cutoff path success is no longer an
+unstructured producer: every finite conjunct is executable and any failure
+still identifies a literal blocked observable endpoint pair.  The infinite
+uniform proposition has not been proved.  Its likely proof must use a
+structural detour theorem stable under carrier growth, or else expose a
+counterexample requiring a new deletion mask or routing architecture.
+
+Of the three adaptive interfaces, two are now sharply compiled but not
+inhabited: all-cutoff Boolean reachability and the pointwise weighted-capacity
+certificate.  The third, cutoff-to-cutoff route coherence, remains to be
+formulated on the same extracted route object.  Only after those interfaces
+rejoin the existing regional deficit can the proof proceed to persistent
+payment and the total-tail compiler.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5179 jobs.  The eight audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No all-cutoff reachability proof, uniform weighted-capacity certificate,
+route-coherence theorem, persistent payment, remaining regional total tail,
+completed uniform gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.
