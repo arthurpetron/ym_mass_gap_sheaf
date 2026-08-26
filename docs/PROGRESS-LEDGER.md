@@ -19502,3 +19502,50 @@ No uniform birth exclusion, activated-floor rate, birth-avoiding route,
 route-coherence theorem, remaining regional tail, completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Activated births now have an observable-connected local rerouting compiler (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationAdaptiveRoutingCompiler`
+implements the route-level alternative exposed by the graph-birth decision.
+At one consecutive-cutoff step it constructs a hybrid routing with an exact
+causal boundary:
+
+* endpoint pairs entirely in the embedded old carrier use the already
+  transported old route;
+* endpoint pairs involving a newly exposed state use a supplied later-cutoff
+  routing; and
+* the supplied certificate must show that every exact activated mapped edge
+  is absent from every such new-endpoint path.
+
+This is not a proxy support statistic.  The quantified activated pairs are
+members of the same activated active-row list used by the old--new
+path/raw-capacity maximum, and the endpoint pairs are members of the same
+new-endpoint list used by the exact routed-load partition.  For each certified
+activated row the compiler proves, successively, that its adaptive route
+factor is literally zero, every new-endpoint transition-product term is
+literally zero, the complete finite new-endpoint load is rationally zero, and
+the associated capacity debt is rationally zero.  Passing the canonical
+transported routing to the parametric route factor, load, and debt recovers
+the previous canonical objects exactly.
+
+The final structure also pairs birth avoidance with the existing routed
+flow-capacity interface.  Its compiler reaches the unchanged finite-sector
+off-ray residual coercivity theorem, hence the same pairwise variance and
+physical Dirichlet form.  Adaptive routing is therefore an auxiliary proof
+choice around checked graph births, not a change of observable.  Locally it
+can contract the activated-support payment lane to zero; persistent old
+traffic and the other three directed shell faces remain separate obligations.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5174 jobs.  The ten audited exports use
+only `[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No birth-avoiding routing, deletion-connectivity proof, routed capacity,
+uniform cutoff coherence, persistent payment, remaining regional total tail,
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.  The next geometric frontier is now exact:
+construct positive new-endpoint paths in the later support graph after
+forbidding the selected uncontrolled activated mapped edges, and then control
+those choices coherently over consecutive cutoffs.

@@ -17408,3 +17408,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-adaptive-routing-compiler] Compile checked birth avoidance to zero activated new traffic — **CLOSED 2026-08-25**
+
+- **milestone**: construct a hybrid later-cutoff routing which preserves the
+  exact transported route on embedded old--old endpoint pairs and delegates
+  only endpoint pairs involving new states to a supplied routing; package the
+  precise obligation that every activated mapped edge is absent from every
+  new-endpoint path; parametrize the unchanged route factor, new-endpoint load,
+  and capacity debt by that routing; prove canonical recovery; prove that the
+  route factor, each transition-product term, the finite load, and the debt all
+  vanish on every certified activated row; and reconnect a birth-avoiding
+  routed flow capacity to the existing finite off-ray residual coercivity
+  consumer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationAdaptiveRoutingCompiler.lean`.
+- **decl**:
+  `matchedEventualTransportedOldAdaptiveNewRoutingAtNext`,
+  `matchedEventualTransportedOldAdaptiveNewRoutingAtNext_path_eq_transported_of_old`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt.routeFactor_eq_zero`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt.transitionTerm_eq_zero`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt.load_eqv_zero`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt.debt_eqv_zero`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingFlowCapacityAt.toOffRayResidualCoercivityAt`.
+- **obligation**: inhabit the certificate by proving that the later positive
+  support graph still connects every new-endpoint pair after the selected
+  uncontrolled activated mapped edges are forbidden; supply a routed
+  flow-capacity bound for the resulting hybrid routing; and make the choices
+  coherent over cutoffs.  The compiler alone does not establish any of these
+  geometric or quantitative inputs.  Persistent traffic and the other shell
+  faces remain unchanged obligations.
+- **constructive?**: yes.  The hybrid route is selected by decidable finite
+  old-carrier membership, avoidance is a `Type`-level family of literal list
+  nonmembership witnesses, and the finite load is contracted term by term.
+  Canonical recovery and the routed coercivity consumer keep the exact matched
+  trajectory, carrier, route decomposition, and finite observable.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5174 jobs.  The ten
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
