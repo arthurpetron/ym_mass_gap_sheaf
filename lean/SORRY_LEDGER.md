@@ -18090,3 +18090,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; the root aggregator imports the module.  The
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
+
+### [bf4-vacuum-sector-conditional-variance] Express the transfer deficit as posterior variance -- **PROVED 2026-08-25**
+
+- **milestone**: prove the finite weighted-Gram law of total variance by
+  exact finite Fubini; specialize it through the actual BF4 vacuum-sector
+  Gram entry equality; and identify the physical diagonal-minus-transfer
+  deficit with one half of the boundary-weighted within-posterior pairwise
+  variance.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorConditionalVariance.lean`.
+- **decl**:
+  `weightedGramConditionalPairwiseVariance`,
+  `finiteJointDirichletEnergy_weightedGram_eqv_conditionalPairwiseVariance`,
+  `centralPhysicalFiniteVacuumSectorConditionalPairwiseVariance`,
+  `centralPhysicalFiniteVacuumSectorDirichlet_eqv_conditionalPairwiseVariance`,
+  and
+  `centralPhysicalFiniteVacuumSector_deficit_eqv_half_conditionalPairwiseVariance`.
+- **obligation**: prove that the displayed physical conditional pairwise
+  variance controls a positive cutoff-independent fraction of the stationary
+  diagonal variance on every mean-zero coefficient vector, and propagate the
+  resulting physical-scale rate through volume and lattice limits.  The exact
+  identity does not supply this lower bound.
+- **constructive?**: yes.  The proof is finite Fubini over literal state and
+  boundary lists, followed by kernel-checked setoid equalities.  It selects no
+  path and divides by no possibly-zero channel total.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 1489 jobs.  All three audited exports use only
+  `[propext, Quot.sound]`; the root aggregator imports the module.  The
+  executable forbidden-token scan reports zero hits and `git diff --check`
+  passes.  No full-root audit is claimed.

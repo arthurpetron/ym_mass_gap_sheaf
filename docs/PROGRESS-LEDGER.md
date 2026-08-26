@@ -20227,3 +20227,50 @@ claimed.
 No cutoff-uniform boundary-transform norm bound, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## BF4 transfer deficit is average posterior variance (2026-08-25)
+
+`BF4PhysicalVacuumSectorConditionalVariance` proves the finite weighted-Gram
+law of total variance before specializing it to the actual BF4 vacuum sector.
+For arbitrary finite states, channels, weights, amplitudes, and coefficients,
+
+`Dirichlet(Gram(W,A), f)`
+
+is exactly
+
+`sum_b W(b) * sum_(x,y) A(x,b) A(y,b) (f(x)-f(y))^2`.
+
+The physical Gram entry theorem then identifies the same expression with the
+literal BF4 state-space Dirichlet energy.  Combining it with the already
+proved symmetric-kernel identity yields
+
+`D_K(f) - M_K(f)`
+
+`  = (1/2) sum_b W_K(b)`
+
+`      * sum_(x,y) A_K(x,b) A_K(y,b) (f(x)-f(y))^2`.
+
+For positive channel total `B_K(b)`, the inner double sum divided by
+`2 B_K(b)^2` is the variance under the actual posterior state law
+`P_K(x | b) = A_K(x,b) / B_K(b)`.  Zero-total channels contribute zero
+without any division.  Thus the strict transfer deficit is literally the
+average uncertainty left in the observable after the fixed-time boundary is
+revealed.
+
+This chooses the mathematically minimal direct proof path.  It suffices to
+prove that a cutoff-independent fraction of stationary mean-zero variance
+survives boundary conditioning.  A block reveal or influence-matrix argument
+can attack that statement locally and then tensorize.  Posterior `L1` mixing
+would imply it but is stronger; resistance congestion would also imply it
+but commits to a particular state-space routing.  Neither stronger mechanism
+is now part of the target statement.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 1489 jobs.  All three audited exports use only
+`[propext, Quot.sound]`; the root aggregator imports the module.  The
+executable forbidden-token scan reports zero hits and `git diff --check`
+passes.  No full-root audit is claimed.
+
+No cutoff-uniform posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.
