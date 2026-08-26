@@ -20274,3 +20274,49 @@ passes.  No full-root audit is claimed.
 No cutoff-uniform posterior-variance fraction, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Trivalent SU(2) admissibility now has a constructive rank-lowering strand move (2026-08-25)
+
+`SU2TrivalentStrandPeeling` replaces the proposition-level statement that an
+admissible Clebsch--Gordan triple has strand coordinates by literal
+`Type`-valued data.  For twice-spin labels `(a,b,c)`, it computes the unique
+nonnegative multiplicities
+
+`ab = (a+b-c)/2`,  `bc = (b+c-a)/2`,  `ca = (c+a-b)/2`
+
+and kernel-checks the balance equations
+
+`a = ca + ab`,  `b = bc + ab`,  `c = bc + ca`.
+
+Conversely, any data satisfying these balances reconstructs the genuine
+`fusionOK a b c` predicate, and the resolution is unique.  Thus the compiler
+is an equivalence at the level of explicit witness data rather than an
+uninterpreted representation-theoretic assertion.
+
+The module then constructs the local peeling move.  Selecting any positive
+bundle among `ab`, `bc`, and `ca`, subtracting one strand from its two endpoint
+labels, and decrementing that bundle returns a new explicit trivalent strand
+resolution.  Admissibility is preserved and the total twice-spin drops by
+exactly two.  Every admissible nonvacuum triple deterministically returns such
+a descent object.
+
+This is the local mathematical primitive for a global stranded BF4 proof.
+The next theorem must assemble the canonical resolutions at every trivalent
+vertex of an accepted fine-intertwiner field, continue a selected strand
+through the copies of each plaquette, and extract a finite closed or
+time-boundary-relative component.  Peeling that entire component, rather than
+one isolated vertex, is what can preserve all link constraints simultaneously
+and create a physical state-space path.  Only after that global compiler is
+proved can heat-weight comparison and a cutoff-uniform posterior-variance
+estimate be attempted.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 120 jobs.  All twelve audited declarations use only
+`[propext, Quot.sound]`; the root aggregator imports the module.  The
+executable forbidden-token scan reports zero hits and `git diff --check`
+passes.  No full-root audit is claimed.
+
+No global strand continuation/closure theorem, positive BF4 kernel path,
+cutoff-uniform posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

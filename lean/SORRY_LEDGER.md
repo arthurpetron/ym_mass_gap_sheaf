@@ -18122,3 +18122,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; the root aggregator imports the module.  The
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
+
+### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
+
+- **milestone**: compute the three canonical nonnegative strand counts of
+  every admissible SU(2) trivalent twice-spin triple as `Type`-level data;
+  prove their balance equations and uniqueness; select a positive strand
+  bundle on every nonvacuum triple; and return a residual resolution whose
+  labels remain admissible and whose total rank drops by exactly two.
+- **file**:
+  `lean/YMGap/Continuum/SU2TrivalentStrandPeeling.lean`.
+- **decl**:
+  `TrivalentStrandResolution`,
+  `canonicalTrivalentStrandResolution`,
+  `TrivalentStrandResolution.admissible`,
+  `TrivalentStrandResolution.unique`,
+  `TrivalentStrandPeel.nextResolution`,
+  `TrivalentStrandPeel.next_admissible`,
+  `TrivalentStrandPeel.rank_drop_exact`,
+  `TrivalentStrandResolution.selectPeel`,
+  `TrivalentStrandDescent`, and
+  `peelAdmissibleNonvacuum`.
+- **obligation**: lift the local resolution through the actual canonical
+  fusion-path witnesses at every slab link; choose compatible copies of the
+  face strands across all four plaquette incidences; follow a selected strand
+  to a finite closed or time-boundary-relative component; and prove that
+  peeling the whole component preserves every link witness simultaneously.
+  The local theorem alone does not construct a physical BF4 kernel edge or
+  bound the posterior conditional variance.
+- **constructive?**: yes.  Canonical strand counts are explicit `Nat`
+  formulas, the nonempty bundle is selected by decidable natural comparison,
+  and the residual resolution is returned in `Type`.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 120 jobs.  All twelve audited declarations use
+  only `[propext, Quot.sound]`; the root aggregator imports the module.  The
+  executable forbidden-token scan reports zero hits and `git diff --check`
+  passes.  No full-root audit is claimed.
