@@ -22912,3 +22912,50 @@ by a cutoff-independent exponential.  Only that entropy estimate can combine
 with milestone 131's exact energy payment to yield connected-correlation
 decay.  The completed physical transfer gap, thermodynamic and continuum
 limits, and the Clay theorem remain open.
+
+## 133. Reconstruction now factors through an explicit finite drop code (2026-08-26)
+
+**Status. THE ACCEPTED LOWERED TARGET PLUS A PLAIN FINITE CODE RECONSTRUCTS
+THE EXACT SOURCE; VOLUME-INDEPENDENT AUXILIARY SPARSIFICATION AND ENTROPY
+COUNTING REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentDropCode.lean` removes the rooted seed from
+the decoder interface.  Its `SlabFaceStrandComponentDropCode` stores only the
+already-sparse physical peel list and a fixed-order word of canonical internal
+drops at each displayed link.  The physical word decodes by finite occurrence
+count.  Each auxiliary word decodes through the existing executable
+`wordToEdgeLabelling`, and a new global equality identifies that decoder with
+the exact zero extension of a labelling from any duplicate-free support.
+
+Encoding a rooted component and decoding against its accepted lowered target
+now proves both literal round trips:
+
+```text
+decodePhysical(lowerPhysical, dropCode) = source physical,
+decodeAssignment(lowerAssignment, dropCode) = source assignment.
+```
+
+The decoder receives only the fixed extent/link geometry, the lowered target,
+and the finite code; it cannot inspect the component root, graph membership,
+strand slots, mate paths, or source labels.  Moreover every local auxiliary
+word has length at most three because a degree-at-most-six canonical resolver
+uses at most three internal coordinates.  This bound is independent of the
+spin cutoff.
+
+The focused monitored source check and dependency-complete target pass all
+924 jobs.  All twenty-two audited declarations use at most
+`[propext, Quot.sound]`; the code structure, sparse
+physical decoder, and source reconstruction by pointwise addition are
+axiom-free.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the module; no full-root audit is claimed.
+
+The honest next frontier is narrower than before.  The physical part already
+has component-sized support, but `auxiliaryWords` still contains one row for
+every displayed volume link.  The next contraction must omit zero rows, prove
+that every retained row is charged to selected physical component incidence,
+and bound retained rows and word values by a constant times the component
+size.  Only then does the exact left inverse become a cutoff- and
+volume-independent exponential entropy bound suitable for combination with
+milestone 131's energy payment.  Posterior variance, a uniform completed OS
+gap, thermodynamic/continuum passage, and the Clay theorem remain open.
