@@ -23093,3 +23093,49 @@ This milestone is a finite SU(2) reconstruction-entropy input only.  The
 component/peel cardinality identity, bounded alphabet counting, posterior
 variance, a uniform completed OS gap, thermodynamic/continuum passage, and the
 Clay theorem remain open.
+
+## 137. The complete sparse code has at most five rows per physical peel (2026-08-26)
+
+**Status. THE COMPLETE EXACT RECONSTRUCTION CODE NOW HAS A VOLUME-INDEPENDENT
+ROW-COUNT BOUND LINEAR IN ITS STORED PHYSICAL COMPONENT WORD; ALPHABET COUNTING
+AND A FULL ENTROPY BOUND REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentCodeSize.lean` connects the duplicate-free
+rooted component list to the serialized physical peel word without adding a
+cardinality axiom or a global choice-based bijection.  It explicitly enumerates
+every bounded physical face-strand copy, proves by finite-range recursion that
+filtering one face's slots computes `slabFaceStrandSelectionCount`, and hence
+that the filtered global physical-copy enumeration has exactly
+`seed.peelFaces.length` entries.
+
+Every member of `seed.component` belongs to that filtered enumeration: its
+face is physical by the endpoint theorem, its bounded slot is present in
+`List.finRange`, and its component characteristic value is true.  Since the
+rooted component list is duplicate-free, constructive list pigeonhole gives
+
+```text
+seed.component.length <= seed.peelFaces.length.
+```
+
+Combining this inequality with milestone 136 contracts the exact sparse code
+to the two volume-independent bounds
+
+```text
+seed.sparseDropCode.auxiliaryWords.length <= 4 * seed.peelFaces.length,
+seed.sparseDropCode.physicalFaces.length
+  + seed.sparseDropCode.auxiliaryWords.length <= 5 * seed.peelFaces.length.
+```
+
+The focused monitored source check and dependency-complete target pass all
+928 jobs.  All eleven audited declarations use at most
+`[propext, Quot.sound]`; the physical-copy enumerators themselves are
+axiom-free.  No `Classical`, choice, proof obligation, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+This closes row-count control, not total code entropy.  Physical face IDs and
+the natural values stored in each at-most-three-entry auxiliary word must next
+be recoded or bounded relative to the rooted component and cutoff.  Only an
+explicit finite alphabet/count theorem can be combined with milestone 131's
+energy payment.  Posterior variance, a uniform completed OS gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
