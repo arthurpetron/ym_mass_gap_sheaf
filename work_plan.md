@@ -23529,3 +23529,50 @@ all component code factors can be multiplied and compared with milestone 131's
 SU2 heat payment.  The exact conditional transition ratio,
 posterior-variance fraction, uniform strict form bound, completed OS gap,
 thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 146. Sparse auxiliary row keys land in a fixed `16^peelSize` carrier (2026-08-26)
+
+**Status. THE SPARSE AUXILIARY ROW-KEY SET IS NOW EXACTLY DECODABLE FROM THE
+ROOTED SHAPE WORD AND A FIXED BINARY PRESENCE WORD OF CARRIER SIZE
+`16^peelSize`; PAIRING THESE KEYS WITH THE FLATTENED AUXILIARY VALUES IS THE
+NEXT FRONTIER.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryRowKeyCode.lean` decodes the
+component plaquette support and deduplicates the union of its four boundary
+links.  Exact retained-row charging proves that every nonzero production row
+key lies in this candidate list.  Duplicate erasure and the decoded support
+bound give
+
+```text
+candidateLinks.length <= 4 * peelFaces.length.
+```
+
+One bit per candidate records sparse-row membership, followed by zero padding
+to exactly `4 * peelSize` bits.  The code lies in `allSeqs 2 (4 * peelSize)`,
+whose cardinality is proved exactly:
+
+```text
+2 ^ (4 * peelSize) = 16 ^ peelSize.
+```
+
+A witness-independent decoder reads the bit at the first decoded candidate
+index.  On production words it returns exactly the decision procedure for
+membership in the sparse auxiliary row-key set.  Thus, at a common literal
+root face, equality of shape and presence codes forces equality of the entire
+key support.
+
+The focused monitored source check passes.  All seventeen audited declarations
+use at most `[propext, Quot.sound]`.  No `Classical`, choice, proof obligation,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.
+
+The component code factors now have exact carrier bases `625` for shape, `4`
+for physical multiplicities, `16` for auxiliary row keys, and `4^12` for
+flattened auxiliary values.  The next theorem must pair the decoded key set in
+the slab's canonical order with the decoded flattened values and reconstruct
+the complete auxiliary drop.  Only after that inverse theorem is proved is it
+legitimate to multiply the factors into a complete component entropy bound and
+compare it with milestone 131's SU2 heat payment.  The exact conditional
+transition ratio, posterior-variance fraction, uniform strict form bound,
+completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
+open.
