@@ -18506,3 +18506,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 696 jobs.  All four audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-internal-edge-endpoints] Identify the two consecutive vertex endpoints of every internal edge -- **EXACT PATH ENDPOINTS CLOSED; BOUNDED TERMINATION OPEN 2026-08-25**
+
+- **milestone**: define the left endpoint of canonical internal identifier `e`
+  at degree `d` as `e - (d + 1)`; prove that every actual proof-indexed
+  half-edge over `e` lies at that index or its successor; and deduce that the
+  typed same-slot continuation across `e` moves between adjacent vertex
+  indices.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkInternalEdgeEndpoints.lean`.
+- **principal declarations**:
+  `canonicalInternalEdgeLeftIndex`,
+  `canonicalInternalHalfEdge_vertexIndex_endpoints`, and
+  `canonicalInternalStrandContinue_vertexIndex_adjacent`.
+- **obligation**: combine exact adjacency with the already-proved exclusion of
+  the incoming edge to show that internal motion has a persistent direction;
+  recurse on the corresponding bounded natural rank to construct a physical
+  terminal; and extract the induced fixed-point-free physical-terminal pairing.
+  Endpoint coordinates alone do not perform this contraction.
+- **constructive?**: yes.  The coordinate is a computable natural subtraction,
+  and the endpoint theorem reduces only the seven literal valences and their
+  bounded vertex addresses.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 697 jobs.  All three audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
