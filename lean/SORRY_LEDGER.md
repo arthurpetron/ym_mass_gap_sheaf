@@ -18395,3 +18395,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 693 jobs.  All eighteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-internal-strand-continuation] Lift endpoint swap to a same-slot port involution -- **TYPED INTERNAL CONTINUATION CLOSED; TERMINAL CONTRACTION OPEN 2026-08-25**
+
+- **milestone**: decompose every resolved network port into its literal
+  half-edge and bounded slot; reconstruct the unique port from those data;
+  prove this decomposition extensional; lift the canonical internal half-edge
+  transposition by retaining the slot; and prove the lifted map preserves the
+  edge and slot, has no fixed port, and is involutive.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkInternalStrandContinuation.lean`.
+- **principal declarations**:
+  `resolvedNetworkPortHalfEdge`,
+  `resolvedNetworkPortHalfEdge_edgeId`,
+  `resolvedNetworkHalfEdgePortAt`,
+  `resolvedNetworkHalfEdgePortAt_halfEdge`,
+  `resolvedNetworkHalfEdgePortAt_slot`,
+  `resolvedNetworkHalfEdgePortAt_edgeId`,
+  `resolvedNetworkPortAt_halfEdge_slot`,
+  `resolvedNetworkPort_eq_of_halfEdge_eq_of_slot_eq`,
+  `CanonicalInternalStrandPort`,
+  `canonicalInternalStrandHalfEdge`,
+  `canonicalInternalStrandContinue`,
+  `canonicalInternalStrandContinue_halfEdge`,
+  `canonicalInternalStrandContinue_slot`,
+  `canonicalInternalStrandContinue_ne_self`, and
+  `canonicalInternalStrandContinue_involutive`.
+- **obligation**: define the alternating walk that applies the local
+  trivalent mate and, on an internal edge, this same-slot continuation; prove
+  using the explicit canonical fusion-chain order that the walk cannot cycle
+  internally and must reach a physical terminal; and extract the induced
+  fixed-point-free physical-terminal pairing at one link.  The typed internal
+  involution alone is not that contracted pairing or a global component.
+- **constructive?**: yes.  Port reconstruction is direct dependent pattern
+  matching, and continuation is the product of an explicit endpoint swap with
+  the identity on a bounded natural slot.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, functional extensionality, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 694 jobs.  All sixteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

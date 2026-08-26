@@ -20527,3 +20527,35 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Internal canonical link strands now continue by an exact same-slot involution (2026-08-25)
+
+`CanonicalLinkInternalStrandContinuation` proves the structural factorization
+of a resolved network port as a half-edge plus a slot strictly below the label
+on that edge.  Forgetting the slot and rebuilding it are inverse operations,
+and equality of the half-edge and slot determines equality of the full
+dependent port.
+
+The canonical internal endpoint transposition therefore lifts without search:
+swap the half-edge and rebuild the port with the unchanged source slot.  The
+result remains over the selected internal edge, preserves the strand-copy
+number exactly, has no fixed port, and is involutive.  The proof of
+involutivity contracts to the two already-separated identities: endpoint swap
+squares to the identity and slot transport is the identity.
+
+This closes the typed internal-edge continuation.  The next mathematical
+frontier is to alternate it with the local trivalent mate along the finite
+left-fusion chain and prove that the resulting path reaches a physical
+terminal.  That contraction should produce the induced pairing of physical
+strand terminals at one accepted lattice link before any global face gluing.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 694 jobs.  All sixteen audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No induced physical-terminal pairing, global physical-face continuation,
+strand-component extraction, coherent BF4 peel, heat-weight comparison,
+cutoff-uniform posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.
