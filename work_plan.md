@@ -23139,3 +23139,49 @@ be recoded or bounded relative to the rooted component and cutoff.  Only an
 explicit finite alphabet/count theorem can be combined with milestone 131's
 energy payment.  Posterior variance, a uniform completed OS gap,
 thermodynamic/continuum passage, and the Clay theorem remain open.
+
+## 138. Auxiliary drop mass is locally controlled by physical drop mass (2026-08-26)
+
+**Status. EVERY ACCEPTED DEGREE-AT-MOST-SIX SU(2) RESOLVER NOW HAS A
+CUTOFF-INDEPENDENT LOCAL L1 BUDGET; THE GLOBAL FOUR-FACE INCIDENCE SUM REMAINS
+OPEN.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryL1.lean` replaces the unusable
+entrywise auxiliary-cutoff bound with the conservation invariant needed for
+cutoff-independent entropy.  A mate-closed selection removes no more copies
+than an edge carries.  At every displayed resolved trivalent vertex, its
+Kirchhoff decomposition gives
+
+```text
+drop(output) <= drop(input one) + drop(input two).
+```
+
+The canonical link resolver has valence at most six.  Its seven literal cases
+are checked separately: degrees one and two use the guard's forced-zero vacuum
+terminator, degree three has no stored auxiliary coordinate, and degrees four
+through six iterate the trivalent inequality along the left-associated fusion
+chain.  They contract to the uniform local theorem
+
+```text
+sum(canonical auxiliary drops) <= 3 * sum(physical input drops).
+```
+
+The bound is independent of the physical and auxiliary spin labels, the
+auxiliary cutoff, and the slab extent.  It is also specialized to the literal
+corrected-slab partner-closed selection consumed by the component drop-code
+layer.
+
+The focused monitored source check and dependency-complete target pass all
+929 jobs.  All six public audited declarations use at most
+`[propext, Quot.sound]`.  No `Classical`, choice, proof obligation, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the module; no full-root audit is claimed.
+
+The next contraction is the global incidence identity: summing the local
+physical-input mass over all displayed links should count every selected
+physical face copy exactly four times.  Together with the local factor three,
+this would bound total auxiliary word mass by twelve times
+`seed.peelFaces.length`, independently of cutoff and volume.  A finite weak-
+composition count can then convert the row and l1 budgets into the missing
+component-code entropy estimate.  Posterior variance, a uniform completed OS
+gap, thermodynamic/continuum passage, and the Clay theorem remain open.
