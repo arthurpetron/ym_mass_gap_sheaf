@@ -18278,3 +18278,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 690 jobs.  All twenty-three audited declarations
   use at most `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root audit is claimed.
+
+### [canonical-link-edge-occurrence-multiplicity] Count physical terminals and internal edges exactly -- **EDGE MULTIPLICITY CLOSED; TYPED CONTINUATION OPEN 2026-08-25**
+
+- **milestone**: flatten every edge position in the canonical trivalent link
+  chain; prove through geometric valence six that each physical identifier
+  occurs once and each genuine internal fusion identifier occurs twice;
+  classify every used coordinate into physical, terminator, or internal; and
+  prove from the accepted production guard that the used terminator has label
+  zero and therefore carries no typed strand port.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkEdgeOccurrenceMultiplicity.lean`.
+- **principal declarations**:
+  `canonicalLinkEdgeOccurrences`,
+  `canonicalLinkEdgeOccurrences_count_physical`,
+  `canonicalInternalFusionEdges`,
+  `canonicalLinkEdgeOccurrences_count_internal`,
+  `canonicalUsedCoordinate_classify`,
+  `canonicalLinkConditionalAllowedB_terminator_zero`, and
+  `no_resolved_port_on_used_terminator`.
+- **obligation**: lift the exact count-two edge fiber to a computable pairing
+  of typed `(vertex,leg,slot)` occurrences.  The same slot must be transported
+  to the unique other occurrence of an internal identifier, the map must be
+  involutive, and iteration with the local trivalent mate must terminate at a
+  physical terminal.  Only then is there an induced external pairing at one
+  physical lattice link.  Edge counts alone are not a global strand
+  component or a physical BF4 configuration path.
+- **constructive?**: yes.  The proof reduces the seven literal valence cases,
+  counts natural identifiers in explicit finite words, and eliminates the
+  Boolean auxiliary guard.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 691 jobs.  All fourteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

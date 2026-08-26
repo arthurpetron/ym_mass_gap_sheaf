@@ -20428,3 +20428,37 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## The canonical link fusion word now has exact terminal/internal occurrence multiplicities (2026-08-25)
+
+`CanonicalLinkEdgeOccurrenceMultiplicity` exposes the ordered word obtained
+by flattening the three edge positions of every canonical link-resolution
+vertex.  Across the complete geometric valence range zero through six, it
+proves that every physical identifier `edge < degree` occurs exactly once and
+every genuine internal fusion identifier occurs exactly twice.  A separate
+classification theorem proves that every used coordinate is physical, the
+open-link terminator, or one of those internal identifiers.
+
+The production `canonicalLinkConditionalAllowedB` guard is then used rather
+than bypassed: whenever the terminator coordinate is read, its assigned label
+is exactly zero.  Since a typed strand port contains a strict slot bound, no
+resolved port can lie on that zero-labelled terminator.  Thus every actual
+positive strand occurrence in an accepted canonical link network is now
+forced into the one-ended physical class or the two-ended internal class.
+
+This closes the edge-level multiplicity theorem but not yet the continuation
+function.  The next construction must enumerate typed half-edge occurrences,
+use the count-two internal fiber to select the unique other half-edge, and
+transport the same bounded strand slot to it.  Proving this map involutive
+will contract the trivalent chain to a pairing of its physical terminals.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 691 jobs.  All fourteen audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No typed auxiliary continuation, induced physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.
