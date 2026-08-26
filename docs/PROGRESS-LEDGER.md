@@ -20130,3 +20130,55 @@ full-root audit is claimed.
 The cutoff-uniform off-ray root estimate remains open.  No uniform completed
 gap, thermodynamic/continuum construction, continuum Yang--Mills theory, or
 Clay mass gap is proved.
+
+## Resistance weighting removes the global minimum-edge loss (2026-08-25)
+
+The off-ray rooted frontier now has an edge-floor-free formulation.
+`BF4PhysicalFiniteVacuumSectorResistanceCauchy` proves constructively, for
+strictly positive rational conductances `k_e`,
+
+`(sum_e d_e)^2 <= (sum_e 1/k_e) * (sum_e k_e d_e^2)`.
+
+The proof uses finite induction and the sum-of-squares inequality
+`2xy <= x^2 + y^2`; it introduces neither square roots nor a minimum over the
+carrier.  Endpoint telescoping specializes it to every displayed positive
+physical-kernel path.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceFlow` applies that inequality to each
+off-ray state-to-vacuum path.  The stationary demand from state `x` gives each
+literal path edge the load
+
+`centralPhysicalFiniteWeight(x) * resistance(path(x, 0))`.
+
+After exact duplicate-preserving regrouping, the off-ray root variance is
+bounded by the physical Dirichlet form loaded by this dimensionless
+resistance congestion.  At every finite cutoff, if `C_K` is one plus the
+total occurrence load, then `eta_K = 1 / C_K` is positive and satisfies
+
+`eta_K * offRayRootVariance_K <= physicalDirichlet_K`.
+
+This is a strict improvement over the earlier generic rooted path estimate:
+the coefficient no longer contains the global minimum positive physical
+edge.  Small conductances are paid only on paths that actually use them, and
+their reciprocals are averaged against stationary demand before any uniform
+estimate is requested.
+
+The exact remaining analytic frontier is now one scalar assertion: uniformly
+bound the maximum directed-edge resistance congestion as the spin cutoff
+recedes.  For an edge `e`, that congestion is the sum, with literal traversal
+multiplicity, of `pi_K(x) * resistance(path_K(x, 0))` over the off-ray states
+whose chosen path traverses `e`.  The module defines
+`FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound` and proves that
+an inhabitant compiles to the existing cofinal off-ray root coercivity
+structure, which then combines with the proved ray return estimate to give
+uniform finite-sector coercivity.
+
+Focused monitored checks pass for both modules, and the dependency-complete
+one-worker resistance-flow target passes all 5048 jobs.  Seven audited exports
+use only `[propext, Quot.sound]`; the root aggregator imports both modules.
+The executable forbidden-token scan and `git diff --check` pass.  No full-root
+audit is claimed.
+
+No cutoff-uniform resistance-congestion bound, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

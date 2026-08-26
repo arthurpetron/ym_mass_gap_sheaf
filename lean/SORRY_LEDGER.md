@@ -18014,3 +18014,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   imports both modules.  No full-root audit is claimed.  The older symmetric
   transition-product path remains a valid alternative, but the rooted path
   has a strictly smaller analytic interface.
+
+### [bf4-off-ray-resistance-congestion] Absorb conductance before aggregating off-ray traffic -- **OPEN UNIFORM BOUND; FINITE COMPILER CLOSED 2026-08-25**
+
+- **milestone**: replace path-length Cauchy followed by a global minimum-edge
+  comparison with exact resistance-weighted Cauchy.  Every displayed edge
+  conductance is cancelled locally by its reciprocal, so the resulting
+  occurrence load is the dimensionless quantity
+  `stationaryWeight(state) * pathResistance(state, vacuum)`.  Its finite total
+  constructs the positive coefficient `eta = 1 / (1 + totalTraffic)` without
+  any minimum physical edge.  One uniform bound on this total traffic compiles
+  to the existing cofinal off-ray root certificate.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorResistanceCauchy.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayRootResistanceFlow.lean`.
+- **decl**:
+  `finite_positive_conductance_cauchy`,
+  `PositiveKernelChainIn.endpointDifference_sq_le_resistance_mul_linearEnergy`,
+  `centralLowerExcitedSpinCubeOffRayRootVariance_le_resistanceRawLoadedDirichlet`,
+  `centralLowerExcitedSpinCubeOffRayRootResistanceFiniteEta`,
+  `centralLowerExcitedSpinCubeOffRayRootResistanceFiniteCoercivityAt`,
+  `FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound`, and
+  `FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound.toCofinalOffRayRootCoercivity`.
+- **obligation**: construct one cutoff-independent rational bound on every
+  directed-edge value of
+  `centralLowerExcitedSpinCubeOffRayRootResistanceFlowLoad`.  Equivalently,
+  control the maximum stationary-weighted effective congestion of the selected
+  positive state-to-vacuum paths.  The finite reciprocal coefficient uses the
+  stronger total-occurrence bound and can still decay with the cutoff; no
+  uniform inhabitant is asserted.
+- **constructive?**: yes.  The weighted Cauchy proof is a finite list induction
+  using `2xy <= x^2 + y^2` and positive rational cancellation.  All paths,
+  reciprocals, loads, finite sums, and moduli are explicit `Type`-level data.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: both focused monitored checks pass.  The dependency-complete
+  one-worker resistance-flow target passes all 5048 jobs.  Seven audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports both
+  modules.  The executable forbidden-token scan and `git diff --check` pass.
+  No full-root audit is claimed.
