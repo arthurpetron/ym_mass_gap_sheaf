@@ -23393,3 +23393,53 @@ the complete component entropy can be compared with milestone 131's SU2 heat
 payment.  The exact heat-weight ratio, posterior-variance fraction, uniform
 strict form bound, completed OS gap, thermodynamic/continuum passage, and Clay
 theorem remain open.
+
+## 143. Component shapes land in a fixed `625^peelSize` carrier (2026-08-26)
+
+**Status. THE GEOMETRIC SUPPORT OF EVERY ROOTED STRAND COMPONENT NOW HAS A
+DECODER-FAITHFUL WORD IN ONE VOLUME- AND CUTOFF-INDEPENDENT CARRIER OF EXACT
+SIZE `625^peelSize`; STRAND MULTIPLICITIES AND SPARSE ROW KEYS REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentPaddedAnimalTourCode.lean` converts milestone
+142's variable-length exact tour into the fixed-length shape word required by
+the entropy comparison.  It isolates the top symbol of the `D+1` decoder
+alphabet and proves structurally that one backtrack, and then any replicated
+suffix of backtracks, leaves the decoder's visited list literally unchanged.
+
+Milestone 141 bounds geometric support size by physical peel length.  Hence the
+exact tour fits in `2 * peelFaces.length` symbols.  Appending precisely the
+missing number of inert backtracks gives a production word with exact length
+
+```text
+2 * (SlabFusionWitnessFaceStrandSeed.peelFaces seed).length.
+```
+
+The padded word decodes to exactly `componentPlaquetteSupport seed` and belongs
+to the complete 25-symbol sequence carrier at that length.  The carrier's
+cardinality is proved exactly:
+
+```text
+25 ^ (2 * peelSize) = 625 ^ peelSize.
+```
+
+For two components at the same literal root, equality of padded words is also
+proved to force `sameSupport` of their geometric animals.  Thus this is a
+faithful rooted support-set code at the precise granularity used by the animal
+count, not merely an upper-bound slogan.
+
+The focused monitored source check passes.  All thirteen public audited
+declarations use at most `[propext, Quot.sound]`; `backtrackSymbol` is
+axiom-free.  No `Classical`, choice, proof obligation, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+The physical face-ID part of the old reconstruction code has now been replaced
+by a component-relative geometric factor `625^n`.  What remains in the
+physical skeleton is the finite strand-copy multiplicity/ordering over each
+decoded plaquette, followed by a component-relative encoding of the ordered
+sparse auxiliary row keys.  Combining those with milestone 140's
+`(4^12)^n` auxiliary-value factor will yield the complete component entropy
+constant to compare with milestone 131's SU2 heat payment.  The exact
+heat-weight ratio, posterior-variance fraction, uniform strict form bound,
+completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
+open.
