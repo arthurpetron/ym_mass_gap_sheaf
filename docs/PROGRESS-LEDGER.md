@@ -20357,3 +20357,37 @@ No global strand-copy pairing, component extraction, coherent physical BF4
 peel, heat-weight comparison, cutoff-uniform posterior-variance fraction,
 uniform completed gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## Every admissible trivalent vertex now has an exact fixed-point-free strand pairing (2026-08-25)
+
+`SU2TrivalentStrandPortPairing` refines each twice-spin leg into its literal
+finite set of distinguishable strand copies.  The port type is the natural
+three-way finite sum `Fin a + Fin b + Fin c`, so leg identity and copy bounds
+are carried by constructors rather than recovered from an existential proof.
+
+For any explicit `TrivalentStrandResolution`, the module divides those ports
+into the three `ab`, `bc`, and `ca` bundles and computes the unique mate of
+each port on another leg.  It kernel-checks that the mate changes legs, that
+matching twice is the identity, and hence that no port is matched to itself.
+Composing with `canonicalTrivalentStrandResolution` gives the same computable
+fixed-point-free involution for every triple accepted by the production
+`fusionOK` predicate.  No search, enumeration, or finite choice is used.
+
+This closes the one-vertex incidence compiler, not the global component
+theorem.  The next mathematical construction must identify the occurrences
+of each physical plaquette's `Fin label` copies across its incident resolved
+link networks.  The local vertex mate and the physical-face continuation
+together should form a finite degree-two incidence graph.  Its components can
+then be followed constructively and classified as closed or
+time-boundary-relative before any coherent peel or heat-weight comparison is
+claimed.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 121 jobs.  All eleven audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No global physical-face continuation, strand-component extraction, coherent
+BF4 peel, heat-weight comparison, cutoff-uniform posterior-variance fraction,
+uniform completed gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.

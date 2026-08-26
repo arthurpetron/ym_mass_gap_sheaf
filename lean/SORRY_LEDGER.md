@@ -18198,3 +18198,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   only `[propext, Quot.sound]`; the root aggregator imports the module.  The
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
+
+### [su2-trivalent-strand-port-pairing] Pair every individual strand copy at one admissible vertex -- **LOCAL INCIDENCE CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
+
+- **milestone**: refine the three legs of an admissible twice-spin triple to
+  bounded individual ports; compute their exact `ab/bc/ca` allocation; define
+  the canonical mate on a different leg; and prove constructively that this
+  mate is a fixed-point-free involution.  Specialize the construction to the
+  canonical resolution returned by every true `fusionOK` guard.
+- **file**:
+  `lean/YMGap/Continuum/SU2TrivalentStrandPortPairing.lean`.
+- **decl**:
+  `TrivalentStrandPort`,
+  `TrivalentStrandPort.leg`,
+  `TrivalentStrandPort.slot`,
+  `TrivalentStrandPort.slot_lt_legSize`,
+  `strandMate`,
+  `strandMate_leg_ne`,
+  `strandMate_involutive`,
+  `strandMate_ne_self`,
+  `canonicalTrivalentPortMate`,
+  `canonicalTrivalentPortMate_involutive`, and
+  `canonicalTrivalentPortMate_ne_self`.
+- **obligation**: attach these one-vertex ports to the occurrences of literal
+  physical plaquette copies in every accepted slab-link network, define the
+  continuation through a shared physical face, and prove the combined finite
+  incidence has degree two away from classified time boundaries.  Only then
+  can one extract and peel a whole component while preserving all link
+  constraints.  The local involution alone gives neither a BF4 kernel path
+  nor a posterior-variance lower bound.
+- **constructive?**: yes.  Ports are a three-constructor finite type, the
+  mate is an explicit arithmetic function, and involutivity is natural-number
+  interval arithmetic.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 121 jobs.  All eleven audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
