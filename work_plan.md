@@ -23745,3 +23745,43 @@ with the existing `625 * 4` structural base this would give
 is claimed yet.  The conditional transition floor, posterior-variance
 fraction, dense form gap, completed OS gap, thermodynamic/continuum passage,
 and Clay theorem remain open.
+
+## 151. A link-adaptive auxiliary carrier has base at most 4096 (2026-08-26)
+
+**Status. THE ABSTRACT CARTESIAN CARRIER FOR LINK-DEPENDENT AUXILIARY ROWS IS
+CONSTRUCTED, AND ITS SIZE IS AT MOST `4096^peelSize` WHEN THE TOTAL LINK MASS
+IS AT MOST FOUR TIMES THE PEEL SIZE.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryCarrier.lean` enumerates
+one word in `allSeqs (t + 1) w` for every link specification `(t,w)`.  A typed
+row-fit relation retains both the exact row width and the pointwise bound, and
+constructively proves production-style row membership in the Cartesian
+carrier.
+
+The size proof uses the elementary envelope
+
+```text
+t + 1 <= 2^t,
+(t + 1)^w <= 8^t       when w <= 3.
+```
+
+Multiplication over links therefore gives `8^(sum t)`.  At total mass at most
+`4*n`, kernel-checked natural arithmetic contracts this to
+
+```text
+8^(4*n) = 4096^n.
+```
+
+All ten audited declarations use at most `[propext, Quot.sound]`; the carrier
+definitions themselves are axiom-free.  No separate sparse-row presence word
+is part of this carrier: zero rows are legal and remain in the shape-decoded
+candidate-link order.
+
+The remaining load-bearing bridge is concrete rather than numerical: define
+the production specification list and full row table from the decoded
+component support, prove every row fits using milestone 150, and prove its
+total link mass is exactly `4 * peelSize` using the existing complete-slab
+incidence double count.  Only then may the `625 * 4 * 4096` strict entropy
+ratio be claimed.  The conditional transition floor, posterior variance,
+dense form gap, completed OS gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
