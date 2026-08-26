@@ -19682,3 +19682,52 @@ No all-cutoff success theorem, cross-endpoint congestion bound, uniform routed
 capacity, persistent payment, remaining regional total tail, completed
 uniform gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Simple adaptive route congestion is linear before physical weighting (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingLinearCongestion`
+uses directed-edge nodup to prove that one selected edge has multiplicity at
+most one in every successful simple detour.  The exact adaptive route factor,
+which is path length times this multiplicity, is consequently bounded by the
+literal later vacuum-sector carrier length rather than its square.
+
+Summing on the exact new-endpoint traffic list gives a checked finite ceiling
+
+`unweighted route-factor sum on one edge`
+`  <= newEndpointCount * laterCarrierLength`.
+
+This is the first quantitative member of the adaptive branch, but it is not
+yet physical flow capacity.  The exact transition-product prefix and endpoint
+stationary weights still have to be summed on the same selected edge and the
+result compared with that edge's literal later kernel capacity.  Because the
+endpoint count and carrier length grow, the new ceiling diagnoses the needed
+cancellation or decay without pretending to be uniform.
+
+The compiler DAG now has three immediate adaptive interfaces that can be
+developed independently: an all-cutoff success producer for the exact deleted
+path decision, this simple-route congestion/capacity lane, and a cutoff-to-
+cutoff route-coherence lane.  At the fully expanded regional frontier the
+canonical route has twelve work packages.  Selecting adaptive routing replaces
+one activated-floor payment by those three interfaces, hence fourteen work
+packages on that selected path.  Developing both sides is useful diagnostic
+hedging, but a final proof selects one side of the fork; the alternatives are
+not cumulative hypotheses.
+
+Observable connectedness is preserved by construction.  Both branches retain
+the same matched trajectory, cutoff pair, carrier, endpoint list, mapped old--
+new edge, transition-product load, and debt object, and must rejoin the same
+regional deficit before the total-tail compiler.  Parallel modules therefore
+expand one proof obligation; kernel-checked equalities and inequalities
+contract them back to one observable rather than creating multiple candidate
+theories.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5179 jobs.  The four audited exports use only
+`[propext, Quot.sound]` or the smaller `[propext]` subset; the executable
+forbidden-token scan reports zero hits, `git diff --check` passes, and the root
+aggregator imports the module.  No full-root audit is claimed.
+
+No physical weighted-load/capacity estimate, all-cutoff detour success,
+route-coherence theorem, persistent payment, remaining regional total tail,
+completed uniform gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.

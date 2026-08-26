@@ -17585,3 +17585,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the executable forbidden-token
   scan reports zero hits, `git diff --check` passes, and the root aggregator
   imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-linear-congestion] Contract simple detours to a linear route-factor ceiling — **CLOSED 2026-08-25**
+
+- **milestone**: prove that a duplicate-free directed-edge list charges any
+  selected directed edge at most once; transport this fact to the exact routed
+  multiplicity; combine it with the simple adaptive path-length bound to
+  replace the former quadratic per-route factor by the literal later-carrier
+  length; and sum that bound over the exact new-endpoint traffic list to obtain
+  the finite unweighted ceiling `endpointCount * carrierLength` for every
+  selected edge.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingLinearCongestion.lean`.
+- **decl**:
+  `weightedDirectedEdgeLoad_unitMap_le_one_of_nodup`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedDirectedEdgeMultiplicity_le_one_of_nodup`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRouting_routeFactorOnPair_le_carrierLength`,
+  `matchedEventualNewEndpointTrafficSimpleAdaptiveRouteFactorSum`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRouteFactorSum_le_endpointCount_mul_carrierLength`.
+- **obligation**: attach the physical prefix-transition/stationary endpoint
+  weights to this exact route-factor sum and compare the resulting load with
+  the literal capacity of every used later edge, uniformly in cutoff.  The
+  displayed endpoint count and carrier length both grow, so this finite
+  ceiling alone is not a uniform capacity theorem.  All-cutoff path success
+  and cutoff-to-cutoff route coherence remain independent adaptive inputs.
+- **constructive?**: yes.  The multiplicity proof is induction on a literal
+  duplicate-free list, and the aggregate proof is induction on the exact
+  demanded endpoint list.  No endpoint, routing, edge, or transition-product
+  object is replaced by an unrelated proxy.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5179 jobs.  The four
+  audited exports use only `[propext, Quot.sound]` or the smaller `[propext]`
+  subset; the executable forbidden-token scan reports zero hits,
+  `git diff --check` passes, and the root aggregator imports the module.  No
+  full-root audit is claimed.
