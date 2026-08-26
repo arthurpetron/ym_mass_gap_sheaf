@@ -23185,3 +23185,59 @@ this would bound total auxiliary word mass by twelve times
 composition count can then convert the row and l1 budgets into the missing
 component-code entropy estimate.  Posterior variance, a uniform completed OS
 gap, thermodynamic/continuum passage, and the Clay theorem remain open.
+
+## 139. Total sparse auxiliary drop mass is at most twelve times peel size (2026-08-26)
+
+**Status. THE COMPLETE SPARSE AUXILIARY CODE NOW HAS A CUTOFF- AND
+VOLUME-INDEPENDENT L1 BUDGET LINEAR IN THE PHYSICAL PEEL LENGTH; THE FINITE
+WEAK-COMPOSITION COUNT REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentGlobalAuxiliaryL1.lean` closes the global
+incidence contraction left open by milestone 138.  It constructs two literal
+finite lists of complete-slab incidence pairs:
+
+```text
+face-major: physical face ID -> its four boundary links,
+link-major: displayed link -> its incident physical face IDs.
+```
+
+Both lists are proved duplicate-free and to have exactly the same members;
+constructive finite permutation therefore identifies them.  Weighting an
+incidence by an arbitrary natural face weight and using the exact four-edge
+plaquette boundary gives the kernel-checked double count
+
+```text
+sum over links (sum incident face weights)
+  = 4 * sum over physical faces (face weight).
+```
+
+The local physical-position sum is then identified with the literal incident
+face-strand selection count.  Separately, Boolean deletion of all-zero sparse
+rows is proved to preserve total auxiliary l1 mass exactly, and the sum of
+physical selected-copy counts is proved equal to the serialized peel-list
+length.  Combining those identities with milestone 138's local factor three
+gives the production complete-slab theorem
+
+```text
+auxiliaryWordTableL1 seed.sparseDropCode.auxiliaryWords
+  <= 12 * seed.peelFaces.length.
+```
+
+The right-hand side is independent of the auxiliary cutoff, slab extent,
+physical spin values, and auxiliary spin values.  The focused monitored source
+check and dependency-complete target pass all 933 jobs.  All thirteen public
+audited declarations use at most `[propext, Quot.sound]`; the table-l1
+definition is axiom-free and the sparse zero-erasure sum uses at most
+`[propext]`.  No `Classical`, choice, proof obligation, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+This is an l1 budget, not yet the component-code cardinality bound.  Milestone
+137 also gives at most four auxiliary rows per peel entry and every row has at
+most three coordinates.  The next exact compiler is therefore finite
+combinatorics: flatten or pad the sparse word table into at most twelve slots,
+then inject every natural word of total mass at most twelve times peel size
+into a fixed finite weak-composition carrier.  That will bound auxiliary-value
+entropy by a constant to the peel size without using the spin cutoff.
+Posterior variance, a uniform completed OS gap, thermodynamic/continuum
+passage, and the Clay theorem remain open.
