@@ -17622,3 +17622,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   subset; the executable forbidden-token scan reports zero hits,
   `git diff --check` passes, and the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-weighted-congestion] Attach physical weights and isolate the literal capacity certificate — **CLOSED 2026-08-25**
+
+- **milestone**: factor each exact adaptive transition-product summand as its
+  prefix transition/stationary endpoint weight times its route factor; use the
+  simple-route factor bound to control the existing adaptive new-endpoint load
+  by the explicit prefix/endpoint weight sum times later-carrier length; name
+  the strictly smaller pointwise certificate comparing that weighted ceiling
+  with the literal later conditional-kernel capacity; and contract such a
+  certificate to both the exact adaptive load-capacity inequality and the
+  existing normalized debt bound `debt <= 1` on the same carrier edge.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingWeightedCongestion.lean`.
+- **decl**:
+  `matchedEventualNewEndpointTrafficPrefixEndpointWeightOnPairForRouting`,
+  `matchedEventualNewEndpointTrafficTransitionTermForRouting_eqv_prefixEndpointWeight_mul_routeFactor`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRouting_transitionTerm_le_prefixEndpointWeight_mul_carrierLength`,
+  `matchedEventualNewEndpointTrafficSimpleAdaptivePrefixEndpointWeightSum`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveWeightedLoad_le_prefixEndpointWeightSum_mul_carrierLength`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.SimpleAdaptiveWeightedCapacityCertificate`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveWeightedLoad_capacity`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveWeightedDebt_le_one`.
+- **obligation**: inhabit the pointwise weighted-capacity certificate with a
+  bound uniform in cutoff while retaining the exact adaptive paths.  The
+  compiler deliberately does not prove decay of the explicit prefix/endpoint
+  weight sum sufficient to offset carrier growth.  All-cutoff deleted-path
+  success and cutoff-to-cutoff route coherence are independent open inputs;
+  persistent traffic and the remaining regional tail terms are also open.
+- **constructive?**: yes.  Every summand retains the actual transition
+  product, endpoint stationary weight, simple adaptive route, selected edge,
+  and later kernel entry.  The capacity-to-debt contraction uses constructive
+  rational order and positive division.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5180 jobs.  The seven
+  audited exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits, `git diff --check` passes, and the
+  root aggregator imports the module.  No full-root audit is claimed.

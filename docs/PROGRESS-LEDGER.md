@@ -19731,3 +19731,45 @@ No physical weighted-load/capacity estimate, all-cutoff detour success,
 route-coherence theorem, persistent payment, remaining regional total tail,
 completed uniform gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## The adaptive load now carries its physical weights into a literal capacity certificate (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingWeightedCongestion`
+keeps the exact prefix transition product and right-endpoint stationary weight
+attached to every demanded endpoint pair, selected edge, and simple adaptive
+route.  Each existing transition-product load summand is factored into that
+physical prefix/endpoint weight times the already bounded route factor.
+
+Summing on the literal new-endpoint list yields the checked comparison
+
+`exact adaptive new-endpoint load on edge`
+`  <= prefixEndpointWeightSum(edge) * laterCarrierLength`.
+
+The new `SimpleAdaptiveWeightedCapacityCertificate` is therefore smaller than
+assuming the desired load or debt conclusion.  It asks, edge by edge on the
+literal later pair carrier, only that the shared support floor times this
+explicit weighted ceiling fit below one half of the same later conditional-
+kernel entry.  From that certificate the module proves the exact adaptive
+load-capacity inequality and then the existing normalized debt bound
+`debt <= 1`; the route, edge, load, and denominator are unchanged through the
+contraction.
+
+This closes the compiler interface of the physical-weighted congestion lane,
+but not its analytic inhabitation.  The remaining issue is now sharply
+observable: prove enough decay or cancellation in the prefix/endpoint weight
+sum to overcome carrier-length growth, uniformly in cutoff.  The other two
+parallel adaptive interfaces remain all-cutoff success of the exact deleted-
+path decision and cutoff-to-cutoff coherence of the selected routes.  These
+three interfaces must rejoin the same regional deficit; they are not three
+independent candidate observables.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5180 jobs.  The seven audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No cutoff-uniform weighted-capacity certificate, all-cutoff detour success,
+route-coherence theorem, persistent payment, remaining regional total tail,
+completed uniform gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.
