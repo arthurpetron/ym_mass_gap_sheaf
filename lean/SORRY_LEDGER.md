@@ -18633,3 +18633,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 700 jobs.  All twelve audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-physical-terminal-partner] Reverse retained strand paths and prove physical-partner involutivity -- **REVERSIBLE INVOLUTION CLOSED; FIXED-POINT-FREENESS OPEN 2026-08-25**
+
+- **milestone**: define exact internal-advance paths and concatenation; convert
+  between them and physical-terminal paths; prove physical endpoint
+  determinism; prove the one-step reverse identities from the internal-edge
+  and local-mate involutions; reverse arbitrary retained paths; define the
+  physical partner by extraction from a terminal's local mate; and prove the
+  partner operation is involutive.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkPhysicalTerminalPartner.lean`.
+- **principal declarations**:
+  `CanonicalInternalAdvancePath`,
+  `CanonicalInternalAdvancePath.append`,
+  `canonicalStrandPathToAdvancePath`,
+  `canonicalAdvancePathToPhysical`,
+  `canonicalInternalAdvancePath_physical_finish_unique`,
+  `canonicalStrandPath_terminal_unique`,
+  `canonicalInternalCrossPort`,
+  `canonicalInternalCrossPort_edgeId`,
+  `canonicalInternalCrossPort_internal`,
+  `canonicalTypedInternalPort_internal`,
+  `canonicalInternalAdvancePort_of_typed`,
+  `canonicalInternalAdvancePort_localMate_eq_cross`,
+  `canonicalInternalAdvancePort_cross_eq_localMate`,
+  `canonicalInternalAdvanceReverseStep`,
+  `canonicalStrandPathReverseToMatePath`,
+  `canonicalPhysicalStrandPartner`,
+  `canonicalPhysicalStrandPartner_path`,
+  `canonicalPhysicalStrandPartner_reversePath`, and
+  `canonicalPhysicalStrandPartner_involutive`.
+- **obligation**: prove the partner of a physical terminal is never that same
+  terminal, using the fact that an immediate local mate is distinct and that
+  any internal continuation moves monotonically away on the finite path.
+  Involutivity alone does not exclude fixed points.  Only after this theorem
+  is the local object a genuine fixed-point-free physical-terminal pairing
+  suitable for global face continuation.
+- **constructive?**: yes.  Reversal is structural recursion over retained path
+  data, and endpoint determinism eliminates only explicit physical/internal
+  contradictions.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, functional extensionality, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 701 jobs.  All nineteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

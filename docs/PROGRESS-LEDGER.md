@@ -20752,3 +20752,37 @@ strand-component extraction, coherent BF4 peel, heat-weight comparison,
 cutoff-uniform posterior-variance fraction, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Physical terminals now have a reversible canonical strand partner (2026-08-25)
+
+`CanonicalLinkPhysicalTerminalPartner` proves path reversal from the two
+actual involutions in the network.  Writing `E` for same-slot internal-edge
+crossing and `M` for the local trivalent mate, the full step is `A = M ∘ E`.
+The module proves the exact reverse identities `M (A x) = E x` and
+`A (E x) = M x`, then extends them by structural recursion over the retained
+terminal path.
+
+Internal-advance paths form a constructive reflexive-transitive closure with
+explicit concatenation.  Their physical endpoint is deterministic: two paths
+from the same source cannot end at different physical ports, because an
+internal source cannot simultaneously be physical and the remaining step is
+unique.  Starting at a physical port's local mate and applying terminal
+extraction therefore defines a physical partner.  Reversing its retained path
+constructs a path back to the original port, so endpoint determinism proves
+that the partner operation is involutive.
+
+This closes reversibility and involutivity of the physical-terminal partner.
+Fixed-point-freeness remains a separate theorem: an involution may in general
+have fixed points, and the remaining proof must use the monotone path geometry
+to exclude a strand returning to the physical port from which it started.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 701 jobs.  All nineteen audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No fixed-point-free physical-terminal pairing, global physical-face
+continuation, strand-component extraction, coherent BF4 peel, heat-weight
+comparison, cutoff-uniform posterior-variance fraction, uniform completed
+gap, thermodynamic/continuum construction, continuum Yang--Mills theory, or
+Clay mass gap is proved.
