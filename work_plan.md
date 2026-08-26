@@ -23488,3 +23488,44 @@ keys must be encoded relative to the decoded component geometry.  The exact
 heat-weight ratio, posterior-variance fraction, uniform strict form bound,
 completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
 open.
+
+## 145. Shape and multiplicity codes reconstruct the physical drop (2026-08-26)
+
+**Status. THE FIXED `625^n` SHAPE WORD AND `4^n` MULTIPLICITY WORD NOW
+RECONSTRUCT THE COMPLETE PHYSICAL FACE-DROP FUNCTION AT A FIXED ROOT; SPARSE
+AUXILIARY ROW KEYS ARE THE REMAINING COMPONENT CODE FACTOR.**
+
+`CompactDualSlabFaceStrandComponentPhysicalDropDecoder.lean` defines a total,
+witness-independent decoder from an extent, root face identifier, padded shape
+word, and binary multiplicity word to an ambient physical-face drop function.
+It returns zero outside the corrected-slab carrier, and inside the carrier it
+uses the first canonical decoded-support index of the face plaquette.
+
+The production reconstruction theorem proves pointwise that this decoder is
+exactly `slabFaceStrandSelectionCount seed.selected`.  The off-support case is
+not assumed: a Boolean interval-count argument proves that if a face plaquette
+is absent from the decoded component support, no strand copy over that face is
+selected.  Together with the existing off-physical-carrier zero theorem, this
+covers every ambient face identifier.
+
+Consequently, for two rooted components with a common literal root face,
+equality of their padded shape codes and binary multiplicity codes forces
+equality of their complete physical face-drop functions.  This is the needed
+inverse-code statement behind the physical carrier factor
+
+```text
+625^n * 4^n = 2500^n.
+```
+
+The focused monitored source check passes.  All five audited declarations use
+at most `[propext, Quot.sound]`.  No `Classical`, choice, proof obligation,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.
+
+The next frontier is to encode the ordered support of the sparse auxiliary
+rows relative to the decoded plaquette geometry.  Their flattened values are
+already in milestone 140's `(4^12)^n` carrier.  Once row keys are reconstructible,
+all component code factors can be multiplied and compared with milestone 131's
+SU2 heat payment.  The exact conditional transition ratio,
+posterior-variance fraction, uniform strict form bound, completed OS gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
