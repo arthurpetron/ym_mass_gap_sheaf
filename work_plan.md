@@ -23005,3 +23005,48 @@ be enumerated exponentially in component size.  Only then can energy payment
 and entropy be contracted into a genuine component-gas bound.  Posterior
 variance, a uniform completed OS gap, thermodynamic/continuum passage, and the
 Clay theorem remain open.
+
+## 135. Every retained auxiliary row reaches a selected physical copy (2026-08-26)
+
+**Status. NONZERO SPARSE ROWS NOW COMPUTE SELECTED PHYSICAL TERMINALS ON THE
+SAME LINK; THE BOUNDED-FIBER ROW-COUNT INEQUALITY REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryRowWitness.lean` supplies the
+first geometric half of the row-charging theorem.  It avoids propositional
+choice at every extraction point.  A positive finite Boolean count computes a
+bounded selected offset; a nonzero finite word computes a bounded nonzero
+index; and a true proof-independent edge-slot value computes the literal port
+found by the executable network search.
+
+For a partner-closed link selection, any positive compiled edge drop now
+returns an actual selected physical terminal.  The construction follows the
+already-proved terminating canonical strand path from the recovered resolved
+port, so the result is physical by construction.  Applied to an arbitrary row
+of `seed.sparseDropCode`, the production compiler returns
+
+```text
+row link membership
+  + selected physical terminal incident on that same link.
+```
+
+This is stronger than a propositional existence statement: the link proof,
+terminal, and selection equality are retained in a `Type`-level structure.
+No port address, strand path, or physical copy is stored in the code itself.
+
+The focused monitored source check and dependency-complete target pass all
+926 jobs.  All eleven audited declarations use at most
+`[propext, Quot.sound]`; the nonzero-index compiler and sparse-row source
+record are axiom-free up to the surrounding constructive list equalities.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+The next contraction is now a finite bounded-fiber argument rather than more
+strand topology.  Map every retained row to its computed selected face copy;
+the row's link is one of that plaquette's four boundary links, while sparse
+row keys inherit duplicate-freeness from the complete link carrier.  Encoding
+the boundary-link position should bound retained rows by four times the
+number of selected physical copies.  Identifying that copy count with the
+physical peel-list length will finally remove volume from the auxiliary code
+size.  Exponential word counting, posterior variance, the uniform completed
+OS gap, thermodynamic/continuum passage, and the Clay theorem remain open.
