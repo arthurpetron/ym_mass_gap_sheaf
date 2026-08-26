@@ -22305,3 +22305,32 @@ maps, intertwining law, and same-operator sharpness probes along the AF
 trajectory is now the precise open nonperturbative RG edge.  Continuum
 Kolmogorov/OS reconstruction, the full QFT axioms, and the Clay theorem remain
 open.
+
+## 120. Canonical link strands contract to a genuine physical-terminal pairing (2026-08-26)
+
+**Status. THE LOCAL CANONICAL FUSION NETWORK NOW RETURNS A COMPUTABLE,
+FIXED-POINT-FREE INVOLUTION ON ITS PHYSICAL STRAND TERMINALS.**
+
+`CanonicalLinkPhysicalTerminalPairing.lean` closes the last local geometric
+condition left after terminal extraction and path reversal.  Exact adjacency
+and exclusion of immediate return show that every oriented internal state
+continues in one persistent direction.  Structural induction on the retained
+terminal path then proves that its physical endpoint lies strictly beyond the
+current vertex in that direction.  Consequently a path beginning at an
+internal port cannot terminate at its starting vertex, and the already-proved
+physical-terminal involution has no fixed point.
+
+The final `CanonicalPhysicalStrandPairing` is `Type`-valued and carries the
+partner operation, involutivity, and fixed-point-freeness as data.  The proof
+uses ordinary structural induction; it requires no enlarged heartbeat budget
+or separate termination search.  The focused monitored check and the
+dependency-complete one-worker target pass all 702 jobs.  Every one of the
+eight audited declarations reports exactly `[propext, Quot.sound]`.
+
+This is a local contraction theorem, not the sought uniform analytic estimate.
+The next causal step is to glue the link pairings through literal physical-face
+strand copies, construct the resulting finite global components, and peel one
+component coherently.  Before that topology can yield a transfer gap, the peel
+must provide a cutoff- and volume-independent bound on the already-identified
+physical posterior conditional variance.  No such uniform constant, weak-to-
+strong RG bridge inhabitant, continuum limit, or Clay conclusion is asserted.

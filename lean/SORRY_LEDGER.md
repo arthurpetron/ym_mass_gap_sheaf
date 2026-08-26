@@ -18679,3 +18679,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 701 jobs.  All nineteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-physical-terminal-pairing] Exclude fixed points and package the local physical pairing -- **FIXED-POINT-FREE LOCAL PAIRING CLOSED; GLOBAL FACE CONTINUATION OPEN 2026-08-26**
+
+- **milestone**: prove that successive internal crossings have one persistent
+  natural-number direction; prove by structural induction that every retained
+  terminal path finishes strictly beyond its oriented current vertex; exclude
+  return to the starting vertex for every internal start; and package the
+  physical-terminal partner as a data-bearing fixed-point-free involution.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkPhysicalTerminalPairing.lean`.
+- **principal declarations**:
+  `canonicalOrientedInternalState_step_direction`,
+  `canonicalOrientedInternalState_current_lt_next_of_source_lt_current`,
+  `canonicalOrientedInternalState_next_lt_current_of_current_lt_source`,
+  `canonicalOrientedInternalState_path_terminal_beyond`,
+  `canonicalInternalStart_terminal_vertexIndex_ne`,
+  `canonicalPhysicalStrandPartner_ne_self`,
+  `CanonicalPhysicalStrandPairing`, and
+  `canonicalPhysicalStrandPairing`.
+- **obligation**: attach the physical terminal copies to their literal
+  plaquette-face occurrences, define continuation through the same physical
+  face, and extract the finite alternating components.  Then prove that
+  peeling a component preserves every accepted link witness and supplies a
+  cutoff- and volume-independent conditional-variance or resistance bound.
+  A local fixed-point-free involution alone gives neither a global BF4 kernel
+  edge nor a uniform physical gap.
+- **constructive?**: yes.  Direction persistence is finite natural-order
+  reasoning and terminal separation is structural induction on retained path
+  data.  The pairing and both laws remain in `Type`.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 702 jobs.  All eight audited declarations use
+  exactly `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
