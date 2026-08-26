@@ -19131,3 +19131,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   target pass all 712 jobs.  All eight audited declarations use at most
   `[propext, Quot.sound]`; the generic assignment constructor is axiom-free.
   The root aggregator imports the module.  No full-root audit is claimed.
+
+### [compact-dual-slab-face-strand-component-weight] Pay an exact positive anchor factor for every accepted rooted component peel -- **ENERGY INEQUALITY CLOSED; CUTOFF-INDEPENDENT INVERSE COUNT OPEN 2026-08-26**
+
+- **milestone**: serialize the rooted component's exact physical face-copy
+  multiplicities; construct the corresponding repeated accepted face-peel
+  path; identify its endpoint with the globally lowered physical labelling;
+  compose it with the globally accepted lowered assignment; prove the root
+  makes the peel length strictly positive; and obtain the exact expanded-fiber
+  weight inequality with one anchor factor per selected copy.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentWeight.lean`.
+- **principal declarations**:
+  `lowerSlabFacesByList`, `slabFacePeelPath_of_count_capacity`,
+  `slabFaceDropList`, `slabFacePeelPath_of_drop`,
+  `SlabFusionWitnessFaceStrandSeed.selectionCount_root_pos`,
+  `SlabFusionWitnessFaceStrandSeed.peelFaces`,
+  `SlabFusionWitnessFaceStrandSeed.peelFaces_count`,
+  `SlabFusionWitnessFaceStrandSeed.peelFaces_length_pos`,
+  `SlabFusionWitnessFaceStrandSeed.peelPath`, and
+  `SlabFusionWitnessFaceStrandSeed.expandedFiberWeight_le`.
+- **obligation**: construct a left inverse that recovers the source physical
+  and auxiliary labels from the accepted lowered target plus a component code,
+  and prove a cutoff-independent code-count or weighted-fiber bound.  This is
+  the entropy half required to sum the component gas and obtain a connected-
+  correlation estimate.
+- **constructive?**: yes.  The peel is structural recursion over explicit
+  finite lists and counts.  Root positivity uses literal rooted-component
+  membership and the root's bounded slot.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused source check and dependency-complete monitored
+  target pass all 920 jobs.  All twenty audited declarations use at most
+  `[propext, Quot.sound]`; several computational definitions and the finite
+  positivity recursion are axiom-free.  The root aggregator imports the
+  module.  No full-root audit is claimed.

@@ -22813,3 +22813,49 @@ frontier is a left inverse from the lowered configuration plus a bounded
 component code, with a cutoff-independent code count.  Uniform connected-
 correlation decay, the completed physical transfer gap, thermodynamic and
 continuum limits, and the Clay theorem remain open.
+
+## 131. Accepted rooted components pay their exact positive face weight (2026-08-26)
+
+**Status. EVERY ROOTED GLOBAL STRAND COMPONENT CONSTRUCTS AN ACCEPTED LOWERED
+TARGET AND PAYS THE EXACT ANCHOR FACE FACTOR ONCE PER REMOVED COPY; UNIFORM
+INVERSE COUNTING REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentWeight.lean` composes the global accepted
+peel of milestones 129--130 with the existing one-face expanded-fiber
+comparison.  The component incidence profile is serialized as a literal list
+of physical face identifiers, repeated once for every selected strand copy.
+Its count at every identifier is proved equal to the component's Boolean
+selection count, and successive subtraction along that list is proved equal
+to the already-accepted common lowered physical labelling.  A structural peel
+path therefore ends at `seed.lowerPhysical` and retains
+`seed.lowerAssignment` as an accepted global auxiliary target.
+
+The resulting theorem is the direct Peierls energy inequality
+
+```text
+fiberWeight(source)
+  <= anchorFaceCoefficient ^ |component| * fiberWeight(lowered target).
+```
+
+Here `|component|` is the total selected-copy multiplicity.  It is strictly
+positive: the constructive root belongs to its rooted component, its bounded
+face slot contributes one to the finite Boolean count, and that count is no
+larger than the serialized list length.  Thus every rooted removal pays a
+genuine contraction factor rather than a vacuous zeroth power.
+
+The focused source check and dependency-complete monitored target pass all
+920 jobs.  All twenty audited declarations use at most
+`[propext, Quot.sound]`; `lowerSlabFacesByList`, `slabFaceDropList`, and the
+finite positivity recursion are computational and axiom-free.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+This closes the energy side of the component-removal argument.  The single
+next mathematical frontier is its entropy side: reconstruct every source from
+the lowered target plus an explicit component code and prove a
+cutoff-independent bound on the number or total weight of such codes.  Only
+that inverse estimate can turn the candidate
+`625 / 32,000,000 = 1 / 51,200 < 1` into a component-gas connected-correlation
+bound.  The completed physical transfer gap, thermodynamic and continuum
+limits, and the Clay theorem remain open.
