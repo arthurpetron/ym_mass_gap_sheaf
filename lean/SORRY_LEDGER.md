@@ -18474,3 +18474,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 695 jobs.  All ten audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-strand-path-topology] Prove internal advances change vertex and cannot backtrack -- **NONBACKTRACKING INVARIANT CLOSED; FINITE TERMINATION OPEN 2026-08-25**
+
+- **milestone**: prove by the seven geometric valence cases that an internal
+  canonical identifier occupies a unique leg at each left-fusion vertex;
+  lift this fact to prove same-slot internal continuation changes the actual
+  proof-indexed vertex position; prove the local mate cannot remain on the
+  crossed internal identifier; and combine the two facts into the exact
+  nonbacktracking invariant for one internal branch of the total dynamics.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkStrandPathTopology.lean`.
+- **principal declarations**:
+  `canonicalVertex_internal_leg_injective`,
+  `canonicalInternalStrandContinue_vertexIndex_ne`,
+  `localMate_edgeId_ne_of_internal`, and
+  `canonicalInternalAdvance_nonbacktracking`.
+- **obligation**: certify that the internal-edge incidence for degrees at
+  most six is a linear path, use the nonbacktracking invariant to construct a
+  physical terminal after at most the number of resolved vertices, and then
+  start from a physical port's local mate to obtain the other physical
+  terminal.  Nonbacktracking for one step does not alone rule out a longer
+  cycle in an arbitrary graph; the path certificate is still required.
+- **constructive?**: yes.  The topology theorem reduces only the explicit
+  valences zero through six and the three visible trivalent legs.  The port
+  consequences reuse explicit involutions and equality of finite dependent
+  addresses.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, functional extensionality, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 696 jobs.  All four audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

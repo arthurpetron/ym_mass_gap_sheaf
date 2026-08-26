@@ -20591,3 +20591,34 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## One internal strand advance is now proved nonbacktracking on the actual canonical path (2026-08-25)
+
+`CanonicalLinkStrandPathTopology` isolates the topology that makes the
+terminal contraction short.  At any literal vertex of the canonical
+left-fusion chain, a genuine internal edge identifier occupies exactly one
+trivalent leg.  The repeated low-valence identifiers are vacuum terminators,
+not internal carriers.
+
+That uniqueness theorem lifts through the proof-indexed resolved network.
+Same-slot continuation across an internal edge must change the bounded vertex
+position.  At the opposite vertex, the local trivalent mate changes legs and
+therefore cannot select the just-crossed internal edge again.  The combined
+internal branch is consequently a genuine nonbacktracking move, proved
+without unfolding the strand-slot arithmetic.
+
+This supplies the invariant for the next contraction.  What remains is the
+finite global fact that the canonical internal-edge incidence graph is the
+linear path displayed by valences four, five, and six.  A nonbacktracking walk
+on that path has at most four vertices and must return a physical terminal.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 696 jobs.  All four audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No bounded terminal extractor, induced physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.
