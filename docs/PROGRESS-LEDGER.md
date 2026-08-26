@@ -19646,3 +19646,39 @@ No all-cutoff success theorem, uniform route congestion/capacity, persistent
 payment, remaining regional total tail, completed uniform gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Successful deleted detours are now simple and carrier-size bounded (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingCompiler`
+adds the quantitative normalization immediately after the exact finite path
+decision.  Each successful deleted-support chain is loop-erased inside the
+same finite carrier, then compiled to the same positive-kernel route.  The
+compiler preserves endpoints, support, and exclusion of all mapped activated
+edges.
+
+The normalized route has two new checked properties: its directed-edge list
+contains no duplicate, and its edge length is bounded by the length of the
+later finite carrier.  Both properties are transported through the actual
+hybrid routing, which keeps old endpoint-pair routes and substitutes these
+simple detours only for genuinely new endpoint traffic.  The same
+birth-avoidance certificate and its zero activated route-factor/load/debt
+consequences are therefore recovered without changing the observable.
+
+This isolates the next causal obstruction.  Repetition within a single path
+can no longer inflate congestion.  Any remaining large load on a directed
+edge must come from reuse of that edge by different demanded endpoint pairs,
+together with their physical weights and transition factors.  Thus the next
+compiler should aggregate exact cross-endpoint traffic over these simple
+routes and compare it with available edge capacity; a bare path-length bound
+cannot close that estimate uniformly because the carrier grows with cutoff.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5178 jobs.  The ten audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No all-cutoff success theorem, cross-endpoint congestion bound, uniform routed
+capacity, persistent payment, remaining regional total tail, completed
+uniform gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.

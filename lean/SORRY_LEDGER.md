@@ -17543,3 +17543,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   executable forbidden-token scans report zero hits, `git diff --check`
   passes, and the root aggregator imports the dynamic decision.  No full-root
   audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-simple-routing] Loop-erase exact deleted detours and bound them by the later carrier — **CLOSED 2026-08-25**
+
+- **milestone**: constructively loop-erase every exact deleted-support chain;
+  retain its endpoints, support membership, and forbidden-edge avoidance;
+  compile the resulting simple walk to the positive physical kernel; prove
+  that its directed-edge list has no duplicates and that its edge length is
+  at most the later finite-carrier length; specialize this construction to
+  every exact new-endpoint traffic pair; transport both bounds through the
+  old-preserving/new-adaptive hybrid routing; and recover the existing
+  birth-avoiding routing certificate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingCompiler.lean`.
+- **decl**:
+  `forbiddenDeletedSupportBoundedSimpleWalk`,
+  `PositiveKernelChainIn.ofForbiddenDeletedSimpleChainIn`,
+  `PositiveKernelChainIn.ofForbiddenDeletedSimpleChainIn_avoids`,
+  `PositiveKernelChainIn.ofForbiddenDeletedSimpleChainIn_edgeLength_le`,
+  `PositiveKernelChainIn.ofForbiddenDeletedSimpleChainIn_directedEdges_nodup`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleNewRouting`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRouting_path_edgeLength_le`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRouting_path_directedEdges_nodup`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.toSimpleBirthAvoidingRoutingAt`.
+- **obligation**: prove that the exact deleted-path decision succeeds at the
+  required cutoffs and bound aggregate reuse of any directed edge across
+  distinct demanded endpoint pairs, with the physical endpoint weights and
+  transition factors included.  Simplicity removes repeated use inside one
+  route; it does not by itself supply cutoff-uniform congestion or capacity.
+  Persistent traffic, other shell faces, and cutoff coherence remain open.
+- **constructive?**: yes.  Loop erasure is support-bounded structural
+  recursion with decidable equality; all retained edge, endpoint, and
+  forbidden-list claims are proved in `Type` or `Prop` without choice.  The
+  specialization preserves the exact matched trajectory, observable endpoint
+  list, activated deletion mask, and hybrid route.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5178 jobs.  The ten audited
+  exports use only `[propext, Quot.sound]`; the executable forbidden-token
+  scan reports zero hits, `git diff --check` passes, and the root aggregator
+  imports the module.  No full-root audit is claimed.
