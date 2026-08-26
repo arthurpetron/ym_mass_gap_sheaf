@@ -19166,3 +19166,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; several computational definitions and the finite
   positivity recursion are axiom-free.  The root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [compact-dual-slab-face-strand-component-reconstruction] Reconstruct the entire source after one accepted component peel -- **ALGEBRAIC LEFT INVERSE CLOSED; FINITE CODE COUNT OPEN 2026-08-26**
+
+- **milestone**: re-add the pointwise-bounded physical component incidence;
+  mask each link drop to the canonical auxiliary-coordinate support; prove
+  exact local source-auxiliary reconstruction; recover recursive Cartesian
+  assignments from their lookups on duplicate-free link lists; and specialize
+  the resulting whole-configuration left inverse to
+  `boundaryCompleteSlabLinks`.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentReconstruction.lean`.
+- **principal declarations**:
+  `raiseEdgeLabellingBy`,
+  `raiseEdgeLabellingBy_lowerEdgeLabellingBy_supported`,
+  `SlabFusionWitnessFaceStrandSeed.reconstructPhysical_eq`,
+  `SlabLinkPartnerClosedFaceSelection.drop_le_auxiliary`,
+  `SlabLinkPartnerClosedFaceSelection.reconstructAuxiliary_lower`,
+  `slabFusionWitnessAssignmentFrom_at_eq`,
+  `SlabFusionWitnessFaceStrandSeed.reconstructAuxiliaryAt_eq`,
+  `SlabFusionWitnessFaceStrandSeed.reconstructAssignment_eq`, and
+  `SlabFusionWitnessFaceStrandSeed.reconstructCompleteAssignment_eq`.
+- **obligation**: replace the source-dependent rooted component/drop data by
+  an explicit finite geometric word, prove its decoder supplies exactly the
+  physical and internal auxiliary drops consumed by the left inverse, and
+  prove a cutoff-independent code-count or weighted-fiber estimate.
+- **constructive?**: yes.  Every inverse is pointwise natural arithmetic on
+  explicit finite supports, and global reconstruction is structural recursion
+  on duplicate-free literal link lists.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused source check and dependency-complete monitored
+  target pass all 921 jobs.  All eighteen audited declarations use at most
+  `[propext, Quot.sound]`; the generic pointwise raising operation is
+  axiom-free.  The root aggregator imports the module.  No full-root audit is
+  claimed.

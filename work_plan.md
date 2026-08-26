@@ -22859,3 +22859,56 @@ that inverse estimate can turn the candidate
 `625 / 32,000,000 = 1 / 51,200 < 1` into a component-gas connected-correlation
 bound.  The completed physical transfer gap, thermodynamic and continuum
 limits, and the Clay theorem remain open.
+
+## 132. The accepted component peel has an exact whole-configuration left inverse (2026-08-26)
+
+**Status. THE LOWERED PHYSICAL LABELS AND COMPLETE GLOBAL FUSION ASSIGNMENT
+RECONSTRUCT THE EXACT SOURCE WHEN SUPPLIED WITH THE ROOTED COMPONENT DROP;
+FINITE GEOMETRIC CODE SERIALIZATION AND COUNTING REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentReconstruction.lean` closes the algebraic
+half of inverse encoding.  For physical faces, the component drop is already
+pointwise bounded by the source spin, so natural subtraction cancels exactly:
+
+```text
+seed.lowerPhysical + seed.physicalDrop = source physical.
+```
+
+For a link auxiliary witness, the correct inverse is slightly subtler.  The
+compiled strand drop has coordinates on both physical and internal canonical
+edges, while an auxiliary labelling vanishes outside
+`canonicalUsedAuxiliaryCoordinates`.  The module therefore masks the re-added
+drop to that explicit internal support.  Finite Boolean counting bounds the
+drop by the canonical source label; coordinate separation identifies that
+label with the source auxiliary on the internal support; and accepted witness
+membership proves that the source auxiliary is zero off it.  These three
+facts give the exact local left inverse
+
+```text
+reconstructAuxiliary(lowerEdgeLabellingBy sourceAux drop) = sourceAux.
+```
+
+The proof then contracts the local identities into the actual global object.
+For any duplicate-free link carrier, constructing a field from assignment
+lookups recovers the original recursive Cartesian assignment in literal
+order.  Since `boundaryCompleteSlabLinks extent` is duplicate-free, the
+production theorem `reconstructCompleteAssignment_eq` recovers the complete
+source fusion assignment from the globally accepted lowered target and the
+rooted component's linkwise internal drops.  No original physical spin or
+fusion-witness label must be stored separately in the inverse record.
+
+The focused source check and dependency-complete monitored target pass all
+921 jobs.  All eighteen audited declarations use at most
+`[propext, Quot.sound]`; `raiseEdgeLabellingBy` is axiom-free.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  The
+root aggregator imports the module; no full-root audit is claimed.
+
+The next theorem-first frontier is now precise: serialize the component's
+face-copy multiplicities and its at-most-three internal canonical drops per
+physical link into a finite geometric word, prove decoding reproduces the
+drop functions used here, and bound the number or total weight of such words
+by a cutoff-independent exponential.  Only that entropy estimate can combine
+with milestone 131's exact energy payment to yield connected-correlation
+decay.  The completed physical transfer gap, thermodynamic and continuum
+limits, and the Clay theorem remain open.
