@@ -98,6 +98,28 @@ theorem AdaptiveAuxiliaryRowsFit.mem_carrier :
         apply List.mem_map.mpr
         exact ⟨_rows, AdaptiveAuxiliaryRowsFit.mem_carrier htail, rfl⟩
 
+/-- Pointwise length and radix bounds over a common source list assemble into
+the typed row-fit relation. -/
+theorem adaptiveAuxiliaryRowsFit_map
+    {A : Type} (mass width : A -> Nat) (row : A -> List Nat) :
+    forall items : List A,
+      (forall item, item ∈ items -> (row item).length = width item) ->
+      (forall item, item ∈ items -> forall value, value ∈ row item ->
+        value < mass item + 1) ->
+      AdaptiveAuxiliaryRowsFit
+        (items.map fun item => (mass item, width item))
+        (items.map row)
+  | [], _, _ => .nil
+  | item :: items, hlength, hentry =>
+      .cons
+        (hlength item List.mem_cons_self)
+        (hentry item List.mem_cons_self)
+        (adaptiveAuxiliaryRowsFit_map mass width row items
+          (fun next hnext =>
+            hlength next (List.mem_cons_of_mem item hnext))
+          (fun next hnext =>
+            hentry next (List.mem_cons_of_mem item hnext)))
+
 /-- Elementary exponential envelope for a successor. -/
 theorem nat_succ_le_two_pow : forall mass : Nat,
     mass + 1 <= 2 ^ mass
@@ -175,6 +197,7 @@ theorem adaptiveAuxiliaryCarrier_length_le_4096_pow
 #print axioms AdaptiveAuxiliaryRowsFit
 #print axioms adaptiveAuxiliaryCarrier_length
 #print axioms AdaptiveAuxiliaryRowsFit.mem_carrier
+#print axioms adaptiveAuxiliaryRowsFit_map
 #print axioms nat_succ_le_two_pow
 #print axioms localAdaptiveAuxiliaryFactor_le_eight_pow
 #print axioms adaptiveAuxiliaryCarrierSize_le_eight_pow_mass

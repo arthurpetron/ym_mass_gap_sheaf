@@ -23785,3 +23785,43 @@ incidence double count.  Only then may the `625 * 4 * 4096` strict entropy
 ratio be claimed.  The conditional transition floor, posterior variance,
 dense form gap, completed OS gap, thermodynamic/continuum passage, and Clay
 theorem remain open.
+
+## 152. Production full rows have volume-free adaptive entropy (2026-08-26)
+
+**Status. THE ACTUAL COMPONENT AUXILIARY ROW TABLE NOW INHABITS A
+LINK-ADAPTIVE CARRIER OF SIZE AT MOST `4096^peelSize`, WITH TOTAL LINK MASS
+PROVED EXACTLY `4 * peelSize`.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryProduction.lean` keeps the
+complete corrected-slab link order.  For each link it records the selected
+incident physical mass `t` and the literal number `w <= 3` of used canonical
+auxiliary coordinates, then stores the production word in
+`allSeqs (t + 1) w`.
+
+Milestone 150 supplies the pointwise entry bound.  The complete-slab incidence
+permutation supplies the exact global identity
+
+```text
+sum_over_links selectedIncidentMass = 4 * peelSize.
+```
+
+Thus the production rows inhabit the abstract carrier from milestone 151 and
+its length is at most `4096^peelSize`.  Keeping all volume links is harmless:
+outside the physical component `t = 0`, so `allSeqs 1 w` is a singleton.  This
+removes the separate `16^peelSize` sparse-row presence factor without hiding a
+volume-dependent constant.
+
+The proof was factored through an opaque per-entry theorem so Lean does not
+re-reduce the full dependent strand selection during Cartesian membership;
+the standard heartbeat ceiling remains unchanged.  All nine production
+declarations, the new per-entry bridge, and the generic map-to-row-fit theorem
+use at most `[propext, Quot.sound]`.
+
+The next frontier is the exact left inverse: equality of shape and physical
+multiplicity words must identify the adaptive specifications, and equality of
+the complete row tables must reconstruct the full auxiliary drop table and
+hence the source assignment over a common lowered target.  Then the
+three-factor carrier can be counted with base `625 * 4 * 4096 = 10240000` and
+compared to the face payment.  The conditional transition floor, posterior
+variance, dense form gap, completed OS gap, thermodynamic/continuum passage,
+and Clay theorem remain open.

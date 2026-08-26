@@ -19,12 +19,17 @@ declaration, or enlarged heartbeat budget.
 -/
 
 import YMGap.Continuum.CompactDualSlabFaceStrandComponentAuxiliaryL1
+import YMGap.Continuum.CompactDualSlabFaceStrandComponentGlobalAuxiliaryL1
 
 namespace YMGap.Continuum.CompactDualSlabFaceStrandComponentAuxiliaryPointwiseBound
 
 set_option autoImplicit false
 
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentAuxiliaryL1
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentDrop
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentDropCode
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentGlobalAuxiliaryL1
+open YMGap.Continuum.CompactDualSlabFaceStrandSeedComponent
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
 open YMGap.Continuum.CompactDualSlabPhysicalSelectionPullback
@@ -183,7 +188,37 @@ theorem SlabLinkPartnerClosedFaceSelection.auxiliaryDrop_le_physicalDrop_l1
           ((List.finRange (slabIncidentPlaqIds extent link).length).map
             fun position => drop position.val)) hdrop
 
+/-- Every entry of a rooted component's literal auxiliary word is bounded by
+the selected physical face mass incident on that link. -/
+theorem SlabFusionWitnessFaceStrandSeed.auxiliaryDropWordAt_entry_le_incidentFace_l1
+    {K extent : Nat} {physical : SlabLabelling}
+    {links : List SlabLink} {assignment : SlabFusionWitnessAssignment}
+    {hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links}
+    (seed : SlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment hassignment)
+    (link : SlabLink) (hlink : link ∈ links)
+    (value : Nat)
+    (hvalue : value ∈
+      SlabFusionWitnessFaceStrandSeed.auxiliaryDropWordAt seed link) :
+    value <= natListSum
+      ((slabIncidentPlaqIds extent link).map fun faceId =>
+        slabFaceStrandSelectionCount seed.selected faceId) := by
+  rw [SlabFusionWitnessFaceStrandSeed.auxiliaryDropWordAt_of_mem
+    seed link hlink] at hvalue
+  obtain ⟨edge, hedge, rfl⟩ := List.mem_map.mp hvalue
+  let selection := seed.atLinkSelection ⟨link, hlink⟩
+  have hbound :=
+    SlabLinkPartnerClosedFaceSelection.auxiliaryDrop_le_physicalDrop_l1
+      selection edge hedge
+  have hmass :=
+    SlabLinkPartnerClosedFaceSelection.physicalDrop_l1_eq_incidentFace_l1
+      selection
+  rw [hmass] at hbound
+  exact hbound
+
 #print axioms canonicalLinkSelection_auxiliaryDrop_le_physical_l1
 #print axioms SlabLinkPartnerClosedFaceSelection.auxiliaryDrop_le_physicalDrop_l1
+#print axioms SlabFusionWitnessFaceStrandSeed.auxiliaryDropWordAt_entry_le_incidentFace_l1
 
 end YMGap.Continuum.CompactDualSlabFaceStrandComponentAuxiliaryPointwiseBound
