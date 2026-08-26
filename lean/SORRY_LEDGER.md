@@ -19058,3 +19058,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   most `[propext, Quot.sound]`; several computational graph declarations are
   axiom-free.  The root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [compact-dual-slab-face-strand-component-drop] Identify a rooted component's local compiler drop with its global physical incidence -- **COMMUTING SQUARE AND LINKWISE ACCEPTED PEELS CLOSED; GLOBAL ASSIGNMENT ASSEMBLY OPEN 2026-08-26**
+
+- **milestone**: count the selected strand copies on each physical face;
+  identify every bounded physical edge-slot value with the corresponding
+  literal global face-copy characteristic; contract those pointwise identities
+  into equality between the local compiler drop and global face incidence;
+  define the common lowered physical labelling; and construct an accepted
+  lowered auxiliary witness at every displayed link.
+- **files**:
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkPortSelectionRemoval.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabGlobalFaceStrandEdges.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPhysicalSelectionPullback.lean`, and
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentDrop.lean`.
+- **principal declarations**:
+  `ResolvedNetworkPortClosedSelection.toMateClosedSelection_drop`,
+  `slabLinkPhysicalTerminalFaceStrandCopy_faceId`,
+  `slabLinkPhysicalTerminalFaceStrandCopy_slot_val`,
+  `SlabLinkPartnerClosedFaceSelection.drop`,
+  `SlabLinkPartnerClosedFaceSelection.toMateClosedSelection_drop`,
+  `slabFaceStrandSelectionAt`,
+  `slabFaceStrandSelectionCount`,
+  `lowerSlabPhysicalByFaceStrandSelection`,
+  `SlabLinkPartnerClosedFaceSelection.edgeSlotValue_at_position_slot`,
+  `SlabLinkPartnerClosedFaceSelection.drop_at_position`,
+  `SlabLinkPartnerClosedFaceSelection.externalSpins_lowerPhysical`, and
+  `SlabFusionWitnessFaceStrandSeed.lower_auxiliary_mem_atLink`.
+- **obligation**: assemble the linkwise lowered witnesses into one global
+  accepted assignment, join that accepted peel to the exact expanded-fiber
+  weight payment, and construct a cutoff-independent inverse component code.
+  Only then can the component gas yield a uniform connected-correlation bound.
+- **constructive?**: yes.  Every observation is built from the exact finite
+  physical half-edge fiber and a bounded slot; every global drop is a primitive
+  finite Boolean count.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused source check and dependency-complete monitored
+  target pass all 711 jobs.  All eleven audited declarations in the new module
+  use at most `[propext, Quot.sound]`; three central computational definitions
+  are axiom-free.  The root aggregator imports the module.  No full-root audit
+  is claimed.

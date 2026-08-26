@@ -136,6 +136,18 @@ def ResolvedNetworkPortClosedSelection.toMateClosedSelection
           ResolvedNetworkPort.slot, resolvedVertexAt] using
             (selection.edgeSlotValue_at_port occurrence).symm
 
+/-- The descended selection's common drop is exactly the finite count of the
+proof-independent edge-slot values.  This generic transparency lemma lets
+physical specializations reason about the count without unfolding their
+entire dependent network. -/
+theorem ResolvedNetworkPortClosedSelection.toMateClosedSelection_drop
+    {vertices : List TrivalentVertex} {label : EdgeLabelling}
+    (network : ResolvedTrivalentNetwork vertices label)
+    (selection : ResolvedNetworkPortClosedSelection network) :
+    (selection.toMateClosedSelection network).drop =
+      fun edge => boolCountFrom (selection.edgeSlotValue edge)
+        0 (label edge) := rfl
+
 /-- **Occurrence-to-removal compiler.**  Same-copy descent followed by the
 three local Kirchhoff identities constructs one coherent network removal. -/
 def ResolvedNetworkPortClosedSelection.toCoherentRemoval
@@ -150,6 +162,7 @@ def ResolvedNetworkPortClosedSelection.toCoherentRemoval
 #print axioms ResolvedNetworkPortClosedSelection.edgeSlotValue
 #print axioms ResolvedNetworkPortClosedSelection.edgeSlotValue_at_port
 #print axioms ResolvedNetworkPortClosedSelection.toMateClosedSelection
+#print axioms ResolvedNetworkPortClosedSelection.toMateClosedSelection_drop
 #print axioms ResolvedNetworkPortClosedSelection.toCoherentRemoval
 
 end YMGap.Continuum.ResolvedTrivalentNetworkPortSelectionRemoval

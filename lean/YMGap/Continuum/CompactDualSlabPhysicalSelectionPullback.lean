@@ -435,6 +435,22 @@ theorem SlabLinkPartnerClosedFaceSelection.atPort_cross
 
 /-- The literal slab face-copy pullback compiles to the existing mate-closed
 edge-copy selection consumed by fusion preservation. -/
+def SlabLinkPartnerClosedFaceSelection.drop
+    {cutoff extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {auxiliary : SlabLabelling}
+    {hmem : auxiliary ∈
+      slabLinkFusionWitnesses cutoff extent physical link}
+    (selection : SlabLinkPartnerClosedFaceSelection
+      cutoff extent physical link auxiliary hmem) : EdgeLabelling :=
+  fun edge => boolCountFrom
+    (selection.toCanonical.toPortClosedSelection.edgeSlotValue edge)
+    0
+    (canonicalLinkLabelling
+      (slabIncidentPlaqIds extent link).length
+      (slabLinkExternalSpins extent physical link) auxiliary edge)
+
+/-- The literal slab face-copy pullback compiles to the existing mate-closed
+edge-copy selection consumed by fusion preservation. -/
 def SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
     {cutoff extent : Nat} {physical : SlabLabelling} {link : SlabLink}
     {auxiliary : SlabLabelling}
@@ -446,6 +462,22 @@ def SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
   selection.toCanonical.toPortClosedSelection.toMateClosedSelection
     (slabLinkResolvedStrandNetwork
       cutoff extent physical link auxiliary hmem)
+
+/-- The generic conservation compiler reads exactly the named physical drop. -/
+theorem SlabLinkPartnerClosedFaceSelection.toMateClosedSelection_drop
+    {cutoff extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {auxiliary : SlabLabelling}
+    {hmem : auxiliary ∈
+      slabLinkFusionWitnesses cutoff extent physical link}
+    (selection : SlabLinkPartnerClosedFaceSelection
+      cutoff extent physical link auxiliary hmem) :
+    selection.toMateClosedSelection.drop = selection.drop := by
+  unfold SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
+    SlabLinkPartnerClosedFaceSelection.drop
+  exact
+    selection.toCanonical.toPortClosedSelection.toMateClosedSelection_drop
+      (slabLinkResolvedStrandNetwork
+        cutoff extent physical link auxiliary hmem)
 
 /-- **Physical-selection fusion preservation.**  If the target external
 labels realize the edge drops extracted from a partner-closed physical
@@ -484,7 +516,9 @@ theorem SlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
 #print axioms SlabLinkPartnerClosedFaceSelection.toCanonical
 #print axioms SlabLinkPartnerClosedFaceSelection.atPort_localMate
 #print axioms SlabLinkPartnerClosedFaceSelection.atPort_cross
+#print axioms SlabLinkPartnerClosedFaceSelection.drop
 #print axioms SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
+#print axioms SlabLinkPartnerClosedFaceSelection.toMateClosedSelection_drop
 #print axioms SlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
 
 end YMGap.Continuum.CompactDualSlabPhysicalSelectionPullback

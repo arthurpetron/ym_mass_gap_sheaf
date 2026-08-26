@@ -22717,3 +22717,53 @@ theorem and permit global target-assignment assembly.  The inverse component
 encoding, cutoff-independent counting or posterior-variance bound, completed
 physical transfer gap, thermodynamic/continuum limits, and Clay theorem remain
 open.
+
+## 129. Rooted component incidence constructs every accepted local peel (2026-08-26)
+
+**Status. THE EXTERNAL-DROP COMMUTING SQUARE IS CLOSED AND ONE COMMON LOWERED
+PHYSICAL LABELLING HAS AN ACCEPTED LOWERED AUXILIARY WITNESS AT EVERY DISPLAYED
+LINK; GLOBAL LIST ASSEMBLY REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentDrop.lean` gives the global component its
+literal observable: `slabFaceStrandSelectionCount selected face` is the finite
+number of selected strand slots on that physical face, and
+`lowerSlabPhysicalByFaceStrandSelection` subtracts exactly those counts.  The
+central pointwise theorem observes an arbitrary bounded physical slot through
+the unique physical half-edge of the resolved canonical link and proves
+
+```text
+descended edge-slot value(position,slot)
+  = global component characteristic(face(position),slot).
+```
+
+Finite-count congruence contracts this pointwise equality into the desired
+commuting square: at every incident position, the link compiler's drop is the
+global selected-copy count of the corresponding face.  Hence the single
+globally lowered physical labelling realizes the required external labels at
+every displayed link.  Composing with the Kirchhoff removal theorem constructs
+an actual accepted lowered auxiliary witness for every such link; acceptedness
+is a theorem, not a field of the component.
+
+A small semantic `SlabLinkPartnerClosedFaceSelection.drop` keeps this proof
+extensional and avoids normalizing the full dependent compiler package.  Its
+equality with the pre-existing mate-closed drop is proved once through the
+generic transparency lemma
+`ResolvedNetworkPortClosedSelection.toMateClosedSelection_drop`.
+
+The focused source check and dependency-complete monitored target pass all 711
+jobs.  All eleven declarations audited in the new module use at most
+`[propext, Quot.sound]`; the totalized selection, finite face count, and global
+physical lowering are computational, with the selection and lowering
+axiom-free.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the module; no full-root audit is claimed.
+
+The next causal theorem is assembly rather than another geometric compiler:
+map the constructed lowered auxiliary witness over the displayed link list to
+obtain one member of
+`slabFusionWitnessAssignmentsOn K extent seed.lowerPhysical links`.  After
+that, compose the global accepted peel with the exact expanded-fiber weight
+payment and confront the genuine analytic/combinatorial frontier: a
+cutoff-independent inverse component encoding.  Uniform connected-correlation
+decay, the completed physical transfer gap, thermodynamic/continuum limits,
+and the Clay theorem remain open.

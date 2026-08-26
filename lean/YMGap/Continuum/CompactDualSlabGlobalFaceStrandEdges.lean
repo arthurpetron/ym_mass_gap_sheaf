@@ -149,6 +149,29 @@ def slabLinkPhysicalTerminalFaceStrandCopy
     (slabLinkPhysicalTerminalOccurrence
       K extent physical link auxiliary hmem terminal)
 
+/-- The global copy remembers the terminal's literal incident-face lookup. -/
+@[simp] theorem slabLinkPhysicalTerminalFaceStrandCopy_faceId
+    (K extent : Nat) (physical : SlabLabelling) (link : SlabLink)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈ slabLinkFusionWitnesses K extent physical link)
+    (terminal : SlabLinkPhysicalStrandTerminal
+      K extent physical link auxiliary hmem) :
+    (slabLinkPhysicalTerminalFaceStrandCopy
+      K extent physical link auxiliary hmem terminal).faceId =
+      (slabIncidentPlaqIds extent link).get
+        ⟨terminal.1.edgeId, terminal.2⟩ := rfl
+
+/-- The global copy remembers the terminal's bounded strand-slot value. -/
+@[simp] theorem slabLinkPhysicalTerminalFaceStrandCopy_slot_val
+    (K extent : Nat) (physical : SlabLabelling) (link : SlabLink)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈ slabLinkFusionWitnesses K extent physical link)
+    (terminal : SlabLinkPhysicalStrandTerminal
+      K extent physical link auxiliary hmem) :
+    (slabLinkPhysicalTerminalFaceStrandCopy
+      K extent physical link auxiliary hmem terminal).slot.val =
+      terminal.1.slot := rfl
+
 /-- A directed physical strand edge records the lattice link that performs
 the pairing and two endpoints on different plaquette faces. -/
 structure SlabFaceStrandEdge (physical : SlabLabelling) : Type where
@@ -283,6 +306,8 @@ def slabFineFusionWitnessFaceStrandEdges
 #print axioms SlabFaceStrandCopy
 #print axioms slabLinkFaceStrandOccurrenceToCopy
 #print axioms slabLinkPhysicalTerminalFaceStrandCopy
+#print axioms slabLinkPhysicalTerminalFaceStrandCopy_faceId
+#print axioms slabLinkPhysicalTerminalFaceStrandCopy_slot_val
 #print axioms SlabFaceStrandEdge
 #print axioms slabLinkFaceStrandEdgeOfTerminal
 #print axioms slabLinkFaceStrandEdges
