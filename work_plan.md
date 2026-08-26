@@ -23665,3 +23665,46 @@ replace that factor and leave a ratio below one.  Only then can one construct
 the exact heat-weight ratio and posterior-variance fraction.  The uniform
 strict form bound, completed OS gap, thermodynamic/continuum passage, and Clay
 theorem remain open.
+
+## 149. The inverse auxiliary fiber has an exact strict threshold (2026-08-26)
+
+**Status. THE FINE-INTERTWINER DISINTEGRATION HAS UNIT COUNTING WEIGHT ON EACH
+ACCEPTED AUXILIARY WITNESS, SO THERE IS NO HIDDEN AUXILIARY BOLTZMANN FACTOR.
+AFTER THE PROVED STRUCTURAL CODE, STRICT CONTRACTION REQUIRES AN INVERSE-FIBER
+BASE AT MOST `799`; BASE `800` IS EXACTLY CRITICAL.**
+
+Inspection of `BF4SU2FineIntertwinerPhysicalDisintegration.lean` corrects the
+tentative weighted-summation route stated at the end of milestone 148.  Every
+accepted fine auxiliary witness contributes literal unit counting weight.
+The next obligation is therefore a sharper inverse-fiber count, not the
+extraction of a weight that is absent from the current disintegration.
+
+`CompactDualSlabFaceStrandComponentEntropyThreshold.lean` isolates the exact
+numerical contract.  The already-faithful shape, physical-multiplicity, and
+row-presence carriers consume base
+
+```text
+625 * 4 * 16 = 40000.
+```
+
+Against the proved face factor `1 / 32000000`, their product is exactly
+`1 / 800`.  Thus an auxiliary inverse-fiber base of `799` produces the strict
+ratio
+
+```text
+799 * 40000 * (1 / 32000000) = 799 / 800 < 1,
+```
+
+whereas base `800` gives equality and no strict reserve.  These equalities and
+inequalities are checked by constructive rational arithmetic.  The raw
+weak-composition base `4^12` is also proved strictly larger than `799`.
+
+This milestone does **not** prove the inverse-fiber bound.  Its causal next
+frontier is to use canonical same-slot strand continuation and local trivalent
+mate reconstruction to bound the auxiliary data compatible with a fixed
+root, lowered target, shape word, physical-multiplicity word, and row-presence
+word by at most `799^peelSize`; alternatively, one must reduce one of the
+structural carrier bases.  Only after that bound can the strict component ratio,
+exact conditional transition floor, posterior-variance fraction, uniform dense
+form bound, completed OS gap, thermodynamic/continuum passage, and Clay theorem
+be constructed.
