@@ -23576,3 +23576,43 @@ compare it with milestone 131's SU2 heat payment.  The exact conditional
 transition ratio, posterior-variance fraction, uniform strict form bound,
 completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
 open.
+
+## 147. Key and value codes reconstruct the sparse auxiliary table (2026-08-26)
+
+**Status. THE ROOTED SHAPE, ROW-PRESENCE, AND FLATTENED AUXILIARY-VALUE WORDS
+NOW RECONSTRUCT THE LITERAL SPARSE AUXILIARY TABLE; THE COMPLETE COMPONENT CODE
+IS READY FOR A FINITE INJECTIVE COUNT.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryDropDecoder.lean` first proves
+that sparse row keys are literally a Boolean filter of the complete slab-link
+carrier.  Filtering that same carrier by the decoded membership predicate
+therefore recovers the production key list in its original order, not merely
+up to permutation.
+
+Each retained row is proved to have exactly the width of its link's canonical
+auxiliary-coordinate list.  A structural `take`/`drop` decoder splits the
+decoded flattened value word at those link-determined widths and reconstructs
+the full row table literally.  Consequently
+
+```text
+decode(shapeCode, presenceCode, auxiliaryValueCode)
+  = sparseDropCode.auxiliaryWords.
+```
+
+The induced total linkwise auxiliary-drop decoder agrees with the existing
+sparse-drop decoder.  At a common literal root, equality of shape, presence,
+and value words forces equality of the complete sparse auxiliary tables.
+
+The focused monitored source check passes.  All twelve audited declarations
+use at most `[propext, Quot.sound]`; the raw sparse-key filter theorem uses only
+`propext`.  No `Classical`, choice, proof obligation, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+Together with milestone 145, the four code factors now reconstruct both the
+complete physical face drop and the complete sparse auxiliary drop.  The next
+frontier is to package these factors into one finite product carrier, prove the
+production code injective at a fixed root/lowered target, and obtain the exact
+component entropy base before comparing it with milestone 131's SU2 heat
+payment.  The exact conditional transition ratio, posterior-variance fraction,
+uniform strict form bound, completed OS gap, thermodynamic/continuum passage,
+and Clay theorem remain open.
