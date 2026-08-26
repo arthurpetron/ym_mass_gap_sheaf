@@ -18436,3 +18436,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 694 jobs.  All sixteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-strand-step] Compile every canonical port into physical stop or actual internal advance -- **TOTAL ONE-STEP DYNAMICS CLOSED; PATH TERMINATION OPEN 2026-08-25**
+
+- **milestone**: prove that a resolved port's selected vertex belongs to the
+  exact original graph and its edge is one of that vertex's three identifiers;
+  deduce membership in the production used-coordinate list; constructively
+  classify every typed port as physical or internal while excluding the
+  zero-labelled terminator; and consume the result in a total step that either
+  returns the physical terminal or performs same-slot internal crossing
+  followed by the local trivalent mate.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkStrandStep.lean`.
+- **principal declarations**:
+  `resolvedNetworkPort_vertex_mem`,
+  `resolvedNetworkPort_vertexContains`,
+  `canonicalResolvedPort_edge_mem_used`,
+  `canonicalInternalFusionEdge_not_lt`,
+  `CanonicalResolvedPortClass`,
+  `canonicalResolvedPortClassify`,
+  `CanonicalPhysicalStrandPort`,
+  `canonicalLinkStrandStep`,
+  `canonicalLinkStrandStep_of_physical`, and
+  `canonicalLinkStrandStep_of_internal`.
+- **obligation**: prove the canonical left-fusion network is a finite path at
+  the level of proof-indexed half-edges, prove that an internal crossing reaches
+  the adjacent vertex and that the following local mate cannot immediately
+  backtrack, and contract repeated total steps to a physical terminal with an
+  explicit bound.  One total step alone does not prove termination or induce a
+  physical-terminal pairing.
+- **constructive?**: yes.  Both branches are selected by decidable predicates;
+  propositional coverage is used only to refute the impossible residual case,
+  while the returned branch and next port live in `Type`.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, functional
+  extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 695 jobs.  All ten audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

@@ -20559,3 +20559,35 @@ strand-component extraction, coherent BF4 peel, heat-weight comparison,
 cutoff-uniform posterior-variance fraction, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Canonical link strands now have a total constructive stop-or-advance dynamics (2026-08-25)
+
+`CanonicalLinkStrandStep` proves that every dependent port in an accepted
+resolved canonical link network lies over a coordinate actually read by the
+original production chain.  Decidable classification then returns data in
+exactly two cases: a physical terminal, or a genuine internal fusion edge.
+The apparent third case is the used vacuum terminator, which is eliminated by
+its accepted zero label and the port's strict slot bound.
+
+The classifier is immediately consumed by a total one-step map.  A physical
+port stops and is returned with its physical-edge proof.  An internal port is
+transported across its two-point edge with the same slot and then sent through
+the local trivalent mate at the opposite endpoint.  Thus the module exposes
+the actual strand dynamics rather than leaving a disconnected inventory of
+edge cases.
+
+The next theorem is the finite-path contraction: show from the literal
+left-fusion topology that an internal crossing changes to an adjacent vertex,
+the local mate cannot backtrack on the incoming leg, and therefore at most the
+number of chain vertices can be visited before a physical terminal is reached.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 695 jobs.  All ten audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No finite termination witness, induced physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.
