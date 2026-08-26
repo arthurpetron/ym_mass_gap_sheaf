@@ -20495,3 +20495,35 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Every internal canonical link edge now has a canonical endpoint transposition (2026-08-25)
+
+`CanonicalLinkInternalHalfEdgeSwap` isolates the elementary mathematical
+content of a duplicate-free two-element fiber.  From the explicit list,
+length-two proof, and `Nodup` proof it computes the two distinct elements as
+data and defines their transposition.  On the actual member type, this map is
+proved fiber-preserving, fixed-point-free, and involutive.
+
+Specializing that reusable compiler to the resolved canonical link network
+turns every genuine internal fusion edge into an explicit endpoint
+continuation.  The continuation remains over the same graph-edge identifier,
+never returns the same half-edge, and squares exactly to the identity.  There
+is no finite search and no choice principle: the ordered fiber itself supplies
+the canonical orientation.
+
+This closes the position-level internal continuation.  The next theorem lifts
+it to strand ports by transporting the unchanged bounded slot from one
+half-edge to the other.  Once that lift is involutive, alternating the internal
+continuation with the local trivalent mate gives the finite path whose endpoints
+must be shown physical.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 693 jobs.  All eighteen audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No typed same-slot strand continuation, physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.

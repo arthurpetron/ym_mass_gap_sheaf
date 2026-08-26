@@ -18355,3 +18355,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 692 jobs.  All fourteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-internal-half-edge-swap] Compile every two-point internal fiber into its endpoint transposition -- **POSITION CONTINUATION CLOSED; SLOT TRANSPORT OPEN 2026-08-25**
+
+- **milestone**: constructively turn an arbitrary duplicate-free length-two
+  list into two distinct points and their transposition; prove the map on the
+  actual member type fixed-point-free and involutive; then specialize this
+  compiler to every genuine internal edge of an accepted canonical resolved
+  link network and prove preservation of its graph-edge identifier.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkInternalHalfEdgeSwap.lean`.
+- **principal declarations**:
+  `TwoPointFiber`,
+  `TwoPointFiber.ofLengthNodup`,
+  `TwoPointFiber.swap`,
+  `TwoPointFiber.swap_ne_self`,
+  `TwoPointFiber.swap_involutive`,
+  `TwoPointFiber.swapMember`,
+  `TwoPointFiber.swapMember_ne_self`,
+  `TwoPointFiber.swapMember_involutive`,
+  `mem_halfEdgesOnEdge_iff`,
+  `canonicalInternalHalfEdgeFiber`,
+  `CanonicalInternalHalfEdge`,
+  `canonicalInternalHalfEdgeSwap`,
+  `canonicalInternalHalfEdgeSwap_edgeId`,
+  `canonicalInternalHalfEdgeSwap_ne_self`, and
+  `canonicalInternalHalfEdgeSwap_involutive`.
+- **obligation**: reconstruct a typed resolved-network port at the swapped
+  half-edge with exactly the source strand slot, prove the reconstruction
+  preserves the slot and edge identifier, and prove it is itself a
+  fixed-point-free involution.  Then alternate this map with the local
+  trivalent mate and prove finite termination at physical terminals.  A
+  position-level endpoint swap does not yet supply that typed path.
+- **constructive?**: yes.  The two elements are recovered by pattern matching
+  on the explicit list, and the transposition uses only decidable equality.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 693 jobs.  All eighteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
