@@ -19967,3 +19967,43 @@ No route-mismatch tail, coherent-data tail, all-cutoff observable certificate,
 remaining shell-tail family, total-tail inhabitant, completed uniform gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Two adaptive scalar tails now reconstruct the existing total-tail path (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRegionalDeficitTailCompiler`
+performs the exact summability bookkeeping left by the shifted regional
+bridge.  Given antitone tail controls for route mismatch and coherent adaptive
+data drift, it shifts the route tail once, adds
+
+`routeMismatch(k) + coherentData(k) + routeMismatch(k+1)`,
+
+and transports the result through the checked finite-maximum inequality.  The
+result initially controls the canonical transported deficit from cutoff one
+onward.  A constructive predecessor reindexing raises the rate by one and
+restores the omitted finite cutoff, yielding the pre-existing canonical
+transported tail type.
+
+That output is passed, together with the unchanged three shell-face tail
+types, to the already checked total-deficit compiler.  The adaptive proof path
+therefore rejoins the exact same `MatchedEventualCanonicalCapacityDebtTotalDeficitTail`
+consumed downstream.  This is the formal sense in which the adaptive and
+canonical routes are alternative decompositions of one observable path, not
+different theories.
+
+The remaining adaptive regional frontier is analytic rather than
+architectural: prove summability of the exact route-mismatch and coherent-
+data maximum sequences.  Route coherence makes the middle sequence a
+same-path data comparison, but does not supply its decay rate.  The uniform
+pointwise debt ceiling also cannot be promoted to summable variation without
+an additional cutoff estimate.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5186 jobs.  All five audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No adaptive route-mismatch or coherent-data tail is inhabited; neither are
+the upstream all-cutoff observable certificate, the remaining shell tails,
+the total tail, completed uniform gap, thermodynamic/continuum construction,
+continuum Yang--Mills theory, or Clay mass gap.

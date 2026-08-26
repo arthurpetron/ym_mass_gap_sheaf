@@ -17858,3 +17858,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-all-cutoff-regional-deficit-tail-compiler] Reindex two adaptive tails into the existing one total tail — **CLOSED 2026-08-25**
+
+- **milestone**: compile a tail control forward through the successor cutoff,
+  add route mismatch, coherent adaptive data drift, and the following route-
+  mismatch tail; transport that sum through the checked shifted finite-
+  maximum inequality; restore the omitted finite initial cutoff by increasing
+  the constructive tail rate by one; thereby construct the existing canonical
+  transported capacity-debt tail; and combine it with the unchanged old--new,
+  new--old, and new--new shell tails through the existing one total-deficit
+  compiler.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRegionalDeficitTailCompiler.lean`.
+- **decl**:
+  `matchedEventualAdaptiveCanonicalRouteMismatchDeficitSequence`,
+  `matchedEventualAdaptiveCoherentDataDeficitSequence`,
+  `matchedEventualAdaptiveCoherentTailsToShiftedCanonicalTransportedTailControl`,
+  `matchedEventualAdaptiveCoherentTailsToCanonicalTransportedTail`,
+  and
+  `matchedEventualAdaptiveCoherentRegionalTailsToTotalDeficitTail`.
+- **obligation**: inhabit the two adaptive antitone tail-control arguments and
+  the unchanged three shell-tail arguments, as well as the upstream all-
+  cutoff observable certificate.  Projective path coherence identifies the
+  middle term as data drift, but it does not prove its numerical variation
+  summable.  Pointwise capacity debt bounded by one likewise does not imply a
+  summable cutoff tail.
+- **constructive?**: yes.  The successor and predecessor reindexings carry
+  explicit natural-number rate maps and prove finite-sum equivalence term by
+  term.  The analytic hypotheses remain `Type`-level `AntitoneTailControl`
+  data.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, functional extensionality, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5186 jobs.  All five
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
