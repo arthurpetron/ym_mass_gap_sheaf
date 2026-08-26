@@ -17452,3 +17452,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-connectivity-compiler] Compile exact deleted-support chains to birth avoidance — **CLOSED 2026-08-25**
+
+- **milestone**: form the literal later directed-edge deletion list by mapping
+  the exact activated current rows through the current-to-next pair map; mask
+  the later Boolean support adjacency by that list; constructively compile any
+  chain in a finite deleted adjacency into a positive-kernel chain with the
+  same vertices; prove by induction that the compiled path contains no
+  forbidden directed edge; expose the minimal family of such chains only for
+  the exact new-endpoint traffic list; compile that family into the existing
+  birth-avoiding adaptive routing; and expose whole-carrier internal
+  connectivity after deletion as a stronger sufficient producer of the
+  minimal family.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedConnectivityCompiler.lean`.
+- **decl**:
+  `PositiveKernelChainIn.ofForbiddenDeletedChainIn`,
+  `PositiveKernelChainIn.ofForbiddenDeletedChainIn_avoids`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedMappedEdges`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAdjacentB`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.toBirthAvoidingRoutingAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportConnectivityAt`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportConnectivityAt.toBirthAvoidingRoutingAt`.
+- **obligation**: inhabit either the minimal endpoint-indexed deleted path
+  family or the stronger whole-carrier deleted-connectivity type, and then
+  bound the routed flow load/capacity for the resulting hybrid paths uniformly
+  over cutoffs.  The stronger connectivity theorem is sufficient but is not
+  required by downstream consumers; independent construction of the exact
+  finite endpoint paths remains a valid proof path.
+- **constructive?**: yes.  Deletion is a decidable finite list-membership mask,
+  Boolean chains are compiled by structural recursion, and forbidden-edge
+  exclusion is proved by structural induction.  The dynamic specialization
+  retains the exact trajectory, current-to-next map, activated row list,
+  later carrier, and new-endpoint traffic list.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: the focused monitored check passes at 10M heartbeats and
+  the dependency-complete one-worker target passes all 5175 jobs.  The seven
+  audited exports use only `[propext, Quot.sound]` (the two generic graph
+  exports use only `[propext]`); the executable forbidden-token scan reports
+  zero hits, `git diff --check` passes, and the root aggregator imports the
+  module.  No full-root audit is claimed.

@@ -19549,3 +19549,51 @@ theory, or Clay mass gap is proved.  The next geometric frontier is now exact:
 construct positive new-endpoint paths in the later support graph after
 forbidding the selected uncontrolled activated mapped edges, and then control
 those choices coherently over consecutive cutoffs.
+
+## Deleted-support chains now compile to birth-local adaptive routing (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedConnectivityCompiler`
+turns the remaining adaptive geometry into a literal finite Boolean graph
+problem.  At each cutoff it maps the exact activated current-row list through
+the exact current-to-next pair map and deletes precisely those directed edges
+from the later Boolean support adjacency.
+
+A generic constructive recursion now compiles any chain in a support graph
+with a finite directed-edge deletion mask into a positive physical-kernel
+chain with the same vertices.  A companion induction proves that none of the
+resulting path's directed edges occurs in the forbidden list.  Applied to the
+matched later carrier, this yields the already verified birth-avoidance
+certificate and hence zero activated new-endpoint route factor, load, and
+capacity debt.
+
+The producer side is deliberately split into two proof paths:
+
+* `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt`
+  asks only for a deleted-support chain for each endpoint pair in the exact
+  new-endpoint traffic list; these finite pair obligations may be constructed
+  independently; and
+* `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportConnectivityAt`
+  asks for internal connectivity of the entire later vacuum-sector carrier
+  after deletion and restricts that stronger result to the minimal family.
+
+The second route is a sufficient global shortcut, not a downstream
+requirement.  This matters causally: failure to prove whole-carrier
+connectivity does not block an observable-sized construction of the finitely
+demanded detours.  Conversely, a uniform geometric connectivity theorem can
+discharge all pairwise path packages in one stroke.  Both paths rejoin before
+the routing/load/debt compiler, so only one adaptive observable path survives.
+
+The focused monitored check passes at 10M heartbeats, and the dependency-
+complete one-worker target passes all 5175 jobs.  The seven audited exports use
+only `[propext, Quot.sound]` (the two generic graph exports use only
+`[propext]`); the executable forbidden-token scan reports zero hits,
+`git diff --check` passes, and the root aggregator imports the module.  No
+full-root audit is claimed.
+
+No minimal deleted path family, whole-carrier deleted connectivity theorem,
+uniform graph certificate, routed capacity, persistent payment, other-face
+tail, completed gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.  The next exact frontier is to
+produce these finite deleted paths—preferably by a checkable graph algorithm
+or a structural detour theorem—and then bound their routed congestion
+uniformly over consecutive cutoffs.
