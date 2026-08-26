@@ -20182,3 +20182,48 @@ audit is claimed.
 No cutoff-uniform resistance-congestion bound, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Same-object BF4 form is one boundary conditional-expectation norm (2026-08-25)
+
+`BF4PhysicalVacuumSectorBoundaryTransform` reorganizes the actual physical
+Gram mathematics at the operator level.  For a finite vacuum-sector
+coefficient vector `f`, the concrete boundary numerator
+
+`C_K f(b) = sum_x f(x) A_K(x,b)`
+
+is defined on the literal fixed-time boundary carrier.  The kernel-checked
+identity is
+
+`physicalMatrixQuadratic_K(f) = sum_b W_K(b) * (C_K f(b))^2`.
+
+There is no same-carrier matrix root and no abstract positivity witness in
+this statement.  The transform uses the actual BF4 half-amplitude and actual
+boundary weights.  A separate exact rank-one calculation proves
+
+`C_K^centered f(b) = C_K f(b) - <f,1>_pi * B_K(b)`.
+
+Consequently raw and centered boundary transforms are identical on the
+physical vacuum complement.  For every fixed cutoff and rate, the complete
+mean-zero physical form inequality is therefore equivalent, in both
+directions, to the complete mean-zero boundary-transform energy inequality.
+After division by a positive channel total, this is precisely the finite
+conditional expectation of `f` given the time-boundary channel.  The direct
+analytic frontier is thus a cutoff-uniform maximal-correlation, or second
+singular-value, estimate for the state--boundary coupling.
+
+This is a theorem-first alternative to the resistance-congestion path.  Path
+congestion remains a valid sufficient method for proving the same form
+bound, while posterior `L1` mixing is a stronger rowwise sufficient method.
+The boundary-transform identity isolates only the Hilbert-space estimate the
+mass-gap argument actually consumes and avoids demanding either pointwise
+row mixing or a particular canonical routing.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 1488 jobs.  All five audited exports use only `[propext, Quot.sound]`;
+the root aggregator imports the module.  The executable forbidden-token scan
+reports zero hits and `git diff --check` passes.  No full-root audit is
+claimed.
+
+No cutoff-uniform boundary-transform norm bound, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

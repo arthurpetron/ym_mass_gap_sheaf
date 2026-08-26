@@ -18054,3 +18054,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the root aggregator imports both
   modules.  The executable forbidden-token scan and `git diff --check` pass.
   No full-root audit is claimed.
+
+### [bf4-vacuum-sector-boundary-transform] Identify the exact conditional-expectation norm frontier -- **PROVED 2026-08-25**
+
+- **milestone**: define the literal fixed-time boundary transform of every
+  finite physical vacuum-sector observable; prove that its weighted square
+  is exactly the same-object physical matrix quadratic; calculate the
+  centering correction as one stationary rank-one term; eliminate that term
+  on the vacuum complement; and prove equivalence of the complete centered
+  physical form inequality with the complete centered boundary-transform
+  energy inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorBoundaryTransform.lean`.
+- **decl**:
+  `channelLinear_centered_eqv_raw_sub_mean_mul_total`,
+  `centralPhysicalFiniteVacuumSectorBoundaryTransformEnergy_eq_explicit`,
+  `centralPhysicalFiniteVacuumSectorMatrixQuadratic_eqv_boundaryTransformEnergy`,
+  `centralPhysicalFiniteVacuumSector_centeredBoundaryTransform_eqv_raw`,
+  `centralPhysicalFiniteVacuumSector_formBound_iff_boundaryTransformBound`,
+  and
+  `centralPhysicalFiniteVacuumSector_allCenteredFormBounds_iff_boundaryTransformBounds`.
+- **obligation**: prove one strict rate, uniform as the representation cutoff
+  and then the physical volume and lattice scales recede, for the norm of the
+  boundary conditional-expectation transform on the stationary mean-zero
+  sector.  The exact identity does not bound that norm.  Resistance
+  congestion and posterior `L1` mixing remain sufficient proof methods, but
+  they are not required by this minimal Hilbert-space frontier.
+- **constructive?**: yes.  The transform and energy are finite exact rational
+  sums over the actual physical state and boundary carriers.  Centering is
+  explicit setoid algebra.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 1488 jobs.  All five audited exports use only
+  `[propext, Quot.sound]`; the root aggregator imports the module.  The
+  executable forbidden-token scan reports zero hits and `git diff --check`
+  passes.  No full-root audit is claimed.
