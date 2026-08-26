@@ -22334,3 +22334,41 @@ component coherently.  Before that topology can yield a transfer gap, the peel
 must provide a cutoff- and volume-independent bound on the already-identified
 physical posterior conditional variance.  No such uniform constant, weak-to-
 strong RG bridge inhabitant, continuum limit, or Clay conclusion is asserted.
+
+## 121. Accepted slab-link terminals are literal distinct physical face copies (2026-08-26)
+
+**Status. THE LOCAL CANONICAL PAIRING NOW DESCENDS TO THE ACTUAL CORRECTED-SLAB
+FACE CARRIER, AND EVERY PAIR CROSSES BETWEEN TWO DIFFERENT PLAQUETTES.**
+
+`CanonicalLinkPhysicalTerminalPairing.lean` first strengthens terminal
+inequality to the physically relevant statement that paired terminals have
+different physical edge identifiers.  The proof uses the exact occurrence-
+count-one theorem: two terminals carrying the same physical identifier have
+the same half-edge.  In the immediate branch this contradicts the local mate's
+different leg; in the internal branch it contradicts strict terminal-vertex
+separation.
+
+`CompactDualSlabLinkPhysicalStrandPairing.lean` then defines
+
+```text
+SlabLinkFaceStrandOccurrence =
+  (position in the literal incident-face list,
+   slot < the actual physical spin of that face).
+```
+
+Every canonical physical terminal of a literal member of
+`slabLinkFusionWitnesses` maps constructively to this carrier.  Bounded
+`get`-lookup is identified with `externalSpinsOfList`, and duplicate-freeness
+of the incident face list proves that different local positions give different
+physical plaquette identifiers.  Hence the specialized partner is involutive
+and joins two distinct literal incident faces.
+
+The focused checks and dependency-complete one-worker target pass all 703
+jobs.  The two new generic declarations and all ten audited slab declarations
+use at most `[propext, Quot.sound]`.  The next theorem-first frontier is to
+enumerate these paired face-copy edges over one complete global fusion-witness
+assignment, apply the existing finite Boolean-graph component engine, and
+prove that subtracting one component preserves every link fusion witness.
+Only a subsequent cutoff- and volume-independent component-weight or
+resistance estimate can close the physical conditional-variance inequality;
+none is claimed here.

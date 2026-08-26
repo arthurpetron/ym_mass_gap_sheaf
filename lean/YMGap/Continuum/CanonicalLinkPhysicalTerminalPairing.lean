@@ -24,6 +24,7 @@ set_option autoImplicit false
 
 open YMGap.Continuum.CanonicalLinkEdgeOccurrenceMultiplicity
 open YMGap.Continuum.CanonicalLinkInternalEdgeEndpoints
+open YMGap.Continuum.CanonicalLinkInternalHalfEdgeSwap
 open YMGap.Continuum.CanonicalLinkInternalStrandContinuation
 open YMGap.Continuum.CanonicalLinkPhysicalTerminalPartner
 open YMGap.Continuum.CanonicalLinkStrandMonotonePath
@@ -32,6 +33,7 @@ open YMGap.Continuum.CanonicalLinkStrandStep
 open YMGap.Continuum.CanonicalLinkStrandStrictProgress
 open YMGap.Continuum.CanonicalLinkStrandTerminal
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
+open YMGap.Continuum.ResolvedTrivalentNetworkHalfEdges
 open YMGap.Continuum.ResolvedTrivalentNetworkPorts
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4FiniteBoxFusionCompleteCutoff
@@ -344,6 +346,97 @@ theorem canonicalPhysicalStrandPartner_ne_self
         _ = terminal.1.localMate.vertexIndex :=
           (ResolvedNetworkPort.localMate_vertexIndex terminal.1).symm
 
+/-! ## 5. The two paired terminals lie on different physical edges -/
+
+/-- A one-element list has only one possible member. -/
+private theorem eq_of_mem_of_length_eq_one
+    {A : Type} [DecidableEq A] {entries : List A} {left right : A}
+    (hlength : entries.length = 1)
+    (hleft : left ∈ entries) (hright : right ∈ entries) :
+    left = right := by
+  cases entries with
+  | nil => exact False.elim (List.not_mem_nil hleft)
+  | cons head tail =>
+      cases tail with
+      | nil =>
+          rcases List.mem_cons.mp hleft with hleftHead | hleftNil
+          · rcases List.mem_cons.mp hright with hrightHead | hrightNil
+            · exact hleftHead.trans hrightHead.symm
+            · exact False.elim (List.not_mem_nil hrightNil)
+          · exact False.elim (List.not_mem_nil hleftNil)
+      | cons next rest =>
+          simp only [List.length_cons] at hlength
+          omega
+
+/-- Two physical terminals over the same canonical physical identifier have
+the same underlying half-edge.  This is the conceptual use of the exact
+physical occurrence count one. -/
+theorem canonicalPhysicalTerminals_halfEdge_eq_of_edgeId_eq
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    (hdegree : degree ≤ linkIncidenceBound)
+    (hallowed :
+      YMGap.Continuum.Z4FixedExternalLinkFusionMultiplicity.canonicalLinkConditionalAllowedB
+        degree external auxiliary = true)
+    (left right : CanonicalPhysicalStrandPort external auxiliary hallowed)
+    (hedge : left.1.edgeId = right.1.edgeId) :
+    resolvedNetworkPortHalfEdge left.1 =
+      resolvedNetworkPortHalfEdge right.1 := by
+  let network := canonicalLinkResolvedStrandNetwork
+    degree external auxiliary hallowed
+  let fiber := halfEdgesOnEdge network left.1.edgeId
+  have hlength : fiber.length = 1 :=
+    canonicalLinkResolved_halfEdgesOnEdge_length_physical
+      hdegree hallowed left.2
+  have hleft : resolvedNetworkPortHalfEdge left.1 ∈ fiber :=
+    (mem_halfEdgesOnEdge_iff _ _).mpr rfl
+  have hright : resolvedNetworkPortHalfEdge right.1 ∈ fiber :=
+    (mem_halfEdgesOnEdge_iff _ _).mpr hedge.symm
+  exact eq_of_mem_of_length_eq_one hlength hleft hright
+
+/-- The local terminal pairing joins two genuinely different physical edge
+identifiers.  Thus, after specialization to a lattice link, it joins two
+different incident plaquette faces rather than merely two unequal proof
+records or strand slots. -/
+theorem canonicalPhysicalStrandPartner_edgeId_ne
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    (hdegree : degree ≤ linkIncidenceBound)
+    (hallowed :
+      YMGap.Continuum.Z4FixedExternalLinkFusionMultiplicity.canonicalLinkConditionalAllowedB
+        degree external auxiliary = true)
+    (terminal : CanonicalPhysicalStrandPort external auxiliary hallowed) :
+    (canonicalPhysicalStrandPartner
+        hdegree hallowed terminal).1.edgeId ≠ terminal.1.edgeId := by
+  intro hedge
+  have hhalfEdge := canonicalPhysicalTerminals_halfEdge_eq_of_edgeId_eq
+    hdegree hallowed
+    (canonicalPhysicalStrandPartner hdegree hallowed terminal)
+    terminal hedge
+  have hpath := canonicalPhysicalStrandPartner_path
+    hdegree hallowed terminal
+  match hclass : canonicalResolvedPortClassify
+      hdegree hallowed terminal.1.localMate with
+  | .physical hphysical =>
+      let mateTerminal : CanonicalPhysicalStrandPort
+          external auxiliary hallowed := ⟨terminal.1.localMate, hphysical⟩
+      have hpartner :
+          canonicalPhysicalStrandPartner hdegree hallowed terminal =
+            mateTerminal :=
+        canonicalStrandPath_terminal_unique hpath
+          (CanonicalStrandPathToPhysical.stop mateTerminal)
+      have hleg : terminal.1.localMate.leg = terminal.1.leg := by
+        have := congrArg ResolvedNetworkHalfEdge.leg hhalfEdge
+        simpa only [hpartner] using this
+      exact terminal.1.localMate_leg_ne hleg
+  | .internal hinternal =>
+      have hvertexNe := canonicalInternalStart_terminal_vertexIndex_ne
+        hdegree hallowed terminal.1.localMate hinternal hpath
+      apply hvertexNe
+      have hvertex := congrArg ResolvedNetworkHalfEdge.vertexIndex hhalfEdge
+      exact hvertex.trans
+        (ResolvedNetworkPort.localMate_vertexIndex terminal.1).symm
+
+/-! ## 6. The data-bearing local pairing -/
+
 /-- A data-bearing fixed-point-free involution on physical strand terminals. -/
 structure CanonicalPhysicalStrandPairing
     {degree : Nat} {external auxiliary : EdgeLabelling}
@@ -374,6 +467,8 @@ def canonicalPhysicalStrandPairing
 #print axioms canonicalOrientedInternalState_path_terminal_beyond
 #print axioms canonicalInternalStart_terminal_vertexIndex_ne
 #print axioms canonicalPhysicalStrandPartner_ne_self
+#print axioms canonicalPhysicalTerminals_halfEdge_eq_of_edgeId_eq
+#print axioms canonicalPhysicalStrandPartner_edgeId_ne
 #print axioms CanonicalPhysicalStrandPairing
 #print axioms canonicalPhysicalStrandPairing
 

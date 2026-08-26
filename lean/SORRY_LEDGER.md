@@ -18714,3 +18714,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 702 jobs.  All eight audited declarations use
   exactly `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [compact-dual-slab-link-physical-strand-pairing] Reindex paired terminals by literal incident face copies -- **ACTUAL LINK-TO-FACE PAIRING CLOSED; GLOBAL COMPONENT ASSEMBLY OPEN 2026-08-26**
+
+- **milestone**: prove that the canonical terminal partner changes physical
+  edge identifier; define an actual corrected-slab face-copy occurrence as an
+  incident-list position and a slot below that face's physical twice-spin;
+  map every terminal of a literal accepted link witness to this carrier; and
+  prove that its partner lies on a different literal plaquette face.
+- **files**:
+  `lean/YMGap/Continuum/CanonicalLinkPhysicalTerminalPairing.lean` and
+  `lean/YMGap/Continuum/CompactDualSlabLinkPhysicalStrandPairing.lean`.
+- **principal declarations**:
+  `canonicalPhysicalTerminals_halfEdge_eq_of_edgeId_eq`,
+  `canonicalPhysicalStrandPartner_edgeId_ne`,
+  `SlabLinkFaceStrandOccurrence`,
+  `SlabLinkFaceStrandOccurrence.faceId`,
+  `SlabLinkFaceStrandOccurrence.faceId_mem_incident`,
+  `SlabLinkFaceStrandOccurrence.faceId_physical`,
+  `externalSpinsOfList_map_get`,
+  `SlabLinkPhysicalStrandTerminal`,
+  `slabLinkPhysicalTerminalOccurrence`,
+  `slabLinkPhysicalStrandPartner`,
+  `slabLinkPhysicalStrandPartner_involutive`,
+  `slabLinkPhysicalStrandPartner_position_ne`, and
+  `slabLinkPhysicalStrandPartner_faceId_ne`.
+- **obligation**: extract all paired terminal edges from every link entry of a
+  complete `SlabFusionWitnessAssignment`, put their endpoints in one common
+  `(faceId,slot)` carrier, and construct the finite connected components.
+  Then define component subtraction, update every accepted link witness
+  coherently, and obtain a cutoff- and volume-independent posterior-variance
+  or resistance estimate.  Distinct literal link endpoints alone do not
+  supply component preservation, transition weight, or a uniform gap.
+- **constructive?**: yes.  Physical half-edge uniqueness comes from an
+  explicit one-element fiber, and slab reindexing uses bounded list lookup and
+  a structural proof that `get` is injective on a duplicate-free list.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, noncomputable declaration, or enlarged heartbeat
+  budget is introduced.
+- **status note**: focused monitored checks and the dependency-complete
+  one-worker target pass all 703 jobs.  The two new generic declarations and
+  all ten audited slab declarations use at most `[propext, Quot.sound]`; the
+  root aggregator imports the new module.  No full-root audit is claimed.
