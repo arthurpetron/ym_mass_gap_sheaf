@@ -22513,3 +22513,59 @@ at every incident link.  After that construction, milestone 123 supplies the
 weight payment automatically.  The inverse component encoding, uniform
 conditional-variance estimate, completed physical transfer gap, continuum
 limit, and Clay theorem remain open.
+
+## 125. Mate-closed strand selections compile by discrete conservation (2026-08-26)
+
+**Status. THE COMPONENT-TO-REMOVAL ALGEBRA IS NOW A DIRECT KIRCHHOFF
+COMPILER; SEED-COMPONENT PULLBACK AND THE GLOBAL EXTERNAL EQUATION REMAIN
+OPEN.**
+
+The proof architecture no longer pushes dependent local terminals into a
+global provenance graph and searches numerical addresses to reconstruct them.
+`ResolvedTrivalentNetworkSelectionRemoval.lean` instead consumes the Boolean
+characteristic function that a global component will induce on graph-edge
+strand copies.  Its only geometric law is exact invariance under the already
+proved local trivalent mate.
+
+Primitive recursion defines `boolCountFrom`, the selected-copy count on a
+translated natural interval, and proves exact interval splitting, capacity,
+and pointwise congruence.  At one trivalent resolution the canonical strand
+blocks then give the three literal conservation equations
+
+```text
+selected(a) = selected(ca) + selected(ab),
+selected(b) = selected(bc) + selected(ab),
+selected(c) = selected(bc) + selected(ca).
+```
+
+Mate closure identifies the two representatives of the `ab`, `bc`, and `ca`
+blocks.  Hence `TrivalentMateClosedSelection.removal` constructs bounded
+simultaneous removal counts rather than assuming them.  Structural recursion
+over an arbitrary ordered resolved network uses one common edge count as its
+drop labelling and returns a literal `ResolvedTrivalentRemovalPlan`.  This is
+the discrete Kirchhoff theorem: every local incidence sum is definitionally
+the same common edge-flow count.
+
+The final specialization
+`SlabLinkMateClosedSelection.lower_auxiliary_mem` composes this compiler with
+milestone 124.  Given the exact external physical-label equation, a
+mate-closed selection now constructs a member of the target
+`slabLinkFusionWitnesses`; target fusion acceptedness is still a theorem, not
+a field.  The companion port lemmas `strandPairAtPort`, `strandPeelAtPort`, and
+`strandPairAtPort_mate` recover the local removal coordinate of any typed port
+and prove it is unchanged at its mate.
+
+The focused monitored target passes all 692 jobs.  All thirty newly audited
+declarations use at most `[propext, Quot.sound]`; `boolIndicator`,
+`boolCountFrom`, and `strandPairAtPort` are axiom-free.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  The root aggregator imports the new
+module; no full-root audit is claimed.
+
+The next causal theorem is now sharply separated from this algebra: construct
+the seed-generated component characteristic function on literal global
+`SlabFaceStrandCopy` data, pull it back through each canonical terminal map,
+and prove both local mate closure and the physical external-label equation.
+Only then can the exact `1/32,000,000` payment be joined to an inverse
+component encoding.  A cutoff-independent encoding, posterior-variance bound,
+completed transfer gap, continuum limit, and Clay conclusion remain open.

@@ -18890,3 +18890,51 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   declarations use at most `[propext, Quot.sound]`; the data-bearing removal
   and coherence structures are axiom-free.  The root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [resolved-trivalent-network-selection-removal] Compile mate-closed strand selections into accepted lower link witnesses -- **DISCRETE CONSERVATION COMPILER CLOSED; SEED-COMPONENT PULLBACK OPEN 2026-08-26**
+
+- **milestone**: count Boolean-selected strand copies in the three canonical
+  trivalent bundles; prove the exact three leg-incidence conservation laws
+  from local mate closure; compile those counts over any resolved network into
+  one common-drop `ResolvedTrivalentRemovalPlan`; and specialize the compiler
+  to an actually accepted lower corrected-slab link witness.
+- **files**:
+  `lean/YMGap/Continuum/SU2TrivalentStrandPortPairing.lean` and
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkSelectionRemoval.lean`.
+- **principal declarations**:
+  `strandPairAtPort`,
+  `strandPairAtPort_count_positive`,
+  `strandPeelAtPort`,
+  `strandPairAtPort_mate`,
+  `boolCountFrom`,
+  `boolCountFrom_add`,
+  `boolCountFrom_le`,
+  `boolCountFrom_congr`,
+  `TrivalentMateClosedSelection`,
+  `TrivalentMateClosedSelection.removal`,
+  `TrivalentMateClosedSelection.legCount_a`,
+  `TrivalentMateClosedSelection.legCount_b`,
+  `TrivalentMateClosedSelection.legCount_c`,
+  `ResolvedNetworkMateClosedSelection`,
+  `ResolvedNetworkMateClosedSelection.drop`,
+  `ResolvedNetworkMateClosedSelection.toRemovalPlan`,
+  `ResolvedNetworkMateClosedSelection.toCoherentRemoval`,
+  `SlabLinkMateClosedSelection.toStrandRemovalPlan`, and
+  `SlabLinkMateClosedSelection.lower_auxiliary_mem`.
+- **obligation**: construct a seed-generated component characteristic function
+  on the global physical face-strand carrier and pull it back to each accepted
+  link's edge-strand copies.  Prove local mate closure and the exact physical
+  external-label equation, then assemble the updated local auxiliary witnesses
+  into one target global assignment.  The subsequent inverse component code
+  must remain cutoff-independent before the candidate `1 / 51,200` arithmetic
+  can become a genuine summability ratio.
+- **constructive?**: yes.  Interval counting is primitive recursion, local
+  conservation is exact finite arithmetic, and the network compiler is
+  structural recursion.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored one-worker target passes all 692 jobs.
+  All thirty newly audited declarations use at most
+  `[propext, Quot.sound]`; `boolIndicator`, `boolCountFrom`, and
+  `strandPairAtPort` are axiom-free.  The root aggregator imports the module.
+  No full-root audit is claimed.

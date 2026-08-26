@@ -239,6 +239,101 @@ theorem canonicalTrivalentPortMate_ne_self
   strandMate_ne_self
     (canonicalTrivalentStrandResolution a b c hadmissible) port
 
+/-! ## 4. Recover the traversed strand coordinate from a port -/
+
+/-- The unique strand bundle containing a displayed port.  This is the same
+allocation used by `strandMate`, now retained as computable removal
+provenance. -/
+def strandPairAtPort
+    {a b c : Nat} (resolution : TrivalentStrandResolution a b c) :
+    TrivalentStrandPort a b c -> TrivalentStrandPair
+  | .onA slot =>
+      if slot.val < resolution.ca then .ca else .ab
+  | .onB slot =>
+      if slot.val < resolution.bc then .bc else .ab
+  | .onC slot =>
+      if slot.val < resolution.bc then .bc else .ca
+
+/-- Every bounded port selects a genuinely nonempty strand bundle. -/
+theorem strandPairAtPort_count_positive
+    {a b c : Nat} (resolution : TrivalentStrandResolution a b c)
+    (port : TrivalentStrandPort a b c) :
+    0 < resolution.pairCount (strandPairAtPort resolution port) := by
+  cases port with
+  | onA slot =>
+      by_cases hca : slot.val < resolution.ca
+      · simp only [strandPairAtPort, hca, if_true,
+          TrivalentStrandResolution.pairCount]
+        omega
+      · have hslot := slot.isLt
+        have ha := resolution.a_balance
+        simp only [strandPairAtPort, hca, if_false,
+          TrivalentStrandResolution.pairCount]
+        omega
+  | onB slot =>
+      by_cases hbc : slot.val < resolution.bc
+      · simp only [strandPairAtPort, hbc, if_true,
+          TrivalentStrandResolution.pairCount]
+        omega
+      · have hslot := slot.isLt
+        have hb := resolution.b_balance
+        simp only [strandPairAtPort, hbc, if_false,
+          TrivalentStrandResolution.pairCount]
+        omega
+  | onC slot =>
+      by_cases hbc : slot.val < resolution.bc
+      · simp only [strandPairAtPort, hbc, if_true,
+          TrivalentStrandResolution.pairCount]
+        omega
+      · have hslot := slot.isLt
+        have hc := resolution.c_balance
+        simp only [strandPairAtPort, hbc, if_false,
+          TrivalentStrandResolution.pairCount]
+        omega
+
+/-- A displayed port therefore constructs the unit peel of its actual strand
+coordinate. -/
+def strandPeelAtPort
+    {a b c : Nat} (resolution : TrivalentStrandResolution a b c)
+    (port : TrivalentStrandPort a b c) :
+    TrivalentStrandPeel resolution where
+  pair := strandPairAtPort resolution port
+  positive := strandPairAtPort_count_positive resolution port
+
+/-- The two endpoints of one local strand recover the same removal
+coordinate.  Hence an undirected local pair contributes exactly one of the
+three coherent removal counts. -/
+theorem strandPairAtPort_mate
+    {a b c : Nat} (resolution : TrivalentStrandResolution a b c)
+    (port : TrivalentStrandPort a b c) :
+    strandPairAtPort resolution (strandMate resolution port) =
+      strandPairAtPort resolution port := by
+  cases port with
+  | onA slot =>
+      by_cases hca : slot.val < resolution.ca
+      · have hnot : ¬(resolution.bc + slot.val < resolution.bc) := by
+          omega
+        simp [strandMate, strandPairAtPort, hca, hnot]
+      · have hnot :
+          ¬(resolution.bc + (slot.val - resolution.ca) < resolution.bc) := by
+          omega
+        simp [strandMate, strandPairAtPort, hca, hnot]
+  | onB slot =>
+      by_cases hbc : slot.val < resolution.bc
+      · simp [strandMate, strandPairAtPort, hbc]
+      · have hnot :
+          ¬(resolution.ca + (slot.val - resolution.bc) < resolution.ca) := by
+          omega
+        simp [strandMate, strandPairAtPort, hbc, hnot]
+  | onC slot =>
+      by_cases hbc : slot.val < resolution.bc
+      · simp [strandMate, strandPairAtPort, hbc]
+      · have hslot := slot.isLt
+        have hc := resolution.c_balance
+        have hca : slot.val - resolution.bc < resolution.ca := by
+          omega
+        simp [strandMate, strandPairAtPort, hbc, hca]
+
 #print axioms TrivalentStrandPort
 #print axioms TrivalentStrandPort.leg
 #print axioms TrivalentStrandPort.slot
@@ -250,5 +345,9 @@ theorem canonicalTrivalentPortMate_ne_self
 #print axioms canonicalTrivalentPortMate
 #print axioms canonicalTrivalentPortMate_involutive
 #print axioms canonicalTrivalentPortMate_ne_self
+#print axioms strandPairAtPort
+#print axioms strandPairAtPort_count_positive
+#print axioms strandPeelAtPort
+#print axioms strandPairAtPort_mate
 
 end YMGap.Continuum.SU2TrivalentStrandPortPairing
