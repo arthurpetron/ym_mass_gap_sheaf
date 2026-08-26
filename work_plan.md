@@ -23050,3 +23050,46 @@ number of selected physical copies.  Identifying that copy count with the
 physical peel-list length will finally remove volume from the auxiliary code
 size.  Exponential word counting, posterior variance, the uniform completed
 OS gap, thermodynamic/continuum passage, and the Clay theorem remain open.
+
+## 136. Sparse auxiliary rows are bounded by four times component size (2026-08-26)
+
+**Status. THE AUXILIARY ROW COUNT IS NOW INDEPENDENT OF SLAB VOLUME AND BOUNDED
+BY FOUR TIMES THE ROOTED PHYSICAL COMPONENT LENGTH; IDENTIFICATION WITH THE
+PEEL-WORD LENGTH REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryRowBound.lean` completes the
+finite bounded-fiber argument left open by milestone 135.  Each retained row
+is charged to the pair consisting of its constructively recovered selected
+physical face-strand copy and the row's actual link.  Numerical slab incidence
+is decoded back to literal plaquette incidence, so that link lies among the
+four boundary links of the selected copy's plaquette.
+
+The charge is injective on retained rows.  Equality of charges gives equality
+of link keys, and sparse-table membership proves that both row values are the
+same prescribed auxiliary word at that key.  Zero-row deletion also preserves
+duplicate-freeness when the displayed link carrier is duplicate-free.  A
+constructive finite-list pigeonhole argument therefore gives the kernel-checked
+bound
+
+```text
+seed.sparseDropCode.auxiliaryWords.length <= 4 * seed.component.length.
+```
+
+This is the first auxiliary-code size theorem whose right-hand side contains
+no slab-volume link count.  It is still phrased using the duplicate-free rooted
+component list rather than the already-stored physical peel word.  The next
+exact contraction is to prove that the component length equals the sum of its
+per-face selected-copy counts, hence equals `seed.peelFaces.length`; combining
+that identity with the theorem above will bound the entire stored code by a
+fixed multiple of its physical word length.
+
+The focused monitored source check and dependency-complete target pass all
+927 jobs.  All fifteen audited declarations use at most
+`[propext, Quot.sound]`.  No `Classical`, choice, proof obligation, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the module; no full-root audit is claimed.
+
+This milestone is a finite SU(2) reconstruction-entropy input only.  The
+component/peel cardinality identity, bounded alphabet counting, posterior
+variance, a uniform completed OS gap, thermodynamic/continuum passage, and the
+Clay theorem remain open.
