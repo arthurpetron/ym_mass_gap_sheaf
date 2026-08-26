@@ -17741,3 +17741,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits, `git diff --check` passes, and the
   root aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-simple-routing-traffic-rejoin] Rejoin persistent old traffic and adaptive new traffic — **CLOSED 2026-08-25**
+
+- **milestone**: partition the exact arbitrary-routing conditional transition-
+  product load into old-endpoint and new-endpoint summands; prove that the old
+  summand of the simple hybrid routing is definitionally the existing
+  transported canonical-old load; rejoin the full adaptive load as canonical
+  persistent-old load plus adaptive-new load; recover the canonical-old load
+  alone on the mapped activated edge, where the new summand vanishes; and show
+  that one combined old-plus-weighted-new ceiling certificate implies the
+  literal full-load capacity inequality and the existing routed capacity debt
+  bound by one.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingTrafficRejoin.lean`.
+- **decl**:
+  `matchedEventualRoutedConditionalTransitionProductLoadOnPair_eqv_old_add_new_forRouting`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptive_transitionTerm_eq_canonical_of_old`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveOldEndpointTrafficLoad_eqv_canonical`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRoutedLoad_eqv_canonicalOld_add_new`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveRoutedLoadOnMappedActivated_eqv_canonicalOld`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.SimpleAdaptiveOldPlusWeightedCeilingCapacityCertificate`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveFullWeightedLoad_capacity`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveFullWeightedDebt_le_one`.
+- **obligation**: inhabit the combined capacity certificate uniformly in
+  cutoff and edge.  A certificate for adaptive-new traffic alone is
+  insufficient because canonical persistent-old traffic consumes the same
+  literal kernel capacity.  All-cutoff deleted-support reachability and route
+  coherence (or a quantitative route-churn replacement) also remain
+  uninhabited, and the combined adaptive result has not yet been contracted
+  into the existing regional bridge deficit and total-tail compiler.
+- **constructive?**: yes.  The load split is the constructive partition of the
+  literal finite endpoint-pair list, and the old-route identification follows
+  from the endpoint classifier and the explicit hybrid path equation.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5181 jobs.  The seven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

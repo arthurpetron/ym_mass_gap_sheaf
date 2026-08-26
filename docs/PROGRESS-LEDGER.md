@@ -19854,3 +19854,42 @@ weighted-capacity certificate, adaptive route-churn estimate, persistent
 payment, remaining regional total tail, completed uniform gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Adaptive old and new traffic now rejoin before capacity debt (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingTrafficRejoin`
+partitions the literal full routed conditional transition-product load by its
+endpoint classifier.  For the simple hybrid routing, the old-endpoint summand
+is exactly the already established transported canonical-old load, while the
+new-endpoint summand is the adaptive deleted-support load.  Thus the same
+observable full load is now proved equal to
+
+`canonical persistent-old load + adaptive-new load`.
+
+On the mapped activated old--new edge, the adaptive-new summand is already
+zero, so the same full observable contracts to canonical-old load alone.  On
+an arbitrary later edge, a combined certificate comparing the shared
+coercivity floor times canonical-old load plus the explicit weighted-new
+ceiling to the literal conditional-kernel capacity implies both the exact
+full-load capacity inequality and the existing routed capacity debt bound by
+one.
+
+This rejoin changes the frontier topology.  Boolean reachability, physical
+weighted congestion, and cutoff route coherence remain parallel analytic
+producers, but they are not independent proof paths.  Their outputs must refer
+to the same selected hybrid route and then join persistent-old traffic at one
+capacity observable before any regional deficit or total-tail contraction.
+The remaining capacity obligation is therefore the combined certificate, not
+the previously isolated new-traffic ceiling.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5181 jobs.  The seven audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No uniform combined capacity certificate, all-cutoff reachability proof,
+route-coherence proof or quantitative churn substitute, regional adaptive
+deficit contraction, persistent payment, remaining regional total tail,
+completed uniform gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.
