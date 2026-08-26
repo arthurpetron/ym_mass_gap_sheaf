@@ -17782,3 +17782,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-all-cutoff-observable-compiler] Join three adaptive lanes on one all-cutoff observable — **CLOSED 2026-08-25**
+
+- **milestone**: package literal all-cutoff reachability, the combined
+  persistent-old-plus-weighted-new capacity certificate, and projective route
+  coherence on the one path family constructively extracted from those same
+  reachability equations; expose the selected full hybrid routing at every
+  cutoff; derive its exact literal full-load capacity and routed capacity-debt
+  bound by one; retain the activated-edge reduction to canonical-old traffic;
+  and retain equality of consecutive directed-edge lists and membership after
+  the actual cutoff recoding.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler.lean`.
+- **decl**:
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.pathsAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullRoutingAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullLoad_capacity`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullDebt_le_one`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullLoadOnMappedActivated_eqv_canonicalOld`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.consecutiveDirectedEdges_eq`,
+  and
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.consecutiveDirectedEdge_mem_iff`.
+- **obligation**: inhabit all three fields.  This is an interface contraction,
+  not a proof of reachability, combined capacity, or route coherence.  Exact
+  projective equality may still need replacement by a quantitative route-
+  churn bound, in which case that field and its downstream compiler must be
+  weakened coherently.  The resulting all-cutoff debt control has not yet
+  been contracted to an adaptive regional deficit or the one total tail.
+- **constructive?**: yes.  The `Type`-level package stores proof fields without
+  selecting witnesses from propositional existence; all paths are computed by
+  the existing Warshall soundness map from the stored Boolean equations.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5184 jobs.  All seven
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.

@@ -19893,3 +19893,40 @@ route-coherence proof or quantitative churn substitute, regional adaptive
 deficit contraction, persistent payment, remaining regional total tail,
 completed uniform gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## Three parallel adaptive lanes now have one all-cutoff observable package (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler`
+packages the exact three immediate adaptive inputs:
+
+1. all-cutoff truth of the literal deleted-support reachability checks;
+2. the combined persistent-old-plus-weighted-new capacity certificate; and
+3. projective coherence of the selected routes after actual cutoff recoding.
+
+The package is dependent: the capacity and coherence fields must use the same
+path family constructively extracted from its reachability field.  It therefore
+cannot combine a successful route from one selection rule, a capacity estimate
+for another, and a coherence proof for a third.  At every cutoff it contracts
+to the exact full routed load-capacity inequality and the existing full debt
+bound by one.  On mapped activated edges the same full load is exactly the
+canonical-old load, while across cutoffs the same package preserves the
+directed-edge list and membership after recoding.
+
+This identifies the current local parallel width as three and the serial width
+after their join as one.  It does not erase the wider counts: the fully
+expanded selected adaptive regional work plan has fourteen packages, the
+canonical alternative has twelve, and the correlated regional tail still has
+four exact deficit leaves (versus three top-level producers on the separated
+load/kernel/floor route).  Those counts measure decomposition and scheduling,
+not the number of physical observables or sufficient theorems.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5184 jobs.  All seven audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+None of the package's three fields is inhabited.  No adaptive regional
+deficit or total-tail control, persistent payment, completed uniform gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.
