@@ -23708,3 +23708,40 @@ structural carrier bases.  Only after that bound can the strict component ratio,
 exact conditional transition floor, posterior-variance fraction, uniform dense
 form bound, completed OS gap, thermodynamic/continuum passage, and Clay theorem
 be constructed.
+
+## 150. Each auxiliary drop is bounded by its link's physical mass (2026-08-26)
+
+**Status. EVERY USED AUXILIARY COORDINATE OF THE DEGREE-AT-MOST-SIX CANONICAL
+FUSION TREE IS NOW POINTWISE BOUNDED BY THE TOTAL SELECTED PHYSICAL INPUT MASS
+AT THAT LINK.**
+
+`CompactDualSlabFaceStrandComponentAuxiliaryPointwiseBound.lean` sharpens the
+earlier local `l1` estimate.  For degrees four through six it follows the
+literal left-associated fusion chain: the first internal output is bounded by
+the first two physical inputs, and every later internal output is bounded by
+the preceding internal input plus the next physical input.  Degrees one and
+two contain only the accepted guard's forced-zero vacuum terminator; degree
+three has no auxiliary coordinate.
+
+The resulting theorem is coordinatewise:
+
+```text
+edge in canonicalUsedAuxiliaryCoordinates(degree)
+  -> selectedDrop(edge) <= sum of selected physical input drops.
+```
+
+It is specialized to the corrected-slab partner-closed selection used by a
+rooted component.  The focused monitored source check passes, and both new
+declarations use only `[propext, Quot.sound]`.
+
+This changes the viable encoding.  Once shape and physical multiplicities
+decode the candidate link list and its physical mass `t`, each of the at most
+three auxiliary coordinates can be placed in a link-dependent range of size
+`t + 1`.  Encoding all candidate rows also makes a separate sparse-row
+presence word unnecessary.  The next frontier is to construct that dependent
+finite carrier and prove its global size is at most `4096^peelSize`; combined
+with the existing `625 * 4` structural base this would give
+`10240000 / 32000000 < 1`.  No such carrier-size or strict component theorem
+is claimed yet.  The conditional transition floor, posterior-variance
+fraction, dense form gap, completed OS gap, thermodynamic/continuum passage,
+and Clay theorem remain open.
