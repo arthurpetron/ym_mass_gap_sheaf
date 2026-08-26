@@ -22959,3 +22959,49 @@ size.  Only then does the exact left inverse become a cutoff- and
 volume-independent exponential entropy bound suitable for combination with
 milestone 131's energy payment.  Posterior variance, a uniform completed OS
 gap, thermodynamic/continuum passage, and the Clay theorem remain open.
+
+## 134. Zero auxiliary rows are erased without weakening reconstruction (2026-08-26)
+
+**Status. THE FINITE LEFT-INVERSE CODE NOW STORES ONLY NONZERO AUXILIARY LINK
+ROWS; A COMPONENT-SIZE BOUND ON THE NUMBER OF RETAINED ROWS REMAINS OPEN.**
+
+`CompactDualSlabFaceStrandComponentSparseDropCode.lean` contracts the dense
+link-indexed table of milestone 133.  An executable Boolean recognizes
+all-zero natural words, and structural recursion omits exactly those rows.
+The central generic theorem proves that, on a duplicate-free link carrier,
+looking up and decoding this sparse table gives the same edge labelling as
+decoding the original fixed-order word field.  The missing-row default is
+therefore semantically exact, not an approximation.
+
+The rooted component's `sparseDropCode` retains the physical peel list
+unchanged and uses the zero-erased auxiliary table.  Decoding it against the
+accepted lowered target still proves the two literal round trips
+
+```text
+decodePhysical(lowerPhysical, sparseDropCode) = source physical,
+decodeAssignment(lowerAssignment, sparseDropCode) = source assignment.
+```
+
+Every stored auxiliary row is now formally certified nonzero, and zero-row
+erasure never increases table length.  This removes the previous mandatory
+one-row-per-volume-link payload.  It does not yet prove that the number of
+nonzero rows is independent of volume: that requires the next geometric
+theorem, turning a positive internal drop at a link into a selected physical
+component incidence at that link and then charging distinct retained links to
+the component's finite physical copy list.
+
+The focused monitored source check and dependency-complete target pass all
+925 jobs.  All sixteen audited declarations use at most
+`[propext, Quot.sound]`; the zero-word recognizer and sparse-table constructor
+are axiom-free.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  The root aggregator imports the module; no full-root audit is
+claimed.
+
+The exact next frontier is the retained-row charging theorem.  Once each
+nonzero auxiliary row is charged with uniformly bounded multiplicity to a
+selected physical face copy, row count and the at-most-three local words can
+be enumerated exponentially in component size.  Only then can energy payment
+and entropy be contracted into a genuine component-gas bound.  Posterior
+variance, a uniform completed OS gap, thermodynamic/continuum passage, and the
+Clay theorem remain open.
