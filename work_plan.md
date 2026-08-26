@@ -23443,3 +23443,48 @@ constant to compare with milestone 131's SU2 heat payment.  The exact
 heat-weight ratio, posterior-variance fraction, uniform strict form bound,
 completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
 open.
+
+## 144. Physical strand multiplicities land in a fixed `4^peelSize` carrier (2026-08-26)
+
+**Status. THE SELECTED PHYSICAL STRAND MULTIPLICITIES OVER THE DECODED
+COMPONENT SUPPORT NOW HAVE AN EXACT BINARY CODE IN A VOLUME- AND
+CUTOFF-INDEPENDENT CARRIER OF SIZE `4^peelSize`; FULL FACE-DROP RECONSTRUCTION
+AND SPARSE AUXILIARY ROW KEYS REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentPhysicalMultiplicityCode.lean`
+constructively inverts every corrected-slab plaquette to its physical face
+identifier.  It decodes milestone 143's padded shape word to a canonical,
+duplicate-free plaquette order with exactly the production component support.
+Each decoded plaquette is then labelled by the number of selected physical
+strand copies on its inverse face.
+
+The canonical word has at most `peelFaces.length` coordinates.  A
+duplicate-free weighted-subset argument compares its total multiplicity with
+the complete corrected-slab physical-face carrier; exact inverse indexing and
+milestone 139's physical-drop identity then prove
+
+```text
+natListSum multiplicityWord <= peelFaces.length.
+```
+
+The existing weak-composition compiler maps the word into all binary words of
+length `2 * peelSize`, and its decoder recovers the word literally.  The
+carrier cardinality is proved exactly:
+
+```text
+2 ^ (2 * peelSize) = 4 ^ peelSize.
+```
+
+The focused monitored source check passes.  All seventeen audited declarations
+use at most `[propext, Quot.sound]`; the inverse index itself is axiom-free.  No
+`Classical`, choice, proof obligation, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+This milestone proves the physical multiplicity carrier and literal recovery
+of that word.  It does not yet prove a decoder theorem reconstructing the
+ambient physical face-drop function from the shape and multiplicity codes.
+That inverse theorem is the next frontier, after which sparse auxiliary row
+keys must be encoded relative to the decoded component geometry.  The exact
+heat-weight ratio, posterior-variance fraction, uniform strict form bound,
+completed OS gap, thermodynamic/continuum passage, and Clay theorem remain
+open.
