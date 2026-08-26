@@ -20687,3 +20687,35 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Successive canonical internal strand advances now strictly decrease the path rank (2026-08-25)
+
+`CanonicalLinkStrandStrictProgress` specializes the abstract path theorem to
+the actual proof-indexed resolved link network.  If two successive internal
+crossings returned to the vertex preceding the first crossing, the incoming
+and outgoing internal identifiers would have the same two distinct
+consecutive endpoints.  Endpoint-pair uniqueness makes their left coordinates
+equal, canonical coordinate injectivity makes their identifiers equal, and
+the already-proved local-mate nonbacktracking theorem supplies the
+contradiction.
+
+The no-return statement combines with exact adjacency and the literal vertex
+bound to prove that `natPathRank` strictly decreases on every successive
+internal crossing.  This is now a theorem about the actual dependent strand
+dynamics, not merely the abstract natural path.
+
+The remaining contraction is purely well-founded: package two consecutive
+internal ports as an oriented state, inspect the next total strand step, and
+recurse only in its internal branch using the strict-rank theorem.  The
+physical branch already carries the terminal as `Type`-level data.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 699 jobs.  All three audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No bounded terminal extractor, induced physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.

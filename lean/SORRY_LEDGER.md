@@ -18567,3 +18567,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 698 jobs.  All seven audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-strand-strict-progress] Specialize the decreasing path rank to actual successive strand crossings -- **CANONICAL STRICT PROGRESS CLOSED; TERMINAL RECURSION OPEN 2026-08-25**
+
+- **milestone**: prove every actual resolved port has a vertex index below the
+  canonical path length; prove that a second internal crossing cannot return
+  to the vertex preceding the first; and consume exact adjacency,
+  no-return, and the vertex bound in the abstract path-rank theorem.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkStrandStrictProgress.lean`.
+- **principal declarations**:
+  `canonicalResolvedPort_vertexIndex_lt_vertexCount`,
+  `canonicalSuccessiveInternalCrossing_no_return`, and
+  `canonicalSuccessiveInternalCrossing_rank_decreases`.
+- **obligation**: define an oriented internal-strand state whose current port
+  is exactly the preceding port's full internal advance; inspect the next
+  total step; and recurse on the proved decreasing rank until its physical
+  branch returns a terminal.  Strict progress proves well-foundedness but is
+  not itself the requested terminal witness or pairing.
+- **constructive?**: yes.  The contradiction identifies two internal edges
+  from their shared consecutive endpoints and then uses the explicit local
+  nonbacktracking inequality.  All transports preserve the actual dependent
+  port witnesses.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, functional extensionality, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 699 jobs.  All three audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
