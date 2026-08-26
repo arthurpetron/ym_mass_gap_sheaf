@@ -20719,3 +20719,36 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Every canonical resolved link strand now constructively reaches a physical terminal (2026-08-25)
+
+`CanonicalLinkStrandTerminal` contracts strict path progress into a genuine
+termination witness.  A data-bearing inductive path either stops at an actual
+physical port or records one exact same-slot crossing followed by the local
+mate and continues.  Its terminal result is a sigma pair containing both the
+physical terminal and the complete path from the starting port.
+
+The recursion state stores an internal source and the proof that its computed
+full advance is also internal.  Its rank is the explicit distance to the
+selected end of the canonical fusion path.  When the next classified port is
+internal, the strict-progress theorem proves the shifted state's rank is
+smaller; when it is physical, that port is returned immediately.  Thus the
+kernel accepts well-founded recursion on the mathematical path rank, with no
+arbitrary fuel and no erased existence claim.
+
+This closes physical-terminal extraction from every resolved port.  The next
+contraction starts at a physical port's local mate, extracts the terminal at
+the other end, and proves reversal of the retained path.  That reversal is
+the needed basis for a fixed-point-free involutive pairing of physical
+terminals.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 700 jobs.  All twelve audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No induced physical-terminal pairing, global physical-face continuation,
+strand-component extraction, coherent BF4 peel, heat-weight comparison,
+cutoff-uniform posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

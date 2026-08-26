@@ -18595,3 +18595,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 699 jobs.  All three audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-strand-terminal] Construct a physical terminal and retained path from every canonical resolved port -- **BOUNDED TERMINAL EXTRACTION CLOSED; TERMINAL PAIRING OPEN 2026-08-25**
+
+- **milestone**: define the exact full internal advance; define a `Type`-level
+  inductive path to a physical port; package terminal plus path as sigma data;
+  define an oriented two-internal-port state with the abstract end-distance
+  rank; prove its forward shift lowers that rank; and use well-founded
+  recursion to extract a physical terminal from every resolved port.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkStrandTerminal.lean`.
+- **principal declarations**:
+  `canonicalInternalAdvancePort`,
+  `CanonicalStrandPathToPhysical`,
+  `CanonicalStrandTerminalWitness`,
+  `CanonicalOrientedInternalState`,
+  `CanonicalOrientedInternalState.current`,
+  `CanonicalOrientedInternalState.nextPort`,
+  `CanonicalOrientedInternalState.rank`,
+  `CanonicalOrientedInternalState.next`,
+  `CanonicalOrientedInternalState.next_rank_lt`,
+  `CanonicalOrientedInternalState.terminalWitness`,
+  `canonicalLinkStrandTerminalWitness`, and
+  `canonicalLinkStrandTerminal`.
+- **obligation**: start from a physical port's local trivalent mate, use the
+  extractor to obtain the opposite physical terminal, and prove that reversing
+  the retained path returns to the original terminal.  Terminal existence by
+  itself does not prove fixed-point-freeness, involutivity, or the global face
+  continuation needed for strand components.
+- **constructive?**: yes.  The only recursion is structural well-founded
+  recursion on the proved strictly decreasing natural rank.  Every branch is
+  selected by the existing decidable physical/internal classifier; terminal
+  and path both remain in `Type`.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 700 jobs.  All twelve audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.
