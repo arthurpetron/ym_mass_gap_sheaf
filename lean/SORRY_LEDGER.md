@@ -18160,3 +18160,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   only `[propext, Quot.sound]`; the root aggregator imports the module.  The
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
+
+### [compact-dual-slab-link-strand-resolution] Expand every accepted link witness into resolved trivalent vertices -- **LOCAL NETWORK COMPILER CLOSED; GLOBAL PAIRING OPEN 2026-08-25**
+
+- **milestone**: recursively compile any true finite trivalent-graph fusion
+  guard into explicit per-vertex strand data while preserving the ordered
+  vertex list exactly; extract the vertex guard from the accepted canonical
+  link predicate; and specialize the compiler to every literal member of the
+  production `slabLinkFusionWitnesses` list.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabLinkStrandResolution.lean`.
+- **decl**:
+  `ResolvedTrivalentVertex`,
+  `resolveAdmissibleVertices`,
+  `resolveAdmissibleVertices_map_vertex`,
+  `ResolvedTrivalentNetwork`,
+  `resolvedTrivalentNetworkOfAdmissible`,
+  `canonicalLinkConditionalAllowedB_vertices_admissible`,
+  `canonicalLinkResolvedStrandNetwork`,
+  `slabLinkFusionWitness_mem_allowed`, and
+  `slabLinkResolvedStrandNetwork`.
+- **obligation**: refine every physical plaquette label into distinguishable
+  strand copies, pair the copies at each resolved physical link according to
+  its explicit `ab/bc/ca` counts, and prove that the resulting finite global
+  incidence graph has only closed or explicitly allowed time-boundary-relative
+  components.  Then peel one whole component and update all link auxiliary
+  labels coherently.  A list of locally resolved vertices alone does not prove
+  this global compatibility or any BF4 kernel lower bound.
+- **constructive?**: yes.  The compiler recurses on the literal vertex list,
+  computes every strand count from natural labels, retains original edge
+  identifiers, and uses membership only to certify the displayed Boolean
+  guard.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, functional extensionality, or noncomputable declaration is
+  introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 688 jobs.  All nine audited declarations use
+  only `[propext, Quot.sound]`; the root aggregator imports the module.  The
+  executable forbidden-token scan reports zero hits and `git diff --check`
+  passes.  No full-root audit is claimed.

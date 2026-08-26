@@ -20320,3 +20320,40 @@ No global strand continuation/closure theorem, positive BF4 kernel path,
 cutoff-uniform posterior-variance fraction, uniform completed gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## Every accepted slab-link intertwiner now expands to an explicit strand network (2026-08-25)
+
+`CompactDualSlabLinkStrandResolution` lifts the one-vertex strand compiler
+through the actual production fusion witnesses.  For an arbitrary finite
+trivalent graph, a true `verticesAdmissibleB` guard recursively returns one
+`ResolvedTrivalentVertex` per original vertex.  Each entry contains the
+original three edge identifiers and the unique explicit `ab/bc/ca` strand
+resolution under the given edge labelling.  The compiler proves that mapping
+back to vertex identifiers recovers the complete ordered input list exactly,
+so it neither forgets nor duplicates an incidence.
+
+The generic construction is then applied to the canonical consecutive
+left-fusion chain used by `canonicalLinkConditionalAllowedB`.  Literal
+membership of an auxiliary labelling in `slabLinkFusionWitnesses` exposes the
+true production guard, hence returns a `ResolvedTrivalentNetwork` for every
+accepted corrected-slab link-intertwiner witness.  The resolved list has
+exactly the length of the canonical link vertex chain.
+
+This closes the local-network expansion.  The next proof is now purely
+finite but global: create distinguishable strand copies for every labelled
+plaquette, use the resolved `ab/bc/ca` counts to pair their occurrences at
+each physical link, and show that every interior copy has the required
+incidence degree.  Following one paired copy must then terminate in a closed
+component or an explicitly classified time-boundary-relative component.
+Only a component-wide peel can preserve every shared link constraint at once.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 688 jobs.  All nine audited declarations use only
+`[propext, Quot.sound]`; the root aggregator imports the module.  The
+executable forbidden-token scan reports zero hits and `git diff --check`
+passes.  No full-root audit is claimed.
+
+No global strand-copy pairing, component extraction, coherent physical BF4
+peel, heat-weight comparison, cutoff-uniform posterior-variance fraction,
+uniform completed gap, thermodynamic/continuum construction, continuum
+Yang--Mills theory, or Clay mass gap is proved.
