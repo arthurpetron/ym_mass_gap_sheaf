@@ -22767,3 +22767,49 @@ payment and confront the genuine analytic/combinatorial frontier: a
 cutoff-independent inverse component encoding.  Uniform connected-correlation
 decay, the completed physical transfer gap, thermodynamic/continuum limits,
 and the Clay theorem remain open.
+
+## 130. Rooted components construct accepted global lowered assignments (2026-08-26)
+
+**Status. THE COMPONENT PEEL NOW LANDS IN THE COMPLETE GLOBAL CARTESIAN
+FUSION-WITNESS LIST; WEIGHT COMPOSITION AND INVERSE ENCODING REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentAssignment.lean` closes the global assembly
+seam without adding geometry.  The generic constructor
+`slabFusionWitnessAssignmentFrom links auxiliaryAt` writes a link-indexed
+auxiliary field in the literal order of the link list.  Structural recursion
+proves that if every displayed value belongs to its local
+`slabLinkFusionWitnesses`, then this assembled list belongs to
+`slabFusionWitnessAssignmentsOn`.  A companion lookup theorem returns the
+prescribed value at every displayed link, including lists with duplicates.
+
+For a rooted global component, `lowerAuxiliaryAt` totalizes the already-proved
+linkwise component lowering; the default is used only outside the displayed
+link list.  The theorem
+
+```text
+seed.lowerAssignment_mem :
+  seed.lowerAssignment in
+    slabFusionWitnessAssignmentsOn K extent seed.lowerPhysical links
+```
+
+then follows immediately from milestone 129 at each link.  Thus one rooted
+component now constructs a complete accepted target configuration: both its
+common lowered physical labelling and its globally assembled lowered fusion
+assignment are explicit `Type`-level data.  `lowerAssignment_atLink` records
+the exact local subtraction and is the reconstruction interface needed by the
+inverse-map frontier.
+
+The focused source check and dependency-complete monitored target pass all 712
+jobs.  All eight audited declarations use at most `[propext, Quot.sound]`;
+`slabFusionWitnessAssignmentFrom` is axiom-free.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  The root aggregator imports the
+module; no full-root audit is claimed.
+
+The next theorem-first step joins this accepted global peel to the existing
+expanded-fiber comparison.  Its size must be the total selected-copy count,
+realized as an explicit repeated face-peel path.  The subsequent decisive
+frontier is a left inverse from the lowered configuration plus a bounded
+component code, with a cutoff-independent code count.  Uniform connected-
+correlation decay, the completed physical transfer gap, thermodynamic and
+continuum limits, and the Clay theorem remain open.

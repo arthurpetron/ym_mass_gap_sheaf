@@ -19099,3 +19099,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   use at most `[propext, Quot.sound]`; three central computational definitions
   are axiom-free.  The root aggregator imports the module.  No full-root audit
   is claimed.
+
+### [compact-dual-slab-face-strand-component-assignment] Assemble the linkwise component peel into one accepted global target -- **GLOBAL CARTESIAN ASSIGNMENT CLOSED; WEIGHT COMPOSITION AND INVERSE CODE OPEN 2026-08-26**
+
+- **milestone**: structurally assemble any locally accepted auxiliary field
+  into the recursive Cartesian global assignment list; prove exact lookup on
+  displayed links; totalize the rooted component's lowered auxiliary field;
+  construct its canonical global lowered assignment; and prove membership in
+  the complete target assignment list.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentAssignment.lean`.
+- **principal declarations**:
+  `slabFusionWitnessAssignmentFrom`,
+  `slabFusionWitnessAssignmentFrom_mem`,
+  `slabFusionWitnessAssignmentAt_from`,
+  `SlabFusionWitnessFaceStrandSeed.lowerAuxiliaryAt`,
+  `SlabFusionWitnessFaceStrandSeed.lowerAuxiliaryAt_of_mem`,
+  `SlabFusionWitnessFaceStrandSeed.lowerAssignment`,
+  `SlabFusionWitnessFaceStrandSeed.lowerAssignment_mem`, and
+  `SlabFusionWitnessFaceStrandSeed.lowerAssignment_atLink`.
+- **obligation**: realize the total selected-copy count as a repeated physical
+  face-peel path, compose the resulting exact weight comparison with the
+  accepted global lowering, and build a cutoff-independent left-inverse code
+  for the component peel.  This inverse-counting theorem is the remaining
+  barrier to a component-gas connected-correlation estimate.
+- **constructive?**: yes.  Cartesian assembly is structural recursion on the
+  literal link list; totalization uses one decidable link-membership split.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused source check and dependency-complete monitored
+  target pass all 712 jobs.  All eight audited declarations use at most
+  `[propext, Quot.sound]`; the generic assignment constructor is axiom-free.
+  The root aggregator imports the module.  No full-root audit is claimed.
