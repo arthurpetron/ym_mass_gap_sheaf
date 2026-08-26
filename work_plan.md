@@ -23616,3 +23616,52 @@ component entropy base before comparing it with milestone 131's SU2 heat
 payment.  The exact conditional transition ratio, posterior-variance fraction,
 uniform strict form bound, completed OS gap, thermodynamic/continuum passage,
 and Clay theorem remain open.
+
+## 148. Complete unweighted component entropy is exact—and too large (2026-08-26)
+
+**Status. THE FOUR INVERSE-CODE FACTORS NOW FORM AN EXACT FINITE CARRIER OF
+SIZE `671088640000^peelSize`, AND KERNEL-CHECKED ARITHMETIC PROVES THAT RAW
+COUNTING CANNOT BE PAID BY THE CURRENT SU2 FACE FACTOR.  THE PROOF IS REPOINTED
+TO WEIGHTED AUXILIARY SUMMATION.**
+
+`CompactDualSlabFaceStrandComponentEntropyCarrier.lean` packages the rooted
+shape, physical multiplicity, auxiliary-row presence, and flattened auxiliary
+value words.  It constructs their literal Cartesian carrier, proves production
+membership, and proves the exact cardinality
+
+```text
+(625 * 4 * 16 * 4^12)^n = 671088640000^n.
+```
+
+Equality of complete codes at a common root reconstructs both the total
+physical face-drop function and the literal sparse auxiliary row table.  A
+generic finite pigeonhole theorem converts any genuinely injective fixed-size
+family into this carrier bound; it does not assume that the still-to-be-defined
+inverse-image family is injective.
+
+The decisive arithmetic diagnostic compares the carrier with milestone 131's
+per-copy heat factor:
+
+```text
+671088640000 * (1 / 32000000) = 524288 / 25 > 1.
+```
+
+Both the exact rational equality and strict inequality are proved by decidable
+rational arithmetic.  Therefore the unweighted enumeration of all auxiliary
+natural words cannot yield a Peierls contraction, even though its inverse code
+is correct.  This is a proved no-go for that proof path, not an unresolved Lean
+check.
+
+The focused monitored source check passes.  All fourteen audited declarations
+use at most `[propext, Quot.sound]`; the base arithmetic and ratio theorems are
+axiom-free.  No `Classical`, choice, proof obligation, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The causal next frontier is weighted auxiliary summation: retain the structural
+`625 * 4 * 16 = 40000` carrier, but sum auxiliary labels with their actual SU2
+heat/intertwiner weights instead of charging the raw `(4^12)^n` word count.
+This requires a local conditional partition or moment bound strong enough to
+replace that factor and leave a ratio below one.  Only then can one construct
+the exact heat-weight ratio and posterior-variance fraction.  The uniform
+strict form bound, completed OS gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
