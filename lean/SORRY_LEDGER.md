@@ -18534,3 +18534,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 697 jobs.  All three audited declarations use at
   most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [canonical-link-strand-monotone-path] Give nonbacktracking path motion a strictly decreasing constructive rank -- **ABSTRACT TERMINATION MEASURE CLOSED; CANONICAL TERMINAL EXTRACTOR OPEN 2026-08-25**
+
+- **milestone**: prove that two adjacent natural-number path steps which do
+  not return have a common orientation; define the remaining distance to the
+  selected end; prove it decreases strictly on the next bounded step; prove
+  uniqueness of the left endpoint determined by two distinct consecutive
+  endpoints; and prove the canonical internal-edge coordinate is faithful.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkStrandMonotonePath.lean`.
+- **principal declarations**:
+  `NatPathAdjacent`,
+  `natPathAdjacent_nonbacktracking_direction`,
+  `natPathRank`,
+  `natPathRank_strictly_decreases`,
+  `consecutiveEndpointPair_leftIndex_unique`,
+  `canonicalInternalEdge_reconstruct`, and
+  `canonicalInternalEdgeLeftIndex_injective`.
+- **obligation**: specialize endpoint-pair uniqueness to two successive typed
+  canonical strand crossings, proving that distinct incoming and outgoing
+  internal identifiers force the next vertex to differ from the previous
+  one; then recurse on `natPathRank` to return a physical terminal as data and
+  derive the terminal pairing.  The abstract rank theorem alone does not
+  construct that canonical recursion.
+- **constructive?**: yes.  The directional proof is direct cancellation of
+  the four possible adjacent-step orientations, and the rank calculation uses
+  explicit natural subtraction identities.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, functional extensionality, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 698 jobs.  All seven audited declarations use at
+  most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

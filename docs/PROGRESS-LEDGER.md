@@ -20654,3 +20654,36 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Nonbacktracking strand motion now has an abstract strictly decreasing path rank (2026-08-25)
+
+`CanonicalLinkStrandMonotonePath` separates the global mathematical argument
+from the dependent strand representation.  For three natural-number path
+positions, two adjacent steps that do not return to the first position must
+have one common direction.  The distance from the current position to the
+selected end of a bounded path then decreases strictly at the next step.
+
+The proof is the actual four-orientation cancellation argument, not a new
+enumeration of canonical valences.  Its rank is explicit: `bound - current`
+for a right-moving pair and `current` for a left-moving pair.  The same module
+also proves that a canonical internal identifier is reconstructed from its
+left-endpoint coordinate and hence that the coordinate is injective.  A
+generic uniqueness lemma says that two distinct consecutive endpoints
+determine that coordinate.
+
+These facts expose the short remaining specialization: if a second canonical
+internal crossing returned to the previous vertex, both distinct internal
+identifiers would have the same two endpoints, contradicting coordinate
+injectivity.  Therefore the abstract rank decreases at every internal step,
+which is the induction principle for the forthcoming terminal extractor.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 698 jobs.  All seven audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No bounded terminal extractor, induced physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.
