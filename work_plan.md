@@ -23349,3 +23349,47 @@ ordered sparse-row keys.  Only after combining those factors with milestone
 compare with milestone 131's SU2 heat payment.  The exact heat-weight ratio,
 posterior-variance fraction, uniform strict form bound, completed OS gap,
 thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 142. Deterministic Euler-tour code for each component animal (2026-08-26)
+
+**Status. EVERY ROOTED STRAND COMPONENT NOW HAS AN EXPLICIT 25-SYMBOL TOUR
+WORD WHICH DECODES TO EXACTLY ITS GEOMETRIC PLAQUETTE SUPPORT; PADDING TO ONE
+PEEL-SIZE CARRIER AND STRAND-MULTIPLICITY DATA REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentAnimalTourCode.lean` applies the existing
+constructive bounded-lattice spanning machinery to milestone 141's production
+animal.  It runs `AdjSpanningBuild.grow` directly on the Type-valued internal
+connectivity witness, retaining a deterministic final `BFSState` whose tree
+covers the complete support.  The tree is duplicate-free, rooted at the
+selected strand plaquette, and has exactly the deduplicated support size.
+
+The carried genuine adjacency witnesses are then passed through
+`SpanningTreeBuild.reindex`, selecting faithful indices in the degree-24 Z4
+neighbour list.  Taking `RTree.tour` gives an explicit word over `Fin 25` with
+
+```text
+tour.length = 2 * (componentPlaquetteSupport seed).length - 2
+```
+
+in the repository's exact predecessor form
+`2 * (support.length - 1)`.  The word is a literal member of
+`codes z4Chain support.length`, and `decode_tour_sound` proves that decoding it
+from `slabPlaquetteAt extent seed.root.faceId` has exactly the component's
+plaquette support.
+
+The focused monitored source check passes.  All twenty-two public audited
+declarations use at most `[propext, Quot.sound]`.  No `Classical`, choice, proof
+obligation, custom axiom, noncomputable declaration, or enlarged heartbeat
+budget is introduced.  The root aggregator imports the module; no full-root
+audit is claimed.
+
+This is a deterministic exact shape code, but its current carrier length is
+indexed by the deduplicated support size rather than uniformly by peel length.
+The next small compiler should append inert backtrack symbols to a fixed
+peel-size word and prove that padding preserves the decoder's visited support,
+yielding the clean shape factor `25^(2*n) = 625^n`.  Strand multiplicities over
+each decoded plaquette and ordered sparse-row keys must still be encoded before
+the complete component entropy can be compared with milestone 131's SU2 heat
+payment.  The exact heat-weight ratio, posterior-variance fraction, uniform
+strict form bound, completed OS gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
