@@ -18313,3 +18313,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 691 jobs.  All fourteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [resolved-trivalent-network-half-edges] Lift edge counts to distinct resolved half-edge fibers -- **HALF-EDGE FIBERS CLOSED; SLOT CONTINUATION OPEN 2026-08-25**
+
+- **milestone**: define a literal half-edge as a bounded resolved-vertex
+  position plus a trivalent leg; enumerate every half-edge without
+  duplication; prove that mapping the enumeration to edge identifiers exactly
+  recovers the original flattened edge word; and transfer the canonical link
+  counts to prove one half-edge over every physical identifier and two over
+  every genuine internal fusion identifier.
+- **file**:
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkHalfEdges.lean`.
+- **principal declarations**:
+  `ResolvedNetworkHalfEdge`,
+  `ResolvedNetworkHalfEdge.vertex`,
+  `ResolvedNetworkHalfEdge.edgeId`,
+  `halfEdgesAt`,
+  `allResolvedNetworkHalfEdges`,
+  `ResolvedNetworkHalfEdge.mem_all`,
+  `allResolvedNetworkHalfEdges_nodup`,
+  `allResolvedNetworkHalfEdges_map_edgeId`,
+  `resolvedNetworkEdgeWord_eq`,
+  `halfEdgesOnEdge`,
+  `halfEdgesOnEdge_nodup`,
+  `halfEdgesOnEdge_length`,
+  `canonicalLinkResolved_halfEdgesOnEdge_length_physical`, and
+  `canonicalLinkResolved_halfEdgesOnEdge_length_internal`.
+- **obligation**: compile each duplicate-free length-two internal half-edge
+  fiber into a computable fixed-point-free involution and transport an
+  individual strand's bounded slot to that other endpoint.  Then alternate
+  this internal continuation with the local trivalent mate and prove that the
+  canonical finite chain terminates at physical terminals.  Exact fiber
+  cardinality alone is not a physical-terminal pairing, a global strand
+  component, or a BF4 kernel edge.
+- **constructive?**: yes.  Half-edges use finite dependent indices, the
+  carrier and fibers are explicit lists, and all filtering and equality
+  decisions compute.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 692 jobs.  All fourteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

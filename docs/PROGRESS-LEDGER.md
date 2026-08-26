@@ -20462,3 +20462,36 @@ physical-face continuation, strand-component extraction, coherent BF4 peel,
 heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
 completed gap, thermodynamic/continuum construction, continuum Yang--Mills
 theory, or Clay mass gap is proved.
+
+## Resolved canonical link networks now have exact one- and two-element half-edge fibers (2026-08-25)
+
+`ResolvedTrivalentNetworkHalfEdges` replaces an edge-word count by the
+literal positions to which that count refers.  A half-edge is a bounded
+vertex position together with one of its three legs.  The module explicitly
+enumerates all such positions and proves the enumeration exhaustive and
+duplicate-free.
+
+Mapping the enumeration to graph-edge identifiers recovers exactly the
+flattened edge word of the original ordered trivalent graph, even though the
+resolved network is indexed by a proof-produced vertex list.  Consequently,
+the earlier canonical-link occurrence counts transfer to the actual resolved
+network: a physical edge has one distinct half-edge, while a genuine internal
+fusion edge has two distinct half-edges.
+
+This closes the positional fiber theorem.  The next mathematical lemma is to
+turn each duplicate-free two-element internal fiber into its canonical
+fixed-point-free endpoint swap.  Transporting the same bounded strand slot
+along that swap gives the typed auxiliary continuation; alternating it with
+the already-proved local trivalent mate can then contract a canonical fusion
+chain to its physical terminals.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 692 jobs.  All fourteen audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No typed internal strand continuation, physical-terminal pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.
