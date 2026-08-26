@@ -23241,3 +23241,59 @@ into a fixed finite weak-composition carrier.  That will bound auxiliary-value
 entropy by a constant to the peel size without using the spin cutoff.
 Posterior variance, a uniform completed OS gap, thermodynamic/continuum
 passage, and the Clay theorem remain open.
+
+## 140. Auxiliary values inject into a fixed exponential binary carrier (2026-08-26)
+
+**Status. THE NATURAL-VALUED PART OF THE COMPLETE SPARSE COMPONENT CODE NOW
+HAS AN EXACTLY DECODABLE CUTOFF-INDEPENDENT CARRIER OF SIZE
+`(4 ^ 12) ^ peelFaces.length`; ROW-KEY AND PHYSICAL-SKELETON ENTROPY REMAIN
+OPEN.**
+
+`CompactDualSlabFaceStrandComponentWeakCompositionCode.lean` supplies the
+finite weak-composition compiler left open by milestone 139.  For an arbitrary
+natural word, it serializes each value as a unary run terminated by zero.  If
+both source length and source l1 mass are at most `budget`, the raw binary word
+has length at most `2 * budget`.  The unused suffix is padded with ones, not
+zeros.  A structural decoder returns every zero-terminated unary run and
+ignores the final unterminated run of padding ones.  This gives a literal left
+inverse and makes the compiler injective even between source words of
+different lengths.
+
+Every bounded source therefore lands in `allSeqs 2 (2 * budget)`, whose exact
+length is
+
+```text
+2 ^ (2 * budget) = 4 ^ budget.
+```
+
+The module also proves the corresponding finite-list count for any
+duplicate-free family of bounded natural words.
+
+For the production complete-slab component, the sparse auxiliary rows are
+flattened without their separately stored link keys.  Flattening preserves
+total l1 mass exactly.  Milestone 137's at-most-four rows per peel entry and
+the universal at-most-three coordinates per row give flattened length at most
+`12 * peelFaces.length`; milestone 139 gives the same bound on flattened l1
+mass.  Hence the actual auxiliary value word is exactly decodable from a
+binary carrier with
+
+```text
+length = 2 * (12 * peelFaces.length),
+cardinality = (4 ^ 12) ^ peelFaces.length.
+```
+
+The focused monitored source check and dependency-complete target pass all
+934 jobs.  All twenty-eight audited declarations use at most
+`[propext, Quot.sound]`; five compiler/decoder definitions are axiom-free.  No
+`Classical`, choice, proof obligation, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.  The root aggregator imports the
+module; no full-root audit is claimed.
+
+This closes only the auxiliary-value entropy factor.  The ordered sparse row
+keys and the physical face-ID peel word are still separate parts of the exact
+reconstruction code and must receive their own component-relative finite
+carriers before a complete component-count theorem can be stated.  That full
+entropy bound must then be compared with milestone 131's energy payment before
+the exact heat-weight ratio, posterior-variance fraction, uniform strict form
+bound, completed OS gap, thermodynamic/continuum passage, or Clay theorem can
+be reached.
