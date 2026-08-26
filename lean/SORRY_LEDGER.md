@@ -17982,3 +17982,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   extension is axiom-free.  The root aggregator imports the module.  The
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
+
+### [bf4-off-ray-vacuum-root-coercivity] Replace endpoint-pair traffic by one-body off-ray rooting -- **OPEN ANALYTIC INPUT; COMPILER CLOSED 2026-08-25**
+
+- **milestone**: root the complete finite-sector pairwise variance at the
+  physical vacuum, partition that root variance exactly into the filtered
+  excited ray and its complement, pay the ray-root part by the already proved
+  return floor, and compile one cutoff-uniform off-ray root estimate to full
+  finite-sector coercivity.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayRootVariance.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayRootCoercivity.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorRootVariance_eqv_rayRoot_add_offRayRoot`,
+  `two_delta_mul_filteredRayRootVariance_le_physicalDirichlet`,
+  `CentralLowerExcitedSpinCubeOffRayRootCoercivityAt`,
+  `CentralLowerExcitedSpinCubeOffRayRootCoercivityAt.compiledStrength_mul_fullPairwiseVariance_le_physicalDirichlet`,
+  and `FixedNomeCofinalSpinCubeOffRayRootCoercivity`.
+- **obligation**: construct one positive rational `eta`, uniform beyond a
+  cutoff, such that `eta` times the stationary one-body square distance of
+  every off-ray state from the vacuum is bounded by the physical Dirichlet
+  form.  The exact decomposition and the compiler do not inhabit this field.
+- **constructive?**: yes.  The missing object is positive rational data plus a
+  coefficient-uniform inequality over literal finite carriers.  The verified
+  reduction uses explicit filters, finite sums, physical kernel entries, and
+  setoid arithmetic; it introduces no `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, or noncomputable
+  declaration.
+- **status note**: focused monitored checks pass for both files.  All nine
+  audited exports use only `[propext, Quot.sound]`, and the root aggregator
+  imports both modules.  No full-root audit is claimed.  The older symmetric
+  transition-product path remains a valid alternative, but the rooted path
+  has a strictly smaller analytic interface.

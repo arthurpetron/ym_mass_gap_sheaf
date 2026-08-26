@@ -20094,3 +20094,39 @@ claimed.
 No cutoff-independent payment of the symmetric transition-product load, no
 cofinal spin-ray return floor, completed uniform gap, thermodynamic/continuum
 construction, continuum Yang--Mills theory, or Clay mass gap is proved.
+
+## Vacuum rooting contracts the quadratic off-ray frontier to one-body geometry (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayRootVariance` replaces the previous decomposition
+into ray--off, off--ray, and off--off endpoint pairs by the exact one-body
+identity
+
+`root variance = excited-ray root variance + off-ray root variance`.
+
+The already proved general rooting inequality bounds the complete finite-
+sector pairwise variance by twice this sum.  On the excited ray, the existing
+uniform return estimate is stronger than the earlier ray-pairwise argument:
+its literal ray-to-vacuum kernel entries directly pay the ray-root variance at
+strength `2 * delta`.  Hence no new pairwise capacity theorem is needed for
+the ray portion.
+
+`BF4PhysicalSpinCubeOffRayRootCoercivity` isolates the remaining datum as one
+coefficient-uniform estimate `eta * offRayRootVariance <= Dirichlet`.  It then
+proves the causal compiler
+
+`(1/4) * min(2 * delta, eta) * fullPairwiseVariance <= Dirichlet`.
+
+The two factors `1/2` have explicit mathematical sources: converting all
+pairs to vacuum-root distances, and combining the ray and off-ray estimates
+when each is allowed the full energy.  A cofinal `eta` therefore suffices for
+a cutoff-independent finite-sector coercivity constant.  This strictly
+shrinks the live analytic interface from quadratically many endpoint demands
+to one rooted obligation per off-ray state.
+
+Focused monitored checks pass for both modules.  All nine audited exports use
+only `[propext, Quot.sound]`; the root aggregator imports both modules.  No
+full-root audit is claimed.
+
+The cutoff-uniform off-ray root estimate remains open.  No uniform completed
+gap, thermodynamic/continuum construction, continuum Yang--Mills theory, or
+Clay mass gap is proved.
