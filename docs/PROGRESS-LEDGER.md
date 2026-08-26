@@ -19930,3 +19930,40 @@ None of the package's three fields is inhabited.  No adaptive regional
 deficit or total-tail control, persistent payment, completed uniform gap,
 thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
 mass gap is proved.
+
+## The coherent adaptive stream now enters the canonical regional deficit (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRegionalDeficitBridge`
+defines the full adaptive debt at each later cutoff and two exact finite
+diagnostics: its same-cutoff mismatch from the canonical debt and its
+consecutive data drift along the stored projectively coherent adaptive route.
+
+Because the adaptive routing for transition `k` lives at cutoff `k+1`, the
+causal comparison is shifted and has four observable stations:
+
+`canonical(k+1) -> adaptive(k+1) -> adaptive(k+2) -> canonical(k+2)`.
+
+A constructive three-segment two-sided triangle inequality proves that the
+existing canonical transported deficit at `k+1` is bounded by route mismatch
+at `k`, coherent adaptive data drift at `k`, and route mismatch at `k+1`.
+The same theorem is lifted to the literal finite maximum, using the actual
+pair embedding for the last term.  Thus adaptive routing enters as a checked
+intermediate stream and returns to the already existing canonical regional
+observable; it does not create an adaptive replacement total deficit.
+
+The remaining analytic input has contracted to two exact scalar tails: route
+mismatch and coherent adaptive data drift.  The pointwise adaptive debt bound
+by one is useful capacity control but does not itself prove either sequence
+summable.  A separate small compiler performs the successor-tail reindexing
+and reconnects those two inputs to the one existing total tail.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5185 jobs.  The five audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No route-mismatch tail, coherent-data tail, all-cutoff observable certificate,
+remaining shell-tail family, total-tail inhabitant, completed uniform gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

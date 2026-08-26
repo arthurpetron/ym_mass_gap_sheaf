@@ -17821,3 +17821,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-all-cutoff-regional-deficit-bridge] Insert the coherent adaptive debt stream into the canonical transported deficit — **CLOSED 2026-08-25**
+
+- **milestone**: define the exact full adaptive debt at cutoff `k+1`, its
+  same-cutoff mismatch from the canonical debt, and its consecutive coherent-
+  data deficit after the actual cutoff pair embedding; compute literal finite
+  maxima of both new scalar streams; and prove by a three-segment two-sided
+  triangle inequality that the existing canonical transported deficit at
+  `k+1` is bounded by route mismatch at `k`, adaptive data drift at `k`, and
+  route mismatch at `k+1`, both pointwise and at the exact finite maximum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRegionalDeficitBridge.lean`.
+- **decl**:
+  `matchedEventualAdaptiveDebtAt`,
+  `matchedEventualAdaptiveCanonicalRouteMismatchDeficitOnPair`,
+  `matchedEventualAdaptiveCoherentDataDeficitOnPair`,
+  `matchedEventualAdaptiveCanonicalRouteMismatchDeficitMaximum`,
+  `matchedEventualAdaptiveCoherentDataDeficitMaximum`,
+  `matchedEventualCanonicalTransportedCapacityDebtDeficitOnPair_succ_le_adaptive_split`,
+  and
+  `matchedEventualCanonicalTransportedCapacityDebtDeficitMaximum_succ_le_adaptive_split`.
+- **obligation**: prove antitone summable-tail controls for the exact route-
+  mismatch and coherent adaptive-data maximum sequences.  The all-cutoff
+  observable certificate itself also remains uninhabited.  The pointwise debt
+  ceiling does not imply summable consecutive variation; these are genuinely
+  additional analytic inputs.  The following tail compiler performs the
+  successor reindexing and total-tail rejoin but does not inhabit them.
+- **constructive?**: yes.  All quantities are explicit `Q'` values over
+  literal finite carriers, and the comparison uses only setoid arithmetic,
+  finite maxima, the actual pair embedding, and the stored route family.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5185 jobs.  The five
+  audited exports use only `[propext, Quot.sound]`; the executable forbidden-
+  token scan reports zero hits, `git diff --check` passes, and the root
+  aggregator imports the module.  No full-root audit is claimed.
