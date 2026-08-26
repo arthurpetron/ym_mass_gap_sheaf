@@ -23297,3 +23297,55 @@ entropy bound must then be compared with milestone 131's energy payment before
 the exact heat-weight ratio, posterior-variance fraction, uniform strict form
 bound, completed OS gap, thermodynamic/continuum passage, or Clay theorem can
 be reached.
+
+## 141. Rooted strand components project to genuine Z4 plaquette animals (2026-08-26)
+
+**Status. THE PHYSICAL COMPONENT SKELETON NOW HAS A LITERAL, DUPLICATE-FREE
+GEOMETRIC SUPPORT WHICH IS A ROOTED DEGREE-24 Z4 PLAQUETTE ANIMAL OF SIZE AT
+MOST THE PEEL LENGTH; ITS DETERMINISTIC TOUR CODE AND STRAND MULTIPLICITIES
+REMAIN OPEN.**
+
+`CompactDualSlabFaceStrandComponentAnimal.lean` closes the first geometric seam
+in the volume-independent skeleton compiler.  Each physical terminal pairing
+at an accepted link now carries Type-valued evidence that the two endpoint
+faces' literal `slabPlaquetteAt` images share that same link.  Concatenating
+these certified edges over the complete fusion-witness assignment and then
+forgetting the witnesses recovers the existing global face-strand edge list
+exactly.
+
+The module projects the rooted strand component to literal Z4 plaquettes and
+removes duplicates.  A structural mapped-preimage search with an explicit root
+fallback supplies component-copy data without eliminating a propositional
+existential into `Type`.  Every strand path can therefore be transported,
+edge-by-edge, to a plaquette-incidence path internal to the deduplicated
+support.  This proves the production certificate
+
+```text
+IsClusterThroughIn z4Chain
+  (slabPlaquetteAt extent seed.root.faceId)
+  (componentPlaquetteSupport seed).length
+  (componentPlaquetteSupport seed)
+```
+
+together with
+
+```text
+(componentPlaquetteSupport seed).length <= seed.peelFaces.length.
+```
+
+The focused monitored source check passes.  All twenty-seven public audited
+declarations use at most `[propext, Quot.sound]`; the finite mapped-preimage
+search itself is axiom-free.  No `Classical`, choice, proof obligation, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the module; no full-root audit is claimed.
+
+This milestone identifies the correct geometric object but does not yet count
+the complete strand component.  The next compiler should apply the existing
+constructive degree-24 spanning-tree/Euler-tour machinery to this rooted animal
+to encode its shape in exponentially many component-relative words.  Separate
+finite data must then encode which strand copies occupy each plaquette and the
+ordered sparse-row keys.  Only after combining those factors with milestone
+140's auxiliary-value carrier is there a complete component entropy bound to
+compare with milestone 131's SU2 heat payment.  The exact heat-weight ratio,
+posterior-variance fraction, uniform strict form bound, completed OS gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
