@@ -20007,3 +20007,46 @@ No adaptive route-mismatch or coherent-data tail is inhabited; neither are
 the upstream all-cutoff observable certificate, the remaining shell tails,
 the total tail, completed uniform gap, thermodynamic/continuum construction,
 continuum Yang--Mills theory, or Clay mass gap.
+
+## Exact symmetry reduces arbitrary-cutoff routed capacity from four faces to three (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveSymmetricRouting` changes the local
+proof architecture before any cutoff-tail decomposition.  Given any positive
+routing on the finite physical vacuum-sector carrier, it replaces the routed
+edge load `L(x,y)` by the explicit symmetric load
+
+`L_sym(x,y) = (L(x,y) + L(y,x)) / 2`.
+
+The squared coefficient difference is invariant under exchanging its two
+endpoints.  On the full square carrier this gives the exact identity
+
+`Dirichlet(L_sym) = Dirichlet(L)`,
+
+so the existing routed pairwise-variance estimate survives without a changed
+constant.  The physical joint kernel is symmetric on the same vacuum carrier.
+Therefore a capacity estimate on an old--new pair, applied after swapping the
+pair, is exactly the missing new--old estimate.  For the literal adjacent
+cutoff partition, a certificate now contains only old--old, old--new, and
+new--new fields and still compiles to the pre-existing cofinal residual
+coercivity and the concrete completed carrier/transfer/vacuum strict-
+contraction datum.
+
+This is a genuine mathematical contraction of the frontier, not another
+interface around a tail hypothesis.  It identifies a cleaner alternative to
+the directed regional-deficit route: prove three uniform symmetric-load
+capacity estimates directly, rather than prove four oriented capacity faces
+and then prove summable cutoff variation for each decomposition artifact.  It
+does not show that the old directed cross-face deficit sequences are equal;
+the simplification is available only after downstream analysis is moved to
+the symmetrized observable.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5049 jobs.  All nine audited exports use only
+`[propext, Quot.sound]`, and the root aggregator imports the module.  The
+executable forbidden-token scan reports zero hits and `git diff --check`
+passes.  No full-root audit is claimed.
+
+No old--old, old--new, or new--new uniform adjacent-block capacity estimate is
+inhabited.  No total cutoff tail, completed uniform gap, thermodynamic or
+continuum construction, continuum Yang--Mills theory, or Clay mass gap is
+proved.

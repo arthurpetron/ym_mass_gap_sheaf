@@ -17895,3 +17895,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable forbidden-
   token scan reports zero hits, `git diff --check` passes, and the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [bf4-arbitrary-cutoff-symmetric-routed-adjacent-block-capacity] Remove one oriented capacity face by exact Dirichlet symmetry — **CLOSED 2026-08-25**
+
+- **milestone**: symmetrize an arbitrary positive routed residual-flow load by
+  averaging it with its transpose; prove exactly that this leaves the full
+  square-carrier loaded Dirichlet form unchanged; retain the existing
+  pairwise-variance lower bound; prove symmetry of the physical finite kernel
+  on the vacuum sector; and use those two symmetries to generate the
+  new--old capacity estimate from the old--new estimate.  Consequently the
+  literal adjacent-cutoff old/new partition reaches the existing residual
+  coercivity and concrete completed strict-contraction datum from only three
+  oriented estimates: old--old, old--new, and new--new.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSymmetricRouting.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedFlowLoad_symm`,
+  `centralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedRawLoadedDirichlet_eqv_original`,
+  `centralLowerExcitedSpinCubeOffRayResidualPairwiseVariance_le_symmetricRoutedRawLoadedDirichlet`,
+  `centralPhysicalFiniteKernel_symm_on_vacuumSector`,
+  `CentralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedThreeBlockCapacityAt.new_old`,
+  `CentralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedThreeBlockCapacityAt.toOffRayResidualCoercivityAt`,
+  `FixedNomeCofinalSpinCubeOffRayResidualSymmetricAdjacentBlockRoutingCapacity.threeBlockCapacityAt`,
+  and
+  `FixedNomeCofinalSpinCubeOffRayResidualSymmetricAdjacentBlockRoutingCapacity.toCompletedStrictContractionData`.
+- **obligation**: inhabit the three remaining adjacent-block inequalities
+  uniformly in cutoff for a concrete routing.  This is an alternative
+  symmetric-load proof path; it does not prove equality of the old directed
+  old--new and new--old deficit maxima, nor does it inhabit the prior adaptive
+  route-mismatch, coherent-data, or shell tails.  No uniform capacity
+  certificate, total tail, thermodynamic/continuum limit, or Clay conclusion
+  follows merely from this compiler.
+- **constructive?**: yes.  Transpose averaging is explicit rational
+  arithmetic, the energy identity is proved on literal finite lists, and the
+  missing orientation is obtained by kernel-checked equality.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5049 jobs.  All nine
+  audited exports use only `[propext, Quot.sound]`; the root aggregator imports
+  the module.  The executable forbidden-token scan reports zero hits and
+  `git diff --check` passes.  No full-root audit is claimed.
