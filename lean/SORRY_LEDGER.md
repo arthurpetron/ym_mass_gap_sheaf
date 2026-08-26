@@ -17936,3 +17936,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the root aggregator imports
   the module.  The executable forbidden-token scan reports zero hits and
   `git diff --check` passes.  No full-root audit is claimed.
+
+### [bf4-arbitrary-cutoff-symmetric-transition-product-observable] Cancel stationary weight after symmetrization and telescope through the selected edge — **CLOSED 2026-08-25**
+
+- **milestone**: normalize the reversed routed load by the displayed edge
+  source, distribute that normalization over the exact endpoint-pair sum,
+  extend every constructive path prefix through the selected positive edge,
+  and telescope the endpoint/source stationary ratio into the product of
+  reverse/forward conditional transitions.  The symmetric relative load is
+  thereby exactly the average of the forward prefix-product and through-edge
+  prefix-product traffic.  Physical joint-kernel capacity is equivalent to
+  one all-sector dimensionless conditional-transition inequality.  Any
+  directed routed-capacity certificate pays its symmetrization at the same
+  strength, yielding a genuine symmetric product certificate at every finite
+  cutoff from the existing finite restricted-ray certificate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveSymmetricTransitionProduct.lean`.
+- **decl**:
+  `centralPhysicalFiniteWeight_mul_routedRelativeTargetFlowLoad_eqv_flowLoad`,
+  `positiveKernelPrefixThroughDirectedEdge`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedPathPairRelativeTargetDemand_eqv_transitionProduct`,
+  `centralLowerExcitedSpinCubeOffRayResidualRoutedRelativeTargetFlowLoad_eqv_transitionProductLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedRelativeSourceFlowLoad_eqv_transitionProductLoad`,
+  `centralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedEdgeCapacity_iff_conditionalTransitionProduct`,
+  `CentralLowerExcitedSpinCubeOffRayResidualSymmetricRoutedConditionalTransitionProductAt`,
+  `CentralLowerExcitedSpinCubeOffRayResidualRoutedFlowCapacityAt.toSymmetricRoutedFlowCapacityAt`,
+  and
+  `centralLowerExcitedSpinCubeFiniteLinearSymmetricRoutedConditionalTransitionProductAt`.
+- **obligation**: prove a cutoff-independent conditional-transition payment
+  for a concrete routing and prove the cofinal spin-ray return floor used by
+  its shared coercivity strength.  The finite inhabitant uses the existing
+  cutoff-dependent restricted-ray constant and therefore supplies no uniform
+  gap.  The equality removes the old/new block split from the observable but
+  does not itself bound its transition products, construct a total cutoff
+  tail, or establish any thermodynamic/continuum conclusion.
+- **constructive?**: yes.  The target normalization is explicit `Q'`
+  division by a carried positive weight; the prefix-through-edge is a
+  `Type`-level positive chain; repeated edge traversal is retained as exact
+  multiplicity; and detailed balance is telescoped by structural recursion.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  functional extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5059 jobs.  Nine audited
+  exports use only `[propext, Quot.sound]`, while the constructive prefix
+  extension is axiom-free.  The root aggregator imports the module.  The
+  executable forbidden-token scan reports zero hits and `git diff --check`
+  passes.  No full-root audit is claimed.

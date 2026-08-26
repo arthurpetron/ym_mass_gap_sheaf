@@ -20050,3 +20050,47 @@ No old--old, old--new, or new--new uniform adjacent-block capacity estimate is
 inhabited.  No total cutoff tail, completed uniform gap, thermodynamic or
 continuum construction, continuum Yang--Mills theory, or Clay mass gap is
 proved.
+
+## Symmetric BF4 congestion is one exact conditional-transition observable (2026-08-25)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveSymmetricTransitionProduct` removes
+the adjacent-cutoff partition from the analytic observable itself.  For an
+arbitrary constructive positive routing, write `L(s,t)` for its directed
+load and `pi(s)` for the stationary weight.  The symmetric relative traffic
+at the displayed source is
+
+`S(s,t) = (L(s,t) / pi(s) + L(t,s) / pi(s)) / 2`.
+
+The first summand is the already verified product of reverse/forward
+conditional-transition ratios along the path prefix ending at `s`.  For the
+second summand, `s` is the target of the reversed selected edge.  Extending
+the extracted positive prefix through that edge makes the same detailed-
+balance telescope end at `s`.  Exact repeated-edge multiplicity is retained.
+Consequently `S(s,t)` is exactly, not merely bounded by, the average of one
+prefix-product and one through-edge-prefix-product finite traffic sum.
+
+Multiplication by `pi(s)` reconstructs the symmetric physical load, while
+the same factor converts the physical joint kernel to its conditional
+transition.  Cancelling the positive common factor proves an iff between the
+physical capacity inequality and one dimensionless conditional-transition
+inequality over the whole vacuum carrier.  Old--old, old--new, and new--new
+are therefore possible proof regions, not three different observables.
+
+The module also proves that any directed capacity certificate pays the
+averaged load at the same coercivity strength: apply the directed inequality
+in both orientations, use physical-kernel symmetry, and average.  Combining
+this theorem with the existing finite restricted-ray certificate constructs
+an actual symmetric transition-product certificate at every finite cutoff.
+Its strength may decay with cutoff, so this is a finite non-vacuity result,
+not the cofinal theorem.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5059 jobs.  Nine audited exports use only
+`[propext, Quot.sound]`; the constructive prefix extension is axiom-free; and
+the root aggregator imports the module.  The executable forbidden-token scan
+reports zero hits and `git diff --check` passes.  No full-root audit is
+claimed.
+
+No cutoff-independent payment of the symmetric transition-product load, no
+cofinal spin-ray return floor, completed uniform gap, thermodynamic/continuum
+construction, continuum Yang--Mills theory, or Clay mass gap is proved.
