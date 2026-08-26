@@ -22404,11 +22404,13 @@ dependency-complete one-worker target pass all 704 jobs; all thirteen audited
 declarations use at most `[propext, Quot.sound]`.
 
 This closes global edge *assembly*, not component topology or analysis.  The
-next theorem-first step is to show that the two local involutions -- pairing
-through a link and continuation through the same physical face copy -- make
-every finite global component an alternating path or cycle, and that toggling
-one whole component preserves every local fusion constraint.  The decisive
+next theorem-first step is to extract the finite connected components of this
+degree-bounded strand graph and prove that peeling one whole component
+preserves every local fusion constraint.  Because one vertex identifies the
+same face copy at all incident lattice links, a component is generally a
+branched four-valent strand object, not merely an alternating path or cycle;
+the eventual counting argument must use that honest topology.  The decisive
 analytic frontier remains a cutoff- and volume-independent comparison of the
-component-toggle weight, or an equivalent posterior-variance/resistance
-bound.  No such bound, weak-to-strong RG bridge inhabitant, continuum limit,
-or Clay conclusion is asserted.
+component-peel weight, or an equivalent posterior-variance/resistance bound.
+No such bound, weak-to-strong RG bridge inhabitant, continuum limit, or Clay
+conclusion is asserted.

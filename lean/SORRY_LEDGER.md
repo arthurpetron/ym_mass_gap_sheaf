@@ -18757,7 +18757,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   all ten audited slab declarations use at most `[propext, Quot.sound]`; the
   root aggregator imports the new module.  No full-root audit is claimed.
 
-### [compact-dual-slab-global-face-strand-edges] Assemble all accepted local pairings in one global face-copy edge list -- **GLOBAL EDGE ASSEMBLY CLOSED; ALTERNATING COMPONENTS OPEN 2026-08-26**
+### [compact-dual-slab-global-face-strand-edges] Assemble all accepted local pairings in one global face-copy edge list -- **GLOBAL EDGE ASSEMBLY CLOSED; FINITE STRAND COMPONENTS OPEN 2026-08-26**
 
 - **milestone**: define a total computable lookup from a complete fusion
   assignment to its auxiliary labelling at a requested listed link; prove the
@@ -18779,13 +18779,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `slabFusionWitnessAssignmentFaceStrandEdgesAt`,
   `slabFusionWitnessAssignmentFaceStrandEdges`, and
   `slabFineFusionWitnessFaceStrandEdges`.
-- **obligation**: define the equally literal continuation across a physical
-  face copy, combine it with the link pairing, and extract the alternating
-  finite components.  Then prove that toggling or subtracting one whole
-  component coherently updates all local link witnesses and obtain a cutoff-
-  and volume-independent comparison of its posterior weight.  A finite edge
-  list by itself supplies neither component preservation nor a uniform
-  conditional-variance estimate.
+- **obligation**: extract the finite connected components after identifying
+  equal physical face copies across all their incident links.  These are
+  generally branched degree-bounded objects, not paths or cycles.  Then prove
+  that subtracting one whole component coherently updates all local link
+  witnesses and obtain a cutoff- and volume-independent comparison of its
+  posterior weight.  A finite edge list by itself supplies neither component
+  preservation nor a uniform conditional-variance estimate.
 - **constructive?**: yes.  Assignment lookup is structural recursion;
   terminal enumeration is finite filtering; and global assembly is a finite
   concatenation of certified local edge lists.  No `Classical`, choice,
