@@ -338,6 +338,192 @@ def peelAdmissibleNonvacuum
     resolution := peel.nextResolution
     rank_drop_exact := peel.rank_drop_exact }
 
+/-! ## 4. Simultaneous subtraction in strand coordinates -/
+
+/-- A bounded collection of strands to remove simultaneously from the three
+canonical bundles of one trivalent resolution.  Keeping the three bounds as
+data is the local capacity certificate consumed by a global component peel. -/
+structure TrivalentStrandRemoval
+    {a b c : Nat} (resolution : TrivalentStrandResolution a b c) : Type where
+  ab : Nat
+  bc : Nat
+  ca : Nat
+  ab_le : ab <= resolution.ab
+  bc_le : bc <= resolution.bc
+  ca_le : ca <= resolution.ca
+
+/-- The three residual external labels, rebuilt directly from the remaining
+strand coordinates.  This definition makes simultaneous fusion preservation
+structural rather than a case analysis on triangle inequalities. -/
+def TrivalentStrandRemoval.nextLabels
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) : Nat × Nat × Nat :=
+  let ab := resolution.ab - removal.ab
+  let bc := resolution.bc - removal.bc
+  let ca := resolution.ca - removal.ca
+  (ca + ab, bc + ab, bc + ca)
+
+/-- The remaining strand counts are an explicit resolution of the residual
+external labels. -/
+def TrivalentStrandRemoval.nextResolution
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    TrivalentStrandResolution
+      removal.nextLabels.1 removal.nextLabels.2.1 removal.nextLabels.2.2 :=
+  { ab := resolution.ab - removal.ab
+    bc := resolution.bc - removal.bc
+    ca := resolution.ca - removal.ca
+    a_balance := rfl
+    b_balance := rfl
+    c_balance := rfl }
+
+/-- **Simultaneous local fusion preservation.**  Removing any bounded number
+of strands from all three bundles at once leaves an admissible SU(2)
+trivalent triple. -/
+theorem TrivalentStrandRemoval.next_admissible
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    fusionOK removal.nextLabels.1
+      removal.nextLabels.2.1 removal.nextLabels.2.2 = true :=
+  removal.nextResolution.admissible
+
+/-- On the `a` leg, simultaneous strand-coordinate subtraction is ordinary
+label subtraction by the total removed `ca` and `ab` incidences. -/
+theorem TrivalentStrandRemoval.nextLabels_a
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    removal.nextLabels.1 = a - (removal.ca + removal.ab) := by
+  have ha := resolution.a_balance
+  have hab := removal.ab_le
+  have hca := removal.ca_le
+  simp only [TrivalentStrandRemoval.nextLabels]
+  omega
+
+/-- The corresponding exact subtraction identity on the `b` leg. -/
+theorem TrivalentStrandRemoval.nextLabels_b
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    removal.nextLabels.2.1 = b - (removal.bc + removal.ab) := by
+  have hb := resolution.b_balance
+  have hab := removal.ab_le
+  have hbc := removal.bc_le
+  simp only [TrivalentStrandRemoval.nextLabels]
+  omega
+
+/-- The corresponding exact subtraction identity on the `c` leg. -/
+theorem TrivalentStrandRemoval.nextLabels_c
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    removal.nextLabels.2.2 = c - (removal.bc + removal.ca) := by
+  have hc := resolution.c_balance
+  have hbc := removal.bc_le
+  have hca := removal.ca_le
+  simp only [TrivalentStrandRemoval.nextLabels]
+  omega
+
+/-- Every removed strand lowers two incident twice-spin labels, with no loss
+or parity remainder. -/
+theorem TrivalentStrandRemoval.rank_drop_exact
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution) :
+    removal.nextLabels.1 + removal.nextLabels.2.1 +
+        removal.nextLabels.2.2 +
+          2 * (removal.ab + removal.bc + removal.ca) =
+      a + b + c := by
+  have ha := resolution.a_balance
+  have hb := resolution.b_balance
+  have hc := resolution.c_balance
+  have hab := removal.ab_le
+  have hbc := removal.bc_le
+  have hca := removal.ca_le
+  simp only [TrivalentStrandRemoval.nextLabels]
+  omega
+
+/-- A nonempty simultaneous removal strictly lowers the local rank. -/
+theorem TrivalentStrandRemoval.rank_lt
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (removal : TrivalentStrandRemoval resolution)
+    (hnonempty : 0 < removal.ab + removal.bc + removal.ca) :
+    removal.nextLabels.1 + removal.nextLabels.2.1 +
+        removal.nextLabels.2.2 <
+      a + b + c := by
+  have hdrop := removal.rank_drop_exact
+  omega
+
+/-- One previously defined strand peel is the unit simultaneous removal in
+its selected bundle. -/
+def TrivalentStrandPeel.toRemoval
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (peel : TrivalentStrandPeel resolution) :
+    TrivalentStrandRemoval resolution :=
+  match hpair : peel.pair with
+  | .ab =>
+      { ab := 1
+        bc := 0
+        ca := 0
+        ab_le := by
+          have hpositive := peel.positive
+          simp only [TrivalentStrandResolution.pairCount, hpair] at hpositive
+          omega
+        bc_le := Nat.zero_le _
+        ca_le := Nat.zero_le _ }
+  | .bc =>
+      { ab := 0
+        bc := 1
+        ca := 0
+        ab_le := Nat.zero_le _
+        bc_le := by
+          have hpositive := peel.positive
+          simp only [TrivalentStrandResolution.pairCount, hpair] at hpositive
+          omega
+        ca_le := Nat.zero_le _ }
+  | .ca =>
+      { ab := 0
+        bc := 0
+        ca := 1
+        ab_le := Nat.zero_le _
+        bc_le := Nat.zero_le _
+        ca_le := by
+          have hpositive := peel.positive
+          simp only [TrivalentStrandResolution.pairCount, hpair] at hpositive
+          omega }
+
+/-- The simultaneous-removal formulation is extensionally the original
+one-strand label update. -/
+theorem TrivalentStrandPeel.toRemoval_nextLabels
+    {a b c : Nat} {resolution : TrivalentStrandResolution a b c}
+    (peel : TrivalentStrandPeel resolution) :
+    peel.toRemoval.nextLabels = peel.nextLabels := by
+  rcases peel with ⟨pair, hpositive⟩
+  cases pair with
+  | ab =>
+      apply Prod.ext
+      · rw [TrivalentStrandRemoval.nextLabels_a]
+        rfl
+      · apply Prod.ext
+        · rw [TrivalentStrandRemoval.nextLabels_b]
+          rfl
+        · rw [TrivalentStrandRemoval.nextLabels_c]
+          exact Nat.sub_zero c
+  | bc =>
+      apply Prod.ext
+      · rw [TrivalentStrandRemoval.nextLabels_a]
+        exact Nat.sub_zero a
+      · apply Prod.ext
+        · rw [TrivalentStrandRemoval.nextLabels_b]
+          rfl
+        · rw [TrivalentStrandRemoval.nextLabels_c]
+          rfl
+  | ca =>
+      apply Prod.ext
+      · rw [TrivalentStrandRemoval.nextLabels_a]
+        rfl
+      · apply Prod.ext
+        · rw [TrivalentStrandRemoval.nextLabels_b]
+          exact Nat.sub_zero b
+        · rw [TrivalentStrandRemoval.nextLabels_c]
+          rfl
+
 #print axioms canonicalTrivalentStrandResolution
 #print axioms TrivalentStrandResolution.admissible
 #print axioms TrivalentStrandResolution.ab_eq_canonical
@@ -350,5 +536,16 @@ def peelAdmissibleNonvacuum
 #print axioms TrivalentStrandPeel.rank_lt
 #print axioms TrivalentStrandResolution.selectPeel
 #print axioms peelAdmissibleNonvacuum
+#print axioms TrivalentStrandRemoval
+#print axioms TrivalentStrandRemoval.nextLabels
+#print axioms TrivalentStrandRemoval.nextResolution
+#print axioms TrivalentStrandRemoval.next_admissible
+#print axioms TrivalentStrandRemoval.nextLabels_a
+#print axioms TrivalentStrandRemoval.nextLabels_b
+#print axioms TrivalentStrandRemoval.nextLabels_c
+#print axioms TrivalentStrandRemoval.rank_drop_exact
+#print axioms TrivalentStrandRemoval.rank_lt
+#print axioms TrivalentStrandPeel.toRemoval
+#print axioms TrivalentStrandPeel.toRemoval_nextLabels
 
 end YMGap.Continuum.SU2TrivalentStrandPeeling

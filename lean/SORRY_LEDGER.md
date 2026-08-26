@@ -18837,3 +18837,56 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited declarations use at most `[propext, Quot.sound]`; `lowerSlabFace` and
   `SlabFacePeelPath` are axiom-free.  The root aggregator imports the module.
   No full-root audit is claimed.
+
+### [resolved-trivalent-network-strand-removal] Construct accepted lower link witnesses by coherent strand-coordinate subtraction -- **LOCAL ACCEPTED MULTI-STRAND PEEL CLOSED; GLOBAL COMPONENT PLAN OPEN 2026-08-26**
+
+- **milestone**: generalize one-strand trivalent peeling to arbitrary bounded
+  simultaneous removal in the three strand coordinates; prove exact residual
+  labels, fusion preservation, and rank loss; align vertexwise removals with
+  one common edge-drop labelling across a resolved network; preserve the
+  complete canonical link guard and bounded auxiliary support; and return a
+  literal member of the target corrected-slab fusion-witness list.
+- **files**:
+  `lean/YMGap/Continuum/SU2TrivalentStrandPeeling.lean` and
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkStrandRemoval.lean`.
+- **principal declarations**:
+  `TrivalentStrandRemoval`,
+  `TrivalentStrandRemoval.nextLabels`,
+  `TrivalentStrandRemoval.nextResolution`,
+  `TrivalentStrandRemoval.next_admissible`,
+  `TrivalentStrandRemoval.nextLabels_a`,
+  `TrivalentStrandRemoval.nextLabels_b`,
+  `TrivalentStrandRemoval.nextLabels_c`,
+  `TrivalentStrandRemoval.rank_drop_exact`,
+  `TrivalentStrandRemoval.rank_lt`,
+  `TrivalentStrandPeel.toRemoval`,
+  `TrivalentStrandPeel.toRemoval_nextLabels`,
+  `lowerEdgeLabellingBy`,
+  `overlayOn_lowerEdgeLabellingBy`,
+  `ResolvedTrivalentRemovalPlan`,
+  `ResolvedTrivalentRemovalPlan.vertices_admissible`,
+  `CoherentResolvedTrivalentRemoval`,
+  `CoherentResolvedTrivalentRemoval.target`,
+  `CoherentResolvedTrivalentRemoval.vertices_admissible`,
+  `CanonicalLinkStrandRemovalPlan`,
+  `lowerEdgeLabellingBy_mem_bounded`,
+  `canonicalLinkConditionalAllowedB_lower_of_plan`,
+  `SlabLinkStrandRemovalPlan`, and
+  `slabLinkFusionWitness_lower_mem_of_plan`.
+- **obligation**: derive the coherent removal plan and its external-label
+  equation from one finite connected component of the global face-strand
+  graph.  Then assemble the updated local witnesses into a complete target
+  assignment and bound inverse component records.  The plan carries only
+  strand removal counts and edge compatibility; it does not assume target
+  fusion acceptedness, which is proved by the milestone theorem.
+- **constructive?**: yes.  Residual fusion is rebuilt from explicit natural
+  strand counts, network preservation is structural induction, and finite
+  Cartesian support is preserved by pointwise subtraction.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, functional
+  extensionality axiom, noncomputable declaration, or enlarged heartbeat
+  budget is introduced.
+- **status note**: focused monitored checks and the dependency-complete
+  one-worker target pass all 691 jobs.  All twenty-three new audited
+  declarations use at most `[propext, Quot.sound]`; the data-bearing removal
+  and coherence structures are axiom-free.  The root aggregator imports the
+  module.  No full-root audit is claimed.

@@ -22460,3 +22460,56 @@ preservation theorem should it be folded over a finite global component.  No
 uniform conditional-variance estimate, completed physical transfer gap,
 weak-to-strong RG bridge inhabitant, continuum limit, or Clay conclusion is
 asserted.
+
+## 124. Coherent strand-coordinate subtraction constructs accepted lower link witnesses (2026-08-26)
+
+**Status. THE LOCAL GEOMETRIC HALF OF COMPONENT PEELING IS CLOSED FOR AN
+ARBITRARY COHERENT MULTI-STRAND REMOVAL PLAN; GLOBAL COMPONENT-TO-PLAN
+EXTRACTION REMAINS OPEN.**
+
+The local proof is now expressed in the natural SU(2) coordinates rather than
+as repeated Boolean fusion checks.  `SU2TrivalentStrandPeeling.lean` defines a
+`TrivalentStrandRemoval` carrying bounded simultaneous removals
+`(r_ab,r_bc,r_ca)`.  Its residual labels are rebuilt from the remaining
+strand counts, so admissibility is structural.  The module proves the exact
+leg identities
+
+```text
+a' = a - (r_ca + r_ab),
+b' = b - (r_bc + r_ab),
+c' = c - (r_bc + r_ca),
+```
+
+and the exact rank equation saying that every removed strand lowers two
+incident twice-spin labels.  The old single-strand peel is recovered as the
+unit special case.
+
+`ResolvedTrivalentNetworkStrandRemoval.lean` then introduces one common
+edge-drop labelling and a `Type`-valued `ResolvedTrivalentRemovalPlan`.  At
+each ordered resolved vertex the plan supplies bounded strand removals and
+proves that their two incident counts agree with the common drop on every
+leg.  Structural induction contracts those local equations into preservation
+of the complete finite trivalent-network guard.  For the canonical one-link
+resolver, the same subtraction also preserves the forced-zero terminator and
+bounded auxiliary Cartesian support.
+
+The final theorem `slabLinkFusionWitness_lower_mem_of_plan` is literal: if a
+target physical labelling realizes the planned drops on the link's external
+coordinates, then the lowered auxiliary labelling is a member of the target
+`slabLinkFusionWitnesses` list.  Thus acceptedness is an output theorem, not a
+field of the plan.
+
+The focused checks and dependency-complete one-worker target pass all 691
+jobs.  All twenty-three new audited declarations use at most
+`[propext, Quot.sound]`; the removal structures, residual-label functions,
+common drop, and coherent-plan structures are axiom-free.  No `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
+The remaining geometric frontier has become smaller and exact: construct one
+such coherent plan from a finite connected component of the already assembled
+global face-strand edge list, and prove the induced external-labelling equation
+at every incident link.  After that construction, milestone 123 supplies the
+weight payment automatically.  The inverse component encoding, uniform
+conditional-variance estimate, completed physical transfer gap, continuum
+limit, and Clay theorem remain open.
