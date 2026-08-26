@@ -18236,3 +18236,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 121 jobs.  All eleven audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [resolved-trivalent-network-ports] Form the finite edge-addressed port carrier of a resolved network -- **LITERAL CARRIER CLOSED; EDGE CONTINUATION OPEN 2026-08-25**
+
+- **milestone**: form the dependent sum of ordered resolved vertices and
+  their bounded strand ports; compute each occurrence's actual graph-edge
+  identifier and bounded strand-copy number; lift the fixed-point-free local
+  involution; construct an injective proof-independent occurrence address and
+  constructive decidable equality; enumerate every carrier element; and
+  specialize the carrier to accepted production slab-link witnesses.
+- **file**:
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkPorts.lean`.
+- **principal declarations**:
+  `portsAtResolvedVertex`,
+  `mem_portsAtResolvedVertex`,
+  `ResolvedNetworkPort`,
+  `ResolvedNetworkPort.edgeId`,
+  `ResolvedNetworkPort.slot_lt_edgeLabel`,
+  `ResolvedNetworkPort.address_injective`,
+  `resolvedNetworkPortDecidableEq`,
+  `ResolvedNetworkPort.localMate`,
+  `ResolvedNetworkPort.localMate_involutive`,
+  `ResolvedNetworkPort.localMate_ne_self`,
+  `allResolvedNetworkPorts`,
+  `ResolvedNetworkPort.mem_all`, and
+  `SlabLinkResolvedPort`.
+- **obligation**: prove the canonical fusion-chain occurrence classification.
+  A positive private auxiliary `(edgeId,slot)` must have exactly two port
+  occurrences and hence a computable other endpoint; a physical external
+  occurrence must retain the corresponding incident plaquette identifier;
+  zero-labelled vacuum terminals have no ports.  Then contract the internal
+  paths to an external pairing at each physical lattice link and glue those
+  endpoints through physical-face occurrences.  Finite support and local
+  pairing alone do not produce a global component or BF4 kernel edge.
+- **constructive?**: yes.  The carrier is a dependent finite sum, equality is
+  decided through an injective triple of natural vertex position, leg, and
+  copy number, and its support is an explicit finite list.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, functional
+  extensionality, or noncomputable declaration is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 690 jobs.  All twenty-three audited declarations
+  use at most `[propext, Quot.sound]`; the root aggregator imports the module.
+  No full-root audit is claimed.

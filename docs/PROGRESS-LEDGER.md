@@ -20391,3 +20391,40 @@ No global physical-face continuation, strand-component extraction, coherent
 BF4 peel, heat-weight comparison, cutoff-uniform posterior-variance fraction,
 uniform completed gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## Resolved link networks now have a literal finite carrier of edge-addressed strand occurrences (2026-08-25)
+
+`ResolvedTrivalentNetworkPorts` forms the dependent sum that connects the
+ordered resolved-link compiler to the local port involution.  One
+`ResolvedNetworkPort` contains a bounded vertex position and a bounded port
+whose type is indexed by the three labels at exactly that resolved vertex.
+It therefore computes the original graph-edge identifier, the selected leg,
+and the strand-copy number without recoding or an existential lookup.
+
+The local trivalent mate lifts to this network carrier while preserving the
+vertex position.  It changes legs, has no fixed occurrence, and is
+involutive.  The carrier has an explicit proof-independent natural-number
+address, that address is injective, and it supplies constructive decidable
+equality.  Finally, a `List.finRange`/`flatMap` enumeration is proved to
+contain every dependent port occurrence.  The construction specializes
+directly to every accepted production `slabLinkFusionWitnesses` member.
+
+This is the first literal finite state space on which component following can
+execute.  It does not yet define continuation along a shared graph edge.  The
+next compiler must classify canonical-chain edges into physical externals,
+zero-labelled vacuum terminals, and private auxiliaries; each positive
+auxiliary `(edgeId,slot)` must be shown to occur exactly twice, while each
+physical occurrence must be exported with its actual plaquette identifier.
+Only those theorems permit the local involution to contract to an external
+pairing at one lattice link and then glue through physical faces globally.
+
+The focused monitored check and dependency-complete one-worker target pass
+all 690 jobs.  All twenty-three audited declarations use at most
+`[propext, Quot.sound]`; the root aggregator imports the module.  No full-root
+audit is claimed.
+
+No auxiliary-edge continuation, induced external link pairing, global
+physical-face continuation, strand-component extraction, coherent BF4 peel,
+heat-weight comparison, cutoff-uniform posterior-variance fraction, uniform
+completed gap, thermodynamic/continuum construction, continuum Yang--Mills
+theory, or Clay mass gap is proved.

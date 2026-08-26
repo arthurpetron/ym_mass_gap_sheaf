@@ -55,6 +55,7 @@ inductive TrivalentStrandPort (a b c : Nat) : Type
   | onA (slot : Fin a)
   | onB (slot : Fin b)
   | onC (slot : Fin c)
+  deriving DecidableEq
 
 /-- The leg on which a strand port lies. -/
 def TrivalentStrandPort.leg {a b c : Nat} :
