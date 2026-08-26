@@ -19813,3 +19813,44 @@ No all-cutoff reachability proof, uniform weighted-capacity certificate,
 route-coherence theorem, persistent payment, remaining regional total tail,
 completed uniform gap, thermodynamic/continuum construction, continuum
 Yang--Mills theory, or Clay mass gap is proved.
+
+## Adaptive route coherence is now a projective same-path statement (2026-08-25)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRouteCoherence`
+uses the existing matched cutoff embedding to make consecutive path comparison
+well typed.  For each pair in the literal later carrier it compares
+
+`mapToFollowing(selectedHybridPath at cutoff k)`
+`  = selectedHybridPath at cutoff k+1 on mapped endpoints`.
+
+Both sides live in the same following carrier, use the same following kernel,
+and have the same mapped endpoints.  The equality therefore tracks one
+observable path through the compiler chain, rather than comparing unrelated
+route witnesses.  It immediately preserves the directed-edge occurrence
+list, every selected-edge membership test, and route length after recoding.
+
+This completes the formulation layer for the third adaptive interface.  It
+does not prove coherence of the paths produced by the finite Warshall checks.
+Exact projective equality may prove too rigid; the honest alternative is a
+quantitative bound on the existing route-churn deficit.  Either route must
+feed the same bridge deficit already used by the regional and total-tail
+compilers.
+
+The three interfaces can now be read causally: Boolean reachability produces
+paths; weighted capacity controls their same-edge physical load; projective
+coherence controls their consecutive-cutoff identity.  All three are stated
+on the same trajectory, carrier maps, hybrid routing, and debt observable.
+Their compilers are verified, while their uniform mathematical certificates
+remain open.
+
+The focused monitored check passes, and the fresh dependency-complete
+one-worker target passes all 5180 jobs.  The six audited exports use only
+`[propext, Quot.sound]`; the executable forbidden-token scan reports zero
+hits, `git diff --check` passes, and the root aggregator imports the module.
+No full-root audit is claimed.
+
+No all-cutoff reachability proof, projective route-coherence proof, uniform
+weighted-capacity certificate, adaptive route-churn estimate, persistent
+payment, remaining regional total tail, completed uniform gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.

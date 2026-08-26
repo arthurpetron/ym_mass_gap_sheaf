@@ -17703,3 +17703,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited exports use only `[propext, Quot.sound]`; the executable
   forbidden-token scan reports zero hits, `git diff --check` passes, and the
   root aggregator imports the module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-all-cutoff-route-coherence] Recode consecutive selected paths through the actual cutoff embedding — **CLOSED 2026-08-25**
+
+- **milestone**: select the exact all-cutoff simple hybrid path on each pair
+  in the later debt carrier; map that positive path into the following carrier
+  through the existing matched cutoff embedding; select the following hybrid
+  path on the mapped endpoints; name projective coherence as equality of
+  those two same-typed paths; and derive equality of their literal directed-
+  edge occurrence lists, route lengths, and selected-edge membership.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRouteCoherence.lean`.
+- **decl**:
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptivePathOnPairAt`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveMappedPathToFollowing`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveFollowingPathOnMappedPair`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveRouteCoherenceAt`,
+  `MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffRouteCoherence`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffDirectedEdges_eq`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffEdgeLength_eq`,
+  and
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffDirectedEdge_mem_iff`.
+- **obligation**: inhabit projective route coherence for the paths extracted
+  from the exact finite reachability checks, or weaken it to a proved
+  quantitative route-churn estimate sufficient for the existing bridge
+  deficit.  The equality is required only after recoding into the same
+  following carrier, not between ill-typed raw paths.  The all-cutoff
+  reachability and uniform weighted-capacity certificates also remain open.
+- **constructive?**: yes.  The comparison uses the existing positive-path map
+  induced by the explicit cutoff index embedding, and ranges over the literal
+  pair carrier used by the debt maximum.  Every consequence follows by
+  equality congruence on the same path object.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes, and the fresh
+  dependency-complete one-worker target passes all 5180 jobs.  The six
+  audited exports use only `[propext, Quot.sound]`; the executable
+  forbidden-token scan reports zero hits, `git diff --check` passes, and the
+  root aggregator imports the module.  No full-root audit is claimed.
