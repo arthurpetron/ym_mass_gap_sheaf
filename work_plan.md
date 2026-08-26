@@ -22569,3 +22569,51 @@ and prove both local mate closure and the physical external-label equation.
 Only then can the exact `1/32,000,000` payment be joined to an inverse
 component encoding.  A cutoff-independent encoding, posterior-variance bound,
 completed transfer gap, continuum limit, and Clay conclusion remain open.
+
+## 126. Physical component selection pulls back by terminal reversal (2026-08-26)
+
+**Status. PARTNER-CLOSED PHYSICAL FACE-STRAND SELECTION NOW PROPAGATES
+COHERENTLY THROUGH EVERY RESOLVED LINK PATH; EDGE-COPY QUOTIENTING AND GLOBAL
+COMPONENT CONSTRUCTION REMAIN OPEN.**
+
+`CompactDualSlabPhysicalSelectionPullback.lean` proves the conceptual bridge
+that replaces dependent global provenance records.  For an arbitrary resolved
+canonical-link port `p`, it first proves that one full internal advance does
+not change the eventual physical terminal.  It then establishes the exact
+reversal identity
+
+```text
+terminal(localMate(p)) = partner(terminal(p)).
+```
+
+The proof uses the data already retained by the strand construction: reverse
+the witnessed path from `p`, append the witnessed terminal path beginning at
+`localMate(p)`, and invoke uniqueness of deterministic physical endpoints.
+There is no graph search and no reconstructed dependent address.  Combining
+this identity with one full advance also gives
+
+```text
+terminal(internalCross(p)) = partner(terminal(p)).
+```
+
+Therefore a `CanonicalPhysicalPartnerClosedSelection` pulls back along
+terminal extraction to an occurrence-level Boolean selection invariant under
+both local mates and the raw same-slot crossing of every internal edge.  The
+literal `SlabLinkPartnerClosedFaceSelection` specialization states closure
+directly on actual global `SlabFaceStrandCopy` endpoints and inherits both
+pullback laws for every accepted corrected-slab link witness.
+
+The focused monitored one-worker target passes all 707 jobs.  All twelve
+audited declarations use at most `[propext, Quot.sound]`.  No `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  The root aggregator
+imports the module; no full-root audit is claimed.
+
+The next theorem is finite but no longer conceptually obscure: use crossing
+invariance to quotient the occurrence-level pullback to one Boolean for each
+`(edgeId,slot)`, feed that value into milestone 125, and prove the resulting
+drop on each physical coordinate equals the number of selected literal face
+copies at that link.  A seed-generated global component, complete target
+assignment, cutoff-independent inverse encoding, uniform posterior-variance
+bound, completed transfer gap, continuum limit, and Clay conclusion remain
+open.

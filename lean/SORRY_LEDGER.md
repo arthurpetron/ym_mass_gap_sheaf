@@ -18938,3 +18938,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; `boolIndicator`, `boolCountFrom`, and
   `strandPairAtPort` are axiom-free.  The root aggregator imports the module.
   No full-root audit is claimed.
+
+### [compact-dual-slab-physical-selection-pullback] Pull partner-closed face-strand selection through canonical link paths -- **TERMINAL REVERSAL AND OCCURRENCE-LEVEL CLOSURE CLOSED; EDGE-COPY QUOTIENT OPEN 2026-08-26**
+
+- **milestone**: prove that terminal extraction is unchanged by one internal
+  advance; prove the exact local-mate reversal identity and the corresponding
+  same-slot internal-crossing identity; package arbitrary partner-closed
+  physical-terminal selections; and specialize the pullback laws to literal
+  global corrected-slab face-strand copies.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabPhysicalSelectionPullback.lean`.
+- **principal declarations**:
+  `canonicalLinkStrandTerminal_advance`,
+  `canonicalLinkStrandTerminal_localMate`,
+  `canonicalLinkStrandTerminal_cross`,
+  `CanonicalPhysicalPartnerClosedSelection`,
+  `CanonicalPhysicalPartnerClosedSelection.atPort`,
+  `CanonicalPhysicalPartnerClosedSelection.atPort_localMate`,
+  `CanonicalPhysicalPartnerClosedSelection.atPort_advance`,
+  `CanonicalPhysicalPartnerClosedSelection.atPort_cross`,
+  `SlabLinkPartnerClosedFaceSelection`,
+  `SlabLinkPartnerClosedFaceSelection.toCanonical`,
+  `SlabLinkPartnerClosedFaceSelection.atPort_localMate`, and
+  `SlabLinkPartnerClosedFaceSelection.atPort_cross`.
+- **obligation**: quotient the occurrence-level pulled selection to one
+  Boolean on each `(edgeId,slot)` using physical occurrence uniqueness and
+  internal two-endpoint crossing invariance.  Feed it into
+  `ResolvedNetworkMateClosedSelection.toRemovalPlan`, prove the exact physical
+  external-label equation, and assemble the local target witnesses globally.
+  Seed-component construction and cutoff-independent inverse encoding follow.
+- **constructive?**: yes.  The proof uses retained `Type`-valued paths,
+  structural path reversal/append, explicit partner involution, and endpoint
+  uniqueness.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored one-worker target passes all 707 jobs.
+  All twelve audited declarations use at most `[propext, Quot.sound]`; the root
+  aggregator imports the module.  No full-root audit is claimed.
