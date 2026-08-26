@@ -17496,3 +17496,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext]`); the executable forbidden-token scan reports
   zero hits, `git diff --check` passes, and the root aggregator imports the
   module.  No full-root audit is claimed.
+
+### [matched-physical-old-new-activation-deleted-path-decision] Decide the exact observable-sized deleted path family — **CLOSED 2026-08-25**
+
+- **milestone**: reuse the finite directed Warshall closure with a
+  support-marked edge predicate; compile every true check to a Type-level
+  `ChainIn`; prove every `ChainIn` makes the same check true; make a false
+  check constructively refute a path; recursively inspect a finite demanded
+  endpoint list and return either all chains or a literal blocked endpoint;
+  specialize that complete decision to the exact later matched vacuum-sector
+  carrier, activated-edge deletion mask, and new-endpoint traffic list; and
+  contract its success branch to the existing birth-avoiding physical
+  routing.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBoolGraphWarshallPathDecision.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedPathDecision.lean`.
+- **decl**:
+  `finiteSupportReachableB`,
+  `chainInOfFiniteSupportReachableB`,
+  `finiteSupportReachableB_complete`,
+  `noChainInOfFiniteSupportReachableBFalse`,
+  `decideFiniteSupportPathFamily`,
+  `decideMatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt`,
+  `matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyImpossibleOfBlocked`,
+  and
+  `decideMatchedEventualNewEndpointTrafficOldNewFaceActivatedBirthAvoidingRoutingAt`.
+- **obligation**: this total decision does not prove that its path-success
+  branch occurs at every cutoff.  A blocked branch is an exact obstruction to
+  the selected activated-edge deletion and requires changing the deletion
+  selection or route architecture.  A successful branch still requires a
+  cutoff-uniform route-congestion/capacity estimate and coherence of the
+  selected paths; persistent traffic and the other regional tail inputs also
+  remain open.
+- **constructive?**: yes.  Warshall and endpoint-list traversal are Boolean
+  recursion on explicit finite lists.  Edge-target support is stored in the
+  checked Boolean relation, successful checks return Type-level chains, and
+  family construction splits on decidable equality rather than eliminating a
+  propositional membership disjunction into path data.  False checks refute
+  chains using the proved completeness direction.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, or noncomputable declaration
+  is introduced.
+- **status note**: focused monitored checks pass.  The generic one-worker
+  target passes all 517 jobs and the dependency-complete dynamic target passes
+  all 5177 jobs.  The eight generic audited exports use only `[propext]`; the
+  five dynamic audited exports use only `[propext, Quot.sound]`.  Both
+  executable forbidden-token scans report zero hits, `git diff --check`
+  passes, and the root aggregator imports the dynamic decision.  No full-root
+  audit is claimed.

@@ -19597,3 +19597,52 @@ Yang--Mills theory, or Clay mass gap is proved.  The next exact frontier is to
 produce these finite deleted paths—preferably by a checkable graph algorithm
 or a structural detour theorem—and then bound their routed congestion
 uniformly over consecutive cutoffs.
+
+## The exact activated-edge detour problem is now decidable at every finite cutoff (2026-08-25)
+
+`FiniteBoolGraphWarshallPathDecision` turns the existing directed finite
+Warshall closure into the `ChainIn` data consumed by the Boolean graph
+compilers.  The checked edge predicate includes decidable membership of its
+target in the explicit support.  A true reachability check therefore extracts
+an actual support-certified directed chain.  Conversely, induction on
+`ChainIn` proves that every such chain makes the same Warshall check true, so
+a false check constructively refutes path existence rather than merely
+recording failure of one search heuristic.
+
+The family decision traverses any literal finite endpoint list.  It returns
+either chains for every member or the first demanded endpoint pair whose exact
+check is false.  The Type-level path family is assembled by decidable equality
+branches; no propositional membership disjunction is eliminated into data.
+The generic graph engine is directed and therefore does not hide an unavailable
+symmetry theorem for the activated-edge deletion mask.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedPathDecision`
+specializes this total inspection to the exact later matched vacuum-sector
+carrier, exact mapped activated-edge deletion list, and exact new-endpoint
+traffic list.  Its success branch is definitionally the minimal deleted path
+family already consumed by the routing compiler and contracts immediately to
+the same birth-avoiding physical routing, hence the already proved zero
+activated route factor, load, and debt consequences.  Its failure branch
+carries a literal observable endpoint pair and constructively refutes any
+deleted-support chain for that pair.
+
+This changes the causal frontier.  At a fixed cutoff there is no longer an
+abstract finite path existential: the exact demanded family can be computed,
+with success data or a precise obstruction.  Uniform success has not been
+proved.  If a blocked pair occurs, the selected deletion mask or adaptive
+route architecture must change.  If all paths are found, the next analytic
+frontier is to control the extracted routes' directed-edge congestion and
+capacity uniformly over consecutive cutoffs, while retaining coherence with
+the same matched observable.
+
+Focused monitored checks pass.  The generic one-worker target completes all
+517 jobs and the dependency-complete dynamic target completes all 5177 jobs.
+The eight generic audited exports use only `[propext]`; the five dynamic
+audited exports use only `[propext, Quot.sound]`.  Both executable forbidden-
+token scans report zero hits, `git diff --check` passes, and the root
+aggregator imports the decision.  No full-root audit is claimed.
+
+No all-cutoff success theorem, uniform route congestion/capacity, persistent
+payment, remaining regional total tail, completed uniform gap,
+thermodynamic/continuum construction, continuum Yang--Mills theory, or Clay
+mass gap is proved.
