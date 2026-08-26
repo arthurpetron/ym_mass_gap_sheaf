@@ -107,6 +107,26 @@ theorem TwoPointFiber.swap_involutive {A : Type} [DecidableEq A]
     have hsecondFirst : fiber.second ≠ fiber.first := Ne.symm fiber.distinct
     simp [TwoPointFiber.swap, hsecondFirst]
 
+/-- Any two members of a two-point fiber are either identical or related by
+the canonical exchange.  This is the finite orbit principle used to descend
+same-edge data without choosing an orientation of the edge. -/
+theorem TwoPointFiber.eq_or_eq_swap {A : Type} [DecidableEq A]
+    {entries : List A} (fiber : TwoPointFiber entries)
+    {left right : A} (hleft : left ∈ entries) (hright : right ∈ entries) :
+    right = left ∨ right = fiber.swap left := by
+  rw [fiber.mem_iff] at hleft hright
+  rcases hleft with hleft | hleft <;>
+    rcases hright with hright | hright
+  · exact Or.inl (hright.trans hleft.symm)
+  · subst left
+    subst right
+    exact Or.inr (by simp [TwoPointFiber.swap])
+  · subst left
+    subst right
+    have hsecondFirst : fiber.second ≠ fiber.first := Ne.symm fiber.distinct
+    exact Or.inr (by simp [TwoPointFiber.swap, hsecondFirst])
+  · exact Or.inl (hright.trans hleft.symm)
+
 /-- The member type of an explicit finite fiber. -/
 abbrev FiberMember {A : Type} (entries : List A) :=
   { item : A // item ∈ entries }
@@ -239,6 +259,7 @@ theorem canonicalInternalHalfEdgeSwap_involutive
 #print axioms TwoPointFiber.swap_mem
 #print axioms TwoPointFiber.swap_ne_self
 #print axioms TwoPointFiber.swap_involutive
+#print axioms TwoPointFiber.eq_or_eq_swap
 #print axioms FiberMember
 #print axioms TwoPointFiber.swapMember
 #print axioms TwoPointFiber.swapMember_ne_self

@@ -15,26 +15,29 @@ uses uniqueness of deterministic physical endpoints.  Consequently any
 physical selection closed under the partner involution pulls back to a
 selection invariant under both local mates and same-slot internal crossings.
 
-Honest scope: this module proves the local pullback laws at one accepted
-link.  Quotienting the occurrence-level pullback to one Boolean per
-`(edgeId,slot)`, assembling it over every slab link, and constructing the
-seed-generated global component remain open.
+Honest scope: this module now proves the local pullback laws, finite
+same-copy descent, and coherent fusion removal at one accepted link.  The
+seed-generated global component, its exact physical external-label equation,
+and the assembly over every slab link remain open.
 
-Constructive contract: retained path reversal, concatenation, and exact
-endpoint uniqueness only.  No `Classical.*`, choice, `native_decide`, `sorry`,
-custom axiom, noncomputable declaration, or enlarged heartbeat budget.
+Constructive contract: retained path reversal, exact endpoint uniqueness,
+one- and two-point half-edge fibers, and exhaustive finite descent only.  No
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget.
 -/
 
 import YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
-import YMGap.Continuum.ResolvedTrivalentNetworkSelectionRemoval
+import YMGap.Continuum.ResolvedTrivalentNetworkPortSelectionRemoval
 
 namespace YMGap.Continuum.CompactDualSlabPhysicalSelectionPullback
 
 set_option autoImplicit false
 
 open YMGap.Continuum.CanonicalLinkEdgeOccurrenceMultiplicity
+open YMGap.Continuum.CanonicalLinkInternalHalfEdgeSwap
 open YMGap.Continuum.CanonicalLinkInternalStrandContinuation
 open YMGap.Continuum.CanonicalLinkPhysicalTerminalPartner
+open YMGap.Continuum.CanonicalLinkPhysicalTerminalPairing
 open YMGap.Continuum.CanonicalLinkStrandStep
 open YMGap.Continuum.CanonicalLinkStrandTerminal
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
@@ -42,6 +45,10 @@ open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabLinkPhysicalStrandPairing
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
 open YMGap.Continuum.ResolvedTrivalentNetworkPorts
+open YMGap.Continuum.ResolvedTrivalentNetworkHalfEdges
+open YMGap.Continuum.ResolvedTrivalentNetworkPortSelectionRemoval
+open YMGap.Continuum.ResolvedTrivalentNetworkSelectionRemoval
+open YMGap.Continuum.ResolvedTrivalentNetworkStrandRemoval
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4FiniteBoxFusionCompleteCutoff
 open YMGap.Continuum.Z4FiniteBoxIncidentDegreeBound
@@ -239,7 +246,120 @@ theorem CanonicalPhysicalPartnerClosedSelection.atPort_cross
   rw [canonicalLinkStrandTerminal_cross]
   exact selection.partner_closed _
 
-/-! ## 3. Literal corrected-slab face-copy selection -/
+/-! ## 3. Same-copy orbit descent and coherent removal -/
+
+/-- **Canonical same-copy orbit lemma.**  Two resolved ports carrying the same
+graph-edge strand copy have equal pulled physical selections.
+
+On a physical edge the half-edge fiber has one point.  On an internal edge it
+has two points, so the second port is either the first port or its exact
+same-slot crossing.  These are precisely the two cases already controlled by
+terminal pullback. -/
+theorem CanonicalPhysicalPartnerClosedSelection.atPort_eq_of_same_copy
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    {hdegree : degree ≤ linkIncidenceBound}
+    {hallowed :
+      canonicalLinkConditionalAllowedB degree external auxiliary = true}
+    (selection :
+      CanonicalPhysicalPartnerClosedSelection hdegree hallowed)
+    (left right : ResolvedNetworkPort
+      (canonicalLinkResolvedStrandNetwork
+        degree external auxiliary hallowed))
+    (hedge : left.edgeId = right.edgeId)
+    (hslot : left.slot = right.slot) :
+    selection.atPort left = selection.atPort right := by
+  match hclass : canonicalResolvedPortClassify
+      hdegree hallowed left with
+  | .physical hphysical =>
+      have hrightPhysical : right.edgeId < degree := by
+        rw [← hedge]
+        exact hphysical
+      have hhalfEdge :=
+        canonicalPhysicalTerminals_halfEdge_eq_of_edgeId_eq
+          hdegree hallowed
+          (⟨left, hphysical⟩ : CanonicalPhysicalStrandPort
+            external auxiliary hallowed)
+          (⟨right, hrightPhysical⟩ : CanonicalPhysicalStrandPort
+            external auxiliary hallowed)
+          hedge
+      have heq : left = right :=
+        resolvedNetworkPort_eq_of_halfEdge_eq_of_slot_eq hhalfEdge hslot
+      rw [heq]
+  | .internal hinternal =>
+      let network := canonicalLinkResolvedStrandNetwork
+        degree external auxiliary hallowed
+      let fiber := canonicalInternalHalfEdgeFiber
+        hdegree hallowed hinternal
+      have hleftMem : resolvedNetworkPortHalfEdge left ∈
+          halfEdgesOnEdge network left.edgeId :=
+        (mem_halfEdgesOnEdge_iff _ _).mpr rfl
+      have hrightMem : resolvedNetworkPortHalfEdge right ∈
+          halfEdgesOnEdge network left.edgeId :=
+        (mem_halfEdgesOnEdge_iff _ _).mpr
+          ((resolvedNetworkPortHalfEdge_edgeId right).trans hedge.symm)
+      rcases fiber.eq_or_eq_swap hleftMem hrightMem with
+        hsame | hcross
+      · have heq : left = right :=
+          resolvedNetworkPort_eq_of_halfEdge_eq_of_slot_eq
+            hsame.symm hslot
+        rw [heq]
+      · let typed : CanonicalInternalStrandPort
+            left.edgeId external auxiliary hallowed := ⟨left, rfl⟩
+        let crossed := canonicalInternalStrandContinue
+          hdegree hallowed hinternal typed
+        have hcrossHalfEdge :
+            resolvedNetworkPortHalfEdge crossed.1 =
+              fiber.swap (resolvedNetworkPortHalfEdge left) := by
+          have hcontinue := congrArg Subtype.val
+            (canonicalInternalStrandContinue_halfEdge
+              hdegree hallowed hinternal typed)
+          simpa [crossed, typed, fiber,
+            canonicalInternalStrandHalfEdge,
+            canonicalInternalHalfEdgeSwap,
+            TwoPointFiber.swapMember] using hcontinue
+        have hcrossSlot : crossed.1.slot = left.slot :=
+          canonicalInternalStrandContinue_slot
+            hdegree hallowed hinternal typed
+        have hrightCross : right = crossed.1 :=
+          resolvedNetworkPort_eq_of_halfEdge_eq_of_slot_eq
+            (hcross.trans hcrossHalfEdge.symm)
+            (hslot.symm.trans hcrossSlot.symm)
+        rw [hrightCross]
+        exact (selection.atPort_cross left hinternal).symm
+
+/-- The pulled physical selection is therefore a literal occurrence-level
+closed selection on the canonical resolved link network. -/
+def CanonicalPhysicalPartnerClosedSelection.toPortClosedSelection
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    {hdegree : degree ≤ linkIncidenceBound}
+    {hallowed :
+      canonicalLinkConditionalAllowedB degree external auxiliary = true}
+    (selection :
+      CanonicalPhysicalPartnerClosedSelection hdegree hallowed) :
+    ResolvedNetworkPortClosedSelection
+      (canonicalLinkResolvedStrandNetwork
+        degree external auxiliary hallowed) where
+  selected := selection.atPort
+  local_closed := selection.atPort_localMate
+  same_copy_closed := selection.atPort_eq_of_same_copy
+
+/-- Partner-closed physical terminal data now compiles all the way to a
+coherent simultaneous strand removal on the accepted canonical link. -/
+def CanonicalPhysicalPartnerClosedSelection.toCoherentRemoval
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    {hdegree : degree ≤ linkIncidenceBound}
+    {hallowed :
+      canonicalLinkConditionalAllowedB degree external auxiliary = true}
+    (selection :
+      CanonicalPhysicalPartnerClosedSelection hdegree hallowed) :
+    CoherentResolvedTrivalentRemoval
+      (canonicalLinkResolvedStrandNetwork
+        degree external auxiliary hallowed) :=
+  selection.toPortClosedSelection.toCoherentRemoval
+    (canonicalLinkResolvedStrandNetwork
+      degree external auxiliary hallowed)
+
+/-! ## 4. Literal corrected-slab face-copy selection -/
 
 /-- A global physical face-strand characteristic function whose values agree
 on the two endpoints paired by one accepted slab link. -/
@@ -313,6 +433,42 @@ theorem SlabLinkPartnerClosedFaceSelection.atPort_cross
       selection.toCanonical.atPort port :=
   selection.toCanonical.atPort_cross port hinternal
 
+/-- The literal slab face-copy pullback compiles to the existing mate-closed
+edge-copy selection consumed by fusion preservation. -/
+def SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
+    {cutoff extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {auxiliary : SlabLabelling}
+    {hmem : auxiliary ∈
+      slabLinkFusionWitnesses cutoff extent physical link}
+    (selection : SlabLinkPartnerClosedFaceSelection
+      cutoff extent physical link auxiliary hmem) :
+    SlabLinkMateClosedSelection hmem :=
+  selection.toCanonical.toPortClosedSelection.toMateClosedSelection
+    (slabLinkResolvedStrandNetwork
+      cutoff extent physical link auxiliary hmem)
+
+/-- **Physical-selection fusion preservation.**  If the target external
+labels realize the edge drops extracted from a partner-closed physical
+face-copy selection, the lowered auxiliary labelling is an actual accepted
+target witness. -/
+theorem SlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
+    {cutoff extent : Nat}
+    {sourcePhysical targetPhysical : SlabLabelling} {link : SlabLink}
+    {sourceAuxiliary : SlabLabelling}
+    {hmem : sourceAuxiliary ∈
+      slabLinkFusionWitnesses cutoff extent sourcePhysical link}
+    (selection : SlabLinkPartnerClosedFaceSelection
+      cutoff extent sourcePhysical link sourceAuxiliary hmem)
+    (hexternal :
+      slabLinkExternalSpins extent targetPhysical link =
+        lowerEdgeLabellingBy
+          (slabLinkExternalSpins extent sourcePhysical link)
+          selection.toMateClosedSelection.drop) :
+    lowerEdgeLabellingBy sourceAuxiliary
+        selection.toMateClosedSelection.drop ∈
+      slabLinkFusionWitnesses cutoff extent targetPhysical link :=
+  selection.toMateClosedSelection.lower_auxiliary_mem hexternal
+
 #print axioms canonicalLinkStrandTerminal_advance
 #print axioms canonicalLinkStrandTerminal_localMate
 #print axioms canonicalLinkStrandTerminal_cross
@@ -321,9 +477,14 @@ theorem SlabLinkPartnerClosedFaceSelection.atPort_cross
 #print axioms CanonicalPhysicalPartnerClosedSelection.atPort_localMate
 #print axioms CanonicalPhysicalPartnerClosedSelection.atPort_advance
 #print axioms CanonicalPhysicalPartnerClosedSelection.atPort_cross
+#print axioms CanonicalPhysicalPartnerClosedSelection.atPort_eq_of_same_copy
+#print axioms CanonicalPhysicalPartnerClosedSelection.toPortClosedSelection
+#print axioms CanonicalPhysicalPartnerClosedSelection.toCoherentRemoval
 #print axioms SlabLinkPartnerClosedFaceSelection
 #print axioms SlabLinkPartnerClosedFaceSelection.toCanonical
 #print axioms SlabLinkPartnerClosedFaceSelection.atPort_localMate
 #print axioms SlabLinkPartnerClosedFaceSelection.atPort_cross
+#print axioms SlabLinkPartnerClosedFaceSelection.toMateClosedSelection
+#print axioms SlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
 
 end YMGap.Continuum.CompactDualSlabPhysicalSelectionPullback

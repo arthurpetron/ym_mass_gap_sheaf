@@ -18975,3 +18975,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored one-worker target passes all 707 jobs.
   All twelve audited declarations use at most `[propext, Quot.sound]`; the root
   aggregator imports the module.  No full-root audit is claimed.
+
+### [resolved-port-selection-descent] Descend physical port occurrences and compile coherent accepted removals -- **SAME-COPY ORBIT DESCENT CLOSED; SEED COMPONENT AND GLOBAL EXTERNAL EQUATION OPEN 2026-08-26**
+
+- **milestone**: descend a Boolean selection on literal resolved-network port
+  occurrences to one value per graph-edge strand copy; prove exactness on
+  every actual port; compile local-mate invariance through the Kirchhoff
+  removal theorem; prove canonical same-copy invariance from the one-point
+  physical and two-point internal half-edge fibers; and specialize to an
+  accepted lowered corrected-slab auxiliary witness.
+- **files**:
+  `lean/YMGap/Continuum/CanonicalLinkInternalHalfEdgeSwap.lean`,
+  `lean/YMGap/Continuum/ResolvedTrivalentNetworkPortSelectionRemoval.lean`, and
+  `lean/YMGap/Continuum/CompactDualSlabPhysicalSelectionPullback.lean`.
+- **principal declarations**:
+  `TwoPointFiber.eq_or_eq_swap`,
+  `ResolvedNetworkPortClosedSelection`,
+  `ResolvedNetworkPortClosedSelection.edgeSlotValue`,
+  `ResolvedNetworkPortClosedSelection.edgeSlotValue_at_port`,
+  `ResolvedNetworkPortClosedSelection.toMateClosedSelection`,
+  `ResolvedNetworkPortClosedSelection.toCoherentRemoval`,
+  `CanonicalPhysicalPartnerClosedSelection.atPort_eq_of_same_copy`,
+  `CanonicalPhysicalPartnerClosedSelection.toPortClosedSelection`,
+  `CanonicalPhysicalPartnerClosedSelection.toCoherentRemoval`,
+  `SlabLinkPartnerClosedFaceSelection.toMateClosedSelection`, and
+  `SlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem`.
+- **obligation**: construct the seed-generated connected-component
+  characteristic function on literal `SlabFaceStrandCopy` data, prove its
+  partner closure at every accepted link, and prove that the compiled drop on
+  each physical edge equals the component incidence count defining the target
+  physical labelling.  Then assemble all local lowered auxiliary witnesses
+  into a global target assignment and construct a cutoff-independent inverse
+  component encoding.
+- **constructive?**: yes.  The descent is exhaustive finite search with a
+  proof that every actual occurrence receives its original value.  The
+  geometric orbit proof uses exact one- and two-point fibers, decidable
+  equality, and same-slot continuation.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the dependency-complete monitored target passes all 708
+  jobs.  All twelve new audited declarations use at most
+  `[propext, Quot.sound]`, with no `sorryAx`; the root aggregator imports the
+  generic descent module.  No full-root audit is claimed.

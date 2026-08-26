@@ -22617,3 +22617,55 @@ copies at that link.  A seed-generated global component, complete target
 assignment, cutoff-independent inverse encoding, uniform posterior-variance
 bound, completed transfer gap, continuum limit, and Clay conclusion remain
 open.
+
+## 127. Physical port selections descend and compile to accepted removals (2026-08-26)
+
+**Status. THE OCCURRENCE/EDGE-COPY SEAM IS CLOSED: PARTNER-CLOSED PHYSICAL
+SELECTIONS NOW CONSTRUCT COHERENT LINK REMOVALS; THE SEED COMPONENT AND GLOBAL
+EXTERNAL-LABEL EQUATION REMAIN OPEN.**
+
+The proof is the direct orbit argument promised by milestone 126.  A new
+generic `ResolvedNetworkPortClosedSelection` carries a Boolean value on actual
+dependent port occurrences, invariance under the local trivalent mate, and
+invariance between two occurrences with the same `(edgeId, slot)`.  Exhaustive
+finite search chooses one representative only inside
+`edgeSlotValue`; `edgeSlotValue_at_port` proves that this descent is exact on
+every actual occurrence.  The result feeds the existing Kirchhoff compiler
+without exposing representative search to the physical geometry.
+
+The canonical geometry supplies the missing same-copy law.  On a physical
+edge, the exact half-edge fiber has length one.  On an internal edge,
+`TwoPointFiber.eq_or_eq_swap` proves that a second half-edge is either the
+first or its canonical exchange.  Carrying the common slot turns these two
+cases into equality of ports or the already-proved raw internal crossing.
+Consequently
+
+```text
+same edgeId + same slot
+  -> same port or internalCross(port)
+  -> equal pulled physical selection.
+```
+
+`CanonicalPhysicalPartnerClosedSelection.toPortClosedSelection` therefore
+constructs the generic compiler input, and `toCoherentRemoval` returns the
+literal coherent resolved-network removal.  At the corrected-slab level,
+`SlabLinkPartnerClosedFaceSelection.toMateClosedSelection` produces the common
+edge-copy selection and `lower_auxiliary_mem` constructs an actually accepted
+lower auxiliary witness from the exact external-label equation.  Target
+fusion admissibility is an output, never an assumption.
+
+The dependency-complete monitored target passes all 708 jobs.  All twelve new
+audited declarations use at most `[propext, Quot.sound]`; no declaration uses
+`sorryAx`.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+The root aggregator imports the generic descent module; no full-root audit is
+claimed.
+
+The next causal theorem is now purely physical and global: construct the
+seed-generated connected-component characteristic function on
+`SlabFaceStrandCopy`, prove it is partner-closed at every accepted link, and
+prove the extracted physical-edge drop is exactly the component incidence
+count required by the target external labelling.  Global target-assignment
+assembly, cutoff-independent inverse encoding, the uniform conditional-
+variance estimate, completed physical transfer gap, continuum limit, and Clay
+conclusion remain open.
