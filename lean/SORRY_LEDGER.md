@@ -18756,3 +18756,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 703 jobs.  The two new generic declarations and
   all ten audited slab declarations use at most `[propext, Quot.sound]`; the
   root aggregator imports the new module.  No full-root audit is claimed.
+
+### [compact-dual-slab-global-face-strand-edges] Assemble all accepted local pairings in one global face-copy edge list -- **GLOBAL EDGE ASSEMBLY CLOSED; ALTERNATING COMPONENTS OPEN 2026-08-26**
+
+- **milestone**: define a total computable lookup from a complete fusion
+  assignment to its auxiliary labelling at a requested listed link; prove the
+  lookup is locally accepted; enumerate all physical terminals; map each
+  terminal and its partner to a common `(faceId, slot)` carrier; and
+  concatenate the resulting distinct-face edges over all physical links.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabGlobalFaceStrandEdges.lean`.
+- **principal declarations**:
+  `slabFusionWitnessAssignmentAt`,
+  `slabFusionWitnessAssignmentAt_mem_local`,
+  `slabLinkPhysicalStrandTerminals`,
+  `SlabLinkPhysicalStrandTerminal.mem_all`,
+  `SlabFaceStrandCopy`,
+  `slabLinkPhysicalTerminalFaceStrandCopy`,
+  `SlabFaceStrandEdge`,
+  `slabLinkFaceStrandEdgeOfTerminal`,
+  `slabLinkFaceStrandEdges`,
+  `slabFusionWitnessAssignmentFaceStrandEdgesAt`,
+  `slabFusionWitnessAssignmentFaceStrandEdges`, and
+  `slabFineFusionWitnessFaceStrandEdges`.
+- **obligation**: define the equally literal continuation across a physical
+  face copy, combine it with the link pairing, and extract the alternating
+  finite components.  Then prove that toggling or subtracting one whole
+  component coherently updates all local link witnesses and obtain a cutoff-
+  and volume-independent comparison of its posterior weight.  A finite edge
+  list by itself supplies neither component preservation nor a uniform
+  conditional-variance estimate.
+- **constructive?**: yes.  Assignment lookup is structural recursion;
+  terminal enumeration is finite filtering; and global assembly is a finite
+  concatenation of certified local edge lists.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 704 jobs.  All thirteen audited declarations use
+  at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
+  full-root audit is claimed.

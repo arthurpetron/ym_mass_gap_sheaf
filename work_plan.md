@@ -22372,3 +22372,43 @@ prove that subtracting one component preserves every link fusion witness.
 Only a subsequent cutoff- and volume-independent component-weight or
 resistance estimate can close the physical conditional-variance inequality;
 none is claimed here.
+
+## 122. Complete fusion assignments assemble literal global face-strand edges (2026-08-26)
+
+**Status. EVERY LOCAL PHYSICAL STRAND PAIR OF A COMPLETE CORRECTED-SLAB
+FUSION ASSIGNMENT NOW LIVES IN ONE COMPUTABLE GLOBAL FACE-COPY EDGE LIST.**
+
+`CompactDualSlabGlobalFaceStrandEdges.lean` recursively looks up the auxiliary
+labelling carried by a complete `SlabFusionWitnessAssignment` at each literal
+lattice link and proves that the result belongs to that link's accepted
+fusion-witness list.  It also filters the complete resolved-port enumeration
+to an exhaustive list of physical terminals.
+
+Each terminal is sent to the common global vertex type
+
+```text
+SlabFaceStrandCopy physical = (faceId, slot < physical faceId),
+```
+
+and its canonical partner supplies a directed edge.  The endpoint theorem
+from milestone 121 is retained in the edge data, so every edge joins two
+different physical plaquette identifiers.  Concatenation over the attached
+link list gives `slabFusionWitnessAssignmentFaceStrandEdges`, with a direct
+specialization `slabFineFusionWitnessFaceStrandEdges` to the production
+corrected-slab witness family.
+
+The construction is deliberately factored as one certified link-to-edge-list
+map followed by finite concatenation.  This mirrors the mathematical assembly
+and avoids an enlarged elaboration budget.  The focused check and the
+dependency-complete one-worker target pass all 704 jobs; all thirteen audited
+declarations use at most `[propext, Quot.sound]`.
+
+This closes global edge *assembly*, not component topology or analysis.  The
+next theorem-first step is to show that the two local involutions -- pairing
+through a link and continuation through the same physical face copy -- make
+every finite global component an alternating path or cycle, and that toggling
+one whole component preserves every local fusion constraint.  The decisive
+analytic frontier remains a cutoff- and volume-independent comparison of the
+component-toggle weight, or an equivalent posterior-variance/resistance
+bound.  No such bound, weak-to-strong RG bridge inhabitant, continuum limit,
+or Clay conclusion is asserted.
