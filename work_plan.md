@@ -22414,3 +22414,49 @@ analytic frontier remains a cutoff- and volume-independent comparison of the
 component-peel weight, or an equivalent posterior-variance/resistance bound.
 No such bound, weak-to-strong RG bridge inhabitant, continuum limit, or Clay
 conclusion is asserted.
+
+## 123. Expanded strand peels pay the exact all-spin anchor coefficient (2026-08-26)
+
+**Status. THE ANALYTIC HALF OF A COMPONENT PEEL IS CLOSED WITH EXACT
+CUTOFF-INDEPENDENT PAYMENT; CONSTRUCTION OF THE ACCEPTED LOWER WITNESS REMAINS
+OPEN.**
+
+`CompactDualSlabExpandedFacePeelWeight.lean` returns to the uncompressed
+fine-intertwiner fibers, where every accepted fusion assignment has unit Haar
+counting weight.  Log-concavity of the complete SU(2) heat-kernel coefficient
+sequence gives, at the production anchor `w = 1/400`, the uniform successor
+bound
+
+```text
+coeffW anchor (s+1) <= (1 / 32,000,000) * coeffW anchor s.
+```
+
+The module proves the same inequality inside every finite packet containing
+the successor spin, lowers one literal corrected-slab physical face, and
+propagates the comparison through the complete face product.  The
+`Type`-valued `SlabFacePeelPath` then composes legal one-face steps and proves
+that a path of length `m` costs exactly at most
+`(1 / 32,000,000)^m`.  The expanded-fiber identity transports this estimate
+unchanged between arbitrary source and target accepted fusion assignments;
+there is no presentation-level link-multiplicity factor in this comparison.
+
+For orientation, the exact arithmetic product of this payment with the
+existing physical `Z^4` animal constant `625` is `1 / 51,200 < 1`.  The module
+names this only `anchorExpandedFaceAnimalCandidateRatio`: it is not yet a KP
+ratio.  To promote it, the geometric proof must construct an accepted lower
+fusion assignment and inject inverse component-peel records into the existing
+physical animal code without an additional uncontrolled exponential factor.
+
+The focused monitored check and dependency-complete one-worker target pass all
+911 jobs.  All fourteen audited declarations use at most
+`[propext, Quot.sound]`; `lowerSlabFace` and `SlabFacePeelPath` are axiom-free.
+No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next theorem-first step is local and geometric: express a selected SU(2)
+strand in trivalent strand coordinates, decrement that coordinate, and
+construct the resulting accepted link witness.  Only after this local
+preservation theorem should it be folded over a finite global component.  No
+uniform conditional-variance estimate, completed physical transfer gap,
+weak-to-strong RG bridge inhabitant, continuum limit, or Clay conclusion is
+asserted.

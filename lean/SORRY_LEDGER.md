@@ -18795,3 +18795,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker target pass all 704 jobs.  All thirteen audited declarations use
   at most `[propext, Quot.sound]`; the root aggregator imports the module.  No
   full-root audit is claimed.
+
+### [compact-dual-slab-expanded-face-peel-weight] Pay an expanded physical strand peel at the exact anchor ratio -- **ANALYTIC COMPONENT PAYMENT CLOSED; ACCEPTED COMPONENT PEEL OPEN 2026-08-26**
+
+- **milestone**: prove the all-spin successor coefficient bound at the actual
+  strong-coupling anchor; lower one literal physical face in the corrected
+  slab; compose legal lowerings in a `Type`-valued peel path; transport the
+  resulting power bound to the actual expanded fine-intertwiner fiber; and
+  record the exact arithmetic reserve against the existing physical animal
+  constant without claiming the still-missing component encoding.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabExpandedFacePeelWeight.lean`.
+- **principal declarations**:
+  `anchorCoeffW_succ_le`,
+  `anchorPacketCoefficient_succ_le`,
+  `lowerSlabFace`,
+  `lowerSlabFace_selected`,
+  `lowerSlabFace_other`,
+  `slabPhysicalFaceFactor_anchor_lower_one_le`,
+  `SlabFacePeelPath`,
+  `SlabFacePeelPath.faceFactor_le`,
+  `retainedFineIntertwinerPhysicalFiberWeight_eqv_faceFactor`,
+  `retainedFineIntertwinerPhysicalFiberWeight_anchor_lower_one_le`,
+  `retainedFineIntertwinerPhysicalFiberWeight_anchor_peelPath_le`,
+  `anchorExpandedFaceAnimalCandidateRatio`,
+  `anchorExpandedFaceAnimalCandidateRatio_eqv_one_51200`, and
+  `anchorExpandedFaceAnimalCandidateRatio_lt_one`.
+- **obligation**: construct the accepted lower auxiliary labelling selected by
+  a local strand-coordinate decrement; fold compatible local decrements over
+  one finite global component; and bound the inverse peel records by an
+  injection into the physical connected-animal code.  The exact candidate
+  ratio `1 / 51,200` is arithmetic reserve, not a component summability theorem
+  until those geometric and counting steps are proved.
+- **constructive?**: yes.  The coefficient comparison uses exact `Q'` order;
+  face lowering and peel paths are computable data; and finite products are
+  handled by structural recursion.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, functional extensionality, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check and dependency-complete
+  one-worker target pass all 911 jobs.  All fourteen
+  audited declarations use at most `[propext, Quot.sound]`; `lowerSlabFace` and
+  `SlabFacePeelPath` are axiom-free.  The root aggregator imports the module.
+  No full-root audit is claimed.
