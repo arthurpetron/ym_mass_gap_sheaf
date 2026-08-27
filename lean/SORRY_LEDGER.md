@@ -20518,3 +20518,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   recoupling matrix, not a Gibbs conditional comparison, beta-uniform
   posterior estimate, OS form bound, completed spectral gap, continuum QFT,
   or Clay theorem.
+
+### [su2-slab-valence-five-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-five link -- **PRODUCTION DEGREE-FIVE MATRIX CLOSED; VALENCE SIX/GIBBS BRIDGES OPEN 2026-08-27**
+
+- **milestone**: instantiate the complete valence-five matrix at the literal
+  external labels of both crossed production fields; tensor the two replica
+  matrices; extract the distinguished pair source from the accepted
+  production fusion chains; prove its row and every target column have exact
+  mass one; map every old dependent path target to the common final carrier;
+  and prove its old weight is exactly the product of the four local block
+  atoms through the two canonical middle states.
+- **file**:
+  `lean/YMGap/Continuum/SU2SlabValenceFiveCrossedSchurBistochasticKernel.lean`.
+- **principal declarations**:
+  `crossedValenceFiveBistochasticKernel`,
+  `crossedValenceFiveProductionSource`,
+  `crossedValenceFiveBistochasticKernel_column_normalized`,
+  `crossedValenceFiveProductionSource_row_normalized`,
+  `crossedValenceFiveFinalTargetOfPath`, and
+  `crossedValenceFiveKernelAt_common_paths`.
+- **obligation**: construct three aligned all-source/all-target moves at
+  valence six, instantiate their two-replica tensor at the remaining bulk
+  link degree, and then upgrade the heterogeneous whole-slab product.  Only
+  after this carrier closure may a beta- and lattice-spacing-dependent
+  same-carrier Gibbs/OS comparison be stated.
+- **constructive?**: yes.  The matrices are evaluated directly at production
+  labels, tensoring uses explicit Cartesian lists, and path factorization is
+  exact `Q'` algebra.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and 1,099-job targeted
+  build pass; all six printed declarations use only
+  `[propext, Quot.sound]`.  This is a production recoupling matrix and exact
+  path-to-carrier map, not a Gibbs conditional comparison, OS form bound,
+  completed spectral gap, continuum QFT, or Clay theorem.

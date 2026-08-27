@@ -25350,10 +25350,10 @@ explicit reversed canonical channel list and invokes the existing row theorem
 to obtain exact column mass one.  Thus the physical local SU(2) compiler is
 bistochastic on explicit complete, duplicate-free carriers.
 
-The focused monitored source check passes.  All six printed declarations use
-only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
-`native_decide`, custom axiom, noncomputable declaration, or enlarged
-heartbeat budget is introduced.
+The focused monitored source check and 1,099-job targeted build pass.  All six
+printed declarations use only `[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.
 
 The next causal frontier returns to the production geometry.  Transport this
 local column theorem through the valence-four/five/six iterated kernels and
@@ -25473,3 +25473,33 @@ still requires its analogous three-block common-carrier construction.  Even
 after those production compilers close, a separate same-carrier comparison
 with the beta- and lattice-spacing-dependent Gibbs/OS weight remains
 load-bearing; bistochastic recoupling alone is not a mass-gap estimate.
+
+## 193. The valence-five matrix is instantiated on actual crossed slab data (2026-08-27)
+
+**Status. THE TWO-REPLICA PRODUCTION DEGREE-FIVE MATRIX AND PATH-TO-CARRIER
+MAP ARE CLOSED; VALENCE SIX BLOCKS AND THE GIBBS COMPARISON ARE OPEN.**
+
+`SU2SlabValenceFiveCrossedSchurBistochasticKernel.lean` evaluates the complete
+valence-five matrix at the literal five external spin labels of both physical
+fields produced by an actual crossed slab switch.  Tensor closure gives one
+finite bistochastic matrix on the pair carrier, and the two production fusion
+chains provide its distinguished source row.  Every column and that row have
+exact mass one.
+
+The module also maps each target of the pre-existing fixed-source dependent
+path compiler to its canonical pair of final right-tree carriers.  The exact
+`crossedValenceFiveKernelAt_common_paths` theorem identifies the old path
+weight with the product of the four local block entries through the two
+canonical common-middle states.  It deliberately does not equate a path atom
+with the new matrix entry, which is the finite sum over all middle states.
+
+The focused monitored source check passes.  All six printed declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is the analogous three-block common-carrier compiler
+for valence six.  Until it closes, the heterogeneous whole-slab product cannot
+be upgraded from normalized fixed-source rows to complete bistochastic
+matrices at every possible 4D link degree.  The beta- and lattice-spacing-
+dependent Gibbs/OS comparison remains a later separate theorem.
