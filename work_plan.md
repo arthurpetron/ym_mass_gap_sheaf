@@ -26267,3 +26267,34 @@ Focused monitored checks pass.  Every printed load-bearing declaration uses
 only `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.
+
+## 216. Contract the support-disconnected four-cell exactly (2026-08-27)
+
+**Status. THE SUPPORT-ALIGNED FRACTIONAL COMPILER NOW PROVES AN
+UNCONDITIONAL WEIGHTED FOUR-CELL DEFECT INEQUALITY; ITS ONLY REMAINDER IS THE
+LITERAL PAIRED-SUPPORT CONNECTED RESIDUE.**
+
+`CompactDualSlabObservablePairedSupportFractionalWeightedContraction.lean`
+proves that every realized recoupling target has exactly the source's full
+two-replica Gibbs weight: the construction changes the physical fields only
+by the proved support-component face transposition, while each retained
+auxiliary assignment has one counting unit.
+
+Exact row normalization, the inhabited global dependent-column capacity, and
+finite dependent-kernel transport then bound the entire support-disconnected
+source four-cell by the opposite target four-cell.  Filtering by the Boolean
+union-support connectivity predicate gives an exact partition, so the full
+four-cell determinant defect is bounded by the one explicitly named
+support-connected residue.  This theorem has no realization or capacity
+certificate arguments.
+
+The next causal edge is analytic rather than compiler plumbing: derive a
+strict, cutoff-controlled numerical estimate for this support-connected
+residue.  Only after that can the finite RG contraction be propagated toward
+a scale trajectory.  The beta/lattice-spacing relation, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.

@@ -21070,3 +21070,18 @@ support-aligned route without a `sorry`.  The weighted four-cell contraction,
 support-connected residue estimate, and every beta/spacing, Gibbs/OS,
 completed-gap, continuum, and Clay obligation remain open.  No `sorry` is
 introduced.
+
+#### Paired-support exact weighted contraction update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportFractionalWeightedContraction` lifts
+the proved unweighted dependent-column capacity through exact preservation of
+the full two-replica Gibbs weight.  Finite dependent-kernel transport therefore
+dominates the complete support-disconnected source sector by the opposite
+four-cell, without any realization or capacity hypothesis.
+
+An exact Boolean partition of the source four-cell leaves only the literal
+union-support connected sector.  Consequently the four-cell determinant
+defect is now bounded unconditionally by that support-connected residue.  The
+numerical residue estimate, beta/spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.  No
+`sorry` is introduced.
