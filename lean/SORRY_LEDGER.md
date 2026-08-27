@@ -18155,6 +18155,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   claimed as a pass.  The separately imported observable capstone also
   passes its focused monitored check within the same axiom gate.
 
+### [bf4-canonical-finite-conditional-variance-gap] Realize the exact conditional-variance fraction at every fixed finite sector -- **PROVED FINITE / UNIFORM FLOOR OPEN 2026-08-27**
+
+- **milestone**: take the explicit strict rate already constructed from the
+  finite vacuum-sector positive-edge floor and path ceiling, define its
+  positive complement, and return an inhabitant of
+  `CentralPhysicalFiniteConditionalVarianceGapData` at every fixed
+  nonnegative coupling, cutoff, and half-volume.  The exact variance/form
+  equivalence proves that this complement is the conditional-variance
+  fraction, rather than merely another presentation-level gap constant.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFiniteConditionalVarianceGap.lean`.
+- **decl**:
+  `centralPhysicalFiniteCanonicalConditionalVarianceFraction`,
+  `centralPhysicalFiniteCanonicalConditionalVarianceFraction_pos`,
+  `centralPhysicalFiniteCanonicalConditionalVarianceFraction_le_one`,
+  `one_sub_centralPhysicalFiniteCanonicalConditionalVarianceFraction_eqv_rate`,
+  and
+  `centralPhysicalFiniteCanonicalConditionalVarianceGapData`.
+- **obligation**: replace the finite edge-floor/path-ceiling complement by a
+  lower fraction that is uniform along the representation cutoff and then
+  along the physical coupling, volume, and lattice-spacing trajectory.  The
+  constructed fraction is explicit but may tend to zero as its finite
+  carrier grows.
+- **constructive?**: yes.  The witness is a rational complement and the
+  proof uses exact setoid arithmetic plus the already kernel-checked finite
+  Poincare theorem.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored check passes, and the dependency-
+  complete target for its new conditional-variance-gap dependency passes all
+  1490 jobs.  The four audited exports use only `[propext, Quot.sound]`; the
+  root aggregator imports the module.  No full-root pass is claimed.
+
 ### [compact-dual-component-fixed-boundary] Characterize component peels internal to one OS posterior fiber -- **PROVED CRITERION / UNIFORM FRACTION OPEN 2026-08-27**
 
 - **milestone**: identify exactly when a whole-slab rooted strand-component
