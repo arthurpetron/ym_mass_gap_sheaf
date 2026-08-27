@@ -25984,3 +25984,36 @@ choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.  The paired-support
 connected residue, beta/lattice-spacing trajectory, Gibbs/OS comparison,
 completed gap, continuum construction, and Clay theorem remain open.
+
+## 208. Contract each fixed physical contributor fiber by one normalized column (2026-08-27)
+
+**Status. THE FINITE WEIGHTED NO-OVERLOAD THEOREM FOR EVERY DUPLICATE-FREE
+FIXED-PHYSICAL FIBER IS CLOSED; THE CONCRETE FOUR-CELL FIBER ENUMERATION
+REMAINS OPEN.**
+
+`SU2SlabPhysicalPairRecouplingSourceDecidableEquality.lean` derives
+constructive equality for the heterogeneous common-matrix source carrier.
+At each actual link it selects the unit, valence-four, valence-five, or
+valence-six channel-code decision, and structural recursion assembles those
+local decisions over the boundary-complete link list.
+
+`CompactDualSlabObservablePairedSupportColumnNoOverload.lean` then applies the
+finite weighted-injection theorem exactly once.  Every contributor in one
+fixed switched-physical fiber maps to its production row; the preceding
+milestone proves row membership, and the support-switch decoder proves
+injectivity.  Hence the contributor sum at any fixed common target column is
+bounded by the literal full column, and exact bistochastic normalization
+contracts that mass to one.
+
+The remaining finite capacity edge is the explicit production enumeration:
+partition the disconnected four-cell source-pair list by the finite code of
+its two switched physical labellings, construct the corresponding proof-
+carrying contributor list in each fiber, and rewrite the pushed target mass
+as the sum controlled above.  After that, the paired-support connected
+residue is the next independent mathematical bound.
+
+Focused monitored checks pass and every printed declaration uses only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No Gibbs/OS comparison, beta-uniform gap,
+continuum construction, or Clay theorem is claimed.

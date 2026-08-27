@@ -20819,6 +20819,24 @@ target column.  The paired-support connected residue and all beta/spacing,
 Gibbs/OS, completed-gap, continuum, and Clay obligations remain open.  No
 `sorry` is introduced.
 
+#### Fixed-physical-fiber column no-overload update (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingSourceDecidableEquality` constructs decidable
+equality for the exact heterogeneous whole-slab source assignment from the
+degree-zero-through-six SU(2) carrier codes.  In
+`CompactDualSlabObservablePairedSupportColumnNoOverload`, any duplicate-free
+list of contributors with one fixed switched physical output injects into
+the literal common source list.  The finite weighted-injection theorem and
+exact column normalization therefore bound its recoupling mass into every
+fixed target column by one.
+
+The matrix-theoretic no-overload step is closed on each supplied physical
+fiber.  The remaining capacity obligation is to enumerate the production
+four-cell by its pair of switched-physical finite codes and identify the
+realization pushforward with these fiberwise column sums.  The paired-support
+connected residue and all beta/spacing, Gibbs/OS, completed-gap, continuum,
+and Clay obligations remain open.  No `sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal
