@@ -21796,3 +21796,22 @@ mass floor and no total-variation row contraction enter the constant.  No
 heat weights, proving its fraction comparable to physical spacing along the
 matched AF trajectory, the same-channel continuum construction, continuum
 QFT axioms, isolated vacuum, and Clay conclusion remain open.
+
+#### Sparse-support obstruction to global minorization (2026-08-27)
+
+`BF4PhysicalVacuumSectorConditionalMinorizationSparseNoGo` proves that a
+single zero of the genuine finite reflected joint between two retained
+canonical-component states contradicts every positive global
+stationary-product minorization fraction.  Positivity of both canonical
+weights makes the conditioned product strictly positive at that pair, so the
+contradiction is exact and uses no quantitative estimate.
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalIndexWitness` separately constructs a
+canonical finite-carrier index for every state in the exact cutoff-two
+65-state cube sector.  Together with the existing local-zero declarations,
+this identifies why global one-step Doeblin minorization is the wrong causal
+continuum mechanism for the sparse physical support graph.  The final named
+cutoff-two normalized-zero composition is not asserted in these modules; nor
+are multistep minorization, a uniform path/congestion estimate, a cofinal
+posterior-variance fraction, continuum QFT axioms, or the Clay conclusion.
+No `sorry` is introduced.
