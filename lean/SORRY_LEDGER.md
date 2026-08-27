@@ -20117,3 +20117,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not yet the valence-six third move, global linkwise product, Gibbs/heat
   comparison, beta-uniform posterior estimate, OS form bound, completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-valence-six-iterated-schur-transport] Normalize the third dependent Schur move across the six-valent bulk tree -- **COMPLETE BULK LOCAL REASSOCIATION CLOSED; PRODUCTION PAIR INSTANTIATION OPEN 2026-08-26**
+
+- **milestone**: repackage the first four factors of a valence-six chain as
+  the proved valence-five prefix; for each dependent two-level target, extract
+  the second channel's outer fusion certificate; combine it with the retained
+  final production suffix to construct the third physical left channel;
+  prove that channel retains the exact production output `z`; enumerate the
+  three-level dependent target tower; define its product probability; prove
+  pointwise nonnegativity; collapse every conditional third fiber; prove exact
+  total mass one from the valence-five theorem; and prove preservation of the
+  constant observable.
+- **file**:
+  `lean/YMGap/Continuum/SU2ValenceSixIteratedSchurTransport.lean`.
+- **principal declarations**:
+  `FixedLeftCGValenceSix.valenceFivePrefix`,
+  `valenceSixThirdLeftChannel`,
+  `valenceSixThirdLeftChannel_intermediate`,
+  `ValenceSixRightTreeTarget`,
+  `valenceSixRightTreeTargets`,
+  `valenceSixIteratedSchurKernelAt`,
+  `valenceSixIteratedSchurKernelAt_nonnegative`,
+  `valenceSixIteratedSchurKernel_row_normalized`, and
+  `valenceSixIteratedSchurExpectation_one`.
+- **obligation**: instantiate the valence-five/six carriers and iterated rows
+  on both accepted crossed production outputs, form their heterogeneous
+  normalized product, and assemble those local laws over every link of the
+  corrected slab.  Then prove the first exact or bounded comparison with the
+  original spin-foam/Gibbs link weights.
+- **constructive?**: yes.  The proof is a finite dependent tower of exact
+  `Q'` Parseval probabilities.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; among the six printed declarations,
+  the prefix repackaging uses no axioms and the remaining declarations use
+  only `[propext, Quot.sound]`.  This closes the complete local analytic
+  reassociation law through bulk valence six, not yet crossed production-pair
+  instantiation, global linkwise product, Gibbs/heat comparison, beta-uniform
+  posterior estimate, OS form bound, completed gap, continuum QFT, or Clay
+  theorem.

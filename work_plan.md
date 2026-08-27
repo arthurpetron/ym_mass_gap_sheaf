@@ -25090,3 +25090,46 @@ valence-six bulk chain: reuse the first two moves through output `z`, combine
 the second target's outer fusion step with the retained `z e -> f` suffix,
 and normalize the third conditional Schur row.  Global linkwise assembly and
 all Gibbs/OS/continuum estimates remain open.
+
+## 182. The six-valent bulk chain now has a complete three-level Schur transport (2026-08-26)
+
+**Status. EVERY ASSOCIATOR MOVE FROM THE PRODUCTION FIVE-FACTOR LEFT TREE TO
+THE FULLY RIGHT-ASSOCIATED BULK TREE NOW FORMS ONE EXACT NORMALIZED ROW.**
+
+`SU2ValenceSixIteratedSchurTransport.lean` factors the first four inputs of a
+`FixedLeftCGValenceSix` chain into the valence-five prefix ending at `z` and
+reuses milestone 181 without duplicating its proof.  A target of that prefix
+contains the dependent second right channel
+
+```text
+a ((b c) d) -> z.
+```
+
+Its outer fusion certificate, together with the retained production suffix
+`z e -> f`, constructs the third `FixedLeftCGChannel`.  The exact
+`valenceSixThirdLeftChannel_intermediate` theorem proves that this channel's
+intermediate representation is still the production label `z`.  Its physical
+Schur row yields the final tree `a (((b c) d) e) -> f`.
+
+`ValenceSixRightTreeTarget` is a three-level dependent carrier.  Its list is a
+`flatMap` of the complete valence-five tower by the complete conditional third
+row.  The full kernel is the previous two-level probability times the third
+conditional probability.  Exact inner-fiber normalization followed by the
+valence-five mass-one theorem proves
+`valenceSixIteratedSchurKernel_row_normalized`; nonnegativity and preservation
+of the constant observable are also closed.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All six printed declarations use only the allowed axiom gate (the
+prefix repackaging itself uses no axioms; the remaining declarations use
+`[propext, Quot.sound]`).  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is production instantiation: construct these
+valence-five/six analytic chains from both accepted crossed auxiliary outputs,
+take the heterogeneous product of their complete iterated rows, and then
+assemble the resulting normalized local kernels over the actual slab-link
+list.  The subsequent load-bearing theorem is a comparison between that
+analytic recoupling law and the original spin-foam/Gibbs weights; no such
+comparison is yet claimed.
