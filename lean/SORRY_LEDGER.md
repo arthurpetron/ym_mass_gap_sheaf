@@ -19920,3 +19920,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   external-spin pushforward, not yet a dependent Cartan--Schur channel law, a
   Gibbs/heat comparison, beta-uniform posterior estimate, OS form bound,
   completed gap, continuum QFT, or Clay theorem.
+
+### [su2-canonical-valence-four-channel-bridge] Map accepted production fusion witnesses into the analytic recoupling carrier -- **VALENCE-FOUR CARRIER BRIDGE CLOSED; CROSSED TARGET CHANNEL OPEN 2026-08-26**
+
+- **milestone**: construct `FixedLeftCGChannel a b c d` from the two exact
+  SU(2) fusion witnesses through their constructive coupling orders; prove
+  that its intermediate degree is the supplied production label; publicly
+  unfold the canonical valence-four resolver into its two `fusionOK` tests;
+  map every accepted canonical auxiliary labelling into the analytic channel;
+  extract the resolver certificate from literal membership in
+  `slabLinkFusionWitnesses`; and instantiate the construction at every actual
+  corrected-slab link whose incident plaquette degree is four.
+- **file**:
+  `lean/YMGap/Continuum/SU2CanonicalValenceFourChannelBridge.lean`.
+- **principal declarations**:
+  `fixedLeftChannelOfFusion`,
+  `fixedLeftChannelOfFusion_intermediate`,
+  `canonicalLinkConditionalAllowedB_four`,
+  `fixedLeftChannelOfCanonicalFour`,
+  `fixedLeftChannelOfCanonicalFour_intermediate`,
+  `slabLinkFusionWitness_allowed`,
+  `fixedLeftChannelOfSlabValenceFour`, and
+  `fixedLeftChannelOfSlabValenceFour_intermediate`.
+- **obligation**: for each nonzero two-replica Cartan crossing packet,
+  construct the resulting proof-carrying channel(s) on the crossed external
+  representation labels and only then compose with the physical Schur row.
+  Prove the dependent row normalization and observable Fubini law; iterate the
+  local compiler through production valence-five/six trees; and attach it to
+  the paired-face component carrier.
+- **constructive?**: yes.  The map is built from explicit natural-number
+  coupling orders and exact Boolean production certificates.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all eight printed declarations use
+  only `[propext, Quot.sound]`.  This is a concrete production-to-analytic
+  carrier bridge at valence four, not yet a crossed target-channel map,
+  valence-five/six compiler, Gibbs/heat comparison, beta-uniform posterior
+  estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.

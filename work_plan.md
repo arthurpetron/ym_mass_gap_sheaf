@@ -24882,3 +24882,42 @@ one and observable Fubini.  Then instantiate that compiler along the actual
 valence-five/six link trees.  Gibbs-weight comparison, the connected residue,
 OS identification, uniform completed gap, continuum passage, and the Clay
 theorem remain open.
+
+## 177. Production valence-four witnesses now construct analytic SU(2) channels (2026-08-26)
+
+**Status. THE MISSING CARRIER MAP FROM THE ACTUAL SLAB FUSION ENUMERATOR TO
+THE PHYSICAL SCHUR-RECOUPLING DOMAIN IS NOW EXPLICIT.**
+
+`SU2CanonicalValenceFourChannelBridge.lean` constructs a
+`FixedLeftCGChannel a b c d` from the two exact Boolean witnesses
+
+```text
+fusionOK a b x = true,       fusionOK x c d = true.
+```
+
+The construction chooses the two Cayley contraction orders by the existing
+constructive `couplingOrder` formula.  The fusion arithmetic proves both
+physical bounds, the final-degree equation, and the load-bearing identity
+that the analytic intermediate degree is exactly `x`.
+
+The module then publicly expands the canonical production resolver at
+valence four.  An accepted auxiliary labelling is mapped to the analytic
+channel on its four external spins, with intermediate label `auxiliary 5`.
+Finally, membership in the literal `slabLinkFusionWitnesses` list exposes the
+resolver certificate, so every accepted witness at an actual degree-four
+corrected-slab link constructs the same analytic channel.  This is the first
+direct map from production lattice data into the physical Schur carrier; it
+removes the type-level gap that made a bare product of the Cartan and Schur
+rows mathematically invalid.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All eight printed declarations use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is to transport a pair of these production channels
+through the crossed external-label output.  That requires an explicit
+proof-carrying target channel for each nonzero Cartan packet before the
+physical Schur row can be applied.  Valence-five/six iteration, Gibbs-weight
+comparison, the paired connected residue, OS observable identification,
+uniform completed gap, continuum passage, and the Clay theorem remain open.
