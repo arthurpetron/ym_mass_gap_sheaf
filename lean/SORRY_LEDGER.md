@@ -21757,3 +21757,24 @@ decay and a physical gap floor.  No `sorry` is introduced.  The cofinal
 normalized-row estimate, matched cubic law, physical spacing envelope,
 observable pin, continuum carrier/QFT axioms, isolated vacuum, and Clay mass-
 gap conclusion remain open.
+
+#### Matched AF posterior-variance gap path update (2026-08-27)
+
+`BF4PhysicalMatchedAFConditionalVarianceGapPath` makes the exact
+law-of-total-variance route cofinal and dynamic.  One positive fraction of
+stationary diagonal variance retained by the literal BF4 boundary posterior,
+along a constructive cofinal cutoff schedule, now produces the actual
+completed canonical vacuum-sector OS transfer at rate
+`q = 1 - fraction`.  The completed lattice margin is proved rationally
+equivalent to that same posterior-variance fraction.
+
+The construction is pinned to `blockedWeight family (coupling scale)` and
+`spacing.a (coupling scale)`.  Its sole physical scaling input is therefore
+the direct estimate
+`lower * a_j <= fraction_j <= upper * a_j`; the same-object observable pin
+then supplies connected-correlation decay and a physical gap floor with the
+identical completed transfer.  This route requires neither a total-variation
+row contraction nor an unconditioned vacuum-sector mass floor.  No `sorry` is
+introduced.  Constructing the uniform cofinal posterior fraction, the matched
+cubic/spacing data, observable pin, continuum carrier/QFT axioms, isolated
+vacuum, and Clay conclusion remain open.
