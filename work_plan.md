@@ -25270,3 +25270,33 @@ indexes a production crossed auxiliary pair, then relate its product Schur
 weight to the corresponding fine-intertwiner/spin-foam conditional weight.
 Any beta-uniform conclusion must keep the coupling parameter explicit, in
 accordance with the group-dependence audit.
+
+## 187. The complete left SU(2) channel basis is enumerated and orthogonal (2026-08-26)
+
+**Status. THE MISSING TRANSPOSE-SIDE GRAM GEOMETRY IS CLOSED; SCHUR COLUMN
+NORMALIZATION IS THE NEXT LOAD-BEARING THEOREM.**
+
+`SU2DirectLeftFixedOutputEnumeration.lean` gives the exact left-tree mirror
+of the existing right-channel enumeration.  A decidable predicate on the
+first contraction order determines the forced outer order at fixed output;
+the resulting proof-carrying list is sound, complete, and duplicate-free.
+
+`SU2OrderedLeftGramCasimirOrthogonality.lean` uses the self-adjoint first-pair
+exchange operator.  Each left channel has its explicit Casimir eigenvalue,
+distinct physical contraction orders have strictly separated natural
+eigenvalues, and therefore distinct left channels have zero invariant
+pairing.  `leftChannel_gram_all` supplies the exact physical Gram weight on
+the diagonal for arbitrary labels.
+
+Both focused monitored source checks pass.  The ten printed enumeration
+declarations and four printed Gram declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+This repoints the analytic frontier after the audit: row normalization alone
+cannot pay collisions in a unit-counted Gibbs fiber.  The next theorem must
+expand a fixed right channel in this complete left basis and derive exact
+column normalization of the physical Schur kernel.  Only a bistochastic (or
+stronger globally glued isometric) law can support the subsequent Gibbs
+transport claim.

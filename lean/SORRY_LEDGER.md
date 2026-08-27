@@ -20301,3 +20301,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   declarations use only `[propext, Quot.sound]`.  This closes actual global
   analytic assembly, not yet a Gibbs/heat comparison, beta-uniform posterior
   estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.
+
+### [su2-left-fixed-output-enumeration-and-gram] Construct the transpose-side channel basis and Casimir orthogonality -- **LEFT BASIS CLOSED; SCHUR COLUMN NORMALIZATION OPEN 2026-08-26**
+
+- **milestone**: define decidable fixed-output left-channel admissibility;
+  enumerate every admissible first contraction order; reconstruct its forced
+  outer order; prove soundness, completeness, uniqueness, and no duplicates;
+  move the self-adjoint first-pair Casimir across the invariant pairing;
+  prove strict separation of the physical natural eigenvalues; derive
+  off-diagonal left-channel orthogonality; and package the exact all-label
+  left Gram law.
+- **files**:
+  `lean/YMGap/Continuum/SU2DirectLeftFixedOutputEnumeration.lean` and
+  `lean/YMGap/Continuum/SU2OrderedLeftGramCasimirOrthogonality.lean`.
+- **principal declarations**:
+  `FixedLeftAdmissible`,
+  `fixedLeftChannels`,
+  `fixedLeftChannels_complete`,
+  `fixedLeftChannels_nodup`,
+  `fixedLeft_triMapInner_eigenvalue_balance`,
+  `fixedLeft_pairEigenNat_ne`,
+  `leftChannel_offDiagonalOrthogonality_all`, and
+  `leftChannel_gram_all`.
+- **obligation**: construct the inverse expansion of an arbitrary fixed right
+  channel through the complete left-channel list; pair it against itself;
+  derive the weighted column Parseval identity and exact column mass one for
+  `physicalSchurRecouplingKernelAt`; then determine the correct globally glued
+  production transport rather than inferring it from row normalization.
+- **constructive?**: yes.  The enumeration is a bounded filtered list and the
+  Gram proof is exact Casimir arithmetic with constructive eigenvalue
+  separation.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source checks pass; all fourteen
+  printed declarations use only `[propext, Quot.sound]`.  This closes the
+  left basis/Gram side, not yet Schur column normalization, Gibbs/heat
+  comparison, beta-uniform posterior estimate, OS form bound, completed gap,
+  continuum QFT, or Clay theorem.
