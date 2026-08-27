@@ -18281,7 +18281,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the root aggregator imports the
   module.  No full-root build or audit is claimed.
 
-### [z4-canonical-face-event-pinned-tail] Replace the complete pinned face cylinder by a finite size truncation -- **PROVED AT ANCHOR COUPLING / SPATIAL TRANSPORT OPEN 2026-08-27**
+### [z4-canonical-face-event-pinned-tail] Replace the complete pinned face cylinder by a finite size truncation -- **PROVED AT ANCHOR COUPLING / OS IDENTIFICATION OPEN 2026-08-27**
 
 - **milestone**: split the complete occupied-face event, on every canonical
   compatible family, into the size-`< m` strict-cylinder event and a disjoint
@@ -18298,13 +18298,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `canonicalPinnedLargeActivity_le_tail`,
   `anchorFaceTruncationRemainderProbability_le_tail`, and
   `anchorFaceProbability_le_truncated_add_tail`.
-- **obligation**: prove that, for a centrally transported face and fixed
-  truncation size, every small pinned canonical polymer in every sufficiently
-  large centered box comes from one fixed finite root chart.  Then transport
-  the truncated observable through the strict-cylinder direct system and
-  identify its limit with the same-object OS autocorrelation.  The proved
-  tail is fixed at `anchorCoupling`; it asserts no beta- or spacing-uniform
-  estimate, completed spectral gap, continuum limit, or Clay result.
+- **obligation**: the geometric localization and exact fixed-root observable
+  chart are discharged by the next two ledger entries.  It remains to pass
+  the resulting approximating cylinders through the centered OS direct
+  system and identify their thermodynamic limit with the same physical face
+  event and its same-object autocorrelation.  The proved tail is fixed at
+  `anchorCoupling`; it asserts no beta- or spacing-uniform estimate, completed
+  spectral gap, continuum limit, or Clay result.
 - **constructive?**: yes.  The proof uses finite list filters, an explicit
   size-layer injection, the existing pinned KP sum, and rational probability
   inequalities.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
@@ -18314,7 +18314,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
 
-### [z4-canonical-face-event-pinned-localization] Recover every small protected-core component from a fixed source box -- **PROVED GEOMETRIC / PERSISTENT FACE PREDICATE OPEN 2026-08-27**
+### [z4-canonical-face-event-pinned-localization] Recover every small protected-core component from a fixed source box -- **PROVED GEOMETRIC / FIXED FACE CHART PROVED BELOW 2026-08-27**
 
 - **milestone**: characterize the uniformly translated source plaquette list
   as one exact half-open shifted box; prove constructively that its complement
@@ -18331,17 +18331,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `smallPinnedCanonicalRoot_inside_uniformShift`,
   `smallPinnedCanonicalRoot_mem_uniformShiftCanonicalRoots`, and
   `smallPinnedCanonicalRootSource`.
-- **obligation**: choose one explicitly indexed central plaquette across the
-  centered exhaustion, prove that affine transport preserves the corresponding
-  pinned-root occurrence predicate, and compile the size-truncated face event
-  into one fixed coefficient function on the source chart.  Then identify its
-  thermodynamic covariance with the same-object OS autocorrelation.  This is
+- **obligation**: the explicitly indexed central plaquette, preserved pinned
+  predicate, and exact fixed finite cylinder are discharged by the next ledger
+  entry.  The remaining bridge is from those approximating cylinders and their
+  geometric probability tail to the same-object OS autocorrelation.  This is
   geometry only and asserts no probability, beta, spacing, completed-gap,
   continuum, or Clay conclusion.
 - **constructive?**: yes.  The only complement step is an explicit decidable
   eight-face case split; source recovery is the existing arithmetic unshift.
   No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
   noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  No full-root build or audit is claimed.
+
+### [z4-canonical-central-face-fixed-cylinder] Present every truncated central-face event on one fixed finite root chart -- **PROVED FINITE-STAGE / OS IDENTIFICATION OPEN 2026-08-27**
+
+- **milestone**: choose a numerical identifier for the central `p01`
+  plaquette in the source box of side `2*m+1` and in every uniformly padded
+  target; prove that canonical-root transport preserves membership of that
+  face and preserves component size; prove that the target size-`<m` pinned
+  roots are exactly the affine images of the fixed source roots; and conclude
+  that the target truncated face event is the occurrence event of that one
+  transported fixed chart at every stage.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalCentralFaceFixedCylinder.lean`.
+- **decl**:
+  `pinnedFaceId_physical`,
+  `boxPlaquetteAt_pinnedFaceId`,
+  `pinnedFaceId_mem_uniformShiftCanonicalRoot_iff`,
+  `uniformShiftCanonicalRoot_length_eq`,
+  `mem_pinnedFaceStageRoots_iff`,
+  `pinnedFaceTruncatedCylinderEvent_eq_fixedStage`, and
+  `pinnedFaceFixedStrictCylinderVector`.
+- **obligation**: connect this uniformly padded fixed-chart stage sequence to
+  the centered strict-cylinder sequence consumed by the OS direct-limit and
+  two-step moment modules.  Then combine the exact event identification with
+  the pinned probability tail to obtain a CReal observable-limit modulus and
+  identify the limiting connected face covariance with the same-object OS
+  autocorrelation.  No such thermodynamic/OS identity is claimed here.
+- **constructive?**: yes.  The central face identifier is returned by the
+  explicit nonempty singleton encoder; all inverse roots and stage maps carry
+  exact witnesses.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
 - **status note**: the focused monitored check passes.  Every audited export
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
