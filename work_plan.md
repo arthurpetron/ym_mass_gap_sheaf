@@ -26199,3 +26199,36 @@ Focused monitored source checks and the dependency-complete target build pass.
 Every printed load-bearing declaration uses only `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+## 214. Make the dependent paired-support carrier multiplicity faithful (2026-08-27)
+
+**Status. EVERY SOURCE-SPECIFIC TARGET LIST AND THE FLATTENED DEPENDENT LIST
+OF `(SOURCE, CHOICE)` PAIRS ARE NOW DUPLICATE FREE; WEIGHTED GLOBAL COLUMN
+CAPACITY REMAINS OPEN.**
+
+`SU2SlabPhysicalPairRecouplingTargetNodup.lean` proves duplicate freedom for
+the complete right-carrier lists at valences four, five, and six.  The
+valence-six result exposes its final carrier as the indexed sum of physical
+Schur target lists.  Fixed-valence tensor products and structural
+heterogeneous Cartesian products lift these local facts to the targets of
+the complete physical-only whole-slab recoupling matrix.
+
+`CompactDualSlabObservablePairedSupportFractionalSourceChoice.lean` tags each
+source-dependent target by its separated source in a sigma type.  Each tagged
+block is duplicate free, distinct blocks are disjoint by their retained source
+projection, and hence the complete flattened source-choice list is duplicate
+free.  A concrete-target preimage can therefore be summed without silently
+identifying repeated abstract choices.
+
+The next causal edge filters this multiplicity-faithful list by one concrete
+four-cell target, selects a head preimage constructively when nonempty, and
+uses common-column coherence to transport every retained term into one fixed
+physical-fiber column.  Column normalization should then yield the global
+dependent-kernel capacity bound.  The paired-support connected residue,
+beta/lattice-spacing trajectory, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem remain open.
+
+Focused monitored checks and the dependency-complete target build pass.  All
+printed load-bearing declarations use only `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.

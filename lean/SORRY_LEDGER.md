@@ -21033,3 +21033,21 @@ This closes target-preimage coherence without a `sorry`.  Global summed
 column capacity, the paired-support connected residue, and every beta/spacing,
 Gibbs/OS, completed-gap, continuum, and Clay obligation remain open.  No
 `sorry` is introduced.
+
+#### Paired-support multiplicity-faithful carrier update (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingTargetNodup` proves that every local physical
+recoupling target carrier is duplicate free and contracts those results
+through the heterogeneous whole-slab product.  The valence-six target list is
+handled as the exact indexed final Schur carrier, not as an inferred finite
+set.
+
+`CompactDualSlabObservablePairedSupportFractionalSourceChoice` tags every
+source-dependent target choice by its source and proves the resulting
+flattened sigma list has no duplicates.  Thus concrete-target fibers retain
+the intended matrix-entry multiplicities exactly.
+
+This closes target-carrier multiplicity without a `sorry`.  Weighted global
+column capacity, the paired-support connected residue, and every beta/spacing,
+Gibbs/OS, completed-gap, continuum, and Clay obligation remain open.  No
+`sorry` is introduced.
