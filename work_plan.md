@@ -24691,3 +24691,49 @@ deterministic decoder.  Independently, the paired-face connected residue and
 the physical OS-observable identification remain open.  All-beta and
 lattice-spacing control, the completed OS gap, continuum passage, and the
 Clay theorem remain open.
+
+## 173. The physical Schur kernel now transports finite two-replica observables (2026-08-26)
+
+**Status. THE NORMALIZED INDEXED SCHUR ROW HAS BEEN CONVERTED INTO A LITERAL
+DUPLICATE-FREE FINITE LAW, AND ITS TWO-REPLICA CARTESIAN TRANSPORT SATISFIES
+EXACT OBSERVABLE FUBINI.**
+
+`SU2PhysicalSchurTwoReplicaTransport.lean` closes the representation mismatch
+between the Nat-indexed Parseval theorem and the finite carrier algebra used
+by the lattice switching modules.  The structural theorem
+`finiteHeadSum_fixedRightChannelAt_eq_listQSum` proves that total list lookup,
+below the list length, is exactly the recursive `listQSum` over the actual
+proof-carrying channels.  Hence `physicalSchurRecoupling_list_row_normalized`
+places the physical Schur law on the complete duplicate-free target list,
+with no fallback contribution.
+
+The module then defines `physicalSchurExpectation` as the finite transport of
+an arbitrary right-channel observable and proves that it preserves the
+constant one.  For two replicas it constructs the literal Cartesian channel
+carrier and product kernel.  The carrier is duplicate-free, every weight is
+nonnegative, and `physicalSchurTwoReplicaKernel_row_normalized` proves exact
+total mass one.  Most importantly for the observable route,
+`physicalSchurTwoReplicaExpectation_product` proves the finite Fubini law
+
+```text
+E_(Schur x Schur)[f(qR1) g(qR2)]
+  = E_Schur[f(qR1)] * E_Schur[g(qR2)].
+```
+
+This is a composable, observable-facing weighted compiler, rather than a
+standalone normalization certificate.  Its law is the independent product
+of two local recouplings; it is not yet the geometry-conditioned component
+switching kernel and contains no Gibbs/heat weight.
+
+The focused monitored source check passes.  All eight printed declarations
+use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is the genuinely geometric one: express the selected
+component change of fusion tree as a finite sequence of these physical Schur
+moves (including the valence-five and valence-six link cases), compose their
+row laws, and attach the resulting weighted fibers to the already-constructed
+paired physical outputs.  A Gibbs-weight comparison, the connected residue,
+the OS observable pin, all-beta/lattice-spacing control, the completed gap,
+continuum passage, and the Clay theorem remain open.

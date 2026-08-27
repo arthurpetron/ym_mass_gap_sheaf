@@ -19774,3 +19774,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the fundamental block.  It is not yet a global switch, a beta-uniform
   conditional estimate, an OS form bound, a completed gap, a continuum QFT,
   or the Clay theorem.
+
+### [su2-physical-schur-two-replica-transport] Put physical recoupling on an observable finite carrier -- **LOCAL TWO-REPLICA LAW CLOSED; GEOMETRIC SWITCH COMPOSITION OPEN 2026-08-26**
+
+- **milestone**: identify the indexed Schur row with the literal structural
+  sum over the complete proof-carrying right-channel list; inherit exact row
+  mass one on that duplicate-free list; define finite transport of arbitrary
+  channel observables; construct the Cartesian two-replica carrier and product
+  kernel; prove its weights are nonnegative and its mass is one; and prove
+  exact Fubini factorization for product observables.
+- **file**:
+  `lean/YMGap/Continuum/SU2PhysicalSchurTwoReplicaTransport.lean`.
+- **principal declarations**:
+  `finiteHeadSum_fixedRightChannelAt_eq_listQSum`,
+  `physicalSchurRecoupling_list_row_normalized`,
+  `physicalSchurExpectation`,
+  `physicalSchurExpectation_one`,
+  `physicalSchurTwoReplicaTargets`,
+  `physicalSchurTwoReplicaKernelAt`,
+  `physicalSchurTwoReplicaKernel_row_normalized`, and
+  `physicalSchurTwoReplicaExpectation_product`.
+- **obligation**: compile the actual selected-component change of fusion tree
+  at each valence-four, valence-five, and valence-six slab link into a finite
+  sequence of physical Schur moves; prove the composed weighted row law; and
+  attach its outputs to the paired face-swapped physical fields and accepted
+  global auxiliary assignments.  Then prove a Gibbs-weight comparison and
+  the paired-face connected residue bound and identify the finite observable
+  with the OS transfer observable.
+- **constructive?**: yes.  The construction uses exact rational weights and
+  structural list and Cartesian recursion.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes and all eight
+  printed declarations use only `[propext, Quot.sound]`.  The two-replica law
+  is an independent product of local recoupling rows, not yet a
+  geometry-conditioned component switch or a beta-dependent Gibbs kernel.
+  There is no strict OS form bound, completed uniform gap, continuum QFT, or
+  Clay theorem.
