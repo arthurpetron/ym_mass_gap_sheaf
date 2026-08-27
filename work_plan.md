@@ -25361,3 +25361,43 @@ the dependent product, then define the interpretation of a global target on
 the actual crossed auxiliary carrier.  Only that same-carrier map can justify
 a Gibbs conditional comparison; beta and lattice spacing remain explicit and
 no uniform gap claim follows from bistochasticity alone.
+
+## 190. Canonical and production degree-four bistochastic kernels (2026-08-26)
+
+**Status. CANONICAL LOCAL MATRIX, COMPOSITION/TENSOR CLOSURE, AND THE ACTUAL
+CROSSED DEGREE-FOUR MATRIX ARE CLOSED; HIGHER-VALENCE CARRIER ALIGNMENT IS
+OPEN.**
+
+`FiniteBistochasticQKernel.lean` now records both explicit finite carriers and
+both unit-mass laws.  `SU2PhysicalSchurBistochasticKernel.lean` proves that the
+reversal-indexed source list is duplicate-free and has exactly the same
+members as `fixedLeftChannels`; finite nonnegative reindexing then transports
+the column theorem to the canonical left-channel list.  Consequently
+`physicalSchurBistochasticKernel` packages the complete physical SU(2)
+associator matrix, not merely a selected row.
+
+`FiniteBistochasticQKernelComposition.lean` proves the two closure operations
+needed by the production compilers.  Exact finite Fubini shows that matrix
+composition preserves both row and column normalization when the written
+middle carriers agree.  Exact Cartesian factorization proves the same for
+independent tensor products.
+
+`SU2SlabValenceFourCrossedSchurBistochasticKernel.lean` instantiates the tensor
+closure at the literal external labels of an actual crossed degree-four slab
+link.  Its distinguished row is pointwise the existing
+`crossedSchurKernelAt`, while every target column has exact mass one over the
+explicit pair of canonical left sources.
+
+The monitored focused checks and the targeted degree-four build pass.  All
+printed declarations use only `[propext, Quot.sound]` (the abstract structure
+itself and abstract closure operations need at most `propext`).  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The higher-valence audit exposed a real carrier issue rather than a missing
+algebraic lemma.  The current valence-five/six files enumerate a dependent
+recoupling *path* after fixing one source chain; a final right-tree basis must
+forget the transient left-tree intermediate and zero-extend inadmissible
+local windows before the composition theorem applies.  The next frontier is
+therefore an all-source/all-target valence-five carrier and its two aligned
+bistochastic moves, not a cosmetic column sum over the existing path type.

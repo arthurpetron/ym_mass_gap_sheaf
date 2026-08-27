@@ -20404,3 +20404,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   SU(2) bistochasticity, not a production same-carrier Gibbs comparison,
   beta-uniform posterior estimate, OS form bound, completed gap, continuum
   QFT, or Clay theorem.
+
+### [su2-physical-schur-bistochastic-production-four] Put the Schur matrix on canonical sources and the crossed degree-four production carrier -- **DEGREE-FOUR BISTOCHASTIC MATRIX CLOSED; HIGHER-VALENCE CARRIER ALIGNMENT OPEN 2026-08-26**
+
+- **milestone**: identify the reversal-indexed source enumeration with the
+  canonical duplicate-free `fixedLeftChannels` list; package the physical
+  associator as a finite matrix with exact row and column mass; prove that
+  sequential composition and Cartesian tensor product preserve both laws;
+  and instantiate the tensor theorem at the actual two-replica external
+  labels of a crossed degree-four production link.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBistochasticQKernel.lean`,
+  `lean/YMGap/Continuum/FiniteBistochasticQKernelComposition.lean`,
+  `lean/YMGap/Continuum/SU2PhysicalSchurBistochasticKernel.lean`, and
+  `lean/YMGap/Continuum/SU2SlabValenceFourCrossedSchurBistochasticKernel.lean`.
+- **principal declarations**:
+  `FiniteBistochasticQKernel`, `compose`, `tensor`,
+  `physicalSchurRecoupling_list_column_normalized`,
+  `physicalSchurBistochasticKernel`,
+  `crossedSchurBistochasticKernel`,
+  `crossedSchurBistochasticKernel_production_row`, and
+  `crossedSchurBistochasticKernel_column_normalized`.
+- **obligation**: replace the fixed-source valence-five/six dependent path
+  carriers by common all-source/all-final-target carriers, with constructive
+  zero extension for locally inadmissible Schur windows; then apply exact
+  composition and tensor closure and propagate the resulting matrices over
+  the actual slab-link product.  A separate beta-dependent comparison with
+  the Gibbs/OS kernel remains mandatory.
+- **constructive?**: yes.  Carrier comparison uses duplicate-free finite
+  lists, explicit involutions, and nonnegative finite injection bounds;
+  composition uses finite Fubini; tensoring uses literal Cartesian products.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: focused monitored checks and the targeted production
+  degree-four build pass.  All printed declarations use only
+  `[propext, Quot.sound]`, with the abstract finite structure and closure
+  algebra requiring at most `propext`.  This is exact finite SU(2)
+  representation theory, not a Gibbs conditional estimate, OS form bound,
+  completed spectral gap, continuum QFT, or Clay theorem.
