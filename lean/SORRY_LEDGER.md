@@ -18314,6 +18314,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
 
+### [z4-canonical-face-event-pinned-localization] Recover every small protected-core component from a fixed source box -- **PROVED GEOMETRIC / PERSISTENT FACE PREDICATE OPEN 2026-08-27**
+
+- **milestone**: characterize the uniformly translated source plaquette list
+  as one exact half-open shifted box; prove constructively that its complement
+  is the existing shifted-boundary exit test; and use the connected-polymer
+  boundary floor to show that every protected-core pinned target root of size
+  `< distance + 2` lies in the affine image of the fixed source-root list.
+  Return the canonical unshifted source root together with its exact forward
+  round trip as a `Sigma` witness.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalFaceEventPinnedLocalization.lean`.
+- **decl**:
+  `mem_uniformShiftedPlaquetteList_iff_insideShiftedBoxB`,
+  `outsideShiftedBoxB_true_iff_not_mem_uniformShiftedPlaquetteList`,
+  `smallPinnedCanonicalRoot_inside_uniformShift`,
+  `smallPinnedCanonicalRoot_mem_uniformShiftCanonicalRoots`, and
+  `smallPinnedCanonicalRootSource`.
+- **obligation**: choose one explicitly indexed central plaquette across the
+  centered exhaustion, prove that affine transport preserves the corresponding
+  pinned-root occurrence predicate, and compile the size-truncated face event
+  into one fixed coefficient function on the source chart.  Then identify its
+  thermodynamic covariance with the same-object OS autocorrelation.  This is
+  geometry only and asserts no probability, beta, spacing, completed-gap,
+  continuum, or Clay conclusion.
+- **constructive?**: yes.  The only complement step is an explicit decidable
+  eight-face case split; source recovery is the existing arithmetic unshift.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  No full-root build or audit is claimed.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of

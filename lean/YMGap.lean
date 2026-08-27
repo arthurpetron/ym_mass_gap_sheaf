@@ -2966,6 +2966,7 @@ import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass
 import YMGap.Continuum.CompactDualSlabObservableFaceEventLaw
 import YMGap.Continuum.Z4CanonicalFaceEventCylinderCompiler
 import YMGap.Continuum.Z4CanonicalFaceEventPinnedTail
+import YMGap.Continuum.Z4CanonicalFaceEventPinnedLocalization
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.
