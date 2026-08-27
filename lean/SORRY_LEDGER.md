@@ -18155,6 +18155,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   claimed as a pass.  The separately imported observable capstone also
   passes its focused monitored check within the same axiom gate.
 
+### [compact-dual-component-fixed-boundary] Characterize component peels internal to one OS posterior fiber -- **PROVED CRITERION / UNIFORM FRACTION OPEN 2026-08-27**
+
+- **milestone**: identify exactly when a whole-slab rooted strand-component
+  peel leaves one physical face unchanged, lift the criterion to arbitrary
+  face lists, and specialize it to the literal central fixed-time face list
+  used by the BF4 boundary posterior.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentFixedBoundary.lean`.
+- **decl**:
+  `SlabFusionWitnessFaceStrandSeed.lowerPhysical_eq_iff_selectionCount_zero`,
+  `componentAvoidsFaces`,
+  `componentAvoidsFaces_iff_lowerPhysical_agrees`,
+  `componentPreservesCentralBoundary`, and
+  `componentPreservesCentralBoundary_iff`.
+- **obligation**: prove that a sufficiently weighted family of component
+  moves preserves the fixed-time boundary, or separately control components
+  meeting that boundary, so that the resulting within-fiber pairwise energy
+  supplies the positive uniform conditional-variance fraction.  The current
+  canonical whole-slab peel does not itself establish this criterion.
+- **constructive?**: yes.  The criterion is exact pointwise natural-number
+  subtraction and a finite face-list predicate.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, functional extensionality,
+  or noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  All three audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  No root pass is claimed beyond the previously reported safely
+  interrupted integration build.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of
