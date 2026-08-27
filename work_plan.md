@@ -25236,3 +25236,37 @@ that link's computed incident-face degree; map the all-valence local compiler
 over that enumeration; and apply this product theorem.  Only then is a
 comparison with production spin-foam/Gibbs weights stated on the correct
 global carrier.
+
+## 186. The normalized recoupling product now runs over every actual slab link (2026-08-26)
+
+**Status. THE GLOBAL ANALYTIC ROW IS INSTANTIATED ON THE LITERAL PRODUCTION
+GEOMETRY; ITS COMPARISON WITH THE GIBBS WEIGHT IS OPEN.**
+
+`SU2SlabGlobalCrossedSchurProduct.lean` connects the paired-face component
+construction to the all-valence analytic compiler.  For an actual attached
+member of `boundaryCompleteSlabLinks`,
+`slabObservablePairCrossedSwitchDataAtLink` extracts the two physical source
+labellings and their accepted local auxiliaries, restricts the common paired
+face mask to the proved partner-closed selections, carries both physical
+cutoff bounds, and indexes the result by the link's computed incident-face
+degree.
+
+`slabObservablePairCrossedKernels` maps the exact local compiler over the
+attached production link list.  Its dependent target assignment therefore
+retains the correct degree-specific Schur tower at every link.  Applying the
+abstract product theorem gives
+`slabObservablePairCrossedKernelProduct_row_normalized`: the global analytic
+recoupling law has exact mass one.  Pointwise nonnegativity is exposed on the
+same global carrier.
+
+The focused monitored source check passes.  All five printed declarations
+use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is no longer assembly.  It is the first load-bearing
+analytic comparison: define how a global recoupling target reconstructs or
+indexes a production crossed auxiliary pair, then relate its product Schur
+weight to the corresponding fine-intertwiner/spin-foam conditional weight.
+Any beta-uniform conclusion must keep the coupling parameter explicit, in
+accordance with the group-dependence audit.

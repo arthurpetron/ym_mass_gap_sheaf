@@ -20268,3 +20268,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   product, not yet its actual slab instantiation, Gibbs/heat comparison,
   beta-uniform posterior estimate, OS form bound, completed gap, continuum
   QFT, or Clay theorem.
+
+### [su2-slab-global-crossed-schur-product] Instantiate the dependent product on the literal slab-link enumeration -- **ACTUAL GLOBAL NORMALIZED ROW CLOSED; GIBBS COMPARISON OPEN 2026-08-26**
+
+- **milestone**: extract, at every attached boundary-complete slab link, the
+  two production physical fields, accepted local auxiliaries, common paired
+  face mask, partner-closed local selections, cutoff bounds, and exact
+  computed degree; construct the corresponding all-valence normalized local
+  kernel; map these kernels over the literal production link order; retain
+  all degree-dependent target types in the global assignment; and prove exact
+  total mass one and pointwise nonnegativity of the global product row.
+- **file**:
+  `lean/YMGap/Continuum/SU2SlabGlobalCrossedSchurProduct.lean`.
+- **principal declarations**:
+  `slabObservablePairCrossedSwitchDataAtLink`,
+  `slabObservablePairCrossedKernelAtLink`,
+  `slabObservablePairCrossedKernels`,
+  `SlabObservablePairCrossedRecouplingAssignment`,
+  `slabObservablePairCrossedKernelProduct_row_normalized`, and
+  `slabObservablePairCrossedKernelProduct_weight_nonnegative`.
+- **obligation**: define the production interpretation of a dependent global
+  recoupling target and prove the first exact or bounded comparison between
+  its product Schur weight and the corresponding crossed
+  fine-intertwiner/spin-foam conditional weight.  Keep coupling/beta explicit
+  in every uniformity claim.
+- **constructive?**: yes.  Every local input is extracted from the actual
+  paired-face source witnesses, the global list is the attached literal slab
+  enumeration, and normalization reuses the exact dependent-product theorem.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes; all five printed
+  declarations use only `[propext, Quot.sound]`.  This closes actual global
+  analytic assembly, not yet a Gibbs/heat comparison, beta-uniform posterior
+  estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.
