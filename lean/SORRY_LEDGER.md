@@ -20968,3 +20968,25 @@ introduced.
   printed declarations use only `[propext, Quot.sound]`.  This closes finite
   SU(2) valence-six recoupling, not a Gibbs/OS comparison, beta-uniform gap,
   continuum construction, or Clay theorem.
+
+#### Physical target realization faithfulness update (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingTargetFaithfulness` proves duplicate-free
+complete valence-five and valence-six left-carrier lists and exact
+source-carrier recovery after canonical auxiliary writing.  Fixed-valence
+two-replica products then give duplicate-free source lists for every local
+physical-pair package.
+
+Equal-rank recoding is consequently injective on the complete target carrier.
+If two local target columns reconstruct the same left and right accepted
+auxiliary labellings, the canonical-writing roundtrip makes their source
+codes equal and hence the target columns equal.  Structural recursion over
+all boundary-complete slab links lifts this to the global target assignment:
+the pair of realized global auxiliary assignments retains the exact common-
+matrix target column.
+
+Target faithfulness is closed without introducing a `sorry`.  The remaining
+finite edge is the support-aligned fractional realization and the global
+dependent-kernel column-capacity proof.  The paired-support connected
+residue and every beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay
+obligation remain open.  No `sorry` is introduced.

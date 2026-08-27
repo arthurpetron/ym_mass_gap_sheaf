@@ -26081,3 +26081,42 @@ continuum construction, and Clay theorem remain open.
 Focused monitored checks use only `[propext, Quot.sound]`.  No `Classical`,
 choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 211. Prove local and whole-slab target realization faithful (2026-08-27)
+
+**Status. COMPLETE TARGET CARRIERS ARE RECOVERED FROM THEIR REALIZED LEFT
+AND RIGHT AUXILIARY ASSIGNMENTS, LOCALLY AND OVER THE WHOLE SLAB; THE
+FRACTIONAL PUSHFORWARD COMPILER REMAINS OPEN.**
+
+`SU2SlabPhysicalPairRecouplingTargetFaithfulness.lean` proves that the
+valence-five and valence-six complete left-carrier lists are duplicate free
+and that canonical auxiliary writing followed by production-source
+extraction returns the exact original carrier at valences four, five, and
+six.  `SU2SlabPhysicalPairRecouplingPackageSourceNodup.lean` contracts those
+facts into duplicate-free two-replica source lists for every geometrically
+possible degree.
+
+`SU2SlabPhysicalPairRecouplingTargetInjectivity.lean` combines source-list
+nodup with equal-rank reindexing to prove target-to-source injectivity.  The
+canonical-writing roundtrip then shows that equality of both reconstructed
+auxiliary labellings forces equality of the local abstract target columns.
+`SU2SlabPhysicalPairRecouplingTargetProduct.lean` records this joint
+injectivity in every realized local package and lifts it by structural
+recursion through the heterogeneous product over all slab links.  Therefore
+equality of the two complete realized assignments recovers the exact global
+target assignment.
+
+The next causal edge is now an actual transport construction: define, for
+each disconnected paired-support source, the common product target list,
+its bistochastic row weights, and the support-aligned realized target
+four-cell.  Anchor independence and the present faithfulness theorem can
+then force every preimage of one concrete target pair into one abstract
+target column, allowing the fixed-physical-fiber no-overload bound to prove
+global dependent-kernel column capacity.  The connected residue,
+beta/lattice-spacing trajectory, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem remain open.
+
+Focused monitored source checks pass and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.

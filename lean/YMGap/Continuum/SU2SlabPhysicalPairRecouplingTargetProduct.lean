@@ -11,7 +11,7 @@ membership only; no choice, `Classical`, `sorry`, or new axiom.
 -/
 
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
-import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetInjectivity
 
 namespace YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
 
@@ -22,6 +22,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingKernel
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetInjectivity
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
@@ -41,6 +42,12 @@ structure SlabPhysicalPairRealizedPackage
     slabLinkFusionWitnesses K extent leftPhysical linked.1
   right_mem : ∀ target, rightAuxiliary target ∈
     slabLinkFusionWitnesses K extent rightPhysical linked.1
+  auxiliaries_injective : ∀ {left right : package.Target},
+    leftAuxiliary (decodeTarget left) =
+        leftAuxiliary (decodeTarget right) →
+      rightAuxiliary (decodeTarget left) =
+        rightAuxiliary (decodeTarget right) →
+      left = right
 
 def slabPhysicalPairRealizedPackageAtLink
     (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling)
@@ -79,7 +86,10 @@ def slabPhysicalPairRealizedPackageAtLink
         localData witnessData leftBounded rightBounded target).left_mem
     right_mem := fun target =>
       (slabPhysicalPairTargetProductionWitnessPair
-        localData witnessData leftBounded rightBounded target).right_mem }
+        localData witnessData leftBounded rightBounded target).right_mem
+    auxiliaries_injective := fun hleft hright =>
+      slabPhysicalPairTargetProductionWitnessPair_injective
+        localData witnessData leftBounded rightBounded hleft hright }
 
 def slabPhysicalPairRealizedPackages
     (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling)
@@ -208,6 +218,56 @@ def slabPhysicalPairRealizeTargetAssignments
             exact List.mem_map.mpr
               ⟨tail.rightAssignment, tail.right_mem, rfl⟩ }
 
+/-- The pair of realized auxiliary assignments retains the entire dependent
+target column. -/
+theorem slabPhysicalPairRealizeTargetAssignments_injective
+    (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling) :
+    (packages : List (SlabPhysicalPairRealizedPackage
+      K extent leftPhysical rightPhysical)) →
+    ∀ {left right : FiniteBistochasticTargetAssignment
+      (packagesOfPhysicalPairRealized packages)},
+      (slabPhysicalPairRealizeTargetAssignments K extent
+        leftPhysical rightPhysical packages left).leftAssignment =
+          (slabPhysicalPairRealizeTargetAssignments K extent
+            leftPhysical rightPhysical packages right).leftAssignment →
+      (slabPhysicalPairRealizeTargetAssignments K extent
+        leftPhysical rightPhysical packages left).rightAssignment =
+          (slabPhysicalPairRealizeTargetAssignments K extent
+            leftPhysical rightPhysical packages right).rightAssignment →
+      left = right
+  | [], left, right, _, _ => by
+      cases left
+      cases right
+      rfl
+  | package :: packages, left, right, hleft, hright => by
+      change
+        (package.linked.1,
+            package.leftAuxiliary (package.decodeTarget left.1)) ::
+              (slabPhysicalPairRealizeTargetAssignments K extent
+                leftPhysical rightPhysical packages left.2).leftAssignment =
+          (package.linked.1,
+            package.leftAuxiliary (package.decodeTarget right.1)) ::
+              (slabPhysicalPairRealizeTargetAssignments K extent
+                leftPhysical rightPhysical packages right.2).leftAssignment
+        at hleft
+      change
+        (package.linked.1,
+            package.rightAuxiliary (package.decodeTarget left.1)) ::
+              (slabPhysicalPairRealizeTargetAssignments K extent
+                leftPhysical rightPhysical packages left.2).rightAssignment =
+          (package.linked.1,
+            package.rightAuxiliary (package.decodeTarget right.1)) ::
+              (slabPhysicalPairRealizeTargetAssignments K extent
+                leftPhysical rightPhysical packages right.2).rightAssignment
+        at hright
+      apply Prod.ext
+      · apply package.auxiliaries_injective
+        · exact congrArg Prod.snd (List.cons.inj hleft).1
+        · exact congrArg Prod.snd (List.cons.inj hright).1
+      · exact slabPhysicalPairRealizeTargetAssignments_injective
+          K extent leftPhysical rightPhysical packages
+          (List.cons.inj hleft).2 (List.cons.inj hright).2
+
 def transportPhysicalPairTargetAssignment
     {left right : List FiniteBistochasticQKernelPackage}
     (hpackages : left = right)
@@ -215,6 +275,16 @@ def transportPhysicalPairTargetAssignment
     FiniteBistochasticTargetAssignment left := by
   rw [hpackages]
   exact target
+
+theorem transportPhysicalPairTargetAssignment_injective
+    {left right : List FiniteBistochasticQKernelPackage}
+    (hpackages : left = right)
+    {first second : FiniteBistochasticTargetAssignment right}
+    (heq : transportPhysicalPairTargetAssignment hpackages first =
+      transportPhysicalPairTargetAssignment hpackages second) :
+    first = second := by
+  cases hpackages
+  exact heq
 
 def slabPhysicalPairTargetAssignmentsResult
     (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling)
@@ -243,6 +313,62 @@ def slabPhysicalPairTargetAssignmentsResult
   slabPhysicalPairRealizeTargetAssignments
     K extent leftPhysical rightPhysical packages
     (transportPhysicalPairTargetAssignment hpackages target)
+
+/-- Two whole-slab target columns are equal when they reconstruct the same
+left and right accepted auxiliary assignments. -/
+theorem slabPhysicalPairTargetAssignmentsResult_injective
+    (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling)
+    (leftAssignment rightAssignment : SlabFusionWitnessAssignment)
+    (left_mem : leftAssignment ∈
+      slabFusionWitnessAssignmentsOn K extent leftPhysical
+        (boundaryCompleteSlabLinks extent))
+    (right_mem : rightAssignment ∈
+      slabFusionWitnessAssignmentsOn K extent rightPhysical
+        (boundaryCompleteSlabLinks extent))
+    (leftBounded : SlabFaceLabellingBounded K extent leftPhysical)
+    (rightBounded : SlabFaceLabellingBounded K extent rightPhysical)
+    {first second : SlabPhysicalPairRecouplingTargetAssignment
+      extent leftPhysical rightPhysical}
+    (hleft :
+      (slabPhysicalPairTargetAssignmentsResult K extent
+        leftPhysical rightPhysical leftAssignment rightAssignment
+        left_mem right_mem leftBounded rightBounded first).leftAssignment =
+      (slabPhysicalPairTargetAssignmentsResult K extent
+        leftPhysical rightPhysical leftAssignment rightAssignment
+        left_mem right_mem leftBounded rightBounded second).leftAssignment)
+    (hright :
+      (slabPhysicalPairTargetAssignmentsResult K extent
+        leftPhysical rightPhysical leftAssignment rightAssignment
+        left_mem right_mem leftBounded rightBounded first).rightAssignment =
+      (slabPhysicalPairTargetAssignmentsResult K extent
+        leftPhysical rightPhysical leftAssignment rightAssignment
+        left_mem right_mem leftBounded rightBounded second).rightAssignment) :
+    first = second := by
+  let packages := slabPhysicalPairRealizedPackages K extent
+    leftPhysical rightPhysical leftAssignment rightAssignment
+    left_mem right_mem leftBounded rightBounded
+  let hpackages := slabPhysicalPairRealized_packages K extent
+    leftPhysical rightPhysical leftAssignment rightAssignment
+    left_mem right_mem leftBounded rightBounded
+  change
+    (slabPhysicalPairRealizeTargetAssignments K extent
+      leftPhysical rightPhysical packages
+      (transportPhysicalPairTargetAssignment hpackages first)).leftAssignment =
+    (slabPhysicalPairRealizeTargetAssignments K extent
+      leftPhysical rightPhysical packages
+      (transportPhysicalPairTargetAssignment hpackages second)).leftAssignment
+    at hleft
+  change
+    (slabPhysicalPairRealizeTargetAssignments K extent
+      leftPhysical rightPhysical packages
+      (transportPhysicalPairTargetAssignment hpackages first)).rightAssignment =
+    (slabPhysicalPairRealizeTargetAssignments K extent
+      leftPhysical rightPhysical packages
+      (transportPhysicalPairTargetAssignment hpackages second)).rightAssignment
+    at hright
+  apply transportPhysicalPairTargetAssignment_injective hpackages
+  exact slabPhysicalPairRealizeTargetAssignments_injective
+    K extent leftPhysical rightPhysical packages hleft hright
 
 theorem slabPhysicalPairTargetLeftAssignment_mem
     (K extent : Nat) (leftPhysical rightPhysical : SlabLabelling)
@@ -308,5 +434,8 @@ end YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
 
 #print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairRealized_packages
 #print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairRealizeTargetAssignments
+#print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairRealizeTargetAssignments_injective
+#print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.transportPhysicalPairTargetAssignment_injective
+#print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairTargetAssignmentsResult_injective
 #print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairTargetLeftAssignment_mem
 #print axioms YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct.slabPhysicalPairTargetRightAssignment_mem

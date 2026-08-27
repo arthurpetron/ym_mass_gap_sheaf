@@ -2937,6 +2937,9 @@ import YMGap.Continuum.CompactDualSlabObservablePairedSupportColumnNoOverload
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportPhysicalFiber
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetAnchorIndependence
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetFaithfulness
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingPackageSourceNodup
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetInjectivity
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
