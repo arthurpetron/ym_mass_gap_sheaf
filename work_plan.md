@@ -23913,3 +23913,47 @@ physical and auxiliary reconstruction maps to prove the three-factor code
 injective.  Only after that can the strict component heat sum, conditional
 transition floor, posterior-variance fraction, dense form gap, completed OS
 gap, thermodynamic/continuum passage, and Clay theorem be claimed.
+
+## 155. Fixed-target component removal fibers inject into the adaptive carrier (2026-08-26)
+
+**Status. AT A FIXED ROOT, PEEL SIZE, LOWERED PHYSICAL TARGET, AND LOWERED
+AUXILIARY ASSIGNMENT, THE THREE-FACTOR ADAPTIVE CODE IS INJECTIVE ON SOURCE
+CONFIGURATIONS.  EVERY EXPLICIT DUPLICATE-FREE INVERSE FAMILY HAS SIZE AT MOST
+`10240000^peelSize`.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveInverseFiber.lean` defines a
+fixed-target removal witness for a source pair consisting of a physical slab
+labelling and a complete fusion assignment.  The witness contains the actual
+accepted rooted component and literal equalities to the common root, size,
+lowered physical target, and lowered auxiliary assignment.  Roots and proofs
+are witnesses, not counted objects; the theorem counts distinct source pairs.
+
+The cross-physical reconstruction theorem uses the structural words to decode
+the complete physical drop and the adaptive rows to recover the complete
+auxiliary word table.  Adding the physical drop to the common lowered physical
+target recovers the source physical labelling.  Applying the existing finite
+drop-code reconstruction to the common lowered assignment recovers the source
+fusion assignment.  Hence equal adaptive codes force equality of both source
+fields even when their original physical types differ.
+
+Attaching a removal witness to each member of any duplicate-free finite source
+list makes its code map injective.  Pigeonhole counting against milestone
+154's dependent carrier now proves
+
+```text
+number of distinct sources in the fixed removal fiber
+  <= 10240000^peelSize.
+```
+
+The focused monitored source check passes.  All six audited declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, proof obligation, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+This closes the finite inverse-code and inverse-cardinality compiler, not the
+measure estimate.  The next causal frontier is to enumerate the actual
+bounded source fiber already present in the finite slab measure, partition it
+by root and positive peel size, apply the component weight comparison and the
+new cardinality bound to each fixed target, and derive a strict geometric
+component heat sum.  The exact conditional transition floor,
+posterior-variance fraction, dense form gap, completed OS gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
