@@ -463,6 +463,26 @@ def slabGlobalEdgeClosedSelectionAtLink
       K extent physical links assignment hassignment linked terminal
   exact hclosed hedge
 
+/-- Restricting a globally edge-closed selection to one link preserves its
+Boolean value on every physical strand copy definitionally.  Naming this
+projection prevents downstream compilers from unfolding the full dependent
+local network merely to recover the selected field. -/
+@[simp] theorem slabGlobalEdgeClosedSelectionAtLink_selected
+    {K extent : Nat} {physical : SlabLabelling}
+    {links : List SlabLink} {assignment : SlabFusionWitnessAssignment}
+    {hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links}
+    (selected : SlabFaceStrandCopy physical → Bool)
+    (hclosed : ∀ {edge : SlabFaceStrandEdge physical},
+      edge ∈ slabFusionWitnessAssignmentFaceStrandEdges
+        K extent physical links assignment hassignment →
+      selected edge.target = selected edge.source)
+    (linked : {link // link ∈ links})
+    (copy : SlabFaceStrandCopy physical) :
+    (slabGlobalEdgeClosedSelectionAtLink
+      selected hclosed linked).selected copy = selected copy := by
+  rfl
+
 /-! ## 6. The stronger exact source partition -/
 
 /-- Source pairs on which the paired union face component does not connect
@@ -509,6 +529,7 @@ theorem slabObservableFourCellSourcePairs_pairedFace_partition
 #print axioms slabObservableTwoReplicaPairPairedFaceSwapMask_eq_of_left_edge
 #print axioms slabObservableTwoReplicaPairPairedFaceSwapMask_eq_of_right_edge
 #print axioms slabGlobalEdgeClosedSelectionAtLink
+#print axioms slabGlobalEdgeClosedSelectionAtLink_selected
 #print axioms slabObservableFourCellSourcePairs_pairedFace_partition
 
 end YMGap.Continuum.CompactDualSlabObservablePairedFaceComponent

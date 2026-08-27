@@ -19572,7 +19572,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `native_decide`, custom axiom, noncomputable declaration, or enlarged
   heartbeat budget is introduced.
 - **status note**: the focused monitored source check and the
-  dependency-complete target build of 958 jobs pass.  All five printed
+  dependency-complete target build of 958 jobs pass.  All six printed
   declarations use only `[propext, Quot.sound]`.  A separate whole-umbrella
   replay was safely interrupted at the configured 12 GiB free-memory reserve
   and is not counted as a pass.  There is no accepted switched-pair
@@ -19697,3 +19697,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   There is no global
   switched assignment or decoder, paired-face residue bound, OS form theorem,
   all-beta statement, completed gap, continuum QFT, or Clay theorem.
+
+### [compact-dual-slab-observable-paired-face-switch-assignment] Assemble both switched output assignments -- **ACCEPTED GLOBAL OUTPUTS CLOSED; DECODER OPEN 2026-08-26**
+
+- **milestone**: expose the selected-field projection of the generic
+  global-to-local compiler; restrict the paired target-component mask to
+  every link of both source replicas; construct both original-cutoff crossed
+  auxiliary fields at every link; assemble each field in the production link
+  order; and certify both complete assignments in the exact switched
+  `slabFineFusionWitnesses` fibers.
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabObservablePairedFaceComponent.lean`
+  and
+  `lean/YMGap/Continuum/CompactDualSlabObservablePairedFaceSwitchAssignment.lean`.
+- **principal declarations**:
+  `slabGlobalEdgeClosedSelectionAtLink_selected`,
+  `SlabExpandedFineSourceEntry.physical_bounded`,
+  `SlabObservablePositiveSourceEntry.physical_bounded`,
+  `slabObservablePairLeftSelectionAtLink`,
+  `slabObservablePairRightSelectionAtLink`,
+  `slabObservablePairSwitchedLeftAssignment_mem`, and
+  `slabObservablePairSwitchedRightAssignment_mem`.
+- **obligation**: construct a decoder that recovers every paired-face
+  separated source from the two crossed assignments.  It is not enough to
+  invert the physical face swap; the proof must recover the two source
+  auxiliary assignments or supply an equivalent injective finite recoding.
+- **constructive?**: yes.  The outputs are explicit assignments with exact
+  Cartesian membership proofs.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored checks and a 963-job target build
+  pass.  All six printed declarations in the new module use only
+  `[propext, Quot.sound]`.  There is
+  no decoder/certificate inhabitant, paired-face residue bound, OS form
+  theorem, all-beta statement, completed gap, continuum QFT, or Clay theorem.

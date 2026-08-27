@@ -24457,7 +24457,7 @@ The source cell now has an exact, causally correct partition:
 ```
 
 The focused monitored source check and the dependency-complete target build
-of 958 jobs pass.  All five printed declarations use only
+of 958 jobs pass.  All six printed declarations use only
 `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  A separate whole-umbrella replay was safely
@@ -24595,3 +24595,44 @@ target-component selections at every boundary-complete slab link and
 assemble complete switched `SlabFusionWitnessAssignment`s.  Their decoder,
 the paired-face residue bound, OS observable pin, all-beta/lattice-spacing
 control, completed gap, continuum passage, and the Clay theorem remain open.
+
+## 171. The paired face switch now produces both complete accepted global assignments (2026-08-26)
+
+**Status. EVERY SOURCE PAIR IN `11 x 00` NOW CONSTRUCTS TWO COMPLETE
+ORIGINAL-CUTOFF FUSION-WITNESS ASSIGNMENTS OVER THE LITERAL FACE-SWAPPED
+PHYSICAL OUTPUTS.**
+
+The generic global-to-local compiler in
+`CompactDualSlabObservablePairedFaceComponent.lean` now exposes the exact
+projection theorem `slabGlobalEdgeClosedSelectionAtLink_selected`.  This
+small interface lemma lets downstream proofs recover the selected face bit
+without normalizing the full dependent strand network.
+
+`CompactDualSlabObservablePairedFaceSwitchAssignment.lean` specializes that
+compiler to the target-rooted component mask in each replica.  For every
+boundary-complete slab link, the left- and right-replica strand edge closure
+theorems produce face-constant partner-closed selections.  Milestone 170's
+two local compilers construct the crossed auxiliary fields, and the existing
+structural Cartesian assembly writes them in the exact production link
+order.
+
+The resulting declarations
+`slabObservablePairSwitchedLeftAssignment_mem` and
+`slabObservablePairSwitchedRightAssignment_mem` certify membership in the
+complete `slabFineFusionWitnesses` fibers over the two literal face-swap
+outputs.  Thus accepted-output construction is no longer an open field of
+the face-swap certificate.
+
+The focused monitored source checks and the dependency-complete 963-job
+target build pass.  All six printed declarations in
+the new global module and all six current printed declarations in the paired
+component module use only `[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+The next finite frontier is recoverability: prove that the crossed auxiliary
+assignments retain enough selected/complement decomposition data to recover
+the two source assignments, or give an equivalent constructive finite
+decoder.  The face-swap certificate, paired-face residue bound, OS observable
+pin, all-beta/lattice-spacing control, completed gap, continuum passage, and
+the Clay theorem remain open.
