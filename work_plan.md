@@ -25133,3 +25133,42 @@ assemble the resulting normalized local kernels over the actual slab-link
 list.  The subsequent load-bearing theorem is a comparison between that
 analytic recoupling law and the original spin-foam/Gibbs weights; no such
 comparison is yet claimed.
+
+## 183. Both crossed production replicas now carry normalized bulk-link recoupling laws (2026-08-26)
+
+**Status. THE ACTUAL GEOMETRIC SWITCH AT DEGREE FIVE OR SIX NOW PRODUCES ONE
+NONNEGATIVE TWO-REPLICA ANALYTIC KERNEL OF EXACT MASS ONE.**
+
+`SU2SlabHigherValenceCrossedSchurCompiler.lean` introduces a reusable
+`CrossedSlabSwitchData K extent degree` record containing the two accepted
+source witnesses, cutoff bounds, common face mask, mate-closed face-constant
+selections, and the exact actual link degree.  The existing production switch
+then constructs both crossed auxiliary outputs and proves their membership in
+the correct original-cutoff fibers.
+
+At degree five, each crossed output becomes a complete
+`FixedLeftCGValenceFive` and receives the two-level law from milestone 181.
+At degree six, each becomes a complete `FixedLeftCGValenceSix` and receives
+the three-level bulk law from milestone 182.  In both cases the two replicas
+may have different dependent target types.  The compiler therefore takes the
+literal heterogeneous Cartesian product and weights a pair by the product of
+the two iterated Schur probabilities.
+
+`crossedValenceFiveKernel_row_normalized` and
+`crossedValenceSixKernel_row_normalized` prove exact mass one from finite
+Cartesian Fubini and the two local row laws.  Both kernels are pointwise
+nonnegative.  Thus the geometric accepted-witness switch and the complete
+non-abelian analytic reassociation law are connected through the bulk
+valences, not merely in an abstract carrier.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All ten printed declarations use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is a single all-valence local-kernel interface:
+trivial normalized rows for degrees zero through three, the one-stage
+degree-four compiler, the two-stage degree-five compiler, and the three-stage
+degree-six compiler.  That interface can then be folded over the actual slab
+link list.  Only after this assembly is an exact comparison with production
+spin-foam/Gibbs weights well-typed.

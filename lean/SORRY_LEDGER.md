@@ -20158,3 +20158,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   instantiation, global linkwise product, Gibbs/heat comparison, beta-uniform
   posterior estimate, OS form bound, completed gap, continuum QFT, or Clay
   theorem.
+
+### [su2-slab-higher-valence-crossed-schur-compiler] Instantiate both complete iterated rows on actual crossed production outputs -- **CROSSED BULK PAIR KERNELS CLOSED; ALL-VALENCE ASSEMBLY OPEN 2026-08-26**
+
+- **milestone**: package a geometric two-replica link switch indexed by its
+  exact actual degree; expose both accepted crossed auxiliary outputs; at
+  degree five construct the two complete analytic chains and their two-stage
+  iterated rows; at degree six construct the two complete bulk chains and
+  their three-stage rows; form the independently typed Cartesian pair
+  carriers; define the product kernels; and prove pointwise nonnegativity and
+  exact mass one at both higher valences.
+- **file**:
+  `lean/YMGap/Continuum/SU2SlabHigherValenceCrossedSchurCompiler.lean`.
+- **principal declarations**:
+  `CrossedSlabSwitchData`,
+  `higherCrossedLeftAuxiliary_mem`,
+  `higherCrossedRightAuxiliary_mem`,
+  `crossedValenceFiveLeftChain`,
+  `crossedValenceFiveRightChain`,
+  `crossedValenceFiveKernelAt_nonnegative`,
+  `crossedValenceFiveKernel_row_normalized`,
+  `crossedValenceSixLeftChain`,
+  `crossedValenceSixRightChain`,
+  `crossedValenceSixKernelAt_nonnegative`, and
+  `crossedValenceSixKernel_row_normalized`.
+- **obligation**: define one sum-type interface covering degrees zero through
+  six, using trivial rows below four and the proved one-, two-, and three-stage
+  recoupling rows at degrees four, five, and six.  Instantiate it at every
+  link of the crossed global assignment and prove normalization of the finite
+  product kernel over the slab link list.
+- **constructive?**: yes.  Both source chains come from literal production
+  membership proofs, and both pair laws are exact finite products.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all ten printed declarations use only
+  `[propext, Quot.sound]`.  This closes actual crossed pair kernels at valence
+  five and six, not yet all-valence/global assembly, a spin-foam/Gibbs weight
+  comparison, beta-uniform posterior estimate, OS form bound, completed gap,
+  continuum QFT, or Clay theorem.
