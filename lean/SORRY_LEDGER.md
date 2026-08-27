@@ -19412,3 +19412,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited declarations use at most `[propext, Quot.sound]`; this is not yet a
   covariance theorem, an OS transfer gap, a beta-uniform statement, a
   continuum QFT, or the Clay theorem.
+
+### [compact-dual-slab-observable-connected-decay] Sum the separation-shifted connected fibers -- **FINITE-ANCHOR SAME-COMPONENT DECAY CLOSED; PHYSICAL CONNECTED-OBSERVABLE BRIDGE OPEN 2026-08-26**
+
+- **milestone**: prove a finite shifted geometric-tail bound; prove connected
+  key fibers empty below `linfDist(root,target)+1`; dominate every retained
+  key fiber by the full `(8/25)^n` removal estimate; sum first over sizes and
+  then over the exact duplicate-free target carrier; and normalize by the
+  positive physical partition.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableConnectedDecay.lean`.
+- **principal declarations**:
+  `componentAdaptiveEntropyAnchorRatio_fullTail_le`,
+  `componentAdaptiveEntropyAnchorRatio_shiftedTail_le`,
+  `slabObservableConnectedKeyFiber_empty_of_lt`,
+  `slabObservableConnectedKeyFiber_weight_le`,
+  `slabObservableConnectedAnchorRate`,
+  `slabObservableConnectedKeyFiber_sizes_sum_le`,
+  `slabObservableConnectedSourceEntries_weight_le_partition`,
+  `slabObservableConnectedMass`, and
+  `slabObservableConnectedMass_le_anchorRate`.
+- **obligation**: prove an exact switching/cancellation or component
+  factorization theorem identifying a physical gauge-invariant connected
+  correlation, or the relevant OS transfer matrix element, with a
+  same-component event dominated by `slabObservableConnectedMass`.  The
+  auxiliary-assignment connectivity indicator is not by itself such a
+  physical observable.
+- **constructive?**: yes.  Boolean subfilters, exact deterministic finite
+  pushforward, existing nonnegative anchor weights, and finite rational
+  geometric closure only.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All nine
+  public declarations use at most `[propext, Quot.sound]`.  The rate is fixed
+  at `anchorCoupling`; this is not an all-beta bound, a physical covariance
+  theorem, an OS spectral gap, a continuum QFT, or the Clay theorem.

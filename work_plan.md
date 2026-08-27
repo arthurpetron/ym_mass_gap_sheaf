@@ -24261,3 +24261,39 @@ tail.  That will give connected-event decay in endpoint separation on the
 same finite measure.  Identifying this event bound with a same-object
 observable covariance/OS transfer form, beta/lattice-spacing uniformity, the
 completed gap, continuum passage, and the Clay theorem remain open.
+
+## 164. Same-object rooted-component connectivity decays geometrically at the finite anchor (2026-08-26)
+
+**Status. THE NORMALIZED PROBABILITY THAT THE CANONICAL COMPONENT ROOTED AT
+ONE PHYSICAL FACE REACHES A CHOSEN TARGET PLAQUETTE NOW DECAYS GEOMETRICALLY
+IN THEIR GENUINE Z4 L-INFINITY SEPARATION, UNIFORMLY IN FINITE CUTOFF AND
+SLAB HALF-WIDTH AT THE EXPLICIT ANCHOR COUPLING.**
+
+`CompactDualSlabObservableConnectedDecay.lean` proves a constructive shifted
+geometric-tail identity, empties every connected deterministic key fiber
+below the separation floor from milestone 163, and compares every remaining
+connected fiber with milestone 160's full literal `(8/25)^n` removal fiber.
+Exact connected-event Fubini and the duplicate-free target total then give
+
+```text
+Pr[canonical root component reaches target plaquette]
+  <= (25/17) * (8/25)^(linfDist(root, target) + 1).
+```
+
+This is an event in the same expanded finite corrected-slab measure, not the
+spectral gap of a heat-bath chain.  At distance zero its bound reduces to the
+previous `8/17` one-face occupation estimate.
+
+The focused monitored source check passes.  All nine audited public
+declarations use at most `[propext, Quot.sound]`; the full-tail theorem itself
+uses only `[propext]`, and the explicit rate uses only `[propext]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The causal frontier is no longer a missing decay estimate.  It is an exact
+representation bridge: a switching, cancellation, or component-factorization
+identity must identify the connected part of a physical gauge-invariant
+observable (or the relevant OS transfer matrix element) with a same-component
+event controlled by this theorem.  Without that declaration this is not yet
+a covariance bound or spectral gap.  All-beta/lattice-spacing control, the
+completed OS gap, continuum passage, and the Clay theorem remain open.
