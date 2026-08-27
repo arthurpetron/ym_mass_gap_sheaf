@@ -23957,3 +23957,50 @@ new cardinality bound to each fixed target, and derive a strict geometric
 component heat sum.  The exact conditional transition floor,
 posterior-variance fraction, dense form gap, completed OS gap,
 thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 156. Fixed component-removal fibers have strict weighted rate `8/25` (2026-08-26)
+
+**Status. FOR ANY EXPLICIT FIXED-TARGET REMOVAL FAMILY OF SIZE `n`, THE TOTAL
+ACTUAL SU2 EXPANDED-FIBER SOURCE WEIGHT IS AT MOST `(8/25)^n` TIMES THE COMMON
+TARGET WEIGHT.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveFiberWeight.lean` supplies the
+finite-sum compiler missing from milestone 155.  A generic constructive lemma
+turns a cardinality bound `base^n` and a pointwise weight payment `factor^n`
+into the product-rate estimate
+
+```text
+sum sourceWeight <= (ofNat(base) * factor)^n * targetWeight.
+```
+
+The concrete specialization uses milestone 155's
+`10240000^n` fixed-fiber count and the accepted component peel's pointwise
+`anchorFaceCoefficient^n` payment.  Since
+
+```text
+ofNat(10240000) * anchorFaceCoefficient = 8/25,
+```
+
+it proves the strict weighted estimate
+
+```text
+sum_over_fixed_fiber sourceWeight
+  <= (8/25)^n * targetWeight.
+```
+
+Target-weight nonnegativity is proved directly from nonnegative anchor
+heat-kernel coefficients and the literal product definition; it is not added
+as an opaque assumption.  The focused monitored source check passes.  All
+four audited declarations use only `[propext, Quot.sound]`.  No `Classical`,
+choice, proof obligation, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The theorem consumes an explicit duplicate-free fixed-target family with a
+removal witness for every source.  It does not yet prove that the actual
+finite slab source enumeration partitions into such fibers without extra
+root multiplicity.  The immediate frontier is therefore to inspect and build
+that concrete partition, determine whether the observable supplies a
+canonical root or whether a root entropy factor remains, and only then sum
+the positive-size geometric tail.  The exact conditional transition floor,
+posterior-variance fraction, dense form gap, completed OS gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
