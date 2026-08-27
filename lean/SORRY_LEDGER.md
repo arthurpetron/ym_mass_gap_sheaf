@@ -21116,6 +21116,20 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
 
+#### Accepted paired-peel closure update (2026-08-27)
+
+`CompactDualSlabAcceptedPairedPeel` embeds each original observable pair in a
+pair of arbitrary accepted expanded sources.  Every canonical positive-face
+peel of either replica remains in that carrier.  Its pair mass is the same
+complete physical mass used by the connected-residue distance floor, and one
+peel removes exactly its positive peel size from that mass.
+
+This closes accepted-state preservation and strict paired descent without a
+`sorry`.  The canonical deterministic step, multiplicity-faithful peeling
+history, fixed-history weight summation, numerical paired-residue rate,
+beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
+construction, and Clay theorem remain open.
+
 #### Exact component-peel physical-mass descent update (2026-08-27)
 
 `CompactDualSlabFaceStrandComponentMassDrop` proves that an accepted rooted

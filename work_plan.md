@@ -26299,6 +26299,41 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 220. Close accepted two-replica states under one-sided peeling (2026-08-27)
+
+**Status. THE CONNECTED OBSERVABLE PAIR NOW EMBEDS IN A CLOSED ACCEPTED
+TWO-REPLICA CARRIER, AND EITHER CANONICAL ONE-SIDED PEEL HAS EXACT STRICT
+PAIR-MASS DESCENT.**
+
+`CompactDualSlabAcceptedPairedPeel.lean` replaces the initially asymmetric
+root-positive/arbitrary observable carrier by two arbitrary accepted expanded
+sources.  It proves that every positive physical face in either replica has a
+canonical slot-zero component peel whose lowered source remains in the exact
+expanded production carrier.
+
+The new pair mass is proved equal to the complete two-replica physical mass
+used by the connected-residue distance floor.  A left or right peel satisfies
+
+`mass(lowerPair) + peelSize = mass(pair)`
+
+and therefore strictly decreases pair mass.  Thus repeated peeling neither
+leaves the accepted state space nor changes the physical quantity already
+known to dominate observable separation.
+
+The next construction will scan the fixed original support component in its
+existing deterministic order, choose the first still-positive face and the
+left replica first, and package that choice as a single accepted transition.
+This removes root and replica branching from the entropy count.
+
+The multiplicity-faithful peeling history, fixed-history weight summation,
+numerical paired-residue rate, beta/spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 219. Identify the well-founded measure for iterated component peeling (2026-08-27)
 
 **Status. ONE ACCEPTED ROOTED STRAND-COMPONENT PEEL NOW HAS AN EXACT
