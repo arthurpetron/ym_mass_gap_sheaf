@@ -21116,6 +21116,21 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
 
+#### Terminating coded paired-peeling trace update (2026-08-27)
+
+`CompactDualSlabAcceptedPairedCanonicalPeeling` iterates the deterministic
+accepted step by strict pair-mass descent.  The finite forward trace stores
+each root, replica, positive peel size, and adaptive inverse code; every code
+belongs to its recorded carrier.  The terminal state vanishes on the fixed
+face list, and exact telescoping proves that the sum of all peel sizes is the
+initial-to-final pair-mass drop.
+
+This closes constructive termination, trace-code retention, and exact global
+mass accounting without a `sorry`.  The complete-trace inverse-fiber bound,
+fixed-history weight summation, numerical paired-residue rate, beta/spacing
+trajectory, Gibbs/OS comparison, completed gap, continuum construction, and
+Clay theorem remain open.
+
 #### Deterministic paired-peel step update (2026-08-27)
 
 `CompactDualSlabAcceptedPairedCanonicalStep` scans a fixed physical-face list,

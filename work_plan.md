@@ -26299,6 +26299,43 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 222. Iterate the canonical paired peel to a coded terminal trace (2026-08-27)
+
+**Status. THE DETERMINISTIC ACCEPTED PEEL NOW ITERATES BY WELL-FOUNDED MASS
+DESCENT TO A TERMINAL STATE, WHILE RETAINING EVERY ADAPTIVE INVERSE CODE AND
+AN EXACT TELESCOPING MASS IDENTITY.**
+
+`CompactDualSlabAcceptedPairedCanonicalPeeling.lean` recursively applies the
+first-face/left-first step on any fixed physical-face list.  Each trace record
+stores the selected root, selected replica, positive peel size, and complete
+adaptive component entropy code.  Every stored code is proved to belong to
+the adaptive carrier at its recorded root and size.
+
+The recursion terminates by strict total pair-mass descent.  Its final state
+vanishes in both replicas on every fixed face, every trace peel size is
+positive, and
+
+`mass(finalState) + sum(trace.peelSize) = mass(initialState)`.
+
+In particular, trace length is at most initial pair mass.  The previously
+local component compiler is therefore now a finite canonical process with
+explicit inverse data and no hidden termination premise.
+
+The next load-bearing theorem is global rather than local: prove an inverse-
+fiber bound for complete traces ending at one fixed terminal pair.  The stored
+root and side fields are deterministic forward data, but the proof must show
+that they do not re-enter as an uncontrolled entropy factor during backward
+reconstruction.
+
+The complete-trace inverse-fiber bound, fixed-history weight summation,
+numerical paired-residue rate, beta/spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 221. Construct the deterministic paired-peel step (2026-08-27)
 
 **Status. A FIXED PHYSICAL-FACE LIST NOW DETERMINISTICALLY SELECTS THE FIRST
