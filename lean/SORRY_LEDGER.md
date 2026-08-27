@@ -18253,6 +18253,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `git diff --check` passes.  No full-root pass is claimed beyond the
   previously reported safely interrupted integration build.
 
+### [z4-canonical-face-event-cylinder-compiler] Compile finite face occupancy into one strict cylinder -- **PROVED FINITE / PINNED-SIZE LIMIT OPEN 2026-08-27**
+
+- **milestone**: identify a face-occupancy event with the disjunction of the
+  occurrence bits of every canonical polymer pinned at that face, use the
+  complete pinned layer as a canonical root list, and return the resulting
+  zero-one `StrictJointCylinderVector` explicitly.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalFaceEventCylinderCompiler.lean`.
+- **decl**:
+  `canonicalPinnedLayerPolymers_canonical`,
+  `canonicalFaceCylinderEvent_eq_familyContainsFaceB`,
+  `canonicalFaceStrictCylinderVector`, and
+  `canonicalFaceStrictCylinderVector_coefficient_eq`.
+- **obligation**: replace the box-growing complete pinned root list by a
+  size-truncated fixed local cylinder and prove, from the uniform pinned KP
+  tail, that the omitted large-component event has a constructive modulus.
+  Then identify the resulting limit with the same physical face event in the
+  OS direct limit.  This module proves only the exact fixed-box compiler and
+  asserts no thermodynamic, beta, spacing, completed-gap, or Clay result.
+- **constructive?**: yes.  The root list is a finite decidable filter and the
+  proof is exact Boolean/list membership algebra over the existing canonical
+  component decomposition.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored check passes.  All three audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  No full-root build or audit is claimed.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of
