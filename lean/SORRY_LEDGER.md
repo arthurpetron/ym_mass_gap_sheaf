@@ -20799,6 +20799,26 @@ column normalization.  The paired-support connected residue and all
 beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay obligations remain
 open.  No `sorry` is introduced.
 
+#### Literal source enumeration and whole-product membership update (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingKernel` now exposes definitionally identical
+fixed-valence package views.  In
+`SU2SlabPhysicalPairRecouplingSourceCompleteness`, complete valence-four,
+valence-five, and valence-six carrier enumerations prove source-list
+membership at each nontrivial degree; the unit cases and the exact degree-six
+geometry bound assemble the all-valence theorem.  A structural product proof
+then places every accepted whole-slab production row in the common kernel's
+literal `sources` list.
+
+`CompactDualSlabObservablePairedSupportRecouplingProduct` specializes that
+result to every contributor in one switched physical fiber.  Source-side
+membership and injectivity are therefore closed.  The remaining finite
+column-capacity obligation is the explicit weighted enumeration of that
+fiber and its application to `listQSum_le_of_injective` at one realized
+target column.  The paired-support connected residue and all beta/spacing,
+Gibbs/OS, completed-gap, continuum, and Clay obligations remain open.  No
+`sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

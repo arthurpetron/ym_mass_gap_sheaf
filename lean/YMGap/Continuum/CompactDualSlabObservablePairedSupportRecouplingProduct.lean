@@ -17,7 +17,7 @@ no choice, `Classical`, `sorry`, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportWholeLinkSwitch
-import YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceCompleteness
 
 namespace YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct
 
@@ -34,6 +34,7 @@ open YMGap.Continuum.CompactDualSlabObservableTwoReplicaFaceSwapCertificate
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceCompleteness
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 
@@ -309,6 +310,25 @@ def slabObservablePairedSupportContributorProductionRow
     (contributor.leftAssignment_mem htarget)
     (contributor.rightAssignment_mem htarget)
 
+/-- Every contributor row occurs in the literal source enumeration of its
+common physical-pair product matrix. -/
+theorem slabObservablePairedSupportContributorProductionRow_mem
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (leftPhysical rightPhysical : SlabLabelling)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (contributor : SlabObservablePairedSupportContributorAt
+      D rootFaceId targetFaceId leftPhysical rightPhysical) :
+    slabObservablePairedSupportContributorProductionRow
+        D rootFaceId targetFaceId leftPhysical rightPhysical
+        htarget contributor ∈
+      (slabPhysicalPairRecouplingKernel
+        D.extent leftPhysical rightPhysical).sources :=
+  slabPhysicalPairRecouplingProductionSource_global_mem
+    D.cutoff D.extent leftPhysical rightPhysical
+    contributor.leftAssignment contributor.rightAssignment
+    (contributor.leftAssignment_mem htarget)
+    (contributor.rightAssignment_mem htarget)
+
 /-- Contributors with the same switched physical output occupy distinct rows
 of the one common physical-pair matrix. -/
 theorem slabObservablePairedSupportContributorProductionRow_injective
@@ -349,4 +369,5 @@ end YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct.SlabObservablePairedSupportContributorAt.leftAssignment_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct.SlabObservablePairedSupportContributorAt.rightAssignment_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct.slabObservablePairedSupportContributorProductionRow
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct.slabObservablePairedSupportContributorProductionRow_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct.slabObservablePairedSupportContributorProductionRow_injective

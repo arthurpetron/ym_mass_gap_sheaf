@@ -74,6 +74,141 @@ theorem SlabPhysicalPairRecouplingData.degree_le_six
   rw [← D.degree_eq]
   exact slabIncidentPlaqIds_length_le_six extent D.link
 
+/-- The fixed valence-four package, exposed separately so later carrier
+completeness proofs do not normalize the whole all-valence dependent match. -/
+def slabPhysicalPairRecouplingKernelPackageFour {extent : Nat}
+    (D : SlabPhysicalPairRecouplingData extent 4) :
+    FiniteBistochasticQKernelPackage :=
+  { Source :=
+      FixedLeftCGChannel
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3) ×
+        FixedLeftCGChannel
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+    Target :=
+      FixedRightCGChannel
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3) ×
+        FixedRightCGChannel
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+    kernel := tensor
+      (physicalSchurBistochasticKernel
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 3))
+      (physicalSchurBistochasticKernel
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)) }
+
+/-- The fixed valence-five package, exposed for small carrier-completeness
+proofs. -/
+def slabPhysicalPairRecouplingKernelPackageFive {extent : Nat}
+    (D : SlabPhysicalPairRecouplingData extent 5) :
+    FiniteBistochasticQKernelPackage :=
+  { Source :=
+      ValenceFiveLeftCarrier
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 4) ×
+        ValenceFiveLeftCarrier
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
+    Target :=
+      ValenceFiveRightCarrier
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 4) ×
+        ValenceFiveRightCarrier
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
+    kernel := tensor
+      (valenceFiveBistochasticKernel
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 4))
+      (valenceFiveBistochasticKernel
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)) }
+
+/-- The fixed valence-six package, exposed for small carrier-completeness
+proofs. -/
+def slabPhysicalPairRecouplingKernelPackageSix {extent : Nat}
+    (D : SlabPhysicalPairRecouplingData extent 6) :
+    FiniteBistochasticQKernelPackage :=
+  { Source :=
+      ValenceSixLeftCarrier
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 5) ×
+        ValenceSixLeftCarrier
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)
+    Target :=
+      ValenceSixRightCarrier
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
+          ((slabLinkExternalSpins extent D.leftPhysical D.link) 5) ×
+        ValenceSixRightCarrier
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
+          ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)
+    kernel := tensor
+      (valenceSixBistochasticKernel
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
+        ((slabLinkExternalSpins extent D.leftPhysical D.link) 5))
+      (valenceSixBistochasticKernel
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
+        ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)) }
+
 /-- The complete tensor-product associator matrix at a fixed physical pair.
 Only the physical external spins and the displayed link enter this object. -/
 def slabPhysicalPairRecouplingKernelPackage {extent : Nat} :
@@ -83,126 +218,9 @@ def slabPhysicalPairRecouplingKernelPackage {extent : Nat} :
   | 1, _ => unitFiniteBistochasticQKernelPackage
   | 2, _ => unitFiniteBistochasticQKernelPackage
   | 3, _ => unitFiniteBistochasticQKernelPackage
-  | 4, D =>
-      { Source :=
-          FixedLeftCGChannel
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3) ×
-            FixedLeftCGChannel
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-        Target :=
-          FixedRightCGChannel
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3) ×
-            FixedRightCGChannel
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-        kernel := tensor
-          (physicalSchurBistochasticKernel
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 3))
-          (physicalSchurBistochasticKernel
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)) }
-  | 5, D =>
-      { Source :=
-          ValenceFiveLeftCarrier
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 4) ×
-            ValenceFiveLeftCarrier
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
-        Target :=
-          ValenceFiveRightCarrier
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 4) ×
-            ValenceFiveRightCarrier
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
-        kernel := tensor
-          (valenceFiveBistochasticKernel
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 4))
-          (valenceFiveBistochasticKernel
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)) }
-  | 6, D =>
-      { Source :=
-          ValenceSixLeftCarrier
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 5) ×
-            ValenceSixLeftCarrier
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)
-        Target :=
-          ValenceSixRightCarrier
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
-              ((slabLinkExternalSpins extent D.leftPhysical D.link) 5) ×
-            ValenceSixRightCarrier
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
-              ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)
-        kernel := tensor
-          (valenceSixBistochasticKernel
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 3)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 4)
-            ((slabLinkExternalSpins extent D.leftPhysical D.link) 5))
-          (valenceSixBistochasticKernel
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 0)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 1)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 2)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 3)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 4)
-            ((slabLinkExternalSpins extent D.rightPhysical D.link) 5)) }
+  | 4, D => slabPhysicalPairRecouplingKernelPackageFour D
+  | 5, D => slabPhysicalPairRecouplingKernelPackageFive D
+  | 6, D => slabPhysicalPairRecouplingKernelPackageSix D
   | degree + 7, D => False.elim (by
       have hdegree := D.degree_le_six
       omega)

@@ -25951,3 +25951,36 @@ Focused monitored checks pass and every printed declaration uses only
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No Gibbs/OS comparison, beta-uniform gap,
 continuum construction, or Clay theorem is claimed.
+
+## 207. Put every contributor row in the literal common source list (2026-08-27)
+
+**Status. FIXED-VALENCE SOURCE COMPLETENESS, WHOLE-SLAB PRODUCT MEMBERSHIP,
+AND CONTRIBUTOR-ROW MEMBERSHIP ARE CLOSED; THE WEIGHTED COLUMN NO-OVERLOAD
+INEQUALITY REMAINS OPEN.**
+
+`SU2SlabPhysicalPairRecouplingKernel.lean` now exposes fixed package views at
+valences four, five, and six.  This is a definition-preserving factorization
+of the existing physical-only kernels: it lets the source proofs normalize
+one small carrier at a time without raising the ordinary heartbeat budget.
+
+`SU2SlabPhysicalPairRecouplingSourceCompleteness.lean` proves that every
+valence-four left-channel pair, every valence-five dependent left carrier,
+and every valence-six indexed left carrier occurs in the exact source list of
+its complete matrix.  The degree-zero-through-three unit cases and the 4D
+degree bound then contract these lemmas into one all-valence completeness
+theorem.  Structural recursion over the attached boundary-link list lifts
+local membership to the heterogeneous whole-slab product.
+
+Consequently every `SlabObservablePairedSupportContributorAt` production row
+now belongs to the literal `sources` list of its common physical-pair matrix.
+Together with the already-proved row injectivity, the remaining finite edge
+is a weighted list inequality: enumerate one fixed physical fiber, send each
+contributor to its production row, and bound its recoupling weight at a fixed
+realized target column by exact column normalization.
+
+Focused monitored checks and dependency-complete builds pass.  Every printed
+load-bearing declaration uses only `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  The paired-support
+connected residue, beta/lattice-spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
