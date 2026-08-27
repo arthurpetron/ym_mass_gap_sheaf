@@ -20197,3 +20197,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   five and six, not yet all-valence/global assembly, a spin-foam/Gibbs weight
   comparison, beta-uniform posterior estimate, OS form bound, completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-slab-all-valence-crossed-schur-kernel] Contract the complete local degree split into one normalized row -- **ALL ACTUAL LOCAL VALENCES CLOSED; DEPENDENT GLOBAL PRODUCT OPEN 2026-08-26**
+
+- **milestone**: package an exact finite normalized rational kernel with a
+  dependent target type; provide the unit row below reassociation valence;
+  convert the generic degree-four production switch into the existing
+  one-stage compiler; select the proved one-, two-, and three-stage crossed
+  rows at degrees four, five, and six; derive the upper degree bound directly
+  from four-dimensional slab incidence; eliminate every higher degree by
+  contradiction; and expose one pointwise-nonnegativity and exact
+  normalization interface for every actual link.
+- **file**:
+  `lean/YMGap/Continuum/SU2SlabAllValenceCrossedSchurKernel.lean`.
+- **principal declarations**:
+  `FiniteNormalizedQKernel`,
+  `unitFiniteNormalizedQKernel`,
+  `CrossedSlabSwitchData.toValenceFour`,
+  `CrossedSlabSwitchData.degree_le_six`,
+  `crossedLinkRecouplingKernel`,
+  `crossedLinkRecouplingKernel_weight_nonnegative`, and
+  `crossedLinkRecouplingKernel_row_normalized`.
+- **obligation**: define the dependent target assignment over a finite list of
+  possibly differently typed local kernels, enumerate it constructively,
+  multiply local weights, and prove exact total mass one.  Then instantiate
+  that product over the actual crossed slab-link list and prove the first
+  comparison with the original spin-foam/Gibbs weights.
+- **constructive?**: yes.  The dispatcher is structural, its only impossible
+  case is discharged from proved incidence, and every row is an explicit
+  finite `Q'` law.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source check passes; all six printed
+  declarations stay within `[propext, Quot.sound]` (the unit row needs only
+  `propext`).  This closes the local all-valence interface, not yet the global
+  dependent product, Gibbs/heat comparison, beta-uniform posterior estimate,
+  OS form bound, completed gap, continuum QFT, or Clay theorem.

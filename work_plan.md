@@ -25172,3 +25172,35 @@ degree-four compiler, the two-stage degree-five compiler, and the three-stage
 degree-six compiler.  That interface can then be folded over the actual slab
 link list.  Only after this assembly is an exact comparison with production
 spin-foam/Gibbs weights well-typed.
+
+## 184. Every actual slab-link valence now has one normalized recoupling row (2026-08-26)
+
+**Status. THE DEGREE-SPLIT LOCAL ANALYTIC COMPILER IS CONTRACTED INTO ONE
+NORMALIZED DEPENDENT KERNEL INTERFACE, WITH NO HIGH-VALENCE FALLBACK.**
+
+`SU2SlabAllValenceCrossedSchurKernel.lean` packages a finite exact rational
+kernel by its dependent target type, explicit target list, weight,
+pointwise-nonnegativity proof, and exact mass-one proof.  The unique unit row
+handles degrees zero through three.  The actual degree-four switch data is
+converted without loss into the one-stage crossed Schur compiler, while
+degrees five and six use the two- and three-stage crossed pair kernels from
+milestone 183.
+
+The remaining structural pattern is not assigned an arbitrary row:
+`CrossedSlabSwitchData.degree_le_six` derives the degree bound from the proved
+four-dimensional slab incidence theorem, and the degree-seven-or-higher
+branch is eliminated by contradiction.  Consequently
+`crossedLinkRecouplingKernel_row_normalized` is one theorem covering every
+actual local valence.
+
+The focused monitored source check passes.  All six printed declarations use
+only the allowed axiom gate (`unitFiniteNormalizedQKernel` uses `[propext]`;
+the others use `[propext, Quot.sound]`).  No `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is the dependent finite product: enumerate a target
+choice from each link's possibly different local carrier, multiply its exact
+weights, and prove total mass one by finite Fubini.  It must then be
+instantiated on the actual slab-link list before comparing the recoupling law
+with the original spin-foam/Gibbs weight.
