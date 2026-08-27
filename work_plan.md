@@ -25319,7 +25319,7 @@ full Hilbert--Schmidt pairing under the same input reversal.  Since each
 phase squares to one, the original right Gram weight is exactly the reversed
 left Gram weight, and conversely.
 
-The focused monitored source check passes.  The seven printed declarations
+The focused monitored source check passes.  The nine printed declarations
 use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.
@@ -25329,3 +25329,35 @@ the already proved Schur row theorem to the reversed channel, compare its
 cross pairing with the original row's cross pairing, derive the exact
 Gram-weighted transpose identity between the two inverse coefficients, and
 transport reversed row normalization into original column normalization.
+
+## 189. The physical SU(2) Schur kernel is exactly bistochastic (2026-08-26)
+
+**Status. THE WEIGHTED TRANSPOSE LAW AND COLUMN NORMALIZATION ARE CLOSED;
+GLOBAL GIBBS-CARRIER INTERPRETATION IS OPEN.**
+
+`SU2PhysicalSchurColumnNormalization.lean` evaluates the same mixed invariant
+pairing in the original and externally reversed channel problems.  The two
+already proved Schur row-pairing laws and reversal geometry yield
+`schurCoefficient_gram_transpose`: the original inverse coefficient times
+the right Gram weight equals the reversed inverse coefficient times the left
+Gram weight, with the explicit four-vertex parity retained.
+
+Squaring removes that involutive parity.  After constructive positive
+division, `physicalSchurRecouplingKernel_reversal` identifies each original
+normalized kernel entry with the corresponding entry in the reversed Schur
+row.  `physicalSchurRecouplingKernel_column_normalized` then sums over the
+explicit reversed canonical channel list and invokes the existing row theorem
+to obtain exact column mass one.  Thus the physical local SU(2) compiler is
+bistochastic on explicit complete, duplicate-free carriers.
+
+The focused monitored source check passes.  All six printed declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier returns to the production geometry.  Transport this
+local column theorem through the valence-four/five/six iterated kernels and
+the dependent product, then define the interpretation of a global target on
+the actual crossed auxiliary carrier.  Only that same-carrier map can justify
+a Gibbs conditional comparison; beta and lattice spacing remain explicit and
+no uniform gap claim follows from bistochasticity alone.

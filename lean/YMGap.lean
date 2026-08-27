@@ -1604,6 +1604,7 @@ import YMGap.Continuum.SU2OrderedLeftCasimirPairing
 import YMGap.Continuum.SU2DirectLeftFixedOutputEnumeration
 import YMGap.Continuum.SU2OrderedLeftGramCasimirOrthogonality
 import YMGap.Continuum.SU2SchurReversalSymmetry
+import YMGap.Continuum.SU2PhysicalSchurColumnNormalization
 import YMGap.Continuum.SU2OrderedRacahInteriorReducedEndpointCoefficient
 import YMGap.Continuum.SU2OrderedRacahInnerContractionReduction
 import YMGap.Continuum.SU2OrderedRacahOmegaExchangeCommutator

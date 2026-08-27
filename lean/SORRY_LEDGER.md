@@ -20366,7 +20366,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   equality is finite exact `Q'` algebra.  No `Classical`, choice, `sorry`,
   `admit`, `native_decide`, custom axiom, noncomputable declaration, or
   enlarged heartbeat budget is introduced.
-- **status note**: the focused monitored source check passes; all seven
+- **status note**: the focused monitored source check passes; all nine
   printed declarations use only `[propext, Quot.sound]`.  This is a finite
   SU(2) recoupling symmetry, not a Gibbs comparison, beta-uniform posterior
   estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.
+
+### [su2-physical-schur-column-normalization] Derive the weighted transpose law and exact column mass -- **LOCAL BISTOCHASTICITY CLOSED; GLOBAL GIBBS INTERPRETATION OPEN 2026-08-26**
+
+- **milestone**: evaluate the mixed channel Gram entry in both the original
+  and externally reversed problems; prove the four-phase involution; derive
+  the exact Gram-weighted transpose identity for inverse Schur coefficients;
+  square and divide by explicit positive channel weights; identify each
+  original kernel entry with its reversed-row entry; and sum the explicit
+  reversed canonical row to obtain original column mass one.
+- **file**:
+  `lean/YMGap/Continuum/SU2PhysicalSchurColumnNormalization.lean`.
+- **principal declarations**:
+  `schurTransposePhase_mul_self`,
+  `fixedLeft_schur_pairing_arbitrary`,
+  `reversed_mixed_pairing_eq_phase`,
+  `schurCoefficient_gram_transpose`,
+  `physicalSchurRecouplingKernel_reversal`,
+  `physicalSchurRecouplingColumnMass`, and
+  `physicalSchurRecouplingKernel_column_normalized`.
+- **obligation**: propagate local column preservation through each iterated
+  higher-valence Schur compiler and the heterogeneous dependent product;
+  define the same-carrier global interpretation on actual crossed auxiliary
+  data; and only then compare the recoupling law with the beta-dependent
+  spin-foam/Gibbs conditional weight.
+- **constructive?**: yes.  Every sum is finite, every source carrier is the
+  involutive image of an explicit duplicate-free enumeration, and every
+  division carries a strict positive Gram witness.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+  or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes; all six printed
+  declarations use only `[propext, Quot.sound]`.  This proves local finite
+  SU(2) bistochasticity, not a production same-carrier Gibbs comparison,
+  beta-uniform posterior estimate, OS form bound, completed gap, continuum
+  QFT, or Clay theorem.

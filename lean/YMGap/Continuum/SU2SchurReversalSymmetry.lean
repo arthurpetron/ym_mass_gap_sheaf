@@ -275,12 +275,12 @@ private theorem triMapInner_scale_both (a b c d : Nat) (p : Q')
       (Q'.mul_eqv_congr_left p _ _ hright)
       (Q'.eqv_symm (Q'.mul_assoc_eqv p p _)))
 
-private theorem reverseRightPhase_mul_self {a b c d : Nat}
+theorem reverseRightPhase_mul_self {a b c d : Nat}
     (q : FixedRightCGChannel a b c d) :
     reverseRightPhase q * reverseRightPhase q ≈ 1 := by
   exact phaseProduct_mul_self q.p q.r
 
-private theorem reverseLeftPhase_mul_self {a b c d : Nat}
+theorem reverseLeftPhase_mul_self {a b c d : Nat}
     (q : FixedLeftCGChannel a b c d) :
     reverseLeftPhase q * reverseLeftPhase q ≈ 1 := by
   exact phaseProduct_mul_self q.k q.r
@@ -329,5 +329,7 @@ end YMGap.Continuum.SU2SchurReversalSymmetry
 #print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseRight_triLeft
 #print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseLeft_triRight
 #print axioms YMGap.Continuum.SU2SchurReversalSymmetry.triMapInner_reverse
+#print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseRightPhase_mul_self
+#print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseLeftPhase_mul_self
 #print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseRight_leftWeight_eq_rightWeight
 #print axioms YMGap.Continuum.SU2SchurReversalSymmetry.reverseLeft_rightWeight_eq_leftWeight
