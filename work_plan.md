@@ -25651,3 +25651,29 @@ estimate.  The next theorem must name beta and lattice spacing and compare a
 production source row on this explicit carrier with the actual Gibbs/OS
 weight.  Bistochasticity alone supplies no strict contraction and no mass-gap
 claim.
+
+## 199. The whole-slab recoupling matrix is pointed at the literal production source (2026-08-27)
+
+**Status. THE DISTINGUISHED PRODUCTION ROW IS CLOSED; THE EXPLICIT
+BETA/LATTICE-SPACING GIBBS/OS COMPARISON IS THE ACTIVE FRONTIER.**
+
+`FiniteBistochasticQKernelProduct.lean` now packages a finite bistochastic
+matrix together with a distinguished source and recursively contracts a list
+of such pointed packages into one correctly typed dependent source assignment.
+`SU2SlabAllValenceCrossedSchurBistochasticKernel.lean` selects that source from
+the literal production fusion witnesses at every possible slab-link degree.
+The global slab module maps the pointed packages over the actual
+boundary-complete link enumeration and obtains a single distinguished source
+of the complete heterogeneous matrix.  Its target row has exact mass one.
+
+The focused monitored checks and the targeted global build pass.  Every newly
+printed declaration uses at most `[propext, Quot.sound]`; the generic pointed
+assignment itself uses no axioms.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+This milestone identifies which recoupling law must be compared; it does not
+supply the comparison.  The next declaration must expose beta, lattice
+spacing, the actual normalized Gibbs/OS target weights on this same carrier,
+and the exact parameter range of any claimed lower bound or strict
+contraction.  No beta-uniform statement follows from row normalization.

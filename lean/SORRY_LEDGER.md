@@ -20617,6 +20617,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   SU(2) recoupling matrix, not a physical Gibbs/OS kernel, strict form bound,
   completed gap, continuum construction, or Clay theorem.
 
+### [su2-slab-global-production-source] Point the complete slab matrix at the literal production row -- **PRODUCTION SOURCE CLOSED 2026-08-27**
+
+- **milestone**: package each local complete recoupling matrix with the source
+  selected by its actual production fusion witness; preserve those dependent
+  source types through the literal slab-link list; and construct the resulting
+  distinguished whole-slab source with an exact normalized target row.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBistochasticQKernelProduct.lean`,
+  `lean/YMGap/Continuum/SU2SlabAllValenceCrossedSchurBistochasticKernel.lean`,
+  and
+  `lean/YMGap/Continuum/SU2SlabGlobalCrossedSchurBistochasticProduct.lean`.
+- **principal declarations**: `PointedFiniteBistochasticQKernelPackage`,
+  `finiteBistochasticPackagesOfPointed`,
+  `pointedFiniteBistochasticSourceAssignment`,
+  `crossedLinkBistochasticProductionSource`,
+  `crossedLinkPointedBistochasticKernelPackage`,
+  `slabObservablePairCrossedPointedBistochasticPackages`,
+  `slabObservablePairCrossedBistochasticProductionSource`, and
+  `slabObservablePairCrossedBistochasticProductionSource_row_normalized`.
+- **obligation**: identify the actual normalized Gibbs/OS target weight on the
+  same heterogeneous carrier and state the comparison with beta and lattice
+  spacing explicit in its type.  Any uniform lower bound or strict coefficient
+  must state the full parameter domain over which it is uniform.
+- **constructive?**: yes.  Every local source is selected by structural degree
+  recursion and actual fusion witnesses; the global source is structural
+  recursion over the written pointed packages.  No `Classical`, choice,
+  `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+  or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored checks and targeted global build pass;
+  all new production declarations use at most `[propext, Quot.sound]`.  This
+  identifies one exact SU(2) recoupling row, not a Gibbs/OS comparison,
+  beta-uniform contraction, completed spectral gap, continuum construction,
+  or Clay theorem.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

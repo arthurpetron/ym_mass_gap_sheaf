@@ -40,6 +40,18 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Complete matrix packages in production link order -/
 
+def slabObservablePairCrossedPointedBistochasticPackageAtLink
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent}) :
+    PointedFiniteBistochasticQKernelPackage :=
+  crossedLinkPointedBistochasticKernelPackage
+    (slabObservablePairCrossedSwitchDataAtLink
+      D rootFaceId targetFaceId htarget pair hpair linked)
+
 def slabObservablePairCrossedBistochasticPackageAtLink
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
@@ -48,10 +60,19 @@ def slabObservablePairCrossedBistochasticPackageAtLink
       D rootFaceId targetFaceId)
     (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent}) :
     FiniteBistochasticQKernelPackage :=
-  crossedLinkBistochasticKernelPackage
-    (slabIncidentPlaqIds D.extent linked.1).length
-    (slabObservablePairCrossedSwitchDataAtLink
-      D rootFaceId targetFaceId htarget pair hpair linked)
+  (slabObservablePairCrossedPointedBistochasticPackageAtLink
+    D rootFaceId targetFaceId htarget pair hpair linked).package
+
+def slabObservablePairCrossedPointedBistochasticPackages
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId) :
+    List PointedFiniteBistochasticQKernelPackage :=
+  (boundaryCompleteSlabLinks D.extent).attach.map fun linked =>
+    slabObservablePairCrossedPointedBistochasticPackageAtLink
+      D rootFaceId targetFaceId htarget pair hpair linked
 
 /-- Complete local matrices in the literal slab-link enumeration. -/
 def slabObservablePairCrossedBistochasticPackages
@@ -61,9 +82,9 @@ def slabObservablePairCrossedBistochasticPackages
     (hpair : pair ∈ slabObservableFourCellSourcePairs
       D rootFaceId targetFaceId) :
     List FiniteBistochasticQKernelPackage :=
-  (boundaryCompleteSlabLinks D.extent).attach.map fun linked =>
-    slabObservablePairCrossedBistochasticPackageAtLink
-      D rootFaceId targetFaceId htarget pair hpair linked
+  finiteBistochasticPackagesOfPointed
+    (slabObservablePairCrossedPointedBistochasticPackages
+      D rootFaceId targetFaceId htarget pair hpair)
 
 abbrev SlabObservablePairCrossedBistochasticSourceAssignment
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
@@ -102,6 +123,20 @@ def slabObservablePairCrossedBistochasticKernel
     (slabObservablePairCrossedBistochasticPackages
       D rootFaceId targetFaceId htarget pair hpair)
 
+/-- The complete dependent source obtained from the actual production fusion
+witness at every slab link. -/
+def slabObservablePairCrossedBistochasticProductionSource
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId) :
+    SlabObservablePairCrossedBistochasticSourceAssignment
+      D rootFaceId targetFaceId htarget pair hpair :=
+  pointedFiniteBistochasticSourceAssignment
+    (slabObservablePairCrossedPointedBistochasticPackages
+      D rootFaceId targetFaceId htarget pair hpair)
+
 theorem slabObservablePairCrossedBistochasticKernel_weight_nonnegative
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
@@ -135,6 +170,24 @@ theorem slabObservablePairCrossedBistochasticKernel_row_normalized
   (slabObservablePairCrossedBistochasticKernel
     D rootFaceId targetFaceId htarget pair hpair).row_normalized source
 
+theorem slabObservablePairCrossedBistochasticProductionSource_row_normalized
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId) :
+    listQSum
+        ((slabObservablePairCrossedBistochasticKernel
+          D rootFaceId targetFaceId htarget pair hpair).weight
+          (slabObservablePairCrossedBistochasticProductionSource
+            D rootFaceId targetFaceId htarget pair hpair))
+        (slabObservablePairCrossedBistochasticKernel
+          D rootFaceId targetFaceId htarget pair hpair).targets ≈ 1 :=
+  (slabObservablePairCrossedBistochasticKernel
+    D rootFaceId targetFaceId htarget pair hpair).row_normalized
+      (slabObservablePairCrossedBistochasticProductionSource
+        D rootFaceId targetFaceId htarget pair hpair)
+
 theorem slabObservablePairCrossedBistochasticKernel_column_normalized
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
@@ -156,8 +209,11 @@ theorem slabObservablePairCrossedBistochasticKernel_column_normalized
 end YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct
 
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticPackageAtLink
+#print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedPointedBistochasticPackages
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticPackages
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticKernel
+#print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticProductionSource
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticKernel_weight_nonnegative
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticKernel_row_normalized
+#print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticProductionSource_row_normalized
 #print axioms YMGap.Continuum.SU2SlabGlobalCrossedSchurBistochasticProduct.slabObservablePairCrossedBistochasticKernel_column_normalized

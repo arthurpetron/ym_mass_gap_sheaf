@@ -79,6 +79,30 @@ def crossedLinkBistochasticKernelPackage {K extent : Nat} :
       have hdegree := CrossedSlabSwitchData.degree_le_six D
       omega)
 
+/-- The actual production fusion witnesses select one source of the complete
+matrix at every link degree. -/
+def crossedLinkBistochasticProductionSource {K extent : Nat} :
+    (degree : Nat) → (D : CrossedSlabSwitchData K extent degree) →
+      (crossedLinkBistochasticKernelPackage degree D).Source
+  | 0, _ => ()
+  | 1, _ => ()
+  | 2, _ => ()
+  | 3, _ => ()
+  | 4, D =>
+      let D₄ := CrossedSlabSwitchData.toValenceFour D
+      (crossedLeftChannel D₄, crossedRightChannel D₄)
+  | 5, D => crossedValenceFiveProductionSource D
+  | 6, D => crossedValenceSixProductionSource D
+  | degree + 7, D => False.elim (by
+      have hdegree := CrossedSlabSwitchData.degree_le_six D
+      omega)
+
+def crossedLinkPointedBistochasticKernelPackage {K extent degree : Nat}
+    (D : CrossedSlabSwitchData K extent degree) :
+    PointedFiniteBistochasticQKernelPackage where
+  package := crossedLinkBistochasticKernelPackage degree D
+  source := crossedLinkBistochasticProductionSource degree D
+
 theorem crossedLinkBistochasticKernelPackage_weight_nonnegative
     {K extent degree : Nat} (D : CrossedSlabSwitchData K extent degree)
     (source : (crossedLinkBistochasticKernelPackage degree D).Source)
@@ -97,6 +121,15 @@ theorem crossedLinkBistochasticKernelPackage_row_normalized
         (crossedLinkBistochasticKernelPackage degree D).kernel.targets ≈ 1 :=
   (crossedLinkBistochasticKernelPackage degree D).kernel.row_normalized source
 
+theorem crossedLinkBistochasticProductionSource_row_normalized
+    {K extent degree : Nat} (D : CrossedSlabSwitchData K extent degree) :
+    listQSum
+        ((crossedLinkBistochasticKernelPackage degree D).kernel.weight
+          (crossedLinkBistochasticProductionSource degree D))
+        (crossedLinkBistochasticKernelPackage degree D).kernel.targets ≈ 1 :=
+  (crossedLinkBistochasticKernelPackage degree D).kernel.row_normalized
+    (crossedLinkBistochasticProductionSource degree D)
+
 theorem crossedLinkBistochasticKernelPackage_column_normalized
     {K extent degree : Nat} (D : CrossedSlabSwitchData K extent degree)
     (target : (crossedLinkBistochasticKernelPackage degree D).Target) :
@@ -112,6 +145,9 @@ end YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel
 
 #print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.unitFiniteBistochasticQKernel
 #print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticKernelPackage
+#print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticProductionSource
+#print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkPointedBistochasticKernelPackage
 #print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticKernelPackage_weight_nonnegative
 #print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticKernelPackage_row_normalized
+#print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticProductionSource_row_normalized
 #print axioms YMGap.Continuum.SU2SlabAllValenceCrossedSchurBistochasticKernel.crossedLinkBistochasticKernelPackage_column_normalized

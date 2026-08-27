@@ -37,6 +37,20 @@ structure FiniteBistochasticQKernelPackage where
   Target : Type
   kernel : FiniteBistochasticQKernel Source Target
 
+/-- A packaged matrix together with one distinguished source row. -/
+structure PointedFiniteBistochasticQKernelPackage where
+  package : FiniteBistochasticQKernelPackage
+  source : package.Source
+
+/-- Forget the distinguished rows while retaining the exact dependent
+carrier types. -/
+def finiteBistochasticPackagesOfPointed :
+    List PointedFiniteBistochasticQKernelPackage →
+      List FiniteBistochasticQKernelPackage
+  | [] => []
+  | pointed :: points =>
+      pointed.package :: finiteBistochasticPackagesOfPointed points
+
 /-- One correctly typed source coordinate for every packaged matrix. -/
 def FiniteBistochasticSourceAssignment :
     List FiniteBistochasticQKernelPackage → Type
@@ -80,6 +94,16 @@ def finiteBistochasticProductWeight :
   | package :: _, source, target =>
       package.kernel.weight source.1 target.1 *
         finiteBistochasticProductWeight source.2 target.2
+
+/-- The explicit global source obtained by taking every distinguished local
+row in written order. -/
+def pointedFiniteBistochasticSourceAssignment :
+    (points : List PointedFiniteBistochasticQKernelPackage) →
+      FiniteBistochasticSourceAssignment
+        (finiteBistochasticPackagesOfPointed points)
+  | [] => ()
+  | pointed :: points =>
+      (pointed.source, pointedFiniteBistochasticSourceAssignment points)
 
 theorem finiteBistochasticProductWeight_nonnegative :
     {packages : List FiniteBistochasticQKernelPackage} →
@@ -218,6 +242,7 @@ end YMGap.Continuum.FiniteBistochasticQKernelProduct
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticSourceAssignments
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticTargetAssignments
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticProductWeight
+#print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.pointedFiniteBistochasticSourceAssignment
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticProductWeight_nonnegative
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticProduct_row_normalized
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelProduct.finiteBistochasticProduct_column_normalized
