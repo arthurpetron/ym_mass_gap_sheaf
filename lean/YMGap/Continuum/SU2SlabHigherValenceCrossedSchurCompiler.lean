@@ -45,26 +45,43 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. One geometric switch indexed by its actual link degree -/
 
-structure CrossedSlabSwitchData (K extent degree : Nat) where
+structure CrossedSlabSwitchPhysicalData where
   leftPhysical : SlabLabelling
   rightPhysical : SlabLabelling
+  mask : Nat → Bool
+
+structure CrossedSlabSwitchData (K extent degree : Nat) where
+  physical : CrossedSlabSwitchPhysicalData
   link : SlabLink
   leftAuxiliary : SlabLabelling
   rightAuxiliary : SlabLabelling
   leftAuxiliary_mem : leftAuxiliary ∈
-    slabLinkFusionWitnesses K extent leftPhysical link
+    slabLinkFusionWitnesses K extent physical.leftPhysical link
   rightAuxiliary_mem : rightAuxiliary ∈
-    slabLinkFusionWitnesses K extent rightPhysical link
-  mask : Nat → Bool
-  leftBounded : SlabFaceLabellingBounded K extent leftPhysical
-  rightBounded : SlabFaceLabellingBounded K extent rightPhysical
+    slabLinkFusionWitnesses K extent physical.rightPhysical link
+  leftBounded : SlabFaceLabellingBounded K extent physical.leftPhysical
+  rightBounded : SlabFaceLabellingBounded K extent physical.rightPhysical
   leftSelection : SlabLinkPartnerClosedFaceSelection
-    K extent leftPhysical link leftAuxiliary leftAuxiliary_mem
+    K extent physical.leftPhysical link leftAuxiliary leftAuxiliary_mem
   rightSelection : SlabLinkPartnerClosedFaceSelection
-    K extent rightPhysical link rightAuxiliary rightAuxiliary_mem
-  leftConstant : ∀ copy, leftSelection.selected copy = mask copy.faceId
-  rightConstant : ∀ copy, rightSelection.selected copy = mask copy.faceId
+    K extent physical.rightPhysical link rightAuxiliary rightAuxiliary_mem
+  leftConstant : ∀ copy,
+    leftSelection.selected copy = physical.mask copy.faceId
+  rightConstant : ∀ copy,
+    rightSelection.selected copy = physical.mask copy.faceId
   degree_eq : (slabIncidentPlaqIds extent link).length = degree
+
+def CrossedSlabSwitchData.leftPhysical {K extent degree : Nat}
+    (D : CrossedSlabSwitchData K extent degree) : SlabLabelling :=
+  D.physical.leftPhysical
+
+def CrossedSlabSwitchData.rightPhysical {K extent degree : Nat}
+    (D : CrossedSlabSwitchData K extent degree) : SlabLabelling :=
+  D.physical.rightPhysical
+
+def CrossedSlabSwitchData.mask {K extent degree : Nat}
+    (D : CrossedSlabSwitchData K extent degree) : Nat → Bool :=
+  D.physical.mask
 
 def higherCrossedLeftPhysical {K extent degree : Nat}
     (D : CrossedSlabSwitchData K extent degree) : SlabLabelling :=

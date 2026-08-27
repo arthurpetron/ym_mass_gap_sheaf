@@ -25,6 +25,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabObservablePairedFaceComponent
 open YMGap.Continuum.CompactDualSlabObservablePairedFaceSwitchAssignment
+open YMGap.Continuum.CompactDualSlabObservableTwoReplicaFaceSwapCertificate
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteNormalizedQKernelProduct
@@ -39,19 +40,28 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. The production switch datum at one actual link -/
 
-/-- The paired-face construction provides every field of the all-valence
-local compiler at an actual member of the slab-link enumeration. -/
-def slabObservablePairCrossedSwitchDataAtLink
+def slabObservablePairCrossedSwitchDataAtLinkWithMask
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
     (pair : SlabObservableTwoReplicaPair D rootFaceId)
     (hpair : pair ∈ slabObservableFourCellSourcePairs
       D rootFaceId targetFaceId)
-    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent}) :
+    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent})
+    (mask : Nat → Bool)
+    (leftConstant : ∀ copy,
+      (slabObservablePairLeftSelectionAtLink
+        D rootFaceId targetFaceId htarget pair hpair linked).selected copy =
+          mask copy.faceId)
+    (rightConstant : ∀ copy,
+      (slabObservablePairRightSelectionAtLink
+        D rootFaceId targetFaceId htarget pair hpair linked).selected copy =
+          mask copy.faceId) :
     CrossedSlabSwitchData D.cutoff D.extent
       (slabIncidentPlaqIds D.extent linked.1).length where
-  leftPhysical := pair.1.1.1
-  rightPhysical := pair.2.1.1
+  physical :=
+    { leftPhysical := pair.1.1.1
+      rightPhysical := pair.2.1.1
+      mask := mask }
   link := linked.1
   leftAuxiliary := slabFusionWitnessAssignmentAt linked.1 pair.1.1.2
   rightAuxiliary := slabFusionWitnessAssignmentAt linked.1 pair.2.1.2
@@ -64,21 +74,64 @@ def slabObservablePairCrossedSwitchDataAtLink
     (boundaryCompleteSlabLinks D.extent) pair.2.1.2
     (slabExpandedFineSourceEntryAssignment_mem pair.2)
     linked.1 linked.2
-  mask := slabObservableTwoReplicaPairPairedFaceSwapMask
-    D pair targetFaceId
   leftBounded := SlabObservablePositiveSourceEntry.physical_bounded pair.1
   rightBounded := SlabExpandedFineSourceEntry.physical_bounded pair.2
   leftSelection := slabObservablePairLeftSelectionAtLink
     D rootFaceId targetFaceId htarget pair hpair linked
   rightSelection := slabObservablePairRightSelectionAtLink
     D rootFaceId targetFaceId htarget pair hpair linked
-  leftConstant := by
-    intro copy
-    simp [slabObservablePairLeftSelectionAtLink]
-  rightConstant := by
-    intro copy
-    simp [slabObservablePairRightSelectionAtLink]
+  leftConstant := leftConstant
+  rightConstant := rightConstant
   degree_eq := rfl
+
+theorem slabObservablePairCrossedSwitchDataAtLinkWithMask_leftPhysical
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent})
+    (mask : Nat → Bool) (leftConstant rightConstant) :
+    higherCrossedLeftPhysical
+        (slabObservablePairCrossedSwitchDataAtLinkWithMask
+          D rootFaceId targetFaceId htarget pair hpair linked mask
+            leftConstant rightConstant) =
+      twoReplicaFaceSwapLeft mask pair.1.1.1 pair.2.1.1 := rfl
+
+theorem slabObservablePairCrossedSwitchDataAtLinkWithMask_rightPhysical
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent})
+    (mask : Nat → Bool) (leftConstant rightConstant) :
+    higherCrossedRightPhysical
+        (slabObservablePairCrossedSwitchDataAtLinkWithMask
+          D rootFaceId targetFaceId htarget pair hpair linked mask
+            leftConstant rightConstant) =
+      twoReplicaFaceSwapRight mask pair.1.1.1 pair.2.1.1 := rfl
+
+/-- The paired-face construction provides every field of the all-valence
+local compiler at an actual member of the slab-link enumeration. -/
+def slabObservablePairCrossedSwitchDataAtLink
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (pair : SlabObservableTwoReplicaPair D rootFaceId)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs
+      D rootFaceId targetFaceId)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks D.extent}) :
+    CrossedSlabSwitchData D.cutoff D.extent
+      (slabIncidentPlaqIds D.extent linked.1).length :=
+  slabObservablePairCrossedSwitchDataAtLinkWithMask
+    D rootFaceId targetFaceId htarget pair hpair linked
+    (slabObservableTwoReplicaPairPairedFaceSwapMask D pair targetFaceId)
+    (by
+      intro copy
+      simp [slabObservablePairLeftSelectionAtLink])
+    (by
+      intro copy
+      simp [slabObservablePairRightSelectionAtLink])
 
 /-! ## 2. Map the local compiler over the literal slab enumeration -/
 

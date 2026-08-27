@@ -25762,3 +25762,39 @@ accepted global auxiliary assignments without repeatedly unfolding the large
 valence-indexed package.  After that, the independent global column-capacity
 and paired-union connected-residue bounds remain before any beta/spacing OS
 comparison, completed gap, continuum construction, or Clay theorem.
+
+## 202. Every whole-slab right-tree target is an accepted physical target pair (2026-08-27)
+
+**Status. THE PHYSICAL REALIZATION CERTIFICATE IS INHABITED; GLOBAL COLUMN
+CAPACITY AND THE PAIRED-UNION CONNECTED-RESIDUE BOUND REMAIN OPEN.**
+
+`SU2SlabHigherValenceCrossedSchurCompiler.lean` now groups the two source
+physical fields and their face mask into one small physical core.  The
+production switch module exposes a mask-parametric constructor, so the
+geometric face-swap equalities are proved once with an abstract mask instead
+of normalizing the proof-heavy link certificate.
+
+`SU2SlabGlobalRecouplingWitnessRealization.lean` maps a small proof-carrying
+realized package over the literal boundary-complete slab links.  A structural
+dependent fold turns every whole-slab target assignment into two accepted
+global fusion-witness assignments.  The crossed physical fields remain in the
+literal cutoff carrier; attaching the assignments therefore gives an actual
+two-replica production target.  The canonical paired-component mask fixes the
+root on separated sources and swaps the target, which proves membership in
+the exact opposite Boolean four-cell.  Consequently
+`slabObservableRecouplingTargetRealization` inhabits the formerly open
+`SlabObservableRecouplingTargetRealization` structure.
+
+The focused monitored source checks pass.  All printed load-bearing
+declarations use only `[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.
+
+The next causal theorem is the global no-overload inequality
+`SlabObservableRecouplingColumnCapacity` for this explicit realization.  It
+is a collision estimate across different separated physical sources, not a
+local row/column normalization statement.  After it, the exact paired-union
+connected residue still needs a volume/cutoff estimate, followed by an
+explicit beta/lattice-spacing trajectory, OS contraction, completed gap, and
+the thermodynamic and continuum constructions.  No such later claim is made
+here.

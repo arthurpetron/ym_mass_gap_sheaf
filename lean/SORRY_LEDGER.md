@@ -20651,7 +20651,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   beta-uniform contraction, completed spectral gap, continuum construction,
   or Clay theorem.
 
-### [su2-slab-fractional-switch-capacity] Replace deterministic decoding by dependent fractional transport -- **CONDITIONAL CONTRACTION ALGEBRA CLOSED 2026-08-27**
+### [su2-slab-fractional-switch-capacity] Replace deterministic decoding by dependent fractional transport -- **PHYSICAL REALIZATION CLOSED; CAPACITY AND RESIDUE OPEN 2026-08-27**
 
 - **milestone**: push source-dependent finite stochastic rows through a common
   target realization; prove exact total-mass domination from column capacity;
@@ -20670,10 +20670,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `SlabObservableRecouplingTargetRealization.weight_preserved`,
   `slabObservablePairedFaceSeparatedFourCellSourcePairs_weight_le`, and
   `slabObservableFourCell_defect_le_pairedConnected_of_recoupling`.
-- **obligations**: construct the physical right-tree realization; prove its
-  global column-capacity inequality; and bound the exact
+- **obligations**: prove the global column-capacity inequality for the now
+  explicit physical realization, and bound the exact
   `slabObservablePairedFaceConnectedFourCellSourcePairs` residue.  These are
-  three independent frontiers.  Their joined anchor theorem must subsequently
+  two independent frontiers.  Their joined anchor theorem must subsequently
   be placed on an explicit bare-coupling/lattice-spacing trajectory and tied
   to the production OS observable.
 - **constructive?**: yes.  Dependent finite Fubini and deterministic
@@ -20685,9 +20685,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   clean; the concrete target build completes successfully but its post-write
   `LibrarySuggestions` linter emits a deterministic heartbeat panic on the
   large dependent declarations.  All printed declarations use at most
-  `[propext, Quot.sound]`.  The two certificate structures are deliberately
-  uninhabited; therefore no physical switch, paired-residue rate,
-  beta-uniform gap, continuum construction, or Clay theorem is claimed.
+  `[propext, Quot.sound]`.  The column-capacity certificate remains
+  uninhabited; therefore no paired-residue rate, beta-uniform gap, continuum
+  construction, or Clay theorem is claimed.
 
 #### Local realization update (2026-08-27)
 
@@ -20701,6 +20701,18 @@ realization obligation is only the structural whole-slab assembly of those
 local witnesses into attached expanded target entries.  The independent
 global column-capacity inequality and paired-union connected-residue bound
 remain open.  No `sorry` is introduced by the local closure.
+
+#### Whole-slab physical realization update (2026-08-27)
+
+`SU2SlabGlobalRecouplingWitnessRealization` now folds those local witnesses
+over the literal production link list, attaches the resulting accepted global
+assignments to the canonical crossed physical fields, proves membership in
+the exact opposite Boolean four-cell, and inhabits
+`SlabObservableRecouplingTargetRealization`.  The remaining load-bearing
+certificate in this ledger entry is
+`SlabObservableRecouplingColumnCapacity`; the paired-union connected-residue
+estimate is independently open.  The focused check reports only
+`[propext, Quot.sound]`, with no new `sorry`.
 
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
