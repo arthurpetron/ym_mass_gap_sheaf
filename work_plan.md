@@ -26049,3 +26049,35 @@ The focused monitored check and dependency-complete build pass.  Every
 printed load-bearing declaration uses only `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+## 210. Remove source-anchor dependence from target realization (2026-08-27)
+
+**Status. EQUAL-RANK TARGET RECODING AND BOTH RECONSTRUCTED LOCAL WITNESSES
+ARE CANONICAL FOR A FIXED PHYSICAL PAIR AND TARGET COLUMN; TARGET-COLUMN
+FAITHFULNESS AND GLOBAL PUSHFORWARD CAPACITY REMAIN OPEN.**
+
+`FiniteBistochasticRankReindex.lean` now proves that an in-range positional
+lookup never inspects its fallback.  Since every literal target of a finite
+bistochastic kernel has rank below the target-list length and the source and
+target lengths agree, equal-rank target-to-source recoding is independent of
+the supplied source fallback.
+
+`SU2SlabPhysicalPairRecouplingTargetAnchorIndependence.lean` applies that
+finite theorem to every degree-zero-through-six physical-pair recoupling
+package.  At degrees zero through three the existing production-row decoder
+shows all accepted local auxiliary witnesses are unique.  At degrees four
+through six the canonical reconstructed witnesses depend only on the
+equal-rank complete source carrier.  Therefore neither reconstructed
+auxiliary field depends on the contributor row used to anchor target
+realization.
+
+The next finite edge is faithfulness rather than existence: prove that two
+target columns which reconstruct the same accepted pair are equal, lift that
+fact through the heterogeneous slab product, and then identify every
+physical pushforward fiber with one normalized column.  The connected
+residue, beta/lattice-spacing trajectory, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem remain open.
+
+Focused monitored checks use only `[propext, Quot.sound]`.  No `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.

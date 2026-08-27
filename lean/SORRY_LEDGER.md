@@ -20855,6 +20855,25 @@ target column.  The paired-support connected residue and all beta/spacing,
 Gibbs/OS, completed-gap, continuum, and Clay obligations remain open.  No
 `sorry` is introduced.
 
+#### Target-realization source-anchor independence update (2026-08-27)
+
+`FiniteBistochasticRankReindex` proves that lookup below a finite list's
+length is independent of its total fallback.  Carrier balance and literal
+target membership therefore make equal-rank target-to-source recoding
+canonical.  `SU2SlabPhysicalPairRecouplingTargetAnchorIndependence` applies
+this to the degree-zero-through-six physical-pair matrices and proves that
+both reconstructed accepted local witnesses are independent of the source
+row used to anchor realization.
+
+The artificial source-anchor ambiguity is closed.  The next missing finite
+fact is target faithfulness: reconstructing equal accepted target assignments
+must imply equality of the abstract target columns, first locally and then
+through the slab product.  Only then can the concrete physical-fiber bound
+be rewritten as the realized dependent-kernel column capacity.  The
+paired-support connected residue and every beta/spacing, Gibbs/OS,
+completed-gap, continuum, and Clay obligation remain open.  No `sorry` is
+introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

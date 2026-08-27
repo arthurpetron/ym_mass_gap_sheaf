@@ -55,13 +55,16 @@ def slabPhysicalPairRecouplingTargetDecidableEq {extent : Nat} :
         unitFiniteBistochasticQKernelPackage]
       infer_instance
   | 4, _ => by
-      simp only [slabPhysicalPairRecouplingKernelPackage]
+      simp only [slabPhysicalPairRecouplingKernelPackage,
+        slabPhysicalPairRecouplingKernelPackageFour]
       infer_instance
   | 5, _ => by
-      simp only [slabPhysicalPairRecouplingKernelPackage]
+      simp only [slabPhysicalPairRecouplingKernelPackage,
+        slabPhysicalPairRecouplingKernelPackageFive]
       infer_instance
   | 6, _ => by
-      simp only [slabPhysicalPairRecouplingKernelPackage]
+      simp only [slabPhysicalPairRecouplingKernelPackage,
+        slabPhysicalPairRecouplingKernelPackageSix]
       infer_instance
   | degree + 7, D => False.elim (by
       have hdegree := D.degree_le_six

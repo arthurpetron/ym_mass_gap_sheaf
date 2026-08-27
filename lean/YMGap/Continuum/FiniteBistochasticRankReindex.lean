@@ -57,8 +57,20 @@ theorem listAtRank_mem_of_lt {A : Type} (fallback : A) :
   | _ :: _, 0, _ => List.mem_cons_self
   | head :: tail, rank + 1, hlt =>
       List.mem_cons_of_mem head
-        (listAtRank_mem_of_lt fallback tail rank
+      (listAtRank_mem_of_lt fallback tail rank
           (Nat.lt_of_succ_lt_succ hlt))
+
+/-- Below the written length, positional lookup never inspects its fallback. -/
+theorem listAtRank_fallback_independent {A : Type}
+    (leftFallback rightFallback : A) :
+    ∀ (items : List A) (rank : Nat), rank < items.length →
+      listAtRank leftFallback items rank =
+        listAtRank rightFallback items rank
+  | [], rank, hlt => False.elim (Nat.not_lt_zero rank hlt)
+  | _ :: _, 0, _ => rfl
+  | _ :: tail, rank + 1, hlt =>
+      listAtRank_fallback_independent leftFallback rightFallback
+        tail rank (Nat.lt_of_succ_lt_succ hlt)
 
 theorem listAtRank_listRank_eq_of_mem {A : Type} [DecidableEq A]
     (fallback needle : A) : ∀ {items : List A},
@@ -147,6 +159,20 @@ theorem equalRankReindex_injective {Source Target : Type}
     _ = listAtRank left targets (listRank right targets) := by rw [hranks]
     _ = right := listAtRank_listRank_eq_of_mem left right hright
 
+/-- Equal-rank reindexing is canonical on the enumerated target carrier: the
+source fallback is used only outside that carrier. -/
+theorem equalRankReindex_fallback_independent
+    {Source Target : Type} [DecidableEq Target]
+    (leftFallback rightFallback : Source)
+    (sources : List Source) (targets : List Target)
+    (hlength : sources.length = targets.length)
+    (target : Target) (htarget : target ∈ targets) :
+    equalRankReindex leftFallback sources targets target =
+      equalRankReindex rightFallback sources targets target := by
+  apply listAtRank_fallback_independent
+  rw [hlength]
+  exact listRank_lt_length_of_mem target htarget
+
 /-! ## 3. Canonical recoding supplied by a bistochastic kernel -/
 
 def FiniteBistochasticQKernel.targetToSourceAtEqualRank
@@ -183,13 +209,33 @@ theorem FiniteBistochasticQKernel.targetToSourceAtEqualRank_injective
       kernel)
     hleft hright heq
 
+/-- The kernel-level equal-rank target code does not depend on the supplied
+source fallback at any literal target column. -/
+theorem FiniteBistochasticQKernel.targetToSourceAtEqualRank_fallback_independent
+    {Source Target : Type} [DecidableEq Target]
+    (kernel : FiniteBistochasticQKernel Source Target)
+    (leftFallback rightFallback : Source)
+    (target : Target) (htarget : target ∈ kernel.targets) :
+    FiniteBistochasticQKernel.targetToSourceAtEqualRank
+        kernel leftFallback target =
+      FiniteBistochasticQKernel.targetToSourceAtEqualRank
+        kernel rightFallback target :=
+  equalRankReindex_fallback_independent
+    leftFallback rightFallback kernel.sources kernel.targets
+    (FiniteBistochasticCarrierBalance.FiniteBistochasticQKernel.sources_length_eq_targets_length
+      kernel)
+    target htarget
+
 #print axioms listRank_lt_length_of_mem
 #print axioms listAtRank_mem_of_lt
+#print axioms listAtRank_fallback_independent
 #print axioms listAtRank_listRank_eq_of_mem
 #print axioms listRank_listAtRank_eq_of_lt
 #print axioms equalRankReindex_mem
 #print axioms equalRankReindex_injective
+#print axioms equalRankReindex_fallback_independent
 #print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_mem
 #print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_injective
+#print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_fallback_independent
 
 end YMGap.Continuum.FiniteBistochasticRankReindex
