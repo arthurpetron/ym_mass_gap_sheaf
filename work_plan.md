@@ -25918,3 +25918,36 @@ only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No beta-uniform gap, completed OS gap,
 continuum construction, or Clay theorem is claimed.
+
+## 206. Realize every common-matrix target column physically (2026-08-27)
+
+**Status. LOCAL AND WHOLE-SLAB TARGET-COLUMN WITNESS REALIZATION ARE CLOSED;
+SOURCE-ENUMERATION MEMBERSHIP AND THE FINAL COLUMN-CAPACITY INEQUALITY REMAIN
+OPEN.**
+
+`SU2SlabPhysicalPairRecouplingTargetRealization.lean` proves that every target
+of each degree-zero-through-six physical-pair matrix belongs to its literal
+target enumeration.  Constructive equal-rank reindexing sends that target to
+a complete left carrier, and canonical left-carrier reconstruction produces
+two accepted local auxiliary labellings over the fixed physical fields.  An
+existing accepted row anchors the finite rank reindexing and supplies the
+unique trivial witness at degrees zero through three.
+
+`SU2SlabPhysicalPairRecouplingTargetProduct.lean` maps this local compiler
+over the boundary-complete slab links.  A structural dependent fold realizes
+every target assignment of the common product matrix as two complete global
+auxiliary assignments.  Exact package and link-list equalities transport the
+result back to the production `slabFineFusionWitnesses` carrier.
+
+Thus both sides of the intended column argument now have literal physical
+meaning: paired-support contributors inject into production rows, and every
+target column has accepted witness assignments.  The remaining finite edge
+is source-list accounting.  Isolate fixed-valence source views, prove the
+production rows occur in the product kernel's `sources`, and feed the existing
+row injection into `listQSum_le_of_injective` and exact column normalization.
+
+Focused monitored checks pass and every printed declaration uses only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No Gibbs/OS comparison, beta-uniform gap,
+continuum construction, or Clay theorem is claimed.

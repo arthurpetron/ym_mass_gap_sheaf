@@ -2931,6 +2931,8 @@ import YMGap.Continuum.CompactDualSlabObservablePairedSupportWholeLinkSwitch
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingKernel
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportRecouplingProduct
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

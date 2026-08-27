@@ -20781,6 +20781,24 @@ column, and only then invoke column normalization.  The paired-support
 connected residue and all beta/spacing, OS, completed-gap, continuum, and
 Clay obligations remain open.
 
+#### Physical-only target-column witness realization (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingTargetRealization` proves literal target
+completeness for every local degree zero through six, recodes each target by
+equal finite rank, and reconstructs two accepted local production witnesses
+over the fixed physical pair.  `SU2SlabPhysicalPairRecouplingTargetProduct`
+lifts this construction over every boundary-complete slab link and assembles
+two accepted global auxiliary assignments for every target column of the
+common physical-only product matrix.
+
+No target-realization hypothesis remains at this finite stage.  The open
+column-capacity edge is now source-side accounting only: show that each
+injectively coded contributor row belongs to the product kernel's written
+`sources`, then apply the constructive weighted-injection theorem and exact
+column normalization.  The paired-support connected residue and all
+beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay obligations remain
+open.  No `sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal
