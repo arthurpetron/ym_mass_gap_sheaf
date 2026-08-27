@@ -2461,6 +2461,7 @@ import YMGap.Continuum.BF4PhysicalFiniteVacuumSectorResistanceCauchy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 import YMGap.Continuum.BF4PhysicalVacuumSectorBoundaryTransform
 import YMGap.Continuum.BF4PhysicalVacuumSectorConditionalVariance
+import YMGap.Continuum.BF4PhysicalVacuumSectorConditionalVarianceGapBridge
 import YMGap.Continuum.SU2TrivalentStrandPeeling
 import YMGap.Continuum.CompactDualSlabLinkStrandResolution
 import YMGap.Continuum.SU2TrivalentStrandPortPairing
@@ -2959,6 +2960,7 @@ import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalStep
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeeling
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingInjective
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass
+import YMGap.Continuum.CompactDualSlabObservableFaceEventLaw
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

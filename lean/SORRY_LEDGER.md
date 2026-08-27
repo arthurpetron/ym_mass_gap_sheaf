@@ -18123,6 +18123,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   executable forbidden-token scan reports zero hits and `git diff --check`
   passes.  No full-root audit is claimed.
 
+### [bf4-vacuum-sector-conditional-variance-gap-bridge] Compile a variance fraction into the exact finite OS form rate -- **PROVED REDUCTION / FRACTION OPEN 2026-08-27**
+
+- **milestone**: prove that the finite physical BF4 conditional-variance
+  margin `epsilon` is exactly equivalent to the same-object relative form
+  rate `1 - epsilon`; package a positive at-most-one fraction as explicit
+  `Type`-level data returning the strict rational rate and every finite
+  mean-zero form inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorConditionalVarianceGapBridge.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSector_formBound_iff_halfConditionalVarianceMargin`,
+  `CentralPhysicalFiniteConditionalVarianceGapData`,
+  `CentralPhysicalFiniteConditionalVarianceGapData.rate_nonnegative`,
+  `CentralPhysicalFiniteConditionalVarianceGapData.rate_lt_one`,
+  `CentralPhysicalFiniteConditionalVarianceGapData.formBound`, and
+  `CentralPhysicalFiniteConditionalVarianceGapData.toStrictFormGap`.
+- **obligation**: inhabit the data with a positive fraction uniform in the
+  representation cutoff and then compatible with the physical volume and
+  lattice-spacing trajectory.  The exact compiler constructs no fraction
+  and claims no beta, volume, cutoff, or spacing uniformity.
+- **constructive?**: yes.  The strict rate is returned as rational data in a
+  sigma package, and the proof uses only exact setoid order algebra plus the
+  proved finite law of total variance.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, functional extensionality, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  The five audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  A dependency-aware root build was attempted and safely stopped
+  when available memory reached the launcher's 12 GiB OS reserve; it is not
+  claimed as a pass.  The separately imported observable capstone also
+  passes its focused monitored check within the same axiom gate.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of
