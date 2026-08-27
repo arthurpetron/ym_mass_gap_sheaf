@@ -20442,3 +20442,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   algebra requiring at most `propext`.  This is exact finite SU(2)
   representation theory, not a Gibbs conditional estimate, OS form bound,
   completed spectral gap, continuum QFT, or Clay theorem.
+
+### [su2-valence-five-common-carrier-first-block] Align the first valence-five associator on complete finite carriers -- **FIRST GLOBAL MOVE CLOSED; SECOND MOVE OPEN 2026-08-26**
+
+- **milestone**: define common proof-carrying left, middle, and final
+  valence-five basis types; embed the existing fixed-source dependent path;
+  prove its old iterated weight factors through the canonical common middle
+  point; enumerate every admissible transient-output sector; zero-extend the
+  first Schur move between distinct sectors; and prove exact global row and
+  column mass one.
+- **files**:
+  `lean/YMGap/Continuum/SU2ValenceFiveCommonAssociatorCarrier.lean` and
+  `lean/YMGap/Continuum/SU2ValenceFiveFirstBistochasticBlock.lean`.
+- **principal declarations**:
+  `ValenceFiveLeftCarrier`, `ValenceFiveMiddleCarrier`,
+  `ValenceFiveRightCarrier`,
+  `valenceFiveIteratedSchurKernelAt_common_path`,
+  `valenceFiveTransientOutputs`, `valenceFiveLeftCarriers`,
+  `valenceFiveMiddleCarriers`, `valenceFiveFirstKernelAt`,
+  `valenceFiveFirstKernel_row_normalized`,
+  `valenceFiveFirstKernel_column_normalized`, and
+  `valenceFiveFirstBistochasticKernel`.
+- **obligation**: enumerate the final carrier by fixed physical intermediate
+  `m`; prove that the common middle fiber at fixed `m` is constructively the
+  canonical `fixedLeftChannels a m d e` carrier; derive second-block column
+  normalization; then compose the two blocks on their literally identical
+  middle list and instantiate the completed matrix on production slab data.
+  The later Gibbs/OS comparison must name beta and lattice spacing explicitly.
+- **constructive?**: yes.  Every carrier is a bounded filtered list with
+  proof-carrying fusion witnesses, sector selection is decidable, and every
+  sum uses exact `Q'` algebra.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: both focused monitored checks and the 838-job targeted
+  build pass; all printed declarations use only `[propext, Quot.sound]`.
+  This closes the common-carrier factorization and first finite SU(2) move,
+  not the second move, composed valence-five matrix, Gibbs conditional
+  comparison, beta-uniform posterior estimate, OS form bound, completed gap,
+  continuum QFT, or Clay theorem.

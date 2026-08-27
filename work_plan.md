@@ -25401,3 +25401,40 @@ forget the transient left-tree intermediate and zero-extend inadmissible
 local windows before the composition theorem applies.  The next frontier is
 therefore an all-source/all-target valence-five carrier and its two aligned
 bistochastic moves, not a cosmetic column sum over the existing path type.
+
+## 191. The first valence-five associator block has a common finite carrier (2026-08-26)
+
+**Status. COMMON SOURCE/MIDDLE/FINAL TYPES AND THE FIRST GLOBAL
+BISTOCHASTIC MOVE ARE CLOSED; THE SECOND MOVE ON THAT SAME MIDDLE LIST IS
+OPEN.**
+
+`SU2ValenceFiveCommonAssociatorCarrier.lean` replaces the old fixed-source
+dependent path by three proof-carrying basis types.  A left state records
+`((a,b),c) -> y` and `y,d -> e`; a middle state records
+`(a,(b,c)) -> y` with the same suffix; and a final state records
+`b,c -> m` and `(a,(m,d)) -> e`.  The existing dependent two-step row embeds
+in these carriers, and its pointwise weight is exactly the product of the two
+aligned local Schur entries through its canonical middle state.
+
+`SU2ValenceFiveFirstBistochasticBlock.lean` enumerates every admissible
+transient output `y`, then flat-maps the complete canonical left and right
+channel lists in each sector.  The first associator is zero between different
+`y` sectors.  Exact deterministic-sector sums reduce every global row and
+column to the already proved local physical Schur laws, producing
+`valenceFiveFirstBistochasticKernel` on the complete left and common-middle
+lists.
+
+Both focused monitored checks and the 838-job targeted build pass.  All
+printed declarations use only `[propext, Quot.sound]`.  No `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is the second global move.  Its rows are local Schur
+rows in fixed `(b,c)`-intermediate `m` sectors.  Its columns require a
+constructive reindexing of the common middle states at fixed `m` with the
+canonical `fixedLeftChannels a m d e` list.  Once that theorem is proved, the
+two written kernels share literally the same middle list and the abstract
+composition theorem yields the complete valence-five bistochastic matrix.
+This remains finite SU(2) representation theory; it does not supply a
+beta-dependent Gibbs comparison, an OS form bound, a completed spectral gap,
+continuum QFT, or the Clay theorem.
