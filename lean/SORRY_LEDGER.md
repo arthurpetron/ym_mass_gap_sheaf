@@ -19447,3 +19447,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   public declarations use at most `[propext, Quot.sound]`.  The rate is fixed
   at `anchorCoupling`; this is not an all-beta bound, a physical covariance
   theorem, an OS spectral gap, a continuum QFT, or the Clay theorem.
+
+### [compact-dual-slab-observable-two-replica-switch-reduction] Reduce the four-cell defect to one exact disconnected switch -- **DOWNSTREAM FOUR-CELL REDUCTION CLOSED; SWITCH INHABITANT AND OS OBSERVABLE PIN OPEN 2026-08-26**
+
+- **milestone**: enumerate the literal `11 x 00` and `10 x 01` two-replica
+  cells of the exact expanded SU(2) carrier; factor both weights by finite
+  Cartesian Fubini; partition the source cell into disconnected and connected
+  rooted-component parts; isolate the unavailable switch as explicit
+  encode/decode data; prove separated-pair cancellation from that data; bound
+  the connected pair residue by `connectedWeight * physicalPartition`; and
+  consume the proved connected-event rate to obtain a conditional geometric
+  four-cell defect.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableTwoReplicaSwitchReduction.lean`.
+- **principal declarations**:
+  `SlabExpandedFineSourceEntry.eq_of_key_eq`,
+  `slabObservableFourCellSourcePairs_weight_product`,
+  `slabObservableFourCellTargetPairs_weight_product`,
+  `slabObservableFourCellSourcePairs_partition`,
+  `slabObservableConnectedFourCellSourcePairs_weight_le`,
+  `SlabObservableDisconnectedSwitchCertificate`,
+  `slabObservableSeparatedFourCellSourcePairs_weight_le`,
+  `slabObservableFourCellSourcePairs_weight_le_connected`, and
+  `slabObservableFourCell_defect_le_anchorRate_of_switch`.
+- **obligation**: inhabit
+  `SlabObservableDisconnectedSwitchCertificate` by an actual component switch
+  on the paired accepted SU(2) fine-intertwiner carrier.  The construction must
+  preserve target-cell membership, possess the supplied decoder on every
+  disconnected source, and preserve the exact full product weight.  After
+  that finite combinatorial obligation, separately identify the four-cell
+  positive-spin defect with a centered gauge-invariant link-cylinder
+  observable or same-object OS transfer matrix element.  Neither obligation
+  is discharged by this entry.
+- **constructive?**: yes.  The open object is Type-level data with explicit
+  encoder and decoder, not a `Prop` existential or the desired inequality.
+  The proved reduction uses finite Boolean filters, exact Cartesian Fubini,
+  constructive finite injections, and the milestone-164 connected-event
+  estimate only.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build of 956 jobs pass.  All twelve printed
+  declarations use only `[propext, Quot.sound]`.  The conditional rate is
+  fixed at `anchorCoupling`; there is no certificate inhabitant, no
+  unconditional covariance bound, no OS form identification, no all-beta
+  statement, no completed gap, no continuum QFT, and no Clay theorem.

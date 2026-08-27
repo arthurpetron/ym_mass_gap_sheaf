@@ -24297,3 +24297,66 @@ observable (or the relevant OS transfer matrix element) with a same-component
 event controlled by this theorem.  Without that declaration this is not yet
 a covariance bound or spectral gap.  All-beta/lattice-spacing control, the
 completed OS gap, continuum passage, and the Clay theorem remain open.
+
+## 165. The SU(2) two-replica four-cell reduction is exact after one recoverable switch (2026-08-26)
+
+**Status. THE COMPLETE FINITE FOUR-CELL ALGEBRA NOW CONTRACTS THE PREVIOUS
+CONNECTED-EVENT DECAY INTO A BOOLEAN TWO-FACE DEFECT.  THE SOLE MISSING
+FINITE COMBINATORIAL INPUT IS AN EXPLICIT RECOVERABLE, WEIGHT-PRESERVING
+SWITCH ON DISCONNECTED EXPANDED SU(2) PAIRS; NO INHABITANT IS CLAIMED.**
+
+`CompactDualSlabObservableTwoReplicaSwitchReduction.lean` attaches the exact
+expanded carrier using its existing finite-support key, obtaining
+constructive decidable equality without comparing function-valued physical
+labellings extensionally.  It then builds the literal determinant cells
+
+```text
+source = 11 x 00,
+target = 10 x 01,
+```
+
+for positive physical spin at a root face and a target face.  Exact Cartesian
+Fubini identifies their weights with the corresponding products of four cell
+masses.  The source list partitions exactly into pairs whose first replica's
+canonical root component reaches the target plaquette and pairs for which it
+does not.
+
+The new Type-level
+`SlabObservableDisconnectedSwitchCertificate` is the minimal open finite
+input.  It carries an encoder, decoder, target-cell membership, left-inverse
+recovery on every disconnected source pair, and exact preservation of the
+full two-replica physical-plus-intertwiner product weight.  Its fields do not
+state a covariance inequality, and this module constructs no inhabitant.
+
+Everything downstream is proved.  A certificate injects the separated
+source weight into the opposite cell.  Independently of the certificate, the
+connected two-replica residue injects into
+
+```text
+(all first-replica connected entries) x (all second-replica entries),
+```
+
+so its weight is at most `connectedWeight * physicalPartition`.  Combining
+this with milestone 164 gives the checked conditional defect estimate
+
+```text
+W11 * W00
+  <= W10 * W01
+     + ((25/17) * (8/25)^(linfDist(root,target)+1)) * Z * Z.
+```
+
+The focused monitored source check and the dependency-complete target build
+of 956 jobs pass.  All twelve printed declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier has two honest serial parts.  First, construct the
+certificate by switching complete target-containing strand components between
+the two accepted fine-intertwiner assignments while preserving admissibility,
+the four Boolean cells, and the exact product weight.  Second, identify the
+resulting positive-spin four-cell defect with a centered gauge-invariant
+link-cylinder observable or a same-object OS transfer form.  The current
+theorem is conditional on the first part and does not perform the second.
+All-beta/lattice-spacing control, the completed OS gap, continuum passage,
+and the Clay theorem remain open.
