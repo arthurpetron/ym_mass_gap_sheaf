@@ -803,6 +803,62 @@ theorem couplingParametricPinnedFullFaceThermodynamicValue_le_one
   exact couplingParametricPinnedFullFaceDiagonalSequence_le_one
     hcoupling stage
 
+/-- Removing the component truncation does not change the thermodynamic
+constructive real.  The two diagonal sequences differ at stage `s` by the
+explicit omitted-component tail, and that tail tends to zero with a witnessed
+dyadic modulus. -/
+theorem couplingParametricPinnedFullFaceThermodynamicValue_equiv_truncationDiagonal
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling) :
+    CReal.Equiv
+      (couplingParametricPinnedFullFaceThermodynamicValue
+        coupling hcoupling hle)
+      (couplingParametricPinnedFaceThermodynamicValue
+        coupling hcoupling hle) := by
+  intro epsilon hepsilon
+  let tolerance := HalfPow.half * epsilon
+  have htolerance : (0 : Q') < tolerance :=
+    ExpNeg.half_mul_pos epsilon hepsilon
+  refine ⟨tolerance.den, fun stage hstage => ?_⟩
+  obtain ⟨offset, hoffset⟩ := Nat.exists_eq_add_of_le hstage
+  have hhalf : HalfPow.half ^ stage ≤
+      HalfPow.half ^ tolerance.den := by
+    rw [hoffset]
+    exact ExpNeg.pow_half_antitone tolerance.den offset
+  have hhalfTolerance : HalfPow.half ^ tolerance.den ≤ tolerance :=
+    HalfPow.pow_half_le tolerance htolerance
+  have htwoHalf : Q'.ofNat 2 * HalfPow.half ^ stage ≤
+      Q'.ofNat 2 * tolerance :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _
+      (Q'.le_trans' _ _ _ hhalf hhalfTolerance) (by decide)
+  have hcollapse : Q'.ofNat 2 * tolerance ≈ epsilon := by
+    refine Q'.eqv_trans _ (tolerance + tolerance) _
+      (ExpNeg.two_mul_eqv tolerance) ?_
+    dsimp only [tolerance]
+    exact ExpNeg.two_halves epsilon
+  have htail :
+      Q'.abs
+          (couplingParametricPinnedFullFaceDiagonalSequence
+              coupling hcoupling stage -
+            couplingParametricPinnedFaceDiagonalSequence
+              coupling hcoupling stage) ≤ epsilon := by
+    refine Q'.le_trans' _ _ _
+      (couplingParametricPinnedFullFaceDiagonalSequence_abs_sub_truncated_le
+        hcoupling hle stage)
+      (Q'.le_trans' _ _ _
+        (pinned_face_tail_le_two_mul_half_pow stage)
+        (Q'.le_trans' _ _ _ htwoHalf (Q'.le_of_eqv hcollapse)))
+  change
+    couplingParametricPinnedFullFaceDiagonalSequence
+        coupling hcoupling stage ≤
+      couplingParametricPinnedFaceDiagonalSequence
+          coupling hcoupling stage + epsilon ∧
+    couplingParametricPinnedFaceDiagonalSequence
+        coupling hcoupling stage ≤
+      couplingParametricPinnedFullFaceDiagonalSequence
+          coupling hcoupling stage + epsilon
+  exact two_sided_add_of_abs_sub_le_local htail
+
 #print axioms pinnedFaceCommonSmallRoots_length
 #print axioms pinnedFaceDiagonalBoundaryTolerance_pos
 #print axioms pinnedFaceDiagonalBoundaryEpsilon_le_half_pow
@@ -817,5 +873,6 @@ theorem couplingParametricPinnedFullFaceThermodynamicValue_le_one
 #print axioms couplingParametricPinnedFullFaceThermodynamicValue
 #print axioms couplingParametricPinnedFullFaceThermodynamicValue_nonnegative
 #print axioms couplingParametricPinnedFullFaceThermodynamicValue_le_one
+#print axioms couplingParametricPinnedFullFaceThermodynamicValue_equiv_truncationDiagonal
 
 end YMGap.Continuum.Z4CanonicalCentralFaceDiagonal

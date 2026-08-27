@@ -18604,13 +18604,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `couplingParametricPinnedFullFaceDiagonalSequence`,
   `couplingParametricPinnedFullFaceDiagonalSequence_abs_sub_truncated_le`,
   `couplingParametricPinnedFullFaceDiagonalSequence_pair_abs_le`, and
-  `couplingParametricPinnedFullFaceThermodynamicValue`.
+  `couplingParametricPinnedFullFaceThermodynamicValue`, together with
+  `couplingParametricPinnedFullFaceThermodynamicValue_equiv_truncationDiagonal`.
 - **obligation**: identify this exact thermodynamic full-face probability (and
   its connected two-face version) with the same-object two-step
-  Osterwalder-Schrader autocorrelation.  That bridge is needed before dyadic
-  moment removal can produce a relative OS form bound.  Beta/lattice-spacing
-  uniformity, the completed gap, continuum construction, and Clay theorem
-  remain open.
+  Osterwalder-Schrader autocorrelation.  The full-face sequence is now proved
+  `CReal.Equiv` to its causal truncation diagonal, so the next honest edge is
+  the quasi-local observable realization in the same completed OS carrier.
+  The independent strong-coupling completed OS form and operator-norm gaps are
+  already proved elsewhere; their beta/lattice-spacing trajectory, continuum
+  construction, and Clay conclusion remain open.
 - **constructive?**: yes.  Every schedule is an explicit `Nat` function;
   common comparison objects are `max`/sum rather than chosen limits; both
   Cauchy moduli are witnessed by denominators of positive rationals.  No
