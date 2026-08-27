@@ -1665,6 +1665,7 @@ import YMGap.Continuum.SU2ValenceFiveIteratedSchurTransport
 import YMGap.Continuum.SU2ValenceSixIteratedSchurTransport
 import YMGap.Continuum.SU2SlabHigherValenceCrossedSchurCompiler
 import YMGap.Continuum.SU2SlabAllValenceCrossedSchurKernel
+import YMGap.Continuum.FiniteNormalizedQKernelProduct
 import YMGap.Continuum.SU2OrderedRacahStretchedSquare
 import YMGap.Continuum.SU2OrderedRacahNearStretchedTwoTerm
 import YMGap.Continuum.SU2OrderedRacahNearStretchedCrossNormalization

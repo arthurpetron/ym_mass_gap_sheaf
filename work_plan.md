@@ -25204,3 +25204,35 @@ choice from each link's possibly different local carrier, multiply its exact
 weights, and prove total mass one by finite Fubini.  It must then be
 instantiated on the actual slab-link list before comparing the recoupling law
 with the original spin-foam/Gibbs weight.
+
+## 185. Heterogeneous finite normalized kernels now multiply constructively (2026-08-26)
+
+**Status. THE GLOBAL DEPENDENT-PRODUCT COMPILER IS CLOSED ABSTRACTLY; ACTUAL
+SLAB-LINK INSTANTIATION IS OPEN.**
+
+`FiniteNormalizedQKernelProduct.lean` defines
+`FiniteKernelAssignment kernels` by structural recursion: the empty list has
+the unit target, while a nonempty list has the head kernel's internal target
+type paired with the recursively typed tail.  Thus local valence-dependent
+Schur carriers remain visible and no existential target is decoded by choice.
+`finiteKernelAssignments` explicitly enumerates the complete dependent
+Cartesian product, and `finiteKernelAssignmentWeight` multiplies the selected
+exact rational weights.
+
+The proof `finiteKernelProduct_row_normalized` is a structural finite-Fubini
+argument.  Each head fiber is rewritten as the head weight times the tail
+mass; the inductive tail theorem makes that mass exactly one; the remaining
+head sum is precisely the local row-normalization field.  Pointwise
+nonnegativity and preservation of the constant observable are also proved.
+
+The focused monitored source check passes.  The five printed declarations
+use at most `[propext]`; the carrier, enumeration, and weight definitions need
+no axioms.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is geometric instantiation.  Build, for every member
+of the actual slab-link enumeration, the `CrossedSlabSwitchData` indexed by
+that link's computed incident-face degree; map the all-valence local compiler
+over that enumeration; and apply this product theorem.  Only then is a
+comparison with production spin-foam/Gibbs weights stated on the correct
+global carrier.

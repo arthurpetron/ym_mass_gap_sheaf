@@ -20233,3 +20233,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `propext`).  This closes the local all-valence interface, not yet the global
   dependent product, Gibbs/heat comparison, beta-uniform posterior estimate,
   OS form bound, completed gap, continuum QFT, or Clay theorem.
+
+### [finite-normalized-q-kernel-product] Multiply differently typed finite normalized rows without choice -- **ABSTRACT DEPENDENT PRODUCT CLOSED; ACTUAL SLAB INSTANTIATION OPEN 2026-08-26**
+
+- **milestone**: define the recursively typed global assignment carrier for a
+  list of kernels with different internal target types; enumerate the complete
+  dependent Cartesian product; multiply the selected local exact rational
+  weights; prove pointwise nonnegativity; prove exact total mass one by
+  structural finite Fubini and local row normalization; and prove preservation
+  of the constant observable.
+- **file**:
+  `lean/YMGap/Continuum/FiniteNormalizedQKernelProduct.lean`.
+- **principal declarations**:
+  `FiniteKernelAssignment`,
+  `finiteKernelAssignments`,
+  `finiteKernelAssignmentWeight`,
+  `finiteKernelAssignmentWeight_nonnegative`,
+  `finiteKernelProduct_row_normalized`,
+  `finiteKernelProductExpectation`, and
+  `finiteKernelProductExpectation_one`.
+- **obligation**: construct one degree-indexed `CrossedSlabSwitchData` for
+  each link in the actual slab enumeration, map
+  `crossedLinkRecouplingKernel` over that list, and apply the product theorem.
+  Then prove a comparison with the production spin-foam/Gibbs weight on that
+  same global carrier.
+- **constructive?**: yes.  The carrier is a recursive dependent product, the
+  enumeration is an explicit finite `flatMap`, and normalization is exact
+  `Q'` algebra.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source check passes; all five printed
+  declarations use at most `[propext]`, and the carrier, enumeration, and
+  weight definitions use no axioms.  This closes the abstract heterogeneous
+  product, not yet its actual slab instantiation, Gibbs/heat comparison,
+  beta-uniform posterior estimate, OS form bound, completed gap, continuum
+  QFT, or Clay theorem.
