@@ -26299,6 +26299,35 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 218. Convert paired-support geometry into a physical energy floor (2026-08-27)
+
+**Status. EVERY PAIR IN THE CONNECTED RESIDUE NOW PAYS AT LEAST
+`L-INFINITY DISTANCE + 1` UNITS OF ACTUAL TWO-REPLICA TWICE-SPIN MASS.**
+
+`CompactDualSlabObservablePairedSupportConnectedMassFloor.lean` defines the
+twice-spin mass on the target-rooted union-support component and on the
+complete two-replica slab.  Root-component containment proves that every
+component face is a physical face and is positive in at least one replica.
+Distinct component faces therefore contribute at least one mass unit each.
+
+The deduplicated geometric support length is bounded by the face-component
+length; the face-component length is bounded by its twice-spin mass; and its
+mass is bounded by the complete pair mass.  Contracting these inequalities
+with milestone 217 gives both component-mass and total-mass separation
+floors.
+
+The next causal edge is the genuinely analytic one: sum the explicit
+two-replica heat/intertwiner weights at fixed paid mass, using the existing
+one-component activity factor and a multiplicity-faithful iterated peeling
+code, to produce a rate below one.  The beta/lattice-spacing relation,
+Gibbs/OS comparison, completed gap, continuum construction, and Clay theorem
+remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 217. Give the support-connected residue its genuine geometric floor (2026-08-27)
 
 **Status. EVERY PAIR IN THE EXACT RESIDUE NOW CARRIES A GENUINE Z4 LATTICE

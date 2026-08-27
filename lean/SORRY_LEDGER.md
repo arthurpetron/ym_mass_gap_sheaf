@@ -21100,3 +21100,18 @@ closes the geometric floor without a `sorry`.  The paired activity/entropy
 estimate, numerical residue rate, beta/spacing trajectory, Gibbs/OS
 comparison, completed gap, continuum construction, and Clay theorem remain
 open.
+
+#### Paired-support connected physical-mass floor update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportConnectedMassFloor` proves that every
+face of the target-rooted union-support component is physical and carries a
+positive twice-spin in at least one replica.  Hence component cardinality is
+bounded by component mass, and duplicate-free component containment bounds
+that mass by the complete two-replica physical mass.
+
+Together with the genuine lattice-animal size floor, every exact residue pair
+now pays at least root-target L-infinity separation plus one in actual
+twice-spin mass.  This closes the geometric-to-energy bridge without a
+`sorry`.  The fixed-mass paired activity/entropy estimate, numerical residue
+rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
+construction, and Clay theorem remain open.

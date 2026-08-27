@@ -2952,6 +2952,7 @@ import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalPushforwa
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalColumnCapacity
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalWeightedContraction
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportConnectedGeometry
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportConnectedMassFloor
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.
