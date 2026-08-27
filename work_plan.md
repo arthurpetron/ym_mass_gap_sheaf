@@ -23863,3 +23863,53 @@ After that, reconstruction over a common lowered target must prove the
 corresponding finite family injective.  The strict component heat ratio,
 conditional transition floor, posterior variance, dense form gap, completed
 OS gap, thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 154. The adaptive three-factor carrier has strict base `10240000` (2026-08-26)
+
+**Status. A SOURCE-INDEPENDENT DEPENDENT CARRIER NOW CONTAINS EVERY PRODUCTION
+COMPONENT CODE, HAS LENGTH AT MOST `10240000^peelSize`, AND HAS EXACT ANCHOR
+RATIO `8/25 < 1`.  INJECTIVITY AT A COMMON LOWERED TARGET IS STILL OPEN.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveEntropyCarrier.lean` decodes a
+total physical drop function from the rooted shape and physical-multiplicity
+words.  Its link specifications sum that decoded drop around every complete
+slab link.  The existing incidence permutation proves, for arbitrary decoded
+words, that total link mass is exactly four times total decoded physical mass.
+
+The physical word carrier is filtered by the decidable condition that decoded
+physical mass is at most the common peel budget.  Every production word passes
+this filter with equality.  This matters: it prevents malformed ambient code
+words from silently enlarging the dependent auxiliary carrier.
+
+For every admitted structural pair, all auxiliary widths are at most three
+and total link mass is at most four times the peel budget.  The adaptive
+carrier theorem therefore gives a branch bound of `4096^peelSize`.  Finite
+flat-map counting with the existing shape and physical carriers yields
+
+```text
+carrier length
+  <= 625^n * (4^n * 4096^n)
+   = (625 * 4 * 4096)^n
+   = 10240000^n.
+```
+
+The corresponding one-copy arithmetic is now kernel checked:
+
+```text
+10240000 * (1 / 32000000) = 8 / 25 < 1.
+```
+
+The focused monitored source check passes.  The exact base and rational ratio
+theorems are axiom-free; all geometric and finite-carrier declarations use at
+most `[propext, Quot.sound]`.  No `Classical`, choice, proof obligation,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.
+
+This milestone does not yet turn the carrier bound into an inverse-image count
+or a conditional probability.  The immediate frontier is to define the
+finite family of component removals with one fixed root, peel size, lowered
+physical target, and lowered auxiliary assignment; then use the existing
+physical and auxiliary reconstruction maps to prove the three-factor code
+injective.  Only after that can the strict component heat sum, conditional
+transition floor, posterior-variance fraction, dense form gap, completed OS
+gap, thermodynamic/continuum passage, and Clay theorem be claimed.
