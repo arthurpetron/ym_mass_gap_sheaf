@@ -21085,3 +21085,18 @@ defect is now bounded unconditionally by that support-connected residue.  The
 numerical residue estimate, beta/spacing trajectory, Gibbs/OS comparison,
 completed gap, continuum construction, and Clay theorem remain open.  No
 `sorry` is introduced.
+
+#### Paired-support connected geometry update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportConnectedGeometry` turns every true
+union-support adjacency into its actual shared slab link, projects complete
+component paths to genuine Z4 plaquette paths, and packages the deduplicated
+target-rooted support as an explicit lattice animal containing both
+observable plaquettes.
+
+Consequently each pair in the exact support-connected residue has distinct
+support size at least its root-to-target L-infinity separation plus one.  This
+closes the geometric floor without a `sorry`.  The paired activity/entropy
+estimate, numerical residue rate, beta/spacing trajectory, Gibbs/OS
+comparison, completed gap, continuum construction, and Clay theorem remain
+open.

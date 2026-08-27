@@ -26298,3 +26298,34 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 217. Give the support-connected residue its genuine geometric floor (2026-08-27)
+
+**Status. EVERY PAIR IN THE EXACT RESIDUE NOW CARRIES A GENUINE Z4 LATTICE
+ANIMAL OF DISTINCT UNION-SUPPORT PLAQUETTES WHOSE SIZE IS AT LEAST THE
+ROOT-TARGET L-INFINITY SEPARATION PLUS ONE.**
+
+`CompactDualSlabObservablePairedSupportConnectedGeometry.lean` decodes a
+true physical-support adjacency to its literal shared slab link and hence to
+genuine adjacency of the corresponding Z4 plaquettes.  It structurally
+projects paths in the target-rooted union-support component to paths in the
+deduplicated plaquette support.
+
+Constructive finite preimage search supplies face representatives for every
+geometric plaquette.  This proves internal connectivity, root and target
+membership, duplicate freedom, and therefore an actual Z4 lattice-animal
+certificate.  The unconditional lattice-animal enumeration then yields the
+load-bearing floor
+
+`linfDist(rootPlaquette, targetPlaquette) + 1 <= support.length`.
+
+The next causal edge is a paired-support activity/entropy theorem: compare
+the total Gibbs weight of residue pairs with a fixed geometric support size
+to the full two-replica partition mass, with an explicit rate below one.
+The beta/lattice-spacing relation, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
