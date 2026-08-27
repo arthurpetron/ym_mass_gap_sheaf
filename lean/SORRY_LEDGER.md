@@ -20837,6 +20837,24 @@ realization pushforward with these fiberwise column sums.  The paired-support
 connected residue and all beta/spacing, Gibbs/OS, completed-gap, continuum,
 and Clay obligations remain open.  No `sorry` is introduced.
 
+#### Concrete four-cell physical-fiber enumeration update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportPhysicalFiber` now filters the exact
+disconnected four-cell source list by the finite words of its two switched
+physical labellings.  Support outside the datum's finite face list is proved
+zero, so equality of finite keys recovers equality of the full physical
+fields.  Each concrete target pair therefore determines a literal
+duplicate-free list of contributors in one common physical matrix.
+
+Applying the fixed-fiber no-overload theorem bounds that list's total weight
+into every supplied common target column by one.  This does not yet prove the
+global dependent-kernel capacity statement: the remaining finite edge is a
+support-aligned fractional realization together with a decoder showing that
+all choices realizing to one concrete target pair lie over its one abstract
+target column.  The paired-support connected residue and all beta/spacing,
+Gibbs/OS, completed-gap, continuum, and Clay obligations remain open.  No
+`sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

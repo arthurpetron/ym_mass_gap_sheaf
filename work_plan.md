@@ -26017,3 +26017,35 @@ Focused monitored checks pass and every printed declaration uses only
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No Gibbs/OS comparison, beta-uniform gap,
 continuum construction, or Clay theorem is claimed.
+
+## 209. Enumerate the concrete four-cell physical fibers (2026-08-27)
+
+**Status. THE DISCONNECTED FOUR-CELL IS PARTITIONED BY FAITHFUL FINITE
+SWITCHED-PHYSICAL KEYS, AND EVERY RESULTING FIBER OBEYS THE FIXED-COLUMN
+NO-OVERLOAD BOUND; THE REALIZED-PUSHFORWARD IDENTIFICATION REMAINS OPEN.**
+
+`CompactDualSlabObservablePairedSupportPhysicalFiber.lean` filters the exact
+four-cell source-pair list by failure of paired-support connectedness and
+attaches the resulting proof-carrying sources.  The two switched physical
+labellings are encoded by their words on the datum's finite face list.
+Because every production labelling vanishes off that list, equality of keys
+recovers equality of both complete switched fields.
+
+For any concrete target pair, filtering by its two physical words produces a
+literal duplicate-free contributor fiber.  Mapping that fiber into the
+fixed-physical common recoupling matrix and invoking the preceding normalized
+column theorem proves that its total weight into every supplied abstract
+target column is at most one.
+
+The exact remaining finite capacity edge is to construct the support-aligned
+fractional realization and prove that every contributor which realizes to
+one concrete target pair uses the one abstract target column decoded from
+that pair.  Only then may the generic dependent-kernel pushforward theorem be
+instantiated.  The paired-support connected residue, beta/lattice-spacing
+trajectory, Gibbs/OS comparison, completed gap, continuum construction, and
+Clay theorem remain open.
+
+The focused monitored check and dependency-complete build pass.  Every
+printed load-bearing declaration uses only `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
