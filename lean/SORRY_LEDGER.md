@@ -20579,3 +20579,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   declarations use only `[propext, Quot.sound]`.  This is a reusable finite
   direct-sum theorem, not a physical Gibbs/OS comparison, beta-uniform gap,
   continuum construction, or Clay theorem.
+
+### [su2-valence-six-prefix-block-sum] Reuse complete valence-five matrices in every retained output sector -- **FIRST TWO VALENCE-SIX MOVES CLOSED 2026-08-27**
+
+- **milestone**: enumerate every output `z` of the first four external factors
+  which admits the retained suffix `z,e -> f`; prove every production
+  valence-six chain belongs to that list; take the dependent indexed sum of
+  the complete valence-five matrices; obtain exact global row and column
+  normalization; embed the production source and every old three-step path's
+  common intermediate; and identify the same-sector matrix entry exactly.
+- **file**:
+  `lean/YMGap/Continuum/SU2ValenceSixPrefixBistochasticBlock.lean`.
+- **principal declarations**: `valenceSixPrefixOutputs`,
+  `valenceSixChain_z_mem_prefixOutputs`, `ValenceSixLeftCarrier`,
+  `ValenceSixCommonMiddleCarrier`,
+  `valenceSixPrefixBistochasticKernel`,
+  `valenceSixLeftCarrierOfChain`, `valenceSixCommonMiddleOfPath`, and
+  `valenceSixPrefixKernelAt_common_path`.
+- **obligation**: reindex the common middle carrier by the two preserved
+  physical inner outputs, construct the final Schur block with exact column
+  normalization, compose it with this prefix matrix, and instantiate the
+  crossed degree-six tensor on production slab labels.
+- **constructive?**: yes.  The sector list is bounded and filtered by the
+  literal SU(2) fusion predicate, and the global matrix is supplied by the
+  proof-carrying indexed-sum compiler.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check passes; all seven printed
+  declarations use only `[propext, Quot.sound]`.  This closes two of the three
+  valence-six associators as a complete matrix, not the final block, Gibbs/OS
+  comparison, completed gap, continuum construction, or Clay theorem.

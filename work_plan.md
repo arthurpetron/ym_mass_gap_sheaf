@@ -25532,3 +25532,33 @@ as the indexed sum of complete valence-five matrices over the retained output
 remains non-abelian SU(2) transport.  It does not identify the recoupling
 matrix with a Gibbs or OS transfer kernel and makes no beta-uniform or Clay
 claim.
+
+## 195. The first two valence-six moves are one indexed valence-five sum (2026-08-27)
+
+**Status. THE COMPLETE PREFIX MATRIX IS CLOSED; THE THIRD ASSOCIATOR AND
+PRODUCTION DEGREE-SIX TENSOR ARE OPEN.**
+
+`SU2ValenceSixPrefixBistochasticBlock.lean` observes that the first two moves
+at valence six are already the complete valence-five matrix, independently in
+each retained output sector `z`.  It enumerates exactly the bounded outputs
+which can still fuse with the last external factor to the fixed final label,
+proves that every production chain supplies such a sector, and applies the
+generic indexed-sum compiler.
+
+The result is an all-source/all-target bistochastic matrix from complete
+left-tree carriers to the common carrier after two associators.  The
+production left chain and every old dependent target embed explicitly, and
+the new same-sector entry is definitionally the completed valence-five matrix
+entry.  This replaces two further bespoke normalization proofs with one
+mathematical direct-sum construction.
+
+The focused monitored source check passes.  All seven printed declarations
+use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is the third associator.  Its source list is the
+common prefix target list organized by transient `z`, while its local Schur
+blocks are organized by the two preserved physical inner labels.  The needed
+proof is an explicit constructive reindexing between those finite carriers,
+followed by composition and the actual two-replica slab instantiation.

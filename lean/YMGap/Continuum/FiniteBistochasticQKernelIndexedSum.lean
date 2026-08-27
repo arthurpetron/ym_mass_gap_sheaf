@@ -75,6 +75,34 @@ def indexedSumWeight {Index : Type} [DecidableEq Index]
     (kernel source.index.val).weight source.value (h.symm ▸ target.value)
   else 0
 
+/-- On a common written sector, the zero-extended entry is exactly the local
+block entry. -/
+theorem indexedSumWeight_same {Index : Type} [DecidableEq Index]
+    (indices : List Index)
+    (Source Target : Index → Type)
+    (kernel : ∀ i, FiniteBistochasticQKernel (Source i) (Target i))
+    (index : {i // i ∈ indices})
+    (source : Source index.val) (target : Target index.val) :
+    indexedSumWeight indices Source Target kernel
+        { index := index, value := source }
+        { index := index, value := target } ≈
+      (kernel index.val).weight source target := by
+  simp only [indexedSumWeight, dite_true]
+  exact Q'.eqv_refl _
+
+/-- Distinct written sectors have zero coupling. -/
+theorem indexedSumWeight_different {Index : Type} [DecidableEq Index]
+    (indices : List Index)
+    (Source Target : Index → Type)
+    (kernel : ∀ i, FiniteBistochasticQKernel (Source i) (Target i))
+    (source : IndexedSource indices Source)
+    (target : IndexedTarget indices Target)
+    (hindex : source.index ≠ target.index) :
+    indexedSumWeight indices Source Target kernel source target ≈ 0 := by
+  unfold indexedSumWeight
+  rw [dif_neg hindex]
+  exact Q'.eqv_refl _
+
 theorem indexedSumWeight_nonnegative {Index : Type} [DecidableEq Index]
     (indices : List Index)
     (Source Target : Index → Type)
@@ -220,6 +248,8 @@ def indexedSum {Index : Type} [DecidableEq Index]
 end YMGap.Continuum.FiniteBistochasticQKernelIndexedSum
 
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSumWeight_nonnegative
+#print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSumWeight_same
+#print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSumWeight_different
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSumWeight_row_normalized
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSumWeight_column_normalized
 #print axioms YMGap.Continuum.FiniteBistochasticQKernelIndexedSum.indexedSum
