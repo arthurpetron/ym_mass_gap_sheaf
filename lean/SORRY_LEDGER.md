@@ -19535,3 +19535,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   functions are axiom-free.  No face-swap certificate inhabitant,
   unconditional covariance, OS form identification, all-beta estimate,
   completed gap, continuum QFT, or Clay theorem is claimed.
+
+### [compact-dual-slab-observable-paired-face-component] Build the causally sufficient paired face component -- **UNION GRAPH, CANONICAL MASK, AND GLOBAL-TO-LOCAL CLOSURE CLOSED; ACCEPTED CROSS-REPLICA RECONSTRUCTION AND PAIRED RESIDUE BOUND OPEN 2026-08-26**
+
+- **milestone**: project every physical strand edge of both accepted expanded
+  replicas to face identifiers; construct their union graph and the
+  target-rooted component; prove the target mask bit true and the root bit
+  false on the paired-disconnected sector; prove mask closure on every
+  literal strand edge in either replica; compile arbitrary global edge
+  closure to the existing linkwise partner-closed selection; and partition
+  `11 x 00` exactly into paired-face-separated and paired-face-connected
+  sectors.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservablePairedFaceComponent.lean`.
+- **principal declarations**:
+  `SlabProjectedFaceEdge`,
+  `slabObservableTwoReplicaPairPairedFaceEdges`,
+  `slabObservableTwoReplicaPairTargetFaceComponent`,
+  `slabObservableTwoReplicaPairPairedFaceSwapMask`,
+  `slabObservableTwoReplicaPairPairedFaceSwapMask_target`,
+  `slabObservableTwoReplicaPairPairedFaceSwapMask_eq_of_left_edge`,
+  `slabObservableTwoReplicaPairPairedFaceSwapMask_eq_of_right_edge`,
+  `slabGlobalEdgeClosedSelectionAtLink`, and
+  `slabObservableFourCellSourcePairs_pairedFace_partition`.
+- **obligation**: construct accepted output fine-intertwiner assignments by
+  combining the target-component sector of one replica with the complementary
+  sector of the other, and construct a decoder recovering every
+  paired-face-separated source pair.  Separately, bound the stronger
+  paired-face-connected obstruction.  The existing decay theorem for the
+  first replica's canonical slot-zero component is not a bound for this union
+  event and must not be substituted for it.
+- **constructive?**: yes.  The graph, component, mask, and local selections
+  are executable finite data.  The remaining switched assignments and
+  decoder must likewise be Type-level data; the residue bound is a separate
+  propositional estimate.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build of 958 jobs pass.  All five printed
+  declarations use only `[propext, Quot.sound]`.  A separate whole-umbrella
+  replay was safely interrupted at the configured 12 GiB free-memory reserve
+  and is not counted as a pass.  There is no accepted switched-pair
+  inhabitant, no bound for the paired-face connected residue, no
+  unconditional covariance or OS form theorem, no all-beta statement, no
+  completed gap, no continuum QFT, and no Clay theorem.

@@ -24424,3 +24424,53 @@ decoder.  Only after that certificate is inhabited does the positive-spin
 four-cell bound become unconditional.  The subsequent link-cylinder/OS pin,
 all-beta/lattice-spacing control, completed gap, continuum passage, and Clay
 theorem remain open.
+
+## 167. The switchable component is the target-rooted component of the paired face-union graph (2026-08-26)
+
+**Status. THE EXACT FINITE GRAPH AND FACE MASK REQUIRED BY A LEGITIMATE
+TWO-REPLICA COMPONENT SWITCH ARE NOW CONSTRUCTED.  THIS AUDIT-DRIVEN
+CORRECTION REPLACES THE TOO-WEAK FIRST-REPLICA SLOT-ZERO EVENT BY THE UNION OF
+ALL FACE-PROJECTED STRAND EDGES IN BOTH REPLICAS.**
+
+`CompactDualSlabObservablePairedFaceComponent.lean` projects every literal
+physical strand edge of each accepted expanded source to its two physical
+face identifiers and forms the union graph of the two replicas.  It then
+takes the constructive component rooted at the target face and uses its
+Boolean characteristic function as the canonical face-swap mask.
+
+For every pair in the literal source cell `11 x 00`, the target face is a
+displayed vertex.  Hence the mask swaps the target.  On the complementary
+event that the root does not belong to the target component, it fixes the
+root.  More importantly, rooted-component closure proves that the mask has
+equal values on the two face endpoints of every literal strand edge in both
+replicas.  The generic
+`slabGlobalEdgeClosedSelectionAtLink` compiler turns any such global edge
+closure into exactly the `SlabLinkPartnerClosedFaceSelection` required by
+the existing local strand-removal machinery at every accepted link.
+
+The source cell now has an exact, causally correct partition:
+
+```text
+11 x 00
+  = paired-face-separated switchable sector
+  + paired-face-connected obstruction sector.
+```
+
+The focused monitored source check and the dependency-complete target build
+of 958 jobs pass.  All five printed declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  A separate whole-umbrella replay was safely
+interrupted when it reached the configured 12 GiB free-memory reserve and is
+not counted as a pass.
+
+This milestone also records a necessary correction to milestones 165--166:
+the component of one chosen strand copy does not control a facewise mask,
+because a path may use another strand slot at an intermediate face.  The
+earlier slot-zero connected-event estimate therefore cannot be silently used
+to bound the stronger paired-face obstruction.  The next causal frontier is
+to reconstruct accepted switched assignments from the selected pieces of
+both replicas, with a recoverable decoder, and then prove an activity/removal
+bound for the paired-face connected residue.  The OS observable pin,
+all-beta/lattice-spacing control, completed gap, continuum passage, and Clay
+theorem remain open.
