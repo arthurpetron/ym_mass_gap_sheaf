@@ -26232,3 +26232,38 @@ Focused monitored checks and the dependency-complete target build pass.  All
 printed load-bearing declarations use only `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+## 215. Prove global dependent recoupling column capacity (2026-08-27)
+
+**Status. EVERY CONCRETE FOUR-CELL TARGET NOW RECEIVES TOTAL UNWEIGHTED MASS
+AT MOST ONE FROM THE SUPPORT-ALIGNED DEPENDENT RECOUPLING KERNEL; THE WEIGHTED
+FOUR-CELL CONTRACTION IS NEXT.**
+
+`CompactDualSlabObservablePairedSupportFractionalPushforward.lean` gives the
+common four-cell target a constructive decidable equality, flattens all
+source-dependent rows into the multiplicity-faithful sigma carrier, and uses
+finite Fubini to identify the nested dependent pushforward with the exact
+sum over a literal concrete-target preimage.
+
+`CompactDualSlabObservablePairedSupportFractionalColumnCapacity.lean` handles
+an empty preimage directly.  For a nonempty preimage, its written head is a
+constructive anchor: common-preimage coherence transports every retained
+choice to that anchor's abstract column.  A lightweight target-equality
+anchor avoids retaining irrelevant filter-membership data in downstream
+types.  The preimages inject into distinct contributors in the anchor's one
+physical fiber, and exact bistochastic column normalization bounds their
+total mass by one.
+
+This inhabits the unweighted global dependent-column node for the
+support-aligned compiler; no capacity hypothesis remains on this route.  The
+next contraction combines it with face-swap preservation of the explicit
+two-replica weight and exact row normalization, producing domination of the
+support-disconnected four-cell sector and leaving the support-connected
+residue.  A numerical residue rate, beta/lattice-spacing trajectory,
+Gibbs/OS comparison, completed gap, continuum construction, and Clay theorem
+remain open.
+
+Focused monitored checks pass.  Every printed load-bearing declaration uses
+only `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.

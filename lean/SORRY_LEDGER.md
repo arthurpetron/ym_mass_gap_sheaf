@@ -21051,3 +21051,22 @@ This closes target-carrier multiplicity without a `sorry`.  Weighted global
 column capacity, the paired-support connected residue, and every beta/spacing,
 Gibbs/OS, completed-gap, continuum, and Clay obligation remain open.  No
 `sorry` is introduced.
+
+#### Paired-support global dependent-column capacity update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportFractionalPushforward` identifies each
+nested dependent-kernel column with the exact sum over a duplicate-free
+concrete-target preimage list.
+
+`CompactDualSlabObservablePairedSupportFractionalColumnCapacity` selects the
+head of a nonempty preimage as an explicit common-column anchor, transports
+all remaining choices to it using the proved preimage-coherence theorem, and
+injects the resulting contributor list into one normalized physical-pair
+matrix column.  Empty preimages have zero mass.  Thus every target column has
+unweighted mass at most one.
+
+This closes the global unweighted dependent-column obligation on the
+support-aligned route without a `sorry`.  The weighted four-cell contraction,
+support-connected residue estimate, and every beta/spacing, Gibbs/OS,
+completed-gap, continuum, and Clay obligation remain open.  No `sorry` is
+introduced.
