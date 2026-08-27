@@ -24737,3 +24737,54 @@ row laws, and attach the resulting weighted fibers to the already-constructed
 paired physical outputs.  A Gibbs-weight comparison, the connected residue,
 the OS observable pin, all-beta/lattice-spacing control, the completed gap,
 continuum passage, and the Clay theorem remain open.
+
+## 174. Symmetric-power strand splitting now has an exact Cartan kernel (2026-08-26)
+
+**Status. THE MISSING SPLIT/RECOMBINE OPERATION HAS BEEN CONSTRUCTED AS AN
+ALL-LABEL HYPERGEOMETRIC KERNEL, AND ORDER-ZERO CLEBSCH--GORDAN
+RECOMBINATION IS PROVED TO RECOVER THE SOURCE FORM EXACTLY.**
+
+Inspection of the production `fuseLabels` trees corrected the immediate plan.
+A face-strand switch does not merely reassociate four fixed representations:
+it splits each external symmetric power into selected and unselected strands,
+swaps the selected packets between replicas, and recombines the new packets.
+Thus a chain of Schur associators alone cannot implement the actual switch.
+
+`SU2CartanBranchingKernel.lean` constructs the missing branching operation.
+It first proves, by a structural Pascal recurrence and without importing a
+binomial theorem, the all-label identity
+
+```text
+sum_(i=0)^s C(m,i) C(n,s-i) = C(m+n,s).
+```
+
+The theorem is lifted to the exact factorial rationals used by the
+transvectant development.  Division by the positive right side produces the
+finite nonnegative Cartan branching row
+
+```text
+K_(m,n,s)(i) = C(m,i) C(n,s-i) / C(m+n,s),
+```
+
+and `cartanBranchKernel_row_normalized` proves its exact mass is one whenever
+`s <= m+n`.  Finally `cartanSplit` applies this row coefficientwise to a
+degree-`m+n` binary form, while `cartanRecombine` is the actual order-zero
+transvectant.  `cartanRecombine_split` proves their composition recovers every
+physical coefficient exactly.
+
+This is the branching half of the required causal compiler
+`split -> reassociate -> swap -> recombine`.  The present theorem is a
+coefficient-level section; full all-label `E/F/H` equivariance of `cartanSplit`
+has not yet been proved and is not inferred from the normalization identity.
+
+The focused monitored source check passes.  All five printed declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to prove that the Cartan split commutes with the
+binary-form `sl2` action, then tensor two such splits with the physical Schur
+reassociation laws to form the first genuine external-spin-changing local
+switch block.  Its valence-five/six iteration, Gibbs-weight comparison,
+connected residue, OS observable pin, uniform completed gap, continuum
+passage, and the Clay theorem remain open.

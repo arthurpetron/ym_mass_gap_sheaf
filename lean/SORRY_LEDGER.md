@@ -19811,3 +19811,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   geometry-conditioned component switch or a beta-dependent Gibbs kernel.
   There is no strict OS form bound, completed uniform gap, continuum QFT, or
   Clay theorem.
+
+### [su2-cartan-branching-kernel] Construct the symmetric-power strand split/recombine law -- **NORMALIZED SECTION CLOSED; EQUIVARIANCE AND SWITCH INSERTION OPEN 2026-08-26**
+
+- **milestone**: prove the ordinary all-label Pascal--Vandermonde convolution;
+  lift it to the exact factorial `Q'` binomials; normalize the resulting
+  hypergeometric row with an explicit positive denominator; prove every entry
+  is nonnegative and the finite row mass is one; define the coefficient-level
+  Cartan split of `V_(m+n)` into bidegree `(m,n)`; and prove that the actual
+  order-zero transvectant recombines the split to the source form on every
+  physical coefficient.
+- **file**:
+  `lean/YMGap/Continuum/SU2CartanBranchingKernel.lean`.
+- **principal declarations**:
+  `chooseConvolution_vandermonde`,
+  `cartanBranchRawMass_eq_binom`,
+  `cartanBranchKernelAt`,
+  `cartanBranchKernelAt_nonnegative`,
+  `cartanBranchKernel_row_normalized`,
+  `cartanSplit`, and
+  `cartanRecombine_split`.
+- **obligation**: prove all-label raising, lowering, and Cartan covariance of
+  `cartanSplit`; combine two split maps, the tensor symmetry, physical Schur
+  reassociation, and Cartan recombination into an external-spin-changing
+  two-replica local switch block; then iterate that block along the actual
+  valence-five and valence-six fusion trees and attach it to the global slab
+  component selection.
+- **constructive?**: yes.  Every coefficient and denominator is explicit, and
+  all sums are structural finite recursions.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes and all five
+  printed declarations use only `[propext, Quot.sound]`.  Normalization and
+  split/recombine are proved; `sl2` equivariance is not yet proved.  The module
+  contains no Gibbs/heat weight, strict OS form bound, uniform completed gap,
+  continuum QFT, or Clay theorem.
