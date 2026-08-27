@@ -21013,3 +21013,23 @@ column.  Only then can the fixed-physical-fiber bound yield global dependent-
 kernel column capacity.  The paired-support connected residue and every
 beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay obligation remain
 open.  No `sorry` is introduced.
+
+#### Paired-support common-column preimage update (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingCanonicalTargetProduct` constructs target
+realization directly over the physical-only whole-slab package list and
+proves both source-anchor independence and target-column faithfulness.  The
+accepted source witness is carried by a physical-indexed canonical anchor.
+
+`CompactDualSlabObservablePairedSupportFractionalPreimageCoherence` compiles
+equality of two literal four-cell targets into equality of both switched
+physical fields and both realized auxiliary assignments.  Canonical-anchor
+faithfulness then proves that the first abstract choice, transported along
+the two physical equalities, is exactly the second choice.  Thus every
+concrete target preimage is confined to one common abstract recoupling
+column.
+
+This closes target-preimage coherence without a `sorry`.  Global summed
+column capacity, the paired-support connected residue, and every beta/spacing,
+Gibbs/OS, completed-gap, continuum, and Clay obligation remain open.  No
+`sorry` is introduced.

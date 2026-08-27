@@ -26161,3 +26161,41 @@ Focused monitored checks and the dependency-complete target build pass.  All
 printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+## 213. Prove paired-support preimages share one abstract column (2026-08-27)
+
+**Status. EQUALITY OF CONCRETE FOUR-CELL TARGETS NOW FORCES THE TWO
+SOURCE-DEPENDENT CHOICES, AFTER THEIR CANONICAL PHYSICAL TRANSPORT, TO BE THE
+SAME ABSTRACT RECOUPLING COLUMN; GLOBAL SUMMED COLUMN CAPACITY REMAINS OPEN.**
+
+`SU2SlabPhysicalPairRecouplingCanonicalTargetProduct.lean` reconstructs the
+whole-slab target assignment directly over the physical-only package list.
+It proves structural source-anchor independence and target injectivity, then
+packages accepted source assignments as an indexed canonical anchor.  The
+indices retain the two physical labellings explicitly, so equality transport
+between different paired-support sources is mathematically visible rather
+than hidden in an unindexed record projection.
+
+`CompactDualSlabObservablePairedSupportFractionalRealization.lean` now uses
+that indexed anchor for every support-aligned choice.  Its source-level
+corollary says that equality of the two realized auxiliary assignments,
+together with equality of the switched physical fields, recovers equality of
+the transported abstract columns.
+
+`CompactDualSlabObservablePairedSupportFractionalPreimageCoherence.lean`
+extracts those four equalities from one equality of literal four-cell target
+pairs and packages them as a constructive certificate.  The certificate
+feeds canonical-anchor faithfulness to prove that every two preimages of one
+concrete target lie over one common abstract column.
+
+The next causal edge is finite summation: combine this common-column theorem
+with `CompactDualSlabObservablePairedSupportColumnNoOverload` and the concrete
+physical-fiber enumeration to bound every column of the dependent fractional
+kernel.  That capacity estimate can then enter the paired-support connected
+residue.  The beta/lattice-spacing trajectory, Gibbs/OS comparison, completed
+gap, continuum construction, and Clay theorem remain open.
+
+Focused monitored source checks and the dependency-complete target build pass.
+Every printed load-bearing declaration uses only `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.

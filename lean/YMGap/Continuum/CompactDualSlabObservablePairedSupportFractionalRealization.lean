@@ -12,7 +12,7 @@ swaps only; no choice, `Classical`, `sorry`, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRow
-import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 
 namespace YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization
 
@@ -30,7 +30,7 @@ open YMGap.Continuum.CompactDualSlabObservableTwoReplicaFaceSwapCertificate
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
-open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 
@@ -142,6 +142,33 @@ theorem slabObservablePairedSupportSwitchedRightPhysical_bounded
 
 /-! ## 2. Every abstract target column becomes two accepted assignments -/
 
+def slabObservablePairedSupportCanonicalAnchor
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (source : SlabObservablePairedSupportSeparatedSource
+      D rootFaceId targetFaceId) :
+    SlabPhysicalPairCanonicalAnchor D.cutoff D.extent
+      (slabObservablePairSupportSwitchedLeftPhysical
+        D targetFaceId source.1)
+      (slabObservablePairSupportSwitchedRightPhysical
+        D targetFaceId source.1) where
+  leftAssignment :=
+    (SlabObservablePairedSupportSeparatedSource.toContributor
+      source).leftAssignment
+  rightAssignment :=
+    (SlabObservablePairedSupportSeparatedSource.toContributor
+      source).rightAssignment
+  left_mem :=
+    (SlabObservablePairedSupportSeparatedSource.toContributor
+      source).leftAssignment_mem htarget
+  right_mem :=
+    (SlabObservablePairedSupportSeparatedSource.toContributor
+      source).rightAssignment_mem htarget
+  leftBounded := slabObservablePairedSupportSwitchedLeftPhysical_bounded
+    D source
+  rightBounded := slabObservablePairedSupportSwitchedRightPhysical_bounded
+    D source
+
 def slabObservablePairedSupportRecoupledAssignmentsResult
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
@@ -149,22 +176,96 @@ def slabObservablePairedSupportRecoupledAssignmentsResult
       D rootFaceId targetFaceId)
     (choice : SlabObservablePairedSupportRecouplingChoice
       D rootFaceId targetFaceId source) :=
-  slabPhysicalPairTargetAssignmentsResult D.cutoff D.extent
-    (slabObservablePairSupportSwitchedLeftPhysical
-      D targetFaceId source.1)
-    (slabObservablePairSupportSwitchedRightPhysical
-      D targetFaceId source.1)
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment_mem htarget)
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment_mem htarget)
-    (slabObservablePairedSupportSwitchedLeftPhysical_bounded D source)
-    (slabObservablePairedSupportSwitchedRightPhysical_bounded D source)
-    choice
+  (slabObservablePairedSupportCanonicalAnchor
+    D rootFaceId targetFaceId htarget source).realize choice
+
+theorem slabObservablePairedSupportCanonicalAnchor_leftAssignment_eq_of_result_eq
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (first second : SlabObservablePairedSupportSeparatedSource
+      D rootFaceId targetFaceId)
+    (firstChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId first)
+    (secondChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId second)
+    (heq :
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget first firstChoice).leftAssignment =
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget second secondChoice).leftAssignment) :
+    ((slabObservablePairedSupportCanonicalAnchor
+        D rootFaceId targetFaceId htarget first).realize
+      firstChoice).leftAssignment =
+    ((slabObservablePairedSupportCanonicalAnchor
+        D rootFaceId targetFaceId htarget second).realize
+      secondChoice).leftAssignment := by
+  exact heq
+
+theorem slabObservablePairedSupportCanonicalAnchor_rightAssignment_eq_of_result_eq
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (first second : SlabObservablePairedSupportSeparatedSource
+      D rootFaceId targetFaceId)
+    (firstChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId first)
+    (secondChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId second)
+    (heq :
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget first firstChoice).rightAssignment =
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget second secondChoice).rightAssignment) :
+    ((slabObservablePairedSupportCanonicalAnchor
+        D rootFaceId targetFaceId htarget first).realize
+      firstChoice).rightAssignment =
+    ((slabObservablePairedSupportCanonicalAnchor
+        D rootFaceId targetFaceId htarget second).realize
+      secondChoice).rightAssignment := by
+  exact heq
+
+theorem slabObservablePairedSupportCanonicalAnchor_target_eq_of_result_eq
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (first second : SlabObservablePairedSupportSeparatedSource
+      D rootFaceId targetFaceId)
+    (firstChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId first)
+    (secondChoice : SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId second)
+    (hleftPhysical :
+      slabObservablePairSupportSwitchedLeftPhysical
+          D targetFaceId first.1 =
+        slabObservablePairSupportSwitchedLeftPhysical
+          D targetFaceId second.1)
+    (hrightPhysical :
+      slabObservablePairSupportSwitchedRightPhysical
+          D targetFaceId first.1 =
+        slabObservablePairSupportSwitchedRightPhysical
+          D targetFaceId second.1)
+    (hleftAssignment :
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget first firstChoice).leftAssignment =
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget second secondChoice).leftAssignment)
+    (hrightAssignment :
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget first firstChoice).rightAssignment =
+      (slabObservablePairedSupportRecoupledAssignmentsResult
+        D rootFaceId targetFaceId htarget second secondChoice).rightAssignment) :
+    transportSlabPhysicalPairRecouplingTargetAssignment
+        hleftPhysical hrightPhysical firstChoice = secondChoice :=
+  SlabPhysicalPairCanonicalAnchor.target_eq_of_realizations_eq
+    (slabObservablePairedSupportCanonicalAnchor
+      D rootFaceId targetFaceId htarget first)
+    (slabObservablePairedSupportCanonicalAnchor
+      D rootFaceId targetFaceId htarget second)
+    hleftPhysical hrightPhysical firstChoice secondChoice
+    (slabObservablePairedSupportCanonicalAnchor_leftAssignment_eq_of_result_eq
+      D rootFaceId targetFaceId htarget first second
+      firstChoice secondChoice hleftAssignment)
+    (slabObservablePairedSupportCanonicalAnchor_rightAssignment_eq_of_result_eq
+      D rootFaceId targetFaceId htarget first second
+      firstChoice secondChoice hrightAssignment)
 
 theorem slabObservablePairedSupportRecoupledLeftAssignment_mem
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
@@ -173,27 +274,14 @@ theorem slabObservablePairedSupportRecoupledLeftAssignment_mem
       D rootFaceId targetFaceId)
     (choice : SlabObservablePairedSupportRecouplingChoice
       D rootFaceId targetFaceId source) :
-    (slabObservablePairedSupportRecoupledAssignmentsResult
-      D rootFaceId targetFaceId htarget source choice).leftAssignment ∈
+    let anchor := slabObservablePairedSupportCanonicalAnchor
+      D rootFaceId targetFaceId htarget source
+    (anchor.realize choice).leftAssignment ∈
       slabFineFusionWitnesses D
         (slabObservablePairSupportSwitchedLeftPhysical
           D targetFaceId source.1) :=
-  slabPhysicalPairTargetLeftAssignment_mem D.cutoff D.extent
-    (slabObservablePairSupportSwitchedLeftPhysical
-      D targetFaceId source.1)
-    (slabObservablePairSupportSwitchedRightPhysical
-      D targetFaceId source.1)
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment_mem htarget)
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment_mem htarget)
-    (slabObservablePairedSupportSwitchedLeftPhysical_bounded D source)
-    (slabObservablePairedSupportSwitchedRightPhysical_bounded D source)
-    choice
+  (slabObservablePairedSupportCanonicalAnchor
+    D rootFaceId targetFaceId htarget source).realize_left_mem choice
 
 theorem slabObservablePairedSupportRecoupledRightAssignment_mem
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
@@ -202,27 +290,14 @@ theorem slabObservablePairedSupportRecoupledRightAssignment_mem
       D rootFaceId targetFaceId)
     (choice : SlabObservablePairedSupportRecouplingChoice
       D rootFaceId targetFaceId source) :
-    (slabObservablePairedSupportRecoupledAssignmentsResult
-      D rootFaceId targetFaceId htarget source choice).rightAssignment ∈
+    let anchor := slabObservablePairedSupportCanonicalAnchor
+      D rootFaceId targetFaceId htarget source
+    (anchor.realize choice).rightAssignment ∈
       slabFineFusionWitnesses D
         (slabObservablePairSupportSwitchedRightPhysical
           D targetFaceId source.1) :=
-  slabPhysicalPairTargetRightAssignment_mem D.cutoff D.extent
-    (slabObservablePairSupportSwitchedLeftPhysical
-      D targetFaceId source.1)
-    (slabObservablePairSupportSwitchedRightPhysical
-      D targetFaceId source.1)
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment
-    (SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).leftAssignment_mem htarget)
-    ((SlabObservablePairedSupportSeparatedSource.toContributor
-      source).rightAssignment_mem htarget)
-    (slabObservablePairedSupportSwitchedLeftPhysical_bounded D source)
-    (slabObservablePairedSupportSwitchedRightPhysical_bounded D source)
-    choice
+  (slabObservablePairedSupportCanonicalAnchor
+    D rootFaceId targetFaceId htarget source).realize_right_mem choice
 
 end YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization
 
@@ -230,6 +305,10 @@ end YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportSwitchedRightPhysical_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportSwitchedLeftPhysical_bounded
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportSwitchedRightPhysical_bounded
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportCanonicalAnchor
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportRecoupledAssignmentsResult
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportCanonicalAnchor_leftAssignment_eq_of_result_eq
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportCanonicalAnchor_rightAssignment_eq_of_result_eq
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportCanonicalAnchor_target_eq_of_result_eq
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportRecoupledLeftAssignment_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization.slabObservablePairedSupportRecoupledRightAssignment_mem
