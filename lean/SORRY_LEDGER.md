@@ -21116,6 +21116,21 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
 
+#### Deterministic paired-peel step update (2026-08-27)
+
+`CompactDualSlabAcceptedPairedCanonicalStep` scans a fixed physical-face list,
+selects the first face still positive in either accepted replica, and selects
+the left replica first.  Every returned root is in the list, its accepted
+lowering strictly decreases exact pair mass, and failure to return a choice is
+equivalent to both replicas vanishing on the complete list.
+
+This closes canonical root/side selection and its terminal characterization
+without a `sorry` and without a root, volume, or replica branching factor.
+The terminating recursive result, multiplicity-faithful inverse history,
+fixed-history weight summation, numerical paired-residue rate, beta/spacing
+trajectory, Gibbs/OS comparison, completed gap, continuum construction, and
+Clay theorem remain open.
+
 #### Accepted paired-peel closure update (2026-08-27)
 
 `CompactDualSlabAcceptedPairedPeel` embeds each original observable pair in a

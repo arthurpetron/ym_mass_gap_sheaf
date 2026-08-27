@@ -26299,6 +26299,40 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 221. Construct the deterministic paired-peel step (2026-08-27)
+
+**Status. A FIXED PHYSICAL-FACE LIST NOW DETERMINISTICALLY SELECTS THE FIRST
+STILL-POSITIVE FACE AND THE LEFT REPLICA FIRST, WITH EXACT TERMINAL AND STRICT
+MASS-DESCENT THEOREMS.**
+
+`CompactDualSlabAcceptedPairedCanonicalStep.lean` defines an accepted
+left-or-right peel choice and a structural scan of a fixed physical-face
+list.  The scan chooses the first face positive in either replica and chooses
+the left replica when both are positive.  The right constructor explicitly
+stores that the left value is zero, so the side convention is proof data.
+
+Every returned root is literally in the scanned list.  Its lowering remains
+in the accepted paired carrier and satisfies
+
+`mass(lowerState) + peelSize = mass(state)`, with `0 < peelSize`.
+
+The scan returns no choice exactly when both replicas vanish on every face of
+the list.  Root and replica selection are therefore deterministic and incur
+no volume-dependent or per-step binary entropy factor.
+
+The next construction will recurse on the now-proved strict pair-mass descent
+to produce a terminating canonical peeling result with its complete list of
+positive peel sizes and an exact telescoping mass identity.
+
+The multiplicity-faithful inverse history, fixed-history weight summation,
+numerical paired-residue rate, beta/spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 220. Close accepted two-replica states under one-sided peeling (2026-08-27)
 
 **Status. THE CONNECTED OBSERVABLE PAIR NOW EMBEDS IN A CLOSED ACCEPTED
