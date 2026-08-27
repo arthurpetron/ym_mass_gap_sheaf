@@ -2970,6 +2970,7 @@ import YMGap.Continuum.Z4SpinSummedCanonicalFaceEventPinnedTail
 import YMGap.Continuum.Z4CouplingParametricCanonicalFaceEventPinnedTail
 import YMGap.Continuum.Z4CanonicalFaceEventPinnedLocalization
 import YMGap.Continuum.Z4CanonicalCentralFaceFixedCylinder
+import YMGap.Continuum.Z4CanonicalCentralFaceTruncationNesting
 import YMGap.Continuum.Z4CanonicalCentralFaceThermodynamicCylinder
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,

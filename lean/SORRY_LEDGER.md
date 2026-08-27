@@ -18440,6 +18440,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
 
+### [z4-canonical-central-face-truncation-nesting] Compare every two central truncations in one exact finite law -- **PROVED CUTOFF-UNIFORMLY / THERMODYNAMIC ALIGNMENT OPEN 2026-08-27**
+
+- **milestone**: for `m <= n`, pad the size-`m` source chart by `n-m`, prove
+  that its box, central plaquette, and numerical face identifier coincide with
+  those of the size-`n` source chart, and show that the resulting `m` event is
+  a literal subevent of the `n` event.  The difference event lies in the
+  size-`m` false-negative remainder, so its exact coupling-parametric
+  compatible-support probability is at most
+  `2 * anchorDecoratedEffectiveRatio ^ m` at every representation cutoff.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalCentralFaceTruncationNesting.lean`.
+- **decl**:
+  `pinnedFaceStageBase_floorPadding`,
+  `pinnedFacePlaquette_floorPadding`, `pinnedFaceId_floorPadding`,
+  `canonicalFaceTruncatedCylinderEvent_mono_size`,
+  `pinnedFaceCommonDifference_implies_remainder`,
+  `couplingParametricKPinnedFaceCommonDifferenceProbability_le_tail`,
+  `couplingParametricKPinnedFaceCommonSmallProbability_le_large`, and
+  `couplingParametricKPinnedFaceCommonLargeProbability_le_small_add_tail`.
+- **obligation**: relate the two original signed-centered rational sequences
+  to these common-box presentations by explicit stage/volume recoding.  Once
+  that eventual comparison is proved, the geometric tail supplies a
+  `CReal.ModCauchyEv` datum and hence the full face thermodynamic `CReal`.
+  The OS same-object identity and all completed-gap/continuum work remain
+  open.
+- **constructive?**: yes.  The proof uses explicit natural-number padding,
+  physical face-identifier injectivity, Boolean event nesting, and the
+  coupling-parametric tail.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or hidden
+  parameter is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The target build and executable forbidden-token scan are recorded with the
+  milestone commit.
+
 ### [z4-canonical-central-face-thermodynamic-cylinder] Construct the thermodynamic CReal of each truncated central-face observable -- **PROVED AT ANCHOR COUPLING / FULL-FACE LIMIT OPEN 2026-08-27**
 
 - **milestone**: package the fixed size-`<m` root list as a signed-centered
