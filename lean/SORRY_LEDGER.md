@@ -20338,3 +20338,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   left basis/Gram side, not yet Schur column normalization, Gibbs/heat
   comparison, beta-uniform posterior estimate, OS form bound, completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-schur-reversal-symmetry] Exchange left and right channel geometry by external-leg reversal -- **REVERSAL AND GRAM SYMMETRY CLOSED; COLUMN NORMALIZATION OPEN 2026-08-26**
+
+- **milestone**: map every proof-carrying fixed right channel for
+  `(a,b,c;d)` to a fixed left channel for `(c,b,a;d)`, and conversely; prove
+  both maps are involutive; derive the exact product of the two transvectant
+  swap phases on the associated trilinear maps; prove invariant-pairing
+  preservation by finite Fubini; and conclude equality of the original and
+  reversed Gram weights.
+- **file**:
+  `lean/YMGap/Continuum/SU2SchurReversalSymmetry.lean`.
+- **principal declarations**:
+  `reverseRightAsLeft`,
+  `reverseLeftAsRight`,
+  `reverseRight_triLeft`,
+  `reverseLeft_triRight`,
+  `triMapInner_reverse`,
+  `reverseRight_leftWeight_eq_rightWeight`, and
+  `reverseLeft_rightWeight_eq_leftWeight`.
+- **obligation**: use the reversed Schur row and the two exact Gram laws to
+  prove the coefficient-transpose identity; transport reversed row
+  normalization to a column normalization theorem for the original physical
+  Schur kernel; then use bistochasticity only after defining the correct
+  globally glued production carrier.
+- **constructive?**: yes.  All channel witnesses are explicit, and every
+  equality is finite exact `Q'` algebra.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes; all seven
+  printed declarations use only `[propext, Quot.sound]`.  This is a finite
+  SU(2) recoupling symmetry, not a Gibbs comparison, beta-uniform posterior
+  estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.

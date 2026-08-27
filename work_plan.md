@@ -25300,3 +25300,32 @@ expand a fixed right channel in this complete left basis and derive exact
 column normalization of the physical Schur kernel.  Only a bistochastic (or
 stronger globally glued isometric) law can support the subsequent Gibbs
 transport claim.
+
+## 188. External-leg reversal exchanges the two Schur channel geometries (2026-08-26)
+
+**Status. THE INVOLUTIVE REVERSAL AND GRAM SYMMETRY ARE CLOSED; THE
+COEFFICIENT-TRANSPOSE AND COLUMN-SUM STEP IS OPEN.**
+
+`SU2SchurReversalSymmetry.lean` defines mutually inverse maps from a physical
+right channel for `(a,b,c;d)` to a physical left channel for `(c,b,a;d)`, and
+from an original left channel to a reversed right channel.  The maps retain
+the two contraction orders and prove the required triangle and final-degree
+conditions constructively.
+
+The uniform transvectant swap law then proves that reversing all three input
+forms exchanges `triRight` and `triLeft` with the exact product of the inner
+and outer parity phases.  A finite-Fubini theorem proves invariance of the
+full Hilbert--Schmidt pairing under the same input reversal.  Since each
+phase squares to one, the original right Gram weight is exactly the reversed
+left Gram weight, and conversely.
+
+The focused monitored source check passes.  The seven printed declarations
+use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next step is now smaller than a second reconstruction compiler.  Apply
+the already proved Schur row theorem to the reversed channel, compare its
+cross pairing with the original row's cross pairing, derive the exact
+Gram-weighted transpose identity between the two inverse coefficients, and
+transport reversed row normalization into original column normalization.
