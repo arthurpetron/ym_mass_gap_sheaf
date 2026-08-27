@@ -18314,6 +18314,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
 
+### [z4-spin-summed-canonical-face-event-pinned-tail] Lift the omitted face-component tail to the exact arbitrary-cutoff SU(2) support law -- **PROVED CUTOFF-UNIFORMLY AT ANCHOR COUPLING / FULL-FACE LIMIT OPEN 2026-08-27**
+
+- **milestone**: reindex the large pinned connected-support layer by its exact
+  positive size, apply the existing spin-decorated KP estimate uniformly in
+  representation cutoff, box, and pinned face, and lift the activity tail to
+  the normalized compatible-support probability.  The false-negative event
+  of the size-`< m` central-face cylinder is bounded by
+  `2 * anchorDecoratedEffectiveRatio ^ m`, with
+  `anchorDecoratedEffectiveRatio = 1/4` up to rational equivalence.
+- **file**:
+  `lean/YMGap/Continuum/Z4SpinSummedCanonicalFaceEventPinnedTail.lean`.
+- **decl**:
+  `parametricKCanonicalPinnedLargeSizeLayers_activity_eqv`,
+  `parametricKCanonicalPinnedLargeActivity_le_tail`,
+  `parametricKPinnedLargeFamilyEventProbability_le_tail`, and
+  `parametricKFaceTruncationRemainderProbability_le_tail`.
+- **obligation**: compare any two truncation floors after transporting their
+  fixed charts to a common centered finite-volume stage.  The present theorem
+  now controls that comparison in the same increasing-representation-cutoff
+  law used by the thermodynamic sequence; the common-refinement comparison,
+  full-face `CReal`, OS same-object identification, completed gap, spacing
+  trajectory, continuum construction, and Clay theorem remain open.
+- **constructive?**: yes.  The proof uses finite list injections, exact
+  generic-gas recoding, the cutoff-uniform spin-summed KP series, and rational
+  inequalities.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or new axiom is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The root target build and forbidden-token scan are recorded with the
+  milestone commit.
+
 ### [z4-canonical-face-event-pinned-localization] Recover every small protected-core component from a fixed source box -- **PROVED GEOMETRIC / FIXED FACE CHART PROVED BELOW 2026-08-27**
 
 - **milestone**: characterize the uniformly translated source plaquette list
