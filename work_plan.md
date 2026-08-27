@@ -24040,3 +24040,41 @@ component size.  That rooted finite partition, followed by the geometric
 `(8/25)^n` tail sum, is the next causal frontier.  The conditional transition
 floor, posterior-variance fraction, dense form gap, completed OS gap,
 thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 158. The actual expanded slab source carrier is exact and duplicate-free (2026-08-26)
+
+**Status. THE PRODUCTION PHYSICAL LABELLINGS AND ALL ACCEPTED COMPLETE
+FINE-INTERTWINER ASSIGNMENTS NOW FORM ONE LITERAL DUPLICATE-FREE FINITE SOURCE
+CARRIER WHOSE TOTAL EXPANDED WEIGHT IS EXACTLY THE CORRECTED-SLAB PARTITION.**
+
+`CompactDualSlabExpandedSourceEnumeration.lean` proves duplicate-freeness at
+each layer: one link's filtered auxiliary labellings, recursive Cartesian
+global assignments, complete fine-intertwiner fibers, and the bounded physical
+labellings.  Their dependent flat product is the explicit carrier
+
+```text
+(physical labelling, accepted complete fine-intertwiner assignment).
+```
+
+Finite rational Fubini and the exact physical disintegration theorem give
+
+```text
+sum expandedFiberWeight over all expanded sources = physicalPartition.
+```
+
+Filtering this carrier at one fixed face to `0 < physical faceId` preserves
+duplicate-freeness, and every retained source constructs milestone 157's
+slot-zero rooted component.
+
+The focused monitored source check passes.  All fifteen audited declarations
+use at most `[propext, Quot.sound]`; the source-weight projection is axiom-free.
+No `Classical`, choice, proof obligation, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
+The measure and component layers now meet on the same finite objects.  The
+next frontier is not another carrier: encode each rooted source's lowered
+physical/assignment target and peel size by decidable finite-support words,
+partition the positive-face carrier by those keys, and apply the fixed-fiber
+`(8/25)^n` estimate.  The geometric tail sum, conditional transition floor,
+posterior-variance fraction, dense/completed OS gap, continuum passage, and
+Clay theorem remain open.

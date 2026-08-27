@@ -19230,3 +19230,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   axiom-free.  The root aggregator imports the module.  No full-root audit,
   conditional transition floor, posterior-variance fraction, completed gap,
   continuum QFT, or Clay theorem is claimed.
+
+### [compact-dual-slab-expanded-source-enumeration] Enumerate the literal expanded finite measure -- **EXACT DUPLICATE-FREE SOURCE CARRIER CLOSED; ROOTED TARGET PARTITION OPEN 2026-08-26**
+
+- **milestone**: prove duplicate-freeness of each local fusion-witness list,
+  recursive global assignment list, complete physical labelling carrier, and
+  their dependent product; prove that its expanded-fiber weight sums exactly
+  to the corrected-slab physical partition; and filter it to the positive
+  fixed-observable-face subcarrier with a canonical rooted seed for every
+  member.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabExpandedSourceEnumeration.lean`.
+- **principal declarations**:
+  `slabLinkFusionWitnesses_nodup`,
+  `slabFusionWitnessAssignmentsOn_nodup`,
+  `slabFineFusionWitnesses_nodup`, `slabPhysicalLabellings_nodup`,
+  `slabExpandedFineSources`, `slabExpandedFineSources_nodup`,
+  `slabExpandedFineSources_weight_total`,
+  `slabObservablePositiveExpandedSources`, and
+  `slabObservablePositiveExpandedSourceSeed`.
+- **obligation**: construct a decidable finite-support key for each rooted
+  source's lowered physical target, lowered assignment, and positive peel
+  size; partition the positive source list by that key; apply the strict
+  fixed-fiber estimate; and sum the resulting positive-size geometric tail.
+- **constructive?**: yes.  All enumerations are literal finite lists and the
+  total-weight theorem is exact finite rational Fubini.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All fifteen
+  audited declarations use at most `[propext, Quot.sound]`; no full-root audit,
+  conditional transition floor, posterior-variance fraction, completed gap,
+  continuum QFT, or Clay theorem is claimed.
