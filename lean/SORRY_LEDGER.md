@@ -18281,6 +18281,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exports use only `[propext, Quot.sound]`; the root aggregator imports the
   module.  No full-root build or audit is claimed.
 
+### [z4-canonical-face-event-pinned-tail] Replace the complete pinned face cylinder by a finite size truncation -- **PROVED AT ANCHOR COUPLING / SPATIAL TRANSPORT OPEN 2026-08-27**
+
+- **milestone**: split the complete occupied-face event, on every canonical
+  compatible family, into the size-`< m` strict-cylinder event and a disjoint
+  false-negative remainder; inject every polymer in that remainder into the
+  pinned size layers; and bound its normalized probability by the explicit
+  box- and face-independent anchor-coupling tail
+  `2 * anchorEffectiveRatio ^ m`.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalFaceEventPinnedTail.lean`.
+- **decl**:
+  `canonicalFaceTruncationRemainder_implies_large`,
+  `familyContainsFaceB_eq_truncated_or_remainder`,
+  `canonicalPinnedLargePolymer_mem_sizeLayers`,
+  `canonicalPinnedLargeActivity_le_tail`,
+  `anchorFaceTruncationRemainderProbability_le_tail`, and
+  `anchorFaceProbability_le_truncated_add_tail`.
+- **obligation**: prove that, for a centrally transported face and fixed
+  truncation size, every small pinned canonical polymer in every sufficiently
+  large centered box comes from one fixed finite root chart.  Then transport
+  the truncated observable through the strict-cylinder direct system and
+  identify its limit with the same-object OS autocorrelation.  The proved
+  tail is fixed at `anchorCoupling`; it asserts no beta- or spacing-uniform
+  estimate, completed spectral gap, continuum limit, or Clay result.
+- **constructive?**: yes.  The proof uses finite list filters, an explicit
+  size-layer injection, the existing pinned KP sum, and rational probability
+  inequalities.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  No full-root build or audit is claimed.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of
