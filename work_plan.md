@@ -25801,8 +25801,9 @@ here.
 
 ## 203. Repoint the switch to a recoupling-invariant physical-support component (2026-08-27)
 
-**Status. THE PHYSICAL COMPONENT GEOMETRY AND ITS INVOLUTION ARE CLOSED;
-WHOLE-LINK AUXILIARY TRANSPOSITION AND COLUMN CAPACITY REMAIN OPEN.**
+**Status. THE PHYSICAL COMPONENT, WHOLE-LINK AUXILIARY TRANSPOSITION, AND
+THEIR EXACT INVOLUTIONS ARE CLOSED; THE COMMON RECOUPLING COLUMN REMAINS
+OPEN.**
 
 The previous no-overload attempt used a component of the union of the two
 fine strand-pairing graphs.  That graph depends on the chosen fusion tree,
@@ -25818,15 +25819,23 @@ of the two replicas, so the canonical physical switch is an exact involution.
 The target face is proved selected on the source four-cell.  Moreover, any two
 positive faces incident on one actual slab link have the same mask bit.
 
-This last theorem changes the next compiler qualitatively: the switch can
-transpose the two complete local intertwiner witnesses link by link, instead
-of splitting and recombining individual strand subnetworks.  The next causal
-step is to construct that whole-link auxiliary transposition, prove its exact
-involution and accepted-fiber membership, and rebuild the complete
-all-valence recoupling row over this invariant mask.  Only then can common
-target-column normalization be applied.  The price is an enlarged
-paired-physical-support connected residue, which must be bounded honestly
-after capacity closes.
+This last theorem changes the compiler qualitatively: the switch transposes
+the two complete local intertwiner witnesses link by link, instead of
+splitting and recombining individual strand subnetworks.
+`CompactDualSlabObservablePairedSupportWholeLinkSwitch.lean` proves this
+literal whole-block law.  The production fusion fiber depends only on the
+incident physical spins, so each transposed local witness remains accepted
+over the canonical face-swapped physical field.  Structural assembly gives
+two accepted global assignments.  Recomputing the support component after
+the switch preserves every link bit; a second switch therefore reconstructs
+both original assignments exactly.
+
+The next causal step is to point the complete all-valence bistochastic
+recoupling product at these whole-link-switched source assignments and prove
+that a fixed realized physical target determines one common target column.
+The established involution supplies the source decoder required for the
+column embedding.  The price is an enlarged paired-physical-support connected
+residue, which must be bounded honestly after capacity closes.
 
 The focused monitored source check passes.  Every printed declaration uses
 at most `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,

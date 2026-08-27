@@ -20726,12 +20726,18 @@ facewise transposition, physical involutivity, target selection, and
 constancy of the component bit across all positive faces at one actual slab
 link.
 
-The open constructive obligation is now sharper: transpose the complete two
-local fusion witnesses at each link according to that common bit, rebuild the
-whole-slab recoupling realization, and prove its source rows inject into the
-one fixed target column.  Afterward, bound the resulting coarser
-paired-support connected residue.  The focused check uses only
-`[propext, Quot.sound]`; no `sorry` is introduced.
+`CompactDualSlabObservablePairedSupportWholeLinkSwitch` now closes the first
+part of that obligation.  It proves local fusion-fiber locality, transposes
+the complete two local witnesses according to the common link bit, assembles
+two accepted global assignments, and proves exact left and right involution
+after recomputing the invariant support mask.  Thus the whole-link switch has
+an explicit decoder.
+
+The remaining constructive obligation is to rebuild the whole-slab
+bistochastic recoupling realization above these switched sources and use the
+decoder to inject all contributors into one fixed target column.  Afterward,
+bound the resulting coarser paired-support connected residue.  Focused checks
+use only `[propext, Quot.sound]`; no `sorry` is introduced.
 
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
