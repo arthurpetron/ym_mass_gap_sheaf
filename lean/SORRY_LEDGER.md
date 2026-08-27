@@ -19579,3 +19579,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inhabitant, no bound for the paired-face connected residue, no
   unconditional covariance or OS form theorem, no all-beta statement, no
   completed gap, no continuum QFT, and no Clay theorem.
+
+### [compact-dual-slab-selection-complement] Split an accepted network into selected and complementary subnetworks -- **BOOLEAN COMPLEMENT, SELECTED ADMISSIBILITY, AND ORIGINAL-CUTOFF LOCAL WITNESS CLOSED; CROSS-REPLICA SUM AND SAME-CUTOFF RECOMBINATION OPEN 2026-08-26**
+
+- **milestone**: prove exact Boolean interval complementation; complement an
+  arbitrary resolved-network mate-closed selection; prove the two drops
+  partition the source label; prove the selected drop itself trivalently
+  admissible; complement a literal slab face-copy selection; construct the
+  selected physical and auxiliary subnetworks; prove the selected auxiliary
+  is an actual member of the original-cutoff local witness list; and identify
+  face-constant selections with all-or-nothing physical face masks.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabSelectionComplement.lean`.
+- **principal declarations**:
+  `boolCountFrom_add_not`,
+  `resolvedNetworkMateClosedSelectionComplement`,
+  `resolvedNetworkMateClosedSelectionDrop_add_complementDrop`,
+  `resolvedNetworkMateClosedSelectionDrop_vertices_admissible`,
+  `slabLinkPartnerClosedFaceSelectionComplement`,
+  `slabLinkPartnerClosedFaceSelectionCount_add_complement`,
+  `slabFaceStrandSelectionCount_eq_selectedByMask`,
+  `lowerSlabPhysicalByFaceStrandSelection_eq_unselectedByMask`,
+  `slabLinkPartnerClosedFaceSelectionSelectedAuxiliary`, and
+  `slabLinkPartnerClosedFaceSelectionSelectedAuxiliary_mem`.
+- **obligation**: add the selected accepted subnetwork of one replica to the
+  complementary accepted subnetwork of the other.  Prove the resulting local
+  auxiliary witness lies in the original `linkAuxiliaryCutoff K` window,
+  rather than only the naive additive `linkAuxiliaryCutoff (K + K)` window;
+  then assemble the global switched assignments and their decoder.
+- **constructive?**: yes.  Both subnetworks and their accepted auxiliary
+  witnesses are explicit Type-level data.  The remaining cross-replica
+  auxiliary sum and global assignment must also be explicit.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build of 712 jobs pass.  All seven printed
+  declarations use only `[propext, Quot.sound]`.  There is no cross-replica
+  sum at the original cutoff, no global switched assignment or decoder, no
+  paired-face residue bound, no OS form theorem, no all-beta statement, no
+  completed gap, no continuum QFT, and no Clay theorem.

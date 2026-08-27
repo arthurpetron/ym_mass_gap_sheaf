@@ -24474,3 +24474,46 @@ both replicas, with a recoverable decoder, and then prove an activity/removal
 bound for the paired-face connected residue.  The OS observable pin,
 all-beta/lattice-spacing control, completed gap, continuum passage, and Clay
 theorem remain open.
+
+## 168. Complementary mate-closed selections split every accepted SU(2) network (2026-08-26)
+
+**Status. AN ACCEPTED RESOLVED SU(2) NETWORK NOW DECOMPOSES CONSTRUCTIVELY
+INTO AN ACCEPTED SELECTED SUBNETWORK AND AN ACCEPTED COMPLEMENTARY SUBNETWORK.
+THE PROOF REUSES MATE-CLOSED REMOVAL INSTEAD OF REBUILDING TRIVALENT PAIRINGS.**
+
+`CompactDualSlabSelectionComplement.lean` proves that a Boolean interval and
+its pointwise complement partition every strand slot exactly once.  Boolean
+complementation therefore preserves every local mate equation, and the
+selected and complementary drops add exactly to the source edge label.
+Removing the complement leaves the selected drop, so the existing coherent
+removal compiler immediately proves the selected edge-count labelling
+admissible on the same ordered trivalent graph.
+
+At a literal accepted corrected-slab link, the module complements a
+`SlabLinkPartnerClosedFaceSelection`, proves the selected and complementary
+physical counts partition every face spin, and constructs
+`slabLinkPartnerClosedFaceSelectionSelectedAuxiliary`: an actual accepted
+auxiliary witness at the original cutoff for the selected physical
+subnetwork.  For face-constant selections it also identifies the selected and
+unselected physical subnetworks with the literal all-or-nothing Boolean face
+masks.
+
+This gives the mathematical factorization needed by the paired switch:
+
+```text
+accepted replica = accepted selected sector + accepted complement sector.
+```
+
+The focused monitored source check and the dependency-complete target build
+of 712 jobs pass.  All seven printed declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is the cross-replica sum: add the selected sector of
+one replica to the complementary sector of the other, prove the resulting
+auxiliary labels remain inside the original `6*K` production window (rather
+than only the naive doubled window), and assemble the accepted global
+switched assignments.  Involution/decoder, the paired-face residue bound,
+OS observable pin, all-beta/lattice-spacing control, completed gap, continuum
+passage, and the Clay theorem remain open.
