@@ -24078,3 +24078,34 @@ partition the positive-face carrier by those keys, and apply the fixed-fiber
 `(8/25)^n` estimate.  The geometric tail sum, conditional transition floor,
 posterior-variance fraction, dense/completed OS gap, continuum passage, and
 Clay theorem remain open.
+
+## 159. Lowered expanded targets have exact decidable finite-support keys (2026-08-26)
+
+**Status. THE FUNCTION-VALUED LOWERED PHYSICAL AND COMPLETE AUXILIARY TARGETS
+NOW ADMIT AN EXACT DECIDABLE KEY, INJECTIVE ON THE LITERAL PRODUCTION
+CARRIER.**
+
+`CompactDualSlabExpandedTargetKey.lean` reads a physical labelling only on
+the corrected-slab face list and reads each auxiliary labelling only on the
+canonical coordinates of its link, retaining the literal complete-link
+order.  Production support and exact assignment reconstruction prove that
+equality of these finite words implies equality of the original physical
+functions and complete assignments.
+
+Consequently the image of `slabExpandedFineSources` under this key is a
+duplicate-free decidable finite target carrier.  Every accepted rooted
+component peel has a lowered physical/assignment pair in the literal expanded
+carrier, hence its target key occurs in this finite key list.
+
+The focused monitored source check passes.  All eleven audited declarations
+use at most `[propext, Quot.sound]`; the word reader and key structure are
+axiom-free.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is now a genuinely decidable operation: attach the
+positive fixed-face source carrier, filter it by a chosen target key and peel
+size, map back to source pairs, and construct a
+`ComponentAdaptiveRemovalWitness` for every member.  Summing those fixed
+fibers and the positive-size geometric tail remains open; so do the exact
+conditional/posterior estimate, dense/completed OS gap, continuum passage,
+and Clay theorem.

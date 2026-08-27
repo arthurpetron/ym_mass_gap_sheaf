@@ -19261,3 +19261,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited declarations use at most `[propext, Quot.sound]`; no full-root audit,
   conditional transition floor, posterior-variance fraction, completed gap,
   continuum QFT, or Clay theorem is claimed.
+
+### [compact-dual-slab-expanded-target-key] Recode lowered targets by finite words -- **EXACT DECIDABLE TARGET KEY CLOSED; FIXED-KEY SOURCE FIBERS OPEN 2026-08-26**
+
+- **milestone**: encode a physical target by its corrected-slab face word and
+  a complete fusion assignment by its ordered link-local auxiliary words;
+  prove injectivity on the actual expanded production carrier; prove the key
+  carrier duplicate-free; and prove every accepted component peel lands in
+  that target-key carrier.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabExpandedTargetKey.lean`.
+- **principal declarations**: `finiteEdgeLabellingWord`,
+  `edgeLabelling_eq_of_word_eq_of_supported`,
+  `slabFusionWitnessAssignmentWords`,
+  `slabFusionWitnessAssignment_eq_of_words_eq`,
+  `SlabExpandedFineTargetKey`, `slabExpandedFineTargetKey_eq_source_eq`,
+  `slabExpandedFineTargetKeys_nodup`,
+  `SlabFusionWitnessFaceStrandSeed.lowerTarget_mem_expanded`, and
+  `SlabFusionWitnessFaceStrandSeed.lowerTargetKey_mem`.
+- **obligation**: form the decidable fixed-target-key/fixed-positive-size
+  filters of the positive observable source carrier, construct the explicit
+  fixed-target removal witness on every member, apply the strict fiber
+  estimate, and sum the positive-size geometric tail.
+- **constructive?**: yes.  Finite list maps, support equalities, and exact
+  assignment reconstruction only.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All eleven
+  audited declarations use at most `[propext, Quot.sound]`; no full-root
+  audit, posterior-variance fraction, completed gap, continuum QFT, or Clay
+  theorem is claimed.
