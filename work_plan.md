@@ -24360,3 +24360,67 @@ link-cylinder observable or a same-object OS transfer form.  The current
 theorem is conditional on the first part and does not perform the second.
 All-beta/lattice-spacing control, the completed OS gap, continuum passage,
 and the Clay theorem remain open.
+
+## 166. Facewise transposition makes exact SU(2) pair-weight preservation automatic (2026-08-26)
+
+**Status. THE OPEN DISCONNECTED SWITCH NO LONGER ASSUMES TARGET-CELL
+TRANSPORT OR PRODUCT-WEIGHT PRESERVATION.  BOTH FOLLOW FROM A STRICTLY MORE
+STRUCTURAL FACE-MASK CERTIFICATE WHOSE ONLY SUBSTANTIVE OPEN CONTENT IS
+ACCEPTED OUTPUT CONSTRUCTION AND RECOVERABILITY.**
+
+`CompactDualSlabObservableTwoReplicaFaceSwapCertificate.lean` defines the
+literal complementary outputs of a Boolean face mask:
+
+```text
+selected face:    (left spin, right spin) -> (right spin, left spin),
+unselected face:  (left spin, right spin) -> (left spin, right spin).
+```
+
+The mask action is definitionally computable and involutive.  For an
+arbitrary scalar function of spin, the product of its two values is preserved
+at each face.  Finite product congruence then proves, for every coupling,
+cutoff, extent, mask, and pair of physical labellings,
+
+```text
+faceFactor(swappedLeft) * faceFactor(swappedRight)
+  = faceFactor(left) * faceFactor(right).
+```
+
+The retained fine-intertwiner raw fiber weight is exactly one.  Therefore the
+same theorem upgrades without any analytic hypothesis to the complete
+expanded physical-plus-intertwiner product weight, for arbitrary output
+assignments.
+
+The new Type-level
+`SlabObservableDisconnectedFaceSwapCertificate` contains only:
+
+```text
+face mask,
+accepted encoded output pair,
+decoder with left-inverse recovery,
+exact physical face-swap equations,
+root mask bit = false,
+target mask bit = true.
+```
+
+Its output type already certifies membership in the literal accepted
+expanded carriers.  The root/target mask laws and source-cell membership
+prove the encoded pair lies in `10 x 01`; the face-factor theorem proves exact
+pair-weight preservation.  Hence `toSwitchCertificate` constructs milestone
+165's earlier interface, and the geometric four-cell defect follows through
+`slabObservableFourCell_defect_le_anchorRate_of_faceSwap`.
+
+The focused monitored source check and the dependency-complete target build
+of 957 jobs pass.  All eleven printed declarations use at most
+`[propext, Quot.sound]`; the two face-swap functions are axiom-free.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is paired geometry, not weight algebra.  Construct a
+two-replica strand/disagreement carrier whose selected component induces the
+face mask; prove it fixes the root and swaps the target on every separated
+source; construct accepted output fine-intertwiner assignments and their
+decoder.  Only after that certificate is inhabited does the positive-spin
+four-cell bound become unconditional.  The subsequent link-cylinder/OS pin,
+all-beta/lattice-spacing control, completed gap, continuum passage, and Clay
+theorem remain open.

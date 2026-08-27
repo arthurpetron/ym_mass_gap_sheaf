@@ -19492,3 +19492,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   fixed at `anchorCoupling`; there is no certificate inhabitant, no
   unconditional covariance bound, no OS form identification, no all-beta
   statement, no completed gap, no continuum QFT, and no Clay theorem.
+
+### [compact-dual-slab-observable-two-replica-face-swap] Factor switch weight preservation through a physical face mask -- **WEIGHT AND FOUR-CELL TRANSPORT FIELDS ELIMINATED; ACCEPTED PAIRED COMPONENT SWITCH OPEN 2026-08-26**
+
+- **milestone**: define the complementary physical face-swap outputs of a
+  Boolean mask; prove their involutivity; prove pointwise scalar-product
+  preservation; lift it through the complete corrected-slab heat product;
+  use the unit retained-intertwiner raw weight to obtain exact expanded
+  pair-weight preservation; replace the milestone-165 open input by a
+  face-mask/accepted-output/decoder certificate; derive target-cell membership
+  and weight preservation; and compile it back to the four-cell defect.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableTwoReplicaFaceSwapCertificate.lean`.
+- **principal declarations**:
+  `twoReplicaFaceSwapLeft`, `twoReplicaFaceSwapRight`,
+  `twoReplicaFaceSwapLeft_involutive`,
+  `twoReplicaFaceSwapRight_involutive`,
+  `twoReplicaFaceSwap_pointwise_product`,
+  `slabParametricKPhysicalFaceFactor_pair_faceSwap`,
+  `retainedFineIntertwinerPhysicalFiberWeight_pair_faceSwap`,
+  `SlabObservableDisconnectedFaceSwapCertificate`,
+  `SlabObservableDisconnectedFaceSwapCertificate.encode_mem_target`,
+  `SlabObservableDisconnectedFaceSwapCertificate.weight_preserved`,
+  `SlabObservableDisconnectedFaceSwapCertificate.toSwitchCertificate`, and
+  `slabObservableFourCell_defect_le_anchorRate_of_faceSwap`.
+- **obligation**: inhabit
+  `SlabObservableDisconnectedFaceSwapCertificate`.  The remaining data must
+  construct a paired strand/disagreement component and its face mask, accepted
+  fine-intertwiner assignments over both swapped physical labellings, a
+  decoder recovering every separated source, and proofs that the mask fixes
+  the root and swaps the target.  Product-weight equality and opposite-cell
+  membership are no longer open fields.  After this finite obligation,
+  separately identify the positive-spin four-cell defect with a centered
+  gauge-invariant link-cylinder observable or same-object OS form.
+- **constructive?**: yes.  The mask, encoder, and decoder are Type-level data.
+  Every theorem is finite and exact.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build of 957 jobs pass.  All eleven printed
+  declarations use at most `[propext, Quot.sound]`; the physical mask
+  functions are axiom-free.  No face-swap certificate inhabitant,
+  unconditional covariance, OS form identification, all-beta estimate,
+  completed gap, continuum QFT, or Clay theorem is claimed.
