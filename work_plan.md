@@ -24921,3 +24921,41 @@ proof-carrying target channel for each nonzero Cartan packet before the
 physical Schur row can be applied.  Valence-five/six iteration, Gibbs-weight
 comparison, the paired connected residue, OS observable identification,
 uniform completed gap, continuum passage, and the Clay theorem remain open.
+
+## 178. Physical Schur transport now permits heterogeneous replica labels (2026-08-26)
+
+**Status. TWO CROSSED REPLICAS WITH DIFFERENT EXTERNAL-SPIN QUADRUPLES NOW
+HAVE ONE EXACT NORMALIZED ANALYTIC RECOUPLING LAW.**
+
+`SU2PhysicalSchurHeterogeneousTwoReplicaTransport.lean` removes the hidden
+same-label restriction in the earlier two-replica Schur carrier.  Given
+
+```text
+qL₁ : FixedLeftCGChannel a₁ b₁ c₁ d₁
+qL₂ : FixedLeftCGChannel a₂ b₂ c₂ d₂,
+```
+
+the new target list is the literal Cartesian product of the two independently
+typed complete right-channel lists.  Its weight is the product of the two
+physical Schur probabilities.  `heterogeneousSchurKernel_row_normalized`
+proves exact mass one from the two Parseval row laws, without identifying any
+of the eight external labels.
+
+The carrier is duplicate-free, every weight is nonnegative, constant
+observables are preserved, and `heterogeneousSchurExpectation_product` proves
+the exact finite Fubini law for independently typed observables.  This is the
+analytic law required by the already-constructed left and right crossed slab
+outputs, whose four external spins need not coincide.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All five printed declarations use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is now concrete: use
+`slabCrossReplicaLeftAuxiliary_mem` and
+`slabCrossReplicaRightAuxiliary_mem`, convert their accepted degree-four
+production witnesses through milestone 177, and expose the resulting
+heterogeneous Schur carrier and normalized row as one actual local switch
+compiler.  Valence-five/six iteration and all Gibbs/OS/continuum obligations
+remain open.

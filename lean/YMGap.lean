@@ -1654,6 +1654,7 @@ import YMGap.Continuum.SU2OrderedRacahMeasureEightStructuralCorrectionShell
 import YMGap.Continuum.SU2OrderedRacahCasimirCapstone
 import YMGap.Continuum.SU2PhysicalSchurRecouplingKernel
 import YMGap.Continuum.SU2PhysicalSchurTwoReplicaTransport
+import YMGap.Continuum.SU2PhysicalSchurHeterogeneousTwoReplicaTransport
 import YMGap.Continuum.SU2CartanBranchingKernel
 import YMGap.Continuum.SU2CartanBranchingEquivariance
 import YMGap.Continuum.SU2CartanTwoReplicaCrossTransport

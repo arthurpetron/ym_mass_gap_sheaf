@@ -19958,3 +19958,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   carrier bridge at valence four, not yet a crossed target-channel map,
   valence-five/six compiler, Gibbs/heat comparison, beta-uniform posterior
   estimate, OS form bound, completed gap, continuum QFT, or Clay theorem.
+
+### [su2-physical-schur-heterogeneous-two-replica-transport] Normalize physical Schur rows with different replica label types -- **HETEROGENEOUS ANALYTIC TRANSPORT CLOSED; PRODUCTION INSTANTIATION OPEN 2026-08-26**
+
+- **milestone**: form the Cartesian product of complete right-channel lists
+  for two left channels with unrelated external-spin quadruples; prove target
+  uniqueness, product-kernel nonnegativity, and exact mass one; define the
+  independently typed observable pushforward; prove preservation of the
+  constant observable; and prove exact finite Fubini for product observables.
+- **file**:
+  `lean/YMGap/Continuum/SU2PhysicalSchurHeterogeneousTwoReplicaTransport.lean`.
+- **principal declarations**:
+  `heterogeneousSchurTargets_nodup`,
+  `heterogeneousSchurKernelAt_nonnegative`,
+  `heterogeneousSchurKernel_row_normalized`,
+  `heterogeneousSchurExpectation_one`, and
+  `heterogeneousSchurExpectation_product`.
+- **obligation**: instantiate both source channels from the accepted left and
+  right crossed slab auxiliary witnesses at an actual degree-four link, then
+  expose this heterogeneous normalized row as the analytic output of the
+  production local switch.  Extend the carrier extraction and transport law
+  through the degree-five and degree-six production fusion trees.
+- **constructive?**: yes.  The law uses only explicit finite Cartesian lists
+  and exact `Q'` products of the previously proved Parseval probabilities.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all five printed declarations use
+  only `[propext, Quot.sound]`.  This closes the differing-label analytic
+  product law, not yet its production switch instantiation, a valence-five/six
+  compiler, Gibbs/heat comparison, beta-uniform posterior estimate, OS form
+  bound, completed gap, continuum QFT, or Clay theorem.
