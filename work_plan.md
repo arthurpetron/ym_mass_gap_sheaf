@@ -24004,3 +24004,39 @@ canonical root or whether a root entropy factor remains, and only then sum
 the positive-size geometric tail.  The exact conditional transition floor,
 posterior-variance fraction, dense form gap, completed OS gap,
 thermodynamic/continuum passage, and Clay theorem remain open.
+
+## 157. A fixed observable face supplies the component root (2026-08-26)
+
+**Status. EVERY POSITIVE STRAND AT ONE FIXED PHYSICAL FACE NOW CONSTRUCTS THE
+SLOT-ZERO ROOT OF AN ACTUAL GLOBAL STRAND COMPONENT, WITH NO SUM OVER SLAB
+ROOTS AND THEREFORE NO VOLUME-DEPENDENT ROOT ENTROPY.**
+
+`CompactDualSlabObservableRootSeed.lean` chooses the first literal boundary
+link of the fixed face plaquette, computes the face's first position in that
+link's incident-face list, and constructs the unique physical half-edge at
+slot zero.  The resulting terminal-pair edge belongs to the complete global
+strand graph, so the literal copy
+
+```text
+(fixed faceId, slot 0)
+```
+
+is a certified graph vertex and hence defines a constructive rooted
+component for every accepted fine-intertwiner assignment with positive spin
+at that face.  The earlier private physical-slot observation machinery is now
+part of the public checked interface because this is its first global inverse
+use.
+
+The focused monitored source checks pass.  The observable root copy itself is
+axiom-free; all eleven audited declarations use at most
+`[propext, Quot.sound]`.  No `Classical`, choice, proof obligation, custom
+axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+This resolves the root-multiplicity fork in favor of the connected observable
+path: fix the insertion face before peeling, rather than select the first
+nonzero face of each whole configuration.  It does not yet enumerate the
+actual expanded source family or partition it by lowered target and positive
+component size.  That rooted finite partition, followed by the geometric
+`(8/25)^n` tail sum, is the next causal frontier.  The conditional transition
+floor, posterior-variance fraction, dense form gap, completed OS gap,
+thermodynamic/continuum passage, and Clay theorem remain open.

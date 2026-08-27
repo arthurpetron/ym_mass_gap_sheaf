@@ -19201,3 +19201,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`; the generic pointwise raising operation is
   axiom-free.  The root aggregator imports the module.  No full-root audit is
   claimed.
+
+### [compact-dual-slab-observable-root-seed] Root every positive source at one fixed observable face -- **VOLUME-FREE OBSERVABLE ROOT CLOSED; ACTUAL ROOTED SOURCE PARTITION OPEN 2026-08-26**
+
+- **milestone**: choose a deterministic boundary link of one fixed physical
+  face, compute the face's incident-list position, construct its slot-zero
+  physical half-edge, prove that the corresponding global strand edge is
+  displayed, and package the literal `(faceId, 0)` copy as the root of an
+  accepted assignment's component.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableRootSeed.lean`.
+- **principal declarations**:
+  `slabObservableRootLink`, `slabObservableRootLink_mem_complete`,
+  `slabObservableRootPosition`, `slabObservableRootPosition_get`,
+  `slabObservableRootCopy`, `slabObservableRootCopy_mem_vertices`, and
+  `slabObservableRootSeed`.
+- **obligation**: enumerate the actual bounded expanded sources with positive
+  value at the fixed face, partition them by the lowered target and positive
+  peel size, apply the proved fixed-fiber `(8/25)^n` estimate, and sum the
+  geometric tail.  Only then can this rooted component estimate be connected
+  to a conditional transition or posterior-variance fraction.
+- **constructive?**: yes.  Root incidence is computed by first-list indexing;
+  the slot-zero terminal is built from the exact one-half-edge physical fiber.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source checks pass.  All exported
+  declarations use at most `[propext, Quot.sound]`; the root copy is
+  axiom-free.  The root aggregator imports the module.  No full-root audit,
+  conditional transition floor, posterior-variance fraction, completed gap,
+  continuum QFT, or Clay theorem is claimed.

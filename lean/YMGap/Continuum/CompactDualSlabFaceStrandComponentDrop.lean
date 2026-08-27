@@ -103,7 +103,7 @@ def lowerSlabPhysicalByFaceStrandSelection
 
 /-- The unique displayed half-edge over one physical canonical identifier.
 This witness is private: it exists only to compare the two finite counts. -/
-private def canonicalPhysicalHalfEdgeAt
+def canonicalPhysicalHalfEdgeAt
     {degree : Nat} {external auxiliary : EdgeLabelling}
     (hdegree : degree <= linkIncidenceBound)
     (hallowed :
@@ -120,7 +120,7 @@ private def canonicalPhysicalHalfEdgeAt
       hdegree hallowed edge.isLt
   exact fiber.get ⟨0, by rw [hlength]; omega⟩
 
-private theorem canonicalPhysicalHalfEdgeAt_edgeId
+theorem canonicalPhysicalHalfEdgeAt_edgeId
     {degree : Nat} {external auxiliary : EdgeLabelling}
     (hdegree : degree <= linkIncidenceBound)
     (hallowed :
@@ -131,7 +131,7 @@ private theorem canonicalPhysicalHalfEdgeAt_edgeId
   exact List.get_mem _ _
 
 /-- A typed observation of one bounded slot on a physical canonical edge. -/
-private structure CanonicalPhysicalSlotObservation
+structure CanonicalPhysicalSlotObservation
     {degree : Nat} {external auxiliary : EdgeLabelling}
     {hallowed :
       canonicalLinkConditionalAllowedB degree external auxiliary = true}
@@ -143,7 +143,7 @@ private structure CanonicalPhysicalSlotObservation
   slot_eq : terminal.1.slot = slot.val
 
 /-- Construct the observation from the exact one-half-edge physical fiber. -/
-private def canonicalPhysicalSlotObservation
+def canonicalPhysicalSlotObservation
     {degree : Nat} {external auxiliary : EdgeLabelling}
     (hdegree : degree <= linkIncidenceBound)
     (hallowed :
@@ -190,7 +190,7 @@ theorem slabLinkCanonicalLabel_at_position
     (slabIncidentPlaqIds extent link) physical position
 
 /-- Reindex one literal physical-face slot as a bounded canonical-link slot. -/
-private def slabLinkCanonicalSlotAt
+def slabLinkCanonicalSlotAt
     {extent : Nat} {physical : SlabLabelling} {link : SlabLink}
     {auxiliary : SlabLabelling}
     (position : Fin (slabIncidentPlaqIds extent link).length)
@@ -203,7 +203,7 @@ private def slabLinkCanonicalSlotAt
     rw [slabLinkCanonicalLabel_at_position position]
     exact slot.isLt⟩
 
-private theorem slabFaceStrandCopy_eq_of_faceId_eq_of_slot_val_eq
+theorem slabFaceStrandCopy_eq_of_faceId_eq_of_slot_val_eq
     {physical : SlabLabelling}
     {left right : SlabFaceStrandCopy physical}
     (hface : left.faceId = right.faceId)
@@ -218,7 +218,7 @@ private theorem slabFaceStrandCopy_eq_of_faceId_eq_of_slot_val_eq
           congr 1
           exact Fin.ext hslot
 
-private theorem slabLinkPhysicalSlotObservation_copy
+theorem slabLinkPhysicalSlotObservation_copy
     {cutoff extent : Nat} {physical : SlabLabelling} {link : SlabLink}
     {auxiliary : SlabLabelling}
     {hmem : auxiliary ∈
@@ -467,7 +467,14 @@ theorem SlabFusionWitnessFaceStrandSeed.lower_auxiliary_mem_atLink
 #print axioms slabFaceStrandSelectionCount
 #print axioms slabFaceStrandSelectionCount_le
 #print axioms lowerSlabPhysicalByFaceStrandSelection
+#print axioms canonicalPhysicalHalfEdgeAt
+#print axioms canonicalPhysicalHalfEdgeAt_edgeId
+#print axioms CanonicalPhysicalSlotObservation
+#print axioms canonicalPhysicalSlotObservation
 #print axioms slabLinkCanonicalLabel_at_position
+#print axioms slabLinkCanonicalSlotAt
+#print axioms slabFaceStrandCopy_eq_of_faceId_eq_of_slot_val_eq
+#print axioms slabLinkPhysicalSlotObservation_copy
 #print axioms SlabLinkPartnerClosedFaceSelection.edgeSlotValue_at_position_slot
 #print axioms SlabLinkPartnerClosedFaceSelection.drop_at_position
 #print axioms SlabLinkPartnerClosedFaceSelection.externalSpins_lowerPhysical
