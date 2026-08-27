@@ -2941,6 +2941,9 @@ import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetFaithfulness
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingPackageSourceNodup
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetInjectivity
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetProduct
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRow
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalRealization
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalTargetPair
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

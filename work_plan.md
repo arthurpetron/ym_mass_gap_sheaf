@@ -26120,3 +26120,44 @@ Focused monitored source checks pass and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`.  No `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 or enlarged heartbeat budget is introduced.
+
+## 212. Construct the support-aligned fractional target map (2026-08-27)
+
+**Status. EVERY DISCONNECTED PAIRED-SUPPORT SOURCE NOW CARRIES AN EXACT
+NORMALIZED DEPENDENT RECOUPLING ROW, AND EVERY ABSTRACT CHOICE IS REALIZED
+AS AN ACCEPTED FOUR-CELL TARGET; THE COMMON-PREIMAGE COLUMN THEOREM REMAINS
+OPEN.**
+
+`CompactDualSlabObservablePairedSupportFractionalRow.lean` assigns each
+separated paired-support source the complete target carrier of the common
+physical-pair recoupling matrix above its two switched physical fields.  Its
+local weight is the matrix entry in the literal contributor production row.
+The existing whole-slab bistochastic theorem proves this dependent row has
+exact mass one; no new analytic estimate is assumed.
+
+`CompactDualSlabObservablePairedSupportFractionalRealization.lean` proves
+that both switched physical fields remain in the bounded carrier and supplies
+the explicit boundedness witnesses needed by canonical left-carrier
+reconstruction.  Every abstract target assignment then yields two accepted
+whole-slab auxiliary assignments over those fields.
+
+`CompactDualSlabObservablePairedSupportFractionalTargetPair.lean` combines
+the switched physical fields and reconstructed assignments into literal
+expanded entries.  A general Boolean face-swap lemma uses exactly the two
+four-cell facts carried by the support component: the root bit is false for
+a disconnected source and the target bit is true.  Consequently every
+dependent choice realizes to an actual member of the four-cell target list.
+
+The fractional realization node is now inhabited.  The next finite theorem
+must prove that any two source/choice pairs realizing the same concrete target
+are recodings of one common abstract target column.  Global source-anchor
+independence and whole-slab target faithfulness then permit the concrete
+physical-fiber no-overload theorem to discharge dependent-kernel column
+capacity.  The connected residue, beta/lattice-spacing trajectory, Gibbs/OS
+comparison, completed gap, continuum construction, and Clay theorem remain
+open.
+
+Focused monitored checks and the dependency-complete target build pass.  All
+printed load-bearing declarations use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.

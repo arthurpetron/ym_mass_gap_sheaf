@@ -20990,3 +20990,26 @@ finite edge is the support-aligned fractional realization and the global
 dependent-kernel column-capacity proof.  The paired-support connected
 residue and every beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay
 obligation remain open.  No `sorry` is introduced.
+
+#### Support-aligned fractional target realization update (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportFractionalRow` equips every
+disconnected paired-support source with the literal target list and selected
+row weights of the complete physical-pair recoupling matrix over its switched
+physical fields.  Exact product bistochasticity proves every such dependent
+row is normalized.
+
+`CompactDualSlabObservablePairedSupportFractionalRealization` reconstructs
+two accepted whole-slab auxiliary assignments from every abstract target
+column.  `CompactDualSlabObservablePairedSupportFractionalTargetPair` packages
+them with the switched physical fields and proves the result belongs to the
+exact four-cell target carrier.  This uses the support component's explicit
+root-false and target-true mask certificates.
+
+The support-aligned realization is now a concrete construction, with no
+`sorry`.  The next finite obligation is target-preimage coherence: all
+choices realizing one concrete target must lie over its one common abstract
+column.  Only then can the fixed-physical-fiber bound yield global dependent-
+kernel column capacity.  The paired-support connected residue and every
+beta/spacing, Gibbs/OS, completed-gap, continuum, and Clay obligation remain
+open.  No `sorry` is introduced.
