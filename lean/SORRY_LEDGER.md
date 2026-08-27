@@ -18475,6 +18475,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The target build and executable forbidden-token scan are recorded with the
   milestone commit.
 
+### [z4-canonical-central-face-truncation-volume-comparison] Compare one central-face truncation across receding volumes -- **PROVED WITH GROWING MARGIN / TWO-SCALE DIAGONAL OPEN 2026-08-27**
+
+- **milestone**: fix a truncation floor `m`, place the complete size-`<m`
+  central-face chart in every box of radius `R >= m`, and prove exact
+  semigroup transport of its canonical roots and event under uniform padding.
+  Every transported root contains the same central face.  Taking that face as
+  its marked start puts it in a protected core of exact width `R-m`, so the
+  coupling-parametric finite-volume probability changes by at most
+  `uniformShiftSpinSummedCylinderBoundaryEpsilon roots.length (R-m)` when the
+  outer radius recedes.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalCentralFaceTruncationVolumeComparison.lean`.
+- **decl**:
+  `uniformShiftCanonicalRoot_add_face`,
+  `mem_pinnedFaceCommonSmallRoots_iff`,
+  `pinnedFaceCommonSmallRoots_uniformShift`,
+  `pinnedFaceCommonSmallEvent_uniformShift`,
+  `pinnedFaceCommonShiftedTarget_allPinned`,
+  `pinnedFaceCommonShiftedTarget_core`, and
+  `couplingParametricKPinnedFaceCommonVolume_abs_sub_le`.
+- **obligation**: choose a witnessed two-scale schedule whose growing margin
+  absorbs the explicit root-count boundary coefficient, combine this volume
+  modulus with the cutoff-extension modulus and the size-truncation tail, and
+  construct the full central-face thermodynamic `CReal`.  The OS same-object
+  identity, uniform completed gap, beta/spacing trajectory, continuum limit,
+  and Clay theorem remain open.
+- **constructive?**: yes.  The proof uses explicit natural padding, canonical
+  support recoding, one common marked plaquette, and rational inequalities.
+  Coupling and representation cutoff remain explicit parameters.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+  noncomputable declaration is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The target build and executable forbidden-token scan are recorded with the
+  milestone commit.
+
 ### [z4-canonical-central-face-thermodynamic-cylinder] Construct the thermodynamic CReal of each truncated central-face observable -- **PROVED AT ANCHOR COUPLING / FULL-FACE LIMIT OPEN 2026-08-27**
 
 - **milestone**: package the fixed size-`<m` root list as a signed-centered
