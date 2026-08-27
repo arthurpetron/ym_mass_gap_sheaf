@@ -20714,6 +20714,25 @@ certificate in this ledger entry is
 estimate is independently open.  The focused check reports only
 `[propext, Quot.sound]`, with no new `sorry`.
 
+#### Recoupling-invariant support-component repoint (2026-08-27)
+
+The concrete realization above remains a valid accepted-target construction,
+but its source-dependent fine strand component is not the correct common
+target-side key for the column-capacity proof: Schur recoupling changes the
+fusion tree and can change that graph.  The replacement geometry in
+`CompactDualSlabObservablePairedSupportComponent` uses only the union of the
+two nonzero physical plaquette supports.  It proves exact invariance under
+facewise transposition, physical involutivity, target selection, and
+constancy of the component bit across all positive faces at one actual slab
+link.
+
+The open constructive obligation is now sharper: transpose the complete two
+local fusion witnesses at each link according to that common bit, rebuild the
+whole-slab recoupling realization, and prove its source rows inject into the
+one fixed target column.  Afterward, bound the resulting coarser
+paired-support connected residue.  The focused check uses only
+`[propext, Quot.sound]`; no `sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

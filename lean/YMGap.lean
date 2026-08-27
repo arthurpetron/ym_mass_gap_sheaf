@@ -2926,6 +2926,7 @@ import YMGap.Continuum.SU2CanonicalLeftCarrierWitnessReconstruction
 import YMGap.Continuum.SU2CompleteCarrierDecidableEquality
 import YMGap.Continuum.SU2SlabLocalRecouplingWitnessRealization
 import YMGap.Continuum.SU2SlabGlobalRecouplingWitnessRealization
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportComponent
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

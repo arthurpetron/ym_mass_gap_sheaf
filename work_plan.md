@@ -25798,3 +25798,38 @@ connected residue still needs a volume/cutoff estimate, followed by an
 explicit beta/lattice-spacing trajectory, OS contraction, completed gap, and
 the thermodynamic and continuum constructions.  No such later claim is made
 here.
+
+## 203. Repoint the switch to a recoupling-invariant physical-support component (2026-08-27)
+
+**Status. THE PHYSICAL COMPONENT GEOMETRY AND ITS INVOLUTION ARE CLOSED;
+WHOLE-LINK AUXILIARY TRANSPOSITION AND COLUMN CAPACITY REMAIN OPEN.**
+
+The previous no-overload attempt used a component of the union of the two
+fine strand-pairing graphs.  That graph depends on the chosen fusion tree,
+while the Schur target changes the fusion tree.  It therefore does not provide
+the fixed target-side component needed to place all contributing rows in one
+common bistochastic column.
+
+`CompactDualSlabObservablePairedSupportComponent.lean` constructs the coarser
+target-rooted component of the union of the two nonzero physical plaquette
+supports, using literal boundary-complete slab-link incidence.  Its carrier,
+component, and Boolean mask are invariant under every facewise transposition
+of the two replicas, so the canonical physical switch is an exact involution.
+The target face is proved selected on the source four-cell.  Moreover, any two
+positive faces incident on one actual slab link have the same mask bit.
+
+This last theorem changes the next compiler qualitatively: the switch can
+transpose the two complete local intertwiner witnesses link by link, instead
+of splitting and recombining individual strand subnetworks.  The next causal
+step is to construct that whole-link auxiliary transposition, prove its exact
+involution and accepted-fiber membership, and rebuild the complete
+all-valence recoupling row over this invariant mask.  Only then can common
+target-column normalization be applied.  The price is an enlarged
+paired-physical-support connected residue, which must be bounded honestly
+after capacity closes.
+
+The focused monitored source check passes.  Every printed declaration uses
+at most `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No beta-uniform gap, continuum construction,
+or Clay theorem is claimed.
