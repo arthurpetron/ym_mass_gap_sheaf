@@ -20739,6 +20739,26 @@ decoder to inject all contributors into one fixed target column.  Afterward,
 bound the resulting coarser paired-support connected residue.  Focused checks
 use only `[propext, Quot.sound]`; no `sorry` is introduced.
 
+#### Physical-only common matrix and injective production row (2026-08-27)
+
+`SU2SlabPhysicalPairRecouplingKernel` now separates the fixed physical matrix
+from the accepted auxiliary pair that selects a row.  It constructs the
+complete bistochastic kernel at every actual degree zero through six and
+proves that equality of production rows reconstructs both literal local
+auxiliary witnesses.  `SU2SlabPhysicalPairRecouplingProduct` forms the exact
+whole-slab dependent product and lifts that decoder to both complete global
+assignments.
+
+This closes the common-kernel and row-injectivity compiler without assuming a
+column-capacity certificate.  The remaining obligation is concrete: bind the
+paired-support whole-link switch to this physical-only kernel, realize each
+right-tree target as an accepted target pair, and prove that contributors to
+one target pair inject into its one common source carrier.  Column
+normalization can then prove no-overload.  The coarser paired-support
+connected residue and every beta/spacing, OS, completed-gap, continuum, and
+Clay step remain open.  Focused and dependency-complete checks use only
+`[propext, Quot.sound]`; no `sorry` is introduced.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

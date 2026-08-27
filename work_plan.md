@@ -25842,3 +25842,42 @@ at most `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No beta-uniform gap, continuum construction,
 or Clay theorem is claimed.
+
+## 204. Separate the common physical matrix from its injective production row (2026-08-27)
+
+**Status. THE PHYSICAL-ONLY WHOLE-SLAB BISTOCHASTIC KERNEL AND ITS EXACT
+PRODUCTION-ROW DECODER ARE CLOSED; SUPPORT-SWITCH BINDING AND TARGET-COLUMN
+CAPACITY REMAIN OPEN.**
+
+`SU2SlabPhysicalPairRecouplingKernel.lean` removes the source-dependent
+strand-selection fields from the matrix key.  One fixed pair of physical
+labellings and one actual link now determine the complete degree-zero-through-
+six SU(2) bistochastic matrix.  Accepted auxiliary witnesses enter only
+afterward, to select a row.  The selected row reconstructs both literal
+auxiliary labellings: off the canonical auxiliary carrier every enumerated
+witness is zero; at degrees one and two the terminator is forced to zero; and
+at degrees four, five, and six the complete left carrier exposes every used
+intermediate label.
+
+`SU2SlabPhysicalPairRecouplingProduct.lean` maps those physical-only packages
+over the literal boundary-complete link list.  Its structural production-row
+fold has exact row normalization in one matrix that depends only on the two
+physical fields.  Equality of two global row coordinates gives equality of
+the two local auxiliary lookups at every link, and duplicate-free assignment
+reconstruction then proves equality of both complete global assignments.
+
+Thus the analytic row is now an injective code for the whole-link-switched
+auxiliary pair while the matrix itself is common to every contributor with
+the same switched physical target.  The next causal step is to specialize
+this compiler to the paired-support switch, transport sources into the
+matrix keyed by an actual target pair, realize target columns as accepted
+auxiliary assignments, and use the support-switch involution to prove the
+source-to-row embedding.  Only that completed embedding permits column
+normalization to discharge no-overload.
+
+Focused and dependency-complete monitored builds pass.  Every printed
+load-bearing declaration uses only `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  The paired-support
+residue, beta/lattice-spacing trajectory, OS contraction, completed gap,
+continuum construction, and Clay theorem remain open.
