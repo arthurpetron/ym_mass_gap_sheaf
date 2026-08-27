@@ -19846,3 +19846,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   split/recombine are proved; `sl2` equivariance is not yet proved.  The module
   contains no Gibbs/heat weight, strict OS form bound, uniform completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-cartan-branching-equivariance] Prove the symmetric-power split is an explicit SU(2) morphism -- **E/F/H EQUIVARIANCE CLOSED; LOCAL SWITCH COMPOSITION OPEN 2026-08-26**
+
+- **milestone**: prove literal physical bidegree support of `cartanSplit`;
+  derive exact normalized raising and lowering recurrences from adjacent
+  factorial binomials by division-free cross multiplication; close both
+  packet-boundary cases and the two-predecessor interior cases; prove raising
+  covariance without extra premises; state the necessary top-degree support
+  witness for lowering covariance; discharge its exterior packet terms by
+  the proved bidegree support; and prove Cartan-weight covariance.
+- **file**:
+  `lean/YMGap/Continuum/SU2CartanBranchingEquivariance.lean`.
+- **principal declarations**:
+  `cartanSplit_bidegreeSupported`,
+  `cartanSplit_E`,
+  `cartanSplit_H`,
+  `DegreeSupported`, and
+  `cartanSplit_F`.
+- **obligation**: tensor the two replica splits, insert the exact tensor
+  symmetry and physical Schur reassociation, and recombine the crossed packet
+  pairs to obtain the first external-spin-changing local switch compiler.
+  Prove its exact source/output law and normalized finite row law, then iterate
+  it along the production valence-five and valence-six fusion trees and attach
+  it to the global paired-face component carrier.
+- **constructive?**: yes.  Every identity is exact `Q'` algebra over explicit
+  Pascal/factorial coefficients.  The lowering theorem names the unavoidable
+  literal degree-support premise instead of hiding it in a typeclass.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete 486-job target build pass; all four printed public
+  declarations use only `[propext, Quot.sound]`.  This closes
+  the representation-morphism frontier, not the geometric switch, a
+  Gibbs/heat-weight comparison, a beta-uniform posterior estimate, an OS form
+  bound, a completed gap, a continuum QFT, or the Clay theorem.

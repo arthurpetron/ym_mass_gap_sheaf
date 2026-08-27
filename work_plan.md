@@ -24788,3 +24788,42 @@ reassociation laws to form the first genuine external-spin-changing local
 switch block.  Its valence-five/six iteration, Gibbs-weight comparison,
 connected residue, OS observable pin, uniform completed gap, continuum
 passage, and the Clay theorem remain open.
+
+## 175. The Cartan split is an exact SU(2) intertwiner (2026-08-26)
+
+**Status. THE HYPERGEOMETRIC SYMMETRIC-POWER SPLIT NOW COMMUTES WITH THE
+EXPLICIT RAISING, LOWERING, AND CARTAN ACTIONS ON ITS WHOLE PHYSICAL
+BIDEGREE RECTANGLE.**
+
+`SU2CartanBranchingEquivariance.lean` proves first that `cartanSplit m n f`
+is supported in the literal rectangle `[0,m] x [0,n]`.  It then turns the
+adjacent-binomial identity into a division-free cross identity for the
+normalized branching ratios.  The two boundary recurrences and the interior
+two-predecessor recurrence give the exact discrete Leibniz rule needed for
+`cartanSplit_E`.
+
+The dual recurrence gives `cartanSplit_F`.  Its statement explicitly assumes
+`DegreeSupported (m+n) f`, because `Fop` at the top physical coefficient
+reads `f (m+n+1)`; without that support premise the theorem is false.  The two
+packet-boundary terms are not assumed away: they vanish by the proved
+`cartanSplit_bidegreeSupported` theorem.  Finally `cartanSplit_H` follows from
+the exact additive equality of the two tensor-factor weights.
+
+Thus the coefficient section from milestone 174 is now a genuine explicit
+SU(2) representation morphism, not merely a normalized stochastic row.  This
+is load-bearing non-abelian representation structure in the audit-driven
+path.
+
+The focused monitored source check and the dependency-complete 486-job target
+build pass.  All four printed public declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+The next causal frontier is to construct the two-replica local compiler
+`split -> reassociate -> swap -> recombine`, prove its exact source/output
+law and normalized finite transport law, and then iterate it along the actual
+valence-five and valence-six fusion trees.  The Gibbs-weight comparison,
+paired-face connected residue, OS observable identification, all-beta and
+lattice-spacing control, completed uniform gap, continuum passage, and the
+Clay theorem remain open.
