@@ -19618,3 +19618,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   sum at the original cutoff, no global switched assignment or decoder, no
   paired-face residue bound, no OS form theorem, no all-beta statement, no
   completed gap, no continuum QFT, and no Clay theorem.
+
+### [canonical-link-auxiliary-support-bound] Recover the original production cutoff after an accepted SU(2) recombination -- **SHARP USED-CHANNEL SUPPORT CLOSED; CROSS-REPLICA LOCAL WITNESS OPEN 2026-08-26**
+
+- **milestone**: unfold the exact canonical resolver for link degrees zero
+  through six; eliminate the absent and forced-zero auxiliary cases; apply
+  the Clebsch--Gordan output triangle bound successively to the one, two, or
+  three genuine internal channels; and prove every used accepted auxiliary
+  coordinate lies below `linkAuxiliaryCutoff K = 6*K` whenever every external
+  coordinate is at most `K`.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkAuxiliarySupportBound.lean`.
+- **principal declaration**:
+  `canonicalLinkConditionalAllowedB_auxiliary_le_linkAuxiliaryCutoff`.
+- **obligation**: apply the support theorem to the pointwise sum of one
+  replica's accepted selected auxiliary subnetwork and the other replica's
+  accepted complementary auxiliary subnetwork.  Prove the sum is zero off
+  the canonical used-coordinate list and package it as a member of the
+  original-cutoff local witness enumeration.  Then assemble global switched
+  assignments and their decoder.
+- **constructive?**: yes.  The proof is literal finite valence case analysis,
+  the already-verified SU(2) fusion support inequality, and natural-number
+  arithmetic.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source check passes.  The printed
+  theorem uses only `[propext, Quot.sound]`.  There is not yet a packaged
+  cross-replica witness, global switch/decoder, paired-face residue bound, OS
+  form theorem, all-beta statement, completed gap, continuum QFT, or Clay
+  theorem.

@@ -24517,3 +24517,39 @@ than only the naive doubled window), and assemble the accepted global
 switched assignments.  Involution/decoder, the paired-face residue bound,
 OS observable pin, all-beta/lattice-spacing control, completed gap, continuum
 passage, and the Clay theorem remain open.
+
+## 169. Canonical SU(2) auxiliary channels remain inside the original production cutoff (2026-08-26)
+
+**Status. THE NAIVE DOUBLED-CUTOFF LOSS IN CROSS-REPLICA RECOMBINATION IS
+REMOVED AT THE CANONICAL-LINK LEVEL.  EVERY USED CHANNEL OF AN ACCEPTED
+VALENCE-AT-MOST-SIX RESOLVER IS AT MOST `6*K` WHEN ITS EXTERNAL LABELS ARE AT
+MOST `K`.**
+
+`CanonicalLinkAuxiliarySupportBound.lean` reads the exact canonical SU(2)
+left-fusion chain rather than applying a coarse norm estimate.  Degrees zero
+and three contain no auxiliary coordinate.  Degrees one and two contain only
+the vacuum terminator, already forced to zero by the accepted-link guard.
+Degrees four through six contain one, two, or three genuine channels; the
+Clebsch--Gordan triangle inequality bounds their successive values by
+`2*K`, `3*K`, and `4*K`, all inside the production window
+`linkAuxiliaryCutoff K = 6*K`.
+
+The public theorem
+`canonicalLinkConditionalAllowedB_auxiliary_le_linkAuxiliaryCutoff` is
+therefore the sharp support recovery needed after adding the selected sector
+of one replica to the complementary sector of the other: once the swapped
+external face labels are known to remain bounded by `K`, the recombined
+accepted auxiliary field is pointwise bounded on every used coordinate by
+the original cutoff, not merely by the generic additive cutoff for `K+K`.
+
+The focused monitored source check passes.  Its printed declaration uses
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to combine this support theorem with the exact
+selected/complement subnetworks, prove zero outside the used auxiliary
+coordinates, and construct an actual original-cutoff cross-replica local
+witness.  Global switched assignments and decoder, the paired-face residue
+bound, OS observable pin, all-beta/lattice-spacing control, completed gap,
+continuum passage, and the Clay theorem remain open.
