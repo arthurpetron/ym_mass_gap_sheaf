@@ -25503,3 +25503,32 @@ for valence six.  Until it closes, the heterogeneous whole-slab product cannot
 be upgraded from normalized fixed-source rows to complete bistochastic
 matrices at every possible 4D link degree.  The beta- and lattice-spacing-
 dependent Gibbs/OS comparison remains a later separate theorem.
+
+## 194. Indexed sums of finite bistochastic blocks are bistochastic (2026-08-27)
+
+**Status. THE GENERIC DEPENDENT BLOCK-DIAGONAL COMPILER IS CLOSED; ITS
+VALENCE-SIX INSTANTIATION IS OPEN.**
+
+`FiniteBistochasticQKernelIndexedSum.lean` packages the repeated carrier
+argument behind the valence-five construction into one reusable theorem.  An
+explicit duplicate-free list supplies proof-carrying sector indices.  Source
+and target carriers are dependent sums of the written block carriers, and the
+global entry equals the local block entry at matching indices and zero
+otherwise.
+
+Exact row and column normalization are both deterministic-sector sums of the
+corresponding local normalization laws.  `indexedSum` therefore converts any
+finite family of exact bistochastic matrices into one exact bistochastic
+matrix without cardinality arguments, choice, or duplicated recoding proofs.
+
+The focused monitored source check passes.  All four printed declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to express the first two valence-six associators
+as the indexed sum of complete valence-five matrices over the retained output
+`z`, then construct the third fixed-intermediate block and compose them.  This
+remains non-abelian SU(2) transport.  It does not identify the recoupling
+matrix with a Gibbs or OS transfer kernel and makes no beta-uniform or Clay
+claim.

@@ -1607,6 +1607,7 @@ import YMGap.Continuum.SU2SchurReversalSymmetry
 import YMGap.Continuum.SU2PhysicalSchurColumnNormalization
 import YMGap.Continuum.FiniteBistochasticQKernel
 import YMGap.Continuum.FiniteBistochasticQKernelComposition
+import YMGap.Continuum.FiniteBistochasticQKernelIndexedSum
 import YMGap.Continuum.SU2PhysicalSchurBistochasticKernel
 import YMGap.Continuum.SU2OrderedRacahInteriorReducedEndpointCoefficient
 import YMGap.Continuum.SU2OrderedRacahInnerContractionReduction

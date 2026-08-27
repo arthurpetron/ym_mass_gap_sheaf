@@ -20552,3 +20552,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`.  This is a production recoupling matrix and exact
   path-to-carrier map, not a Gibbs conditional comparison, OS form bound,
   completed spectral gap, continuum QFT, or Clay theorem.
+
+### [finite-bistochastic-indexed-sum] Compile dependent block diagonals once -- **GENERIC INDEXED-SUM COMPILER CLOSED 2026-08-27**
+
+- **milestone**: define proof-carrying dependent source and target sums over
+  an explicit duplicate-free index list; concatenate every block's written
+  carriers; zero-extend entries between distinct sectors; reduce every global
+  row and column to a deterministic index row; and package the resulting
+  matrix as an exact finite bistochastic kernel.
+- **file**:
+  `lean/YMGap/Continuum/FiniteBistochasticQKernelIndexedSum.lean`.
+- **principal declarations**: `IndexedSource`, `IndexedTarget`,
+  `indexedSources`, `indexedTargets`, `indexedSumWeight`,
+  `indexedSumWeight_row_normalized`,
+  `indexedSumWeight_column_normalized`, and `indexedSum`.
+- **obligation**: instantiate the compiler with the complete valence-five
+  matrix in each retained valence-six output sector, construct the final
+  third associator block, compose them, and evaluate the two-replica tensor
+  on actual degree-six slab labels.
+- **constructive?**: yes.  The only sector test is decidable equality on the
+  explicit index type; all carriers are finite lists and all sums use exact
+  `Q'` algebra.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+  custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored check passes; all four printed
+  declarations use only `[propext, Quot.sound]`.  This is a reusable finite
+  direct-sum theorem, not a physical Gibbs/OS comparison, beta-uniform gap,
+  continuum construction, or Clay theorem.
