@@ -19381,3 +19381,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   declarations use at most `[propext, Quot.sound]`.  The `8/17` statement is
   fixed at `anchorCoupling`; it is not beta-uniform, a posterior-variance
   theorem, a completed OS spectral gap, a continuum QFT, or the Clay theorem.
+
+### [compact-dual-slab-observable-connected-component] Filter the same measure by a reaching rooted component -- **CONNECTED EVENT AND SEPARATION FLOOR CLOSED; SHIFTED WEIGHT TAIL OPEN 2026-08-26**
+
+- **milestone**: prove that a rooted component reaching a chosen target
+  plaquette has peel size at least its Z4 L-infinity root-to-target distance
+  plus one; define the reaching event as a Boolean filter of the actual
+  attached positive expanded-source list; transfer the size floor to each
+  entry's deterministic removal key; and partition the connected event
+  weight exactly over the existing duplicate-free target/size universe.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableConnectedComponent.lean`.
+- **principal declarations**:
+  `SlabFusionWitnessFaceStrandSeed.linfDist_add_one_le_peelFaces`,
+  `SlabObservablePositiveSourceEntry.reachesPlaquetteB`,
+  `slabObservableConnectedSourceEntries`,
+  `SlabObservablePositiveSourceEntry.connected_removalKey_size_floor`,
+  `slabObservableConnectedSourceEntries_fiberWeight_total`, and
+  `slabObservableConnectedSourceEntries_nestedFiberWeight_total`.
+- **obligation**: prove the connected fixed-key fibers empty below the
+  separation floor, compare every remaining connected fiber with the full
+  literal removal fiber, and sum the shifted `(8/25)^n` tail.  Then identify
+  exactly which finite same-object observable or OS form that connected event
+  controls.
+- **constructive?**: yes.  Existing genuine Z4 animal decoding, literal
+  Boolean filtering, and exact deterministic finite pushforward only.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All eight
+  audited declarations use at most `[propext, Quot.sound]`; this is not yet a
+  covariance theorem, an OS transfer gap, a beta-uniform statement, a
+  continuum QFT, or the Clay theorem.

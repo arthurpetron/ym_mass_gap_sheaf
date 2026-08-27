@@ -24228,3 +24228,36 @@ component-removal/disintegration statement, or to prove an alternative
 same-object covariance implication strong enough for the OS transfer form.
 Beta/lattice-spacing uniformity, the dense/completed OS gap, continuum
 passage, and the Clay theorem remain open.
+
+## 163. A literal same-object connected component pays observable separation (2026-08-26)
+
+**Status. THE CANONICAL ROOTED STRAND COMPONENT OF EACH EXPANDED SOURCE NOW
+DEFINES A LITERAL TWO-OBSERVABLE CONNECTED EVENT, AND EVERY SUCH EVENT PAYS
+ITS FULL Z4 L-INFINITY SEPARATION IN PHYSICAL PEEL SIZE.**
+
+`CompactDualSlabObservableConnectedComponent.lean` reuses the already proved
+genuine connected Z4 plaquette animal carried by each rooted strand
+component.  If that component contains a chosen target plaquette, the
+constructive animal decoder gives
+
+```text
+linfDist(rootPlaquette, targetPlaquette) + 1 <= peelSize.
+```
+
+The event is a Boolean filter of the same attached positive source entries;
+it is not a Markov/heat-bath surrogate.  Applying the existing deterministic
+removal key to this filtered list gives an exact finite Fubini partition over
+the same duplicate-free lowered-target and peel-size universe.
+
+The focused monitored source check passes.  All eight audited declarations
+use at most `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is now sharply finite and analytic: show that every
+connected-event fiber below the geometric size floor is empty, dominate all
+remaining fibers by the existing `(8/25)^n` estimate, and sum the shifted
+tail.  That will give connected-event decay in endpoint separation on the
+same finite measure.  Identifying this event bound with a same-object
+observable covariance/OS transfer form, beta/lattice-spacing uniformity, the
+completed gap, continuum passage, and the Clay theorem remain open.
