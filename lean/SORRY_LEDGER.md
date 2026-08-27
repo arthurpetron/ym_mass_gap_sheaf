@@ -19321,3 +19321,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited declarations use at most `[propext, Quot.sound]`; this is an anchor
   fixed-fiber estimate, not yet a global posterior fraction, completed gap,
   continuum QFT, or Clay theorem.
+
+### [compact-dual-slab-observable-removal-partition] Sum literal fibers exactly -- **GLOBAL FINITE FIBER FUBINI CLOSED; GEOMETRIC TARGET-MASS CONTRACTION OPEN 2026-08-26**
+
+- **milestone**: bound every rooted peel size by physical-face count times
+  cutoff; enumerate every literal expanded target paired with every size
+  through that ceiling; prove this removal-key universe duplicate-free and
+  exhaustive; identify deterministic attached-entry fibers with the actual
+  source-pair filters; and recover the complete positive observable source
+  weight as their exact nested sum.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableRemovalPartition.lean`.
+- **principal declarations**:
+  `SlabFusionWitnessFaceStrandSeed.peelFaces_length_le_cutoff`,
+  `slabObservableRemovalMaxSize`, `slabExpandedFineRemovalKeys`,
+  `slabExpandedFineRemovalKeys_nodup`,
+  `slabObservablePositiveEntryCode_mem`,
+  `slabObservablePositiveFiberWeight_eqv_removalFiber`, and
+  `slabObservablePositiveRemovalFibers_weight_total`.
+- **obligation**: insert each literal fiber's `(8/25)^n` bound, remove the
+  empty zero-size blocks, sum the positive geometric series, and prove a
+  volume-safe bound on the resulting target-weight multiplicity.
+- **constructive?**: yes.  Explicit finite lists, exact deterministic
+  pushforward, and natural-number strand counting only.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All twelve
+  audited declarations use at most `[propext, Quot.sound]`; no posterior
+  fraction, completed gap, continuum QFT, or Clay theorem is claimed.

@@ -24149,3 +24149,43 @@ these disjoint fibers over the duplicate-free target keys and the finite
 positive peel-size range recovers the whole positive-face source weight.
 After that, sum the `(8/25)^n` tail.  An exact conditional/posterior estimate,
 dense/completed OS gap, continuum passage, and the Clay theorem remain open.
+
+## 161. The positive observable source measure is exactly partitioned by removal fibers (2026-08-26)
+
+**Status. THE COMPLETE POSITIVE FIXED-FACE EXPANDED WEIGHT IS NOW EXACTLY THE
+FINITE FUBINI SUM OF THE ACTUAL FIXED-TARGET/FIXED-SIZE COMPONENT-REMOVAL
+FIBERS.**
+
+`CompactDualSlabObservableRemovalPartition.lean` proves the explicit component
+size ceiling
+
+```text
+peelSize <= (# corrected-slab physical faces) * cutoff.
+```
+
+It then forms the literal removal-key universe by pairing every expanded
+target with every size from zero through that ceiling.  Exact target-key
+injectivity and range injectivity make the universe duplicate-free; the
+component size bound and lowered-target membership make it exhaustive.
+
+Applying the existing deterministic finite-pushforward theorem and identifying
+its attached-entry fibers with milestone 160's source-pair filters yields the
+kernel-checked equality
+
+```text
+sum_target sum_size sum_(source in fixed fiber) sourceWeight
+  = sum_(source positive at observable face) sourceWeight.
+```
+
+The focused monitored source check passes.  All twelve audited declarations
+use at most `[propext, Quot.sound]`; the explicit size ceiling is axiom-free as
+a definition.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.
+
+The next frontier is analytic finite-sum contraction: apply the `(8/25)^n`
+bound inside this exact partition, eliminate the empty `n=0` fibers, sum the
+positive geometric series, and control how often a target weight occurs.
+That last target-multiplicity issue must be resolved before calling the result
+a conditional transition or posterior-variance fraction.  The dense/completed
+OS gap, continuum passage, and Clay theorem remain open.
