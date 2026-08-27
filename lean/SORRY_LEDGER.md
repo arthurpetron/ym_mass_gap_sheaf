@@ -21737,3 +21737,23 @@ peeling construction without a `sorry`.  The multiplicity-faithful peeling
 history, fixed-history weight summation, numerical paired-residue rate,
 beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
+
+#### Matched AF mass-normalized row-gap path update (2026-08-27)
+
+`BF4PhysicalMatchedAFMassNormalizedRowGapPath` repoints the active completed-
+transfer route through the exact component-conditioned row coefficient
+`centralPhysicalFiniteVacuumSectorExactMassNormalizedRowRate`.  A cofinal
+strict upper bound for that literal finite scalar now constructs, scale by
+scale, the same completed canonical BF4 vacuum-sector carrier and OS transfer
+at the exact matched block nome and physical spacing.  Its completed norm rate
+is definitionally the supplied normalized-row rate, with no separate
+unconditioned vacuum-sector mass floor.
+
+The downstream scalar obligation is correspondingly reduced to the direct
+two-sided estimate
+`lower * a_j <= 1 - rate_j <= upper * a_j`.  The existing same-object
+observable pin then carries that exact completed rate to connected-correlation
+decay and a physical gap floor.  No `sorry` is introduced.  The cofinal
+normalized-row estimate, matched cubic law, physical spacing envelope,
+observable pin, continuum carrier/QFT axioms, isolated vacuum, and Clay mass-
+gap conclusion remain open.
