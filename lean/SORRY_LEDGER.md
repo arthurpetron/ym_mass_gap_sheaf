@@ -18364,17 +18364,49 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `mem_pinnedFaceStageRoots_iff`,
   `pinnedFaceTruncatedCylinderEvent_eq_fixedStage`, and
   `pinnedFaceFixedStrictCylinderVector`.
-- **obligation**: connect this uniformly padded fixed-chart stage sequence to
-  the centered strict-cylinder sequence consumed by the OS direct-limit and
-  two-step moment modules.  Then combine the exact event identification with
-  the pinned probability tail to obtain a CReal observable-limit modulus and
-  identify the limiting connected face covariance with the same-object OS
-  autocorrelation.  No such thermodynamic/OS identity is claimed here.
+- **obligation**: the next ledger entry packages this fixed chart as a signed
+  local observable and constructs its unconditional anchor-coupling
+  thermodynamic `CReal`.  It remains to pass the truncation floor to infinity
+  using the pinned tail and identify the limiting connected face covariance
+  with the same-object OS autocorrelation.  No such full-face/OS identity is
+  claimed here.
 - **constructive?**: yes.  The central face identifier is returned by the
   explicit nonempty singleton encoder; all inverse roots and stage maps carry
   exact witnesses.  No `Classical`, choice, `sorry`, `admit`, `native_decide`,
   custom axiom, noncomputable declaration, or enlarged heartbeat budget is
   introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  No full-root build or audit is claimed.
+
+### [z4-canonical-central-face-thermodynamic-cylinder] Construct the thermodynamic CReal of each truncated central-face observable -- **PROVED AT ANCHOR COUPLING / FULL-FACE LIMIT OPEN 2026-08-27**
+
+- **milestone**: package the fixed size-`<m` root list as a signed-centered
+  chart of radius `m`, prove that its distinguished natural plaquette is the
+  signed `p01` plaquette at the origin, identify its finite chart event with
+  the truncated central-face event, discharge the centered receding-volume
+  modulus using the already proved uniform-shift stability theorem, and return
+  an explicit Bishop `CReal` thermodynamic value.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalCentralFaceThermodynamicCylinder.lean`.
+- **decl**:
+  `pinnedFaceSignedChart`,
+  `pinnedFacePlaquette_to_signed_origin`,
+  `pinnedFaceSignedChart_event_eq_truncated`,
+  `pinnedFaceSignedPresentationVolumeModulus`,
+  `anchorPinnedFaceTruncatedThermodynamicValue`,
+  `anchorPinnedFaceTruncatedThermodynamicValue_nonnegative`, and
+  `anchorPinnedFaceTruncatedThermodynamicValue_le_one`.
+- **obligation**: compare the values at truncation floors `m` and `m'` by
+  transporting both charts to a common signed-centered refinement and using
+  the pinned omitted-event estimates.  This must produce a geometric modulus
+  in `m`, from which the full central-face thermodynamic `CReal` can be formed.
+  The resulting observable must then be connected to the OS same-object
+  two-step autocorrelation; neither step is claimed here.
+- **constructive?**: yes.  The chart carries explicit canonical-root proofs,
+  and the `CReal` is produced by the existing witnessed receding-volume
+  modulus.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, noncomputable declaration, or enlarged heartbeat budget is introduced.
 - **status note**: the focused monitored check passes.  Every audited export
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
