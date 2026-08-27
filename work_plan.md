@@ -25881,3 +25881,40 @@ choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.  The paired-support
 residue, beta/lattice-spacing trajectory, OS contraction, completed gap,
 continuum construction, and Clay theorem remain open.
+
+## 205. Bind paired-support contributors to common physical rows (2026-08-27)
+
+**Status. COMPLETE SWITCH INJECTIVITY AND THE COMMON-PHYSICAL-FIBER ROW
+EMBEDDING ARE CLOSED; WRITTEN SOURCE-CARRIER MEMBERSHIP, TARGET-COLUMN
+REALIZATION, AND COLUMN CAPACITY REMAIN OPEN.**
+
+`CompactDualSlabObservablePairedSupportRecouplingProduct.lean` defines the
+two canonical switched physical fields and proves that the complete physical
+and auxiliary support switch is injective.  Equality of the two switched
+physical fields makes the outer physical involutions identical; equality of
+the two switched auxiliary assignments does the same for the whole-link
+assignment involutions.  The original two attached expanded sources are
+therefore reconstructed exactly.
+
+A `SlabObservablePairedSupportContributorAt` is a disconnected source
+four-cell pair whose switched physical output is one fixed pair of
+labellings.  Its switched auxiliary assignments are accepted over those
+fixed fields.  They select a row of the physical-only whole-slab matrix, and
+the production-row decoder followed by the complete switch involution proves
+that this row map is injective on the physical fiber.
+
+The next finite accounting edge is explicit: prove that every selected
+production row occurs in the kernel's written source enumeration.  The
+natural stronger lemma is completeness of the degree-zero-through-six source
+carrier enumerations; its direct projection through the current monolithic
+dependent package exceeds the normal heartbeat gate, so it has not been
+claimed.  This should be isolated through smaller fixed-valence package views,
+without enlarging the heartbeat budget.  After that, construct the common
+target column represented by an accepted target auxiliary pair and apply the
+finite weighted-injection bound against exact column normalization.
+
+The focused monitored source check passes.  Every printed declaration uses
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No beta-uniform gap, completed OS gap,
+continuum construction, or Clay theorem is claimed.

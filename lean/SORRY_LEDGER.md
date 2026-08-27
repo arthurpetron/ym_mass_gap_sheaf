@@ -20759,6 +20759,28 @@ connected residue and every beta/spacing, OS, completed-gap, continuum, and
 Clay step remain open.  Focused and dependency-complete checks use only
 `[propext, Quot.sound]`; no `sorry` is introduced.
 
+#### Paired-support common-physical-fiber row embedding (2026-08-27)
+
+`CompactDualSlabObservablePairedSupportRecouplingProduct` now proves exact
+injectivity of the complete support switch and specializes the physical-only
+whole-slab matrix to one fixed switched physical output.  Each disconnected
+source contributor supplies two accepted switched assignments and therefore
+one production row.  Equality of rows reconstructs the switched assignments;
+the physical and auxiliary involutions then reconstruct the original pair.
+Thus contributors in one physical fiber inject into distinct common-matrix
+rows.
+
+Column capacity is not yet claimed.  The next required declaration is
+membership of each production row in the matrix's literal `sources` list.
+The stronger intended proof is completeness of every fixed-valence source
+enumeration.  A direct theorem through the current monolithic dependent
+package exceeds the ordinary heartbeat gate, so no declaration or `sorry`
+has been introduced for it.  Isolate smaller fixed-valence package views,
+lift their completeness through the slab product, realize an accepted target
+column, and only then invoke column normalization.  The paired-support
+connected residue and all beta/spacing, OS, completed-gap, continuum, and
+Clay obligations remain open.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal
