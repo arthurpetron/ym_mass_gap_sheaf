@@ -24109,3 +24109,43 @@ size, map back to source pairs, and construct a
 fibers and the positive-size geometric tail remains open; so do the exact
 conditional/posterior estimate, dense/completed OS gap, continuum passage,
 and Clay theorem.
+
+## 160. Literal observable-rooted fixed-target fibers satisfy the strict weight bound (2026-08-26)
+
+**Status. THE ADAPTIVE COMPONENT ESTIMATE NOW APPLIES TO AN ACTUAL BOOLEAN
+FILTER OF THE EXPANDED FINITE YANG--MILLS SOURCE MEASURE, NOT ONLY TO AN
+ABSTRACT CALLER-SUPPLIED FAMILY.**
+
+`CompactDualSlabObservableRemovalFiber.lean` attaches membership proofs to
+the positive fixed-face source carrier, builds the canonical slot-zero rooted
+component of each entry, and filters by the decidable pair
+
+```text
+(exact lowered-target finite-support key, exact peel size).
+```
+
+Mapping the filter back to source pairs preserves duplicate-freeness.  Target
+key injectivity upgrades Boolean key equality to equality of the actual
+lowered physical function and complete auxiliary assignment, yielding a
+`ComponentAdaptiveRemovalWitness` for every retained source.  Every inhabited
+fiber has positive peel size, and every retained physical source obeys the
+production cutoff bound.
+
+At the fixed anchor coupling, the existing adaptive inverse-fiber theorem now
+gives directly on this literal measure fiber
+
+```text
+sum sourceWeight <= (8/25)^peelSize * targetWeight.
+```
+
+The focused monitored source check passes.  All twenty audited declarations
+use at most `[propext, Quot.sound]`; the removal-key structure and anchor slab
+datum are axiom-free.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next frontier is the global finite partition identity: prove that summing
+these disjoint fibers over the duplicate-free target keys and the finite
+positive peel-size range recovers the whole positive-face source weight.
+After that, sum the `(8/25)^n` tail.  An exact conditional/posterior estimate,
+dense/completed OS gap, continuum passage, and the Clay theorem remain open.

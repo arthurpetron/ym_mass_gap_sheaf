@@ -19291,3 +19291,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   audited declarations use at most `[propext, Quot.sound]`; no full-root
   audit, posterior-variance fraction, completed gap, continuum QFT, or Clay
   theorem is claimed.
+
+### [compact-dual-slab-observable-removal-fiber] Filter actual sources by target and size -- **LITERAL FIXED-FIBER `(8/25)^n` WEIGHT BOUND CLOSED; GLOBAL FIBER SUM OPEN 2026-08-26**
+
+- **milestone**: attach the positive fixed-face expanded source list, compute
+  each canonical component's decidable lowered-target/peel-size key, filter by
+  one chosen key, prove the mapped source fiber duplicate-free, construct the
+  actual fixed-target removal witness for every member, prove inhabited sizes
+  positive, and apply the strict weighted inverse-fiber estimate.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableRemovalFiber.lean`.
+- **principal declarations**: `SlabObservablePositiveSourceEntry.seed`,
+  `SlabExpandedFineRemovalKey`,
+  `SlabObservablePositiveSourceEntry.removalKey`,
+  `slabObservablePositiveRemovalFiber`,
+  `slabObservablePositiveRemovalFiber_nodup`,
+  `slabObservablePositiveRemovalFiber_witness`,
+  `slabObservablePositiveRemovalFiber_peelSize_pos`, and
+  `slabObservablePositiveRemovalFiber_weight_sum_le`.
+- **obligation**: prove an exact finite partition/Fubini identity recovering
+  the complete positive observable source sum by summing the fixed-key fibers
+  over duplicate-free target keys and the finite positive size range, then
+  sum the strict geometric tail.
+- **constructive?**: yes.  Finite attachment and filtering, proof-irrelevant
+  membership recoding, and explicit existing witnesses only.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All twenty
+  audited declarations use at most `[propext, Quot.sound]`; this is an anchor
+  fixed-fiber estimate, not yet a global posterior fraction, completed gap,
+  continuum QFT, or Clay theorem.
