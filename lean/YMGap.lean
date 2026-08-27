@@ -2920,6 +2920,11 @@ import YMGap.Continuum.BF4CompactActionShiftedExponential
 import YMGap.Continuum.BF4CompactActionShiftedLimit
 import YMGap.Continuum.BF4CompactActionExponentialShift
 import YMGap.Continuum.BF4CompactActionPhysicalLimit
+import YMGap.Continuum.FiniteBistochasticCarrierBalance
+import YMGap.Continuum.FiniteBistochasticRankReindex
+import YMGap.Continuum.SU2CanonicalLeftCarrierWitnessReconstruction
+import YMGap.Continuum.SU2CompleteCarrierDecidableEquality
+import YMGap.Continuum.SU2SlabLocalRecouplingWitnessRealization
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

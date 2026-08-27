@@ -20689,6 +20689,19 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uninhabited; therefore no physical switch, paired-residue rate,
   beta-uniform gap, continuum construction, or Clay theorem is claimed.
 
+#### Local realization update (2026-08-27)
+
+The local part of `SlabObservableRecouplingTargetRealization` is now closed.
+`FiniteBistochasticCarrierBalance`, `FiniteBistochasticRankReindex`,
+`SU2CanonicalLeftCarrierWitnessReconstruction`, and
+`SU2SlabLocalRecouplingWitnessRealization` constructively map every complete
+right-tree target at every actual link valence to two literal accepted
+production witnesses over the crossed physical fields.  The remaining
+realization obligation is only the structural whole-slab assembly of those
+local witnesses into attached expanded target entries.  The independent
+global column-capacity inequality and paired-union connected-residue bound
+remain open.  No `sorry` is introduced by the local closure.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

@@ -25726,3 +25726,39 @@ The three explicit finite/analytic frontiers can be developed independently.
 After they join, the resulting anchor estimate must still be connected to a
 named bare-coupling/lattice-spacing trajectory, the OS observable, a completed
 spectral gap, continuum QFT, and the Clay theorem.
+
+## 201. Every local right-tree target reconstructs literal production witnesses (2026-08-27)
+
+**Status. LOCAL PHYSICAL REALIZATION IS CLOSED AT EVERY SLAB-LINK VALENCE;
+WHOLE-SLAB ASSEMBLY AND GLOBAL COLUMN CAPACITY REMAIN OPEN.**
+
+`FiniteBistochasticCarrierBalance.lean` proves by exact finite Fubini that the
+written source and target carriers of every finite bistochastic kernel have
+equal length.  `FiniteBistochasticRankReindex.lean` turns that equality into a
+canonical constructive equal-rank map from target carriers to source
+carriers, with list membership and injectivity on duplicate-free sources.
+
+`SU2CanonicalLeftCarrierWitnessReconstruction.lean` writes complete left-tree
+carriers at valences four, five, and six back into the zero-padded auxiliary
+coordinates used by the production slab, and proves literal membership in the
+actual link witness fiber under the source physical cutoff.  The short
+channel codes exposed in `SU2CompleteCarrierDecidableEquality.lean` provide
+constructive equality decisions for all complete left and right carriers.
+
+Finally, `SU2SlabLocalRecouplingWitnessRealization.lean` proves that every
+right-tree target of every actual crossed link matrix is listed, recodes it at
+equal rank, and reconstructs two accepted production witnesses over the
+crossed physical fields.  This is finite carrier reindexing, not an assertion
+that right- and left-associated vectors are equal.
+
+Focused monitored checks and targeted builds pass.  Every printed declaration
+uses at most `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal step is a proof-carrying realized-package fold over the
+boundary-complete link list.  It must assemble the local witnesses into two
+accepted global auxiliary assignments without repeatedly unfolding the large
+valence-indexed package.  After that, the independent global column-capacity
+and paired-union connected-residue bounds remain before any beta/spacing OS
+comparison, completed gap, continuum construction, or Clay theorem.
