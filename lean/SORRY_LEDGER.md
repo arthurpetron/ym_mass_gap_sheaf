@@ -19731,3 +19731,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`.  There is
   no decoder/certificate inhabitant, paired-face residue bound, OS form
   theorem, all-beta statement, completed gap, continuum QFT, or Clay theorem.
+
+### [su2-physical-schur-recoupling-kernel] Replace deterministic channel decoding by exact weighted physical recoupling -- **PARSEVAL NORMALIZATION CLOSED; WEIGHTED GLOBAL SWITCH OPEN 2026-08-26**
+
+- **milestone**: prove strict positivity of every proof-carrying left-channel
+  Hilbert--Schmidt weight from an explicit nested extremal pivot; pair the
+  exact finite Schur expansion against its source; use pairing symmetry and
+  the all-label pair-Casimir right Gram law to prove the finite Parseval
+  identity; normalize the resulting squared physical Schur weights into a
+  nonnegative rational row kernel; prove exact row mass one; verify the
+  fractional `1/4,3/4` fundamental block; and prove an iff fence separating
+  this unconditional physical kernel from the still-open arbitrary-label
+  factorial `racahKernel6` identification.
+- **file**:
+  `lean/YMGap/Continuum/SU2PhysicalSchurRecouplingKernel.lean`.
+- **principal declarations**:
+  `fixedLeft_nonzero_monomial_pivot`,
+  `left_channel_weight_pos_all`,
+  `physicalSchurRawKernelAt`,
+  `physicalSchurRawRowMass_eq_leftWeight`,
+  `physicalSchurRecouplingKernelAt`,
+  `physicalSchurRecouplingKernel_row_normalized`,
+  `physicalSchurRawKernel_eq_leftWeight_mul_racah_iff`,
+  `physicalSchurRecouplingKernel_eq_racah_iff`, and
+  `fundamental_physicalSchurKernel_values`.
+- **obligation**: construct a finite weighted two-replica switch carrier from
+  the normalized local physical recoupling rows and prove exact total-mass
+  transport, or a quantitatively sufficient finite fiber inequality.  This
+  replaces the milestone-171 demand for a linkwise deterministic decoder,
+  which an out-of-band cutoff-one/valence-five exhaustive diagnostic found to
+  be non-injective after canonical channel compression.  The diagnostic is
+  not counted as a kernel theorem.  Separately prove the paired-face connected
+  residue bound and identify the resulting four-cell quantity with a physical
+  OS observable.
+- **constructive?**: yes.  The construction is finite exact `Q'` algebra over
+  the already-proved Schur basis and SU(2) Casimir orthogonality.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes and every printed
+  declaration uses only `[propext, Quot.sound]`.  The kernel is genuinely
+  SU(2)-specific through the pair-Casimir Gram theorem and is fractional on
+  the fundamental block.  It is not yet a global switch, a beta-uniform
+  conditional estimate, an OS form bound, a completed gap, a continuum QFT,
+  or the Clay theorem.

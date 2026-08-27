@@ -24636,3 +24636,58 @@ the two source assignments, or give an equivalent constructive finite
 decoder.  The face-swap certificate, paired-face residue bound, OS observable
 pin, all-beta/lattice-spacing control, completed gap, continuum passage, and
 the Clay theorem remain open.
+
+## 172. Physical SU(2) recoupling is an exact stochastic kernel, not a channel permutation (2026-08-26)
+
+**Status. THE FAILED DETERMINISTIC CHANNEL-SUM DECODER HAS BEEN REPOINTED TO
+AN UNCONDITIONAL, FRACTIONAL, CASIMIR-NORMALIZED PHYSICAL RECOUPLING KERNEL.**
+
+The group-dependence audit in `audits/AUDIT-GROUP-DEPENDENCE.md` showed that
+the strand-to-`singleStep` story had no source dependency edge, that the
+existing `singleStep` implication was group-agnostic, and that no beta- or
+lattice-spacing-uniform physical transition/posterior estimate backed the
+diagram.  A subsequent exhaustive finite diagnostic of the milestone-171
+crossed channel-sum map found a collision already at cutoff one and valence
+five.  That diagnostic is not promoted to a Lean theorem here, but it rules
+out using a merely linkwise compressed-channel decoder as the proof plan.
+
+`SU2PhysicalSchurRecouplingKernel.lean` implements the mathematically correct
+weighted alternative.  First it proves every proof-carrying left channel has
+strictly positive exact Hilbert--Schmidt weight by exhibiting a two-stage
+extremal transvectant pivot.  It then pairs the existing finite Schur expansion
+with the source channel.  Symmetry of the invariant pairing and the all-label
+right-channel Gram law collapse the sum by the SU(2) pair Casimir, yielding
+the finite Parseval identity
+
+```text
+left channel weight
+  = sum over right channels
+      (right channel weight) * (physical Schur coefficient)^2.
+```
+
+Dividing by the positive left weight defines
+`physicalSchurRecouplingKernelAt`.  Every entry is nonnegative and
+`physicalSchurRecouplingKernel_row_normalized` proves the exact finite row sum
+is one for arbitrary physical labels.  The fundamental block is genuinely
+fractional, with rows containing `1/4` and `3/4`; this is not the refuted
+permutation surrogate.
+
+The same module keeps the explicit factorial frontier honest:
+`physicalSchurRecouplingKernel_eq_racah_iff` proves that the unconditional
+physical kernel equals `racahKernel6` at a channel pair exactly when the
+previously isolated `CollapsedRacahSquareAt` closed-form residual holds there.
+Thus weighted physical recoupling and its normalization are closed without
+pretending that the arbitrary-label factorial formula has been identified.
+
+The focused monitored source check passes.  All nine printed declarations use
+only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to lift this local stochastic recoupling law to a
+finite weighted two-replica component-switch carrier and prove exact total
+mass transport (or a controlled fiber inequality) without demanding a
+deterministic decoder.  Independently, the paired-face connected residue and
+the physical OS-observable identification remain open.  All-beta and
+lattice-spacing control, the completed OS gap, continuum passage, and the
+Clay theorem remain open.
