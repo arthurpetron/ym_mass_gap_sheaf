@@ -18493,7 +18493,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `couplingParametricKCanonicalFaceTruncatedProbability_mono_size`,
   `couplingParametricKCanonicalFaceTruncatedLargeProbability_le_small_add_tail`,
   and
-  `couplingParametricKCanonicalFaceTruncatedProbability_abs_sub_le_tail`.
+  `couplingParametricKCanonicalFaceTruncatedProbability_abs_sub_le_tail`,
+  `couplingParametricKCanonicalFaceTruncatedProbability_le_full`,
+  `couplingParametricKCanonicalFaceFullProbability_le_truncated_add_tail`, and
+  `couplingParametricKCanonicalFaceFullProbability_abs_sub_truncated_le_tail`.
 - **obligation**: combine this same-law truncation leg with two cutoff-extension
   legs and two receding-volume legs on a coefficient-paying diagonal schedule.
   That assembly must yield the witnessed Cauchy modulus for the untruncated
@@ -18576,6 +18579,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored check passes.  Every audited export
   uses only `[propext, Quot.sound]`; the root aggregator imports the module.
   No full-root build or audit is claimed.
+
+### [z4-canonical-central-face-diagonal] Construct the full central-face thermodynamic CReal on a causal three-scale diagonal -- **PROVED ON THE EXPLICIT STRONG-COUPLING INTERVAL / OS SAME-OBJECT IDENTITY OPEN 2026-08-27**
+
+- **milestone**: at stage `s`, take component floor `s`, choose a box margin
+  from the denominator of the positive tolerance
+  `half^s * invSucc(boundaryCoefficient(s).num.toNat)`, and choose the existing
+  joint representation cutoff at precision `s`.  The margin absorbs the whole
+  root-count boundary coefficient.  Any two stages are compared through one
+  common cutoff and one common outer box by exactly five legs: later cutoff,
+  later volume, same-law truncation, earlier volume, earlier cutoff.  This gives
+  a geometric pair bound with coefficient six for the truncated auxiliary
+  sequence.  The literal full-face finite probabilities differ from those
+  auxiliaries by the two omitted-component tails, yielding coefficient ten and
+  a constructive `CReal` whose approximants are exact full-face probabilities.
+- **file**:
+  `lean/YMGap/Continuum/Z4CanonicalCentralFaceDiagonal.lean`.
+- **decl**:
+  `pinnedFaceDiagonalBoundaryTolerance`,
+  `pinnedFaceDiagonalMargin`, `pinnedFaceDiagonalRadius`,
+  `pinnedFaceDiagonalBoundaryEpsilon_le_half_pow`,
+  `couplingParametricPinnedFaceDiagonalSequence_pair_abs_le`,
+  `couplingParametricPinnedFaceThermodynamicValue`,
+  `couplingParametricPinnedFullFaceDiagonalSequence`,
+  `couplingParametricPinnedFullFaceDiagonalSequence_abs_sub_truncated_le`,
+  `couplingParametricPinnedFullFaceDiagonalSequence_pair_abs_le`, and
+  `couplingParametricPinnedFullFaceThermodynamicValue`.
+- **obligation**: identify this exact thermodynamic full-face probability (and
+  its connected two-face version) with the same-object two-step
+  Osterwalder-Schrader autocorrelation.  That bridge is needed before dyadic
+  moment removal can produce a relative OS form bound.  Beta/lattice-spacing
+  uniformity, the completed gap, continuum construction, and Clay theorem
+  remain open.
+- **constructive?**: yes.  Every schedule is an explicit `Nat` function;
+  common comparison objects are `max`/sum rather than chosen limits; both
+  Cauchy moduli are witnessed by denominators of positive rationals.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or hidden parameter is introduced.
+- **status note**: the focused monitored checks pass.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The target build and executable forbidden-token scan are recorded with the
+  milestone commit.
 
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 

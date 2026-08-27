@@ -214,11 +214,105 @@ theorem couplingParametricKCanonicalFaceTruncatedProbability_abs_sub_le_tail
   rw [YMGap.Constructive.ExpNeg.abs_of_nonneg hnonnegative]
   exact Q'.sub_le_of_le_add hupper
 
+theorem couplingParametricKCanonicalFaceTruncatedProbability_le_full
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (cutoff base face sizeFloor : Nat) :
+    couplingParametricKCompatibleSupportEventProbability
+        coupling hcoupling cutoff base
+        (canonicalFaceTruncatedCylinderEvent base face sizeFloor) ≤
+      couplingParametricKCompatibleSupportEventProbability
+        coupling hcoupling cutoff base (familyContainsFaceB face) := by
+  exact couplingParametricKCompatibleSupportEventProbability_mono
+    hcoupling cutoff base _ _
+    (fun _family _hfamily htruncated =>
+      canonicalFaceTruncatedCylinderEvent_implies_face htruncated)
+
+theorem couplingParametricKCanonicalFaceFullProbability_le_truncated_add_tail
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling)
+    (cutoff base face sizeFloor : Nat) :
+    couplingParametricKCompatibleSupportEventProbability
+        coupling hcoupling cutoff base (familyContainsFaceB face) ≤
+      couplingParametricKCompatibleSupportEventProbability
+          coupling hcoupling cutoff base
+          (canonicalFaceTruncatedCylinderEvent base face sizeFloor) +
+        Q'.ofNat 2 * anchorDecoratedEffectiveRatio ^ sizeFloor := by
+  let truncated :=
+    canonicalFaceTruncatedCylinderEvent base face sizeFloor
+  let remainder :=
+    canonicalFaceTruncationRemainderEvent base face sizeFloor
+  have htoUnion :
+      couplingParametricKCompatibleSupportEventProbability
+          coupling hcoupling cutoff base (familyContainsFaceB face) ≤
+        couplingParametricKCompatibleSupportEventProbability
+          coupling hcoupling cutoff base
+          (fun family => truncated family || remainder family) := by
+    exact couplingParametricKCompatibleSupportEventProbability_mono
+      hcoupling cutoff base _ _
+      (fun _family hfamily hfull => by
+        rw [← familyContainsFaceB_eq_truncated_or_remainder hfamily]
+        exact hfull)
+  have hadd :
+      couplingParametricKCompatibleSupportEventProbability
+          coupling hcoupling cutoff base
+          (fun family => truncated family || remainder family) ≈
+        couplingParametricKCompatibleSupportEventProbability
+            coupling hcoupling cutoff base truncated +
+          couplingParametricKCompatibleSupportEventProbability
+            coupling hcoupling cutoff base remainder :=
+    couplingParametricKCompatibleEventProbability_union_eqv_add
+      hcoupling cutoff base truncated remainder
+      (truncated_remainder_disjoint base face sizeFloor)
+  exact Q'.le_trans' _ _ _ htoUnion
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hadd)
+      (Q'.add_le_add_left _ _ _
+        (couplingParametricKFaceTruncationRemainderProbability_le_tail
+          hcoupling hle cutoff base face sizeFloor)))
+
+/-- The exact full-face finite probability is approximated by its finite
+component chart with the same uniform omitted-component tail. -/
+theorem couplingParametricKCanonicalFaceFullProbability_abs_sub_truncated_le_tail
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling)
+    (cutoff base face sizeFloor : Nat) :
+    Q'.abs
+        (couplingParametricKCompatibleSupportEventProbability
+            coupling hcoupling cutoff base (familyContainsFaceB face) -
+          couplingParametricKCompatibleSupportEventProbability
+            coupling hcoupling cutoff base
+            (canonicalFaceTruncatedCylinderEvent
+              base face sizeFloor)) ≤
+      Q'.ofNat 2 * anchorDecoratedEffectiveRatio ^ sizeFloor := by
+  let truncatedProbability :=
+    couplingParametricKCompatibleSupportEventProbability
+      coupling hcoupling cutoff base
+      (canonicalFaceTruncatedCylinderEvent base face sizeFloor)
+  let fullProbability :=
+    couplingParametricKCompatibleSupportEventProbability
+      coupling hcoupling cutoff base (familyContainsFaceB face)
+  have hmono : truncatedProbability ≤ fullProbability := by
+    dsimp only [truncatedProbability, fullProbability]
+    exact couplingParametricKCanonicalFaceTruncatedProbability_le_full
+      hcoupling cutoff base face sizeFloor
+  have hupper : fullProbability ≤ truncatedProbability +
+      Q'.ofNat 2 * anchorDecoratedEffectiveRatio ^ sizeFloor := by
+    dsimp only [truncatedProbability, fullProbability]
+    exact
+      couplingParametricKCanonicalFaceFullProbability_le_truncated_add_tail
+        hcoupling hle cutoff base face sizeFloor
+  have hnonnegative : (0 : Q') ≤ fullProbability - truncatedProbability :=
+    Q'.sub_nonneg_of_le hmono
+  rw [YMGap.Constructive.ExpNeg.abs_of_nonneg hnonnegative]
+  exact Q'.sub_le_of_le_add hupper
+
 #print axioms canonicalFaceTruncationDifference_implies_remainder
 #print axioms canonicalFaceTruncatedLarge_eq_small_or_difference
 #print axioms couplingParametricKCanonicalFaceTruncationDifferenceProbability_le_tail
 #print axioms couplingParametricKCanonicalFaceTruncatedProbability_mono_size
 #print axioms couplingParametricKCanonicalFaceTruncatedLargeProbability_le_small_add_tail
 #print axioms couplingParametricKCanonicalFaceTruncatedProbability_abs_sub_le_tail
+#print axioms couplingParametricKCanonicalFaceTruncatedProbability_le_full
+#print axioms couplingParametricKCanonicalFaceFullProbability_le_truncated_add_tail
+#print axioms couplingParametricKCanonicalFaceFullProbability_abs_sub_truncated_le_tail
 
 end YMGap.Continuum.Z4CouplingParametricFaceTruncationComparison
