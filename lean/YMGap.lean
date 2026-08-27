@@ -2958,6 +2958,7 @@ import YMGap.Continuum.CompactDualSlabAcceptedPairedPeel
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalStep
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeeling
 import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingInjective
+import YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

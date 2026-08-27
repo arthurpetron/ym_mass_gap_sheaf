@@ -21116,6 +21116,19 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
 
+#### Canonical trace support-mass payment update (2026-08-27)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass` proves pointwise
+physical monotonicity, retains every trace root in the fixed component, and
+uses terminal vanishing plus exact mass telescoping to bound component mass by
+total trace peel mass.  On the connected observable residue this yields
+`linfDistance + 1 <= sum(trace.peelSize)`.
+
+This closes the geometric-separation-to-iterated-weight-exponent bridge
+without a `sorry`.  The fixed-mass admissible-output sum, numerical paired-
+residue rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem remain open.
+
 #### Complete paired-peeling output injectivity update (2026-08-27)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingInjective` proves one-step

@@ -26299,6 +26299,46 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 224. Make the canonical trace pay connected-component mass (2026-08-27)
+
+**Status. EVERY TRACE ROOT STAYS IN THE FIXED COMPONENT, AND THE TOTAL TRACE
+PEEL MASS IS AT LEAST THE COMPONENT'S INITIAL PHYSICAL MASS; CONNECTED
+OBSERVABLE TRACES THEREFORE PAY DISTANCE PLUS ONE.**
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass.lean` proves that
+every accepted component lowering is pointwise monotone in physical twice-
+spin labels.  This propagates through the complete well-founded peeling, and
+every recorded root is proved to belong to the fixed scanned face list.
+
+Since the terminal state vanishes on that list, exact global mass telescoping
+and finite-list subtraction imply
+
+`initial mass on fixed component <= sum(trace.peelSize)`.
+
+Specializing the face list to the original target-rooted union-support
+component and composing with the lattice-animal mass floor gives
+
+`linfDistance(root,target) + 1 <= sum(trace.peelSize)`
+
+for every pair in the connected residue.  Thus observable separation is now
+paid by the same exponent accumulated by the iterated component weight
+factors, with no appeal to total slab volume.
+
+The next theorem must count or sum admissible carrier-valid traces at fixed
+total peel mass.  Complete-output injectivity removes source multiplicity,
+while the new root-membership theorem restricts every root to the original
+connected component; turning those facts into a numerical rate below one is
+the remaining finite combinatorial frontier.
+
+The fixed-mass admissible-output sum, numerical paired-residue rate,
+beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
+construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 223. Prove complete canonical peeling output is injective (2026-08-27)
 
 **Status. A COMMON TERMINAL ACCEPTED PAIR AND IDENTICAL COMPLETE PEEL TRACE
