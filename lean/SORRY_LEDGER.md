@@ -20580,6 +20580,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   direct-sum theorem, not a physical Gibbs/OS comparison, beta-uniform gap,
   continuum construction, or Clay theorem.
 
+### [su2-slab-global-bistochastic-product] Assemble every actual link degree into one complete slab matrix -- **FINITE RECOUPLING COMPILER CLOSED 2026-08-27**
+
+- **milestone**: package finite matrices with their dependent source and
+  target types; enumerate exact heterogeneous source and target assignments;
+  prove their product entry has exact row and column mass one; select the
+  complete identity/degree-four/degree-five/degree-six matrix from the actual
+  local incidence degree; and map those packages over the literal production
+  slab-link list.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBistochasticQKernelProduct.lean`,
+  `lean/YMGap/Continuum/SU2SlabAllValenceCrossedSchurBistochasticKernel.lean`,
+  and
+  `lean/YMGap/Continuum/SU2SlabGlobalCrossedSchurBistochasticProduct.lean`.
+- **principal declarations**: `FiniteBistochasticQKernelPackage`,
+  `FiniteBistochasticSourceAssignment`,
+  `FiniteBistochasticTargetAssignment`,
+  `finiteBistochasticKernelProduct`,
+  `crossedLinkBistochasticKernelPackage`,
+  `slabObservablePairCrossedBistochasticPackages`,
+  `slabObservablePairCrossedBistochasticKernel`,
+  `slabObservablePairCrossedBistochasticKernel_row_normalized`, and
+  `slabObservablePairCrossedBistochasticKernel_column_normalized`.
+- **obligation**: identify the distinguished physical production source in
+  the heterogeneous source carrier and formulate an explicit same-carrier
+  comparison between its recoupling row and the beta- and lattice-spacing-
+  dependent Gibbs/OS weight.  Any strict coefficient must name the parameter
+  range it controls.
+- **constructive?**: yes.  The product is structural recursion over written
+  packages, and the degree split is discharged by the exact 4D incidence
+  bound.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored checks pass; all newly printed
+  declarations use at most `[propext, Quot.sound]`.  This is a complete finite
+  SU(2) recoupling matrix, not a physical Gibbs/OS kernel, strict form bound,
+  completed gap, continuum construction, or Clay theorem.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

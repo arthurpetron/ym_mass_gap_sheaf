@@ -25622,3 +25622,32 @@ complete degree-four, degree-five, or degree-six crossed matrix at each actual
 slab link and preserves all row and column laws.  Only after that finite
 carrier closure should the separate beta- and lattice-spacing-dependent
 Gibbs/OS comparison be formulated.
+
+## 198. The entire production slab has one heterogeneous bistochastic recoupling matrix (2026-08-27)
+
+**Status. ALL ACTUAL LINK DEGREES AND THEIR WHOLE-SLAB PRODUCT ARE CLOSED;
+THE BETA-DEPENDENT GIBBS/OS SAME-CARRIER BRIDGE IS NOW THE FRONTIER.**
+
+`FiniteBistochasticQKernelProduct.lean` proves a generic dependent-product
+theorem.  A package retains each local matrix's actual source and target
+types; source and target assignments choose one correctly typed coordinate
+per written package.  The product of the local entries has exact mass one in
+every global row and every global column by constructive finite Fubini.
+
+`SU2SlabAllValenceCrossedSchurBistochasticKernel.lean` selects the one-point
+identity matrix at degrees below four and the complete crossed SU(2) matrices
+at degrees four, five, and six.  The impossible higher branch is eliminated
+by the proved 4D incidence bound.  The global module maps those packages over
+the literal boundary-complete slab-link list and produces one complete finite
+bistochastic matrix on the exact dependent product carriers.
+
+The focused monitored checks pass.  Every newly printed declaration uses at
+most `[propext, Quot.sound]`; the generic product itself needs only `propext`.
+No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+This closes the finite non-abelian recoupling compiler, not the physical
+estimate.  The next theorem must name beta and lattice spacing and compare a
+production source row on this explicit carrier with the actual Gibbs/OS
+weight.  Bistochasticity alone supplies no strict contraction and no mass-gap
+claim.
