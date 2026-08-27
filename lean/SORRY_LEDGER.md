@@ -15249,6 +15249,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   noncomputable definition, and the root aggregator imports the module.  No
   full-root audit is claimed.
 
+### [matched-physical-dynamic-strength-normalization] Derive the exact adaptive strength cap from Markov normalization — **CLOSED 2026-08-27**
+
+- **milestone**: prove every literal spin-cube-to-vacuum conditional return
+  probability is at most one by comparing its kernel entry with the exact
+  stationary row sum; deduce from the cofinal ray-capacity law that
+  `rayDelta <= 1/2`; combine this with the already proved sector-mass-floor
+  bound to obtain the uniform exact adaptive strength cap
+  `strength <= (1/2)*(1/2) = 1/4`; and specialize the result to the literal
+  matched-AF completed family so that its physical-rate certificate needs
+  only the lower and upper strength/spacing comparisons.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicStrengthNormalization.lean`.
+- **decl**:
+  `centralLowerExcitedSpinCubeVacuumReturnProbability_le_one`,
+  `FixedNomeCofinalSpinCubeRayCapacity.delta_le_half`,
+  `DynamicSpinCubeOffRayResidualCoercivityFamily.strength_le_half_sq`,
+  `DynamicSpinCubeOffRayAdaptiveStrengthScaling`,
+  `DynamicSpinCubeOffRayAdaptiveStrengthScaling.upper_pos`,
+  `DynamicSpinCubeOffRayAdaptiveStrengthScaling.toStrengthBand`,
+  `DynamicSpinCubeOffRayAdaptiveStrengthScaling.toPhysicalRateBand`,
+  `MatchedPhysicalDynamicStrengthScaling`,
+  `MatchedPhysicalDynamicStrengthScaling.toPhysicalRateBand`, and
+  `MatchedPhysicalDynamicStrengthScaling.toContinuumGapTheorem`.
+- **obligation**: construct the matched cubic law, physical spacing envelope,
+  and exact local producer, then prove the two genuinely analytic estimates
+  `lower * a_j <= strength_j <= upper * a_j`.  No independent global cap or
+  positivity proof for `upper` remains on this path.  The same-object
+  projective continuum limit, continuum OS/Wightman construction, isolated
+  vacuum, and Clay mass-gap conclusion remain open.
+- **constructive?**: yes.  The return ceiling uses one nonnegative entry of the
+  genuine finite stationary Markov row; the ray and strength bounds are exact
+  rational order arguments; all remaining scaling data are `Type`-level.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored check passes.  All eight audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  No full-root build or audit is claimed.
+
 ### [matched-physical-selected-term-ray] Reduce the matched ray capacity to its selected physical raw-row comparison — **CLOSED 2026-08-25**
 
 - **milestone**: replace the opaque cofinal ray-capacity field at every exact
