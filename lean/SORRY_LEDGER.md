@@ -21115,3 +21115,16 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 `sorry`.  The fixed-mass paired activity/entropy estimate, numerical residue
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
+
+#### Exact component-peel physical-mass descent update (2026-08-27)
+
+`CompactDualSlabFaceStrandComponentMassDrop` proves that an accepted rooted
+strand-component peel removes exactly `peelFaces.length` units from total
+physical twice-spin mass.  The peel is nonempty, so its accepted lower state
+has strictly smaller mass.
+
+This closes the well-founded descent fact needed by the paired iterated
+peeling construction without a `sorry`.  The multiplicity-faithful peeling
+history, fixed-history weight summation, numerical paired-residue rate,
+beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
+construction, and Clay theorem remain open.

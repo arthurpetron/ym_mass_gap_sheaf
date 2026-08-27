@@ -26299,6 +26299,38 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 219. Identify the well-founded measure for iterated component peeling (2026-08-27)
+
+**Status. ONE ACCEPTED ROOTED STRAND-COMPONENT PEEL NOW HAS AN EXACT
+TWICE-SPIN MASS CONSERVATION LAW AND STRICTLY DECREASES PHYSICAL MASS.**
+
+`CompactDualSlabFaceStrandComponentMassDrop.lean` defines total corrected-
+slab physical twice-spin mass and proves
+
+`mass(lowerPhysical) + peelFaces.length = mass(physical)`.
+
+The proof uses the existing exact selected-copy count at every physical face,
+the pointwise fact that the count does not exceed the face label, and the
+previously proved identity between serialized peel length and total selected
+physical drop.  Since every rooted component contains its root strand,
+`peelFaces` is nonempty and the lower state has strictly smaller mass.
+
+This supplies the termination measure for the next construction: repeatedly
+choose a still-positive face in the original paired-support component, peel
+the corresponding accepted strand component in the appropriate replica, and
+retain every drop code so the inverse fiber remains multiplicity faithful.
+The fixed-history weight product will pay one factor of the component rate
+per removed mass unit.
+
+The paired iterated-peeling carrier and its summed residue rate remain open,
+as do the beta/lattice-spacing relation, Gibbs/OS comparison, completed gap,
+continuum construction, and Clay theorem.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 218. Convert paired-support geometry into a physical energy floor (2026-08-27)
 
 **Status. EVERY PAIR IN THE CONNECTED RESIDUE NOW PAYS AT LEAST
