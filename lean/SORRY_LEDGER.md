@@ -21778,3 +21778,21 @@ row contraction nor an unconditioned vacuum-sector mass floor.  No `sorry` is
 introduced.  Constructing the uniform cofinal posterior fraction, the matched
 cubic/spacing data, observable pin, continuum carrier/QFT axioms, isolated
 vacuum, and Clay conclusion remain open.
+
+#### Conditional stationary-product minorization gap update (2026-08-27)
+
+`BF4PhysicalVacuumSectorConditionalMinorizationGap` proves the direct finite
+bridge from an exact heat-weight / conditional-transition lower bound to the
+posterior-variance fraction.  If the literal physical BF4 reflected joint on
+one canonical vacuum sector pointwise dominates a fraction `epsilon` of the
+stationary product conditioned on that sector, then the same `epsilon`
+inhabits `CentralPhysicalFiniteConditionalVarianceGapData` and the finite
+transfer form has rate `1 - epsilon`.
+
+The proof sums the minorization against squared coefficient differences and
+uses exact centering to cancel the sector mass.  Thus no unconditioned sector-
+mass floor and no total-variation row contraction enter the constant.  No
+`sorry` is introduced.  Constructing a cofinal minorization for the exact BF4
+heat weights, proving its fraction comparable to physical spacing along the
+matched AF trajectory, the same-channel continuum construction, continuum
+QFT axioms, isolated vacuum, and Clay conclusion remain open.
