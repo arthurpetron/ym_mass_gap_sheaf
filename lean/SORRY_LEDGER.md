@@ -21116,6 +21116,19 @@ twice-spin mass.  This closes the geometric-to-energy bridge without a
 rate, beta/spacing trajectory, Gibbs/OS comparison, completed gap, continuum
 construction, and Clay theorem remain open.
 
+#### Complete paired-peeling output injectivity update (2026-08-27)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingInjective` proves one-step
+paired reconstruction from a common lower pair plus equal side, root, and
+adaptive code, then inducts backward through the complete trace.  Hence a
+terminal pair and complete trace determine at most one initial accepted pair;
+every duplicate-free fixed-output fiber has length at most one.
+
+This closes multiplicity faithfulness of complete canonical histories without
+a `sorry`.  The fixed-mass admissible-output count, weighted trace summation,
+numerical paired-residue rate, beta/spacing trajectory, Gibbs/OS comparison,
+completed gap, continuum construction, and Clay theorem remain open.
+
 #### Terminating coded paired-peeling trace update (2026-08-27)
 
 `CompactDualSlabAcceptedPairedCanonicalPeeling` iterates the deterministic

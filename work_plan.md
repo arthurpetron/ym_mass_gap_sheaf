@@ -26299,6 +26299,43 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 223. Prove complete canonical peeling output is injective (2026-08-27)
+
+**Status. A COMMON TERMINAL ACCEPTED PAIR AND IDENTICAL COMPLETE PEEL TRACE
+NOW RECONSTRUCT A UNIQUE INITIAL ACCEPTED PAIR; EVERY FIXED COMPLETE-OUTPUT
+FIBER HAS CARDINALITY AT MOST ONE.**
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingInjective.lean` lifts the
+existing one-component adaptive decoder through the two-replica carrier.
+Equal side, root, adaptive code, and lowered pair reconstruct the selected
+source replica, while equality of the untouched replica is inherited from the
+lowered pair.
+
+A well-founded backward induction through the finite canonical trace then
+proves that
+
+`initial pair -> (terminal pair, complete trace)`
+
+is injective for every fixed ordered physical-face list.  Consequently every
+duplicate-free finite source family mapping to one common complete output has
+length at most one.
+
+This converts the stored trace from bookkeeping into a genuine inverse
+compiler.  The remaining entropy question is now exactly the size of the
+admissible output family at fixed total removed mass, not hidden multiplicity
+inside a complete trace.  In particular, the next proof must control the
+recorded root sequence using the original connected component and canonical
+first-positive rule.
+
+The fixed-mass complete-output count, weighted trace summation, numerical
+paired-residue rate, beta/spacing trajectory, Gibbs/OS comparison, completed
+gap, continuum construction, and Clay theorem remain open.
+
+The focused monitored source check passes, and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
 ## 222. Iterate the canonical paired peel to a coded terminal trace (2026-08-27)
 
 **Status. THE DETERMINISTIC ACCEPTED PEEL NOW ITERATES BY WELL-FOUNDED MASS
