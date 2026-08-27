@@ -18475,6 +18475,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The target build and executable forbidden-token scan are recorded with the
   milestone commit.
 
+### [z4-coupling-parametric-face-truncation-comparison] Compare two face-component truncations in any one finite law -- **PROVED CUTOFF/VOLUME-UNIFORMLY / DIAGONAL ASSEMBLY OPEN 2026-08-27**
+
+- **milestone**: for every finite box, physical face identifier, explicit
+  coupling in the proved strong-coupling interval, and representation cutoff,
+  prove that the size-`<m` face event is nested in the size-`<n` event for
+  `m <= n`.  Their Boolean difference implies the size-`m` remainder event;
+  exact disjoint-union normalization therefore gives the absolute probability
+  bound `2 * anchorDecoratedEffectiveRatio^m` in that same law.
+- **file**:
+  `lean/YMGap/Continuum/Z4CouplingParametricFaceTruncationComparison.lean`.
+- **decl**:
+  `canonicalFaceTruncationDifferenceEvent`,
+  `canonicalFaceTruncationDifference_implies_remainder`,
+  `canonicalFaceTruncatedLarge_eq_small_or_difference`,
+  `couplingParametricKCanonicalFaceTruncationDifferenceProbability_le_tail`,
+  `couplingParametricKCanonicalFaceTruncatedProbability_mono_size`,
+  `couplingParametricKCanonicalFaceTruncatedLargeProbability_le_small_add_tail`,
+  and
+  `couplingParametricKCanonicalFaceTruncatedProbability_abs_sub_le_tail`.
+- **obligation**: combine this same-law truncation leg with two cutoff-extension
+  legs and two receding-volume legs on a coefficient-paying diagonal schedule.
+  That assembly must yield the witnessed Cauchy modulus for the untruncated
+  central-face thermodynamic value.  The OS identity and all downstream gap
+  and continuum obligations remain open.
+- **constructive?**: yes.  Event decomposition is a decidable Boolean identity;
+  the probability estimate uses finite disjoint sums and the previously proved
+  explicit pinned tail.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or hidden
+  parameter is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The target build and executable forbidden-token scan are recorded with the
+  milestone commit.
+
 ### [z4-canonical-central-face-truncation-volume-comparison] Compare one central-face truncation across receding volumes -- **PROVED WITH GROWING MARGIN / TWO-SCALE DIAGONAL OPEN 2026-08-27**
 
 - **milestone**: fix a truncation floor `m`, place the complete size-`<m`
