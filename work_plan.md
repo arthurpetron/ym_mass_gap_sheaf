@@ -23825,3 +23825,41 @@ three-factor carrier can be counted with base `625 * 4 * 4096 = 10240000` and
 compared to the face payment.  The conditional transition floor, posterior
 variance, dense form gap, completed OS gap, thermodynamic/continuum passage,
 and Clay theorem remain open.
+
+## 153. Adaptive component codes determine reconstruction data (2026-08-26)
+
+**Status. THE ROOTED SHAPE AND PHYSICAL-MULTIPLICITY WORDS NOW DETERMINE THE
+COMPLETE LINK-ADAPTIVE SPECIFICATION LIST, WHILE THE COMPLETE ADAPTIVE ROW WORD
+DETERMINES THE LITERAL AUXILIARY DROP TABLE.**
+
+`CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryDecoder.lean` closes the
+left-inverse compatibility left open by milestone 152.  At a common root,
+the existing physical decoder turns equality of the shape and multiplicity
+words into equality of every face drop.  Summing those equal drops around each
+fixed complete-slab link gives literal equality of the adaptive `(mass,width)`
+specification lists.
+
+A separate finite-map lemma shows that equality of value rows in a fixed item
+order gives equality after pairing each row with its item.  Applied to all
+complete slab links, equality of adaptive row tables therefore gives equality
+of the full auxiliary word tables consumed by `dropCode` reconstruction.  The
+combined theorem recovers the specifications, the total physical drop
+function, and the full auxiliary table from the three production words.
+
+The focused monitored source check passes.  The generic paired-map theorem is
+axiom-free; the three production theorems use only `[propext, Quot.sound]`.
+No `Classical`, choice, proof obligation, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.
+
+This is not yet a count or an inverse-image injection.  The next frontier is a
+source-independent nested carrier indexed by the decoded structural words,
+with total length at most
+
+```text
+(625 * 4 * 4096)^peelSize = 10240000^peelSize.
+```
+
+After that, reconstruction over a common lowered target must prove the
+corresponding finite family injective.  The strict component heat ratio,
+conditional transition floor, posterior variance, dense form gap, completed
+OS gap, thermodynamic/continuum passage, and Clay theorem remain open.
