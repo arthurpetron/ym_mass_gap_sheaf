@@ -19989,3 +19989,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   product law, not yet its production switch instantiation, a valence-five/six
   compiler, Gibbs/heat comparison, beta-uniform posterior estimate, OS form
   bound, completed gap, continuum QFT, or Clay theorem.
+
+### [su2-slab-valence-four-crossed-schur-compiler] Feed the accepted crossed production outputs into heterogeneous Schur transport -- **CONDITIONED DEGREE-FOUR COMPILER CLOSED; CARTAN SELECTION LAW OPEN 2026-08-26**
+
+- **milestone**: package the two accepted source witnesses, common face mask,
+  cutoff bounds, and mate-closed face-constant selections; expose both literal
+  crossed physical and auxiliary fields; reuse the production membership
+  theorems at the original cutoff; construct analytic left channels for both
+  outputs at an actual degree-four link; prove their intermediate spins are
+  the crossed sums of selected and unselected production auxiliary counts;
+  instantiate the independently typed physical Schur target list and kernel;
+  and prove target uniqueness, nonnegativity, exact mass one, preservation of
+  one, and product-observable Fubini.
+- **file**:
+  `lean/YMGap/Continuum/SU2SlabValenceFourCrossedSchurCompiler.lean`.
+- **principal declarations**:
+  `ValenceFourCrossReplicaSwitchData`,
+  `crossedLeftAuxiliary_mem`,
+  `crossedRightAuxiliary_mem`,
+  `crossedLeftChannel`,
+  `crossedRightChannel`,
+  `crossedLeftChannel_intermediate_eq_cross_sum`,
+  `crossedRightChannel_intermediate_eq_cross_sum`,
+  `crossedSchurTargets_nodup`,
+  `crossedSchurKernelAt_nonnegative`,
+  `crossedSchurKernel_row_normalized`,
+  `crossedSchurExpectation_one`, and
+  `crossedSchurExpectation_product`.
+- **obligation**: construct the finite selection-count carrier induced by
+  face-constant mate-closed subnetwork choices and prove that its pushforward
+  weight is exactly the Cartan branching row.  Then form the dependent
+  Cartan--conditioned-Schur product kernel and prove normalization before
+  extending the compiler through valence-five and valence-six fusion trees.
+- **constructive?**: yes.  Every output object is built from the literal
+  production switch certificates, and every analytic probability is exact
+  `Q'`.  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom
+  axiom, noncomputable declaration, or enlarged heartbeat budget is
+  introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all thirteen printed public
+  declarations use only `[propext, Quot.sound]`.  This closes the conditioned
+  degree-four production-to-Schur compiler, not yet the Cartan selection law,
+  full local probabilistic compiler, valence-five/six iteration, Gibbs/heat
+  comparison, beta-uniform posterior estimate, OS form bound, completed gap,
+  continuum QFT, or Clay theorem.

@@ -24959,3 +24959,45 @@ production witnesses through milestone 177, and expose the resulting
 heterogeneous Schur carrier and normalized row as one actual local switch
 compiler.  Valence-five/six iteration and all Gibbs/OS/continuum obligations
 remain open.
+
+## 179. The actual degree-four crossed slab switch now feeds physical Schur transport (2026-08-26)
+
+**Status. A PROOF-CARRYING PRODUCTION SWITCH AT A REAL FOUR-VALENT LINK NOW
+HAS AN EXACT NORMALIZED ANALYTIC RECOUPLING OUTPUT.**
+
+`SU2SlabValenceFourCrossedSchurCompiler.lean` packages the two accepted source
+link witnesses, their cutoff bounds, a common face mask, and the two
+mate-closed face-constant strand selections.  The existing geometric compiler
+constructs the left and right crossed physical fields and accepted auxiliary
+witnesses at the same cutoff.
+
+Milestone 177 maps both accepted outputs to explicit `FixedLeftCGChannel`s.
+The new exact identities
+
+```text
+left intermediate  = left-unselected auxiliary 5 + right-selected auxiliary 5
+right intermediate = left-selected auxiliary 5   + right-unselected auxiliary 5
+```
+
+show that the analytic channel retains the literal internal strand crossing,
+not merely the output admissibility Boolean.  Since the two output external
+quadruples can differ, milestone 178 supplies their heterogeneous Cartesian
+Schur carrier.  The resulting `crossedSchurKernelAt` is nonnegative,
+duplicate-free on its target list, and has exact row mass one; its observable
+pushforward preserves one and satisfies the independently typed product
+Fubini law.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All thirteen printed public declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+This compiler is conditional on one supplied face-constant mate-closed strand
+selection.  The next causal frontier is to identify the finite law of those
+selected/unselected counts with the Cartan branching coefficients from
+milestones 174--176.  Only after that bridge is proved can the normalized
+Cartan row and conditioned crossed Schur row be multiplied into the full
+local probabilistic compiler.  Valence-five/six iteration, Gibbs comparison,
+the connected residue, OS identification, uniform completed gap, continuum
+passage, and the Clay theorem remain open.

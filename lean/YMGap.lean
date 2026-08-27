@@ -1659,6 +1659,7 @@ import YMGap.Continuum.SU2CartanBranchingKernel
 import YMGap.Continuum.SU2CartanBranchingEquivariance
 import YMGap.Continuum.SU2CartanTwoReplicaCrossTransport
 import YMGap.Continuum.SU2CanonicalValenceFourChannelBridge
+import YMGap.Continuum.SU2SlabValenceFourCrossedSchurCompiler
 import YMGap.Continuum.SU2OrderedRacahStretchedSquare
 import YMGap.Continuum.SU2OrderedRacahNearStretchedTwoTerm
 import YMGap.Continuum.SU2OrderedRacahNearStretchedCrossNormalization
