@@ -20033,3 +20033,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   full local probabilistic compiler, valence-five/six iteration, Gibbs/heat
   comparison, beta-uniform posterior estimate, OS form bound, completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-canonical-higher-valence-fusion-chain-bridge] Convert production valence-five/six witnesses into explicit Cayley chains -- **BULK CARRIER EXTRACTION CLOSED; ITERATED SCHUR TRANSPORT OPEN 2026-08-26**
+
+- **milestone**: define a proof-carrying analytic trivalent fusion step with
+  explicit contraction order, physical bounds, and output-degree equation;
+  construct it from `fusionOK` and recover `fusionOK` from it; define complete
+  left-associated valence-five and valence-six chains; expose the production
+  resolver as three and four literal SU(2) fusion guards; construct both
+  chains from accepted canonical witnesses and actual slab-list membership;
+  retain the exact auxiliary coordinates at every intermediate output; and
+  expose the first two steps as the `FixedLeftCGChannel` required by physical
+  Schur recoupling.
+- **file**:
+  `lean/YMGap/Continuum/SU2CanonicalHigherValenceFusionChainBridge.lean`.
+- **principal declarations**:
+  `CGFusionStep`,
+  `cgFusionStepOfFusionOK`,
+  `CGFusionStep.fusionOK`,
+  `FixedLeftCGValenceFive`,
+  `FixedLeftCGValenceSix`,
+  `FixedLeftCGValenceFive.prefixChannel`,
+  `FixedLeftCGValenceSix.prefixChannel`,
+  `canonicalLinkConditionalAllowedB_five`,
+  `canonicalLinkConditionalAllowedB_six`,
+  `fixedLeftCGValenceFiveOfCanonical`,
+  `fixedLeftCGValenceSixOfCanonical`,
+  `fixedLeftCGValenceFiveOfSlab`, and
+  `fixedLeftCGValenceSixOfSlab`.
+- **obligation**: apply the normalized physical Schur row to the prefix
+  channel while retaining the certified suffix step(s), then iterate adjacent
+  reassociation until the full valence-five/six production tree has been
+  transported.  Attach the resulting local bulk kernels to every link in the
+  global paired-face switch assignment.
+- **constructive?**: yes.  Every carrier field is explicit `Nat` data derived
+  from Boolean fusion certificates, and all equations are exact.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all sixteen printed declarations use
+  only `[propext, Quot.sound]`.  This closes the production carrier map through
+  bulk valence six, not yet the iterated Schur transport, global local-kernel
+  product, Gibbs/heat comparison, beta-uniform posterior estimate, OS form
+  bound, completed gap, continuum QFT, or Clay theorem.  The prior Cartan-law
+  wording is corrected: the global observable mask is face-constant, so that
+  split is all-or-nothing on this path.

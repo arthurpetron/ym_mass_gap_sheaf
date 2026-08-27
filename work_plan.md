@@ -25001,3 +25001,51 @@ Cartan row and conditioned crossed Schur row be multiplied into the full
 local probabilistic compiler.  Valence-five/six iteration, Gibbs comparison,
 the connected residue, OS identification, uniform completed gap, continuum
 passage, and the Clay theorem remain open.
+
+## 180. Production bulk-link witnesses now expose their complete analytic fusion chains (2026-08-26)
+
+**Status. ACCEPTED VALENCE-FIVE AND VALENCE-SIX LINK WITNESSES NOW CARRY EVERY
+CAYLEY CONTRACTION ORDER AND EVERY EXACT INTERMEDIATE SPIN.**
+
+`SU2CanonicalHigherValenceFusionChainBridge.lean` introduces the minimal
+proof-carrying trivalent object `CGFusionStep a b c`: an explicit contraction
+order bounded by both inputs and the exact degree equation
+
+```text
+a + b - 2*order = c.
+```
+
+`cgFusionStepOfFusionOK` constructs this object from the production Boolean
+guard by the constructive `couplingOrder`, while `CGFusionStep.fusionOK`
+proves the converse.  Thus the Boolean resolver and the analytic Cayley step
+are linked in both directions without choice.
+
+The specialized carriers `FixedLeftCGValenceFive` and
+`FixedLeftCGValenceSix` store the full left-associated production chains.
+Public exact expansions of the canonical resolvers expose the three fusion
+guards at valence five and four guards at valence six.  Accepted canonical
+and actual slab witnesses then construct the chains with literal labels
+
+```text
+valence five: x = auxiliary 6, y = auxiliary 7
+valence six: x = auxiliary 7, y = auxiliary 8, z = auxiliary 9.
+```
+
+In both carriers the first two steps form a `FixedLeftCGChannel` immediately
+consumable by the physical Schur kernel, with intermediate spin exactly `x`.
+This reaches the six-valent interior-link carrier missing from milestone 179.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All sixteen printed declarations use only `[propext, Quot.sound]`.
+No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+**Roadmap correction.**  The global paired-face observable switch is
+face-constant, so its selected/unselected representation split at a face is
+all-or-nothing.  A nontrivial Cartan selection distribution is therefore not
+the next load-bearing theorem on this path.  The next frontier is to apply a
+physical Schur move to the first three factors of the valence-five/six chain,
+retain the remaining certified fusion steps, and iterate reassociation across
+the full bulk link.  Gibbs-weight comparison, connected-correlation residue,
+OS identification, uniform completed gap, continuum passage, and the Clay
+theorem remain open.
