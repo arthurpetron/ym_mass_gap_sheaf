@@ -380,6 +380,63 @@ def valenceFiveRightCarriers (a b c d e : Nat) :
     List (ValenceFiveRightCarrier a b c d e) :=
   (valenceFiveInnerOutputs b c).attach.flatMap valenceFiveRightFiber
 
+private theorem right_eq_of_m_eq_p_eq {a b c d e : Nat}
+    (left right : ValenceFiveRightCarrier a b c d e)
+    (hm : left.m = right.m)
+    (hp : left.second.p = right.second.p) : left = right := by
+  cases left with
+  | mk leftM leftInner leftSecond =>
+      cases right with
+      | mk rightM rightInner rightSecond =>
+          dsimp only at hm hp
+          subst rightM
+          have hinner : leftInner = rightInner :=
+            cgFusionStep_unique leftInner rightInner
+          subst rightInner
+          have hsecond : leftSecond = rightSecond :=
+            fixedRightChannel_eq_of_p_eq leftSecond rightSecond hp
+          subst rightSecond
+          rfl
+
+private theorem rightFiber_nodup {a b c d e : Nat}
+    (index : ValenceFiveInnerIndex b c) :
+    (valenceFiveRightFiber (a := a) (d := d) (e := e) index).Nodup := by
+  unfold valenceFiveRightFiber
+  apply nodup_map_of_injective
+  · intro left right heq
+    apply fixedRightChannel_eq_of_p_eq
+    exact congrArg
+      (fun target : ValenceFiveRightCarrier a b c d e => target.second.p) heq
+  · exact fixedRightChannels_nodup a index.val d e
+
+theorem valenceFiveRightCarriers_nodup (a b c d e : Nat) :
+    (valenceFiveRightCarriers a b c d e).Nodup := by
+  unfold valenceFiveRightCarriers
+  apply nodup_flatMap_of_disjoint_blocks
+  · exact attach_nodup_of_nodup _ (valenceFiveInnerOutputs_nodup b c)
+  · intro index _
+    exact rightFiber_nodup index
+  · intro left _ right _ hne value hleft hright
+    obtain ⟨leftChannel, _, hleftEq⟩ := List.mem_map.mp hleft
+    obtain ⟨rightChannel, _, hrightEq⟩ := List.mem_map.mp hright
+    have hm : left.val = right.val := by
+      exact congrArg (fun target => target.m)
+        (hleftEq.trans hrightEq.symm)
+    exact hne (Subtype.ext hm)
+
+theorem valenceFiveRightCarriers_complete {a b c d e : Nat}
+    (target : ValenceFiveRightCarrier a b c d e) :
+    target ∈ valenceFiveRightCarriers a b c d e := by
+  let index : ValenceFiveInnerIndex b c :=
+    ⟨target.m, target_m_mem_innerOutputs target⟩
+  apply List.mem_flatMap.mpr
+  refine ⟨index, List.mem_attach _ index, ?_⟩
+  apply List.mem_map.mpr
+  refine ⟨target.second, fixedRightChannels_complete target.second, ?_⟩
+  apply right_eq_of_m_eq_p_eq
+  · rfl
+  · rfl
+
 def valenceFiveSecondKernelAt {a b c d e : Nat}
     (middle : ValenceFiveMiddleCarrier a b c d e)
     (target : ValenceFiveRightCarrier a b c d e) : Q' :=
@@ -616,6 +673,8 @@ end YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.mem_valenceFiveMiddleWithIntermediate_iff_atInner
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.middle_intermediate_mem_innerOutputs
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.target_m_mem_innerOutputs
+#print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.valenceFiveRightCarriers_nodup
+#print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.valenceFiveRightCarriers_complete
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.valenceFiveSecondKernelAt_nonnegative
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.valenceFiveSecondKernelAt_middleOfInnerLeft
 #print axioms YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock.valenceFiveSecondKernel_row_normalized

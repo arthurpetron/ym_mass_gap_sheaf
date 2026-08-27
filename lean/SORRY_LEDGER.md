@@ -20609,3 +20609,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   declarations use only `[propext, Quot.sound]`.  This closes two of the three
   valence-six associators as a complete matrix, not the final block, Gibbs/OS
   comparison, completed gap, continuum construction, or Clay theorem.
+
+### [su2-valence-six-third-block-composition] Reindex the last move and compose the complete valence-six matrix -- **VALENCE-SIX BISTOCHASTIC COMPILER CLOSED 2026-08-27**
+
+- **milestone**: enumerate the complete proof-carrying `(m,n)` inner-output
+  sectors; build the indexed sum of physical Schur matrices for the third
+  associator; construct inverse maps between its canonical source and the
+  transient-`z` common prefix carrier; transport exact column normalization
+  across that finite equivalence; and compose the third matrix with the
+  already-completed prefix matrix.
+- **file**:
+  `lean/YMGap/Continuum/SU2ValenceSixThirdBistochasticBlock.lean`.
+- **principal declarations**: `ValenceSixInnerPair`,
+  `valenceSixInnerPairs`, `valenceSixInnerPairs_complete`,
+  `valenceSixCanonicalThirdBistochasticKernel`,
+  `valenceSixMiddleToCanonical`, `valenceSixCanonicalToMiddle`,
+  `valenceSixCanonicalToMiddle_leftInverse`,
+  `valenceSixMiddleToCanonical_rightInverse`,
+  `valenceSixThirdKernel_column_normalized`,
+  `valenceSixThirdBistochasticKernel`, and
+  `valenceSixBistochasticKernel`.
+- **obligation**: instantiate two complete valence-six matrices on the
+  literal crossed production fields; connect old dependent path targets to
+  the final carrier; then upgrade the heterogeneous whole-slab construction
+  before stating the separate beta- and lattice-spacing-dependent
+  same-carrier Gibbs/OS comparison.
+- **constructive?**: yes.  Sector enumeration is bounded and proof carrying;
+  both reindexing maps are explicit; all sums use exact `Q'` algebra.  No
+  `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes; all fourteen
+  printed declarations use only `[propext, Quot.sound]`.  This closes finite
+  SU(2) valence-six recoupling, not a Gibbs/OS comparison, beta-uniform gap,
+  continuum construction, or Clay theorem.

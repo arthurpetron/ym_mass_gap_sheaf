@@ -25562,3 +25562,33 @@ common prefix target list organized by transient `z`, while its local Schur
 blocks are organized by the two preserved physical inner labels.  The needed
 proof is an explicit constructive reindexing between those finite carriers,
 followed by composition and the actual two-replica slab instantiation.
+
+## 196. All three valence-six SU(2) associators form one bistochastic matrix (2026-08-27)
+
+**Status. THE COMPLETE VALENCE-SIX MATRIX IS CLOSED; ITS CROSSED PRODUCTION
+INSTANTIATION AND THE GIBBS/OS COMPARISON ARE OPEN.**
+
+`SU2ValenceSixThirdBistochasticBlock.lean` enumerates the two physical inner
+outputs `(m,n)` preserved by the last associator and puts one complete
+physical Schur matrix in every such sector.  Its written source carrier is
+instead organized by the transient prefix output `z`.  The module constructs
+maps in both directions between those descriptions and proves them inverse by
+the literal SU(2) fusion equations.
+
+Duplicate-freeness and completeness of both finite source lists let the
+generic exact-sum equivalence transport column mass one across that proved
+change of variables.  The resulting third matrix has exactly the prefix
+matrix's target list as its source list, so finite matrix composition produces
+`valenceSixBistochasticKernel`, the all-source/all-target matrix for all three
+aligned valence-six moves.
+
+The focused monitored source check passes.  All fourteen printed declarations
+use only `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to evaluate two copies of this matrix at the
+literal degree-six fields of an actual crossed slab switch and connect the old
+dependent three-step path weight to its canonical carrier coordinates.  This
+remains exact non-abelian recoupling transport: it supplies no beta-dependent
+Gibbs/OS comparison, completed spectral gap, continuum QFT, or Clay theorem.
