@@ -535,6 +535,70 @@ def valenceSixBistochasticKernel (a b c d e f : Nat) :
     (valenceSixPrefixBistochasticKernel a b c d e f)
     (valenceSixThirdBistochasticKernel a b c d e f) rfl
 
+/-! ## 5. The old dependent path inside the completed carriers -/
+
+/-- The two physical inner outputs carried by one old three-step target. -/
+def valenceSixInnerPairOfPath {a b c d e f : Nat}
+    {chain : FixedLeftCGValenceSix a b c d e f}
+    (target : ValenceSixRightTreeTarget chain) :
+    ValenceSixInnerPair b c d where
+  m := target.prior.first.intermediate
+  n := target.prior.second.intermediate
+  innerBC := fixedRightInnerStep target.prior.first
+  innerMD := fixedRightInnerStep target.prior.second
+
+/-- The canonical source of the third block selected by an old dependent
+path. -/
+def valenceSixCanonicalThirdSourceOfPath {a b c d e f : Nat}
+    (chain : FixedLeftCGValenceSix a b c d e f)
+    (target : ValenceSixRightTreeTarget chain) :
+    ValenceSixCanonicalThirdSource a b c d e f where
+  index := ⟨valenceSixInnerPairOfPath target,
+    valenceSixInnerPairs_complete (valenceSixInnerPairOfPath target)⟩
+  value := valenceSixThirdLeftChannel chain target.prior
+
+/-- The final right-tree carrier selected by an old dependent path. -/
+def valenceSixRightCarrierOfPath {a b c d e f : Nat}
+    {chain : FixedLeftCGValenceSix a b c d e f}
+    (target : ValenceSixRightTreeTarget chain) :
+    ValenceSixRightCarrier a b c d e f where
+  index := ⟨valenceSixInnerPairOfPath target,
+    valenceSixInnerPairs_complete (valenceSixInnerPairOfPath target)⟩
+  value := target.third
+
+theorem valenceSixMiddleToCanonical_path {a b c d e f : Nat}
+    (chain : FixedLeftCGValenceSix a b c d e f)
+    (target : ValenceSixRightTreeTarget chain) :
+    valenceSixMiddleToCanonical
+        (valenceSixCommonMiddleOfPath chain target) =
+      valenceSixCanonicalThirdSourceOfPath chain target := by
+  apply canonicalCode_injective
+  apply Prod.ext
+  · apply Prod.ext <;> rfl
+  · rfl
+
+/-- At the canonical path coordinates, the written third-block entry is
+literally the old third physical Schur factor. -/
+theorem valenceSixThirdKernelAt_path {a b c d e f : Nat}
+    (chain : FixedLeftCGValenceSix a b c d e f)
+    (target : ValenceSixRightTreeTarget chain) :
+    valenceSixThirdKernelAt
+        (valenceSixCommonMiddleOfPath chain target)
+        (valenceSixRightCarrierOfPath target) ≈
+      physicalSchurRecouplingKernelAt
+        (valenceSixThirdLeftChannel chain target.prior) target.third := by
+  unfold valenceSixThirdKernelAt
+  rw [valenceSixMiddleToCanonical_path chain target]
+  exact indexedSumWeight_same
+    (valenceSixInnerPairs b c d)
+    (ValenceSixThirdLeftFamily a e f)
+    (ValenceSixThirdRightFamily a e f)
+    (fun pair => physicalSchurBistochasticKernel a pair.n e f)
+    ⟨valenceSixInnerPairOfPath target,
+      valenceSixInnerPairs_complete (valenceSixInnerPairOfPath target)⟩
+    (valenceSixThirdLeftChannel chain target.prior)
+    target.third
+
 end YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock
 
 #print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixInnerPairs_nodup
@@ -551,3 +615,8 @@ end YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock
 #print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixThirdKernel_column_normalized
 #print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixThirdBistochasticKernel
 #print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixBistochasticKernel
+#print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixInnerPairOfPath
+#print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixCanonicalThirdSourceOfPath
+#print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixRightCarrierOfPath
+#print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixMiddleToCanonical_path
+#print axioms YMGap.Continuum.SU2ValenceSixThirdBistochasticBlock.valenceSixThirdKernelAt_path

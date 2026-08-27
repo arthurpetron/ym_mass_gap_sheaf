@@ -20580,6 +20580,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   direct-sum theorem, not a physical Gibbs/OS comparison, beta-uniform gap,
   continuum construction, or Clay theorem.
 
+### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
+
+- **milestone**: evaluate both complete valence-six matrices at the literal
+  crossed production labels; tensor them; extract the distinguished source
+  from the two accepted fusion chains; prove its row and every target column
+  have exact mass one; map each old three-step path to its final physical
+  carrier; and identify the product of its six local block atoms with the old
+  crossed path weight.
+- **files**:
+  `lean/YMGap/Continuum/SU2ValenceSixThirdBistochasticBlock.lean` and
+  `lean/YMGap/Continuum/SU2SlabValenceSixCrossedSchurBistochasticKernel.lean`.
+- **principal declarations**: `valenceSixInnerPairOfPath`,
+  `valenceSixRightCarrierOfPath`, `valenceSixMiddleToCanonical_path`,
+  `valenceSixThirdKernelAt_path`, `crossedValenceSixBistochasticKernel`,
+  `crossedValenceSixProductionSource`,
+  `crossedValenceSixBistochasticKernel_column_normalized`,
+  `crossedValenceSixProductionSource_row_normalized`,
+  `crossedValenceSixFinalTargetOfPath`, and
+  `crossedValenceSixKernelAt_common_paths`.
+- **obligation**: assemble the degree-four, degree-five, and degree-six
+  complete crossed matrices into one heterogeneous whole-slab product, then
+  state and prove an explicit beta- and lattice-spacing-dependent comparison
+  with the physical Gibbs/OS carrier.
+- **constructive?**: yes.  The production source and every old path coordinate
+  are explicit; tensor and composition laws are finite exact `Q'` algebra.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored checks pass; all newly printed
+  declarations use at most `[propext, Quot.sound]`.  This is production SU(2)
+  recoupling transport, not a Gibbs/OS comparison, beta-uniform gap,
+  continuum construction, or Clay theorem.
+
 ### [su2-valence-six-prefix-block-sum] Reuse complete valence-five matrices in every retained output sector -- **FIRST TWO VALENCE-SIX MOVES CLOSED 2026-08-27**
 
 - **milestone**: enumerate every output `z` of the first four external factors

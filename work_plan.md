@@ -25592,3 +25592,33 @@ literal degree-six fields of an actual crossed slab switch and connect the old
 dependent three-step path weight to its canonical carrier coordinates.  This
 remains exact non-abelian recoupling transport: it supplies no beta-dependent
 Gibbs/OS comparison, completed spectral gap, continuum QFT, or Clay theorem.
+
+## 197. The complete valence-six matrix is instantiated on crossed slab data (2026-08-27)
+
+**Status. THE TWO-REPLICA PRODUCTION DEGREE-SIX MATRIX AND PATH-TO-CARRIER
+MAP ARE CLOSED; HETEROGENEOUS SLAB ASSEMBLY AND GIBBS/OS COMPARISON ARE OPEN.**
+
+`SU2SlabValenceSixCrossedSchurBistochasticKernel.lean` evaluates the complete
+valence-six matrix at the literal six external labels of both crossed
+production fields.  Tensor closure gives a finite bistochastic pair matrix,
+and the two accepted production fusion chains give its distinguished source.
+Every column and that production row have exact mass one.
+
+The completed carrier module now also maps every old dependent three-step
+target to its physical `(m,n)` sector and final right-tree channel.  The
+production module proves that the product of all six local block atoms through
+the two canonical paths is exactly the pre-existing crossed path weight.  It
+does not conflate that atom with the completed matrix entry, which sums over
+the explicit common carriers.
+
+The focused monitored source check passes.  All eleven newly printed path and
+production declarations use only `[propext, Quot.sound]` (the bare inner-pair
+map uses no axioms).  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is a heterogeneous exact product which chooses the
+complete degree-four, degree-five, or degree-six crossed matrix at each actual
+slab link and preserves all row and column laws.  Only after that finite
+carrier closure should the separate beta- and lattice-spacing-dependent
+Gibbs/OS comparison be formulated.
