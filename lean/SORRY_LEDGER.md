@@ -19349,3 +19349,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored source check passes.  All twelve
   audited declarations use at most `[propext, Quot.sound]`; no posterior
   fraction, completed gap, continuum QFT, or Clay theorem is claimed.
+
+### [compact-dual-slab-observable-removal-geometric] Sum the positive removal tail -- **NORMALIZED FIXED-ANCHOR ONE-FACE MASS BOUND CLOSED; CONDITIONAL/POSTERIOR BRIDGE OPEN 2026-08-26**
+
+- **milestone**: prove the size-zero observable-removal fibers empty; sum the
+  positive adaptive rate `(8/25)^n` by the constructive geometric-tail
+  closure; contract every target's complete size fiber by `8/17`; use the
+  duplicate-free target Fubini and exact expanded-source total to bound the
+  whole positive-face unnormalized weight by `(8/17) * physicalPartition`;
+  and normalize by the existing positive partition witness.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableRemovalGeometric.lean`.
+- **principal declarations**:
+  `slabObservablePositiveRemovalFiber_zero`,
+  `componentAdaptiveEntropyAnchorRatio_positiveTail_le`,
+  `slabObservablePositiveRemovalFiber_sizes_sum_le`,
+  `slabObservablePositiveExpandedSources_weight_le_partition`,
+  `slabObservablePositiveExpandedMass`, and
+  `slabObservablePositiveExpandedMass_le_eightSeventeenths`.
+- **obligation**: construct a boundary-conditioned version of the
+  component-removal partition and weight comparison, or another exact bridge
+  from this local occupation estimate to a same-object conditional covariance
+  or OS transfer-form contraction.  The currently proved unconditional mass
+  bound cannot by itself be promoted to a posterior-variance fraction.
+- **constructive?**: yes.  Finite-list induction, the existing exact
+  deterministic partition, explicit partition positivity, and rational
+  geometric closure only.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check passes.  All six public
+  declarations use at most `[propext, Quot.sound]`.  The `8/17` statement is
+  fixed at `anchorCoupling`; it is not beta-uniform, a posterior-variance
+  theorem, a completed OS spectral gap, a continuum QFT, or the Clay theorem.

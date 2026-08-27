@@ -24189,3 +24189,42 @@ positive geometric series, and control how often a target weight occurs.
 That last target-multiplicity issue must be resolved before calling the result
 a conditional transition or posterior-variance fraction.  The dense/completed
 OS gap, continuum passage, and Clay theorem remain open.
+
+## 162. The observable-rooted geometric fiber sum gives a normalized finite-anchor one-face bound (2026-08-26)
+
+**Status. THE COMPLETE POSITIVE-SPIN MASS AT ONE PHYSICAL FACE IS AT MOST
+`8/17` IN THE NORMALIZED EXPANDED CORRECTED-SLAB MEASURE AT THE FIXED
+STRONG-COUPLING ANCHOR, UNIFORMLY IN FINITE CUTOFF AND SLAB HALF-WIDTH.**
+
+`CompactDualSlabObservableRemovalGeometric.lean` proves that every size-zero
+removal fiber is empty, then sums the positive adaptive rate exactly through
+the constructive geometric-tail engine:
+
+```text
+sum_(n >= 1) (8/25)^n <= 8/17.
+```
+
+For each literal lowered target, the complete finite size sum is therefore at
+most `8/17` times that target's weight.  There is no residual target
+multiplicity: milestone 161 already sums once over the duplicate-free literal
+expanded target carrier, whose total weight is exactly the physical
+partition.  Exact finite Fubini consequently gives
+
+```text
+positiveFaceExpandedWeight <= (8/17) * physicalPartition
+positiveFaceExpandedMass   <= 8/17.
+```
+
+The focused monitored source check passes.  All six public declarations use
+at most `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+This is a fixed-anchor, finite-slab one-face occupation estimate.  It is not
+a conditional transition floor or posterior-variance fraction: conditioning
+on the complementary carrier can destroy an unconditional one-face bound.
+The next causal frontier is therefore to expose a boundary-conditioned
+component-removal/disintegration statement, or to prove an alternative
+same-object covariance implication strong enough for the OS transfer form.
+Beta/lattice-spacing uniformity, the dense/completed OS gap, continuum
+passage, and the Clay theorem remain open.
