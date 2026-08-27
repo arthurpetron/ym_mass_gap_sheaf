@@ -20651,6 +20651,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   beta-uniform contraction, completed spectral gap, continuum construction,
   or Clay theorem.
 
+### [su2-slab-fractional-switch-capacity] Replace deterministic decoding by dependent fractional transport -- **CONDITIONAL CONTRACTION ALGEBRA CLOSED 2026-08-27**
+
+- **milestone**: push source-dependent finite stochastic rows through a common
+  target realization; prove exact total-mass domination from column capacity;
+  instantiate the theorem with the literal paired-face separated source list
+  and whole-slab production recoupling row; derive Gibbs-weight preservation
+  from facewise transposition; and contract the Boolean four-cell defect to
+  the exact paired-union connected residue.
+- **files**:
+  `lean/YMGap/Continuum/FiniteDependentKernelCapacity.lean` and
+  `lean/YMGap/Continuum/SU2SlabRecouplingFractionalSwitch.lean`.
+- **principal declarations**: `dependentKernelPushforwardWeight`,
+  `sourceWeight_total_le_of_dependentKernelCapacity`,
+  `weightedColumn_le_of_columnCapacity`,
+  `SlabObservableRecouplingTargetRealization`,
+  `SlabObservableRecouplingColumnCapacity`,
+  `SlabObservableRecouplingTargetRealization.weight_preserved`,
+  `slabObservablePairedFaceSeparatedFourCellSourcePairs_weight_le`, and
+  `slabObservableFourCell_defect_le_pairedConnected_of_recoupling`.
+- **obligations**: construct the physical right-tree realization; prove its
+  global column-capacity inequality; and bound the exact
+  `slabObservablePairedFaceConnectedFourCellSourcePairs` residue.  These are
+  three independent frontiers.  Their joined anchor theorem must subsequently
+  be placed on an explicit bare-coupling/lattice-spacing trajectory and tied
+  to the production OS observable.
+- **constructive?**: yes.  Dependent finite Fubini and deterministic
+  pushforward use exact `Q'`; the SU(2) row is the already completed
+  non-abelian bistochastic compiler.  No `Classical`, choice, `sorry`,
+  `admit`, `native_decide`, custom axiom, noncomputable declaration, or
+  enlarged heartbeat budget is introduced.
+- **status note**: focused monitored checks pass.  The generic target build is
+  clean; the concrete target build completes successfully but its post-write
+  `LibrarySuggestions` linter emits a deterministic heartbeat panic on the
+  large dependent declarations.  All printed declarations use at most
+  `[propext, Quot.sound]`.  The two certificate structures are deliberately
+  uninhabited; therefore no physical switch, paired-residue rate,
+  beta-uniform gap, continuum construction, or Clay theorem is claimed.
+
 ### [su2-slab-valence-six-crossed-bistochastic] Instantiate the complete matrix at an actual crossed degree-six link -- **PRODUCTION DEGREE-SIX MATRIX CLOSED 2026-08-27**
 
 - **milestone**: evaluate both complete valence-six matrices at the literal

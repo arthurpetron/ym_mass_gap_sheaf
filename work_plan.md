@@ -25677,3 +25677,52 @@ supply the comparison.  The next declaration must expose beta, lattice
 spacing, the actual normalized Gibbs/OS target weights on this same carrier,
 and the exact parameter range of any claimed lower bound or strict
 contraction.  No beta-uniform statement follows from row normalization.
+
+## 200. Fractional recoupling contracts exactly to the paired-union connected residue (2026-08-27)
+
+**Status. THE WEIGHTED FINITE-FUBINI IMPLICATION IS CLOSED; THREE INDEPENDENT
+FRONTIERS ARE NOW EXPLICIT: RIGHT-TREE REALIZATION, COLUMN CAPACITY, AND THE
+PAIRED-UNION CONNECTED-RESIDUE BOUND.**
+
+`FiniteDependentKernelCapacity.lean` proves the exact algebra needed when the
+finite channel type depends on the source.  Each normalized dependent row is
+pushed through a deterministic realization to one common physical carrier.
+If every realized target column has capacity at most one, then the total
+source weight is at most the total target weight.  A separate lemma proves
+that unweighted column capacity suffices whenever the realization preserves
+physical weights on its support.
+
+`SU2SlabRecouplingFractionalSwitch.lean` applies this theorem to the literal
+paired-face separated source list and the complete whole-slab SU(2)
+recoupling row at its production source.  The remaining same-carrier bridge is
+split into two Type-valued obligations:
+
+1. `SlabObservableRecouplingTargetRealization` interprets every dependent
+   right-tree choice as an accepted physical target pair with the canonical
+   face-swapped physical projections;
+2. `SlabObservableRecouplingColumnCapacity` proves that the resulting common
+   target columns receive total recoupling load at most one.
+
+For any such realization, full two-replica physical weight preservation is a
+theorem at the datum's explicit heat coupling: every retained intertwiner has
+unit raw fiber weight, and facewise transposition preserves the product of all
+heat coefficients exactly.  Given column capacity, the complete Boolean
+four-cell defect is bounded by the literal weight of
+`slabObservablePairedFaceConnectedFourCellSourcePairs`.  No older
+one-replica connected rate is substituted for this stronger union-graph
+event.
+
+The focused monitored checks pass.  The generic target build is clean; the
+concrete target build completes successfully and writes its module, but the
+post-write `LibrarySuggestions` linter reports a deterministic `whnf`
+heartbeat panic on the large dependent declarations.  Every printed
+declaration uses at most `[propext, Quot.sound]`; the generic dependent
+transport theorem uses only `propext`.  No `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+This is not yet an inhabited physical switch or a numerical defect estimate.
+The three explicit finite/analytic frontiers can be developed independently.
+After they join, the resulting anchor estimate must still be connected to a
+named bare-coupling/lattice-spacing trajectory, the OS observable, a completed
+spectral gap, continuum QFT, and the Clay theorem.
