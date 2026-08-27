@@ -20078,3 +20078,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   bound, completed gap, continuum QFT, or Clay theorem.  The prior Cartan-law
   wording is corrected: the global observable mask is face-constant, so that
   split is all-or-nothing on this path.
+
+### [su2-valence-five-iterated-schur-transport] Normalize two dependent physical Schur moves across the complete four-factor tree -- **VALENCE-FIVE ITERATION CLOSED; VALENCE-SIX THIRD MOVE OPEN 2026-08-26**
+
+- **milestone**: recouple the first three factors of an explicit
+  `FixedLeftCGValenceFive` chain; extract the first target's outer fusion
+  certificate; combine it with the retained suffix to construct the second
+  physical left channel; prove that channel's intermediate output is exactly
+  the original `y`; define the dependent two-level target tower by finite
+  `flatMap`; weight it by the product of the first and conditional second
+  physical Schur probabilities; prove pointwise nonnegativity; prove each
+  conditional fiber collapses to the first-row weight; prove exact total mass
+  one; and prove preservation of the constant observable.
+- **file**:
+  `lean/YMGap/Continuum/SU2ValenceFiveIteratedSchurTransport.lean`.
+- **principal declarations**:
+  `valenceFiveSecondLeftChannel`,
+  `valenceFiveSecondLeftChannel_intermediate`,
+  `ValenceFiveRightTreeTarget`,
+  `valenceFiveRightTreeTargets`,
+  `valenceFiveIteratedSchurKernelAt`,
+  `valenceFiveIteratedSchurKernelAt_nonnegative`,
+  `valenceFiveIteratedSchurKernel_row_normalized`, and
+  `valenceFiveIteratedSchurExpectation_one`.
+- **obligation**: add the third dependent move for a valence-six chain by
+  using the second target's outer fusion step with the retained final suffix;
+  prove the three-level tower normalization; then instantiate these kernels on
+  the actual crossed production witnesses and assemble them over all slab
+  links.
+- **constructive?**: yes.  The conditional carrier is an explicit finite
+  `flatMap`, and its normalization is exact `Q'` finite-tower algebra over
+  previously proved Parseval rows.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete target build pass; all five printed declarations use
+  only `[propext, Quot.sound]`.  This closes full valence-five reassociation,
+  not yet the valence-six third move, global linkwise product, Gibbs/heat
+  comparison, beta-uniform posterior estimate, OS form bound, completed gap,
+  continuum QFT, or Clay theorem.

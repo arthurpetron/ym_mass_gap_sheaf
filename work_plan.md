@@ -25049,3 +25049,44 @@ retain the remaining certified fusion steps, and iterate reassociation across
 the full bulk link.  Gibbs-weight comparison, connected-correlation residue,
 OS identification, uniform completed gap, continuum passage, and the Clay
 theorem remain open.
+
+## 181. A valence-five production chain now has a fully iterated physical Schur law (2026-08-26)
+
+**Status. TWO DEPENDENT PHYSICAL SCHUR ROWS NOW TRANSPORT THE COMPLETE
+FOUR-FACTOR LEFT TREE TO A FULLY RIGHT-ASSOCIATED FINITE CARRIER.**
+
+`SU2ValenceFiveIteratedSchurTransport.lean` starts with the production tree
+
+```text
+(((a b) c) d) -> e.
+```
+
+The first normalized physical Schur row replaces `((a b) c) -> y` by
+`(a (b c)) -> y`.  Every first target contains a new `(b,c)` intermediate
+spin.  Its proved outer fusion guard `a (b c) -> y`, together with the
+retained production suffix `y d -> e`, constructively determines the second
+`FixedLeftCGChannel`.  The second normalized row then produces
+
+```text
+a ((b c) d) -> e.
+```
+
+`ValenceFiveRightTreeTarget` records both choices with the type of the second
+channel depending on the first.  Its enumeration is therefore a literal
+finite `flatMap`, not a Cartesian approximation.  The kernel is the product
+of the first probability and its conditional second probability.
+`valenceFiveIteratedSchurKernel_row_normalized` performs exact finite tower
+summation: every conditional fiber has mass one, and the remaining outer sum
+is the first Parseval row, also of mass one.  The kernel is pointwise
+nonnegative and its observable pushforward preserves one.
+
+The focused monitored source check and the dependency-complete target build
+pass.  All five printed declarations use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is the analogous three-level dependent tower for the
+valence-six bulk chain: reuse the first two moves through output `z`, combine
+the second target's outer fusion step with the retained `z e -> f` suffix,
+and normalize the third conditional Schur row.  Global linkwise assembly and
+all Gibbs/OS/continuum estimates remain open.
