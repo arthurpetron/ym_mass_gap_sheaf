@@ -20480,3 +20480,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not the second move, composed valence-five matrix, Gibbs conditional
   comparison, beta-uniform posterior estimate, OS form bound, completed gap,
   continuum QFT, or Clay theorem.
+
+### [su2-valence-five-second-block-composition] Reindex the second move and compose the complete valence-five matrix -- **VALENCE-FIVE BISTOCHASTIC COMPILER CLOSED; PRODUCTION/GIBBS BRIDGES OPEN 2026-08-26**
+
+- **milestone**: reconstruct a common-middle state from a fixed physical
+  `(b,c)` intermediate and a canonical left channel for the remaining three
+  factors; prove inverse and roundtrip laws; prove the written middle list is
+  duplicate-free and complete; identify its fixed-intermediate filter with
+  the reconstructed canonical fiber; enumerate the complete final carrier;
+  zero-extend the second associator across sectors; prove global row and
+  column normalization; and compose both aligned moves.
+- **file**:
+  `lean/YMGap/Continuum/SU2ValenceFiveSecondBistochasticBlock.lean`.
+- **principal declarations**:
+  `middleOfInnerLeft`, `middleOfInnerLeft_roundtripAt`,
+  `valenceFiveMiddleCarriers_nodup`,
+  `valenceFiveMiddleCarriers_complete`,
+  `mem_valenceFiveMiddleWithIntermediate_iff_atInner`,
+  `valenceFiveRightCarriers`, `valenceFiveSecondKernelAt`,
+  `valenceFiveSecondKernel_row_normalized`,
+  `valenceFiveSecondKernel_column_normalized`,
+  `valenceFiveSecondBistochasticKernel`, and
+  `valenceFiveBistochasticKernel`.
+- **obligation**: tensor two completed valence-five matrices at the literal
+  crossed production labels and integrate them into the global slab-link
+  assignment; construct the analogous three aligned blocks at valence six;
+  then define an explicit beta- and lattice-spacing-dependent same-carrier
+  comparison with the physical Gibbs/OS kernel before making any uniform gap
+  claim.
+- **constructive?**: yes.  Every reindexing uses bounded proof-carrying lists,
+  duplicate-free finite injections, and exact `Q'` sums.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and 840-job targeted
+  build pass; all fourteen printed declarations use only
+  `[propext, Quot.sound]`.  This is a complete finite SU(2) valence-five
+  recoupling matrix, not a Gibbs conditional comparison, beta-uniform
+  posterior estimate, OS form bound, completed spectral gap, continuum QFT,
+  or Clay theorem.

@@ -25438,3 +25438,38 @@ composition theorem yields the complete valence-five bistochastic matrix.
 This remains finite SU(2) representation theory; it does not supply a
 beta-dependent Gibbs comparison, an OS form bound, a completed spectral gap,
 continuum QFT, or the Clay theorem.
+
+## 192. The complete valence-five SU(2) associator is bistochastic (2026-08-26)
+
+**Status. BOTH ALIGNED GLOBAL MOVES AND THEIR MATRIX COMPOSITION ARE CLOSED;
+PRODUCTION INSTANTIATION AND THE BETA-DEPENDENT GIBBS COMPARISON ARE OPEN.**
+
+`SU2ValenceFiveSecondBistochasticBlock.lean` proves the missing transpose-side
+carrier theorem.  For each physical `(b,c)` output `m`, it reconstructs a
+common-middle state from a canonical `FixedLeftCGChannel a m d e`, proves the
+construction is inverse to the middle state's `secondLeft` projection, and
+identifies that image exactly with the fixed-`m` filter of the written common
+middle list.  The proof also establishes duplicate-freeness and completeness
+of the common carrier; no cardinality or choice argument is used.
+
+The second associator is then zero-extended between different `m` sectors.
+Its global row theorem is a deterministic block sum of local Schur rows.  Its
+global column theorem filters away the zero sectors, reindexes the surviving
+source list by the proved finite bijection, and invokes local physical Schur
+column normalization.  `valenceFiveSecondBistochasticKernel` packages this
+matrix on exactly the first block's target list, so
+`valenceFiveBistochasticKernel` follows by literal finite matrix composition.
+
+The focused monitored source check and 840-job targeted build pass.  All
+fourteen printed declarations use only `[propext, Quot.sound]` (some arithmetic
+carrier statements need only `propext`).  No `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
+
+The next causal frontier is to instantiate this all-source/all-target matrix
+at the two physical valence-five fields of an actual crossed slab link and
+then incorporate it into the heterogeneous global link product.  Valence six
+still requires its analogous three-block common-carrier construction.  Even
+after those production compilers close, a separate same-carrier comparison
+with the beta- and lattice-spacing-dependent Gibbs/OS weight remains
+load-bearing; bistochastic recoupling alone is not a mass-gap estimate.
