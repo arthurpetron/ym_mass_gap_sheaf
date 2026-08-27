@@ -24553,3 +24553,45 @@ coordinates, and construct an actual original-cutoff cross-replica local
 witness.  Global switched assignments and decoder, the paired-face residue
 bound, OS observable pin, all-beta/lattice-spacing control, completed gap,
 continuum passage, and the Clay theorem remain open.
+
+## 170. Cross-replica SU(2) link switches are accepted at the original cutoff (2026-08-26)
+
+**Status. BOTH ORIENTATIONS OF THE FACEWISE TWO-REPLICA SWITCH NOW HAVE
+EXPLICIT ACCEPTED LOCAL AUXILIARY WITNESSES IN THE ORIGINAL `6*K` PRODUCTION
+WINDOW.**
+
+`CanonicalLinkSameCutoffSupportAddition.lean` packages the exact support
+argument.  Additive SU(2) fusion closure proves the sum guard; milestone
+169's sharp channel theorem bounds every used coordinate; and the two source
+Cartesian memberships force the sum to vanish outside the canonical used
+coordinate list.  The resulting auxiliary field is therefore an actual
+member of the original-cutoff enumeration whenever its summed external
+field remains `K`-bounded.
+
+`CompactDualSlabCrossReplicaLocalSwitch.lean` then names the unselected
+accepted auxiliary subnetwork complementary to milestone 168's selected
+one.  Given face-constant partner-closed selections in two replicas, it
+constructs the two crossed fields
+
+```text
+left output  = left-unselected + right-selected,
+right output = left-selected   + right-unselected.
+```
+
+Pointwise Boolean case analysis identifies the corresponding physical sums
+with `twoReplicaFaceSwapLeft` and `twoReplicaFaceSwapRight`.  Since each
+output chooses one original spin at every face, both retain the original
+physical cutoff.  The same-cutoff addition theorem then returns literal
+accepted link witnesses for both outputs.
+
+The focused monitored source checks pass; dependency-complete target builds
+pass 931 jobs for same-cutoff support and 961 jobs for the local switch.  All seven printed
+declarations across the two modules use only `[propext, Quot.sound]`.  No
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+The next causal frontier is to specialize the local compiler to the paired
+target-component selections at every boundary-complete slab link and
+assemble complete switched `SlabFusionWitnessAssignment`s.  Their decoder,
+the paired-face residue bound, OS observable pin, all-beta/lattice-spacing
+control, completed gap, continuum passage, and the Clay theorem remain open.

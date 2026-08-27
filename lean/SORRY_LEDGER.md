@@ -19647,3 +19647,53 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   cross-replica witness, global switch/decoder, paired-face residue bound, OS
   form theorem, all-beta statement, completed gap, continuum QFT, or Clay
   theorem.
+
+### [canonical-link-same-cutoff-support-addition] Add accepted SU(2) witnesses without enlarging the production cutoff -- **SAME-CUTOFF SUPPORT ADDITION CLOSED 2026-08-26**
+
+- **milestone**: combine additive canonical-link admissibility, the sharp
+  used-channel support bound, and exact zero-off-support data from both
+  Cartesian inputs; package the auxiliary sum as an actual member of the
+  original `6*K` enumeration when its summed external field is still bounded
+  by `K`; and specialize this theorem to one corrected-slab link.
+- **file**:
+  `lean/YMGap/Continuum/CanonicalLinkSameCutoffSupportAddition.lean`.
+- **principal declarations**:
+  `canonicalLinkAcceptedAuxiliary_add_mem_sameCutoff` and
+  `slabLinkFusionWitness_add_mem_sameCutoff`.
+- **obligation**: no local support-addition field remains.  Apply the theorem
+  linkwise to the selected/complement subnetworks and assemble the resulting
+  switched global assignment and decoder.
+- **constructive?**: yes.  Exact finite support and natural arithmetic only;
+  no `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and a 931-job target
+  build pass.  Both printed declarations use only `[propext, Quot.sound]`.
+
+### [compact-dual-slab-cross-replica-local-switch] Construct both accepted local outputs of the face switch -- **ORIGINAL-CUTOFF LOCAL SWITCH CLOSED; GLOBAL ASSEMBLY OPEN 2026-08-26**
+
+- **milestone**: expose the accepted unselected auxiliary subnetwork; identify
+  unselected-plus-selected and selected-plus-unselected physical sums with
+  the two literal face-swap outputs; prove both physical outputs retain the
+  original cutoff; and construct accepted original-cutoff auxiliary witnesses
+  for both crossed link networks.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabCrossReplicaLocalSwitch.lean`.
+- **principal declarations**:
+  `slabLinkPartnerClosedFaceSelectionUnselectedAuxiliary_mem`,
+  `slabCrossReplicaLeftPhysical_eq_faceSwap`,
+  `slabCrossReplicaRightPhysical_eq_faceSwap`,
+  `slabCrossReplicaLeftAuxiliary_mem`, and
+  `slabCrossReplicaRightAuxiliary_mem`.
+- **obligation**: instantiate the two local compilers at every
+  boundary-complete link using the paired union-component mask; recursively
+  assemble the local fields into complete accepted output assignments; then
+  construct the inverse decoder.
+- **constructive?**: yes.  Every auxiliary output is explicit Type-level data
+  with literal list membership.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored source check and a 961-job target
+  build pass.  All five printed declarations use only `[propext, Quot.sound]`.
+  There is no global
+  switched assignment or decoder, paired-face residue bound, OS form theorem,
+  all-beta statement, completed gap, continuum QFT, or Clay theorem.
