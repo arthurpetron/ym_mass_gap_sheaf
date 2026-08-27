@@ -19881,3 +19881,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the representation-morphism frontier, not the geometric switch, a
   Gibbs/heat-weight comparison, a beta-uniform posterior estimate, an OS form
   bound, a completed gap, a continuum QFT, or the Clay theorem.
+
+### [su2-cartan-two-replica-cross-transport] Push two Cartan splits through packet swap and crossed recombination -- **EXTERNAL-SPIN TRANSPORT CLOSED; DEPENDENT SCHUR COMPOSITION OPEN 2026-08-26**
+
+- **milestone**: construct the duplicate-free Cartesian carrier of the two
+  source split indices; define the product Cartan row; prove nonnegativity and
+  exact mass one; define the deterministic selected-packet exchange and
+  crossed monomial recombination; prove total-degree conservation; prove every
+  unphysical packet has zero weight and every nonzero packet lands inside
+  crossed degrees `p+n` and `m+q`; identify the product row with the literal
+  product of `cartanSplit` coefficients; and define a normalized observable
+  pushforward preserving one.
+- **file**:
+  `lean/YMGap/Continuum/SU2CartanTwoReplicaCrossTransport.lean`.
+- **principal declarations**:
+  `cartanCrossTargets_nodup`,
+  `cartanCrossKernelAt_nonnegative`,
+  `cartanCrossKernel_row_normalized`,
+  `cartanCrossOutput_total`,
+  `cartanCrossKernelAt_zero_of_unphysical`,
+  `cartanCrossOutput_physical_of_kernel_nonzero`,
+  `cartanCrossPacketAmplitude_eq_kernel`, and
+  `cartanCrossExpectation_one`.
+- **obligation**: make the internal fusion-channel target depend on each
+  crossed external-label output; compose the exact Cartan row with the
+  physical Schur recoupling row on that dependent finite carrier; prove row
+  normalization and observable transport; then iterate the resulting local
+  compiler along the production valence-five/six link trees and attach it to
+  the paired-face geometric component carrier.
+- **constructive?**: yes.  The carrier and output map are literal finite
+  `List`/`Nat` data and every weight is exact `Q'`.  An axiom-clean local proof
+  replaces the toolchain's classical `List.nodup_range`.  No `Classical`,
+  choice, `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
+  declaration, or enlarged heartbeat budget is introduced.
+- **status note**: the focused monitored source check and the
+  dependency-complete 593-job target build pass; all printed declarations use
+  only `[propext, Quot.sound]`.  This is the exact
+  external-spin pushforward, not yet a dependent Cartan--Schur channel law, a
+  Gibbs/heat comparison, beta-uniform posterior estimate, OS form bound,
+  completed gap, continuum QFT, or Clay theorem.

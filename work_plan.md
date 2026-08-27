@@ -24827,3 +24827,58 @@ valence-five and valence-six fusion trees.  The Gibbs-weight comparison,
 paired-face connected residue, OS observable identification, all-beta and
 lattice-spacing control, completed uniform gap, continuum passage, and the
 Clay theorem remain open.
+
+## 176. Two Cartan rows now form the crossed external-spin transport (2026-08-26)
+
+**Status. THE TWO-REPLICA `SPLIT -> SWAP -> RECOMBINE` OPERATION IS NOW AN
+EXPLICIT NONNEGATIVE FINITE ROW OF EXACT MASS ONE.**
+
+`SU2CartanTwoReplicaCrossTransport.lean` places the two split indices on the
+literal duplicate-free carrier
+
+```text
+range (s+1) x range (t+1)
+```
+
+and weights a packet by the product of the two normalized Cartan branching
+coefficients.  Finite Cartesian Fubini and the two Vandermonde row laws prove
+`cartanCrossKernel_row_normalized`; every row has exact mass one.
+
+The deterministic map `cartanCrossOutput` implements the selected-packet
+exchange.  For selected indices `i,k` it sends the two source monomial indices
+`s,t` to
+
+```text
+(k + (s-i), i + (t-k)),
+```
+
+which is precisely order-zero recombination of the crossed packet pairs.
+`cartanCrossOutput_total` proves conservation of total monomial degree.
+Every unphysical packet has exactly zero kernel weight, and
+`cartanCrossOutput_physical_of_kernel_nonzero` proves that all nonzero mass
+lands in the crossed external degrees `p+n` and `m+q`.
+
+The identity `cartanCrossPacketAmplitude_eq_kernel` connects the row back to
+the literal product of the two `cartanSplit` coefficients.  Finally
+`cartanCrossExpectation` is the finite pushforward of any observable of the
+crossed output pair, and `cartanCrossExpectation_one` proves preservation of
+the constant observable.
+
+This closes the external-spin-changing half of the local compiler.  It does
+not yet transport the internal fusion-tree channel: the physical Schur
+reassociation row must be composed with this Cartan row on a single dependent
+finite carrier.
+
+The focused monitored source check and the dependency-complete 593-job target
+build pass.  All nine printed public declarations use only
+`[propext, Quot.sound]`.  No `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+The next causal frontier is the dependent Cartan--Schur composition: for each
+nonzero crossed external-label output, enumerate its proof-carrying physical
+fusion channels, multiply the normalized rows, and prove exact total mass
+one and observable Fubini.  Then instantiate that compiler along the actual
+valence-five/six link trees.  Gibbs-weight comparison, the connected residue,
+OS identification, uniform completed gap, continuum passage, and the Clay
+theorem remain open.
