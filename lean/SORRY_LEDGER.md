@@ -18183,6 +18183,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module.  No root pass is claimed beyond the previously reported safely
   interrupted integration build.
 
+### [compact-dual-paired-support-fixed-boundary-switch] Keep the accepted two-replica switch inside one OS posterior fiber -- **PROVED STRUCTURAL BRIDGE / UNIFORM FRACTION OPEN 2026-08-27**
+
+- **milestone**: prove that a facewise transposition fixes every coordinate
+  on which its two inputs agree; lift this to arbitrary coordinate lists,
+  the literal `centralFixedFaceIds`, and reflected-slab labellings assembled
+  over one common boundary channel; then combine it with the accepted
+  whole-link auxiliary switch.  Unlike a one-replica component peel, the
+  paired switch may cross the interface: it merely exchanges two equal
+  conditioned boundary labels there.
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabObservablePairedSupportFixedBoundarySwitch.lean`.
+- **decl**:
+  `twoReplicaFaceSwapLeft_eq_of_eq`,
+  `twoReplicaFaceSwapRight_eq_of_eq`,
+  `twoReplicaFaceSwap_preserves_agreement`,
+  `assembledReplicas_agree_on_centralFixedFaces`,
+  `slabTwoReplicaCanonicalSupportSwap_preservesCentralBoundary`,
+  `slabTwoReplicaCanonicalSupportSwap_assembled_preservesCentralBoundary`,
+  `slabObservablePairSupportSwitch_preservesCentralBoundary`, and
+  `slabObservablePairSupportSwitch_accepted_in_centralBoundaryFiber`.
+- **obligation**: recode the physical BF4 conditional pairwise-variance sum
+  into the accepted expanded-source carrier on each fixed boundary channel,
+  and prove that the boundary-preserving switched portion pays a positive
+  cutoff-independent fraction of the stationary diagonal variance.  This
+  structural bridge supplies neither the fraction nor any coupling, beta,
+  volume, or lattice-spacing uniformity.
+- **constructive?**: yes.  The proof is Boolean case analysis followed by
+  the literal fixed-face assembly equality and the existing accepted
+  whole-link switch.  No `Classical`, choice, `sorry`, `admit`,
+  `native_decide`, custom axiom, noncomputable declaration, or enlarged
+  heartbeat budget is introduced.
+- **status note**: the focused monitored check passes.  The four audited
+  exports use only `[propext, Quot.sound]`; the root aggregator imports the
+  module.  The executable forbidden-token scan reports zero hits and
+  `git diff --check` passes.  No full-root pass is claimed beyond the
+  previously reported safely interrupted integration build.
+
 ### [su2-trivalent-strand-peeling] Resolve one admissible vertex into explicit strands and peel one bundle -- **LOCAL COMPILER CLOSED; GLOBAL COMPONENT OPEN 2026-08-25**
 
 - **milestone**: compute the three canonical nonnegative strand counts of
