@@ -18345,6 +18345,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The root target build and forbidden-token scan are recorded with the
   milestone commit.
 
+### [z4-coupling-parametric-canonical-face-event-pinned-tail] Thread the explicit coupling interval through the spin-summed face tail -- **PROVED FOR 0 <= COUPLING <= ANCHOR / FULL-FACE LIMIT OPEN 2026-08-27**
+
+- **milestone**: define the large pinned activity directly in the
+  coupling-parametric support gas, compare each marked support activity
+  monotonically with its anchor value, identify the exact generic compatible
+  gas numerator and partition, and bound the normalized false-negative event
+  by `2 * anchorDecoratedEffectiveRatio ^ m` for every named
+  `0 <= coupling <= anchorCoupling` and every representation cutoff.
+- **file**:
+  `lean/YMGap/Continuum/Z4CouplingParametricCanonicalFaceEventPinnedTail.lean`.
+- **decl**:
+  `couplingParametricKCanonicalPinnedLargeActivity_le_anchor`,
+  `couplingParametricKCanonicalPinnedLargeActivity_le_tail`,
+  `couplingParametricKCompatibleSupportEventProbability_mono`,
+  `couplingParametricKPinnedLargeFamilyEventProbability_le_tail`, and
+  `couplingParametricKFaceTruncationRemainderProbability_le_tail`.
+- **obligation**: align two central truncation charts in one explicitly
+  refined centered box and use this same-law tail to prove their eventual
+  thermodynamic Cauchy estimate.  The construction remains confined to the
+  derived strong-coupling interval; it asserts no beta- or lattice-spacing-
+  uniform gap, OS same-object identity, continuum limit, or Clay theorem.
+- **constructive?**: yes.  Coupling is an explicit theorem parameter, and the
+  proof is finite monotone summation plus normalized hard-core-gas algebra.
+  No `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+  noncomputable declaration, or hidden coupling constant is introduced.
+- **status note**: the focused monitored check passes.  Every audited export
+  uses only `[propext, Quot.sound]`; the root aggregator imports the module.
+  The target build and executable forbidden-token scan are recorded with the
+  milestone commit.
+
 ### [z4-canonical-face-event-pinned-localization] Recover every small protected-core component from a fixed source box -- **PROVED GEOMETRIC / FIXED FACE CHART PROVED BELOW 2026-08-27**
 
 - **milestone**: characterize the uniformly translated source plaquette list
