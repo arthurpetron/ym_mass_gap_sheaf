@@ -24163,3 +24163,22 @@ is assumed.  A concrete connected-branch thinning/capacity theorem and a
 positive aggregate connected mass still remain to be built; parameter-
 uniform completed gap, continuum QFT, and the Clay theorem remain open.  No
 `sorry` is introduced.
+
+#### Replace injective decoding by canonical first-source thinning (2026-08-28)
+
+`FiniteDependentKernelFirstSourceThinning` supplies a constructive generic
+alternative when a deterministic realization is many-to-one.  For every
+physical target it recursively selects the first listed source row which has
+at least one channel reaching that target and retains exactly the channels
+from that row.  The retained source-dependent row mass is explicit and may
+be smaller than the original row mass.
+
+Lean proves that if the source enumeration is duplicate-free, all channel
+weights are nonnegative, and every original row has mass at most one, then
+each thinned target column has mass at most one.  The proof needs neither a
+decoder nor a uniform fiber-cardinality bound.  This is intentionally an
+aggregate tool: it does not claim that any retained connected mass is
+positive.  Instantiation on the successful slab strand kernel, gluing with
+the disjoint full-mass support branch, a positive aggregate floor, parameter-
+uniform completed gap, continuum QFT, and the Clay theorem remain open.  No
+`sorry` is introduced.
