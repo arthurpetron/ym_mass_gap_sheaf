@@ -22058,6 +22058,27 @@ no fixed-cutoff search is hidden.  No all-cutoff rooted success family,
 capacity estimate, route coherence, thermodynamic/continuum/QFT/isolated-
 vacuum/Clay conclusion, or `sorry` is introduced.
 
+#### Embedded old core reduces deleted routing to new-state attachments (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedNewStateAttachments`
+proves that every current physical support edge maps into the later support
+graph without entering the deleted activated-edge list.  The decisive theorem
+`matchedEventualCurrentSupportEdge_maps_deletedSupportEdge` uses cutoff-map
+injectivity: equality with a deleted mapped birth would identify the original
+edge with a pair whose current support is false, contradicting the original
+true support edge.
+
+Mapping the already constructed current vacuum-component chains therefore
+gives explicit deleted-support paths from every embedded old state to the
+embedded vacuum root and back.  The remaining Type-level input
+`MatchedEventualActivatedDeletedSupportNewStateAttachmentsAt` is restricted to
+the duplicate-free endpoint states outside the embedded old carrier.
+`toRootPathFamily`, `toBirthAvoidingRoutingAt`, and the all-cutoff
+`toReachability` conversion rejoin the unchanged rooted and adaptive
+consumers.  No new-state attachment family, capacity estimate, route
+coherence, thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusion, or
+`sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
