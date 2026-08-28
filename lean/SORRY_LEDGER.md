@@ -22140,6 +22140,27 @@ interface: the analytic proof must control the literal capacity remaining
 after old traffic.  No residual certificate, regional tail, thermodynamic/
 continuum/QFT/isolated-vacuum/Clay conclusion, or `sorry` is introduced.
 
+#### Split residual capacity through an explicit transported reserve (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedTransportedReserveCompiler`
+proves that transported-old endpoint traffic is bounded by the full canonical
+transported load: the omitted new-endpoint sub-sum is termwise nonnegative.
+After multiplication by the same shared support floor, subtracting the full
+load therefore gives a conservative residual below the exact old-only
+residual.
+
+`MatchedEventualActivatedDeletedSupportAllCutoffTransportedReserve` exposes one
+literal rational reserve on every cutoff and edge with two independent fields:
+the full canonical transported load plus the reserve fits under the half-
+kernel capacity, and the constructed new-route weighted ceiling fits inside
+that same reserve.  `toResidualCapacity` and `toObservableCertificate` compile
+the two fields into the unchanged quantitative and regional consumers.
+
+No reserve family is inhabited here.  Uniform control of the canonical
+transported slack and the new weighted ceiling are the two current analytic
+lanes; regional tails, thermodynamic/continuum/QFT/isolated-vacuum/Clay
+conclusions remain open.  No `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
