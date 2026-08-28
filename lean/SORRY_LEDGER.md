@@ -24898,3 +24898,32 @@ thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused monitored check passes with every
 printed declaration using at most the allowed axiom gate
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Every realized nonpivot edge preserves its Y/Z side (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabNonpivotPairing` proves a target-independent local
+invariant.  A physical terminal's bounded strand slot makes its numerical
+face label strictly positive.  For the binary outward Y/Z labelling, this
+recovers literal membership of its plaquette in
+`outwardYSurface ++ outwardZSurface`; incident-ID membership also recovers
+the common lattice link as an edge of that plaquette.  The same statements
+hold for the canonical partner terminal.
+
+If the endpoints were assigned to different cube sides, the existing
+geometric theorem `outwardYZ_crossSharedLink_eq_pivot` would force their
+common link to be the unique cut pivot.  Consequently every accepted
+terminal pair at every nonpivot link is Y-Y or Z-Z.  This proof does not
+inspect the sparse target column or normalize its fusion tree.
+
+Together with the previous explicit pivot pairing, the local two-color
+mathematics is now complete.  The live frontier is structural realization:
+compile the chosen target column at each linked coordinate into a complete
+accepted auxiliary assignment, retain the pivot auxiliary equality, and
+lift the two local theorems to its global face-strand edge list.
+
+No global realized marked-face disconnection, local-positive-channel
+inhabitant, parameter-uniform retained fraction, completed gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check passes with every
+printed declaration using at most the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
