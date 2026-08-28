@@ -24261,3 +24261,28 @@ strand source prefactor.  This does not assert positivity at zero coupling,
 nor does it prove that any successful connected channel exists.  A positive
 retained mass, retained fraction, parameter-uniform gap, continuum QFT, and
 the Clay theorem remain open.  No `sorry` is introduced.
+
+#### Reduce retained-mass positivity to one explicit connected channel (2026-08-28)
+
+`FiniteDependentKernelFirstSourcePositivity` proves the constructive search
+fact needed after decoder-free thinning: if any listed source channel reaches
+a target, the first-source selector returns a listed source with a listed
+channel reaching that same target.  A selected positive channel retains its
+original weight, and one positive list member makes the corresponding finite
+sum positive.
+
+`CompactDualSlabObservablePairedConnectedRetainedMassPositivity` then names the
+minimal remaining certificate
+`SlabObservablePairedConnectedPositiveChannelWitness`: one literal
+support-connected source and one member of its positive-filtered successful
+strand row.  Under the explicit hypothesis `0 < D.coupling`, Lean proves that
+any such witness forces
+
+`0 < slabObservablePairedConnectedStrandThinnedTransportedMass`.
+
+The witness need not itself be the first source for its target; search
+completeness moves positivity to the selected row.  No inhabitant of the
+certificate is constructed here.  Thus the live finite coercivity frontier is
+now exactly successful connected-channel existence, followed by extraction
+of a retained fraction.  Parameter-uniform gap, continuum QFT, and the Clay
+theorem remain open.  No `sorry` is introduced.
