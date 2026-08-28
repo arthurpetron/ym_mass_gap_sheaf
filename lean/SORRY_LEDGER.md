@@ -21868,3 +21868,27 @@ No scale-indexed off-ray or ray family and no fraction/spacing comparison is
 inhabited.  The matched cubic/spacing trajectory, same-object observable pin,
 same-channel thermodynamic and continuum construction, continuum QFT axioms,
 isolated vacuum, and Clay conclusion remain open.  No `sorry` is introduced.
+
+#### Mass-normalized pairwise Poincare gap update (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassNormalizedPairwiseGapBridge` proves the exact
+alternative to the component-mass-paying rooted route.  A finite estimate
+`fraction * pairwiseVariance <= componentMass * physicalDirichlet` cancels
+the positive canonical-component mass against the centered identity
+`pairwiseVariance = 2 * componentMass * diagonal`.  The result is the literal
+posterior conditional-variance margin with the same `fraction`, rather than
+`componentMass * fraction`.
+
+The cofinal structure
+`FixedNomeCofinalMassNormalizedPairwiseCoercivity` therefore constructs the
+existing `FixedNomeCofinalVacuumSectorConditionalVarianceFraction` directly,
+with no separate component-mass floor.  This gives a second causally complete
+path to the actual completed OS transfer and isolates a potentially viable
+asymptotically-free theorem: prove the normalized Poincare fraction itself
+comparable to physical spacing.
+
+No finite or cofinal normalized Poincare witness is inhabited by this module.
+Constructing such a witness from the non-Abelian SU(2) heat weights or a
+mass-normalized resistance/congestion flow, proving its AF-scale comparison,
+and the same-channel continuum/QFT/isolated-vacuum/Clay conclusions remain
+open.  No `sorry` is introduced.
