@@ -22543,6 +22543,11 @@ edge, the explicit cross-multiplied input is
 `shared floor * (2 * new-block mass * carrier length)`
 `  <= allowance * (half * raw kernel on that edge)`.
 
+This cross payment is needed only when the corresponding conditional capacity
+is positive.  When that capacity is nonpositive, the constructive normalized
+debt definition is exactly zero, so nonnegativity of the allowance discharges
+the edge without demanding a spurious positive raw-capacity payment.
+
 The proof uses the exact identity between source-weighted conditional capacity
 and raw-kernel capacity, cancels the strictly positive source weight, and then
 applies constructive positive division.  It yields the pointwise normalized
@@ -22553,6 +22558,36 @@ observable capacity certificate.
 
 No raw-kernel lower bound, allowance estimate, transported data-drift payment,
 or strict initial closure is inhabited here.  Regional tails, a completed
+finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
+
+#### Normalize adaptive debt by the located later-sector floor (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveSectorFloorPaymentCompiler`
+replaces the edgewise raw-capacity payment input by one canonical explicit
+quotient per cutoff.  On every later carrier edge with positive conditional
+capacity, positivity of the source weight and the exact
+source-weighted-conditional/raw-kernel identity prove positivity of the raw
+kernel entry.  The located positive floor of the complete later vacuum-sector
+kernel therefore satisfies
+
+`later sector raw-kernel floor <= half * raw kernel on the used edge`.
+
+Consequently the explicit scalar
+
+`shared floor * (2 * new-block mass * carrier length)`
+`  / later sector raw-kernel floor`
+
+supplies every edgewise raw-capacity payment.  Constructive positive division
+then contracts the adaptive lane to the single all-cutoff payment condition
+
+`transported data-deficit maximum + sector-floor allowance <= margin`,
+
+which compiles to the exact observable capacity certificate.
+
+No cutoff-uniform bound on this quotient, transported data-drift payment, or
+strict initial closure is inhabited here.  Regional tails, a completed
 finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.

@@ -99,6 +99,12 @@ structure MatchedEventualActivatedDeletedSupportConstructedCeilingRawCapacityAll
   raw_capacity_payment : forall edge,
     edge ∈ matchedEventualCanonicalVacuumSectorPairs
         trajectory transitionStart physicalScale (cutoffOffset + 1) ->
+      (0 : Q') < HalfPow.half *
+        centralPhysicalFiniteConditionalKernel
+          (trajectory.nome physicalScale)
+          (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+          (transitionStart physicalScale + (cutoffOffset + 1)) 0
+          edge.1 edge.2 ->
       matchedEventualCanonicalSupportSharedFloor
             trajectory transitionStart physicalScale *
           ((Q'.ofNat 2 * matchedEventualCanonicalLaterNewBlockMass
@@ -163,31 +169,10 @@ theorem MatchedEventualActivatedDeletedSupportConstructedCeilingRawCapacityAllow
     exact
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.sourceWeight_mul_weightedCeiling_le_two_newBlockMass_mul_carrierLength
         paths edge
-  have hfloorScaled : floor * (sourceWeight * ceiling) <=
-      floor * massScale :=
-    Q'.mul_le_mul_of_nonneg_left _ _ floor hceiling hfloor
   have hraw : sourceWeight * conditionalCapacity ≈ rawCapacity := by
     exact
       matchedEventualCanonicalTransportedBridgeSourceWeightedConditionalCapacityOnEdge_eqv_rawKernelCapacity
         trajectory transitionStart physicalScale cutoffOffset edge hmembers.1
-  have hsourceScaled : sourceWeight * (floor * ceiling) <=
-      sourceWeight * (data.allowance * conditionalCapacity) := by
-    exact Q'.le_trans' _ (floor * (sourceWeight * ceiling)) _
-      (Q'.le_of_eqv
-        (mul_left_swap_nested_local sourceWeight floor ceiling))
-      (Q'.le_trans' _ (floor * massScale) _ hfloorScaled
-        (Q'.le_trans' _ (data.allowance * rawCapacity) _
-          (data.raw_capacity_payment edge hedge)
-          (Q'.le_of_eqv
-            (Q'.eqv_trans _ (data.allowance *
-                (sourceWeight * conditionalCapacity)) _
-              (Q'.mul_eqv_congr_left data.allowance _ _
-                (Q'.eqv_symm hraw))
-              (mul_left_swap_nested_local
-                data.allowance sourceWeight conditionalCapacity)))))
-  have hnumerator : floor * ceiling <=
-      data.allowance * conditionalCapacity :=
-    Q'.le_of_mul_le_mul_left hsourceScaled hsource
   unfold matchedEventualActivatedDeletedSupportNewCeilingDebtOnPair
     matchedEventualActivatedDeletedSupportHalfKernelCapacityOnPair
     matchedEventualActivatedDeletedSupportNewCeilingCapacityUseOnPair
@@ -196,6 +181,27 @@ theorem MatchedEventualActivatedDeletedSupportConstructedCeilingRawCapacityAllow
     data.allowance
   by_cases hcapacity : (0 : Q') < conditionalCapacity
   · rw [dif_pos hcapacity]
+    have hfloorScaled : floor * (sourceWeight * ceiling) <=
+        floor * massScale :=
+      Q'.mul_le_mul_of_nonneg_left _ _ floor hceiling hfloor
+    have hsourceScaled : sourceWeight * (floor * ceiling) <=
+        sourceWeight * (data.allowance * conditionalCapacity) := by
+      exact Q'.le_trans' _ (floor * (sourceWeight * ceiling)) _
+        (Q'.le_of_eqv
+          (mul_left_swap_nested_local sourceWeight floor ceiling))
+        (Q'.le_trans' _ (floor * massScale) _ hfloorScaled
+          (Q'.le_trans' _ (data.allowance * rawCapacity) _
+            (data.raw_capacity_payment edge hedge hcapacity)
+            (Q'.le_of_eqv
+              (Q'.eqv_trans _ (data.allowance *
+                  (sourceWeight * conditionalCapacity)) _
+                (Q'.mul_eqv_congr_left data.allowance _ _
+                  (Q'.eqv_symm hraw))
+                (mul_left_swap_nested_local
+                  data.allowance sourceWeight conditionalCapacity)))))
+    have hnumerator : floor * ceiling <=
+        data.allowance * conditionalCapacity :=
+      Q'.le_of_mul_le_mul_left hsourceScaled hsource
     exact Q'.divPos_le_of_le_mul _ _ hcapacity hnumerator
   · rw [dif_neg hcapacity]
     exact data.allowance_nonnegative
@@ -248,6 +254,12 @@ structure MatchedEventualActivatedDeletedSupportAllCutoffRawCapacityScalarPaymen
   raw_capacity_payment : forall cutoffOffset edge,
     edge ∈ matchedEventualCanonicalVacuumSectorPairs
         trajectory transitionStart physicalScale (cutoffOffset + 1) ->
+      (0 : Q') < HalfPow.half *
+        centralPhysicalFiniteConditionalKernel
+          (trajectory.nome physicalScale)
+          (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+          (transitionStart physicalScale + (cutoffOffset + 1)) 0
+          edge.1 edge.2 ->
       matchedEventualCanonicalSupportSharedFloor
             trajectory transitionStart physicalScale *
           ((Q'.ofNat 2 * matchedEventualCanonicalLaterNewBlockMass
