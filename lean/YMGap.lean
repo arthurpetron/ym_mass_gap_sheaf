@@ -1011,6 +1011,7 @@ import YMGap.Continuum.Z4DyadicSlabCubeManyTimeSliceProjectedFamily
 import YMGap.Continuum.Z4DyadicSlabCubeManyTimeSlicePositiveWeight
 import YMGap.Continuum.Z4DyadicSU2ParitySpinKernel
 import YMGap.Continuum.FiniteDeterministicKernelPushforward
+import YMGap.Continuum.FiniteKeyRepresentativePartition
 import YMGap.Continuum.ConstructiveRefreshContraction
 import YMGap.Continuum.GroupedAllLabelHaarRefresh
 import YMGap.Continuum.SU2HaarL2HilbertSchmidt

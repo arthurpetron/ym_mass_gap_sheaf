@@ -23203,3 +23203,23 @@ finite-core branch.  No posterior-variance fraction, completed spectral gap,
 spacing normalization, thermodynamic/continuum control, continuum QFT,
 isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
 introduced.
+
+#### Partition finite fibers by actual realized-key representatives (2026-08-28)
+
+`FiniteKeyRepresentativePartition` supplies the constructive finite
+aggregation compiler needed by the exterior branch.  For an arbitrary finite
+source list and decidable key, `keyRepresentatives` structurally retains one
+actual source for every realized key.  Lean proves that every retained item
+belongs to the source list, the retained keys are duplicate-free, and every
+source key is covered.
+
+Applying the exact deterministic-pushforward theorem gives
+
+`sum over realized representatives (weight of its exact key fiber)`
+`  = total source weight`.
+
+Unlike an opaque key deduplication, every summation index still carries an
+actual source representative.  The next module can therefore recover its
+concrete lower physical field and lower assignment and apply the fixed-target
+exterior-fiber estimate.  No Yang--Mills estimate is asserted by this generic
+partition theorem itself, and no `sorry` is introduced.
