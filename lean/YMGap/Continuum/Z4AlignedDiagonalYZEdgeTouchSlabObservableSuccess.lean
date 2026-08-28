@@ -50,24 +50,11 @@ structure ObservableChoiceLeftAssignmentPackage
     (expected : SlabFusionWitnessAssignment) : Type where
   choice : SlabObservablePairedStrandRecouplingChoice
     D rootFaceId targetFaceId source
+  choice_mem : choice ∈ slabObservablePairedStrandRecouplingChoices
+    D rootFaceId targetFaceId source
   leftAssignment_eq :
     (slabObservablePairedStrandRecoupledAssignments
       D rootFaceId targetFaceId source choice).leftAssignment = expected
-
-def observableChoiceLeftAssignmentPackage
-    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
-    (source : SlabObservablePairedStrandRecouplingSource
-      D rootFaceId targetFaceId)
-    (expected : SlabFusionWitnessAssignment)
-    (choice : SlabObservablePairedStrandRecouplingChoice
-      D rootFaceId targetFaceId source)
-    (hassignment :
-      (slabObservablePairedStrandRecoupledAssignments
-        D rootFaceId targetFaceId source choice).leftAssignment = expected) :
-    ObservableChoiceLeftAssignmentPackage
-      D rootFaceId targetFaceId source expected :=
-  { choice := choice
-    leftAssignment_eq := hassignment }
 
 def observableChoiceLeftAssignmentPackageOfTransported
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
@@ -92,6 +79,7 @@ def observableChoiceLeftAssignmentPackageOfTransported
     ObservableChoiceLeftAssignmentPackage
       D rootFaceId targetFaceId source expected :=
   { choice := certificate.transported.target
+    choice_mem := certificate.transported.target_mem
     leftAssignment_eq := certificate.leftAssignment_eq }
 
 def alignedDiagonalObservableChoiceLeftAssignmentPackage :
