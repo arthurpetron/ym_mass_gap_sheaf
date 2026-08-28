@@ -24780,3 +24780,32 @@ completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
 theorem is claimed.  No `sorry` is introduced.  The focused monitored check
 passes with every printed declaration using exactly the allowed axiom gate
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The edge-touch cut carrier constructs an accepted connected source (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabConnectedSource` fixes coupling one, cutoff one, and
+half-width two.  Positivity of the twelve-face binary support term and of the
+vacuum term constructively extracts Sigma-valued accepted global fusion
+assignments.  The resulting literal entries occupy the observable four-cell
+`11 x 00` for the marked outward Y root and outward Z target faces.
+
+The existing Type-valued connectivity of `outwardYZSurface` is mapped into
+the finite physical support graph.  Every geometric adjacency retains its
+shared slab link, and rooted-component closure carries the target component
+along the path to the root.  Thus the physical pair is packaged as an actual
+`SlabObservablePairedConnectedStrandSource`, not merely as a positive term or
+an untyped support sketch.
+
+Together with the previously proved positive whole-product row, both source
+and quantitative halves of the new local channel are now available.  The
+live finite frontier is the separating target: select a product target whose
+pivot pairs the four active terminals within the Y and Z cube components,
+and prove that every realized nonpivot edge stays within one side of the
+certified cut.
+
+No realized disconnecting target, local-positive-channel inhabitant,
+parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  The focused monitored check passes with every printed
+declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
+full-root audit is claimed.
