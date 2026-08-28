@@ -22293,3 +22293,25 @@ regional-deficit consumers.  The combined estimate is not inhabited here;
 regional tails, a completed finite-volume gap, thermodynamic/continuum
 control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
 remain open.  No `sorry` is introduced.
+
+#### Transported old debt is exactly zero on genuinely new later edges (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCompiler`
+extends raw mapped-path support localization to the actual indexed path
+returned by `matchedEventualCanonicalTransportedRoutingAtNext`.  The two
+endpoint rewrites are handled by comparing transports of the same path via
+heterogeneous equality and then returning to ordinary equality before reading
+the literal directed-edge list.  Thus every old--old branch of the actual
+transported routing avoids every edge outside the embedded-old pair carrier.
+
+Finite summation then gives exact, not merely ordered, consequences on every
+genuinely new later edge: transported old-endpoint load is zero, its normalized
+capacity debt is zero including in the zero-denominator branch, and the full
+transported normalized debt equals the transported new-endpoint debt.  This
+turns the combined-debt frontier into a genuine old-edge/new-edge partition.
+
+No numerical new-edge capacity estimate is proved here.  Comparison of the
+remaining transported new-endpoint debt with later canonical debt, payment of
+the constructed ceiling from canonical slack, regional tails, a completed
+gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
+Clay mass-gap conclusion remain open.  No `sorry` is introduced.
