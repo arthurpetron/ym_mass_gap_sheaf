@@ -22620,3 +22620,27 @@ no-merger result, transported data-drift payment, or strict initial closure is
 inhabited here.  Regional tails, a completed finite-volume gap,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Contract the two inverse-square streams into one observable margin (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveInverseSquareObservableCompiler`
+connects the transported-data and exact adaptive lanes.  With a common offset
+`B >= 2`, it accepts the explicit pointwise bounds
+
+`transported data deficit <= A_data / (B + k)^2`,
+`sector-floor allowance     <= A_adaptive / (B + k)^2`.
+
+Additivity and antitonicity of the inverse-square term prove that every cutoff
+payment is bounded by the single cutoff-independent margin
+
+`(A_data + A_adaptive) / B^2`.
+
+If the initial routed debt and its prefix/tail variation budget close strictly
+with that exact margin, the structure compiles through the sector-floor
+payment theorem to the exact all-cutoff observable certificate.  Thus the two
+parallel analytic producers now have a kernel-checked connected consumer.
+
+No transported-data coefficient, adaptive coefficient, or initial strict
+closure is inhabited here.  Regional tails, a completed finite-volume gap,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
