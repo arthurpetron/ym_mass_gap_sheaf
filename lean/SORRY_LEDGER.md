@@ -22786,3 +22786,34 @@ the displayed product is inhabited here.  Regional tails, a completed
 finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Contract exact observable capacity directly to the physical transfer family (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler`
+proves that the exact all-cutoff observable certificate is already the
+load-bearing local analytic input required by the matched transition-product
+compiler.  Its edgewise inequality
+
+`shared ray floor * exact routed load(edge)`
+`  <= half * conditional kernel(edge)`
+
+puts the shared floor below every positive edge ratio.  The general
+finite-minimum reflection, together with the proved unit cap on the shared
+floor, therefore puts it below the exact routed finite-capacity margin.  A
+one-cutoff shift aligns the observable index `start + (k + 1)` with the
+cofinal-check index.  Equality transport is isolated to the routing object,
+and the finite margin is proved invariant under that transport.
+
+Consequently, a scale-wise family of exact observable certificates constructs
+the existing eventual adaptive capacity-check producer, matched local
+producer, concrete completed carrier/transfer/vacuum family, and normalized
+strength law.  Route-coherence and all regional-deficit tails are not needed
+on this causal path; they remain optional diagnostics rather than prerequisites
+for the local transfer construction.
+
+No scale-wise observable-certificate family is inhabited here.  The explicit
+used-capacity inverse-square payment, transported-data payment, and strict
+initial closure therefore remain the first analytic frontier.  After that,
+physical strength scaling, a same-object observable pin, thermodynamic and
+continuum control, continuum QFT, isolated vacuum, and the Clay mass-gap
+conclusion remain open.  No `sorry` is introduced.
