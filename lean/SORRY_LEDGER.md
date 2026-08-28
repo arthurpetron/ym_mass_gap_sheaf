@@ -23344,3 +23344,33 @@ complementary observable-rooted finite-core carrier.  No posterior-variance
 fraction, completed strict form bound, spacing normalization,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Contract the localized exterior branch uniformly (2026-08-28)
+
+`CompactDualSlabObservableHighSpinExteriorContraction` forgets component size
+and repartitions the complete localized representatives by exact lower-target
+key.  Inside each target fiber, equal sizes would restore equal complete
+removal keys.  Since those complete keys are duplicate-free, the positive
+component sizes are distinct and inject into one finite geometric tail.
+Consequently Lean proves
+
+`sum of localized exterior rates over one target <= 8/17`.
+
+The remaining target representatives have distinct exact expanded-target
+keys.  Injecting them into the full target-key carrier and using the exact
+expanded-source disintegration bounds their total target weight by the
+physical partition.  Thus, for every rational `0 < w < 1`, every cutoff,
+every slab half-width, and every displayed physical face,
+
+`localized observable-rooted exterior weight`
+`  <= (8/17) * physical partition`.
+
+This is the first arbitrary-coupling, cutoff- and volume-independent
+contraction of the observable-rooted high-spin exterior branch.  It does not
+control the complementary reserve-failing finite-core branch, and therefore
+does not yet give a posterior-variance fraction or a strict form bound.  The
+next frontier is to construct that complementary observable-rooted carrier,
+attach its explicit core anchor, and prove the finite-core coercive estimate.
+No completed spectral gap, spacing normalization, thermodynamic/continuum
+passage, continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.
+No `sorry` is introduced.
