@@ -22079,6 +22079,28 @@ consumers.  No new-state attachment family, capacity estimate, route
 coherence, thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusion, or
 `sorry` is introduced.
 
+#### Activated-edge deletion preserves demanded reachability unconditionally (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedUnconditionalReachability`
+discharges the new-state attachment input from the preceding milestone.
+`matchedEventualActivatedMappedEdge_endpoints_mem_embeddedOld` proves that both
+endpoints of every forbidden mapped activated edge lie in the embedded old
+vacuum carrier.
+
+`matchedEventualDeletedSupportRootPathsOfLaterChain` then recursively follows
+any later-sector support chain toward the embedded vacuum root.  At a state
+outside the old carrier, the next edge and its reverse both survive deletion;
+at an old state, the previously constructed old-core root paths replace the
+remaining chain.  This gives the unconditional rooted family
+`matchedEventualActivatedDeletedSupportRootPathFamily` and, uniformly over
+all cutoff offsets, the inhabited theorem
+`matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability`.
+
+This closes the Boolean reachability branch only.  A compatible all-cutoff
+route family, capacity estimate on those routes, regional-deficit tail,
+thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusion, and the other
+ledgered obligations remain open.  No `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
