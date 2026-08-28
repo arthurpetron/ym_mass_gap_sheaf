@@ -24538,3 +24538,26 @@ uniform retained fraction, completed gap, thermodynamic or continuum limit,
 continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused checks and exact target builds pass with every printed declaration
 using at most `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The seven-cube geometry enters the production kernel (2026-08-28)
+
+`Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchPivot_spinList`
+computes the literal corrected-slab face ordering at the exceptional link and
+proves that the selected binary support gives exactly `[1,1,1,1,0]`.
+
+`Z4OutwardSevenCubeSlabPivotRecouplingFloor` packages that support as the left
+physical replica, the vacuum labelling as the right replica, and the unique
+link as a concrete `SlabPhysicalPairRecouplingData 5 5`.  It proves the ten
+ordered external-spin coordinates and applies the valence-five production
+theorem.  Every source-target coordinate of this actual pivot package is at
+least `1/4` and strictly positive.
+
+Together with the exact-unit theorem at all nonpivot sparse links, no local
+SU(2) coefficient obstruction remains for this surface.  What remains is not
+another numerical floor: it is to construct a compatible target in the
+heterogeneous whole-product carrier and prove that its realized strand graph
+disconnects the marked observable faces.  No global positive-channel
+certificate, uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  Focused and exact target builds pass under the gate
+`[propext, Quot.sound]`; no full-root audit is claimed.

@@ -143,6 +143,14 @@ theorem sevenCubeSwitchPivot_degree_five :
     (slabIncidentPlaqIds 5 sevenCubeSwitchPivot).length = 5 := by
   decide
 
+/-- The corrected-slab face ordering at the pivot places the four selected
+fundamental faces first and its extra vacuum face last. -/
+theorem sevenCubeSwitchPivot_spinList :
+    (slabIncidentPlaqIds 5 sevenCubeSwitchPivot).map
+        (slabBinarySupportLabelling 5 sevenCubeSwitchSurface) =
+      [1, 1, 1, 1, 0] := by
+  decide
+
 theorem sevenCubeSwitchPivot_binaryFourFundamentalWord :
     BinaryFourFundamentalWord
       (slabIncidentPlaqIds 5 sevenCubeSwitchPivot).length
@@ -176,4 +184,5 @@ end YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile
 #print axioms YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchSurface_evenFaceIncidence
 #print axioms YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitch_nonpivot_sparseFundamentalWord
 #print axioms YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchPivot_degree_five
+#print axioms YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchPivot_spinList
 #print axioms YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchPivot_binaryFourFundamentalWord
