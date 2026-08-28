@@ -25020,3 +25020,33 @@ retained fraction, completed gap, thermodynamic or continuum limit,
 continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check passes under the allowed axiom gate; no full-root
 audit is claimed.
+
+#### The alternate diagonal two-cube cut is aligned with a left fusion basis (2026-08-28)
+
+`Z4AlignedDiagonalYZEdgeTouchCutCarrier` resolves the basis obstruction by
+changing the geometry rather than asserting a false invariance theorem.  It
+uses the unit cube at the zero offset and the diagonally opposite unit cube
+at offset `(0,1,1,0)`.  Their face-disjoint boundaries meet only at the same
+spatial link `((0,1,1,0), x0)`.
+
+Finite path certificates prove that each six-face side remains internally
+connected after deleting the pivot, every cross-side shared link is the
+pivot, and the selected near/far marked faces admit no pivot-avoiding chain.
+The pivot has incidence four and every other link has incidence at most two.
+Most importantly, the corrected-slab incident component word is proved to be
+exactly `[near, near, far, far, vacuum]`.
+
+This last equality changes the causal proof path.  The accepted left carrier
+`(0,1)` already pairs physical positions `0 <-> 1` and `2 <-> 3`, so it
+preserves both components in this geometry.  Unlike the preceding outward
+Y/Z carrier, no native right-tree reinterpretation or basis-invariance claim
+is needed.  The next frontier is to compile this carrier's slab spin profile,
+accepted connected source, and positive `(0,1)` target through the existing
+observable face-switch stack.
+
+No accepted slab source, successful observable target, local-positive-channel
+inhabitant, parameter-uniform retained fraction, completed gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check passes with every
+printed declaration using at most `[propext, Quot.sound]`; no full-root audit
+is claimed.
