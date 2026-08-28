@@ -23857,9 +23857,11 @@ the result supplies the previously missing posterior-variance node in a form
 that is causally connected to the actual observable and cannot double-spend
 columns.
 
-No posterior transport is inhabited here.  Constructing a positive fraction
-from the bounded-spin residual paths is the next load-bearing non-abelian
-mathematical problem.  No fraction uniform in coupling, cutoff, volume, or
+No posterior transport is inhabited here.  This pointwise-fraction interface
+remains a valid sufficient condition, but the later aggregate interface shows
+that it is stronger than necessary: a connected source may have zero
+successful mass as long as the Gibbs-weighted connected sector has a positive
+average.  No fraction uniform in coupling, cutoff, volume, or
 lattice spacing, all-observable completed form bound, completed spectral gap,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
@@ -23936,6 +23938,48 @@ strand-disconnection mass.
 Thus the posterior row now has an explicit physical realization and coverage
 theorem.  The remaining finite transport problem is global: prove that the
 recouple-then-component-switch realization has one shared target-column
-capacity across all sources.  Positivity of the connected-source row mass,
-parameter-uniformity, all-observable completion, thermodynamic/continuum
-passage, and the Clay target remain open.  No `sorry` is introduced.
+capacity across all sources.  A positive Gibbs-weighted aggregate floor on
+the connected-sector row mass, parameter-uniformity, all-observable
+completion, thermodynamic/continuum passage, and the Clay target remain open.
+No `sorry` is introduced.
+
+#### Replace the pointwise posterior fraction by the honest aggregate coercivity floor (2026-08-28)
+
+`CompactDualSlabObservablePairedSupportAggregatePosteriorTransport` removes
+an unnecessarily strong requirement from the posterior interface.  A
+support-connected source can be locally forced to retain a root-to-target
+strand for every auxiliary recoupling channel, so its individual successful
+row mass need not be positive.  The covariance argument only requires the
+weighted connected-sector inequality
+
+`delta * connectedWeight`
+`  <= sum_connected sourceWeight(source) * successfulRowMass(source)`
+
+for one displayed `delta > 0`.  The shared dependent kernel still has full
+row mass on the support-disconnected sector and still obeys one column-
+capacity inequality across the complete source cell.
+
+Exact finite Fubini and the source partition now prove the causal estimate
+
+`disconnectedWeight + delta * connectedWeight <= targetWeight`,
+
+hence
+
+`sourceWeight <= targetWeight + (1 - delta) * connectedWeight`.
+
+After exact normalization, Lean checks
+
+`faceBooleanCovariance`
+`  <= (1 - delta) * normalizedPairedSupportConnectedMass`
+`  <= 1 - delta < 1`,
+
+and the reflected-face bridge transfers the same strict rate to the genuine
+same-object connected moment of the physical BF4 conditional operator.
+
+No aggregate certificate is inhabited here.  The concrete SU(2) row supplies
+the correct displayed source-dependent mass and successful target realization,
+but shared column capacity and a positive aggregate floor remain open.  No
+coupling/cutoff/volume/spacing uniformity, all-observable completed form bound,
+completed spectral gap, thermodynamic/continuum passage, continuum QFT,
+isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
+introduced.
