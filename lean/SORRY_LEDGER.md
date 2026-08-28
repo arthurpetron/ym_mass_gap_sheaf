@@ -24445,3 +24445,39 @@ fundamental labels still require their deterministic/positive coordinate
 classification, and global strand disconnection remains open.  No uniform
 retained fraction, completed gap, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.
+
+#### Sparse surface links have exactly unit recoupling weight (2026-08-28)
+
+`SU2SparseFundamentalHigherValenceKernel` classifies the valence-five and
+valence-six right-associated SU(2) carriers when every displayed external
+spin is binary and their total is either zero or two.  In each case the target
+carrier is a singleton, so exact bistochastic row normalization forces every
+complete one-replica recoupling entry to equal one.  The proof treats the
+vacuum and two-fundamental sectors separately and uses no asymptotic estimate.
+
+`SU2SlabSparseFundamentalPairedRecouplingIdentity` tensors those identities in
+the literal production slab packages.  If each replica's local external word
+is binary with total zero or two, every degree-five or degree-six paired
+source-target coordinate is exactly one and hence strictly positive.
+
+`CompactDualSlabBinarySupportSparseRecouplingWord` supplies the geometric
+bridge.  A duplicate-free, even-incidence binary support contained in the
+boundary-complete slab produces the required sparse word at every link whose
+face-incidence count is at most two.  Thus ordinary links of a prospective
+switching surface cause no product loss at all; only a higher-incidence pivot
+can contribute a nontrivial local factor.  Combined with the separately
+proved fundamental/vacuum pivot floor, the intended two-cube construction
+would retain a single factor at least `1/4`, rather than a factor decaying
+with the number of slab links.
+
+The explicit two-cube support has not yet been proved here to have exactly one
+four-incidence pivot and incidence at most two everywhere else, nor has its
+raw recoupling target been proved to disconnect the marked strand component.
+Consequently no global positive-channel certificate, uniform retained
+fraction, completed gap, thermodynamic or continuum limit, continuum QFT, or
+Clay theorem is claimed.  No `sorry` is introduced.
+
+The focused monitored checks pass for all three modules.  The exact target
+builds complete 845, 1,112, and 1,113 jobs respectively, and every printed
+declaration uses at most `[propext, Quot.sound]`; the root aggregator imports
+all three modules.  No full-root audit is claimed.
