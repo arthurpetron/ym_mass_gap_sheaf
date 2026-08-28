@@ -23585,3 +23585,32 @@ No bound on the residual-dominant or near-core branch, posterior-variance
 fraction, strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Partition entropy-paid rich representatives by accepted target (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreEntropyTargetPartition` forgets the two
+length coordinates only after the complete rich-key inverse fibers have been
+summed.  It selects one representative per realized exact accepted target and
+proves that the corresponding target fibers exactly regroup the entropy-paid
+far mass.
+
+Inside one fixed accepted-target fiber, the effective coordinate pair
+
+`(residual, extra := paid - 15 * residual)`
+
+is injective.  Target equality fixes the accepted complete state, the pair
+recovers both `residual` and `paid`, and duplicate-freeness of the previously
+selected rich keys then recovers the representative.  Both coordinates are
+at most the existing physical component-size ceiling
+`faceEdges.length * cutoff`.
+
+Finally, the accepted-target keys of the outer representatives are
+duplicate-free, and their total target weight is proved at most the full
+expanded physical partition.  This supplies the exact finite two-coordinate
+domain and the final physical normalization needed for a double geometric
+tail.  The geometric summation itself is not claimed in this entry.
+
+No bound on the residual-dominant or near-core branch, posterior-variance
+fraction, strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
