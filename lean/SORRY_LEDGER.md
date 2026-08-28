@@ -24561,3 +24561,32 @@ certificate, uniform retained fraction, completed gap, thermodynamic or
 continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  Focused and exact target builds pass under the gate
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Sparse identity now covers every ambient nonpivot valence (2026-08-28)
+
+`SU2SparseFundamentalHigherValenceKernel` now includes the missing physical
+Schur case at valence four.  Binary external words of total spin zero or two
+again have a singleton right carrier, so row normalization makes every entry
+exactly one.  This is the same finite-carrier argument as at valences five and
+six, not a new numerical estimate.
+
+`SU2SlabSparseFundamentalPairedRecouplingIdentity` tensors the valence-four
+identity and contracts the full degree split into the single declarations
+`slabPhysicalPairRecouplingKernelPackage_sparse_eqv_one` and
+`slabPhysicalPairRecouplingKernelPackage_sparse_pos`.  Degrees zero through
+three are the one-point package, degrees four through six use the proved
+singleton-carrier identities, and higher degrees contradict the geometric
+degree bound carried by the production recoupling data.
+
+Thus any nonpivot link certified by `SparseFundamentalWord` contributes
+exactly one for every source-target coordinate at every ambient slab valence;
+the seven-cube pivot is the only possible nontrivial local factor and already
+has the concrete lower bound `1/4`.  The next contraction is the dependent
+whole-product proof combining those facts, followed by construction of a
+compatible target whose realized strand graph disconnects the marked faces.
+
+No whole-product positive channel, uniform retained fraction, completed gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  Focused checks and the exact 1,112-job target build
+pass with all printed declarations using at most `[propext, Quot.sound]`; no
+full-root audit is claimed.

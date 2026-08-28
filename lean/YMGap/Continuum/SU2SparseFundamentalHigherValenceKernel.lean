@@ -43,6 +43,7 @@ open YMGap.Continuum.SU2CanonicalHigherValenceFusionChainBridge
 open YMGap.Continuum.SU2DirectRightFixedOutputEnumeration
 open YMGap.Continuum.SU2DirectRightFixedOutputSections
 open YMGap.Continuum.SU2PhysicalSchurBistochasticKernel
+open YMGap.Continuum.SU2FixedLeftTransvectantEvaluation
 open YMGap.Continuum.SU2ValenceFiveCommonAssociatorCarrier
 open YMGap.Continuum.SU2ValenceFiveSecondBistochasticBlock
 open YMGap.Continuum.SU2ValenceSixPrefixBistochasticBlock
@@ -61,6 +62,120 @@ private theorem cgFusionStep_unique {a b c : Nat}
       have horder : leftOrder = rightOrder := by omega
       subst rightOrder
       rfl
+
+private theorem singleton_of_nodup_of_mem_of_unique {A : Type}
+    (items : List A) (item : A) (hnodup : items.Nodup)
+    (hmem : item ∈ items) (hunique : ∀ entry, entry = item) :
+    items = [item] := by
+  cases items with
+  | nil => exact False.elim (List.not_mem_nil hmem)
+  | cons head tail =>
+    have hhead := hunique head
+    have htail : tail = [] := by
+      cases tail with
+      | nil => rfl
+      | cons next rest =>
+        have hparts := List.nodup_cons.mp hnodup
+        have hnext := hunique next
+        exact False.elim (hparts.1 (by
+          rw [hnext, ← hhead]
+          exact List.mem_cons_self))
+    rw [hhead, htail]
+
+/-! ## 1. Valence four with zero or two fundamental labels -/
+
+theorem sparsePhysicalSchurRightCarrier_unique
+    (a b c d : Nat) (hb : b ≤ 1) (hc : c ≤ 1)
+    (hsum : a + b + c + d = 2)
+    (left right : FixedRightCGChannel a b c d) : left = right := by
+  have hleftP := Nat.le_min.mp left.p_le
+  have hrightP := Nat.le_min.mp right.p_le
+  have hleftR := Nat.le_min.mp left.r_le
+  have hrightR := Nat.le_min.mp right.r_le
+  have hleftDegree := left.degree_eq
+  have hrightDegree := right.degree_eq
+  have hp : left.p = right.p := by
+    unfold FixedRightCGChannel.intermediate at *
+    omega
+  exact fixedRightChannel_eq_of_p_eq left right hp
+
+theorem sparsePhysicalSchurRightCarriers_eq_singleton
+    (a b c d : Nat) (hb : b ≤ 1) (hc : c ≤ 1)
+    (hsum : a + b + c + d = 2)
+    (target : FixedRightCGChannel a b c d) :
+    fixedRightChannels a b c d = [target] :=
+  singleton_of_nodup_of_mem_of_unique _ target
+    (fixedRightChannels_nodup a b c d)
+    (fixedRightChannels_complete target)
+    (fun entry => sparsePhysicalSchurRightCarrier_unique
+      a b c d hb hc hsum entry target)
+
+theorem sparsePhysicalSchurKernel_eqv_one
+    (a b c d : Nat) (hb : b ≤ 1) (hc : c ≤ 1)
+    (hsum : a + b + c + d = 2)
+    (source : FixedLeftCGChannel a b c d)
+    (target : FixedRightCGChannel a b c d) :
+    (physicalSchurBistochasticKernel a b c d).weight source target ≈ 1 := by
+  have h := (physicalSchurBistochasticKernel a b c d).row_normalized source
+  change listQSum
+      ((physicalSchurBistochasticKernel a b c d).weight source)
+      (fixedRightChannels a b c d) ≈ 1 at h
+  rw [sparsePhysicalSchurRightCarriers_eq_singleton
+    a b c d hb hc hsum target] at h
+  simpa only [listQSum, Q'.add_zero'] using h
+
+theorem zeroPhysicalSchurRightCarrier_unique
+    (left right : FixedRightCGChannel 0 0 0 0) : left = right := by
+  have hleftP := Nat.le_min.mp left.p_le
+  have hrightP := Nat.le_min.mp right.p_le
+  have hleftR := Nat.le_min.mp left.r_le
+  have hrightR := Nat.le_min.mp right.r_le
+  have hleftDegree := left.degree_eq
+  have hrightDegree := right.degree_eq
+  have hp : left.p = right.p := by
+    unfold FixedRightCGChannel.intermediate at *
+    omega
+  exact fixedRightChannel_eq_of_p_eq left right hp
+
+theorem zeroPhysicalSchurRightCarriers_eq_singleton
+    (target : FixedRightCGChannel 0 0 0 0) :
+    fixedRightChannels 0 0 0 0 = [target] :=
+  singleton_of_nodup_of_mem_of_unique _ target
+    (fixedRightChannels_nodup 0 0 0 0)
+    (fixedRightChannels_complete target)
+    (fun entry => zeroPhysicalSchurRightCarrier_unique entry target)
+
+theorem zeroPhysicalSchurKernel_eqv_one
+    (source : FixedLeftCGChannel 0 0 0 0)
+    (target : FixedRightCGChannel 0 0 0 0) :
+    (physicalSchurBistochasticKernel 0 0 0 0).weight source target ≈ 1 := by
+  have h := (physicalSchurBistochasticKernel 0 0 0 0).row_normalized source
+  change listQSum
+      ((physicalSchurBistochasticKernel 0 0 0 0).weight source)
+      (fixedRightChannels 0 0 0 0) ≈ 1 at h
+  rw [zeroPhysicalSchurRightCarriers_eq_singleton target] at h
+  simpa only [listQSum, Q'.add_zero'] using h
+
+theorem evenSparsePhysicalSchurKernel_eqv_one
+    (a b c d : Nat) (hb : b ≤ 1) (hc : c ≤ 1)
+    (hevenSparse : a + b + c + d = 0 ∨ a + b + c + d = 2)
+    (source : FixedLeftCGChannel a b c d)
+    (target : FixedRightCGChannel a b c d) :
+    (physicalSchurBistochasticKernel a b c d).weight source target ≈ 1 := by
+  rcases hevenSparse with hzero | htwo
+  · have ha0 : a = 0 := by omega
+    have hb0 : b = 0 := by omega
+    have hc0 : c = 0 := by omega
+    have hd0 : d = 0 := by omega
+    subst a
+    subst b
+    subst c
+    subst d
+    exact zeroPhysicalSchurKernel_eqv_one source target
+  · exact sparsePhysicalSchurKernel_eqv_one
+      a b c d hb hc htwo source target
+
+/-! ## 2. Valence five with exactly two fundamental labels -/
 
 theorem sparseValenceFiveRightCarrier_unique
     (a b c d e : Nat)
@@ -95,25 +210,6 @@ theorem sparseValenceFiveRightCarrier_unique
         fixedRightChannel_eq_of_p_eq leftSecond rightSecond hp
       subst rightSecond
       rfl
-
-private theorem singleton_of_nodup_of_mem_of_unique {A : Type}
-    (items : List A) (item : A) (hnodup : items.Nodup)
-    (hmem : item ∈ items) (hunique : ∀ entry, entry = item) :
-    items = [item] := by
-  cases items with
-  | nil => exact False.elim (List.not_mem_nil hmem)
-  | cons head tail =>
-    have hhead := hunique head
-    have htail : tail = [] := by
-      cases tail with
-      | nil => rfl
-      | cons next rest =>
-        have hparts := List.nodup_cons.mp hnodup
-        have hnext := hunique next
-        exact False.elim (hparts.1 (by
-          rw [hnext, ← hhead]
-          exact List.mem_cons_self))
-    rw [hhead, htail]
 
 theorem sparseValenceFiveRightCarriers_eq_singleton
     (a b c d e : Nat)
@@ -518,6 +614,9 @@ theorem evenSparseValenceSixKernel_eqv_one
 
 end YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel
 
+#print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.sparsePhysicalSchurRightCarrier_unique
+#print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.sparsePhysicalSchurKernel_eqv_one
+#print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.evenSparsePhysicalSchurKernel_eqv_one
 #print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.sparseValenceFiveRightCarrier_unique
 #print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.sparseValenceFiveRightCarriers_eq_singleton
 #print axioms YMGap.Continuum.SU2SparseFundamentalHigherValenceKernel.sparseValenceFiveKernel_eqv_one
