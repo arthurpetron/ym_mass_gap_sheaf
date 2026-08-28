@@ -22037,3 +22037,33 @@ No cofinal off-ray resistance-congestion bound is inhabited.  Adaptive
 off-ray path design, matched physical-spacing comparison, and the
 thermodynamic/continuum/QFT/isolated-vacuum/Clay passage remain open.  No
 `sorry` is introduced.
+
+#### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
+
+`CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
+zero-one observable that detects positive twice-spin on one lower slab face.
+The existing finite BF4 autocorrelation identity evaluates its genuine
+physical conditional-operator form `<a,P a>` as the reflected joint-face
+probability.  Reflection invariance identifies the two marginals, so
+`slabPhysicalReflectedFaceBooleanCovariance_eqv_sameObject` proves that the
+ordinary reflected face covariance is exactly
+
+`<a,P a> - E(a)^2`.
+
+This is the missing observable-level causal join between the non-abelian
+accepted component peel and the physical OS/Markov carrier.  OS positivity
+gives the lower bound zero.  The complete paired-support component estimate
+gives the upper envelope
+
+`(25/9) * (16/25)^(linfDist + 1)`.
+
+`anchorSlabPhysicalFaceConnectedAutocorrelationCutoffLimit_le_globalRate`
+passes the same bound through the already-constructed representation-cutoff
+Bishop-real limit.  Thus the observable is literal, the connected moment is
+same-object, and the representation cutoff has been removed constructively.
+
+The result remains at the fixed anchor coupling and fixed finite slab extent.
+It does not prove that the conditional operator is a one-lattice-time OS
+transfer, an all-observable strict form bound, a volume-uniform spectral gap,
+an asymptotically-free coupling trajectory, or any thermodynamic/continuum/
+QFT/isolated-vacuum/Clay conclusion.  No `sorry` is introduced.
