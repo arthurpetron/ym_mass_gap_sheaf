@@ -22672,3 +22672,34 @@ allowance, transported data-drift payment, or strict initial closure is
 inhabited here.  Regional tails, a completed finite-volume gap,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Factor exact adaptive debt through edge-local route/capacity amplification (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveLocalAmplificationCompiler`
+defines, on each later carrier edge, the maximum exact route factor among the
+genuinely new endpoint pairs.  Termwise positivity and a finite maximum give
+
+`crossing mass(edge)`
+`  <= new-endpoint stationary mass * route-factor maximum(edge)`.
+
+The module normalizes that route-factor maximum only by the literal raw-kernel
+capacity of the same edge.  Its total amplification maximum is taken over the
+later carrier after this local division, so an unused edge has zero numerator
+and cannot worsen the bound merely because its kernel entry is tiny.  Positive
+raw-capacity cancellation feeds the exact crossing-mass compiler and proves
+
+`exact adaptive debt maximum`
+`  <= (2 * later new-block mass) * local raw amplification maximum`.
+
+The known moving-cutoff estimate then bounds this envelope by twice the
+corrected-slab increment plus component-merger residual, multiplied by the
+same local amplification; the executable no-merger branch removes the merger
+term.  This is strictly sharper than the carrier-length/global-sector-floor
+fallback and exposes the intended analytic frontier without an opaque
+constant.
+
+No inverse-square bound on this product, all-cutoff no-merger theorem,
+transported data-drift payment, or strict initial closure is inhabited here.
+Regional tails, a completed finite-volume gap, thermodynamic/continuum
+control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
+remain open.  No `sorry` is introduced.
