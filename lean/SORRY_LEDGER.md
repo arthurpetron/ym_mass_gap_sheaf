@@ -22315,3 +22315,28 @@ remaining transported new-endpoint debt with later canonical debt, payment of
 the constructed ceiling from canonical slack, regional tails, a completed
 gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
 Clay mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Later canonical debt dominates transported debt on every new edge (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCanonicalDomination`
+uses the exact branch definition of the transported routing: for every
+residual endpoint pair not wholly embedded in the old carrier, its path is the
+later canonical path.  The complete transition-product summand, including
+prefix data, path length, and directed-edge multiplicity, is therefore
+identical to the later canonical summand.
+
+Summing proves that transported new-endpoint load is the corresponding later
+canonical sub-sum.  A constructive filter inequality and termwise
+nonnegativity bound this sub-sum by the full later canonical load.  The module
+also proves monotonicity of exact same-edge normalized debt in its load.
+Combining these facts with exact zero old debt gives, on every genuinely new
+later edge,
+
+`full transported normalized debt <= later canonical normalized debt`.
+
+Thus the new-edge lane no longer needs a transported-route estimate; it needs
+only later canonical slack sufficient to pay the constructed new-route
+ceiling.  That slack estimate is not proved here.  The old-edge lane,
+regional tails, a completed gap, thermodynamic/continuum control, continuum
+QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.  No
+`sorry` is introduced.
