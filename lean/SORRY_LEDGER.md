@@ -23722,3 +23722,36 @@ posterior-variance fraction, strict completed form bound, completed spectral
 gap, spacing normalization, thermodynamic/continuum passage, continuum QFT,
 isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
 introduced.
+
+#### Generalize the exact SU(2) paired-support switch to arbitrary coupling (2026-08-28)
+
+`CompactDualSlabObservablePairedSupportArbitraryCouplingContraction` removes
+the production-anchor specialization from the final paired-support switch.
+The recoupling kernel, stochastic rows, exact weight preservation, and column
+capacity were already stated for arbitrary `SlabPhysicalData`; the new
+nonnegativity lemmas supply the only anchor-specific input formerly used by
+the weighted contraction.
+
+For every corrected slab at arbitrary nonnegative rational coupling, the
+support-disconnected source sector therefore contracts into the opposite
+four-cell.  Combining this with the exact connected/separated partition gives
+
+`normalizedFourCellExcess`
+`  <= normalizedPairedSupportConnectedMass`.
+
+The generic finite Boolean compiler then identifies the left side with the
+ordinary centered covariance of the two face-positive events.  Thus the
+signed observable problem has been reduced, at arbitrary coupling, to the
+literal connected two-replica SU(2) support carrier.
+
+This is not a bound on the connected residue.  The existing one-replica
+high-spin finite-core remainder does not by itself control a connected path
+that may alternate between the two replica supports.  The next obligation is
+an arbitrary-coupling high-spin/finite-core decomposition on that paired
+carrier, followed by a genuinely SU(2)-specific coercive estimate on its
+finite-core residue.
+
+No uniform connected-residue bound, posterior-variance fraction, strict
+completed form bound, completed spectral gap, spacing normalization,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
