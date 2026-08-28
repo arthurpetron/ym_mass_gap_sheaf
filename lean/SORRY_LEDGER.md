@@ -23614,3 +23614,37 @@ No bound on the residual-dominant or near-core branch, posterior-variance
 fraction, strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Sum the complete entropy-paid far branch by a double geometric tail (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreEntropyTargetTail` performs the finite
+analysis enabled by the accepted-target partition.  Exact geometric summation
+proves that every finite partial sum of `(4/5)^n` is at most `5`, so a finite
+Cartesian square of effective coordinates costs at most `25` times its
+shifted head.
+
+At radius `32 * floor`, the previously proved far exponent floor implies
+
+`floor + 1 <= residual  or  floor + 1 <= extra`.
+
+The target fiber is split by this executable alternative.  Each branch is
+injected into the same finite Cartesian square after subtracting `floor + 1`
+from its known-long coordinate.  The effective-pair injectivity theorem makes
+both shifted encodings injective, while the component-size ceiling bounds
+both target coordinates.
+
+Applying the strict rich-fiber rate to each encoded representative, summing
+the two branches, and finally summing the duplicate-free accepted targets
+against the physical partition proves the volume-free theorem
+
+`entropyPaidFarWeight (radius := 32 * floor)`
+`  <= 50 * (4/5)^(floor + 1) * physicalPartition`.
+
+This closes the complete entropy-paid far-core branch.  The
+residual-dominant far branch is now a long low-spin residual-word problem;
+the near core remains a separate local-coercivity problem.
+
+No bound on the residual-dominant or near-core branch, posterior-variance
+fraction, strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
