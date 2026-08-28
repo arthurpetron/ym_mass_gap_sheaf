@@ -24307,3 +24307,33 @@ uniform in coupling, cutoff, separation, or volume.  The connected-channel
 witness itself remains unconstructed.  Its construction and then a genuinely
 uniform lower bound on `delta` are separate frontiers before any completed
 finite-volume gap, continuum QFT, or Clay theorem.  No `sorry` is introduced.
+
+#### Contract the split retained fraction to a physical OS moment (2026-08-28)
+
+`CompactDualSlabObservablePairedSplitRetainedContraction` combines the exact
+disjoint-sector transport budget with the retained-fraction certificate.  For
+positive coupling and an explicit
+`SlabObservablePairedConnectedPositiveChannelWitness`, it constructs a finite
+datum carrying
+
+`disconnectedSourceMass + delta * connectedSourceMass <= targetMass`,
+
+with the same displayed `0 < delta <= 1`.  Exact four-cell algebra then gives
+
+`slabObservableFaceBooleanCovariance <= 1 - delta < 1`.
+
+At a reflected central face, the existing physical disintegration and
+same-object bridge transport this literal estimate to
+
+`slabPhysicalFaceSameObjectConnectedMarkovMoment <= 1 - delta < 1`
+
+for the genuine finite corrected-slab BF4 conditional operator.  This closes
+the contraction from a retained connected fraction to an actual physical
+same-object strict moment; it is not merely a posterior-kernel statement.
+
+The positive-channel witness remains unconstructed, and `delta` still depends
+on the complete finite datum.  No common lower bound in coupling, cutoff,
+separation, volume, or lattice spacing is asserted.  The result therefore does
+not yet provide a dense-observable form bound, a completed finite-volume
+spectral gap, thermodynamic or continuum control, a continuum QFT, or the Clay
+theorem.  No `sorry` is introduced.
