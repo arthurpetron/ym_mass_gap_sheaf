@@ -22884,3 +22884,37 @@ completed observable certificate, physical-strength scaling, same-object
 observable pin, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Isolate the weak-coupling high-spin exterior payment (2026-08-28)
+
+`CompactDualSlabHighSpinFacePeelWeight` replaces the false weak-coupling use
+of a globally small bottom-spin ratio by an explicit finite-core/exterior
+split.  For every `0 <= w <= 1` and every threshold `S`, the SU(2) Casimir
+increment proves the successor estimate
+
+`coeffW w (s + 1) <= (2 * w^(2*S+3)) * coeffW w s` for `S <= s`.
+
+The estimate is lifted through the finite heat-kernel packet and the literal
+corrected-slab face product.  The new `SlabHighSpinFacePeelPath S` carries, at
+every step, the proof that the selected face label is strictly above `S`.
+It therefore stops on the finite low-spin core instead of lowering through a
+regime where weak-coupling suppression is unavailable.  Any such path
+telescopes at the explicit rate `2 * w^(2*S+3)`, and unit Haar counting lifts
+the same comparison to arbitrary source and target retained
+fine-intertwiner witnesses.
+
+For each fixed rational `0 < w < 1`, the executable threshold
+
+`powBaseCutoff w (1 / 64,000,000)`
+
+makes the exterior ratio no larger than the existing anchor face coefficient
+`1 / 32,000,000`.  Thus the already budgeted component-entropy payment is
+available in the high-spin exterior at arbitrary fixed coupling, while all
+labels at or below the moving threshold remain an explicit finite core.
+
+No canonical threshold-respecting component path, return-to-core fiber
+encoding, finite-core spectral estimate, or combination of core and exterior
+drift is constructed here.  Cutoff completion at a physical scale,
+spacing-normalized strength, a same-object observable pin,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
