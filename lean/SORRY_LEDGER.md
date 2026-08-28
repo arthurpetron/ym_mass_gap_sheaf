@@ -23755,3 +23755,38 @@ No uniform connected-residue bound, posterior-variance fraction, strict
 completed form bound, completed spectral gap, spacing normalization,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Contract the signed paired residue to the one finite-core remainder (2026-08-28)
+
+`CompactDualSlabObservablePairedSupportFiniteCoreReduction` supplies the
+missing composition between the arbitrary-coupling SU(2) switch and the
+one-replica high-spin estimates.  It uses the literal inclusion
+
+`paired-support connected source pairs`
+`  subset (root-positive first replicas) x (all second replicas)`.
+
+Exact finite weighted injection and Fubini then give
+
+`connectedPairMass <= positiveSourceWeight * physicalPartition`.
+
+After positive cancellation of one partition factor, the normalized
+two-replica connected mass is no larger than the one-replica positive-face
+probability.  Substitution of the verified exterior and entropy-tail theorem
+therefore proves, at arbitrary rational `0 < w < 1`,
+
+`faceBooleanCovariance`
+`  <= 8/17 + 50 * (4/5)^(floor+1)`
+`       + normalizedFiniteCoreRemainder`.
+
+The module also computes an explicit strict resolved budget: at `floor = 20`
+the first two terms are strictly below one, and their exact rational
+complement is positive.  Hence the next mathematical target is sharply
+localized: bound the normalized near-anchor plus far low-spin residual mass
+by that displayed strict margin.  No identification of a union-support path
+with a one-replica strand component is used.
+
+The normalized finite-core remainder is not yet bounded.  Consequently no
+strict covariance rate, posterior-variance fraction, strict completed form
+bound, completed spectral gap, spacing normalization, thermodynamic/continuum
+passage, continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.
+No `sorry` is introduced.
