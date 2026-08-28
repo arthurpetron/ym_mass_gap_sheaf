@@ -24751,3 +24751,32 @@ completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
 theorem is claimed.  No `sorry` is introduced.  The focused monitored check
 passes with every printed declaration using exactly the allowed axiom gate
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The edge-touch cut-carrier row is positive in every product column (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabWholeProductPositivity` specializes the proved
+valence-five fundamental/vacuum recoupling theorem to the new physical pair.
+The unique cut link has left word `[1,1,1,1,0]`, right word
+`[0,0,0,0,0]`, and every source-target coordinate is bounded below by the
+exact rational `1/4`.
+
+The empty right support is sparse at every slab link.  At each nonpivot link,
+the left edge-touch support is sparse as well, so the existing all-valence
+identity makes every local coordinate strictly positive.  Splitting only on
+equality with the cut pivot therefore proves local positivity at every actual
+attached link.  Structural recursion contracts these statements to
+coordinatewise positivity and then to strict positivity of every displayed
+finite recoupling-product entry, including the whole slab link list.
+
+This closes the quantitative row for the corrected geometry.  The remaining
+finite frontier is witness realization: construct the accepted connected
+source and select a positive target whose pivot pairing stays within the two
+cube components, then prove the realized marked-face strand graph is
+disconnected.
+
+No accepted source or realized disconnecting target for this carrier,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  The focused monitored check
+passes with every printed declaration using exactly the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
