@@ -24422,3 +24422,26 @@ Focused monitored checks pass, and the concrete target build completes all
 module, Lean's post-write `LibrarySuggestions` pass then emits its known
 deterministic 200,000-heartbeat panic; this occurs after the successful module
 build and is not a proof or axiom-gate failure.
+
+#### Fundamental-vacuum pivot floor (2026-08-28)
+
+`SU2FundamentalVacuumPhysicalSchurKernelFloor` proves constructively that the
+all-zero four-valent left and right SU(2) channel carriers are singletons.
+Exact row normalization therefore forces their unique Schur recoupling entry
+to equal one.  Tensoring this vacuum block with the previously classified
+four-fundamental block gives the sharp paired entrywise floor `1/4`, in either
+replica order.
+
+`SU2SlabFundamentalVacuumPairedRecouplingFloor` identifies both tensor orders
+inside the literal valence-four production slab-link package.  Hence every
+source-target coordinate at a one-replica fundamental/vacuum pivot is at
+least `1/4` and strictly positive.  This is the local algebra expected from a
+switching surface carried by one replica rather than two, and improves the
+earlier two-active-replica floor `1/16` at that pivot.
+
+No switching surface or raw whole-slab target is constructed here.  In
+particular, non-pivot geometric valence-five and valence-six links with sparse
+fundamental labels still require their deterministic/positive coordinate
+classification, and global strand disconnection remains open.  No uniform
+retained fraction, completed gap, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.
