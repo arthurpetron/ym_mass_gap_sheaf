@@ -23550,3 +23550,38 @@ No bound on the residual-dominant or near-core branch, posterior-variance
 fraction, strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Contract each entropy-paid rich fiber at its effective exponent (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreEntropyRate` performs the exact power
+algebra left exposed by the rich-fiber theorem.  From
+
+`15 * residual <= paid`
+
+it writes `paid = 15 * residual + extra` and factors the counted coefficient
+as
+
+`((8/25)^15 * 20,480,000)^residual * (8/25)^extra`.
+
+The verified block estimate and the one-strand estimate bound both bases by
+`4/5`.  Exact natural arithmetic identifies the resulting exponent as
+
+`residual + extra = paid - 14 * residual`.
+
+Consequently every realized entropy-paid rich fiber now satisfies
+
+`fiber source weight`
+`  <= (4/5)^(paid - 14 * residual) * accepted target weight`.
+
+The same representative inherits the already-verified geometric floor
+
+`radius + 2 <= 16 * (paid - 14 * residual)`.
+
+Thus the paid far branch has a genuine volume-free geometric exponent before
+the final grouping by accepted target and distinct exponent.  That grouping
+and finite geometric-tail summation remain open in this entry.
+
+No bound on the residual-dominant or near-core branch, posterior-variance
+fraction, strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
