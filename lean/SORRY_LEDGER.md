@@ -22038,6 +22038,26 @@ off-ray path design, matched physical-spacing comparison, and the
 thermodynamic/continuum/QFT/isolated-vacuum/Clay passage remain open.  No
 `sorry` is introduced.
 
+#### Rooted endpoint-state compiler for activated-edge deletion (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedRootedReachability`
+contracts the exact deleted-support path obligation through the duplicate-free
+list of states which actually occur in the literal new-traffic endpoint pairs.
+The Type-level `FiniteSupportRootPathFamily` retains a directed path from each
+such state to the embedded vacuum root and a directed path back.  Concatenation
+constructs every ordered endpoint path, so
+`MatchedEventualActivatedDeletedSupportRootPathFamilyAt.toPathFamily` feeds the
+unchanged birth-avoidance compiler.  The all-cutoff conversion
+`MatchedEventualActivatedDeletedSupportAllCutoffRootPathFamilies.toReachability`
+rejoins the existing Boolean reachability interface.
+
+`decideFiniteSupportRootPathFamily` and its exact BF4 specialization inspect
+the finite rooted problem constructively.  A failed result retains the
+literal endpoint state, the failed direction, and the false Warshall equation;
+no fixed-cutoff search is hidden.  No all-cutoff rooted success family,
+capacity estimate, route coherence, thermodynamic/continuum/QFT/isolated-
+vacuum/Clay conclusion, or `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
