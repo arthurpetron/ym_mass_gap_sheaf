@@ -22479,3 +22479,29 @@ or strict initial closure is inhabited here.  Regional tails, a completed
 finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Dominate the exact adaptive stream by the constructed weighted ceiling (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveCeilingPaymentCompiler`
+identifies the literal adaptive-new routing with the already constructed
+deleted-support simple routing.  Its weighted-congestion theorem proves that
+the exact observable load is bounded by the explicit prefix/endpoint weight
+sum times the later carrier length.  Monotonicity of same-edge normalization
+then yields
+
+`exact adaptive-new debt <= constructed weighted-ceiling debt`.
+
+Located finite-maximum monotonicity contracts the pointwise result to the
+scalar inequality between their maxima, without selecting a maximizing edge.
+Consequently the sufficient scalar payment
+
+`transported data-deficit maximum + constructed ceiling-debt maximum <= margin`
+
+compiles through the sharper exact scalar payment to the exact all-cutoff
+observable certificate.  This is a genuine producer for the observable lane,
+not a restatement of its capacity conclusion.
+
+No estimate of that explicit scalar payment or strict initial closure is
+inhabited here.  Regional tails, a completed finite-volume gap,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
