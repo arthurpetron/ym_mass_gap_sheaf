@@ -22703,3 +22703,30 @@ transported data-drift payment, or strict initial closure is inhabited here.
 Regional tails, a completed finite-volume gap, thermodynamic/continuum
 control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
 remain open.  No `sorry` is introduced.
+
+#### Connect edge-local amplification decay to the exact observable margin (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveLocalAmplificationInverseSquareObservableCompiler`
+places the sharper local-amplification envelope and the transported-data
+deficit on one common inverse-square scale.  It accepts explicit coefficients
+`A_adaptive`, `A_data` and an offset `B >= 2` with
+
+`new-block local-amplification envelope <= A_adaptive / (B + k)^2`,
+`transported data deficit              <= A_data     / (B + k)^2`.
+
+The local-amplification debt theorem supplies the exact adaptive debt bound;
+additivity and antitonicity of the inverse-square term then contract every
+cutoff payment to the single margin
+
+`(A_data + A_adaptive) / B^2`.
+
+With the corresponding named strict initial closure, this compiles directly
+to the exact all-cutoff observable certificate.  Thus the edge-aware proof
+path is now connected end to end: corrected-slab/new mass times local
+route/capacity amplification, together with transported data drift, is the
+only analytic input to the observable lane.
+
+No coefficients or strict initial closure are inhabited here.  Regional
+tails, a completed finite-volume gap, thermodynamic/continuum control,
+continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
+No `sorry` is introduced.
