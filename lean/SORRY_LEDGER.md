@@ -23223,3 +23223,33 @@ actual source representative.  The next module can therefore recover its
 concrete lower physical field and lower assignment and apply the fixed-target
 exterior-fiber estimate.  No Yang--Mills estimate is asserted by this generic
 partition theorem itself, and no `sorry` is introduced.
+
+#### Partition and contract every canonical exterior source (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCanonicalExteriorPartition`
+applies the complete exterior/core classifier to every literal expanded source
+and retains the selected dependent component data in the exterior branch.  It
+partitions those entries by the complete decidable removal key
+
+`(root face, component size, encoded lower physical/assignment target)`.
+
+One actual source representative is retained for every realized key.  Within
+each representative fiber, equal keys give common roots, common component
+sizes, and equal concrete targets.  The adaptive entropy codes are proved
+duplicate-free, so the fiber has size at most `10,240,000^n`; the high-spin
+Casimir payment then gives the exact arbitrary-coupling bound
+
+`exterior fiber weight <= (8/25)^n * target weight`.
+
+The realized-key partition recovers the complete exterior source weight
+exactly.  Summing the fiber estimates therefore bounds all exterior weight by
+the explicit sum of `(8/25)^n` times the concrete representative target
+weights.  No target multiplicity is hidden: different root/size keys may
+still land on the same lower target, and that congestion remains visible on
+the right-hand side.
+
+The next frontier is to bound this target congestion and combine it with a
+coercive estimate for the complementary finite-core branch.  No posterior-
+variance fraction, strict completed form bound, spacing normalization,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
