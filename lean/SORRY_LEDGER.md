@@ -24286,3 +24286,24 @@ certificate is constructed here.  Thus the live finite coercivity frontier is
 now exactly successful connected-channel existence, followed by extraction
 of a retained fraction.  Parameter-uniform gap, continuum QFT, and the Clay
 theorem remain open.  No `sorry` is introduced.
+
+#### Extract the exact finite retained fraction (2026-08-28)
+
+`CompactDualSlabObservablePairedConnectedRetainedFraction` proves that every
+canonically thinned connected row has mass at most one and hence that the
+complete thinned transported Gibbs mass is no larger than the literal
+support-connected source mass.  Under positive coupling, a
+`SlabObservablePairedConnectedPositiveChannelWitness` also makes that source
+mass and the transported mass strictly positive.
+
+Constructive positive division therefore returns the explicit certificate
+
+`0 < delta <= 1`,
+
+`delta * connectedSourceMass ≈ thinnedConnectedTransportedMass`.
+
+The quotient retains the full datum `D` in its type and is not claimed
+uniform in coupling, cutoff, separation, or volume.  The connected-channel
+witness itself remains unconstructed.  Its construction and then a genuinely
+uniform lower bound on `delta` are separate frontiers before any completed
+finite-volume gap, continuum QFT, or Clay theorem.  No `sorry` is introduced.
