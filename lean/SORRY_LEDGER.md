@@ -24837,3 +24837,35 @@ continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  The focused monitored check passes with every printed
 declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The edge-touch cut carrier has a constructive whole-target compiler (2026-08-28)
+
+`FiniteBistochasticPointedTarget` proves constructively that a written source
+of a finite bistochastic kernel supplies a literal enumerated target: carrier
+balance rules out the empty-target case.  The dependent valence split in
+`SU2SlabPhysicalPairRecouplingFirstTarget` turns this into one total selector
+for every corrected-slab link package of valence zero through six.
+
+`Z4OutwardYZEdgeTouchSlabTargetAssignment` overrides that selector at the
+unique degree-five cut pivot with `outwardYZPivotTarget`.  At every other link
+it takes the constructive first target above the already accepted source.
+Structural recursion builds the complete heterogeneous product target for an
+arbitrary finite list of actual slab links and proves literal membership in
+the corresponding product enumeration.  The universal existence theorem can
+therefore be instantiated at the full attached corrected-slab link list,
+while its symbolic statement avoids forcing Lean to normalize a
+1,554-coordinate dependent tuple in a declaration type.
+
+The pivot selector is separately proved equal to the written within-component
+column for every local source anchor.  This closes target selection and
+product membership, but not yet target realization: the next frontier is a
+two-color theorem showing that the canonical realized strand edges preserve
+the Y/Z side away from the unique cut and that the selected pivot column pairs
+within those sides.
+
+No realized marked-face disconnection, local-positive-channel inhabitant,
+parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  The focused monitored check passes with every printed
+declaration using at most the allowed axiom gate `[propext, Quot.sound]`; no
+full-root audit is claimed.
