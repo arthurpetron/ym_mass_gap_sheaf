@@ -25079,6 +25079,36 @@ theorem is claimed.  No `sorry` is introduced.  The focused monitored check
 passes with every printed declaration using at most `[propext, Quot.sound]`;
 no full-root audit is claimed.
 
+#### Connected binary slab supports now compile to accepted data-bearing sources (2026-08-28)
+
+`CompactDualSlabBinarySupportConnectedSource` factors the source construction
+into one reusable theorem.  Its input is a finite binary plaquette support in
+the extent-five corrected slab, with nodup, even incidence, two marked support
+faces, and a Type-valued path between them.  Positivity of the finite physical
+term constructively extracts actual accepted global fusion assignments for
+the support and for the vacuum.  The retained path maps into the finite slab
+support component, so their literal `11 x 00` pair is an accepted connected
+strand source.
+
+`Z4AlignedDiagonalYZEdgeTouchSlabConnectedSource` supplies the aligned
+carrier to this compiler.  An explicit top/bottom plaquette bridge across the
+unique pivot joins the two individually connected cube boundaries.  The
+resulting source uses exactly the physical pair whose entire recoupling row
+was proved positive in the preceding milestone.
+
+This closes the source and row halves of the aligned finite channel.  The
+next frontier is target-specific: select the enumerated pivot carrier `(0,1)`,
+realize its canonical physical pairing, and prove that the existing
+`slabObservablePairedStrandRecouplingSuccessB` recognizes the marked-face
+disconnection.  Unlike the outward Y/Z branch, this target is already in the
+left basis used by the observable compiler.
+
+No successful observable target, local-positive-channel inhabitant,
+parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  Focused monitored checks pass with every printed declaration
+using at most `[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### Every column of the aligned diagonal recoupling row is strictly positive (2026-08-28)
 
 `Z4AlignedDiagonalYZEdgeTouchSlabWholeProductPositivity` specializes the
