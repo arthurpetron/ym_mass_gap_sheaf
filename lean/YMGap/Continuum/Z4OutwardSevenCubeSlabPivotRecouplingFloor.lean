@@ -35,11 +35,11 @@ open YMGap.Continuum.Z4OutwardSevenCubeSlabSwitchingProfile
 
 /-! ## 1. One literal physical pair -/
 
-abbrev sevenCubeSwitchLeftPhysical : SlabLabelling :=
+def sevenCubeSwitchLeftPhysical : SlabLabelling :=
   slabBinarySupportLabelling 5 sevenCubeSwitchSurface
 
-abbrev sevenCubeSwitchRightPhysical : SlabLabelling :=
-  fun _ => 0
+def sevenCubeSwitchRightPhysical : SlabLabelling :=
+  slabBinarySupportLabelling 5 []
 
 def sevenCubeSwitchPivotRecouplingData :
     SlabPhysicalPairRecouplingData 5 5 where

@@ -24590,3 +24590,40 @@ thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  Focused checks and the exact 1,112-job target build
 pass with all printed declarations using at most `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The seven-cube local weights contract to a positive whole product (2026-08-28)
+
+`Z4OutwardSevenCubeSlabWholeProductPositivity` proves that the empty right
+support is a sparse word at every actual link and gives the distinguished
+pivot a canonical attached-link witness.  For an arbitrary actual attached
+link, it splits only on equality with that pivot.  The pivot branch applies
+the concrete valence-five `1/4` floor; the nonpivot branch applies the
+all-valence sparse identity and hence has exact unit weight.
+
+Structural recursion over any list of attached extent-five links then proves
+`sevenCubeSwitchCoordinatewisePositive` and
+`sevenCubeSwitchProductWeight_pos`: every selected source-target coordinate
+in the dependent product is strictly positive.  Instantiating the list with
+`(boundaryCompleteSlabLinks 5).attach` is definitionally the literal
+whole-slab recoupling product.  The proof is independent of which accepted
+auxiliary assignments selected the source row and of which target column is
+chosen.
+
+To keep this causal boundary visible to Lean as well as to the reader, the
+two fixed physical labellings are opaque definitions.  Their geometry enters
+only through the named sparse-word and pivot-coordinate theorems, rather than
+being re-expanded throughout every dependent carrier type.
+
+All local SU(2) positivity obligations for the seven-cube physical pair are
+therefore closed.  The live frontier is now topological and constructive:
+build one accepted support-connected source and one compatible whole-product
+target whose realized strand graph disconnects the two marked faces.  That
+data would inhabit the existing local-positive-channel certificate and
+immediately feed the finite retained-fraction and same-object OS moment
+contractions.
+
+No disconnecting target, local-positive-channel inhabitant, parameter-uniform
+retained fraction, completed gap, thermodynamic or continuum limit,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused check passes with every printed declaration using at most
+`[propext, Quot.sound]`; no full-root audit is claimed.
