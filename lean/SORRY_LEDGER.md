@@ -23486,3 +23486,38 @@ No summed paid-branch bound, residual-long tail bound, posterior-variance
 fraction, strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Split the far core at the exact entropy threshold (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreEntropySplit` combines the accepted
+two-rate target comparison with the exact adaptive inverse-fiber base.  After
+counting fibers, one paid strand contributes the strict rational rate `8/25`,
+while one residual strand contributes the exposed factor `20,480,000`.
+Closed rational arithmetic proves the load-bearing block estimate
+
+`(8/25)^15 * 20,480,000 <= 4/5`.
+
+The literal far-core certificate list is partitioned at the executable test
+
+`15 * residualLength <= paidLength`
+
+without changing its total weight.  In the paid branch, the already-proved
+far component-size floor is converted into the volume-free effective-exponent
+bound
+
+`radius + 2 <= 16 * (paidLength - 14 * residualLength)`.
+
+In the complementary branch it forces
+
+`radius + 2 <= 16 * residualLength`.
+
+Thus all adaptive entropy and the coarse accepted-target completion price are
+strictly absorbed in the first branch.  The second branch is now precisely a
+genuinely long low-spin residual word.  A summed fixed-target contraction for
+the entropy-paid branch and a connected-tail estimate for the residual branch
+are not yet claimed.
+
+No posterior-variance fraction, strict completed form bound, completed
+spectral gap, spacing normalization, thermodynamic/continuum passage,
+continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
+`sorry` is introduced.
