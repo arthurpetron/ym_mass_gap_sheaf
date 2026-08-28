@@ -22983,3 +22983,34 @@ core and exterior drift, fixed-scale cutoff completion, spacing
 normalization, same-object observable pin, thermodynamic/continuum control,
 continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
 No `sorry` is introduced.
+
+#### Pack separated core-attached components into the finite core (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCorePacking` enumerates the literal
+low-spin carrier over one corrected slab.  On physical face `faceId`, its
+slots are indexed by
+
+`Fin (min (physical faceId) threshold)`.
+
+The global flat-mapped carrier is duplicate-free and has length at most
+
+`(slabPhysicalFaceEdges extent).length * threshold`.
+
+For a rooted component with a decoded `SlabComponentCoreAnchor`, the selected
+anchor copy is proved to belong both to the rooted component and to this
+finite core carrier.  A displayed family supplies constructive
+equal-or-disjoint data for each pair of entries.  If two entries had the same
+anchor copy, disjointness would contradict that common copy's membership in
+both components; hence the anchor map is injective on the family.  Finite
+pigeonhole gives the corresponding family-cardinality bound by the core
+carrier and then by `faces * threshold`.
+
+This theorem applies to any duplicate-free constructively separated family;
+an exhaustive canonical family of all rooted strand components has not yet
+been assembled from the finite Boolean graph component construction.  The
+exterior decorations attached to the resulting core family have not been
+summed, and no finite-core coercivity or spectral estimate has been proved.
+Combining core and exterior drift, fixed-scale cutoff completion, spacing
+normalization, same-object observable pin, thermodynamic/continuum control,
+continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
+No `sorry` is introduced.
