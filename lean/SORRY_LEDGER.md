@@ -23917,3 +23917,25 @@ posterior fraction.  The module does not prove that it is positive there,
 construct a cutoff/volume/coupling-uniform lower bound, realize successful
 columns in the opposite four-cell, prove shared column capacity, extend to
 all observables, or make a continuum/Clay claim.  No `sorry` is introduced.
+
+#### Realize every successful posterior channel in the opposite four-cell (2026-08-28)
+
+`CompactDualSlabObservablePairedStrandRecouplingRealization` attaches literal
+membership to the successful SU(2) recoupling columns and applies the accepted
+paired-face component switch to each realized auxiliary pair.  Success means
+that the target-rooted paired strand component fixes the root and reaches the
+target; its linkwise selections are already proved closed under both local
+strand pairings.
+
+The resulting two accepted assignments over the face-swapped physical fields
+form a concrete member of the opposite `10 x 01` Boolean four-cell.  The
+module proves exact complete two-replica Gibbs-weight preservation and shows
+that the attached successful-choice row sums to the previously defined
+strand-disconnection mass.
+
+Thus the posterior row now has an explicit physical realization and coverage
+theorem.  The remaining finite transport problem is global: prove that the
+recouple-then-component-switch realization has one shared target-column
+capacity across all sources.  Positivity of the connected-source row mass,
+parameter-uniformity, all-observable completion, thermodynamic/continuum
+passage, and the Clay target remain open.  No `sorry` is introduced.
