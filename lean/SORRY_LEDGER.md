@@ -24182,3 +24182,26 @@ positive.  Instantiation on the successful slab strand kernel, gluing with
 the disjoint full-mass support branch, a positive aggregate floor, parameter-
 uniform completed gap, continuum QFT, and the Clay theorem remain open.  No
 `sorry` is introduced.
+
+#### Prove connected SU(2) weighted column capacity without a decoder (2026-08-28)
+
+`CompactDualSlabObservablePairedConnectedFirstSourceThinning` restricts the
+successful strand-recoupling realization to the literal physical
+union-support connected source sector and instantiates canonical first-source
+thinning there.  The successful mass is a nonnegative subrow of a normalized
+whole-slab SU(2) recoupling row, so every original connected row has mass at
+most one.  The generic theorem then gives exact unweighted column capacity.
+
+The realized target stays in the connected physical sector, and its complete
+two-replica Gibbs weight is exactly the source weight.  Lean therefore upgrades
+the unweighted result to the load-bearing physical inequality
+
+`sum_source sourceWeight * thinnedPushforward(source,target)`
+`  <= targetWeight(target)`.
+
+No global paired-face decoder and no fiber-cardinality estimate are used.
+The retained connected row mass is explicit but is not yet proved positive;
+the next frontier is to glue this connected capacity with the disjoint
+full-mass support branch and isolate the minimal positive aggregate witness.
+Parameter-uniform completed gap, continuum QFT, and the Clay theorem remain
+open.  No `sorry` is introduced.

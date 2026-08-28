@@ -108,14 +108,14 @@ theorem firstSourceThinnedWeight_nonnegative
   · exact hweight
   · exact Q'.le_refl' 0
 
-private theorem listQSum_filter_le_local
+theorem listQSum_filter_le_of_nonnegative
     {A : Type} (weight : A → Q') (test : A → Bool)
     (hweight : ∀ item, (0 : Q') ≤ weight item) :
     ∀ items : List A,
       listQSum weight (items.filter test) ≤ listQSum weight items
   | [] => Q'.le_refl' 0
   | head :: tail => by
-      have ih := listQSum_filter_le_local weight test hweight tail
+      have ih := listQSum_filter_le_of_nonnegative weight test hweight tail
       cases htest : test head with
       | false =>
           simp only [List.filter_cons, htest, Bool.false_eq_true,
@@ -142,7 +142,7 @@ theorem kernelPushforwardWeight_le_rowMass
     (Q'.le_of_eqv
       (kernelPushforwardWeight_eqv_fiberWeight
         localWeight realize target choices))
-    (listQSum_filter_le_local localWeight
+    (listQSum_filter_le_of_nonnegative localWeight
       (fun choice => decide (target = realize choice)) hweight choices)
 
 /-! ## 3. Exact description of one thinned pushforward row -/
@@ -343,6 +343,7 @@ end YMGap.Continuum.FiniteDependentKernelFirstSourceThinning
 
 #print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.firstSourceForTarget_mem
 #print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.firstSourceThinnedWeight_nonnegative
+#print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.listQSum_filter_le_of_nonnegative
 #print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.kernelPushforwardWeight_le_rowMass
 #print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.firstSourceThinnedPushforward_eqv
 #print axioms YMGap.Continuum.FiniteDependentKernelFirstSourceThinning.firstSourceThinnedColumn_le_one
