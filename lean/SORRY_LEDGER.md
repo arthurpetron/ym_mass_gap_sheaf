@@ -23648,3 +23648,36 @@ No bound on the residual-dominant or near-core branch, posterior-variance
 fraction, strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Certify the residual-dominant branch as a literal low-spin path (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreResidualSupport` proves the exact
+finite-core support statement left after the entropy-paid tail.  For source
+face label `p`, component decrement `d`, and moving threshold `S`, a positive
+residual decrement means the paid exterior has already lowered the
+intermediate label to at most `S`.
+
+Membership in the serialized residual word exposes both physical-face
+membership and positive residual multiplicity.  Consequently every face
+touched by that word has intermediate label at most `S`.  Since subsequent
+face removals only lower labels, the same bound holds after every arbitrary
+prefix of the residual path.
+
+Each residual-dominant far certificate is packaged as a data-bearing
+`SlabObservableLowSpinResidualCertificate` containing:
+
+* the literal source and membership proof;
+* the verified length floor `radius + 2 <= 16 * residualLength`;
+* physical support for every residual face; and
+* the low-spin label bound after every removal prefix.
+
+This identifies the analytic domain without asserting that its positive mass
+is small.  The next load-bearing input must be an SU(2)-specific finite-core
+coercivity or cancellation estimate on these bounded labels; a group-agnostic
+entropy bound would be insufficient and potentially false for the abelian
+case.
+
+No residual-dominant or near-core decay bound, posterior-variance fraction,
+strict completed form bound, completed spectral gap, spacing normalization,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
