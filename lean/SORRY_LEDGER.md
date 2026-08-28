@@ -24013,3 +24013,26 @@ shared physical column-capacity theorem.  The aggregate posterior floor,
 parameter uniformity, all-observable completed form bound, completed spectral
 gap, thermodynamic/continuum passage, continuum QFT, isolated vacuum, and Clay
 mass-gap theorem remain open.  No `sorry` is introduced.
+
+#### Prove exact additivity of canonical SU(2) strand resolution (2026-08-28)
+
+`SU2TrivalentStrandResolutionAddition` proves the local algebraic hinge of
+the paired-face switch decoder.  Given two admissible trivalent triples, it
+constructs the resolution of their componentwise sum by adding the three
+explicit strand-bundle counts.  Uniqueness of trivalent strand resolution
+then identifies this constructed sum with the canonical resolver.
+
+Consequently `canonicalAB`, `canonicalBC`, and `canonicalCA` are exactly
+additive on admissible support.  After forgetting strand multiplicity, the
+Boolean support of each local leg-pair bundle satisfies the sharper union law
+
+`bundleSupport(sum) = bundleSupport(left) || bundleSupport(right)`.
+
+This is the structural reason crossed selected/unselected subnetworks can
+preserve face-to-face adjacency: canonical re-resolution of an accepted sum
+does not create a new kind of local strand connection or erase one present
+in a summand.  The theorem is local to one trivalent vertex.  Lifting it
+through the ordered resolved link network and the complete slab assignment,
+then constructing the paired-face switch decoder, shared posterior column
+capacity, aggregate floor, parameter-uniform completed gap, continuum QFT,
+and Clay theorem remain open.  No `sorry` is introduced.
