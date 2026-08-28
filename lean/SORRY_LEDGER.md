@@ -23983,3 +23983,33 @@ coupling/cutoff/volume/spacing uniformity, all-observable completed form bound,
 completed spectral gap, thermodynamic/continuum passage, continuum QFT,
 isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
 introduced.
+
+#### Isolate the constructive decoder needed for posterior column capacity (2026-08-28)
+
+`CompactDualSlabObservablePairedFaceSwitchDecoder` separates the two kinds of
+multiplicity in the successful posterior row.  Many accepted auxiliary source
+rows may legitimately feed one SU(2) recoupling column; exact bistochastic
+column normalization is designed to sum those rows.  What must be injective
+is only the subsequent paired-face component switch on the realized,
+strand-disconnected column.
+
+The module defines that direct switch independently of its originating row
+and proves that it lands in the opposite Boolean four-cell.  Its remaining
+combinatorial obligation is packaged as an explicit decoder function with a
+left-inverse law on every switchable pair, rather than as a bare proposition
+that some inverse exists.
+
+From such a decoder, Lean proves that equality of two final successful
+outputs recovers equality of their intermediate recoupled accepted pairs.
+For two successful columns in one fixed source row, the already verified
+canonical SU(2) target realization is faithful, so the decoder also recovers
+equality of the target-column witnesses themselves.
+
+No decoder certificate is inhabited here.  Proving that the compiled
+cross-replica component switch preserves enough strand-component data to
+construct its left inverse is the next combinatorial frontier; after that,
+the existing complete SU(2) column normalization must be assembled into the
+shared physical column-capacity theorem.  The aggregate posterior floor,
+parameter uniformity, all-observable completed form bound, completed spectral
+gap, thermodynamic/continuum passage, continuum QFT, isolated vacuum, and Clay
+mass-gap theorem remain open.  No `sorry` is introduced.
