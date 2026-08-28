@@ -22006,3 +22006,34 @@ route whose resistance traffic stays bounded with the representation cutoff,
 comparing the resulting fraction to matched physical spacing, and completing
 the thermodynamic/continuum/QFT/isolated-vacuum/Clay passage remain open.  No
 `sorry` is introduced.
+
+#### Exact-mass explicit-ray/off-ray resistance contraction (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap` combines the
+exact component-mass identity with the already-inhabited arbitrary-subunit-
+nome selected-term ray theorem.  It proves the stronger rooted split
+
+`pairwiseVariance <= componentMass * 2 * (rayRoot + offRayRoot)`
+
+and preserves that mass through the ray/off-ray coercivity calculation.  If
+`delta` pays the explicit ray and `eta` pays the off-ray root, the normalized
+fraction
+
+`min 1 ((1/4) * min (2 * delta) eta)`
+
+satisfies
+
+`fraction * pairwiseVariance <= componentMass * physicalDirichlet`.
+
+For every fixed `0 < w < 1`,
+`explicitSubunitCentralSpinCubeSelectedTermRowCeiling` already supplies the
+cofinal positive `delta`.  Therefore a
+`FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound` alone now
+compiles to the full cofinal posterior conditional-variance fraction.  The
+spin-cube ray is proved and is no longer an open field of this fixed-nome
+frontier.
+
+No cofinal off-ray resistance-congestion bound is inhabited.  Adaptive
+off-ray path design, matched physical-spacing comparison, and the
+thermodynamic/continuum/QFT/isolated-vacuum/Clay passage remain open.  No
+`sorry` is introduced.
