@@ -22817,3 +22817,42 @@ initial closure therefore remain the first analytic frontier.  After that,
 physical strength scaling, a same-object observable pin, thermodynamic and
 continuum control, continuum QFT, isolated vacuum, and the Clay mass-gap
 conclusion remain open.  No `sorry` is introduced.
+
+#### Remove newly born traffic from the persistent-old drift payment (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveOldTrafficScalarPaymentCompiler`
+uses the exact old/new endpoint partition already present in the transported
+routing.  For a current carrier pair it proves the sharper inequality
+
+`later persistent-old debt`
+`  <= current canonical debt + persistent-old data deficit`.
+
+The earlier sufficient lane used the deficit between current canonical debt
+and the entire later transported debt.  That entire later quantity contains
+newly born endpoint traffic even though adaptive-new debt is paid separately.
+The new inequality removes this double payment.  A single scalar bound
+
+`persistent-old data-deficit maximum + adaptive-new debt maximum <= margin`
+
+now constructs both the retained-old and genuinely-new edge capacities, and
+hence the exact all-cutoff observable certificate.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveOldTrafficSimplePathUsedCapacityInverseSquareObservableCompiler`
+then joins the two remaining analytic streams at one explicit inverse-square
+rate.  It assumes only
+
+`persistent-old data deficit <= A_old / (B + k)^2`,
+`explicit used-edge adaptive product <= A_adaptive / (B + k)^2`,
+
+with `B >= 2`, and contracts them by inverse-square antitonicity to the single
+cutoff-independent margin `(A_old + A_adaptive) / B^2`.  With the named strict
+initial closure, this produces the exact observable certificate and therefore,
+through the direct transition-product compiler, the concrete completed
+carrier/transfer/vacuum family at every physical scale.
+
+No coefficient estimate or strict initial closure is inhabited here.  The
+sharp live frontier is now the persistent-old drift estimate, the displayed
+used-edge product estimate, and the initial canonical slack.  Physical
+strength scaling, a same-object observable pin, thermodynamic and continuum
+control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
+remain open.  No `sorry` is introduced.
