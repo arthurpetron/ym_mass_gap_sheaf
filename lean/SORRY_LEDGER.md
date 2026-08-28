@@ -24955,3 +24955,34 @@ completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
 theorem is claimed.  No `sorry` is introduced.  Focused monitored checks
 pass with every printed declaration using at most the allowed axiom gate
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The native target has a whole-link two-color graph and no marked-face chain (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabNativeTargetEdges` keeps the two roles of the target
+separate.  The previously constructed equal-rank left assignment remains its
+accepted finite measure index.  A basis tag supplies its strand semantics:
+ordinary canonical realized edges at every nonpivot link and the certified
+native right-tree edges at the pivot.  Structural assembly over all attached
+slab links produces one global directed edge list.
+
+The nonpivot geometric theorem and the native pivot face-pair certificate
+then prove, without normalizing the whole list, that every global edge is
+Y/Y or Z/Z.  `Z4OutwardYZEdgeTouchSlabNativeTargetDisconnection` colors a
+face identifier by membership in the Y surface.  Every literal projected
+adjacency preserves this Boolean color, and induction on the Type-valued
+`ChainIn` proves that every finite graph chain preserves it.  The marked Y
+root has color true while the marked Z target has color false, yielding the
+constructive refutation `outwardYZNativeTarget_noMarkedFaceChain`.
+
+Thus marked-face disconnection is now proved for the target in its native
+basis-tagged graph.  The remaining finite bridge is exact and narrower: show
+that the observable face-switch/retained-mass construction is coherent under
+this target basis tag.  The old success Boolean still reads the equal-rank
+left-tree graph, which was proved to cross the cut, so no old-success theorem
+or local-positive-channel inhabitant is claimed by this milestone.
+
+No parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  Focused monitored checks pass with every printed declaration
+using at most the allowed axiom gate `[propext, Quot.sound]`; no full-root
+audit is claimed.

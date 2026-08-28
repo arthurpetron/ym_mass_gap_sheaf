@@ -1,11 +1,13 @@
 /-
 # A complete target assignment with the distinguished outward Y/Z pivot
 
-Compile the local within-component pivot column into a target coordinate at
+Compile the distinguished native right-tree pivot column into a target coordinate at
 the unique cut link.  At every other slab link, the accepted source row and
 the all-valence first-target compiler choose one literal target column.
 Structural recursion then builds a correctly typed column of the complete
 heterogeneous slab product and proves membership in its target enumeration.
+The column's native connectivity is not identified with its equal-rank
+left-tree enumeration representative in this module.
 
 This module solves the dependent target-assembly problem.  Canonical
 realization and the two-color marked-face disconnection proof are the next
