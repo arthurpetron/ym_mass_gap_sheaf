@@ -24539,6 +24539,35 @@ continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused checks and exact target builds pass with every printed declaration
 using at most `[propext, Quot.sound]`; no full-root audit is claimed.
 
+#### The aligned complete target selects the component-preserving left carrier (2026-08-28)
+
+`Z4AlignedDiagonalYZEdgeTouchSlabPivotCarrier` writes the second target of the
+two-dimensional valence-five fundamental sector: the right-associated carrier
+with inner label `m = 2`.  Literal rank calculation proves that the existing
+equal-rank realization sends this target to the left carrier with auxiliary
+labels `(0,1)`.  Its canonical physical pairing is `0 <-> 1` and `2 <-> 3`,
+exactly matching the aligned component word
+`[near,near,far,far,vacuum]`.
+
+`Z4AlignedDiagonalYZEdgeTouchSlabTargetAssignment` installs that target at
+the unique pivot and uses the constructive first target at every other link.
+Structural recursion produces a correctly typed target for any finite list
+of actual slab links and proves literal membership in the full heterogeneous
+target enumeration.  The selector is separately proved to return the written
+`m = 2` target at the pivot for every accepted local source anchor.
+
+This closes target selection and removes the preceding basis mismatch.  The
+next theorem must realize the global left assignment, prove every nonpivot
+edge remains on its geometric side, use the `(0,1)` pivot pairing for the two
+local sides, and contract these facts to the existing observable-success
+Boolean.
+
+No successful observable target, local-positive-channel inhabitant,
+parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  Focused monitored checks pass with every printed declaration
+using at most `[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### The seven-cube geometry enters the production kernel (2026-08-28)
 
 `Z4OutwardSevenCubeSlabSwitchingProfile.sevenCubeSwitchPivot_spinList`
