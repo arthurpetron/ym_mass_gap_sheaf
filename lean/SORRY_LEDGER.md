@@ -24869,3 +24869,32 @@ continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  The focused monitored check passes with every printed
 declaration using at most the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The selected edge-touch pivot pairs within the Y/Z components (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabPivotPairing` expands the written auxiliary labels
+`(2,1)` into the actual three-vertex production fusion tree.  It explicitly
+constructs the one-step strand path from physical position zero to position
+two and the two-step strand path from position one to position three.
+Uniqueness of physical endpoints identifies those witnesses with the
+canonical partner operation; involutivity supplies the reverse directions.
+
+The resulting four-terminal enumeration is exactly
+`[(0,2),(1,3),(2,0),(3,1)]`.  Proof irrelevance transports this transparent
+local calculation to every literal accepted membership proof for
+`outwardYZPivotLeftAuxiliary`.  Thus every actual pivot terminal belongs to
+one of those four directed pairs.  Against the already proved incident face
+order `Z,Y,Z,Y,0`, the pivot pairing is therefore `Z-Z` or `Y-Y`, never a
+cross-component pair.
+
+This closes the load-bearing local realization theorem.  The remaining
+geometric frontier is global: prove that every realized nonpivot edge also
+stays within one cube side, then contract the complete realized target into
+marked-face disconnection and a local positive separating channel.
+
+No global realized marked-face disconnection, local-positive-channel
+inhabitant, parameter-uniform retained fraction, completed gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check passes with every
+printed declaration using at most the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
