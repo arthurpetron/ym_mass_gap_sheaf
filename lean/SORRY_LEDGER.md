@@ -22532,3 +22532,27 @@ payment.  Transported data drift, strict initial closure, regional tails, a
 completed finite-volume gap, thermodynamic/continuum control, continuum QFT,
 isolated vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Normalize the adaptive mass bound by literal used raw capacity (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveRawCapacityPaymentCompiler`
+turns the source-mass estimate into a normalized-debt payment without hiding
+the denominator in an opaque reciprocal.  At each cutoff and later carrier
+edge, the explicit cross-multiplied input is
+
+`shared floor * (2 * new-block mass * carrier length)`
+`  <= allowance * (half * raw kernel on that edge)`.
+
+The proof uses the exact identity between source-weighted conditional capacity
+and raw-kernel capacity, cancels the strictly positive source weight, and then
+applies constructive positive division.  It yields the pointwise normalized
+ceiling-debt bound, contracts it through the located finite edge maximum, and
+combines the allowance stream with transported data drift against preserved
+canonical slack.  The resulting all-cutoff structure compiles to the exact
+observable capacity certificate.
+
+No raw-kernel lower bound, allowance estimate, transported data-drift payment,
+or strict initial closure is inhabited here.  Regional tails, a completed
+finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
