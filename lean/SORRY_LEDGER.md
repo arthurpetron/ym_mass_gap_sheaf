@@ -24039,3 +24039,28 @@ through the ordered resolved link network and the complete slab assignment,
 then constructing the paired-face switch decoder, shared posterior column
 capacity, aggregate floor, parameter-uniform completed gap, continuum QFT,
 and Clay theorem remain open.  No `sorry` is introduced.
+
+#### Lift SU(2) strand additivity through an ordered trivalent network (2026-08-28)
+
+`SU2TrivalentNetworkAdjacencyAddition` forgets strand-copy slots while
+retaining the graph-edge identifier selected by each trivalent leg.  It
+defines the local edge-adjacency relation by a finite Boolean existential over
+all ordered leg pairs, then folds that relation through the complete ordered
+trivalent vertex list.
+
+The local strand-additivity theorem and constructive distributivity of finite
+Boolean existential folds prove the pointwise network identity
+
+`networkAdjacent(left + right, edge₁, edge₂)`
+`  = networkAdjacent(left, edge₁, edge₂)`
+`      || networkAdjacent(right, edge₁, edge₂)`.
+
+This relation-level theorem is the correct invariant: componentwise addition
+can change strand-slot indices, but it neither creates nor erases a kind of
+local graph-edge connection beyond the union of the two accepted summands.
+Relating this auxiliary-edge network graph to the complete physical slab face
+graph, proving invariance of the paired target component under the crossed
+selected/unselected recombination, and inhabiting the switch decoder remain
+open.  Shared posterior column capacity, a positive aggregate floor,
+parameter-uniform completed gap, continuum QFT, and the Clay theorem also
+remain open.  No `sorry` is introduced.
