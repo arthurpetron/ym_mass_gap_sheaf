@@ -24087,3 +24087,27 @@ frontier before any complete-link, slab-component, or decoder claim.
 The switch decoder, shared posterior column capacity, positive aggregate
 floor, parameter-uniform completed gap, continuum QFT, and Clay theorem
 remain open.  No `sorry` is introduced.
+
+#### Refute the naive same-slot lift of local colored strand blocks (2026-08-28)
+
+`SU2TrivalentStrandPortContinuationObstruction` gives a literal two-endpoint
+calculation showing that the new local block embeddings cannot simply be
+substituted into the production internal-edge continuation.
+
+The left source has one internal strand at numerical slot zero at both
+occurrences.  At the first vertex it is a `ca` strand preceded in the summed
+leg by the right replica's unit `bc` block, so its local summed address is
+slot one.  At the next vertex it begins the summed `ca` block, so its local
+summed address is slot zero.  Both source slots agree and both summed edge
+labels are two, but Lean proves the two independently compiled summed slots
+are unequal.
+
+This is not a counterexample to every possible global colored isomorphism.
+It precisely refutes the naive proof path that uses the vertexwise block maps
+unchanged across same-slot continuation.  The next honest interface must
+carry an edgewise permutation/coherence witness compatible with every local
+mate and both internal-edge occurrences, or prove that such a witness fails
+for some accepted canonical chain.  Until that question is settled, no
+paired slab-component invariance or switch decoder is claimed.  Shared
+posterior capacity, the aggregate floor, parameter-uniform completed gap,
+continuum QFT, and Clay theorem remain open.  No `sorry` is introduced.
