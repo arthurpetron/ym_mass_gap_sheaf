@@ -24243,3 +24243,21 @@ remaining finite coercivity question is now explicit: prove that the thinned
 connected transported mass contains a positive fraction of the connected
 source mass.  No such positivity, parameter-uniform gap, continuum QFT, or
 Clay theorem is claimed.  No `sorry` is introduced.
+
+#### Propagate positive coupling to every attached paired Gibbs weight (2026-08-28)
+
+`CompactDualSlabObservablePairedPositivePhysicalWeights` makes the parameter
+boundary found by the group-dependence audit explicit.  Under the named
+hypothesis `0 < D.coupling`, every bounded corrected-slab heat-kernel face
+factor is strictly positive: each selected packet coefficient is exactly a
+strictly positive SU(2) `coeffW`, and finite multiplication preserves strict
+positivity.
+
+Every attached physical labelling already carries the required cutoff bound,
+while the retained fine-intertwiner count is one.  Lean therefore propagates
+strict positivity through expanded one-replica weights, positive-observable
+entries, all two-replica product weights, and in particular every connected
+strand source prefactor.  This does not assert positivity at zero coupling,
+nor does it prove that any successful connected channel exists.  A positive
+retained mass, retained fraction, parameter-uniform gap, continuum QFT, and
+the Clay theorem remain open.  No `sorry` is introduced.
