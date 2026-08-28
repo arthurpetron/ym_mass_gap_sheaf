@@ -24658,3 +24658,39 @@ continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check and exact 1,554-job target build pass at 100,000
 heartbeats with every printed declaration using at most
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The proposed seven-cube pivot has a forced strand bypass (2026-08-28)
+
+`Z4OutwardSevenCubeSlabPivotBypass` corrects the causal interpretation of the
+seven-cube carrier.  The marked outward Z face reaches the marked outward Y
+face through the single intermediate face `((0,0,0,0), p12)`.  The two
+displayed links are `((0,0,1,0), x1)` and `((0,1,0,0), x2)`; neither is the
+four-incidence pivot.  A Type-valued `TwoStepLinkPathAway` retains both link
+witnesses and their inequalities with the pivot.
+
+The obstruction is not merely coarse geometry.  For each bypass link and
+every accepted local auxiliary labelling, the module constructs the physical
+terminal on the chosen spin-one face.  The partner terminal is incident,
+positive, and on a different face.  Literal incident-face classification
+therefore forces the partner onto the other spin-one face.  The resulting
+`ForcedSlabFaceEdge` certificates are globalized to every complete accepted
+left assignment.
+
+Finally, `sevenCubeSwitchPair_connected_of_two_left_edges` proves the exact
+graph contraction: whenever a physical pair contains the two displayed left
+edges `target -> middle -> root`, target-rooted mask closure makes the paired
+face connectedness Boolean true.  Thus changing only the four-incidence
+pivot cannot be the causal source of marked-face disconnection once those
+two bivalent edges are present.
+
+The final dependent transport specializing these generic global-assignment
+certificates to the opaque canonical target realization is not claimed in
+this milestone.  The mathematical design frontier is repointed: select or
+construct a physical support whose non-switch links leave the marked faces
+in distinct components, so a recoupling coordinate is a genuine cut-carrier.
+
+No successful target, local-positive-channel inhabitant, parameter-uniform
+retained fraction, completed gap, thermodynamic or continuum limit,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused monitored check passes with every audited declaration using at most
+`[propext, Quot.sound]`; no full-root audit is claimed.
