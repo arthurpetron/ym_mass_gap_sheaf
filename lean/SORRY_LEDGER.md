@@ -25255,3 +25255,36 @@ same-object contraction, parameter-uniform bound, completed spectral gap,
 continuum limit, continuum QFT, or Clay theorem follows yet.  No `sorry` is
 introduced.  The focused monitored check and dependency-complete target
 build pass under `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The reflected bent carrier compiles to an accepted same-object source (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchSlabSwitchingProfile` embeds the reflected
+sixteen-face surface into the corrected extent-five slab.  It proves the
+support is noduplicated, closed under even link incidence, and sparse at
+every nonpivot link.  At the unique pivot, the literal slab spin word is
+`[1,0,1,1,1]`, the degree is five, and the spin sum is four.  In exactly the
+same local order, the geometric component/vacuum word is
+`[near,vacuum,near,far,far]`.
+
+`Z4ReflectedBentCubeEdgeTouchSlabConnectedSource` feeds that support and its
+proved Type-valued connectivity into the reusable binary-support compiler.
+Finite positivity constructively returns accepted support and vacuum fusion
+assignments, whose literal `11 x 00` pair is an accepted connected strand
+source.  The marked numerical target face is proved to equal the exact
+half-time reflection of the marked numerical root, and the root is proved to
+lie in the central lower half.
+
+Thus the reflected geometry is no longer a diagram-only candidate: it is a
+typed same-object OS source carrying the exact local word needed by the next
+fusion calculation.  The remaining finite bridge is to choose an enumerated
+valence-five target carrier whose canonical pairing preserves positions
+`0 <-> 2` and `3 <-> 4`, prove its local matrix entry positive, and compile
+the resulting realized disconnection into the reflected-positive-channel
+interface.
+
+No successful reflected target, positive channel, retained fraction,
+same-object contraction, parameter-uniform bound, completed spectral gap,
+continuum limit, continuum QFT, or Clay theorem follows yet.  No `sorry` is
+introduced.  Focused monitored checks and the dependency-complete target
+build pass with every printed declaration using at most the allowed axiom
+gate `[propext, Quot.sound]`; no full-root audit is claimed.
