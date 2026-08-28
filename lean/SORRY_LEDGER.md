@@ -22952,3 +22952,34 @@ A finite-core spectral estimate, combination of core and exterior drift,
 fixed-scale cutoff completion, spacing normalization, same-object observable
 pin, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
 Clay mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Decode blocked exterior components to finite-core anchors (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCoreAnchor` converts the failed
+branch of the executable component reserve check into explicit mathematical
+data.  A structural descent through a false finite `List.all` scan computes a
+physical face at which the selected component multiplicity is nonzero and
+overflows the exterior reserve.
+
+The load-bearing finite pigeonhole argument then splits the selected Boolean
+count at the threshold `S`.  If more than `physical(face) - S` copies are
+selected, the prefix of length `S` has positive count.  The existing
+data-bearing positive-count witness therefore computes an actual selected
+`SlabFaceStrandCopy` with slot strictly below `S`.  The resulting
+`SlabComponentCoreAnchor` carries the literal copy, physical-face membership,
+core-slot inequality, component-selection equality, and reserve overflow.
+
+Every rooted strand component now has an exhaustive constructive
+`SlabComponentExteriorOrCoreAnchor` classification:
+
+* the exterior branch carries the successful check consumed by the accepted
+  high-spin peel and entropy payment; or
+* the core branch carries an explicit selected finite-core anchor copy.
+
+The number of distinct core-attached components has not yet been bounded by
+the finite core-copy carrier, their exterior decorations have not been
+summed, and no finite-core spectral estimate has been proved.  Combining
+core and exterior drift, fixed-scale cutoff completion, spacing
+normalization, same-object observable pin, thermodynamic/continuum control,
+continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
+No `sorry` is introduced.
