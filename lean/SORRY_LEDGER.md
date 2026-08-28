@@ -22505,3 +22505,30 @@ No estimate of that explicit scalar payment or strict initial closure is
 inhabited here.  Regional tails, a completed finite-volume gap,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Cancel adaptive prefix ratios into the actual new-endpoint mass (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveSourceMassCompiler`
+uses pathwise detailed balance on each constructed adaptive detour.  For every
+selected edge occurrence, its reverse/forward prefix product is the exact
+stationary ratio between the endpoint-pair source and the selected edge
+source.  Multiplication by the selected source weight cancels the denominator
+and recovers the stationary endpoint-pair product.
+
+Termwise finite summation on the literal new-endpoint list proves
+
+`source weight * adaptive prefix-weight sum <= new-endpoint stationary mass`.
+
+After restoring the simple-path carrier-length factor and using the existing
+stationary-mass estimate, this yields
+
+`source weight * adaptive weighted ceiling`
+`  <= 2 * later new-block mass * later carrier length`.
+
+The proof preserves the small new-block mass factor rather than replacing it
+by a unit bound.  A lower bound on the corresponding raw-kernel capacity is
+still needed to normalize this estimate into a cutoff-uniform ceiling-debt
+payment.  Transported data drift, strict initial closure, regional tails, a
+completed finite-volume gap, thermodynamic/continuum control, continuum QFT,
+isolated vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
