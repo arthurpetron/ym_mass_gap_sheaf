@@ -22918,3 +22918,37 @@ drift is constructed here.  Cutoff completion at a physical scale,
 spacing-normalized strength, a same-object observable pin,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Classify and peel exterior rooted strand components (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinWeight` connects the arbitrary-
+coupling high-spin payment to the already constructed accepted rooted strand
+components.  Numeric copy slots are not treated as a global height invariant:
+the local trivalent mate can shift slot numbers between unequal legs.  The
+module instead uses the exact component-level reserve condition
+
+`selectedCount(face) = 0`
+`  or selectedCount(face) + threshold <= physical(face)`.
+
+This condition is evaluated by a finite Boolean scan over the corrected-slab
+physical face carrier.  Soundness uses the proved vanishing of a component's
+selection count outside that carrier; completeness is a literal finite
+`List.all` reconstruction.  Every rooted component now has constructive
+`exterior` or `coreBlocked` classification data.
+
+In the successful exterior branch, a reserve-aware list recursion converts
+the component's exact serialized drop into a
+`SlabHighSpinFacePeelPath`.  Its target is the already constructed accepted
+lower physical labelling and accepted lower fusion assignment.  Therefore
+the complete expanded BF4 fiber receives the arbitrary-coupling component
+payment.  At `anchorPaidExteriorThreshold w`, every exterior component pays
+the exact existing entropy coefficient `1 / 32,000,000` for each selected
+copy.
+
+The `coreBlocked` branch is not discarded or declared impossible.  A failed
+reserve scan has not yet been decoded to an explicit low-spin anchor copy,
+and the exterior decorations attached to such anchors have not been summed.
+A finite-core spectral estimate, combination of core and exterior drift,
+fixed-scale cutoff completion, spacing normalization, same-object observable
+pin, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
+Clay mass-gap conclusion remain open.  No `sorry` is introduced.
