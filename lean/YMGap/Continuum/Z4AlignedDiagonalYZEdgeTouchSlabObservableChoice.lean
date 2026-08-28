@@ -132,6 +132,12 @@ def alignedDiagonalSwitchTargetMembershipPackageFrom
   { target := alignedDiagonalSwitchPhysicalRecouplingChoiceFrom linkedList
     target_mem := alignedDiagonalSwitchTargetAssignmentFrom_mem linkedList }
 
+theorem alignedDiagonalSwitchTargetMembershipPackageFrom_target
+    (linkedList : List {link // link ∈ boundaryCompleteSlabLinks 5}) :
+    (alignedDiagonalSwitchTargetMembershipPackageFrom
+      linkedList).target =
+        alignedDiagonalSwitchPhysicalRecouplingChoiceFrom linkedList := rfl
+
 def transportedTargetPackage
     {left right : List FiniteBistochasticQKernelPackage}
     (hpackages : left = right)
@@ -144,6 +150,15 @@ def transportedTargetPackage
       target := source.target
       target_mem := source.target_mem
       target_eq := rfl }
+
+theorem transportedTargetPackage_sourceTarget
+    {left right : List FiniteBistochasticQKernelPackage}
+    (hpackages : left = right)
+    (source : TargetMembershipPackage right) :
+    (transportedTargetPackage hpackages source).sourceTarget =
+      source.target := by
+  cases hpackages
+  rfl
 
 def alignedDiagonalSwitchRecouplingChoicePackage :
     TransportedTargetPackage
@@ -256,6 +271,7 @@ theorem alignedDiagonalSwitchRealizedLeftAssignmentFrom_eq_canonical :
         alignedDiagonalSwitchRealizedLeftAssignmentFrom_eq_canonical rest]
 
 #print axioms alignedDiagonalSwitchRecouplingChoicePackage
+#print axioms transportedTargetPackage_sourceTarget
 #print axioms alignedDiagonalSwitchRealizedLeftAuxiliary_eq_localRealizedPair
 #print axioms alignedDiagonalSwitchRealizedLeftAssignmentFrom_eq_canonical
 
