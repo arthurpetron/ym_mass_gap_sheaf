@@ -24363,3 +24363,27 @@ global root-target strand component, or that multiplying local floors over a
 growing set is uniform in volume.  The full positive-channel witness,
 parameter-uniform retained fraction, completed gap, continuum QFT, and Clay
 theorem therefore remain open.  No `sorry` is introduced.
+
+#### Lift the fundamental floor to an actual slab-link package (2026-08-28)
+
+`SU2SlabFundamentalPairedRecouplingFloor` transports the sharp paired
+fundamental estimate into the exact local package used by the whole-slab
+production recoupling kernel.  For a genuine geometric valence-four slab link,
+if its four incident doubled-spin labels are all one in both physical
+replicas, then every proof-carrying source and every proof-carrying target
+satisfy
+
+`1/16 <= localPairedRecouplingWeight`,
+
+and hence have strictly positive weight.  The proof uses a small
+dependent-label specialization lemma, so the result is about the production
+package itself and introduces no untracked cast or surrogate carrier.
+
+Consequently, a proposed strand-disconnecting target at such a fundamental
+pivotal link cannot fail merely because its local SU(2) coefficient vanishes.
+What remains is geometric and global: construct accepted physical fields and
+assignments with a pivotal fundamental link, choose a compatible whole-slab
+target that disconnects the root-target strand component, and control the
+other local factors.  No complete positive-channel witness, uniform retained
+fraction, completed gap, continuum QFT, or Clay theorem is claimed.  No
+`sorry` is introduced.
