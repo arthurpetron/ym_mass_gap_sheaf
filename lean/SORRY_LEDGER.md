@@ -21845,3 +21845,26 @@ comparison with physical spacing, a mass-normalized rooted coercivity
 alternative, the missing cofinal off-ray and ray inhabitants, the
 same-channel continuum construction, continuum QFT axioms, isolated vacuum,
 and the Clay conclusion remain open.  No `sorry` is introduced.
+
+#### Matched AF rooted-coercivity gap path update (2026-08-27)
+
+`BF4PhysicalMatchedAFRootCoercivityGapPath` attaches the fixed-nome rooted
+bridge to the literal matched asymptotically-free scalar trajectory.  Its
+`MatchedPhysicalRootCoercivityGapProducer` asks, at every physical scale, for
+exactly a cofinal off-ray rooted coercivity witness and a cofinal spin-ray
+capacity witness at `trajectory.nome scale`.  These construct the existing
+matched posterior-variance producer, the actual completed canonical-sector
+OS transfer family, and its same-object connected-correlation compiler.
+
+The completed lattice margin is proved rationally equivalent to the explicit
+fraction
+`min 1 (centralPhysicalFiniteVacuumSectorUniformMassFloor *
+offRay.compiledStrength ray)`.  The remaining physical scalar input is now a
+named two-sided comparison of that exact fraction with
+`spacing.a (trajectory.coupling scale)`; it compiles unchanged to the
+physical-rate band and scalar continuum-gap interface.
+
+No scale-indexed off-ray or ray family and no fraction/spacing comparison is
+inhabited.  The matched cubic/spacing trajectory, same-object observable pin,
+same-channel thermodynamic and continuum construction, continuum QFT axioms,
+isolated vacuum, and Clay conclusion remain open.  No `sorry` is introduced.
