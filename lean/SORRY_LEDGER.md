@@ -24337,3 +24337,29 @@ separation, volume, or lattice spacing is asserted.  The result therefore does
 not yet provide a dense-observable form bound, a completed finite-volume
 spectral gap, thermodynamic or continuum control, a continuum QFT, or the Clay
 theorem.  No `sorry` is introduced.
+
+#### Prove the sharp fundamental SU(2) recoupling floor (2026-08-28)
+
+`SU2FundamentalPhysicalSchurKernelFloor` classifies every proof-carrying left
+and right channel with external doubled spins `(1,1,1,1)` as exactly the
+singlet or triplet channel.  The existing physical Schur calculation then
+contracts its four exact entries
+
+`1/4, 3/4, 3/4, 1/4`
+
+to the sharp entrywise one-replica floor `1/4`.  Tensoring the two independent
+replica blocks gives the strictly positive local paired floor
+
+`1/16 <= pairedFundamentalRecouplingWeight`.
+
+This is the first explicit lower bound in the connected-channel campaign
+whose proof uses the genuinely fractional SU(2) associator rather than only
+group-agnostic graph or kernel algebra.  It supplies strict positive mass for
+every target at one fundamental four-valent paired recoupling block.
+
+It does not prove that a complete corrected-slab source contains a pivotal
+fundamental block, that one of these positive local targets disconnects the
+global root-target strand component, or that multiplying local floors over a
+growing set is uniform in volume.  The full positive-channel witness,
+parameter-uniform retained fraction, completed gap, continuum QFT, and Clay
+theorem therefore remain open.  No `sorry` is introduced.
