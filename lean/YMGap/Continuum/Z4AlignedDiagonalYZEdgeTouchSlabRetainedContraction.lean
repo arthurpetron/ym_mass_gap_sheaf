@@ -35,6 +35,8 @@ open YMGap.Continuum.CompactDualSlabObservablePairedStrandRecouplingRealization
 open YMGap.Continuum.CompactDualSlabObservablePairedStrandRecouplingRow
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
+open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
+open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4AlignedDiagonalYZEdgeTouchSlabConnectedSource
 open YMGap.Continuum.Z4AlignedDiagonalYZEdgeTouchSlabObservableChoice
 open YMGap.Continuum.Z4AlignedDiagonalYZEdgeTouchSlabObservableGraphBridge
@@ -243,6 +245,24 @@ theorem alignedDiagonalFaceBooleanCovariance_lt_one :
         alignedDiagonalSwitchTargetFaceId < (1 : Q') :=
   alignedDiagonalSplitRetainedContraction.faceBooleanCovariance_lt_one
 
+/-! ## 4. Honest boundary of this spatial witness -/
+
+theorem alignedDiagonalSwitchRootFaceId_lower :
+    alignedDiagonalSwitchRootFaceId ∈
+      centralLowerFaceIds alignedDiagonalSwitchPhysicalData.half := by
+  decide
+
+theorem alignedDiagonalSwitchTargetFaceId_lower :
+    alignedDiagonalSwitchTargetFaceId ∈
+      centralLowerFaceIds alignedDiagonalSwitchPhysicalData.half := by
+  decide
+
+theorem alignedDiagonalSwitchTargetFaceId_ne_reflected :
+    alignedDiagonalSwitchTargetFaceId ≠
+      slabFaceReflectId alignedDiagonalSwitchPhysicalData.extent
+        alignedDiagonalSwitchRootFaceId := by
+  decide
+
 #print axioms alignedDiagonalSwitchRecouplingSource_eq_connected
 #print axioms alignedDiagonalConnectedPositivePackage
 #print axioms alignedDiagonalPositiveChannelWitness
@@ -250,5 +270,7 @@ theorem alignedDiagonalFaceBooleanCovariance_lt_one :
 #print axioms alignedDiagonalContractionFactor_lt_one
 #print axioms alignedDiagonalFaceBooleanCovariance_le_contractionFactor
 #print axioms alignedDiagonalFaceBooleanCovariance_lt_one
+#print axioms alignedDiagonalSwitchRootFaceId_lower
+#print axioms alignedDiagonalSwitchTargetFaceId_ne_reflected
 
 end YMGap.Continuum.Z4AlignedDiagonalYZEdgeTouchSlabRetainedContraction

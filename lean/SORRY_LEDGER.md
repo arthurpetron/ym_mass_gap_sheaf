@@ -25194,11 +25194,36 @@ strictly below one, and the selected finite face Boolean covariance is at
 most that factor.
 
 This is a fixed-data theorem at the concrete extent-five, cutoff-one,
-coupling-one slab.  The selected spatial face pair has not yet been identified
-with a reflected same-object pair, and no uniformity in coupling, cutoff,
+coupling-one slab.  The selected spatial face pair is not a reflected
+same-object pair, and no uniformity in coupling, cutoff,
 volume, or lattice spacing follows.  Therefore no dense vacuum-complement
 form bound, completed spectral gap, thermodynamic/continuum limit, continuum
 QFT, or Clay theorem is claimed.  No `sorry` is introduced.  Focused
 monitored checks and dependency-complete target builds pass with every
 printed declaration using at most `[propext, Quot.sound]`; no full-root audit
 is claimed.
+
+#### Reflected positive channels now have a direct same-object OS contraction compiler (2026-08-28)
+
+`CompactDualSlabObservableReflectedPositiveChannelContraction` packages the
+exact remaining finite input: a lower-half root, positive coupling, and one
+successful positive connected recoupling channel whose target is the literal
+half-time reflection of that root.  From this data it constructs the retained
+fraction, proves its complementary factor is nonnegative and strictly below
+one, and bounds the genuine physical same-object connected Markov moment by
+that factor.
+
+The new fence in `Z4AlignedDiagonalYZEdgeTouchSlabRetainedContraction` proves
+that both marked faces of the completed aligned witness lie in the lower half
+and that its target is not the reflection of its root.  Thus the spatial
+strict covariance cannot be relabelled as the OS same-object estimate.  The
+next load-bearing witness is now exact: inhabit
+`SlabObservableReflectedPositiveChannel` with a genuinely reflected switching
+geometry.
+
+This compiler does not assert that such a reflected channel exists, nor any
+uniformity in volume, cutoff, coupling, or lattice spacing.  It therefore
+does not prove a dense form bound, completed spectral gap, continuum limit,
+continuum QFT, or Clay theorem.  No `sorry` is introduced.  Focused monitored
+checks and dependency-complete target builds pass under the allowed axiom
+gate `[propext, Quot.sound]`; no full-root audit is claimed.
