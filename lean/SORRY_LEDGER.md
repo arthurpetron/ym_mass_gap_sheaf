@@ -22120,6 +22120,26 @@ by the shared support floor.  This is the exact next quantitative frontier;
 it is not inhabited here.  No regional tail, thermodynamic/continuum/QFT/
 isolated-vacuum/Clay conclusion, or `sorry` is introduced.
 
+#### Combined adaptive capacity is exactly new use below old residual (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedResidualCapacityCompiler`
+names the constructed all-cutoff path family and separates, on each literal
+later-sector edge, the transported-old capacity use, the weighted new-route
+ceiling use, the half-kernel capacity, and their exact residual.
+
+`simpleAdaptiveCombinedCapacity_iff_residualCapacity` proves without loss that
+the combined capacity inequality is equivalent to
+
+`new ceiling use <= half-kernel capacity - transported-old use`.
+
+The equivalence is lifted over every cutoff by
+`allCutoffCombinedCapacity_iff_residualCapacity`, and
+`AllCutoffObservableCertificate.ofResidualCapacity` rejoins it to the existing
+regional-deficit pipeline.  This makes double spending impossible in the
+interface: the analytic proof must control the literal capacity remaining
+after old traffic.  No residual certificate, regional tail, thermodynamic/
+continuum/QFT/isolated-vacuum/Clay conclusion, or `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
