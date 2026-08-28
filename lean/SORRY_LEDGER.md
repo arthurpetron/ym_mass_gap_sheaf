@@ -22591,3 +22591,32 @@ strict initial closure is inhabited here.  Regional tails, a completed
 finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Split the exact adaptive payment into RG mass and capacity amplification (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveMassSplitCompiler`
+proves the exact factorization
+
+`sector-floor allowance = later new-block mass * adaptive amplification`,
+
+where the exposed amplification is
+
+`shared floor * (2 * later carrier length) / later sector raw-kernel floor`.
+
+The generic moving-base mass estimate consequently gives
+
+`allowance <= (corrected-slab increment + component-merger residual)`
+`             * adaptive amplification`.
+
+When the executable no-merger check succeeds, the merger residual disappears
+and the sharper right side is `corrected-slab increment * amplification`.
+Both branches compile any explicit inverse-square product estimate to an
+inverse-square bound on the canonical sector-floor allowance.
+
+This identifies the remaining adaptive analysis precisely: the corrected-slab
+schedule must beat the carrier/floor amplification, and the general route must
+also pay for component mergers.  No such product estimate, all-cutoff
+no-merger result, transported data-drift payment, or strict initial closure is
+inhabited here.  Regional tails, a completed finite-volume gap,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
