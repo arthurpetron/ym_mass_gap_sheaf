@@ -23253,3 +23253,36 @@ coercive estimate for the complementary finite-core branch.  No posterior-
 variance fraction, strict completed form bound, spacing normalization,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Sum distinct exterior component sizes geometrically (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCanonicalExteriorCongestion`
+repartitions the realized complete removal-key representatives by the coarser
+key
+
+`(root face, encoded lower physical/assignment target)`.
+
+Within one coarser fiber, equal component sizes would restore equal complete
+removal keys.  Since the retained complete keys are duplicate-free, the
+realized component sizes are distinct.  Lean also proves directly from the
+selected rooted component that every size is positive and at most the
+explicit physical strand ceiling.  Injection into the corresponding finite
+positive geometric series therefore gives the cutoff-independent estimate
+
+`sum of realized (8/25)^n rates for one target/root <= 8/17`.
+
+Combining this with the exact representative partition and the arbitrary-
+coupling fixed-fiber estimate proves
+
+`total exterior source weight`
+`  <= (8/17) * sum of one target weight per realized (target, root) pair`.
+
+This removes all component-size congestion without a cutoff-dependent count.
+The remaining exterior obstruction is root congestion: different selected
+roots may still land on the same lower target.  That multiplicity is explicit
+in the theorem rather than hidden in a claimed uniform constant.  The next
+frontier is a localized root-charge estimate, together with coercivity of the
+finite-core branch.  No posterior-variance fraction, completed strict form
+bound, spacing normalization, thermodynamic/continuum passage, continuum QFT,
+isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
+introduced.
