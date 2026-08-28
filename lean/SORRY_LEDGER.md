@@ -22340,3 +22340,26 @@ ceiling.  That slack estimate is not proved here.  The old-edge lane,
 regional tails, a completed gap, thermodynamic/continuum control, continuum
 QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.  No
 `sorry` is introduced.
+
+#### Partition combined normalized debt by embedded-old versus new edges (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtPartitionedCombinedDebtCompiler`
+replaces one opaque all-edge obligation by two causally distinct lanes.  On
+an embedded-old edge the lane is the original transported debt plus the
+constructed-ceiling debt.  On a genuinely new edge, the proved canonical
+domination reduces the lane to later canonical debt plus constructed-ceiling
+debt.  A decidable edge-membership split compiles the two lanes back into the
+single `MatchedEventualActivatedDeletedSupportAllCutoffCombinedNormalizedDebt`
+certificate and hence into the existing observable consumer.
+
+The new-edge lane is now connected directly to the canonical
+prefix-plus-tail persistence theorem.  Given a named scalar margin preserved
+by the initial canonical closure, it is sufficient to bound new-edge ceiling
+debt by that margin; `matchedEventualActivatedDeletedSupportNewEdgeCanonicalCombinedNormalizedDebtOfCanonicalMargin`
+then pays the complete new-edge inequality automatically.
+
+Neither remaining lane is inhabited here.  The frontier is now the old-edge
+transported-plus-ceiling estimate together with a new-edge ceiling-to-margin
+bound and the named initial canonical slack.  Regional tails, a completed
+gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
+Clay mass-gap conclusion remain open.  No `sorry` is introduced.
