@@ -22644,3 +22644,31 @@ No transported-data coefficient, adaptive coefficient, or initial strict
 closure is inhabited here.  Regional tails, a completed finite-volume gap,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Retain exact edge-local crossing mass before global majorization (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveCrossingMassCompiler`
+keeps the literal endpoint paths that cross each later carrier edge.  Pathwise
+detailed balance proves the exact finite-sum identity
+
+`source stationary weight * exact adaptive load`
+`  = stationary endpoint-pair crossing route mass`.
+
+This is the multicommodity-flow numerator before either the endpoint traffic is
+replaced by global new-block mass or the used edge capacity is replaced by a
+global sector minimum.  An edge-local cross payment
+
+`shared floor * crossing route mass <= allowance * raw-kernel capacity`
+
+therefore cancels the strictly positive source stationary weight and bounds the
+exact normalized adaptive debt on that edge.  The proof contracts these bounds
+through the literal finite edge maximum and combines an all-cutoff crossing
+allowance stream with transported data drift and preserved canonical slack to
+produce the exact observable capacity certificate.
+
+This sharper branch bypasses the coarse carrier-length/new-mass/sector-floor
+majorization.  No low-congestion routing estimate, cutoff-uniform crossing
+allowance, transported data-drift payment, or strict initial closure is
+inhabited here.  Regional tails, a completed finite-volume gap,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
