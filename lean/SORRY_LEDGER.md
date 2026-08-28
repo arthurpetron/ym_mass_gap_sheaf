@@ -21980,3 +21980,29 @@ strictly weaker SU(2) estimate, comparing its resulting fraction with physical
 spacing along the matched AF trajectory, and constructing the same-channel
 continuum/QFT/isolated-vacuum/Clay conclusions remain open.  No `sorry` is
 introduced.
+
+#### Adaptive exact-mass root resistance-flow update (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceFlow` removes the
+remaining premature choice in the sharp rooted flow theorem.  Instead of
+freezing every state-to-vacuum path to the generic loop-erased component
+chain, it accepts a constructive positive routing at each cutoff and proves
+
+`pairwiseVariance <= componentMass * routedResistanceLoadedDirichlet`.
+
+Therefore the sole local capacity condition is the raw, observable estimate
+
+`fraction * routedResistanceFlowLoad(source,target) <= 1`.
+
+It compiles directly to mass-normalized Poincare coercivity and the existing
+posterior conditional-variance interface.  The canonical loop-erased load is
+recovered by definitional equality, and every old canonical cofinal
+congestion certificate embeds into the adaptive one.  The observable and the
+finite physical law are unchanged; only the path choice is exposed so that
+BF4/SU(2)-local or multiscale geometry can control it.
+
+No cofinal adaptive routing/congestion witness is inhabited.  Constructing a
+route whose resistance traffic stays bounded with the representation cutoff,
+comparing the resulting fraction to matched physical spacing, and completing
+the thermodynamic/continuum/QFT/isolated-vacuum/Clay passage remain open.  No
+`sorry` is introduced.
