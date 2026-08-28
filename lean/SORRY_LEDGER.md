@@ -22395,3 +22395,30 @@ producer.  Neither exact lane is inhabited here.  Exact adaptive capacity,
 regional tails, a completed gap, thermodynamic/continuum control, continuum
 QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.  No
 `sorry` is introduced.
+
+#### Mapped activated edges carry exactly zero full adaptive load (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCompiler`
+now exposes the literal coordinatewise mapped old path beneath the transported
+routing's two dependent endpoint casts.  The proved directed-edge-list
+equality is a reusable interface: geometric facts about the mapped current
+path transfer to the actual later indexed route without repeating the cast
+argument.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveActivatedEdgeZeroCompiler`
+uses that interface to recover, for every transported path edge, a current
+positive-edge preimage.  Current support persistence proves that its image is
+a deleted-support edge and hence cannot be one of the mapped activated edges.
+Finite summation therefore makes transported old-endpoint load exactly zero
+on every mapped activated edge.  The simple adaptive routing already makes
+new-endpoint load exactly zero there, so the literal full adaptive load is
+zero and its physical half-kernel capacity inequality follows automatically
+from nonnegativity.
+
+The resulting compiler removes the activated embedded-old class from the
+quantitative frontier.  The exact observable certificate now needs only two
+genuine all-cutoff estimates: transported-old plus adaptive-new load on
+retained embedded-old edges, and adaptive-new load on genuinely new edges.
+Neither estimate is inhabited here.  Regional tails, a completed finite-volume
+gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
+Clay mass-gap conclusion remain open.  No `sorry` is introduced.

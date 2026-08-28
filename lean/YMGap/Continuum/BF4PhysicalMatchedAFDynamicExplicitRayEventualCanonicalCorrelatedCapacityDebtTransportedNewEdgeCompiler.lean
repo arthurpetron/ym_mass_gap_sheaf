@@ -105,9 +105,38 @@ private theorem listQSum_eqv_zero_of_pointwise_local
               hall state (List.mem_cons_of_mem head hstate)))) ?_
       exact Q'.eqv_of_eq (Q'.zero_add' 0)
 
-/-! ## 1. The actual transported old branch avoids new edges -/
+/-! ## 1. Expose the literal mapped old path below the endpoint casts -/
 
-theorem matchedEventualCanonicalTransportedRoutingAtNext_path_avoids_newEdge_of_old
+/-- The uncast coordinatewise image of the preceding canonical route selected
+by the transported old--old branch.  Its endpoints are the images of the
+chosen current preimages; the actual transported routing casts those endpoints
+back to the requested later indices. -/
+def matchedEventualCanonicalMappedOldPathAtNext
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat)
+    (left right : Nat) :=
+  let oldLeft := matchedEventualCanonicalNextIndexToCurrent
+    trajectory transitionStart physicalScale cutoffOffset left
+  let oldRight := matchedEventualCanonicalNextIndexToCurrent
+    trajectory transitionStart physicalScale cutoffOffset right
+  let holdLeft := matchedEventualCanonicalNextIndexToCurrent_mem
+    trajectory transitionStart physicalScale cutoffOffset left
+  let holdRight := matchedEventualCanonicalNextIndexToCurrent_mem
+    trajectory transitionStart physicalScale cutoffOffset right
+  let oldPath :=
+    (matchedEventualCanonicalRoutingAt
+      trajectory transitionStart physicalScale cutoffOffset).path
+        oldLeft oldRight holdLeft holdRight
+  matchedEventualCanonicalMapPositivePathToNext
+    trajectory transitionStart physicalScale cutoffOffset holdLeft oldPath
+
+/-- On embedded-old endpoints, endpoint casts do not change the literal
+directed-edge list of the transported route.  This is the reusable geometric
+interface between the dependent routing term and its coordinatewise mapped
+current path. -/
+theorem matchedEventualCanonicalTransportedRoutingAtNext_directedEdges_eq_mappedOld_of_old
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
     (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
@@ -120,15 +149,14 @@ theorem matchedEventualCanonicalTransportedRoutingAtNext_path_avoids_newEdge_of_
     (hleftOld : left ∈ matchedEventualCanonicalEmbeddedOldIndexCarrier
       trajectory transitionStart physicalScale cutoffOffset)
     (hrightOld : right ∈ matchedEventualCanonicalEmbeddedOldIndexCarrier
-      trajectory transitionStart physicalScale cutoffOffset)
-    (edge : Nat × Nat)
-    (hnew : edge ∉ matchedEventualCanonicalEmbeddedOldPairCarrier
       trajectory transitionStart physicalScale cutoffOffset) :
-    edge ∉
-      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+    BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
         ((matchedEventualCanonicalTransportedRoutingAtNext
           trajectory transitionStart physicalScale cutoffOffset).path
-          left right hleft hright) := by
+          left right hleft hright) =
+      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+        (matchedEventualCanonicalMappedOldPathAtNext
+          trajectory transitionStart physicalScale cutoffOffset left right) := by
   let oldLeft := matchedEventualCanonicalNextIndexToCurrent
     trajectory transitionStart physicalScale cutoffOffset left
   let oldRight := matchedEventualCanonicalNextIndexToCurrent
@@ -219,19 +247,54 @@ theorem matchedEventualCanonicalTransportedRoutingAtNext_path_avoids_newEdge_of_
           mapped :=
     Eq.trans hrightEdges hleftEdges
   rw [hpath]
-  intro hedge
-  have hedgeMapped := hedges ▸ hedge
-  have hedgeMapped' : edge ∈
-      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
-        (matchedEventualCanonicalMapPositivePathToNext
-          trajectory transitionStart physicalScale cutoffOffset holdLeft oldPath) := by
-    simpa only [mapped] using hedgeMapped
-  exact hnew
-    (matchedEventualCanonicalMapPositivePathToNext_directedEdges_mem_embeddedOldPair
-      trajectory transitionStart physicalScale cutoffOffset holdLeft oldPath
-      edge hedgeMapped')
+  exact Eq.trans hedges (by rfl)
 
-/-! ## 2. Exact zero old load and debt on a new edge -/
+/-! ## 2. The actual transported old branch avoids new edges -/
+
+theorem matchedEventualCanonicalTransportedRoutingAtNext_path_avoids_newEdge_of_old
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat)
+    (left right : Nat)
+    (hleft : left ∈ matchedEventualCanonicalVacuumSectorIndices
+      trajectory transitionStart physicalScale (cutoffOffset + 1))
+    (hright : right ∈ matchedEventualCanonicalVacuumSectorIndices
+      trajectory transitionStart physicalScale (cutoffOffset + 1))
+    (hleftOld : left ∈ matchedEventualCanonicalEmbeddedOldIndexCarrier
+      trajectory transitionStart physicalScale cutoffOffset)
+    (hrightOld : right ∈ matchedEventualCanonicalEmbeddedOldIndexCarrier
+      trajectory transitionStart physicalScale cutoffOffset)
+    (edge : Nat × Nat)
+    (hnew : edge ∉ matchedEventualCanonicalEmbeddedOldPairCarrier
+      trajectory transitionStart physicalScale cutoffOffset) :
+    edge ∉
+      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+        ((matchedEventualCanonicalTransportedRoutingAtNext
+          trajectory transitionStart physicalScale cutoffOffset).path
+          left right hleft hright) := by
+  rw [
+    matchedEventualCanonicalTransportedRoutingAtNext_directedEdges_eq_mappedOld_of_old
+      trajectory transitionStart physicalScale cutoffOffset left right
+      hleft hright hleftOld hrightOld]
+  unfold matchedEventualCanonicalMappedOldPathAtNext
+  exact matchedEventualCanonicalMapPositivePathToNext_avoids_newEdge
+    trajectory transitionStart physicalScale cutoffOffset
+    (matchedEventualCanonicalNextIndexToCurrent_mem
+      trajectory transitionStart physicalScale cutoffOffset left)
+    ((matchedEventualCanonicalRoutingAt
+      trajectory transitionStart physicalScale cutoffOffset).path
+        (matchedEventualCanonicalNextIndexToCurrent
+          trajectory transitionStart physicalScale cutoffOffset left)
+        (matchedEventualCanonicalNextIndexToCurrent
+          trajectory transitionStart physicalScale cutoffOffset right)
+        (matchedEventualCanonicalNextIndexToCurrent_mem
+          trajectory transitionStart physicalScale cutoffOffset left)
+        (matchedEventualCanonicalNextIndexToCurrent_mem
+          trajectory transitionStart physicalScale cutoffOffset right))
+    edge hnew
+
+/-! ## 3. Exact zero old load and debt on a new edge -/
 
 theorem matchedEventualCanonicalTransportedBridgeOldEndpointTrafficLoadOnPair_eqv_zero_of_newEdge
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -313,7 +376,7 @@ theorem matchedEventualCanonicalTransportedBridgeOldEndpointTrafficDebtOnPair_eq
   · rw [dif_neg hcapacity]
     exact Q'.eqv_refl 0
 
-/-! ## 3. Full transported debt reduces exactly to new-endpoint debt -/
+/-! ## 4. Full transported debt reduces exactly to new-endpoint debt -/
 
 theorem matchedEventualRoutedCapacityDebtOnPairForTransportedRouting_eqv_newEndpointTrafficDebt_of_newEdge
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -347,6 +410,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorre
 
 /-! ## Axiom audit -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCompiler.matchedEventualCanonicalMappedOldPathAtNext
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCompiler.matchedEventualCanonicalTransportedRoutingAtNext_directedEdges_eq_mappedOld_of_old
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedNewEdgeCompiler.matchedEventualCanonicalTransportedRoutingAtNext_path_avoids_newEdge_of_old
 #print axioms
