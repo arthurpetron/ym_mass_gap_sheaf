@@ -22856,3 +22856,31 @@ used-edge product estimate, and the initial canonical slack.  Physical
 strength scaling, a same-object observable pin, thermodynamic and continuum
 control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
 remain open.  No `sorry` is introduced.
+
+#### Derive an inhabited inverse-square SU(2) cutoff-mass stream (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCorrectedSlabDyadicInverseSquareMassCompiler`
+specializes the arbitrary-nome SU(2) Casimir tail to the concrete affine
+retained-cutoff ray.  After the fixed nome-, dimension-, and volume-dependent
+burn, one additional representation label per cutoff offset gives the exact
+dyadic bound on the corrected-slab increment.  A constructive induction proves
+
+`corrected-slab increment(k) <= 2^(-k) <= 5 / (k + 2)^2`.
+
+The existing old/new mass split therefore bounds the genuinely new block mass
+by `5 / (k + 2)^2` plus its exact component-merger residual.  When the
+executable no-merger check succeeds, the residual vanishes.  Combining this
+inhabited mass estimate with the exact used-edge factorization proves that any
+cutoff-independent bound `C` on
+
+`shared floor * carrier length / used-edge raw-capacity floor`
+
+gives the full adaptive-new product bound `10 * C / (k + 2)^2`.
+
+This discharges the SU(2) cutoff-mass factor only.  No all-cutoff no-merger
+theorem, cutoff-independent used-edge amplification bound, persistent-old
+data-drift coefficient, or strict initial closure is inhabited here.  The
+completed observable certificate, physical-strength scaling, same-object
+observable pin, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
