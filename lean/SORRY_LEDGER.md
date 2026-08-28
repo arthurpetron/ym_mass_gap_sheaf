@@ -25050,3 +25050,31 @@ thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused monitored check passes with every
 printed declaration using at most `[propext, Quot.sound]`; no full-root audit
 is claimed.
+
+#### The aligned diagonal carrier has the exact production slab profile (2026-08-28)
+
+`Z4AlignedDiagonalYZEdgeTouchSlabSwitchingProfile` embeds the alternate
+diagonal carrier into the corrected slab of extent five.  Its twelve faces
+are proved to lie in the slab, remain noduplicated, and retain even link
+incidence.  The general binary-support compiler therefore turns every
+nonpivot link into a sparse fundamental word.
+
+At the unique pivot, the literal corrected-slab word is
+`[1,1,1,1,0]`, its degree is five, and its external spin sum is four.  In the
+same incident order, the independently proved component word is
+`[near,near,far,far,vacuum]`.  Thus the quantitative valence-five floor and
+the geometric `(0,1)` within-component pairing now refer to exactly the same
+ordered local packet.
+
+The next contraction is to instantiate the positive whole-product row and
+construct the accepted connected source for this physical support.  Target
+selection should then use the existing `(0,1)` left carrier directly, so the
+old observable-success and face-switch machinery can be applied without a
+basis-tagged reinterpretation.
+
+No accepted connected source, successful observable target,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  The focused monitored check
+passes with every printed declaration using at most `[propext, Quot.sound]`;
+no full-root audit is claimed.
