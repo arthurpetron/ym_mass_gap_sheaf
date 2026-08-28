@@ -24387,3 +24387,38 @@ target that disconnects the root-target strand component, and control the
 other local factors.  No complete positive-channel witness, uniform retained
 fraction, completed gap, continuum QFT, or Clay theorem is claimed.  No
 `sorry` is introduced.
+
+#### Factor global positive-channel existence into geometry and local SU(2) positivity (2026-08-28)
+
+`FiniteBistochasticQKernelProductPositivity` defines the dependent proposition
+`FiniteBistochasticCoordinatewisePositive`: every source-target coordinate in
+the literal heterogeneous product has strictly positive local matrix weight.
+Structural recursion proves that this condition makes the exact whole-product
+entry strictly positive.
+
+`CompactDualSlabObservablePairedLocalPositiveChannel` applies that theorem to
+the connected strand row.  Its certificate carries one raw target column and
+keeps two obligations separate:
+
+1. the realized target strand graph disconnects the marked faces; and
+2. every selected local SU(2) recoupling coordinate is positive.
+
+These fields construct the previously open positive-filtered channel witness,
+which in turn constructs the explicit retained fraction and the genuine
+finite same-object Osterwalder--Schrader strict moment bound.  Aggregate
+posterior positivity is no longer an input to this bridge.
+
+No certificate is inhabited here.  The live mathematical frontier is now to
+build a support-connected switching surface, choose its disconnecting product
+column, and discharge the displayed local positivity coordinates.  The proved
+fundamental `1/16` slab-link floor handles any coordinate whose two replica
+words are both `(1,1,1,1)`; the remaining low-support coordinates and the
+switching geometry are still open.  No uniform fraction, completed gap,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+
+Focused monitored checks pass, and the concrete target build completes all
+1,534 jobs with the printed declarations using at most
+`[propext, Quot.sound]`.  As for the earlier large dependent realization
+module, Lean's post-write `LibrarySuggestions` pass then emits its known
+deterministic 200,000-heartbeat panic; this occurs after the successful module
+build and is not a proof or axiom-gate failure.
