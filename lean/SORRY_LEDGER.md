@@ -23107,3 +23107,39 @@ proved.  Fixed-scale cutoff completion, spacing normalization, same-object
 observable pin, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Reduce the complete canonical family by one simultaneous exterior path (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCompleteCoreReduction` closes the
+geometric exhaustivity and simultaneous-path obligations.  For every bounded
+slot of every displayed physical face, it deterministically chooses the first
+boundary link of that face, constructs the corresponding physical terminal,
+and proves that the terminal-pair edge displays the requested literal
+face-strand copy as a global graph vertex.
+
+Finite graph coverage and canonical-component disjointness then prove the
+exact identity
+
+`slabCompleteCanonicalComponentSelectionMassAtFace_eq`:
+`  sum of canonical component multiplicities on face = physical face label`.
+
+The complete family is split only after this sum is formed.  Thus the one
+aggregate exterior word preserves the threshold reserve and constructs an
+actual `SlabHighSpinFacePeelPath`.  Its target physical field satisfies
+
+`slabCompleteCanonicalCorePhysical faceId <= threshold`
+
+on every displayed physical face.  At `anchorPaidExteriorThreshold w`, the
+existing high-spin comparison gives a direct arbitrary-coupling estimate from
+the source assignment to this genuine finite-core field, with
+`anchorFaceCoefficient` paid once per aggregate exterior decrement.  No
+componentwise exterior concatenation and no accepted intermediate assignment
+is used or claimed.
+
+The remaining frontier is now summational and finite-core analytic: encode
+and sum the bounded target fields and target witnesses, control the resulting
+finite-core prefactor uniformly at the required scale, and compile coercivity
+to the same-object transfer gap.  Fixed-scale cutoff completion, spacing
+normalization, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
