@@ -24481,3 +24481,34 @@ The focused monitored checks pass for all three modules.  The exact target
 builds complete 845, 1,112, and 1,113 jobs respectively, and every printed
 declaration uses at most `[propext, Quot.sound]`; the root aggregator imports
 all three modules.  No full-root audit is claimed.
+
+#### A literal seven-cube support has one production pivot (2026-08-28)
+
+`Z4OutwardSevenCubeSlabSwitchingProfile` selects the already enumerated
+`011 -> 100` seven-cube boundary and embeds all 28 of its plaquettes in the
+boundary-complete slab of extent five.  Its exact finite geometry proves that
+one displayed link has face-incidence count four and every other link has
+count zero or two.  The module reconstructs even incidence directly from
+that profile, rather than importing it as an assumption.
+
+The binary-support compiler therefore gives a `SparseFundamentalWord` at
+every nonpivot slab link.  Combined with the preceding higher-valence
+classification, all those local recoupling coordinates are exactly one.
+At the distinguished pivot, the production word is pointwise binary with
+selected-spin total four.
+
+The ambient corrected-slab degree at the pivot is exactly five: four excited
+spatial face coordinates plus one vacuum coordinate.  This is a substantive
+typing correction to the earlier geometric sketch.  The proved valence-four
+fundamental/vacuum `1/4` floor does not directly discharge this actual
+valence-five package.  The next local SU(2) obligation is to classify the
+four-fundamental-plus-vacuum valence-five block and obtain a positive (ideally
+sharp) entrywise floor; after that, a compatible target still must be shown to
+disconnect the marked strand component.
+
+No whole-product positive channel, uniform retained fraction, completed gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check and exact 1,130-job
+target build pass, every printed declaration uses at most
+`[propext, Quot.sound]`, and the root aggregator imports the module.  No
+full-root audit is claimed.
