@@ -24726,10 +24726,10 @@ introduced.  The focused monitored check passes with every printed
 declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
 
-#### The edge-touch pivot column decodes to the within-component carrier (2026-08-28)
+#### The edge-touch pivot column has an explicit equal-rank carrier (corrected 2026-08-28)
 
 `Z4OutwardYZEdgeTouchSlabPivotCarrier` exposes the literal face order at the
-unique cut link as `Z,Y,Z,Y,0`.  It selects the written rank-zero right-tree
+unique cut link as `Z,Y,Y,Z,0`.  It selects the written rank-zero right-tree
 column of the valence-five fundamental/vacuum package and proves that the
 column belongs to the complete target carrier.
 
@@ -24739,13 +24739,10 @@ coordinates are exactly `2` and `1`; the right-replica auxiliary labelling is
 identically zero.  These values are bundled with target membership as the
 constructive `OutwardYZPivotCarrierCertificate`.
 
-This closes the local carrier-selection part of the separating target.  The
-live finite frontier is now global compilation: combine this distinguished
-pivot column with arbitrary complete sparse nonpivot columns, realize the
-whole accepted assignment pair, and prove by a two-color invariant that every
-realized strand edge remains within either the Y cube or the Z cube.  That
-will establish marked-face disconnection without normalizing the entire slab
-graph by computation.
+The later literal terminal calculation corrected the original geometric
+interpretation: this `(2,1)` left carrier is only the equal-rank enumeration
+representative.  It is not a basis-faithful realization of the target's
+native right-tree pairing and does not itself separate the two cube sides.
 
 No complete target assignment, realized marked-face disconnection,
 local-positive-channel inhabitant, parameter-uniform retained fraction,
@@ -24856,8 +24853,8 @@ therefore be instantiated at the full attached corrected-slab link list,
 while its symbolic statement avoids forcing Lean to normalize a
 1,554-coordinate dependent tuple in a declaration type.
 
-The pivot selector is separately proved equal to the written within-component
-column for every local source anchor.  This closes target selection and
+The pivot selector is separately proved equal to the written native
+right-tree column for every local source anchor.  This closes target selection and
 product membership, but not yet target realization: the next frontier is a
 two-color theorem showing that the canonical realized strand edges preserve
 the Y/Z side away from the unique cut and that the selected pivot column pairs
@@ -24870,7 +24867,7 @@ introduced.  The focused monitored check passes with every printed
 declaration using at most the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
 
-#### The selected edge-touch pivot pairs within the Y/Z components (2026-08-28)
+#### The equal-rank edge-touch pivot carrier pairs across the Y/Z cut (corrected 2026-08-28)
 
 `Z4OutwardYZEdgeTouchSlabPivotPairing` expands the written auxiliary labels
 `(2,1)` into the actual three-vertex production fusion tree.  It explicitly
@@ -24882,15 +24879,12 @@ canonical partner operation; involutivity supplies the reverse directions.
 The resulting four-terminal enumeration is exactly
 `[(0,2),(1,3),(2,0),(3,1)]`.  Proof irrelevance transports this transparent
 local calculation to every literal accepted membership proof for
-`outwardYZPivotLeftAuxiliary`.  Thus every actual pivot terminal belongs to
-one of those four directed pairs.  Against the already proved incident face
-order `Z,Y,Z,Y,0`, the pivot pairing is therefore `Z-Z` or `Y-Y`, never a
-cross-component pair.
+`outwardYZPivotLeftAuxiliary`.  Against the corrected incident component
+order `Z,Y,Y,Z,0`, every one of these directed pairs crosses the cut.
 
-This closes the load-bearing local realization theorem.  The remaining
-geometric frontier is global: prove that every realized nonpivot edge also
-stays within one cube side, then contract the complete realized target into
-marked-face disconnection and a local positive separating channel.
+Thus this theorem is an obstruction, not a disconnection proof: equal-rank
+target-to-source enumeration does not preserve target-tree connectivity.
+The remaining frontier is a basis-faithful native-target compiler.
 
 No global realized marked-face disconnection, local-positive-channel
 inhabitant, parameter-uniform retained fraction, completed gap,
@@ -24915,15 +24909,49 @@ common link to be the unique cut pivot.  Consequently every accepted
 terminal pair at every nonpivot link is Y-Y or Z-Z.  This proof does not
 inspect the sparse target column or normalize its fusion tree.
 
-Together with the previous explicit pivot pairing, the local two-color
-mathematics is now complete.  The live frontier is structural realization:
-compile the chosen target column at each linked coordinate into a complete
-accepted auxiliary assignment, retain the pivot auxiliary equality, and
-lift the two local theorems to its global face-strand edge list.
+This closes the nonpivot half of the local two-color mathematics.  The pivot
+half requires native right-tree basis coherence: the equal-rank left-tree
+representative is now known to cross the cut.
 
 No global realized marked-face disconnection, local-positive-channel
 inhabitant, parameter-uniform retained fraction, completed gap,
 thermodynamic or continuum limit, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused monitored check passes with every
 printed declaration using at most the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The target's native right-tree pairing is compiled and the equal-rank obstruction is explicit (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabTargetRealization` constructs the complete accepted
+left assignment associated to the selected product target by equal-rank
+enumeration.  At the pivot that representative is the written `(2,1)`
+carrier.  The corrected terminal and face-ID calculation proves that its
+pairing crosses the Y/Z cut, even though every nonpivot pair remains on one
+side.
+
+`Z4OutwardYZEdgeTouchSlabNativeRightPairing` retains the selected target in
+its native right-associated basis.  The target has inner vacuum channel
+`m = 0`; the explicit leaf permutation `[1,2,0,3,4]` compiles that tree to
+the accepted left carrier `(0,1)`.  Two constructive terminal paths prove
+the canonical pairs `0 <-> 1` and `2 <-> 3`.  Reindexing contracts these to
+the native pairs `1 <-> 2` and `0 <-> 3`, whose exact global face-ID pairs
+are
+`(199,231)`, `(231,199)`, `(33,232)`, and `(232,33)`.
+Each pair is kernel-checked to lie wholly in the Y surface or wholly in the
+Z surface.
+
+The certificate also proves that the equal-rank carrier's pair list differs
+from the native target pair list.  Therefore equal rank is a valid finite
+measure index but not a strand-connectivity compiler.  The next causal
+frontier is to lift the native leaf reindex coherently over the whole target
+assignment and connect that basis-tagged strand graph to the observable
+face-switch channel.  No old `slabObservablePairedStrandRecouplingSuccessB`
+claim follows yet, because that predicate still decodes the equal-rank
+left-tree representative.
+
+No marked-face disconnection in the existing observable success predicate,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  Focused monitored checks
+pass with every printed declaration using at most the allowed axiom gate
 `[propext, Quot.sound]`; no full-root audit is claimed.

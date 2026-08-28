@@ -1,17 +1,17 @@
 /-
-# The within-component pivot carrier for the outward Y/Z cut
+# A concrete pivot carrier for the outward Y/Z cut
 
 At the unique four-incidence link of the outward Y/Z surface, corrected-slab
-face order is `Z,Y,Z,Y,0`.  The selected right-tree column has written rank
+face order is `Z,Y,Y,Z,0`.  The selected right-tree column has written rank
 zero.  Equal-rank realization sends it to the left-tree carrier with first
 intermediate twice-spin `2` and second intermediate twice-spin `1`.
 
-Thus the carrier retains the two Z strands through the first fusion and then
-retains one strand through the second fusion before closing against the last
-Y strand.  This is the local representation-theoretic datum needed for the
-within-component `Z-Z` and `Y-Y` pivot pairing.  The subsequent global module
-still has to compile this local column together with the sparse nonpivot
-columns and prove marked-face disconnection.
+The literal terminal computation shows that this left-tree carrier pairs
+positions `0 <-> 2` and `1 <-> 3`; in the actual face order both pairs cross
+from one cube side to the other.  Thus this carrier is a concrete positive
+connected channel, not the sought disconnected channel.  A disconnected
+column must retain the right-tree pairing or use a coherence compiler that
+realizes that pairing faithfully.
 
 Constructive contract: explicit finite SU(2) carriers and literal slab-face
 order only; no choice, `Classical`, `native_decide`, `sorry`, new axiom,
@@ -45,7 +45,7 @@ open YMGap.Continuum.Z4OutwardYZEdgeTouchSlabWholeProductPositivity
 
 /-! ## 1. Literal face order at the cut link -/
 
-/-- The active positions alternate by component: Z, Y, Z, Y.  The final
+/-- The active positions have component order Z, Y, Y, Z.  The final
 corrected-slab coordinate is a vacuum temporal face. -/
 theorem outwardYZPivot_incidentPlaquetteOrder :
     (slabIncidentPlaqIds 5 outwardYZSwitchPivot).map
@@ -89,6 +89,19 @@ def outwardYZPivotTarget :
     (slabPhysicalPairRecouplingKernelPackageFive
       outwardYZSwitchPivotRecouplingData).Target :=
   (outwardYZPivotLeftTarget, outwardYZPivotRightTarget)
+
+/-- The physical-terminal pairing represented by the selected target in its
+native right-associated tree.  The inner vacuum channel pairs slots one and
+two; the remaining singlet pairs slots zero and three. -/
+def outwardYZPivotNativeRightEdgeIdPairs : List (Nat × Nat) :=
+  [(1, 2), (2, 1), (0, 3), (3, 0)]
+
+theorem outwardYZPivotLeftTarget_native_channel_data :
+    outwardYZPivotLeftTarget.m = 0 ∧
+    outwardYZPivotLeftTarget.inner.order = 1 ∧
+    outwardYZPivotLeftTarget.second.p = 0 ∧
+    outwardYZPivotLeftTarget.second.r = 1 := by
+  decide
 
 theorem outwardYZPivotTarget_mem :
     outwardYZPivotTarget ∈
@@ -186,6 +199,7 @@ def outwardYZPivotCarrierCertificate : OutwardYZPivotCarrierCertificate :=
 
 #print axioms outwardYZPivot_incidentPlaquetteOrder
 #print axioms outwardYZPivotTarget_mem
+#print axioms outwardYZPivotLeftTarget_native_channel_data
 #print axioms outwardYZPivotTarget_rank_source
 #print axioms outwardYZPivotLeftAuxiliary_firstIntermediate
 #print axioms outwardYZPivotLeftAuxiliary_secondIntermediate

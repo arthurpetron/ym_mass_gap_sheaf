@@ -1,11 +1,12 @@
 /-
-# The outward Y/Z pivot pairs within the two cut components
+# The concrete outward Y/Z pivot carrier pairs across the cut
 
 The selected degree-five production carrier has external word
 `[1,1,1,1,0]` and auxiliary word `(2,1)`.  Its three trivalent vertices
 therefore route the four physical strands as `0 <-> 2` and `1 <-> 3`.
-Together with the literal pivot face order `Z,Y,Z,Y,0`, this is the local
-within-component pairing needed by the global two-color argument.
+Together with the literal pivot face order `Z,Y,Y,Z,0`, both pairs cross the
+geometric cut.  This module therefore identifies the selected carrier as a
+connected channel and rules it out as the sought disconnection witness.
 
 Constructive contract: explicit finite terminal enumeration only; no choice,
 `Classical`, `native_decide`, `sorry`, new axiom, noncomputable declaration,
@@ -274,9 +275,20 @@ theorem outwardYZPivotActualEdgeIdPairs_eq
     [(0, 2), (1, 3), (2, 0), (3, 1)]
   exact outwardYZPivotCanonicalEdgeIdPairs_eq
 
-/-- Every actual pivot terminal lies in one of the two written within-side
-pairs.  Positions zero and two are the Z faces; positions one and three are
-the Y faces in `outwardYZPivot_incidentPlaquetteOrder`. -/
+/-- Equal-rank source realization does not preserve the native target-tree
+pairing.  This is the exact basis-coherence obstruction at the pivot. -/
+theorem outwardYZPivotActualEdgeIdPairs_ne_native
+    (hmem : outwardYZPivotLeftAuxiliary ∈
+      slabLinkFusionWitnesses 1 5 outwardYZSwitchLeftPhysical
+        outwardYZSwitchPivot) :
+    outwardYZPivotActualEdgeIdPairs hmem ≠
+      outwardYZPivotNativeRightEdgeIdPairs := by
+  rw [outwardYZPivotActualEdgeIdPairs_eq]
+  decide
+
+/-- Every actual pivot terminal lies in one of the two written carrier pairs.
+In the actual geometric order, positions zero and three are Z faces while
+positions one and two are Y faces. -/
 theorem outwardYZPivotActual_partner_position_pair
     (hmem : outwardYZPivotLeftAuxiliary ∈
       slabLinkFusionWitnesses 1 5 outwardYZSwitchLeftPhysical
@@ -317,6 +329,87 @@ theorem outwardYZPivotActual_partner_position_pair
   rw [hpairs] at hpair
   simpa only [List.mem_cons, List.not_mem_nil, or_false] using hpair
 
+theorem outwardYZPivot_incidentFaceIds :
+    slabIncidentPlaqIds 5 outwardYZSwitchPivot =
+      [33, 199, 231, 232, 233] := by
+  decide
+
+/-- The position pairing is the literal global face-ID pairing. -/
+theorem outwardYZPivotActual_partner_faceId_pair
+    (hmem : outwardYZPivotLeftAuxiliary ∈
+      slabLinkFusionWitnesses 1 5 outwardYZSwitchLeftPhysical
+        outwardYZSwitchPivot)
+    (terminal : SlabLinkPhysicalStrandTerminal 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem) :
+    let partner := slabLinkPhysicalStrandPartner 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem terminal
+    let sourceFace := (slabLinkPhysicalTerminalOccurrence 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem terminal).faceId
+    let targetFace := (slabLinkPhysicalTerminalOccurrence 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem partner).faceId
+    (sourceFace, targetFace) = (33, 231) ∨
+    (sourceFace, targetFace) = (199, 232) ∨
+    (sourceFace, targetFace) = (231, 33) ∨
+    (sourceFace, targetFace) = (232, 199) := by
+  dsimp only
+  let partner := slabLinkPhysicalStrandPartner 1 5
+    outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+    outwardYZPivotLeftAuxiliary hmem terminal
+  have hpair := outwardYZPivotActual_partner_position_pair hmem terminal
+  rcases hpair with h02 | h13 | h20 | h31
+  · left
+    have hs : terminal.1.edgeId = 0 := by
+      simpa only using congrArg Prod.fst h02
+    have ht : partner.1.edgeId = 2 := by
+      simpa only [partner] using congrArg Prod.snd h02
+    apply Prod.ext
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨terminal.1.edgeId, terminal.2⟩ = 33
+      simp [outwardYZPivot_incidentFaceIds, hs]
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨partner.1.edgeId, partner.2⟩ = 231
+      simp [outwardYZPivot_incidentFaceIds, ht]
+  · right; left
+    have hs : terminal.1.edgeId = 1 := by
+      simpa only using congrArg Prod.fst h13
+    have ht : partner.1.edgeId = 3 := by
+      simpa only [partner] using congrArg Prod.snd h13
+    apply Prod.ext
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨terminal.1.edgeId, terminal.2⟩ = 199
+      simp [outwardYZPivot_incidentFaceIds, hs]
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨partner.1.edgeId, partner.2⟩ = 232
+      simp [outwardYZPivot_incidentFaceIds, ht]
+  · right; right; left
+    have hs : terminal.1.edgeId = 2 := by
+      simpa only using congrArg Prod.fst h20
+    have ht : partner.1.edgeId = 0 := by
+      simpa only [partner] using congrArg Prod.snd h20
+    apply Prod.ext
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨terminal.1.edgeId, terminal.2⟩ = 231
+      simp [outwardYZPivot_incidentFaceIds, hs]
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨partner.1.edgeId, partner.2⟩ = 33
+      simp [outwardYZPivot_incidentFaceIds, ht]
+  · right; right; right
+    have hs : terminal.1.edgeId = 3 := by
+      simpa only using congrArg Prod.fst h31
+    have ht : partner.1.edgeId = 1 := by
+      simpa only [partner] using congrArg Prod.snd h31
+    apply Prod.ext
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨terminal.1.edgeId, terminal.2⟩ = 232
+      simp [outwardYZPivot_incidentFaceIds, hs]
+    · change (slabIncidentPlaqIds 5 outwardYZSwitchPivot).get
+          ⟨partner.1.edgeId, partner.2⟩ = 199
+      simp [outwardYZPivot_incidentFaceIds, ht]
+
 def outwardYZPivotLeftFaceIdPairs
     (hmem : outwardYZPivotLeftAuxiliary ∈
       slabLinkFusionWitnesses 1 5 outwardYZSwitchLeftPhysical
@@ -335,6 +428,9 @@ def outwardYZPivotLeftFaceIdPairs
 #print axioms outwardYZPivotPartner_one_eq_three
 #print axioms outwardYZPivotCanonicalEdgeIdPairs_eq
 #print axioms outwardYZPivotActualEdgeIdPairs_eq
+#print axioms outwardYZPivotActualEdgeIdPairs_ne_native
 #print axioms outwardYZPivotActual_partner_position_pair
+#print axioms outwardYZPivot_incidentFaceIds
+#print axioms outwardYZPivotActual_partner_faceId_pair
 
 end YMGap.Continuum.Z4OutwardYZEdgeTouchSlabPivotPairing

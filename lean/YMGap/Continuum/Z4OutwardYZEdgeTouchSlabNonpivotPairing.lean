@@ -33,6 +33,8 @@ open YMGap.Continuum.Z4HalfTimeReflectionIncidenceReindex
 open YMGap.Continuum.Z4OutwardThreeCubeLinkCarrier
 open YMGap.Continuum.Z4OutwardYZEdgeTouchCutCarrier
 open YMGap.Continuum.Z4OutwardYZEdgeTouchSlabSwitchingProfile
+open YMGap.Continuum.Z4OutwardYZEdgeTouchSlabPivotCarrier
+open YMGap.Continuum.Z4OutwardYZEdgeTouchSlabPivotPairing
 open YMGap.Continuum.Z4OutwardYZEdgeTouchSlabWholeProductPositivity
 
 /-! ## 1. Recover geometric support and incidence from a terminal face -/
@@ -67,7 +69,80 @@ theorem outwardYZSwitchFace_mem_of_positive
     rw [hzero] at hpositive
     exact False.elim (Nat.not_lt_zero 0 hpositive)
 
-/-! ## 2. The nonpivot two-color theorem -/
+/-! ## 2. The selected pivot carrier is cross-side -/
+
+theorem outwardYZPivotTerminal_pair_cross_side
+    (hmem : outwardYZPivotLeftAuxiliary ∈
+      slabLinkFusionWitnesses 1 5 outwardYZSwitchLeftPhysical
+        outwardYZSwitchPivot)
+    (terminal : SlabLinkPhysicalStrandTerminal 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem) :
+    let partner := slabLinkPhysicalStrandPartner 1 5
+      outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+      outwardYZPivotLeftAuxiliary hmem terminal
+    let sourceFace := slabPlaquetteAt 5
+      (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem terminal).faceId
+    let targetFace := slabPlaquetteAt 5
+      (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem partner).faceId
+    (sourceFace ∈ outwardZSurface ∧ targetFace ∈ outwardYSurface) ∨
+      (sourceFace ∈ outwardYSurface ∧ targetFace ∈ outwardZSurface) := by
+  dsimp only
+  let partner := slabLinkPhysicalStrandPartner 1 5
+    outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+    outwardYZPivotLeftAuxiliary hmem terminal
+  have hfaces := outwardYZPivotActual_partner_faceId_pair hmem terminal
+  rcases hfaces with hZ | hY | hZ | hY
+  · left
+    have hs : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem terminal).faceId = 33 := by
+      simpa only using congrArg Prod.fst hZ
+    have ht : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem partner).faceId = 231 := by
+      simpa only [partner] using congrArg Prod.snd hZ
+    rw [hs, ht]
+    constructor <;> decide
+  · right
+    have hs : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem terminal).faceId = 199 := by
+      simpa only using congrArg Prod.fst hY
+    have ht : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem partner).faceId = 232 := by
+      simpa only [partner] using congrArg Prod.snd hY
+    rw [hs, ht]
+    constructor <;> decide
+  · right
+    have hs : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem terminal).faceId = 231 := by
+      simpa only using congrArg Prod.fst hZ
+    have ht : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem partner).faceId = 33 := by
+      simpa only [partner] using congrArg Prod.snd hZ
+    rw [hs, ht]
+    constructor <;> decide
+  · left
+    have hs : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem terminal).faceId = 232 := by
+      simpa only using congrArg Prod.fst hY
+    have ht : (slabLinkPhysicalTerminalOccurrence 1 5
+        outwardYZSwitchLeftPhysical outwardYZSwitchPivot
+        outwardYZPivotLeftAuxiliary hmem partner).faceId = 199 := by
+      simpa only [partner] using congrArg Prod.snd hY
+    rw [hs, ht]
+    constructor <;> decide
+
+/-! ## 3. The nonpivot two-color theorem -/
 
 theorem outwardYZNonpivotTerminal_pair_same_side
     {link : SlabLink} (hnonpivot : link ≠ outwardYZSwitchPivot)
@@ -145,6 +220,7 @@ theorem outwardYZNonpivotTerminal_pair_same_side
 
 #print axioms slabPlaquetteAt_edge_of_mem_incident
 #print axioms outwardYZSwitchFace_mem_of_positive
+#print axioms outwardYZPivotTerminal_pair_cross_side
 #print axioms outwardYZNonpivotTerminal_pair_same_side
 
 end YMGap.Continuum.Z4OutwardYZEdgeTouchSlabNonpivotPairing
