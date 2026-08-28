@@ -24064,3 +24064,26 @@ selected/unselected recombination, and inhabiting the switch decoder remain
 open.  Shared posterior column capacity, a positive aggregate floor,
 parameter-uniform completed gap, continuum QFT, and the Clay theorem also
 remain open.  No `sorry` is introduced.
+
+#### Embed both colored strand systems into a summed trivalent vertex (2026-08-28)
+
+`SU2TrivalentStrandPortAddition` strengthens support union at one trivalent
+vertex to explicit typed strand maps.  In each of the canonical `ab`, `bc`,
+and `ca` bundles, the left ports occupy the first block and the right ports
+the following block.  The resulting maps land in the componentwise-summed
+twice-spin carrier.
+
+Lean proves for every bounded port that both maps commute exactly with the
+summed canonical local mate.  Thus canonical re-resolution at one vertex
+retains a constructive left/right color decomposition, including individual
+strand multiplicity rather than only Boolean support.
+
+This is still a local theorem.  The block address used on one occurrence of
+an auxiliary edge need not definitionally equal the block address chosen at
+its other vertex occurrence, whereas production continuation crosses that
+edge at the same numerical slot.  Proving an edgewise permutation coherence
+certificate—or finding a genuine obstruction to one—is therefore the next
+frontier before any complete-link, slab-component, or decoder claim.
+The switch decoder, shared posterior column capacity, positive aggregate
+floor, parameter-uniform completed gap, continuum QFT, and Clay theorem
+remain open.  No `sorry` is introduced.
