@@ -23889,3 +23889,31 @@ source mass positive, realize its successful channels in the opposite cell,
 or prove the joint column-capacity bound.  No coupling/cutoff/volume/spacing
 uniform fraction, all-observable completed form bound, continuum passage, or
 Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Construct the literal SU(2) strand-disconnection posterior row (2026-08-28)
+
+`CompactDualSlabObservablePairedStrandRecouplingRow` starts from every source
+in the complete observable four-cell, leaves its two physical spin fields
+unchanged, and applies the complete whole-slab SU(2) recoupling matrix to its
+accepted auxiliary assignments.  Each target column is realized as another
+accepted pair above the same physical fields.
+
+The successful carrier filters those columns whose realized paired strand
+graph disconnects the target face from the root.  Its exact row weight
+
+`slabObservablePairedStrandDisconnectionMass`
+
+is therefore a displayed finite rational sum of SU(2) recoupling weights,
+not an opaque posterior constant.  The graph-refinement theorem proves that
+every column succeeds on a support-disconnected source, and exact row
+normalization gives
+
+`slabObservablePairedStrandDisconnectionMass ≈ 1`
+
+on that sector.
+
+On support-connected sources this same displayed sum is the candidate
+posterior fraction.  The module does not prove that it is positive there,
+construct a cutoff/volume/coupling-uniform lower bound, realize successful
+columns in the opposite four-cell, prove shared column capacity, extend to
+all observables, or make a continuum/Clay claim.  No `sorry` is introduced.
