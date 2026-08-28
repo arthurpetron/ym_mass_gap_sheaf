@@ -24205,3 +24205,25 @@ the next frontier is to glue this connected capacity with the disjoint
 full-mass support branch and isolate the minimal positive aggregate witness.
 Parameter-uniform completed gap, continuum QFT, and the Clay theorem remain
 open.  No `sorry` is introduced.
+
+#### Glue the two posterior sectors into one shared physical budget (2026-08-28)
+
+`CompactDualSlabObservablePairedSplitPosteriorMass` partitions the opposite
+four-cell target exactly into support-disconnected and support-connected
+physical sectors.  Exact finite dependent-kernel Fubini then strengthens the
+old disconnected contraction: the normalized support switch spends only the
+disconnected target mass.  The thinned successful strand switch spends only
+the connected target mass.
+
+Adding these disjoint estimates and contracting the exact target partition
+gives the decoder-free shared budget
+
+`disconnectedSourceWeight + thinnedConnectedTransportedMass`
+`  <= completeTargetWeight`.
+
+This closes the global column-budget gluing node without packaging a fragile
+dependent sum or assuming injectivity of the paired-face switch.  The sole
+remaining finite coercivity question is now explicit: prove that the thinned
+connected transported mass contains a positive fraction of the connected
+source mass.  No such positivity, parameter-uniform gap, continuum QFT, or
+Clay theorem is claimed.  No `sorry` is introduced.
