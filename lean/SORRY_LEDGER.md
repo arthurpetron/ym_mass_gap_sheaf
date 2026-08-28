@@ -23313,3 +23313,34 @@ one.  The complementary finite-core coercivity estimate is also still open.
 No posterior-variance fraction, completed strict form bound, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Repoint exterior peeling to the fixed observable root (2026-08-28)
+
+`CompactDualSlabObservableHighSpinExteriorPartition` replaces the global
+"first exterior component anywhere" choice by the canonical component rooted
+at one fixed positive face observable.  It filters the literal attached
+positive-source list by the executable high-spin reserve check at
+`anchorPaidExteriorThreshold w`, for every rational `0 < w < 1`.
+
+The retained entries are partitioned by their existing exact removal key
+
+`(encoded lower physical/assignment target, component size)`.
+
+One actual source representative is retained per realized key.  Equal keys
+recover equal concrete targets and component sizes; the fixed observable root
+and adaptive entropy-code reconstruction make each representative fiber
+inject into the explicit adaptive carrier.  Combining its cardinality with
+the arbitrary-coupling Casimir payment proves
+
+`localized exterior fiber weight <= (8/25)^n * target weight`.
+
+The realized-key partition recovers the entire localized exterior source
+weight exactly, so summing gives the corresponding explicit target/size
+representative bound.  Unlike the global classifier, this statement has no
+root index and therefore no volume-growing root multiplicity.  The next
+frontier is to sum the distinct positive sizes to `8/17`, contract the
+localized exterior mass against the physical partition, and isolate the
+complementary observable-rooted finite-core carrier.  No posterior-variance
+fraction, completed strict form bound, spacing normalization,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
