@@ -23374,3 +23374,30 @@ attach its explicit core anchor, and prove the finite-core coercive estimate.
 No completed spectral gap, spacing normalization, thermodynamic/continuum
 passage, continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.
 No `sorry` is introduced.
+
+#### Isolate the exact observable-rooted finite-core remainder (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreCarrier` takes the Boolean complement
+of the localized exterior filter on the same literal positive-source list.
+Every complementary entry retains the failed reserve equation and computes
+an explicit `SlabComponentCoreAnchor`: a genuinely selected strand copy on a
+displayed physical face whose slot is strictly below the moving threshold.
+The certificate list covers the core entries exactly and in their original
+order.
+
+The exterior and core filters reconstruct the entire positive carrier weight
+exactly.  Factoring the elementary ordered-ring step into a generic budget
+compiler then combines this identity with the verified exterior contraction
+to prove, at every rational `0 < w < 1`,
+
+`positive observable-rooted mass`
+`  <= (8/17) * physical partition + finite-core mass`.
+
+Thus the arbitrary-coupling obstruction is no longer an unspecified
+remainder: it is the literal reserve-failing source mass equipped entrywise
+with constructive finite-core anchor data.  No bound on that core mass is
+claimed.  The next frontier is a finite-core coercive or posterior-variance
+estimate that charges these anchors without a volume-growing face factor.
+No strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
