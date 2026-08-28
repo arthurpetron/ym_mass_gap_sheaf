@@ -23521,3 +23521,32 @@ No posterior-variance fraction, strict completed form bound, completed
 spectral gap, spacing normalization, thermodynamic/continuum passage,
 continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
 `sorry` is introduced.
+
+#### Sum each entropy-paid rich key into its accepted target (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreEntropyFiber` introduces the minimal
+realized key on which the pointwise comparison can be summed without losing
+information:
+
+`(exact accepted target, paid length, residual length)`.
+
+Within one such literal far entropy-paid fiber, the source-entry adaptive
+codes are proved duplicate-free.  Every code lies in the existing carrier at
+the exact complete length `paid + residual`, so the fiber cardinality is at
+most `10,240,000^(paid+residual)`.  Combining that count with the accepted
+two-rate pointwise theorem and normalizing the rational factors proves
+
+`fiber source weight`
+`  <= (8/25)^paid * 20,480,000^residual`
+`       * accepted complete-target weight`.
+
+The rich representative fibers recover the complete entropy-paid far mass
+exactly.  No intermediate partially lowered field is charged as a physical
+state.  Summation over the distinct realized `(paid,residual)` pairs for one
+target remains the next compiler; the entropy threshold shows that this
+remaining sum has a strict two-dimensional geometric rate.
+
+No bound on the residual-dominant or near-core branch, posterior-variance
+fraction, strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
