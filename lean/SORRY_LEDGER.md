@@ -22101,6 +22101,25 @@ route family, capacity estimate on those routes, regional-deficit tail,
 thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusion, and the other
 ledgered obligations remain open.  No `sorry` is introduced.
 
+#### Remove projective path equality from the load-bearing adaptive package (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler`
+now derives its reachability field from the unconditional theorem and no
+longer stores projective route equality.  A repository-wide consumer audit
+shows that literal path equality was used only by the two diagnostic
+directed-edge consequences; those theorems now accept coherence explicitly.
+The regional-deficit bridge and tail compiler build unchanged from the
+minimal package.
+
+The sole field is now the named proposition
+`MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity`:
+at every cutoff and every later-sector edge, the persistent canonical-old
+load plus the explicit weighted ceiling for the constructed new routes fits
+under one half of the literal conditional-kernel capacity after multiplication
+by the shared support floor.  This is the exact next quantitative frontier;
+it is not inhabited here.  No regional tail, thermodynamic/continuum/QFT/
+isolated-vacuum/Clay conclusion, or `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete

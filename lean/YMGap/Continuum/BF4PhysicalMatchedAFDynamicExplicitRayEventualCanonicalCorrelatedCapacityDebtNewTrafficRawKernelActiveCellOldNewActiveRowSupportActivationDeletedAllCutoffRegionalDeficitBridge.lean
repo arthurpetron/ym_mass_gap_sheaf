@@ -9,10 +9,11 @@ adaptive stream between two consecutive canonical debts:
   canonical(k+1) -> adaptive(k+1) -> adaptive(k+2) -> canonical(k+2).
 
 The two outer terms are exact route-mismatch deficits.  The middle term is the
-exact adaptive data deficit on the projectively coherent route family stored
-by the all-cutoff observable certificate.  A three-segment two-sided triangle
-inequality bounds the existing canonical transported deficit at `k+1` by
-those three terms.
+exact adaptive data deficit on the one cutoff-indexed route family constructed
+from unconditional deleted-support reachability.  A three-segment two-sided
+triangle inequality bounds the existing canonical transported deficit at
+`k+1` by those three terms; it uses the two scalar debts directly and does not
+require literal equality of their underlying paths.
 
 Two antitone tail controls--one for route mismatch and one for adaptive data
 drift--therefore construct the existing canonical transported tail, including

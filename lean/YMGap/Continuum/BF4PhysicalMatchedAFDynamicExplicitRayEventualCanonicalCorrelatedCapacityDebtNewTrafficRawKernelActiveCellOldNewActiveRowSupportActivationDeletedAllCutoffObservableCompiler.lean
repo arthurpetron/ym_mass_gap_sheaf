@@ -1,18 +1,19 @@
 /-
-# One all-cutoff observable package for the adaptive branch
+# Minimal all-cutoff quantitative package for the adaptive branch
 
-The deleted-support adaptive branch has three necessary interfaces: literal
-all-cutoff reachability, full old-plus-new capacity, and projective route
-coherence.  They can be proved in parallel, but they are not observations of
-three different routed systems.  This module packages them on the one route
-family constructively extracted from the reachability equations.
+The deleted-support adaptive branch originally packaged literal all-cutoff
+reachability, full old-plus-new capacity, and projective route coherence.
+Reachability is now constructed unconditionally, and the regional-deficit
+pipeline never consumes literal path equality.  Its one load-bearing input is
+therefore the full old-plus-new capacity estimate on the paths constructively
+extracted from that reachability theorem.
 
-The package contracts at every cutoff to the exact full routed capacity debt
-bound.  It also retains the checked consecutive-cutoff path equality needed by
-the route-churn lane.  Thus capacity and coherence are forced to share the
-same matched trajectory, selected paths, routing, carrier, and debt observable.
+The package below contains exactly that remaining quantitative input and
+contracts it at every cutoff to the exact full routed capacity debt bound.
+Projective path equality remains available as an independent optional
+diagnostic and can be supplied directly to the two edge-list consequences.
 
-No field of the package is inhabited here.  No regional tail, completed gap,
+The capacity field is not inhabited here.  No regional tail, completed gap,
 continuum limit, or Clay conclusion is asserted.
 
 ## Axiom gate
@@ -23,6 +24,7 @@ extensionality, or noncomputable declaration.
 
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingTrafficRejoin
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffRouteCoherence
+import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedUnconditionalReachability
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler
 
@@ -42,6 +44,7 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorr
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedConnectivityCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedSimpleRoutingTrafficRejoin
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedUnconditionalReachability
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationSplit
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtRouteBridge
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtShellFaces
@@ -57,23 +60,41 @@ open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalTransitionProdu
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-! ## 1. Three parallel fields on one selected route family -/
+/-! ## 1. One quantitative field on the constructed route family -/
+
+def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale : Nat) : Prop :=
+  forall cutoffOffset,
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.SimpleAdaptiveOldPlusWeightedCeilingCapacityCertificate
+      (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
+        (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability
+          trajectory transitionStart physicalScale)
+        cutoffOffset)
 
 structure MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
     (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
     (transitionStart : Nat -> Nat) (physicalScale : Nat) : Type where
-  reachable :
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffReachability
+  combinedCapacity :
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
       trajectory transitionStart physicalScale
-  combinedCapacity : forall cutoffOffset,
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.SimpleAdaptiveOldPlusWeightedCeilingCapacityCertificate
-      (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
-        reachable cutoffOffset)
-  routeCoherence :
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffRouteCoherence
-      reachable
+
+def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.reachable
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {transitionStart : Nat -> Nat} {physicalScale : Nat}
+    (_certificate :
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
+        trajectory transitionStart physicalScale) :
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffReachability
+      trajectory transitionStart physicalScale :=
+  matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability
+    trajectory transitionStart physicalScale
 
 def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.pathsAt
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -195,6 +216,9 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
     (certificate :
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
         trajectory transitionStart physicalScale)
+    (coherent :
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffRouteCoherence
+        certificate.reachable)
     (cutoffOffset : Nat) (pair : Nat × Nat)
     (hpair : pair ∈ matchedEventualCanonicalVacuumSectorPairs
       trajectory transitionStart physicalScale (cutoffOffset + 1)) :
@@ -205,7 +229,7 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
         (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveFollowingPathOnMappedPair
           certificate.reachable cutoffOffset pair hpair) :=
   matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffDirectedEdges_eq
-    certificate.routeCoherence cutoffOffset pair hpair
+    coherent cutoffOffset pair hpair
 
 theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.consecutiveDirectedEdge_mem_iff
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -215,6 +239,9 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
     (certificate :
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
         trajectory transitionStart physicalScale)
+    (coherent :
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffRouteCoherence
+        certificate.reachable)
     (cutoffOffset : Nat) (pair edge : Nat × Nat)
     (hpair : pair ∈ matchedEventualCanonicalVacuumSectorPairs
       trajectory transitionStart physicalScale (cutoffOffset + 1)) :
@@ -225,10 +252,14 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
         (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveFollowingPathOnMappedPair
           certificate.reachable cutoffOffset pair hpair) :=
   matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportSimpleAdaptiveAllCutoffDirectedEdge_mem_iff
-    certificate.routeCoherence cutoffOffset pair edge hpair
+    coherent cutoffOffset pair edge hpair
 
 /-! ## Axiom audit -/
 
+#print axioms
+  MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
+#print axioms
+  MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.reachable
 #print axioms
   MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.pathsAt
 #print axioms
