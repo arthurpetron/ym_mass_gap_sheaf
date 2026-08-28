@@ -23863,3 +23863,29 @@ mathematical problem.  No fraction uniform in coupling, cutoff, volume, or
 lattice spacing, all-observable completed form bound, completed spectral gap,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Prove that the paired strand graph refines physical union support (2026-08-28)
+
+`CompactDualSlabObservablePairedFaceSupportRefinement` establishes the
+geometric implication needed before a posterior SU(2) recoupling row can be
+defined.  Every literal strand-copy vertex belongs to the two-replica union
+support, and every projected strand edge is a genuine edge of the coarser
+support graph.  These maps are packaged as a constructive rooted finite-graph
+homomorphism.
+
+Consequently the target-rooted paired strand component is contained in the
+target-rooted union-support component, and the exact Boolean implication
+
+`pairedFaceConnected -> pairedSupportConnected`
+
+holds on the literal four-cell carrier.  Its contrapositive proves that a
+support-disconnected source is strand-disconnected for every accepted
+auxiliary resolution.  Thus a recoupling row filtered by strand disconnection
+will retain row mass exactly `1` on the already controlled disconnected
+sector; only its mass on support-connected sources can be fractional.
+
+This module does not yet define that filtered SU(2) row, prove its connected-
+source mass positive, realize its successful channels in the opposite cell,
+or prove the joint column-capacity bound.  No coupling/cutoff/volume/spacing
+uniform fraction, all-observable completed form bound, continuum passage, or
+Clay mass-gap theorem is claimed.  No `sorry` is introduced.
