@@ -25078,3 +25078,30 @@ completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
 theorem is claimed.  No `sorry` is introduced.  The focused monitored check
 passes with every printed declaration using at most `[propext, Quot.sound]`;
 no full-root audit is claimed.
+
+#### Every column of the aligned diagonal recoupling row is strictly positive (2026-08-28)
+
+`Z4AlignedDiagonalYZEdgeTouchSlabWholeProductPositivity` specializes the
+proved SU(2) fundamental/vacuum valence-five estimate to the aligned physical
+pair.  At the unique pivot, each local matrix entry is bounded below by the
+exact rational `1/4`.  At every nonpivot link, both external words are sparse
+and the existing all-valence identity makes every local entry positive.
+
+A link split followed by structural recursion over arbitrary actual-link
+lists proves coordinatewise positivity and strict positivity of every
+selected heterogeneous product entry.  This quantitative statement is
+target-independent, so the forthcoming component-preserving `(0,1)` target
+inherits it automatically.
+
+The next finite construction is the literal accepted source: positive
+physical terms must produce accepted global auxiliary assignments, and the
+two marked faces must be connected in the source physical support.  Once
+that source is packaged, target selection and old observable disconnection
+become the live frontier.
+
+No accepted connected source, successful observable target,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  The focused monitored check
+passes with every printed declaration using at most `[propext, Quot.sound]`;
+no full-root audit is claimed.
