@@ -1,5 +1,5 @@
 /-
-# Minimal all-cutoff quantitative package for the adaptive branch
+# Exact all-cutoff observable capacity for the adaptive branch
 
 The deleted-support adaptive branch originally packaged literal all-cutoff
 reachability, full old-plus-new capacity, and projective route coherence.
@@ -8,8 +8,12 @@ pipeline never consumes literal path equality.  Its one load-bearing input is
 therefore the full old-plus-new capacity estimate on the paths constructively
 extracted from that reachability theorem.
 
-The package below contains exactly that remaining quantitative input and
-contracts it at every cutoff to the exact full routed capacity debt bound.
+The package below now stores exactly that observable input: the literal full
+adaptive routed load fits under the literal later half-kernel capacity.  The
+older old-plus-weighted-ceiling comparison remains available as a sufficient
+constructor, but is no longer baked into the downstream certificate.  This
+removes both canonical-new-traffic double counting and the carrier-length
+ceiling from the logical statement consumed by the regional deficit bridge.
 Projective path equality remains available as an independent optional
 diagnostic and can be supplied directly to the two edge-list consequences.
 
@@ -60,7 +64,45 @@ open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalTransitionProdu
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-! ## 1. One quantitative field on the constructed route family -/
+/-! ## 1. Strong ceiling input and exact observable output -/
+
+def matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat) :
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt
+      trajectory transitionStart physicalScale cutoffOffset :=
+  matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
+    (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability
+      trajectory transitionStart physicalScale)
+    cutoffOffset
+
+def matchedEventualActivatedDeletedSupportExactAdaptiveRoutingAt
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat) :
+    CentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      (trajectory.nome physicalScale)
+      (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+      (transitionStart physicalScale + (cutoffOffset + 1)) :=
+  matchedEventualTransportedOldAdaptiveNewRoutingAtNext
+    trajectory transitionStart physicalScale cutoffOffset
+    (MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleNewRouting
+      (matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+        trajectory transitionStart physicalScale cutoffOffset))
+
+def matchedEventualActivatedDeletedSupportExactAdaptiveFullLoadOnPair
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat)
+    (edge : Nat × Nat) : Q' :=
+  centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductLoadOnPair
+    (matchedEventualActivatedDeletedSupportExactAdaptiveRoutingAt
+      trajectory transitionStart physicalScale cutoffOffset)
+    edge
 
 def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -69,19 +111,55 @@ def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffC
     (transitionStart : Nat -> Nat) (physicalScale : Nat) : Prop :=
   forall cutoffOffset,
     MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.SimpleAdaptiveOldPlusWeightedCeilingCapacityCertificate
-      (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
-        (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability
-          trajectory transitionStart physicalScale)
-        cutoffOffset)
+      (matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+        trajectory transitionStart physicalScale cutoffOffset)
+
+def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffExactAdaptiveCapacity
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat) (physicalScale : Nat) : Prop :=
+  forall cutoffOffset edge,
+    edge ∈ matchedEventualCanonicalVacuumSectorPairs
+        trajectory transitionStart physicalScale (cutoffOffset + 1) ->
+      matchedEventualCanonicalSupportSharedFloor
+            trajectory transitionStart physicalScale *
+          matchedEventualActivatedDeletedSupportExactAdaptiveFullLoadOnPair
+            trajectory transitionStart physicalScale cutoffOffset
+            edge <=
+        HalfPow.half *
+          centralPhysicalFiniteConditionalKernel
+            (trajectory.nome physicalScale)
+            (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+            (transitionStart physicalScale + (cutoffOffset + 1))
+            0 edge.1 edge.2
 
 structure MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
     (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
     (transitionStart : Nat -> Nat) (physicalScale : Nat) : Type where
-  combinedCapacity :
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
+  exactAdaptiveCapacity :
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffExactAdaptiveCapacity
       trajectory transitionStart physicalScale
+
+def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.ofCombinedCapacity
+    {family : MatchedBlockFamily} {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {transitionStart : Nat -> Nat} {physicalScale : Nat}
+    (combined :
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
+        trajectory transitionStart physicalScale) :
+    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
+      trajectory transitionStart physicalScale where
+  exactAdaptiveCapacity := by
+    intro cutoffOffset edge hedge
+    exact
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveFullWeightedLoad_capacity
+        (matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+          trajectory transitionStart physicalScale cutoffOffset)
+        (combined cutoffOffset) edge hedge
 
 def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.reachable
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -101,21 +179,21 @@ def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffO
     {spacing : PhysicalSpacingEnvelope law.g₁}
     {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
     {transitionStart : Nat -> Nat} {physicalScale : Nat}
-    (certificate :
+    (_certificate :
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
         trajectory transitionStart physicalScale)
     (cutoffOffset : Nat) :
     MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt
       trajectory transitionStart physicalScale cutoffOffset :=
-  matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
-    certificate.reachable cutoffOffset
+  matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+    trajectory transitionStart physicalScale cutoffOffset
 
 def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullRoutingAt
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
     {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
     {transitionStart : Nat -> Nat} {physicalScale : Nat}
-    (certificate :
+    (_certificate :
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
         trajectory transitionStart physicalScale)
     (cutoffOffset : Nat) :
@@ -123,10 +201,8 @@ def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffO
       (trajectory.nome physicalScale)
       (Q'.le_of_lt (trajectory.nome_pos physicalScale))
       (transitionStart physicalScale + (cutoffOffset + 1)) :=
-  matchedEventualTransportedOldAdaptiveNewRoutingAtNext
+  matchedEventualActivatedDeletedSupportExactAdaptiveRoutingAt
     trajectory transitionStart physicalScale cutoffOffset
-    (MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleNewRouting
-      (certificate.pathsAt cutoffOffset))
 
 /-! ## 2. Pointwise contraction to the one full capacity observable -/
 
@@ -151,12 +227,11 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
           (Q'.le_of_lt (trajectory.nome_pos physicalScale))
           (transitionStart physicalScale + (cutoffOffset + 1))
           0 edge.1 edge.2 := by
-  unfold
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullRoutingAt
-  exact
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveFullWeightedLoad_capacity
-      (certificate.pathsAt cutoffOffset)
-      (certificate.combinedCapacity cutoffOffset) edge hedge
+  change matchedEventualCanonicalSupportSharedFloor
+        trajectory transitionStart physicalScale *
+      matchedEventualActivatedDeletedSupportExactAdaptiveFullLoadOnPair
+        trajectory transitionStart physicalScale cutoffOffset edge <= _
+  exact certificate.exactAdaptiveCapacity cutoffOffset edge hedge
 
 theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullDebt_le_one
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -173,12 +248,29 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
           trajectory transitionStart physicalScale (cutoffOffset + 1)
           (certificate.fullRoutingAt cutoffOffset) edge <=
       (1 : Q') := by
-  unfold
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullRoutingAt
-  exact
-    MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt.simpleAdaptiveFullWeightedDebt_le_one
-      (certificate.pathsAt cutoffOffset)
-      (certificate.combinedCapacity cutoffOffset) edge hedge
+  unfold matchedEventualRoutedCapacityDebtOnPairForRouting
+  dsimp only
+  by_cases hcapacity : (0 : Q') < HalfPow.half *
+      centralPhysicalFiniteConditionalKernel
+        (trajectory.nome physicalScale)
+        (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+        (transitionStart physicalScale + (cutoffOffset + 1))
+        0 edge.1 edge.2
+  · rw [dif_pos hcapacity]
+    apply Q'.divPos_le_of_le_mul _ _ hcapacity
+    exact Q'.le_trans' _ _ _
+      (certificate.fullLoad_capacity cutoffOffset edge hedge)
+      (Q'.le_of_eqv
+        (Q'.eqv_symm
+          (Q'.one_mul_eqv
+            (HalfPow.half *
+              centralPhysicalFiniteConditionalKernel
+                (trajectory.nome physicalScale)
+                (Q'.le_of_lt (trajectory.nome_pos physicalScale))
+                (transitionStart physicalScale + (cutoffOffset + 1))
+                0 edge.1 edge.2))))
+  · rw [dif_neg hcapacity]
+    decide
 
 theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.fullLoadOnMappedActivated_eqv_canonicalOld
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -257,7 +349,17 @@ theorem MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCut
 /-! ## Axiom audit -/
 
 #print axioms
+  matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+#print axioms
+  matchedEventualActivatedDeletedSupportExactAdaptiveRoutingAt
+#print axioms
+  matchedEventualActivatedDeletedSupportExactAdaptiveFullLoadOnPair
+#print axioms
   MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffCombinedCapacity
+#print axioms
+  MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffExactAdaptiveCapacity
+#print axioms
+  MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.ofCombinedCapacity
 #print axioms
   MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.reachable
 #print axioms

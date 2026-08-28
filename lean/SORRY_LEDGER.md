@@ -22363,3 +22363,35 @@ transported-plus-ceiling estimate together with a new-edge ceiling-to-margin
 bound and the named initial canonical slack.  Regional tails, a completed
 gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
 Clay mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### The observable capacity frontier no longer double-counts replaced traffic (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler`
+now stores the literal exact adaptive full-capacity inequality consumed by the
+regional-deficit bridge.  The older transported-reserve and weighted-ceiling
+predicates remain sufficient constructors, but they are no longer fields of
+the downstream observable certificate.  Thus later work may prove the exact
+observable estimate without first proving the stronger carrier-length
+ceiling or reserving capacity for canonical new traffic that the adaptive
+routing has replaced.
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveCapacityPartitionCompiler`
+proves the exact causal identity
+
+`adaptive full load = transported old-endpoint load + adaptive new-endpoint load`.
+
+On an embedded-old edge, the sharp remaining lane is therefore the shared
+floor times that exact sum below the later half-kernel capacity.  On a
+genuinely new edge, the transported old load is already proved exactly zero,
+so the sharp lane contains only the adaptive new-endpoint load.  A decidable
+edge-age split compiles these two physical-capacity lanes directly to the
+minimal observable certificate and hence to the existing same-object regional
+deficit stream.
+
+This strictly weakens the preceding sufficient partition: the genuinely new
+edge lane no longer contains later canonical debt, and neither lane contains
+the carrier-length weighted ceiling unless that stronger route is chosen as a
+producer.  Neither exact lane is inhabited here.  Exact adaptive capacity,
+regional tails, a completed gap, thermodynamic/continuum control, continuum
+QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.  No
+`sorry` is introduced.

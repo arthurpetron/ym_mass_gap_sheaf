@@ -78,10 +78,8 @@ def matchedEventualActivatedDeletedSupportConstructedPathFamilyAt
     (transitionStart : Nat -> Nat) (physicalScale cutoffOffset : Nat) :
     MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportPathFamilyAt
       trajectory transitionStart physicalScale cutoffOffset :=
-  matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffPathFamilies_of_reachability
-    (matchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupport_allCutoffReachability
-      trajectory transitionStart physicalScale)
-    cutoffOffset
+  matchedEventualActivatedDeletedSupportObservablePathFamilyAt
+    trajectory transitionStart physicalScale cutoffOffset
 
 def matchedEventualActivatedDeletedSupportOldCapacityUseOnPair
     {family : MatchedBlockFamily} {law : CubicMarginLaw family}
@@ -259,10 +257,10 @@ def MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffO
       MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffResidualCapacity
         trajectory transitionStart physicalScale) :
     MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
-      trajectory transitionStart physicalScale where
-  combinedCapacity :=
-    (allCutoffCombinedCapacity_iff_residualCapacity
-      trajectory transitionStart physicalScale).mpr residual
+      trajectory transitionStart physicalScale :=
+  MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate.ofCombinedCapacity
+    ((allCutoffCombinedCapacity_iff_residualCapacity
+      trajectory transitionStart physicalScale).mpr residual)
 
 end YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedResidualCapacityCompiler
 
