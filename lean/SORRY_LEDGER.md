@@ -22067,3 +22067,38 @@ It does not prove that the conditional operator is a one-lattice-time OS
 transfer, an all-observable strict form bound, a volume-uniform spectral gap,
 an asymptotically-free coupling trajectory, or any thermodynamic/continuum/
 QFT/isolated-vacuum/Clay conclusion.  No `sorry` is introduced.
+
+#### Receding-slab same-object face clustering with an explicit modulus (2026-08-27)
+
+`CompactDualSlabObservableFaceRecedingVolumeClustering` chooses the bottom
+spatial plaquette in every corrected central slab and proves constructively
+that its physical face identifier lies in the lower half.  Its reflected
+plaquette is on the opposite boundary at exact L-infinity separation
+
+`centralExtent half = 2 * half + 1`.
+
+Substitution into the complete non-abelian paired-support component peel turns
+the literal same-object BF4 connected moment into the exact interval
+
+`0 <= <a_half,P_half a_half> - E(a_half)^2`
+
+`   <= (25/9) * (16/25)^(2*(half+1))`.
+
+The rational identity behind the two powers is proved inside the module, and
+`(16/25)^2 <= 1/2` contracts the upper envelope to
+`(25/9) * (1/2)^(half+1)`.  The theorem
+`anchorCentralBottomFaceConnectedAutocorrelation_dyadic_interval` states this
+after the representation cutoff has already been removed as a CReal bound.
+The executable witness `centralBottomFaceClusteringModulus` then proves
+`anchorCentralBottomFaceConnectedAutocorrelation_converges_zero`: the family
+of cutoff-removed same-object moments converges constructively to zero as the
+slab half-width recedes.
+
+This is a boundary-to-boundary clustering theorem for the varying family of
+finite-slab conditional operators `P_half`.  It does not identify that family
+with powers of one fixed one-step Euclidean-time OS transfer.  Consequently it
+does not prove an all-observable strict form bound or spectral gap.  Extending
+the literal face observable to a separating norm-controlled physical algebra,
+or constructing a fixed-transfer bridge, remains open, as do the matched-AF,
+thermodynamic, continuum, QFT, isolated-vacuum, and Clay conclusions.  No
+`sorry` is introduced.
