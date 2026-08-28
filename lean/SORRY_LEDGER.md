@@ -25288,3 +25288,39 @@ continuum limit, continuum QFT, or Clay theorem follows yet.  No `sorry` is
 introduced.  Focused monitored checks and the dependency-complete target
 build pass with every printed declaration using at most the allowed axiom
 gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The reflected pivot has a positive component-preserving SU(2) channel (2026-08-28)
+
+`SU2InternalVacuumValenceFiveKernelFloor` proves the representation-theoretic
+fact needed by the interleaved reflected word.  For external labels
+`(1,0,1,1,1)`, the first associator crosses the vacuum leg and is exactly
+deterministic.  The second associator is the nontrivial four-fundamental
+two-channel block.  Retaining the source-determined middle state and using
+nonnegativity of every other summand gives the sharp all-row/all-column bound
+`1/4 <= K(source,target)`.  The two-replica slab specialization tensors this
+with the deterministic vacuum replica without losing the floor.
+
+`Z4ReflectedBentCubeEdgeTouchSlabPivotCarrier` selects the written rank-zero
+right-tree column.  Equal-rank realization sends it literally to the
+left-tree auxiliary carrier `(1,0)`.  The complete reflected slab row is
+strictly positive at every coordinate: the new `1/4` theorem handles the
+unique pivot and the sparse-fundamental identity handles every nonpivot link.
+
+Finally, `Z4ReflectedBentCubeEdgeTouchSlabPivotPairing` evaluates the actual
+canonical strand involution of `(1,0)`.  It is exactly
+`0 <-> 2, 3 <-> 4`; the corresponding slab face pairs are `(13,45)` in the
+near lobe and `(46,47)` in the far lobe.  Thus every selected pivot strand
+edge preserves the geometric cut side, while every selected row entry has
+strictly positive exact rational weight.
+
+The next finite contraction is global assembly: prove arbitrary nonpivot
+terminal pairs preserve a lobe by the unique-shared-link theorem, construct
+the complete target assignment and realized graph, and contract its marked
+disconnection into the reflected-positive-channel interface.
+
+No globally realized reflected target, successful reflected channel,
+retained fraction, same-object contraction, parameter-uniform bound,
+completed spectral gap, continuum limit, continuum QFT, or Clay theorem is
+claimed.  No `sorry` is introduced.  Focused monitored checks and the
+dependency-complete target build pass with every printed declaration using
+at most `[propext, Quot.sound]`; no full-root audit is claimed.
