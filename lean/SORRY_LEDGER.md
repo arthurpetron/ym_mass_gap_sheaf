@@ -25164,3 +25164,41 @@ completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
 theorem is claimed.  No `sorry` is introduced.  The focused monitored check
 passes with every printed declaration using at most `[propext, Quot.sound]`;
 no full-root audit is claimed.
+
+#### The aligned observable row now gives an explicit fixed-data strict covariance contraction (2026-08-28)
+
+The aligned target chain is now complete through the finite retained-mass
+compiler.  `Z4AlignedDiagonalYZEdgeTouchSlabPivotPairing` and
+`Z4AlignedDiagonalYZEdgeTouchSlabNonpivotPairing` prove that every selected
+local pairing stays within one of the two geometric components.
+`Z4AlignedDiagonalYZEdgeTouchSlabTargetRealization`, `TargetEdges`, and
+`TargetDisconnection` contract those local facts into a complete realized
+target graph with no chain between the marked faces.
+
+`Z4AlignedDiagonalYZEdgeTouchSlabObservableChoice`,
+`ObservableGraphBridge`, `ObservableTargetPackage`, and
+`ObservableRealizationBridge` identify that same target with a literal member
+of the physical SU(2) recoupling row.  `ObservableSuccess` proves that the
+observable success Boolean accepts it.  `ObservablePositiveMass` combines
+this successful membership with the previously proved whole-product
+positivity, giving both a strictly positive exact row weight and strictly
+positive disconnection mass.
+
+Finally, `Z4AlignedDiagonalYZEdgeTouchSlabRetainedContraction` proves that the
+observable source is the previously accepted support-connected source,
+inserts the successful positive target into the filtered connected row, and
+constructs `alignedDiagonalSplitRetainedContraction`.  Its explicit rational
+fraction `alignedDiagonalRetainedFraction` is positive.  The complementary
+factor `alignedDiagonalContractionFactor = 1 - fraction` is nonnegative and
+strictly below one, and the selected finite face Boolean covariance is at
+most that factor.
+
+This is a fixed-data theorem at the concrete extent-five, cutoff-one,
+coupling-one slab.  The selected spatial face pair has not yet been identified
+with a reflected same-object pair, and no uniformity in coupling, cutoff,
+volume, or lattice spacing follows.  Therefore no dense vacuum-complement
+form bound, completed spectral gap, thermodynamic/continuum limit, continuum
+QFT, or Clay theorem is claimed.  No `sorry` is introduced.  Focused
+monitored checks and dependency-complete target builds pass with every
+printed declaration using at most `[propext, Quot.sound]`; no full-root audit
+is claimed.

@@ -50,6 +50,7 @@ structure AlignedDiagonalSwitchRecouplingSourcePackage : Type where
     alignedDiagonalSwitchPhysicalData
     alignedDiagonalSwitchRootFaceId
     alignedDiagonalSwitchTargetFaceId
+  sourcePair : source.1 = alignedDiagonalSwitchSourcePair
   leftPhysical : source.1.1.1.1 = alignedDiagonalSwitchLeftPhysical
   rightPhysical : source.1.2.1.1 = alignedDiagonalSwitchRightPhysical
 
@@ -57,11 +58,17 @@ opaque alignedDiagonalSwitchRecouplingSourcePackage :
     AlignedDiagonalSwitchRecouplingSourcePackage :=
   { source := ⟨alignedDiagonalSwitchSourcePair,
       alignedDiagonalSwitchSourcePair_mem_fourCell⟩
+    sourcePair := rfl
     leftPhysical := rfl
     rightPhysical := rfl }
 
 abbrev alignedDiagonalSwitchRecouplingSource :=
   alignedDiagonalSwitchRecouplingSourcePackage.source
+
+theorem alignedDiagonalSwitchRecouplingSource_sourcePair :
+    alignedDiagonalSwitchRecouplingSource.1 =
+      alignedDiagonalSwitchSourcePair :=
+  alignedDiagonalSwitchRecouplingSourcePackage.sourcePair
 
 theorem alignedDiagonalSwitchRecouplingSource_leftPhysical :
     alignedDiagonalSwitchRecouplingSource.1.1.1.1 =
