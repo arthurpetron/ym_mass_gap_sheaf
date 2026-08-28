@@ -24512,3 +24512,29 @@ No `sorry` is introduced.  The focused monitored check and exact 1,130-job
 target build pass, every printed declaration uses at most
 `[propext, Quot.sound]`, and the root aggregator imports the module.  No
 full-root audit is claimed.
+
+#### The actual valence-five pivot retains a sharp quarter (2026-08-28)
+
+`SU2FundamentalVacuumValenceFiveKernelFloor` classifies the complete
+one-replica recoupling matrix for the external word `(1,1,1,1,0)`.  For each
+source and target it selects a canonical intermediate carrier.  The first
+associator contributes the already proved four-fundamental floor `1/4`; the
+second, output-zero associator has a singleton target fiber and hence exact
+weight one.  Nonnegativity of the remaining finite summands gives the sharp
+entrywise lower bound `1/4` for the full valence-five kernel.
+
+`SU2SlabFundamentalVacuumValenceFiveRecouplingFloor` tensors this nontrivial
+block with the deterministic all-zero valence-five block and specializes the
+result to the literal production `SlabPhysicalPairRecouplingData` package.
+Thus any production link whose two physical words are respectively
+`(1,1,1,1,0)` and `(0,0,0,0,0)` has every source-target coordinate at least
+`1/4` and strictly positive.
+
+This discharges the local representation-theoretic weight required by the
+ambient degree-five seven-cube pivot.  The concrete geometry-to-word equality
+and the construction of a target column whose realized strand graph
+disconnects the marked faces remain open.  No whole-product positive channel,
+uniform retained fraction, completed gap, thermodynamic or continuum limit,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused checks and exact target builds pass with every printed declaration
+using at most `[propext, Quot.sound]`; no full-root audit is claimed.
