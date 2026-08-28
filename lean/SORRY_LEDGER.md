@@ -22266,3 +22266,30 @@ the literal face observable to a separating norm-controlled physical algebra,
 or constructing a fixed-transfer bridge, remains open, as do the matched-AF,
 thermodynamic, continuum, QFT, isolated-vacuum, and Clay conclusions.  No
 `sorry` is introduced.
+
+#### Normalize the literal constructed new-route ceiling exactly (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedNewCeilingDebtCompiler`
+defines the normalized debt of the already-constructed new-route weighted
+ceiling using the same later half-kernel capacity as transported-old debt.
+The zero-denominator branch is exact, not a totalization artifact: if that
+conditional edge capacity is not positive, a positive route occurrence would
+force it positive, so every endpoint-prefix weight, their finite sum, the
+weighted ceiling, and its literal shared-floor capacity use are all zero.
+
+Therefore
+`matchedEventualActivatedDeletedSupportNewCeilingDebt_mul_capacity_eqv_use`
+proves, on every edge including zero-capacity edges, that normalized new debt
+times capacity recovers the literal constructed ceiling use.  The remaining
+two-lane reserve interface consequently contracts to the single explicit
+pointwise predicate
+`MatchedEventualActivatedDeletedSupportAllCutoffCombinedNormalizedDebt`:
+
+`transported normalized debt + constructed-ceiling normalized debt <= 1`.
+
+`ofCombinedNormalizedDebt` and `toObservableCertificate` compile any proof of
+that predicate into the existing normalized reserve, residual-capacity, and
+regional-deficit consumers.  The combined estimate is not inhabited here;
+regional tails, a completed finite-volume gap, thermodynamic/continuum
+control, continuum QFT, isolated vacuum, and the Clay mass-gap conclusion
+remain open.  No `sorry` is introduced.
