@@ -22453,3 +22453,29 @@ slack, together with the already isolated transported data drift on retained
 old edges.  Regional tails, a completed finite-volume gap,
 thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
 mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Contract both live adaptive lanes to one scalar payment stream (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveScalarPaymentCompiler`
+defines the located maximum of exact adaptive new-endpoint debt on the literal
+later vacuum-sector pair carrier.  Membership in that finite carrier gives the
+pointwise-to-maximum comparison constructively, without selecting a maximizing
+edge.
+
+At each cutoff, the single scalar inequality
+
+`transported data-deficit maximum + adaptive-new debt maximum <= margin`
+
+implies both fields of the canonical-slack payment compiler.  On retained old
+edges it directly bounds data drift plus adaptive new debt.  On genuinely new
+edges, nonnegativity of the data-deficit maximum shows that adaptive-new debt
+alone is no larger than the same scalar sum.  The resulting scalar payment
+structure therefore compiles all the way to the exact all-cutoff observable
+certificate.
+
+This isolates two independently estimable but observably connected streams:
+transported data drift and adaptive-new congestion.  No bound on either stream
+or strict initial closure is inhabited here.  Regional tails, a completed
+finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
