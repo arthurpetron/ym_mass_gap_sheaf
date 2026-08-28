@@ -25324,3 +25324,39 @@ completed spectral gap, continuum limit, continuum QFT, or Clay theorem is
 claimed.  No `sorry` is introduced.  Focused monitored checks and the
 dependency-complete target build pass with every printed declaration using
 at most `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The complete reflected target graph is constructively disconnected (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchSlabNonpivotPairing` extends the pivot result to
+every other actual slab link.  Both endpoints of an accepted terminal pair
+are positive faces of the binary support.  If they belonged to opposite
+lobes, their shared lattice link would equal the unique geometric pivot,
+contradicting the nonpivot hypothesis.  Thus every local strand edge preserves
+one lobe.
+
+`Z4ReflectedBentCubeEdgeTouchSlabTargetAssignment` selects the proved
+component-preserving pivot column and a canonical target everywhere else.
+`TargetRealization` recodes every column at equal rank into accepted
+production auxiliaries and assembles the complete assignment over all actual
+links.  `TargetEdges` proves that every edge of the resulting standard local
+strand graph stays inside the near or far lobe.
+
+`Z4ReflectedBentCubeEdgeTouchSlabTargetDisconnection` colors face identifiers
+by near-lobe membership.  Literal adjacency preserves that color, and
+structural induction transports it along every Type-valued finite chain.  The
+marked root has color true while its exact half-time reflected target has
+color false.  Hence the fully assembled target graph has no marked-face
+chain.
+
+The next finite bridge is representation rather than geometry: identify this
+accepted assignment and its disconnected graph with one literal member of
+the observable recoupling row, prove the existing observable-success Boolean
+accepts it, and combine that fact with the already proved positive product
+weight.
+
+No successful observable-row target, reflected positive-channel inhabitant,
+retained fraction, same-object contraction, parameter-uniform bound,
+completed spectral gap, continuum limit, continuum QFT, or Clay theorem is
+claimed.  No `sorry` is introduced.  Focused monitored checks and the
+dependency-complete target build pass under `[propext, Quot.sound]`; no
+full-root audit is claimed.
