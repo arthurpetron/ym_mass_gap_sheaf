@@ -24694,3 +24694,34 @@ retained fraction, completed gap, thermodynamic or continuum limit,
 continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check passes with every audited declaration using at most
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The outward Y/Z edge-touch surface is a genuine cut carrier (2026-08-28)
+
+`Z4OutwardYZEdgeTouchCutCarrier` replaces the bypassed seven-cube design with
+the existing twelve-face union of two shifted unit-cube boundaries.  A finite
+link-deletion graph forbids the literal shared link
+`((0,1,1,0), x0)`.  Its all-pairs reachability checks compile to Type-valued
+internal paths proving that each six-face cube boundary stays connected after
+the deletion.
+
+Every boundary link shared by a Y-cube face and a Z-cube face is proved equal
+to the displayed pivot.  Consequently the two sides are separated in the
+deleted-link graph, and the standard outward Y and Z query faces admit no
+pivot-avoiding chain through the full twelve-face support.  The same finite
+certificate proves that the pivot has incidence four and every other touched
+link has incidence at most two.  These facts are bundled as the constructive
+`OutwardYZCutCarrierCertificate`.
+
+This closes the geometric design frontier: the chosen local recoupling
+coordinate is now a genuine separator, unlike the prior seven-cube pivot.
+The next finite frontier is production realization in the corrected slab:
+embed this support, classify its pivot word and sparse nonpivot words, then
+construct an accepted connected source and a positive target whose pivot
+pairing stays within the two separated cube components.
+
+No realized disconnecting target, local-positive-channel inhabitant,
+parameter-uniform retained fraction, completed gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  The focused monitored check passes with every printed
+declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
+full-root audit is claimed.
