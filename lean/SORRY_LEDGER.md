@@ -22161,6 +22161,31 @@ transported slack and the new weighted ceiling are the two current analytic
 lanes; regional tails, thermodynamic/continuum/QFT/isolated-vacuum/Clay
 conclusions remain open.  No `sorry` is introduced.
 
+#### Preserve normalized debt slack as a literal transported reserve (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedNormalizedReserveCompiler`
+proves the exact same-edge recovery identity for an arbitrary later routing:
+normalized routed debt multiplied by its half-kernel denominator equals the
+literal shared-floor routed use.  Consequently `debt + margin <= 1` leaves
+the concrete reserve `margin * half-kernel capacity` on that same edge.
+
+`matchedEventualCanonicalRoutedCapacityDebtMaximum_add_margin_le_one` also
+strengthens the existing prefix-plus-tail persistence compiler: when the
+initial maximum, computed total variation budget, and a named margin fit
+under one, the maximum plus that same margin remains under one at every
+cutoff.  Thus contraction to the previous non-strict `debt <= 1` no longer
+throws away analytic slack.
+
+`MatchedEventualActivatedDeletedSupportAllCutoffNormalizedReserve` exposes the
+two remaining normalized lanes: transported debt plus the edge margin is at
+most one, and the constructed new-route ceiling is at most that margin times
+the same edge capacity.  `toTransportedReserve` and
+`toObservableCertificate` rejoin those lanes to the literal residual and
+regional-deficit pipeline.  No normalized reserve family is inhabited here;
+its transported-debt and new-ceiling estimates, the regional tail, completed
+gap, thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusions remain open.
+No `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
