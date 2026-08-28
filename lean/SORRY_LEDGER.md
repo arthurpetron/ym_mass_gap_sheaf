@@ -22186,6 +22186,22 @@ its transported-debt and new-ceiling estimates, the regional tail, completed
 gap, thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusions remain open.
 No `sorry` is introduced.
 
+#### Transported old paths cannot create new later edges (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtTransportedOldSupport`
+proves by recursion on the literal positive-kernel chain that coordinatewise
+cutoff transport sends every directed edge of an old canonical path into the
+embedded-old index carrier in both coordinates.  Equivalently, each edge lies
+in `matchedEventualCanonicalEmbeddedOldPairCarrier`, and every genuinely new
+later edge is absent from the mapped path.
+
+This is support localization, not a capacity estimate.  It isolates the next
+load comparison: transported old-endpoint traffic vanishes on new later edges,
+while new-endpoint paths use the later canonical branch.  The corresponding
+summed-load/debt inequality, normalized reserve inhabitant, regional tail,
+completed gap, thermodynamic/continuum/QFT/isolated-vacuum/Clay conclusions
+remain open.  No `sorry` is introduced.
+
 #### Reflected face component peel now controls one literal same-object OS moment (2026-08-27)
 
 `CompactDualSlabObservableFaceSameObjectOSBridge` chooses the concrete
