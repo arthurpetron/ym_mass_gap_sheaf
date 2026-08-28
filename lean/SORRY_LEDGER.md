@@ -24111,3 +24111,36 @@ for some accepted canonical chain.  Until that question is settled, no
 paired slab-component invariance or switch decoder is claimed.  Shared
 posterior capacity, the aggregate floor, parameter-uniform completed gap,
 continuum QFT, and Clay theorem remain open.  No `sorry` is introduced.
+
+#### Exhibit two-vertex strand rewiring and an additive-output collision (2026-08-28)
+
+`SU2TwoVertexFusionSumRewiring` lifts the slot mismatch into the complete
+two-vertex path pattern of the valence-four canonical fusion chain.  The
+first colored decomposition has unit paths
+
+`left: 0 -- 3` and `right: 1 -- 2`.
+
+After adding its two resolutions vertexwise and using production same-slot
+continuation, Lean computes the summed canonical paths as
+
+`sum: 0 -- 2` and `sum: 1 -- 3`.
+
+Thus Boolean union of local trivalent adjacencies does not preserve the
+physical terminal pairing through an internal edge: canonical addition can
+rewire which external faces are partners.
+
+The alternative decomposition `0--2` plus `1--3` reverses the order of the
+two unit resolutions at the second vertex.  Resolution uniqueness proves
+that its pair of summed local resolutions is exactly the same additive
+output.  An explicit two-point source carrier therefore makes the local
+additive-output compiler provably noninjective.
+
+This is not yet a collision in the complete corrected-slab source subtype;
+other links or separately retained provenance could distinguish the global
+inputs.  It does rule out the planned decoder argument from crossed auxiliary
+sums and local adjacency invariance alone.  The goal must now either retain
+global source-color provenance in the target kernel, prove that slab-wide
+compatibility forbids this local collision, or use a different coercive
+transport.  The direct paired-face decoder, shared column capacity,
+aggregate floor, parameter-uniform completed gap, continuum QFT, and Clay
+theorem remain open.  No `sorry` is introduced.
