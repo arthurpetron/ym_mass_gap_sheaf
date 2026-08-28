@@ -24627,3 +24627,34 @@ retained fraction, completed gap, thermodynamic or continuum limit,
 continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused check passes with every printed declaration using at most
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The seven-cube surface constructs an accepted connected source (2026-08-28)
+
+`Z4OutwardSevenCubeSlabConnectedSource` fixes coupling one, cutoff one, and
+half-width two.  Strict positivity of the complete physical term for the
+selected binary seven-cube surface and for the binary vacuum constructively
+extracts Sigma-valued accepted global fusion assignments.  These are attached
+directly to literal positive/expanded carrier entries, producing a member of
+the observable source cell `11 x 00` with the selected outward Y and Z faces
+as root and target.
+
+The existing constructive plaquette-chain certificate is then mapped into the
+finite physical union-support graph.  Every geometric adjacency supplies its
+displayed corrected-slab link, hence a true support-face edge; rooted-component
+closure propagates along the chain from the target to the root.  The resulting
+pair is therefore a literal
+`SlabObservablePairedConnectedStrandSource`, not merely a nonempty physical
+support or an untyped geometric sketch.
+
+This closes the source half of the local-positive-channel construction.  The
+remaining finite causal frontier is to select one compatible whole-product
+recoupling target and prove that its realized paired strand graph disconnects
+the marked faces.  The previously proved whole-product theorem will then
+supply coordinatewise positivity automatically.
+
+No disconnecting target, local-positive-channel inhabitant, parameter-uniform
+retained fraction, completed gap, thermodynamic or continuum limit,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused monitored check and exact 1,554-job target build pass at 100,000
+heartbeats with every printed declaration using at most
+`[propext, Quot.sound]`; no full-root audit is claimed.
