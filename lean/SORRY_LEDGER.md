@@ -23175,3 +23175,31 @@ its packed low-spin anchor data, then obtain a finite-core coercive estimate.
 The completed gap, spacing normalization, thermodynamic/continuum control,
 continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
 No `sorry` is introduced.
+
+#### Decide the complete exterior-removal or finite-core branch (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCanonicalExteriorOrCore` assembles
+the pointwise reserve classifications into one executable classifier for the
+complete canonical component family.  Its exterior branch returns an actual
+canonical component with a successful reserve check; on the complete
+boundary-link carrier, that component directly supplies the precise
+`ComponentAdaptiveRemovalWitness` consumed by the adaptive inverse-fiber and
+weight estimates.
+
+If the scan finds no exterior component, its complementary branch retains one
+decoded core-anchor record for every canonical component, proves that the
+records cover the component list exactly, and identifies their copy list with
+`slabCanonicalCoreAnchorCopies`.  The existing distinct-anchor injection then
+gives the causal terminal bound
+
+`number of canonical components`
+`  <= (number of displayed physical faces) * threshold`.
+
+Thus every accepted source is now constructively routed either to a genuine
+accepted exterior removal or to a completely packed finite-core component
+family.  The remaining frontier is to partition and sum the exterior source
+fibers over their target keys and to prove a coercive estimate for the
+finite-core branch.  No posterior-variance fraction, completed spectral gap,
+spacing normalization, thermodynamic/continuum control, continuum QFT,
+isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
+introduced.
