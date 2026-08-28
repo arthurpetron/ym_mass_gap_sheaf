@@ -283,6 +283,86 @@ theorem sourceWeight_total_le_of_dependentKernelCapacity
           sources)
       targetWeight targets column_capacity)
 
+/-- **Dependent rows with an explicit, source-dependent transported mass.**
+
+This is the non-normalized form of the preceding finite Fubini theorem.  A
+row need not have mass one: its exact mass is the displayed `rowMass source`.
+Shared physical column capacity then bounds the corresponding
+source-weighted transported mass.  This is the correct generic interface for
+a posterior transport which moves all of one source sector and only a fixed
+positive fraction of another without allocating the same target capacity
+twice. -/
+theorem sourceWeightedRowMass_total_le_of_dependentKernelCapacity
+    {Source Target : Type} [DecidableEq Target]
+    (sources : List Source) (sourceWeight rowMass : Source → Q')
+    (targets : List Target) (targetWeight : Target → Q')
+    (Choice : Source → Type)
+    (choices : (source : Source) → List (Choice source))
+    (localWeight : (source : Source) → Choice source → Q')
+    (realize : (source : Source) → Choice source → Target)
+    (targets_nodup : targets.Nodup)
+    (coverage : ∀ source, source ∈ sources →
+      ∀ choice, choice ∈ choices source →
+        realize source choice ∈ targets)
+    (row_mass : ∀ source, source ∈ sources →
+      listQSum (localWeight source) (choices source) ≈ rowMass source)
+    (column_capacity : ∀ target, target ∈ targets →
+      listQSum
+          (fun source => sourceWeight source *
+            dependentKernelPushforwardWeight
+              Choice choices localWeight realize source target)
+          sources ≤ targetWeight target) :
+    listQSum (fun source => sourceWeight source * rowMass source) sources ≤
+      listQSum targetWeight targets := by
+  let pushed : Source → Target → Q' :=
+    dependentKernelPushforwardWeight
+      Choice choices localWeight realize
+  have hrow : ∀ source, source ∈ sources →
+      listQSum (pushed source) targets ≈ rowMass source := by
+    intro source hsource
+    exact Q'.eqv_trans _ _ _
+      (kernelPushforwardWeight_total
+        (choices source) (localWeight source) (realize source)
+        targets targets_nodup (coverage source hsource))
+      (row_mass source hsource)
+  have hsourceRows :
+      listQSum (fun source => sourceWeight source * rowMass source) sources ≈
+        listQSum
+          (fun source =>
+            listQSum
+              (fun target => sourceWeight source * pushed source target)
+              targets)
+          sources := by
+    apply listQSum_congr_on
+    intro source hsource
+    exact Q'.eqv_symm (Q'.eqv_trans _
+      (sourceWeight source * listQSum (pushed source) targets) _
+      (listQSum_mul_left
+        (sourceWeight source) (pushed source) targets)
+      (Q'.mul_eqv_congr_left (sourceWeight source) _ _
+        (hrow source hsource)))
+  have hsourceColumns :
+      listQSum (fun source => sourceWeight source * rowMass source) sources ≈
+        listQSum
+          (fun target =>
+            listQSum
+              (fun source => sourceWeight source * pushed source target)
+              sources)
+          targets :=
+    Q'.eqv_trans _ _ _ hsourceRows
+      (Q'.eqv_symm
+        (listQSum_swap
+          (fun source target => sourceWeight source * pushed source target)
+          sources targets))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv hsourceColumns)
+    (listQSum_le_termwise_local
+      (fun target =>
+        listQSum
+          (fun source => sourceWeight source * pushed source target)
+          sources)
+      targetWeight targets column_capacity)
+
 end YMGap.Continuum.FiniteDependentKernelCapacity
 
 #print axioms YMGap.Continuum.FiniteDependentKernelCapacity.dependentKernelPushforwardWeight
@@ -291,3 +371,4 @@ end YMGap.Continuum.FiniteDependentKernelCapacity
 #print axioms YMGap.Continuum.FiniteDependentKernelCapacity.source_mul_dependentKernelPushforwardWeight_eqv_target_mul
 #print axioms YMGap.Continuum.FiniteDependentKernelCapacity.weightedColumn_le_of_columnCapacity
 #print axioms YMGap.Continuum.FiniteDependentKernelCapacity.sourceWeight_total_le_of_dependentKernelCapacity
+#print axioms YMGap.Continuum.FiniteDependentKernelCapacity.sourceWeightedRowMass_total_le_of_dependentKernelCapacity

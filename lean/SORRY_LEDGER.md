@@ -23827,3 +23827,39 @@ No distance-decay estimate, posterior-variance fraction, strict completed
 form bound, completed spectral gap, spacing normalization,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Factor a shared-column posterior fraction on the literal paired observable (2026-08-28)
+
+`CompactDualSlabObservablePairedSupportPosteriorTransport` identifies the
+first honest SU(2)-specific cancellation interface after the arbitrary-
+coupling paired-support switch.  It does not add a second independently
+normalized transport, because that could reuse target capacity already spent
+by the support-disconnected switch.  Instead it requires one joint dependent
+kernel on the complete Boolean source four-cell whose row mass is
+
+* exactly `1` on support-disconnected source pairs; and
+* exactly a displayed `delta > 0` on support-connected source pairs,
+
+with one shared weighted column-capacity inequality over both sectors.
+
+`FiniteDependentKernelCapacity` now proves the generic finite Fubini theorem
+for source-dependent row mass.  Applied to the joint posterior kernel, it
+gives the exact observable-connected contraction
+
+`faceBooleanCovariance`
+`  <= (1 - delta) * normalizedPairedSupportConnectedMass`
+`  <= 1 - delta < 1`.
+
+For a lower face paired with its reflection, the existing physical-event and
+same-object bridges identify this with the genuine connected form of the
+literal face indicator under the physical BF4 conditional operator.  Thus
+the result supplies the previously missing posterior-variance node in a form
+that is causally connected to the actual observable and cannot double-spend
+columns.
+
+No posterior transport is inhabited here.  Constructing a positive fraction
+from the bounded-spin residual paths is the next load-bearing non-abelian
+mathematical problem.  No fraction uniform in coupling, cutoff, volume, or
+lattice spacing, all-observable completed form bound, completed spectral gap,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
