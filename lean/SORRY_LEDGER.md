@@ -22730,3 +22730,37 @@ No coefficients or strict initial closure are inhabited here.  Regional
 tails, a completed finite-volume gap, thermodynamic/continuum control,
 continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
 No `sorry` is introduced.
+
+#### Restrict exact adaptive capacity loss to the edges actually used (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveSimplePathUsedCapacityCompiler`
+applies the loop-erased simple-routing theorem to the exact all-cutoff
+observable path family.  Every endpoint route factor, and hence its finite
+maximum on a later edge, is bounded by the literal later carrier length.
+
+Strict positivity of the route-factor maximum constructively locates a new
+endpoint whose simple path traverses the selected edge.  The positive-chain
+witness proves that edge's literal raw-kernel capacity is positive.  The
+module can therefore filter the later carrier to exactly the positive-traffic
+edges and form the explicit positive minimum
+
+`usedEdgeRawCapacityFloor`.
+
+This gives the fixed-cutoff factorization
+
+`local exact amplification maximum`
+`  <= shared floor * later carrier length / used-edge raw-capacity floor`
+
+and consequently
+
+`exact adaptive debt maximum`
+`  <= (2 * later new-block mass)`
+`       * (shared floor * carrier length / used-edge capacity floor)`.
+
+Unlike the whole-sector floor fallback, unrelated positive kernel entries do
+not enter this denominator.  The result is still only fixed-cutoff: no
+cutoff-uniform lower bound on the used-edge floor or inverse-square bound on
+the displayed product is inhabited here.  Regional tails, a completed
+finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
