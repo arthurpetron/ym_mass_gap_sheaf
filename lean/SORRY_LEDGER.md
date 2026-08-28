@@ -23143,3 +23143,35 @@ to the same-object transfer gap.  Fixed-scale cutoff completion, spacing
 normalization, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Contract fixed exterior-removal fibers at arbitrary coupling (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinAdaptiveFiberWeight` combines the
+accepted high-spin component path with the existing injective adaptive
+inverse-fiber code.  For every fixed rational `0 < w < 1`, consider a
+duplicate-free family of source physical/assignment pairs which all:
+
+* remove a component of the same size `n` to the same accepted physical and
+  fusion-assignment target; and
+* pass `highSpinReserveCheck` at `anchorPaidExteriorThreshold w`.
+
+The adaptive code bounds this fixed target fiber by `10,240,000^n`, while the
+high-spin Casimir estimate pays `(1/32,000,000)^n` pointwise.  Exact finite
+summation therefore proves
+
+`source expanded-fiber weight sum`
+`  <= (8/25)^n * target expanded-fiber weight`.
+
+The strict rate `8/25 < 1` is independent of `w`; the coupling dependence is
+named explicitly by the moving threshold in the reserve hypothesis.  This is
+the first source-backed arbitrary-coupling strand-to-weight summation
+compiler.  It does not assert that every state has an exterior component,
+sum the core-blocked family, or prove a conditional transition floor or
+posterior-variance fraction.
+
+The remaining frontier is to assemble the executable exterior branches over
+the actual source carrier while routing every terminal core-blocked branch to
+its packed low-spin anchor data, then obtain a finite-core coercive estimate.
+The completed gap, spacing normalization, thermodynamic/continuum control,
+continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
+No `sorry` is introduced.
