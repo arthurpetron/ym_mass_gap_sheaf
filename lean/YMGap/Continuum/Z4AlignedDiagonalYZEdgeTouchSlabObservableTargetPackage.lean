@@ -72,6 +72,29 @@ def observableTransportedTargetPackage
   { transported := transported
     observable_mem := transported.target_mem }
 
+def alignedDiagonalSwitchObservableTargetPackageFrom
+    (linkedList : List {link // link ∈ boundaryCompleteSlabLinks 5})
+    (hpackages : slabPhysicalPairRecouplingPackages 5
+        alignedDiagonalSwitchRecouplingSource.1.1.1.1
+        alignedDiagonalSwitchRecouplingSource.1.2.1.1 =
+      AlignedDiagonalSwitchLinkedPackagesFrom linkedList) :
+    ObservableTransportedTargetPackage
+      alignedDiagonalSwitchPhysicalData
+      alignedDiagonalSwitchRootFaceId
+      alignedDiagonalSwitchTargetFaceId
+      alignedDiagonalSwitchRecouplingSource
+      (AlignedDiagonalSwitchLinkedPackagesFrom linkedList)
+      hpackages :=
+  observableTransportedTargetPackage
+    alignedDiagonalSwitchPhysicalData
+    alignedDiagonalSwitchRootFaceId
+    alignedDiagonalSwitchTargetFaceId
+    alignedDiagonalSwitchRecouplingSource
+    (AlignedDiagonalSwitchLinkedPackagesFrom linkedList)
+    hpackages
+    (transportedTargetPackage hpackages
+      (alignedDiagonalSwitchTargetMembershipPackageFrom linkedList))
+
 def alignedDiagonalSwitchObservableTargetPackage :
     ObservableTransportedTargetPackage
       alignedDiagonalSwitchPhysicalData
@@ -81,15 +104,9 @@ def alignedDiagonalSwitchObservableTargetPackage :
       (AlignedDiagonalSwitchLinkedPackagesFrom
         alignedDiagonalSwitchLinkedList)
       alignedDiagonalSwitchRecouplingPackages_eq :=
-  observableTransportedTargetPackage
-    alignedDiagonalSwitchPhysicalData
-    alignedDiagonalSwitchRootFaceId
-    alignedDiagonalSwitchTargetFaceId
-    alignedDiagonalSwitchRecouplingSource
-    (AlignedDiagonalSwitchLinkedPackagesFrom
-      alignedDiagonalSwitchLinkedList)
+  alignedDiagonalSwitchObservableTargetPackageFrom
+    alignedDiagonalSwitchLinkedList
     alignedDiagonalSwitchRecouplingPackages_eq
-    alignedDiagonalSwitchRecouplingChoicePackage
 
 #print axioms alignedDiagonalSwitchObservableTargetPackage
 
