@@ -23429,3 +23429,33 @@ No posterior-variance fraction, strict completed form bound, completed
 spectral gap, spacing normalization, thermodynamic/continuum passage,
 continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
 `sorry` is introduced.
+
+#### Split each far core into paid and residual length (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreFarSplit` proves that serialization of
+the complete rooted strand component preserves the exact pointwise drop
+decomposition:
+
+`complete peel length = paid high-spin exterior length`
+`                     + finite-core residual length`.
+
+For every chosen radius, a Boolean test then partitions the literal far-core
+certificate list without changing its total weight.  The first branch exposes
+
+`radius + 2 <= 2 * paid high-spin exterior length`,
+
+while failure of that test, the exact length identity, and the existing far
+component-size floor force
+
+`radius + 2 <= 2 * finite-core residual length`.
+
+Thus the far branch is no longer treated as a single putative low-spin tail.
+It is exactly the sum of an exterior-long branch whose moves already carry
+the verified arbitrary-coupling high-spin payment, and a genuinely
+residual-long branch.  No summation bound for either branch is claimed here;
+in particular, the residual-long connected-tail estimate remains open.
+
+No posterior-variance fraction, strict completed form bound, completed
+spectral gap, spacing normalization, thermodynamic/continuum passage,
+continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
+`sorry` is introduced.
