@@ -22480,6 +22480,28 @@ finite-volume gap, thermodynamic/continuum control, continuum QFT, isolated
 vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
 
+#### Connect the exact used-capacity product to the observable compiler (2026-08-28)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveSimplePathUsedCapacityInverseSquareObservableCompiler`
+exposes one all-cutoff producer interface whose adaptive field is precisely
+
+`2 * later new-block mass`
+`  * (shared floor * later carrier length / used-edge raw-capacity floor)`
+`  <= A_adaptive / (B + k)^2`.
+
+The module proves that this explicit product dominates the preceding local
+amplification envelope, then adapts the hypothesis to the already checked
+inverse-square consumer.  Together with the transported-data coefficient and
+the named strict initial closure, the structure returns the exact all-cutoff
+observable capacity certificate.
+
+Thus the new fixed-cutoff mathematics is causally joined to its final finite
+observable consumer; future analytic work can target the displayed product
+directly.  No adaptive coefficient, transported-data coefficient, or strict
+initial closure is inhabited here.  Regional tails, a completed finite-volume
+gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
+Clay mass-gap conclusion remain open.  No `sorry` is introduced.
+
 #### Dominate the exact adaptive stream by the constructed weighted ceiling (2026-08-27)
 
 `BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveCeilingPaymentCompiler`
