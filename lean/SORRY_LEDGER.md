@@ -21815,3 +21815,33 @@ cutoff-two normalized-zero composition is not asserted in these modules; nor
 are multistep minorization, a uniform path/congestion estimate, a cofinal
 posterior-variance fraction, continuum QFT axioms, or the Clay conclusion.
 No `sorry` is introduced.
+
+#### Rooted pairwise coercivity to posterior-gap update (2026-08-27)
+
+`BF4PhysicalVacuumSectorPairwiseCoercivityGapBridge` proves the exact finite
+conversion from unnormalized stationary pairwise coercivity to the literal
+BF4 boundary-posterior variance gap.  If
+`strength * pairwiseVariance <= physicalDirichlet`, then the posterior
+fraction is
+`min 1 (centralPhysicalFiniteVacuumSectorMass * strength)`.  The existing
+`CentralLowerExcitedSpinCubeOffRayRootCoercivityAt` certificate now enters
+this bridge directly.  Posterior-gap certificates are also proved downward
+closed under replacement by any smaller positive fraction.
+
+`BF4PhysicalVacuumSectorRootCoercivityCofinalGapBridge` combines the existing
+fixed-nome canonical-component mass floor with cofinal off-ray rooted
+coercivity and cofinal ray capacity.  Beyond one explicit maximum anchor it
+constructs `FixedNomeCofinalVacuumSectorConditionalVarianceFraction` with
+the cutoff-independent fraction
+`min 1 (centralPhysicalFiniteVacuumSectorUniformMassFloor *
+compiledStrength)`.  Through the already-proved conditional-variance
+compiler this is sufficient for the actual completed canonical-sector OS
+transfer gap at every fixed nome.
+
+The component-mass factor is load-bearing for this unnormalized resistance
+route.  No estimate is asserted for that mass-floor/strength product along
+the matched asymptotically-free nome trajectory.  In particular, its
+comparison with physical spacing, a mass-normalized rooted coercivity
+alternative, the missing cofinal off-ray and ray inhabitants, the
+same-channel continuum construction, continuum QFT axioms, isolated vacuum,
+and the Clay conclusion remain open.  No `sorry` is introduced.
