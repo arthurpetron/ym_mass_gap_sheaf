@@ -24725,3 +24725,29 @@ continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  The focused monitored check passes with every printed
 declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The edge-touch cut carrier has the exact corrected-slab pivot word (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabSwitchingProfile` embeds the twelve-face cut carrier
+in the boundary-complete slab of extent five.  Its existing nodup and even
+incidence certificates, together with the new one-four/all-other-at-most-two
+profile, compile every nonpivot external word to the production
+`SparseFundamentalWord` interface.
+
+At the unique cut link, the corrected-slab incident-face enumeration has
+degree five and reads exactly `[1,1,1,1,0]`.  The four selected fundamental
+faces therefore have local external spin sum four, while the additional slab
+face coordinate is vacuum.  This is precisely the concrete external data
+consumed by the already proved SU(2) valence-five `1/4` recoupling floor.
+
+The next contraction is to instantiate that floor for the new physical pair
+and combine it with the sparse nonpivot identities into a coordinatewise-
+positive whole-product row.  After that, source and within-component pivot
+target realizations remain to be constructed.
+
+No accepted source or realized disconnecting target for this carrier,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  The focused monitored check
+passes with every printed declaration using exactly the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
