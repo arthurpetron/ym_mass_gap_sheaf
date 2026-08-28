@@ -21892,3 +21892,28 @@ Constructing such a witness from the non-Abelian SU(2) heat weights or a
 mass-normalized resistance/congestion flow, proving its AF-scale comparison,
 and the same-channel continuum/QFT/isolated-vacuum/Clay conclusions remain
 open.  No `sorry` is introduced.
+
+#### Mass-normalized full-sector root-traffic capacity update (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassNormalizedRootTrafficCapacity` reduces the new
+normalized Poincare frontier to a pointwise estimate on the already-defined
+full canonical-sector root flow.  Its finite capacity condition is
+`fraction * rootFlowLoad(source,target) <= componentMass *
+physicalKernel(source,target)`.  Positive division by the component mass
+recovers the old root-traffic capacity, and the existing full-sector flow
+theorem then gives
+`fraction * pairwiseVariance <= componentMass * physicalDirichlet`.
+The mass-normalized pairwise bridge therefore supplies the same posterior
+fraction.
+
+Every finite cutoff is proved non-vacuous: the existing finite root capacity
+constructs a normalized one with exact fraction
+`min 1 (componentMass * oldDelta)`.  The cofinal structure
+`FixedNomeCofinalVacuumSectorMassNormalizedRootTrafficCapacity` compiles a
+direct cutoff-uniform normalized edge estimate all the way to the cofinal
+posterior-variance interface without a separate mass-floor hypothesis.
+
+No direct cofinal normalized edge-capacity witness is inhabited.  Proving
+that local SU(2) congestion estimate, its comparison with physical spacing
+along the matched AF trajectory, and the same-channel continuum/QFT/
+isolated-vacuum/Clay conclusions remain open.  No `sorry` is introduced.
