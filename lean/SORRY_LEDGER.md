@@ -23079,3 +23079,31 @@ and exterior drift, fixed-scale cutoff completion, spacing normalization,
 same-object observable pin, thermodynamic/continuum control, continuum QFT,
 isolated vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
 introduced.
+
+#### Contract the complete canonical family to one finite core (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCanonicalCoreResidual` sums the
+core residuals of every component in the exhaustive canonical family without
+paying a spurious component-count factor.  At a fixed physical face, pairwise
+disjointness proves that the sum of all component selection counts is at most
+the physical label `p`.
+
+The arithmetic contraction is the exact natural-number inequality
+
+`sum_i (d_i - c) <= (sum_i d_i) - c`.
+
+Taking `c = p - S` proves that the sum of every canonical component's core
+remainder is at most `S` on that face.  The aggregated residual drop profile
+is serialized as `slabCanonicalCoreResidualFaces`, with the global bound
+
+`slabCanonicalCoreResidualFaces.length`
+`  <= (slabPhysicalFaceEdges extent).length * S`.
+
+Thus neither the number of components nor the number of blocked components
+appears in the residual-core size.  An accepted simultaneous exterior-peeling
+trace and a product comparison for all component weights have not yet been
+constructed, and no finite-core coercivity or spectral estimate has been
+proved.  Fixed-scale cutoff completion, spacing normalization, same-object
+observable pin, thermodynamic/continuum control, continuum QFT, isolated
+vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
