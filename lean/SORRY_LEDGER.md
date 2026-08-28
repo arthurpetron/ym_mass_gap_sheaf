@@ -21950,3 +21950,33 @@ No cofinal normalized resistance-congestion bound is inhabited.  Its proof
 from SU(2) heat weights, its comparison with physical spacing along the
 matched AF trajectory, and the same-channel continuum/QFT/isolated-vacuum/
 Clay conclusions remain open.  No `sorry` is introduced.
+
+#### Exact-mass full-sector resistance-flow update (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassExactRootResistanceFlow` strengthens the preceding
+normalized resistance route by retaining the exact component-mass factor in
+the generic pairwise-to-root identity.  Instead of first using
+`componentMass <= 1`, it proves
+`pairwiseVariance <= componentMass * resistanceLoadedDirichlet`.
+
+This factor is exactly the one required on the energy side of the normalized
+Poincare inequality.  Consequently the sufficient local estimate weakens
+from
+`fraction * (resistanceFlowLoad / componentMass) <= 1`
+to
+`fraction * resistanceFlowLoad <= 1`.
+The component mass cancels algebraically before any congestion estimate is
+requested.  Thus neither a component-mass floor nor division by the actual
+component mass belongs to the sharp resistance-flow frontier.
+
+Every finite cutoff again has an explicit positive fraction, now the minimum
+of one and the reciprocal of one plus the raw total resistance traffic.  A
+cofinal raw resistance-congestion bound compiles directly to the existing
+mass-normalized pairwise coercivity and posterior conditional-variance
+interfaces.
+
+No cofinal raw resistance-congestion bound is inhabited.  Proving that
+strictly weaker SU(2) estimate, comparing its resulting fraction with physical
+spacing along the matched AF trajectory, and constructing the same-channel
+continuum/QFT/isolated-vacuum/Clay conclusions remain open.  No `sorry` is
+introduced.
