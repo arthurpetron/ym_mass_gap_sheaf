@@ -13,9 +13,12 @@ column capacity.  Exact Gibbs-weight preservation upgrades it to the physical
 weighted column bound.  Target-sector invariance also proves that every
 realized output remains support-connected.
 
-The retained connected row mass is explicit but is not proved positive here.
-Thus this closes the decoder-free connected column-capacity node, not the
-aggregate posterior floor.
+Zero-weight successful channels are discarded before first-source search, so
+every listed retained candidate is strictly positive.  The retained connected
+row mass is explicit but is not proved positive here because the filtered list
+may still be empty.  Thus this closes the decoder-free connected
+column-capacity node and the zero-channel selector defect, not the aggregate
+posterior floor.
 
 Constructive contract: finite attached lists, explicit SU(2) row weights,
 canonical first-source search, and exact `Q'` inequalities only; no
@@ -112,8 +115,11 @@ def slabObservablePairedConnectedStrandChoices
       D rootFaceId targetFaceId) :
     List (SlabObservablePairedConnectedStrandChoice
       D rootFaceId targetFaceId source) :=
-  slabObservablePairedStrandSuccessfulChoices
-    D rootFaceId targetFaceId source.toRecouplingSource
+  (slabObservablePairedStrandSuccessfulChoices
+    D rootFaceId targetFaceId source.toRecouplingSource).filter
+      fun choice => decide ((0 : Q') <
+        slabObservablePairedStrandSuccessfulWeight
+          D rootFaceId targetFaceId source.toRecouplingSource choice)
 
 def slabObservablePairedConnectedStrandWeight
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
@@ -168,6 +174,20 @@ theorem slabObservablePairedConnectedStrandWeight_nonnegative
   slabObservablePairedStrandSuccessfulWeight_nonnegative
     D rootFaceId targetFaceId source.toRecouplingSource choice
 
+/-- Every listed connected channel has strictly positive SU(2) row weight;
+zero entries are discarded before first-source selection. -/
+theorem slabObservablePairedConnectedStrandWeight_pos_of_mem
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (source : SlabObservablePairedConnectedStrandSource
+      D rootFaceId targetFaceId)
+    (choice : SlabObservablePairedConnectedStrandChoice
+      D rootFaceId targetFaceId source)
+    (hchoice : choice ∈ slabObservablePairedConnectedStrandChoices
+      D rootFaceId targetFaceId source) :
+    (0 : Q') < slabObservablePairedConnectedStrandWeight
+      D rootFaceId targetFaceId source choice := by
+  exact of_decide_eq_true (List.mem_filter.mp hchoice).2
+
 theorem slabObservablePairedConnectedStrandWeight_row_le_one
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (source : SlabObservablePairedConnectedStrandSource
@@ -177,12 +197,28 @@ theorem slabObservablePairedConnectedStrandWeight_row_le_one
           D rootFaceId targetFaceId source)
         (slabObservablePairedConnectedStrandChoices
           D rootFaceId targetFaceId source) ≤ 1 := by
-  exact Q'.le_trans' _ _ _
-    (Q'.le_of_eqv
-      (slabObservablePairedStrandSuccessfulWeight_row_mass
+  have hfilter :
+      listQSum
+          (slabObservablePairedConnectedStrandWeight
+            D rootFaceId targetFaceId source)
+          (slabObservablePairedConnectedStrandChoices
+            D rootFaceId targetFaceId source) ≤
+        listQSum
+          (slabObservablePairedConnectedStrandWeight
+            D rootFaceId targetFaceId source)
+          (slabObservablePairedStrandSuccessfulChoices
+            D rootFaceId targetFaceId source.toRecouplingSource) := by
+    unfold slabObservablePairedConnectedStrandChoices
+    exact listQSum_filter_le_of_nonnegative _ _
+      (slabObservablePairedConnectedStrandWeight_nonnegative
+        D rootFaceId targetFaceId source) _
+  exact Q'.le_trans' _ _ _ hfilter
+    (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (slabObservablePairedStrandSuccessfulWeight_row_mass
+          D rootFaceId targetFaceId source.toRecouplingSource))
+      (slabObservablePairedStrandDisconnectionMass_le_one
         D rootFaceId targetFaceId source.toRecouplingSource))
-    (slabObservablePairedStrandDisconnectionMass_le_one
-      D rootFaceId targetFaceId source.toRecouplingSource)
 
 /-! ## 3. Canonical thinning and unweighted column capacity -/
 
@@ -335,6 +371,7 @@ end YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning
 
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedConnectedStrandSources_nodup
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedStrandDisconnectionMass_le_one
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedConnectedStrandWeight_pos_of_mem
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedConnectedStrandThinnedColumn_le_one
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedConnectedStrandRealize_connected
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning.slabObservablePairedConnectedStrandThinnedWeightedColumn_le

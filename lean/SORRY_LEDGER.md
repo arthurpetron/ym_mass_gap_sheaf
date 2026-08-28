@@ -24206,6 +24206,22 @@ full-mass support branch and isolate the minimal positive aggregate witness.
 Parameter-uniform completed gap, continuum QFT, and the Clay theorem remain
 open.  No `sorry` is introduced.
 
+#### Exclude zero channels before first-source selection (2026-08-28)
+
+`CompactDualSlabObservablePairedConnectedFirstSourceThinning` now filters the
+literal successful SU(2) choice row by strict positivity before it performs
+canonical first-source search.  Lean proves that every listed connected
+channel has strictly positive recoupling weight.  Since the filter only
+removes nonnegative terms, each filtered row remains bounded by the original
+normalized recoupling row, so all previously proved column and physical
+weighted-capacity estimates survive unchanged.
+
+This closes a real selector defect: an earlier source with only zero-weight
+channels can no longer claim a target column and erase a later positive
+contribution.  The filtered choice list can still be empty, so no positive
+aggregate mass, retained fraction, parameter-uniform gap, continuum QFT, or
+Clay theorem is claimed.  No `sorry` is introduced.
+
 #### Glue the two posterior sectors into one shared physical budget (2026-08-28)
 
 `CompactDualSlabObservablePairedSplitPosteriorMass` partitions the opposite
