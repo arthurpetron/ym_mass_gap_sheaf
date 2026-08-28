@@ -22422,3 +22422,34 @@ retained embedded-old edges, and adaptive-new load on genuinely new edges.
 Neither estimate is inhabited here.  Regional tails, a completed finite-volume
 gap, thermodynamic/continuum control, continuum QFT, isolated vacuum, and the
 Clay mass-gap conclusion remain open.  No `sorry` is introduced.
+
+#### Canonical slack pays only data drift and adaptive new debt (2026-08-27)
+
+`BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtExactAdaptiveCanonicalSlackCompiler`
+puts the two remaining exact adaptive lanes into the normalized same-edge
+currency already controlled by canonical prefix-plus-tail persistence.  It
+first proves generic additivity of shared-denominator capacity debt and hence
+the exact identity
+
+`adaptive full debt = transported old debt + adaptive new debt`.
+
+On the image of a current carrier pair, transported old debt is no larger than
+the full transported bridge debt.  The latter is bounded by current canonical
+debt plus the exact transported data-deficit maximum.  Consequently preserved
+canonical margin pays the retained-old lane as soon as
+
+`data-deficit maximum + adaptive new debt <= margin`.
+
+On a genuinely new edge, transported old debt is already zero, so the same
+margin only pays adaptive new debt.  The compiler proves that these two
+payment fields, a positive tail allowance, and an initial canonical closure
+which explicitly preserves the margin construct the exact all-cutoff
+observable certificate.  Mapped activated edges enter automatically through
+the preceding zero-load theorem.
+
+No such payment family or strict initial closure is inhabited here.  The live
+analytic frontier is now the adaptive-new debt relative to preserved canonical
+slack, together with the already isolated transported data drift on retained
+old edges.  Regional tails, a completed finite-volume gap,
+thermodynamic/continuum control, continuum QFT, isolated vacuum, and the Clay
+mass-gap conclusion remain open.  No `sorry` is introduced.
