@@ -23014,3 +23014,34 @@ Combining core and exterior drift, fixed-scale cutoff completion, spacing
 normalization, same-object observable pin, thermodynamic/continuum control,
 continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
 No `sorry` is introduced.
+
+#### Assemble and pack the exhaustive canonical core family (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCanonicalCoreFamily` constructs
+the actual connected-component family of one accepted fusion assignment's
+global physical face-strand graph.  Because the endpoint enumeration can
+repeat copies, the canonical graph compiler runs on the `eraseDups` endpoint
+carrier.  Two explicit identity `RootedFiniteBoolGraphHom`s transport rooted
+components between the raw and deduplicated carriers in both directions.
+The selected raw-list seed component therefore has exactly the support of
+its displayed canonical component.
+
+Every canonical component is classified once by the executable
+`SlabComponentExteriorOrCoreAnchor` dichotomy.  The exterior branch emits no
+core copy; the blocked branch emits its decoded selected low-spin anchor.
+Distinct canonical components are constructively disjoint, so two emitted
+anchors cannot be equal.  The resulting `slabCanonicalCoreAnchorCopies` list
+is duplicate-free, every entry belongs to the literal finite core carrier,
+and finite pigeonhole proves
+
+`slabCanonicalCoreAnchorCopies.length`
+`  <= (slabPhysicalFaceEdges extent).length * threshold`.
+
+Thus the number of blocked components in the exhaustive canonical component
+family is now bounded by the finite low-spin carrier.  The exterior
+decorations attached to each blocked component have not yet been summed, and
+no finite-core coercivity or spectral estimate has been proved.  Combining
+core and exterior drift, fixed-scale cutoff completion, spacing
+normalization, same-object observable pin, thermodynamic/continuum control,
+continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
+No `sorry` is introduced.
