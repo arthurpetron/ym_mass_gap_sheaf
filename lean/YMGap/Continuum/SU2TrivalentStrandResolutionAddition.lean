@@ -21,6 +21,7 @@ choice, `native_decide`, `sorry`, new axiom, or noncomputable declaration.
 
 import YMGap.Continuum.SU2FusionSupportAddition
 import YMGap.Continuum.SU2TrivalentStrandPeeling
+import YMGap.Continuum.SU2TrivalentStrandPortPairing
 
 namespace YMGap.Continuum.SU2TrivalentStrandResolutionAddition
 
@@ -29,6 +30,7 @@ set_option autoImplicit false
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.SU2FusionSupportAddition
 open YMGap.Continuum.SU2TrivalentStrandPeeling
+open YMGap.Continuum.SU2TrivalentStrandPortPairing
 
 /-! ## 1. Add two explicit resolutions -/
 
@@ -156,6 +158,38 @@ theorem canonicalTrivalentStrandBundleSupportB_add
   cases pair <;>
     exact nat_add_positiveB _ _
 
+/-- Local adjacency after strand slots are forgotten: two different
+trivalent legs are adjacent precisely when their unique canonical bundle is
+nonempty. -/
+def canonicalTrivalentLegAdjacentB
+    (a b c : Nat) (hadmissible : fusionOK a b c = true) :
+    TrivalentLeg → TrivalentLeg → Bool
+  | .a, .b | .b, .a =>
+      canonicalTrivalentStrandBundleSupportB a b c hadmissible .ab
+  | .b, .c | .c, .b =>
+      canonicalTrivalentStrandBundleSupportB a b c hadmissible .bc
+  | .c, .a | .a, .c =>
+      canonicalTrivalentStrandBundleSupportB a b c hadmissible .ca
+  | _, _ => false
+
+/-- The complete local leg-adjacency relation of a summed admissible vertex
+is the Boolean union of the two summand relations. -/
+theorem canonicalTrivalentLegAdjacentB_add
+    {a b c a' b' c' : Nat}
+    (hleft : fusionOK a b c = true)
+    (hright : fusionOK a' b' c' = true)
+    (leftLeg rightLeg : TrivalentLeg) :
+    canonicalTrivalentLegAdjacentB
+        (a + a') (b + b') (c + c')
+        (fusionOK_add hleft hright) leftLeg rightLeg =
+      (canonicalTrivalentLegAdjacentB
+          a b c hleft leftLeg rightLeg ||
+        canonicalTrivalentLegAdjacentB
+          a' b' c' hright leftLeg rightLeg) := by
+  cases leftLeg <;> cases rightLeg <;>
+    simp only [canonicalTrivalentLegAdjacentB, Bool.or_false] <;>
+    apply canonicalTrivalentStrandBundleSupportB_add
+
 end YMGap.Continuum.SU2TrivalentStrandResolutionAddition
 
 #print axioms YMGap.Continuum.SU2TrivalentStrandResolutionAddition.addTrivalentStrandResolutions
@@ -164,3 +198,4 @@ end YMGap.Continuum.SU2TrivalentStrandResolutionAddition
 #print axioms YMGap.Continuum.SU2TrivalentStrandResolutionAddition.canonicalBC_add_of_fusionOK
 #print axioms YMGap.Continuum.SU2TrivalentStrandResolutionAddition.canonicalCA_add_of_fusionOK
 #print axioms YMGap.Continuum.SU2TrivalentStrandResolutionAddition.canonicalTrivalentStrandBundleSupportB_add
+#print axioms YMGap.Continuum.SU2TrivalentStrandResolutionAddition.canonicalTrivalentLegAdjacentB_add

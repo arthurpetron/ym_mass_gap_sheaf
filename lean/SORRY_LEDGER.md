@@ -24028,6 +24028,9 @@ Boolean support of each local leg-pair bundle satisfies the sharper union law
 
 `bundleSupport(sum) = bundleSupport(left) || bundleSupport(right)`.
 
+The induced Boolean adjacency relation on the three trivalent legs obeys the
+same pointwise union identity for every ordered leg pair.
+
 This is the structural reason crossed selected/unselected subnetworks can
 preserve face-to-face adjacency: canonical re-resolution of an accepted sum
 does not create a new kind of local strand connection or erase one present
