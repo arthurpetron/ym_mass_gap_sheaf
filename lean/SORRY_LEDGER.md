@@ -23790,3 +23790,40 @@ strict covariance rate, posterior-variance fraction, strict completed form
 bound, completed spectral gap, spacing normalization, thermodynamic/continuum
 passage, continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.
 No `sorry` is introduced.
+
+#### Expose exact finite-volume strictness and its vacuum-margin loss (2026-08-28)
+
+`CompactDualSlabObservableFiniteVolumeVacuumStrictness` proves a second,
+orthogonal contraction of the one-replica positive marginal.  The exact
+Boolean partition of the physical carrier places the all-zero labelling in
+the complement of the root-positive event.  Its corrected-slab physical term
+is exactly one, so
+
+`positiveSourceWeight + 1 <= physicalPartition`.
+
+After positive division, the literal finite-volume event rate and vacuum
+margin satisfy
+
+`finiteVolumeVacuumRate + finiteVolumeVacuumMargin <= 1`,
+
+where
+
+`finiteVolumeVacuumMargin = 1 / physicalPartition > 0`.
+
+The arbitrary-coupling SU(2) paired-support switch therefore gives
+
+`faceBooleanCovariance <= finiteVolumeVacuumRate < 1`
+
+for every finite corrected slab, cutoff, and nonnegative rational coupling.
+This is a genuine strict rational inequality, but it is not uniform: the
+margin is explicitly the reciprocal of the full partition and no lower bound
+on it is asserted as volume, cutoff, coupling, or lattice spacing varies.
+Accordingly this milestone shows that positive-marginal domination alone
+cannot supply the required continuum-uniform gap; the load-bearing next input
+must exploit signed SU(2)-specific cancellation or conditional coercivity on
+the localized finite-core carrier.
+
+No distance-decay estimate, posterior-variance fraction, strict completed
+form bound, completed spectral gap, spacing normalization,
+thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
+mass-gap theorem is claimed.  No `sorry` is introduced.
