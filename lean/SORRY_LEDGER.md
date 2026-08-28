@@ -23459,3 +23459,30 @@ No posterior-variance fraction, strict completed form bound, completed
 spectral gap, spacing normalization, thermodynamic/continuum passage,
 continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
 `sorry` is introduced.
+
+#### Complete the paid exterior path to an accepted target (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentCoreCompletionWeight` repairs the precise
+summation obstruction left by the pointwise high-spin/core split.  Its
+intermediate `corePhysical` field need not itself carry an accepted trivalent
+assignment, so it is not silently treated as a physical partition state.
+Instead, the exact residual word constructs an ordinary legal peel path from
+that intermediate field to the existing accepted complete-component target.
+
+On every explicitly quantified rational interval `0 < w < 1`, the SU(2)
+successor ratio at threshold zero is at most the deliberately coarse factor
+`2`.  Finite path induction therefore proves the two-rate comparison
+
+`source weight`
+`  <= (1/32,000,000)^paidLength * 2^residualLength`
+`       * accepted complete-target weight`.
+
+The residual factor is exposed, not called contractive.  It makes the next
+combinatorial threshold exact: the paid length must dominate enough residual
+length for the sharp high-spin payment to absorb both inverse-fiber entropy
+and this low-spin completion price.
+
+No summed paid-branch bound, residual-long tail bound, posterior-variance
+fraction, strict completed form bound, completed spectral gap, spacing
+normalization, thermodynamic/continuum passage, continuum QFT, isolated
+vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
