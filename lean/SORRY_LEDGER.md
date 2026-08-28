@@ -23045,3 +23045,37 @@ core and exterior drift, fixed-scale cutoff completion, spacing
 normalization, same-object observable pin, thermodynamic/continuum control,
 continuum QFT, isolated vacuum, and the Clay mass-gap conclusion remain open.
 No `sorry` is introduced.
+
+#### Split every component into paid exterior and finite core remainder (2026-08-28)
+
+`CompactDualSlabFaceStrandComponentHighSpinCoreSplitWeight` avoids treating a
+connected core-blocked component as if it were divisible into mate-closed
+subcomponents.  Instead it splits the component's physical drop profile
+arithmetically.  For source label `p`, component multiplicity `d <= p`, and
+threshold `S`, it defines
+
+`exterior = min d (p - S)` and `core = d - exterior`.
+
+The exterior part leaves the face label at least `S`, so its canonical
+serialized word constructs an actual `SlabHighSpinFacePeelPath`.  The residual
+part is proved pointwise at most `S`; consequently its complete serialized
+word has length at most
+
+`(slabPhysicalFaceEdges extent).length * S`.
+
+Exterior removal followed by residual removal is kernel-checked to equal the
+complete original component decrement.  Because the retained
+fine-intertwiner fiber has unit counting weight, the high-spin comparison
+allows an arbitrary target witness.  At `anchorPaidExteriorThreshold w`, the
+exterior of every component, including a core-blocked component, therefore
+pays `anchorFaceCoefficient` per removed copy for every fixed rational
+`0 < w < 1`.
+
+The residual words have not yet been summed over the exhaustive canonical
+component family, and an accepted intermediate fusion assignment over the
+partially lowered physical field is not constructed or claimed.  No
+finite-core coercivity or spectral estimate has been proved.  Combining core
+and exterior drift, fixed-scale cutoff completion, spacing normalization,
+same-object observable pin, thermodynamic/continuum control, continuum QFT,
+isolated vacuum, and the Clay mass-gap conclusion remain open.  No `sorry` is
+introduced.
