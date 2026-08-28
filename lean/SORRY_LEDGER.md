@@ -23681,3 +23681,44 @@ No residual-dominant or near-core decay bound, posterior-variance fraction,
 strict completed form bound, completed spectral gap, spacing normalization,
 thermodynamic/continuum passage, continuum QFT, isolated vacuum, or Clay
 mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Contract every resolved positive-mass branch to one finite-core remainder (2026-08-28)
+
+`CompactDualSlabObservableHighSpinFiniteCoreRemainder` composes the three
+existing exact Boolean decompositions:
+
+`positive source = exterior + core`,
+
+`core = near + far`, and
+
+`far = entropy-paid + residual-dominant`.
+
+After reassociation, the core is exactly the entropy-paid far weight plus one
+named remainder,
+
+`finiteCoreRemainder = near + residual-dominant far`.
+
+Substituting the verified exterior contraction and double geometric tail
+proves, for every rational `0 < w < 1` and every natural `floor`,
+
+`positiveSourceWeight`
+`  <= (8/17) * physicalPartition`
+`     + 50 * (4/5)^(floor+1) * physicalPartition`
+`     + finiteCoreRemainder (radius := 32 * floor)`,
+
+with the displayed association made literal in the Lean statement.  Thus all
+purely positive, group-agnostic summation work is discharged into two explicit
+budgets.  The sole remaining positive-mass term contains exactly the near
+anchors and long low-spin residual paths identified by the preceding support
+certificate.
+
+This theorem deliberately does not bound the remainder.  Its next
+load-bearing input must use SU(2)-specific signed cancellation or finite-core
+conditional coercivity before the result can feed a same-object covariance or
+Osterwalder--Schrader form estimate.
+
+No finite-core coercivity, signed connected-covariance bridge,
+posterior-variance fraction, strict completed form bound, completed spectral
+gap, spacing normalization, thermodynamic/continuum passage, continuum QFT,
+isolated vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is
+introduced.
