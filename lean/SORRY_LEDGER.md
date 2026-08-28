@@ -23401,3 +23401,31 @@ estimate that charges these anchors without a volume-growing face factor.
 No strict completed form bound, completed spectral gap, spacing
 normalization, thermodynamic/continuum passage, continuum QFT, isolated
 vacuum, or Clay mass-gap theorem is claimed.  No `sorry` is introduced.
+
+#### Split finite-core mass into local and long connected branches (2026-08-28)
+
+`CompactDualSlabObservableHighSpinCoreGeometry` uses the selected copy stored
+in each reserve-failure certificate.  Unfolding selection proves that this
+copy belongs to the same rooted strand component as the fixed observable.
+Its plaquette therefore lies in the component's genuine connected geometric
+support, and the existing connected-animal theorem gives the exact floor
+
+`root-to-anchor L-infinity distance + 1 <= component peel size`.
+
+The decoded certificate list preserves the complementary core weight
+exactly.  At every chosen radius, a Boolean distance filter then proves the
+exact decomposition
+
+`finite-core mass = near-core mass + far-core mass`.
+
+Every near certificate exposes an anchor within that radius and a selected
+slot below the moving core threshold.  Every far certificate carries the
+stronger component-size floor `radius + 2`.  The unresolved finite-core
+estimate has therefore separated into two causally distinct compilers that
+can be developed independently: bounded-radius local coercivity and a long
+low-spin connected-component tail.  Neither estimate is claimed here.
+
+No posterior-variance fraction, strict completed form bound, completed
+spectral gap, spacing normalization, thermodynamic/continuum passage,
+continuum QFT, isolated vacuum, or Clay mass-gap theorem is claimed.  No
+`sorry` is introduced.
