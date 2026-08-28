@@ -25227,3 +25227,31 @@ does not prove a dense form bound, completed spectral gap, continuum limit,
 continuum QFT, or Clay theorem.  No `sorry` is introduced.  Focused monitored
 checks and dependency-complete target builds pass under the allowed axiom
 gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### A reflected one-pivot switching carrier now exists (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchCutCarrier` constructs a literal reflected
+two-lobe surface inside the extent-five slab.  The first lobe is an ordinary
+spatial unit-cube boundary at time two.  The second is the ten-face boundary
+of a bent two-cell animal, obtained by gluing a spatial cube at time three to
+an x-z-time cube reaching down to time two and cancelling their shared face.
+
+The two lobe supports are plaquette-disjoint and share exactly the single
+link `((0,0,1,2),x0)`.  The marked top x-y face of the first lobe reflects
+exactly to the marked bottom x-y face of the second.  Sound finite checkers
+produce the actual Type-valued connectivity witnesses: each lobe remains
+connected after the pivot is deleted, no pivot-avoiding marked-face chain
+exists, and the complete support is connected.  Both lobes and their union
+have even link incidence and no duplicate plaquettes.
+
+The shared pivot has support incidence four and every other link has
+incidence at most two.  In corrected-slab order its component/vacuum word is
+`[near,vacuum,near,far,far]`.  This is the reflected analogue of the completed
+aligned cut, but it deliberately stops before choosing the load-bearing
+valence-five fusion carrier for this new zero position.
+
+No successful recoupling target, positive channel, retained fraction,
+same-object contraction, parameter-uniform bound, completed spectral gap,
+continuum limit, continuum QFT, or Clay theorem follows yet.  No `sorry` is
+introduced.  The focused monitored check and dependency-complete target
+build pass under `[propext, Quot.sound]`; no full-root audit is claimed.
