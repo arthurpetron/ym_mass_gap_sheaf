@@ -21917,3 +21917,36 @@ No direct cofinal normalized edge-capacity witness is inhabited.  Proving
 that local SU(2) congestion estimate, its comparison with physical spacing
 along the matched AF trajectory, and the same-channel continuum/QFT/
 isolated-vacuum/Clay conclusions remain open.  No `sorry` is introduced.
+
+#### Mass-normalized full-sector resistance-flow update (2026-08-27)
+
+`BF4PhysicalVacuumSectorMassNormalizedRootResistanceFlow` replaces the
+unweighted path-length/root-flow estimate by exact conductance-weighted
+Cauchy--Schwarz on every canonical vacuum-root path.  Each physical kernel
+conductance is absorbed by its reciprocal resistance before occurrences are
+regrouped.  The remaining coefficient-independent edge quantity is the
+dimensionless conditional congestion
+`rootResistanceFlowLoad / componentMass`.
+
+A pointwise bound
+`fraction * normalizedResistanceFlowLoad(source,target) <= 1` now compiles
+constructively to
+`fraction * pairwiseVariance <= componentMass * physicalDirichlet`, hence to
+the existing posterior conditional-variance fraction with no separate
+component-mass loss.  Every finite cutoff has an explicit positive fraction,
+the minimum of one and the reciprocal of one plus its total normalized
+resistance traffic.  Thus the finite certificate is inhabited without a
+global minimum-edge factor.
+
+The exact remaining fixed-nome analytic frontier is
+`FixedNomeCofinalVacuumSectorMassNormalizedRootResistanceCongestionBound`:
+one cutoff-uniform bound on the normalized directed-edge congestion.  Such a
+bound compiles through normalized Poincare coercivity to the cofinal
+posterior-variance interface.  It is not ruled out by the existing
+root-linear-ratio no-go theorem, which applies only after replacing all local
+conductances by the global minimum edge.
+
+No cofinal normalized resistance-congestion bound is inhabited.  Its proof
+from SU(2) heat weights, its comparison with physical spacing along the
+matched AF trajectory, and the same-channel continuum/QFT/isolated-vacuum/
+Clay conclusions remain open.  No `sorry` is introduced.
