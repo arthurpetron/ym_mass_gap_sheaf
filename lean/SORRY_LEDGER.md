@@ -24726,6 +24726,34 @@ introduced.  The focused monitored check passes with every printed
 declaration using exactly the allowed axiom gate `[propext, Quot.sound]`; no
 full-root audit is claimed.
 
+#### The edge-touch pivot column decodes to the within-component carrier (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabPivotCarrier` exposes the literal face order at the
+unique cut link as `Z,Y,Z,Y,0`.  It selects the written rank-zero right-tree
+column of the valence-five fundamental/vacuum package and proves that the
+column belongs to the complete target carrier.
+
+For every accepted production anchor, equal-rank realization sends this
+target to one fixed left-tree source.  Its two reconstructed auxiliary
+coordinates are exactly `2` and `1`; the right-replica auxiliary labelling is
+identically zero.  These values are bundled with target membership as the
+constructive `OutwardYZPivotCarrierCertificate`.
+
+This closes the local carrier-selection part of the separating target.  The
+live finite frontier is now global compilation: combine this distinguished
+pivot column with arbitrary complete sparse nonpivot columns, realize the
+whole accepted assignment pair, and prove by a two-color invariant that every
+realized strand edge remains within either the Y cube or the Z cube.  That
+will establish marked-face disconnection without normalizing the entire slab
+graph by computation.
+
+No complete target assignment, realized marked-face disconnection,
+local-positive-channel inhabitant, parameter-uniform retained fraction,
+completed gap, thermodynamic or continuum limit, continuum QFT, or Clay
+theorem is claimed.  No `sorry` is introduced.  The focused monitored check
+passes with every printed declaration using at most the allowed axiom gate
+`[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### The edge-touch cut carrier has the exact corrected-slab pivot word (2026-08-28)
 
 `Z4OutwardYZEdgeTouchSlabSwitchingProfile` embeds the twelve-face cut carrier
