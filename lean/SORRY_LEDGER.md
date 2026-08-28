@@ -24144,3 +24144,22 @@ compatibility forbids this local collision, or use a different coercive
 transport.  The direct paired-face decoder, shared column capacity,
 aggregate floor, parameter-uniform completed gap, continuum QFT, and Clay
 theorem remain open.  No `sorry` is introduced.
+
+#### Separate the disconnected and connected posterior target sectors (2026-08-28)
+
+`CompactDualSlabObservablePairedTargetSectorSeparation` proves that the
+physical union-support connectedness bit is invariant under an arbitrary
+facewise transposition of the two replicas.  Therefore the existing
+full-mass support switch sends every support-disconnected source only to a
+support-disconnected target column, while every successful strand-recoupling
+face switch preserves the support sector of its source and hence sends a
+support-connected source only to a support-connected target column.
+
+This removes a potential double-spending problem in the posterior transport:
+the already normalized disconnected branch and a later thinned or weighted
+connected branch occupy disjoint physical columns and may be bounded
+separately before their capacities are glued.  No global paired-face decoder
+is assumed.  A concrete connected-branch thinning/capacity theorem and a
+positive aggregate connected mass still remain to be built; parameter-
+uniform completed gap, continuum QFT, and the Clay theorem remain open.  No
+`sorry` is introduced.
