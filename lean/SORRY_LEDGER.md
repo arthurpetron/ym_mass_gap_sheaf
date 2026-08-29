@@ -26646,3 +26646,29 @@ uniform posterior fraction, uniform dense/completed physical spectral gap,
 thermodynamic or continuum passage, continuum QFT, or Clay theorem is proved.
 No `sorry` is introduced.  Focused monitored verification uses only
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The guarded target realizes both observable replicas (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPairedRealization`
+instantiates the symbolic paired-realization compiler at the literal guarded
+SU(2) target.  For every physical datum with cutoff one and extent five, and
+every accepted peeled background, it constructs the transported observable
+target and proves that its left and right realized assignments are exactly the
+already classified guarded assignments.
+
+Two kernel-checked interfaces are supplied.  The first uses the sealed
+observable source whose filter-membership proof is hidden behind the existing
+source package.  The second uses the definitionally lighter literal raw source.
+Both retain the same source pair and mathematical target, and both pass the
+axiom gate with only `[propext, Quot.sound]`.
+
+This closes the paired target-realization bridge; it does not yet contract the
+realization equations and exact no-chain graph theorem into a successful
+choice interface.  That final contraction currently triggers excessive
+dependent conversion in the cutoff-one, extent-five row and remains explicit
+work, together with transported coordinatewise positivity, the connected
+positive channel, reachable-terminal weighted repair, a scalable all-cutoff
+construction, the uniform posterior fraction, the uniform dense/completed
+physical gap, thermodynamic and continuum passage, continuum QFT, and the
+Clay theorem.  No `sorry` is introduced.  The focused monitored checks and
+dependency-complete target build are claimed; no full-root audit is claimed.
