@@ -25857,6 +25857,30 @@ continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
 is claimed.
 
+#### Every finite bistochastic row now computes a positive target (2026-08-29)
+
+`FiniteBistochasticPositiveTarget` closes a generic compiler gap exposed by
+the guarded graft.  Its data-bearing finite recursion scans a nonnegative
+rational list whose sum is strictly positive and returns a literal member
+with strictly positive value.  Specializing exact row normalization
+`sum = 1` yields `FiniteBistochasticQKernel.positiveTarget`: for every source
+of every finite bistochastic rational kernel, it returns a listed target and
+a strict positive-weight witness.
+
+This is stronger than the existing `firstTargetOfSource`, whose documented
+contract supplies only target nonemptiness.  It is precisely what an
+arbitrary peeled background needs: each inactive link can now choose a local
+continuation with positive recoupling weight, without assuming that a fixed
+or diagonal column is positive.  The compiler is group-agnostic finite
+algebra; the non-abelian content remains in the reflected active-link channel
+that must be grafted alongside it.
+
+No grafted positive product or disconnection theorem, weighted inverse bound,
+uniform density, completed spectral gap, thermodynamic or continuum passage,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
+is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
