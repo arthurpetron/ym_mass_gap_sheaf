@@ -226,6 +226,62 @@ theorem FiniteBistochasticQKernel.targetToSourceAtEqualRank_fallback_independent
       kernel)
     target htarget
 
+/-! ## 4. The inverse rank compiler from a written source -/
+
+/-- Select the target carrier at the written rank of one source carrier. -/
+def FiniteBistochasticQKernel.sourceToTargetAtEqualRank
+    {Source Target : Type} [DecidableEq Source]
+    (kernel : FiniteBistochasticQKernel Source Target)
+    (fallback : Target) (source : Source) : Target :=
+  equalRankReindex fallback kernel.targets kernel.sources source
+
+theorem FiniteBistochasticQKernel.sourceToTargetAtEqualRank_mem
+    {Source Target : Type} [DecidableEq Source]
+    (kernel : FiniteBistochasticQKernel Source Target)
+    (fallback : Target) (source : Source)
+    (hsource : source ∈ kernel.sources) :
+    FiniteBistochasticQKernel.sourceToTargetAtEqualRank
+        kernel fallback source ∈ kernel.targets := by
+  exact equalRankReindex_mem fallback kernel.targets kernel.sources
+    (FiniteBistochasticCarrierBalance.FiniteBistochasticQKernel.sources_length_eq_targets_length
+      kernel).symm source hsource
+
+/-- On a duplicate-free written target carrier, source-rank selection followed
+by target-rank decoding returns the original listed source exactly. -/
+theorem FiniteBistochasticQKernel.targetToSource_sourceToTargetAtEqualRank
+    {Source Target : Type} [DecidableEq Source] [DecidableEq Target]
+    (kernel : FiniteBistochasticQKernel Source Target)
+    (sourceFallback : Source) (targetFallback : Target)
+    (htargets : kernel.targets.Nodup)
+    (source : Source) (hsource : source ∈ kernel.sources) :
+    FiniteBistochasticQKernel.targetToSourceAtEqualRank kernel
+        sourceFallback
+        (FiniteBistochasticQKernel.sourceToTargetAtEqualRank
+          kernel targetFallback source) = source := by
+  have hlength :=
+    FiniteBistochasticCarrierBalance.FiniteBistochasticQKernel.sources_length_eq_targets_length
+      kernel
+  have hrankLtSources : listRank source kernel.sources <
+      kernel.sources.length :=
+    listRank_lt_length_of_mem source hsource
+  have hrankLtTargets : listRank source kernel.sources <
+      kernel.targets.length := by
+    rw [← hlength]
+    exact hrankLtSources
+  have htargetRank :
+      listRank
+          (listAtRank targetFallback kernel.targets
+            (listRank source kernel.sources)) kernel.targets =
+        listRank source kernel.sources :=
+    listRank_listAtRank_eq_of_lt targetFallback htargets
+      (listRank source kernel.sources) hrankLtTargets
+  unfold FiniteBistochasticQKernel.targetToSourceAtEqualRank
+    FiniteBistochasticQKernel.sourceToTargetAtEqualRank
+    equalRankReindex
+  rw [htargetRank]
+  exact listAtRank_listRank_eq_of_mem
+    sourceFallback source hsource
+
 #print axioms listRank_lt_length_of_mem
 #print axioms listAtRank_mem_of_lt
 #print axioms listAtRank_fallback_independent
@@ -237,5 +293,7 @@ theorem FiniteBistochasticQKernel.targetToSourceAtEqualRank_fallback_independent
 #print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_mem
 #print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_injective
 #print axioms FiniteBistochasticQKernel.targetToSourceAtEqualRank_fallback_independent
+#print axioms FiniteBistochasticQKernel.sourceToTargetAtEqualRank_mem
+#print axioms FiniteBistochasticQKernel.targetToSource_sourceToTargetAtEqualRank
 
 end YMGap.Continuum.FiniteBistochasticRankReindex

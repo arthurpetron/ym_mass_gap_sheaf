@@ -1,11 +1,11 @@
 /-
 # A positive recoupling target for the guarded reflected graft
 
-At the unique reflected pivot, retain the explicit component-preserving
-rank-zero target.  At every other corrected-slab link, use the constructive
-positive-target compiler for the actual graft source row.  Structural
-recursion assembles these choices into a written global target with strictly
-positive recoupling product weight.
+At the unique reflected pivot, select the target at the finite written rank
+of the explicit component-preserving source.  At every other corrected-slab
+link, use the constructive positive-target compiler for the actual graft
+source row.  Structural recursion assembles these choices into a written
+global target with strictly positive recoupling product weight.
 
 This module selects and proves positivity of the target column.  Realizing
 that target as accepted auxiliary assignments and proving marked-face
@@ -19,6 +19,9 @@ declaration, or unbounded heartbeat option.
 
 import YMGap.Continuum.FiniteBistochasticPositiveTarget
 import YMGap.Continuum.FiniteBistochasticQKernelProductPositivity
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceCompleteness
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceDecidableEquality
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetNodup
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabWholeProductPositivity
 
@@ -35,11 +38,16 @@ open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteBistochasticPositiveTarget
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.FiniteBistochasticQKernelProductPositivity
+open YMGap.Continuum.FiniteBistochasticRankReindex
 open YMGap.Continuum.PentagonRelation
+open YMGap.Continuum.SU2CanonicalLeftCarrierWitnessReconstruction
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2SlabInternalVacuumValenceFiveRecouplingFloor
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingKernel
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceCompleteness
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceDecidableEquality
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetNodup
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionIncidenceReindex
@@ -47,7 +55,9 @@ open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardLinkWords
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPhysicalGraft
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabPivotCarrier
+open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabPivotPairing
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabSwitchingProfile
+open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabTargetRealization
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabWholeProductPositivity
 
 /-! ## 1. Transport the explicit pivot column through the guard word -/
@@ -93,9 +103,10 @@ def reflectedBentGuardGraftPivotRecouplingData
   link := reflectedBentSwitchPivot
   degree_eq := reflectedBentSwitchPivot_degree_five
 
-/-- The original component-preserving pivot column, retyped by the exact
-equality of all ten external spin coordinates. -/
-def reflectedBentGuardGraftPivotTarget
+/-- A target-valued fallback obtained by transporting the original reflected
+column through equality of all ten external spin coordinates.  The intrinsic
+rank selector below never inspects this value because its source is listed. -/
+def reflectedBentGuardGraftPivotTransportedTarget
     (D : SlabPhysicalData) (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D) :
     (slabPhysicalPairRecouplingKernelPackageFive
@@ -108,6 +119,123 @@ def reflectedBentGuardGraftPivotTarget
   rw [reflectedBentGuardGraftRightExternalSpins_eq_pattern_at_pivot
     D hextent state]
   exact reflectedBentPivotTarget
+
+theorem reflectedBentGuardGraftPivotLeftAuxiliary_mem
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    reflectedBentPivotLeftAuxiliary ∈
+      slabLinkFusionWitnesses 1 5
+        (reflectedBentGuardGraftLeftPhysical D hextent state)
+        reflectedBentSwitchPivot := by
+  rw [reflectedBentGuardGraftLeftFusionWitnesses_eq_pattern_of_active
+    1 D hextent state
+    reflectedBentSwitchPivot_mem_boundaryCompleteSlabLinks
+    reflectedBentPatternActiveLinkB_pivot]
+  exact reflectedBentPivotLeftAuxiliary_mem
+
+theorem reflectedBentGuardGraftPivotRightAuxiliary_mem
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    reflectedBentPivotRightAuxiliary ∈
+      slabLinkFusionWitnesses 1 5
+        (reflectedBentGuardGraftRightPhysical D hextent state)
+        reflectedBentSwitchPivot := by
+  rw [reflectedBentGuardGraftRightFusionWitnesses_eq_pattern_of_active
+    1 D hextent state
+    reflectedBentSwitchPivot_mem_boundaryCompleteSlabLinks
+    reflectedBentPatternActiveLinkB_pivot]
+  exact valenceFiveLeftAuxiliary_mem_slabLinkFusionWitnesses
+    reflectedBentSwitchRightPhysical_bounded
+    reflectedBentSwitchPivot_degree_five
+    reflectedBentPivotRightSource
+
+def reflectedBentGuardGraftPivotComponentAnchor
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    SlabPhysicalPairRecouplingWitnessData 1
+      (reflectedBentGuardGraftPivotRecouplingData D hextent state) where
+  leftAuxiliary := reflectedBentPivotLeftAuxiliary
+  rightAuxiliary := reflectedBentPivotRightAuxiliary
+  left_mem := reflectedBentGuardGraftPivotLeftAuxiliary_mem
+    D hextent state
+  right_mem := reflectedBentGuardGraftPivotRightAuxiliary_mem
+    D hextent state
+
+def reflectedBentGuardGraftPivotComponentSource
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).Source :=
+  slabPhysicalPairRecouplingProductionSource 5
+    (reflectedBentGuardGraftPivotRecouplingData D hextent state)
+    (reflectedBentGuardGraftPivotComponentAnchor D hextent state)
+
+theorem reflectedBentGuardGraftPivotComponentSource_mem
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    reflectedBentGuardGraftPivotComponentSource D hextent state ∈
+      (slabPhysicalPairRecouplingKernelPackageFive
+        (reflectedBentGuardGraftPivotRecouplingData
+          D hextent state)).kernel.sources :=
+  slabPhysicalPairRecouplingProductionSource_mem
+    (reflectedBentGuardGraftPivotRecouplingData D hextent state)
+    (reflectedBentGuardGraftPivotComponentAnchor D hextent state)
+
+/-- Select the target at the written rank of the desired component-preserving
+production source.  This presentation makes its canonical realization an
+exact finite-rank inverse rather than a dependent transport computation. -/
+def reflectedBentGuardGraftPivotTargetAtComponentRank
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).Target := by
+  letI : DecidableEq
+      (slabPhysicalPairRecouplingKernelPackageFive
+        (reflectedBentGuardGraftPivotRecouplingData
+          D hextent state)).Source := by
+    exact slabPhysicalPairRecouplingKernelPackageSourceDecidableEq 5
+      (reflectedBentGuardGraftPivotRecouplingData D hextent state)
+  exact FiniteBistochasticQKernel.sourceToTargetAtEqualRank
+    (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).kernel
+    (reflectedBentGuardGraftPivotTransportedTarget D hextent state)
+    (reflectedBentGuardGraftPivotComponentSource D hextent state)
+
+/-- Seal the rank calculation behind a data-bearing package so downstream
+dependent target products do not repeatedly normalize the finite carrier
+enumeration. -/
+structure ReflectedBentGuardGraftPivotTargetPackage
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) : Type where
+  target : (slabPhysicalPairRecouplingKernelPackageFive
+    (reflectedBentGuardGraftPivotRecouplingData D hextent state)).Target
+  target_eq_componentRank : target =
+    reflectedBentGuardGraftPivotTargetAtComponentRank D hextent state
+
+opaque reflectedBentGuardGraftPivotTargetPackage
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    ReflectedBentGuardGraftPivotTargetPackage D hextent state :=
+  { target := reflectedBentGuardGraftPivotTargetAtComponentRank
+      D hextent state
+    target_eq_componentRank := rfl }
+
+abbrev reflectedBentGuardGraftPivotTarget
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :=
+  (reflectedBentGuardGraftPivotTargetPackage D hextent state).target
+
+theorem reflectedBentGuardGraftPivotTarget_eq_componentRank
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    reflectedBentGuardGraftPivotTarget D hextent state =
+      reflectedBentGuardGraftPivotTargetAtComponentRank
+        D hextent state :=
+  (reflectedBentGuardGraftPivotTargetPackage
+    D hextent state).target_eq_componentRank
 
 theorem reflectedBentGuardGraftPivot_kernel_pos
     (D : SlabPhysicalData) (hextent : D.extent = 5)
@@ -275,6 +403,22 @@ def reflectedBentGuardGraftTargetForData
       have hdegree := localData.degree_le_six
       omega)
 
+theorem reflectedBentGuardGraftTargetForPivot_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (source : (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).Source) :
+    reflectedBentGuardGraftTargetForData D hextent state 5
+        (reflectedBentGuardGraftPivotRecouplingData D hextent state)
+        rfl rfl source =
+      reflectedBentGuardGraftPivotTarget D hextent state := by
+  simp only [reflectedBentGuardGraftTargetForData]
+  split
+  · rfl
+  · rename_i hnonpivot
+    exact False.elim (hnonpivot rfl)
+
 theorem reflectedBentGuardGraftTargetForData_pos
     (D : SlabPhysicalData) (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D) :
@@ -324,10 +468,10 @@ theorem reflectedBentGuardGraftTargetForData_pos
               cases hpivot
               rfl
         subst localData
-        simpa [reflectedBentGuardGraftTargetForData] using
-          (reflectedBentGuardGraftPivot_kernel_pos
-            D hextent state source
-              (reflectedBentGuardGraftPivotTarget D hextent state))
+        rw [reflectedBentGuardGraftTargetForPivot_eq]
+        exact reflectedBentGuardGraftPivot_kernel_pos
+          D hextent state source
+            (reflectedBentGuardGraftPivotTarget D hextent state)
       · simpa [reflectedBentGuardGraftTargetForData, hpivot] using
           (finiteBistochasticPositiveTarget
             (slabPhysicalPairRecouplingKernelPackageFive

@@ -25895,11 +25895,11 @@ is claimed.
 
 `Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget` selects a recoupling
 target for the literal accepted graft.  At the unique reflected pivot it
-transports the previously proved rank-zero SU(2) target through the exact
-active-link spin-word equalities.  The resulting entry retains the explicit
-`1/4` valence-five kernel floor and hence preserves the two reflected strand
-components.  At every other complete-slab link, the finite-row positive
-target compiler computes a target for the actual local graft source.
+selects the target at the finite written rank of the explicit
+component-preserving SU(2) source.  The valence-five internal-vacuum theorem
+gives every such target the explicit `1/4` kernel floor.  At every other
+complete-slab link, the finite-row positive target compiler computes a target
+for the actual local graft source.
 
 For every finite list of complete-slab links, structural recursion assembles
 those local choices into a member of the dependent target product.  Every
@@ -25941,6 +25941,33 @@ cutoff-one and extent-five.  No weighted inverse bound, uniform density,
 completed spectral gap, thermodynamic or continuum passage, continuum QFT,
 or Clay theorem is claimed.  No `sorry` is introduced.  The focused monitored
 check uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Finite-rank inversion identifies the realized guarded pivot (2026-08-29)
+
+`FiniteBistochasticRankReindex` now contains the converse written-rank map
+`sourceToTargetAtEqualRank`.  If the target carrier is duplicate-free, decoding
+that selected target returns the original listed source exactly.  This is a
+generic finite-basis theorem and uses no group structure.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget` applies the inverse map
+to the accepted component-preserving pivot source.  A data-bearing opaque
+package seals the finite enumeration while retaining a proved equation to the
+rank selector, so dependent whole-slab target products need not normalize the
+same carrier list repeatedly.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPivotPairing` combines the
+rank inverse with duplicate-freeness of the SU(2) target list.  The canonical
+witness roundtrip and production-source auxiliary injectivity then prove that
+the realized pivot left auxiliary is exactly the previously classified
+`(1,0)` reflected carrier.  This avoids dependent transport through ten spin
+coordinates and makes the load-bearing non-abelian geometry explicit.
+
+No nonpivot or inactive-background strand-edge classification, marked-face
+disconnection, weighted inverse bound, uniform density, completed spectral
+gap, thermodynamic or continuum passage, continuum QFT, or Clay theorem is
+claimed.  The construction remains cutoff-one and extent-five.  No `sorry` is
+introduced.  Focused monitored checks use only `[propext, Quot.sound]`; no
+full-root audit is claimed.
 
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
