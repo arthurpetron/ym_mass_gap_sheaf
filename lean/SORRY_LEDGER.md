@@ -25625,3 +25625,33 @@ No dense-sector gap, completed parameter-uniform operator gap, continuum
 limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 Focused checks use only `[propext, Quot.sound]`; dependency-complete target
 verification is recorded separately and no full-root audit is claimed.
+
+#### The outward seven-cube row retains a forced connected bypass (2026-08-28)
+
+`Z4OutwardSevenCubeSlabBadRecouplingRow` closes the geometric bypass at the
+level of an arbitrary accepted two-replica pair.  If the pair's left physical
+field is the displayed outward seven-cube labelling, the two already
+constructed bivalent links transport to literal members of that pair's
+assembled strand-edge list.  They form the chain
+
+`target face -> bypass middle face -> root face`,
+
+so `sevenCubeSwitchAcceptedPair_connected` proves that the paired-face
+connectedness Boolean is `true`.
+
+The existing recoupling-row declarations separately prove that every
+recoupled column remains in the four-cell source and preserves the left
+physical field.  Hence this seven-cube source cannot supply the hoped-for
+pointwise disconnecting channel: its geometric bypass survives recoupling.
+This removes the naive “every support-connected row is good” route and makes
+the physical-label repair/aggregate-density stage load-bearing rather than
+optional.
+
+The module intentionally does not force normalization of the full concrete
+recoupling enumeration, and therefore does not state an empty-row or exact
+zero-disconnection-mass corollary.  It also does not construct a repair for
+the seven-cube source, prove a uniform repair ratio or congestion bound,
+prove a uniform dense/completed spectral gap, pass to thermodynamic or
+continuum limits, construct continuum QFT, or prove the Clay theorem.  No
+`sorry` is introduced.  The focused monitored check uses only the allowed
+axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
