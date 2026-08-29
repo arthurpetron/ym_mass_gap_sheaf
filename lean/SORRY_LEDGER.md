@@ -25463,3 +25463,39 @@ gap, thermodynamic/continuum limit, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused monitored check prints only
 `[propext, Quot.sound]`; dependency-complete target verification is recorded
 separately and no full-root audit is claimed.
+
+#### Bounded selected-channel congestion replaces collision-free matching (2026-08-28)
+
+`FiniteDependentKernelSelectedChoiceCongestion` proves the finite transport
+lemma suggested by the many-to-one geometry.  Select one displayed channel in
+every dependent source row.  If its exact local weight is at least a common
+`eta > 0` and no target has more than `congestion + 1` selected preimages,
+scaling every selected channel by `invSucc congestion` gives column mass at
+most one and retains at least
+`invSucc congestion * eta` in every source row.  The reciprocal is always
+constructively positive, and the proof uses the literal target fibers rather
+than an assumed injection.
+
+`CompactDualSlabObservableSelectedChoiceCongestionContraction` specializes
+that theorem to the actual successful connected SU(2) strand row.  Exact
+recoupling weight preservation upgrades unit column capacity to physical
+weighted capacity.  Every selected output lies in the support-connected
+target sector, so this kernel glues to the already normalized disconnected
+switch without reusing target columns.  Summing the common row floor against
+the physical connected source weights constructs the retained-contraction
+certificate with fraction `eta / (congestion + 1)`.  At a reflected lower
+face, the variance bridge therefore gives the genuine relative centered
+same-object form bound with factor
+`1 - eta / (congestion + 1) < 1`.
+
+This is a strictly weaker and more geometric sufficient condition than the
+source-wide first-source-survival interface: selected targets may collide,
+provided their congestion is controlled.  No selected family, common local
+weight floor, or volume/cutoff/coupling/spacing-uniform congestion bound is
+inhabited here.  The load-bearing frontier is now to obtain those two bounds
+from the existing SU(2) component peel, inverse reconstruction, and weighted
+entropy payment; a raw cardinality bound growing with the slab is not enough.
+No dense-sector gap, completed parameter-uniform operator gap, continuum
+limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+Focused checks and the dependency-complete target build use only the allowed
+axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
