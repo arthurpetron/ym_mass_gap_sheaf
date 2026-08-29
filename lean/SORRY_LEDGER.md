@@ -25717,6 +25717,34 @@ continuum passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  The focused monitored check uses only
 `[propext, Quot.sound]`; no full-root audit is claimed.
 
+#### The reflected receiver has an explicit separating guard (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuard` extracts the literal physical face
+identifiers of the reflected-bent positive-channel support and defines its
+closed corrected-slab adjacency collar.  A physical face belongs to the
+guard exactly when it is a support face or shares a complete-slab link with
+one.
+
+The proved separation theorem
+`slabSupportFaceAdjacentB_eq_false_of_not_mem_reflectedBentGuard` says that
+no physical face outside this guard is adjacent to any inserted support
+face.  Its background form,
+`reflectedBentGuard_zero_separates_positive_background`, proves that if both
+replicas vanish on the guard, every positive background face is nonadjacent
+to the reflected support.  Thus an unchanged exterior background cannot
+create a physical-support bypass into the inserted channel.
+
+This isolates the next operation precisely: run a guarded canonical peel
+whose scanned face list is `reflectedBentPatternGuardFaceIds`, then graft the
+known reflected-bent accepted source and its local positive recoupling data
+onto the resulting zero collar.  Acceptance of the graft, reconstruction
+injectivity/weighted fibers, and a uniform insertion weight floor are not
+proved here.  The guard is the fixed extent-five model; a translated
+same-object guard for arbitrary finite slabs is also still open.  No density,
+uniform completed gap, thermodynamic or continuum passage, continuum QFT, or
+Clay theorem is claimed.  No `sorry` is introduced.  The focused monitored
+check uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
