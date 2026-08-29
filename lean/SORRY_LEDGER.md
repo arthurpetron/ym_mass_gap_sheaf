@@ -25600,6 +25600,21 @@ Thus different reconstruction-code sizes may carry different Peierls rates;
 their geometric tail is summed inside the target fiber before contraction.
 No raw carrier cardinality appears in the conclusion.
 
+`VariableRateGoodSourceRepairCertificate` is the component-reconstruction
+producer for that target-local hypothesis.  It accepts the pointwise estimate
+
+`sourceWeight(source) <= targetWeight(repair(source)) * rate(source)`
+
+and the inverse-code summability estimate
+
+`rho * fiberWeight(rate, repair, target) <= 1`.
+
+`toWeightedFiberRepairCertificate` compiles these two estimates directly into
+the stationary-weighted fiber capacity above.  In particular, a canonical
+component peel may keep its trace-dependent geometric rate all the way through
+inverse reconstruction: neither a common worst-case rate nor an unweighted
+count of reconstruction traces is introduced by this compiler.
+
 `CompactDualSlabObservableGoodSourceFiberRepairContraction` specializes this
 certificate to the actual support-connected two-replica source carrier and
 the executable good-source subcarrier.  It constructs the existing physical
