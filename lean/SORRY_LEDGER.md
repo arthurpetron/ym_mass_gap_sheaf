@@ -25830,3 +25830,38 @@ congestion bound, uniform dense/completed spectral gap, thermodynamic or
 continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
 introduced.  Focused checks use only `[propext, Quot.sound]`; no full-root
 audit is claimed.
+
+#### Every complete two-pivot repair product column has positive mass (2026-08-28)
+
+`SU2MiddleVacuumValenceFiveKernelFloor` proves the missing sharp local
+estimate for the temporal external word `[1,1,0,1,1]`.  The vacuum third leg
+makes the first associator deterministic.  Retaining its unique middle state
+reduces the second associator to the four-fundamental block, whose exact
+entrywise floor is `1/4`.  Nonnegativity of all other middle-state summands
+then proves that every entry of the complete valence-five kernel is at least
+`1/4`.
+
+`SU2SlabMiddleVacuumValenceFiveRecouplingFloor` tensors this estimate with
+the deterministic vacuum replica and specializes it to dependent slab link
+data.  Therefore every entry at the temporal repair pivot has the same
+`1/4` floor.  The existing four-fundamental/vacuum theorem gives the same
+floor at the spatial pivot.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabWholeProductPositivity` proves the
+literal external words at both pivots, supplies these two sharp local floors,
+and proves strict positivity at every nonpivot link from the sparse
+fundamental-word theorem.  Structural recursion contracts coordinatewise
+positivity through the heterogeneous finite product.  Consequently every
+complete target column has strictly positive row weight, including the
+accepted component-preserving repair target constructed in the preceding
+milestone.
+
+The nonpivot factors are only proved strictly positive here; no numerical
+product floor uniform in volume, cutoff, or coupling is claimed.  Global
+every-edge side preservation, marked-face disconnection,
+observable-success realization, and attachment as a physical good repair
+receiver remain open.  No uniform repair ratio or localized congestion
+bound, uniform dense/completed spectral gap, thermodynamic or continuum
+limit, continuum QFT, or Clay theorem is proved.  No `sorry` is introduced.
+The focused monitored check and dependency-complete target build use only
+the allowed axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
