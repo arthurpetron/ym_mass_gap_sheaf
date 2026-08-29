@@ -25583,6 +25583,47 @@ limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 Focused checks use only `[propext, Quot.sound]`; dependency-complete target
 verification is recorded separately and no full-root audit is claimed.
 
+#### Weighted inverse fibers preserve the Peierls geometric tail (2026-08-28)
+
+`FiniteWeightedGoodSourceFiberRepair` replaces the lossy decomposition into
+one pointwise minimum and one unweighted preimage count.  Its explicit repair
+certificate retains the complete stationary-weighted inverse fiber.  For one
+common displayed `rho > 0`, the required target-local estimate is
+
+`rho * fiberWeight(sourceWeight, repair, target) <= targetWeight(target)`.
+
+Exact deterministic pushforward and finite Fubini prove directly that
+
+`rho * totalSourceMass <= goodTargetMass`.
+
+Thus different reconstruction-code sizes may carry different Peierls rates;
+their geometric tail is summed inside the target fiber before contraction.
+No raw carrier cardinality appears in the conclusion.
+
+`CompactDualSlabObservableGoodSourceFiberRepairContraction` specializes this
+certificate to the actual support-connected two-replica source carrier and
+the executable good-source subcarrier.  It constructs the existing physical
+good-source density with fraction exactly `rho`.  Composing with the
+independent selected successful SU(2) channel gives retained fraction
+
+`rho * eta / (channelCongestion + 1)`
+
+and, at a reflected lower face, the corresponding genuine same-object
+centered face-form factor
+
+`1 - rho * eta / (channelCongestion + 1) < 1`.
+
+This is the causal compiler matched to the accepted component reconstruction
+and weighted entropy estimates.  No observable weighted-fiber repair is
+inhabited yet: the remaining mathematical task is to map every connected
+source into an actually good target while proving one target-local weighted
+load bound, and then to supply a parameter-uniform bounded-spin channel floor
+and channel congestion.  No uniform dense/completed spectral gap,
+thermodynamic or continuum passage, continuum QFT, or Clay theorem is
+claimed.  No `sorry` is introduced.  Focused monitored checks and the
+dependency-complete target build use only `[propext, Quot.sound]`; no
+full-root audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
