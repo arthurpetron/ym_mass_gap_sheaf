@@ -25731,3 +25731,33 @@ uniform repair ratios or congestion, a uniform dense/completed spectral gap,
 thermodynamic or continuum limits, continuum QFT, or the Clay theorem.  No
 `sorry` is introduced.  Focused checks use only `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### A same-marked outward Y/Z repair surface has exactly two controlled pivots (2026-08-28)
+
+`Z4OutwardYZTwoPivotCanonicalRepairCutCarrier` replaces the original pair of
+unit-cube boundaries by two explicit closed cubical lobes with the same marked
+Y/Z query faces.  The target lobe is the boundary of a two-cell x-y-t bar; the
+root lobe is the boundary of a six-cell x-z-t animal.  Their union is a
+connected, face-disjoint, even-incidence slab support.
+
+After deleting the spatial and temporal links based at `(0,1,1,0)`, each lobe
+remains internally connected and the marked faces become disconnected.  A
+globally sound finite checker proves that every cross-lobe contact is one of
+those two links.  Each pivot has incidence four, and every other link has
+incidence at most two.  These facts are assembled in
+`OutwardYZTwoPivotCanonicalRepairCutCertificate`.
+
+The exact incident-lobe words are also proved, not inferred from a picture:
+
+* spatial pivot: `[target, root, target, root, vacuum]`;
+* temporal pivot: `[target, root, vacuum, target, root]`.
+
+The spatial word is compatible with the displayed first canonical-left
+pairing.  Compatibility at the temporal word is still open and must be
+decided by exhausting its proof-carrying local carrier.  Therefore this file
+does not yet construct a globally disconnecting positive row or a physical
+repair receiver.  It also does not prove a uniform repair ratio or congestion
+bound, uniform dense/completed spectral gap, thermodynamic or continuum
+limit, continuum QFT, or the Clay theorem.  No `sorry` is introduced.  The
+focused monitored check and dependency-complete target build use only the
+allowed axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
