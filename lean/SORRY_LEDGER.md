@@ -25396,3 +25396,38 @@ thermodynamic/continuum limit, continuum QFT, or Clay theorem.  No `sorry` is
 introduced.  Focused monitored checks and the dependency-complete target build
 pass under the allowed axiom gate `[propext, Quot.sound]`; no full-root audit is
 claimed.
+
+#### The reflected face channel is a non-vacuous completed relative form bound (2026-08-28)
+
+`CompactDualSlabObservableFaceVarianceBridge` retains the normalization that
+the earlier scalar-moment theorem discarded.  It partitions the expanded
+physical law into the root-positive event and its complement, proves that the
+support-connected `11 x 00` source sector is bounded by their product, and
+identifies the resulting normalized product exactly with the Boolean variance
+of the root face.  The physical GNS centering identities then identify that
+variance with the squared norm of the centered face indicator.  Consequently
+every reflected retained-channel certificate now supplies the genuine
+relative estimate
+`<T f_c,f_c> <= (1 - fraction) <f_c,f_c>` for its one centered face
+observable.
+
+`Z4ReflectedBentCubeEdgeTouchSlabCompletedFaceChannel` applies this compiler
+to the explicit reflected bent carrier.  It embeds the centered face
+indicator into the constructive-real physical GNS completion, proves that the
+completed vector is vacuum orthogonal, identifies its completed transfer
+coefficient with the exact same-object connected moment, and proves
+`RCle (<T v,v>) (q ||v||^2)` for the already constructed rational
+`q = reflectedBentSameObjectContractionFactor`, where `0 <= q < 1`.
+The underlying rational centered norm is strictly positive, derived from the
+strictly positive connected source mass, so this estimate is not a zero-vector
+artifact.
+
+This is the first literal completed vacuum-complement relative form bound
+obtained from the new observable switching route, but it controls exactly one
+face vector at one extent-five, cutoff-one, coupling-one datum.  It does not
+yet give a common factor for translated face observables or their finite
+linear span, a dense vacuum-complement estimate, a completed operator gap,
+parameter-uniform thermodynamic/continuum control, continuum QFT, or the Clay
+theorem.  No `sorry` is introduced.  Focused monitored checks print only the
+allowed axiom gate `[propext, Quot.sound]`; a dependency-complete target build
+is recorded separately and no full-root audit is claimed.
