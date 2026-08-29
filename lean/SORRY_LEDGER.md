@@ -26806,3 +26806,35 @@ genuinely uniform posterior fraction, the uniform dense/completed physical
 spectral gap, thermodynamic and continuum passage, continuum QFT, and the Clay
 theorem remain open.  No `sorry` is introduced.  Focused monitored
 verification uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The guarded target contracts through an opaque successful-choice package (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableChannel` replaces
+the failed public projection of the complete dependent target tuple by a
+small data-bearing boundary.  `ObservableChoicePairedAssignmentPackage`
+retains the literal listed observable choice and both realized-assignment
+equalities.  `ObservablePairedDisconnectedTargetPackage` existentially
+retains the two reference assignments, their exact projected graph and
+vertex carrier, target-face membership, and the marked-face no-chain proof.
+Its theorem `ObservablePairedDisconnectedTargetPackage.success` contracts
+exactly those fields through the existing two-nonvacuum compiler.
+
+The concrete opaque inhabitant
+`reflectedBentGuardGraftObservableDisconnectedTargetPackage` is constructed
+at the fixed production datum from the transported paired-realization
+certificate and the classified reflected-bent graph.  Its declaration type
+does not expose the cutoff-one, extent-five dependent tuple, and its printed
+axiom footprint is exactly `[propext, Quot.sound]`.
+
+This closes the geometric and realization half of the remaining guarded
+success lift.  Transporting the already-proved coordinatewise-positive
+reference product entry onto the same opaque choice is still open; an
+attempt to expose the complete dependent source-assignment equality again
+exceeded the ordinary `whnf` budget and was not retained.  Consequently the
+package is not yet a positive-channel witness or a canonical good source,
+and the receiver-fiber theorem has not yet been attached to the good-source
+subtype.  The construction remains fixed at cutoff one, extent five, and the
+anchor coupling; it proves no beta/spacing-uniform posterior fraction,
+completed uniform gap, thermodynamic/continuum passage, continuum QFT, or
+Clay theorem.  No `sorry` is introduced.  Focused monitored verification
+uses only `[propext, Quot.sound]`; no full-root audit is claimed.
