@@ -25799,3 +25799,34 @@ uniform repair ratio or congestion bound, uniform dense/completed spectral
 gap, thermodynamic or continuum limit, continuum QFT, or the Clay theorem.
 No `sorry` is introduced.  Focused checks use only
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The two repair carriers inhabit one accepted complete slab target (2026-08-28)
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabPivotTarget` identifies exact
+right-tree columns whose written ranks recode to the two selected
+canonical-left carriers.  At the spatial link the equal-rank source is the
+carrier pairing `0 <-> 2, 1 <-> 3`; at the temporal link it is the carrier
+pairing `0 <-> 3, 1 <-> 4`.  Both rank identities are literal and independent
+of the accepted anchor.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabTargetAssignment` installs those two
+columns at exactly their physical links and uses the complete first-target
+selector everywhere else.  Structural recursion constructs a member of the
+heterogeneous finite target product on every linked list.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabTargetRealization` realizes that target
+as an accepted production assignment.  Its left auxiliary is explicitly
+overridden by the component-preserving spatial carrier at the spatial pivot,
+by the component-preserving temporal carrier at the temporal pivot, and by
+generic equal-rank realization elsewhere.  The resulting complete assignment
+is proved to belong to the slab fusion-witness enumeration.
+
+This is an accepted global target, not yet a positive global row.  The local
+matrix entries at the two special columns and the product entry over all slab
+links still require strict positivity.  Global every-edge side preservation,
+marked-face disconnection, observable-success realization, and attachment as
+a good repair receiver also remain open.  No uniform repair ratio or
+congestion bound, uniform dense/completed spectral gap, thermodynamic or
+continuum limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  Focused checks use only `[propext, Quot.sound]`; no full-root
+audit is claimed.
