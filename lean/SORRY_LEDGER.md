@@ -25969,6 +25969,32 @@ claimed.  The construction remains cutoff-one and extent-five.  No `sorry` is
 introduced.  Focused monitored checks use only `[propext, Quot.sound]`; no
 full-root audit is claimed.
 
+#### The realized guarded pivot has the exact lobe-preserving edge list (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPivotEdges` projects an
+accepted local terminal pairing to its ordinary finite list of partner edge
+identifiers.  A generic transport theorem proves that this projected list
+depends on the physical field only through its local external spin word.
+This avoids transporting proof-indexed terminal objects.
+
+At the guarded pivot, the graft word equals the fixed reflected word and the
+realized auxiliary is the explicit `(1,0)` carrier.  The projected list is
+therefore exactly
+
+`[(0,2), (2,0), (3,4), (4,3)]`.
+
+The literal incident-face order converts this to the two near pairs
+`13 <-> 45` and the two far pairs `46 <-> 47`.  Hence every realized pivot
+terminal is paired within one reflected lobe.  This is the load-bearing local
+strand theorem needed by the global guarded target graph.
+
+No active-nonpivot or inactive-background edge classification, global
+marked-face disconnection, weighted inverse bound, uniform density, completed
+spectral gap, thermodynamic or continuum passage, continuum QFT, or Clay
+theorem is claimed.  The construction remains cutoff-one and extent-five.
+No `sorry` is introduced.  The focused monitored check uses only
+`[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
