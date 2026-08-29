@@ -25535,3 +25535,50 @@ thermodynamic/continuum limit, continuum QFT, or Clay theorem is claimed.  No
 `sorry` is introduced.  The focused monitored check uses only the allowed
 axiom gate `[propext, Quot.sound]`; dependency-complete target verification is
 recorded separately and no full-root audit is claimed.
+
+#### Weighted Peierls repair now produces the good-source density (2026-08-28)
+
+`FiniteWeightedGoodSourceRepair` proves the finite mass-transport lemma
+needed to connect the component-peel geometry to the same-label recoupling
+channel.  Every source is sent to a displayed good target.  If the repair
+satisfies
+
+`lambda * sourceWeight(source) <= targetWeight(repair source)`
+
+and every good target has at most `repairCongestion + 1` preimages, scaling
+the repair arrows by the reciprocal congestion gives weighted column
+capacity and the exact good-mass floor
+
+`lambda / (repairCongestion + 1) * totalSourceMass <= goodTargetMass`.
+
+The proof genuinely permits source and target weights to differ.  It extends
+dependent-kernel column capacity from exact weight preservation to
+one-sided realized-channel weight domination, then applies exact finite
+Fubini.  This is the Peierls stage at which an accepted physical component
+peel may change spin labels.
+
+`CompactDualSlabObservableGoodSourceRepairContraction` specializes that
+theorem to the literal support-connected strand source carrier.  A physical
+repair constructs the previously abstract good-source density `rho` with
+
+`rho = lambda / (repairCongestion + 1)`.
+
+Only after that repair does the existing same-physical-label SU(2)
+recoupling route spend its independent channel weight `eta` and channel
+congestion.  The final retained fraction therefore factors causally as
+
+`[lambda / (repairCongestion + 1)]`
+`  * [eta / (channelCongestion + 1)]`.
+
+No physical repair, uniform repair ratio, repair-congestion bound,
+good-source recoupling family, or uniform channel bound is inhabited here.
+The high-spin/core component machinery can feed only the first bracket; a
+separate bounded-spin disconnection theorem must feed the second.  The next
+frontier is to construct the strongest actual repair from the existing
+exterior/core partition and identify exactly which residual low-spin branch
+still lacks coercivity.
+
+No dense-sector gap, completed parameter-uniform operator gap, continuum
+limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+Focused checks use only `[propext, Quot.sound]`; dependency-complete target
+verification is recorded separately and no full-root audit is claimed.
