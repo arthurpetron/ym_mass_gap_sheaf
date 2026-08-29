@@ -25918,6 +25918,30 @@ passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 The focused monitored check uses only `[propext, Quot.sound]`; no full-root
 audit is claimed.
 
+#### The positive guarded-graft column has an accepted global realization (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetRealization` applies the
+canonical equal-rank SU(2) target realizer to the selected target at each
+complete-slab link.  Every local result is a literal pair of auxiliaries in
+the left and right graft fusion-witness fibers.  Structural recursion over
+an arbitrary finite link list assembles both accepted assignments.
+
+Specializing to the attached complete extent-five link list gives full left
+and right assignments in `slabFineFusionWitnesses`.  Together with the
+already proved bounded graft physical fields, these assignments construct
+`reflectedBentGuardGraftPositiveTargetAcceptedState`, an actual
+`SlabAcceptedTwoReplicaState D`.  Thus target selection, strict positive
+product weight, and accepted realization now refer to the same local target
+column.
+
+The exceptional realized pivot has not yet been identified with the explicit
+component-preserving reflected carrier, and no realized-edge lobe theorem or
+marked-face disconnection is claimed here.  The construction remains
+cutoff-one and extent-five.  No weighted inverse bound, uniform density,
+completed spectral gap, thermodynamic or continuum passage, continuum QFT,
+or Clay theorem is claimed.  No `sorry` is introduced.  The focused monitored
+check uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
