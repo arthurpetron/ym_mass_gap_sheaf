@@ -25655,3 +25655,43 @@ prove a uniform dense/completed spectral gap, pass to thermodynamic or
 continuum limits, construct continuum QFT, or prove the Clay theorem.  No
 `sorry` is introduced.  The focused monitored check uses only the allowed
 axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### One finite good channel inhabits the physical-repair compiler (2026-08-28)
+
+`CompactDualSlabObservableConstantGoodSourceRepair` proves a fixed-datum
+existence theorem for the weighted repair stage.  Given positive coupling and
+one attached good connected source, repair every connected source to that
+single target.  For each source the exact candidate ratio is
+
+`goodTargetWeight / sourceWeight`.
+
+All source and target weights are strictly positive.  Taking the capped
+positive minimum over the complete finite connected carrier constructs
+`lambda > 0` with `lambda <= 1`, and the quotient identity proves
+
+`lambda * sourceWeight <= goodTargetWeight`
+
+for every source.  The complete source-carrier length bounds the constant
+map's repair fiber.  These witnesses inhabit
+`SlabObservablePairedConnectedGoodSourceRepair` constructively.
+
+A positive connected channel supplies the required canonical good target.
+Composing the resulting constant repair with canonical same-label SU(2)
+routing reaches `SlabObservablePairedSplitRetainedContraction`; the existing
+reflected-bent channel explicitly inhabits this entire factored path.
+
+This construction is intentionally non-uniform.  The minimum weight ratio
+may vanish along cutoff or volume growth, and the carrier-length congestion
+may diverge.  It therefore proves finite inhabitation and isolates, but does
+not solve, the uniform Peierls problem.  In the outward Y/Z marked-face
+sector, the known strictly positive target is still certified only in its
+native right-tree strand basis; it is not yet an inhabitant of the old
+observable good-source predicate.  Thus it cannot yet receive the outward
+seven-cube source through this compiler.  The next finite bridge is either a
+basis-sensitive observable success construction or a new canonical-left-basis
+good target with the same marked faces.
+
+No uniform repair ratio or localized congestion estimate, uniform
+dense/completed spectral gap, thermodynamic or continuum limit, continuum
+QFT, or Clay theorem is claimed.  No `sorry` is introduced.  Focused checks
+use only `[propext, Quot.sound]`; no full-root audit is claimed.
