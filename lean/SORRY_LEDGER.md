@@ -26712,3 +26712,48 @@ thermodynamic and continuum passage, continuum QFT, and Clay theorem remain
 open.  No `sorry` is introduced.  Focused monitored verification and the
 dependency-complete target build use only `[propext, Quot.sound]`; no full-root
 audit is claimed.
+
+#### The two distinct peeling fibers are now paid compositionally (2026-08-29)
+
+The guarded graft is recoverable from the output of guard peeling, not from
+the input to that peeling.  In particular, a target-component canonical
+terminal may still contain unrelated positive data on the first guard face.
+Thus direct injectivity from target-component terminals to guarded receivers
+would be mathematically unjustified.  The correct map has two stages:
+
+`connected source -> target-component terminal -> guard-cleared terminal`.
+
+`FinitePositiveWeightedEndomapFiberFloor` proves a reusable constructive
+finite theorem: on a finite carrier with strictly positive rational weights,
+every deterministic endomap has an explicit capped common rate in `(0,1]`
+whose product with any complete inverse-fiber weight is at most the terminal
+weight.  No lower bound independent of the finite carrier or its weights is
+asserted.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPeelingFiniteFiberFloor` specializes
+this theorem to the complete accepted two-replica state carrier at cutoff one
+and half-width two.  It constructs
+`reflectedBentGuardPeelingFiberRate`, proves it strictly positive and at most
+one, and pays every complete inverse fiber of the fixed guard-peeling endomap.
+
+`FiniteWeightedFiberComposition` proves the exact finite-Fubini inequality
+that transports a first-stage pointwise fiber bound through deterministic
+postprocessing.  The concrete module
+`Z4ReflectedBentCubeEdgeTouchSlabGuardCompositeTerminalFiber` applies it to
+canonical target-component peeling followed by guard peeling.  Its final
+two-stage theorem bounds
+
+`guardFiberRate * weight(composite source fiber)`
+
+by the existing global Peierls rate times the exact final guard-cleared
+terminal weight.  This discharges the previously omitted weighted trace-fiber
+payment without asserting false direct injectivity.
+
+The guard-fiber rate is an explicit fixed finite-anchor minimum.  It is not
+uniform in cutoff, volume, coupling, beta, or lattice spacing.  Successful-row
+contraction and the concrete reachable-terminal repair still remain, as do a
+scalable all-cutoff construction, a genuinely uniform posterior fraction,
+the uniform dense/completed physical spectral gap, thermodynamic and
+continuum passage, continuum QFT, and the Clay theorem.  No `sorry` is
+introduced.  Focused monitored verification uses only
+`[propext, Quot.sound]`; no full-root audit is claimed.
