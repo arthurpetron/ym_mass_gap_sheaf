@@ -204,6 +204,62 @@ def reflectedBentGuardGraftRightAssignmentFrom
         D hextent state linked) ::
         reflectedBentGuardGraftRightAssignmentFrom D hextent state rest
 
+theorem reflectedBentGuardGraftLeftAssignmentFrom_at_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    ∀ (linkedList : List
+        {link // link ∈ boundaryCompleteSlabLinks 5})
+      (linked : {link // link ∈ boundaryCompleteSlabLinks 5}),
+      linked ∈ linkedList →
+      slabFusionWitnessAssignmentAt linked.1
+          (reflectedBentGuardGraftLeftAssignmentFrom
+            D hextent state linkedList) =
+        reflectedBentGuardGraftLeftAuxiliary D hextent state linked
+  | [], linked, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: rest, linked, hmem => by
+      by_cases hsame : head.1 = linked.1
+      · have hsubtype : head = linked := Subtype.ext hsame
+        subst head
+        simp [slabFusionWitnessAssignmentAt,
+          reflectedBentGuardGraftLeftAssignmentFrom]
+      · have hrest : linked ∈ rest := by
+          rcases List.mem_cons.mp hmem with hhead | htail
+          · exact False.elim
+              (hsame (congrArg Subtype.val hhead.symm))
+          · exact htail
+        simp only [reflectedBentGuardGraftLeftAssignmentFrom,
+          slabFusionWitnessAssignmentAt, hsame, if_false]
+        exact reflectedBentGuardGraftLeftAssignmentFrom_at_eq
+          D hextent state rest linked hrest
+
+theorem reflectedBentGuardGraftRightAssignmentFrom_at_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    ∀ (linkedList : List
+        {link // link ∈ boundaryCompleteSlabLinks 5})
+      (linked : {link // link ∈ boundaryCompleteSlabLinks 5}),
+      linked ∈ linkedList →
+      slabFusionWitnessAssignmentAt linked.1
+          (reflectedBentGuardGraftRightAssignmentFrom
+            D hextent state linkedList) =
+        reflectedBentGuardGraftRightAuxiliary D hextent state linked
+  | [], linked, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: rest, linked, hmem => by
+      by_cases hsame : head.1 = linked.1
+      · have hsubtype : head = linked := Subtype.ext hsame
+        subst head
+        simp [slabFusionWitnessAssignmentAt,
+          reflectedBentGuardGraftRightAssignmentFrom]
+      · have hrest : linked ∈ rest := by
+          rcases List.mem_cons.mp hmem with hhead | htail
+          · exact False.elim
+              (hsame (congrArg Subtype.val hhead.symm))
+          · exact htail
+        simp only [reflectedBentGuardGraftRightAssignmentFrom,
+          slabFusionWitnessAssignmentAt, hsame, if_false]
+        exact reflectedBentGuardGraftRightAssignmentFrom_at_eq
+          D hextent state rest linked hrest
+
 theorem reflectedBentGuardGraftLeftAssignmentFrom_mem
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
@@ -265,6 +321,50 @@ def reflectedBentGuardGraftRightAssignment
     SlabFusionWitnessAssignment :=
   reflectedBentGuardGraftRightAssignmentFrom D hextent state
     (boundaryCompleteSlabLinks 5).attach
+
+theorem reflectedBentGuardGraftLeftAssignment_at_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5}) :
+    slabFusionWitnessAssignmentAt linked.1
+        (reflectedBentGuardGraftLeftAssignment D hextent state) =
+      reflectedBentGuardGraftLeftAuxiliary D hextent state linked := by
+  unfold reflectedBentGuardGraftLeftAssignment
+  exact reflectedBentGuardGraftLeftAssignmentFrom_at_eq
+    D hextent state (boundaryCompleteSlabLinks 5).attach linked
+    (List.mem_attach (boundaryCompleteSlabLinks 5) linked)
+
+theorem reflectedBentGuardGraftRightAssignment_at_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5}) :
+    slabFusionWitnessAssignmentAt linked.1
+        (reflectedBentGuardGraftRightAssignment D hextent state) =
+      reflectedBentGuardGraftRightAuxiliary D hextent state linked := by
+  unfold reflectedBentGuardGraftRightAssignment
+  exact reflectedBentGuardGraftRightAssignmentFrom_at_eq
+    D hextent state (boundaryCompleteSlabLinks 5).attach linked
+    (List.mem_attach (boundaryCompleteSlabLinks 5) linked)
+
+theorem reflectedBentGuardGraftLeftAuxiliary_eq_reflected_of_active
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5})
+    (hactive : reflectedBentPatternActiveLinkB linked.1 = true) :
+    reflectedBentGuardGraftLeftAuxiliary D hextent state linked =
+      slabFusionWitnessAssignmentAt
+        linked.1 reflectedBentLeftFineWitness.1 := by
+  simp [reflectedBentGuardGraftLeftAuxiliary, hactive]
+
+theorem reflectedBentGuardGraftRightAuxiliary_eq_reflected_of_active
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5})
+    (hactive : reflectedBentPatternActiveLinkB linked.1 = true) :
+    reflectedBentGuardGraftRightAuxiliary D hextent state linked =
+      slabFusionWitnessAssignmentAt
+        linked.1 reflectedBentRightFineWitness.1 := by
+  simp [reflectedBentGuardGraftRightAuxiliary, hactive]
 
 theorem reflectedBentGuardGraftLeftAssignment_mem
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
@@ -464,8 +564,12 @@ theorem reflectedBentGuardGraftAcceptedState_leftPhysical
 #print axioms reflectedBentGuardGraftRightAuxiliary_mem
 #print axioms reflectedBentGuardGraftLeftAssignmentFrom_mem
 #print axioms reflectedBentGuardGraftRightAssignmentFrom_mem
+#print axioms reflectedBentGuardGraftLeftAssignmentFrom_at_eq
+#print axioms reflectedBentGuardGraftRightAssignmentFrom_at_eq
 #print axioms reflectedBentGuardGraftLeftAssignment_mem
 #print axioms reflectedBentGuardGraftRightAssignment_mem
+#print axioms reflectedBentGuardGraftLeftAssignment_at_eq
+#print axioms reflectedBentGuardGraftRightAssignment_at_eq
 #print axioms reflectedBentGuardGraftLeftPhysical_mem
 #print axioms reflectedBentGuardGraftRightPhysical_mem
 #print axioms reflectedBentGuardGraftAcceptedState

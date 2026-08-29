@@ -25850,6 +25850,14 @@ witnesses constructs `reflectedBentGuardGraftAcceptedState`, an actual
 Thus the cleared-background surgery has now crossed the acceptance gate; it
 is no longer merely a physical labelling.
 
+The assignment compiler also has an exact decoder.  Looking up either global
+graft assignment at a complete slab link returns the very auxiliary selected
+by its active/inactive branch.  On active links those decoded auxiliaries are
+literally the left and right auxiliaries of the original reflected source.
+Together with the already proved external-word equalities, the complete local
+source row on every active link is therefore exposed without a proof-erased
+or extensional identification.
+
 This theorem is deliberately cutoff-one.  It does not yet transport the
 known positive reflected recoupling channel into the graft, prove that the
 grafted state lies in the observable good subcarrier, reconstruct weighted
