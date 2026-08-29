@@ -52,6 +52,7 @@ structure TransportedPairedRealizationCertificate
     (LinkedPhysicalPairPackages extent
       leftPhysical₁ rightPhysical₁ linkedList)
     hpackages₂
+  sourceTarget_eq : transported.sourceTarget = sourceTarget.target
   leftAssignment_eq :
     (secondAnchor.realize transported.target).leftAssignment = expectedLeft
   rightAssignment_eq :
@@ -135,8 +136,10 @@ def transportLinkedPairedRealizationCertificate
     exact ⟨hfamily.1.symm, hfamily.2.symm⟩
   refine
     { transported := transported
+      sourceTarget_eq := ?_
       leftAssignment_eq := ?_
       rightAssignment_eq := ?_ }
+  · exact transportedTargetPackage_sourceTarget hpackages₂ sourceTarget
   · rw [htarget]
     exact hanchor.1.trans hlinked.1
   · rw [htarget]

@@ -26757,3 +26757,52 @@ the uniform dense/completed physical spectral gap, thermodynamic and
 continuum passage, continuum QFT, and the Clay theorem.  No `sorry` is
 introduced.  Focused monitored verification uses only
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Guarded receiver repair now has an explicit positive weighted-fiber rate (2026-08-29)
+
+`FiniteWeightedRecoverableRepair` isolates the finite algebra that follows a
+many-to-one code by a recoverable receiver map.  If complete code fibers obey
+`guard * fiber <= global * codeWeight`, equal receivers recover equal codes,
+and insertion pays `insertion * codeWeight <= receiverWeight`, then every
+receiver fiber is paid by any `rho` satisfying
+`rho * global <= insertion * guard`.  The proof retains the complete inverse
+fiber and cancels only the explicitly positive guard coefficient.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardRecoverableRepair` instantiates that
+theorem on the actual fixed-anchor map
+
+`connected source -> canonical target terminal -> guarded connected receiver`.
+
+Equality of receivers first gives equality of their literal accepted grafts;
+the already proved graft recoverability then reconstructs equality of the
+guard-cleared composite terminals.  The two-stage terminal-fiber estimate and
+the exact heat insertion floor therefore prove a complete receiver-fiber
+bound.
+
+The module constructs the rate as data:
+
+`rho_guard = min(1, insertionRate * guardFiberRate / globalPeierlsRate)`.
+
+It proves the denominator and numerator strictly positive, obtains
+`0 < rho_guard <= 1`, proves the exact product budget, and concludes
+`rho_guard * receiverFiberWeight <= receiverWeight` for every connected
+receiver.  Thus the full fixed-anchor weight/congestion mathematics of the
+guarded repair is now closed independently of successful-choice packaging.
+
+`CompactDualSlabTransportedPairedRealizationCertificate` also now records the
+previously omitted equality between its transported source target and the
+caller-supplied target package.  This tightens the certificate; it does not
+yet solve Lean's expensive concrete conversion from that generic dependent
+certificate to the named observable choice.
+
+The remaining fixed-anchor lift is sharply isolated: prove that each guarded
+connected receiver contains the already constructed coordinatewise-positive,
+graph-disconnecting SU(2) target as a listed positive successful choice, and
+then attach the receiver-fiber theorem to the canonical good-source subtype.
+The current obstacle is this dependent success interface, not a missing
+weight bound.  The explicit rate is still datum-dependent and is not uniform
+in cutoff, volume, coupling, beta, or lattice spacing.  Scalable geometry, a
+genuinely uniform posterior fraction, the uniform dense/completed physical
+spectral gap, thermodynamic and continuum passage, continuum QFT, and the Clay
+theorem remain open.  No `sorry` is introduced.  Focused monitored
+verification uses only `[propext, Quot.sound]`; no full-root audit is claimed.
