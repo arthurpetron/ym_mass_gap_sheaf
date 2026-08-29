@@ -25639,6 +25639,51 @@ claimed.  No `sorry` is introduced.  Focused monitored checks and the
 dependency-complete target build use only `[propext, Quot.sound]`; no
 full-root audit is claimed.
 
+#### Canonical peeling reduces repair to terminal-background packing (2026-08-28)
+
+`CompactDualSlabObservableCanonicalPeelingGoodSourcePacking` identifies a
+shorter causal contraction than recounting canonical trace skeletons.  The
+observable-specific global entropy code already proves, at the anchor
+coupling, that complete component peeling bounds the full support-connected
+source mass by
+
+`globalAnchorRate * physicalPartition^2`,
+
+where the displayed rate is the finite geometric tail with common ratio
+`16/25`.  Thus root faces, replica sides, peel sizes, and reconstruction words
+have already been summed without a volume factor.
+
+The new
+`SlabObservablePairedConnectedGoodTerminalPacking` asks for exactly the
+remaining geometric operation: inject every accepted paired terminal
+background into the executable good connected-source carrier while proving
+
+`kappa * terminalWeight <= packedGoodSourceWeight`.
+
+Finite weighted injection then proves
+
+`kappa * physicalPartition^2 <= goodSourceMass`.
+
+`toDensity` contracts the two estimates: any explicit `rho > 0`, `rho <= 1`
+with
+
+`rho * globalAnchorRate <= kappa`
+
+is a literal good-source density.  `toRetainedContraction` composes that
+density with the independent successful SU(2) channel routing.  The
+canonical-root/skeleton count is therefore not the remaining bottleneck.
+
+No terminal packing is inhabited here.  The open theorem is now the
+background-stable insertion itself: preserve enough terminal data for
+injectivity, install a reflected disconnectable pattern with a positive
+weight floor, and prove that the unchanged background creates no bypass.
+The fixed outward two-pivot receiver proves non-vacuity of the local channel
+geometry but is not a reflected, arbitrary-terminal packing.  No uniform
+dense/completed spectral gap, thermodynamic or continuum passage, continuum
+QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The focused
+monitored check uses only `[propext, Quot.sound]`; no full-root audit is
+claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
