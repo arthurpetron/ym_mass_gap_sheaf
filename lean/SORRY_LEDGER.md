@@ -26526,3 +26526,28 @@ uniformity, uniform posterior fraction, uniform dense/completed spectral gap,
 thermodynamic or continuum passage, continuum QFT, or Clay theorem is proved.
 No `sorry` is introduced.  Focused monitored verification uses only
 `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The guarded observable graft is connected for every peeled background (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetConnectedSource` proves
+that the guarded `11 x 00` observable source remains in the exact connected
+source carrier for every accepted input state.  The proof reuses the certified
+reflected-bent support chain between the marked faces.  Every vertex of that
+old target-rooted component remains positive in the grafted left replica, so
+finite-chain monotonicity transports the path into the grafted union support;
+rooted-component closure then proves the production connectedness Boolean.
+
+The resulting declaration
+`reflectedBentGuardGraftConnectedStrandSource` is the literal source object
+required by good-source routing and terminal packing.  Exterior peeled
+background support is allowed and need not be counted or classified: it may
+enlarge the physical support graph but cannot erase the inserted marked path.
+
+This does not yet prove that the selected guarded target is successful in the
+concrete dependent observable row, nor that its row weight has the common
+floor needed for packing.  Terminal recoverability, packing injectivity,
+insertion-weight control, all-cutoff/all-volume transport, a uniform posterior
+fraction, the uniform completed gap, continuum passage, continuum QFT, and
+the Clay theorem remain open.  No `sorry` is introduced.  The focused
+monitored check uses only `[propext, Quot.sound]`; no full-root audit is
+claimed.
