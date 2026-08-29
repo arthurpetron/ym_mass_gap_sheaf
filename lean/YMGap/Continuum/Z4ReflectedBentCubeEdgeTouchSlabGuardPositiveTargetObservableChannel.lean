@@ -7,10 +7,12 @@ separately.  This module contracts those facts through a small package whose
 public fields are exactly the two realized assignments and the classified
 paired graph.  The concrete target tuple remains behind the package boundary.
 
-This is only the geometric success half of a positive channel.  A subsequent
-step must transport the already-proved coordinatewise SU(2) positivity to the
-same packaged choice before the guarded receiver becomes a canonical good
-source.
+The concrete guarded package below still records the geometric-success half.
+This module now also proves the generic final contraction: once
+coordinatewise SU(2) positivity is attached to that same opaque choice, the
+package constructs the literal local positive channel.  The remaining
+concrete specialization is deliberately not exposed as a giant dependent
+target statement.
 
 Constructive contract: dependent finite products, exact graph equalities, and
 the existing paired-realization certificate only; no `Classical`, choice,
@@ -19,7 +21,9 @@ heartbeat option.
 -/
 
 import YMGap.Continuum.CompactDualSlabObservablePairedLocalPositiveChannel
+import YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPeelingFiniteFiberFloor
+import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetConnectedSource
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableSuccess
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPairedRealization
 
@@ -33,10 +37,15 @@ open YMGap.Continuum.CompactDualSlabAcceptedPairedPeel
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabObservablePairedFaceComponent
+open YMGap.Continuum.CompactDualSlabObservablePairedConnectedFirstSourceThinning
+open YMGap.Continuum.CompactDualSlabObservablePairedLocalPositiveChannel
 open YMGap.Continuum.CompactDualSlabObservablePairedStrandRecouplingRow
+open YMGap.Continuum.CompactDualSlabObservablePairedSupportComponent
 open YMGap.Continuum.CompactDualSlabPhysicalData
+open YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry
 open YMGap.Continuum.CompactDualSlabTransportedPairedRealizationCertificate
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
+open YMGap.Continuum.FiniteBistochasticQKernelProductPositivity
 open YMGap.Continuum.FiniteBoolGraphComponents
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
@@ -46,6 +55,7 @@ open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabConnectedSource
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPhysicalGraft
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPeelingFiniteFiberFloor
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget
+open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetConnectedSource
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetDisconnection
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetEdges
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetGraphBridge
@@ -58,6 +68,24 @@ open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabObservableChoice
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabObservableRealizationBridge
 
 /-! ## 1. A small paired-realization boundary -/
+
+/-- Coordinatewise positivity of one raw observable choice, kept behind a
+small named proposition so target packages need not expose their complete
+dependent product in structure declarations. -/
+inductive ObservableChoicePairedLocallyPositive
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (source : SlabObservablePairedStrandRecouplingSource
+      D rootFaceId targetFaceId)
+    (choice : SlabObservablePairedStrandRecouplingChoice
+      D rootFaceId targetFaceId source) : Prop where
+  | mk
+      (coordinatewise : FiniteBistochasticCoordinatewisePositive
+        (slabPhysicalPairRecouplingProductionSource
+          D.cutoff D.extent source.1.1.1.1 source.1.2.1.1
+          source.1.1.1.2 source.1.2.1.2
+          source.1.1.assignment_mem
+          (slabExpandedFineSourceEntryAssignment_mem source.1.2))
+        choice)
 
 /-- Hide the transported dependent target while retaining the exact choice,
 membership, and the two assignment equations consumed by graph success. -/
@@ -173,6 +201,61 @@ theorem ObservablePairedDisconnectedTargetPackage.success
     package.realized.leftAssignment_eq package.realized.rightAssignment_eq
     package.projectedEdges_eq package.vertices_eq package.adjacent_eq
     package.targetPhysical package.noMarkedChain
+
+/-- One opaque graph-success package together with connectedness of its source
+and coordinatewise positivity of the very same chosen target.  The inductive
+wrapper keeps those large dependent fields out of public result-type
+normalization. -/
+inductive ObservablePairedDisconnectedPositiveTargetPackage
+    (D : SlabPhysicalData) : Type where
+  | mk
+      (package : ObservablePairedDisconnectedTargetPackage D)
+      (source_connected :
+        slabObservableTwoReplicaPairPairedSupportConnectedB
+          D package.rootFaceId package.targetFaceId package.source.1 = true)
+      (locally_positive : ObservableChoicePairedLocallyPositive
+        D package.rootFaceId package.targetFaceId package.source
+          package.realized.choice)
+
+def ObservablePairedDisconnectedPositiveTargetPackage.rootFaceId
+    {D : SlabPhysicalData}
+    (positivePackage : ObservablePairedDisconnectedPositiveTargetPackage D) : Nat :=
+  match positivePackage with
+  | .mk package _ _ => package.rootFaceId
+
+def ObservablePairedDisconnectedPositiveTargetPackage.targetFaceId
+    {D : SlabPhysicalData}
+    (positivePackage : ObservablePairedDisconnectedPositiveTargetPackage D) : Nat :=
+  match positivePackage with
+  | .mk package _ _ => package.targetFaceId
+
+/-- Geometric disconnection and local SU(2) positivity for the same opaque
+choice construct the literal positive connected channel. -/
+def ObservablePairedDisconnectedPositiveTargetPackage.toLocalPositiveChannel
+    {D : SlabPhysicalData}
+    (positivePackage : ObservablePairedDisconnectedPositiveTargetPackage D) :
+    SlabObservablePairedConnectedLocalPositiveChannel D
+      positivePackage.rootFaceId positivePackage.targetFaceId := by
+  cases positivePackage with
+  | mk package source_connected locally_positive =>
+      let connected : SlabObservablePairedConnectedStrandSource
+          D package.rootFaceId package.targetFaceId :=
+        ⟨package.source.1,
+          List.mem_filter.mpr ⟨package.source.2, source_connected⟩⟩
+      exact .mk connected (.mk package.realized.choice
+        package.realized.choice_mem
+        (by
+          simpa only [connected,
+            SlabObservablePairedConnectedStrandSource.toRecouplingSource] using
+            package.success)
+        (by
+          cases locally_positive with
+          | mk coordinatewise =>
+              unfold SlabObservablePairedConnectedChoiceLocallyPositive
+              simpa only [connected,
+                slabObservablePairedConnectedProductionSource,
+                SlabObservablePairedConnectedStrandSource.toRecouplingSource] using
+                coordinatewise))
 
 /-- Assemble the opaque graph package while every dependent carrier remains
 symbolic.  Concrete specializations therefore need not normalize their full
@@ -321,6 +404,7 @@ opaque reflectedBentGuardGraftObservableDisconnectedTargetPackage
 
 #print axioms observableChoicePairedAssignmentPackageOfTransported
 #print axioms ObservablePairedDisconnectedTargetPackage.success
+#print axioms ObservablePairedDisconnectedPositiveTargetPackage.toLocalPositiveChannel
 #print axioms reflectedBentGuardGraftObservableDisconnectedTargetPackage
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableChannel

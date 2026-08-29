@@ -18,6 +18,7 @@ declaration, or unbounded heartbeat option.
 -/
 
 import YMGap.Continuum.SU2SlabPhysicalPairRecouplingPositiveTransport
+import YMGap.Continuum.CompactDualSlabTransportedPairedRealizationCertificate
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabObservableRealizationBridge
 
 namespace YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry
@@ -27,6 +28,7 @@ set_option maxHeartbeats 1000000
 
 open YMGap.Constructive
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
+open YMGap.Continuum.CompactDualSlabTransportedPairedRealizationCertificate
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.FiniteBistochasticQKernelProductPositivity
 open YMGap.Continuum.SU2SlabGlobalRecouplingWitnessRealization
@@ -36,6 +38,127 @@ open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabObservableChoice
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabObservableRealizationBridge
+
+/-- Coordinatewise positivity of a reference column survives the literal
+target-package transport to propositionally equal physical labels and source
+assignments. -/
+theorem transportedTargetPackage_coordinatewisePositive
+    (K extent : Nat)
+    {leftPhysical₁ rightPhysical₁ leftPhysical₂ rightPhysical₂ :
+      SlabLabelling}
+    (hleft : leftPhysical₁ = leftPhysical₂)
+    (hright : rightPhysical₁ = rightPhysical₂)
+    (leftAssignment₁ rightAssignment₁ leftAssignment₂ rightAssignment₂ :
+      SlabFusionWitnessAssignment)
+    (hleftAssignment : leftAssignment₁ = leftAssignment₂)
+    (hrightAssignment : rightAssignment₁ = rightAssignment₂)
+    (left_mem₁ : leftAssignment₁ ∈
+      slabFusionWitnessAssignmentsOn K extent leftPhysical₁
+        (boundaryCompleteSlabLinks extent))
+    (right_mem₁ : rightAssignment₁ ∈
+      slabFusionWitnessAssignmentsOn K extent rightPhysical₁
+        (boundaryCompleteSlabLinks extent))
+    (left_mem₂ : leftAssignment₂ ∈
+      slabFusionWitnessAssignmentsOn K extent leftPhysical₂
+        (boundaryCompleteSlabLinks extent))
+    (right_mem₂ : rightAssignment₂ ∈
+      slabFusionWitnessAssignmentsOn K extent rightPhysical₂
+        (boundaryCompleteSlabLinks extent))
+    (rightPackages : List FiniteBistochasticQKernelPackage)
+    (hpackages₁ : slabPhysicalPairRecouplingPackages extent
+      leftPhysical₁ rightPhysical₁ = rightPackages)
+    (hpackages₂ : slabPhysicalPairRecouplingPackages extent
+      leftPhysical₂ rightPhysical₂ = rightPackages)
+    (sourceTarget : TargetMembershipPackage rightPackages)
+    (hpositive : FiniteBistochasticCoordinatewisePositive
+      (slabPhysicalPairRecouplingProductionSource K extent
+        leftPhysical₁ rightPhysical₁ leftAssignment₁ rightAssignment₁
+        left_mem₁ right_mem₁)
+      (transportFiniteBistochasticTargetAssignment
+        hpackages₁ sourceTarget.target)) :
+    FiniteBistochasticCoordinatewisePositive
+      (slabPhysicalPairRecouplingProductionSource K extent
+        leftPhysical₂ rightPhysical₂ leftAssignment₂ rightAssignment₂
+        left_mem₂ right_mem₂)
+      (transportedTargetPackage hpackages₂ sourceTarget).target := by
+  rw [transportedTarget_eq_physicalTransport hleft hright rightPackages
+    hpackages₁ hpackages₂ sourceTarget]
+  exact productionSource_coordinatewisePositive_transport K extent
+    hleft hright leftAssignment₁ rightAssignment₁
+    leftAssignment₂ rightAssignment₂ hleftAssignment hrightAssignment
+    left_mem₁ right_mem₁ left_mem₂ right_mem₂
+    (transportFiniteBistochasticTargetAssignment
+      hpackages₁ sourceTarget.target) hpositive
+
+/-- The same transport contracted through a paired-realization certificate.
+The certificate may store a propositionally equal transported package; its
+`sourceTarget_eq` field identifies the chosen column before positivity is
+transported. -/
+theorem transportedPairedRealizationCertificate_coordinatewisePositive
+    (K extent : Nat)
+    {leftPhysical₁ rightPhysical₁ leftPhysical₂ rightPhysical₂ :
+      SlabLabelling}
+    (hleft : leftPhysical₁ = leftPhysical₂)
+    (hright : rightPhysical₁ = rightPhysical₂)
+    (leftAssignment₁ rightAssignment₁ leftAssignment₂ rightAssignment₂ :
+      SlabFusionWitnessAssignment)
+    (hleftAssignment : leftAssignment₁ = leftAssignment₂)
+    (hrightAssignment : rightAssignment₁ = rightAssignment₂)
+    (left_mem₁ : leftAssignment₁ ∈
+      slabFusionWitnessAssignmentsOn K extent leftPhysical₁
+        (boundaryCompleteSlabLinks extent))
+    (right_mem₁ : rightAssignment₁ ∈
+      slabFusionWitnessAssignmentsOn K extent rightPhysical₁
+        (boundaryCompleteSlabLinks extent))
+    (left_mem₂ : leftAssignment₂ ∈
+      slabFusionWitnessAssignmentsOn K extent leftPhysical₂
+        (boundaryCompleteSlabLinks extent))
+    (right_mem₂ : rightAssignment₂ ∈
+      slabFusionWitnessAssignmentsOn K extent rightPhysical₂
+        (boundaryCompleteSlabLinks extent))
+    (linkedList : List {link // link ∈ boundaryCompleteSlabLinks extent})
+    (hpackages₁ : slabPhysicalPairRecouplingPackages extent
+      leftPhysical₁ rightPhysical₁ =
+        LinkedPhysicalPairPackages extent
+          leftPhysical₁ rightPhysical₁ linkedList)
+    (hpackages₂ : slabPhysicalPairRecouplingPackages extent
+      leftPhysical₂ rightPhysical₂ =
+        LinkedPhysicalPairPackages extent
+          leftPhysical₁ rightPhysical₁ linkedList)
+    (sourceTarget : TargetMembershipPackage
+      (LinkedPhysicalPairPackages extent
+        leftPhysical₁ rightPhysical₁ linkedList))
+    (secondAnchor : SlabPhysicalPairCanonicalAnchor K extent
+      leftPhysical₂ rightPhysical₂)
+    (expectedLeft expectedRight : SlabFusionWitnessAssignment)
+    (certificate : TransportedPairedRealizationCertificate K extent
+      leftPhysical₁ rightPhysical₁ leftPhysical₂ rightPhysical₂
+      linkedList hpackages₂ sourceTarget secondAnchor
+      expectedLeft expectedRight)
+    (hpositive : FiniteBistochasticCoordinatewisePositive
+      (slabPhysicalPairRecouplingProductionSource K extent
+        leftPhysical₁ rightPhysical₁ leftAssignment₁ rightAssignment₁
+        left_mem₁ right_mem₁)
+      (transportFiniteBistochasticTargetAssignment
+        hpackages₁ sourceTarget.target)) :
+    FiniteBistochasticCoordinatewisePositive
+      (slabPhysicalPairRecouplingProductionSource K extent
+        leftPhysical₂ rightPhysical₂ leftAssignment₂ rightAssignment₂
+        left_mem₂ right_mem₂)
+      certificate.transported.target := by
+  have htransported := transportedTargetPackage_coordinatewisePositive
+    K extent hleft hright
+    leftAssignment₁ rightAssignment₁ leftAssignment₂ rightAssignment₂
+    hleftAssignment hrightAssignment
+    left_mem₁ right_mem₁ left_mem₂ right_mem₂
+    (LinkedPhysicalPairPackages extent
+      leftPhysical₁ rightPhysical₁ linkedList)
+    hpackages₁ hpackages₂ sourceTarget hpositive
+  rw [certificate.transported.target_eq, certificate.sourceTarget_eq]
+  rw [(transportedTargetPackage hpackages₂ sourceTarget).target_eq,
+    transportedTargetPackage_sourceTarget hpackages₂ sourceTarget]
+    at htransported
+  exact htransported
 
 /-- A positive reference entry remains positive for the literal target stored
 in the transported package over the propositionally equal physical pair. -/
@@ -89,5 +212,9 @@ theorem transportedTargetPackage_productWeight_pos
 
 end YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry
 
+#print axioms
+  YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry.transportedTargetPackage_coordinatewisePositive
+#print axioms
+  YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry.transportedPairedRealizationCertificate_coordinatewisePositive
 #print axioms
   YMGap.Continuum.CompactDualSlabTransportedTargetPositiveEntry.transportedTargetPackage_productWeight_pos
