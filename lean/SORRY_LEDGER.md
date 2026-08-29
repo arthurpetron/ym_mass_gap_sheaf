@@ -25745,6 +25745,33 @@ uniform completed gap, thermodynamic or continuum passage, continuum QFT, or
 Clay theorem is claimed.  No `sorry` is introduced.  The focused monitored
 check uses only `[propext, Quot.sound]`; no full-root audit is claimed.
 
+#### The reflected guard clearing pass is executable (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPeeling` instantiates the existing
+well-founded accepted paired-component recursion on the literal reflected
+guard list for every physical datum of extent five.  The resulting
+`reflectedBentGuardCanonicalPeeling` is an actual function on every accepted
+two-replica state, not a relation or an assumed move.
+
+The terminal vanishes in both replicas on every guard face.  Every retained
+peel record has positive size, belongs to its literal adaptive component-code
+carrier, and the complete trace satisfies the exact telescope
+
+`terminalMass + traceMass = initialMass`.
+
+Its trace length is bounded by initial paired mass, so all inverse data remain
+finite and explicit.  The next step is the accepted graft: splice the known
+reflected-bent physical and auxiliary pattern into this zero collar, reuse the
+terminal assignment outside the pattern-active links, and prove linkwise
+fusion acceptance plus background-independent channel positivity.  Weighted
+inverse reconstruction for this guard pass is also still open; the current
+component entropy theorem is not silently promoted to that result.
+
+No graft, density, uniform completed gap, thermodynamic or continuum passage,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
+is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
