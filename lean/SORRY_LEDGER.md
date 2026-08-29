@@ -25695,3 +25695,39 @@ No uniform repair ratio or localized congestion estimate, uniform
 dense/completed spectral gap, thermodynamic or continuum limit, continuum
 QFT, or Clay theorem is claimed.  No `sorry` is introduced.  Focused checks
 use only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The native outward Y/Z pairing is absent from the whole canonical-left carrier (2026-08-28)
+
+`Z4OutwardYZEdgeTouchSlabCanonicalLeftBasisObstruction` exhausts the local
+production carrier at the unique degree-five outward Y/Z pivot.  Every
+`ValenceFiveLeftCarrier 1 1 1 1 0` is propositionally equal to exactly one of
+the two displayed carriers.  Their complete directed terminal pair lists are
+
+`[(0,2), (1,3), (2,0), (3,1)]`
+
+or
+
+`[(0,1), (1,0), (2,3), (3,2)]`.
+
+In the literal incident-face order `Z,Y,Y,Z,0`, every edge in both lists
+crosses between the Y and Z sides.  The theorem
+`outwardYZPivotCanonicalLeftPairing_all_cross` proves this uniformly for an
+arbitrary proof-carrying left carrier.  The native right-tree pair list
+`[(1,2), (2,1), (0,3), (3,0)]` is unequal to the pair list of every such
+carrier.
+
+Thus the observable-basis mismatch is structural, not an unlucky equal-rank
+enumeration.  Changing the target rank bijection cannot turn the native
+disconnecting state into a canonical-left basis vector.  A viable bridge must
+retain the right-tree basis semantically (with corresponding target-capacity
+and face-switch coherence), or repair the physical support to a distinct
+same-marked-face source whose canonical-left carrier contains a disconnecting
+channel.
+
+This milestone is local to the unique pivot and does not state a normalized
+whole-row zero-mass theorem.  It does not construct the basis-tagged physical
+carrier, the required face-switch coherence, a same-sector physical repair,
+uniform repair ratios or congestion, a uniform dense/completed spectral gap,
+thermodynamic or continuum limits, continuum QFT, or the Clay theorem.  No
+`sorry` is introduced.  Focused checks use only `[propext, Quot.sound]`; no
+full-root audit is claimed.
