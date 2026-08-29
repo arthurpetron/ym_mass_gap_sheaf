@@ -25802,6 +25802,33 @@ passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 The focused monitored check uses only `[propext, Quot.sound]`; no full-root
 audit is claimed.
 
+#### Every graft link sees one of two accepted local spin words (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLinkWords` turns the guard geometry into
+the exact local compiler interface.  The executable predicate
+`reflectedBentPatternActiveLinkB` recognizes whether a complete slab link is
+incident to the inserted reflected support.  On an active link, every incident
+face shares that link with a support face and therefore belongs to the cleared
+guard.  The grafted left and right external spin words are consequently
+literal copies of the known reflected words.  On an inactive link, the
+reflected pattern vanishes on every incident face, so the left graft word is
+the peeled terminal word; the right word is terminal at every link.
+
+The same dichotomy is proved as equality of the production
+`slabLinkFusionWitnesses` fibers for every cutoff parameter `K`.  Thus local
+acceptance no longer requires a new fusion calculation: an active link may
+reuse an auxiliary from the reflected fiber and an inactive link may reuse an
+auxiliary from the terminal fiber.  The next contraction is structural
+recursion over `boundaryCompleteSlabLinks 5`, selecting one of those two
+known auxiliaries and proving membership in the graft's global Cartesian
+assignment list.
+
+No accepted global graft, positive recoupling transport, weighted inverse
+bound, uniform density, completed spectral gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+The focused monitored check uses only `[propext, Quot.sound]`; no full-root
+audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
