@@ -25891,6 +25891,33 @@ continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
 is claimed.
 
+#### The guarded graft has a positive component-preserving target column (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget` selects a recoupling
+target for the literal accepted graft.  At the unique reflected pivot it
+transports the previously proved rank-zero SU(2) target through the exact
+active-link spin-word equalities.  The resulting entry retains the explicit
+`1/4` valence-five kernel floor and hence preserves the two reflected strand
+components.  At every other complete-slab link, the finite-row positive
+target compiler computes a target for the actual local graft source.
+
+For every finite list of complete-slab links, structural recursion assembles
+those local choices into a member of the dependent target product.  Every
+coordinate has strictly positive recoupling weight, so the exact finite
+product is strictly positive.  Quantifying over an arbitrary finite link list
+is stronger than normalizing the concrete extent-five enumeration during
+elaboration and exposes the multiplicative argument directly.
+
+This is a target-selection and positivity theorem, not yet a target
+realization or disconnection theorem.  The selected auxiliaries have not yet
+been assembled into accepted left/right assignments, and the resulting strand
+graph has not yet been proved to separate the marked reflected faces.  The
+construction is still cutoff-one and extent-five.  No uniform density,
+weighted inverse bound, completed spectral gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+The focused monitored check uses only `[propext, Quot.sound]`; no full-root
+audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual

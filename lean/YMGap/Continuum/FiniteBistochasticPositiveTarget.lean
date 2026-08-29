@@ -114,9 +114,18 @@ def FiniteBistochasticQKernel.positiveTarget
       target_mem := selected.item_mem
       weight_pos := selected.value_pos }
 
+/-- Unqualified public spelling of the positive-row compiler, convenient in
+modules which already use the kernel structure namespace. -/
+abbrev finiteBistochasticPositiveTarget
+    {Source Target : Type}
+    (kernel : FiniteBistochasticQKernel Source Target)
+    (source : Source) : FiniteBistochasticPositiveTarget kernel source :=
+  FiniteBistochasticQKernel.positiveTarget kernel source
+
 #print axioms FinitePositiveEntry
 #print axioms finitePositiveEntryOfSumPos
 #print axioms FiniteBistochasticPositiveTarget
 #print axioms FiniteBistochasticQKernel.positiveTarget
+#print axioms finiteBistochasticPositiveTarget
 
 end YMGap.Continuum.FiniteBistochasticPositiveTarget
