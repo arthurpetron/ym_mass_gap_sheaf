@@ -25995,6 +25995,33 @@ theorem is claimed.  The construction remains cutoff-one and extent-five.
 No `sorry` is introduced.  The focused monitored check uses only
 `[propext, Quot.sound]`; no full-root audit is claimed.
 
+#### The realized guarded positive target disconnects the marked faces (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetEdges` classifies every
+physical terminal edge of both accepted target replicas.  On an inactive link,
+neither endpoint can belong to the inserted reflected support.  On an active
+left nonpivot link, a cross-lobe edge would contradict the proved uniqueness
+of the reflected pivot.  The active left pivot uses its exact realized edge
+list.  An active right link has the reflected vacuum word and hence admits no
+physical terminal.  After forgetting proof-indexed strand slots, every edge
+in the combined ordinary projected graph preserves near-lobe membership.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetDisconnection` contracts
+that edgewise invariant through Boolean adjacency and every explicit
+Type-valued finite graph chain.  The marked root face is in the near lobe and
+the marked reflected target is in the disjoint far lobe.  Consequently the
+same accepted target column whose product weight is strictly positive has no
+marked-face chain, and a data-bearing finite disconnection certificate records
+the result.
+
+This milestone remains cutoff-one and extent-five.  It does not yet identify
+the guarded target with an observable successful-channel object, construct a
+weighted inverse repair with controlled target fibers, prove a bound uniform
+in volume, cutoff, lattice spacing, or coupling, establish a dense/completed
+spectral gap, pass to thermodynamic or continuum limits, construct continuum
+QFT, or prove the Clay theorem.  No `sorry` is introduced.  Focused monitored
+checks use only `[propext, Quot.sound]`; no full-root audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
