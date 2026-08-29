@@ -26551,3 +26551,33 @@ fraction, the uniform completed gap, continuum passage, continuum QFT, and
 the Clay theorem remain open.  No `sorry` is introduced.  The focused
 monitored check uses only `[propext, Quot.sound]`; no full-root audit is
 claimed.
+
+#### Symbolic target transport now realizes both replicas at once (2026-08-29)
+
+`CompactDualSlabTransportedPairedRealizationCertificate` generalizes the
+existing one-sided transported-realization interface to the complete paired
+observable target.  Over arbitrary cutoff, extent, physical fields, and a
+symbolic linked list, it transports a target column into a second physical
+pair and proves exact equality of both realized assignments with caller-given
+symbolic assignments.
+
+The proof keeps the linked list abstract, uses equality with the canonical
+complete attachment list only inside the generic theorem, and combines the
+existing physical-target transport theorem with paired anchor independence.
+It therefore removes the need for downstream guarded constructions to
+re-prove left and right realization separately or expose the complete
+dependent target tuple.
+
+For the guarded source, the exact reference package equality
+`reflectedBentGuardGraftReferenceRecouplingPackages_eq` is also retained.
+The remaining concrete bridge is to instantiate the generic paired compiler
+without forcing Lean to normalize the complete cutoff-one, extent-five target
+while transporting between the datum-indexed and fixed-index presentations.
+Consequently no successful guarded observable choice, positive connected
+channel, terminal packing, insertion weight floor, uniform posterior
+fraction, uniform dense/completed spectral gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is claimed here.
+
+No `sorry` is introduced.  The focused monitored check and the
+dependency-complete target build use only `[propext, Quot.sound]`; no
+full-root audit is claimed.

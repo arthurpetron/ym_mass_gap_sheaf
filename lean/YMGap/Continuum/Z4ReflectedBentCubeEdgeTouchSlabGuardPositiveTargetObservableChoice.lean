@@ -28,6 +28,7 @@ open YMGap.Continuum.FiniteBistochasticQKernel
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+open YMGap.Continuum.SU2SlabGlobalRecouplingWitnessRealization
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabConnectedSource
@@ -87,6 +88,19 @@ theorem reflectedBentGuardGraftObservableRecouplingPackages_eq
   rw [hextent,
     reflectedBentGuardGraftObservableRecouplingSource_leftPhysical,
     reflectedBentGuardGraftObservableRecouplingSource_rightPhysical]
+  unfold slabPhysicalPairRecouplingPackages
+    ReflectedBentGuardGraftLinkedPackagesFrom
+  rfl
+
+theorem reflectedBentGuardGraftReferenceRecouplingPackages_eq
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    slabPhysicalPairRecouplingPackages D.extent
+        (reflectedBentGuardGraftLeftPhysical D hextent state)
+        (reflectedBentGuardGraftRightPhysical D hextent state) =
+      ReflectedBentGuardGraftLinkedPackagesFrom D hextent state
+        (boundaryCompleteSlabLinks 5).attach := by
+  rw [hextent]
   unfold slabPhysicalPairRecouplingPackages
     ReflectedBentGuardGraftLinkedPackagesFrom
   rfl
@@ -290,6 +304,7 @@ theorem reflectedBentGuardGraftRawObservableRecouplingPackages_eq
       (boundaryCompleteSlabLinks 5).attach)).target
 
 #print axioms reflectedBentGuardGraftObservableRecouplingPackages_eq
+#print axioms reflectedBentGuardGraftReferenceRecouplingPackages_eq
 #print axioms reflectedBentGuardGraftObservableTargetPackage
 #print axioms reflectedBentGuardGraftRealizedAssignmentsFrom_eq_canonical
 #print axioms reflectedBentGuardGraftObservableChoice_mem
