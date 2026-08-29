@@ -64,8 +64,11 @@ def reflectedBentGuardGraftRightAuxiliary
     (state : SlabAcceptedTwoReplicaState D)
     (linked : {link // link ∈ boundaryCompleteSlabLinks 5}) :
     SlabLabelling :=
-  slabFusionWitnessAssignmentAt linked.1
-    (reflectedBentGuardCanonicalPeeling D hextent state).1.2.1.2
+  if reflectedBentPatternActiveLinkB linked.1 then
+    slabFusionWitnessAssignmentAt linked.1 reflectedBentRightFineWitness.1
+  else
+    slabFusionWitnessAssignmentAt linked.1
+      (reflectedBentGuardCanonicalPeeling D hextent state).1.2.1.2
 
 private theorem reflectedBentLeftFineAssignmentAt_mem
     (linked : {link // link ∈ boundaryCompleteSlabLinks 5}) :
@@ -75,6 +78,16 @@ private theorem reflectedBentLeftFineAssignmentAt_mem
   exact slabFusionWitnessAssignmentAt_mem_local 1 5
     reflectedBentSwitchLeftPhysical (boundaryCompleteSlabLinks 5)
     reflectedBentLeftFineWitness.1 reflectedBentLeftFineWitness.2
+    linked.1 linked.2
+
+private theorem reflectedBentRightFineAssignmentAt_mem
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5}) :
+    slabFusionWitnessAssignmentAt linked.1 reflectedBentRightFineWitness.1 ∈
+      slabLinkFusionWitnesses 1 5
+        reflectedBentSwitchRightPhysical linked.1 := by
+  exact slabFusionWitnessAssignmentAt_mem_local 1 5
+    reflectedBentSwitchRightPhysical (boundaryCompleteSlabLinks 5)
+    reflectedBentRightFineWitness.1 reflectedBentRightFineWitness.2
     linked.1 linked.2
 
 private theorem reflectedBentGuardTerminalLeftAssignmentAt_mem
@@ -153,10 +166,19 @@ theorem reflectedBentGuardGraftRightAuxiliary_mem
     reflectedBentGuardGraftRightAuxiliary D hextent state linked ∈
       slabLinkFusionWitnesses 1 5
         (reflectedBentGuardGraftRightPhysical D hextent state) linked.1 := by
-  rw [reflectedBentGuardGraftRightFusionWitnesses_eq_terminal
-    1 D hextent state linked.1]
-  exact reflectedBentGuardTerminalRightAssignmentAt_mem
-    D hcutoff hextent state linked
+  cases hactive : reflectedBentPatternActiveLinkB linked.1 with
+  | false =>
+      rw [reflectedBentGuardGraftRightFusionWitnesses_eq_terminal
+        1 D hextent state linked.1]
+      simpa only [reflectedBentGuardGraftRightAuxiliary, hactive,
+        Bool.false_eq_true, if_false] using
+        reflectedBentGuardTerminalRightAssignmentAt_mem
+          D hcutoff hextent state linked
+  | true =>
+      rw [reflectedBentGuardGraftRightFusionWitnesses_eq_pattern_of_active
+        1 D hextent state linked.2 hactive]
+      simpa only [reflectedBentGuardGraftRightAuxiliary, hactive,
+        if_true] using reflectedBentRightFineAssignmentAt_mem linked
 
 /-! ## 2. Structural Cartesian assembly of both global assignments -/
 

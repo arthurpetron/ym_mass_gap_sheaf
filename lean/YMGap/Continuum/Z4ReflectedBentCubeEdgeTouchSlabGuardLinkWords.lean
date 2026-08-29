@@ -226,6 +226,20 @@ theorem reflectedBentGuardGraftLeftFusionWitnesses_eq_terminal_of_inactive
   exact reflectedBentGuardGraftLeftPhysical_eq_terminal_on_inactive_link
     D hextent state hinactive faceId hincident
 
+theorem reflectedBentGuardGraftRightFusionWitnesses_eq_pattern_of_active
+    (K : Nat) (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    {link : SlabLink}
+    (hlink : link ∈ boundaryCompleteSlabLinks 5)
+    (hactive : reflectedBentPatternActiveLinkB link = true) :
+    slabLinkFusionWitnesses K 5
+        (reflectedBentGuardGraftRightPhysical D hextent state) link =
+      slabLinkFusionWitnesses K 5 reflectedBentSwitchRightPhysical link := by
+  apply slabLinkFusionWitnesses_eq_of_eq_on_incident
+  intro faceId hincident
+  exact (reflectedBentGuardGraft_eq_pattern_on_active_link
+    D hextent state hlink hactive faceId hincident).2
+
 theorem reflectedBentGuardGraftRightFusionWitnesses_eq_terminal
     (K : Nat) (D : SlabPhysicalData) (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D) (link : SlabLink) :
@@ -244,6 +258,7 @@ theorem reflectedBentGuardGraftRightFusionWitnesses_eq_terminal
 #print axioms reflectedBentGuardGraftLeftExternalSpins_eq_terminal_of_inactive
 #print axioms reflectedBentGuardGraftLeftFusionWitnesses_eq_pattern_of_active
 #print axioms reflectedBentGuardGraftLeftFusionWitnesses_eq_terminal_of_inactive
+#print axioms reflectedBentGuardGraftRightFusionWitnesses_eq_pattern_of_active
 #print axioms reflectedBentGuardGraftRightFusionWitnesses_eq_terminal
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardLinkWords

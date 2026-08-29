@@ -25818,7 +25818,8 @@ The same dichotomy is proved as equality of the production
 `slabLinkFusionWitnesses` fibers for every cutoff parameter `K`.  Thus local
 acceptance no longer requires a new fusion calculation: an active link may
 reuse an auxiliary from the reflected fiber and an inactive link may reuse an
-auxiliary from the terminal fiber.  The next contraction is structural
+auxiliary from the terminal fiber.  The same active-link fiber equality is
+available in the right replica.  The next contraction is structural
 recursion over `boundaryCompleteSlabLinks 5`, selecting one of those two
 known auxiliaries and proving membership in the graft's global Cartesian
 assignment list.
@@ -25837,7 +25838,8 @@ link it looks up the auxiliary in the already accepted reflected assignment;
 at an inactive link it looks up the peeled terminal auxiliary.  Equality of
 the corresponding local fusion-witness fibers proves each selected left
 auxiliary accepted.  The right physical field is entirely terminal, so its
-accepted terminal auxiliary is retained at every link.
+fixed reflected vacuum auxiliary is used on active links and its accepted
+terminal auxiliary is retained on inactive links.
 
 Structural recursion over the attached complete-slab link list assembles both
 choices into members of the literal Cartesian global assignment lists.  The
