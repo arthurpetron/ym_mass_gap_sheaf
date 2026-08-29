@@ -25677,12 +25677,45 @@ No terminal packing is inhabited here.  The open theorem is now the
 background-stable insertion itself: preserve enough terminal data for
 injectivity, install a reflected disconnectable pattern with a positive
 weight floor, and prove that the unchanged background creates no bypass.
+The displayed packing over the complete accepted terminal carrier is a
+clean sufficient certificate, not asserted to be the weakest possible one;
+the actual canonical outputs carry the stronger cleared-component guard
+recorded next.
 The fixed outward two-pivot receiver proves non-vacuity of the local channel
 geometry but is not a reflected, arbitrary-terminal packing.  No uniform
 dense/completed spectral gap, thermodynamic or continuum passage, continuum
 QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The focused
 monitored check uses only `[propext, Quot.sound]`; no full-root audit is
 claimed.
+
+#### Actual connected terminals are cleared-component backgrounds (2026-08-28)
+
+`CompactDualSlabObservableCanonicalPeelingClearedBackground` specializes the
+complete peeling and locality theorems to the literal connected observable
+source carrier.  For every such source it constructs
+`SlabObservablePairedConnectedClearedBackground`, certifying simultaneously:
+
+* the target-rooted union-support component is duplicate-free;
+* both the target face and the root face belong to it;
+* the canonical terminal is zero in both replicas on every component face;
+* both physical fields are literally unchanged at every outside face; and
+* both auxiliary assignments are literally unchanged at every complete-slab
+  link outside the component's active-link neighborhood.
+
+In particular,
+`slabObservablePairedConnectedSourceCanonicalTerminal_root_zero` and
+`..._target_zero` expose the two marked zero-background boundary conditions
+directly.  This is the correct neutral-region input for a reflected pattern
+installer; an arbitrary accepted terminal need not satisfy it.
+
+The next geometric task is to make the packing certificate consume these
+reachable cleared backgrounds (retaining the component or an injective code
+for it), install a reflected disconnectable source inside the cleared
+region, and prove acceptance, no outside bypass, injectivity, and a uniform
+weight floor.  No installer, density, uniform completed gap, thermodynamic or
+continuum passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is
+introduced.  The focused monitored check uses only
+`[propext, Quot.sound]`; no full-root audit is claimed.
 
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
