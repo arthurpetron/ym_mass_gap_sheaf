@@ -11,7 +11,10 @@ source carrier, of
 Positive coupling makes every denominator and the target numerator strictly
 positive.  The finite minimum is therefore positive and at most one, and its
 defining lower bound gives the required weight comparison source by source.
-The complete source-carrier length bounds the fiber of the constant repair.
+The receiver fiber of the constant repair is exactly the complete source
+carrier, while every other fiber is empty.  Since the displayed good receiver
+itself proves that carrier nonempty, the sharp congestion parameter is the
+carrier length minus one.
 
 This construction is deliberately fixed-datum and non-uniform: its minimum
 may shrink and its congestion may grow with cutoff or volume.  Its purpose is
@@ -138,7 +141,58 @@ theorem slabObservablePairedConnectedConstantRepairLambda_le_one
 def slabObservablePairedConnectedConstantRepairCongestion
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat) : Nat :=
   (slabObservablePairedConnectedStrandSources
-    D rootFaceId targetFaceId).length
+    D rootFaceId targetFaceId).length - 1
+
+private theorem list_filter_true_local {A : Type} :
+    ∀ items : List A, items.filter (fun _ => true) = items
+  | [] => rfl
+  | head :: tail => by
+      change head :: tail.filter (fun _ => true) = head :: tail
+      rw [list_filter_true_local tail]
+
+private theorem list_filter_false_local {A : Type} :
+    ∀ items : List A, items.filter (fun _ => false) = []
+  | [] => rfl
+  | _ :: tail => list_filter_false_local tail
+
+/-- The fiber of a constant map over its selected target is the whole source
+carrier. -/
+theorem selectedTargetFiber_constant_self
+    {Source Target : Type} [DecidableEq Target]
+    (sources : List Source) (target : Target) :
+    selectedTargetFiber sources (fun _ : Source => Unit)
+        (fun _ => ()) (fun _ _ => target) target = sources := by
+  unfold selectedTargetFiber
+  simpa only [decide_eq_true rfl] using list_filter_true_local sources
+
+/-- Every other fiber of a constant map is empty. -/
+theorem selectedTargetFiber_constant_other
+    {Source Target : Type} [DecidableEq Target]
+    (sources : List Source) (target other : Target)
+    (hne : other ≠ target) :
+    selectedTargetFiber sources (fun _ : Source => Unit)
+        (fun _ => ()) (fun _ _ => target) other = [] := by
+  unfold selectedTargetFiber
+  simpa only [decide_eq_false hne] using list_filter_false_local sources
+
+/-- A displayed good receiver proves that the sharp congestion parameter plus
+one is exactly the complete connected source-carrier length. -/
+theorem slabObservablePairedConnectedConstantRepairCongestion_succ_eq
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    {goodB : SlabObservablePairedConnectedStrandSource
+      D rootFaceId targetFaceId → Bool}
+    (target : SlabObservablePairedConnectedGoodSource
+      D rootFaceId targetFaceId goodB) :
+    slabObservablePairedConnectedConstantRepairCongestion
+        D rootFaceId targetFaceId + 1 =
+      (slabObservablePairedConnectedStrandSources
+        D rootFaceId targetFaceId).length := by
+  unfold slabObservablePairedConnectedConstantRepairCongestion
+  have hmem : target.1 ∈ slabObservablePairedConnectedStrandSources
+      D rootFaceId targetFaceId :=
+    (List.mem_filter.mp target.2).1
+  have hpos := List.length_pos_of_mem hmem
+  omega
 
 /-- Every fixed finite good target induces an explicit weighted repair of the
 complete connected source carrier. -/
@@ -183,8 +237,10 @@ def slabObservablePairedConnectedConstantGoodSourceRepair
   repair_fiber_count_le := by
     intro targetSource
     unfold selectedTargetFiber
-      slabObservablePairedConnectedConstantRepairCongestion
-    exact Nat.le_trans (List.length_filter_le _ _) (Nat.le_succ _)
+    exact Nat.le_trans (List.length_filter_le _ _)
+      (Nat.le_of_eq
+        (slabObservablePairedConnectedConstantRepairCongestion_succ_eq
+          D rootFaceId targetFaceId target).symm)
 
 /-! ## 3. Canonical and concrete inhabitants -/
 
@@ -245,6 +301,9 @@ def reflectedBentCanonicalConstantRepairRetainedContraction :
 #print axioms slabObservablePairedConnectedConstantRepairRatio_pos
 #print axioms slabObservablePairedConnectedConstantRepairLambda_pos
 #print axioms slabObservablePairedConnectedConstantRepairLambda_le_one
+#print axioms selectedTargetFiber_constant_self
+#print axioms selectedTargetFiber_constant_other
+#print axioms slabObservablePairedConnectedConstantRepairCongestion_succ_eq
 #print axioms slabObservablePairedConnectedConstantGoodSourceRepair
 #print axioms slabObservablePairedConnectedCanonicalConstantGoodSourceRepair
 #print axioms reflectedBentCanonicalConstantGoodSourceRepair

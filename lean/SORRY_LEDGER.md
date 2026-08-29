@@ -25953,3 +25953,31 @@ congestion estimate, a uniform dense/completed spectral gap, thermodynamic
 or continuum passage, continuum QFT, or the Clay theorem.  No `sorry` is
 introduced.  Focused monitored checks and the dependency-complete target
 build use only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Constant repair has exact global, not local, congestion (2026-08-28)
+
+`CompactDualSlabObservableConstantGoodSourceRepair` now computes the constant
+map's fibers exactly.  The fiber over the selected good receiver is the whole
+connected source carrier, and every other fiber is empty.  Because that good
+receiver is itself attached to the carrier, the carrier is nonempty; hence
+the sharp congestion parameter is `carrier.length - 1`, and its paid
+multiplicity `congestion + 1` is propositionally equal to `carrier.length`.
+The finite retained fraction is thereby sharpened from an avoidable
+`carrier.length + 1` denominator to the exact `carrier.length` denominator.
+
+This equality is also a proof-path obstruction.  No better local congestion
+estimate can be extracted from the constant map: any uniform use of this
+repair would first require a uniform bound on the complete connected source
+carrier itself.  The component-peeling path must instead retain its inverse
+code and aggregate the variable Peierls weights inside each realized target
+fiber.  The already proved weighted geometric fiber estimates have exactly
+that form; replacing them by a common pointwise minimum and an unweighted
+global count discards the useful contraction.
+
+No weighted repair from every connected observable source into the good
+subcarrier is constructed here, and no uniform ratio, weighted target-fiber
+capacity, bounded-spin channel floor, uniform dense/completed spectral gap,
+thermodynamic or continuum passage, continuum QFT, or Clay theorem is
+claimed.  No `sorry` is introduced.  The focused monitored check uses only
+the allowed axiom gate `[propext, Quot.sound]`; dependency-complete target
+verification is recorded separately and no full-root audit is claimed.
