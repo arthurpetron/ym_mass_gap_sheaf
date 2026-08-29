@@ -25912,3 +25912,44 @@ thermodynamic or continuum limit, continuum QFT, or Clay theorem is proved.
 No `sorry` is introduced.  Focused monitored checks and the
 dependency-complete target build use only `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The positive two-pivot target now receives the seven-cube source (2026-08-28)
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabObservableChoice` embeds the literal
+connected repair source and its complete target into the observable
+recoupling row.  At both exceptional pivots, the canonical equal-rank target
+realizer is proved to return the already selected component-preserving
+auxiliary.  Structural recursion then identifies its complete left
+assignment with the accepted assignment classified by the disconnection
+proof.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabObservablePositiveChannel` reuses the
+previously proved parametric observable compilers rather than cloning their
+geometry-independent infrastructure.  Exact assignment lookup identifies
+the standard measure graph with the classified two-lobe graph.  Transport
+through the observable source anchor preserves that assignment.  The right
+replica is the literal vacuum, so it contributes no strand edges; the marked
+disconnection certificate therefore proves that the selected recoupling
+column is observationally successful.
+
+The all-column product-positivity theorem gives this same successful column
+strictly positive weight.  Hence it supplies a positive disconnection-mass
+certificate, a connected positive channel, and a canonical connected good
+source.  Feeding that channel to the existing finite constant-repair
+compiler constructs `outwardYZCanonicalRepairConstantGoodSourceRepair`, with
+an explicit positive finite minimum ratio and explicit finite source-count
+congestion.  The theorem
+`outwardYZCanonicalRepairSevenCubeRepairOutput_eq_goodSource` specializes the
+repair map to the previously proved seven-cube connected bad source and shows
+that its output is exactly this new canonical good receiver.
+
+This closes the missing finite same-marked-face repair bridge.  It remains
+non-uniform: the minimum weight ratio may tend to zero and the complete
+source-count congestion may diverge with cutoff or volume.  The outward Y/Z
+marked faces are not asserted here to form an Osterwalder--Schrader
+same-object reflection pair.  Thus this milestone does not by itself prove a
+same-object transfer contraction, a cutoff/volume/coupling-uniform repair or
+congestion estimate, a uniform dense/completed spectral gap, thermodynamic
+or continuum passage, continuum QFT, or the Clay theorem.  No `sorry` is
+introduced.  Focused monitored checks and the dependency-complete target
+build use only `[propext, Quot.sound]`; no full-root audit is claimed.
