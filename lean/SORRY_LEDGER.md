@@ -25829,6 +25829,34 @@ passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 The focused monitored check uses only `[propext, Quot.sound]`; no full-root
 audit is claimed.
 
+#### The cutoff-one guarded graft is a literal accepted paired state (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft` performs the global
+auxiliary splice promised by the link-word dichotomy.  At a pattern-active
+link it looks up the auxiliary in the already accepted reflected assignment;
+at an inactive link it looks up the peeled terminal auxiliary.  Equality of
+the corresponding local fusion-witness fibers proves each selected left
+auxiliary accepted.  The right physical field is entirely terminal, so its
+accepted terminal auxiliary is retained at every link.
+
+Structural recursion over the attached complete-slab link list assembles both
+choices into members of the literal Cartesian global assignment lists.  The
+grafted physical fields are separately proved to be bounded and zero outside
+the physical face carrier.  Pairing those physical and auxiliary membership
+witnesses constructs `reflectedBentGuardGraftAcceptedState`, an actual
+`SlabAcceptedTwoReplicaState D` whenever `D.cutoff = 1` and `D.extent = 5`.
+Thus the cleared-background surgery has now crossed the acceptance gate; it
+is no longer merely a physical labelling.
+
+This theorem is deliberately cutoff-one.  It does not yet transport the
+known positive reflected recoupling channel into the graft, prove that the
+grafted state lies in the observable good subcarrier, reconstruct weighted
+preimages, or extend the insertion uniformly across cutoff and volume.  No
+uniform density, completed spectral gap, thermodynamic or continuum passage,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
+is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
