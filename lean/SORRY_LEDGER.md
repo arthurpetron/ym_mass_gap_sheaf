@@ -26614,3 +26614,35 @@ uniform dense/completed physical spectral gap, thermodynamic or continuum
 passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 Focused monitored verification uses only `[propext, Quot.sound]`; no full-root
 audit is claimed.
+
+#### The fixed guard graft recovers its entire peeled terminal (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardTerminalRecoverability` proves the
+precise information-retention theorem needed to replace terminal packing by a
+weighted trace fiber.  At every pattern-active link, guard peeling makes all
+incident terminal physical spins zero.  The accepted SU(2) auxiliary bound
+then forces every used intertwiner coordinate to zero, while the production
+finite-support theorem forces every unused coordinate to zero.  Thus the
+all-zero local accepted fusion fiber is a singleton.
+
+Inactive links retain the terminal lookup literally, and the physical graft
+retains the terminal outside the cleared guard while both terminals vanish on
+the guard.  These facts reconstruct both complete global assignments and both
+physical replicas.  Consequently
+`reflectedBentGuardCanonicalPeeling_terminal_eq_of_graft_eq` proves that equal
+accepted guard grafts have equal canonical peeled terminal states.
+
+The accepted graft entries now pass through the small opaque constructor
+`reflectedBentGuardGraftEntry`; its value theorem prevents projection proofs
+from normalizing the large membership certificates.  This changes no source
+or weight and keeps the recoverability check within the ordinary finite
+heartbeat budget.
+
+The theorem does not recover the canonical peeling trace.  Therefore the
+remaining many-to-one ambiguity is isolated exactly in that trace, and the
+next analytic frontier is a weighted trace-fiber Peierls estimate followed by
+the successful-row realization and common insertion-weight floor.  No
+uniform posterior fraction, uniform dense/completed physical spectral gap,
+thermodynamic or continuum passage, continuum QFT, or Clay theorem is proved.
+No `sorry` is introduced.  Focused monitored verification uses only
+`[propext, Quot.sound]`; no full-root audit is claimed.

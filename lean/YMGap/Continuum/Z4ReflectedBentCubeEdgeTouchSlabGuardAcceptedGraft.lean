@@ -346,6 +346,42 @@ theorem reflectedBentGuardGraftRightAssignment_at_eq
     D hextent state (boundaryCompleteSlabLinks 5).attach linked
     (List.mem_attach (boundaryCompleteSlabLinks 5) linked)
 
+/-- At an inactive link, the assembled left graft assignment literally
+retains the peeled terminal lookup. -/
+theorem reflectedBentGuardGraftLeftAssignmentAt_eq_terminal_of_inactive
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (link : SlabLink) (hlink : link ∈ boundaryCompleteSlabLinks 5)
+    (hinactive : reflectedBentPatternActiveLinkB link = false) :
+    slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardGraftLeftAssignment D hextent state) =
+      slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent state).1.1.1.2 := by
+  let linked : {query // query ∈ boundaryCompleteSlabLinks 5} :=
+    ⟨link, hlink⟩
+  have hlookup := reflectedBentGuardGraftLeftAssignment_at_eq
+    D hextent state linked
+  simpa only [linked, reflectedBentGuardGraftLeftAuxiliary,
+    hinactive, Bool.false_eq_true, if_false] using hlookup
+
+/-- At an inactive link, the assembled right graft assignment literally
+retains the peeled terminal lookup. -/
+theorem reflectedBentGuardGraftRightAssignmentAt_eq_terminal_of_inactive
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (link : SlabLink) (hlink : link ∈ boundaryCompleteSlabLinks 5)
+    (hinactive : reflectedBentPatternActiveLinkB link = false) :
+    slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardGraftRightAssignment D hextent state) =
+      slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent state).1.2.1.2 := by
+  let linked : {query // query ∈ boundaryCompleteSlabLinks 5} :=
+    ⟨link, hlink⟩
+  have hlookup := reflectedBentGuardGraftRightAssignment_at_eq
+    D hextent state linked
+  simpa only [linked, reflectedBentGuardGraftRightAuxiliary,
+    hinactive, Bool.false_eq_true, if_false] using hlookup
+
 theorem reflectedBentGuardGraftLeftAuxiliary_eq_reflected_of_active
     (D : SlabPhysicalData) (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D)
@@ -522,23 +558,42 @@ theorem reflectedBentGuardGraftRightSource_mem
     reflectedBentGuardGraftRightAssignment_mem
       D hcutoff hextent state, rfl⟩
 
+/-- Attach a proved expanded source through a small opaque constructor.  The
+separate value theorem prevents later projection proofs from normalizing the
+large source-membership certificate. -/
+def reflectedBentGuardGraftEntry
+    (D : SlabPhysicalData)
+    (source : SlabLabelling × SlabFusionWitnessAssignment)
+    (hsource : source ∈ slabExpandedFineSources D) :
+    SlabExpandedFineSourceEntry D :=
+  ⟨source, hsource⟩
+
+theorem reflectedBentGuardGraftEntry_val
+    (D : SlabPhysicalData)
+    (source : SlabLabelling × SlabFusionWitnessAssignment)
+    (hsource : source ∈ slabExpandedFineSources D) :
+    (reflectedBentGuardGraftEntry D source hsource).1 = source :=
+  rfl
+
 def reflectedBentGuardGraftLeftEntry
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D) :
     SlabExpandedFineSourceEntry D :=
-  ⟨(reflectedBentGuardGraftLeftPhysical D hextent state,
-        reflectedBentGuardGraftLeftAssignment D hextent state),
-    reflectedBentGuardGraftLeftSource_mem D hcutoff hextent state⟩
+  reflectedBentGuardGraftEntry D
+    (reflectedBentGuardGraftLeftPhysical D hextent state,
+      reflectedBentGuardGraftLeftAssignment D hextent state)
+    (reflectedBentGuardGraftLeftSource_mem D hcutoff hextent state)
 
 def reflectedBentGuardGraftRightEntry
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D) :
     SlabExpandedFineSourceEntry D :=
-  ⟨(reflectedBentGuardGraftRightPhysical D hextent state,
-        reflectedBentGuardGraftRightAssignment D hextent state),
-    reflectedBentGuardGraftRightSource_mem D hcutoff hextent state⟩
+  reflectedBentGuardGraftEntry D
+    (reflectedBentGuardGraftRightPhysical D hextent state,
+      reflectedBentGuardGraftRightAssignment D hextent state)
+    (reflectedBentGuardGraftRightSource_mem D hcutoff hextent state)
 
 def reflectedBentGuardGraftAcceptedState
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
@@ -558,7 +613,34 @@ theorem reflectedBentGuardGraftAcceptedState_leftPhysical
   by
     change (reflectedBentGuardGraftLeftEntry
       D hcutoff hextent state).1.1 = _
-    rfl
+    rw [reflectedBentGuardGraftLeftEntry,
+      reflectedBentGuardGraftEntry_val]
+
+theorem reflectedBentGuardGraftAcceptedState_leftSource
+    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent state).1.1 =
+        (reflectedBentGuardGraftLeftPhysical D hextent state,
+          reflectedBentGuardGraftLeftAssignment D hextent state) := by
+  change (reflectedBentGuardGraftLeftEntry
+    D hcutoff hextent state).1 = _
+  rw [reflectedBentGuardGraftLeftEntry,
+    reflectedBentGuardGraftEntry_val]
+
+theorem reflectedBentGuardGraftAcceptedState_rightSource
+    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent state).2.1 =
+        (reflectedBentGuardGraftRightPhysical D hextent state,
+          reflectedBentGuardGraftRightAssignment D hextent state) := by
+  change (reflectedBentGuardGraftRightEntry
+    D hcutoff hextent state).1 = _
+  rw [reflectedBentGuardGraftRightEntry,
+    reflectedBentGuardGraftEntry_val]
 
 #print axioms reflectedBentGuardGraftLeftAuxiliary_mem
 #print axioms reflectedBentGuardGraftRightAuxiliary_mem
@@ -570,8 +652,13 @@ theorem reflectedBentGuardGraftAcceptedState_leftPhysical
 #print axioms reflectedBentGuardGraftRightAssignment_mem
 #print axioms reflectedBentGuardGraftLeftAssignment_at_eq
 #print axioms reflectedBentGuardGraftRightAssignment_at_eq
+#print axioms reflectedBentGuardGraftLeftAssignmentAt_eq_terminal_of_inactive
+#print axioms reflectedBentGuardGraftRightAssignmentAt_eq_terminal_of_inactive
 #print axioms reflectedBentGuardGraftLeftPhysical_mem
 #print axioms reflectedBentGuardGraftRightPhysical_mem
 #print axioms reflectedBentGuardGraftAcceptedState
+#print axioms reflectedBentGuardGraftAcceptedState_leftPhysical
+#print axioms reflectedBentGuardGraftAcceptedState_leftSource
+#print axioms reflectedBentGuardGraftAcceptedState_rightSource
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft
