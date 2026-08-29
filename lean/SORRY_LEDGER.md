@@ -25360,3 +25360,39 @@ completed spectral gap, continuum limit, continuum QFT, or Clay theorem is
 claimed.  No `sorry` is introduced.  Focused monitored checks and the
 dependency-complete target build pass under `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### The reflected channel gives a fixed-data same-object strict moment contraction (2026-08-28)
+
+The observable bridge is now complete for the reflected bent carrier.
+`Z4ReflectedBentCubeEdgeTouchSlabObservableChoice`, `ObservableGraphBridge`,
+`ObservableTargetPackage`, and `ObservableRealizationBridge` identify the
+component-preserving target assignment with one literal member of the actual
+physical SU(2) recoupling row.  The identification is exact at the assignment
+and graph levels; no graph isomorphism or surrogate carrier is substituted.
+
+`Z4ReflectedBentCubeEdgeTouchSlabObservableSuccess` contracts the vacuum right
+replica and the proved disconnected left graph into acceptance by the existing
+observable-success Boolean.  `ObservablePositiveMass` combines that successful
+membership with strict positivity of every product-row coordinate, giving a
+strictly positive exact target weight and a strictly positive disconnection
+mass.
+
+Finally, `Z4ReflectedBentCubeEdgeTouchSlabRetainedContraction` proves that the
+observable source is the previously accepted connected source, inserts the
+positive successful target into the connected row, and uses
+`reflectedBentTargetFaceId_eq_reflect` together with
+`reflectedBentRootFaceId_lower` to inhabit
+`SlabObservableReflectedPositiveChannel`.  Its explicit rational retained
+fraction is positive; the complementary factor is nonnegative and strictly
+below one; and the genuine fixed-data physical same-object connected Markov
+moment is bounded by that factor and hence is strictly below one.
+
+This closes the previously explicit finite same-object witness at the concrete
+extent-five, cutoff-one, coupling-one slab.  It does not provide one factor
+uniform in translations, observables, volume, cutoff, coupling, beta, or
+lattice spacing.  In particular it is not yet a dense vacuum-complement form
+bound or a completed finite-volume spectral gap, and it supplies no
+thermodynamic/continuum limit, continuum QFT, or Clay theorem.  No `sorry` is
+introduced.  Focused monitored checks and the dependency-complete target build
+pass under the allowed axiom gate `[propext, Quot.sound]`; no full-root audit is
+claimed.
