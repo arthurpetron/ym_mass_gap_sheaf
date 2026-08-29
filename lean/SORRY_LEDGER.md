@@ -25499,3 +25499,39 @@ No dense-sector gap, completed parameter-uniform operator gap, continuum
 limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 Focused checks and the dependency-complete target build use only the allowed
 axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Positive physical-mass good sources now suffice despite locally forced rows (2026-08-28)
+
+`CompactDualSlabObservableGoodSourceCongestionContraction` removes the false
+requirement that every support-connected strand row admit a successful
+disconnection channel.  An executable Boolean predicate selects the good
+attached sources.  A density certificate proves that they carry at least a
+fraction `rho > 0` of the complete connected physical source mass; a separate
+routing certificate chooses one successful channel on each good source with
+weight at least `eta > 0` and at most `congestion + 1` selected preimages per
+target.
+
+The selected-channel kernel then transports at least
+`rho * eta / (congestion + 1)` of the full connected source sector.  Exact
+SU(2) recoupling weight preservation supplies physical weighted column
+capacity, successful realizations spend only the connected target budget,
+and the existing disconnected switch spends the complementary target budget.
+Their sum constructs the retained-contraction certificate and hence the
+reflected same-object centered face-form bound with the explicit strict
+factor `1 - rho * eta / (congestion + 1)`.
+
+This is the correct aggregate compiler for the known geometry: bad rows may
+have zero successful mass, and their entire cost is isolated in `rho`.  No
+good-source predicate, positive density, selected channel family, common
+channel floor, or parameter-uniform congestion estimate is inhabited here.
+The next load-bearing theorem must derive cutoff/volume-controlled weighted
+good-source density and routing bounds from the component peel or another
+explicit SU(2) geometric mechanism.  A raw source-counting estimate is not
+enough, and a volume-growing congestion bound would make the displayed rate
+vanish.
+
+No dense-sector gap, completed parameter-uniform operator gap,
+thermodynamic/continuum limit, continuum QFT, or Clay theorem is claimed.  No
+`sorry` is introduced.  The focused monitored check uses only the allowed
+axiom gate `[propext, Quot.sound]`; dependency-complete target verification is
+recorded separately and no full-root audit is claimed.
