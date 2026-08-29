@@ -26838,3 +26838,32 @@ anchor coupling; it proves no beta/spacing-uniform posterior fraction,
 completed uniform gap, thermodynamic/continuum passage, continuum QFT, or
 Clay theorem.  No `sorry` is introduced.  Focused monitored verification
 uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Dependent recoupling transport now preserves local and product positivity (2026-08-29)
+
+`SU2SlabPhysicalPairRecouplingPositiveTransport` isolates the mathematical
+invariance that was hidden inside the guarded observable packaging problem.
+If the two physical slab labels and the two accepted source assignments are
+replaced by propositionally equal presentations, then a coordinatewise-
+positive target column remains coordinatewise positive after the canonical
+target transport.  Equality elimination also proves that the corresponding
+heterogeneous whole-slab product entry remains strictly positive.
+
+The two proved declarations are
+`productionSource_coordinatewisePositive_transport` and
+`productionSource_productWeight_pos_transport`.  They use only the already
+proved local SU(2) positivity and finite-product contraction; they introduce
+no new analytic hypothesis.  This removes the mathematical ambiguity in the
+positivity seam: the remaining fixed-anchor task is representational—apply
+the invariant theorem to the same opaque listed choice already carrying the
+graph-disconnection certificate, then form the positive-channel witness.
+
+The attempted direct concrete specialization was not retained because its
+fully expanded dependent source/target type again exceeded the ordinary
+one-million-heartbeat `whnf` budget.  No budget was enlarged.  The new generic
+transport declarations themselves pass focused monitored verification with
+printed axiom footprint `[propext, Quot.sound]`.  They do not provide a
+cutoff-, volume-, coupling-, beta-, or spacing-uniform posterior fraction;
+the completed uniform gap, thermodynamic/continuum passage, continuum QFT,
+and Clay theorem remain open.  No `sorry` is introduced, and no full-root
+audit is claimed.
