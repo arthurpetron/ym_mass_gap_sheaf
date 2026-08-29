@@ -25431,3 +25431,35 @@ parameter-uniform thermodynamic/continuum control, continuum QFT, or the Clay
 theorem.  No `sorry` is introduced.  Focused monitored checks print only the
 allowed axiom gate `[propext, Quot.sound]`; a dependency-complete target build
 is recorded separately and no full-root audit is claimed.
+
+#### A source-wide thinned-row floor now compiles to one common face rate (2026-08-28)
+
+`CompactDualSlabObservableUniformThinnedRowContraction` isolates the precise
+collision-control input which the one-source retained fraction cannot supply.
+If every connected source row retains at least one common rational
+`delta > 0` after canonical first-source thinning, termwise multiplication by
+the nonnegative physical source weights and finite summation prove
+`delta * connectedSourceMass <= thinnedTransportedMass`.  This constructs the
+existing retained-contraction certificate directly, without dividing by a
+datum-dependent aggregate mass.
+
+The module also exposes a sufficient constructive producer: for every
+connected source, give a successful row choice, prove that the canonical
+first-source selector returns that same source at the realized target, and
+bound its exact rational row weight below by the common `delta`.  These data
+construct the uniform thinned-row floor.  Across an arbitrary parameter index,
+one common floor now yields the same explicit factor `1 - delta`, proves it is
+nonnegative and strictly below one, and bounds the genuine same-object
+connected face form at every indexed finite datum.
+
+No instance of the dynamic path or source-wide surviving-choice structure is
+constructed here.  The next load-bearing obligation is therefore exact: build
+collision-free successful choices for every connected source with one common
+positive weight floor.  Even an inhabited face path would still require a
+separate proof that translated/cylinder face observables generate the relevant
+canonical vacuum complement, followed by cutoff, volume, coupling, and lattice
+spacing control.  No dense-sector gap, completed parameter-uniform operator
+gap, thermodynamic/continuum limit, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check prints only
+`[propext, Quot.sound]`; dependency-complete target verification is recorded
+separately and no full-root audit is claimed.
