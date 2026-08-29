@@ -25761,3 +25761,41 @@ bound, uniform dense/completed spectral gap, thermodynamic or continuum
 limit, continuum QFT, or the Clay theorem.  No `sorry` is introduced.  The
 focused monitored check and dependency-complete target build use only the
 allowed axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Both repair pivots admit explicit component-preserving canonical strands (2026-08-28)
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabSwitchingProfile` compiles the repair
+surface into the cutoff-one slab.  Its two exceptional external spin words
+are exactly `[1,1,1,1,0]` and `[1,1,0,1,1]`; every other link has a sparse
+fundamental word of total zero or two.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabConnectedSource` then feeds the closed
+connected surface to the reusable positive binary-support compiler.  This
+constructs an accepted `11 x 00` connected strand source with exactly the
+same outward Y/Z marked plaquettes as the obstructed one-pivot sector.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabPivotPairing` selects explicit
+canonical-left carriers at both exceptional links.  Rather than relying on
+an opaque whole-list evaluation, it retains the actual internal strand paths.
+At the spatial pivot the terminal involution is
+
+`0 <-> 2, 1 <-> 3`.
+
+At the temporal pivot both strands pass through the vacuum-position vertex
+on distinct internal slots, giving
+
+`0 <-> 3, 1 <-> 4`.
+
+Comparison with the checked side words proves that every one of these local
+terminal pairs stays inside one geometric lobe.  Thus the previously open
+temporal local-carrier test succeeds; no basis-sensitive enlargement is
+needed for this candidate support.
+
+This milestone does not yet assemble the two selected auxiliaries with all
+sparse nonpivot auxiliaries into one accepted global target, prove that the
+corresponding recoupling-product row has positive mass, or prove global
+marked-face disconnection in that realized target.  It also does not prove a
+uniform repair ratio or congestion bound, uniform dense/completed spectral
+gap, thermodynamic or continuum limit, continuum QFT, or the Clay theorem.
+No `sorry` is introduced.  Focused checks use only
+`[propext, Quot.sound]`; no full-root audit is claimed.
