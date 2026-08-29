@@ -25772,6 +25772,36 @@ continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
 focused monitored check uses only `[propext, Quot.sound]`; no full-root audit
 is claimed.
 
+#### The reflected physical pattern grafts without an exterior bypass (2026-08-28)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPhysicalGraft` performs the next literal
+surgery on the output of guarded peeling.  Its left field inserts the known
+reflected-bent support wherever that support is positive and otherwise keeps
+the peeled terminal left field; its right field keeps the terminal right
+field because the known right pattern is vacuum.
+
+On every guard face, the two grafted fields are exactly the previously proved
+reflected source fields.  Outside the guard, they are exactly the peeled
+terminal fields.  Both marked reflected faces belong to the inserted support.
+Most importantly,
+`reflectedBentGuardGraft_no_exterior_support_adjacency` proves that every
+positive grafted exterior face is nonadjacent to every inserted support face.
+Thus the retained physical background cannot furnish the bypass which made
+the seven-cube row bad.
+
+This is still a physical-labelling result.  The next load-bearing theorem must
+splice accepted auxiliary assignments: use the known reflected assignment at
+links incident to the inserted support and the terminal assignment elsewhere,
+then prove the local fusion words agree on the overlap/collar.  Only after
+that can the concrete positive recoupling target be transported to the graft,
+and only after weighted inverse reconstruction can it yield a uniform
+good-source density.
+
+No accepted graft, density, uniform completed gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+The focused monitored check uses only `[propext, Quot.sound]`; no full-root
+audit is claimed.
+
 #### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
 
 `CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
