@@ -25865,3 +25865,50 @@ bound, uniform dense/completed spectral gap, thermodynamic or continuum
 limit, continuum QFT, or Clay theorem is proved.  No `sorry` is introduced.
 The focused monitored check and dependency-complete target build use only
 the allowed axiom gate `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### The realized two-pivot repair target disconnects the marked faces (2026-08-28)
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabNonpivotPairing` proves the generic
+geometric case.  Both physical terminals of an accepted local strand lie on
+positive faces of the binary repair support.  If they lay in different
+lobes, their common link would be one of the two proved cross-lobe pivots.
+Consequently every carrier at a link other than those two pivots preserves
+lobe side.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabPivotFacePairing` transports the two
+explicit canonical involutions through arbitrary accepted-membership proofs.
+In the literal corrected-slab face order, the spatial pivot pairs
+
+`33 <-> 231` and `199 <-> 232`,
+
+while the temporal pivot pairs
+
+`37 <-> 235` and `203 <-> 236`.
+
+The first pair in each line lies in the target lobe and the second in the
+root lobe.  Thus all four directed terminal pairs at both exceptional links
+preserve side as actual geometric face identifiers, not merely as abstract
+carrier positions.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabTargetEdges` performs the exhaustive
+spatial-pivot/temporal-pivot/nonpivot split for the realized production
+assignment, assembles all local terminal pairs into the global face-strand
+edge list, and retains its accepted measure-index assignment.  Every edge in
+that list is proved to stay within one lobe.
+
+`Z4OutwardYZTwoPivotCanonicalRepairSlabTargetDisconnection` colors a face by
+root-lobe membership.  Edge-local side preservation contracts to color
+preservation along every explicit finite graph chain.  The marked outward Y
+face has color true and the marked outward Z face has color false, proving
+that no target-graph chain connects them.
+
+Together with the preceding all-column product-positivity theorem, this
+closes the finite positive disconnected target geometry.  It is not yet
+packaged as the repository's observable-success or connected-good-source
+object, and hence is not yet installed as the receiver of the finite weighted
+repair compiler.  No product lower bound uniform in volume, cutoff, or
+coupling, localized congestion bound, uniform dense/completed spectral gap,
+thermodynamic or continuum limit, continuum QFT, or Clay theorem is proved.
+No `sorry` is introduced.  Focused monitored checks and the
+dependency-complete target build use only `[propext, Quot.sound]`; no
+full-root audit is claimed.
