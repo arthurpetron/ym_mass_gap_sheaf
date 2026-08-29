@@ -26672,3 +26672,43 @@ construction, the uniform posterior fraction, the uniform dense/completed
 physical gap, thermodynamic and continuum passage, continuum QFT, and the
 Clay theorem.  No `sorry` is introduced.  The focused monitored checks and
 dependency-complete target build are claimed; no full-root audit is claimed.
+
+#### The guarded insertion has an exact heat cost and a positive finite floor (2026-08-29)
+
+`CompactDualSlabPhysicalInsertionFactorization` proves a geometry-independent
+analytic compiler.  For arbitrary coupling, cutoff, extent, inserted pattern,
+and background, if the background vanishes on every positive face of the
+pattern, then inserting the pattern factorizes the complete slab heat-face
+product exactly into the isolated pattern factor times the background factor.
+This is proved by finite recursion over the physical face list, rather than by
+enumerating the reflected gadget.
+
+`CompactDualSlabExpandedEntryFaceWeight` identifies every attached expanded
+entry weight exactly with its heat-face factor because the retained auxiliary
+coordinate has unit counting weight.  The reflected guard specialization in
+`Z4ReflectedBentCubeEdgeTouchSlabGuardInsertionFaceWeight` proves that canonical
+peeling supplies the general compiler's clearing hypothesis.  Combining the
+two gives `reflectedBentGuardGraftObservableSourcePairWeight_eqv`: the complete
+guarded receiver weight is exactly the isolated reflected-pattern face factor
+times the complete peeled-terminal pair weight.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardInsertionRate` caps that explicit face
+factor at one.  At positive coupling, cutoff one, and extent five, the bounded
+physical pattern and strict heat-coefficient positivity prove
+`0 < reflectedBentGuardInsertionRate D <= 1`.  The exact factorization then
+proves `reflectedBentGuardGraftObservableSourcePairWeight_floor`, as well as its
+literal cutoff-one, half-two production-anchor form: the capped rate times the
+peeled accepted-state weight is at most the guarded observable source weight.
+
+This closes the analytic insertion-floor part of reachable-terminal repair.
+The rate deliberately retains its coupling dependence and the concrete gadget
+still has cutoff one and extent five.  No beta-uniform, cutoff-uniform,
+volume-uniform, or spacing-uniform lower bound is claimed.  The remaining
+finite contraction is to combine success of the transported guarded target,
+connectedness, terminal recoverability, and this floor into the concrete
+reachable-terminal repair certificate; scalable guarded geometry and the
+uniform posterior fraction, dense/completed physical spectral gap,
+thermodynamic and continuum passage, continuum QFT, and Clay theorem remain
+open.  No `sorry` is introduced.  Focused monitored verification and the
+dependency-complete target build use only `[propext, Quot.sound]`; no full-root
+audit is claimed.
