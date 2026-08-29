@@ -26581,3 +26581,36 @@ passage, continuum QFT, or Clay theorem is claimed here.
 No `sorry` is introduced.  The focused monitored check and the
 dependency-complete target build use only `[propext, Quot.sound]`; no
 full-root audit is claimed.
+
+#### Reachable canonical terminals now suffice for weighted repair (2026-08-29)
+
+`CompactDualSlabObservableCanonicalPeelingReachableGoodSourceRepair` removes
+an unnecessary all-background requirement from the physical repair frontier.
+The terminal-fiber proof only encounters canonical terminals produced by
+literal connected observable sources; it never needs to insert an arbitrary
+accepted paired state.
+
+The new `SlabObservablePairedConnectedCanonicalTerminalRepair` therefore
+carries exactly three pieces of constructive data on that reachable source
+carrier: an executable good-source repair, recovery of equal canonical
+terminals whenever two sources share a receiver, and a common receiver-weight
+floor relative to each source's canonical terminal.  Its
+`toFiberRepair` compiler proves the same literal weighted inverse-fiber
+capacity as the earlier all-terminal route whenever
+`rho * globalAnchorRate <= kappa`.  The old stronger
+`SlabObservablePairedConnectedGoodTerminalPacking` factors into the new
+certificate by `ofTerminalPacking`.
+
+This refinement is load-bearing for the guarded construction: canonical guard
+peeling intentionally retains discarded guard information in its inverse
+trace, while the graft itself need not encode arbitrary states outside the
+canonical-terminal image.  The remaining physical obligation is now smaller
+and exact: on canonical terminals actually reached from connected sources,
+the guarded successful connected graft must recover terminal equality from
+receiver equality and satisfy an explicit common insertion-weight floor.
+
+No concrete guarded reachable-terminal repair, uniform posterior fraction,
+uniform dense/completed physical spectral gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+Focused monitored verification uses only `[propext, Quot.sound]`; no full-root
+audit is claimed.
