@@ -26463,3 +26463,31 @@ positive observable channel, weighted inverse/fiber bound, uniform posterior
 fraction, uniform dense/completed spectral gap, thermodynamic or continuum
 passage, continuum QFT, or Clay theorem is asserted.  Focused monitored
 checks use only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Canonical peeling contracts each complete terminal inverse fiber (2026-08-29)
+
+`CompactDualSlabObservableCanonicalPeelingTerminalFiber` reverses the global
+peeling Fubini order in the form needed by physical repair.  It fixes one
+accepted terminal, partitions every connected source peeling to that terminal
+by its exact trace mass, applies the existing fixed-terminal/fixed-mass
+`(16/25)^M` estimate to each part, and sums the finite shifted geometric tail.
+The resulting theorem
+`slabObservablePairedSupportCanonicalPeeling_terminalFiberWeight_le` bounds
+the entire inverse-fiber weight by the displayed global anchor rate times the
+exact terminal weight.
+
+This step introduces neither a count of accepted terminals nor an unweighted
+source-fiber congestion factor.  It preserves precisely the variable Peierls
+payment that the constant-repair path discarded.  Consequently an injective
+terminal-to-good-source packing with a uniform insertion weight floor can now
+be compiled directly into weighted target-fiber capacity; constructing that
+packing from the guarded non-abelian graft remains the next concrete bridge.
+
+The estimate is at the fixed production coupling used by
+`anchorSlabPhysicalData`; it is not an all-beta or continuum theorem.  No
+successful guarded positive observable channel, insertion weight floor,
+uniform posterior fraction, uniform dense/completed spectral gap,
+thermodynamic or continuum passage, continuum QFT, or Clay theorem is claimed.
+No `sorry` is introduced.  The focused monitored check uses only the allowed
+axiom gate `[propext, Quot.sound]`; dependency-complete target verification is
+recorded separately and no full-root audit is claimed.
