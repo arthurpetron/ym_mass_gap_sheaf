@@ -31,6 +31,7 @@ declaration, or unbounded heartbeat option.
 -/
 
 import YMGap.Continuum.CompactDualSlabObservableSelectedChoiceCongestionContraction
+import YMGap.Continuum.FiniteWeightedGoodSourceRepair
 
 namespace YMGap.Continuum.CompactDualSlabObservableGoodSourceCongestionContraction
 
@@ -56,10 +57,12 @@ open YMGap.Continuum.CompactDualSlabObservableSelectedChoiceCongestionContractio
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteDependentKernelCapacity
+open YMGap.Continuum.FiniteDependentKernelFirstSourceThinning
 open YMGap.Continuum.FiniteDependentKernelSelectedChoiceCongestion
 open YMGap.Continuum.FiniteDependentKernelSelectedChoiceCongestion.SelectedChoiceCongestionCertificate
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedCartesianInjection
+open YMGap.Continuum.FiniteWeightedGoodSourceRepair
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
@@ -141,6 +144,28 @@ def slabObservablePairedConnectedGoodSourceMass
     (fun source => slabObservableTwoReplicaPairWeight D source.1)
     (slabObservablePairedConnectedGoodSources
       D rootFaceId targetFaceId goodB)
+
+/-- Filtering the nonnegative connected physical source mass by any
+executable good predicate can only decrease it. -/
+theorem slabObservablePairedConnectedGoodSourceMass_le_sourceMass
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (goodB : SlabObservablePairedConnectedStrandSource
+      D rootFaceId targetFaceId → Bool) :
+    slabObservablePairedConnectedGoodSourceMass
+        D rootFaceId targetFaceId goodB ≤
+      slabObservablePairedConnectedSourceMass
+        D rootFaceId targetFaceId := by
+  unfold slabObservablePairedConnectedGoodSourceMass
+    slabObservablePairedConnectedGoodSources
+    slabObservablePairedConnectedStrandSources
+    slabObservablePairedConnectedSourceMass
+  exact listQSum_filter_attach_le
+    (slabObservablePairedSupportConnectedFourCellSourcePairs
+      D rootFaceId targetFaceId)
+    (slabObservableTwoReplicaPairWeight D)
+    (fun pair _ => slabObservableTwoReplicaPairWeight_nonnegative
+      D rootFaceId pair)
+    goodB
 
 def SlabObservablePairedConnectedGoodSource.toChoiceSource
     {D : SlabPhysicalData} {rootFaceId targetFaceId : Nat}
@@ -586,6 +611,7 @@ theorem sameObjectConnectedMarkovMoment_le_factor_mul_centeredFaceNorm
       D hroot (toRetainedContraction density routing)
 
 #print axioms SlabObservablePairedConnectedGoodSourceSelectedChoiceCongestion.toFiniteCertificate
+#print axioms slabObservablePairedConnectedGoodSourceMass_le_sourceMass
 #print axioms SlabObservablePairedConnectedGoodSourceSelectedChoiceCongestion.fraction_pos
 #print axioms SlabObservablePairedConnectedGoodSourceSelectedChoiceCongestion.fraction_le_one
 #print axioms SlabObservablePairedConnectedGoodSourceSelectedChoiceCongestion.selectedTransportedMass_le_connectedTarget

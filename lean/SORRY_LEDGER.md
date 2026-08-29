@@ -25582,3 +25582,46 @@ No dense-sector gap, completed parameter-uniform operator gap, continuum
 limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
 Focused checks use only `[propext, Quot.sound]`; dependency-complete target
 verification is recorded separately and no full-root audit is claimed.
+
+#### Canonical finite good-source routing is constructed and non-vacuous (2026-08-28)
+
+`CompactDualSlabObservableCanonicalGoodSourceRouting` uses the actual
+connected SU(2) row rather than adding a new choice assumption.  That row is
+already filtered to successful channels of strictly positive exact weight.
+The executable canonical good predicate is therefore simply nonemptiness of
+the row.
+
+On every attached good source, constructive head selection returns one
+successful positive channel.  The capped finite positive minimum of those
+selected weights constructs the common fixed-datum `eta > 0`.  The literal
+good-source carrier length bounds every selected target fiber, so it
+constructs a finite channel-congestion certificate without any global
+choice.  Thus the routing half of the positive-density compiler is inhabited
+at every finite datum, including the empty-good-carrier case.
+
+If a datum carries one positive connected channel, its source belongs to the
+canonical good subcarrier.  Positive physical source weight makes the good
+mass strictly positive, while the generic filtered-mass theorem bounds good
+mass by complete connected mass.  Exact positive rational division then
+constructs the density
+
+`rho = canonicalGoodMass / connectedSourceMass`.
+
+The existing reflected bent extent-five, cutoff-one, coupling-one witness
+inhabits this construction all the way through
+`reflectedBentCanonicalGoodRetainedContraction`.  Hence the canonical
+good-source compiler is not a vacuous interface.
+
+None of the automatically constructed quantities is uniform: the density
+ratio may shrink, the finite positive minimum may shrink, and the raw
+good-carrier length may grow with cutoff and volume.  The uniform frontier
+is now sharply reduced to replacing those three datum-dependent objects by
+a weighted Peierls repair ratio, a bounded-spin local recoupling floor, and a
+weighted/localized congestion estimate.  The exterior/core component
+partition can address the repair ratio; its residual-dominant long low-spin
+branch is still the load-bearing coercivity obstruction.
+
+No dense-sector gap, completed parameter-uniform operator gap, continuum
+limit, continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.
+Focused checks use only `[propext, Quot.sound]`; dependency-complete target
+verification is recorded separately and no full-root audit is claimed.

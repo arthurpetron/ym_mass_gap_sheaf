@@ -26,6 +26,8 @@ noncomputable declaration, or unbounded heartbeat option.
 -/
 
 import YMGap.Continuum.FiniteDependentKernelSelectedChoiceCongestion
+import YMGap.Continuum.FiniteDependentKernelFirstSourceThinning
+import YMGap.Continuum.FiniteWeightedCartesianInjection
 
 namespace YMGap.Continuum.FiniteWeightedGoodSourceRepair
 
@@ -37,6 +39,7 @@ open YMGap.Continuum.FiniteDependentKernelCapacity
 open YMGap.Continuum.FiniteDependentKernelSelectedChoiceCongestion
 open YMGap.Continuum.FiniteDependentKernelSelectedChoiceCongestion.SelectedChoiceCongestionCertificate
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
 local infix:50 " ≈ " => Q'.eqv
@@ -53,6 +56,23 @@ private theorem listQSum_le_termwise_local
         (listQSum_le_termwise_local left right tail
           (fun item hitem =>
             hterm item (List.mem_cons_of_mem head hitem)))
+
+/-- Filtering an attached finite carrier with nonnegative base weights can
+only decrease the underlying unattached mass. -/
+theorem listQSum_filter_attach_le
+    {A : Type} (items : List A) (weight : A → Q')
+    (weight_nonnegative : ∀ item, item ∈ items →
+      (0 : Q') ≤ weight item)
+    (test : {item // item ∈ items} → Bool) :
+    listQSum (fun item : {item // item ∈ items} => weight item.1)
+        (items.attach.filter test) ≤
+      listQSum weight items := by
+  exact Q'.le_trans' _ _ _
+    (FiniteDependentKernelFirstSourceThinning.listQSum_filter_le_of_nonnegative
+      (fun item : {item // item ∈ items} => weight item.1) test
+      (fun item => weight_nonnegative item.1 item.2) items.attach)
+    (Q'.le_of_eqv
+      (Q'.eqv_of_eq (listQSum_attach weight items)))
 
 /-! ## 1. Weighted column domination -/
 
@@ -425,6 +445,7 @@ theorem fraction_mul_sourceMass_le_goodTargetMass
     data.selectedTransportedMass_le_goodTargetMass
 
 #print axioms source_mul_dependentKernelPushforwardWeight_le_target_mul
+#print axioms listQSum_filter_attach_le
 #print axioms weightedColumn_le_of_columnCapacity_of_weight_domination
 #print axioms WeightedGoodSourceRepairCertificate.toFiniteCertificate
 #print axioms WeightedGoodSourceRepairCertificate.fraction_pos
