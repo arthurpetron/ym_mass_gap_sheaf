@@ -26491,3 +26491,38 @@ thermodynamic or continuum passage, continuum QFT, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused monitored check uses only the allowed
 axiom gate `[propext, Quot.sound]`; dependency-complete target verification is
 recorded separately and no full-root audit is claimed.
+
+#### Injective terminal packing now compiles to weighted physical repair (2026-08-29)
+
+`CompactDualSlabObservableCanonicalPeelingGoodSourceFiberRepair` transports
+the terminal-fiber estimate to the literal connected strand-source carrier
+used by the observable repair interfaces.  The transport is an explicit
+weighted injection between the two proof-carrying presentations of the same
+connected source sector.
+
+The module then defines the canonical packed repair
+
+`connected source -> peeled terminal -> packed good source`.
+
+If two sources repair to the same target, injectivity of the terminal packing
+forces their canonical terminals to agree.  Thus each repair fiber is a
+subfiber of one complete terminal inverse fiber.  Combining the terminal
+Peierls bound with the packing's insertion weight floor proves
+`SlabObservablePairedConnectedGoodTerminalPacking.toFiberRepair`: whenever
+`rho * globalAnchorRate <= kappa`, the packing constructs the repository's
+literal weighted good-source fiber-repair certificate at fraction `rho`.
+
+This is strictly stronger than the earlier aggregate density consequence of
+terminal packing: it retains an executable repair map and proves the required
+capacity separately at every good receiver.  No pointwise minimum and no
+unweighted source-count congestion are used.
+
+No concrete guarded terminal packing is claimed yet.  The next physical
+frontier is now exact: the guarded SU(2) graft must be packaged as a successful
+connected good source for every peeled terminal, proved injective on those
+terminals, and given a common insertion weight floor.  The construction still
+uses the fixed production coupling in `anchorSlabPhysicalData`; no all-beta
+uniformity, uniform posterior fraction, uniform dense/completed spectral gap,
+thermodynamic or continuum passage, continuum QFT, or Clay theorem is proved.
+No `sorry` is introduced.  Focused monitored verification uses only
+`[propext, Quot.sound]`; no full-root audit is claimed.
