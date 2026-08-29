@@ -26867,3 +26867,28 @@ cutoff-, volume-, coupling-, beta-, or spacing-uniform posterior fraction;
 the completed uniform gap, thermodynamic/continuum passage, continuum QFT,
 and Clay theorem remain open.  No `sorry` is introduced, and no full-root
 audit is claimed.
+
+#### Transported target packages retain the proved positive product entry (2026-08-29)
+
+`CompactDualSlabTransportedTargetPositiveEntry` contracts the preceding
+equality-invariance theorem through the literal `TransportedTargetPackage`
+used by observable recoupling choices.  Its theorem
+`transportedTargetPackage_productWeight_pos` starts from coordinatewise
+positivity of the reference source/column and proves strict positivity of the
+whole heterogeneous product entry for the actual transported package target.
+All physical-label, source-assignment, package, and target transports remain
+definitionally connected in the statement.
+
+This closes the generic mathematical transport from a positive SU(2) column
+to the observable target package.  The concrete fixed-anchor declaration is
+still not exposed as one small successful-positive channel because reducing
+its complete dependent source type exceeds the ordinary bounded `whnf`
+budget.  That representation attempt was not retained and no heartbeat
+budget was enlarged.  Focused monitored verification of the generic theorem
+uses only `[propext, Quot.sound]`.
+
+This result is not an aggregate posterior fraction and has no uniformity in
+cutoff, volume, coupling, beta, or lattice spacing.  The mass-normalized
+posterior estimate, completed uniform gap, thermodynamic/continuum passage,
+continuum QFT, and Clay theorem remain open.  No `sorry` is introduced, and
+no full-root audit is claimed.
