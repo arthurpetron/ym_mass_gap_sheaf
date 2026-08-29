@@ -26420,3 +26420,46 @@ thermodynamic or continuum passage, continuum QFT, or Clay theorem is
 claimed.  No `sorry` is introduced.  The focused monitored check uses only
 the allowed axiom gate `[propext, Quot.sound]`; dependency-complete target
 verification is recorded separately and no full-root audit is claimed.
+
+#### The guarded target reaches the observable-row success interface (2026-08-29)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableSource` proves
+that the guarded graft is a literal observable `11 x 00` source: the left
+replica is positive at both marked faces and the right replica vanishes at
+both marked faces.  It exposes both the raw source and a sealed source whose
+two physical labellings are propositionally identified with the accepted
+guarded graft.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableChoice` embeds
+the previously selected finite target column into the sealed source's
+recoupling row.  The selected column is proved to belong to that complete
+dependent row.  Structural recursion also proves that canonical realization
+of the same target over the accepted graft anchor returns both classified
+global target assignments.  A raw-source package-list equality and an
+irreducibly named raw target column are retained for the next compiler
+factorization.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetGraphBridge` proves exact
+lookup in both structurally assembled assignments and identifies their
+standard complete-slab strand graphs with the already classified local
+two-replica target graph.  It also proves, rather than assumes, that the
+standard face-vertex carrier is the endpoint carrier of the projected graph.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableSuccess` adds
+the missing geometry-independent two-nonvacuum compiler.  Given physical and
+assignment equalities to two reference assignments, exact projected-edge and
+vertex-carrier equalities, and absence of a marked-face chain, it proves the
+repository's observable recoupling success Boolean is true.  This removes the
+old vacuum-right restriction from the success step.
+
+The final concrete application of that compiler is not claimed here.  A
+direct public declaration containing the fully normalized dependent source,
+target transport, and success Boolean exceeded the finite elaboration budget
+at `whnf`; the failed experiment was removed and no `sorry` was introduced.
+The next representation obligation is to retain the target-transport and
+realization equalities behind a small checked interface without exposing the
+entire source filter in the declaration type.  Therefore no successful
+positive observable channel, weighted inverse/fiber bound, uniform posterior
+fraction, uniform dense/completed spectral gap, thermodynamic or continuum
+passage, continuum QFT, or Clay theorem is asserted.  Focused monitored
+checks use only `[propext, Quot.sound]`; no full-root audit is claimed.
