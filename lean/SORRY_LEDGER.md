@@ -27004,3 +27004,30 @@ gap, thermodynamic/continuum passage, continuum QFT, and the Clay theorem
 remain open.  No `sorry` is introduced.  The focused monitored check and the
 dependency-complete monitored target pass all 1,560 jobs; the audited new
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Every finite cutoff now has a strictly positive reflected-graft recoupling row (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetCutoffPersistence` uses the
+ambient-cutoff graft membership rather than recoding the source back to cutoff
+one.  It packages the actual left and right graft assignments as a local
+recoupling anchor at `D.cutoff`, and therefore constructs the actual production
+source row at every slab link for every `D.cutoff >= 1`.
+
+The existing mathematical target selector then applies unchanged.  At the
+unique pivot it retains the explicit component-preserving low-spin target,
+whose kernel entry is positive for every source row.  At every other link it
+uses constructive positivity of the normalized finite bistochastic row.
+Finite recursion assembles the local columns into a listed whole-slab target,
+proves coordinatewise positivity, and contracts those entries into a strictly
+positive finite product.
+
+This is pointwise-in-cutoff positivity, not a uniform estimate.  The theorem
+does not lower-bound the positive product independently of cutoff, realize the
+new target as an ambient accepted state, classify its strand graph, or attach
+it to an observable channel.  It supplies no heat-weight ratio or uniform
+posterior-variance fraction.  Volume remains extent five, and no beta or
+lattice-spacing schedule appears.  Uniform peeling and routing, the completed
+physical gap, thermodynamic/continuum passage, continuum QFT, and the Clay
+theorem remain open.  No `sorry` is introduced.  The focused monitored check
+and dependency-complete monitored target pass all 1,563 jobs; the audited new
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
