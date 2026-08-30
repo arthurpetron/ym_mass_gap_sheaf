@@ -26989,8 +26989,10 @@ the peeled terminal's native ambient-cutoff witness.  The resulting left and
 right assignments are accepted globally, the grafted physical labelling is
 bounded by every `D.cutoff >= 1`, and both graft sources belong to
 `slabExpandedFineSources D` for every extent-five datum with cutoff at least
-one.  Thus the cutoff-one equality has been removed from the geometric source
-acceptance layer.
+one.  The two sources are also sealed into a literal
+`SlabAcceptedTwoReplicaState D`, with exact left-physical and left/right-source
+projection theorems.  Thus the cutoff-one equality has been removed from the
+geometric source-acceptance layer.
 
 This is qualitative cutoff persistence, not quantitative cutoff uniformity.
 It does not transport the downstream positive target or observable channel,

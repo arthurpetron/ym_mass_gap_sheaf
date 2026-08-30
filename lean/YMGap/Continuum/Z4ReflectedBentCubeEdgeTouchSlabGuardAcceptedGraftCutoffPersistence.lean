@@ -340,6 +340,78 @@ theorem reflectedBentGuardGraftRightSource_mem_of_one_le
     reflectedBentGuardGraftRightAssignment_mem_of_one_le
       D hcutoff hextent state, rfl⟩
 
+/-! ## 5. The ambient-cutoff accepted two-replica state -/
+
+def reflectedBentGuardGraftLeftEntryOfOneLE
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    SlabExpandedFineSourceEntry D :=
+  reflectedBentGuardGraftEntry D
+    (reflectedBentGuardGraftLeftPhysical D hextent state,
+      reflectedBentGuardGraftLeftAssignment D hextent state)
+    (reflectedBentGuardGraftLeftSource_mem_of_one_le
+      D hcutoff hextent state)
+
+def reflectedBentGuardGraftRightEntryOfOneLE
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    SlabExpandedFineSourceEntry D :=
+  reflectedBentGuardGraftEntry D
+    (reflectedBentGuardGraftRightPhysical D hextent state,
+      reflectedBentGuardGraftRightAssignment D hextent state)
+    (reflectedBentGuardGraftRightSource_mem_of_one_le
+      D hcutoff hextent state)
+
+def reflectedBentGuardGraftAcceptedStateOfOneLE
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    SlabAcceptedTwoReplicaState D :=
+  (reflectedBentGuardGraftLeftEntryOfOneLE
+      D hcutoff hextent state,
+    reflectedBentGuardGraftRightEntryOfOneLE
+      D hcutoff hextent state)
+
+theorem reflectedBentGuardGraftAcceptedStateOfOneLE_leftPhysical
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftAcceptedStateOfOneLE
+      D hcutoff hextent state).1.1.1 =
+        reflectedBentGuardGraftLeftPhysical D hextent state := by
+  change (reflectedBentGuardGraftLeftEntryOfOneLE
+    D hcutoff hextent state).1.1 = _
+  rw [reflectedBentGuardGraftLeftEntryOfOneLE,
+    reflectedBentGuardGraftEntry_val]
+
+theorem reflectedBentGuardGraftAcceptedStateOfOneLE_leftSource
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftAcceptedStateOfOneLE
+      D hcutoff hextent state).1.1 =
+        (reflectedBentGuardGraftLeftPhysical D hextent state,
+          reflectedBentGuardGraftLeftAssignment D hextent state) := by
+  change (reflectedBentGuardGraftLeftEntryOfOneLE
+    D hcutoff hextent state).1 = _
+  rw [reflectedBentGuardGraftLeftEntryOfOneLE,
+    reflectedBentGuardGraftEntry_val]
+
+theorem reflectedBentGuardGraftAcceptedStateOfOneLE_rightSource
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftAcceptedStateOfOneLE
+      D hcutoff hextent state).2.1 =
+        (reflectedBentGuardGraftRightPhysical D hextent state,
+          reflectedBentGuardGraftRightAssignment D hextent state) := by
+  change (reflectedBentGuardGraftRightEntryOfOneLE
+    D hcutoff hextent state).1 = _
+  rw [reflectedBentGuardGraftRightEntryOfOneLE,
+    reflectedBentGuardGraftEntry_val]
+
 #print axioms reflectedBentLeftFineAssignmentAt_mem_of_one_le
 #print axioms reflectedBentGuardGraftLeftAuxiliary_mem_of_one_le
 #print axioms reflectedBentGuardGraftRightAuxiliary_mem_of_one_le
@@ -348,5 +420,9 @@ theorem reflectedBentGuardGraftRightSource_mem_of_one_le
 #print axioms reflectedBentGuardGraftLeftPhysical_mem_of_one_le
 #print axioms reflectedBentGuardGraftLeftSource_mem_of_one_le
 #print axioms reflectedBentGuardGraftRightSource_mem_of_one_le
+#print axioms reflectedBentGuardGraftAcceptedStateOfOneLE
+#print axioms reflectedBentGuardGraftAcceptedStateOfOneLE_leftPhysical
+#print axioms reflectedBentGuardGraftAcceptedStateOfOneLE_leftSource
+#print axioms reflectedBentGuardGraftAcceptedStateOfOneLE_rightSource
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraftCutoffPersistence
