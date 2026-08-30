@@ -27481,6 +27481,39 @@ is proved.  No `sorry` is introduced.  The dependency-complete monitored
 target passes all 1,562 jobs, and the new public declarations use exactly
 `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### A literal common guarded-receiver fiber has the separated joint rate (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardSeparatedTransitionFiber` applies the
+cutoff-persistent recovery theorem to actual accepted BF4 source lists.  For
+every representation cutoff at fixed extent five, any duplicate-free list of
+accepted two-replica sources whose ambient-cutoff guarded grafts equal one
+representative's graft has one common canonical peeled terminal.  The complete
+profile payment sends the total source Gibbs weight into that terminal, and
+the cutoff-uniform insertion theorem sends the terminal weight into the
+representative's literal observable receiver weight.
+
+Combining those two exact inequalities with any event mass at least `1/4`
+proves
+
+```text
+  separatedRate * sum(source weights)
+    <= literal observable receiver weight * eventMass.
+```
+
+Unlike the preceding rational compiler, the four masses are now instantiated
+by actual source, terminal, and observable-receiver weights.  The event mass
+remains an explicit argument so that the next module can identify it with the
+transported pivot-cylinder event on that same observable row without exposing
+the full dependent product in this theorem's result type.
+
+The result is uniform only in representation cutoff.  It has fixed extent
+five and uses the production coupling `1/400`; it is not beta-, spacing-, or
+volume-uniform and is not yet a literal posterior fraction.  No completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
+`sorry` is introduced.  The dependency-complete monitored target passes all
+1,599 jobs, and the displayed declaration uses exactly
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
