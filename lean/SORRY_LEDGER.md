@@ -27514,6 +27514,36 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
 1,599 jobs, and the displayed declaration uses exactly
 `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### The common receiver fiber pays one transported separated event (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardSeparatedTransitionObservableFiber`
+replaces the preceding theorem's abstract event-mass argument by the literal
+transported pivot-cylinder target list carried by an observable-row
+presentation.  The resulting inequality is
+
+```text
+  separatedRate * sum(source weights)
+    <= literal observable receiver weight
+       * sum(transported separated-event row weights).
+```
+
+The transported event has total normalized row weight at least `1/4`, and
+every member retains the marked-face disconnection witness.  Thus the complete
+peeling inverse-fiber payment, guarded insertion payment, and separated
+recoupling event now meet in one same-row joint-mass statement without
+normalizing the concrete dependent product.
+
+The row is still supplied through
+`ReflectedBentGuardGraftPivotCylinderRowPresentationAtCutoff`; identifying that
+presentation with the literal observable recoupling row is the next seam.
+Consequently this theorem is not yet a posterior fraction or a strict form
+bound.  It remains fixed at extent five and coupling `1/400`, uniform only in
+the representation cutoff; it proves no beta-, spacing-, or volume-uniform
+gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No
+`sorry` is introduced.  The dependency-complete monitored target passes all
+1,609 jobs, and the displayed declaration uses exactly
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
