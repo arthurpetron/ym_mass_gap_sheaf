@@ -237,7 +237,7 @@ theorem reflectedBentGuardGraftPivotTarget_eq_componentRank
   (reflectedBentGuardGraftPivotTargetPackage
     D hextent state).target_eq_componentRank
 
-theorem reflectedBentGuardGraftPivot_kernel_pos
+theorem reflectedBentGuardGraftPivot_kernel_floor
     (D : SlabPhysicalData) (hextent : D.extent = 5)
     (state : SlabAcceptedTwoReplicaState D)
     (source : (slabPhysicalPairRecouplingKernelPackageFive
@@ -246,7 +246,7 @@ theorem reflectedBentGuardGraftPivot_kernel_pos
     (target : (slabPhysicalPairRecouplingKernelPackageFive
       (reflectedBentGuardGraftPivotRecouplingData
         D hextent state)).Target) :
-    (0 : Q') <
+    oneQuarter ≤
       (slabPhysicalPairRecouplingKernelPackageFive
         (reflectedBentGuardGraftPivotRecouplingData
           D hextent state)).kernel.weight source target := by
@@ -256,7 +256,6 @@ theorem reflectedBentGuardGraftPivot_kernel_pos
   have hright :=
     reflectedBentGuardGraftRightExternalSpins_eq_pattern_at_pivot
       D hextent state
-  apply Q'.pos_of_lt_of_le (by decide : (0 : Q') < oneQuarter)
   exact slabPhysicalPairRecouplingKernelPackageFive_internalVacuum_floor
     (reflectedBentGuardGraftPivotRecouplingData D hextent state)
     ((congrFun hleft 0).trans
@@ -280,6 +279,23 @@ theorem reflectedBentGuardGraftPivot_kernel_pos
     ((congrFun hright 4).trans
       reflectedBentSwitchPivot_rightExternal_four)
     source target
+
+theorem reflectedBentGuardGraftPivot_kernel_pos
+    (D : SlabPhysicalData) (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (source : (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).Source)
+    (target : (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).Target) :
+    (0 : Q') <
+      (slabPhysicalPairRecouplingKernelPackageFive
+        (reflectedBentGuardGraftPivotRecouplingData
+          D hextent state)).kernel.weight source target :=
+  Q'.pos_of_lt_of_le (by decide : (0 : Q') < oneQuarter)
+    (reflectedBentGuardGraftPivot_kernel_floor
+      D hextent state source target)
 
 /-! ## 2. The actual graft row and its local positive selector -/
 
@@ -625,6 +641,7 @@ theorem reflectedBentGuardGraftTargetAssignmentFrom_weight_pos
 
 #print axioms reflectedBentPatternActiveLinkB_pivot
 #print axioms reflectedBentGuardGraftPivotTarget
+#print axioms reflectedBentGuardGraftPivot_kernel_floor
 #print axioms reflectedBentGuardGraftPivot_kernel_pos
 #print axioms reflectedBentGuardGraftTargetForData
 #print axioms reflectedBentGuardGraftTargetForData_pos

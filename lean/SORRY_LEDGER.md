@@ -27204,6 +27204,47 @@ focused monitored declarations use only `[propext, Quot.sound]`.  The
 dependency-complete cutoff-uniform insertion-rate target passes all 1,582
 jobs.  No full-root audit is claimed.
 
+#### One pivot cylinder removes every cutoff-sensitive nonpivot recoupling column (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget` now exposes the existing
+SU(2) internal-vacuum estimate at the reflected pivot as the quantitative
+theorem `reflectedBentGuardGraftPivot_kernel_floor`.  Its value is exactly the
+previously proved rational floor `oneQuarter`; no new local estimate is
+assumed.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetCutoffPersistence`
+transports that estimate to the actual production row at every ambient cutoff
+`D.cutoff >= 1`.  The source may contain arbitrary auxiliary spins admitted by
+that cutoff, but the pivot external word remains the fixed five-valent pattern,
+so its selected component-preserving column still has weight at least `1/4`.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderWeight` replaces the old
+whole-slab single-column event by a cylinder.  It scans the written slab-link
+list, freely sums every target coordinate before the unique pivot, fixes only
+the component-preserving pivot target, and freely sums the complete tail.
+Exact finite Fubini and row normalization contract every nonpivot coordinate
+to one.  For every duplicate-free linked list containing the pivot, the
+resulting cylinder has total recoupling weight at least
+
+```text
+  1/4,
+```
+
+uniformly over the representation cutoff.  This removes the recoupling-column
+cutoff bottleneck: no product of vector- or cutoff-dependent nonpivot entries
+is paid.
+
+The theorem is a finite extent-five recoupling-row statement.  A downstream
+compiler must still realize every member of this cylinder and prove that each
+realization disconnects the marked faces; only then can the quarter floor be
+combined with the complete guard inverse-fiber rate and insertion weight into
+a posterior-variance fraction.  The result contains no beta or lattice-spacing
+parameter and proves no uniform completed gap, thermodynamic/continuum
+passage, continuum QFT, or Clay theorem.  No `sorry` is introduced.  Focused
+and dependency-complete monitored checks use only `[propext, Quot.sound]`.
+The dependency-complete pivot-cylinder target passes all 1,564 jobs.  No
+full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the

@@ -32,17 +32,22 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.FiniteBistochasticQKernelProductPositivity
+open YMGap.Continuum.PentagonRelation
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingKernel
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingSourceCompleteness
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetNodup
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
+open YMGap.Continuum.SU2SlabInternalVacuumValenceFiveRecouplingFloor
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionIncidenceReindex
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraftCutoffPersistence
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPhysicalGraft
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTarget
+open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabSwitchingProfile
+open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabWholeProductPositivity
 
 /-! ## 1. The actual ambient-cutoff graft row -/
 
@@ -132,6 +137,44 @@ theorem reflectedBentGuardGraftLocalTargetAtCutoff_pos
     rfl rfl
     (reflectedBentGuardGraftLocalSourceAtCutoff
       D hcutoff hextent state linked)
+
+/-- At the unique non-abelian pivot, the actual ambient-cutoff production row
+retains the explicit quarter floor.  The estimate is independent of every
+auxiliary spin admitted by the ambient cutoff. -/
+theorem reflectedBentGuardGraftLocalTargetAtCutoff_floor_of_pivot
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D)
+    (linked : {link // link ∈ boundaryCompleteSlabLinks 5})
+    (hpivot : linked.1 = reflectedBentSwitchPivot) :
+    oneQuarter ≤
+      (slabPhysicalPairRecouplingPackageAtLink 5
+        (reflectedBentGuardGraftLeftPhysical D hextent state)
+        (reflectedBentGuardGraftRightPhysical D hextent state)
+        linked).kernel.weight
+        (reflectedBentGuardGraftLocalSourceAtCutoff
+          D hcutoff hextent state linked)
+        (reflectedBentGuardGraftLocalTargetAtCutoff
+          D hcutoff hextent state linked) := by
+  have hlinked : linked = reflectedBentSwitchPivotLinked :=
+    Subtype.ext hpivot
+  subst linked
+  unfold slabPhysicalPairRecouplingPackageAtLink
+    reflectedBentSwitchPivotLinked
+  have hdegree : 5 =
+      (slabIncidentPlaqIds 5 reflectedBentSwitchPivot).length :=
+    reflectedBentSwitchPivot_degree_five.symm
+  cases hdegree
+  change oneQuarter ≤
+    (slabPhysicalPairRecouplingKernelPackageFive
+      (reflectedBentGuardGraftPivotRecouplingData
+        D hextent state)).kernel.weight _ _
+  exact reflectedBentGuardGraftPivot_kernel_floor
+    D hextent state
+    (reflectedBentGuardGraftLocalSourceAtCutoff
+      D hcutoff hextent state reflectedBentSwitchPivotLinked)
+    (reflectedBentGuardGraftLocalTargetAtCutoff
+      D hcutoff hextent state reflectedBentSwitchPivotLinked)
 
 /-! ## 3. The positive whole-slab product at ambient cutoff -/
 
@@ -242,6 +285,7 @@ theorem reflectedBentGuardGraftTargetAssignmentFromAtCutoff_weight_pos
 #print axioms reflectedBentGuardGraftLeftAssignment_mem_at_cutoff
 #print axioms reflectedBentGuardGraftRightAssignment_mem_at_cutoff
 #print axioms reflectedBentGuardGraftLocalTargetAtCutoff_pos
+#print axioms reflectedBentGuardGraftLocalTargetAtCutoff_floor_of_pivot
 #print axioms reflectedBentGuardGraftTargetAssignmentFromAtCutoff_mem
 #print axioms reflectedBentGuardGraftTargetAssignmentFromAtCutoff_coordinatewise_pos
 #print axioms reflectedBentGuardGraftTargetAssignmentFromAtCutoff_weight_pos
