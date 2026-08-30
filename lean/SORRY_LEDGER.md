@@ -27125,3 +27125,28 @@ gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem is
 proved.  No `sorry` is introduced; focused monitored declarations use only
 `[propext, Quot.sound]`.  The dependency-complete monitored target passes all
 1,573 jobs.  No full-root audit is claimed.
+
+#### The all-cutoff target now meets the standard observable source and graph interfaces (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableSourceCutoffPersistence`
+attaches the ambient accepted graft to the literal observable `11 x 00` cell.
+The left graft is positive at both marked faces, the right graft is zero at
+both, and the resulting source pair belongs to the exact four-cell carrier.
+An opaque package retains its exact left and right physical fields without
+forcing downstream normalization of the large membership proof.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetGraphBridgeCutoffPersistence`
+proves exact lookup in both structurally assembled ambient target assignments.
+It identifies their standard global face-strand edge lists, projected union,
+and vertex carrier with the custom all-cutoff graph used by the disconnection
+certificate.  Thus the geometric certificate now speaks about the same graph
+interface consumed by observable recoupling success.
+
+The selected positive target has not yet been packaged as a listed observable
+choice over this source, so no literal observable success channel is claimed
+yet.  The results remain qualitative in cutoff: no uniform positive weight,
+heat-weight comparison, posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
+`sorry` is introduced; focused monitored declarations use only
+`[propext, Quot.sound]`.  The dependency-complete monitored targets pass all
+1,581 jobs.  No full-root audit is claimed.
