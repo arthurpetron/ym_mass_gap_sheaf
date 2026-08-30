@@ -27375,6 +27375,37 @@ theorem.  No `sorry` is introduced.  The focused dependency-complete
 monitored target passes all 1,579 jobs, and the displayed axiom gate is
 exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### Quarter-mass separation is invariant under observable-row presentation (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderObservableEvent` proves
+that every cylinder target is a literal member of the complete normalized
+product row.  It also proves the exact generic transport law for a product
+entry when the package list, source assignment, and target assignment are
+simultaneously transported across one equality.
+
+To avoid normalizing the concrete extent-five dependent product, the module
+introduces a data-bearing row presentation: an arbitrary package list, its
+equality with the parametric written-link packages, a source row, and the
+equality identifying its transported source with the guarded production row.
+The compiler transports every separated-cylinder target to that presented
+row, retains full-row membership and the original disconnection certificate,
+proves equality of the two total event weights, and therefore preserves the
+literal `1/4` floor.
+
+The abstract row compiler is complete.  Its specialization to the literal
+observable source still requires one source-row presentation witness.  Two
+attempts to obtain that witness by unfolding the concrete whole-slab product
+were interrupted and removed when they began the known dependent-product
+normalization; they prove nothing and are not in the tree.  Thus the event is
+not yet a literal observable successful-choice event and has not yet been
+combined with insertion or complete inverse-fiber payment into a posterior
+fraction.  The result is finite, extent five, and uniform only in the
+representation cutoff; it contains no beta or spacing schedule and proves no
+completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
+theorem.  No `sorry` is introduced.  The focused dependency-complete
+monitored target passes all 1,591 jobs, and the displayed axiom gate is
+exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
