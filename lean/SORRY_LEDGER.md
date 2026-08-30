@@ -27289,3 +27289,37 @@ passage, continuum QFT, or Clay theorem.  No `sorry` is introduced; focused
 and dependency-complete monitored checks use only `[propext, Quot.sound]`.
 The dependency-complete target passes all 1,161 jobs.  No full-root audit is
 claimed.
+
+#### The complete guard-peeling inverse fiber has one cutoff-uniform rate (2026-08-30)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingBlockProfileGeometric` closes
+the remaining profile-summation axis.  It proves that the ordered block-mass
+profile has exactly `2 * faces.length` coordinates, that their sum is exactly
+the total canonical trace mass, and that every canonical profile belongs to
+the literal bounded product carrier supplied by the paired mass ceiling.
+
+Finite Fubini factorizes the `(16/25)^M` weight over those coordinates.  Each
+coordinate costs at most the full geometric sum `25/9`, so every bounded
+profile carrier has total weight at most
+
+```text
+  (25/9)^(2 * faces.length),
+```
+
+independently of the coordinate cutoff.  Exact finite partition over actual
+profiles then proves the complete fixed-terminal inverse-fiber estimate with
+that coefficient.  The module defines its reciprocal as
+`pairedPeelProfilePaymentRate faces`, proves it positive, and proves that this
+single rate pays the whole terminal fiber for every representation cutoff and
+half-volume.
+
+Thus arbitrary trace length, repeated face/replica visits, positive peel-size
+compositions, and block-mass profiles no longer leave any cutoff-dependent
+entropy factor.  The rate remains a fixed-production-coupling `1/400` result;
+it is not beta- or lattice-spacing-uniform.  It has not yet been multiplied by
+the guarded insertion factor or a recoupling-column floor, so no conditional
+transition floor, posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
+`sorry` is introduced; focused and dependency-complete monitored checks use
+only `[propext, Quot.sound]`.  The dependency-complete target passes all 1,179
+jobs.  No full-root audit is claimed.

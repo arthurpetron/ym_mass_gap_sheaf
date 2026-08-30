@@ -72,7 +72,7 @@ private theorem filterTrueLocal {A : Type} : forall items : List A,
   | [] => rfl
   | head :: tail => congrArg (List.cons head) (filterTrueLocal tail)
 
-private theorem eraseDupsNodupLocal {A : Type}
+theorem eraseDupsNodupLocal {A : Type}
     [BEq A] [LawfulBEq A] (items : List A) : items.eraseDups.Nodup := by
   have h := filteredEraseDupsNodupLocal items (fun _ => true)
   rw [filterTrueLocal] at h

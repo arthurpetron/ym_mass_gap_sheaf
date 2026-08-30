@@ -377,7 +377,7 @@ theorem slabAcceptedPairScanRank_injective_of_mem
 
 /-! ## 5. Equal ordered block codes reconstruct the erased skeleton -/
 
-private theorem scanRank_lt_two_mul_length
+theorem scanRank_lt_two_mul_length
     (faces : List Nat) (key : Nat × Bool)
     (hmem : key.1 ∈ faces) :
     slabAcceptedPairScanRank faces key < 2 * faces.length := by
