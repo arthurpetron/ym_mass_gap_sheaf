@@ -27406,6 +27406,27 @@ theorem.  No `sorry` is introduced.  The focused dependency-complete
 monitored target passes all 1,591 jobs, and the displayed axiom gate is
 exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### Exact production rows transport without inspecting product coordinates (2026-08-30)
+
+`SU2SlabPhysicalPairRecouplingSourceTransport` isolates the source-row
+identity needed by the literal observable specialization.  The product
+package list depends only on the two physical labellings; its canonical
+equality is constructed by eliminating those two equalities.  Eliminating
+the additional left/right auxiliary-assignment equalities then proves that
+the complete heterogeneous production source transports exactly, with no
+coordinate enumeration or concrete product normalization.
+
+This is the source analogue of the existing target and positivity transport
+laws.  It removes the mathematical content from the remaining literal-row
+seam: only a compact presentation of the opaque observable source remains.
+An attempted direct specialization through the concrete extent-five result
+type was interrupted and removed when elaboration again began normalizing
+that product.  The generic theorem itself is verified and introduces no
+`sorry`; its displayed axiom gate is exactly `[propext, Quot.sound]`.  It does
+not by itself construct a posterior fraction, completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No full-root
+audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
