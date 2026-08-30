@@ -27330,6 +27330,30 @@ continuum QFT, or Clay theorem.  No `sorry` is introduced.  The focused
 dependency-complete monitored target passes all 1,576 jobs, and the displayed
 axiom gate is exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### Every target in the quarter-mass cylinder disconnects the marked faces (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderDisconnection` contracts
+the parametric graph invariant into an explicit path obstruction.  Its Boolean
+adjacency witness exposes a literal projected edge, so the preceding universal
+edge theorem preserves the near/far color across one adjacency.  Structural
+recursion on an explicit finite `ChainIn` then preserves that color along the
+whole chain.  The marked root and marked target have opposite colors, hence no
+such chain exists.
+
+For every duplicate-free written link list containing the pivot and every
+target belonging to the pivot cylinder, the module returns a data-bearing
+`ReflectedBentGuardGraftPivotCylinderTargetDisconnectionAtCutoff` containing
+the realized edge list, the edge-color invariant, and the marked-face
+disconnection map.  This is the qualitative half of the desired separated
+cylinder event; it has not yet been packaged with the cylinder's quantitative
+`1/4` weight or converted into a posterior-variance fraction.  The result is
+finite, extent five, and cutoff-uniform only in the representation cutoff.  It
+contains no beta or lattice-spacing parameter and proves no completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No `sorry`
+is introduced.  The focused dependency-complete monitored target passes all
+1,578 jobs, and the displayed axiom gate is exactly `[propext, Quot.sound]`.
+No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
