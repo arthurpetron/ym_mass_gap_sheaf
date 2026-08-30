@@ -26971,3 +26971,34 @@ positive family, all-cutoff geometry, uniform routing and peeling estimates,
 completed physical gap, thermodynamic/continuum passage, continuum QFT, and
 the Clay theorem remain open.  No `sorry` is introduced.  Focused monitored
 verification uses only `[propext, Quot.sound]`; no full-root audit is claimed.
+
+#### Reflected graft acceptance now persists through every larger representation cutoff (2026-08-30)
+
+`CompactDualSlabFineIntertwinerCutoffPersistence` proves the monotonicity
+compiler needed by the cutoff expansion: a local SU(2) fusion witness accepted
+at cutoff `K` remains in the literal enumerated local fiber at every cutoff
+`K' >= K`; the recursive Cartesian assignment compiler preserves the same
+global assignment; and membership in the complete fine-intertwiner carrier
+therefore persists.  The witness and assignment themselves are unchanged—only
+their acceptance proof is transported into the larger enumeration.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraftCutoffPersistence` applies
+that compiler to the reflected graft.  At pattern-active links it embeds the
+fixed cutoff-one witness into the ambient cutoff.  At inactive links it retains
+the peeled terminal's native ambient-cutoff witness.  The resulting left and
+right assignments are accepted globally, the grafted physical labelling is
+bounded by every `D.cutoff >= 1`, and both graft sources belong to
+`slabExpandedFineSources D` for every extent-five datum with cutoff at least
+one.  Thus the cutoff-one equality has been removed from the geometric source
+acceptance layer.
+
+This is qualitative cutoff persistence, not quantitative cutoff uniformity.
+It does not transport the downstream positive target or observable channel,
+does not bound the heat-weight or inverse-fiber cost as cutoff grows, and does
+not supply a cutoff-independent posterior-variance fraction.  Volume remains
+fixed at extent five; no beta or lattice-spacing parameter appears.  The local
+positive family, uniform peeling and routing estimates, completed physical
+gap, thermodynamic/continuum passage, continuum QFT, and the Clay theorem
+remain open.  No `sorry` is introduced.  The focused monitored check and the
+dependency-complete monitored target pass all 1,560 jobs; the audited new
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
