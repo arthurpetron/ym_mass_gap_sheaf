@@ -27177,3 +27177,29 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
 `sorry` is introduced; focused monitored declarations use only
 `[propext, Quot.sound]`.  The dependency-complete paired-realization target
 passes all 1,586 jobs.  No full-root audit is claimed.
+
+#### The guarded insertion cost now has one exact rate for every cutoff (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardInsertionObservableWeightCutoffPersistence`
+lifts the exact observable receiver-weight factorization from cutoff one to
+every `1 ≤ D.cutoff`.  The guarded source weight is the fixed inserted-pattern
+heat-face factor times the complete peeled-terminal pair weight, with
+`D.coupling`, `D.cutoff`, and `D.extent` visible in the theorem.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardInsertionRateCutoffUniform` observes that
+the inserted pattern uses only spin labels zero and one.  Exact heat-packet
+lookup therefore makes its face factor stable from cutoff one onward.  The
+module defines `reflectedBentGuardCutoffUniformInsertionRate D.coupling`, proves
+it is positive at positive coupling and at most one, and proves that this same
+rate pays the guarded receiver insertion for every cutoff at least one at
+extent five.
+
+This is uniform only over the representation cutoff.  Its dependence on the
+coupling is explicit, and no spacing or volume parameter has been introduced.
+The complete inverse guard-peeling fiber and the chosen recoupling-column
+weight have not been bounded by this rate, so no conditional-transition floor,
+posterior-variance fraction, uniform completed gap, thermodynamic/continuum
+passage, continuum QFT, or Clay theorem is proved.  No `sorry` is introduced;
+focused monitored declarations use only `[propext, Quot.sound]`.  The
+dependency-complete cutoff-uniform insertion-rate target passes all 1,582
+jobs.  No full-root audit is claimed.
