@@ -27300,6 +27300,36 @@ continuum QFT, or Clay theorem.  No `sorry` is introduced.  The focused
 dependency-complete monitored target passes all 1,575 jobs, and the displayed
 axiom gate is exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### Every target in the quarter-mass cylinder has a color-preserving parametric graph (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderPivotLookup` proves by
+dependent-list recursion that a pivot-pinned target realizes to a global left
+assignment whose total lookup at the pivot is exactly the selected
+component-preserving auxiliary.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderAbstractGraph` avoids
+normalizing the enormous concrete extent-five dependent product.  It remains
+parametric in an arbitrary written slab-link list, strengthens first-pivot
+pinning to every-pivot pinning under duplicate-freeness, and concatenates the
+literal projected local edge lists of every realized left and right target
+coordinate.  For any duplicate-free list containing the pivot, every target
+in the cylinder has a graph in which every projected edge preserves the
+near/far Boolean color.  Nonpivot target columns remain unrestricted.
+
+An attempted concrete full-list wrapper was deliberately removed after its
+monitored elaboration began expanding the computed dependent product; it
+proved nothing and is not part of the tree.  The parametric theorem is both
+stronger and the appropriate input for a subsequent generic chain
+disconnection theorem.  The cylinder's quantitative `1/4` weight and its
+qualitative graph invariant now share the same `linkedList`, `target`, and
+cylinder-membership hypotheses, but they have not yet been contracted into a
+posterior fraction.  The result is finite, extent five, and cutoff-uniform only
+in the representation cutoff.  It contains no beta or lattice-spacing
+parameter and proves no completed gap, thermodynamic/continuum passage,
+continuum QFT, or Clay theorem.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 1,576 jobs, and the displayed
+axiom gate is exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
