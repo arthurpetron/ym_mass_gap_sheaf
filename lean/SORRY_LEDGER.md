@@ -27427,6 +27427,33 @@ not by itself construct a posterior fraction, completed gap,
 thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No full-root
 audit is claimed.
 
+#### Three explicit payments contract to one separated-transition rate (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardSeparatedTransitionRate` multiplies the
+complete canonical-peeling inverse-fiber payment, the cutoff-uniform guarded
+insertion payment, and the literal quarter-mass separated-cylinder payment.
+It defines their uncapped product and a unit-capped rational rate, proves that
+the capped rate is positive for positive coupling and at most one, and proves
+the exact generic joint-mass inequality
+
+```text
+  separatedRate * sourceMass <= receiverWeight * eventMass.
+```
+
+The proof assumes precisely the three previously exposed payment inequalities
+and contracts them by rational monotonicity and associativity.  The coupling
+dependence and finite face-list dependence remain explicit in the rate; there
+is no beta, lattice-spacing, or volume parameter whose uniformity could be
+claimed.  The theorem is therefore a finite algebraic compiler, not yet a
+literal posterior or conditional-variance fraction: the production carrier,
+source mass, peeled terminal mass, inserted receiver mass, and separated event
+still have to be instantiated together on the same observable transition.
+
+No completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
+theorem is proved.  No `sorry` is introduced.  The dependency-complete
+monitored target passes all 1,596 jobs, and all four displayed declarations
+use exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
