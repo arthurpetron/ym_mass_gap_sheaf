@@ -27203,3 +27203,32 @@ passage, continuum QFT, or Clay theorem is proved.  No `sorry` is introduced;
 focused monitored declarations use only `[propext, Quot.sound]`.  The
 dependency-complete cutoff-uniform insertion-rate target passes all 1,582
 jobs.  No full-root audit is claimed.
+
+#### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
+first genuinely growing part of the guard-peeling inverse-fiber entropy.  At
+one fixed terminal, total peeled mass, and ordered root/replica signature, it
+encodes every positive peel-size composition by unary runs terminated with
+zero.  The code is injective and has length exactly the peeled mass, hence its
+carrier has size at most `2^M`.
+
+The existing fixed-skeleton component estimate contributes `(8/25)^M`.
+Exact finite fiber partition absorbs all positive size compositions and proves
+the cutoff- and half-volume-independent fixed-signature estimate
+
+```text
+  source fiber weight <= (16/25)^M * terminal weight.
+```
+
+This theorem does not yet sum the ordered root/replica signatures.  For the
+fixed guard, the deterministic face scan should organize them into repeated
+blocks in fixed face/side order; that ordered-signature theorem and its finite
+geometric block sum remain the next inverse-fiber frontier.  The result is at
+the fixed production coupling `1/400`, not uniform in beta or lattice spacing,
+and it does not yet give the complete guard-fiber rate, recoupling-column
+floor, posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No `sorry`
+is introduced; focused and dependency-complete monitored checks use only
+`[propext, Quot.sound]`.  The dependency-complete target passes all 1,158
+jobs.  No full-root audit is claimed.
