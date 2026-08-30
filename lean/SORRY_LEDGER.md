@@ -27076,3 +27076,25 @@ uniform completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
 theorem.  No `sorry` is introduced; focused monitored declarations use only
 `[propext, Quot.sound]`.  The dependency-complete monitored target passes all
 1,567 jobs.  No full-root audit is claimed.
+
+#### The exact component-separating pivot edge pairs are cutoff independent (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPivotEdgesCutoffPersistence`
+proves that projected physical-terminal partner identifiers are independent of
+the cutoff once the physical field and auxiliary labelling are fixed.  The
+proof contracts both presentations to the same canonical resolved network;
+the cutoff appears only in proof-relevant acceptance inputs.
+
+Applying this compiler to the ambient realized pivot and the previously
+classified cutoff-one pivot proves the same exact pairs
+`[(0,2),(2,0),(3,4),(4,3)]` at every `D.cutoff >= 1`.  Exact incidence lookup
+then proves that every realized pivot strand stays wholly within the near lobe
+or wholly within the far lobe.
+
+This is the local pivot edge theorem, not yet the assembled all-link graph or
+marked-face disconnection certificate.  No cutoff-uniform positive weight,
+heat-weight comparison, posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
+`sorry` is introduced; focused monitored declarations use only
+`[propext, Quot.sound]`.  The dependency-complete monitored target passes all
+1,569 jobs.  No full-root audit is claimed.
