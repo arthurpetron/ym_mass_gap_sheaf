@@ -27354,6 +27354,27 @@ is introduced.  The focused dependency-complete monitored target passes all
 1,578 jobs, and the displayed axiom gate is exactly `[propext, Quot.sound]`.
 No full-root audit is claimed.
 
+#### The pivot cylinder is one literal quarter-mass separated event (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderSeparatedEvent` contracts
+the quantitative cylinder theorem and the qualitative disconnection theorem
+over their shared parametric target carrier.  It returns the literal target
+list, its normalized product-row weight, the lower bound `1/4`, and a
+data-bearing marked-face disconnection certificate for every listed target.
+
+This removes any ambiguity about whether the weight floor and graph theorem
+refer to the same event: both are fields of one structure with the same
+`linkedList`, target type, source row, and cutoff.  The event has not yet been
+transported onto the literal observable-choice row or combined with the
+guarded insertion and complete peeling inverse-fiber rates.  It therefore
+does not yet supply a conditional-transition or posterior-variance fraction.
+The result is finite, extent five, and uniform only in the representation
+cutoff; it contains no beta or lattice-spacing schedule and proves no
+completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
+theorem.  No `sorry` is introduced.  The focused dependency-complete
+monitored target passes all 1,579 jobs, and the displayed axiom gate is
+exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
