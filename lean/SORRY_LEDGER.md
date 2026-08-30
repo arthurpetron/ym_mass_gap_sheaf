@@ -27258,3 +27258,34 @@ gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No
 `sorry` is introduced; focused and dependency-complete monitored checks use
 only `[propext, Quot.sound]`.  The dependency-complete target passes all 1,159
 jobs.  No full-root audit is claimed.
+
+#### Ordered peel blocks absorb every repeated-peel multiplicity (2026-08-30)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingBlockCode` groups the
+nondecreasing canonical trace by exact face/replica scan rank and records the
+positive peel sizes in each block.  The dependent binary carrier for a block
+mass profile has exact cardinality `2^M`, where `M` is the sum of the block
+masses.  Injectivity of the positive-composition code, injectivity of the scan
+rank on the duplicate-free face list, and ordered-sequence reconstruction show
+that equal block codes determine equal erased peeling skeletons.
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingBlockProfileWeight` partitions
+the terminal fiber by those block codes.  At one fixed terminal, exact block
+mass profile, and total peeled mass, it combines the `2^M` code carrier with
+the fixed-skeleton `(8/25)^M` estimate to prove
+
+```text
+  source fiber weight <= (16/25)^M * terminal weight.
+```
+
+This sums every possible number of repeated peels and every positive size
+composition at each ordered scan key; the signature length is no longer fixed.
+The remaining inverse-fiber step is to sum the finite block-mass profiles by a
+product of geometric series and extract one complete cutoff-uniform guard rate.
+The result is still at the fixed production coupling `1/400`, not uniform in
+beta or lattice spacing, and it proves no recoupling-column floor,
+posterior-variance fraction, uniform completed gap, thermodynamic/continuum
+passage, continuum QFT, or Clay theorem.  No `sorry` is introduced; focused
+and dependency-complete monitored checks use only `[propext, Quot.sound]`.
+The dependency-complete target passes all 1,161 jobs.  No full-root audit is
+claimed.
