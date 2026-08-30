@@ -27055,3 +27055,24 @@ uniform completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
 theorem.  No `sorry` is introduced.  The focused monitored check and
 dependency-complete monitored target pass all 1,565 jobs; the audited new
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### The component-separating pivot carrier now persists at every cutoff (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPivotPairingCutoffPersistence`
+embeds the explicit reflected pivot auxiliaries into the actual ambient local
+fiber and proves that their extracted recoupling source is definitionally the
+same component source used to select the exceptional positive target.
+
+Equal-rank target decoding is then proved at the ambient cutoff.  Canonical
+witness reconstruction and source-to-auxiliary injectivity show that the
+realized left pivot auxiliary is still exactly the classified `(1,0)` carrier,
+independently of the surrounding cutoff.  This preserves the load-bearing
+non-abelian local geometry needed by the marked-face separation proof.
+
+The theorem does not yet assemble all projected strand edges or prove the
+ambient target disconnected.  It gives no cutoff-independent lower bound on
+the positive product, heat-weight comparison, posterior-variance fraction,
+uniform completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
+theorem.  No `sorry` is introduced; focused monitored declarations use only
+`[propext, Quot.sound]`.  The dependency-complete monitored target passes all
+1,567 jobs.  No full-root audit is claimed.
