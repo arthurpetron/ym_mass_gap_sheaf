@@ -27232,3 +27232,29 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No `sorry`
 is introduced; focused and dependency-complete monitored checks use only
 `[propext, Quot.sound]`.  The dependency-complete target passes all 1,158
 jobs.  No full-root audit is claimed.
+
+#### Canonical paired peeling has an ordered root/replica signature (2026-08-30)
+
+`CompactDualSlabAcceptedPairedCanonicalPeelingOrderedSignature` proves the
+load-bearing structural fact needed to sum the remaining guard-fiber entropy.
+It defines the exact face/replica scan rank, with the left replica immediately
+before the right replica at each face.  Pointwise monotonicity of component
+lowering shows that every later trace key was already positive in the initial
+state.  The deterministic choice is then proved least among all positive
+scan keys, and well-founded induction gives pairwise nondecreasing ranks for
+the complete canonical trace.
+
+Thus root/replica signatures are ordered repeated blocks over the fixed scan
+alphabet, not arbitrary words whose entropy grows exponentially with trace
+length.  Combined with the preceding fixed-signature `16/25` theorem, this
+reduces the remaining complete guard-fiber estimate to a finite product of
+one-dimensional geometric block sums.
+
+The block-mass carrier and its finite product estimate are not yet assembled,
+so no complete cutoff-uniform guard-fiber rate is claimed.  The result remains
+at the fixed production coupling `1/400` and gives no beta- or spacing-uniform
+bound, recoupling-column floor, posterior-variance fraction, uniform completed
+gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No
+`sorry` is introduced; focused and dependency-complete monitored checks use
+only `[propext, Quot.sound]`.  The dependency-complete target passes all 1,159
+jobs.  No full-root audit is claimed.
