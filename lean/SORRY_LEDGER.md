@@ -26936,3 +26936,38 @@ physical spectral gap, thermodynamic and continuum passage, continuum QFT,
 and the Clay theorem remain open.  No `sorry` is introduced.  Focused
 monitored verification uses only `[propext, Quot.sound]`; no full-root audit
 is claimed.
+
+#### Structured anchor rate now reaches the retained-contraction interface (2026-08-30)
+
+`FinitePositiveWeightedGoodSourceFiberRate` now states two comparison
+principles for its exact source-to-target rate.  First, every unit-capped
+candidate which pays all weighted inverse fibers lies below the exact finite
+minimum.  Second, forgetting structure from a target can only enlarge its
+inverse fiber; in particular, attaching a proof that a guarded receiver lies
+in the canonical-good subcarrier does not worsen an underlying receiver-map
+congestion estimate.  A deliberately coarse total-source-mass comparison is
+also available for analytic diagnostics.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardDirectGoodSourceAnchorRate` identifies
+the direct guarded receiver map with the earlier recoverable guarded map at
+the production anchor.  Conditional on the already isolated
+`ReflectedBentGuardDirectLocalPositiveFamily`, it transports the explicit
+`reflectedBentGuardConnectedRepairRate` through the canonical-good subtype,
+proves that this structured rate lies below the new exact good-repair rate,
+constructs the literal weighted good-source repair at that structured rate,
+and composes it with canonical positive-row routing to obtain the retained
+same-object contraction.
+
+This separates the remaining scaling problem more sharply.  The component
+entropy base used inside the structured rate is the already geometric
+`16/25`, but `reflectedBentGuardPeelingFiberRate` is still an exact finite
+minimum over the cutoff-one accepted-state carrier.  The canonical routing
+still uses another fixed-datum positive row minimum and the full good-source
+list length as congestion.  Moreover, the entire specialization remains at
+coupling `1/400`, cutoff one, and extent five, and no lattice-spacing
+parameter appears.  Thus neither a cutoff/volume/spacing-uniform posterior
+fraction nor a mass-normalized continuum rate has been proved.  The local
+positive family, all-cutoff geometry, uniform routing and peeling estimates,
+completed physical gap, thermodynamic/continuum passage, continuum QFT, and
+the Clay theorem remain open.  No `sorry` is introduced.  Focused monitored
+verification uses only `[propext, Quot.sound]`; no full-root audit is claimed.
