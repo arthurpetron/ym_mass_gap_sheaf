@@ -27277,6 +27277,29 @@ introduced; focused and dependency-complete monitored checks use only
 `[propext, Quot.sound]`.  The dependency-complete pivot-cylinder realization
 target passes all 1,568 jobs.  No full-root audit is claimed.
 
+#### Every realized pivot-cylinder coordinate preserves the marked-side color (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderLocalEdges` removes the
+distinguished-column assumption from the local strand geometry.  At an active
+left nonpivot link, any accepted auxiliary pairs only near with near or far
+with far: the proof uses positivity of the two physical terminal slots and the
+unique shared-link characterization of the pivot, not the recoupling target.
+At an inactive link both endpoints lie outside the inserted near support.  On
+the right replica an active physical terminal is impossible because the active
+right word is zero.  At the pivot, equality with the selected cylinder target
+reduces the canonical realization to the already classified four-edge carrier.
+
+Consequently every arbitrary local target realization preserves the Boolean
+marked-side color provided only that its pivot coordinate is pinned.  This is
+the exact local input needed to lift every member of the weight-`1/4` cylinder
+to a disconnected full assignment; that global lookup/graph contraction is
+still open.  The result is finite, extent five, and cutoff-uniform only in the
+representation cutoff.  It contains no beta or lattice-spacing parameter and
+proves no posterior fraction, completed gap, thermodynamic/continuum passage,
+continuum QFT, or Clay theorem.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 1,575 jobs, and the displayed
+axiom gate is exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
