@@ -27098,3 +27098,30 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
 `sorry` is introduced; focused monitored declarations use only
 `[propext, Quot.sound]`.  The dependency-complete monitored target passes all
 1,569 jobs.  No full-root audit is claimed.
+
+#### The positive reflected target disconnects the marked faces at every finite cutoff (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetEdgesCutoffPersistence`
+proves the full ambient-cutoff edge invariant.  At active nonpivot left links,
+the unique shared near/far link theorem prevents a crossing for every accepted
+auxiliary.  At the pivot it uses the exact cutoff-stable carrier.  Active right
+links carry zero physical word, and inactive links cannot meet the inserted
+near support.  Thus every projected edge in both replicas preserves the
+near/far Boolean color.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetDisconnectionCutoffPersistence`
+contracts this local invariant through Boolean adjacency and structural
+recursion on finite `ChainIn` witnesses.  Since the marked root is near and the
+marked target is far, it constructs a data-bearing certificate that no marked
+chain exists for every extent-five datum with `D.cutoff >= 1`.
+
+This closes the qualitative all-cutoff chain from accepted graft source to a
+strictly positive, accepted, component-separating recoupling target.  It does
+not yet identify this custom projected graph with the observable package's
+generic graph or produce a listed observable-success channel.  More
+importantly, strict positivity remains pointwise in cutoff: no uniform lower
+bound, heat-weight comparison, posterior-variance fraction, uniform completed
+gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem is
+proved.  No `sorry` is introduced; focused monitored declarations use only
+`[propext, Quot.sound]`.  The dependency-complete monitored target passes all
+1,573 jobs.  No full-root audit is claimed.
