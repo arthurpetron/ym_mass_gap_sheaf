@@ -27245,6 +27245,38 @@ and dependency-complete monitored checks use only `[propext, Quot.sound]`.
 The dependency-complete pivot-cylinder target passes all 1,564 jobs.  No
 full-root audit is claimed.
 
+#### Every pivot-cylinder column now has literal local accepted realizations (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardTargetAssignmentRealizationCutoffPersistence`
+generalizes the earlier one-column realization.  For an arbitrary local
+recoupling target, the canonical equal-rank reconstruction produces literal
+left and right SU(2) auxiliaries accepted at the same ambient cutoff.  A
+dependent structural recursion then consumes every target coordinate in any
+written slab-link list and assembles accepted left and right fusion-witness
+assignments for that list.  No positivity assumption and no cylinder property
+is used by this compiler.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderRealization` isolates the
+only special information required from cylinder membership.  It defines the
+recursive proposition that the target assignment equals the established
+component-preserving target at the first pivot, proves that every listed
+pivot-cylinder target satisfies it, and proves that the corresponding
+canonical local realization is exactly the already classified selected-pivot
+realization.  Every nonpivot coordinate remains genuinely free.
+
+Thus quantitative cylinder mass and qualitative target realization are now
+connected without selecting or paying any nonpivot column.  The remaining
+geometric step is to formulate the strand-color proof for the arbitrary
+accepted nonpivot auxiliaries supplied by this compiler and to combine it with
+the pinned pivot realization.  Only after that universal disconnection theorem
+can the cylinder's `1/4` mass enter the guarded posterior fraction.  The result
+is finite, extent five, cutoff-uniform only in the representation cutoff, and
+contains no beta or lattice-spacing parameter.  It proves no completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem.  No `sorry` is
+introduced; focused and dependency-complete monitored checks use only
+`[propext, Quot.sound]`.  The dependency-complete pivot-cylinder realization
+target passes all 1,568 jobs.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the
