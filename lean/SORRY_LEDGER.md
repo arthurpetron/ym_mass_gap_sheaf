@@ -27031,3 +27031,27 @@ physical gap, thermodynamic/continuum passage, continuum QFT, and the Clay
 theorem remain open.  No `sorry` is introduced.  The focused monitored check
 and dependency-complete monitored target pass all 1,563 jobs; the audited new
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### The all-cutoff positive target is now a literal accepted two-replica state (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetRealizationCutoffPersistence`
+realizes each selected ambient-cutoff target column by the canonical SU(2)
+target witness pair.  The grafted physical fields are proved bounded at the
+actual `D.cutoff`; each realized auxiliary therefore belongs to its literal
+ambient local fusion-witness list.
+
+Structural recursion assembles the realized auxiliaries into complete left
+and right assignments, proves those assignments belong to
+`slabFineFusionWitnesses D`, attaches the common grafted physical fields, and
+returns a literal `SlabAcceptedTwoReplicaState D`.  This closes accepted target
+realization for every extent-five datum with `D.cutoff >= 1`.
+
+This remains a pointwise finite-cutoff construction.  No cutoff-independent
+lower bound on its positive recoupling product is proved.  The ambient target's
+pivot carrier and strand graph are not yet identified, so marked-face
+disconnection and observable-channel success have not yet been lifted.  There
+is still no heat-weight comparison, uniform posterior-variance fraction,
+uniform completed gap, thermodynamic/continuum passage, continuum QFT, or Clay
+theorem.  No `sorry` is introduced.  The focused monitored check and
+dependency-complete monitored target pass all 1,565 jobs; the audited new
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
