@@ -27150,3 +27150,30 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
 `sorry` is introduced; focused monitored declarations use only
 `[propext, Quot.sound]`.  The dependency-complete monitored targets pass all
 1,581 jobs.  No full-root audit is claimed.
+
+#### The all-cutoff target is now a listed observable choice with paired realization (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableChoiceCutoffPersistence`
+transports the selected positive target into the literal guarded observable
+row for every `1 ≤ D.cutoff`.  It proves membership of the sealed observable
+choice, supplies the definitionally lighter raw-source choice, and identifies
+the structurally realized left and right assignments with the canonical
+target realization at the ambient cutoff.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetPairedRealizationCutoffPersistence`
+packages both the sealed and raw choices through the generic paired-realization
+compiler.  Each certificate returns the same two ambient assignments already
+used by the all-cutoff graph bridge and disconnection theorem.  Thus source,
+listed target, paired realization, and classified disconnected graph now form
+one exact qualitative chain at every finite cutoff.
+
+The final contraction of those fields into the literal observable-success
+Boolean is not claimed here: a parametric declaration elaborated far enough
+to expose its axiom audit but exceeded a bounded four-million-heartbeat check,
+so it was not retained.  More importantly, the successful target weight is
+still only pointwise positive in cutoff.  No cutoff-uniform positive weight,
+heat-weight comparison, posterior-variance fraction, uniform completed gap,
+thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
+`sorry` is introduced; focused monitored declarations use only
+`[propext, Quot.sound]`.  The dependency-complete paired-realization target
+passes all 1,586 jobs.  No full-root audit is claimed.
