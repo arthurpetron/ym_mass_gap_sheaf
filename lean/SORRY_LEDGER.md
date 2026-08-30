@@ -27454,6 +27454,33 @@ theorem is proved.  No `sorry` is introduced.  The dependency-complete
 monitored target passes all 1,596 jobs, and all four displayed declarations
 use exactly `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### Guarded receiver equality recovers the peeled terminal at every cutoff (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardTerminalRecoverability` now factors its
+injectivity proof through the four semantic graft components: left/right
+physical labellings and left/right accepted auxiliary assignments.  This
+separates the reconstruction argument from the membership proofs used to
+package the graft as an accepted state while preserving the original
+cutoff-one theorem and its API.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardTerminalRecoverabilityCutoffPersistence`
+applies that componentwise theorem to the ambient-cutoff accepted graft.
+Equality of two `reflectedBentGuardGraftAcceptedStateOfOneLE` receivers now
+implies equality of their canonical guard-cleared terminals for every
+`1 <= cutoff`.  The proof uses the same all-zero active-link rigidity and
+literal inactive-link copying; it does not enumerate a cutoff-dependent
+carrier.
+
+This closes the recoverability input needed to turn the complete geometric
+peeling payment into an arbitrary-cutoff receiver-fiber estimate.  That fiber
+estimate, its joint separated-event specialization, and the literal posterior
+transport remain to be assembled.  The underlying weight estimate is still
+at production coupling `1/400`; no beta- or spacing-uniform statement,
+completed gap, thermodynamic/continuum passage, continuum QFT, or Clay theorem
+is proved.  No `sorry` is introduced.  The dependency-complete monitored
+target passes all 1,562 jobs, and the new public declarations use exactly
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Positive peel-size compositions contract at the exact rate 16/25 (2026-08-30)
 
 `CompactDualSlabAcceptedPairedCanonicalPeelingSignatureWeight` removes the

@@ -131,27 +131,15 @@ private theorem terminalLeftPhysical_zero_outside
     (reflectedBentGuardCanonicalPeeling D hextent state).1.1.1.1
     hmem).2 faceId (by simpa [SlabPhysicalData.faceEdges] using houtside)
 
-theorem reflectedBentGuardTerminal_leftPhysical_eq_of_graft_eq
-    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+theorem reflectedBentGuardTerminal_leftPhysical_eq_of_graftPhysical_eq
+    (D : SlabPhysicalData)
     (hextent : D.extent = 5)
     (left right : SlabAcceptedTwoReplicaState D)
-    (hgraft : reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent left =
-      reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent right) :
+    (hgraftPhysical :
+      reflectedBentGuardGraftLeftPhysical D hextent left =
+        reflectedBentGuardGraftLeftPhysical D hextent right) :
     (reflectedBentGuardCanonicalPeeling D hextent left).1.1.1.1 =
       (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.1 := by
-  have hgraftPhysical :
-      reflectedBentGuardGraftLeftPhysical D hextent left =
-        reflectedBentGuardGraftLeftPhysical D hextent right := by
-    have hsource := congrArg (fun state => state.1.1) hgraft
-    change (reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent left).1.1 =
-      (reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent right).1.1 at hsource
-    rw [reflectedBentGuardGraftAcceptedState_leftSource,
-      reflectedBentGuardGraftAcceptedState_leftSource] at hsource
-    exact congrArg Prod.fst hsource
   funext faceId
   by_cases hphysical : faceId ∈ slabPhysicalFaceEdges D.extent
   · by_cases hguard : faceId ∈ reflectedBentPatternGuardFaceIds
@@ -174,6 +162,37 @@ theorem reflectedBentGuardTerminal_leftPhysical_eq_of_graft_eq
       terminalLeftPhysical_zero_outside
         D hextent right faceId hphysical]
 
+theorem reflectedBentGuardTerminal_leftPhysical_eq_of_graft_eq
+    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraft : reflectedBentGuardGraftAcceptedState
+        D hcutoff hextent left =
+      reflectedBentGuardGraftAcceptedState
+        D hcutoff hextent right) :
+    (reflectedBentGuardCanonicalPeeling D hextent left).1.1.1.1 =
+      (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.1 := by
+  apply reflectedBentGuardTerminal_leftPhysical_eq_of_graftPhysical_eq
+  have hsource := congrArg (fun state => state.1.1) hgraft
+  change (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent left).1.1 =
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent right).1.1 at hsource
+  rw [reflectedBentGuardGraftAcceptedState_leftSource,
+    reflectedBentGuardGraftAcceptedState_leftSource] at hsource
+  exact congrArg Prod.fst hsource
+
+theorem reflectedBentGuardTerminal_rightPhysical_eq_of_graftPhysical_eq
+    (D : SlabPhysicalData)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraftPhysical :
+      reflectedBentGuardGraftRightPhysical D hextent left =
+        reflectedBentGuardGraftRightPhysical D hextent right) :
+    (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.1 =
+      (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.1 := by
+  simpa only [reflectedBentGuardGraftRightPhysical] using hgraftPhysical
+
 theorem reflectedBentGuardTerminal_rightPhysical_eq_of_graft_eq
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
@@ -192,7 +211,8 @@ theorem reflectedBentGuardTerminal_rightPhysical_eq_of_graft_eq
   rw [reflectedBentGuardGraftAcceptedState_rightSource,
     reflectedBentGuardGraftAcceptedState_rightSource] at hsource
   have hphysical := congrArg Prod.fst hsource
-  simpa only [reflectedBentGuardGraftRightPhysical] using hphysical
+  exact reflectedBentGuardTerminal_rightPhysical_eq_of_graftPhysical_eq
+    D hextent left right hphysical
 
 /-! ## 3. Auxiliary and accepted-state terminal recovery -/
 
@@ -236,14 +256,13 @@ private theorem terminalRightAssignmentAt_mem
       (reflectedBentGuardCanonicalPeeling D hextent state).1.2.1.2
       hglobal link (by simpa only [hextent] using hlink)
 
-private theorem terminalLeftAssignmentAt_eq_of_graft_eq
-    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+private theorem terminalLeftAssignmentAt_eq_of_graftAssignment_eq
+    (D : SlabPhysicalData)
     (hextent : D.extent = 5)
     (left right : SlabAcceptedTwoReplicaState D)
-    (hgraft : reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent left =
-      reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent right)
+    (hgraftAssignment :
+      reflectedBentGuardGraftLeftAssignment D hextent left =
+        reflectedBentGuardGraftLeftAssignment D hextent right)
     (link : SlabLink)
     (hlink : link ∈ boundaryCompleteSlabLinks 5) :
     slabFusionWitnessAssignmentAt link
@@ -252,30 +271,8 @@ private theorem terminalLeftAssignmentAt_eq_of_graft_eq
         (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.2 := by
   cases hactive : reflectedBentPatternActiveLinkB link with
   | false =>
-      have hgraftAssignment :
-          slabFusionWitnessAssignmentAt link
-              (reflectedBentGuardGraftLeftAssignment D hextent left) =
-            slabFusionWitnessAssignmentAt link
-              (reflectedBentGuardGraftLeftAssignment D hextent right) := by
-        have hsource := congrArg (fun state => state.1.1) hgraft
-        change (reflectedBentGuardGraftAcceptedState
-            D hcutoff hextent left).1.1 =
-          (reflectedBentGuardGraftAcceptedState
-            D hcutoff hextent right).1.1 at hsource
-        rw [reflectedBentGuardGraftAcceptedState_leftSource,
-          reflectedBentGuardGraftAcceptedState_leftSource] at hsource
-        have hassignment :
-            reflectedBentGuardGraftLeftAssignment D hextent left =
-              reflectedBentGuardGraftLeftAssignment D hextent right :=
-          (by
-            have hparts :
-                reflectedBentGuardGraftLeftPhysical D hextent left =
-                    reflectedBentGuardGraftLeftPhysical D hextent right ∧
-                  reflectedBentGuardGraftLeftAssignment D hextent left =
-                    reflectedBentGuardGraftLeftAssignment D hextent right := by
-              simpa only [Prod.mk.injEq] using hsource
-            exact hparts.2)
-        exact congrArg (slabFusionWitnessAssignmentAt link) hassignment
+      have hgraftAssignmentAt :=
+        congrArg (slabFusionWitnessAssignmentAt link) hgraftAssignment
       have hleftInactive :
           slabFusionWitnessAssignmentAt link
               (reflectedBentGuardGraftLeftAssignment D hextent left) =
@@ -295,7 +292,7 @@ private theorem terminalLeftAssignmentAt_eq_of_graft_eq
           reflectedBentGuardGraftLeftAssignmentAt_eq_terminal_of_inactive
             D hextent right link hlink hactive
       exact hleftInactive.symm.trans
-        (hgraftAssignment.trans hrightInactive)
+        (hgraftAssignmentAt.trans hrightInactive)
   | true =>
       apply slabLinkFusionWitness_eq_of_incidentPhysical_zero
         (terminalLeftAssignmentAt_mem D hextent left link hlink)
@@ -311,7 +308,7 @@ private theorem terminalLeftAssignmentAt_eq_of_graft_eq
         exact (reflectedBentGuardCanonicalPeeling_final_zero
           D hextent right faceId hguard).1
 
-private theorem terminalRightAssignmentAt_eq_of_graft_eq
+private theorem terminalLeftAssignmentAt_eq_of_graft_eq
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
     (left right : SlabAcceptedTwoReplicaState D)
@@ -322,35 +319,42 @@ private theorem terminalRightAssignmentAt_eq_of_graft_eq
     (link : SlabLink)
     (hlink : link ∈ boundaryCompleteSlabLinks 5) :
     slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent left).1.1.1.2 =
+      slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.2 := by
+  have hsource := congrArg (fun state => state.1.1) hgraft
+  change (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent left).1.1 =
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent right).1.1 at hsource
+  rw [reflectedBentGuardGraftAcceptedState_leftSource,
+    reflectedBentGuardGraftAcceptedState_leftSource] at hsource
+  have hparts :
+      reflectedBentGuardGraftLeftPhysical D hextent left =
+          reflectedBentGuardGraftLeftPhysical D hextent right ∧
+        reflectedBentGuardGraftLeftAssignment D hextent left =
+          reflectedBentGuardGraftLeftAssignment D hextent right := by
+    simpa only [Prod.mk.injEq] using hsource
+  exact terminalLeftAssignmentAt_eq_of_graftAssignment_eq
+    D hextent left right hparts.2 link hlink
+
+private theorem terminalRightAssignmentAt_eq_of_graftAssignment_eq
+    (D : SlabPhysicalData)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraftAssignment :
+      reflectedBentGuardGraftRightAssignment D hextent left =
+        reflectedBentGuardGraftRightAssignment D hextent right)
+    (link : SlabLink)
+    (hlink : link ∈ boundaryCompleteSlabLinks 5) :
+    slabFusionWitnessAssignmentAt link
         (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.2 =
       slabFusionWitnessAssignmentAt link
         (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.2 := by
   cases hactive : reflectedBentPatternActiveLinkB link with
   | false =>
-      have hgraftAssignment :
-          slabFusionWitnessAssignmentAt link
-              (reflectedBentGuardGraftRightAssignment D hextent left) =
-            slabFusionWitnessAssignmentAt link
-              (reflectedBentGuardGraftRightAssignment D hextent right) := by
-        have hsource := congrArg (fun state => state.2.1) hgraft
-        change (reflectedBentGuardGraftAcceptedState
-            D hcutoff hextent left).2.1 =
-          (reflectedBentGuardGraftAcceptedState
-            D hcutoff hextent right).2.1 at hsource
-        rw [reflectedBentGuardGraftAcceptedState_rightSource,
-          reflectedBentGuardGraftAcceptedState_rightSource] at hsource
-        have hassignment :
-            reflectedBentGuardGraftRightAssignment D hextent left =
-              reflectedBentGuardGraftRightAssignment D hextent right :=
-          (by
-            have hparts :
-                reflectedBentGuardGraftRightPhysical D hextent left =
-                    reflectedBentGuardGraftRightPhysical D hextent right ∧
-                  reflectedBentGuardGraftRightAssignment D hextent left =
-                    reflectedBentGuardGraftRightAssignment D hextent right := by
-              simpa only [Prod.mk.injEq] using hsource
-            exact hparts.2)
-        exact congrArg (slabFusionWitnessAssignmentAt link) hassignment
+      have hgraftAssignmentAt :=
+        congrArg (slabFusionWitnessAssignmentAt link) hgraftAssignment
       have hleftInactive :
           slabFusionWitnessAssignmentAt link
               (reflectedBentGuardGraftRightAssignment D hextent left) =
@@ -370,7 +374,7 @@ private theorem terminalRightAssignmentAt_eq_of_graft_eq
           reflectedBentGuardGraftRightAssignmentAt_eq_terminal_of_inactive
             D hextent right link hlink hactive
       exact hleftInactive.symm.trans
-        (hgraftAssignment.trans hrightInactive)
+        (hgraftAssignmentAt.trans hrightInactive)
   | true =>
       apply slabLinkFusionWitness_eq_of_incidentPhysical_zero
         (terminalRightAssignmentAt_mem D hextent left link hlink)
@@ -386,14 +390,43 @@ private theorem terminalRightAssignmentAt_eq_of_graft_eq
         exact (reflectedBentGuardCanonicalPeeling_final_zero
           D hextent right faceId hguard).2
 
-theorem reflectedBentGuardTerminal_leftAssignment_eq_of_graft_eq
+private theorem terminalRightAssignmentAt_eq_of_graft_eq
     (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
     (hextent : D.extent = 5)
     (left right : SlabAcceptedTwoReplicaState D)
     (hgraft : reflectedBentGuardGraftAcceptedState
         D hcutoff hextent left =
       reflectedBentGuardGraftAcceptedState
-        D hcutoff hextent right) :
+        D hcutoff hextent right)
+    (link : SlabLink)
+    (hlink : link ∈ boundaryCompleteSlabLinks 5) :
+    slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.2 =
+      slabFusionWitnessAssignmentAt link
+        (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.2 := by
+  have hsource := congrArg (fun state => state.2.1) hgraft
+  change (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent left).2.1 =
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent right).2.1 at hsource
+  rw [reflectedBentGuardGraftAcceptedState_rightSource,
+    reflectedBentGuardGraftAcceptedState_rightSource] at hsource
+  have hparts :
+      reflectedBentGuardGraftRightPhysical D hextent left =
+          reflectedBentGuardGraftRightPhysical D hextent right ∧
+        reflectedBentGuardGraftRightAssignment D hextent left =
+          reflectedBentGuardGraftRightAssignment D hextent right := by
+    simpa only [Prod.mk.injEq] using hsource
+  exact terminalRightAssignmentAt_eq_of_graftAssignment_eq
+    D hextent left right hparts.2 link hlink
+
+theorem reflectedBentGuardTerminal_leftAssignment_eq_of_graftAssignment_eq
+    (D : SlabPhysicalData)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraftAssignment :
+      reflectedBentGuardGraftLeftAssignment D hextent left =
+        reflectedBentGuardGraftLeftAssignment D hextent right) :
     (reflectedBentGuardCanonicalPeeling D hextent left).1.1.1.2 =
       (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.2 := by
   apply slabFusionWitnessAssignment_eq_of_at_eq
@@ -405,8 +438,56 @@ theorem reflectedBentGuardTerminal_leftAssignment_eq_of_graft_eq
   · exact (mem_slabExpandedFineSources_iff.mp
       (reflectedBentGuardCanonicalPeeling D hextent right).1.1.2).2
   · intro link hlink
-    exact terminalLeftAssignmentAt_eq_of_graft_eq
-      D hcutoff hextent left right hgraft link
+    exact terminalLeftAssignmentAt_eq_of_graftAssignment_eq
+      D hextent left right hgraftAssignment link
+      (by simpa only [hextent] using hlink)
+
+theorem reflectedBentGuardTerminal_leftAssignment_eq_of_graft_eq
+    (D : SlabPhysicalData) (hcutoff : D.cutoff = 1)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraft : reflectedBentGuardGraftAcceptedState
+        D hcutoff hextent left =
+      reflectedBentGuardGraftAcceptedState
+        D hcutoff hextent right) :
+    (reflectedBentGuardCanonicalPeeling D hextent left).1.1.1.2 =
+      (reflectedBentGuardCanonicalPeeling D hextent right).1.1.1.2 := by
+  apply reflectedBentGuardTerminal_leftAssignment_eq_of_graftAssignment_eq
+  have hsource := congrArg (fun state => state.1.1) hgraft
+  change (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent left).1.1 =
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent right).1.1 at hsource
+  rw [reflectedBentGuardGraftAcceptedState_leftSource,
+    reflectedBentGuardGraftAcceptedState_leftSource] at hsource
+  have hparts :
+      reflectedBentGuardGraftLeftPhysical D hextent left =
+          reflectedBentGuardGraftLeftPhysical D hextent right ∧
+        reflectedBentGuardGraftLeftAssignment D hextent left =
+          reflectedBentGuardGraftLeftAssignment D hextent right := by
+    simpa only [Prod.mk.injEq] using hsource
+  exact hparts.2
+
+theorem reflectedBentGuardTerminal_rightAssignment_eq_of_graftAssignment_eq
+    (D : SlabPhysicalData)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hgraftAssignment :
+      reflectedBentGuardGraftRightAssignment D hextent left =
+        reflectedBentGuardGraftRightAssignment D hextent right) :
+    (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.2 =
+      (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.2 := by
+  apply slabFusionWitnessAssignment_eq_of_at_eq
+    D.cutoff D.extent
+    (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.1
+    (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.1
+  · exact (mem_slabExpandedFineSources_iff.mp
+      (reflectedBentGuardCanonicalPeeling D hextent left).1.2.2).2
+  · exact (mem_slabExpandedFineSources_iff.mp
+      (reflectedBentGuardCanonicalPeeling D hextent right).1.2.2).2
+  · intro link hlink
+    exact terminalRightAssignmentAt_eq_of_graftAssignment_eq
+      D hextent left right hgraftAssignment link
       (by simpa only [hextent] using hlink)
 
 theorem reflectedBentGuardTerminal_rightAssignment_eq_of_graft_eq
@@ -419,18 +500,56 @@ theorem reflectedBentGuardTerminal_rightAssignment_eq_of_graft_eq
         D hcutoff hextent right) :
     (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.2 =
       (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.2 := by
-  apply slabFusionWitnessAssignment_eq_of_at_eq
-    D.cutoff D.extent
-    (reflectedBentGuardCanonicalPeeling D hextent left).1.2.1.1
-    (reflectedBentGuardCanonicalPeeling D hextent right).1.2.1.1
-  · exact (mem_slabExpandedFineSources_iff.mp
-      (reflectedBentGuardCanonicalPeeling D hextent left).1.2.2).2
-  · exact (mem_slabExpandedFineSources_iff.mp
-      (reflectedBentGuardCanonicalPeeling D hextent right).1.2.2).2
-  · intro link hlink
-    exact terminalRightAssignmentAt_eq_of_graft_eq
-      D hcutoff hextent left right hgraft link
-      (by simpa only [hextent] using hlink)
+  apply reflectedBentGuardTerminal_rightAssignment_eq_of_graftAssignment_eq
+  have hsource := congrArg (fun state => state.2.1) hgraft
+  change (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent left).2.1 =
+    (reflectedBentGuardGraftAcceptedState
+      D hcutoff hextent right).2.1 at hsource
+  rw [reflectedBentGuardGraftAcceptedState_rightSource,
+    reflectedBentGuardGraftAcceptedState_rightSource] at hsource
+  have hparts :
+      reflectedBentGuardGraftRightPhysical D hextent left =
+          reflectedBentGuardGraftRightPhysical D hextent right ∧
+        reflectedBentGuardGraftRightAssignment D hextent left =
+          reflectedBentGuardGraftRightAssignment D hextent right := by
+    simpa only [Prod.mk.injEq] using hsource
+  exact hparts.2
+
+/-- Equality of the four semantic graft components recovers the accepted
+peeled terminal.  This formulation is independent of how cutoff-valid
+membership proofs package the graft as a state. -/
+theorem reflectedBentGuardCanonicalPeeling_terminal_eq_of_graftComponents_eq
+    (D : SlabPhysicalData)
+    (hextent : D.extent = 5)
+    (left right : SlabAcceptedTwoReplicaState D)
+    (hleftPhysical :
+      reflectedBentGuardGraftLeftPhysical D hextent left =
+        reflectedBentGuardGraftLeftPhysical D hextent right)
+    (hleftAssignment :
+      reflectedBentGuardGraftLeftAssignment D hextent left =
+        reflectedBentGuardGraftLeftAssignment D hextent right)
+    (hrightPhysical :
+      reflectedBentGuardGraftRightPhysical D hextent left =
+        reflectedBentGuardGraftRightPhysical D hextent right)
+    (hrightAssignment :
+      reflectedBentGuardGraftRightAssignment D hextent left =
+        reflectedBentGuardGraftRightAssignment D hextent right) :
+    (reflectedBentGuardCanonicalPeeling D hextent left).1 =
+      (reflectedBentGuardCanonicalPeeling D hextent right).1 := by
+  apply Prod.ext
+  · apply Subtype.ext
+    apply Prod.ext
+    · exact reflectedBentGuardTerminal_leftPhysical_eq_of_graftPhysical_eq
+        D hextent left right hleftPhysical
+    · exact reflectedBentGuardTerminal_leftAssignment_eq_of_graftAssignment_eq
+        D hextent left right hleftAssignment
+  · apply Subtype.ext
+    apply Prod.ext
+    · exact reflectedBentGuardTerminal_rightPhysical_eq_of_graftPhysical_eq
+        D hextent left right hrightPhysical
+    · exact reflectedBentGuardTerminal_rightAssignment_eq_of_graftAssignment_eq
+        D hextent left right hrightAssignment
 
 /-- The accepted guard graft is injective on its peeled terminal projection.
 The canonical trace is deliberately absent from the conclusion. -/
@@ -463,6 +582,7 @@ theorem reflectedBentGuardCanonicalPeeling_terminal_eq_of_graft_eq
 #print axioms reflectedBentGuardTerminal_rightPhysical_eq_of_graft_eq
 #print axioms reflectedBentGuardTerminal_leftAssignment_eq_of_graft_eq
 #print axioms reflectedBentGuardTerminal_rightAssignment_eq_of_graft_eq
+#print axioms reflectedBentGuardCanonicalPeeling_terminal_eq_of_graftComponents_eq
 #print axioms reflectedBentGuardCanonicalPeeling_terminal_eq_of_graft_eq
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardTerminalRecoverability
