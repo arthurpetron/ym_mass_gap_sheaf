@@ -128,6 +128,54 @@ theorem finitePositiveEndomapFiberRate_le_one
   unfold finitePositiveEndomapFiberRate
   exact listPositiveMinOne_le_one_local _ states
 
+private theorem le_listPositiveMinOne_of_forall_local
+    {State : Type} (value : State → Q') (candidate : Q') :
+    ∀ states : List State,
+      candidate ≤ (1 : Q') →
+      (∀ state, state ∈ states → candidate ≤ value state) →
+      candidate ≤ listPositiveMinOne value states
+  | [], hunit, _ => hunit
+  | first :: rest, hunit, hall => by
+      unfold listPositiveMinOne Q'.min'
+      by_cases hle : value first ≤ listPositiveMinOne value rest
+      · rw [if_pos hle]
+        exact hall first List.mem_cons_self
+      · rw [if_neg hle]
+        exact le_listPositiveMinOne_of_forall_local value candidate rest
+          hunit (fun state hstate =>
+            hall state (List.mem_cons_of_mem first hstate))
+
+/-- **Universal property of the exact finite fiber rate.**  Any unit-capped
+candidate which already pays every displayed weighted inverse fiber lies
+below the computed common rate.  Analytic estimates can therefore be proved
+against a simpler candidate and then transported to the exact finite
+minimum, without unfolding its target-to-fiber ratios. -/
+theorem le_finitePositiveEndomapFiberRate_of_mul_fiberWeight_le
+    {State : Type} [DecidableEq State]
+    (states : List State) (weight : State → Q')
+    (weight_pos : ∀ state, (0 : Q') < weight state)
+    (code : State → State) (candidate : Q')
+    (candidate_le_one : candidate ≤ (1 : Q'))
+    (candidate_pays : ∀ target, target ∈ states →
+      candidate * fiberWeight states weight code target ≤ weight target) :
+    candidate ≤ finitePositiveEndomapFiberRate
+      states weight weight_pos code := by
+  unfold finitePositiveEndomapFiberRate
+  apply le_listPositiveMinOne_of_forall_local
+  · exact candidate_le_one
+  · intro target htarget
+    unfold finitePositiveEndomapFiberRatio
+    by_cases hempty : finitePositiveEndomapFiberItems
+        states code target = []
+    · rw [dif_pos hempty]
+      exact candidate_le_one
+    · rw [dif_neg hempty]
+      exact Q'.le_divPos_of_mul_le
+        (weight target) (fiberWeight states weight code target)
+        (finitePositiveEndomapFiberWeight_pos_of_ne_nil
+          states weight weight_pos code target hempty)
+        (candidate_pays target htarget)
+
 /-- **Finite weighted-fiber floor.**  Every displayed target receives enough
 capacity for the complete inverse fiber under the explicit common rate. -/
 theorem finitePositiveEndomapFiberRate_mul_fiberWeight_le
@@ -180,6 +228,7 @@ theorem finitePositiveEndomapFiberRate_mul_fiberWeight_le
 #print axioms finitePositiveEndomapFiberRatio_pos
 #print axioms finitePositiveEndomapFiberRate_pos
 #print axioms finitePositiveEndomapFiberRate_le_one
+#print axioms le_finitePositiveEndomapFiberRate_of_mul_fiberWeight_le
 #print axioms finitePositiveEndomapFiberRate_mul_fiberWeight_le
 
 end YMGap.Continuum.FinitePositiveWeightedEndomapFiberFloor

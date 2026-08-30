@@ -337,6 +337,82 @@ def observablePairedDisconnectedTargetPackageOfTransported
   targetPhysical := targetPhysical
   noMarkedChain := noMarkedChain
 
+/-- Assemble geometric success and coordinatewise positivity through the same
+transported certificate.  Keeping the certificate symbolic here avoids any
+need for a concrete caller to unfold the complete dependent target tuple in
+order to prove that the successful and positive choices coincide. -/
+def observablePairedDisconnectedPositiveTargetPackageOfTransported
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (source : SlabObservablePairedStrandRecouplingSource
+      D rootFaceId targetFaceId)
+    (referenceLeft referenceRight : SlabLabelling)
+    (linkedList :
+      List {link // link ∈ boundaryCompleteSlabLinks D.extent})
+    (hpackages : slabPhysicalPairRecouplingPackages D.extent
+        source.1.1.1.1 source.1.2.1.1 =
+      LinkedPhysicalPairPackages D.extent
+        referenceLeft referenceRight linkedList)
+    (sourceTarget : TargetMembershipPackage
+      (LinkedPhysicalPairPackages D.extent
+        referenceLeft referenceRight linkedList))
+    (referenceLeftAssignment referenceRightAssignment :
+      SlabFusionWitnessAssignment)
+    (certificate : TransportedPairedRealizationCertificate
+      D.cutoff D.extent
+      referenceLeft referenceRight source.1.1.1.1 source.1.2.1.1
+      linkedList hpackages sourceTarget source.anchor
+      referenceLeftAssignment referenceRightAssignment)
+    (leftPhysical_eq : source.1.1.1.1 = referenceLeft)
+    (rightPhysical_eq : source.1.2.1.1 = referenceRight)
+    (leftAssignment_mem : referenceLeftAssignment ∈
+      slabFineFusionWitnesses D referenceLeft)
+    (rightAssignment_mem : referenceRightAssignment ∈
+      slabFineFusionWitnesses D referenceRight)
+    (referenceProjectedEdges : List SlabProjectedFaceEdge)
+    (referenceVertices : List Nat)
+    (referenceAdjacent : Nat → Nat → Bool)
+    (projectedEdges_eq :
+      slabProjectedFaceEdges
+          (slabFineFusionWitnessFaceStrandEdges D referenceLeft
+            referenceLeftAssignment leftAssignment_mem) ++
+        slabProjectedFaceEdges
+          (slabFineFusionWitnessFaceStrandEdges D referenceRight
+            referenceRightAssignment rightAssignment_mem) =
+        referenceProjectedEdges)
+    (vertices_eq :
+      slabFaceStrandFaceVertices
+          (slabFineFusionWitnessFaceStrandEdges D referenceLeft
+            referenceLeftAssignment leftAssignment_mem) ++
+        slabFaceStrandFaceVertices
+          (slabFineFusionWitnessFaceStrandEdges D referenceRight
+            referenceRightAssignment rightAssignment_mem) =
+        referenceVertices)
+    (adjacent_eq :
+      slabProjectedFaceAdjacentB referenceProjectedEdges = referenceAdjacent)
+    (targetPhysical : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (noMarkedChain :
+      ChainIn referenceAdjacent referenceVertices rootFaceId targetFaceId →
+        False)
+    (source_connected :
+      slabObservableTwoReplicaPairPairedSupportConnectedB
+        D rootFaceId targetFaceId source.1 = true)
+    (coordinatewise : FiniteBistochasticCoordinatewisePositive
+      (slabPhysicalPairRecouplingProductionSource
+        D.cutoff D.extent source.1.1.1.1 source.1.2.1.1
+        source.1.1.1.2 source.1.2.1.2
+        source.1.1.assignment_mem
+        (slabExpandedFineSourceEntryAssignment_mem source.1.2))
+      certificate.transported.target) :
+    ObservablePairedDisconnectedPositiveTargetPackage D := by
+  let package := observablePairedDisconnectedTargetPackageOfTransported
+    D rootFaceId targetFaceId source referenceLeft referenceRight
+    linkedList hpackages sourceTarget referenceLeftAssignment
+    referenceRightAssignment certificate leftPhysical_eq rightPhysical_eq
+    leftAssignment_mem rightAssignment_mem referenceProjectedEdges
+    referenceVertices referenceAdjacent projectedEdges_eq vertices_eq
+    adjacent_eq targetPhysical noMarkedChain
+  exact .mk package source_connected (.mk coordinatewise)
+
 /-! ## 3. The concrete guarded package -/
 
 /-- The guarded target, realization, and separating graph packaged without
@@ -405,6 +481,7 @@ opaque reflectedBentGuardGraftObservableDisconnectedTargetPackage
 #print axioms observableChoicePairedAssignmentPackageOfTransported
 #print axioms ObservablePairedDisconnectedTargetPackage.success
 #print axioms ObservablePairedDisconnectedPositiveTargetPackage.toLocalPositiveChannel
+#print axioms observablePairedDisconnectedPositiveTargetPackageOfTransported
 #print axioms reflectedBentGuardGraftObservableDisconnectedTargetPackage
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetObservableChannel

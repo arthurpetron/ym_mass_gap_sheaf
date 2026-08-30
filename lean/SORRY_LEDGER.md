@@ -26892,3 +26892,47 @@ cutoff, volume, coupling, beta, or lattice spacing.  The mass-normalized
 posterior estimate, completed uniform gap, thermodynamic/continuum passage,
 continuum QFT, and Clay theorem remain open.  No `sorry` is introduced, and
 no full-root audit is claimed.
+
+#### Exact guarded weighted-fiber rate now reaches the retained-contraction interface (2026-08-30)
+
+`FinitePositiveWeightedGoodSourceFiberRate` generalizes the finite positive
+fiber minimum from an endomap to a deterministic map between different
+finite source and target carriers with different positive weights.  Its
+`finitePositiveMapFiberRate` is the capped minimum of the exact target-weight
+to complete inverse-fiber-weight ratios.  The module proves that this rate is
+strictly positive, is at most one, and pays every displayed weighted inverse
+fiber.  `FinitePositiveWeightedEndomapFiberFloor` also now states the
+universal property of its exact endomap rate: every unit-capped analytic
+candidate that pays all inverse fibers lies below the computed minimum.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardDirectGoodSourceRepair` applies the
+map-valued theorem at arbitrary positive coupling, cutoff one, and extent
+five.  It isolates the sole remaining local input as
+`ReflectedBentGuardDirectLocalPositiveFamily`: every literal direct guarded
+receiver must carry a successful coordinatewise-positive target over that
+same receiver.  From this family the module proves that every receiver
+belongs to the executable canonical-good subtype, computes one exact positive
+weighted-fiber rate into that subtype, constructs
+`SlabObservablePairedConnectedGoodSourceFiberRepair`, and composes it with
+the already inhabited canonical routing compiler to obtain
+`SlabObservablePairedSplitRetainedContraction`.
+
+`observablePairedDisconnectedPositiveTargetPackageOfTransported` separately
+shows that graph disconnection and coordinatewise positivity on one symbolic
+transported certificate produce the literal local positive channel.  Thus
+there is no longer an untyped logical gap between the guarded receiver-fiber
+estimate and the retained-contraction interface: the boundary is exactly the
+inhabitation of the named local-positive family for the concrete large
+dependent target.  A further direct specialization was again rejected after
+its concrete source type exhausted the ordinary bounded `whnf` budget; no
+larger budget or axiom was retained.
+
+The resulting rate is not uniform: it depends on the positive coupling and
+the full finite source and canonical-good target carriers, and the construction
+is still fixed at cutoff one and extent five.  No beta or lattice-spacing
+parameter appears, so no mass-normalized posterior bound follows.  All-cutoff
+geometry, a cutoff/volume/spacing-uniform posterior fraction, the completed
+physical spectral gap, thermodynamic and continuum passage, continuum QFT,
+and the Clay theorem remain open.  No `sorry` is introduced.  Focused
+monitored verification uses only `[propext, Quot.sound]`; no full-root audit
+is claimed.
