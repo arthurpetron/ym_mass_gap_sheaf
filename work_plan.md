@@ -64,6 +64,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full assignment recovery in one code fiber ..... [PROVED]
 |   |   |   +-- fixed guarded receiver-fiber cardinality ....... [PROVED]
 |   |   |   +-- scaled weighted column allocation .............. [ACTIVE]
+|   |   |   |   +-- common SU(2) column per code fiber ......... [PROVED]
+|   |   |   |   +-- unscaled guarded preimage capacity <= C .... [PROVED]
+|   |   |   |   +-- `1/(C+1)` scaled receiver capacity <= 1 .... [PROVED]
+|   |   |   |   `-- actual guarded row + quarter preservation .. [ACTIVE]
 |   |   |   `-- uniform positive aggregate fraction ........... [OPEN]
 |   |   `-- strict fixed-spacing form or operator gap .......... [OPEN]
 |   |
@@ -148,12 +152,24 @@ that fiber has length at most the exact cutoff-independent carrier size
 `2 ^ reflectedBentPatternFaceIds.length *
 4096 ^ reflectedBentGuardPatternPhysicalMass`.
 
-The active finite seam is now weighted rather than data-theoretic.  The
-flattened connected recoupling contributors must be partitioned by the fixed
-provenance code, each guarded contribution must be related to the existing
-bistochastic common-column normalization, and the resulting capacity must be
-scaled by the fixed carrier length.  Only after that construction preserves a
-common positive part of the literal quarter event may the aggregate retained
+The weighted data-theoretic seam is now also closed at one fixed final
+receiver.  A generic coherent-subfamily theorem shows that any duplicate-free
+preimage family sharing one intermediate recoupled pair occupies a single
+bistochastic SU(2) column and has total local weight at most one.  The guarded
+decoder supplies exactly that coherence separately in each provenance-code
+fiber.  Exact finite representative partition then bounds the whole guarded
+preimage family by the fixed carrier length `C`, and multiplying every entry
+by the strictly positive rational `1/(C+1)` gives unit receiver capacity.  The
+use of `C+1` avoids a constructive nonempty-carrier predecessor branch and is
+still cutoff-independent.
+
+The active finite seam is now the actual row compiler: construct the guarded
+proof-carrying preimage family from the flattened connected source-choice
+carrier, prove its duplicate-free and membership properties, embed every
+literal guarded quarter-event choice, and feed the `1/(C+1)` capacity into the
+Gibbs-weighted posterior transport together with the already proved peeling
+and insertion payments.  Only after that compiler preserves a common
+positive part of the literal quarter event may the aggregate retained
 fraction be marked uniform.  A finite theorem changes only its own map node.
 It must not promote B, C, or D without an explicit same-object bridge and the
 corresponding scorecard and frontier-guard updates.  This map should be

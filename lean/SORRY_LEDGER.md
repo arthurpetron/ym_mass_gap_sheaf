@@ -27922,3 +27922,49 @@ is claimed.  No `sorry` is introduced.  Dependency-complete monitored targets
 for the four modules pass 1,166, 1,175, 1,573, and 1,574 jobs respectively;
 every printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
+
+#### Guarded provenance fibers now have scaled weighted column capacity (2026-08-31)
+
+`CompactDualSlabObservablePairedConnectedCoherentSubfamilyCapacity` extracts
+the exact hypothesis used by the earlier global-decoder column theorem.  A
+duplicate-free list of final-target preimages whose intermediate recoupled
+pairs all equal one anchor transports into one physical-pair recoupling
+column.  The production-row map remains injective, so bistochastic column
+normalization proves that the complete subfamily has local weight at most
+one.  No global face-switch decoder is required.
+
+`FiniteCodeFiberScaledCapacity` supplies the constructive finite partition.
+If every item code belongs to an explicit carrier and each fixed-code fiber
+has weight at most one, realized-key representatives recover the exact total
+sum and one-occurrence deletion bounds their number by the carrier length.
+Thus the unscaled total is at most `C`.  Scaling each item by
+`Q'.invSucc C = 1/(C+1)` gives unit capacity without a predecessor or
+nonempty-carrier branch.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardConnectedCodeFiberCapacity` packages
+guarded successful connected target preimages as proof-carrying subtypes.  At
+one fixed final receiver, equal provenance codes invoke the complete guarded
+decoder and identify the intermediate recoupled pairs.  Each code fiber is
+therefore one coherent SU(2) column of weight at most one.  Exact code
+partition proves
+
+```text
+guarded preimage weight <=
+  2 ^ reflectedBentPatternFaceIds.length
+    * 4096 ^ reflectedBentGuardPatternPhysicalMass,
+```
+
+and scaling by the reciprocal of one more than the exact provenance-carrier
+length gives unit receiver capacity.
+
+The theorem currently accepts an arbitrary duplicate-free finite list of
+guarded preimages at one target.  The remaining row-level seam is to construct
+that list from the actual flattened connected carrier, embed the complete
+literal quarter event, and connect the scaled local weights to the
+Gibbs-weighted posterior compiler.  Therefore no cutoff-uniform aggregate
+retained-fraction floor, fixed-spacing operator gap, scaling limit, continuum
+theory, OS/GNS result, or Clay theorem is claimed.  No `sorry` is introduced.
+Dependency-complete monitored targets for the generic code partition,
+coherent subfamily, and guarded specialization pass 211, 1,529, and 1,578
+jobs respectively; every printed load-bearing declaration uses only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
