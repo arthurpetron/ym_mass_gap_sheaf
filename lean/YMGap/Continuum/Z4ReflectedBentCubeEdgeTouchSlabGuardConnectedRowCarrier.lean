@@ -9,8 +9,9 @@ by a decidable scan through the complete finite accepted-state carrier.
 
 Every positive successful choice from every literal reflected guard graft is
 retained.  Consequently the fixed provenance scaling preserves a row mass of
-at least `scale * 1/4` at every positive cutoff.  The target-fiber compiler
-and its column bound are left to the next module.
+at least `scale * 1/4` at every positive cutoff.  A structural first-match
+scan compiles the actual target fibers, and the fixed scaling gives both
+unweighted unit column capacity and physical Gibbs-weighted target capacity.
 
 Constructive contract: finite lists, Boolean scans, proof-carrying subtypes,
 and exact `Q'` arithmetic only.  No `Classical`, choice, `native_decide`,
@@ -19,6 +20,7 @@ and exact `Q'` arithmetic only.  No `Classical`, choice, `native_decide`,
 
 import YMGap.Continuum.CompactDualSlabAcceptedPairedStateCarrier
 import YMGap.Continuum.CompactDualCutoffOneTotalKernel
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardConnectedCodeFiberCapacity
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableConnectedRowContraction
 
@@ -39,6 +41,7 @@ open YMGap.Continuum.CompactDualSlabObservablePairedFaceSwitchDecoder
 open YMGap.Continuum.CompactDualSlabObservablePairedFaceSwitchDecoder.SlabObservablePairedFaceSwitchDecoderCertificate
 open YMGap.Continuum.CompactDualSlabObservablePairedStrandRecouplingRealization
 open YMGap.Continuum.CompactDualSlabObservablePairedStrandRecouplingRow
+open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -571,6 +574,81 @@ theorem reflectedBentGuardConnectedActualTargetPreimages_scaled_sum_le_one
     (reflectedBentGuardConnectedTargetPreimages_nodup
       D hcutoff hextent target)
 
+/-! ## 6. The same actual columns respect physical Gibbs capacity -/
+
+/-- The physical Gibbs weight attached to the source row of one compiled
+guarded target preimage. -/
+def reflectedBentGuardConnectedTargetPreimageSourceWeight
+    (D : SlabPhysicalData) {hextent : D.extent = 5}
+    {target : SlabObservableTwoReplicaPair D reflectedBentRootFaceId}
+    (item : ReflectedBentGuardConnectedTargetPreimage D hextent target) : Q' :=
+  slabObservableTwoReplicaPairWeight D item.1.1.1.1
+
+/-- **Actual Gibbs-weighted receiver capacity.**  Exact physical-weight
+preservation across the successful face switch upgrades the scaled local
+column bound to a bound by the available Gibbs weight of the final receiver.
+This is still a finite-cutoff statement; it does not yet sum the accepted
+background fibers or assert an aggregate retained fraction. -/
+theorem reflectedBentGuardConnectedActualTargetPreimages_scaled_physical_sum_le
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (target : SlabObservableTwoReplicaPair D reflectedBentRootFaceId) :
+    listQSum
+        (fun item =>
+          reflectedBentGuardConnectedTargetPreimageSourceWeight D item *
+            (reflectedBentGuardConnectedRowScale *
+              reflectedBentGuardConnectedTargetPreimageWeight D item))
+        (reflectedBentGuardConnectedTargetPreimages
+          D hcutoff hextent target) ≤
+      slabObservableTwoReplicaPairWeight D target := by
+  let items := reflectedBentGuardConnectedTargetPreimages
+    D hcutoff hextent target
+  let targetWeight := slabObservableTwoReplicaPairWeight D target
+  let scaledWeight := fun item :
+      ReflectedBentGuardConnectedTargetPreimage D hextent target =>
+    reflectedBentGuardConnectedRowScale *
+      reflectedBentGuardConnectedTargetPreimageWeight D item
+  have hweights :
+      listQSum
+          (fun item =>
+            reflectedBentGuardConnectedTargetPreimageSourceWeight D item *
+              scaledWeight item)
+          items ≈
+        listQSum (fun item => targetWeight * scaledWeight item) items := by
+    apply listQSum_congr_on
+    intro item _
+    apply Q'.mul_eqv_congr_right
+    have hpreserved :=
+      slabObservablePairedStrandRecoupledTargetPair_weight_preserved
+        D reflectedBentRootFaceId reflectedBentTargetFaceId
+        (reflectedBentGuardConnectedTargetFace_mem D hextent)
+        item.1.1.1.toRecouplingSource item.1.1.2
+    have htarget :
+        slabObservablePairedStrandRecoupledTargetPair
+            D reflectedBentRootFaceId reflectedBentTargetFaceId
+              (reflectedBentGuardConnectedTargetFace_mem D hextent)
+              item.1.1.1.toRecouplingSource item.1.1.2 = target := by
+      simpa only [slabObservablePairedConnectedStrandSourceChoiceRealize,
+        slabObservablePairedConnectedStrandRealize] using item.1.target_eq.symm
+    simpa only [reflectedBentGuardConnectedTargetPreimageSourceWeight,
+        targetWeight] using
+      Q'.eqv_trans _ _ _ (Q'.eqv_symm hpreserved)
+        (Q'.eqv_of_eq
+          (congrArg (slabObservableTwoReplicaPairWeight D) htarget))
+  have hfactor :
+      listQSum (fun item => targetWeight * scaledWeight item) items ≈
+        targetWeight * listQSum scaledWeight items :=
+    listQSum_mul_left targetWeight scaledWeight items
+  have hcapacity : listQSum scaledWeight items ≤ (1 : Q') := by
+    exact reflectedBentGuardConnectedActualTargetPreimages_scaled_sum_le_one
+      D hcutoff hextent target
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ targetWeight hcapacity
+    (slabObservableTwoReplicaPairWeight_nonnegative
+      D reflectedBentRootFaceId target)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hweights hfactor))
+    (Q'.le_trans' _ _ _ hscaled
+      (Q'.le_of_eqv (Q'.mul_one_eqv targetWeight)))
+
 #print axioms reflectedBentGuardConnectedSourceChoiceB_eq_true_iff
 #print axioms reflectedBentGuardConnectedSourceChoices_nodup
 #print axioms reflectedBentGuardGraftConnectedSourceChoice_mem_guarded
@@ -578,5 +656,7 @@ theorem reflectedBentGuardConnectedActualTargetPreimages_scaled_sum_le_one
 #print axioms reflectedBentGuardConnectedTargetPreimages_nodup
 #print axioms reflectedBentGuardConnectedTargetPreimages_complete
 #print axioms reflectedBentGuardConnectedActualTargetPreimages_scaled_sum_le_one
+#print axioms reflectedBentGuardConnectedTargetPreimageSourceWeight
+#print axioms reflectedBentGuardConnectedActualTargetPreimages_scaled_physical_sum_le
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardConnectedRowCarrier

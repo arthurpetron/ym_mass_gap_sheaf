@@ -71,8 +71,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- literal choices retained in actual carrier . [PROVED]
 |   |   |   |   +-- actual target compiler complete + no dupes . [PROVED]
 |   |   |   |   +-- actual scaled receiver capacity <= 1 ....... [PROVED]
+|   |   |   |   +-- actual Gibbs-weighted receiver capacity ..... [PROVED]
 |   |   |   |   `-- actual scaled row mass >= scale * 1/4 ...... [PROVED]
 |   |   |   `-- Gibbs-weighted uniform aggregate fraction ...... [ACTIVE]
+|   |   |       +-- accepted-state guarded-row partition ....... [ACTIVE]
+|   |   |       `-- global retained floor from partition ....... [OPEN]
 |   |   `-- strict fixed-spacing form or operator gap .......... [OPEN]
 |   |
 |   `-- A5. Parallel verified finite route
@@ -176,15 +179,20 @@ proof-carrying guarded preimage per underlying edge; the emitted list is
 duplicate-free, every guarded row edge realizing that receiver is emitted,
 and the proved provenance theorem gives its scaled column sum at most one.
 The same fixed scale preserves at least `scale * 1/4` of every literal guarded
-row.
+row.  Exact physical-weight preservation across the successful face switch
+now upgrades each of those concrete scaled columns to a Gibbs-weighted bound:
+the incoming source Gibbs weights times the scaled local edge weights sum to
+at most the Gibbs weight available at that final receiver.
 
 The active finite seam is therefore no longer row enumeration or receiver
-allocation.  It is to feed this actual substochastic edge family into the
-Gibbs-weighted posterior transport together with the already proved peeling
-and insertion payments, and derive one explicit cutoff-independent aggregate
-retained rate.  Only after that composition closes may the aggregate retained
-fraction be marked uniform.  A finite theorem changes only its own map node.
-It must not promote B, C, or D without an explicit same-object bridge and the
+allocation or Gibbs weighting of a fixed receiver.  It is the finite
+accepted-background summation: partition the complete accepted-state carrier
+by its guarded source row, apply the already proved peeling and insertion
+payment on each fiber, and sum the resulting scaled rows into the verified
+receiver capacities.  Only when this yields one explicit
+cutoff-independent lower coefficient may the aggregate retained fraction be
+marked uniform.  A finite theorem changes only its own map node.  It must not
+promote B, C, or D without an explicit same-object bridge and the
 corresponding scorecard and frontier-guard updates.  This map should be
 refreshed whenever an `[ACTIVE]` edge closes or the critical path branches.
 

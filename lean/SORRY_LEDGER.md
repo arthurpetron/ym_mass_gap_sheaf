@@ -27994,15 +27994,19 @@ edge.  The emitted receiver list is duplicate-free.  A completeness theorem
 proves that every member of the actual guarded row carrier realizing the
 receiver is emitted by this compiler.  Instantiating the provenance
 code-fiber theorem on this concrete list gives actual scaled receiver
-capacity at most one.
+capacity at most one.  Exact Gibbs-weight preservation across successful
+recoupling and the face switch then proves the physical version on the same
+compiled list: source Gibbs weight times scaled local edge weight sums to at
+most the final receiver's Gibbs weight.
 
 Thus the finite local row/column allocation seam is closed on one common edge
-family.  The remaining active seam is Gibbs-weighted posterior composition:
-combine this fixed positive row fraction and unit receiver capacity with the
-already proved peeling and insertion payments to obtain an explicit
-cutoff-independent aggregate retained rate.  No such aggregate rate,
-fixed-spacing operator gap, scaling limit, continuum theory, OS/GNS result,
-or Clay theorem is claimed here.  No `sorry` is introduced.  The focused
-dependency-complete monitored target passes all 1,694 jobs, and every printed
-load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
-audit is claimed.
+family, including physical Gibbs weights at every fixed receiver.  The
+remaining active seam is the accepted-background fiber summation: partition
+the complete accepted-state carrier by guarded source row, apply the already
+proved peeling and cutoff-uniform insertion payments to each fiber, and sum
+the resulting scaled rows into these physical receiver capacities.  No
+cutoff-independent aggregate rate, fixed-spacing operator gap, scaling limit,
+continuum theory, OS/GNS result, or Clay theorem is claimed here.  No `sorry`
+is introduced.  The focused dependency-complete monitored target passes all
+1,694 jobs, and every printed load-bearing declaration uses only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
