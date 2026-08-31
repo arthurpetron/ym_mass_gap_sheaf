@@ -13,7 +13,7 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## Current status (2026-05-28; updated 2026-06-13)
+## Current status (2026-05-28; updated 2026-08-31)
 
 **The entire `YMGap` library is now sorry-free (`lake build` reports 0
 `declaration uses 'sorry'`).** As of 2026-06-13, all Continuum-existence
@@ -28009,4 +28009,59 @@ cutoff-independent aggregate rate, fixed-spacing operator gap, scaling limit,
 continuum theory, OS/GNS result, or Clay theorem is claimed here.  No `sorry`
 is introduced.  The focused dependency-complete monitored target passes all
 1,694 jobs, and every printed load-bearing declaration uses only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Accepted backgrounds partition into paid guarded rows (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedRowPartition` uses structural
+finite key representatives to select one actual accepted background for every
+realized guarded graft row.  The corresponding representative fibers recover
+the complete accepted two-replica weight exactly.  On each fiber, the proved
+peeling payment, cutoff-uniform insertion payment, successful quarter-row
+mass, and fixed provenance scale yield the same positive coefficient
+
+```text
+reflectedBentGuardConnectedRowScale
+  * reflectedBentGuardSeparatedTransitionRate ...
+```
+
+against the representative's Gibbs-weighted scaled row.  Summation proves
+that this fixed coefficient times the square of the corrected-slab physical
+partition is bounded by the complete sum of representative guarded rows.  The
+coefficient is strictly positive and independent of the representation
+cutoff.  This intermediate theorem does not yet use the receiver columns and
+therefore is not by itself an aggregate event floor, form gap, operator gap,
+continuum result, OS/GNS reconstruction, or Clay theorem.  No `sorry` is
+introduced.  The focused dependency-complete monitored target passes all
+1,695 jobs; printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### The finite aggregate guarded target-cell floor is closed (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAggregateRetainedFloor` maps the
+duplicate-free guarded-row representatives to distinct connected sources,
+flattens all their successful choices, and partitions the resulting carrier
+by actual final observable target.  For each target, guarded completeness
+proves membership in the already compiled actual source-choice column.  An
+identity injection into that duplicate-free column, followed by the proved
+Gibbs-weighted receiver capacity, bounds the complete representative target
+fiber by the target Gibbs weight.  Deterministic finite pushforward then sums
+those fibers exactly across the complete opposite determinant cell.
+
+Composing this column sum with the accepted-row partition proves, for every
+positive representation cutoff at the fixed extent-five anchor geometry,
+
+```text
+reflectedBentGuardScaledSeparatedTransitionRate
+  * physicalPartition * physicalPartition
+    <= complete opposite observable target-cell Gibbs mass.
+```
+
+The rate is the same strictly positive rational at every cutoff.  This closes
+the cutoff-uniform finite aggregate retained-event floor at this fixed
+geometry and spacing.  It does not identify a strict quadratic-form or
+transfer-operator gap, supply spacing/volume uniformity, construct the
+continuum measure, perform OS/GNS reconstruction, or prove the Clay theorem.
+No `sorry` is introduced.  The focused dependency-complete monitored target
+passes all 1,696 jobs; printed load-bearing declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.

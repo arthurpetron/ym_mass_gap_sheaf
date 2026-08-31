@@ -49,7 +49,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   `-- datum-wise positive aggregate retained fraction [PROVED]
 |   |   +-- marked face covariance / same-object moment < 1 ... [PROVED]
 |   |   |       at each finite positive-coupling datum only
-|   |   +-- cutoff-uniform aggregate retained-fraction floor .. [ACTIVE]
+|   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
 |   |   |   +-- successful receiver-row mass >= 1/4 ........... [PROVED]
 |   |   |   +-- decoder => unthinned shared-column capacity .... [PROVED]
@@ -73,10 +73,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- actual scaled receiver capacity <= 1 ....... [PROVED]
 |   |   |   |   +-- actual Gibbs-weighted receiver capacity ..... [PROVED]
 |   |   |   |   `-- actual scaled row mass >= scale * 1/4 ...... [PROVED]
-|   |   |   `-- Gibbs-weighted uniform aggregate fraction ...... [ACTIVE]
-|   |   |       +-- accepted-state guarded-row partition ....... [ACTIVE]
-|   |   |       `-- global retained floor from partition ....... [OPEN]
-|   |   `-- strict fixed-spacing form or operator gap .......... [OPEN]
+|   |   |   `-- Gibbs-weighted uniform aggregate fraction ...... [PROVED]
+|   |   |       +-- accepted-state guarded-row partition ....... [PROVED]
+|   |   |       +-- representative rows partition by target .... [PROVED]
+|   |   |       `-- global retained floor from partition ....... [PROVED]
+|   |   `-- strict fixed-spacing form or operator gap .......... [ACTIVE]
 |   |
 |   `-- A5. Parallel verified finite route
 |       `-- BF4 finite-cutoff covariance clustering ............ [PROVED]
@@ -101,24 +102,21 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
 
-The current execution rule is to quantify the aggregate retained fraction on
-branch A4 uniformly in representation cutoff.  The literal guarded source row
-has a kernel-checked successful fraction at least `1/4`, hence an unthinned
-residual rate at most `3/4`, for every positive representation cutoff at
-extent five.  Its positive-choice list seeds first-source thinning, which now
-constructs a strictly positive datum-dependent aggregate retained fraction
-and a strict finite marked-face covariance/same-object-moment bound.  The
-numerical quarter is not known to survive receiver allocation, and positivity
-at each cutoff is not a common cutoff-uniform floor.  The next theorem must
-control competition between distinct guarded receivers quantitatively.  The
-existing separated-transition theorem already pays every same-receiver source
-fiber by the cutoff-uniform insertion and complete peeling rates, and the new
-literal row supplies the quarter event at that receiver.  The remaining loss
-is therefore localized to the paired-face crossed-sum switch.  A new exact
-finite reduction proves that an inhabited left-inverse decoder for this switch
-would recover the complete unthinned connected column bound, including its
-physical Gibbs-weighted form; all downstream bistochastic bookkeeping is
-closed under that certificate.  The decoder itself remains uninhabited.
+The cutoff-uniform aggregate retained fraction on branch A4 is now proved at
+the stated finite fixed-geometry scope.  For every positive representation
+cutoff, the fixed positive coefficient
+`reflectedBentGuardConnectedRowScale *
+reflectedBentGuardSeparatedTransitionRate ...`, which does not depend on that
+cutoff, times the square of the corrected-slab physical partition is bounded
+by the complete opposite observable determinant cell.  The proof partitions
+all accepted backgrounds by their guarded row, pays every complete row fiber
+with peeling and insertion, flattens one representative per realized row,
+partitions those choices by actual final target, and injects each target fiber
+into the already verified Gibbs-capacity column.  The current execution rule
+is therefore to transport this concrete finite event inequality into a strict
+fixed-spacing quadratic-form or transfer-operator gap without changing the
+underlying physical object.  The original direct additive decoder remains
+uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored
 source decomposition.  The guarded mask obstruction is also now exact: a
@@ -184,16 +182,16 @@ now upgrades each of those concrete scaled columns to a Gibbs-weighted bound:
 the incoming source Gibbs weights times the scaled local edge weights sum to
 at most the Gibbs weight available at that final receiver.
 
-The active finite seam is therefore no longer row enumeration or receiver
-allocation or Gibbs weighting of a fixed receiver.  It is the finite
-accepted-background summation: partition the complete accepted-state carrier
-by its guarded source row, apply the already proved peeling and insertion
-payment on each fiber, and sum the resulting scaled rows into the verified
-receiver capacities.  Only when this yields one explicit
-cutoff-independent lower coefficient may the aggregate retained fraction be
-marked uniform.  A finite theorem changes only its own map node.  It must not
-promote B, C, or D without an explicit same-object bridge and the
-corresponding scorecard and frontier-guard updates.  This map should be
+The finite accepted-background summation is now closed.  Structural key
+representatives partition the complete accepted-state mass exactly; their
+connected choices form a duplicate-free carrier; deterministic target fibers
+recover its total weight; and completeness places each representative target
+fiber inside the actual proof-carrying guarded receiver column.  The resulting
+aggregate theorem is a positive cutoff-independent *finite event* floor, not
+yet a strict form gap, transfer-operator spectral gap, physical mass scale, or
+continuum statement.  Branch A4 now advances to the same-object fixed-spacing
+form/operator bridge.  B, C, and D remain unchanged until explicit physical
+scaling, continuum, and OS/GNS bridges are inhabited.  This map should be
 refreshed whenever an `[ACTIVE]` edge closes or the critical path branches.
 
 ## Physical-scale enrichment overlay (2026-08-18)
