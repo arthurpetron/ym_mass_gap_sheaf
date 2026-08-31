@@ -223,6 +223,90 @@ private theorem listQSum_nonnegative_on (weight : A → Q') :
         (listQSum_nonnegative_on weight xs
           (fun y hy => h y (List.mem_cons_of_mem x hy)))
 
+private theorem listQSum_perm_local (weight : A → Q') :
+    ∀ {left right : List A}, left.Perm right →
+      listQSum weight left ≈ listQSum weight right
+  | _, _, List.Perm.nil => Q'.eqv_refl 0
+  | _, _, List.Perm.cons _ hperm =>
+      Q'.add_eqv_congr_left _ _ _ (listQSum_perm_local weight hperm)
+  | _, _, List.Perm.swap first second rest => by
+      change weight second + (weight first + listQSum weight rest) ≈
+        weight first + (weight second + listQSum weight rest)
+      refine Q'.eqv_trans _
+        ((weight second + weight first) + listQSum weight rest) _
+        (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
+      refine Q'.eqv_trans _
+        ((weight first + weight second) + listQSum weight rest) _
+        (Q'.add_eqv_congr_right _ _ _
+          (Q'.add_comm_eqv _ _)) ?_
+      exact Q'.add_assoc_eqv _ _ _
+  | _, _, List.Perm.trans first second =>
+      Q'.eqv_trans _ _ _
+        (listQSum_perm_local weight first)
+        (listQSum_perm_local weight second)
+
+/-- Constructive weighted-injection bound that uses duplicate-freeness of the
+target list instead of a global `DecidableEq` instance on its carrier. -/
+theorem listQSum_le_of_injective_nodup
+    (source : List A) (target : List B)
+    (sourceWeight : A → Q') (targetWeight : B → Q')
+    (encode : A → B)
+    (hsource : source.Nodup)
+    (htargetNodup : target.Nodup)
+    (hmem : ∀ x, x ∈ source → encode x ∈ target)
+    (hinjective : ∀ x, x ∈ source → ∀ y, y ∈ source →
+      encode x = encode y → x = y)
+    (hterm : ∀ x, x ∈ source →
+      sourceWeight x ≤ targetWeight (encode x))
+    (htarget : ∀ y, y ∈ target → (0 : Q') ≤ targetWeight y) :
+    listQSum sourceWeight source ≤ listQSum targetWeight target := by
+  induction source generalizing target with
+  | nil =>
+      exact listQSum_nonnegative_on targetWeight target htarget
+  | cons x xs ih =>
+      have hsourceParts := List.nodup_cons.mp hsource
+      have hxmem : x ∈ x :: xs := List.mem_cons_self
+      have henc : encode x ∈ target := hmem x hxmem
+      obtain ⟨before, after, hsplit⟩ := List.append_of_mem henc
+      subst target
+      have hmiddle : (encode x :: (before ++ after)).Perm
+          (before ++ encode x :: after) := List.perm_middle.symm
+      have hreorderedNodup : (encode x :: (before ++ after)).Nodup :=
+        hmiddle.symm.nodup htargetNodup
+      have hrestNodup : (before ++ after).Nodup :=
+        (List.nodup_cons.mp hreorderedNodup).2
+      have hrest : listQSum sourceWeight xs ≤
+          listQSum targetWeight (before ++ after) := by
+        apply ih (before ++ after) hsourceParts.2 hrestNodup
+        · intro y hy
+          have hySource : y ∈ x :: xs := List.mem_cons_of_mem x hy
+          have hyTarget := hmem y hySource
+          rcases List.mem_append.mp hyTarget with hbefore | hright
+          · exact List.mem_append_left after hbefore
+          · rcases List.mem_cons.mp hright with heq | hafter
+            · have hyx := hinjective y hySource x hxmem heq
+              subst y
+              exact False.elim (hsourceParts.1 hy)
+            · exact List.mem_append_right before hafter
+        · intro y hy z hz heq
+          exact hinjective y (List.mem_cons_of_mem x hy)
+            z (List.mem_cons_of_mem x hz) heq
+        · intro y hy
+          exact hterm y (List.mem_cons_of_mem x hy)
+        · intro y hy
+          rcases List.mem_append.mp hy with hbefore | hafter
+          · exact htarget y
+              (List.mem_append_left (encode x :: after) hbefore)
+          · exact htarget y
+              (List.mem_append_right before
+                (List.mem_cons_of_mem (encode x) hafter))
+      have hadd : sourceWeight x + listQSum sourceWeight xs ≤
+          targetWeight (encode x) +
+            listQSum targetWeight (before ++ after) :=
+        Q'.add_le_add (hterm x hxmem) hrest
+      exact Q'.le_trans' _ _ _ hadd
+        (Q'.le_of_eqv (listQSum_perm_local targetWeight hmiddle))
+
 /-- Constructive finite weighted-injection bound for the repository's native
 `listQSum`. -/
 theorem listQSum_le_of_injective [DecidableEq B]
@@ -279,4 +363,5 @@ end YMGap.Continuum.FiniteWeightedCartesianInjection
 #print axioms YMGap.Continuum.FiniteWeightedCartesianInjection.listQSum_attach
 #print axioms YMGap.Continuum.FiniteWeightedCartesianInjection.listQSum_filter_partition
 #print axioms YMGap.Continuum.FiniteWeightedCartesianInjection.listQSum_cartesian_product
+#print axioms YMGap.Continuum.FiniteWeightedCartesianInjection.listQSum_le_of_injective_nodup
 #print axioms YMGap.Continuum.FiniteWeightedCartesianInjection.listQSum_le_of_injective

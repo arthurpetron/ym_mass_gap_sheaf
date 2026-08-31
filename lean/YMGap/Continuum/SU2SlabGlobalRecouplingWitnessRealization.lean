@@ -588,6 +588,25 @@ theorem slabObservablePositiveSourceEntryOfCarrier_physical
       D rootFaceId physical hphysical assignment
         hassignment hpositive).1.1 = physical := rfl
 
+theorem slabExpandedFineSourceEntryOfCarrier_assignment
+    (D : SlabPhysicalData) (physical : SlabLabelling)
+    (hphysical : physical ∈ D.physicalLabellings)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈ slabFineFusionWitnesses D physical) :
+    (slabExpandedFineSourceEntryOfCarrier
+      D physical hphysical assignment hassignment).1.2 = assignment := rfl
+
+theorem slabObservablePositiveSourceEntryOfCarrier_assignment
+    (D : SlabPhysicalData) (rootFaceId : Nat)
+    (physical : SlabLabelling)
+    (hphysical : physical ∈ D.physicalLabellings)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈ slabFineFusionWitnesses D physical)
+    (hpositive : 0 < physical rootFaceId) :
+    (slabObservablePositiveSourceEntryOfCarrier
+      D rootFaceId physical hphysical assignment
+        hassignment hpositive).1.2 = assignment := rfl
+
 theorem slabObservablePairedFaceSwapLeftPhysical_root_positive
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (pair : SlabObservableTwoReplicaPair D rootFaceId)

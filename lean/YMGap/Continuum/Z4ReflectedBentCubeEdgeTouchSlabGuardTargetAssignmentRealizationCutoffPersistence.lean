@@ -18,6 +18,7 @@ noncomputable declaration, or unbounded heartbeat option.
 
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPivotCylinderWeight
 import YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardPositiveTargetRealizationCutoffPersistence
+import YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 
 namespace YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardTargetAssignmentRealizationCutoffPersistence
 
@@ -30,6 +31,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteBistochasticQKernelProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingProduct
+open YMGap.Continuum.SU2SlabPhysicalPairRecouplingCanonicalTargetProduct
 open YMGap.Continuum.SU2SlabPhysicalPairRecouplingTargetRealization
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardAcceptedGraft
@@ -223,10 +225,103 @@ theorem reflectedBentGuardGraftRealizedRightAssignmentFromTargetAtCutoff_mem
           reflectedBentGuardGraftRealizedRightAssignmentFromTargetAtCutoff_mem
             D hcutoff hextent state rest target.2, rfl⟩
 
+/-! ## 3. Exact agreement with the canonical whole-slab realizer -/
+
+/-- The structurally assembled guarded realization is exactly the canonical
+physical-pair realization for every target column, not only for the
+distinguished positive target. -/
+theorem reflectedBentGuardGraftRealizedAssignmentsFromTargetAtCutoff_eq_canonical
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    ∀ (linkedList : List
+        {link // link ∈ boundaryCompleteSlabLinks 5})
+      (target : FiniteBistochasticTargetAssignment
+        (linkedList.map fun linked =>
+          slabPhysicalPairRecouplingPackageAtLink 5
+            (reflectedBentGuardGraftLeftPhysical D hextent state)
+            (reflectedBentGuardGraftRightPhysical D hextent state)
+            linked)),
+      let canonical := slabPhysicalPairCanonicalTargetAssignmentsFrom
+        D.cutoff 5
+        (reflectedBentGuardGraftLeftPhysical D hextent state)
+        (reflectedBentGuardGraftRightPhysical D hextent state)
+        (reflectedBentGuardGraftLeftAssignment D hextent state)
+        (reflectedBentGuardGraftRightAssignment D hextent state)
+        (reflectedBentGuardGraftLeftAssignment_mem_at_cutoff
+          D hcutoff hextent state)
+        (reflectedBentGuardGraftRightAssignment_mem_at_cutoff
+          D hcutoff hextent state)
+        (reflectedBentGuardGraftLeftPhysical_bounded_at_cutoff
+          D hcutoff hextent state)
+        (reflectedBentGuardGraftRightPhysical_bounded_at_cutoff
+          D hextent state)
+        linkedList target
+      reflectedBentGuardGraftRealizedLeftAssignmentFromTargetAtCutoff
+          D hcutoff hextent state linkedList target =
+          canonical.leftAssignment ∧
+        reflectedBentGuardGraftRealizedRightAssignmentFromTargetAtCutoff
+          D hcutoff hextent state linkedList target =
+          canonical.rightAssignment
+  | [], _ => ⟨rfl, rfl⟩
+  | linked :: rest, target => by
+      have htail :=
+        reflectedBentGuardGraftRealizedAssignmentsFromTargetAtCutoff_eq_canonical
+          D hcutoff hextent state rest target.2
+      change
+        (linked.1,
+            (reflectedBentGuardGraftLocalRealizedPairForTargetAtCutoff
+              D hcutoff hextent state linked target.1).leftAuxiliary) ::
+              reflectedBentGuardGraftRealizedLeftAssignmentFromTargetAtCutoff
+                D hcutoff hextent state rest target.2 =
+          (linked.1,
+            (reflectedBentGuardGraftLocalRealizedPairForTargetAtCutoff
+              D hcutoff hextent state linked target.1).leftAuxiliary) ::
+              (slabPhysicalPairCanonicalTargetAssignmentsFrom D.cutoff 5
+                (reflectedBentGuardGraftLeftPhysical D hextent state)
+                (reflectedBentGuardGraftRightPhysical D hextent state)
+                (reflectedBentGuardGraftLeftAssignment D hextent state)
+                (reflectedBentGuardGraftRightAssignment D hextent state)
+                (reflectedBentGuardGraftLeftAssignment_mem_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftRightAssignment_mem_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftLeftPhysical_bounded_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftRightPhysical_bounded_at_cutoff
+                  D hextent state)
+                rest target.2).leftAssignment ∧
+        (linked.1,
+            (reflectedBentGuardGraftLocalRealizedPairForTargetAtCutoff
+              D hcutoff hextent state linked target.1).rightAuxiliary) ::
+              reflectedBentGuardGraftRealizedRightAssignmentFromTargetAtCutoff
+                D hcutoff hextent state rest target.2 =
+          (linked.1,
+            (reflectedBentGuardGraftLocalRealizedPairForTargetAtCutoff
+              D hcutoff hextent state linked target.1).rightAuxiliary) ::
+              (slabPhysicalPairCanonicalTargetAssignmentsFrom D.cutoff 5
+                (reflectedBentGuardGraftLeftPhysical D hextent state)
+                (reflectedBentGuardGraftRightPhysical D hextent state)
+                (reflectedBentGuardGraftLeftAssignment D hextent state)
+                (reflectedBentGuardGraftRightAssignment D hextent state)
+                (reflectedBentGuardGraftLeftAssignment_mem_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftRightAssignment_mem_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftLeftPhysical_bounded_at_cutoff
+                  D hcutoff hextent state)
+                (reflectedBentGuardGraftRightPhysical_bounded_at_cutoff
+                  D hextent state)
+                rest target.2).rightAssignment
+      constructor
+      · rw [htail.1]
+      · rw [htail.2]
+
 #print axioms reflectedBentGuardGraftLocalRealizedPairForTargetAtCutoff
 #print axioms reflectedBentGuardGraftRealizedLeftAuxiliaryForTargetAtCutoff_mem
 #print axioms reflectedBentGuardGraftRealizedRightAuxiliaryForTargetAtCutoff_mem
 #print axioms reflectedBentGuardGraftRealizedLeftAssignmentFromTargetAtCutoff_mem
 #print axioms reflectedBentGuardGraftRealizedRightAssignmentFromTargetAtCutoff_mem
+#print axioms reflectedBentGuardGraftRealizedAssignmentsFromTargetAtCutoff_eq_canonical
 
 end YMGap.Continuum.Z4ReflectedBentCubeEdgeTouchSlabGuardTargetAssignmentRealizationCutoffPersistence

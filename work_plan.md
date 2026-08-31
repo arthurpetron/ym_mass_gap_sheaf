@@ -5,6 +5,146 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
+## Whole-project goal and live completion map (updated 2026-08-31)
+
+The north-star deliverable is a constructive, same-object four-dimensional
+Yang--Mills construction whose continuum measure, observable algebra,
+OS/GNS reconstruction, time-translation operator, and strictly positive
+physical mass gap are all pinned to the same theory.  At the Clay-facing
+boundary this means legitimately inhabiting the canonical pinned frontier
+bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
+model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
+and infrastructure for this goal, not the goal itself.
+
+Status symbols used in this live map are:
+
+```text
+[PROVED]  kernel-checked constructive theorem(s) at the stated scope
+[ACTIVE]  current causal proof edge
+[PARTIAL] useful reductions exist, but a named physical input remains
+[OPEN]    no legitimate inhabitant/proof at the required scope
+```
+
+```text
+Constructive 4D Yang--Mills existence + positive physical mass gap
+|
++-- A. Finite lattice and fixed spacing
+|   |
+|   +-- A1. Exact SU(2) representation, heat, and recoupling data
+|   |       [PROVED at the finite scopes recorded below]
+|   |
+|   +-- A2. Two-replica geometry, accepted carriers, and peeling
+|   |       [PROVED through a cutoff-uniform guard-fiber payment]
+|   |
+|   +-- A3. Explicit separated observable transition
+|   |   +-- cutoff-uniform insertion + inverse-fiber rates .... [PROVED]
+|   |   +-- quarter-mass pivot-cylinder disconnection ......... [PROVED]
+|   |   +-- literal observable-row membership + exact weights . [PROVED]
+|   |   `-- every literal cylinder member is successful ....... [PROVED]
+|   |
+|   +-- A4. Global contraction
+|   |   +-- literal successful-event mass >= 1/4 .............. [PROVED]
+|   |   +-- unthinned connected-row residue <= 3/4 ............ [PROVED]
+|   |   +-- receiver-collision bridge ......................... [PROVED]
+|   |   |   `-- datum-wise positive aggregate retained fraction [PROVED]
+|   |   +-- marked face covariance / same-object moment < 1 ... [PROVED]
+|   |   |       at each finite positive-coupling datum only
+|   |   +-- cutoff-uniform aggregate retained-fraction floor .. [ACTIVE]
+|   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
+|   |   |   +-- successful receiver-row mass >= 1/4 ........... [PROVED]
+|   |   |   +-- decoder => unthinned shared-column capacity .... [PROVED]
+|   |   |   +-- local additive-output decoder obstruction ...... [PROVED]
+|   |   |   +-- support-mask / strand-mask mismatch ............ [PROVED]
+|   |   |   +-- fixed-mask source physical recovery ............ [PROVED]
+|   |   |   +-- strand mask confined to fixed pattern code ..... [PROVED]
+|   |   |   +-- exhaustive mask-code count = 2^|pattern| ....... [PROVED]
+|   |   |   +-- fixed physical-component mass cap .............. [PROVED]
+|   |   |   +-- active auxiliary code <= 4096^patternMass ...... [PROVED]
+|   |   |   +-- joint mask/active-row provenance capacity ...... [PROVED]
+|   |   |   +-- full assignment recovery in one code fiber ..... [ACTIVE]
+|   |   |   `-- uniform positive aggregate fraction ........... [OPEN]
+|   |   `-- strict fixed-spacing form or operator gap .......... [OPEN]
+|   |
+|   `-- A5. Parallel verified finite route
+|       `-- BF4 finite-cutoff covariance clustering ............ [PROVED]
+|           quotient/norm-relative operator interpretation ..... [OPEN]
+|
++-- B. Uniform physical scaling
+|   +-- mass-normalized persistence algebra .................... [PROVED]
+|   +-- same-object physical separator producer ................ [PARTIAL]
+|   +-- beta/lattice-spacing/volume-uniform gap floor .......... [OPEN]
+|   `-- genuine `UniformSpacingFloor` inhabitant ............... [OPEN]
+|
++-- C. Continuum construction and reconstruction
+|   +-- thermodynamic and `a -> 0` continuum measure ........... [OPEN]
+|   +-- same-measure OS axioms and GNS time translation ........ [OPEN]
+|   +-- reconstructed generator/operator with positive gap ..... [OPEN]
+|   `-- exact finite-to-continuum mass identification .......... [OPEN]
+|
+`-- D. Clay-facing completion
+    +-- pinned shared-object SU(2) target ....................... [OPEN]
+    +-- remaining local-field/regularity clauses ............... [OPEN]
+    +-- compact-simple-group extension ......................... [OPEN]
+    `-- guarded frontier/Clay target inhabitant ................ [OPEN]
+```
+
+The current execution rule is to quantify the aggregate retained fraction on
+branch A4 uniformly in representation cutoff.  The literal guarded source row
+has a kernel-checked successful fraction at least `1/4`, hence an unthinned
+residual rate at most `3/4`, for every positive representation cutoff at
+extent five.  Its positive-choice list seeds first-source thinning, which now
+constructs a strictly positive datum-dependent aggregate retained fraction
+and a strict finite marked-face covariance/same-object-moment bound.  The
+numerical quarter is not known to survive receiver allocation, and positivity
+at each cutoff is not a common cutoff-uniform floor.  The next theorem must
+control competition between distinct guarded receivers quantitatively.  The
+existing separated-transition theorem already pays every same-receiver source
+fiber by the cutoff-uniform insertion and complete peeling rates, and the new
+literal row supplies the quarter event at that receiver.  The remaining loss
+is therefore localized to the paired-face crossed-sum switch.  A new exact
+finite reduction proves that an inhabited left-inverse decoder for this switch
+would recover the complete unthinned connected column bound, including its
+physical Gibbs-weighted form; all downstream bistochastic bookkeeping is
+closed under that certificate.  The decoder itself remains uninhabited.
+`SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
+that the two local summed resolutions alone cannot decode their colored
+source decomposition.  The guarded mask obstruction is also now exact: a
+successful recoupled column remains connected for the physical union-support
+mask because recoupling fixes both spin fields, while success makes the
+assignment-dependent strand mask disconnected.  Those masks disagree at the
+root, so the support-level whole-link involution cannot replace the production
+face switch.  At the finer mask, equality of final target pairs plus equality
+of their source strand masks now recovers both original physical labellings
+by applying the Boolean face swap twice.  The cleared guard now also confines
+the complete target-rooted physical-support component to the fixed reflected
+pattern, and graph refinement confines every assignment-dependent strand
+mask to the same list.  Restricting a mask to that cutoff-independent list
+therefore gives a finite Boolean code which determines the complete mask:
+equal codes imply equal `Nat -> Bool` masks because all exterior bits are
+proved false.  An explicit exhaustive Boolean-word carrier contains every
+such code and has length `2 ^ reflectedBentPatternFaceIds.length`.  Thus mask
+multiplicity is no longer allowed to grow with the representation cutoff.
+The fixed support also bounds the paired component mass by the literal
+reflected-pattern mass.  The existing adaptive active-row compiler therefore
+places both source auxiliary tables in a fixed rank interval of size
+`4096 ^ reflectedBentGuardPatternPhysicalMass`.  Equal source physical fields
+identify the adaptive carriers, so equal ranks recover both active-row
+tables.  Combining the mask word and auxiliary rank gives one explicit
+source-independent provenance carrier of exact length
+`2 ^ reflectedBentPatternFaceIds.length *
+4096 ^ reflectedBentGuardPatternPhysicalMass`.  On a common switched receiver,
+equal provenance codes now recover both source physical fields, the complete
+strand mask, and both stored active auxiliary-row tables, even when the two
+sources arise from different guarded background states.  The remaining
+data-level seam is reconstruction of the complete source assignments away
+from those active rows, where the face switch should be locally inactive, or
+an equivalent uniform bound on that residual fiber.  That result can feed the
+constant provenance capacity into a scaled column allocation.  A finite
+theorem changes only its own map node.  It must not promote B, C, or D without
+an explicit same-object bridge and the corresponding scorecard and
+frontier-guard updates.  This map should be refreshed whenever an `[ACTIVE]`
+edge closes or the critical path branches.
+
 ## Physical-scale enrichment overlay (2026-08-18)
 
 The categorical/sheaf skeleton controls composition, descent, and dependency

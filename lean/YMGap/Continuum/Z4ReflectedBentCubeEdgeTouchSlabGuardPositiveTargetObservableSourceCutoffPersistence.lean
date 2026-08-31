@@ -84,6 +84,26 @@ def reflectedBentGuardGraftRightExpandedEntryAtCutoff
   unfold reflectedBentGuardGraftRightExpandedEntryAtCutoff
   apply slabExpandedFineSourceEntryOfCarrier_physical
 
+@[simp] theorem reflectedBentGuardGraftLeftPositiveEntryAtCutoff_assignment
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftLeftPositiveEntryAtCutoff
+      D hcutoff hextent state).1.2 =
+        reflectedBentGuardGraftLeftAssignment D hextent state := by
+  unfold reflectedBentGuardGraftLeftPositiveEntryAtCutoff
+  apply slabObservablePositiveSourceEntryOfCarrier_assignment
+
+@[simp] theorem reflectedBentGuardGraftRightExpandedEntryAtCutoff_assignment
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftRightExpandedEntryAtCutoff
+      D hcutoff hextent state).1.2 =
+        reflectedBentGuardGraftRightAssignment D hextent state := by
+  unfold reflectedBentGuardGraftRightExpandedEntryAtCutoff
+  apply slabExpandedFineSourceEntryOfCarrier_assignment
+
 theorem reflectedBentGuardGraftLeftPositiveEntryAtCutoff_mem_rootTarget
     (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
     (hextent : D.extent = 5)
@@ -166,6 +186,10 @@ structure ReflectedBentGuardGraftObservableSourcePackageAtCutoff
     reflectedBentGuardGraftLeftPhysical D hextent state
   rightPhysical : source.1.2.1.1 =
     reflectedBentGuardGraftRightPhysical D hextent state
+  leftAssignment : source.1.1.1.2 =
+    reflectedBentGuardGraftLeftAssignment D hextent state
+  rightAssignment : source.1.2.1.2 =
+    reflectedBentGuardGraftRightAssignment D hextent state
 
 opaque reflectedBentGuardGraftObservableSourcePackageAtCutoff
     (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
@@ -178,10 +202,16 @@ opaque reflectedBentGuardGraftObservableSourcePackageAtCutoff
         D hcutoff hextent state
       sourcePair_eq := rfl
       leftPhysical := ?_
-      rightPhysical := ?_ }
+      rightPhysical := ?_
+      leftAssignment := ?_
+      rightAssignment := ?_ }
   · exact reflectedBentGuardGraftLeftPositiveEntryAtCutoff_physical
       D hcutoff hextent state
   · exact reflectedBentGuardGraftRightExpandedEntryAtCutoff_physical
+      D hcutoff hextent state
+  · exact reflectedBentGuardGraftLeftPositiveEntryAtCutoff_assignment
+      D hcutoff hextent state
+  · exact reflectedBentGuardGraftRightExpandedEntryAtCutoff_assignment
       D hcutoff hextent state
 
 abbrev reflectedBentGuardGraftObservableRecouplingSourceAtCutoff
@@ -210,6 +240,26 @@ abbrev reflectedBentGuardGraftObservableRecouplingSourceAtCutoff
         reflectedBentGuardGraftRightPhysical D hextent state :=
   (reflectedBentGuardGraftObservableSourcePackageAtCutoff
     D hcutoff hextent state).rightPhysical
+
+@[simp] theorem reflectedBentGuardGraftObservableRecouplingSourceAtCutoff_leftAssignment
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftObservableRecouplingSourceAtCutoff
+      D hcutoff hextent state).1.1.1.2 =
+        reflectedBentGuardGraftLeftAssignment D hextent state :=
+  (reflectedBentGuardGraftObservableSourcePackageAtCutoff
+    D hcutoff hextent state).leftAssignment
+
+@[simp] theorem reflectedBentGuardGraftObservableRecouplingSourceAtCutoff_rightAssignment
+    (D : SlabPhysicalData) (hcutoff : 1 ≤ D.cutoff)
+    (hextent : D.extent = 5)
+    (state : SlabAcceptedTwoReplicaState D) :
+    (reflectedBentGuardGraftObservableRecouplingSourceAtCutoff
+      D hcutoff hextent state).1.2.1.2 =
+        reflectedBentGuardGraftRightAssignment D hextent state :=
+  (reflectedBentGuardGraftObservableSourcePackageAtCutoff
+    D hcutoff hextent state).rightAssignment
 
 #print axioms reflectedBentGuardGraftLeftPositiveEntryAtCutoff_mem_rootTarget
 #print axioms reflectedBentGuardGraftRightExpandedEntryAtCutoff_mem_complements

@@ -27663,3 +27663,219 @@ thermodynamic/continuum passage, continuum QFT, or Clay theorem is proved.  No
 `sorry` is introduced; focused and dependency-complete monitored checks use
 only `[propext, Quot.sound]`.  The dependency-complete target passes all 1,179
 jobs.  No full-root audit is claimed.
+
+#### The separated cylinder now consists of literal observable-row choices (2026-08-30)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableRow` packages the
+literal observable production row together with exact equalities identifying
+its package list and source assignment with the canonical observable
+recoupling kernel.  Instantiating the common-receiver theorem with this row
+gives a concrete joint-mass payment into the quarter-mass separated cylinder.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableEvent` then transports
+each cylinder target through the package equality.  Every transported target
+is proved to belong to the canonical observable recoupling row, and its
+canonical observable entry weight is exactly equivalent to the cylinder entry
+weight.  No dependent-product normalization or coordinate enumeration is
+used.
+
+The next seam is semantic rather than measure-theoretic: prove that each of
+these literal row members is a successful observable recoupling choice by
+combining its transported marked-face disconnection witness with the existing
+paired realization bridge.  Only after that can the cylinder sum lower-bound
+the literal successful/disconnected observable event mass and feed the global
+receiver-column or posterior-contraction argument.
+
+The result remains fixed at extent five and production coupling `1/400`, and
+is uniform only in representation cutoff.  It proves no beta-, lattice-
+spacing-, or volume-uniform gap, no thermodynamic/continuum passage, no
+continuum QFT, and no Clay theorem.  No `sorry` is introduced.  Focused checks
+and the dependency-complete monitored target use only `[propext, Quot.sound]`;
+the latter passes all 1,613 jobs.  No full-root audit is claimed.
+
+#### The literal successful row retains one quarter before receiver thinning (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableSuccess` transports the
+marked-face graph disconnection witness through the physical paired
+realization and proves that every member of the literal cylinder is a
+successful observable choice.  The weighted injection assembled in
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableSuccessfulMass` is
+injective on the duplicate-free cylinder, preserves each literal entry
+weight, and maps into the successful-choice filter.  The finite weighted-sum
+comparison therefore proves
+
+```text
+  1/4 <= slabObservablePairedStrandDisconnectionMass(...)
+```
+
+for every positive representation cutoff, extent five, and accepted source
+state in the production context.  The constructive finite-list comparison is
+provided by `FiniteWeightedCartesianInjection`; the literal source-to-link
+transport is provided by `SU2SlabPhysicalPairRecouplingSourceTransport`.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableConnectedRowContraction`
+then proves that the guarded source belongs to the support-connected carrier,
+identifies it with the canonical recoupling source, removes exactly the
+zero-weight choices from the generic unthinned connected row, and proves that
+its row mass is the successful fraction.  Consequently the literal row has
+successful mass at least `1/4` and residual rate at most `3/4 < 1`.
+
+This is deliberately a row-local theorem before collision-aware first-source
+thinning.  Such thinning can erase an entire source row when receiver columns
+collide, so the result does not yet provide a source-wide connected-sector
+floor, one shared receiver-column capacity, aggregate posterior contraction,
+face covariance decay, or an operator gap.  It is also not beta-, spacing-,
+or volume-uniform and proves no thermodynamic/continuum passage, OS/GNS
+reconstruction, continuum QFT, or Clay theorem.  No `sorry` is introduced.
+Focused checks and dependency-complete monitored targets use only
+`[propext, Quot.sound]`; the successful-mass and connected-row targets pass
+all 1,680 and 1,681 jobs respectively.  No full-root audit is claimed.
+
+#### One literal positive channel survives receiver allocation at every finite cutoff (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardLiteralObservableRetainedContraction`
+uses the quarter lower bound to prove that the guarded source's list of
+strictly positive successful choices is nonempty.  Its head constructs a
+literal `SlabObservablePairedConnectedPositiveChannelWitness`.  The canonical
+first-source selector may assign the realized receiver column to an earlier
+source, but search completeness then supplies a positive listed channel in
+that selected row.  Thus receiver collisions cannot erase the complete
+Gibbs-weighted connected transport at positive coupling.
+
+The existing shared-column compiler divides this positive transported mass by
+the complete connected source mass.  It constructs an exact finite retained
+fraction `delta(D,state)` with `0 < delta <= 1`, the split posterior target
+budget, strict marked-face Boolean covariance below one, and strict
+same-object connected physical Markov moment below one.  These conclusions
+hold at extent five for every positive representation cutoff and positive
+coupling.
+
+The retained fraction is datum-dependent.  No theorem identifies it with the
+literal `1/4`, bounds first-source congestion uniformly, or supplies a common
+positive floor across cutoff, coupling, volume, or lattice spacing.  Hence
+this is not yet a uniform fixed-spacing form/operator gap, thermodynamic or
+continuum passage, OS/GNS spectral gap, continuum QFT, or Clay theorem.  No
+`sorry` is introduced.  The focused and dependency-complete monitored checks
+use only `[propext, Quot.sound]`, and the latter passes all 1,682 jobs.  The
+full public-root audit remains separately blocked by excessive kernel memory
+in the pre-existing generated target
+`HarmonicMassCrossLowerSixRecoveryTerminal8189`; no full-root pass is claimed.
+
+#### A face-switch decoder would preserve the full connected successful row (2026-08-31)
+
+`CompactDualSlabObservablePairedConnectedDecoderColumnCapacity` flattens the
+dependent positive successful connected rows into a duplicate-free sigma
+carrier and studies the complete preimage of one final observable target.
+Given the existing Type-level
+`SlabObservablePairedFaceSwitchDecoderCertificate`, equality of final targets
+recovers equality of the intermediate recoupled pairs.  Every preimage term
+therefore transports into one common physical-pair recoupling column, while
+distinct connected sources occupy distinct production rows.  Exact
+bistochastic column normalization proves both the unweighted unthinned column
+capacity and its Gibbs-weighted physical form.
+
+No decoder certificate is inhabited.  The crossed selected/unselected
+auxiliary sums are not the complete-link transposition handled by the existing
+whole-link involution, so that theorem cannot discharge the certificate.
+The remaining finite combinatorial obligation is now exact: construct a left
+inverse on the guarded receiver image, or replace it by a cutoff-uniform fiber
+bound and scaled allocation.  Until then the literal quarter row cannot be
+promoted to a cutoff-uniform aggregate retained fraction.  No fixed-spacing
+operator gap, physical scaling limit, continuum measure, OS/GNS construction,
+continuum QFT, or Clay theorem is claimed.  No `sorry` is introduced.  The
+focused and dependency-complete monitored checks use only
+`[propext, Quot.sound]`; the latter passes all 1,528 jobs.  The trailing
+library-suggestions `whnf` timeout is nonfatal because the monitored build
+completed successfully.  No full-root audit is claimed.
+
+#### The decoder frontier splits into mask, physical, and auxiliary recovery (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardWholeLinkDecoderObstruction` records two
+kernel-checked obstructions to the tempting shortcut.  First,
+`SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` gives an
+explicit collision for vertexwise summed local resolutions, so those sums
+alone do not recover the colored source decomposition.  Second, every
+successful recoupled column above a support-connected source remains
+connected for the physical union-support mask (recoupling fixes both physical
+fields) but is disconnected for the assignment-dependent strand mask.  The
+two masks therefore differ at the root.  The accepted whole-link support
+involution uses the wrong mask and cannot replace the production face switch.
+
+`CompactDualSlabObservablePairedFaceSwitchPhysicalRecovery` closes the
+physical part at the correct mask.  If two switchable sources have equal final
+target pairs and equal strand masks, applying the Boolean face transposition
+twice recovers equality of both source physical labellings.  The remaining
+decoder obligation is now precisely mask recovery plus auxiliary-assignment
+recovery, or a cutoff-uniform bound on the multiplicity of those remaining
+fibers.
+
+No decoder certificate or uniform retained-fraction floor is inhabited, and
+no fixed-spacing operator gap, scaling limit, continuum theory, OS/GNS result,
+or Clay theorem is claimed.  No `sorry` is introduced.  Focused monitored
+checks and dependency-complete targets use only `[propext, Quot.sound]`; the
+obstruction and fixed-mask physical-recovery targets pass all 1,150 and 1,147
+jobs respectively.  The nonfatal trailing library-suggestions `whnf` timeout
+occurred during the obstruction dependency build after compilation; both
+monitored targets completed successfully.  No full-root audit is claimed.
+
+#### The guarded strand mask is a cutoff-independent finite code (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardFaceMaskSupport` uses the cleared guard
+to prove that the target-rooted union-support component cannot leave the
+fixed reflected pattern.  A positive graft face inside the guard is a pattern
+face, while a positive exterior face is nonadjacent to every pattern face.
+Induction over the explicit finite component chain then confines the complete
+physical component.  Since every paired strand edge refines physical support
+adjacency, the assignment-dependent strand component and its face-switch mask
+are confined to the same fixed pattern list.
+
+The module defines the literal Boolean mask code obtained by restricting the
+strand mask to `reflectedBentPatternFaceIds`.  Its length is exactly the length
+of that fixed list, independent of cutoff, state, and auxiliary assignment.
+Equality of two such codes implies equality of the complete `Nat -> Bool`
+masks: code equality supplies every pattern bit and the support theorem forces
+all exterior bits to `false`.  Thus the possible mask contribution to receiver
+multiplicity is now cutoff-independent.  The module also constructs the
+exhaustive Boolean-word carrier, proves that every mask code belongs to it,
+and proves its exact length
+`2 ^ reflectedBentPatternFaceIds.length`.  The remaining collision problem is
+the auxiliary-assignment fiber within one fixed mask code; no decoder or
+uniform retained-fraction floor is inferred from mask confinement alone.
+
+No fixed-spacing operator gap, scaling limit, continuum theory, OS/GNS result,
+or Clay theorem is claimed.  No `sorry` is introduced.  The focused monitored
+check and dependency-complete target use only `[propext, Quot.sound]`; the
+target passes all 1,567 jobs.  No full-root audit is claimed.
+
+#### The guarded auxiliary provenance has a fixed finite code (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAuxiliaryCodeCapacity` specializes the
+existing accepted active-row carrier to the guarded reflected geometry.  The
+target-rooted physical component is contained in the fixed pattern, so its
+paired twice-spin mass is bounded by
+`reflectedBentGuardPatternPhysicalMass`, a natural number containing no
+cutoff, accepted background state, or auxiliary assignment.  Consequently
+both source active-row tables receive a first-occurrence rank below
+`4096 ^ reflectedBentGuardPatternPhysicalMass`.
+
+The module constructs that explicit rank carrier and proves its exact length.
+Equal physical fields make the two adaptive carriers literally equal, so
+equal ranks decode to equal active auxiliary-row tables.  Taking the product
+with the fixed mask carrier gives one source-independent provenance carrier
+of exact length
+`2 ^ reflectedBentPatternFaceIds.length *
+4096 ^ reflectedBentGuardPatternPhysicalMass`.  Every guarded source code
+belongs to it.  For two possibly different guarded background states mapping
+to the same final face-switched target, equality of provenance codes recovers
+both source physical fields, the entire `Nat -> Bool` strand mask, and both
+active auxiliary-row tables.
+
+This is not yet an injective decoder for complete source pairs: assignments
+at links outside the active component still have to be recovered from the
+fact that the local face switch is inactive there, or their residual fiber
+must be bounded uniformly.  Therefore no uniform aggregate retained-fraction
+floor, fixed-spacing operator gap, scaling limit, continuum theory, OS/GNS
+result, or Clay theorem is claimed.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 1,570 jobs, and every printed
+load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
+audit is claimed.
