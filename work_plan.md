@@ -61,7 +61,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- fixed physical-component mass cap .............. [PROVED]
 |   |   |   +-- active auxiliary code <= 4096^patternMass ...... [PROVED]
 |   |   |   +-- joint mask/active-row provenance capacity ...... [PROVED]
-|   |   |   +-- full assignment recovery in one code fiber ..... [ACTIVE]
+|   |   |   +-- full assignment recovery in one code fiber ..... [PROVED]
+|   |   |   +-- fixed guarded receiver-fiber cardinality ....... [PROVED]
+|   |   |   +-- scaled weighted column allocation .............. [ACTIVE]
 |   |   |   `-- uniform positive aggregate fraction ........... [OPEN]
 |   |   `-- strict fixed-spacing form or operator gap .......... [OPEN]
 |   |
@@ -135,15 +137,27 @@ source-independent provenance carrier of exact length
 4096 ^ reflectedBentGuardPatternPhysicalMass`.  On a common switched receiver,
 equal provenance codes now recover both source physical fields, the complete
 strand mask, and both stored active auxiliary-row tables, even when the two
-sources arise from different guarded background states.  The remaining
-data-level seam is reconstruction of the complete source assignments away
-from those active rows, where the face switch should be locally inactive, or
-an equivalent uniform bound on that residual fiber.  That result can feed the
-constant provenance capacity into a scaled column allocation.  A finite
-theorem changes only its own map node.  It must not promote B, C, or D without
-an explicit same-object bridge and the corresponding scorecard and
-frontier-guard updates.  This map should be refreshed whenever an `[ACTIVE]`
-edge closes or the critical path branches.
+sources arise from different guarded background states.  The inactive-link
+theorem proves that the crossed local switch returns the original source
+auxiliary row whenever the complete physical link is outside the active
+component.  Together with active-row recovery, this reconstructs both entire
+source assignments.  The guarded receiver plus provenance code therefore
+determines the complete switchable source.  On every duplicate-free finite
+guarded source family, the code is injective in each fixed receiver fiber, so
+that fiber has length at most the exact cutoff-independent carrier size
+`2 ^ reflectedBentPatternFaceIds.length *
+4096 ^ reflectedBentGuardPatternPhysicalMass`.
+
+The active finite seam is now weighted rather than data-theoretic.  The
+flattened connected recoupling contributors must be partitioned by the fixed
+provenance code, each guarded contribution must be related to the existing
+bistochastic common-column normalization, and the resulting capacity must be
+scaled by the fixed carrier length.  Only after that construction preserves a
+common positive part of the literal quarter event may the aggregate retained
+fraction be marked uniform.  A finite theorem changes only its own map node.
+It must not promote B, C, or D without an explicit same-object bridge and the
+corresponding scorecard and frontier-guard updates.  This map should be
+refreshed whenever an `[ACTIVE]` edge closes or the critical path branches.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 

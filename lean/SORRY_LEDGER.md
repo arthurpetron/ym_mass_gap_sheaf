@@ -27879,3 +27879,46 @@ result, or Clay theorem is claimed.  No `sorry` is introduced.  The focused
 dependency-complete monitored target passes all 1,570 jobs, and every printed
 load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
 audit is claimed.
+
+#### The guarded receiver fiber has fixed cutoff-independent capacity (2026-08-31)
+
+`CompactDualSlabCrossReplicaLocalSwitchInactive` proves the missing local
+identity: when a complete physical link is inactive for the paired strand
+mask, both crossed local switch outputs reduce to their original source
+auxiliary rows.  The proof treats the left and right crossed outputs
+separately and does not assume an inverse for the additive selected output.
+
+`CompactDualSlabObservablePairedFaceSwitchAuxiliaryRecovery` combines that
+identity with the active-row provenance table.  Equal source physical fields
+give equal active-link lists.  At an active link, equality of the stored rows
+recovers the source assignment; at an inactive link, equality of final target
+assignments recovers it because the local switch is the identity.  Hence equal
+final target, source physical fields, strand mask, and active-row tables
+recover both complete source assignments and the complete literal source
+pair.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardProvenanceDecoder` specializes the
+generic recovery theorem to the reflected guard.  For two guarded switchable
+sources, equality of the final switched receiver and the explicit provenance
+code determines the entire source pair.  The background accepted states may
+differ; the result uses only their guarded physical-graft equations.
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardReceiverFiberCapacity` packages guarded
+switchable sources as a proof-carrying subtype.  On a fixed receiver fiber,
+the provenance code is injective.  For every duplicate-free finite source
+family, the fiber therefore has length at most the explicit carrier length
+
+```text
+2 ^ reflectedBentPatternFaceIds.length
+  * 4096 ^ reflectedBentGuardPatternPhysicalMass.
+```
+
+This closes the unweighted finite multiplicity theorem only.  The next seam
+must partition and scale the Gibbs-weighted connected contributors by the
+fixed provenance code and invoke the existing bistochastic common-column
+normalization.  No cutoff-uniform retained-fraction floor, fixed-spacing
+operator gap, scaling limit, continuum theory, OS/GNS result, or Clay theorem
+is claimed.  No `sorry` is introduced.  Dependency-complete monitored targets
+for the four modules pass 1,166, 1,175, 1,573, and 1,574 jobs respectively;
+every printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
+full-root audit is claimed.
