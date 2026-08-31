@@ -27968,3 +27968,41 @@ Dependency-complete monitored targets for the generic code partition,
 coherent subfamily, and guarded specialization pass 211, 1,529, and 1,578
 jobs respectively; every printed load-bearing declaration uses only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### The actual guarded row now shares the scaled receiver allocation (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardConnectedRowCarrier` constructs the
+previously abstract row family.  It scans the complete finite accepted-state
+carrier with supported-labelling equality and filters the already
+duplicate-free flattened connected source-choice carrier.  The resulting
+guarded carrier is duplicate-free, and every positive successful choice from
+every literal arbitrary-cutoff guarded graft belongs to it.  Multiplication
+by the fixed provenance scale
+
+```text
+Q'.invSucc reflectedBentGuardProvenanceCodeSpace.length
+```
+
+therefore preserves a literal guarded row mass of at least that scale times
+`1/4`.
+
+For each final receiver, the module performs a structural first-match scan of
+the accepted backgrounds.  This stores an actual background state as data,
+rather than eliminating a propositional existential into `Type`, and emits
+at most one proof-carrying guarded preimage for each underlying flattened
+edge.  The emitted receiver list is duplicate-free.  A completeness theorem
+proves that every member of the actual guarded row carrier realizing the
+receiver is emitted by this compiler.  Instantiating the provenance
+code-fiber theorem on this concrete list gives actual scaled receiver
+capacity at most one.
+
+Thus the finite local row/column allocation seam is closed on one common edge
+family.  The remaining active seam is Gibbs-weighted posterior composition:
+combine this fixed positive row fraction and unit receiver capacity with the
+already proved peeling and insertion payments to obtain an explicit
+cutoff-independent aggregate retained rate.  No such aggregate rate,
+fixed-spacing operator gap, scaling limit, continuum theory, OS/GNS result,
+or Clay theorem is claimed here.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 1,694 jobs, and every printed
+load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
+audit is claimed.
