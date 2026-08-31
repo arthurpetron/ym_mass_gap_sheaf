@@ -77,7 +77,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |       +-- accepted-state guarded-row partition ....... [PROVED]
 |   |   |       +-- representative rows partition by target .... [PROVED]
 |   |   |       `-- global retained floor from partition ....... [PROVED]
-|   |   `-- strict fixed-spacing form or operator gap .......... [ACTIVE]
+|   |   +-- literal centered face, relative form contraction ... [PROVED]
+|   |   |   +-- one-replica off-diagonal transition floor ...... [PROVED]
+|   |   |   +-- common factor `1-rate` is in `[0,1)` ........... [PROVED]
+|   |   |   `-- same physical face/vector on both form sides ... [PROVED]
+|   |   +-- spanning/frame/norm control for all centered vectors [ACTIVE]
+|   |   `-- strict all-vector form / operator gap .............. [OPEN]
 |   |
 |   `-- A5. Parallel verified finite route
 |       `-- BF4 finite-cutoff covariance clustering ............ [PROVED]
@@ -102,8 +107,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
 
-The cutoff-uniform aggregate retained fraction on branch A4 is now proved at
-the stated finite fixed-geometry scope.  For every positive representation
+The cutoff-uniform aggregate retained fraction and its first same-object form
+consequence on branch A4 are now proved at the stated finite fixed-geometry
+scope.  For every positive representation
 cutoff, the fixed positive coefficient
 `reflectedBentGuardConnectedRowScale *
 reflectedBentGuardSeparatedTransitionRate ...`, which does not depend on that
@@ -112,11 +118,17 @@ by the complete opposite observable determinant cell.  The proof partitions
 all accepted backgrounds by their guarded row, pays every complete row fiber
 with peeling and insertion, flattens one representative per realized row,
 partitions those choices by actual final target, and injects each target fiber
-into the already verified Gibbs-capacity column.  The current execution rule
-is therefore to transport this concrete finite event inequality into a strict
-fixed-spacing quadratic-form or transfer-operator gap without changing the
-underlying physical object.  The original direct additive decoder remains
-uninhabited.
+into the already verified Gibbs-capacity column.  The opposite-cell floor now
+cancels one partition factor to give a one-replica off-diagonal transition
+floor.  Exact four-cell/variance algebra then proves, for the literal centered
+root-face indicator and every positive cutoff, a genuine physical same-object
+Markov form bound by the common factor
+`reflectedBentGuardAggregateSameObjectContractionFactor = 1 - rate`, with
+`0 <= factor < 1`.  The current execution rule is to construct a finite
+spanning/frame inequality and norm control that promote this one-vector
+contraction to every centered observable and hence to a strict fixed-spacing
+operator gap, without changing the underlying physical object.  The original
+direct additive decoder remains uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored
 source decomposition.  The guarded mask obstruction is also now exact: a
@@ -182,17 +194,21 @@ now upgrades each of those concrete scaled columns to a Gibbs-weighted bound:
 the incoming source Gibbs weights times the scaled local edge weights sum to
 at most the Gibbs weight available at that final receiver.
 
-The finite accepted-background summation is now closed.  Structural key
+The finite accepted-background summation and its literal same-object
+consequence are now closed.  Structural key
 representatives partition the complete accepted-state mass exactly; their
 connected choices form a duplicate-free carrier; deterministic target fibers
 recover its total weight; and completeness places each representative target
 fiber inside the actual proof-carrying guarded receiver column.  The resulting
-aggregate theorem is a positive cutoff-independent *finite event* floor, not
-yet a strict form gap, transfer-operator spectral gap, physical mass scale, or
-continuum statement.  Branch A4 now advances to the same-object fixed-spacing
-form/operator bridge.  B, C, and D remain unchanged until explicit physical
-scaling, continuum, and OS/GNS bridges are inhabited.  This map should be
-refreshed whenever an `[ACTIVE]` edge closes or the critical path branches.
+aggregate theorem is a positive cutoff-independent *finite event* floor.  Its
+new corollary is a strict, cutoff-uniform, norm-relative quadratic-form
+contraction for one explicit centered face vector on the genuine physical
+Markov object.  It is not an all-vector form bound, a transfer-operator
+spectral gap, a physical mass scale, or a continuum statement.  Branch A4 now
+advances to the spanning/frame/norm-control bridge needed to cover the full
+centered space.  B, C, and D remain unchanged until explicit physical scaling,
+continuum, and OS/GNS bridges are inhabited.  This map should be refreshed
+whenever an `[ACTIVE]` edge closes or the critical path branches.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 

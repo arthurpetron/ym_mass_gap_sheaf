@@ -67,6 +67,10 @@ are `[propext]`-only. No `Classical.choice`, no `Quot.sound`, no
 `sorryAx`. The remaining open items are the *paper-level* analytic
 obligations (full KP-certificate proofs, the √-bridge O(1) constant,
 O(4) restoration), tracked in the chapters and `notes/`, not here.
+The 2026-08-31 current root audit was stopped safely at 3,252 of 7,704 jobs
+when available memory reached the configured 12 GiB reserve; it is an
+interrupted audit, not a fresh full-root pass.  The focused guarded targets
+reported below are the current verification evidence.
 
 ## Entries
 
@@ -28065,3 +28069,38 @@ continuum measure, perform OS/GNS reconstruction, or prove the Clay theorem.
 No `sorry` is introduced.  The focused dependency-complete monitored target
 passes all 1,696 jobs; printed load-bearing declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### One literal physical face has a cutoff-uniform relative form contraction (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAggregateSameObjectContraction` first
+uses the aggregate opposite-cell floor and the complete one-replica partition
+bound to cancel one positive partition factor.  It thereby proves that the
+same strictly positive, cutoff-independent guarded rate times the partition
+is bounded by the root-positive/target-complement transition mass.
+
+The four observable cells split the root-positive and root-zero masses.  Their
+product is bounded by the square of the partition, so subtracting the proved
+opposite-cell floor from the positive diagonal product gives the normalized
+four-cell excess bound
+
+```text
+face covariance(root,target)
+  <= (1 - reflectedBentGuardScaledSeparatedTransitionRate)
+       * face variance(root).
+```
+
+The factor is constructively proved nonnegative and strictly below one.
+Reflection reindexing, the exact physical covariance bridge, and the centered
+face norm identity then put the same literal centered lower-face observable
+on both sides of the genuine physical Markov form inequality, for every
+positive representation cutoff at anchor coupling and slab half-width two.
+
+This is a strict cutoff-uniform relative contraction for one explicit
+centered vector.  It is not yet an all-vector quadratic-form bound or an
+operator spectral gap: a spanning/frame theorem with quantitative norm
+control is still required.  It supplies no coupling-, spacing-, or
+volume-uniform physical mass, no continuum measure, no same-measure OS/GNS
+reconstruction, and no Clay theorem.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 1,699 jobs; every printed
+load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
+audit is claimed.
