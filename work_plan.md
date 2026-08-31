@@ -80,8 +80,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   +-- literal centered face, relative form contraction ... [PROVED]
 |   |   |   +-- one-replica off-diagonal transition floor ...... [PROVED]
 |   |   |   +-- common factor `1-rate` is in `[0,1)` ........... [PROVED]
-|   |   |   `-- same physical face/vector on both form sides ... [PROVED]
-|   |   +-- spanning/frame/norm control for all centered vectors [ACTIVE]
+|   |   |   +-- same physical face/vector on both form sides ... [PROVED]
+|   |   |   +-- cutoff-uniform positive face-variance floor .... [PROVED]
+|   |   |   `-- cutoff-removed face RC form gap ................ [PROVED]
+|   |   +-- event-family conductance / tensorization ........... [ACTIVE]
 |   |   `-- strict all-vector form / operator gap .............. [OPEN]
 |   |
 |   `-- A5. Parallel verified finite route
@@ -124,11 +126,19 @@ floor.  Exact four-cell/variance algebra then proves, for the literal centered
 root-face indicator and every positive cutoff, a genuine physical same-object
 Markov form bound by the common factor
 `reflectedBentGuardAggregateSameObjectContractionFactor = 1 - rate`, with
-`0 <= factor < 1`.  The current execution rule is to construct a finite
-spanning/frame inequality and norm control that promote this one-vector
-contraction to every centered observable and hence to a strict fixed-spacing
-operator gap, without changing the underlying physical object.  The original
-direct additive decoder remains uninhabited.
+`0 <= factor < 1`.  The opposite observable cell also lies inside the two
+root-event factors, so the same rate is a cutoff-uniform positive lower bound
+for the literal face variance.  Both statements now survive constructive
+representation-cutoff removal: the connected norm is eventually at least the
+fixed positive rate, while the connected autocorrelation is eventually at
+most `(1-rate)` times that norm, with quotient-real `RCle` packaging.  This is
+still one explicit nonzero vector, not an all-vector gap.  A single face
+indicator cannot span the full finite configuration-function space.  The
+current execution rule is therefore to build a translated/separating family
+of guarded events and a quantitative conductance, path-Poincare, or
+tensorization theorem that controls every centered observable without
+changing the underlying physical object.  The original direct additive
+decoder remains uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored
 source decomposition.  The guarded mask obstruction is also now exact: a

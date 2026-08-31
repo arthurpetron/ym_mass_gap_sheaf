@@ -28104,3 +28104,31 @@ reconstruction, and no Clay theorem.  No `sorry` is introduced.  The focused
 dependency-complete monitored target passes all 1,699 jobs; every printed
 load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
 audit is claimed.
+
+#### The literal guarded face gap survives representation-cutoff removal (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardAggregateSameObjectCutoffLimit` proves
+that the complete opposite observable cell is contained in the product of
+the root-positive and root-zero events.  Combined with the aggregate cell
+floor, this makes the same strictly positive guarded rate a lower bound for
+the literal root-face variance at every positive representation cutoff.
+
+The existing Bishop-real cutoff streams then yield two eventual-order
+statements at the fixed anchor coupling and slab half-width two:
+
+```text
+ofQ'(rate) <= connected face norm,
+connected face autocorrelation <= ofQ'(1-rate) * connected face norm.
+```
+
+The second inequality is also packaged in the quotient-real `RCle` form.  It
+is a strict cutoff-removed relative form gap for the same explicit nonzero
+centered face observable.  It is not an all-vector form or operator gap: one
+Boolean face indicator does not span the complete finite
+configuration-function space, so the next causal input must be a uniform
+event-family conductance, path-Poincare, or tensorization certificate.  The
+result supplies no spacing-, coupling-, or volume-uniform physical mass, no
+continuum measure, no same-measure OS/GNS reconstruction, and no Clay theorem.
+No `sorry` is introduced.  The focused dependency-complete monitored target
+passes all 1,700 jobs; every printed load-bearing declaration uses only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
