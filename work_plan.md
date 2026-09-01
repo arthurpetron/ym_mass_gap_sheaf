@@ -156,6 +156,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- loop-erased prefix length <= sector size ..... [PROVED finite]
 |   |   |   |   |   |   +-- zero-face repair => nonvacuum final spoke ..... [PROVED finite]
 |   |   |   |   |   |   +-- loop erasure => simple, nonvacuum predecessor . [PROVED finite]
+|   |   |   |   |   |   +-- normalized used bins <= K excited cubes ....... [PROVED exact]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -990,6 +991,20 @@ Cutoff-uniform sharing/resistance load remains active.  The ten printed
 declarations use at most `[propext, Quot.sound]`, and the direct monitored
 source check and focused 5,160-job one-worker build pass.  No full-root audit
 is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceTerminalCarrier.lean` classifies
+the final edge after that second loop erasure, rather than incorrectly reusing
+the pre-normalization assignment label.  Faithfulness of the finite carrier
+identifies the spin-zero cube with the vacuum index; the simple normalized
+route has a nonzero terminal source; and the generic root-spoke decoder then
+forces its terminal spin into `1,...,K`.  Every terminal source actually used
+by the routing is therefore contained in the duplicate-free list of the `K`
+excited spin cubes, sharpening the construction-specific used-bin bound from
+`K + 1` to `K`.  This remains only a finite carrier theorem: terminal-fiber
+mass, inverse-kernel demand, preceding-edge sharing, and a cutoff-uniform
+resistance load are still open.  The five printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,162-job one-worker build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
