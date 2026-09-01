@@ -129,6 +129,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- sharing x uniform user load => congestion ...... [PROVED reduction]
 |   |   |   |   |   +-- cutoff-uniform literal edge sharing ........ [OPEN producer]
 |   |   |   |   |   `-- cutoff-uniform per-user route load ......... [OPEN producer]
+|   |   |   |   +-- adaptive sharing x edge-load compiler .......... [PROVED reduction]
 |   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
@@ -435,6 +436,14 @@ adaptive physical-mass-descending peel whose transition ratios and shared
 fibers can be controlled.  The opaque component-merger route supplies neither
 property merely from connectivity.
 
+The same product reduction is now route-parametric.  For an arbitrary
+adaptive positive routing it retains repeated-edge multiplicity inside each
+user's exact edge load; uniform adaptive user count times uniform exact
+per-user edge load produces the full adaptive resistance certificate, and
+existing no-loss loop erasure supplies the simple-routing consumer.  Thus a
+mass-monotone replacement route need not be forced back through the canonical
+off-ray definitions.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
@@ -668,6 +677,14 @@ to bound exact off-ray flow, and the direct-ray compiler then produces the
 full simple-routing certificate.  The two uniform fields remain open; this
 module does not assume geometric decay.  Its three printed declarations use
 only `[propext, Quot.sound]`; the direct check and focused 5,146-job build
+pass.
+
+`BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceBoundedSharingCompiler.lean`
+is the route-parametric version.  It keeps repeated-edge multiplicity in the
+per-user edge load, multiplies adaptive sharing and load ceilings into the
+exact full-sector flow bound, and invokes the existing no-loss loop-erasure
+compiler.  Its uniform fields remain open.  Its three printed declarations
+use only `[propext, Quot.sound]`; the direct check and focused 5,147-job build
 pass.
 
 ## Physical-scale enrichment overlay (2026-08-18)
