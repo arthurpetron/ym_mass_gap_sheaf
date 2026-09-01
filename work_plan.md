@@ -203,7 +203,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- selected floor coeff(K)^6/C <= lambda  [PROVED anchor]
 |   |   |   |   |   |       |       |       +-- selected-term witness -> 0 ............ [PROVED diagnostic]
 |   |   |   |   |   |       |       |       |   so it cannot itself force divergence
-|   |   |   |   |   |       |       |       +-- sharper full-row comparison .......... [ACTIVE analytic]
+|   |   |   |   |   |       |       |       +-- sharper full-row comparison .......... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   +-- raw row / selected activity enhancement [PROVED exact]
+|   |   |   |   |   |       |       |       |   +-- enhancement >= 1 and exact cancellation [PROVED]
+|   |   |   |   |   |       |       |       |   +-- full-row common floor >= selected floor . [PROVED]
+|   |   |   |   |   |       |       |       |   `-- uniform compensation lower bound ........ [ACTIVE analytic]
 |   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [OPEN alternate]
 |   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
@@ -670,8 +674,8 @@ critical path branches.
 ## Current goal-mode checkpoint (2026-09-01)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL IS CLOSED BY THE CONCRETE
-GUARDED AGGREGATE ROUTE.  THE SELECTED GRID-TERM LOWER WITNESS HAS A LOCATED
-ZERO TAIL, SO THE SHARPER FULL-ROW COMPARISON IS ACTIVE.**
+GUARDED AGGREGATE ROUTE.  THE COMPLETE GRID RAW ROW NOW FACTORS THROUGH AN
+EXACT POSITIVE ENHANCEMENT; A UNIFORM COMPENSATION LOWER BOUND IS ACTIVE.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -699,14 +703,45 @@ witness is at most `epsilon` once `K >= epsilon.den`.  This is a constructive
 located zero-tail theorem.  It does not upper-bound the computed effective
 multiplicity, because the complete raw row can contain additional positive
 mass.  It proves that the single selected grid summand cannot establish the
-required divergence.  The live producer is now a sharper comparison of the
-complete grid raw row with the spin-cube source row.  A different replica
-family remains the explicit alternate branch.
+required divergence.
 
-The new module's direct monitored source check and focused 5,193-job target
-build pass.  Its seven printed load-bearing declarations use only
-`[propext, Quot.sound]` (one uses only `[propext]`).  No full-root audit is
-claimed.
+`BF4GrowingGridFullRowEnhancement.lean` now completes the sharper comparison.
+For every admitted source spin and replica it defines the literal quotient
+
+```text
+enhancement(K,s,r) = gridRawRow(K,s,r)
+                       / (coeff(anchor,s)^6 * coeff(anchor,r)^6),
+```
+
+proves `enhancement >= 1`, and proves that multiplying it back by the exact
+two-surface activity recovers the complete raw row.  After cancellation with
+the existing spin-cube residual ceiling `C`, the compensated pointwise floor
+is
+
+```text
+fullRowFloor(K,s,r) = coeff(anchor,r)^6 * enhancement(K,s,r) / C.
+```
+
+Its explicit finite minimum over every admitted `(s,r)` is positive, lies
+above the old selected common floor, lies below the actual computed raw-row
+ratio floor, and therefore supplies the stronger effective-multiplicity
+lower bound
+
+```text
+(K+1) * fullRowCommonFloor(K) <= effectiveMultiplicity(K).
+```
+
+No raw grid-row mass is discarded in the named enhancement.  The active
+analytic producer is now exact: prove that the enhancement compensates the
+sixth-power replica decay uniformly enough that the displayed product
+diverges.  A different low-spin spatial-volume replica family remains the
+explicit alternate branch.
+
+Both new analytic modules pass direct monitored source checks and focused
+5,193-job target builds.  The full-row module's ten printed load-bearing
+declarations use only `[propext, Quot.sound]` (one uses only `[propext]`);
+the selected-tail module has the same permitted boundary.  No full-root
+audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
@@ -1659,11 +1694,18 @@ selectedFloor(K) <= lambda(K)
 The highest replica is the worst selected-term witness by proved coefficient
 antitonicity.  This closes an honest quantitative subbranch, but not the
 geometric-growth endpoint: the displayed witness contains the high-spin
-coefficient and the current proof does not make its product with `K + 1`
-diverge.  The active choice is now sharper and explicit: either prove that the
-*full* target/source row ratio is much larger than this one selected summand,
-or replace cutoff-grown high-spin replicas by a spatial-volume family of many
-comparable low-spin rows.  Until one of those branches forces
+coefficient and in fact has a proved located zero tail.
+
+`BF4GrowingGridFullRowEnhancement.lean` retains the mass which that selected
+estimate discarded.  It defines the exact complete-grid-row enhancement over
+the two-surface activity, proves positivity, `enhancement >= 1`, and exact
+cancellation back to the literal raw row.  The resulting compensated finite
+common floor dominates `selectedFloor(K)` and remains below the computed
+`lambda(K)`.  Consequently the full-row comparison itself is now a proved
+reduction; the active branch is the quantitative estimate that its enhancement
+uniformly compensates `coeff(anchor, replica)^6`.  The alternate is still a
+spatial-volume family of many comparable low-spin rows.  Until one of those
+branches forces
 `(K + 1) * lambda(K)` to diverge, ray-mass tail zero, the assigned-ratio no-go
 consequence, a cofinal all-vector gap, physical scaling, continuum OS/GNS
 reconstruction, and the Clay-facing theorem all remain open.  The relevant
