@@ -153,6 +153,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- used bins <= K+1; sector <= (K+1)*load .... [PROVED necessary]
 |   |   |   |   |   |   +-- spin-labelled prefix -> exact root route .... [PROVED compiler]
 |   |   |   |   |   |   +-- central-face distributed assignment ......... [PROVED finite]
+|   |   |   |   |   |   +-- loop-erased prefix length <= sector size ..... [PROVED finite]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -957,14 +958,15 @@ failure.  No full-root audit is claimed.
 `BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.lean` inhabits the
 finite-cutoff compiler with a literal distributed choice.  It assigns each
 state to its represented central face-zero spin (using a totalized clamp that
-is proved inactive on every sector member), uses constructive positive-sector
-connectivity for the prefix to that uniform spin cube, and compiles the final
-vacuum spoke.  The resulting route's terminal source is exactly the indexed
+is proved inactive on every sector member), uses the canonical loop-erased
+positive-sector path for the prefix to that uniform spin cube, and compiles
+the final vacuum spoke.  The prefix length is bounded by the literal finite
+sector cardinality.  The resulting route's terminal source is exactly the indexed
 cube labelled by the source state's face-zero spin, and the generic decoder
 recovers that same label.  This proves existence of a geometrically meaningful
 finite assignment, but not cutoff-uniform sharing, avoidance of the vacuum
 inside prefixes, simplicity after spoke concatenation, or resistance load.
-Those are now the active producer obligations.  Its five printed declarations
+Those are now the active producer obligations.  Its six printed declarations
 use only `[propext, Quot.sound]`; the direct monitored source check and focused
 5,159-job one-worker build pass.  No full-root audit is claimed.
 

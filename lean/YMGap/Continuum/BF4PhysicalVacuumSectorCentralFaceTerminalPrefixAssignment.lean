@@ -29,7 +29,9 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4CentralLowerSpinCubePositiveRay
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalFanout
 open YMGap.Continuum.BF4PhysicalVacuumSectorRootSpokeSpinCubeTerminalAssignment
@@ -75,7 +77,7 @@ def centralFaceSpinTerminalPrefixAssignment
         (centralPhysicalFiniteStateAt w (Q'.le_of_lt hw) K 0 state 0) K
       spin_le := Nat.min_le_right _ _
     }, fun hstate _hne =>
-      centralPhysicalFiniteVacuumSector_positiveKernelConnected
+      centralPhysicalFiniteVacuumSectorSimplePositivePath
         w (Q'.le_of_lt hw) K 0 state
         (centralLowerSpinCubeIndex w (Q'.le_of_lt hw) K
           (Nat.min
@@ -100,6 +102,30 @@ theorem centralFaceSpinTerminalPrefixAssignment_terminalSpin
     centralPhysicalFiniteStateAt w (Q'.le_of_lt hw) K 0 state 0
   exact Nat.min_eq_left
     (centralPhysicalFiniteStateAt_faceZero_le_cutoff (hw := hw) hstate)
+
+/-- The selected prefix is the canonical loop-erased finite-sector path, so
+its displayed length is bounded by the finite sector cardinality.  This bound
+is exact at finite cutoff but is not cutoff-uniform. -/
+theorem centralFaceSpinTerminalPrefix_edgeLength_le_sector
+    {w : Q'} (hw : (0 : Q') < w) {K state : Nat}
+    (hstate : state ∈ centralPhysicalFiniteVacuumSectorIndices
+      w (Q'.le_of_lt hw) K 0)
+    (hne : state ≠ 0) :
+    PositiveKernelChainIn.edgeLength
+        ((centralFaceSpinTerminalPrefixAssignment hw K).prefixPath
+          state hstate hne) ≤
+      (centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) K 0).length := by
+  unfold CentralPhysicalFiniteVacuumSectorSpinCubeTerminalPrefixAssignmentAt.prefixPath
+    centralFaceSpinTerminalPrefixAssignment
+  exact centralPhysicalFiniteVacuumSectorSimplePositivePath_edgeLength_le
+    w (Q'.le_of_lt hw) K 0 state
+    (centralLowerSpinCubeIndex w (Q'.le_of_lt hw) K
+      (Nat.min
+        (centralPhysicalFiniteStateAt w (Q'.le_of_lt hw) K 0 state 0) K))
+    hstate
+    (centralLowerSpinCubeIndex_mem_vacuumSector hw
+      (Nat.min_le_right _ _))
 
 /-! ## 3. Exact terminal source and decoded spin -/
 
@@ -141,6 +167,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment
   YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.centralFaceSpinTerminalPrefixAssignment
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.centralFaceSpinTerminalPrefixAssignment_terminalSpin
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.centralFaceSpinTerminalPrefix_edgeLength_le_sector
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.centralFaceSpinRouting_terminalSource
 #print axioms
