@@ -279,6 +279,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-carrier amplitude factor ..... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-boundary bound <-> posterior floor [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- same-volume projective posterior window [PROVED]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- projective x volume-comparison compiler [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- fixed-to-growing marginal factor ...... [ACTIVE / tail-sensitive]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1395,6 +1398,34 @@ or exhibit a positive retained boundary on which its posterior vanishes (or
 decays too quickly), thereby refuting the coarse repair route.  No posterior
 floor is inhabited by the translation theorem itself.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairBoundaryPosteriorProjective.lean`
+audits whether the existing projective-amplitude machinery supplies that
+floor.  The normalized-projective theorem does give the sharp same-volume
+window
+
+```text
+growing reference marginal
+  <= (65/64) * P(growing reference | boundary).
+```
+
+It does **not** replace the fixed slice-zero marginal on the left.  The new
+two-factor compiler therefore keeps the missing comparison explicit:
+
+```text
+fixed spin-one marginal
+  <= D * growing reference marginal
+  <= D * (65/64) * P(growing reference | boundary).
+```
+
+At the matched level, the repository's full half-amplitude cross-ratio field
+supplies the projective factor, but only after it is paired with the earlier
+`MatchedDyadicLowSpinGrowingVolumeRayDomination`.  That comparison already
+implies the located matched ray-mass tail-zero consequence, so projective
+mixing does not evade the existing tail-sensitive bottleneck.  The useful
+remaining fork is therefore honest: either prove the fixed-to-growing factor
+by a route compatible with the desired cofinal conclusion, or directly test
+the reference posterior support and refute this coarse repair producer.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1440,6 +1471,11 @@ successfully in a focused 5,214-job build.
 The exact finite and matched translations between the positive-boundary
 cross-bound and the growing-reference posterior floor complete successfully
 in a focused 5,215-job build.
+The normalized-projective same-volume window, its honest two-factor coarse
+repair compiler, and the adapter from the existing matched half-amplitude
+projective package complete successfully in a focused 5,216-job build.  This
+compiler retains, rather than hides, the fixed-to-growing comparison and its
+known tail-zero cost.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
