@@ -75,6 +75,93 @@ theorem weightedDirectedEdgeLoad_nonnegative
   · rw [if_neg heq]
     exact Q'.le_refl' 0
 
+/-- A duplicate-free directed-edge list charges any one edge at most once
+when every occurrence carries unit load. -/
+theorem weightedDirectedEdgeLoad_unitMap_le_one_of_nodup
+    {State : Type} [DecidableEq State]
+    (edges : List (State × State)) (hnodup : edges.Nodup)
+    (source target : State) :
+    weightedDirectedEdgeLoad
+        (edges.map (fun edge => (edge, (1 : Q')))) source target ≤ 1 := by
+  have heq :
+      weightedDirectedEdgeLoad
+          (edges.map (fun edge => (edge, (1 : Q')))) source target ≈
+        if (source, target) ∈ edges then 1 else 0 := by
+    induction edges with
+    | nil => exact Q'.eqv_refl 0
+    | cons edge rest ih =>
+        have hparts := List.nodup_cons.mp hnodup
+        simp only [weightedDirectedEdgeLoad, List.map_cons, listQSum,
+          weightedDirectedEdgeIndicator]
+        by_cases hhead : edge = (source, target)
+        · rw [if_pos hhead]
+          have hnotmem : (source, target) ∉ rest := by
+            intro hmem
+            exact hparts.1 (hhead ▸ hmem)
+          have hmem : (source, target) ∈ edge :: rest :=
+            List.mem_cons.mpr (Or.inl hhead.symm)
+          rw [if_pos hmem]
+          have htail :
+              weightedDirectedEdgeLoad
+                  (rest.map (fun traversed => (traversed, (1 : Q'))))
+                  source target ≈ 0 :=
+            Q'.eqv_trans _
+              (if (source, target) ∈ rest then 1 else 0) _
+              (ih hparts.2)
+              (by rw [if_neg hnotmem]; exact Q'.eqv_refl 0)
+          change 1 + weightedDirectedEdgeLoad
+              (rest.map (fun traversed => (traversed, (1 : Q'))))
+              source target ≈ 1
+          exact Q'.eqv_trans _ (1 + 0) _
+            (Q'.add_eqv_congr_left 1 _ _ htail)
+            (Q'.eqv_of_eq (Q'.add_zero' 1))
+        · rw [if_neg hhead]
+          have hne : (source, target) ≠ edge := fun hedge => hhead hedge.symm
+          by_cases htailMem : (source, target) ∈ rest
+          · have hmem : (source, target) ∈ edge :: rest :=
+              List.mem_cons_of_mem edge htailMem
+            rw [if_pos hmem]
+            have htail :
+                weightedDirectedEdgeLoad
+                    (rest.map (fun traversed => (traversed, (1 : Q'))))
+                    source target ≈ 1 :=
+              Q'.eqv_trans _
+                (if (source, target) ∈ rest then 1 else 0) _
+                (ih hparts.2)
+                (by rw [if_pos htailMem]; exact Q'.eqv_refl 1)
+            change 0 + weightedDirectedEdgeLoad
+                (rest.map (fun traversed => (traversed, (1 : Q'))))
+                source target ≈ 1
+            exact Q'.eqv_trans _ (0 + 1) _
+              (Q'.add_eqv_congr_left 0 _ _ htail)
+              (Q'.eqv_of_eq (Q'.zero_add' 1))
+          · have hnotmem : (source, target) ∉ edge :: rest := by
+              intro hmem
+              rcases List.mem_cons.mp hmem with hedge | hrest
+              · exact hne hedge
+              · exact htailMem hrest
+            rw [if_neg hnotmem]
+            have htail :
+                weightedDirectedEdgeLoad
+                    (rest.map (fun traversed => (traversed, (1 : Q'))))
+                    source target ≈ 0 :=
+              Q'.eqv_trans _
+                (if (source, target) ∈ rest then 1 else 0) _
+                (ih hparts.2)
+                (by rw [if_neg htailMem]; exact Q'.eqv_refl 0)
+            change 0 + weightedDirectedEdgeLoad
+                (rest.map (fun traversed => (traversed, (1 : Q'))))
+                source target ≈ 0
+            exact Q'.eqv_trans _ (0 + 0) _
+              (Q'.add_eqv_congr_left 0 _ _ htail)
+              (Q'.eqv_of_eq (Q'.zero_add' 0))
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv heq) ?_
+  by_cases hmem : (source, target) ∈ edges
+  · rw [if_pos hmem]
+    exact Q'.le_refl' 1
+  · rw [if_neg hmem]
+    decide
+
 private theorem q_nonpos_of_not_pos_local {q : Q'}
     (hnot : ¬ (0 : Q') < q) : q ≤ 0 := by
   show q.num * (1 : Int) ≤ (0 : Int) * (q.den : Int)
@@ -454,6 +541,8 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad
 
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.weightedDirectedEdgeLoad_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.weightedDirectedEdgeLoad_unitMap_le_one_of_nodup
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.exists_occurrence_of_weightedDirectedEdgeLoad_pos
 #print axioms

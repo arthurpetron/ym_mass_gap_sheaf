@@ -158,6 +158,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- loop erasure => simple, nonvacuum predecessor . [PROVED finite]
 |   |   |   |   |   |   +-- normalized used bins <= K excited cubes ....... [PROVED exact]
 |   |   |   |   |   |   +-- exact-routing cofinal load interface ........... [PROVED reduction]
+|   |   |   |   |   |   +-- simplicity removes edge multiplicity ........... [PROVED exact]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -1021,6 +1022,22 @@ two uniform bounds remains the active producer.  The four printed compiler
 and consequence declarations use only `[propext, Quot.sound]`; the direct
 monitored source check and focused 5,163-job one-worker build pass.  No
 full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceSimpleStateLoadCompiler.lean`
+uses the normalized route's vertex simplicity to remove a redundant
+multiplicity burden.  A new reusable low-level lemma proves that a
+duplicate-free directed-edge list has unit-weight load at most one on every
+edge.  Therefore one state's exact multiplicity-aware edge contribution is
+at most its whole route load, namely twice its stationary weight times the
+route resistance.  The specialized cofinal producer now needs only uniform
+edge-user sharing and a uniform whole-route state-load bound; these compile
+to the preceding exact-routing interface and its `K`-bin cardinality
+consequence.  Those two uniform estimates remain open.  The new low-level
+lemma uses only `[propext]`; the five printed specialized declarations use at
+most `[propext, Quot.sound]`; both direct monitored source checks pass.
+The low-level target passed a focused 4,897-job one-worker build, and the
+specialized module passed a focused 5,164-job one-worker build.  No full-root
+audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
