@@ -283,7 +283,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- projective x volume-comparison compiler [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [ACTIVE / tail-sensitive]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- one zero-support boundary => no floor .. [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- construct retained positive zero-support boundary [ACTIVE geometric test]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- isolated reference = source x vacuum ... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- reference support subset vacuum support . [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- positive retained boundary outside vacuum [ACTIVE transport test]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1441,6 +1443,24 @@ proved no-go compiler only: constructing the geometric boundary witness (or
 instead proving it cannot exist with a quantitative uniform support floor)
 is the active test.
 
+`BF4LowSpinGrowingVolumeHalfAmplitudeFactorization.lean` now sharpens that
+test at every cutoff `K >= 1`, volume, coupling, selected low-spin source, and
+boundary.  The selected growing source cube is strictly below the reflection
+interface and is link-separated from the boundary completion, so its physical
+half amplitude factors exactly as
+
+```text
+A(selected low-spin source, boundary)
+  = lowerFactor(selected source) * A(vacuum, boundary).
+```
+
+Hence the growing reference boundary support is contained in the vacuum-row
+support: every boundary on which the vacuum half amplitude vanishes also
+kills the growing reference half amplitude.  The remaining geometric test is
+therefore precise: transport or construct a retained boundary whose total
+amplitude is positive while its vacuum-row amplitude is zero.  This support
+inclusion alone neither constructs that boundary nor proves a posterior floor.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1493,6 +1513,8 @@ compiler retains, rather than hides, the fixed-to-growing comparison and its
 known tail-zero cost.
 The exact finite and matched support-mismatch no-go compilers also complete
 successfully in a focused 5,216-job build.
+The arbitrary-cutoff isolated-source half-amplitude factorization and vacuum-
+support inclusion complete successfully in a focused 5,217-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
