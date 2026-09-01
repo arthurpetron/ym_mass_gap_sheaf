@@ -92,6 +92,33 @@ theorem edgeLength_ofSupportedWalk
       rfl
 
 /-- Converting a supported Boolean walk to a positive-kernel chain preserves
+its literal vertex sequence exactly. -/
+theorem vertices_ofSupportedWalk
+    {State : Type} [DecidableEq State]
+    (adjacent : State → State → Bool)
+    (kernel : State → State → Q') (support : List State)
+    (edgePositive : ∀ first next,
+      first ∈ support → next ∈ support →
+      adjacent first next = true → (0 : Q') < kernel first next) :
+    ∀ {first last : State} (hfirst : first ∈ support)
+      (path : FiniteBoolGraphSimplePaths.Walk
+        (supportedEdge adjacent support) first last),
+      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.vertices
+          (ofSupportedWalk adjacent kernel support edgePositive hfirst path) =
+        FiniteBoolGraphSimplePaths.Walk.vertices path
+  | _, _, _, FiniteBoolGraphSimplePaths.Walk.single _ => rfl
+  | first, _, hfirst,
+      FiniteBoolGraphSimplePaths.Walk.cons hedge rest => by
+      have hparts := (Bool.and_eq_true _ _).mp hedge
+      have hnext : rest.start ∈ support := of_decide_eq_true hparts.2
+      simp only [ofSupportedWalk,
+        BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.vertices,
+        FiniteBoolGraphSimplePaths.Walk.vertices]
+      exact congrArg (List.cons first)
+        (vertices_ofSupportedWalk adjacent kernel support edgePositive
+          hnext rest)
+
+/-- Converting a supported Boolean walk to a positive-kernel chain preserves
 its literal directed-edge list exactly. -/
 theorem directedEdges_ofSupportedWalk
     {State : Type} [DecidableEq State]
@@ -303,6 +330,8 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.edgeLength_ofSupportedWalk
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.vertices_ofSupportedWalk
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.directedEdges_ofSupportedWalk
 #print axioms

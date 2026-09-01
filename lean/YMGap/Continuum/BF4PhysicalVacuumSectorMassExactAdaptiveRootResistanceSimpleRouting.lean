@@ -151,6 +151,23 @@ theorem centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_directedEdges_no
       (centralPhysicalFiniteVacuumSectorSupportedWalkOfPositivePath
         hleft path)).nodup
 
+/-- Loop erasure produces the stronger vertex-simple normal form, not merely
+a duplicate-free directed-edge list. -/
+theorem centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_vertices_nodup
+    {w : Q'} {hw : (0 : Q') ≤ w} {K left right : Nat}
+    (hleft : left ∈ centralPhysicalFiniteVacuumSectorIndices w hw K 0)
+    (path : PositiveKernelChainIn
+      (centralPhysicalFiniteKernel w hw K 0)
+      (centralPhysicalFiniteVacuumSectorIndices w hw K 0)
+      left right) :
+    (PositiveKernelChainIn.vertices
+      (centralPhysicalFiniteVacuumSectorLoopErasedPositivePath hleft path)).Nodup := by
+  unfold centralPhysicalFiniteVacuumSectorLoopErasedPositivePath
+  rw [BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.vertices_ofSupportedWalk]
+  exact (Walk.eraseLoops
+    (centralPhysicalFiniteVacuumSectorSupportedWalkOfPositivePath
+      hleft path)).nodup
+
 /-! ## 3. Resistance cannot increase under loop erasure -/
 
 def positiveEdgeResistance {State : Type}
@@ -397,6 +414,17 @@ theorem loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_direct
   exact centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_directedEdges_nodup
     hleft (routing.path left right hleft hright)
 
+theorem loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_vertices_nodup
+    {w : Q'} {hw : (0 : Q') ≤ w} {K left right : Nat}
+    (routing : CentralPhysicalFiniteVacuumSectorPositiveRoutingAt w hw K)
+    (hleft : left ∈ centralPhysicalFiniteVacuumSectorIndices w hw K 0)
+    (hright : right ∈ centralPhysicalFiniteVacuumSectorIndices w hw K 0) :
+    (PositiveKernelChainIn.vertices
+      ((loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt routing).path
+        left right hleft hright)).Nodup := by
+  exact centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_vertices_nodup
+    hleft (routing.path left right hleft hright)
+
 theorem loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_resistance_le
     {w : Q'} {hw : (0 : Q') ≤ w} {K left right : Nat}
     (routing : CentralPhysicalFiniteVacuumSectorPositiveRoutingAt w hw K)
@@ -423,13 +451,13 @@ structure FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBou
   routing : ∀ K, start ≤ K →
     CentralPhysicalFiniteVacuumSectorPositiveRoutingAt
       w (Q'.le_of_lt hw) K
-  path_directedEdges_nodup : ∀ K, (hK : start ≤ K) →
+  path_vertices_nodup : ∀ K, (hK : start ≤ K) →
     ∀ left right
       (hleft : left ∈ centralPhysicalFiniteVacuumSectorIndices
         w (Q'.le_of_lt hw) K 0)
       (hright : right ∈ centralPhysicalFiniteVacuumSectorIndices
         w (Q'.le_of_lt hw) K 0),
-      (PositiveKernelChainIn.directedEdges
+      (PositiveKernelChainIn.vertices
         ((routing K hK).path left right hleft hright)).Nodup
   flowLoad_le : ∀ K, (hK : start ≤ K) → ∀ source target,
     centralPhysicalFiniteVacuumSectorRoutedRootResistanceFlowLoad
@@ -510,8 +538,8 @@ def toSimple
   routing := fun K hK =>
     loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
       (family.routing K hK)
-  path_directedEdges_nodup := fun K hK left right hleft hright =>
-    loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_directedEdges_nodup
+  path_vertices_nodup := fun K hK left right hleft hright =>
+    loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_vertices_nodup
       (family.routing K hK) hleft hright
   flowLoad_le := fun K hK source target => by
     exact Q'.le_trans' _ _ _
@@ -530,6 +558,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimple
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_directedEdges_nodup
 #print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_vertices_nodup
+#print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_resistance_le
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.centralPhysicalFiniteVacuumSectorRoutedRootResistanceStateEdgeLoad_loopErased_le
@@ -537,6 +567,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimple
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.centralPhysicalFiniteVacuumSectorRoutedRootResistanceFlowLoad_loopErased_le
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_directedEdges_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_vertices_nodup
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_resistance_le
 #print axioms

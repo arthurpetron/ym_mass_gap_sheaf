@@ -99,9 +99,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- adaptive multiplicity-aware edge tail .......... [PROVED]
 |   |   |   +-- adaptive edge-user count <= local congestion ... [PROVED diagnostic]
 |   |   |   +-- adaptive loop erasure preserves edge sublists .. [PROVED]
-|   |   |   +-- simple-routing normalization, same flow bound ... [PROVED reduction]
+|   |   |   +-- vertex-simple normalization, same flow bound .... [PROVED reduction]
 |   |   |   +-- named simple cofinal certificate + translations  [PROVED interface]
-|   |   |   +-- simple bounded-sharing routing / weighted tail . [ACTIVE]
+|   |   |   +-- literal positive terminal root spoke per state .. [PROVED]
+|   |   |   +-- terminal-spoke fiber <= local congestion ........ [PROVED diagnostic]
+|   |   |   +-- bounded positive-spoke fanout + weighted tail ... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -199,27 +201,42 @@ total adaptive flow load is exactly the literal tail over route users.
 Constructive loop erasure now proves that repeated-edge multiplicity is not
 an intrinsic analytic obligation.  Every supplied positive BF4 route is
 converted to a support-aware walk, loop-erased, and converted back; the new
-directed-edge list is an order-preserving sublist of the old list, is
-duplicate-free, and has no larger resistance.  Hence every state-edge load
-and the total flow load weakly decrease.  In particular, any cofinal adaptive
-congestion certificate normalizes to simple routes with the same bound.
+vertex list is duplicate-free, its directed-edge list is an order-preserving
+sublist of the old list, and its resistance is no larger.  Hence every
+state-edge load and the total flow load weakly decrease.  In particular, any
+cofinal adaptive congestion certificate normalizes to vertex-simple routes
+with the same bound.
 The reduced producer is now a named Lean structure, not merely prose:
 `FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound`
 requires one start cutoff, one nonnegative cutoff-independent rational bound,
-duplicate-free positive routes at every later cutoff, and the exact uniform
+vertex-simple positive routes at every later cutoff, and the exact uniform
 flow-load inequality.  Forgetting simplicity sends it to the existing
 adaptive all-vector-gap interface, while constructive loop erasure sends any
 adaptive certificate back to this simple certificate without changing the
 start or bound.  Thus this simple-routing contract has exactly the producer
 strength already consumed downstream; it introduces no stronger hidden
 obligation.
+
+The terminal-root audit now makes one further necessary condition literal.
+Every non-vacuum selected route has a constructively extracted final source
+`u`, the edge `(u, 0)` occurs in the route, `u` lies in the physical vacuum
+sector, and the BF4 kernel on that root spoke is strictly positive.  Filtering
+states by this terminal source gives a duplicate-free fiber contained in the
+nonzero users of `(u, 0)`.  Its rational cardinality is therefore bounded by
+the exact routed resistance flow load on that edge, and by the common family
+bound whenever the named simple cofinal certificate is supplied.  Thus a
+uniform route family must expose enough positive root spokes to absorb the
+growing non-vacuum sector with uniformly bounded terminal fibers, in addition
+to controlling the weighted resistance tail along earlier edges.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
 lossless route choice available, but do not supply the missing BF4-local
-bounded-sharing route.  Constructing a simple routing with uniform sharing
-and resistance control, or proving the corresponding weighted tail directly
-for the canonical simple route, is the active causal edge.  A
+positive-spoke fanout or bounded-sharing route.  Constructing such a routing
+with uniform sharing and resistance control, or proving the corresponding
+weighted tail directly for the canonical simple route, is the active causal
+edge.  A
 translated/separating family of guarded events with
 quantitative conductance, path-Poincare, or tensorization remains an
 alternative producer route.  The already formalized fixed-nome

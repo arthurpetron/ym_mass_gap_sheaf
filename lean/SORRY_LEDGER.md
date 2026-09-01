@@ -28313,3 +28313,40 @@ resistance lemma use only `[propext, Quot.sound]`.  No full-root audit is
 claimed: a monitored `YMGap` root-import build was safely stopped when
 available memory reached the configured 12 GiB reserve, with no Lean error
 reported before the guard fired.
+
+#### Simple BF4 root routing now exposes its terminal-fanout obligation (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting` now
+records the full vertex list of every positive route.  Constructive loop
+erasure produces a route whose vertices are duplicate-free, whose directed
+edges form an order-preserving sublist of the original route, and whose
+resistance and every edge load do not increase.  The named cofinal simple
+certificate therefore asks for vertex-simple routes and is equivalent, by
+forgetting simplicity or loop erasure, to the adaptive congestion interface
+already consumed by the all-vector gap compiler.
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalFanout` then
+extracts the literal final predecessor `u` of the vacuum root from every
+non-vacuum selected route and proves
+
+```text
+(u, 0) occurs in the selected route,
+kernel(u, 0) > 0,
+terminalFiber(u) is contained in the nonzero users of (u, 0),
+Q'.ofNat terminalFiber(u).length <= routedFlowLoad(u, 0).
+```
+
+Consequently any supplied cutoff-independent simple congestion certificate
+bounds every terminal-root fiber by its common scalar.  A viable producer
+must therefore construct sufficiently many positive root spokes with
+uniformly bounded terminal fibers, as well as control the weighted resistance
+tail on preceding edges.  This is a necessary fanout diagnostic, not the
+missing routing or analytic estimate; no cofinal gap, thermodynamic or
+continuum limit, continuum Yang--Mills theory, or Clay theorem is claimed.
+
+No `sorry` is introduced.  A generic terminal-kernel lemma and the new
+fanout file both pass direct monitored checks.  The focused
+dependency-complete target passes all 5,095 jobs; every printed load-bearing
+declaration uses only `[propext, Quot.sound]`.  An earlier interrupted direct
+check and a deliberately low-heartbeat diagnostic failure are not counted as
+passes.  No full-root audit is claimed.

@@ -36,6 +36,22 @@ local infix:50 " ≈ " => Q'.eqv
 
 namespace PositiveKernelChainIn
 
+/-- The literal vertex sequence of a positive-kernel chain, including both
+endpoints.  This is the vertex-level companion to `directedEdges`. -/
+def vertices
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    {first last : State} →
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+        kernel support first last → List State
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
+      [first]
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        _ _ rest =>
+      first :: vertices rest
+
 /-- The literal directed edges traversed by a positive-kernel chain, retaining
 duplicates and orientation. -/
 def directedEdges
@@ -51,6 +67,71 @@ def directedEdges
       BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
         (next := next) _ _ rest =>
       (first, next) :: directedEdges rest
+
+/-- Source vertex of the final directed edge.  On a reflexive path the
+fallback is its sole vertex; every nontrivial path returns the literal source
+of its terminal step. -/
+def terminalSource
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    {first last : State} →
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+        kernel support first last → State
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
+      first
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        _ _ rest =>
+      match rest with
+      | BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
+          first
+      | BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+          positive next_mem tail =>
+          terminalSource
+            (BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+              positive next_mem tail)
+
+/-- The extracted terminal source really supplies the final directed edge of
+every nontrivial positive-kernel chain. -/
+theorem terminalSource_mem_directedEdges_of_step
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    ∀ {first next last : State}
+      (positive : (0 : Q') < kernel first next)
+      (next_mem : next ∈ support)
+      (rest :
+        BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+          kernel support next last),
+      (terminalSource
+          (BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+            positive next_mem rest), last) ∈
+        directedEdges
+          (BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+            positive next_mem rest)
+  | _, _, _, positive, next_mem,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
+      List.mem_cons_self
+  | first, next, last, positive, next_mem,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        next_positive after_next_mem tail => by
+      simp only [terminalSource, directedEdges]
+      exact List.mem_cons_of_mem (first, next)
+        (terminalSource_mem_directedEdges_of_step
+          next_positive after_next_mem tail)
+
+theorem terminalSource_mem_directedEdges
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} {first last : State}
+    (path :
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+        kernel support first last)
+    (hne : first ≠ last) :
+    (terminalSource path, last) ∈ directedEdges path := by
+  cases path with
+  | refl state => exact False.elim (hne rfl)
+  | step positive next_mem rest =>
+      exact terminalSource_mem_directedEdges_of_step positive next_mem rest
 
 theorem directedEdges_length_eq_edgeLength
     {State : Type} {kernel : State → State → Q'}
@@ -72,6 +153,54 @@ theorem directedEdges_length_eq_edgeLength
         BF4PhysicalFiniteVacuumSectorPathLengthEnergy.PositiveKernelChainIn.edgeLength]
       exact congrArg (fun length => length + 1)
         (directedEdges_length_eq_edgeLength rest)
+
+/-- The source of every traversed edge occurs in the literal vertex list. -/
+theorem directedEdges_source_mem_vertices
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    ∀ {first last : State}
+      (path :
+        BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+          kernel support first last)
+      (edge : State × State),
+      edge ∈ directedEdges path → edge.1 ∈ vertices path
+  | _, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _,
+      edge, hedge => by
+      cases hedge
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        (next := next) _ _ rest,
+      edge, hedge => by
+      rcases List.mem_cons.mp hedge with hhead | htail
+      · rw [hhead]
+        exact List.mem_cons_self
+      · exact List.mem_cons_of_mem first
+          (directedEdges_source_mem_vertices rest edge htail)
+
+/-- A vertex-simple positive path cannot repeat a directed edge. -/
+theorem directedEdges_nodup_of_vertices_nodup
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    ∀ {first last : State}
+      (path :
+        BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+          kernel support first last),
+      (vertices path).Nodup → (directedEdges path).Nodup
+  | _, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _,
+      _ => List.nodup_nil
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        (next := next) positive next_mem rest,
+      hvertices => by
+      have hparts := List.nodup_cons.mp hvertices
+      apply List.nodup_cons.mpr
+      constructor
+      · intro hhead
+        exact hparts.1
+          (directedEdges_source_mem_vertices rest (first, next) hhead)
+      · exact directedEdges_nodup_of_vertices_nodup rest hparts.2
 
 /-- Every literal occurrence has both endpoints in the chain support. -/
 theorem directedEdges_mem_support
@@ -119,6 +248,20 @@ theorem directedEdges_kernel_pos
       · subst edge
         exact positive
       · exact directedEdges_kernel_pos rest edge htail
+
+/-- The final source of every nontrivial chain carries the strict kernel
+positivity of its literal terminal edge.  Keeping this generic avoids forcing
+large concrete kernels through definitional normalization at use sites. -/
+theorem terminalSource_kernel_pos
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} {first last : State}
+    (path :
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+        kernel support first last)
+    (hne : first ≠ last) :
+    (0 : Q') < kernel (terminalSource path) last :=
+  directedEdges_kernel_pos path _
+    (terminalSource_mem_directedEdges path hne)
 
 /-- The recursive linear energy is exactly the sum over the literal directed
 edge-occurrence list. -/
@@ -219,9 +362,15 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_length_eq_edgeLength
 #print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.terminalSource_mem_directedEdges
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_nodup_of_vertices_nodup
+#print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_mem_support
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_kernel_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.terminalSource_kernel_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.linearEnergy_eqv_directedEdges_sum
 #print axioms
