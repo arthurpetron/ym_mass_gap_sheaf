@@ -221,9 +221,16 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- partition pays the same linear floor .. [PROVED]
 |   |   |   |   |   |       |       |       |   +-- absolute-floor fraction <= 1 .......... [PROVED obstruction]
 |   |   |   |   |   |       |       |       |   +-- arbitrary-volume ratio compiler ....... [PROVED]
-|   |   |   |   |   |       |       |       |   +-- literal low-spin compiler instance ..... [PROVED]
-|   |   |   |   |   |       |       |       |   +-- reference marginal <= 1/effective ...... [PROVED]
-|   |   |   |   |   |       |       |       |   `-- asymptotic ratio-floor control ......... [ACTIVE]
+|   |   |   |   |   |       |       |       |   +-- fixed slice-zero reference branch
+|   |   |   |   |   |       |       |       |   |   +-- literal compiler instance ........... [PROVED]
+|   |   |   |   |   |       |       |       |   |   +-- marginal <= 1/effective ............. [PROVED]
+|   |   |   |   |   |       |       |       |   |   `-- asymptotic ratio-floor control ...... [ACTIVE]
+|   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
+|   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
+|   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
+|   |   |   |   |   |       |       |       |       +-- effective multiplicity = volume+1 ... [PROVED]
+|   |   |   |   |   |       |       |       |       +-- adaptive marginal <= 1/(volume+1) ... [PROVED]
+|   |   |   |   |   |       |       |       |       `-- fixed observable/source identity ... [OPEN boundary]
 |   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
@@ -863,11 +870,31 @@ multiplicity is exactly
 ```
 
 and is strictly positive at every finite volume.  The compiler/interface
-work is closed.  The active analytic obligation is now sharply isolated:
-prove that this computed ratio floor decays slowly enough for the displayed
-product to diverge, most plausibly through exact time-translation symmetry,
-a boundary-uniform row Harnack comparison, or an equivalent complete-row
-transport theorem.
+work is closed on the fixed-reference branch.  Its active analytic obligation
+is sharply isolated: prove that this computed ratio floor decays slowly enough
+for the displayed product to diverge, most plausibly through exact
+time-translation symmetry, a boundary-uniform row Harnack comparison, or an
+equivalent complete-row transport theorem.
+
+`BF4LowSpinGrowingVolumeAdaptiveMinimumReplication.lean` proves a distinct
+finite-volume entropy branch.  A constructive rational finite arg-min chooses
+an actual member of the same low-spin replica list whose complete positive raw
+row is no larger than every replica row.  The generic compiler's clipped
+replica/reference ratio floor is then exactly one, so
+
+```text
+adaptiveEffectiveMultiplicity(w, volume) = volume + 1
+adaptiveReferenceMarginal(w, volume) <= 1 / (volume + 1).
+```
+
+This closes multiplicity divergence for the adaptively selected reference.
+It does not close the cofinal gap route: the arg-min state may vary with
+volume, and no theorem yet identifies it with the prescribed spin-cube ray,
+a fixed observable/source, a conductance bottleneck, or a common half-space
+event.  The live frontier therefore branches honestly.  The fixed slice-zero
+route still needs uniform complete-row comparison; the adaptive route needs a
+fixed-object identification or a gap/conductance theorem that can use the
+varying selected state without changing the physical claim.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
@@ -876,8 +903,9 @@ the obstruction target (5,196 jobs), the low-spin geometry target (720 jobs),
 the reflected-carrier target (736 jobs), and the raw-row-floor target (5,033
 jobs).  The aggregate raw-mass target also completes successfully (5,190
 jobs), as do the arbitrary-volume replication compiler (5,184 jobs) and its
-literal low-spin instance (5,192 jobs).  Printed load-bearing declarations
-use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+literal low-spin instance (5,192 jobs).  The adaptive minimum-row target
+completes successfully (5,193 jobs).  Printed load-bearing declarations use
+only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 

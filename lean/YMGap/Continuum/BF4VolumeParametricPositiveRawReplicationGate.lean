@@ -82,6 +82,21 @@ private theorem listQMinOne_le_selected_local {A : Type}
           (Q'.min_le_right' _ _)
           (listQMinOne_le_selected_local value tail htail)
 
+private theorem listQMinOne_eq_one_local {A : Type}
+    (value : A → Q') :
+    ∀ items : List A,
+      (∀ item, item ∈ items → value item = 1) →
+        listQMinOne value items = 1
+  | [], _ => rfl
+  | head :: tail, hone => by
+      unfold listQMinOne
+      rw [hone head List.mem_cons_self]
+      rw [listQMinOne_eq_one_local value tail
+        (fun item hitem =>
+          hone item (List.mem_cons_of_mem head hitem))]
+      unfold Q'.min'
+      split <;> rfl
+
 private theorem listQSum_const_local {A : Type} (constant : Q') :
     ∀ items : List A,
       listQSum (fun _item => constant) items ≈
@@ -213,6 +228,44 @@ theorem rawRowRatioFloor_le_clipped
   unfold rawRowRatioFloor
   exact listQMinOne_le_selected_local
     replication.clippedRawRowRatio replication.replicas hstate
+
+/-- If the selected reference raw row is no larger than every replica raw
+row, clipping makes every exact replica/reference ratio equal to one and the
+computed finite floor is exactly one. -/
+theorem rawRowRatioFloor_eq_one_of_reference_le
+    {w : Q'} {hw0 : (0 : Q') < w} {K half : Nat}
+    (replication : CentralPositiveRawReplicationListAt w hw0 K half)
+    (hrow : ∀ state, state ∈ replication.replicas →
+      centralPhysicalPositiveRawRowMass
+          w (Q'.le_of_lt hw0) K half replication.reference ≤
+        centralPhysicalPositiveRawRowMass
+          w (Q'.le_of_lt hw0) K half state) :
+    replication.rawRowRatioFloor = 1 := by
+  unfold rawRowRatioFloor
+  apply listQMinOne_eq_one_local
+  intro state hstate
+  have honeMul :
+      (1 : Q') *
+          centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K half replication.reference ≤
+        centralPhysicalPositiveRawRowMass
+          w (Q'.le_of_lt hw0) K half state := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.one_mul_eqv
+          (centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K half replication.reference)))
+      (hrow state hstate)
+  have hratio : (1 : Q') ≤ replication.rawRowRatio state := by
+    unfold rawRowRatio
+    exact Q'.le_divPos_of_mul_le
+      (centralPhysicalPositiveRawRowMass
+        w (Q'.le_of_lt hw0) K half state)
+      (centralPhysicalPositiveRawRowMass
+        w (Q'.le_of_lt hw0) K half replication.reference)
+      replication.referenceRawRow_pos honeMul
+  unfold clippedRawRowRatio Q'.min'
+  simp only [hratio, if_true]
 
 /-- Every selected replica row dominates the computed ratio floor times the
 common reference row. -/
@@ -409,6 +462,8 @@ end YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.rawRowRatioFloor_pos
 #print axioms
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.scaledReferenceRawRow_le_replica
+#print axioms
+  YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.rawRowRatioFloor_eq_one_of_reference_le
 #print axioms
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.effectiveMultiplicity_pos
 #print axioms
