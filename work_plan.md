@@ -142,7 +142,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- one common terminal spoke cofinally ............ [PROVED no-go]
 |   |   |   |   |   +-- distributed terminal-spoke producer ............ [ACTIVE design]
 |   |   |   |   |   |   +-- arbitrary-cutoff vacuum boundary delta ..... [PROVED]
-|   |   |   |   |   |   `-- surviving lower-state/root-spoke classifier  [ACTIVE]
+|   |   |   |   |   |   +-- raw root spoke <-> vacuum amplitude ........ [PROVED reduction]
+|   |   |   |   |   |   `-- surviving lower-state amplitude classifier . [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -825,6 +826,17 @@ positive; only after that classification can terminal-spoke growth be compared
 honestly with full-sector growth.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 1,144-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumRootSpokeAmplitudeReduction.lean` completes the exact
+kernel-level collapse behind that sparse-root audit.  For every retained lower
+state, the raw reflected kernel into the vacuum is equivalent to the positive
+all-vacuum boundary weight times the state's half-amplitude against that
+boundary.  At nonnegative coupling, a positive raw vacuum-root spoke is
+therefore equivalent to positivity of this single half-amplitude.  This is an
+exact classifier reduction, not yet a classification of the surviving states
+or a bound on their number.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused build
+pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
