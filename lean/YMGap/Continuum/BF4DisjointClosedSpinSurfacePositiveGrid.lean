@@ -285,6 +285,46 @@ theorem centralGridRowState_mem_centralPositiveHalfStates
     ⟨centralGridRowState_mem_centralHalfStates hfirstSpin hsecondSpin,
       centralGridRowMarginal_pos hw hfirstSpin hsecondSpin⟩
 
+/-- The reflected target selected by the same two-surface physical labelling
+also lies in the literal positive carrier.  This is the symmetric companion
+to `centralGridRowState_mem_centralPositiveHalfStates`. -/
+theorem centralGridTargetState_mem_centralPositiveHalfStates
+    {w : Q'} (hw : (0 : Q') < w)
+    {K firstSpin secondSpin : Nat}
+    (hfirstSpin : firstSpin ≤ K) (hsecondSpin : secondSpin ≤ K) :
+    centralGridTargetState firstSpin secondSpin ∈
+      centralPositiveHalfStates w (Q'.le_of_lt hw) K 0 := by
+  have hsourceHalf :=
+    centralGridRowState_mem_centralHalfStates hfirstSpin hsecondSpin
+  have htargetHalf :=
+    centralGridTargetState_mem_centralHalfStates hfirstSpin hsecondSpin
+  have hnormalized :
+      (0 : Q') < centralNormalizedPhysicalReflectedKernel
+        w (Q'.le_of_lt hw) K 0
+        (centralGridTargetState firstSpin secondSpin)
+        (centralGridRowState firstSpin secondSpin) := by
+    have hforward :=
+      centralGridNormalizedJoint_pos hw hfirstSpin hsecondSpin
+    have hsymm := centralNormalizedPhysicalReflectedKernel_symm
+      (w := w) (hw := Q'.le_of_lt hw)
+      hsourceHalf htargetHalf
+    exact Q'.pos_of_lt_of_le hforward (Q'.ge_of_eqv hsymm)
+  have hrow :
+      (0 : Q') < centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0
+        (centralGridTargetState firstSpin secondSpin) := by
+    unfold centralPhysicalRowMarginal
+    have hmember := listQSum_member_le
+      (centralNormalizedPhysicalReflectedKernel w (Q'.le_of_lt hw) K 0
+        (centralGridTargetState firstSpin secondSpin))
+      (fun target =>
+        centralNormalizedPhysicalReflectedKernel_nonnegative
+          (Q'.le_of_lt hw) K 0
+          (centralGridTargetState firstSpin secondSpin) target)
+      (centralHalfStates K 0) hsourceHalf
+    exact Q'.pos_of_lt_of_le hnormalized hmember
+  exact mem_centralPositiveHalfStates_iff.mpr ⟨htargetHalf, hrow⟩
+
 /-! ## 4. The two row coordinates are literal and injective -/
 
 theorem centralGridRowState_at_zero (firstSpin secondSpin : Nat) :
@@ -320,5 +360,7 @@ end YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid
   YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid.centralGridPhysicalReflectedKernel_pos
 #print axioms
   YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid.centralGridRowState_mem_centralPositiveHalfStates
+#print axioms
+  YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid.centralGridTargetState_mem_centralPositiveHalfStates
 #print axioms
   YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid.centralGridRowState_injective

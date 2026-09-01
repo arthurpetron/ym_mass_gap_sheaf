@@ -197,7 +197,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- growing injection R(K)=K+1 .......... [PROVED finite family]
 |   |   |   |   |   |       |       |       +-- computed lambda is capped row minimum [PROVED compiler]
 |   |   |   |   |   |       |       |       +-- pointwise row floor => lambda floor .. [PROVED reduction]
-|   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [ACTIVE analytic]
+|   |   |   |   |   |       |       |       +-- reflected grid target retained ....... [PROVED]
+|   |   |   |   |   |       |       |       +-- selected floor coeff(K)^6/C <= lambda  [PROVED anchor]
+|   |   |   |   |   |       |       |       +-- selected floor forces divergence ..... [NOT ESTABLISHED]
+|   |   |   |   |   |       |       |       +-- sharper full-row comparison .......... [ACTIVE analytic]
+|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [OPEN alternate]
+|   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1588,17 +1593,37 @@ The existing computed-floor compiler supplies a strictly positive rational
 rayMass(K) <= 1 / ((K + 1) * lambda(K)).
 ```
 
-This closes the geometric-growth producer.  It does not show that the product
-`(K + 1) * lambda(K)` diverges: `lambda(K)` is the capped finite minimum of the
-clipped target/source raw-row ratios and may still shrink with the cutoff.  The
-current causal edge is therefore analytic—derive a quantitative lower bound on
-this specific computed minimum, equivalently a common pointwise row comparison,
-strong enough to force effective-multiplicity divergence along the matched
-trajectory.  Until that is proved, ray-mass tail zero, the assigned-ratio
-no-go consequence, a cofinal all-vector gap, physical scaling, continuum
-OS/GNS reconstruction, and the Clay-facing theorem all remain open.  The
-three new modules pass direct monitored checks and focused one-worker builds;
-all printed load-bearing declarations use only `[propext, Quot.sound]`.  No
+`BF4GrowingGridSelectedTermRowFloor.lean` makes the first pointwise comparison
+quantitative.  Kernel symmetry retains the reflected grid target in the
+literal positive carrier.  The completed two-surface labelling is therefore a
+genuine raw-row summand, with exact face factor
+
+```text
+coeff(anchor, firstSpin)^6 * coeff(anchor, replica)^6.
+```
+
+Cancelling the first factor against the proved spin-cube row ceiling `C`
+gives the common selected-term floor
+
+```text
+selectedFloor(K) = min(1, coeff(anchor, K)^6 / C)
+selectedFloor(K) <= lambda(K)
+(K + 1) * selectedFloor(K) <= effectiveMultiplicity(K).
+```
+
+The highest replica is the worst selected-term witness by proved coefficient
+antitonicity.  This closes an honest quantitative subbranch, but not the
+geometric-growth endpoint: the displayed witness contains the high-spin
+coefficient and the current proof does not make its product with `K + 1`
+diverge.  The active choice is now sharper and explicit: either prove that the
+*full* target/source row ratio is much larger than this one selected summand,
+or replace cutoff-grown high-spin replicas by a spatial-volume family of many
+comparable low-spin rows.  Until one of those branches forces
+`(K + 1) * lambda(K)` to diverge, ray-mass tail zero, the assigned-ratio no-go
+consequence, a cofinal all-vector gap, physical scaling, continuum OS/GNS
+reconstruction, and the Clay-facing theorem all remain open.  The relevant
+modules pass direct monitored checks and focused one-worker builds; all
+printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
