@@ -115,6 +115,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full flow = direct-ray + off-ray flow ............ [PROVED exact]
 |   |   |   +-- off-ray flow = twice canonical off-ray flow ...... [PROVED exact]
 |   |   |   +-- canonical off-ray localized edge-load bound ...... [ACTIVE]
+|   |   |   |   +-- exact canonical path-length shell partition .. [PROVED]
+|   |   |   |   +-- geometric bound on each physical shell ....... [ACTIVE]
+|   |   |   |   +-- shell sum => full simple cofinal certificate . [PROVED reduction]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
@@ -328,6 +331,27 @@ preceding edges.  The already-proved global resistance-moment route cannot
 supply it because that moment grows with the nonempty off-ray carrier; the
 needed estimate must retain edge locality.
 
+That local load is now partitioned exactly by the edge length of the genuine
+canonical simple path from each edge-using off-ray source to the vacuum.  The
+path-length shell carrier is a literal filter of the actual off-ray edge-user
+list, and the finite shell range is bounded by the actual vacuum-sector
+carrier length plus one.  Thus there is no free sequence or surrogate state
+space in the reduction.  If constants `A`, `r`, and `H`, independent of the
+cutoff and directed edge, satisfy
+
+```text
+physicalShellLoad(n) <= A * r^n
+A + r * H <= H,
+```
+
+then exact shell partition followed by constructive finite geometric
+summation bounds every canonical off-ray local load by `H`.  Together with
+any cofinal ray-return capacity, this constructs the full vertex-simple
+cofinal routing certificate with bound `1 / delta + 2 * H`.  The remaining
+analytic theorem is therefore the displayed geometric estimate for the
+literal BF4 stationary-resistance shell loads.  Neither the exact partition
+nor the summation compiler proves that physical estimate.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
@@ -434,10 +458,13 @@ direct term plus a literal off-ray-fiber term.  More strongly, the total ray
 edge load has the same cutoff-independent anchor bound, the full routed flow
 splits into ray and off-ray pieces, and the off-ray piece is exactly twice the
 pre-existing canonical off-ray flow.  The current A4 edge is therefore one
-localized canonical off-ray edge-load estimate; it simultaneously pays the
-extra terminal demand and the preceding-edge tail.  B, C, and D remain
-unchanged until explicit physical scaling, continuum, and OS/GNS bridges are
-inhabited.
+localized canonical off-ray edge-load estimate.  The exact canonical
+path-length shell partition reduces it further to a uniform geometric bound
+on literal physical shell loads; the proved finite geometric compiler then
+pays both the extra terminal demand and the preceding-edge tail and produces
+the full simple cofinal routing certificate.  The geometric physical-shell
+estimate itself remains open.  B, C, and D remain unchanged until explicit
+physical scaling, continuum, and OS/GNS bridges are inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
 

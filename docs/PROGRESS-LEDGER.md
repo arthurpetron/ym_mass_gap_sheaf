@@ -20867,3 +20867,42 @@ moment does not provide such a local estimate.  Coupling, lattice-spacing,
 and volume uniformity, continuum measure construction, OS/GNS reconstruction,
 a positive continuum generator gap, continuum Yang--Mills theory, and the
 Clay mass gap remain open.
+
+## Canonical off-ray load now has an exact path-length shell reduction (2026-09-01)
+
+The direct-ray edge-load argument is now generic in a supplied cofinal ray
+capacity rather than tied to the strong-coupling anchor.  Combining such a
+capacity with any cofinal canonical off-ray congestion bound constructs the
+full vertex-simple direct-ray routing certificate, with the explicit common
+bound `1/delta + 2*offRayBound`.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceLengthShell` then defines the actual
+canonical root-path length of every off-ray state and filters the actual
+edge-user carrier into exact-length shells.  Every path length is at most the
+finite vacuum-sector carrier length, and constructive finite partition proves
+the exact identity
+
+```text
+canonical off-ray local edge load
+  = sum over actual path-length shells of their stationary-resistance load.
+```
+
+The named producer
+`FixedNomeCofinalSpinCubeOffRayRootResistanceLengthShellBound` requires one
+cutoff- and edge-independent geometric majorant `A*r^n` for those literal
+shell loads, together with a finite budget satisfying `A + r*H <= H`.
+Constructive geometric summation proves that this physical shell input bounds
+every local off-ray load by `H`, and then produces the full simple cofinal
+routing certificate.  This is not a free proxy sequence: the bounded terms
+are definitionally tied to the genuine BF4 states, canonical paths,
+stationary weights, and path resistances.
+
+The direct source checks and the dependency-complete shell target pass; the
+latter covers 5103 jobs.  Every newly audited declaration uses only
+`[propext, Quot.sound]`, and the root aggregator imports the shell module.  No
+full-root audit is claimed.
+
+The open analytic theorem is the uniform geometric bound on the literal
+physical shell loads.  No such estimate, completed cofinal gap, physical
+scaling bridge, continuum construction, OS/GNS reconstruction, or Clay
+theorem is claimed.

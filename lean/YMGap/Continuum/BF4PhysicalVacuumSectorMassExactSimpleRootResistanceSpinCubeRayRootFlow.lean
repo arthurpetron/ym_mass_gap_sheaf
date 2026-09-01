@@ -7,10 +7,13 @@ demand as a finite weighted occurrence list.  Its directed edge keys are
 duplicate-free, so the load on any fixed edge is bounded by the largest one
 spoke demand rather than by the number of spins.
 
-At the concrete strong-coupling anchor, the existing return floor therefore
-bounds the complete ray contribution on every directed edge by the same
-cutoff-independent reciprocal-delta constant.  This says nothing yet about
-the off-ray traffic or the resistance of its preceding edges.
+Any cofinal spin-ray capacity therefore bounds the complete ray contribution
+on every directed edge by the same cutoff-independent reciprocal-delta
+constant; the concrete strong-coupling anchor is one specialization.  The
+full routed flow then splits exactly into that ray contribution and twice the
+pre-existing canonical off-ray flow.  A cofinal bound on the latter constructs
+the complete vertex-simple routing certificate, but no such off-ray bound is
+inhabited here.
 
 No `Classical`, choice, `native_decide`, `sorry`, new axiom, or noncomputable
 declaration is used.
@@ -34,6 +37,7 @@ open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorResistanceCauchy
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
+open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFrontier
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
@@ -346,7 +350,53 @@ theorem centralLowerExcitedSpinCubeDirectRootResistanceFlowLoad_eqv_routedRaySta
     (centralLowerExcitedSpinCubeIndex_routedRootResistanceStateEdgeLoad_eqv_indicator
       hw hoffset source target)
 
-/-! ## 4. Uniform anchor load on every directed edge -/
+/-! ## 4. A cofinal ray capacity bounds the complete ray edge load -/
+
+namespace FixedNomeCofinalSpinCubeRayCapacity
+
+theorem directRootResistanceDemandAt_le_reciprocalDelta
+    {w : Q'} {hw : (0 : Q') < w}
+    (capacity : FixedNomeCofinalSpinCubeRayCapacity hw)
+    (K : Nat) (hK : capacity.start ≤ K) (offset : Nat) :
+    centralLowerExcitedSpinCubeDirectRootResistanceDemandAt
+        hw K offset ≤
+      Q'.divPos 1 capacity.delta capacity.delta_pos := by
+  unfold centralLowerExcitedSpinCubeDirectRootResistanceDemandAt
+  by_cases hoffset : offset < K
+  · rw [dif_pos hoffset]
+    exact
+      BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeDemand.FixedNomeCofinalSpinCubeRayCapacity.directRootResistanceDemand_le_reciprocalDelta
+        capacity K hK offset hoffset
+  · rw [dif_neg hoffset]
+    exact Q'.le_of_lt
+      (Q'.divPos_pos 1 capacity.delta capacity.delta_pos (by decide))
+
+/-- The number of visible ray spokes does not enter the local congestion:
+their directed keys are distinct, so a fixed edge sees at most one demand. -/
+theorem directRootResistanceFlowLoad_le_reciprocalDelta
+    {w : Q'} {hw : (0 : Q') < w}
+    (capacity : FixedNomeCofinalSpinCubeRayCapacity hw)
+    (K : Nat) (hK : capacity.start ≤ K) (source target : Nat) :
+    centralLowerExcitedSpinCubeDirectRootResistanceFlowLoad
+        hw K source target ≤
+      Q'.divPos 1 capacity.delta capacity.delta_pos := by
+  unfold centralLowerExcitedSpinCubeDirectRootResistanceFlowLoad
+  apply weightedDirectedEdgeLoad_le_of_keys_nodup
+  · exact Q'.le_of_lt
+      (Q'.divPos_pos 1 capacity.delta capacity.delta_pos (by decide))
+  · exact centralLowerExcitedSpinCubeDirectRootResistanceOccurrenceKeys_nodup
+      hw K
+  · intro occurrence hoccurrence
+    obtain ⟨offset, hoffset, rfl⟩ := List.mem_map.mp hoccurrence
+    exact ⟨
+      centralLowerExcitedSpinCubeDirectRootResistanceDemandAt_nonnegative
+        hw K offset,
+      directRootResistanceDemandAt_le_reciprocalDelta
+        capacity K hK offset⟩
+
+end FixedNomeCofinalSpinCubeRayCapacity
+
+/-! ## 5. Concrete anchor specialization -/
 
 theorem anchorDirectRootResistanceDemandAt_le_uniformBound
     (K offset : Nat) :
@@ -401,7 +451,7 @@ theorem anchorRoutedDirectRayStateEdgeLoadSum_le_uniformBound
           (w := anchorCoupling) (by decide) K source target)))
     (anchorDirectRootResistanceFlowLoad_le_uniformBound K source target)
 
-/-! ## 5. Exact full-flow split and the remaining off-ray load -/
+/-! ## 6. Exact full-flow split and the remaining off-ray load -/
 
 def centralLowerExcitedSpinCubeDirectRootOffRayResistanceFlowLoad
     {w : Q'} (hw : (0 : Q') < w) (K source target : Nat) : Q' :=
@@ -619,6 +669,79 @@ theorem anchorDirectRootResistanceFlowLoad_le_uniformBound_add_twice_canonicalOf
           anchorCentralSpinCubeCofinalRayCapacity.delta_pos)
         _ _ hoffRay))
 
+/-! ## 7. Generic cofinal assembly from ray and off-ray certificates -/
+
+namespace FixedNomeCofinalSpinCubeRayCapacity
+
+theorem directRootResistanceFlowLoad_le_reciprocalDelta_add_twice_canonicalOffRay
+    {w : Q'} {hw : (0 : Q') < w}
+    (capacity : FixedNomeCofinalSpinCubeRayCapacity hw)
+    (K : Nat) (hK : capacity.start ≤ K) (source target : Nat) :
+    centralPhysicalFiniteVacuumSectorRoutedRootResistanceFlowLoad
+        (centralLowerExcitedSpinCubeRayDirectRootRoutingAt hw K)
+        source target ≤
+      Q'.divPos 1 capacity.delta capacity.delta_pos +
+        (centralLowerExcitedSpinCubeOffRayRootResistanceFlowLoad
+            w (Q'.le_of_lt hw) K source target +
+          centralLowerExcitedSpinCubeOffRayRootResistanceFlowLoad
+            w (Q'.le_of_lt hw) K source target) := by
+  have hsplit :=
+    centralLowerExcitedSpinCubeDirectRootResistanceFlowLoad_eqv_ray_add_offRay
+      hw K source target
+  have hray := directRootResistanceFlowLoad_le_reciprocalDelta
+    capacity K hK source target
+  have hoffRay :=
+    centralLowerExcitedSpinCubeDirectRootOffRayResistanceFlowLoad_eqv_twice_canonical
+      hw K source target
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit)
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add hray
+        (Q'.le_refl'
+          (centralLowerExcitedSpinCubeDirectRootOffRayResistanceFlowLoad
+            hw K source target)))
+      (Q'.le_of_eqv
+        (Q'.add_eqv_congr_left
+          (Q'.divPos 1 capacity.delta capacity.delta_pos)
+          _ _ hoffRay)))
+
+end FixedNomeCofinalSpinCubeRayCapacity
+
+/-- A cofinal ray-return capacity and a cofinal canonical off-ray resistance
+bound construct the full simple direct-ray routing certificate. -/
+def fixedNomeCofinalSimpleRootResistanceCongestionBound_of_ray_offRay
+    {w : Q'} {hw : (0 : Q') < w}
+    (ray : FixedNomeCofinalSpinCubeRayCapacity hw)
+    (offRay :
+      FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound hw) :
+    FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+      hw where
+  start := max ray.start offRay.start
+  bound := Q'.divPos 1 ray.delta ray.delta_pos +
+    (offRay.bound + offRay.bound)
+  bound_nonnegative := Q'.zero_le_add _ _
+    (Q'.le_of_lt
+      (Q'.divPos_pos 1 ray.delta ray.delta_pos (by decide)))
+    (Q'.zero_le_add _ _ offRay.bound_nonnegative offRay.bound_nonnegative)
+  routing := fun K _hK =>
+    centralLowerExcitedSpinCubeRayDirectRootRoutingAt hw K
+  path_vertices_nodup := fun K _hK left right hleft hright =>
+    centralLowerExcitedSpinCubeRayDirectRootRoutingAt_path_vertices_nodup
+      hw K left right hleft hright
+  flowLoad_le := fun K hK source target => by
+    have hrayK : ray.start ≤ K :=
+      Nat.le_trans (Nat.le_max_left ray.start offRay.start) hK
+    have hoffRayK : offRay.start ≤ K :=
+      Nat.le_trans (Nat.le_max_right ray.start offRay.start) hK
+    have hbase :=
+      FixedNomeCofinalSpinCubeRayCapacity.directRootResistanceFlowLoad_le_reciprocalDelta_add_twice_canonicalOffRay
+        ray K hrayK source target
+    exact Q'.le_trans' _ _ _ hbase
+      (Q'.add_le_add
+        (Q'.le_refl' (Q'.divPos 1 ray.delta ray.delta_pos))
+        (Q'.add_le_add
+          (offRay.flowLoad_le K hoffRayK source target)
+          (offRay.flowLoad_le K hoffRayK source target)))
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow
 
 /-! ## Axiom audit -/
@@ -633,6 +756,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCube
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.centralLowerExcitedSpinCubeDirectRootResistanceFlowLoad_eqv_routedRayStateEdgeLoadSum
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.anchorDirectRootResistanceDemandAt_le_uniformBound
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.FixedNomeCofinalSpinCubeRayCapacity.directRootResistanceFlowLoad_le_reciprocalDelta
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.anchorDirectRootResistanceFlowLoad_le_uniformBound
 #print axioms
@@ -649,3 +774,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCube
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.centralLowerExcitedSpinCubeDirectRootOffRayResistanceFlowLoad_eqv_twice_canonical
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.anchorDirectRootResistanceFlowLoad_le_uniformBound_add_twice_canonicalOffRay
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.FixedNomeCofinalSpinCubeRayCapacity.directRootResistanceFlowLoad_le_reciprocalDelta_add_twice_canonicalOffRay
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow.fixedNomeCofinalSimpleRootResistanceCongestionBound_of_ray_offRay
