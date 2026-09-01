@@ -109,7 +109,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- inverse-kernel terminal-fiber demand <= load .... [PROVED diagnostic]
 |   |   |   +-- spin-ray direct demand uniformly bounded ........ [PROVED at anchor]
 |   |   |   +-- full routing fixes ray states to own spokes ..... [PROVED]
-|   |   |   +-- off-ray spoke assignment + demand/tail bound .... [ACTIVE]
+|   |   |   +-- each ray-spoke fiber has one ray occupant ........ [PROVED]
+|   |   |   +-- terminal demand = direct + off-ray demand ........ [PROVED exact]
+|   |   |   +-- off-ray terminal demand bound ................... [ACTIVE]
+|   |   |   +-- off-ray preceding-edge resistance tail .......... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -402,12 +405,14 @@ rate to a resistance-congestion problem.  On that route, the full finite
 sector has a constructive vertex-simple routing that sends every explicit
 excited spin-cube ray state down its own literal vacuum spoke; those ray
 terminal assignments are injective and their direct demands share the proved
-anchor bound.  The current A4 edge is therefore the off-ray residual: assign
-the remaining states with bounded extra terminal-spoke demand and bound the
-resistance traffic on preceding edges.  B, C, and D remain unchanged until
-explicit physical scaling, continuum, and OS/GNS bridges are inhabited.  This
-map should be refreshed whenever an `[ACTIVE]` edge closes or the critical
-path branches.
+anchor bound.  Each such spoke's terminal fiber has exactly one ray occupant,
+and its inverse-kernel demand splits exactly into the uniformly controlled
+direct term plus a literal off-ray-fiber term.  The current A4 edge is
+therefore the off-ray residual: bound those extra terminal-spoke demands and
+the resistance traffic on preceding edges.  B, C, and D remain unchanged
+until explicit physical scaling, continuum, and OS/GNS bridges are inhabited.
+This map should be refreshed whenever an `[ACTIVE]` edge closes or the
+critical path branches.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 

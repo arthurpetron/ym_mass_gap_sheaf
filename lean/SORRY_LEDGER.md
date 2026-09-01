@@ -28492,3 +28492,41 @@ conclusion remain open.
 No `sorry` is introduced.  The new file passes a direct monitored check and
 its dependency-complete target passes all 5,099 jobs.  All four printed
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Ray-spoke terminal fibers split exactly into direct and off-ray demand (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayFiber`
+upgrades the pointwise self-terminal theorem to an exact fiber statement.  A
+ray state belongs to the terminal fiber over another ray spoke precisely when
+their spin offsets agree.  Hence the ray-filtered part of the terminal fiber
+over spoke `offset` is a constructive permutation of the singleton containing
+that spoke's excited spin cube.  Every other fiber occupant lies in the
+literal off-ray carrier.
+
+For any terminal-demand summand, finite Boolean partition therefore gives
+
+```text
+sum over terminalFiber(spoke offset)
+  = summand(spinCube offset)
+      + sum over offRayTerminalFiber(spoke offset).
+```
+
+Specializing the summand to twice stationary mass divided by the root kernel
+proves that the full inverse-kernel fiber demand is exactly the already
+controlled direct spin-cube demand plus the off-ray fiber demand.  At the
+strong-coupling anchor this yields the concrete bound
+
+```text
+full terminal demand
+  <= reciprocalDelta + off-ray terminal demand.
+```
+
+Thus no second ray-state collision remains hidden in the terminal fibers.
+The unresolved terms are the cutoff-uniform off-ray terminal demand and the
+resistance traffic on preceding route edges.  The cofinal all-vector gap,
+scaling/volume uniformity, continuum measure, same-measure OS/GNS
+reconstruction, and Clay conclusion remain open.
+
+No `sorry` is introduced.  The new file passes a direct monitored check and
+its dependency-complete target passes all 5,100 jobs.  All six printed
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
