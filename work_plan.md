@@ -217,7 +217,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- exact ambient/slab reflected adapter . [PROVED]
 |   |   |   |   |   |       |       |       |   +-- volume+1 distinct reflected lower states [PROVED]
 |   |   |   |   |   |       |       |       |   +-- common positive raw-row floor ......... [PROVED]
-|   |   |   |   |   |       |       |       |   `-- reference-row / replication gate ..... [ACTIVE]
+|   |   |   |   |   |       |       |       |   +-- aggregate raw mass grows linearly ..... [PROVED]
+|   |   |   |   |   |       |       |       |   +-- partition pays the same linear floor .. [PROVED]
+|   |   |   |   |   |       |       |       |   +-- absolute-floor fraction <= 1 .......... [PROVED obstruction]
+|   |   |   |   |   |       |       |       |   +-- arbitrary-volume ratio compiler ....... [PROVED]
+|   |   |   |   |   |       |       |       |   +-- literal low-spin compiler instance ..... [PROVED]
+|   |   |   |   |   |       |       |       |   +-- reference marginal <= 1/effective ...... [PROVED]
+|   |   |   |   |   |       |       |       |   `-- asymptotic ratio-floor control ......... [ACTIVE]
 |   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
@@ -810,13 +816,68 @@ or an equivalent aggregate raw-mass theorem that feeds an honest replication
 gate.  The fixed-volume positive-replication compiler remains hard-coded to
 half-volume zero and cannot be reused silently.
 
+`BF4LowSpinGrowingVolumeAggregateRawMass.lean` now sums the pointwise floor
+over the duplicate-free selected family and injects that selected sum into
+the complete positive raw source budget.  It proves
+
+```text
+(coeffW(w,1)^6) * (volume + 1)
+  <= selected positive raw source mass
+  <= full positive raw source mass
+   = corrected-slab physical partition.
+```
+
+The corresponding aggregate absolute-floor fraction, obtained by dividing
+the first term by the physical partition, is therefore at most one.  This is
+a useful obstruction, not a loss: it proves that raw counting plus an
+absolute production floor cannot itself yield divergent normalized effective
+multiplicity, because the same selected rows force denominator growth.  The
+remaining low-spin analytic route must establish a target/source row ratio,
+an exact row symmetry, or another comparison that does not replace the
+reference row by the whole partition.
+
+`BF4VolumeParametricPositiveRawReplicationGate.lean` supplies the missing
+generic finite compiler at arbitrary cutoff and reflection half-volume.  Its
+input is one positive reference state and a nonempty duplicate-free list of
+positive replicas.  It constructively computes the minimum of the clipped
+exact replica/reference raw-row ratios, defines
+
+```text
+effectiveMultiplicity = replicaCount * computedRatioFloor,
+```
+
+and proves both
+
+```text
+referenceRawRow * effectiveMultiplicity <= physicalPartition
+referenceStationaryMarginal <= 1 / effectiveMultiplicity.
+```
+
+`BF4LowSpinGrowingVolumePositiveRawReplication.lean` instantiates that
+compiler with the literal slice-zero reference state and all `volume + 1`
+low-spin reflected replicas.  Therefore its computed finite effective
+multiplicity is exactly
+
+```text
+(volume + 1) * lowSpinCentralComputedRawRowRatioFloor(w, volume),
+```
+
+and is strictly positive at every finite volume.  The compiler/interface
+work is closed.  The active analytic obligation is now sharply isolated:
+prove that this computed ratio floor decays slowly enough for the displayed
+product to diverge, most plausibly through exact time-translation symmetry,
+a boundary-uniform row Harnack comparison, or an equivalent complete-row
+transport theorem.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
 the obstruction target (5,196 jobs), the low-spin geometry target (720 jobs),
 the reflected-carrier target (736 jobs), and the raw-row-floor target (5,033
-jobs).  Printed load-bearing declarations use only `[propext, Quot.sound]`.
-No full-root audit is claimed.
+jobs).  The aggregate raw-mass target also completes successfully (5,190
+jobs), as do the arbitrary-volume replication compiler (5,184 jobs) and its
+literal low-spin instance (5,192 jobs).  Printed load-bearing declarations
+use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
