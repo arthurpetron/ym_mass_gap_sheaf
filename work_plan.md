@@ -44,6 +44,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   `-- every literal cylinder member is successful ....... [PROVED]
 |   |
 |   +-- A4. Global contraction
+|   |   +-- generic complete-cell posterior interface ......... [OPEN / superseded]
+|   |   |       concrete guarded aggregate route below is stronger at this face
 |   |   +-- literal successful-event mass >= 1/4 .............. [PROVED]
 |   |   +-- unthinned connected-row residue <= 3/4 ............ [PROVED]
 |   |   +-- receiver-collision bridge ......................... [PROVED]
@@ -199,7 +201,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- pointwise row floor => lambda floor .. [PROVED reduction]
 |   |   |   |   |   |       |       |       +-- reflected grid target retained ....... [PROVED]
 |   |   |   |   |   |       |       |       +-- selected floor coeff(K)^6/C <= lambda  [PROVED anchor]
-|   |   |   |   |   |       |       |       +-- selected floor forces divergence ..... [NOT ESTABLISHED]
+|   |   |   |   |   |       |       |       +-- selected-term witness -> 0 ............ [PROVED diagnostic]
+|   |   |   |   |   |       |       |       |   so it cannot itself force divergence
 |   |   |   |   |   |       |       |       +-- sharper full-row comparison .......... [ACTIVE analytic]
 |   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [OPEN alternate]
 |   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [OPEN endpoint]
@@ -666,8 +669,50 @@ critical path branches.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
-**Status. PHYSICAL-MASS ENTROPY IS PROVED, AND POINTWISE LOAD DECAY HAS A
-SHELL-LOCAL UNIT LOWER-BOUND OBSTRUCTION.  ROUTING LOCALITY IS ACTIVE.**
+**Status. THE FINITE RECEIVER/CONTRACTION GOAL IS CLOSED BY THE CONCRETE
+GUARDED AGGREGATE ROUTE.  THE SELECTED GRID-TERM LOWER WITNESS HAS A LOCATED
+ZERO TAIL, SO THE SHARPER FULL-ROW COMPARISON IS ACTIVE.**
+
+The receiver/posterior chronology has been re-audited.  The generic
+`SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
+its one common column budget over every disconnected and connected four-cell
+row is not supplied.  Later modules do not inhabit or weaken that interface.
+Instead, they construct the actual guarded connected row carrier, its
+proof-carrying receiver fibers, fixed provenance scaling, Gibbs-weighted
+column capacity, accepted-background partition, aggregate retained floor,
+and strict same-object face contraction.  Thus the finite literal
+receiver/contraction objective is genuinely proved by a concrete specialized
+route, while the old generic interface is honestly marked open and
+superseded at this face.
+
+`BF4GrowingGridSelectedTermWitnessBound.lean` now closes the first analytic
+fork after the growing-grid construction.  The all-spin coefficient reserve
+proves
+
+```text
+coeffW(anchor, K) <= (1/4)^K,
+(K+1) * selectedCommonFloor(K) <= (1/4)^K,
+```
+
+and therefore, for every positive rational `epsilon`, the displayed selected
+witness is at most `epsilon` once `K >= epsilon.den`.  This is a constructive
+located zero-tail theorem.  It does not upper-bound the computed effective
+multiplicity, because the complete raw row can contain additional positive
+mass.  It proves that the single selected grid summand cannot establish the
+required divergence.  The live producer is now a sharper comparison of the
+complete grid raw row with the spin-cube source row.  A different replica
+family remains the explicit alternate branch.
+
+The new module's direct monitored source check and focused 5,193-job target
+build pass.  Its seven printed load-bearing declarations use only
+`[propext, Quot.sound]` (one uses only `[propext]`).  No full-root audit is
+claimed.
+
+### Prior cofinal-routing checkpoint
+
+Physical-mass entropy is proved, and pointwise load decay has a shell-local
+unit lower-bound obstruction.  Routing locality remains active in parallel
+with the sharper full-row comparison.
 
 `BF4PhysicalSpinCubeOffRayRootResistanceLengthShellFactorization.lean`
 introduces a named cofinal input pinned to the actual BF4 edge-user shell
