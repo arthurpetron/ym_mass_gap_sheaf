@@ -116,7 +116,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- off-ray flow = twice canonical off-ray flow ...... [PROVED exact]
 |   |   |   +-- canonical off-ray localized edge-load bound ...... [ACTIVE]
 |   |   |   |   +-- exact canonical path-length shell partition .. [PROVED]
-|   |   |   |   +-- geometric bound on each physical shell ....... [ACTIVE]
+|   |   |   |   +-- entropy x pointwise-decay factorization ....... [PROVED reduction]
+|   |   |   |   |   +-- literal shell cardinality bound ........... [ACTIVE]
+|   |   |   |   |   +-- literal per-state load decay .............. [ACTIVE]
+|   |   |   |   |   `-- combined ratio below one .................. [OPEN]
+|   |   |   |   +-- geometric bound on each physical shell ........ [PARTIAL]
 |   |   |   |   +-- shell sum => full simple cofinal certificate . [PROVED reduction]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -352,6 +356,25 @@ analytic theorem is therefore the displayed geometric estimate for the
 literal BF4 stationary-resistance shell loads.  Neither the exact partition
 nor the summation compiler proves that physical estimate.
 
+That estimate is now factored without loss into two literal physical
+obligations.  If the number of states in an edge-user length shell is at most
+`E * b^n`, and each such state's actual stationary-weight times
+path-resistance load is at most `L * q^n`, then the shell load is at most
+
+```text
+(E * L) * (b * q)^n.
+```
+
+The checked compiler requires nonnegative factors, `b*q < 1`, and the same
+finite geometric budget recurrence, and then feeds the resulting shell bound
+through the already proved full-routing compiler.  It does not inhabit the
+cardinality or pointwise-load estimates.  There is also a genuine route risk:
+the canonical path length is a correct combinatorial partition statistic, but
+it has not been related to the monotone twice-spin mass controlled by the
+existing peeling machinery.  If that relation cannot be proved, the finite
+route must be changed to a deliberately physical, mass-monotone routing rather
+than treating the canonical path as analytically suitable by default.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
@@ -460,13 +483,50 @@ splits into ray and off-ray pieces, and the off-ray piece is exactly twice the
 pre-existing canonical off-ray flow.  The current A4 edge is therefore one
 localized canonical off-ray edge-load estimate.  The exact canonical
 path-length shell partition reduces it further to a uniform geometric bound
-on literal physical shell loads; the proved finite geometric compiler then
-pays both the extra terminal demand and the preceding-edge tail and produces
-the full simple cofinal routing certificate.  The geometric physical-shell
-estimate itself remains open.  B, C, and D remain unchanged until explicit
+on literal physical shell loads.  That bound is now further reduced to a
+literal shell-cardinality estimate times a literal per-state stationary-load
+decay estimate, with product ratio below one; the proved finite geometric
+compiler then pays both the extra terminal demand and the preceding-edge tail
+and produces the full simple cofinal routing certificate.  Those two physical
+estimates and their link to a mass-monotone statistic remain open.  B, C, and
+D remain unchanged until explicit
 physical scaling, continuum, and OS/GNS bridges are inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
+
+## Current goal-mode checkpoint (2026-09-01)
+
+**Status. THE EXACT OFF-RAY PATH-LENGTH SHELL ESTIMATE NOW FACTORS INTO A
+LITERAL SHELL-ENTROPY BOUND AND A LITERAL PER-STATE STATIONARY-RESISTANCE
+DECAY BOUND.**
+
+`BF4PhysicalSpinCubeOffRayRootResistanceLengthShellFactorization.lean`
+introduces a named cofinal input pinned to the actual BF4 edge-user shell
+carrier.  It separately records a bound on that carrier's cardinality and a
+pointwise bound on every member's stationary weight times selected-path
+resistance.  Constructive finite-sum monotonicity and an exact rational power
+factorization prove
+
+```text
+shell cardinality <= E * b^n
+each state load   <= L * q^n
+--------------------------------
+physical shell load <= (E*L) * (b*q)^n.
+```
+
+The module compiles this product bound to the earlier geometric shell
+certificate, then to the canonical off-ray congestion certificate, and—given
+the already isolated cofinal ray capacity—to the full vertex-simple cofinal
+routing certificate.  Its four printed declarations use only
+`[propext, Quot.sound]`, and its focused monitored source check passes.
+
+No entropy or decay field is inhabited.  In particular, the canonical
+loop-erased path length is not yet proved comparable to the physical
+twice-spin mass paid by the established peeling constructions.  The next
+causal task is to prove that compatibility or replace the canonical off-ray
+route by a mass-monotone route before attempting numerical constants.  The
+physical beta/spacing/volume bound, continuum measure and OS/GNS
+reconstruction, and Clay-facing assembly remain open.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
