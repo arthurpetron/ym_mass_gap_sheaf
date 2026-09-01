@@ -281,7 +281,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- same-volume projective posterior window [PROVED]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- projective x volume-comparison compiler [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- fixed-to-growing marginal factor ...... [ACTIVE / tail-sensitive]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [ACTIVE / tail-sensitive]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- one zero-support boundary => no floor .. [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- construct retained positive zero-support boundary [ACTIVE geometric test]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1426,6 +1428,19 @@ remaining fork is therefore honest: either prove the fixed-to-growing factor
 by a route compatible with the desired cofinal conclusion, or directly test
 the reference posterior support and refute this coarse repair producer.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairBoundarySupportObstruction.lean`
+makes the direct support test exact.  Its finite witness consists of one
+retained boundary channel with strictly positive total retained amplitude but
+zero amplitude for the selected growing low-spin reference.  Such a witness
+forces the reference posterior to be exactly zero while the fixed slice-zero
+spin-one marginal is strictly positive.  It therefore refutes every finite
+posterior-floor ceiling at that scale and, through the proved equivalence,
+the normalized positive-boundary cross-bound.  A single witness at one
+matched scale likewise refutes the all-scale matched packages.  This is a
+proved no-go compiler only: constructing the geometric boundary witness (or
+instead proving it cannot exist with a quantitative uniform support floor)
+is the active test.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1476,6 +1491,8 @@ repair compiler, and the adapter from the existing matched half-amplitude
 projective package complete successfully in a focused 5,216-job build.  This
 compiler retains, rather than hides, the fixed-to-growing comparison and its
 known tail-zero cost.
+The exact finite and matched support-mismatch no-go compilers also complete
+successfully in a focused 5,216-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
