@@ -28408,6 +28408,33 @@ No `sorry` is introduced.  The new file passes a direct monitored check and
 its dependency-complete target passes all 5,097 jobs.  All four printed
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+#### The explicit spin-cube spokes have uniform direct-root demand (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeDemand` connects
+the terminal inverse-kernel audit to the existing concrete strong-coupling
+spin-ray capacity.  The literal excited-spin-cube-to-vacuum path has one edge,
+so its resistance is exactly the reciprocal root kernel.  For any rational
+`delta` satisfying the already isolated return condition, the module proves
+
+```text
+2 * delta <= vacuumReturnProbability(spinCube)
+  => delta * directRootResistanceDemand(spinCube) <= 1.
+```
+
+The constructed `anchorCentralSpinCubeCofinalRayCapacity` supplies the same
+positive `delta` at every cutoff and excited spin.  Consequently all `K`
+explicit spin-cube spokes have direct-root demand bounded by the same
+cutoff-independent reciprocal-delta constant.  This is an actual physical
+ray-subfamily result, not an assumption.  It does not assign the off-ray
+sector, bound extra off-ray collisions on these spokes, control preceding
+route edges, or prove the cofinal full-sector gap.  Scaling/volume uniformity,
+the continuum measure, OS/GNS reconstruction, and the Clay conclusion remain
+open.
+
+No `sorry` is introduced.  The new file passes a direct monitored check and
+its dependency-complete target passes all 5,098 jobs.  All four printed
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 #### Terminal spokes now expose their exact inverse-kernel demand (2026-08-31)
 
 `BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalDemand` sharpens

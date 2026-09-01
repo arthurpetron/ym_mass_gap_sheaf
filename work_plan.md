@@ -107,7 +107,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- sector <= positive spokes * common bound ........ [PROVED diagnostic]
 |   |   |   +-- K explicit spin-cube positive root spokes ....... [PROVED]
 |   |   |   +-- inverse-kernel terminal-fiber demand <= load .... [PROVED diagnostic]
-|   |   |   +-- positive-spoke assignment + demand upper bound .. [ACTIVE]
+|   |   |   +-- spin-ray direct demand uniformly bounded ........ [PROVED at anchor]
+|   |   |   +-- off-ray spoke assignment + demand/tail bound .... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -279,6 +280,26 @@ kernel.  The remaining physical producer must now give an actual assignment
 of all non-vacuum states to sufficiently many positive spokes and prove both
 this terminal demand and the localized resistance contributions from all
 preceding route edges are uniformly bounded.
+
+For the explicit spin-cube ray, the terminal part is already controlled by a
+previously constructed physical input rather than a new hypothesis.  At the
+strong-coupling anchor, the literal selected-term/raw-row comparison supplies
+one positive cutoff-uniform spin-cube vacuum-return floor and hence one
+cofinal ray capacity `delta`.  The direct one-edge root path now satisfies,
+for every admitted excited spin cube at every cutoff,
+
+```text
+delta * (2 * stationaryWeight(spinCube) /
+  kernel(spinCube, vacuum)) <= 1.
+```
+
+Thus each of the `K` explicit positive spokes has direct-root resistance
+demand bounded by the same `1 / delta`, independently of cutoff and spin.
+This resolves the positive-spoke count and terminal resistance quality on the
+explicit ray subfamily.  It still does not route any off-ray state, bound
+collisions from off-ray states assigned to those spokes, or control their
+preceding-edge resistance.  The active finite problem is now precisely the
+off-ray assignment and localized demand/tail estimate.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
