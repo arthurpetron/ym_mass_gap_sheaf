@@ -137,8 +137,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- K=2 mass-two state has no lower positive edge  [PROVED no-go]
 |   |   |   |   |   `-- literal/indexed local producer at K=2 empty ... [PROVED no-go]
 |   |   |   |   +-- graph-aware rank or positive macro-step reroute .. [ACTIVE design]
-|   |   |   |   |   +-- allow temporary physical-mass increase ....... [REQUIRED]
-|   |   |   |   |   +-- prove well-founded rank / termination ......... [OPEN]
+|   |   |   |   |   +-- mass-amortized macro-step compiler ............ [PROVED reduction]
+|   |   |   |   |   +-- K=2 state -> hub -> vacuum inhabitant .......... [PROVED finite]
+|   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
@@ -424,8 +425,8 @@ high occupied edge-user shells.  This does not yet prove that such shells are
 occupied at unbounded mass for one fixed edge, so it is an obstruction rather
 than a complete no-go theorem.  The active route must prove cutoff-uniform
 edge-user mass truncation/bounded sharing, or replace the canonical paths by
-a deliberately mass-monotone routing whose local congestion is controlled by
-a different argument.  Shell cardinality is itself bounded below by shell
+a deliberately mass-amortized macro-routing whose local congestion is
+controlled by a different argument.  Shell cardinality is itself bounded below by shell
 load, and the complete literal edge-user count is bounded below by total
 edge-flow load.  Thus any successful uniform congestion certificate for the
 current canonical routing necessarily supplies a uniform literal edge-sharing
@@ -442,27 +443,31 @@ offRayFlowLoad(edge)
 
 This constant ceiling does not conflict with `stateLoad >= 1`.  The remaining
 route-design task is therefore to construct both `S` and `L`, plausibly by an
-adaptive physical-mass-descending peel whose transition ratios and shared
-fibers can be controlled.  The opaque component-merger route supplies neither
-property merely from connectivity.
+adaptive positive macro-peel whose total path length is paid by endpoint mass
+drop and whose transition ratios and shared fibers can be controlled.  The
+opaque component-merger route supplies neither property merely from
+connectivity.
 
 The same product reduction is now route-parametric.  For an arbitrary
 adaptive positive routing it retains repeated-edge multiplicity inside each
 user's exact edge load; uniform adaptive user count times uniform exact
 per-user edge load produces the full adaptive resistance certificate, and
 existing no-loss loop erasure supplies the simple-routing consumer.  Thus a
-mass-monotone replacement route need not be forced back through the canonical
-off-ray definitions.
+replacement route need not be forced back through the canonical off-ray
+definitions.
 
-The structural mass-monotone target is also explicit.  A root path whose
-literal lower-half twice-spin mass decreases on every positive BF4 edge is
-automatically vertex-simple and has length at most its source mass.  The
-remaining constructive bridge is not merely a termination argument: the
-accepted paired canonical
-peeling already decreases an analogous natural mass, but each peel must still
-be realized as an actual positive edge in the finite BF4 vacuum-sector kernel.
-Only after that bridge can its fibers and transition-weighted edge loads be
-estimated.
+Strict physical-mass descent on every displayed edge would have implied the
+sharp source-mass length bound, but the exact cutoff-two table now proves that
+this local rule is impossible: a mass-two state has no positive lower-mass
+neighbor.  The replacement target allows a positive macro-path to rise in
+mass internally while requiring its total edge length to be at most the mass
+drop between its endpoints.  Recursive concatenation telescopes those local
+budgets and recovers the same complete root-path length bound.  At cutoff two,
+every non-root state has mass at least two and the certified cube hub gives a
+two-edge state-to-hub-to-vacuum path, so the replacement interface is already
+inhabited at the first nontrivial cutoff.  The open constructive bridge is now
+cofinal: build analogous mass-paid positive macro-steps at arbitrary cutoff,
+then control their fibers and transition-weighted edge loads uniformly.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
@@ -757,6 +762,37 @@ graph-aware well-founded rank or a certified positive macro-step, followed by
 cutoff-uniform sharing and per-user load estimates.  The four printed
 load-bearing declarations use only `[propext, Quot.sound]`; the direct
 monitored source check passes.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPhysicalMassAmortizedMacroStepCompiler.lean` replaces
+the false edgewise premise by the exact amortized contract.  Each non-root
+state chooses a lower-mass endpoint and a complete positive-kernel macro-path;
+the macro-path length is bounded by the endpoint mass drop, although internal
+vertices may have larger mass.  Edge length is proved additive under path
+concatenation, and well-founded recursion makes the drop budgets telescope to
+
+```text
+rootPath.edgeLength <= sourcePhysicalMass.
+```
+
+The compiled complete routing uses these paths only for root-directed
+requests and retains the canonical positive routing otherwise.  A cofinal
+producer interface exposes the remaining all-cutoff construction without
+hiding sharing or resistance-load hypotheses.  Its five printed declarations
+use only `[propext, Quot.sound]`; the direct monitored source check and focused
+5,149-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorCutoffTwoMassAmortizedHubMacroStep.lean` proves that
+the replacement is already inhabited at cutoff two.  The faithful physical
+state locator constructively selects the fundamental-cube hub index.  Every
+sector state has a positive normalized edge to that hub, and the hub has a
+positive edge to the physical vacuum.  A verified 65-coordinate mass-floor
+check proves that every non-root state has mass at least two, exactly paying
+the two-edge macro-path to the mass-zero root.  The resulting compiled routing
+therefore has root-path length at most literal physical mass despite the
+necessary internal mass increase.  Its five printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check passes.  The
+cofinal macro-step producer, uniform sharing, and uniform per-user load remain
+open; no full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
