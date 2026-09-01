@@ -28464,3 +28464,31 @@ remain open.
 No `sorry` is introduced.  The new file passes a direct monitored check and
 its dependency-complete target passes all 5,097 jobs.  All four printed
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### The full finite routing preserves every explicit ray spoke (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRouting`
+constructs one routing on every ordered pair in the complete finite vacuum
+sector.  A root-directed path whose source lies on the explicit excited
+spin-cube ray is the literal one-edge spoke into the vacuum; every other path
+is the existing canonical simple positive path.  The ray membership branch
+is computational: a structural first-preimage search over `List.range K`
+recovers the unique spin offset, and the existing ray-index injectivity theorem
+justifies the dependent endpoint transport.
+
+The resulting full-sector routing is vertex-simple.  Moreover, for every
+`offset < K`, its route from the corresponding excited spin cube to the root
+is definitionally identified with the direct spoke, so the terminal source is
+the spin-cube state itself.  Thus ray terminal assignments are injective and
+their direct demands are governed by the preceding uniform anchor bound.
+
+This localizes, but does not close, the cofinal congestion problem.  Off-ray
+states still use canonical routes and may collide on ray terminal spokes or
+on preceding edges.  No cutoff-independent estimate for that residual demand
+or resistance tail is asserted; the cofinal all-vector gap, scaling/volume
+uniformity, continuum measure, same-measure OS/GNS reconstruction, and Clay
+conclusion remain open.
+
+No `sorry` is introduced.  The new file passes a direct monitored check and
+its dependency-complete target passes all 5,099 jobs.  All four printed
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.

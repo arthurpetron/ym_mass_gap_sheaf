@@ -108,6 +108,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- K explicit spin-cube positive root spokes ....... [PROVED]
 |   |   |   +-- inverse-kernel terminal-fiber demand <= load .... [PROVED diagnostic]
 |   |   |   +-- spin-ray direct demand uniformly bounded ........ [PROVED at anchor]
+|   |   |   +-- full routing fixes ray states to own spokes ..... [PROVED]
 |   |   |   +-- off-ray spoke assignment + demand/tail bound .... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
@@ -394,12 +395,19 @@ fiber inside the actual proof-carrying guarded receiver column.  The resulting
 aggregate theorem is a positive cutoff-independent *finite event* floor.  Its
 new corollary is a strict, cutoff-uniform, norm-relative quadratic-form
 contraction for one explicit centered face vector on the genuine physical
-Markov object.  It is not an all-vector form bound, a transfer-operator
-spectral gap, a physical mass scale, or a continuum statement.  Branch A4 now
-advances to the spanning/frame/norm-control bridge needed to cover the full
-centered space.  B, C, and D remain unchanged until explicit physical scaling,
-continuum, and OS/GNS bridges are inhabited.  This map should be refreshed
-whenever an `[ACTIVE]` edge closes or the critical path branches.
+Markov object.  It is not by itself an all-vector form bound, a physical mass
+scale, or a continuum statement.  The independent finite-state Poincare route
+now supplies fixed-cutoff all-vector control and reduces its cofinal uniform
+rate to a resistance-congestion problem.  On that route, the full finite
+sector has a constructive vertex-simple routing that sends every explicit
+excited spin-cube ray state down its own literal vacuum spoke; those ray
+terminal assignments are injective and their direct demands share the proved
+anchor bound.  The current A4 edge is therefore the off-ray residual: assign
+the remaining states with bounded extra terminal-spoke demand and bound the
+resistance traffic on preceding edges.  B, C, and D remain unchanged until
+explicit physical scaling, continuum, and OS/GNS bridges are inhabited.  This
+map should be refreshed whenever an `[ACTIVE]` edge closes or the critical
+path branches.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
