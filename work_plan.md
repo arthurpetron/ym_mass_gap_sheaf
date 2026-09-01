@@ -155,6 +155,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- central-face distributed assignment ......... [PROVED finite]
 |   |   |   |   |   |   +-- loop-erased prefix length <= sector size ..... [PROVED finite]
 |   |   |   |   |   |   +-- zero-face repair => nonvacuum final spoke ..... [PROVED finite]
+|   |   |   |   |   |   +-- loop erasure => simple, nonvacuum predecessor . [PROVED finite]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -981,8 +982,11 @@ positive admitted face-zero label.  Its selected spin is constructively in
 `1,...,K`; the corresponding spin-cube index is proved nonzero; and every
 compiled non-vacuum route therefore has a genuinely non-vacuum terminal
 source.  The prefix is still the canonical loop-erased sector path.  Vacuum
-avoidance inside that prefix, simplicity after final-spoke concatenation, and
-cutoff-uniform sharing/resistance load remain active.  The six printed
+avoidance inside that prefix is not required for simplicity: a second no-loss
+loop erasure of the complete root path produces a vertex-simple routing, and
+a general final-edge theorem proves that its terminal predecessor remains
+non-vacuum.  This normalization may change the initially selected spin bin.
+Cutoff-uniform sharing/resistance load remains active.  The ten printed
 declarations use at most `[propext, Quot.sound]`, and the direct monitored
 source check and focused 5,160-job one-worker build pass.  No full-root audit
 is claimed.

@@ -20,6 +20,7 @@ noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment
+import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment
 
@@ -31,11 +32,14 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4CentralLowerSpinCubePositiveRay
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting
 open YMGap.Continuum.BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalFanout
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting
 open YMGap.Continuum.BF4PhysicalVacuumSectorRootSpokeSpinCubeTerminalAssignment
 open YMGap.Continuum.BF4PhysicalVacuumSectorSpinCubeTerminalPrefixCompiler
 open YMGap.Continuum.BF4PhysicalVacuumSectorSpinCubeTerminalPrefixCompiler.CentralPhysicalFiniteVacuumSectorSpinCubeTerminalPrefixAssignmentAt
@@ -183,6 +187,90 @@ theorem positiveCentralFaceSpinRouting_terminalSource_ne_zero
     (positiveCentralFaceTerminalSpin_le hK)
     positiveCentralFaceTerminalSpin_pos
 
+/-! ## 4. No-loss loop erasure produces a genuinely simple root routing -/
+
+/-- Every edge of a vertex-simple positive chain has distinct endpoints. -/
+theorem positiveKernelChain_directedEdge_ne_of_vertices_nodup
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    ∀ {first last : State}
+      (path : PositiveKernelChainIn kernel support first last),
+      (PositiveKernelChainIn.vertices path).Nodup →
+      ∀ edge, edge ∈ PositiveKernelChainIn.directedEdges path →
+        edge.1 ≠ edge.2
+  | _, _, PositiveKernelChainIn.refl _, _hnodup, edge, hedge => by
+      exact False.elim (List.not_mem_nil hedge)
+  | first, _, PositiveKernelChainIn.step (next := next) _ _ rest,
+      hnodup, edge, hedge => by
+      have hparts := List.nodup_cons.mp hnodup
+      rcases List.mem_cons.mp hedge with hhead | htail
+      · rw [hhead]
+        intro heq
+        have hnext : next ∈ PositiveKernelChainIn.vertices rest := by
+          cases rest <;> exact List.mem_cons_self
+        apply hparts.1
+        change first = next at heq
+        rw [heq]
+        exact hnext
+      · exact positiveKernelChain_directedEdge_ne_of_vertices_nodup
+          rest hparts.2 edge htail
+
+/-- On a nontrivial vertex-simple path, the source of the final edge differs
+from the endpoint. -/
+theorem positiveKernelChain_terminalSource_ne_last_of_vertices_nodup
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} {first last : State}
+    (path : PositiveKernelChainIn kernel support first last)
+    (hne : first ≠ last)
+    (hnodup : (PositiveKernelChainIn.vertices path).Nodup) :
+    PositiveKernelChainIn.terminalSource path ≠ last :=
+  positiveKernelChain_directedEdge_ne_of_vertices_nodup
+    path hnodup (PositiveKernelChainIn.terminalSource path, last)
+    (PositiveKernelChainIn.terminalSource_mem_directedEdges path hne)
+
+/-- Normalize the repaired central-face routing.  Loop erasure cannot increase
+any exact routed resistance load by the existing generic theorem. -/
+def simplePositiveCentralFaceRouting
+    {w : Q'} (hw : (0 : Q') < w) (K : Nat) (hK : 1 ≤ K) :
+    CentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      w (Q'.le_of_lt hw) K :=
+  loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+    (positiveCentralFaceSpinTerminalPrefixAssignment hw K hK).toPositiveRouting
+
+theorem simplePositiveCentralFaceRouting_path_vertices_nodup
+    {w : Q'} (hw : (0 : Q') < w) {K : Nat} (hK : 1 ≤ K)
+    (left right : Nat)
+    (hleft : left ∈ centralPhysicalFiniteVacuumSectorIndices
+      w (Q'.le_of_lt hw) K 0)
+    (hright : right ∈ centralPhysicalFiniteVacuumSectorIndices
+      w (Q'.le_of_lt hw) K 0) :
+    (PositiveKernelChainIn.vertices
+      ((simplePositiveCentralFaceRouting hw K hK).path
+        left right hleft hright)).Nodup :=
+  loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_vertices_nodup
+    (positiveCentralFaceSpinTerminalPrefixAssignment
+      hw K hK).toPositiveRouting hleft hright
+
+/-- Even if the selected prefix first reaches the vacuum internally, loop
+erasure yields a vertex-simple root route whose final predecessor is still
+genuinely non-vacuum. -/
+theorem simplePositiveCentralFaceRouting_terminalSource_ne_zero
+    {w : Q'} (hw : (0 : Q') < w) {K state : Nat} (hK : 1 ≤ K)
+    (hstate : state ∈ centralPhysicalFiniteVacuumSectorIndices
+      w (Q'.le_of_lt hw) K 0)
+    (hne : state ≠ 0) :
+    centralPhysicalFiniteVacuumSectorSimpleRootTerminalSource
+        (simplePositiveCentralFaceRouting hw K hK) state hstate ≠ 0 := by
+  unfold centralPhysicalFiniteVacuumSectorSimpleRootTerminalSource
+  apply positiveKernelChain_terminalSource_ne_last_of_vertices_nodup
+    ((simplePositiveCentralFaceRouting hw K hK).path state 0 hstate
+      (zero_mem_centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) K 0)) hne
+  exact simplePositiveCentralFaceRouting_path_vertices_nodup
+    hw hK state 0 hstate
+      (zero_mem_centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) K 0)
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment
 
 /-! ## Axiom audit -/
@@ -199,3 +287,11 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssi
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.positiveCentralFaceSpinRouting_terminalSource
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.positiveCentralFaceSpinRouting_terminalSource_ne_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.positiveKernelChain_directedEdge_ne_of_vertices_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.positiveKernelChain_terminalSource_ne_last_of_vertices_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.simplePositiveCentralFaceRouting_path_vertices_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.simplePositiveCentralFaceRouting_terminalSource_ne_zero
