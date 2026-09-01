@@ -273,6 +273,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- completion-column Harnack ............... [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary sum = target raw row ......... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- column bound => target-row bound ...... [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- column Gram factorization ............. [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary-amplitude bound => column .... [PROVED sufficient]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform boundary-amplitude bound ...... [OPEN sharper producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1307,6 +1310,36 @@ whether explicit boundary-factor structure proves the stronger pointwise
 column inequality, or instead supplies a boundary channel whose column-to-
 reference-entry ratio is unbounded.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairBoundaryAmplitude.lean`
+exposes the pointwise column through its literal Gram integrand.  Writing
+`A(lower,boundary)` for the physical half-amplitude, every positive target
+and retained boundary channel satisfy
+
+```text
+completionColumn(target, boundary)
+  = boundaryWeight(boundary)
+      * (sum_lower A(lower, boundary))
+      * A(target, boundary).
+```
+
+The reference completion has the same boundary and target factors, with the
+lower-state sum replaced by `A(reference,boundary)`.  Nonnegativity therefore
+compiles the target-independent sufficient condition
+
+```text
+fixedRaw * sum_lower A(lower, boundary)
+  <= ceiling * (A(reference,boundary) * fixedZ)
+```
+
+into the full pointwise completion-column Harnack bound, both at one cutoff
+and along the matched trajectory.  This sharper boundary-amplitude producer
+is not yet inhabited and is not claimed equivalent to the column bound when
+the common Gram factor vanishes.  The next route test is support-theoretic:
+find whether a retained boundary can have positive total amplitude and
+positive Gram weight while the literal reference amplitude vanishes.  Such a
+channel would refute the coarse column route; otherwise a uniform projective
+amplitude estimate remains possible.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1343,6 +1376,9 @@ identity, and the finite and matched column-Harnack equivalences complete
 successfully in a focused 5,211-job build.
 The exact boundary-sum/raw-row identity and the finite and matched necessary
 target-row compilers complete successfully in a focused 5,212-job build.
+The exact completion-column Gram factorization and the finite and matched
+boundary-amplitude sufficient compilers complete successfully in a focused
+5,213-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
