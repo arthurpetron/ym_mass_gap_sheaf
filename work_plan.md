@@ -145,7 +145,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- raw root spoke <-> vacuum amplitude ........ [PROVED reduction]
 |   |   |   |   |   |   +-- finite-sector amplitude filter/count ....... [PROVED exact]
 |   |   |   |   |   |   +-- positive-coupling lower-link filter/count .. [PROVED exact]
-|   |   |   |   |   |   `-- admissible lower-link carrier/count growth . [ACTIVE]
+|   |   |   |   |   |   +-- all-link local CSP filter/count ............ [PROVED exact]
+|   |   |   |   |   |   `-- local SU2 constraint geometry/count growth . [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -861,6 +862,18 @@ an executable lower-link-admissibility filter and count.  The active task is
 now to analyze the structure and growth of that finite constraint system.
 The six printed declarations use only `[propext, Quot.sound]`; the direct
 monitored source check and focused 5,100-job build pass.  No full-root audit is
+claimed.
+
+`BF4PhysicalVacuumSectorRootSpokeLocalConstraintClassifier.lean` decomposes
+the positive lower-link product into its exact linkwise constraints.  The
+product is positive exactly when every factor is positive, and an executable
+`List.all` test checks those production fusion multiplicities over the literal
+lower-link list.  At positive coupling, the routing-level root-predecessor
+carrier and count are exactly this finite-sector local-CSP filter and count.
+The next task is to expose and analyze the geometry of these local SU(2)
+constraints strongly enough to control growth or allocate terminal spokes.
+The six printed declarations use only `[propext, Quot.sound]`; the direct
+monitored source check and focused 5,101-job build pass.  No full-root audit is
 claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
