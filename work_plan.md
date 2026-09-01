@@ -211,12 +211,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- extreme-pair computed-floor ceiling ...... [PROVED]
 |   |   |   |   |   |       |       |       |   `-- high-spin grid effective multiplicity bounded [OBSTRUCTED]
 |   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [ACTIVE]
-|   |   |   |   |   |       |       |       |   +-- h+1 common-box time-slice placements [PROVED]
+|   |   |   |   |   |       |       |       |   +-- volume+1 common-box placements ...... [PROVED]
 |   |   |   |   |   |       |       |       |   +-- injective duplicate-free cutoff-one list [PROVED]
 |   |   |   |   |   |       |       |       |   +-- identical positive one-cube production [PROVED]
-|   |   |   |   |   |       |       |       |   +-- reflected positive-row adapter ....... [ACTIVE design]
-|   |   |   |   |   |       |       |       |   `-- common reflected raw-row floor ....... [OPEN analytic]
-|   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [OPEN endpoint]
+|   |   |   |   |   |       |       |       |   +-- exact ambient/slab reflected adapter . [PROVED]
+|   |   |   |   |   |       |       |       |   +-- volume+1 distinct reflected lower states [PROVED]
+|   |   |   |   |   |       |       |       |   +-- common positive raw-row floor ......... [PROVED]
+|   |   |   |   |   |       |       |       |   `-- reference-row / replication gate ..... [ACTIVE]
+|   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -774,16 +776,47 @@ productionWeight(w, horizon, slice) = coeffW(w,1)^6.
 Thus replica cardinality and local low-spin weight no longer form the open
 geometric question.  The active deliverable is the honest adapter from these
 common-box physical configurations to the central reflected lower-state
-carrier at growing half-volume, followed by a comparison of their complete
-reflected raw rows.  The existing positive-replication compiler is hard-coded
-to half-volume zero, so this adapter must expose the volume parameter rather
-than silently reusing the fixed-volume theorem.
+carrier at growing half-volume.
 
-The new decorated-face, raw-row-ceiling, full-row-obstruction, and low-spin
-volume-geometry modules pass direct monitored source checks.  Focused
-one-worker builds complete successfully for the obstruction target (5,196
-jobs) and the low-spin geometry target (720 jobs).  Their printed load-bearing
-declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+`BF4LowSpinGrowingVolumeReflectedCarrier.lean` now supplies that adapter at
+horizon `2 * volume` and reflection half `volume + 1`.  The exact identity
+
+```text
+4 + 2 * volume = centralAmbient(volume + 1)
+```
+
+identifies the common-box carrier with the ambient reflected slab.  The
+adapter proves the slab-to-ambient round trip, injectivity, support below the
+reflection cut, equality with the central lower restriction, membership in
+the cutoff-one lower-state carrier, and exact duplicate-free length
+`volume + 1` for the selected indices `0, ..., volume`.
+
+`BF4LowSpinGrowingVolumeRawRowFloor.lean` transports the same local
+cutoff-one production calculation through that adapter.  For positive
+coupling `w`, every selected reflected lower state belongs to the complete
+positive carrier and its unnormalised positive raw row obeys the common
+volume-independent bound
+
+```text
+coeffW(w,1)^6 <= centralPhysicalPositiveRawRowMass(w, volume + 1, state).
+```
+
+This is a complete-row lower bound, not merely a selected local summand.
+It still does not by itself prove divergent effective multiplicity: the
+reference raw numerator or normalising partition can also grow with volume.
+The active deliverable is therefore a volume-parametric comparison between
+the `volume + 1` distinct replica rows and one common reference contribution,
+or an equivalent aggregate raw-mass theorem that feeds an honest replication
+gate.  The fixed-volume positive-replication compiler remains hard-coded to
+half-volume zero and cannot be reused silently.
+
+The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
+volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
+monitored source checks.  Focused one-worker builds complete successfully for
+the obstruction target (5,196 jobs), the low-spin geometry target (720 jobs),
+the reflected-carrier target (736 jobs), and the raw-row-floor target (5,033
+jobs).  Printed load-bearing declarations use only `[propext, Quot.sound]`.
+No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
