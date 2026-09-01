@@ -98,7 +98,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full-sector adaptive routing compiler .......... [PROVED reduction]
 |   |   |   +-- adaptive multiplicity-aware edge tail .......... [PROVED]
 |   |   |   +-- adaptive edge-user count <= local congestion ... [PROVED diagnostic]
-|   |   |   +-- bounded-sharing routing / weighted tail ........ [ACTIVE]
+|   |   |   +-- adaptive loop erasure preserves edge sublists .. [PROVED]
+|   |   |   +-- simple-routing normalization, same flow bound ... [PROVED reduction]
+|   |   |   +-- simple bounded-sharing routing / weighted tail . [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -188,18 +190,25 @@ congestion theorem for the current routing must simultaneously prove a
 uniform nonzero edge-use multiplicity bound and a uniform weighted tail bound;
 neither condition may be hidden by the global moment.  The existing
 full-sector exact-mass compiler also permits the root paths to be chosen
-adaptively at every cutoff.  Because those paths need not be simple, the
-adaptive audit now retains the rational occurrence multiplicity of each
-directed edge exactly: a state's edge load is its doubled
+adaptively at every cutoff.  The multiplicity-aware audit retains the
+rational occurrence multiplicity of each directed edge exactly: before
+normalization, a state's edge load is its doubled
 `stationaryWeight * pathResistance` load times that multiplicity, and the
-total adaptive flow load is exactly the literal tail over route users.  Every
-non-vacuum adaptive edge user still contributes at least one unit, so any
-successful adaptive cofinal congestion family must bound the number of such
-users per edge as well as their weighted repeated-edge tail.  The compiler
-therefore makes route choice available, but does not itself supply a
-bounded-sharing route.  Constructing a BF4-local routing with uniform sharing
+total adaptive flow load is exactly the literal tail over route users.
+Constructive loop erasure now proves that repeated-edge multiplicity is not
+an intrinsic analytic obligation.  Every supplied positive BF4 route is
+converted to a support-aware walk, loop-erased, and converted back; the new
+directed-edge list is an order-preserving sublist of the old list, is
+duplicate-free, and has no larger resistance.  Hence every state-edge load
+and the total flow load weakly decrease.  In particular, any cofinal adaptive
+congestion certificate normalizes to simple routes with the same bound.
+Every non-vacuum simple-route edge user still contributes at least one unit,
+so a successful family must bound the number of users per edge together with
+their weighted resistance tail.  The compiler and normalization make
+lossless route choice available, but do not supply the missing BF4-local
+bounded-sharing route.  Constructing a simple routing with uniform sharing
 and resistance control, or proving the corresponding weighted tail directly
-for the canonical route, is the active causal edge.  A
+for the canonical simple route, is the active causal edge.  A
 translated/separating family of guarded events with
 quantitative conductance, path-Poincare, or tensorization remains an
 alternative producer route.  The already formalized fixed-nome

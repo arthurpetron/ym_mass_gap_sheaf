@@ -103,6 +103,27 @@ def dropTo [DecidableEq State] :
           (List.mem_cons.mp htarget).resolve_left heq
         exact dropTo rest target hrest
 
+/-- Dropping a walk to a later occurrence only deletes directed edges. -/
+theorem dropTo_directedEdges_sublist [DecidableEq State] :
+    ∀ {first last : State} (path : Walk edge first last)
+      (target : State) (htarget : target ∈ vertices path),
+      List.Sublist (directedEdges (dropTo path target htarget))
+        (directedEdges path)
+  | _, _, .single first, target, htarget => by
+      have heq : target = first := List.mem_singleton.mp htarget
+      subst target
+      exact List.Sublist.slnil
+  | first, _, .cons (next := next) hedge rest, target, htarget => by
+      by_cases heq : target = first
+      · subst target
+        simpa only [dropTo] using
+          (List.Sublist.refl (directedEdges (.cons hedge rest)))
+      · have hrest : target ∈ vertices rest :=
+          (List.mem_cons.mp htarget).resolve_left heq
+        simp only [dropTo, heq, directedEdges]
+        exact List.Sublist.cons (first, next)
+          (dropTo_directedEdges_sublist rest target hrest)
+
 set_option linter.unusedVariables false in
 theorem dropTo_nodup [DecidableEq State] :
     ∀ {first last : State} (path : Walk edge first last)
@@ -143,6 +164,27 @@ def eraseLoops [DecidableEq State] :
       else
         { walk := .cons hedge tail.walk
           nodup := List.nodup_cons.mpr ⟨hfirst, tail.nodup⟩ }
+
+/-- Constructive loop erasure never introduces a directed edge: its edge
+list is an order-preserving sublist of the original walk's edge list. -/
+theorem eraseLoops_directedEdges_sublist [DecidableEq State] :
+    ∀ {first last : State} (path : Walk edge first last),
+      List.Sublist (directedEdges (eraseLoops path).walk) (directedEdges path)
+  | _, _, .single first => List.Sublist.slnil
+  | first, _, .cons (next := next) hedge rest => by
+      have ih : List.Sublist (directedEdges (eraseLoops rest).walk)
+          (directedEdges rest) :=
+        eraseLoops_directedEdges_sublist rest
+      by_cases hfirst : first ∈ (eraseLoops rest).walk.vertices
+      · rw [show (eraseLoops (.cons hedge rest)).walk =
+            (eraseLoops rest).walk.dropTo first hfirst by
+              simp only [eraseLoops, hfirst, ↓reduceDIte]]
+        exact List.Sublist.cons (first, next)
+          ((dropTo_directedEdges_sublist (eraseLoops rest).walk first hfirst).trans ih)
+      · rw [show (eraseLoops (.cons hedge rest)).walk =
+            .cons hedge (eraseLoops rest).walk by
+              simp only [eraseLoops, hfirst, ↓reduceDIte]]
+        exact List.Sublist.cons₂ (first, next) ih
 
 theorem all_vertices_of_start
     (Property : State → Prop)
@@ -306,6 +348,10 @@ end YMGap.Continuum.FiniteBoolGraphSimplePaths
 
 #print axioms
   YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.dropTo_nodup
+#print axioms
+  YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.dropTo_directedEdges_sublist
+#print axioms
+  YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.eraseLoops_directedEdges_sublist
 #print axioms
   YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.edgeLength_add_one_eq_vertices_length
 #print axioms

@@ -19,6 +19,7 @@ noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathLengthEnergy
+import YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
 import YMGap.Continuum.FiniteBoolGraphSimplePaths
 
 namespace YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
@@ -89,6 +90,33 @@ theorem edgeLength_ofSupportedWalk
       rw [edgeLength_ofSupportedWalk adjacent kernel support edgePositive
         hnext rest]
       rfl
+
+/-- Converting a supported Boolean walk to a positive-kernel chain preserves
+its literal directed-edge list exactly. -/
+theorem directedEdges_ofSupportedWalk
+    {State : Type} [DecidableEq State]
+    (adjacent : State → State → Bool)
+    (kernel : State → State → Q') (support : List State)
+    (edgePositive : ∀ first next,
+      first ∈ support → next ∈ support →
+      adjacent first next = true → (0 : Q') < kernel first next) :
+    ∀ {first last : State} (hfirst : first ∈ support)
+      (path : FiniteBoolGraphSimplePaths.Walk
+        (supportedEdge adjacent support) first last),
+      BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges
+          (ofSupportedWalk adjacent kernel support edgePositive hfirst path) =
+        FiniteBoolGraphSimplePaths.Walk.directedEdges path
+  | _, _, _, FiniteBoolGraphSimplePaths.Walk.single _ => rfl
+  | first, _, hfirst,
+      FiniteBoolGraphSimplePaths.Walk.cons hedge rest => by
+      have hparts := (Bool.and_eq_true _ _).mp hedge
+      have hnext : rest.start ∈ support := of_decide_eq_true hparts.2
+      simp only [ofSupportedWalk,
+        BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges,
+        FiniteBoolGraphSimplePaths.Walk.directedEdges]
+      exact congrArg (List.cons (first, rest.start))
+        (directedEdges_ofSupportedWalk adjacent kernel support edgePositive
+          hnext rest)
 
 end PositiveKernelChainIn
 
@@ -275,6 +303,8 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.edgeLength_ofSupportedWalk
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.PositiveKernelChainIn.directedEdges_ofSupportedWalk
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale.centralPhysicalFiniteVacuumSectorSimplePositivePath_edgeLength_le
 #print axioms

@@ -20786,3 +20786,36 @@ continuation, strand-component extraction, coherent BF4 peel, heat-weight
 comparison, cutoff-uniform posterior-variance fraction, uniform completed
 gap, thermodynamic/continuum construction, continuum Yang--Mills theory, or
 Clay mass gap is proved.
+
+## Adaptive BF4 root routing now has a no-loss simple-path normal form (2026-08-31)
+
+`FiniteBoolGraphSimplePaths` now proves that dropping to a later vertex and
+constructive loop erasure only delete directed-edge occurrences: the erased
+edge list is an order-preserving `List.Sublist` of the original walk.  The BF4
+simple-path bridge now also proves that converting a supported Boolean walk
+back to a positive-kernel chain preserves its literal edge list exactly.
+
+`BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting` applies
+those generic facts to every positive route in the finite central vacuum
+sector.  The loop-erased route is duplicate-free, its edge list is a sublist
+of the supplied route, and its physical resistance is no larger.  Scaling by
+the same nonnegative stationary source weight proves pointwise domination of
+every state-edge load; summing over the literal finite sector proves
+domination of the total routed flow load.  Therefore every fixed-nome cofinal
+adaptive congestion certificate has a loop-erased certificate with the same
+start, the same bound, and duplicate-free routes at every later cutoff.
+
+The focused monitored target passes all 5094 jobs.  All newly printed exports
+use only `[propext, Quot.sound]` or the smaller `[propext]` subset.  The root
+aggregator imports the new module.  A direct monitored check of `YMGap.lean`
+was attempted but stopped immediately because the unrelated pre-existing
+object `BF4ExactCutoffOneSurfaceForestGaugeMask2D739E.olean` is absent.  No
+root or full-root audit is therefore claimed.
+
+This removes repeated-edge multiplicity as an intrinsic analytic burden, but
+does not construct a cofinal routing or a uniform congestion constant.  The
+active finite-gap producer is now precisely a uniform BF4-local edge/shell
+sharing and weighted-resistance-tail bound for simple routes.  Coupling,
+lattice-spacing, and volume uniformity, the same continuum measure, OS/GNS
+reconstruction, a positive continuum generator gap, continuum Yang--Mills
+theory, and the Clay mass gap remain open.
