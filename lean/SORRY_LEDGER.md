@@ -28165,3 +28165,28 @@ tensorization control is the active producer route.  No `sorry` is introduced.
 The focused dependency-complete monitored target passes all 5,207 jobs; every
 printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
+
+#### The guarded face adds no second cofinal rate obligation (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardCofinalAllVectorEnvelope` proves the
+conditional cofinal analogue of the finite-prefix synchronization theorem.
+Given an inhabitant of the existing
+`FixedNomeCofinalFinitePrefixRateCeiling` interface at anchor coupling and
+slab half-width two, it takes the located rational maximum of that ceiling
+and the fixed guarded-face factor.  The maximum remains nonnegative and
+strictly below one, remains a ceiling on every constructed finite-prefix
+all-vector rate, and controls the literal guarded face at the
+representation-cutoff limit.  The resulting package therefore supplies one
+common rate for the face and every centered coefficient vector on every
+finite base carrier.
+
+This theorem is an implication, not an inhabitant of the cofinal ceiling.
+The uniform all-carrier rate producer remains open; the sharp existing route
+asks for a fixed-nome cofinal off-ray root-resistance congestion bound, while
+guarded-event conductance, path-Poincare, or tensorization are alternative
+producer strategies.  Nothing here proves a completed operator gap,
+spacing/volume uniformity, a continuum measure, same-measure OS/GNS
+reconstruction, or the Clay theorem.  No `sorry` is introduced.  The focused
+dependency-complete monitored target passes all 5,209 jobs; every printed
+load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
+audit is claimed.

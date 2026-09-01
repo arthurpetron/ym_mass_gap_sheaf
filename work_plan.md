@@ -90,7 +90,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   +-- cofinal strict rate independent of prefix bound .... [ACTIVE]
 |   |   |   +-- separating guarded-event family ............... [ACTIVE]
 |   |   |   +-- conductance/path-Poincare/tensorization ........ [ACTIVE]
-|   |   |   `-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
+|   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
+|   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
 |   |   `-- completed all-vector form / operator gap ........... [OPEN]
 |   |
 |   `-- A5. Parallel verified finite route
@@ -153,7 +154,12 @@ strict ceiling independent of every bound in a constructive cofinal family.
 The producer branch remains a translated/separating family of guarded events
 together with a quantitative conductance, path-Poincare, or tensorization
 theorem; the already formalized fixed-nome cofinal-ceiling structures state
-the exact target contract.  The original direct additive
+the exact target contract.  Conditional on such a ceiling, taking its located
+rational maximum with the guarded-face factor is now proved to preserve
+strictness below one and to control both every finite-base centered vector
+and the literal guarded face after representation-cutoff removal.  Thus the
+face creates no second cofinal rate obligation, but this reduction does not
+construct the required ceiling.  The original direct additive
 decoder remains uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored
