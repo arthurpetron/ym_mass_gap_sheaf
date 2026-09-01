@@ -103,7 +103,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- named simple cofinal certificate + translations  [PROVED interface]
 |   |   |   +-- literal positive terminal root spoke per state .. [PROVED]
 |   |   |   +-- terminal-spoke fiber <= local congestion ........ [PROVED diagnostic]
-|   |   |   +-- bounded positive-spoke fanout + weighted tail ... [ACTIVE]
+|   |   |   +-- terminal fibers exactly partition nonvacuum ..... [PROVED]
+|   |   |   +-- sector <= positive spokes * common bound ........ [PROVED diagnostic]
+|   |   |   +-- positive-spoke density + weighted tail .......... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -227,7 +229,21 @@ the exact routed resistance flow load on that edge, and by the common family
 bound whenever the named simple cofinal certificate is supplied.  Thus a
 uniform route family must expose enough positive root spokes to absorb the
 growing non-vacuum sector with uniformly bounded terminal fibers, in addition
-to controlling the weighted resistance tail along earlier edges.
+to controlling the weighted resistance tail along earlier edges.  Selecting
+one actual representative for each realized terminal source makes those
+fibers an exact constructive partition of the full non-vacuum sector.  Their
+cardinality sum is exactly the non-vacuum cardinality, the realized terminal
+sources are duplicate-free positive root predecessors, and any named simple
+cofinal certificate therefore satisfies the necessary inequality
+
+```text
+nonvacuum sector cardinality
+  <= positive root-predecessor cardinality * common congestion bound.
+```
+
+The next finite analytic question is consequently the cutoff growth and
+kernel/resistance quality of the literal positive-root predecessor carrier,
+not merely the existence of one terminal edge per path.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with

@@ -28350,3 +28350,36 @@ dependency-complete target passes all 5,095 jobs; every printed load-bearing
 declaration uses only `[propext, Quot.sound]`.  An earlier interrupted direct
 check and a deliberately low-heartbeat diagnostic failure are not counted as
 passes.  No full-root audit is claimed.
+
+#### Terminal-spoke fibers exactly account for the non-vacuum sector (2026-08-31)
+
+The terminal-fanout module now uses the constructive realized-key partition
+to select one actual non-vacuum representative for each terminal source used
+by a routing.  The selected terminal-source list is duplicate-free and lies
+inside the literal positive root-predecessor carrier.  The corresponding
+realized fibers have the exact cardinality identity
+
+```text
+sum over used terminal spokes of terminalFiber.length
+  = nonvacuumSector.length.
+```
+
+Combining that partition with the previously proved per-spoke congestion
+bound gives, for every later cutoff of a supplied simple cofinal certificate,
+
+```text
+nonvacuumSector.length
+  <= usedTerminalSpokes.length * commonBound
+  <= positiveRootPredecessors.length * commonBound.
+```
+
+The order is the constructive rational order on `Q'.ofNat` cardinalities.
+This is a necessary fanout-capacity inequality, not a proof that the physical
+BF4 positive-root carrier has the required density or weighted resistance
+control.  The cofinal gap, scaling/volume uniformity, continuum measure,
+same-measure OS/GNS reconstruction, and Clay conclusion remain open.
+
+No `sorry` is introduced.  The expanded fanout file passes a direct monitored
+check and its dependency-complete target passes all 5,096 jobs.  Every printed
+load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
+audit is claimed.
