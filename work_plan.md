@@ -175,8 +175,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       +-- assigned masses partition 1-vacuum ... [PROVED exact]
 |   |   |   |   |   |       |       +-- ratio => (1-vacuum) <= C*ray mass .... [PROVED necessary]
 |   |   |   |   |   |       |       +-- matched tail: 1/6 <= C_K*ray mass ..... [PROVED necessary]
-|   |   |   |   |   |       |       +-- complement/ray asymptotic audit ...... [ACTIVE diagnostic]
-|   |   |   |   |   |       |       +-- cofinal uniform ratio ceiling ........ [ACTIVE / route risk]
+|   |   |   |   |   |       |       +-- matched varying-weight cofinal interface [PROVED reduction]
+|   |   |   |   |   |       |       +-- uniform C => ray mass >= (1/6)/C ...... [PROVED necessary]
+|   |   |   |   |   |       |       +-- ray-mass tail-zero/floor audit ........ [ACTIVE diagnostic]
+|   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
 |   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
@@ -1275,6 +1277,29 @@ aggregate bound would keep it viable.  Neither asymptotic statement is claimed
 here.  The load-bearing declarations are monitored and axiom-gated to
 `[propext, Quot.sound]`; the matched-tail target passes a focused one-worker
 5,175-job build.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedCofinalGate.lean`
+now states the correct same-action cofinal interface over the jointly varying
+matched weight and Peter--Weyl cutoff.  This is deliberately distinct from the
+earlier fixed-nome structure, which cannot by itself express the physical
+matched trajectory.  An inhabitant supplies one common `ratioBound` and a tail
+scale after which every assigned observable mean is dominated by that bound
+times its corresponding spin-cube stationary weight.  The finite maximum is
+then below the common bound, and the calibrated aggregate gate forces
+
+```text
+(1/6) / ratioBound <= matched excited spin-cube ray mass
+```
+
+at every scale in the declared tail.  Strict positivity of `ratioBound` is
+derived from this inequality rather than assumed.  Thus the route-risk audit
+has a sharp target: a proved tail-zero statement for the matched ray mass would
+constructively refute every inhabitant of this uniform assigned-ratio
+interface, while a direct positive floor would preserve the route.  Neither
+side is yet proved.  The five interface and reciprocal-floor declarations pass
+their direct monitored source check with only `[propext, Quot.sound]`, and the
+module passes a focused one-worker 5,176-job build.  No full-root audit is
+claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
