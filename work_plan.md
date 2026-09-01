@@ -230,6 +230,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- effective multiplicity = volume+1 ... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- adaptive marginal <= 1/(volume+1) ... [PROVED]
+|   |   |   |   |   |       |       |       |       +-- explicit epsilon/denominator modulus  [PROVED]
 |   |   |   |   |   |       |       |       |       `-- fixed observable/source identity ... [OPEN boundary]
 |   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
@@ -896,6 +897,25 @@ route still needs uniform complete-row comparison; the adaptive route needs a
 fixed-object identification or a gap/conductance theorem that can use the
 varying selected state without changing the physical claim.
 
+`BF4LowSpinGrowingVolumeAdaptiveMarginalTailZero.lean` turns the reciprocal
+bound into a located constructive limit statement.  For every fixed positive
+coupling `w` and positive rational `epsilon`, it proves
+
+```text
+epsilon.den <= volume
+---------------------------------------------
+adaptiveReferenceMarginal(w, volume) <= epsilon.
+```
+
+Thus the denominator of `epsilon` is an explicit modulus and the varying
+minimum-row atom tends to zero at cutoff one.  This is not the matched
+spin-cube-ray tail-zero theorem: both the selected state and the growing
+half-volume differ from that fixed-source cofinal interface.  Repository
+search also finds no existing exact finite corrected-slab time translation
+that simultaneously preserves the corner-box positive carrier and transports
+these raw-row sums, so fixed-reference row equality remains an open theorem,
+not a symmetry assumption.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -904,7 +924,8 @@ the reflected-carrier target (736 jobs), and the raw-row-floor target (5,033
 jobs).  The aggregate raw-mass target also completes successfully (5,190
 jobs), as do the arbitrary-volume replication compiler (5,184 jobs) and its
 literal low-spin instance (5,192 jobs).  The adaptive minimum-row target
-completes successfully (5,193 jobs).  Printed load-bearing declarations use
+completes successfully (5,193 jobs), and its explicit marginal-tail target
+completes successfully (5,194 jobs).  Printed load-bearing declarations use
 only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
