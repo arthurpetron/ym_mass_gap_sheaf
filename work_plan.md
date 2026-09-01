@@ -271,6 +271,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- physical fiber = completion column ...... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- fiber bound iff column Harnack ........... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- completion-column Harnack ............... [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary sum = target raw row ......... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- column bound => target-row bound ...... [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1278,6 +1280,33 @@ over the boundary coordinate and compare that sum exactly with the target raw
 row.  That identity will separate an averaged row statement from the still
 required pointwise boundary Harnack control.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairColumnSum.lean` completes
+that structural audit.  Finite Fubini first turns the sum over boundary
+channels and lower states into the raw kernel column at the selected target.
+Exact reflected-kernel symmetry turns this into its full raw row, and the
+zero-support theorem removes precisely the nonpositive states.  Therefore,
+for every positive target,
+
+```text
+sum_boundary completionColumn(target, boundary)
+  = positiveRawRow(target).
+```
+
+Summing any pointwise completion-column Harnack certificate over the boundary
+coordinate now yields the necessary averaged target-row inequality
+
+```text
+fixedRaw * positiveRawRow(target)
+  <= ceiling * (rawKernel(reference, target) * fixedZ).
+```
+
+The compiler is proved both at a single finite cutoff and along the matched
+dyadic trajectory.  Its converse is intentionally absent: this row statement
+does not recover pointwise boundary control.  The active question is now
+whether explicit boundary-factor structure proves the stronger pointwise
+column inequality, or instead supplies a boundary channel whose column-to-
+reference-entry ratio is unbounded.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1312,6 +1341,8 @@ diagonal consequence complete successfully in a focused 5,210-job build.
 The zero-support fallback theorem, exact physical-fiber/completion-column
 identity, and the finite and matched column-Harnack equivalences complete
 successfully in a focused 5,211-job build.
+The exact boundary-sum/raw-row identity and the finite and matched necessary
+target-row compilers complete successfully in a focused 5,212-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
