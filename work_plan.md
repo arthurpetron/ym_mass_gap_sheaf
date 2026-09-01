@@ -245,6 +245,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |       +-- all-K effective multiplicity = volume+1 [PROVED]
 |   |   |   |   |   |       |       |       |   |       +-- all-K fixed-source marginal tail zero .. [PROVED]
 |   |   |   |   |   |       |       |       |   |       `-- growing-half -> fixed-half matched ray . [ACTIVE boundary]
+|   |   |   |   |   |       |       |       |   |           +-- constant-ceiling diagonal gate ... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           +-- matched spin-ray sum compression .. [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           +-- normalized half-volume comparison . [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
 |   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
@@ -1036,6 +1041,28 @@ honest growing-half-to-fixed-half comparison/transport theorem (or a revised
 joint cutoff/volume cofinal interface); without that bridge, no cofinal
 all-vector/operator gap is claimed.
 
+`BF4LowSpinGrowingVolumeMatchedRayComparisonGate.lean` now types that boundary
+without hiding either normalization mismatch.  Its deliberately uninhabited
+structure asks for one strictly positive rational ceiling, independent of
+scale, such that the complete matched spin-cube ray mass at reflection half
+zero is bounded by that ceiling times the slice-zero spin-one marginal at
+reflection half `scale + 1`, using the same matched coupling and cutoff.  The
+proved compiler combines this single comparison with the all-cutoff theorem
+above and produces located matched-ray tail-zero data with explicit rate
+
+```text
+rate(epsilon) = den(epsilon / ceiling).
+```
+
+It then invokes the existing theorem showing that matched ray tail zero
+excludes any common cofinal assigned stationary-ratio ceiling.  This closes
+the reduction, not the producer.  The missing comparison itself contains two
+genuine analytic obligations: compress the full `1,...,K` spin-ray sum into a
+uniform multiple of the low-spin atom, and compare the normalized fixed-half
+law with its growing-half counterpart.  The repository's present
+cross-volume theorems control fixed finite support-cylinder events; they do
+not supply either exact-state inequality.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1053,7 +1080,8 @@ The unchanged-completion source-interface separation target completes
 successfully in a focused 5,197-job build.  The exact completion-factorization
 and fixed-reference tail target completes successfully in a focused
 5,198-job build.  The all-cutoff completion-factorization and fixed-source
-tail target completes successfully in a focused 5,199-job build.
+tail target completes successfully in a focused 5,199-job build.  The matched
+ray comparison compiler completes successfully in a focused 5,200-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
