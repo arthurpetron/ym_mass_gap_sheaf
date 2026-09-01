@@ -172,7 +172,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       +-- ray return floor at anchor ........... [PROVED]
 |   |   |   |   |   |       |       +-- exact finite expectation/weight ratio  [PROVED]
 |   |   |   |   |   |       |       +-- sharp finite-cutoff ratio maximum .... [PROVED]
-|   |   |   |   |   |       |       +-- cofinal uniform ratio ceiling ........ [ACTIVE producer]
+|   |   |   |   |   |       |       +-- assigned masses partition 1-vacuum ... [PROVED exact]
+|   |   |   |   |   |       |       +-- ratio => (1-vacuum) <= C*ray mass .... [PROVED necessary]
+|   |   |   |   |   |       |       +-- matched tail: 1/6 <= C_K*ray mass ..... [PROVED necessary]
+|   |   |   |   |   |       |       +-- complement/ray asymptotic audit ...... [ACTIVE diagnostic]
+|   |   |   |   |   |       |       +-- cofinal uniform ratio ceiling ........ [ACTIVE / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
 |   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
@@ -1227,6 +1231,50 @@ kernel term.  The three printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,172-job one-worker module verification pass.  No full-root audit is
 claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassAggregateGate.lean`
+now audits whether that ratio producer is even compatible with the aggregate
+stationary law.  The repaired assigned-spin indicators over offsets
+`0,...,K-1` form an exact pointwise partition of the physical non-vacuum event.
+After finite Fubini, their stationary means therefore sum to the normalized
+non-vacuum mass, identified constructively by
+
+```text
+assigned stationary mass sum + physical vacuum row marginal = 1.
+```
+
+The corresponding displayed spin-cube weights sum to
+`centralLowerExcitedSpinCubeRayMass`.  Termwise use of the sharp finite ratio
+maximum consequently proves the necessary finite-cutoff inequality
+
+```text
+1 - physical vacuum row marginal
+  <= sharp assigned-ratio ceiling * excited spin-cube ray mass.
+```
+
+Any inhabitant of the named cofinal ratio structure must satisfy the same
+inequality with its common cutoff-independent `ratioBound`.  This does not
+construct that inhabitant.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedTailGate.lean`
+specializes the aggregate gate to the exact matched dyadic same-action family.
+The already proved vacuum calibration at every `scale >= 2` gives the concrete
+necessary tail condition
+
+```text
+1/6 <= sharp assigned-ratio finite ceiling * excited spin-cube ray mass.
+```
+
+This exposes the next decisive audit: compare the large-cutoff non-vacuum
+complement with the thin ray mass, or equivalently determine how quickly the
+sharp ratio ceiling must grow if the ray mass shrinks.  A uniform positive
+lower bound for the former together with decay of the latter would refute a
+uniform ceiling for this particular assigned-spin/ray-weight route and force a
+broader terminal reference measure or a posterior-column reroute; a matching
+aggregate bound would keep it viable.  Neither asymptotic statement is claimed
+here.  The load-bearing declarations are monitored and axiom-gated to
+`[propext, Quot.sound]`; the matched-tail target passes a focused one-worker
+5,175-job build.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
