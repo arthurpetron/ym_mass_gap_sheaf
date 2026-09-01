@@ -177,7 +177,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       +-- matched tail: 1/6 <= C_K*ray mass ..... [PROVED necessary]
 |   |   |   |   |   |       |       +-- matched varying-weight cofinal interface [PROVED reduction]
 |   |   |   |   |   |       |       +-- uniform C => ray mass >= (1/6)/C ...... [PROVED necessary]
-|   |   |   |   |   |       |       +-- ray-mass tail-zero/floor audit ........ [ACTIVE diagnostic]
+|   |   |   |   |   |       |       +-- ray-mass asymptotic fork .............. [ACTIVE diagnostic]
+|   |   |   |   |   |       |       |   +-- positive tail floor ............... [OPEN / route survives]
+|   |   |   |   |   |       |       |   `-- tail zero => no uniform ratio ...... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
@@ -1300,6 +1302,17 @@ side is yet proved.  The five interface and reciprocal-floor declarations pass
 their direct monitored source check with only `[propext, Quot.sound]`, and the
 module passes a focused one-worker 5,176-job build.  No full-root audit is
 claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo.lean`
+records the opposing branch as located epsilon/rate data for the exact matched
+ray mass.  The datum is not inhabited.  If it is later proved, choosing half
+of the reciprocal floor as the tolerance yields a direct contradiction with
+every inhabitant of the common matched assigned-ratio structure.  Therefore
+the asymptotic fork is now logically explicit: a positive ray-mass tail floor
+keeps this reference route viable, whereas ray-mass tail zero rules it out and
+forces a broader terminal reference measure or posterior-column reroute.  The
+no-go implication uses only `[propext, Quot.sound]` and passes a focused
+one-worker 5,177-job build; neither branch producer is claimed here.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
