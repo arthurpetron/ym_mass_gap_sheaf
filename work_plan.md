@@ -149,6 +149,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- 24-var/48-link arity<=4 active scopes ...... [PROVED]
 |   |   |   |   |   |   +-- active CSP iff uniform six-face spin cube .. [PROVED exact]
 |   |   |   |   |   |   +-- root-spoke carrier = K+1 spin-cube indices . [PROVED exact]
+|   |   |   |   |   |   +-- terminal source -> admitted spin label ..... [PROVED exact]
+|   |   |   |   |   |   +-- used bins <= K+1; sector <= (K+1)*load .... [PROVED necessary]
 |   |   |   |   |   |   `-- classified-spoke assignment/load ........... [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -911,6 +913,26 @@ sharing, and per-user load.  The printed declarations use only
 stopped by the monitored launcher at job 3,202/7,748 when available memory
 reached the mandatory 12 GiB OS reserve; that interrupted run is not reported
 as a pass or proof failure.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorRootSpokeSpinCubeTerminalAssignment.lean` makes the
+classification operational for arbitrary selected positive routings.  It
+decodes the terminal predecessor of every non-vacuum route by evaluating its
+represented state on face zero, proves that the resulting spin is at most the
+cutoff, and identifies the predecessor exactly with that spin cube's
+computable finite-carrier index.  Hence every used terminal source belongs to
+the explicit `K + 1` spin-cube root-index list.  Substitution into the existing
+terminal-fanout theorem gives the sharp necessary condition
+
+```text
+nonvacuum-sector cardinality <= (K + 1) * common congestion bound.
+```
+
+This exposes the remaining producer honestly: an eventual uniform congestion
+certificate can exist only if it constructs a sufficiently balanced
+assignment into these explicit spin bins and controls both terminal inverse-
+kernel demand and all preceding-edge loads.  The five printed declarations
+use only `[propext, Quot.sound]`; the direct monitored source check and focused
+5,104-job one-worker build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
