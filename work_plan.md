@@ -93,7 +93,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- local congestion <= first resistance moment ... [PROVED reduction]
 |   |   |   +-- moment >= nonzero off-ray cardinality .......... [PROVED obstruction]
 |   |   |   +-- global uniform resistance moment ............... [OBSTRUCTED]
-|   |   |   +-- localized edge/shell congestion estimate ....... [ACTIVE]
+|   |   |   +-- exact edge-user stationary-resistance tail ..... [PROVED]
+|   |   |   +-- nonzero edge-user count <= local congestion .... [PROVED diagnostic]
+|   |   |   +-- uniform localized edge/shell tail estimate ..... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -174,7 +176,17 @@ structural obstruction rather than a no-go theorem, but it makes the global
 sum an inappropriately strong default target.  The active causal edge is now
 a genuinely localized edge/shell congestion estimate which retains
 stationary tail decay instead of summing one unavoidable unit over every
-starting state.  A translated/separating family of guarded events with
+starting state.  That localization is now exact: the directed-edge flow load
+is equal to the sum of `stationaryWeight * selectedPathResistance` over the
+literal filtered subcarrier of off-ray source states whose selected simple
+root path traverses that edge.  Moreover, the number of nonzero sources in
+this edge-user subcarrier is bounded by the same flow load.  Thus a uniform
+congestion theorem for the current routing must simultaneously prove a
+uniform nonzero edge-use multiplicity bound and a uniform weighted tail bound;
+neither condition may be hidden by the global moment.  Constructing that
+edge-local upper estimate, or replacing the generic connectivity routing by
+one with explicitly bounded edge sharing, is the active causal edge.  A
+translated/separating family of guarded events with
 quantitative conductance, path-Poincare, or tensorization remains an
 alternative producer route.  The already formalized fixed-nome
 cofinal-ceiling structures state the exact target contract.

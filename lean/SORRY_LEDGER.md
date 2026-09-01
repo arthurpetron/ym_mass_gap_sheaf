@@ -28251,3 +28251,31 @@ stationary tail decay.
 No `sorry` is introduced.  The focused dependency-complete monitored target
 passes all 5,089 jobs; all three printed declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Root resistance congestion is exactly an edge-user stationary tail (2026-08-31)
+
+`BF4PhysicalSpinCubeOffRayRootResistanceEdgeTail` retains the path-incidence
+information discarded by the global first moment.  For every directed edge
+it defines the literal filtered subcarrier of off-ray source states whose
+selected simple root path traverses that edge.  Duplicate-freedom of each
+path gives the exact identity
+
+```text
+root resistance flow load(source,target)
+  = sum over edge-using states of
+      stationaryWeight(state) * selectedPathResistance(state,vacuum).
+```
+
+This is an equality in both directions, not a new sufficient assumption.  It
+places the open analytic estimate on the smallest literal state carrier seen
+by the current routing.  The first-edge obstruction also localizes: every
+nonzero edge-using state contributes at least one unit, so the number of such
+states is bounded by the edge's flow load.  Consequently a cofinal congestion
+bound for this routing necessarily bounds nonzero edge-use multiplicity at
+every directed edge.  No uniform multiplicity or weighted-tail bound is
+constructed, and no cofinal gap, thermodynamic or continuum limit, continuum
+Yang--Mills theory, or Clay theorem is claimed.
+
+No `sorry` is introduced.  The focused dependency-complete monitored target
+passes all 5,090 jobs; all five printed declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
