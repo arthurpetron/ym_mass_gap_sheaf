@@ -123,7 +123,9 @@ private theorem listQSum_zero_local {Item : Type} :
         (Q'.add_eqv_congr_left 0 _ _ (listQSum_zero_local tail))
         (Q'.eqv_of_eq (Q'.zero_add' 0))
 
-private theorem listQSum_shell_partition_local
+/-- Exact partition of a finite nonnegative-or-signed rational sum by any
+natural-valued shell statistic with a supplied finite range. -/
+theorem listQSum_shell_partition
     {Item : Type} (value : Item → Q') (shell : Item → Nat) :
     ∀ (items : List Item) (bound : Nat),
       (∀ item, item ∈ items → shell item < bound) →
@@ -176,13 +178,13 @@ private theorem listQSum_shell_partition_local
       have htailSum : listQSum tailValue (List.range bound) ≈
           listQSum value tail := by
         unfold tailValue
-        exact listQSum_shell_partition_local value shell tail bound htailBound
+        exact listQSum_shell_partition value shell tail bound htailBound
       exact Q'.eqv_trans _ _ _ hpointwise
         (Q'.eqv_trans _ _ _
           (listQSum_add headValue tailValue (List.range bound))
           (Q'.add_eqv_congr' hheadSum htailSum))
 
-private theorem listQSum_range_eqv_finSum_local (value : Nat → Q') :
+theorem listQSum_range_eqv_finSum (value : Nat → Q') :
     ∀ count : Nat,
       listQSum value (List.range count) ≈ finSum value count
   | 0 => Q'.eqv_refl 0
@@ -192,7 +194,7 @@ private theorem listQSum_range_eqv_finSum_local (value : Nat → Q') :
         (listQSum value (List.range count) + listQSum value [count]) _
         (listQSum_append value (List.range count) [count])
         (Q'.add_eqv_congr'
-          (listQSum_range_eqv_finSum_local value count)
+          (listQSum_range_eqv_finSum value count)
           (Q'.eqv_of_eq (Q'.add_zero' (value count))))
 
 /-! ## 2. Concrete canonical path-length shells -/
@@ -262,7 +264,7 @@ theorem centralLowerExcitedSpinCubeOffRayRootResistanceEdgeTail_eqv_lengthShellS
     unfold shell bound centralLowerExcitedSpinCubeOffRayRootLengthShellCount
     omega
   have hpartition :=
-    listQSum_shell_partition_local value shell items bound hshellBound
+    listQSum_shell_partition value shell items bound hshellBound
   unfold centralLowerExcitedSpinCubeOffRayRootResistanceEdgeTail
     centralLowerExcitedSpinCubeOffRayRootResistanceEdgeLengthShellLoad
     centralLowerExcitedSpinCubeOffRayRootEdgeLengthShellStates
@@ -321,7 +323,7 @@ theorem flowLoad_le_budget
       (List.mem_range.mp hshell)
   have hgeometric : listQSum geometric (List.range count) ≈
       finSum geometric count :=
-    listQSum_range_eqv_finSum_local geometric count
+    listQSum_range_eqv_finSum geometric count
   have hbudget : finSum geometric count ≤ family.budget :=
     geometric_tail_closure family.amplitude family.ratio family.budget
       family.ratio_nonnegative family.budget_nonnegative

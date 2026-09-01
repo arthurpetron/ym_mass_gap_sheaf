@@ -39,7 +39,9 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Constructive finite-sum and power algebra -/
 
-private theorem listQSum_le_length_mul_local {Item : Type}
+/-- A pointwise nonnegative upper bound controls a finite rational sum by
+list length times that common bound. -/
+theorem listQSum_le_length_mul_of_bound {Item : Type}
     (value : Item → Q') {bound : Q'}
     (hbound0 : (0 : Q') ≤ bound) :
     ∀ items : List Item,
@@ -49,7 +51,7 @@ private theorem listQSum_le_length_mul_local {Item : Type}
       Q'.le_of_eqv (Q'.eqv_symm (Q'.zero_mul_eqv bound))
   | head :: tail, hbound => by
       have hhead := hbound head List.mem_cons_self
-      have htail := listQSum_le_length_mul_local value hbound0 tail
+      have htail := listQSum_le_length_mul_of_bound value hbound0 tail
         (fun item hitem =>
           hbound item (List.mem_cons_of_mem head hitem))
       refine Q'.le_trans' _ _ _
@@ -67,13 +69,13 @@ private theorem listQSum_le_length_mul_local {Item : Type}
         (Q'.add_eqv_congr_left _ _ _ (Q'.one_mul_eqv bound))
         (Q'.add_comm_eqv (Q'.ofNat tail.length * bound) bound)
 
-private theorem mul_pow_eqv_local (left right : Q') :
+theorem mul_pow_eqv (left right : Q') :
     ∀ exponent : Nat,
       (left * right) ^ exponent ≈
         left ^ exponent * right ^ exponent
   | 0 => Q'.eqv_symm (Q'.mul_one_eqv 1)
   | exponent + 1 => by
-      have hinductive := mul_pow_eqv_local left right exponent
+      have hinductive := mul_pow_eqv left right exponent
       show
         (left * right) * (left * right) ^ exponent ≈
           (left * left ^ exponent) *
@@ -181,7 +183,7 @@ theorem shellLoad_le_combined
       (Q'.pow_nonneg family.loadRatio family.loadRatio_nonnegative shell)
   have hsum : listQSum value states ≤
       Q'.ofNat states.length * pointBound := by
-    apply listQSum_le_length_mul_local value hpointBound0 states
+    apply listQSum_le_length_mul_of_bound value hpointBound0 states
     intro state hstate
     exact family.stateLoad_le K hK source target shell state hshell hstate
   have hcardinality : Q'.ofNat states.length ≤
@@ -228,7 +230,7 @@ theorem shellLoad_le_combined
             (family.entropyBase * family.loadRatio) ^ shell :=
         Q'.mul_eqv_congr_left _ _ _
           (Q'.eqv_symm
-            (mul_pow_eqv_local family.entropyBase family.loadRatio shell))
+            (mul_pow_eqv family.entropyBase family.loadRatio shell))
   unfold centralLowerExcitedSpinCubeOffRayRootResistanceEdgeLengthShellLoad
   exact Q'.le_trans' _ _ _ hsum
     (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hfactor))
