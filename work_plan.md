@@ -267,7 +267,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- growing-completion-only keys ........... [PROVED carrier]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- key weight = growing completion * Z_0 .. [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- source fiber = raw_0 * physical fiber .. [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   `-- growing physical fiber cross bound ..... [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- growing physical fiber cross bound ..... [ACTIVE route test]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal decays as 1/(s+1) [OPEN required]
+|   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform coarse bound . [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN; must mix]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
@@ -1220,6 +1224,29 @@ collapsed by selecting one fixed completion.  The displayed uniform
 growing-physical fiber estimate is the active analytic producer; it is not
 inhabited here.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairNecessary.lean` exposes the
+first sharp route test for that remaining producer.  For every positive
+growing completion, its physical inverse fiber contains the `volume + 1`
+distinct literal low-spin lower states, and the all-cutoff factorization makes
+all of their complete terms equal to the reference completion term.  Hence
+any reduced coarse capacity bound necessarily implies
+
+```text
+(volume + 1) * fixedHalfSpinOneRawRow
+  <= ceiling * fixedHalfPhysicalPartition,
+
+(volume + 1) * fixedHalfSpinOneMarginal <= ceiling.
+```
+
+On the matched diagonal this becomes the same statement with
+`volume = scale`.  This is not yet a no-go: the fixed-half marginal varies
+with the matched weight and cutoff.  The coarse route now survives exactly
+through the still-open possibility that this marginal decays at least at the
+required reciprocal-linear rate.  The next audit is therefore to determine
+the actual matched asymptotics or a constructive lower bound for that fixed
+spin-one marginal; a uniform positive lower bound would refute the coarse
+repair, while a reciprocal-linear upper estimate would keep it viable.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1248,7 +1275,9 @@ respectively.  The faithful-slice necessary-condition and matched-uniform
 canonical-repair no-go complete successfully in a focused 5,208-job build.
 The growing-completion coarse repair, exact target/source fiber
 factorizations, equivalent reduced producer, and normalized compiler complete
-successfully in a focused 5,209-job build.
+successfully in a focused 5,209-job build.  The literal low-spin multiplicity,
+necessary raw capacity, normalized fixed-marginal condition, and matched
+diagonal consequence complete successfully in a focused 5,210-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
