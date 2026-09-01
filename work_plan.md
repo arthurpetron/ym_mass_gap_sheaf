@@ -118,9 +118,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- exact twice-spin physical-mass shells ......... [PROVED]
 |   |   |   |   +-- mass entropy x state-load factorization ....... [PROVED reduction]
 |   |   |   |   |   +-- shell cardinality <= 2^24 * 2^mass ......... [PROVED]
-|   |   |   |   |   +-- literal per-state resistance-load decay ... [ACTIVE]
-|   |   |   |   |   `-- combined ratio `2 * q < 1` ................. [OPEN]
+|   |   |   |   |   +-- state load = weight x path resistance ...... [PROVED exact]
+|   |   |   |   |   |   +-- stationary-weight decay ................. [OPEN]
+|   |   |   |   |   |   +-- canonical resistance growth ............. [OPEN]
+|   |   |   |   |   |   `-- nonzero occupied-shell load >= 1 ........ [PROVED obstruction]
+|   |   |   |   |   `-- geometric pointwise decay ................... [OBSTRUCTED]
+|   |   |   |   |       unless edge-user masses truncate uniformly
 |   |   |   |   +-- mass-shell sum => full simple certificate ..... [PROVED reduction]
+|   |   |   |   +-- bounded edge sharing / mass-monotone reroute ... [ACTIVE]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -382,19 +387,28 @@ mass-shell cardinality <= 2^(n + 24) = 2^24 * 2^n,
 ```
 
 uniformly in cutoff and directed edge.  Thus `E = 2^24` and `b = 2` are
-proved, and the active finite input is only a pointwise bound
+proved.  The mass-shell compiler would close from a pointwise bound
 
 ```text
 stationaryWeight(state) * canonicalPathResistance(state, vacuum)
   <= L * q^physicalMass(state),       with 2*q < 1.
 ```
 
-This removes path length from the entropy statistic and aligns the active
-shell with the physical mass controlled by the existing peeling machinery.
-A route risk remains inside the pointwise factor: it includes the resistance
-of the selected canonical path, whose growth is not yet controlled by source
-mass.  If this cannot be bounded, the route itself must become deliberately
-mass-monotone.
+The remaining load factors exactly into stationary weight and the resistance
+of the selected canonical path.  Separate estimates `W*s^mass` and
+`R*t^mass` compile to state-load ratio `s*t`, so the entropy-adjusted condition
+is `2*s*t < 1`.  But the already proved finite row identity supplies the
+opposite diagnostic: every nonzero off-ray state has
+`stationaryWeight * canonicalPathResistance >= 1`.  This lower bound now
+holds on every nonzero literal mass-shell edge user, so any proposed decay
+envelope must itself remain at least one on every occupied shell.  Geometric
+pointwise decay is therefore not a viable generic mechanism on arbitrarily
+high occupied edge-user shells.  This does not yet prove that such shells are
+occupied at unbounded mass for one fixed edge, so it is an obstruction rather
+than a complete no-go theorem.  The active route must prove cutoff-uniform
+edge-user mass truncation/bounded sharing, or replace the canonical paths by
+a deliberately mass-monotone routing whose local congestion is controlled by
+a different argument.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
@@ -508,17 +522,20 @@ times a literal per-state stationary-resistance decay estimate, with product
 ratio below one; the proved finite geometric compiler then pays both the extra
 terminal demand and the preceding-edge tail and produces the full simple
 cofinal routing certificate.  The cardinality estimate is now proved with
-amplitude `2^24` and base `2`; the sole remaining finite estimate is pointwise
-stationary-resistance decay with ratio `q < 1/2`, and it must still control
-canonical-path resistance.  B, C, and D remain unchanged until explicit
+amplitude `2^24` and base `2`.  The state load factors exactly into stationary
+weight and canonical-path resistance, but every nonzero shell user has load
+at least one.  Thus the former pointwise `q < 1/2` target is now marked
+obstructed unless occupied edge-user masses truncate uniformly.  The active
+finite branch is bounded edge sharing / shell truncation or a replacement
+route.  B, C, and D remain unchanged until explicit
 physical scaling, continuum, and OS/GNS bridges are inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
-**Status. THE CUTOFF-UNIFORM PHYSICAL-MASS SHELL ENTROPY BOUND IS PROVED;
-POINTWISE STATIONARY-RESISTANCE DECAY IS THE SOLE ACTIVE FINITE INPUT.**
+**Status. PHYSICAL-MASS ENTROPY IS PROVED, AND POINTWISE LOAD DECAY HAS A
+SHELL-LOCAL UNIT LOWER-BOUND OBSTRUCTION.  ROUTING LOCALITY IS ACTIVE.**
 
 `BF4PhysicalSpinCubeOffRayRootResistanceLengthShellFactorization.lean`
 introduces a named cofinal input pinned to the actual BF4 edge-user shell
@@ -576,8 +593,39 @@ pointwise state-load decay; with `2*q < 1` it compiles directly to the same
 off-ray and full simple-routing certificates.  Its seven printed declarations
 use only `[propext, Quot.sound]`; both the direct monitored check and the
 focused 5,142-job build pass.  No full-root audit is claimed.  Uncontrolled
-canonical-path resistance in the pointwise load is now the only obstruction
-inside this physical-mass-shell route.
+canonical-path resistance remains visible inside this physical-mass-shell
+route.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization.lean`
+defines the totalized literal canonical-path resistance and proves the exact
+identity
+
+```text
+stateLoad = stationaryWeight * canonicalPathResistance.
+```
+
+Its factorized cofinal input allows stationary decay `W*s^mass` and resistance
+growth `R*t^mass`, then compiles their product to the entropy module under
+`2*(s*t) < 1`.  Its five printed declarations use only
+`[propext, Quot.sound]`; the direct check and focused 5,143-job build pass.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceMassShellPointwiseDecayObstruction.lean`
+then transports the established row-identity lower bound to every nonzero
+literal mass-shell edge user:
+
+```text
+1 <= stateLoad <= proposedDecayEnvelope(shell).
+```
+
+Hence neither the monolithic nor the weight/path-factorized decay interface
+can decay geometrically along arbitrarily high occupied shells.  This is not
+yet an unconditional no-go theorem because unbounded occupied mass shells for
+a common directed edge have not been constructed.  It does rule out treating
+stationary heat decay alone as the next producer.  Its three printed
+declarations use only `[propext, Quot.sound]`; the direct check and focused
+5,144-job build pass.  The active causal task is now a cutoff-uniform theorem
+that edge-user masses truncate / edge sharing stays bounded, or construction
+of a replacement mass-monotone routing with a different local-load estimate.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
