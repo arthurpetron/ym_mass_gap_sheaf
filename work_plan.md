@@ -264,6 +264,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- capacity => 1 <= C * growingMarginal .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   `-- all-K tail contradicts one matched C .. [PROVED no-go]
 |   |   |   |   |   |       |       |       |   |           |   +-- mixed fixed-completion repair .......... [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- growing-completion-only keys ........... [PROVED carrier]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- key weight = growing completion * Z_0 .. [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- source fiber = raw_0 * physical fiber .. [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   `-- growing physical fiber cross bound ..... [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN; must mix]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
@@ -1183,6 +1187,39 @@ weighted inverse-fiber capacity.  Spin-ray compression, the cofinal
 all-vector gap, physical scaling, continuum construction, OS/GNS
 reconstruction, and the Clay theorem remain open.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepair.lean` now implements that
+coarsening.  Its duplicate-free decidable key retains only the growing target
+and boundary codes and deliberately forgets the fixed physical coordinate.
+The exact key weight is therefore
+
+```text
+growingCompletionWeight(key) * Z_0,
+```
+
+and the sum over all coarse keys is still exactly `raw_V * Z_0`.  The
+canonical growing-completion extraction maps every full growing slab into
+this carrier.  Because that repair is independent of the fixed completion,
+each crossed source inverse fiber factors exactly as
+
+```text
+raw_0 * growingPhysicalRepairFiber(key).
+```
+
+The coarse crossed-fiber capacity is proved equivalent to the reduced
+growing-physical condition
+
+```text
+raw_0 * growingPhysicalRepairFiber(key)
+  <= ceiling * (growingCompletionWeight(key) * Z_0).
+```
+
+Either form compiles to the exact raw cross and then to the normalized
+fixed/growing spin-one comparison.  Unlike the refuted faithful repair, this
+producer retains the fixed normalization factor `raw_0 / Z_0` and cannot be
+collapsed by selecting one fixed completion.  The displayed uniform
+growing-physical fiber estimate is the active analytic producer; it is not
+inhabited here.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1209,6 +1246,9 @@ occurrence-index weighted-fiber compiler, and canonical-repair compiler
 complete successfully in focused 5,205-, 5,206-, and 5,207-job builds,
 respectively.  The faithful-slice necessary-condition and matched-uniform
 canonical-repair no-go complete successfully in a focused 5,208-job build.
+The growing-completion coarse repair, exact target/source fiber
+factorizations, equivalent reduced producer, and normalized compiler complete
+successfully in a focused 5,209-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
