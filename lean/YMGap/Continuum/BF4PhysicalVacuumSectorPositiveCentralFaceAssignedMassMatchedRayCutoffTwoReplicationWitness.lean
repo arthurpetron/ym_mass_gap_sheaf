@@ -40,9 +40,13 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorComplementWitness
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumRefreshSpectrum
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate
+open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayExactPartitionGate
+open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
+open YMGap.Continuum.Z4HalfTimeReflectionPartition
 
 /-! ## 1. The four-state encoder -/
 
@@ -158,6 +162,28 @@ def cutoffTwoWeightedRawReplication :=
 theorem cutoffTwoWeightedRawReplication_count :
     cutoffTwoWeightedRawReplication.replicaCount = 2 := rfl
 
+/-- The four-state injection makes the literal cutoff-two physical partition
+pay the exact excited-ray numerator times its computed effective
+multiplicity. -/
+theorem cutoffTwoExactRawNumerator_mul_effectiveMultiplicity_le_partition :
+    centralLowerExcitedSpinCubeExactRawNumerator cutoffTwoHalfCoupling
+          (Q'.le_of_lt
+            (by decide : (0 : Q') < cutoffTwoHalfCoupling)) 2 *
+        cutoffTwoWeightedRawReplication.effectiveMultiplicity ≤
+      slabParametricKPhysicalPartition cutoffTwoHalfCoupling 2
+        (centralExtent 0) := by
+  exact cutoffTwoWeightedRawReplication.exactRawNumerator_mul_effectiveMultiplicity_le_partition
+
+/-- Direct finite ray estimate obtained from the computed positive floor and
+the two literal replicas. -/
+theorem cutoffTwoRayMass_le_reciprocalComputedEffectiveMultiplicity :
+    centralLowerExcitedSpinCubeRayMass cutoffTwoHalfCoupling
+          (Q'.le_of_lt
+            (by decide : (0 : Q') < cutoffTwoHalfCoupling)) 2 ≤
+      Q'.divPos 1 cutoffTwoWeightedRawReplication.effectiveMultiplicity
+        cutoffTwoWeightedRawReplication.effectiveMultiplicity_pos := by
+  exact cutoffTwoPositiveRawReplication.rayMass_le_reciprocalComputedEffectiveMultiplicity
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness
 
 #print axioms
@@ -168,3 +194,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatche
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.cutoffTwoPositiveRawReplication_floor_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.cutoffTwoWeightedRawReplication_count
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.cutoffTwoExactRawNumerator_mul_effectiveMultiplicity_le_partition
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.cutoffTwoRayMass_le_reciprocalComputedEffectiveMultiplicity

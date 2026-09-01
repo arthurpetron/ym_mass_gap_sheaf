@@ -1498,9 +1498,11 @@ transverse single-face state, the spin-two cube, and the vacuum injectively to
 the two excited sources times two replica indices.  All four states are in the
 literal retained positive carrier, so the compiler produces a genuine
 weighted certificate with `R=2` and a strictly positive computed finite row
-floor.  Evaluations at faces zero and thirty-nine prove injectivity.  This is
+floor.  The file also exports the resulting exact-numerator-times-effective-
+multiplicity partition domination and reciprocal-effective-multiplicity ray
+bound.  Evaluations at faces zero and thirty-nine prove injectivity.  This is
 still a fixed-cutoff witness: it neither gives a growing replica count nor an
-asymptotic lower bound on `R*lambda`.  The four gated declarations use only
+asymptotic lower bound on `R*lambda`.  The six gated declarations use only
 `[propext, Quot.sound]`; both the standard monitored source check and a focused
 one-worker 5,187-job target build pass.  No full-root audit is claimed.
 
