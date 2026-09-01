@@ -82,6 +82,21 @@ private theorem listQMinOne_le_selected_local {A : Type}
           (Q'.min_le_right' _ _)
           (listQMinOne_le_selected_local value tail htail)
 
+private theorem lower_le_listQMinOne_local {A : Type}
+    (value : A → Q') (lower : Q') :
+    ∀ items : List A,
+      lower ≤ 1 →
+      (∀ item, item ∈ items → lower ≤ value item) →
+        lower ≤ listQMinOne value items
+  | [], hlowerOne, _ => hlowerOne
+  | head :: tail, hlowerOne, hlower => by
+      apply (Q'.le_min'_iff lower _ _).mpr
+      exact
+        ⟨hlower head List.mem_cons_self,
+          lower_le_listQMinOne_local value lower tail hlowerOne
+            (fun item hitem =>
+              hlower item (List.mem_cons_of_mem head hitem))⟩
+
 private theorem listQMinOne_eq_one_local {A : Type}
     (value : A → Q') :
     ∀ items : List A,
@@ -228,6 +243,34 @@ theorem rawRowRatioFloor_le_clipped
   unfold rawRowRatioFloor
   exact listQMinOne_le_selected_local
     replication.clippedRawRowRatio replication.replicas hstate
+
+/-- Any capped pointwise comparison between the common reference row and all
+selected replica rows transfers to the computed arbitrary-volume minimum. -/
+theorem lower_le_rawRowRatioFloor_of_scaledReferenceRawRow_le
+    {w : Q'} {hw0 : (0 : Q') < w} {K half : Nat}
+    (replication : CentralPositiveRawReplicationListAt w hw0 K half)
+    (lower : Q') (hlowerOne : lower ≤ 1)
+    (hscaled : ∀ state, state ∈ replication.replicas →
+      centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K half replication.reference * lower ≤
+        centralPhysicalPositiveRawRowMass
+          w (Q'.le_of_lt hw0) K half state) :
+    lower ≤ replication.rawRowRatioFloor := by
+  unfold rawRowRatioFloor
+  apply lower_le_listQMinOne_local
+  · exact hlowerOne
+  · intro state hstate
+    unfold clippedRawRowRatio
+    apply (Q'.le_min'_iff lower _ _).mpr
+    refine ⟨hlowerOne, ?_⟩
+    unfold rawRowRatio
+    apply Q'.le_divPos_of_mul_le
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.mul_comm_eqv lower
+          (centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K half replication.reference)))
+      (hscaled state hstate)
 
 /-- If the selected reference raw row is no larger than every replica raw
 row, clipping makes every exact replica/reference ratio equal to one and the
@@ -462,6 +505,8 @@ end YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.rawRowRatioFloor_pos
 #print axioms
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.scaledReferenceRawRow_le_replica
+#print axioms
+  YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.lower_le_rawRowRatioFloor_of_scaledReferenceRawRow_le
 #print axioms
   YMGap.Continuum.BF4VolumeParametricPositiveRawReplicationGate.CentralPositiveRawReplicationListAt.rawRowRatioFloor_eq_one_of_reference_le
 #print axioms

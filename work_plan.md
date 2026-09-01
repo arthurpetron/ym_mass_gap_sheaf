@@ -221,10 +221,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- partition pays the same linear floor .. [PROVED]
 |   |   |   |   |   |       |       |       |   +-- absolute-floor fraction <= 1 .......... [PROVED obstruction]
 |   |   |   |   |   |       |       |       |   +-- arbitrary-volume ratio compiler ....... [PROVED]
+|   |   |   |   |   |       |       |       |   +-- pointwise floor => computed minimum ..... [PROVED]
 |   |   |   |   |   |       |       |       |   +-- fixed slice-zero reference branch
 |   |   |   |   |   |       |       |       |   |   +-- literal compiler instance ........... [PROVED]
 |   |   |   |   |   |       |       |       |   |   +-- marginal <= 1/effective ............. [PROVED]
-|   |   |   |   |   |       |       |       |   |   `-- asymptotic ratio-floor control ...... [ACTIVE]
+|   |   |   |   |   |       |       |       |   |   +-- one-ceiling fixed/adaptive Harnack gate [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |   +-- reciprocal floor => linear effective .. [PROVED conditional]
+|   |   |   |   |   |       |       |       |   |   +-- explicit fixed marginal tail zero ..... [PROVED conditional]
+|   |   |   |   |   |       |       |       |   |   `-- volume-uniform raw-row Harnack ........ [ACTIVE producer]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
 |   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
@@ -916,6 +920,32 @@ that simultaneously preserves the corner-box positive carrier and transports
 these raw-row sums, so fixed-reference row equality remains an open theorem,
 not a symmetry assumption.
 
+`BF4LowSpinGrowingVolumeFixedReferenceHarnackGate.lean` now compiles the
+remaining fixed-source comparison into the desired asymptotic consequence.
+Its sole analytic input is one positive rational `ceiling`, independent of
+`volume`, satisfying
+
+```text
+sliceZeroRawRow(w, volume)
+  <= ceiling * adaptiveMinimumRawRow(w, volume).
+```
+
+The reciprocal ceiling is proved to be a common lower bound for every
+computed replica/reference ratio.  Hence the literal fixed-reference
+effective multiplicity is at least
+
+```text
+(volume + 1) / ceiling,
+```
+
+and the fixed slice-zero stationary marginal has the explicit modulus
+`(epsilon * reciprocalFloor).den`.  These are constructive proved
+implications, not an inhabitant of the Harnack input.  The current causal edge
+is therefore the producer theorem for that one volume-uniform complete-row
+inequality; neither
+time-translation symmetry nor fixed-ray/cofinal-gap/continuum content is being
+assumed by the gate.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -925,8 +955,10 @@ jobs).  The aggregate raw-mass target also completes successfully (5,190
 jobs), as do the arbitrary-volume replication compiler (5,184 jobs) and its
 literal low-spin instance (5,192 jobs).  The adaptive minimum-row target
 completes successfully (5,193 jobs), and its explicit marginal-tail target
-completes successfully (5,194 jobs).  Printed load-bearing declarations use
-only `[propext, Quot.sound]`.  No full-root audit is claimed.
+completes successfully (5,194 jobs).  The generic pointwise-floor compiler was
+rechecked in a focused 5,184-job build, and the fixed-reference Harnack gate
+completes successfully in a focused 5,195-job build.  Printed load-bearing
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
