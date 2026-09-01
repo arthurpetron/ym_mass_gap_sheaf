@@ -159,7 +159,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- normalized used bins <= K excited cubes ....... [PROVED exact]
 |   |   |   |   |   |   +-- exact-routing cofinal load interface ........... [PROVED reduction]
 |   |   |   |   |   |   +-- simplicity removes edge multiplicity ........... [PROVED exact]
+|   |   |   |   |   |   +-- normalized state load <= raw prefix route ....... [PROVED]
+|   |   |   |   |   |   +-- raw resistance = prefix + terminal reciprocal ... [PROVED exact]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
+|   |   |   |   |   |       +-- normalized edge-user sharing ............. [OPEN]
+|   |   |   |   |   |       `-- prefix-terminal state-load bound ......... [OPEN]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -1038,6 +1042,21 @@ most `[propext, Quot.sound]`; both direct monitored source checks pass.
 The low-level target passed a focused 4,897-job one-worker build, and the
 specialized module passed a focused 5,164-job one-worker build.  No full-root
 audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceRawStateLoad.lean` moves the
+remaining whole-route load estimate from the dependent loop-erased path back
+to the literal central-face prefix construction.  It proves resistance
+additivity for concatenated positive chains, identifies the raw root
+resistance with prefix resistance plus the reciprocal conductance of the
+selected final spin-cube spoke, and proves that loop erasure cannot increase
+the doubled stationary-weighted state load.  The vacuum route is handled
+constructively as a separate reflexive case.  A new cofinal compiler shows
+that uniform normalized edge sharing together with a uniform bound on this
+explicit prefix-terminal expression suffices for the exact simple-routing
+congestion theorem.  Neither uniform estimate is inhabited here.  The seven
+printed declarations use only `[propext, Quot.sound]`; the direct monitored
+source check and focused 5,165-job one-worker build pass.  No full-root audit
+is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
