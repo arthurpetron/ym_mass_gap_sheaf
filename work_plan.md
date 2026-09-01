@@ -189,6 +189,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- finite ratio ceiling >= (R*lambda)/6 [PROVED]
 |   |   |   |   |   |       |       |       +-- positive injection => computed lambda [PROVED compiler]
 |   |   |   |   |   |       |       |       +-- identity positive injection (R=1) ... [PROVED finite]
+|   |   |   |   |   |       |       |       +-- cutoff-two positive injection (R=2) . [PROVED finite]
 |   |   |   |   |   |       |       |       +-- construct growing positive injection  [OPEN geometric]
 |   |   |   |   |   |       |       |       +-- prove computed R*lambda diverges ..... [OPEN analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
@@ -1489,6 +1490,19 @@ now exactly a growing positive-carrier injection plus a located zero tail for
 the reciprocal of its *computed* effective multiplicity.  The eight gated
 declarations use only `[propext, Quot.sound]` and pass a focused one-worker
 5,185-job build.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.lean`
+shows that the computed-floor interface is geometrically nontrivial beyond
+the identity certificate.  At cutoff two it assigns the spin-one cube, the
+transverse single-face state, the spin-two cube, and the vacuum injectively to
+the two excited sources times two replica indices.  All four states are in the
+literal retained positive carrier, so the compiler produces a genuine
+weighted certificate with `R=2` and a strictly positive computed finite row
+floor.  Evaluations at faces zero and thirty-nine prove injectivity.  This is
+still a fixed-cutoff witness: it neither gives a growing replica count nor an
+asymptotic lower bound on `R*lambda`.  The four gated declarations use only
+`[propext, Quot.sound]`; both the standard monitored source check and a focused
+one-worker 5,187-job target build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
