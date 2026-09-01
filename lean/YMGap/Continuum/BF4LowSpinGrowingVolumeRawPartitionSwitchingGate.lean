@@ -303,39 +303,41 @@ theorem fixedGrowingRawPartitionTargetSum_eqv_cross
 
 /-! ## 3. A constructive weighted switching producer -/
 
-/-- At fixed coupling and cutoff, a volume-indexed weighted injection between
-the two crossed products.  The ceiling is an explicit parameter so that a
-matched family can demand the same value at every scale. -/
+/-- At fixed coupling, cutoff, and volume, a weighted injection between the
+two crossed products.  The ceiling is an explicit parameter so that a matched
+family can demand the same value on its diagonal at every scale. -/
 structure LowSpinFixedGrowingRawPartitionSwitching
-    (w : Q') (hw : (0 : Q') ≤ w) (K : Nat) (ceiling : Q') : Type where
-  encode : Nat →
+    (w : Q') (hw : (0 : Q') ≤ w) (K volume : Nat)
+    (ceiling : Q') : Type where
+  encode :
     ((EdgeLabelling × EdgeLabelling) × EdgeLabelling) →
       ((EdgeLabelling × EdgeLabelling) × EdgeLabelling)
-  encode_mem : ∀ volume pair,
+  encode_mem : ∀ pair,
     pair ∈ fixedGrowingRawPartitionSourcePairs w hw K volume →
-      encode volume pair ∈
+      encode pair ∈
         fixedGrowingRawPartitionTargetPairs w hw K volume
-  encode_injective : ∀ volume first,
+  encode_injective : ∀ first,
     first ∈ fixedGrowingRawPartitionSourcePairs w hw K volume →
       ∀ second,
         second ∈ fixedGrowingRawPartitionSourcePairs w hw K volume →
-          encode volume first = encode volume second → first = second
-  sourceWeight_le : ∀ volume pair,
+          encode first = encode second → first = second
+  sourceWeight_le : ∀ pair,
     pair ∈ fixedGrowingRawPartitionSourcePairs w hw K volume →
       fixedGrowingRawPartitionSourceWeight w K volume pair ≤
         ceiling *
           fixedGrowingRawPartitionTargetWeight w K volume
-            (encode volume pair)
+            (encode pair)
 
 namespace LowSpinFixedGrowingRawPartitionSwitching
 
 /-- Weighted injectivity compiles the configuration-level switch into the
 exact division-free raw-row/partition inequality. -/
 theorem rawCross
-    {w : Q'} {hw : (0 : Q') ≤ w} {K : Nat} {ceiling : Q'}
+    {w : Q'} {hw : (0 : Q') ≤ w} {K volume : Nat} {ceiling : Q'}
     (switching :
-      LowSpinFixedGrowingRawPartitionSwitching w hw K ceiling)
-    (hceiling : (0 : Q') ≤ ceiling) (volume : Nat) :
+      LowSpinFixedGrowingRawPartitionSwitching
+        w hw K volume ceiling)
+    (hceiling : (0 : Q') ≤ ceiling) :
     fixedHalfSpinOneRawRow w hw K *
         growingHalfPhysicalPartition w K volume ≤
       (ceiling * growingHalfSpinOneRawRow w hw K volume) *
@@ -356,18 +358,18 @@ theorem rawCross
     apply listQSum_le_of_injective_nodup
       sourcePairs targetPairs sourceWeight
       (fun pair => ceiling * targetWeight pair)
-      (switching.encode volume)
+      switching.encode
     · exact fixedGrowingRawPartitionSourcePairs_nodup
         w hw K volume
     · exact fixedGrowingRawPartitionTargetPairs_nodup
         w hw K volume
     · intro pair hpair
-      exact switching.encode_mem volume pair hpair
+      exact switching.encode_mem pair hpair
     · intro first hfirst second hsecond heq
       exact switching.encode_injective
-        volume first hfirst second hsecond heq
+        first hfirst second hsecond heq
     · intro pair hpair
-      exact switching.sourceWeight_le volume pair hpair
+      exact switching.sourceWeight_le pair hpair
     · intro pair _hpair
       exact Q'.mul_nonneg _ _ hceiling
         (fixedGrowingRawPartitionTargetWeight_nonnegative
@@ -404,10 +406,10 @@ spin-one comparison. -/
 theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
     {w : Q'} (hw : (0 : Q') < w) {K : Nat} (hK : 1 ≤ K)
     {ceiling : Q'} (hceiling : (0 : Q') ≤ ceiling)
+    (volume : Nat)
     (switching :
       LowSpinFixedGrowingRawPartitionSwitching
-        w (Q'.le_of_lt hw) K ceiling)
-    (volume : Nat) :
+        w (Q'.le_of_lt hw) K volume ceiling) :
     centralPhysicalRowMarginal
         w (Q'.le_of_lt hw) K 0 (centralLowerSpinCubeState 1) ≤
       ceiling *
@@ -416,7 +418,7 @@ theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
           (lowSpinCentralReferenceState volume) := by
   apply (fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference_iff_cross
     hw hK ceiling volume).mpr
-  exact switching.rawCross hceiling volume
+  exact switching.rawCross hceiling
 
 end LowSpinFixedGrowingRawPartitionSwitching
 
@@ -441,6 +443,7 @@ structure MatchedDyadicLowSpinRawPartitionSwitching
       (Q'.le_of_lt
         (matchedAllSpinWeight_pos family coupling scale))
       (matchedAllSpinCutoff family coupling scale)
+      scale
       ceiling
 
 namespace MatchedDyadicLowSpinRawPartitionSwitching
@@ -487,8 +490,8 @@ theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
       (hw := matchedAllSpinWeight_pos family coupling scale)
       (hK := one_le_matchedAllSpinCutoff bridge scale)
       (hceiling := switching.ceiling_nonnegative)
-      (switching := switching.switching scale)
       scale
+      (switching := switching.switching scale)
 
 end MatchedDyadicLowSpinRawPartitionSwitching
 
