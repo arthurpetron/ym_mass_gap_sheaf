@@ -147,7 +147,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- positive-coupling lower-link filter/count .. [PROVED exact]
 |   |   |   |   |   |   +-- all-link local CSP filter/count ............ [PROVED exact]
 |   |   |   |   |   |   +-- 24-var/48-link arity<=4 active scopes ...... [PROVED]
-|   |   |   |   |   |   `-- active-scope SU2 word/count growth ......... [ACTIVE]
+|   |   |   |   |   |   +-- active CSP iff uniform six-face spin cube .. [PROVED exact]
+|   |   |   |   |   |   +-- root-spoke carrier = K+1 spin-cube indices . [PROVED exact]
+|   |   |   |   |   |   `-- classified-spoke assignment/load ........... [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -889,6 +891,26 @@ fixed scopes, followed by a terminal-spoke allocation compatible with uniform
 sharing and load.  The eight printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,102-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorRootSpokeSpinCubeClassifier.lean` solves that fixed
+active-scope CSP at every representation cutoff.  Eighteen non-cube lower
+faces have certified one-valent link witnesses and are forced to spin zero;
+two binary and three vacuum-padded ternary constraints propagate one common
+label across the six faces `[0, 1, 3, 9, 19, 39]`.  Thus a retained source is
+locally admissible exactly when it is the uniform central spin cube determined
+by its label on face zero.  Transport through the canonical finite indexing
+then proves that the positive vacuum-root predecessor list is a permutation
+of the computable spin-cube indices for labels `0,...,K`, and hence has exact
+length `K + 1` at every strictly positive coupling.  This closes the
+root-spoke classification and growth subproblem; the active routing question
+is now whether the full non-vacuum sector can be assigned through these
+classified spokes with cutoff-uniform terminal demand, preceding-edge
+sharing, and per-user load.  The printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,103-job one-worker build pass.  A broader `YMGap` replay was separately
+stopped by the monitored launcher at job 3,202/7,748 when available memory
+reached the mandatory 12 GiB OS reserve; that interrupted run is not reported
+as a pass or proof failure.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
