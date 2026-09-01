@@ -28279,3 +28279,37 @@ Yang--Mills theory, or Clay theorem is claimed.
 No `sorry` is introduced.  The focused dependency-complete monitored target
 passes all 5,090 jobs; all five printed declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Adaptive root resistance traffic has an exact multiplicity-aware edge tail (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceEdgeTail` audits the
+route freedom in the existing full-sector exact-mass compiler.  An adaptive
+positive route is not required to be simple, so the new module keeps the
+rational occurrence multiplicity of a directed edge rather than replacing it
+by a Boolean indicator.  For each source state it proves the exact identity
+
+```text
+routed state edge load
+  = (2 * stationaryWeight(state) * routeResistance(state,vacuum))
+      * directed-edge occurrence multiplicity.
+```
+
+After summing over the finite vacuum sector, the complete routed resistance
+flow load is exactly the literal tail over source states whose selected route
+uses the fixed edge.  The generic first-edge row argument is exported and
+reused to show that every non-vacuum route user contributes at least one unit.
+Consequently the number of non-vacuum sources routed through an edge is at
+most that edge's flow load, and every supplied
+`FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound`
+necessarily bounds this route-user cardinality by its common scalar.
+
+This does not construct a cofinal adaptive routing or a uniform congestion
+bound.  It shows exactly what a bounded-sharing BF4 path design must control,
+including repeated-edge traffic.  No cofinal gap, thermodynamic or continuum
+limit, continuum Yang--Mills theory, or Clay theorem is claimed.  No `sorry`
+is introduced.  The focused dependency-complete monitored target passes all
+5,093 jobs; all five printed adaptive declarations and the exported generic
+resistance lemma use only `[propext, Quot.sound]`.  No full-root audit is
+claimed: a monitored `YMGap` root-import build was safely stopped when
+available memory reached the configured 12 GiB reserve, with no Lean error
+reported before the guard fired.

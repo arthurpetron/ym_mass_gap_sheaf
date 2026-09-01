@@ -116,7 +116,10 @@ private theorem ofNat_length_le_listQSum_of_one_le_local {A : Type}
           (Q'.add_comm_eqv _ _)
       exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hcount) hsum
 
-private theorem sourceWeight_mul_resistance_ge_one
+/-- In any nonnegative finite kernel row with exact source weight, every
+nontrivial positive path carries at least one unit of source-weighted
+electrical resistance. -/
+theorem sourceWeight_mul_resistance_ge_one
     {State : Type} {kernel : State → State → Q'} {support : List State}
     {first last : State}
     (weight : State → Q')
@@ -240,6 +243,7 @@ theorem nonzeroOffRay_cardinality_le_bound
 end FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound
 
 #print axioms one_le_centralLowerExcitedSpinCubeOffRayRootStateResistanceLoad
+#print axioms sourceWeight_mul_resistance_ge_one
 #print axioms nonzeroOffRay_cardinality_le_resistanceMoment
 #print axioms
   FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound.nonzeroOffRay_cardinality_le_bound
