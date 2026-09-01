@@ -186,6 +186,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- R raw-row replicas => ray <= 1/R .. [PROVED compiler]
 |   |   |   |   |   |       |       |       +-- R replicas at floor lambda => ray <= 1/(R*lambda)
 |   |   |   |   |   |       |       |       |                                      [PROVED compiler]
+|   |   |   |   |   |       |       |       +-- finite ratio ceiling >= (R*lambda)/6 [PROVED]
 |   |   |   |   |   |       |       |       +-- construct divergent effective multiplicity
 |   |   |   |   |   |       |       |       |                                      [OPEN geometric/analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
@@ -1445,6 +1446,24 @@ multiplicity diverges.  Failure of that effective divergence would leave the
 positive-ray-tail branch open and require returning to a direct cofinal ratio
 or broader receiver-column producer.  The five gated declarations use only
 `[propext, Quot.sound]` and pass a focused one-worker 5,184-job build.  No
+full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayWeightedReplicationRatioGrowth.lean`
+feeds the weighted ray estimate back into the calibrated assigned-mass
+obstruction.  At every finite datum with vacuum mass at most `5/6`, and in
+particular at every matched scale at least two, it proves
+
+```text
+(1/6) * effectiveMultiplicity <= sharpAssignedRatioFiniteCeiling.
+```
+
+If a proposed common matched cofinal ratio bound is also present, the same
+lower bound holds directly against that common bound at every admitted scale.
+Thus effective replica divergence would force quantitative ratio-ceiling
+divergence; the earlier qualitative incompatibility is not hiding a loss in
+the normalization algebra.  This still constructs neither side of the
+asymptotic fork.  The four gated declarations use only
+`[propext, Quot.sound]` and pass a focused one-worker 5,185-job build.  No
 full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
