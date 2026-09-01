@@ -28383,3 +28383,27 @@ No `sorry` is introduced.  The expanded fanout file passes a direct monitored
 check and its dependency-complete target passes all 5,096 jobs.  Every printed
 load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
 audit is claimed.
+
+#### The explicit spin-cube ray gives linear positive-root fanout (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeFanout` embeds the
+existing arbitrary-spin excited-cube ray into the two literal carriers in the
+terminal-fanout inequality.  At every positive coupling and cutoff `K`, all
+`K` distinct ray vertices are non-vacuum physical-sector states and have a
+strictly positive BF4 kernel edge directly into the vacuum root.  Therefore
+
+```text
+Q'.ofNat K <= positiveRootPredecessors.length,
+Q'.ofNat K <= nonvacuumSector.length.
+```
+
+This supplies an explicit linearly growing family of usable root spokes.  It
+does not bound `nonvacuumSector.length / positiveRootPredecessors.length`,
+does not assign the remaining non-vacuum states to those spokes with bounded
+fibers, and does not control the resistance-weighted tail on preceding edges.
+Thus the cofinal all-vector gap, scaling/volume uniformity, continuum measure,
+same-measure OS/GNS reconstruction, and Clay conclusion remain open.
+
+No `sorry` is introduced.  The new file passes a direct monitored check and
+its dependency-complete target passes all 5,097 jobs.  All four printed
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.

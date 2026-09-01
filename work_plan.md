@@ -105,7 +105,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- terminal-spoke fiber <= local congestion ........ [PROVED diagnostic]
 |   |   |   +-- terminal fibers exactly partition nonvacuum ..... [PROVED]
 |   |   |   +-- sector <= positive spokes * common bound ........ [PROVED diagnostic]
-|   |   |   +-- positive-spoke density + weighted tail .......... [ACTIVE]
+|   |   |   +-- K explicit spin-cube positive root spokes ....... [PROVED]
+|   |   |   +-- positive-spoke density ratio + weighted tail .... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -244,6 +245,19 @@ nonvacuum sector cardinality
 The next finite analytic question is consequently the cutoff growth and
 kernel/resistance quality of the literal positive-root predecessor carrier,
 not merely the existence of one terminal edge per path.
+
+The arbitrary-spin explicit vacuum ray now answers the first, weakest growth
+question constructively.  At representation cutoff `K`, its `K` distinct
+excited spin-cube vertices all belong both to the non-vacuum sector and to the
+literal positive-root-predecessor carrier.  Hence each carrier has rational
+cardinality at least `K`.  This proves unbounded positive-root fanout along an
+explicit physical family, but it does not compare the size of the full
+non-vacuum sector with the positive-spoke carrier: simultaneous linear lower
+bounds on both sides give no upper bound on their ratio.  Nor does it assign
+the remaining states to those spokes or control the resistance-weighted load
+on the earlier route edges.  The active target is therefore a quantitative
+positive-spoke density or bounded-fiber assignment together with the localized
+weighted tail estimate.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
