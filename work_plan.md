@@ -131,6 +131,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   `-- cutoff-uniform per-user route load ......... [OPEN producer]
 |   |   |   |   +-- adaptive sharing x edge-load compiler .......... [PROVED reduction]
 |   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
+|   |   |   |   |   +-- edgewise mass drop => simple, length <= mass [PROVED]
+|   |   |   |   |   +-- positive-BF4 realization of accepted peel .. [OPEN producer]
+|   |   |   |   |   +-- uniform adaptive edge sharing ............... [OPEN producer]
+|   |   |   |   |   `-- uniform adaptive per-user edge load ......... [OPEN producer]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -444,6 +448,16 @@ existing no-loss loop erasure supplies the simple-routing consumer.  Thus a
 mass-monotone replacement route need not be forced back through the canonical
 off-ray definitions.
 
+The structural mass-monotone target is also explicit.  A root path whose
+literal lower-half twice-spin mass decreases on every positive BF4 edge is
+automatically vertex-simple and has length at most its source mass.  The
+remaining constructive bridge is not merely a termination argument: the
+accepted paired canonical
+peeling already decreases an analogous natural mass, but each peel must still
+be realized as an actual positive edge in the finite BF4 vacuum-sector kernel.
+Only after that bridge can its fibers and transition-weighted edge loads be
+estimated.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
@@ -686,6 +700,15 @@ exact full-sector flow bound, and invokes the existing no-loss loop-erasure
 compiler.  Its uniform fields remain open.  Its three printed declarations
 use only `[propext, Quot.sound]`; the direct check and focused 5,147-job build
 pass.
+
+`BF4PhysicalVacuumSectorPhysicalMassDescendingRootRouting.lean` defines the
+edgewise strict-mass property on actual positive-kernel paths, proves it gives
+vertex simplicity and the sharp path-length bound by source mass, and packages
+cutoff-level and cofinal routing targets without a congestion assumption.  It
+does not inhabit those targets: positive-kernel realization of the accepted
+peel remains open.  Its four printed declarations use only
+`[propext, Quot.sound]`; its direct monitored source check and focused
+5,148-job build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
