@@ -139,6 +139,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- graph-aware rank or positive macro-step reroute .. [ACTIVE design]
 |   |   |   |   |   +-- mass-amortized macro-step compiler ............ [PROVED reduction]
 |   |   |   |   |   +-- K=2 state -> hub -> vacuum inhabitant .......... [PROVED finite]
+|   |   |   |   |   +-- one common terminal spoke cofinally ............ [PROVED no-go]
+|   |   |   |   |   +-- distributed terminal-spoke producer ............ [ACTIVE design]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -793,6 +795,20 @@ necessary internal mass increase.  Its five printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check passes.  The
 cofinal macro-step producer, uniform sharing, and uniform per-user load remain
 open; no full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorCommonTerminalBoundedSharingNoGo.lean` proves that the
+cutoff-two hub pattern cannot be copied unchanged into the cofinal producer.
+At cutoff `K`, the explicit excited spin-cube ray gives `K` distinct
+non-vacuum states.  If all non-vacuum routes share one cutoff-dependent final
+root spoke, every one of those states is a literal user of that edge.  The
+existing bounded-sharing interface would then force its fixed rational ceiling
+to dominate `K` at every sufficiently large cutoff, and an explicit
+Archimedean cutoff contradicts that requirement.  Internal macro hubs are not
+ruled out, but terminal root spokes must be distributed cofinally.  The active
+design task is therefore a distributed-terminal macro-step producer together
+with uniform edge sharing and per-user load.  The three printed declarations
+use only `[propext, Quot.sound]`; the direct monitored source check and focused
+5,149-job build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
