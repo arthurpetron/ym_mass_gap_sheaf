@@ -207,8 +207,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- raw row / selected activity enhancement [PROVED exact]
 |   |   |   |   |   |       |       |       |   +-- enhancement >= 1 and exact cancellation [PROVED]
 |   |   |   |   |   |       |       |       |   +-- full-row common floor >= selected floor . [PROVED]
-|   |   |   |   |   |       |       |       |   `-- uniform compensation lower bound ........ [ACTIVE analytic]
-|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [OPEN alternate]
+|   |   |   |   |   |       |       |       |   +-- one decorated activity per grid coordinate [PROVED]
+|   |   |   |   |   |       |       |       |   +-- extreme-pair computed-floor ceiling ...... [PROVED]
+|   |   |   |   |   |       |       |       |   `-- high-spin grid effective multiplicity bounded [OBSTRUCTED]
+|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [ACTIVE]
+|   |   |   |   |   |       |       |       |   +-- h+1 common-box time-slice placements [PROVED]
+|   |   |   |   |   |       |       |       |   +-- injective duplicate-free cutoff-one list [PROVED]
+|   |   |   |   |   |       |       |       |   +-- identical positive one-cube production [PROVED]
+|   |   |   |   |   |       |       |       |   +-- reflected positive-row adapter ....... [ACTIVE design]
+|   |   |   |   |   |       |       |       |   `-- common reflected raw-row floor ....... [OPEN analytic]
 |   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
@@ -674,8 +681,9 @@ critical path branches.
 ## Current goal-mode checkpoint (2026-09-01)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL IS CLOSED BY THE CONCRETE
-GUARDED AGGREGATE ROUTE.  THE COMPLETE GRID RAW ROW NOW FACTORS THROUGH AN
-EXACT POSITIVE ENHANCEMENT; A UNIFORM COMPENSATION LOWER BOUND IS ACTIVE.**
+GUARDED AGGREGATE ROUTE.  THE COMPLETE HIGH-SPIN GRID IS NOW PROVED TO HAVE
+BOUNDED EFFECTIVE MULTIPLICITY; LOW-SPIN SPATIAL-VOLUME REPLICATION IS THE
+ACTIVE COFINAL DESIGN EDGE.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -731,17 +739,51 @@ lower bound
 (K+1) * fullRowCommonFloor(K) <= effectiveMultiplicity(K).
 ```
 
-No raw grid-row mass is discarded in the named enhancement.  The active
-analytic producer is now exact: prove that the enhancement compensates the
-sixth-power replica decay uniformly enough that the displayed product
-diverges.  A different low-spin spatial-volume replica family remains the
-explicit alternate branch.
+No raw grid-row mass is discarded in the named enhancement.  However,
+`BF4ExtentOneSlabDecoratedFaceBound.lean` and
+`BF4GrowingGridRawRowCeiling.lean` now prove that each surface meets the
+lower row in only one coordinate and that the complete target row pays one
+degree-thirteen decorated activity for each grid spin.  Testing the actual
+finite row minimum at `(firstSpin, replica) = (1, K)` therefore gives a fixed
+constant times `anchorDecoratedFaceActivity K` as an upper bound.  Finally,
+`BF4GrowingGridFullRowObstruction.lean` uses the exact decorated recurrence to
+prove
 
-Both new analytic modules pass direct monitored source checks and focused
-5,193-job target builds.  The full-row module's ten printed load-bearing
-declarations use only `[propext, Quot.sound]` (one uses only `[propext]`);
-the selected-tail module has the same permitted boundary.  No full-root
-audit is claimed.
+```text
+effectiveMultiplicity_highSpinGrid(K) <= fixedCeiling    (K > 0).
+```
+
+This is an upper bound on the computed effective multiplicity itself, not on
+one selected lower witness.  It formally closes the high-spin grid as a route
+to the required divergence.  The active alternate is now a spatial-volume
+family whose replica labels stay in a fixed low-spin set while the number of
+geometrically separated placements grows.
+
+`BF4LowSpinGrowingVolumeReplicaGeometry.lean` supplies the first concrete
+deliverable on that branch.  In the common box of size `4 + horizon`, the
+existing translated-cube carrier contains exactly `horizon + 1` time-slice
+placements.  The new wrapper proves their support is inhabited, their
+cutoff-one physical labellings are injective, the complete placement list is
+duplicate-free with the exact growing length, and every individual production
+summand is the same positive number
+
+```text
+productionWeight(w, horizon, slice) = coeffW(w,1)^6.
+```
+
+Thus replica cardinality and local low-spin weight no longer form the open
+geometric question.  The active deliverable is the honest adapter from these
+common-box physical configurations to the central reflected lower-state
+carrier at growing half-volume, followed by a comparison of their complete
+reflected raw rows.  The existing positive-replication compiler is hard-coded
+to half-volume zero, so this adapter must expose the volume parameter rather
+than silently reusing the fixed-volume theorem.
+
+The new decorated-face, raw-row-ceiling, full-row-obstruction, and low-spin
+volume-geometry modules pass direct monitored source checks.  Focused
+one-worker builds complete successfully for the obstruction target (5,196
+jobs) and the low-spin geometry target (720 jobs).  Their printed load-bearing
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
@@ -1701,11 +1743,13 @@ estimate discarded.  It defines the exact complete-grid-row enhancement over
 the two-surface activity, proves positivity, `enhancement >= 1`, and exact
 cancellation back to the literal raw row.  The resulting compensated finite
 common floor dominates `selectedFloor(K)` and remains below the computed
-`lambda(K)`.  Consequently the full-row comparison itself is now a proved
-reduction; the active branch is the quantitative estimate that its enhancement
-uniformly compensates `coeff(anchor, replica)^6`.  The alternate is still a
-spatial-volume family of many comparable low-spin rows.  Until one of those
-branches forces
+`lambda(K)`.  The later complete-row ceiling resolves the remaining fork in
+the negative for this family: the actual computed `lambda(K)` is no larger
+than a fixed constant times the degree-thirteen activity at spin `K`, and the
+decorated recurrence proves `(K + 1) * lambda(K)` uniformly bounded.  Thus the
+high-spin growing grid is now `[OBSTRUCTED]`, rather than an active
+compensation problem.  The active branch is a spatial-volume family of many
+comparable low-spin rows.  Until that branch forces
 `(K + 1) * lambda(K)` to diverge, ray-mass tail zero, the assigned-ratio no-go
 consequence, a cofinal all-vector gap, physical scaling, continuum OS/GNS
 reconstruction, and the Clay-facing theorem all remain open.  The relevant
