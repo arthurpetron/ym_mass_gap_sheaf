@@ -180,9 +180,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       +-- ray-mass asymptotic fork .............. [ACTIVE diagnostic]
 |   |   |   |   |   |       |       |   +-- positive tail floor ............... [OPEN / route survives]
 |   |   |   |   |   |       |       |   `-- tail-zero branch ................... [ACTIVE diagnostic]
-|   |   |   |   |   |       |       |       +-- ray mass <= explicit raw envelope [PROVED]
-|   |   |   |   |   |       |       |       +-- envelope <= eps iff numerator <= eps*Z [PROVED exact]
-|   |   |   |   |   |       |       |       +-- matched partition domination ..... [OPEN analytic]
+|   |   |   |   |   |       |       |       +-- ray mass = exact raw numerator / Z [PROVED exact]
+|   |   |   |   |   |       |       |       +-- exact numerator <= eps*Z ......... [OPEN equivalent]
+|   |   |   |   |   |       |       |       +-- explicit raw-envelope route ....... [PROVED sufficient / coarse]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1361,6 +1361,29 @@ nome-dependent 66-face numerator ceiling as the matched weight approaches
 one.  No partition-growth estimate, tail-zero conclusion, congestion bound,
 or gap claim is made.  The four gated declarations use only
 `[propext, Quot.sound]` and pass a focused one-worker 5,179-job build.  No
+full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayExactPartitionGate.lean`
+removes dependence on the potentially very loose 66-face ceiling from the
+main diagnostic.  It defines the literal raw numerator as the sum of the
+positive reflected raw-row masses over exactly the excited spin-cube sources
+and proves
+
+```text
+rayMass(w,K) = exactRawRayNumerator(w,K) / physicalPartition(w,K),
+
+rayMass(w,K) <= epsilon
+  iff
+exactRawRayNumerator(w,K) <= epsilon * physicalPartition(w,K).
+```
+
+The matched exact partition-domination producer and matched ray-mass tail
+zero translate into one another with the same located rate, so this is an
+equivalent analytic target rather than a stronger assumption.  The exact raw
+numerator is also proved below the earlier explicit numerator, making that
+envelope an optional sufficient route only.  No exact matched domination or
+tail-zero inhabitant is claimed.  The seven gated declarations use only
+`[propext, Quot.sound]` and pass a focused one-worker 5,180-job build.  No
 full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
