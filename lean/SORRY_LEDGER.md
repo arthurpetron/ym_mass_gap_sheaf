@@ -28219,3 +28219,35 @@ reconstruction, and the Clay theorem remain open.  No `sorry` is introduced.
 The focused dependency-complete monitored target passes all 5,088 jobs; every
 printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
+
+#### The global resistance moment pays at least one unit per nonzero off-ray state (2026-08-31)
+
+`BF4PhysicalSpinCubeOffRayRootResistanceMomentObstruction` audits whether the
+new scalar moment is a plausible uniform analytic producer.  On the first
+edge `x -> y` of every selected nontrivial vacuum-root path, nonnegativity and
+the exact finite-sector row identity give
+
+```text
+jointKernel(x,y) <= stationaryWeight(x).
+```
+
+Multiplication by the positive reciprocal of that joint entry proves
+`1 <= stationaryWeight(x) / jointKernel(x,y)`.  The first reciprocal is one
+summand of the path resistance, so every nonzero off-ray state contributes at
+least one unit to the global moment.  Summing gives the exact diagnostic
+
+```text
+number of nonzero off-ray states <= first stationary resistance moment.
+```
+
+Consequently any cofinal uniform moment certificate also forces a uniform
+rational ceiling on that residual cardinality.  The repository does not yet
+prove that this particular off-ray cardinality is unbounded, so this is not a
+formal no-go theorem.  It does show that the global state sum is substantially
+stronger than the required local edge congestion and should not be the active
+default route.  The next target is a localized edge/shell estimate preserving
+stationary tail decay.
+
+No `sorry` is introduced.  The focused dependency-complete monitored target
+passes all 5,089 jobs; all three printed declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.

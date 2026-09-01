@@ -22,6 +22,7 @@ Status symbols used in this live map are:
 [PROVED]  kernel-checked constructive theorem(s) at the stated scope
 [ACTIVE]  current causal proof edge
 [PARTIAL] useful reductions exist, but a named physical input remains
+[OBSTRUCTED] a stronger route has a proved structural cost or no-go
 [OPEN]    no legitimate inhabitant/proof at the required scope
 ```
 
@@ -90,7 +91,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   +-- cofinal strict rate independent of prefix bound .... [ACTIVE]
 |   |   |   +-- arbitrary-spin explicit vacuum ray ............ [PROVED]
 |   |   |   +-- local congestion <= first resistance moment ... [PROVED reduction]
-|   |   |   +-- uniform first resistance-moment bound ......... [ACTIVE]
+|   |   |   +-- moment >= nonzero off-ray cardinality .......... [PROVED obstruction]
+|   |   |   +-- global uniform resistance moment ............... [OBSTRUCTED]
+|   |   |   +-- localized edge/shell congestion estimate ....... [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -161,11 +164,20 @@ that a fixed directed edge receives each state's
 path-length multiplier present in the total-occurrence traffic bound.  A
 uniform bound on this scalar moment beyond one cutoff now compiles to the
 existing fixed-nome off-ray resistance-congestion certificate and hence to
-the full cofinal posterior conditional-variance fraction.  Constructing that
-uniform moment bound is the active causal edge.  A translated/separating
-family of guarded events with quantitative conductance, path-Poincare, or
-tensorization remains an alternative producer route.  The already formalized
-fixed-nome cofinal-ceiling structures state the exact target contract.
+the full cofinal posterior conditional-variance fraction.  However, the
+finite-sector row identity also proves that every non-vacuum off-ray state
+contributes at least one unit to that global moment: its first joint-kernel
+edge is at most its stationary row weight.  Thus a uniform global moment
+would force a uniform bound on the number of nonzero off-ray states.  No
+unbounded residual-cardinality theorem is claimed yet, so this is a proved
+structural obstruction rather than a no-go theorem, but it makes the global
+sum an inappropriately strong default target.  The active causal edge is now
+a genuinely localized edge/shell congestion estimate which retains
+stationary tail decay instead of summing one unavoidable unit over every
+starting state.  A translated/separating family of guarded events with
+quantitative conductance, path-Poincare, or tensorization remains an
+alternative producer route.  The already formalized fixed-nome
+cofinal-ceiling structures state the exact target contract.
 Conditional on such a ceiling, taking its located rational maximum with the
 guarded-face factor is proved to preserve strictness below one and to control
 both every finite-base centered vector and the literal guarded face after
