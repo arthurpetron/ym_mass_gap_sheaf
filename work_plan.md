@@ -181,7 +181,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |   +-- positive tail floor ............... [OPEN / route survives]
 |   |   |   |   |   |       |       |   `-- tail-zero branch ................... [ACTIVE diagnostic]
 |   |   |   |   |   |       |       |       +-- ray mass <= explicit raw envelope [PROVED]
-|   |   |   |   |   |       |       |       +-- raw-envelope tail zero ........... [OPEN sufficient]
+|   |   |   |   |   |       |       |       +-- envelope <= eps iff numerator <= eps*Z [PROVED exact]
+|   |   |   |   |   |       |       |       +-- matched partition domination ..... [OPEN analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1339,6 +1340,28 @@ nome-dependent residual ceiling, and physical partition growth along the
 dyadic matched schedule; no decay of that product is claimed.
 The five envelope declarations use only `[propext, Quot.sound]` and the module
 passes a focused one-worker 5,178-job build.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPartitionDominationGate.lean`
+cross-multiplies the preceding normalized envelope against the exact positive
+corrected-slab partition.  It proves, without losing a factor, that
+
+```text
+rawEnvelope(w,K) <= epsilon
+  iff
+rawNumeratorEnvelope(w,K) <= epsilon * physicalPartition(w,K).
+```
+
+The matched tail producer is consequently pinned to a concrete analytic
+partition-growth statement, and any inhabitant compiles through envelope tail
+zero and ray-mass tail zero to exclude a cutoff-uniform assigned-ratio ceiling.
+The repository audit found no existing theorem that supplies this matched
+partition domination: the general bound currently available here is only the
+vacuum bound `1 <= physicalPartition`, which does not control the strongly
+nome-dependent 66-face numerator ceiling as the matched weight approaches
+one.  No partition-growth estimate, tail-zero conclusion, congestion bound,
+or gap claim is made.  The four gated declarations use only
+`[propext, Quot.sound]` and pass a focused one-worker 5,179-job build.  No
+full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
