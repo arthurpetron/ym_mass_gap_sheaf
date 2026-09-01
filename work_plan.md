@@ -100,6 +100,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- adaptive edge-user count <= local congestion ... [PROVED diagnostic]
 |   |   |   +-- adaptive loop erasure preserves edge sublists .. [PROVED]
 |   |   |   +-- simple-routing normalization, same flow bound ... [PROVED reduction]
+|   |   |   +-- named simple cofinal certificate + translations  [PROVED interface]
 |   |   |   +-- simple bounded-sharing routing / weighted tail . [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
@@ -202,6 +203,16 @@ directed-edge list is an order-preserving sublist of the old list, is
 duplicate-free, and has no larger resistance.  Hence every state-edge load
 and the total flow load weakly decrease.  In particular, any cofinal adaptive
 congestion certificate normalizes to simple routes with the same bound.
+The reduced producer is now a named Lean structure, not merely prose:
+`FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound`
+requires one start cutoff, one nonnegative cutoff-independent rational bound,
+duplicate-free positive routes at every later cutoff, and the exact uniform
+flow-load inequality.  Forgetting simplicity sends it to the existing
+adaptive all-vector-gap interface, while constructive loop erasure sends any
+adaptive certificate back to this simple certificate without changing the
+start or bound.  Thus this simple-routing contract has exactly the producer
+strength already consumed downstream; it introduces no stronger hidden
+obligation.
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make

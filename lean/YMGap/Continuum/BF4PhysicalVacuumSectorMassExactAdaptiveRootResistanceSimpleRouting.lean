@@ -410,7 +410,52 @@ theorem loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_resist
   exact centralPhysicalFiniteVacuumSectorLoopErasedPositivePath_resistance_le
     hleft (routing.path left right hleft hright)
 
-/-! ## 7. Cofinal congestion certificates normalize at no extra cost -/
+/-! ## 7. The exact simple-routing cofinal target -/
+
+/-- The reduced analytic frontier after no-loss loop erasure: choose simple
+positive routes at every later cutoff and bound their exact resistance flow
+load by one cutoff-independent rational. -/
+structure FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+    {w : Q'} (hw : (0 : Q') < w) : Type 1 where
+  start : Nat
+  bound : Q'
+  bound_nonnegative : (0 : Q') ≤ bound
+  routing : ∀ K, start ≤ K →
+    CentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      w (Q'.le_of_lt hw) K
+  path_directedEdges_nodup : ∀ K, (hK : start ≤ K) →
+    ∀ left right
+      (hleft : left ∈ centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) K 0)
+      (hright : right ∈ centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) K 0),
+      (PositiveKernelChainIn.directedEdges
+        ((routing K hK).path left right hleft hright)).Nodup
+  flowLoad_le : ∀ K, (hK : start ≤ K) → ∀ source target,
+    centralPhysicalFiniteVacuumSectorRoutedRootResistanceFlowLoad
+        (routing K hK) source target ≤
+      bound
+
+namespace FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+
+/-- Forgetting route simplicity lands directly in the pre-existing adaptive
+cofinal interface and hence in all of its conditional gap consumers. -/
+def toAdaptive
+    {w : Q'} {hw : (0 : Q') < w}
+    (family :
+      FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+        hw) :
+    FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound
+      hw where
+  start := family.start
+  bound := family.bound
+  bound_nonnegative := family.bound_nonnegative
+  routing := family.routing
+  flowLoad_le := family.flowLoad_le
+
+end FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+
+/-! ## 8. Arbitrary cofinal certificates normalize at no extra cost -/
 
 namespace FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound
 
@@ -450,6 +495,30 @@ theorem loopErased_routing_path_directedEdges_nodup
   exact loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_directedEdges_nodup
     (family.routing K hK) hleft hright
 
+/-- Loop erasure proves that the named simple-routing frontier is equivalent
+in producer strength to the older arbitrary adaptive certificate. -/
+def toSimple
+    {w : Q'} {hw : (0 : Q') < w}
+    (family :
+      FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound
+        hw) :
+    FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound
+      hw where
+  start := family.start
+  bound := family.bound
+  bound_nonnegative := family.bound_nonnegative
+  routing := fun K hK =>
+    loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      (family.routing K hK)
+  path_directedEdges_nodup := fun K hK left right hleft hright =>
+    loopErasedCentralPhysicalFiniteVacuumSectorPositiveRoutingAt_path_directedEdges_nodup
+      (family.routing K hK) hleft hright
+  flowLoad_le := fun K hK source target => by
+    exact Q'.le_trans' _ _ _
+      (centralPhysicalFiniteVacuumSectorRoutedRootResistanceFlowLoad_loopErased_le
+        (family.routing K hK) source target)
+      (family.flowLoad_le K hK source target)
+
 end FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting
@@ -474,3 +543,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimple
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound.loopErased
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound.loopErased_routing_path_directedEdges_nodup
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound.toAdaptive
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorMassExactAdaptiveRootResistanceSimpleRouting.FixedNomeCofinalVacuumSectorMassExactAdaptiveRootResistanceCongestionBound.toSimple

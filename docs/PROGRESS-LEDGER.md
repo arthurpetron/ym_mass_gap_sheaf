@@ -20805,8 +20805,21 @@ domination of the total routed flow load.  Therefore every fixed-nome cofinal
 adaptive congestion certificate has a loop-erased certificate with the same
 start, the same bound, and duplicate-free routes at every later cutoff.
 
-The focused monitored target passes all 5094 jobs.  All newly printed exports
-use only `[propext, Quot.sound]` or the smaller `[propext]` subset.  The root
+The same module now names the reduced frontier as
+`FixedNomeCofinalVacuumSectorMassExactSimpleRootResistanceCongestionBound`.
+Its fields require a cutoff-independent rational bound on the exact routed
+flow load together with duplicate-free positive routes at every later cutoff.
+`toAdaptive` forgets the simplicity proof and lands directly in the existing
+adaptive cofinal certificate consumed by the conditional all-vector gap
+pipeline.  Conversely, `toSimple` loop-erases any adaptive certificate and
+preserves its start and bound.  Hence the named simple target is equivalent
+in producer strength to the previous adaptive target; the remaining theorem
+is the actual BF4-local uniform-sharing/weighted-tail estimate, not an
+interface conversion.
+
+The focused monitored target and the stricter direct-file check both pass.
+The dependency-complete target covers 5094 jobs.  All eleven printed exports
+use only `[propext, Quot.sound]`.  The root
 aggregator imports the new module.  A direct monitored check of `YMGap.lean`
 was attempted but stopped immediately because the unrelated pre-existing
 object `BF4ExactCutoffOneSurfaceForestGaugeMask2D739E.olean` is absent.  No
