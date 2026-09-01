@@ -121,7 +121,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- state load = weight x path resistance ...... [PROVED exact]
 |   |   |   |   |   |   +-- stationary-weight decay ................. [OPEN]
 |   |   |   |   |   |   +-- canonical resistance growth ............. [OPEN]
-|   |   |   |   |   |   `-- nonzero occupied-shell load >= 1 ........ [PROVED obstruction]
+|   |   |   |   |   |   `-- every occupied-shell user load >= 1 ...... [PROVED obstruction]
 |   |   |   |   |   `-- geometric pointwise decay ................... [OBSTRUCTED]
 |   |   |   |   |       unless edge-user masses truncate uniformly
 |   |   |   |   +-- mass-shell sum => full simple certificate ..... [PROVED reduction]
@@ -399,9 +399,11 @@ of the selected canonical path.  Separate estimates `W*s^mass` and
 `R*t^mass` compile to state-load ratio `s*t`, so the entropy-adjusted condition
 is `2*s*t < 1`.  But the already proved finite row identity supplies the
 opposite diagnostic: every nonzero off-ray state has
-`stationaryWeight * canonicalPathResistance >= 1`.  This lower bound now
-holds on every nonzero literal mass-shell edge user, so any proposed decay
-envelope must itself remain at least one on every occupied shell.  Geometric
+`stationaryWeight * canonicalPathResistance >= 1`.  A vertex-simple path from
+the vacuum to itself has no directed edges, so every literal mass-shell edge
+user is automatically nonzero.  The lower bound therefore holds on every
+shell member, and any proposed decay envelope must itself remain at least one
+on every occupied shell.  Geometric
 pointwise decay is therefore not a viable generic mechanism on arbitrarily
 high occupied edge-user shells.  This does not yet prove that such shells are
 occupied at unbounded mass for one fixed edge, so it is an obstruction rather
@@ -523,8 +525,8 @@ ratio below one; the proved finite geometric compiler then pays both the extra
 terminal demand and the preceding-edge tail and produces the full simple
 cofinal routing certificate.  The cardinality estimate is now proved with
 amplitude `2^24` and base `2`.  The state load factors exactly into stationary
-weight and canonical-path resistance, but every nonzero shell user has load
-at least one.  Thus the former pointwise `q < 1/2` target is now marked
+weight and canonical-path resistance, but every shell edge user has load at
+least one.  Thus the former pointwise `q < 1/2` target is now marked
 obstructed unless occupied edge-user masses truncate uniformly.  The active
 finite branch is bounded edge sharing / shell truncation or a replacement
 route.  B, C, and D remain unchanged until explicit
@@ -610,8 +612,8 @@ growth `R*t^mass`, then compiles their product to the entropy module under
 `[propext, Quot.sound]`; the direct check and focused 5,143-job build pass.
 
 `BF4PhysicalSpinCubeOffRayRootResistanceMassShellPointwiseDecayObstruction.lean`
-then transports the established row-identity lower bound to every nonzero
-literal mass-shell edge user:
+then proves that a literal edge-user shell member is automatically nonzero
+and transports the established row-identity lower bound to every member:
 
 ```text
 1 <= stateLoad <= proposedDecayEnvelope(shell).
