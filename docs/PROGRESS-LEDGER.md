@@ -20832,3 +20832,38 @@ sharing and weighted-resistance-tail bound for simple routes.  Coupling,
 lattice-spacing, and volume uniformity, the same continuum measure, OS/GNS
 reconstruction, a positive continuum generator gap, continuum Yang--Mills
 theory, and the Clay mass gap remain open.
+
+## Direct spin-ray traffic now costs one uniform edge-load constant (2026-09-01)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceSpinCubeRayRootFlow`
+turns the explicit direct-root spin-cube routing into a literal weighted
+occurrence calculation.  The directed ray-spoke keys are duplicate-free, so
+at any fixed directed edge at most one ray state contributes.  The existing
+uniform return capacity therefore bounds the aggregate load of all ray states
+by the same reciprocal-capacity constant, independently of the cutoff; the
+`K` visible spokes introduce no factor of `K`.
+
+The complete routed flow splits exactly over the filtered ray and off-ray
+state lists.  Off-ray states retain their canonical simple paths, and their
+doubled resistance occurrence list is exactly two copies of the prior
+canonical occurrence list.  Hence the off-ray remainder is exactly twice the
+existing canonical off-ray resistance flow, yielding the checked pointwise
+reduction
+
+```text
+full direct-ray routing load
+  <= reciprocal ray capacity + 2 * canonical off-ray local edge load.
+```
+
+The direct file check and dependency-complete focused target pass; the latter
+covers 5101 jobs.  All thirteen audited declarations use only
+`[propext, Quot.sound]`, and the root aggregator imports the module.  No
+full-root audit is claimed.
+
+The active finite-gap producer is now a cutoff-uniform localized bound for the
+canonical off-ray edge load.  It must control both terminal-spoke collisions
+and preceding-edge traffic.  The known growing global off-ray resistance
+moment does not provide such a local estimate.  Coupling, lattice-spacing,
+and volume uniformity, continuum measure construction, OS/GNS reconstruction,
+a positive continuum generator gap, continuum Yang--Mills theory, and the
+Clay mass gap remain open.

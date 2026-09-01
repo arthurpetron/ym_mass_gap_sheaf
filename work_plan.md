@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-08-31)
+## Whole-project goal and live completion map (updated 2026-09-01)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -111,8 +111,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full routing fixes ray states to own spokes ..... [PROVED]
 |   |   |   +-- each ray-spoke fiber has one ray occupant ........ [PROVED]
 |   |   |   +-- terminal demand = direct + off-ray demand ........ [PROVED exact]
-|   |   |   +-- off-ray terminal demand bound ................... [ACTIVE]
-|   |   |   +-- off-ray preceding-edge resistance tail .......... [ACTIVE]
+|   |   |   +-- all direct-ray edge load uniformly bounded ...... [PROVED at anchor]
+|   |   |   +-- full flow = direct-ray + off-ray flow ............ [PROVED exact]
+|   |   |   +-- off-ray flow = twice canonical off-ray flow ...... [PROVED exact]
+|   |   |   +-- canonical off-ray localized edge-load bound ...... [ACTIVE]
+|   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
+|   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -299,11 +303,30 @@ delta * (2 * stationaryWeight(spinCube) /
 
 Thus each of the `K` explicit positive spokes has direct-root resistance
 demand bounded by the same `1 / delta`, independently of cutoff and spin.
-This resolves the positive-spoke count and terminal resistance quality on the
-explicit ray subfamily.  It still does not route any off-ray state, bound
-collisions from off-ray states assigned to those spokes, or control their
-preceding-edge resistance.  The active finite problem is now precisely the
-off-ray assignment and localized demand/tail estimate.
+The full finite-sector routing now sends every explicit ray state down that
+literal spoke and retains the canonical vertex-simple root path on every
+off-ray state.  Because the directed ray-spoke keys are duplicate-free, the
+sum of all `K` ray-state loads at any fixed edge is still bounded by the same
+`1 / delta`; no cutoff factor appears.  The complete routed flow splits
+exactly into this ray load plus the off-ray load.  On an off-ray state the
+new doubled resistance occurrence list is exactly two copies of the old
+canonical occurrence list, so the residual aggregate is exactly twice the
+existing canonical off-ray root-resistance flow.  Consequently, at every
+directed edge and every cutoff,
+
+```text
+full direct-ray routing load
+  <= 1 / delta + 2 * canonical off-ray local edge load.
+```
+
+This resolves the positive-spoke count, direct-ray terminal quality, and the
+entire ray contribution to edge congestion.  It also removes routing design
+from the immediate off-ray seam: the single active finite producer is now a
+cutoff-uniform localized bound for the existing canonical off-ray edge load.
+Such a bound controls both extra demand on terminal spokes and traffic on all
+preceding edges.  The already-proved global resistance-moment route cannot
+supply it because that moment grows with the nonempty off-ray carrier; the
+needed estimate must retain edge locality.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
@@ -407,10 +430,14 @@ excited spin-cube ray state down its own literal vacuum spoke; those ray
 terminal assignments are injective and their direct demands share the proved
 anchor bound.  Each such spoke's terminal fiber has exactly one ray occupant,
 and its inverse-kernel demand splits exactly into the uniformly controlled
-direct term plus a literal off-ray-fiber term.  The current A4 edge is
-therefore the off-ray residual: bound those extra terminal-spoke demands and
-the resistance traffic on preceding edges.  B, C, and D remain unchanged
-until explicit physical scaling, continuum, and OS/GNS bridges are inhabited.
+direct term plus a literal off-ray-fiber term.  More strongly, the total ray
+edge load has the same cutoff-independent anchor bound, the full routed flow
+splits into ray and off-ray pieces, and the off-ray piece is exactly twice the
+pre-existing canonical off-ray flow.  The current A4 edge is therefore one
+localized canonical off-ray edge-load estimate; it simultaneously pays the
+extra terminal demand and the preceding-edge tail.  B, C, and D remain
+unchanged until explicit physical scaling, continuum, and OS/GNS bridges are
+inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
 
