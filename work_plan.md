@@ -248,7 +248,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           +-- constant-ceiling diagonal gate ... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           +-- matched ray contains spin-one atom  [PROVED]
 |   |   |   |   |   |       |       |       |   |           +-- gate forces fixed/growing atom bound [PROVED necessary]
-|   |   |   |   |   |       |       |       |   |           +-- normalized half-volume comparison . [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           +-- normalized comparison <-> raw cross [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           +-- raw-row/partition growth balance ... [ACTIVE producer]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1086,6 +1087,24 @@ envelope may address that remaining sum, but the first-summand theorem makes
 the fixed-to-growing thermodynamic comparison an independently necessary
 producer.  No such uniform comparison is currently proved.
 
+The normalized fixed/growing atom obligation is now reduced exactly to its
+division-free form.  Writing `raw_0`, `Z_0` for the fixed-half spin-one raw row
+and partition and `raw_V`, `Z_V` for their growing-half analogues, the new
+equivalence is
+
+```text
+fixedMarginal <= ceiling * growingMarginal
+  <->
+raw_0 * Z_V <= (ceiling * raw_V) * Z_0.
+```
+
+Both denominators are the literal constructively positive corrected-slab
+partitions.  This is the active producer level: a cross-volume configuration
+injection that only proves `raw_0 <= raw_V` is insufficient unless it also
+pays the relative partition growth `Z_V / Z_0`.  Conversely, any honest
+raw-row/partition balance of the displayed form compiles back to the exact
+normalized comparison without analytic division or hidden positivity.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1104,7 +1123,10 @@ successfully in a focused 5,197-job build.  The exact completion-factorization
 and fixed-reference tail target completes successfully in a focused
 5,198-job build.  The all-cutoff completion-factorization and fixed-source
 tail target completes successfully in a focused 5,199-job build.  The matched
-ray comparison compiler completes successfully in a focused 5,200-job build.
+ray comparison compiler first completed successfully in a focused 5,200-job
+build; after the necessary first-summand diagnostic and raw/partition
+cross-multiplication were added, the expanded target completes successfully
+in a focused 5,204-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 

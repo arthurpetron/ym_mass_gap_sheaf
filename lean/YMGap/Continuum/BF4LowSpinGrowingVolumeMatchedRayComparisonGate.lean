@@ -19,6 +19,7 @@ import YMGap.Continuum.BF4LowSpinAllCutoffGrowingVolumeCompletionFactorization
 import YMGap.Continuum.BF4DyadicCubeVacuumCalibration
 import YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
 import YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo
+import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCorrectedSlabQuadraticRemainder
 
 namespace YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate
 
@@ -34,14 +35,26 @@ open YMGap.Continuum.BF4LowSpinGrowingVolumePositiveRawReplication
 open YMGap.Continuum.BF4DyadicCubeVacuumCalibration
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorStationaryPosterior
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorGramPositivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
+open YMGap.Continuum.BF4PhysicalSpinCubeRawReturnRatio
 open YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedCofinalGate
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
+open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneLabellings
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
+open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionPartition
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCorrectedSlabQuadraticRemainder
+open YMGap.Continuum.Z4ParametricPhysicalCutoffPartition
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -142,6 +155,134 @@ theorem fixedHalfSpinOneMarginal_le_rayMass
   rw [hstate] at hterm
   simpa only [centralLowerExcitedSpinCubeRayMass] using hterm
 
+/-! ## 3. Exact raw-row/partition cross multiplication -/
+
+def fixedHalfSpinOneRawRow
+    (w : Q') (hw : (0 : Q') ≤ w) (K : Nat) : Q' :=
+  centralPhysicalPositiveRawRowMass
+    w hw K 0 (centralLowerSpinCubeState 1)
+
+def growingHalfSpinOneRawRow
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (K volume : Nat) : Q' :=
+  centralPhysicalPositiveRawRowMass
+    w hw K (volume + 1) (lowSpinCentralReferenceState volume)
+
+def fixedHalfPhysicalPartition (w : Q') (K : Nat) : Q' :=
+  slabParametricKPhysicalPartition w K (centralExtent 0)
+
+def growingHalfPhysicalPartition
+    (w : Q') (K volume : Nat) : Q' :=
+  slabParametricKPhysicalPartition w K (centralExtent (volume + 1))
+
+private theorem centralPhysicalRowMarginal_eqv_rawRow_divPos_local
+    {w : Q'} {hw : (0 : Q') ≤ w} {K half : Nat}
+    {source : EdgeLabelling}
+    (hsource : source ∈ centralHalfStates K half) :
+    centralPhysicalRowMarginal w hw K half source ≈
+      Q'.divPos
+        (centralPhysicalPositiveRawRowMass w hw K half source)
+        (slabParametricKPhysicalPartition w K (centralExtent half))
+        (slabParametricKPhysicalPartition_pos hw K (centralExtent half)) := by
+  have hrow :=
+    centralPhysicalRowMarginal_eqv_positiveRawRowMass_mul_partitionReciprocal
+      (w := w) (hw := hw) (K := K) (half := half)
+      (source := source) hsource
+  simpa only [centralPhysicalPositiveRawRowMass,
+    centralPhysicalFiniteVacuumSectorPartitionReciprocal,
+    Q'.divPos] using hrow
+
+/-- The necessary fixed-half/growing-half marginal comparison is exactly a
+division-free inequality between the two raw rows and the two positive slab
+partitions. -/
+theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference_iff_cross
+    {w : Q'} (hw : (0 : Q') < w)
+    {K : Nat} (hK : 1 ≤ K)
+    (ceiling : Q') (volume : Nat) :
+    centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 (centralLowerSpinCubeState 1) ≤
+      ceiling *
+        centralPhysicalRowMarginal
+          w (Q'.le_of_lt hw) K (volume + 1)
+          (lowSpinCentralReferenceState volume) ↔
+    fixedHalfSpinOneRawRow w (Q'.le_of_lt hw) K *
+        growingHalfPhysicalPartition w K volume ≤
+      (ceiling *
+          growingHalfSpinOneRawRow
+            w (Q'.le_of_lt hw) K volume) *
+        fixedHalfPhysicalPartition w K := by
+  let fixedRaw := fixedHalfSpinOneRawRow w (Q'.le_of_lt hw) K
+  let growingRaw :=
+    growingHalfSpinOneRawRow w (Q'.le_of_lt hw) K volume
+  let fixedPartition := fixedHalfPhysicalPartition w K
+  let growingPartition := growingHalfPhysicalPartition w K volume
+  have hfixedPartition : (0 : Q') < fixedPartition := by
+    unfold fixedPartition fixedHalfPhysicalPartition
+    exact slabParametricKPhysicalPartition_pos
+      (Q'.le_of_lt hw) K (centralExtent 0)
+  have hgrowingPartition : (0 : Q') < growingPartition := by
+    unfold growingPartition growingHalfPhysicalPartition
+    exact slabParametricKPhysicalPartition_pos
+      (Q'.le_of_lt hw) K (centralExtent (volume + 1))
+  have hfixed :
+      centralPhysicalRowMarginal
+          w (Q'.le_of_lt hw) K 0 (centralLowerSpinCubeState 1) ≈
+        Q'.divPos fixedRaw fixedPartition hfixedPartition := by
+    unfold fixedRaw fixedPartition fixedHalfSpinOneRawRow
+      fixedHalfPhysicalPartition
+    exact centralPhysicalRowMarginal_eqv_rawRow_divPos_local
+      (centralLowerSpinCubeState_mem_centralHalfStates hK)
+  have hgrowingState : lowSpinCentralReferenceState volume ∈
+      centralHalfStates K (volume + 1) := by
+    have href :=
+      (lowSpinCentralKPositiveRawReplication
+        w hw K hK volume).reference_mem
+    change lowSpinCentralReferenceState volume ∈
+      centralPositiveHalfStates
+        w (Q'.le_of_lt hw) K (volume + 1) at href
+    exact (mem_centralPositiveHalfStates_iff.mp href).1
+  have hgrowingMarginal :
+      centralPhysicalRowMarginal
+          w (Q'.le_of_lt hw) K (volume + 1)
+            (lowSpinCentralReferenceState volume) ≈
+        Q'.divPos growingRaw growingPartition
+          hgrowingPartition := by
+    unfold growingRaw growingPartition growingHalfSpinOneRawRow
+      growingHalfPhysicalPartition
+    exact centralPhysicalRowMarginal_eqv_rawRow_divPos_local
+      hgrowingState
+  have hgrowingScaled :
+      ceiling *
+          centralPhysicalRowMarginal
+            w (Q'.le_of_lt hw) K (volume + 1)
+              (lowSpinCentralReferenceState volume) ≈
+        Q'.divPos (ceiling * growingRaw) growingPartition
+          hgrowingPartition := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left ceiling _ _ hgrowingMarginal)
+      (Q'.eqv_symm
+        (Q'.mul_assoc_eqv ceiling growingRaw
+          (Q'.recipPos growingPartition hgrowingPartition)))
+  have hquotient := divPos_le_divPos_iff_cross
+    fixedRaw fixedPartition
+    (ceiling * growingRaw) growingPartition
+    hfixedPartition hgrowingPartition
+  constructor
+  · intro hnormalized
+    apply hquotient.mp
+    exact Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv hfixed)
+      (Q'.le_trans' _ _ _ hnormalized
+        (Q'.le_of_eqv hgrowingScaled))
+  · intro hcross
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hfixed)
+      (Q'.le_trans' _ _ _
+        (hquotient.mpr (by
+          simpa only [fixedRaw, growingRaw, fixedPartition,
+            growingPartition] using hcross))
+        (Q'.ge_of_eqv hgrowingScaled))
+
 namespace MatchedDyadicLowSpinGrowingVolumeRayDomination
 
 theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
@@ -175,7 +316,7 @@ theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
       (one_le_matchedAllSpinCutoff bridge scale))
     (comparison.rayMass_le_ceiling_mul_growingReference scale)
 
-/-! ## 3. Compilation to the existing matched no-go branch -/
+/-! ## 4. Compilation to the existing matched no-go branch -/
 
 /-- The all-cutoff `1 / (volume + 1)` theorem turns the comparison field into
 located tail-zero data for the exact fixed-half matched ray. -/
@@ -254,6 +395,8 @@ end YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate
 
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.fixedHalfSpinOneMarginal_le_rayMass
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference_iff_cross
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.MatchedDyadicLowSpinGrowingVolumeRayDomination.fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
 #print axioms
