@@ -152,7 +152,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- terminal source -> admitted spin label ..... [PROVED exact]
 |   |   |   |   |   |   +-- used bins <= K+1; sector <= (K+1)*load .... [PROVED necessary]
 |   |   |   |   |   |   +-- spin-labelled prefix -> exact root route .... [PROVED compiler]
-|   |   |   |   |   |   `-- balanced prefix assignment/load ............. [ACTIVE producer]
+|   |   |   |   |   |   +-- central-face distributed assignment ......... [PROVED finite]
+|   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -952,6 +953,20 @@ source check and focused 5,158-job one-worker build pass.  Two earlier
 monitored checks were safely interrupted or timed out while elaborating a
 discarded dependent-record design; neither is reported as a pass or proof
 failure.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorCentralFaceTerminalPrefixAssignment.lean` inhabits the
+finite-cutoff compiler with a literal distributed choice.  It assigns each
+state to its represented central face-zero spin (using a totalized clamp that
+is proved inactive on every sector member), uses constructive positive-sector
+connectivity for the prefix to that uniform spin cube, and compiles the final
+vacuum spoke.  The resulting route's terminal source is exactly the indexed
+cube labelled by the source state's face-zero spin, and the generic decoder
+recovers that same label.  This proves existence of a geometrically meaningful
+finite assignment, but not cutoff-uniform sharing, avoidance of the vacuum
+inside prefixes, simplicity after spoke concatenation, or resistance load.
+Those are now the active producer obligations.  Its five printed declarations
+use only `[propext, Quot.sound]`; the direct monitored source check and focused
+5,159-job one-worker build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
