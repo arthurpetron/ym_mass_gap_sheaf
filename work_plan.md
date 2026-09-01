@@ -154,6 +154,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- spin-labelled prefix -> exact root route .... [PROVED compiler]
 |   |   |   |   |   |   +-- central-face distributed assignment ......... [PROVED finite]
 |   |   |   |   |   |   +-- loop-erased prefix length <= sector size ..... [PROVED finite]
+|   |   |   |   |   |   +-- zero-face repair => nonvacuum final spoke ..... [PROVED finite]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -969,6 +970,22 @@ inside prefixes, simplicity after spoke concatenation, or resistance load.
 Those are now the active producer obligations.  Its six printed declarations
 use only `[propext, Quot.sound]`; the direct monitored source check and focused
 5,159-job one-worker build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceTerminalPrefixAssignment.lean`
+repairs a concrete defect in that first assignment.  A sector state with
+face-zero spin zero had been sent to the spin-zero cube, which is the vacuum,
+so appending the classified terminal spoke created a vacuum self-loop.  At
+every positive cutoff the repaired total selector sends zero (and only the
+irrelevant out-of-carrier overflow branch) to spin one and preserves every
+positive admitted face-zero label.  Its selected spin is constructively in
+`1,...,K`; the corresponding spin-cube index is proved nonzero; and every
+compiled non-vacuum route therefore has a genuinely non-vacuum terminal
+source.  The prefix is still the canonical loop-erased sector path.  Vacuum
+avoidance inside that prefix, simplicity after final-spoke concatenation, and
+cutoff-uniform sharing/resistance load remain active.  The six printed
+declarations use at most `[propext, Quot.sound]`, and the direct monitored
+source check and focused 5,160-job one-worker build pass.  No full-root audit
+is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
