@@ -168,7 +168,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   |       +-- normalized terminal-mass decomposition ...... [PROVED reduction]
 |   |   |   |   |   |       |   +-- prefix-to-vacuum weighted demand ........ [OPEN]
-|   |   |   |   |   |       |   `-- assigned face-label weighted demand ..... [OPEN]
+|   |   |   |   |   |       |   `-- assigned face-label mass -> observable .. [PROVED reduction]
+|   |   |   |   |   |       |       `-- expectation / conductance comparison . [ACTIVE]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
 |   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
 |   |   |   |   |   |       +-- repaired face-zero fiber cardinality ....... [OPEN sufficient]
@@ -1152,6 +1153,35 @@ The active analytic targets are now the two displayed weighted demands; they
 remain unbounded uniformly.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,170-job one-worker module verification pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassObservable.lean`
+recasts the second term in that cover as an ordinary physical expectation.
+It defines a constructive `[0,1]`-valued observable which detects a
+non-vacuum lower-half state with the selected repaired central face-zero
+spin.  Finite displayed-face agreement supplies the vacuum test, avoiding
+undecidable equality between edge-labelling functions.  A weighted injection
+then proves
+
+```text
+raw assigned face-label fiber stationary mass
+  <= stationary mean of the physical assigned-spin unit observable.
+```
+
+Substitution into the unconditional two-class cover bounds the normalized
+terminal-fiber resistance demand by two copies of
+
+```text
+(prefix-to-vacuum stationary mass + assigned-spin expectation)
+  * reciprocal spin-cube-to-vacuum conductance.
+```
+
+This is a genuine change of language from routing combinatorics to a physical
+observable, not yet the required cutoff-uniform estimate.  The active edge is
+to compare that expectation with the displayed spoke conductance; the
+prefix-to-vacuum weighted demand remains independently open.  The five
+printed declarations use only `[propext, Quot.sound]`; the direct monitored
+source check and focused 5,171-job one-worker module verification pass.  No
+full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
