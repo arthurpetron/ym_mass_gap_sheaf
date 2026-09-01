@@ -183,6 +183,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- ray mass = exact raw numerator / Z [PROVED exact]
 |   |   |   |   |   |       |       |       +-- exact numerator <= eps*Z ......... [OPEN equivalent]
 |   |   |   |   |   |       |       |       +-- explicit raw-envelope route ....... [PROVED sufficient / coarse]
+|   |   |   |   |   |       |       |       +-- R raw-row replicas => ray <= 1/R .. [PROVED compiler]
+|   |   |   |   |   |       |       |       +-- construct divergent matched replicas [OPEN geometric]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1384,6 +1386,28 @@ numerator is also proved below the earlier explicit numerator, making that
 envelope an optional sufficient route only.  No exact matched domination or
 tail-zero inhabitant is claimed.  The seven gated declarations use only
 `[propext, Quot.sound]` and pass a focused one-worker 5,180-job build.  No
+full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayReplicationGate.lean`
+turns the exact quotient diagnostic into a buildable finite combinatorial
+route.  First, the sum of the literal positive raw-row masses over every lower
+state is proved exactly equal to the corrected-slab physical partition.  A
+finite certificate may then inject `R` distinct raw-row-dominating replicas
+of every excited spin-cube source into that carrier.  The compiler proves
+
+```text
+R * exactRawRayNumerator <= physicalPartition,
+rayMass <= 1 / R.
+```
+
+A matched family of these concrete certificates whose reciprocal replica
+counts have a located zero tail constructs ray-mass tail zero and excludes the
+cutoff-uniform assigned-ratio route.  No such matched replica family is yet
+constructed.  The next geometric task is therefore explicit: choose distinct
+lower states—most plausibly by varying residual/off-cube labels—prove carrier
+membership and injectivity, and compare each literal raw reflected row to its
+spin-cube source row.  The five gated declarations use only
+`[propext, Quot.sound]` and pass a focused one-worker 5,183-job build.  No
 full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
