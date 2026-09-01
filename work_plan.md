@@ -141,6 +141,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- K=2 state -> hub -> vacuum inhabitant .......... [PROVED finite]
 |   |   |   |   |   +-- one common terminal spoke cofinally ............ [PROVED no-go]
 |   |   |   |   |   +-- distributed terminal-spoke producer ............ [ACTIVE design]
+|   |   |   |   |   |   +-- arbitrary-cutoff vacuum boundary delta ..... [PROVED]
+|   |   |   |   |   |   `-- surviving lower-state/root-spoke classifier  [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -809,6 +811,20 @@ design task is therefore a distributed-terminal macro-step producer together
 with uniform edge sharing and per-user load.  The three printed declarations
 use only `[propext, Quot.sound]`; the direct monitored source check and focused
 5,149-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalBoundaryVacuumDeltaRow.lean` begins the exact sparse-root audit at
+arbitrary cutoff.  A nonzero fixed-interface boundary label is isolated at a
+literal forcing link; deleting inserted vacuum spins reduces its production
+multiplicity to the one-valent invariant multiplicity, which is zero.  Direct
+recursion over the finite fixed-face list then proves that the vacuum lower
+state's complete half-amplitude is the executable all-vacuum delta row for
+every cutoff and coupling.  This is the first half of classifying the positive
+vacuum-root predecessors.  The active second half must classify the lower
+states whose half-amplitude against the surviving all-vacuum boundary is
+positive; only after that classification can terminal-spoke growth be compared
+honestly with full-sector growth.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+1,144-job build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
