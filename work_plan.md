@@ -132,7 +132,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- adaptive sharing x edge-load compiler .......... [PROVED reduction]
 |   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
 |   |   |   |   |   +-- edgewise mass drop => simple, length <= mass [PROVED]
-|   |   |   |   |   +-- positive-BF4 realization of accepted peel .. [OPEN producer]
+|   |   |   |   |   +-- local descending step => full root route .... [PROVED reduction]
+|   |   |   |   |   +-- paired-state/BF4-index projection ........... [OPEN producer]
+|   |   |   |   |   +-- projected peel is a positive BF4 edge ....... [OPEN producer]
 |   |   |   |   |   +-- uniform adaptive edge sharing ............... [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ......... [OPEN producer]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
@@ -709,6 +711,20 @@ does not inhabit those targets: positive-kernel realization of the accepted
 peel remains open.  Its four printed declarations use only
 `[propext, Quot.sound]`; its direct monitored source check and focused
 5,148-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPhysicalMassDescendingStepCompiler.lean` replaces a
+global path hypothesis by the exact local producer: every non-root sector index
+must have a sector successor with a positive normalized BF4 kernel entry and
+strictly smaller physical mass.  Well-founded recursion on that literal mass
+constructs the root path together with its descent proof; the compiler installs
+those paths for root-directed requests while retaining the canonical routing
+for other endpoint pairs.  The accepted paired peel cannot directly inhabit
+this input because it carries two expanded sources and fusion assignments,
+whereas this BF4 graph carries one indexed lower-half labelling.  The missing
+producer must therefore supply an honest projection/realization bridge or a
+native single-state BF4 step.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,149-job build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
