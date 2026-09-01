@@ -157,6 +157,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- zero-face repair => nonvacuum final spoke ..... [PROVED finite]
 |   |   |   |   |   |   +-- loop erasure => simple, nonvacuum predecessor . [PROVED finite]
 |   |   |   |   |   |   +-- normalized used bins <= K excited cubes ....... [PROVED exact]
+|   |   |   |   |   |   +-- exact-routing cofinal load interface ........... [PROVED reduction]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -1005,6 +1006,21 @@ mass, inverse-kernel demand, preceding-edge sharing, and a cutoff-uniform
 resistance load are still open.  The five printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,162-job one-worker build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceCofinalLoadTarget.lean` now states
+the remaining cofinal producer on that exact normalized routing, with no
+existential routing substitution left implicit.  Its data are precisely a
+cutoff-independent directed-edge user bound and a cutoff-independent exact
+per-user resistance-load bound.  Their product compiles into the existing
+simple resistance-congestion interface and hence its downstream finite-gap
+consumers.  The specialized terminal audit additionally forces the complete
+non-vacuum carrier to fit below `K` times that product and bounds every
+stationary-mass-weighted inverse-root-kernel terminal demand by the same
+product.  The structure is deliberately uninhabited here: constructing those
+two uniform bounds remains the active producer.  The four printed compiler
+and consequence declarations use only `[propext, Quot.sound]`; the direct
+monitored source check and focused 5,163-job one-worker build pass.  No
+full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
