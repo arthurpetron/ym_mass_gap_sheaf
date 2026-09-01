@@ -19,6 +19,7 @@ declaration is used.
 -/
 
 import YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity
+import YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathMaximum
 import YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassObservable
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction
@@ -31,6 +32,7 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalCutoffStationaryBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathMaximum
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
@@ -152,6 +154,61 @@ theorem positiveCentralFaceAssignedStationaryRatioAt_mul_weight_eqv_mean
   unfold positiveCentralFaceAssignedStationaryRatioAt
   exact Q'.divPos_mul_eqv _ _ _
 
+/-- Totalize the exact ratio outside its admitted finite offset range by zero,
+so a located maximum can be computed on `List.range K`. -/
+def positiveCentralFaceAssignedStationaryRatioValue
+    {w : Q'} (hw : (0 : Q') < w) (K offset : Nat) : Q' :=
+  if hoffset : offset < K then
+    positiveCentralFaceAssignedStationaryRatioAt hw hoffset
+  else 0
+
+theorem positiveCentralFaceAssignedStationaryRatioValue_eq
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) :
+    positiveCentralFaceAssignedStationaryRatioValue hw K offset =
+      positiveCentralFaceAssignedStationaryRatioAt hw hoffset := by
+  simp only [positiveCentralFaceAssignedStationaryRatioValue, hoffset,
+    dite_true]
+
+theorem positiveCentralFaceAssignedStationaryRatioValue_nonnegative
+    {w : Q'} (hw : (0 : Q') < w) (K offset : Nat) :
+    (0 : Q') ≤
+      positiveCentralFaceAssignedStationaryRatioValue hw K offset := by
+  by_cases hoffset : offset < K
+  · rw [positiveCentralFaceAssignedStationaryRatioValue_eq hw hoffset]
+    exact positiveCentralFaceAssignedStationaryRatioAt_nonnegative
+      hw hoffset
+  · unfold positiveCentralFaceAssignedStationaryRatioValue
+    simp only [hoffset, dite_false]
+    exact Q'.le_refl' 0
+
+/-- The sharp located ceiling of all assigned expectation/weight ratios at
+one positive finite cutoff. -/
+def positiveCentralFaceAssignedStationaryRatioFiniteCeiling
+    {w : Q'} (hw : (0 : Q') < w) (K : Nat) : Q' :=
+  listQMaxZero
+    (positiveCentralFaceAssignedStationaryRatioValue hw K)
+    (List.range K)
+
+theorem positiveCentralFaceAssignedStationaryRatioFiniteCeiling_nonnegative
+    {w : Q'} (hw : (0 : Q') < w) (K : Nat) :
+    (0 : Q') ≤
+      positiveCentralFaceAssignedStationaryRatioFiniteCeiling hw K := by
+  unfold positiveCentralFaceAssignedStationaryRatioFiniteCeiling
+  exact listQMaxZero_nonnegative _
+    (positiveCentralFaceAssignedStationaryRatioValue_nonnegative hw K)
+    (List.range K)
+
+theorem positiveCentralFaceAssignedStationaryRatioAt_le_finiteCeiling
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) :
+    positiveCentralFaceAssignedStationaryRatioAt hw hoffset ≤
+      positiveCentralFaceAssignedStationaryRatioFiniteCeiling hw K := by
+  rw [← positiveCentralFaceAssignedStationaryRatioValue_eq hw hoffset]
+  exact le_listQMaxZero_of_mem
+    (positiveCentralFaceAssignedStationaryRatioValue hw K)
+    (List.range K) (List.mem_range.mpr hoffset)
+
 /-- The precise cofinal analytic datum still missing from the assigned-spin
 branch: its physical stationary expectation is at most one common multiple
 of the corresponding spin-cube stationary weight. -/
@@ -173,6 +230,21 @@ structure FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
 
 namespace FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
 
+private theorem listQMaxZero_le_of_member_bound
+    {State : Type} (value : State → Q') (bound : Q')
+    (hboundNonnegative : (0 : Q') ≤ bound) :
+    ∀ states : List State,
+      (∀ state, state ∈ states → value state ≤ bound) →
+      listQMaxZero value states ≤ bound
+  | [], _ => hboundNonnegative
+  | head :: tail, hbound => by
+      unfold listQMaxZero
+      apply (Q'.max'_le_iff' _ _ _).mpr
+      exact ⟨hbound head List.mem_cons_self,
+        listQMaxZero_le_of_member_bound value bound hboundNonnegative tail
+          (fun state hstate =>
+            hbound state (List.mem_cons_of_mem head hstate))⟩
+
 /-- The named cofinal datum is exactly a common upper ceiling on the explicit
 finite rational ratios. -/
 theorem exactRatioAt_le_ratioBound
@@ -191,6 +263,22 @@ theorem exactRatioAt_le_ratioBound
       (centralLowerSpinCubeIndex_mem_vacuumSector hw (by omega))
   apply Q'.divPos_le_of_le_mul _ weight hweight
   exact ratio.assignedMean_le K hK offset hoffset
+
+/-- Equivalently, every sufficiently late sharp finite maximum lies below the
+same cofinal ratio bound. -/
+theorem finiteCeiling_le_ratioBound
+    {w : Q'} {hw : (0 : Q') < w}
+    (ratio : FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio hw)
+    (K : Nat) (hK : ratio.start ≤ K) :
+    positiveCentralFaceAssignedStationaryRatioFiniteCeiling hw K ≤
+      ratio.ratioBound := by
+  unfold positiveCentralFaceAssignedStationaryRatioFiniteCeiling
+  apply listQMaxZero_le_of_member_bound _ ratio.ratioBound
+    ratio.ratioBound_nonnegative
+  intro offset hoffsetMem
+  have hoffset := List.mem_range.mp hoffsetMem
+  rw [positiveCentralFaceAssignedStationaryRatioValue_eq hw hoffset]
+  exact ratio.exactRatioAt_le_ratioBound K hK offset hoffset
 
 end FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
 
@@ -290,6 +378,10 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturn
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.positiveCentralFaceAssignedStationaryRatioAt_mul_weight_eqv_mean
 #print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.positiveCentralFaceAssignedStationaryRatioAt_le_finiteCeiling
+#print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio.exactRatioAt_le_ratioBound
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio.finiteCeiling_le_ratioBound
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio.assignedMean_mul_kernelReciprocal_le
