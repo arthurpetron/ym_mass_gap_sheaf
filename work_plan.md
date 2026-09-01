@@ -144,7 +144,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- arbitrary-cutoff vacuum boundary delta ..... [PROVED]
 |   |   |   |   |   |   +-- raw root spoke <-> vacuum amplitude ........ [PROVED reduction]
 |   |   |   |   |   |   +-- finite-sector amplitude filter/count ....... [PROVED exact]
-|   |   |   |   |   |   `-- closed-form carrier/count growth ........... [ACTIVE]
+|   |   |   |   |   |   +-- positive-coupling lower-link filter/count .. [PROVED exact]
+|   |   |   |   |   |   `-- admissible lower-link carrier/count growth . [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -849,6 +850,18 @@ this explicit filter, not an ambiguity about which kernel support is being
 counted.  The five printed declarations use only `[propext, Quot.sound]`; the
 direct monitored source check and focused build pass.  No full-root audit is
 claimed; the focused build contains 5,099 jobs.
+
+`BF4PhysicalVacuumSectorRootSpokeLinkMultiplicityClassifier.lean` removes the
+remaining analytic weights from this carrier at strictly positive coupling.
+Every bounded lower-face heat-kernel coefficient is then positive, so the
+all-vacuum half-amplitude is positive exactly when the literal natural-number
+product of lower-link fusion multiplicities is positive.  The routing-level
+positive-root-predecessor list and its cardinality are consequently equal to
+an executable lower-link-admissibility filter and count.  The active task is
+now to analyze the structure and growth of that finite constraint system.
+The six printed declarations use only `[propext, Quot.sound]`; the direct
+monitored source check and focused 5,100-job build pass.  No full-root audit is
+claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
