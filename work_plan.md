@@ -258,8 +258,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   +-- one matched ceiling => atom bound .... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |   +-- faithful three-code target keys ...... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   +-- canonical restriction/assembly repair  [PROVED carrier]
-|   |   |   |   |   |       |       |       |   |           |   +-- canonical repair inverse-fiber capacity [OPEN primary producer]
-|   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN]
+|   |   |   |   |   |       |       |       |   |           |   +-- faithful canonical fiber capacity ..... [OBSTRUCTED]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- fixed-vacuum source/key slices exact ... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- slice capacity => Z_V <= C * raw_V .... [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- capacity => 1 <= C * growingMarginal .. [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |   |   `-- all-K tail contradicts one matched C .. [PROVED no-go]
+|   |   |   |   |   |       |       |       |   |           |   +-- mixed fixed-completion repair .......... [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN; must mix]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1145,13 +1150,38 @@ membership obligations are proved.  Three mixed-radix edge-labelling codes
 form a decidable target key that is faithful on the bounded target carrier;
 the induced key weights have exact total `raw_V * Z_0`.
 
-The remaining producer is consequently no longer an unspecified switching
-map.  It is the explicit, scale-diagonal estimate that every weighted inverse
-fiber of this canonical repair is bounded by one common rational ceiling
-times its keyed target weight.  The verified compiler turns precisely that
-field into the fixed/growing normalized spin-one comparison at every matched
-scale.  No such capacity estimate, spin-ray compression, cofinal all-vector
-gap, continuum limit, or Clay theorem is claimed.
+`BF4LowSpinGrowingVolumeRawPartitionCanonicalRepairNecessary.lean` now closes
+the audit of that explicit capacity field with a no-go.  The target key is so
+faithful that one may restrict to the source slice carrying the single
+positive fixed spin-one/vacuum completion and to exactly the corresponding
+target keys.  Fiber preservation and capacity then give
+
+```text
+fixedWeight * Z_V <= ceiling * (fixedWeight * raw_V),
+```
+
+so positivity cancels `fixedWeight` and forces
+
+```text
+Z_V <= ceiling * raw_V
+1 <= ceiling * growingReferenceMarginal.
+```
+
+For a purported matched common ceiling, choose
+`epsilon = (1/2) / ceiling` and `scale = epsilon.den`.  The all-cutoff
+replication theorem gives `growingReferenceMarginal <= epsilon` at that
+literal scale, while the slice inequality gives the opposite scaled lower
+bound, constructively implying `1 <= 1/2`.  Therefore the matched-uniform
+canonical fiber-bound structure is uninhabited.
+
+This refutes the faithful canonical repair, not the exact crossed-product
+compiler or every possible repair.  The active producer must now mix or
+coarsen the fixed-completion coordinate so that a selected fixed slice cannot
+be forced to pay the whole growing partition by one growing raw row.  Such a
+repair must still preserve the complete crossed sums and prove a uniform
+weighted inverse-fiber capacity.  Spin-ray compression, the cofinal
+all-vector gap, physical scaling, continuum construction, OS/GNS
+reconstruction, and the Clay theorem remain open.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
@@ -1177,7 +1207,8 @@ cross-multiplication were added, the expanded target completes successfully
 in a focused 5,204-job build.  The exact raw-partition switching compiler,
 occurrence-index weighted-fiber compiler, and canonical-repair compiler
 complete successfully in focused 5,205-, 5,206-, and 5,207-job builds,
-respectively.
+respectively.  The faithful-slice necessary-condition and matched-uniform
+canonical-repair no-go complete successfully in a focused 5,208-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
