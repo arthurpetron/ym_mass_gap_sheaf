@@ -277,7 +277,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary-amplitude bound => column .... [PROVED sufficient]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- zero lower rows vanish termwise ....... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-carrier amplitude factor ..... [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform positive-boundary bound ....... [OPEN sharper producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-boundary bound <-> posterior floor [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1373,6 +1374,27 @@ explicit retained support mismatch to the low-spin growing reference, or
 derive the displayed inequality from the retained projective-amplitude
 machinery with a cutoff/volume-uniform payment.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairBoundaryPosterior.lean`
+puts that remaining producer into exact conditional-probability form.  For
+every retained boundary channel with positive total half-amplitude, define
+the genuine lower-state posterior by normalizing the positive half-amplitude
+column.  Under the natural normalization `1 <= ceiling`, the positive-
+boundary cross-bound above is equivalent to
+
+```text
+fixed slice-zero spin-one marginal
+  <= ceiling * P(growing low-spin reference state | boundary).
+```
+
+Both finite and matched translations are proved.  The posterior-to-cross
+direction also treats zero-total boundary channels: their left cross-product
+vanishes, and the right side is nonnegative.  Consequently the active
+analytic question is now precise.  One must prove a cutoff/volume-uniform
+posterior floor for this exact growing reference on every positive boundary,
+or exhibit a positive retained boundary on which its posterior vanishes (or
+decays too quickly), thereby refuting the coarse repair route.  No posterior
+floor is inhabited by the translation theorem itself.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1415,6 +1437,9 @@ boundary-amplitude sufficient compilers complete successfully in a focused
 The lower zero-support theorem, exact positive-carrier column factorization,
 and finite and matched positive-boundary sufficient compilers complete
 successfully in a focused 5,214-job build.
+The exact finite and matched translations between the positive-boundary
+cross-bound and the growing-reference posterior floor complete successfully
+in a focused 5,215-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
