@@ -88,8 +88,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   +-- common all-vector rate on each finite base prefix .. [PROVED]
 |   |   +-- common face/all-vector finite-prefix envelope ...... [PROVED]
 |   |   +-- cofinal strict rate independent of prefix bound .... [ACTIVE]
-|   |   |   +-- separating guarded-event family ............... [ACTIVE]
-|   |   |   +-- conductance/path-Poincare/tensorization ........ [ACTIVE]
+|   |   |   +-- arbitrary-spin explicit vacuum ray ............ [PROVED]
+|   |   |   +-- local congestion <= first resistance moment ... [PROVED reduction]
+|   |   |   +-- uniform first resistance-moment bound ......... [ACTIVE]
+|   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
 |   |   `-- completed all-vector form / operator gap ........... [OPEN]
@@ -151,15 +153,25 @@ chosen bound, after representation-cutoff removal.  This is a synchronization
 of two proved finite branches, not an all-carrier theorem: its rate may tend to
 one as the prefix bound grows.  The active causal edge is therefore a single
 strict ceiling independent of every bound in a constructive cofinal family.
-The producer branch remains a translated/separating family of guarded events
-together with a quantitative conductance, path-Poincare, or tensorization
-theorem; the already formalized fixed-nome cofinal-ceiling structures state
-the exact target contract.  Conditional on such a ceiling, taking its located
-rational maximum with the guarded-face factor is now proved to preserve
-strictness below one and to control both every finite-base centered vector
-and the literal guarded face after representation-cutoff removal.  Thus the
-face creates no second cofinal rate obligation, but this reduction does not
-construct the required ceiling.  The original direct additive
+The sharpest current producer route uses the already proved arbitrary-spin
+vacuum ray and reduces the remaining off-ray path congestion to one scalar
+first stationary resistance moment.  Simplicity of every selected path means
+that a fixed directed edge receives each state's
+`stationaryWeight * pathResistance` load at most once, removing the extra
+path-length multiplier present in the total-occurrence traffic bound.  A
+uniform bound on this scalar moment beyond one cutoff now compiles to the
+existing fixed-nome off-ray resistance-congestion certificate and hence to
+the full cofinal posterior conditional-variance fraction.  Constructing that
+uniform moment bound is the active causal edge.  A translated/separating
+family of guarded events with quantitative conductance, path-Poincare, or
+tensorization remains an alternative producer route.  The already formalized
+fixed-nome cofinal-ceiling structures state the exact target contract.
+Conditional on such a ceiling, taking its located rational maximum with the
+guarded-face factor is proved to preserve strictness below one and to control
+both every finite-base centered vector and the literal guarded face after
+representation-cutoff removal.  Thus the face creates no second cofinal rate
+obligation, but neither conditional reduction constructs the required
+ceiling.  The original direct additive
 decoder remains uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored

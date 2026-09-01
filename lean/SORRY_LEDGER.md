@@ -28190,3 +28190,32 @@ reconstruction, or the Clay theorem.  No `sorry` is introduced.  The focused
 dependency-complete monitored target passes all 5,209 jobs; every printed
 load-bearing declaration uses only `[propext, Quot.sound]`.  No full-root
 audit is claimed.
+
+#### Local off-ray resistance congestion is bounded by one scalar moment (2026-08-31)
+
+`BF4PhysicalSpinCubeOffRayRootResistanceMoment` exploits the already proved
+simplicity of every selected vacuum-root path.  Because its directed-edge
+list has no duplicates, one state contributes its constant
+`stationaryWeight * pathResistance` load to any fixed directed edge at most
+once.  Summing statewise therefore gives the cutoffwise local bound
+
+```text
+off-ray root flow load(source,target)
+  <= sum_off_ray stationaryWeight(state) * pathResistance(state,vacuum).
+```
+
+This first stationary resistance moment has no extra selected-path-length
+factor.  A new cofinal certificate asks only for a uniform bound on that
+single scalar beyond one representation cutoff.  Such a certificate compiles
+to the existing pointwise off-ray resistance-congestion bound and, at every
+fixed nome strictly between zero and one, through the already proved
+arbitrary-spin ray to the full cofinal posterior conditional-variance
+fraction.
+
+The module proves this implication but does not construct the uniform moment
+bound.  The required SU(2) summability estimate, a cofinal all-vector rate,
+coupling/spacing/volume uniformity, a continuum measure, same-measure OS/GNS
+reconstruction, and the Clay theorem remain open.  No `sorry` is introduced.
+The focused dependency-complete monitored target passes all 5,088 jobs; every
+printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
+full-root audit is claimed.
