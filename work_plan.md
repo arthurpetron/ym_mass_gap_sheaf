@@ -170,7 +170,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |   +-- prefix-to-vacuum weighted demand ........ [OPEN]
 |   |   |   |   |   |       |   `-- assigned face-label mass -> observable .. [PROVED reduction]
 |   |   |   |   |   |       |       +-- ray return floor at anchor ........... [PROVED]
-|   |   |   |   |   |       |       +-- expectation / spin-cube weight ratio . [ACTIVE producer]
+|   |   |   |   |   |       |       +-- exact finite expectation/weight ratio  [PROVED]
+|   |   |   |   |   |       |       +-- cofinal uniform ratio ceiling ........ [ACTIVE producer]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
 |   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
@@ -1204,6 +1205,13 @@ combined with the already proved cofinal ray capacity, gives
 assigned-spin expectation / spoke joint kernel
   <= stationary-ratio bound / (2 * ray capacity).
 ```
+
+At every individual cutoff and admitted spin, the denominator is strictly
+positive, so the module also defines the exact constructive rational
+`positiveCentralFaceAssignedStationaryRatioAt` and proves that multiplying it
+back by the spin-cube weight recovers the assigned expectation.  The cofinal
+producer is therefore exactly a common ceiling on these explicit finite
+ratios, rather than an opaque comparison hypothesis.
 
 Thus the return/conductance algebra is closed at the finite cofinal level.
 The uninhabited stationary-ratio family is the precise active producer for

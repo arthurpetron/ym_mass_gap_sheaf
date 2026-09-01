@@ -29,6 +29,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
+open YMGap.Continuum.BF4PhysicalCutoffStationaryBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
@@ -110,6 +111,47 @@ theorem sourceWeight_mul_kernelReciprocal_le_inverseReturnFloor
 
 /-! ## 2. The remaining stationary-ratio producer -/
 
+/-- The exact finite assigned-expectation / spin-cube-weight ratio.  Its
+denominator is strictly positive for every admitted excited spin. -/
+def positiveCentralFaceAssignedStationaryRatioAt
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) : Q' :=
+  let source := centralLowerExcitedSpinCubeIndex
+    w (Q'.le_of_lt hw) K offset
+  Q'.divPos
+    (centralPhysicalStationaryMean w (Q'.le_of_lt hw) K 0
+      (positiveCentralFaceAssignedUnitObservable
+        K (offset + 1)).value)
+    (centralPhysicalFiniteWeight w (Q'.le_of_lt hw) K 0 source)
+    (centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex
+      (centralLowerSpinCubeIndex_mem_vacuumSector hw (by omega)))
+
+theorem positiveCentralFaceAssignedStationaryRatioAt_nonnegative
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) :
+    (0 : Q') ≤
+      positiveCentralFaceAssignedStationaryRatioAt hw hoffset := by
+  unfold positiveCentralFaceAssignedStationaryRatioAt Q'.divPos
+  apply Q'.mul_nonneg
+  · exact centralPhysicalStationaryMean_nonnegative_of_nonnegative
+      (Q'.le_of_lt hw) K 0 _
+      (positiveCentralFaceAssignedUnitObservable
+        K (offset + 1)).nonnegative
+  · exact Q'.le_of_lt (Q'.recipPos_pos _ _)
+
+theorem positiveCentralFaceAssignedStationaryRatioAt_mul_weight_eqv_mean
+    {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
+    (hoffset : offset < K) :
+    positiveCentralFaceAssignedStationaryRatioAt hw hoffset *
+        centralPhysicalFiniteWeight w (Q'.le_of_lt hw) K 0
+          (centralLowerExcitedSpinCubeIndex
+            w (Q'.le_of_lt hw) K offset) ≈
+      centralPhysicalStationaryMean w (Q'.le_of_lt hw) K 0
+        (positiveCentralFaceAssignedUnitObservable
+          K (offset + 1)).value := by
+  unfold positiveCentralFaceAssignedStationaryRatioAt
+  exact Q'.divPos_mul_eqv _ _ _
+
 /-- The precise cofinal analytic datum still missing from the assigned-spin
 branch: its physical stationary expectation is at most one common multiple
 of the corresponding spin-cube stationary weight. -/
@@ -128,6 +170,29 @@ structure FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
           centralPhysicalFiniteWeight w (Q'.le_of_lt hw) K 0
             (centralLowerExcitedSpinCubeIndex
               w (Q'.le_of_lt hw) K offset)
+
+namespace FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
+
+/-- The named cofinal datum is exactly a common upper ceiling on the explicit
+finite rational ratios. -/
+theorem exactRatioAt_le_ratioBound
+    {w : Q'} {hw : (0 : Q') < w}
+    (ratio : FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio hw)
+    (K : Nat) (hK : ratio.start ≤ K)
+    (offset : Nat) (hoffset : offset < K) :
+    positiveCentralFaceAssignedStationaryRatioAt hw hoffset ≤
+      ratio.ratioBound := by
+  let source := centralLowerExcitedSpinCubeIndex
+    w (Q'.le_of_lt hw) K offset
+  let weight := centralPhysicalFiniteWeight
+    w (Q'.le_of_lt hw) K 0 source
+  let hweight : (0 : Q') < weight :=
+    centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex
+      (centralLowerSpinCubeIndex_mem_vacuumSector hw (by omega))
+  apply Q'.divPos_le_of_le_mul _ weight hweight
+  exact ratio.assignedMean_le K hK offset hoffset
+
+end FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio
 
 theorem assignedMean_mul_kernelReciprocal_le_ratio_div_returnFloor
     {w : Q'} (hw : (0 : Q') < w) {K offset : Nat}
@@ -222,5 +287,9 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturn
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.sourceWeight_mul_kernelReciprocal_le_inverseReturnFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.assignedMean_mul_kernelReciprocal_le_ratio_div_returnFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.positiveCentralFaceAssignedStationaryRatioAt_mul_weight_eqv_mean
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio.exactRatioAt_le_ratioBound
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio.assignedMean_mul_kernelReciprocal_le
