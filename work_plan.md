@@ -275,7 +275,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- column bound => target-row bound ...... [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- column Gram factorization ............. [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary-amplitude bound => column .... [PROVED sufficient]
-|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform boundary-amplitude bound ...... [OPEN sharper producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- zero lower rows vanish termwise ....... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-carrier amplitude factor ..... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform positive-boundary bound ....... [OPEN sharper producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
@@ -1340,6 +1342,37 @@ positive Gram weight while the literal reference amplitude vanishes.  Such a
 channel would refute the coarse column route; otherwise a uniform projective
 amplitude estimate remains possible.
 
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairPositiveBoundaryAmplitude.lean`
+removes a false obstruction from that route test.  It proves the lower-row
+counterpart of the earlier upper-row zero theorem: if a full physical slab's
+lower restriction has zero normalized marginal, that individual physical
+term is exactly zero.  The column can therefore be filtered term-by-term from
+all bounded lower states to the actual positive lower carrier.  Its exact
+factorization sharpens to
+
+```text
+completionColumn(target, boundary)
+  = boundaryWeight(boundary)
+      * positiveBoundaryTotal(boundary)
+      * A(target, boundary).
+```
+
+Accordingly, the true sufficient producer uses the already-developed
+`centralPositiveBoundaryTotalHalfAmplitude`, not the larger unfiltered sum:
+
+```text
+fixedRaw * positiveBoundaryTotal(boundary)
+  <= ceiling * (A(reference,boundary) * fixedZ).
+```
+
+This positive-carrier producer compiles to the finite and matched column
+Harnack bounds.  Existing cutoff-two support-mismatch results concern a
+different half extent and reference pair, so they do not by themselves
+refute this growing-half producer.  The next audit must either transport an
+explicit retained support mismatch to the low-spin growing reference, or
+derive the displayed inequality from the retained projective-amplitude
+machinery with a cutoff/volume-uniform payment.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1379,6 +1412,9 @@ target-row compilers complete successfully in a focused 5,212-job build.
 The exact completion-column Gram factorization and the finite and matched
 boundary-amplitude sufficient compilers complete successfully in a focused
 5,213-job build.
+The lower zero-support theorem, exact positive-carrier column factorization,
+and finite and matched positive-boundary sufficient compilers complete
+successfully in a focused 5,214-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
