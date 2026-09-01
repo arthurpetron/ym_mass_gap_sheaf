@@ -28407,3 +28407,33 @@ same-measure OS/GNS reconstruction, and Clay conclusion remain open.
 No `sorry` is introduced.  The new file passes a direct monitored check and
 its dependency-complete target passes all 5,097 jobs.  All four printed
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Terminal spokes now expose their exact inverse-kernel demand (2026-08-31)
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalDemand` sharpens
+the terminal-fanout cardinality audit to the resistance-weighted quantity
+actually charged by the root flow.  A generic positive-path theorem first
+proves that the reciprocal conductance of every displayed edge is bounded by
+the path's full resistance.  For the final edge `(u, 0)`, this gives the
+pointwise and fiberwise bounds
+
+```text
+2 * stationaryWeight(state) / kernel(u, 0)
+  <= state load on (u, 0),
+
+sum_{state in terminalFiber(u)}
+  2 * stationaryWeight(state) / kernel(u, 0)
+    <= routed flow load on (u, 0).
+```
+
+Every supplied cofinal simple-routing congestion certificate therefore
+bounds that literal terminal-fiber inverse-kernel demand by its common
+cutoff-independent scalar.  This is a necessary weighted-tail condition, not
+an upper estimate for the physical BF4 demand.  The positive-spoke assignment,
+the preceding-edge tail, the cofinal all-vector gap, scaling/volume
+uniformity, continuum measure, OS/GNS reconstruction, and Clay conclusion
+remain open.
+
+No `sorry` is introduced.  The new file passes a direct monitored check and
+its dependency-complete target passes all 5,097 jobs.  All four printed
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.

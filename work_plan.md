@@ -106,7 +106,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- terminal fibers exactly partition nonvacuum ..... [PROVED]
 |   |   |   +-- sector <= positive spokes * common bound ........ [PROVED diagnostic]
 |   |   |   +-- K explicit spin-cube positive root spokes ....... [PROVED]
-|   |   |   +-- positive-spoke density ratio + weighted tail .... [ACTIVE]
+|   |   |   +-- inverse-kernel terminal-fiber demand <= load .... [PROVED diagnostic]
+|   |   |   +-- positive-spoke assignment + demand upper bound .. [ACTIVE]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
@@ -258,6 +259,26 @@ the remaining states to those spokes or control the resistance-weighted load
 on the earlier route edges.  The active target is therefore a quantitative
 positive-spoke density or bounded-fiber assignment together with the localized
 weighted tail estimate.
+
+The terminal-edge part of that weighted estimate is now exact.  If a simple
+route assigns a state `x` to the final spoke `(u, 0)`, the reciprocal
+`1 / kernel(u, 0)` is one summand of the complete path resistance.  Summing
+over the literal terminal fiber proves the necessary inequality
+
+```text
+sum_{x in terminalFiber(u)}
+  2 * stationaryWeight(x) / kernel(u, 0)
+    <= routedFlowLoad(u, 0).
+```
+
+Accordingly, a supplied cofinal simple-routing certificate bounds this exact
+inverse-kernel demand on every positive terminal spoke by its common scalar.
+This strictly sharpens the cardinality audit: even a bounded-size fiber can
+fail if its stationary mass is too large relative to its terminal root
+kernel.  The remaining physical producer must now give an actual assignment
+of all non-vacuum states to sufficiently many positive spokes and prove both
+this terminal demand and the localized resistance contributions from all
+preceding route edges are uniformly bounded.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
