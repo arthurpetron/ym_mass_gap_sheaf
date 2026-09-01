@@ -210,7 +210,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- one decorated activity per grid coordinate [PROVED]
 |   |   |   |   |   |       |       |       |   +-- extreme-pair computed-floor ceiling ...... [PROVED]
 |   |   |   |   |   |       |       |       |   `-- high-spin grid effective multiplicity bounded [OBSTRUCTED]
-|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [PROVED at K=1, fixed w]
+|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [PROVED all finite K, positive w; growing half]
 |   |   |   |   |   |       |       |       |   +-- volume+1 common-box placements ...... [PROVED]
 |   |   |   |   |   |       |       |       |   +-- injective duplicate-free cutoff-one list [PROVED]
 |   |   |   |   |   |       |       |       |   +-- identical positive one-cube production [PROVED]
@@ -237,7 +237,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |       +-- source/remainder face separation ...... [PROVED geometry]
 |   |   |   |   |   |       |       |       |   |       +-- source/remainder link separation ...... [PROVED geometry]
 |   |   |   |   |   |       |       |       |   |       +-- exact physical-term factorization ..... [PROVED]
-|   |   |   |   |   |       |       |       |   |       `-- every selected complete raw row equal . [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- every selected complete raw row equal . [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- arbitrary-K source/remainder boundedness [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- arbitrary-K time-shift source equality  [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- all-K complete raw rows equal .......... [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- all-K ratio floor = 1 ................. [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- all-K effective multiplicity = volume+1 [PROVED]
+|   |   |   |   |   |       |       |       |   |       +-- all-K fixed-source marginal tail zero .. [PROVED]
+|   |   |   |   |   |       |       |       |   |       `-- growing-half -> fixed-half matched ray . [ACTIVE boundary]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
 |   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
@@ -245,7 +252,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |       +-- adaptive marginal <= 1/(volume+1) ... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- explicit epsilon/denominator modulus  [PROVED]
 |   |   |   |   |   |       |       |       |       `-- fixed slice-zero row identity ....... [PROVED]
-|   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
+|   |   |   |   |   |       |       |       +-- volume-parametric multiplicity diverges ... [PROVED for growing-half scalar atom]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -710,9 +717,10 @@ critical path branches.
 ## Current goal-mode checkpoint (2026-09-01)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL IS CLOSED BY THE CONCRETE
-GUARDED AGGREGATE ROUTE.  THE COMPLETE HIGH-SPIN GRID IS NOW PROVED TO HAVE
-BOUNDED EFFECTIVE MULTIPLICITY; LOW-SPIN SPATIAL-VOLUME REPLICATION IS THE
-ACTIVE COFINAL DESIGN EDGE.**
+GUARDED AGGREGATE ROUTE.  LOW-SPIN SPATIAL-VOLUME REPLICATION NOW GIVES AN
+EXPLICIT FIXED-SOURCE MARGINAL TAIL AT EVERY FINITE REPRESENTATION CUTOFF;
+TRANSPORT FROM ITS GROWING REFLECTION HALF TO THE FIXED-HALF MATCHED RAY IS
+THE ACTIVE COFINAL DESIGN EDGE.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -988,9 +996,45 @@ epsilon.den <= volume
 sliceZeroMarginal(w, volume) <= epsilon.
 ```
 
-This is a fixed-positive-coupling, cutoff-one, growing-volume result.  It is
-not yet an all-cutoff, matched asymptotically-free, all-vector, continuum, or
-Clay theorem.
+This first theorem is a fixed-positive-coupling, cutoff-one, growing-volume
+result.  The all-cutoff theorem below removes the representation-cutoff
+restriction, but it does not remove the growing-half mismatch with the
+matched ray or supply all-vector, continuum, or Clay content.
+
+`BF4LowSpinAllCutoffGrowingVolumeCompletionFactorization.lean` lifts the
+complete-row identity to every finite representation cutoff `K >= 1` and
+every positive rational coupling `w`.  The selected source, its slab and
+ambient transports, and the unchanged completion remainder all remain
+`K`-bounded.  Exact time-shift and cross-volume transport identify the source
+factor for any two selected slices, while the already proved binary-union
+factorization keeps the same completion factor.  Consequently all selected
+complete positive raw rows are exactly equal at cutoff `K`.  Cutoff-one
+positivity persists monotonically to `K`, so the literal replication object
+again has
+
+```text
+computedRawRowRatioFloor = 1,
+effectiveMultiplicity = volume + 1,
+sliceZeroMarginal(w, K, volume + 1) <= 1 / (volume + 1).
+```
+
+In located form, for all positive `w`, all `K >= 1`, and all positive
+rational `epsilon`, it proves
+
+```text
+epsilon.den <= volume
+------------------------------------------------
+sliceZeroMarginal(w, K, volume + 1) <= epsilon.
+```
+
+This is uniform over finite representation cutoff and positive coupling in
+the theorem's explicit modulus.  Its reflection half is `volume + 1`, whereas
+the existing matched cofinal ray mass is defined at fixed half `0` while
+cutoff and coupling vary.  Therefore it does not definitionally instantiate
+the matched-ray tail-zero interface.  The next named producer must be an
+honest growing-half-to-fixed-half comparison/transport theorem (or a revised
+joint cutoff/volume cofinal interface); without that bridge, no cofinal
+all-vector/operator gap is claimed.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
@@ -1008,7 +1052,8 @@ producer compiler completes successfully in a focused 5,196-job build.
 The unchanged-completion source-interface separation target completes
 successfully in a focused 5,197-job build.  The exact completion-factorization
 and fixed-reference tail target completes successfully in a focused
-5,198-job build.
+5,198-job build.  The all-cutoff completion-factorization and fixed-source
+tail target completes successfully in a focused 5,199-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
