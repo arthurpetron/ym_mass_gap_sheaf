@@ -210,7 +210,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   +-- one decorated activity per grid coordinate [PROVED]
 |   |   |   |   |   |       |       |       |   +-- extreme-pair computed-floor ceiling ...... [PROVED]
 |   |   |   |   |   |       |       |       |   `-- high-spin grid effective multiplicity bounded [OBSTRUCTED]
-|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [ACTIVE]
+|   |   |   |   |   |       |       |       +-- low-spin growing-volume replicas ..... [PROVED at K=1, fixed w]
 |   |   |   |   |   |       |       |       |   +-- volume+1 common-box placements ...... [PROVED]
 |   |   |   |   |   |       |       |       |   +-- injective duplicate-free cutoff-one list [PROVED]
 |   |   |   |   |   |       |       |       |   +-- identical positive one-cube production [PROVED]
@@ -226,23 +226,25 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |   +-- literal compiler instance ........... [PROVED]
 |   |   |   |   |   |       |       |       |   |   +-- marginal <= 1/effective ............. [PROVED]
 |   |   |   |   |   |       |       |       |   |   +-- one-ceiling fixed/adaptive Harnack gate [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |   +-- reciprocal floor => linear effective .. [PROVED conditional]
-|   |   |   |   |   |       |       |       |   |   +-- explicit fixed marginal tail zero ..... [PROVED conditional]
-|   |   |   |   |   |       |       |       |   |   `-- volume-uniform raw-row Harnack ........ [ACTIVE derivation]
+|   |   |   |   |   |       |       |       |   |   +-- exact raw-row ratio floor = 1 .......... [PROVED]
+|   |   |   |   |   |       |       |       |   |   +-- effective multiplicity = volume+1 ...... [PROVED]
+|   |   |   |   |   |       |       |       |   |   +-- explicit fixed marginal tail zero ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |   `-- volume-uniform raw-row Harnack ........ [PROVED, ceiling 1]
 |   |   |   |   |   |       |       |       |   |       +-- raw row = target/boundary completion sum [PROVED exact]
 |   |   |   |   |   |       |       |       |   |       +-- weighted completion injection => Harnack [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |       +-- unchanged-completion identity injection [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |       +-- lower completion remainder is zero .... [PROVED geometry]
 |   |   |   |   |   |       |       |       |   |       +-- source/remainder face separation ...... [PROVED geometry]
 |   |   |   |   |   |       |       |       |   |       +-- source/remainder link separation ...... [PROVED geometry]
-|   |   |   |   |   |       |       |       |   |       `-- exact physical-term factorization ..... [ACTIVE]
+|   |   |   |   |   |       |       |       |   |       +-- exact physical-term factorization ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |       `-- every selected complete raw row equal . [PROVED]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
 |   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- effective multiplicity = volume+1 ... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- adaptive marginal <= 1/(volume+1) ... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- explicit epsilon/denominator modulus  [PROVED]
-|   |   |   |   |   |       |       |       |       `-- fixed observable/source identity ... [OPEN boundary]
+|   |   |   |   |   |       |       |       |       `-- fixed slice-zero row identity ....... [PROVED]
 |   |   |   |   |   |       |       |       +-- prove volume-parametric multiplicity diverges [OPEN endpoint]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
@@ -899,14 +901,13 @@ adaptiveEffectiveMultiplicity(w, volume) = volume + 1
 adaptiveReferenceMarginal(w, volume) <= 1 / (volume + 1).
 ```
 
-This closes multiplicity divergence for the adaptively selected reference.
-It does not close the cofinal gap route: the arg-min state may vary with
-volume, and no theorem yet identifies it with the prescribed spin-cube ray,
-a fixed observable/source, a conductance bottleneck, or a common half-space
-event.  The live frontier therefore branches honestly.  The fixed slice-zero
-route still needs uniform complete-row comparison; the adaptive route needs a
-fixed-object identification or a gap/conductance theorem that can use the
-varying selected state without changing the physical claim.
+This first closed multiplicity divergence for the adaptively selected
+reference.  The exact factorization below now also closes it for the literal
+slice-zero source at cutoff one and fixed positive coupling.  It does not
+close the cofinal gap route: the matched route varies representation cutoff
+and coupling and still needs a theorem relating this growing-volume atom to
+the prescribed matched spin-cube ray, a conductance bottleneck, or an
+all-vector form bound.
 
 `BF4LowSpinGrowingVolumeAdaptiveMarginalTailZero.lean` turns the reciprocal
 bound into a located constructive limit statement.  For every fixed positive
@@ -919,13 +920,9 @@ adaptiveReferenceMarginal(w, volume) <= epsilon.
 ```
 
 Thus the denominator of `epsilon` is an explicit modulus and the varying
-minimum-row atom tends to zero at cutoff one.  This is not the matched
-spin-cube-ray tail-zero theorem: both the selected state and the growing
-half-volume differ from that fixed-source cofinal interface.  Repository
-search also finds no existing exact finite corrected-slab time translation
-that simultaneously preserves the corner-box positive carrier and transports
-these raw-row sums, so fixed-reference row equality remains an open theorem,
-not a symmetry assumption.
+minimum-row atom tends to zero at cutoff one.  The completion factorization
+below upgrades the same modulus to the literal slice-zero atom without
+assuming a time-translation symmetry.
 
 `BF4LowSpinGrowingVolumeFixedReferenceHarnackGate.lean` now compiles the
 remaining fixed-source comparison into the desired asymptotic consequence.
@@ -946,12 +943,10 @@ effective multiplicity is at least
 ```
 
 and the fixed slice-zero stationary marginal has the explicit modulus
-`(epsilon * reciprocalFloor).den`.  These are constructive proved
-implications, not an inhabitant of the Harnack input.  The current causal edge
-is therefore the producer theorem for that one volume-uniform complete-row
-inequality; neither
-time-translation symmetry nor fixed-ray/cofinal-gap/continuum content is being
-assumed by the gate.
+`(epsilon * reciprocalFloor).den`.  The gate itself remains a generic proved
+reduction; the exact factorization below now inhabits it with ceiling `1`.
+No time-translation symmetry or fixed-ray/cofinal-gap/continuum content is
+assumed by that construction.
 
 `BF4LowSpinGrowingVolumeFixedReferenceCompletionInjectionGate.lean` exposes
 the Harnack producer at the level of literal physical configurations.  It
@@ -964,18 +959,38 @@ raw-row Harnack input above.  It also proves that a pointwise comparison on
 the identical completion pair is enough, so no nontrivial recoding is needed
 if the selected source factors as an isolated component.
 
-`BF4LowSpinGrowingVolumeSourceInterfaceSeparation.lean` now supplies the
-geometric half of exactly that identity-completion route.  Every selected
+`BF4LowSpinGrowingVolumeSourceInterfaceSeparation.lean` supplies the geometric
+half of exactly that identity-completion route.  Every selected
 cube lies on a spatial slice `0, ..., volume`, strictly below reflection half
 `volume + 1`.  The source-free assembly retaining the same boundary and
 positive target is therefore zero on every lower ambient face.  The selected
 source and this unchanged completion remainder are proved both face-disjoint
-and link-separated in the common ambient box.  The remaining active theorem
-is algebraic rather than asymptotic: identify the complete assembly with the
-binary union and apply exact cutoff-one component factorization.  Once that
-is done, the common six-face source factor should cancel between slice zero
-and the adaptive selected slice, yielding ceiling `1`; this consequence is
-not yet claimed here.
+and link-separated in the common ambient box.
+
+`BF4LowSpinGrowingVolumeCompletionFactorization.lean` completes the algebraic
+half.  It identifies each full assembly with the binary union of the selected
+cube and unchanged remainder, applies exact cutoff-one component
+factorization, and proves that every admissible complete summand is
+
+```text
+(coeffW w 1)^6 * completionRemainderWeight.
+```
+
+The expression is independent of the selected slice, so all selected
+positive raw rows are exactly equal.  The literal fixed/adaptive Harnack has
+ceiling `1`, the computed fixed-reference ratio floor is exactly `1`, and the
+effective multiplicity is semantically `volume + 1`.  For positive rational
+`epsilon`, the fixed slice-zero stationary marginal consequently satisfies
+
+```text
+epsilon.den <= volume
+------------------------------------------
+sliceZeroMarginal(w, volume) <= epsilon.
+```
+
+This is a fixed-positive-coupling, cutoff-one, growing-volume result.  It is
+not yet an all-cutoff, matched asymptotically-free, all-vector, continuum, or
+Clay theorem.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
@@ -991,7 +1006,9 @@ rechecked in a focused 5,184-job build, and the fixed-reference Harnack gate
 completes successfully in a focused 5,195-job build.  Its completion-injection
 producer compiler completes successfully in a focused 5,196-job build.
 The unchanged-completion source-interface separation target completes
-successfully in a focused 5,197-job build.
+successfully in a focused 5,197-job build.  The exact completion-factorization
+and fixed-reference tail target completes successfully in a focused
+5,198-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
