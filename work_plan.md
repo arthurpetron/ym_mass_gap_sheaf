@@ -146,7 +146,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- finite-sector amplitude filter/count ....... [PROVED exact]
 |   |   |   |   |   |   +-- positive-coupling lower-link filter/count .. [PROVED exact]
 |   |   |   |   |   |   +-- all-link local CSP filter/count ............ [PROVED exact]
-|   |   |   |   |   |   `-- local SU2 constraint geometry/count growth . [ACTIVE]
+|   |   |   |   |   |   +-- 24-var/48-link arity<=4 active scopes ...... [PROVED]
+|   |   |   |   |   |   `-- active-scope SU2 word/count growth ......... [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -875,6 +876,19 @@ constraints strongly enough to control growth or allocate terminal spokes.
 The six printed declarations use only `[propext, Quot.sound]`; the direct
 monitored source check and focused 5,101-job build pass.  No full-root audit is
 claimed.
+
+`BF4PhysicalVacuumSectorRootSpokeActiveScopeClassifier.lean` removes every
+vacuum spin-zero insertion from those local constraints at arbitrary cutoff.
+The production zero-extension theorem identifies each full incident fusion
+word with the word read only from incident lower-face source labels.  The
+cutoff-independent constraint hypergraph has 24 variables, 48 links, and
+active arity at most four, and the routing-level root-predecessor carrier and
+count are exactly its canonical-sector filter and count at positive coupling.
+The active task is now the SU(2) admissible-word structure and growth on these
+fixed scopes, followed by a terminal-spoke allocation compatible with uniform
+sharing and load.  The eight printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,102-job build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
