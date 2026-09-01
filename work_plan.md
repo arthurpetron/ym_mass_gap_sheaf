@@ -169,7 +169,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       +-- normalized terminal-mass decomposition ...... [PROVED reduction]
 |   |   |   |   |   |       |   +-- prefix-to-vacuum weighted demand ........ [OPEN]
 |   |   |   |   |   |       |   `-- assigned face-label mass -> observable .. [PROVED reduction]
-|   |   |   |   |   |       |       `-- expectation / conductance comparison . [ACTIVE]
+|   |   |   |   |   |       |       +-- ray return floor at anchor ........... [PROVED]
+|   |   |   |   |   |       |       +-- expectation / spin-cube weight ratio . [ACTIVE producer]
+|   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
 |   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
 |   |   |   |   |   |       +-- repaired face-zero fiber cardinality ....... [OPEN sufficient]
@@ -1182,6 +1184,37 @@ prefix-to-vacuum weighted demand remains independently open.  The five
 printed declarations use only `[propext, Quot.sound]`; the direct monitored
 source check and focused 5,171-job one-worker module verification pass.  No
 full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassReturnReduction.lean`
+isolates the exact analytic producer behind the assigned observable.  For an
+excited spin cube, the existing return probability identity first proves
+
+```text
+spin-cube stationary weight / spoke joint kernel
+  <= 1 / any positive return floor.
+```
+
+The module names
+`FixedNomeCofinalPositiveCentralFaceAssignedStationaryRatio`: one common
+cutoff-independent bound comparing the assigned-spin stationary expectation
+with the stationary weight of its corresponding spin cube.  Any inhabitant,
+combined with the already proved cofinal ray capacity, gives
+
+```text
+assigned-spin expectation / spoke joint kernel
+  <= stationary-ratio bound / (2 * ray capacity).
+```
+
+Thus the return/conductance algebra is closed at the finite cofinal level.
+The uninhabited stationary-ratio family is the precise active producer for
+this branch, while the prefix-to-vacuum weighted demand remains independently
+open.  A redundant final dependent packaging theorem was deliberately not
+retained after monitored checking showed a `whnf` timeout; the two checked
+interfaces already expose the required composition without enlarging the
+kernel term.  The three printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,172-job one-worker module verification pass.  No full-root audit is
+claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
