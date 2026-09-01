@@ -228,7 +228,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |   +-- one-ceiling fixed/adaptive Harnack gate [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |   +-- reciprocal floor => linear effective .. [PROVED conditional]
 |   |   |   |   |   |       |       |       |   |   +-- explicit fixed marginal tail zero ..... [PROVED conditional]
-|   |   |   |   |   |       |       |       |   |   `-- volume-uniform raw-row Harnack ........ [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |   `-- volume-uniform raw-row Harnack ........ [ACTIVE derivation]
+|   |   |   |   |   |       |       |       |   |       +-- raw row = target/boundary completion sum [PROVED exact]
+|   |   |   |   |   |       |       |       |   |       +-- weighted completion injection => Harnack [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |       +-- unchanged-completion identity injection [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |       +-- lower completion remainder is zero .... [PROVED geometry]
+|   |   |   |   |   |       |       |       |   |       +-- source/remainder face separation ...... [PROVED geometry]
+|   |   |   |   |   |       |       |       |   |       +-- source/remainder link separation ...... [PROVED geometry]
+|   |   |   |   |   |       |       |       |   |       `-- exact physical-term factorization ..... [ACTIVE]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
 |   |   |   |   |   |       |       |       |       +-- constructive finite arg-min ......... [PROVED]
 |   |   |   |   |   |       |       |       |       +-- exact ratio floor = 1 ............... [PROVED]
@@ -946,6 +953,30 @@ inequality; neither
 time-translation symmetry nor fixed-ray/cofinal-gap/continuum content is being
 assumed by the gate.
 
+`BF4LowSpinGrowingVolumeFixedReferenceCompletionInjectionGate.lean` exposes
+the Harnack producer at the level of literal physical configurations.  It
+flattens the fixed raw row exactly into its finite carrier of
+`(positive target, boundary channel)` completion pairs.  A
+volume-independent `ceiling`, together with an injective recoding of every
+fixed-source completion into an adaptive-source completion whose physical
+weight pays the original up to that ceiling, constructively sums to the
+raw-row Harnack input above.  It also proves that a pointwise comparison on
+the identical completion pair is enough, so no nontrivial recoding is needed
+if the selected source factors as an isolated component.
+
+`BF4LowSpinGrowingVolumeSourceInterfaceSeparation.lean` now supplies the
+geometric half of exactly that identity-completion route.  Every selected
+cube lies on a spatial slice `0, ..., volume`, strictly below reflection half
+`volume + 1`.  The source-free assembly retaining the same boundary and
+positive target is therefore zero on every lower ambient face.  The selected
+source and this unchanged completion remainder are proved both face-disjoint
+and link-separated in the common ambient box.  The remaining active theorem
+is algebraic rather than asymptotic: identify the complete assembly with the
+binary union and apply exact cutoff-one component factorization.  Once that
+is done, the common six-face source factor should cancel between slice zero
+and the adaptive selected slice, yielding ceiling `1`; this consequence is
+not yet claimed here.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -957,8 +988,12 @@ literal low-spin instance (5,192 jobs).  The adaptive minimum-row target
 completes successfully (5,193 jobs), and its explicit marginal-tail target
 completes successfully (5,194 jobs).  The generic pointwise-floor compiler was
 rechecked in a focused 5,184-job build, and the fixed-reference Harnack gate
-completes successfully in a focused 5,195-job build.  Printed load-bearing
-declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+completes successfully in a focused 5,195-job build.  Its completion-injection
+producer compiler completes successfully in a focused 5,196-job build.
+The unchanged-completion source-interface separation target completes
+successfully in a focused 5,197-job build.
+Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
+full-root audit is claimed.
 
 ### Prior cofinal-routing checkpoint
 
