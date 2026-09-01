@@ -117,9 +117,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- canonical off-ray localized edge-load bound ...... [ACTIVE]
 |   |   |   |   +-- exact twice-spin physical-mass shells ......... [PROVED]
 |   |   |   |   +-- mass entropy x state-load factorization ....... [PROVED reduction]
-|   |   |   |   |   +-- literal mass-shell cardinality bound ....... [ACTIVE]
+|   |   |   |   |   +-- shell cardinality <= 2^24 * 2^mass ......... [PROVED]
 |   |   |   |   |   +-- literal per-state resistance-load decay ... [ACTIVE]
-|   |   |   |   |   `-- combined physical ratio below one ......... [OPEN]
+|   |   |   |   |   `-- combined ratio `2 * q < 1` ................. [OPEN]
 |   |   |   |   +-- mass-shell sum => full simple certificate ..... [PROVED reduction]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
@@ -371,13 +371,30 @@ most `L * q^n`, then the shell load is at most
 
 The checked mass-shell compiler requires nonnegative factors, `b*q < 1`, and
 the same finite geometric budget recurrence, and then feeds the resulting
-bound through the already proved full-routing compiler.  It does not inhabit
-the cardinality or pointwise-load estimates.  This removes path length from
-the entropy statistic and aligns the active shell with the physical mass
-controlled by the existing peeling machinery.  A route risk remains inside
-the pointwise factor: it includes the resistance of the selected canonical
-path, whose growth is not yet controlled by source mass.  If this cannot be
-bounded, the route itself must become deliberately mass-monotone.
+bound through the already proved full-routing compiler.  The entropy field is
+now inhabited unconditionally: the lower half has exactly 24 physical face
+coordinates, their label word has l1 sum equal to the literal twice-spin
+mass, and unary separation injects every mass-`n` shell into binary words of
+length `n + 24`.  Therefore
+
+```text
+mass-shell cardinality <= 2^(n + 24) = 2^24 * 2^n,
+```
+
+uniformly in cutoff and directed edge.  Thus `E = 2^24` and `b = 2` are
+proved, and the active finite input is only a pointwise bound
+
+```text
+stationaryWeight(state) * canonicalPathResistance(state, vacuum)
+  <= L * q^physicalMass(state),       with 2*q < 1.
+```
+
+This removes path length from the entropy statistic and aligns the active
+shell with the physical mass controlled by the existing peeling machinery.
+A route risk remains inside the pointwise factor: it includes the resistance
+of the selected canonical path, whose growth is not yet controlled by source
+mass.  If this cannot be bounded, the route itself must become deliberately
+mass-monotone.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
@@ -490,17 +507,18 @@ physical-mass shell partition reduces it to a mass-shell cardinality estimate
 times a literal per-state stationary-resistance decay estimate, with product
 ratio below one; the proved finite geometric compiler then pays both the extra
 terminal demand and the preceding-edge tail and produces the full simple
-cofinal routing certificate.  Those two physical estimates remain open, and
-the pointwise estimate must still control canonical-path resistance.  B, C,
-and D remain unchanged until explicit
+cofinal routing certificate.  The cardinality estimate is now proved with
+amplitude `2^24` and base `2`; the sole remaining finite estimate is pointwise
+stationary-resistance decay with ratio `q < 1/2`, and it must still control
+canonical-path resistance.  B, C, and D remain unchanged until explicit
 physical scaling, continuum, and OS/GNS bridges are inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
-**Status. THE EXACT OFF-RAY SHELL ESTIMATE NOW HAS BOTH A PATH-LENGTH
-PRESENTATION AND A PREFERRED LITERAL TWICE-SPIN PHYSICAL-MASS PRESENTATION.**
+**Status. THE CUTOFF-UNIFORM PHYSICAL-MASS SHELL ENTROPY BOUND IS PROVED;
+POINTWISE STATIONARY-RESISTANCE DECAY IS THE SOLE ACTIVE FINITE INPUT.**
 
 `BF4PhysicalSpinCubeOffRayRootResistanceLengthShellFactorization.lean`
 introduces a named cofinal input pinned to the actual BF4 edge-user shell
@@ -522,12 +540,12 @@ the already isolated cofinal ray capacity—to the full vertex-simple cofinal
 routing certificate.  Its four printed declarations use only
 `[propext, Quot.sound]`, and its focused monitored source check passes.
 
-No entropy or decay field is inhabited.  In particular, the canonical
-loop-erased path length is not yet proved comparable to the physical
-twice-spin mass paid by the established peeling constructions.  The next
-causal task is now stated directly on physical-mass shells; if the remaining
-pointwise resistance factor cannot be controlled in that mass, the canonical
-off-ray route must be replaced by a mass-monotone route.  The
+The path-length entropy and decay fields remain conditional.  In particular,
+the canonical loop-erased path length is not yet proved comparable to the
+physical twice-spin mass paid by the established peeling constructions.  The
+preferred causal task is stated directly on physical-mass shells; if the
+remaining pointwise resistance factor cannot be controlled in that mass, the
+canonical off-ray route must be replaced by a mass-monotone route.  The
 physical beta/spacing/volume bound, continuum measure and OS/GNS
 reconstruction, and Clay-facing assembly remain open.
 
@@ -547,9 +565,19 @@ actual stationary-weight times canonical-path-resistance load of every
 member.  A product ratio below one compiles to the off-ray congestion
 certificate and then to the full simple cofinal certificate.  All six printed
 declarations use only `[propext, Quot.sound]`, and the direct monitored source
-check passes.  The entropy and pointwise decay fields remain uninhabited; the
-latter is now the only place where uncontrolled canonical-path resistance can
-still obstruct the physical-mass route.
+check passes.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy.lean` proves that an
+actual shell state is reconstructible from its 24-entry lower-half physical
+word.  Unary-separated coding injects a mass-`n` shell into `allSeqs 2
+(n+24)`, giving the exact cutoff-independent bound `2^24 * 2^n`.  The module
+therefore specializes the factorized input so its only physical field is
+pointwise state-load decay; with `2*q < 1` it compiles directly to the same
+off-ray and full simple-routing certificates.  Its seven printed declarations
+use only `[propext, Quot.sound]`; both the direct monitored check and the
+focused 5,142-job build pass.  No full-root audit is claimed.  Uncontrolled
+canonical-path resistance in the pointwise load is now the only obstruction
+inside this physical-mass-shell route.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 

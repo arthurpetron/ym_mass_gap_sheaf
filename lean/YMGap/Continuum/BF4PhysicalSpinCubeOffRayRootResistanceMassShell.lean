@@ -43,6 +43,7 @@ open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteSimpleWalk
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
+open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4FiniteCylinderQuadraticStability
 
@@ -50,13 +51,13 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Literal physical mass and its finite shell range -/
 
-/-- Total twice-spin mass on the actual corrected-slab physical faces of the
-indexed lower-half BF4 state. -/
+/-- Total twice-spin mass on the actual lower-half physical face coordinates
+supporting the indexed BF4 state. -/
 def centralLowerExcitedSpinCubeOffRayRootStatePhysicalMass
     (w : Q') (hw : (0 : Q') ≤ w) (K state : Nat) : Nat :=
   listNatWeight
     (centralPhysicalFiniteStateAt w hw K 0 state)
-    (slabPhysicalFaceEdges (centralExtent 0))
+    (centralLowerFaceIds 0)
 
 private def listNatMax : List Nat → Nat
   | [] => 0
