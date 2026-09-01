@@ -34,6 +34,7 @@ open YMGap.Continuum.BF4DisjointClosedSpinSurfacePositiveGrid
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayExactPartitionGate
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
+open YMGap.Continuum.BF4PhysicalSpinCubeRawReturnRatio
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -108,6 +109,48 @@ theorem growingGridPositiveRawReplication_floor_pos
       (growingGridPositiveRawReplication w hw K).rawRowRatioFloor :=
   (growingGridPositiveRawReplication w hw K).rawRowRatioFloor_pos
 
+/-- A common capped pointwise comparison for the explicit grid transfers
+without a carrier-cardinality exponent to the computed minimum floor. -/
+theorem growingGrid_lower_le_rawRowRatioFloor_of_scaledRawRow_le
+    (w : Q') (hw : (0 : Q') < w) (K : Nat)
+    (lower : Q') (hlowerOne : lower ≤ 1)
+    (hscaled : ∀ offset replica,
+      offset < K → replica < K + 1 →
+        centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw) K 0
+            (centralLowerSpinCubeState (offset + 1)) * lower ≤
+          centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw) K 0
+            (growingGridPositiveReplicaEncode (offset, replica))) :
+    lower ≤
+      (growingGridPositiveRawReplication w hw K).rawRowRatioFloor := by
+  exact
+    (growingGridPositiveRawReplication w hw K).lower_le_rawRowRatioFloor_of_scaledRawRow_le
+      lower hlowerOne hscaled
+
+/-- The same pointwise comparison yields the exact effective-multiplicity
+lower bound `(K + 1) * lower`. -/
+theorem growingGrid_ofNat_mul_lower_le_computedEffectiveMultiplicity
+    (w : Q') (hw : (0 : Q') < w) (K : Nat)
+    (lower : Q') (hlowerOne : lower ≤ 1)
+    (hscaled : ∀ offset replica,
+      offset < K → replica < K + 1 →
+        centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw) K 0
+            (centralLowerSpinCubeState (offset + 1)) * lower ≤
+          centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw) K 0
+            (growingGridPositiveReplicaEncode (offset, replica))) :
+    Q'.ofNat (K + 1) * lower ≤
+      (growingGridPositiveRawReplication w hw K).toWeighted.effectiveMultiplicity := by
+  change Q'.ofNat (K + 1) * lower ≤
+    Q'.ofNat (K + 1) *
+      (growingGridPositiveRawReplication w hw K).rawRowRatioFloor
+  exact Q'.mul_le_mul_of_nonneg_left _ _ _
+    (growingGrid_lower_le_rawRowRatioFloor_of_scaledRawRow_le
+      w hw K lower hlowerOne hscaled)
+    (YMGap.Continuum.HeatKernelRGStep.zero_le_ofNat (K + 1))
+
 /-- The exact form records why the remaining asymptotic problem is analytic:
 the growing factor `K + 1` is multiplied by a cutoff-dependent positive row
 floor. -/
@@ -145,6 +188,10 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatche
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.growingGridPositiveRawReplication_count_gt_cutoff
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.growingGridPositiveRawReplication_floor_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.growingGrid_lower_le_rawRowRatioFloor_of_scaledRawRow_le
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.growingGrid_ofNat_mul_lower_le_computedEffectiveMultiplicity
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.growingGridExactRawNumerator_mul_effectiveMultiplicity_le_partition
 #print axioms

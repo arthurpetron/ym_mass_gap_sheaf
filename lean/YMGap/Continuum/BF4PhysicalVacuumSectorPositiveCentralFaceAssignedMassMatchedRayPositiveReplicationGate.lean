@@ -8,15 +8,16 @@ added as independent data.  If the encoded states lie in the literal positive
 carrier, all source and target raw rows are strictly positive rationals.
 
 This file computes a common floor constructively.  For every source/replica
-pair it clips the exact target/source raw-row ratio at one, and multiplies all
-of those finitely many positive factors.  The product is positive, at most
-each selected factor, and therefore supplies the weighted row comparison.
+pair it clips the exact target/source raw-row ratio at one, and takes the
+capped minimum of those finitely many positive factors.  The minimum is
+positive, at most each selected factor, and therefore supplies the weighted
+row comparison without an artificial product-over-carrier loss.
 
 The result reduces the finite certificate to geometry: positive-carrier
-membership and injectivity.  It does not control how rapidly the product floor
-shrinks with cutoff, so divergent effective multiplicity remains a genuinely
-open matched asymptotic obligation.  No finite gap, continuum theory, or Clay
-conclusion is asserted.
+membership and injectivity.  It does not control how rapidly the minimum row
+ratio shrinks with cutoff, so divergent effective multiplicity remains a
+genuinely open matched asymptotic obligation.  No finite gap, continuum
+theory, or Clay conclusion is asserted.
 
 No `Classical`, choice, `native_decide`, `sorry`, new axiom, or noncomputable
 declaration is used.
@@ -119,97 +120,73 @@ private theorem clippedRawRowRatio_pos
           (replication.encode_mem pair.1 pair.2 hpair.1 hpair.2)))
   next _ => decide
 
-private theorem clippedRawRowRatio_le_one
-    {w : Q'} {hw0 : (0 : Q') < w} {K : Nat}
-    (replication :
-      CentralLowerExcitedSpinCubePositiveRawReplication w hw0 K)
-    (pair : Nat × Nat) :
-    replication.clippedRawRowRatio pair ≤ 1 := by
-  unfold clippedRawRowRatio
-  split
-  next _ => exact Q'.min_le_left
-  next _ => exact Q'.le_refl' 1
+private def listQMinOne {A : Type} (value : A → Q') : List A → Q'
+  | [] => 1
+  | head :: tail => Q'.min' (value head) (listQMinOne value tail)
 
-private theorem listQProduct_pos_local {A : Type}
-    (value : A → Q') (hvalue : ∀ item, (0 : Q') < value item) :
-    ∀ items : List A, (0 : Q') < listQProduct value items
-  | [] => by
+private theorem listQMinOne_pos_local {A : Type}
+    (value : A → Q') :
+    ∀ items : List A,
+      (∀ item, item ∈ items → (0 : Q') < value item) →
+        (0 : Q') < listQMinOne value items
+  | [], _ => by
       change (0 : Q') < 1
       decide
-  | head :: tail =>
-      Q'.mul_pos (hvalue head)
-        (listQProduct_pos_local value hvalue tail)
+  | head :: tail, hpos =>
+      CReal.min_pos
+        (hpos head List.mem_cons_self)
+        (listQMinOne_pos_local value tail
+          (fun item hitem =>
+            hpos item (List.mem_cons_of_mem head hitem)))
 
-private theorem listQProduct_nonnegative_local {A : Type}
-    (value : A → Q') (hvalue : ∀ item, (0 : Q') ≤ value item) :
-    ∀ items : List A, (0 : Q') ≤ listQProduct value items
-  | [] => by
-      change (0 : Q') ≤ 1
-      decide
-  | head :: tail =>
-      Q'.mul_nonneg _ _ (hvalue head)
-        (listQProduct_nonnegative_local value hvalue tail)
-
-private theorem listQProduct_le_one_local {A : Type}
-    (value : A → Q')
-    (hvalue0 : ∀ item, (0 : Q') ≤ value item)
-    (hvalue1 : ∀ item, value item ≤ (1 : Q')) :
-    ∀ items : List A, listQProduct value items ≤ (1 : Q')
-  | [] => Q'.le_refl' 1
-  | head :: tail => by
-      have htail0 : (0 : Q') ≤ listQProduct value tail :=
-        listQProduct_nonnegative_local value hvalue0 tail
-      have hscaled := Q'.mul_le_mul_of_nonneg_right _ _
-        (listQProduct value tail) (hvalue1 head) htail0
-      exact Q'.le_trans' _ _ _ hscaled
-        (Q'.le_trans' _ _ _
-          (Q'.le_of_eqv (Q'.one_mul_eqv (listQProduct value tail)))
-          (listQProduct_le_one_local value hvalue0 hvalue1 tail))
-
-private theorem listQProduct_le_selected_local {A : Type}
-    (value : A → Q')
-    (hvalue0 : ∀ item, (0 : Q') ≤ value item)
-    (hvalue1 : ∀ item, value item ≤ (1 : Q'))
-    (selected : A) :
-    ∀ items : List A, selected ∈ items →
-      listQProduct value items ≤ value selected
-  | [], hmem => by cases hmem
-  | head :: tail, hmem => by
+private theorem listQMinOne_le_selected_local {A : Type}
+    (value : A → Q') :
+    ∀ (items : List A) {selected : A}, selected ∈ items →
+      listQMinOne value items ≤ value selected
+  | [], _, hmem => by cases hmem
+  | head :: tail, selected, hmem => by
       rcases List.mem_cons.mp hmem with hhead | htail
-      · subst head
-        have hrest := listQProduct_le_one_local
-          value hvalue0 hvalue1 tail
-        have hscaled := Q'.mul_le_mul_of_nonneg_left _ _
-          (value selected) hrest (hvalue0 selected)
-        exact Q'.le_trans' _ _ _ hscaled
-          (Q'.le_of_eqv (Q'.mul_one_eqv (value selected)))
-      · have hselected := listQProduct_le_selected_local
-          value hvalue0 hvalue1 selected tail htail
-        have hscaled := Q'.mul_le_mul_of_nonneg_left _ _
-          (value head) hselected (hvalue0 head)
-        have hcap := Q'.mul_le_mul_of_nonneg_right _ _
-          (value selected) (hvalue1 head) (hvalue0 selected)
-        exact Q'.le_trans' _ _ _ hscaled
-          (Q'.le_trans' _ _ _ hcap
-            (Q'.le_of_eqv (Q'.one_mul_eqv (value selected))))
+      · subst selected
+        exact Q'.min_le_left' _ _
+      · exact Q'.le_trans' _ _ _
+          (Q'.min_le_right' _ _)
+          (listQMinOne_le_selected_local value tail htail)
+
+private theorem lower_le_listQMinOne_local {A : Type}
+    (value : A → Q') (lower : Q') :
+    ∀ items : List A,
+      lower ≤ 1 →
+      (∀ item, item ∈ items → lower ≤ value item) →
+        lower ≤ listQMinOne value items
+  | [], hlowerOne, _ => hlowerOne
+  | head :: tail, hlowerOne, hlower => by
+      apply (Q'.le_min'_iff lower _ _).mpr
+      exact
+        ⟨hlower head List.mem_cons_self,
+          lower_le_listQMinOne_local value lower tail hlowerOne
+            (fun item hitem =>
+              hlower item (List.mem_cons_of_mem head hitem))⟩
 
 /-! ## 2. Explicit common finite floor -/
 
-/-- Product of all clipped positive row ratios in the finite replica family. -/
+/-- Capped minimum of all clipped positive row ratios in the finite replica
+family. -/
 def rawRowRatioFloor
     {w : Q'} {hw0 : (0 : Q') < w} {K : Nat}
     (replication :
       CentralLowerExcitedSpinCubePositiveRawReplication w hw0 K) : Q' :=
-  listQProduct replication.clippedRawRowRatio
+  listQMinOne replication.clippedRawRowRatio
     (cartesian (List.range K) (List.range replication.replicaCount))
 
 theorem rawRowRatioFloor_pos
     {w : Q'} {hw0 : (0 : Q') < w} {K : Nat}
     (replication :
       CentralLowerExcitedSpinCubePositiveRawReplication w hw0 K) :
-    (0 : Q') < replication.rawRowRatioFloor := by
+  (0 : Q') < replication.rawRowRatioFloor := by
   unfold rawRowRatioFloor
-  exact listQProduct_pos_local _ replication.clippedRawRowRatio_pos _
+  apply listQMinOne_pos_local
+  intro pair _hpair
+  exact replication.clippedRawRowRatio_pos pair
 
 theorem rawRowRatioFloor_le_clippedRawRowRatio
     {w : Q'} {hw0 : (0 : Q') < w} {K : Nat}
@@ -217,16 +194,51 @@ theorem rawRowRatioFloor_le_clippedRawRowRatio
       CentralLowerExcitedSpinCubePositiveRawReplication w hw0 K)
     (offset replica : Nat) (hoffset : offset < K)
     (hreplica : replica < replication.replicaCount) :
-    replication.rawRowRatioFloor ≤
+  replication.rawRowRatioFloor ≤
       replication.clippedRawRowRatio (offset, replica) := by
   unfold rawRowRatioFloor
-  apply listQProduct_le_selected_local
-    replication.clippedRawRowRatio
-    (fun pair => Q'.le_of_lt (replication.clippedRawRowRatio_pos pair))
-    replication.clippedRawRowRatio_le_one
-    (offset, replica)
+  apply listQMinOne_le_selected_local
   exact (mem_cartesian_iff _ _ _).mpr
     ⟨List.mem_range.mpr hoffset, List.mem_range.mpr hreplica⟩
+
+/-- Any capped pointwise row comparison transfers directly to the computed
+finite minimum.  This is the quantitative analytic entry point: unlike the
+old product construction, the lower bound is not raised to the cardinality of
+the source/replica carrier. -/
+theorem lower_le_rawRowRatioFloor_of_scaledRawRow_le
+    {w : Q'} {hw0 : (0 : Q') < w} {K : Nat}
+    (replication :
+      CentralLowerExcitedSpinCubePositiveRawReplication w hw0 K)
+    (lower : Q') (hlowerOne : lower ≤ 1)
+    (hscaled : ∀ offset replica,
+      offset < K → replica < replication.replicaCount →
+        centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K 0
+            (centralLowerSpinCubeState (offset + 1)) * lower ≤
+          centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K 0
+            (replication.encode (offset, replica))) :
+    lower ≤ replication.rawRowRatioFloor := by
+  unfold rawRowRatioFloor
+  apply lower_le_listQMinOne_local
+  · exact hlowerOne
+  · intro pair hpair
+    have hparts := (mem_cartesian_iff _ _ pair).mp hpair
+    have hoffset : pair.1 < K := List.mem_range.mp hparts.1
+    have hreplica : pair.2 < replication.replicaCount :=
+      List.mem_range.mp hparts.2
+    unfold clippedRawRowRatio
+    simp only [hoffset, hreplica, and_self, dite_true]
+    apply (Q'.le_min'_iff lower _ _).mpr
+    refine ⟨hlowerOne, ?_⟩
+    apply Q'.le_divPos_of_mul_le
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.mul_comm_eqv lower
+          (centralPhysicalPositiveRawRowMass
+            w (Q'.le_of_lt hw0) K 0
+            (centralLowerSpinCubeState (pair.1 + 1)))))
+      (hscaled pair.1 pair.2 hoffset hreplica)
 
 /-! ## 3. Compilation to the weighted certificate -/
 
@@ -339,7 +351,7 @@ structure MatchedDyadicExcitedSpinCubePositiveRawReplicationFamily
             (replication scale).toWeighted.effectiveMultiplicity_pos ≤
           epsilon
 
-/-- Positive-carrier geometry plus the computed-product asymptotic inhabits
+/-- Positive-carrier geometry plus the computed-minimum asymptotic inhabits
 the earlier weighted-replication interface without adding row comparisons. -/
 def MatchedDyadicExcitedSpinCubePositiveRawReplicationFamily.toWeightedFamily
     {family : MatchedBlockFamily}
@@ -395,6 +407,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatche
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate.CentralLowerExcitedSpinCubePositiveRawReplication.rawRowRatioFloor_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate.CentralLowerExcitedSpinCubePositiveRawReplication.rawRowRatioFloor_le_clippedRawRowRatio
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate.CentralLowerExcitedSpinCubePositiveRawReplication.lower_le_rawRowRatioFloor_of_scaledRawRow_le
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate.CentralLowerExcitedSpinCubePositiveRawReplication.toWeighted
 #print axioms

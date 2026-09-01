@@ -195,6 +195,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- all-cutoff two-ray injection (R=2) ... [PROVED finite family]
 |   |   |   |   |   |       |       |       +-- two disjoint closed-surface spin grid [PROVED]
 |   |   |   |   |   |       |       |       +-- growing injection R(K)=K+1 .......... [PROVED finite family]
+|   |   |   |   |   |       |       |       +-- computed lambda is capped row minimum [PROVED compiler]
+|   |   |   |   |   |       |       |       +-- pointwise row floor => lambda floor .. [PROVED reduction]
 |   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [ACTIVE analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
@@ -1480,20 +1482,29 @@ literal membership in the positive physical carrier, and injectivity.  The
 compiler computes
 
 ```text
-lambda = product over all source/replica pairs of
+lambda = minimum of 1 and all source/replica values
          min(1, targetRawRow / sourceRawRow).
 ```
 
-Every factor and hence `lambda` is a strictly positive constructive rational;
-the finite product is at most each selected ratio.  This proves every weighted
-row comparison and feeds the existing `rayMass <= 1/(R*lambda)` compiler
-without an added quantitative hypothesis.  The identity spin-cube injection
-inhabits the finite certificate for every cutoff with `R=1`, establishing
-non-vacuity but no asymptotic gain.  At matched cutoff the remaining datum is
-now exactly a growing positive-carrier injection plus a located zero tail for
-the reciprocal of its *computed* effective multiplicity.  The eight gated
-declarations use only `[propext, Quot.sound]` and pass a focused one-worker
-5,185-job build.  No full-root audit is claimed.
+Every candidate and hence `lambda` is a strictly positive constructive
+rational; the capped finite minimum is at most each selected ratio.  This
+proves every weighted row comparison and feeds the existing
+`rayMass <= 1/(R*lambda)` compiler without an added quantitative hypothesis.
+Unlike the earlier product implementation, it introduces no power equal to
+the source/replica carrier size.  A reusable lower-bound theorem now transfers
+any capped pointwise inequality
+
+```text
+sourceRawRow * lower <= targetRawRow
+```
+
+directly to `lower <= lambda`.  The identity spin-cube injection inhabits the
+finite certificate for every cutoff with `R=1`, establishing non-vacuity but
+no asymptotic gain.  At matched cutoff the remaining datum is now exactly a
+growing positive-carrier injection plus a located zero tail for the reciprocal
+of its *computed minimum* effective multiplicity.  The gated declarations use
+only `[propext, Quot.sound]` and pass monitored verification.  No full-root
+audit is claimed.
 
 `BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayCutoffTwoReplicationWitness.lean`
 shows that the computed-floor interface is geometrically nontrivial beyond
@@ -1578,10 +1589,10 @@ rayMass(K) <= 1 / ((K + 1) * lambda(K)).
 ```
 
 This closes the geometric-growth producer.  It does not show that the product
-`(K + 1) * lambda(K)` diverges: `lambda(K)` is the finite product of clipped
-target/source raw-row ratios and may shrink with the cutoff.  The current
-causal edge is therefore analytic—derive a quantitative lower bound on this
-specific computed floor (or replace it by a sharper common row comparison)
+`(K + 1) * lambda(K)` diverges: `lambda(K)` is the capped finite minimum of the
+clipped target/source raw-row ratios and may still shrink with the cutoff.  The
+current causal edge is therefore analytic—derive a quantitative lower bound on
+this specific computed minimum, equivalently a common pointwise row comparison,
 strong enough to force effective-multiplicity divergence along the matched
 trajectory.  Until that is proved, ray-mass tail zero, the assigned-ratio
 no-go consequence, a cofinal all-vector gap, physical scaling, continuum
