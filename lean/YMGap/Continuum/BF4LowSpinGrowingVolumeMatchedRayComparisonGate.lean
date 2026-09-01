@@ -17,6 +17,7 @@ declaration is used.
 
 import YMGap.Continuum.BF4LowSpinAllCutoffGrowingVolumeCompletionFactorization
 import YMGap.Continuum.BF4DyadicCubeVacuumCalibration
+import YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
 import YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo
 
 namespace YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate
@@ -26,18 +27,49 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.BF4CentralLowerSpinCubePositiveRay
+open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4LowSpinAllCutoffGrowingVolumeCompletionFactorization
 open YMGap.Continuum.BF4LowSpinGrowingVolumePositiveRawReplication
 open YMGap.Continuum.BF4DyadicCubeVacuumCalibration
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
+open YMGap.Continuum.BF4PhysicalSpinCubeVacuumSpokes
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedCofinalGate
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem listQSum_term_le_of_mem_nonnegative_local
+    {A : Type} (weight : A → Q') :
+    ∀ items item,
+      item ∈ items →
+      (∀ source, source ∈ items → (0 : Q') ≤ weight source) →
+      weight item ≤ listQSum weight items
+  | [], _item, hitem, _ => False.elim (List.not_mem_nil hitem)
+  | head :: tail, item, hitem, hweight => by
+      change weight item ≤ weight head + listQSum weight tail
+      rcases List.mem_cons.mp hitem with rfl | htail
+      · exact Q'.add_le_self_of_nonneg _ _
+          (listQSum_nonnegative_on weight tail
+            (fun source hsource =>
+              hweight source (List.mem_cons_of_mem _ hsource)))
+      · have hterm := listQSum_term_le_of_mem_nonnegative_local
+          weight tail item htail
+          (fun source hsource =>
+            hweight source (List.mem_cons_of_mem head hsource))
+        have hhead : (0 : Q') ≤ weight head :=
+          hweight head List.mem_cons_self
+        exact Q'.le_trans' _ _ _ hterm
+          (Q'.le_trans' _ _ _
+            (Q'.add_le_self_of_nonneg _ _ hhead)
+            (Q'.le_of_eqv
+              (Q'.add_comm_eqv (listQSum weight tail) (weight head))))
 
 /-! ## 1. The exact missing comparison -/
 
@@ -71,9 +103,79 @@ structure MatchedDyadicLowSpinGrowingVolumeRayDomination
           (scale + 1)
           (lowSpinCentralReferenceState scale)
 
+/-! ## 2. A necessary fixed-half volume comparison -/
+
+/-- The fixed-half spin-one marginal is already one literal nonnegative
+summand of the excited spin-cube ray. -/
+theorem fixedHalfSpinOneMarginal_le_rayMass
+    {w : Q'} (hw : (0 : Q') < w)
+    {K : Nat} (hK : 1 ≤ K) :
+    centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 (centralLowerSpinCubeState 1) ≤
+      centralLowerExcitedSpinCubeRayMass
+        w (Q'.le_of_lt hw) K := by
+  let weight := centralPhysicalFiniteWeight
+    w (Q'.le_of_lt hw) K 0
+  let index := centralLowerExcitedSpinCubeIndex
+    w (Q'.le_of_lt hw) K 0
+  have hindex : index ∈
+      centralLowerExcitedSpinCubeIndices
+        w (Q'.le_of_lt hw) K := by
+    unfold index centralLowerExcitedSpinCubeIndices
+    apply List.mem_map.mpr
+    exact ⟨0, List.mem_range.mpr hK, rfl⟩
+  have hterm : weight index ≤
+      listQSum weight
+        (centralLowerExcitedSpinCubeIndices
+          w (Q'.le_of_lt hw) K) :=
+    listQSum_term_le_of_mem_nonnegative_local
+      weight _ index hindex (by
+        intro source _hsource
+        unfold weight centralPhysicalFiniteWeight
+        exact centralPhysicalRowMarginal_nonnegative
+          (Q'.le_of_lt hw) K 0
+          (centralPhysicalFiniteStateAt
+            w (Q'.le_of_lt hw) K 0 source))
+  have hstate := centralPhysicalFiniteStateAt_spinCubeIndex_eq hw hK
+  unfold index centralLowerExcitedSpinCubeIndex at hterm
+  unfold weight centralPhysicalFiniteWeight at hterm
+  rw [hstate] at hterm
+  simpa only [centralLowerExcitedSpinCubeRayMass] using hterm
+
 namespace MatchedDyadicLowSpinGrowingVolumeRayDomination
 
-/-! ## 2. Compilation to the existing matched no-go branch -/
+theorem fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling}
+    (comparison :
+      MatchedDyadicLowSpinGrowingVolumeRayDomination bridge)
+    (scale : Nat) :
+    centralPhysicalRowMarginal
+        (matchedAllSpinWeight family coupling scale)
+        (Q'.le_of_lt
+          (matchedAllSpinWeight_pos family coupling scale))
+        (matchedAllSpinCutoff family coupling scale) 0
+        (centralLowerSpinCubeState 1) ≤
+      comparison.ceiling *
+        centralPhysicalRowMarginal
+          (matchedAllSpinWeight family coupling scale)
+          (Q'.le_of_lt
+            (matchedAllSpinWeight_pos family coupling scale))
+          (matchedAllSpinCutoff family coupling scale)
+          (scale + 1)
+          (lowSpinCentralReferenceState scale) := by
+  exact Q'.le_trans' _ _ _
+    (fixedHalfSpinOneMarginal_le_rayMass
+      (matchedAllSpinWeight_pos family coupling scale)
+      (one_le_matchedAllSpinCutoff bridge scale))
+    (comparison.rayMass_le_ceiling_mul_growingReference scale)
+
+/-! ## 3. Compilation to the existing matched no-go branch -/
 
 /-- The all-cutoff `1 / (volume + 1)` theorem turns the comparison field into
 located tail-zero data for the exact fixed-half matched ray. -/
@@ -150,6 +252,10 @@ end MatchedDyadicLowSpinGrowingVolumeRayDomination
 
 end YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate
 
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.fixedHalfSpinOneMarginal_le_rayMass
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.MatchedDyadicLowSpinGrowingVolumeRayDomination.fixedHalfSpinOneMarginal_le_ceiling_mul_growingReference
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeMatchedRayComparisonGate.MatchedDyadicLowSpinGrowingVolumeRayDomination.toMatchedRayMassTailZero
 #print axioms

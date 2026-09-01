@@ -246,8 +246,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |       +-- all-K fixed-source marginal tail zero .. [PROVED]
 |   |   |   |   |   |       |       |       |   |       `-- growing-half -> fixed-half matched ray . [ACTIVE boundary]
 |   |   |   |   |   |       |       |       |   |           +-- constant-ceiling diagonal gate ... [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           +-- matched spin-ray sum compression .. [OPEN producer]
-|   |   |   |   |   |       |       |       |   |           +-- normalized half-volume comparison . [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           +-- matched ray contains spin-one atom  [PROVED]
+|   |   |   |   |   |       |       |       |   |           +-- gate forces fixed/growing atom bound [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           +-- normalized half-volume comparison . [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
@@ -1062,6 +1064,27 @@ uniform multiple of the low-spin atom, and compare the normalized fixed-half
 law with its growing-half counterpart.  The repository's present
 cross-volume theorems control fixed finite support-cylinder events; they do
 not supply either exact-state inequality.
+
+The same comparison module also proves a necessary-condition diagnostic.
+At every positive coupling and cutoff `K >= 1`, the fixed-half spin-one
+marginal is literally the first nonnegative summand of the matched ray, hence
+
+```text
+fixedHalfSpinOneMarginal <= matchedRayMass.
+```
+
+Any inhabitant of the diagonal gate therefore forces
+
+```text
+fixedHalfSpinOneMarginal(scale)
+  <= ceiling * growingHalfSpinOneMarginal(scale).
+```
+
+Thus the normalized half-volume comparison cannot be bypassed by a sharper
+estimate on the remaining spin-ray sum.  The repository's explicit raw ray
+envelope may address that remaining sum, but the first-summand theorem makes
+the fixed-to-growing thermodynamic comparison an independently necessary
+producer.  No such uniform comparison is currently proved.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
