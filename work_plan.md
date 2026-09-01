@@ -166,10 +166,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- terminal demand = 2 * actual fiber mass / kernel ... [PROVED exact]
 |   |   |   |   |   |   +-- actual normalized fiber ratio <= congestion ........ [PROVED necessary]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
-|   |   |   |   |   |       +-- terminal-source identification fork ....... [ACTIVE]
-|   |   |   |   |   |       |   +-- avoidance => source/fiber identity ...... [PROVED reduction]
-|   |   |   |   |   |       |   |   `-- construct prefix vacuum avoidance ... [OPEN]
-|   |   |   |   |   |       |   `-- direct normalized fiber-ratio estimate . [OPEN]
+|   |   |   |   |   |       +-- normalized terminal-mass decomposition ...... [PROVED reduction]
+|   |   |   |   |   |       |   +-- prefix-to-vacuum weighted demand ........ [OPEN]
+|   |   |   |   |   |       |   `-- assigned face-label weighted demand ..... [OPEN]
+|   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
+|   |   |   |   |   |       |   `-- construct prefix vacuum avoidance ....... [OPEN shortcut]
 |   |   |   |   |   |       +-- repaired face-zero fiber cardinality ....... [OPEN sufficient]
 |   |   |   |   |   |       |       necessary only for the raw-sharing adapter
 |   |   |   |   |   |       +-- raw preceding-edge sharing ................ [OPEN]
@@ -1126,6 +1127,31 @@ an unconditional fiber bound, congestion certificate, finite gap, or
 continuum result.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,169-job one-worker module verification pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceNormalizedTerminalMassDecomposition.lean`
+then closes the structural fork without assuming avoidance.  The canonical
+prefix comes from generic rooted-component connectivity, whose definition
+does not enforce omission of the vacuum.  Rather than silently assuming that
+stronger property, the new module proves that every actual normalized
+terminal-fiber state lies in a constructive two-class cover: either its raw
+prefix already uses the displayed edge into the vacuum, or its assigned
+repaired face-zero spin supplies the displayed terminal spoke.  A weighted
+injection gives the unconditional bound
+
+```text
+actual normalized terminal-fiber mass
+  <= raw prefix-to-vacuum edge-user mass
+     + raw assigned face-label fiber mass.
+```
+
+Multiplication by the positive reciprocal terminal conductance and the exact
+two-copy factorization yields the matching upper bound on normalized terminal
+resistance demand.  Thus prefix avoidance remains an optional shortcut to an
+exact fiber identity, not a prerequisite for progressing the direct branch.
+The active analytic targets are now the two displayed weighted demands; they
+remain unbounded uniformly.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,170-job one-worker module verification pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
