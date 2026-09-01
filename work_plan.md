@@ -151,7 +151,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- root-spoke carrier = K+1 spin-cube indices . [PROVED exact]
 |   |   |   |   |   |   +-- terminal source -> admitted spin label ..... [PROVED exact]
 |   |   |   |   |   |   +-- used bins <= K+1; sector <= (K+1)*load .... [PROVED necessary]
-|   |   |   |   |   |   `-- classified-spoke assignment/load ........... [ACTIVE]
+|   |   |   |   |   |   +-- spin-labelled prefix -> exact root route .... [PROVED compiler]
+|   |   |   |   |   |   `-- balanced prefix assignment/load ............. [ACTIVE producer]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -933,6 +934,24 @@ assignment into these explicit spin bins and controls both terminal inverse-
 kernel demand and all preceding-edge loads.  The five printed declarations
 use only `[propext, Quot.sound]`; the direct monitored source check and focused
 5,104-job one-worker build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorSpinCubeTerminalPrefixCompiler.lean` turns that
+remaining producer into literal constructive data.  A proof-independent
+function selects an admitted spin for every state and supplies, for each
+non-vacuum sector member, a positive prefix ending at the corresponding
+spin-cube root predecessor.  The compiler appends the certified one-edge
+spin-cube-to-vacuum spoke, extends these root paths to a complete positive
+routing, and proves exact edge-length additivity, directed-edge append,
+terminal-source identity, and recovery of the selected spin by the generic
+terminal decoder.  Thus future load estimates can group users by the actual
+producer choice rather than by an existentially classified predecessor.  The
+balanced prefix assignment and cutoff-uniform sharing/resistance bounds remain
+open.  The five printed declarations use only `[propext, Quot.sound]` (the
+generic terminal-source lemma uses only `[propext]`), and the direct monitored
+source check and focused 5,158-job one-worker build pass.  Two earlier
+monitored checks were safely interrupted or timed out while elaborating a
+discarded dependent-record design; neither is reported as a pass or proof
+failure.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
