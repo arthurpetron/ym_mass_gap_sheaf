@@ -179,7 +179,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       +-- uniform C => ray mass >= (1/6)/C ...... [PROVED necessary]
 |   |   |   |   |   |       |       +-- ray-mass asymptotic fork .............. [ACTIVE diagnostic]
 |   |   |   |   |   |       |       |   +-- positive tail floor ............... [OPEN / route survives]
-|   |   |   |   |   |       |       |   `-- tail zero => no uniform ratio ...... [PROVED reduction]
+|   |   |   |   |   |       |       |   `-- tail-zero branch ................... [ACTIVE diagnostic]
+|   |   |   |   |   |       |       |       +-- ray mass <= explicit raw envelope [PROVED]
+|   |   |   |   |   |       |       |       +-- raw-envelope tail zero ........... [OPEN sufficient]
+|   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
 |   |   |   |   |   |       +-- avoidance => exact source/fiber identity .... [PROVED optional]
@@ -1313,6 +1316,29 @@ keeps this reference route viable, whereas ray-mass tail zero rules it out and
 forces a broader terminal reference measure or posterior-column reroute.  The
 no-go implication uses only `[propext, Quot.sound]` and passes a focused
 one-worker 5,177-job build; neither branch producer is claimed here.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayRawEnvelope.lean`
+opens the normalized ray mass into an explicit analytic upper envelope.  The
+stationary weight of each admitted spin cube is its literal positive raw-row
+mass times the common physical partition reciprocal.  Combining this identity
+with the cutoff-uniform raw residual-carrier ceiling and summing the exact
+six-face activities proves
+
+```text
+rayMass(K,w)
+  <= (sum_{spin=1..K} coeffW(w,spin)^6)
+     * explicitResidualCarrierCeiling(w)
+     * physicalPartitionReciprocal(w,K).
+```
+
+The theorem is specialized to the exact matched weight and cutoff.  Located
+tail zero of this displayed envelope constructs ray-mass tail zero and hence
+rules out the common assigned-ratio producer.  The unresolved analysis is now
+the quantitative competition among the sixth-power heat-activity sum, the
+nome-dependent residual ceiling, and physical partition growth along the
+dyadic matched schedule; no decay of that product is claimed.
+The five envelope declarations use only `[propext, Quot.sound]` and the module
+passes a focused one-worker 5,178-job build.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
