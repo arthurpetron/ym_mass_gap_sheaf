@@ -130,14 +130,17 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- cutoff-uniform literal edge sharing ........ [OPEN producer]
 |   |   |   |   |   `-- cutoff-uniform per-user route load ......... [OPEN producer]
 |   |   |   |   +-- adaptive sharing x edge-load compiler .......... [PROVED reduction]
-|   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
+|   |   |   |   +-- strict-mass adaptive reroute ................... [OBSTRUCTED at K=2]
 |   |   |   |   |   +-- edgewise mass drop => simple, length <= mass [PROVED]
 |   |   |   |   |   +-- local descending step => full root route .... [PROVED reduction]
 |   |   |   |   |   +-- literal-state step => indexed BF4 step ....... [PROVED reduction]
-|   |   |   |   |   +-- paired-state/BF4-index projection ........... [OPEN producer]
-|   |   |   |   |   +-- projected peel is a positive BF4 edge ....... [OPEN producer]
-|   |   |   |   |   +-- uniform adaptive edge sharing ............... [OPEN producer]
-|   |   |   |   |   `-- uniform adaptive per-user edge load ......... [OPEN producer]
+|   |   |   |   |   +-- K=2 mass-two state has no lower positive edge  [PROVED no-go]
+|   |   |   |   |   `-- literal/indexed local producer at K=2 empty ... [PROVED no-go]
+|   |   |   |   +-- graph-aware rank or positive macro-step reroute .. [ACTIVE design]
+|   |   |   |   |   +-- allow temporary physical-mass increase ....... [REQUIRED]
+|   |   |   |   |   +-- prove well-founded rank / termination ......... [OPEN]
+|   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
+|   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -738,6 +741,22 @@ transport to the indexed local-step compiler and hence to complete root
 routing.  The four printed declarations use only `[propext, Quot.sound]`, and
 the direct monitored source check and focused 5,150-job build pass.  No
 full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPhysicalMassDescendingCutoffTwoObstruction.lean`
+closes the plausibility audit for that producer negatively.  In the exact
+65-state canonical cutoff-two sector, table coordinate two has literal
+twice-spin mass two.  A kernel-checked finite classification proves that its
+only strictly lower-mass sector coordinate is the vacuum coordinate one, and
+the existing local fixed-interface certificate plus physical-kernel symmetry
+prove that this normalized edge is exactly zero.  Therefore neither the
+indexed local producer nor its literal-state refinement is inhabited at
+cutoff two and half coupling.  This does not contradict the proved positive
+hub connectivity: reaching the vacuum from this state necessarily requires a
+temporary physical-mass increase.  The active route is consequently a
+graph-aware well-founded rank or a certified positive macro-step, followed by
+cutoff-uniform sharing and per-user load estimates.  The four printed
+load-bearing declarations use only `[propext, Quot.sound]`; the direct
+monitored source check passes.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
