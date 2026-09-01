@@ -133,6 +133,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
 |   |   |   |   |   +-- edgewise mass drop => simple, length <= mass [PROVED]
 |   |   |   |   |   +-- local descending step => full root route .... [PROVED reduction]
+|   |   |   |   |   +-- literal-state step => indexed BF4 step ....... [PROVED reduction]
 |   |   |   |   |   +-- paired-state/BF4-index projection ........... [OPEN producer]
 |   |   |   |   |   +-- projected peel is a positive BF4 edge ....... [OPEN producer]
 |   |   |   |   |   +-- uniform adaptive edge sharing ............... [OPEN producer]
@@ -725,6 +726,18 @@ producer must therefore supply an honest projection/realization bridge or a
 native single-state BF4 step.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,149-job build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPhysicalStateMassDescendingStepCompiler.lean` moves
+the producer boundary from finite indices to literal lower-half labellings.
+Given a lowered state in both the positive carrier and vacuum-sector state
+list, a positive normalized reflected-kernel entry, and strict physical-mass
+drop, the existing faithful BF4 code constructively locates its unique finite
+index.  Carrier injectivity proves that index is the sector witness already
+represented by the state list.  Kernel positivity and mass descent then
+transport to the indexed local-step compiler and hence to complete root
+routing.  The four printed declarations use only `[propext, Quot.sound]`, and
+the direct monitored source check and focused 5,150-job build pass.  No
+full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
