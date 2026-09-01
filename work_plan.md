@@ -163,8 +163,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- raw resistance = prefix + terminal reciprocal ... [PROVED exact]
 |   |   |   |   |   |   +-- normalized edge users subset raw edge users ...... [PROVED]
 |   |   |   |   |   |   +-- raw terminal fibers = repaired face-zero fibers ... [PROVED exact]
+|   |   |   |   |   |   +-- terminal demand = 2 * actual fiber mass / kernel ... [PROVED exact]
+|   |   |   |   |   |   +-- actual normalized fiber ratio <= congestion ........ [PROVED necessary]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
-|   |   |   |   |   |       +-- repaired face-zero fiber bounds ........... [OPEN necessary]
+|   |   |   |   |   |       +-- terminal-source identification fork ....... [ACTIVE]
+|   |   |   |   |   |       |   +-- prefix avoids vacuum / source preserved  [OPEN]
+|   |   |   |   |   |       |   `-- direct normalized fiber-ratio estimate . [OPEN]
+|   |   |   |   |   |       +-- repaired face-zero fiber cardinality ....... [OPEN sufficient]
+|   |   |   |   |   |       |       necessary only for the raw-sharing adapter
 |   |   |   |   |   |       +-- raw preceding-edge sharing ................ [OPEN]
 |   |   |   |   |   |       `-- prefix-terminal state-load bound ......... [OPEN]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
@@ -1083,6 +1089,25 @@ the still-separate preceding-edge sharing problem; no uniform fiber bound is
 proved.  The three printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,167-job one-worker build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorMassExactSimpleRootResistanceTerminalMassFactorization.lean`
+corrects the logical altitude of that terminal target.  For an arbitrary
+positive routing it defines the stationary mass of the *actual* terminal
+fiber and proves that the exact terminal resistance demand is two copies of
+that mass times the reciprocal terminal conductance.  Hence every simple
+cofinal congestion certificate, and in particular every output of the
+current raw central-face compiler, bounds this normalized
+mass-to-conductance ratio.  The repaired face-zero cardinality bound remains
+a sufficient and necessary sub-obligation for the stronger raw-sharing
+adapter, but it is not yet shown necessary for final normalized congestion:
+the raw prefix has not been proved to avoid the vacuum, so loop erasure has
+not been proved to preserve the assigned terminal predecessor.  The active
+terminal branch is therefore an honest fork: prove prefix avoidance/source
+preservation and reuse the raw face fibers, or estimate the actual normalized
+terminal fibers directly.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check passes.  Focused
+5,168-job one-worker module verification also passes.  No full-root audit is
+claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
