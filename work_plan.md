@@ -187,8 +187,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- R replicas at floor lambda => ray <= 1/(R*lambda)
 |   |   |   |   |   |       |       |       |                                      [PROVED compiler]
 |   |   |   |   |   |       |       |       +-- finite ratio ceiling >= (R*lambda)/6 [PROVED]
-|   |   |   |   |   |       |       |       +-- construct divergent effective multiplicity
-|   |   |   |   |   |       |       |       |                                      [OPEN geometric/analytic]
+|   |   |   |   |   |       |       |       +-- positive injection => computed lambda [PROVED compiler]
+|   |   |   |   |   |       |       |       +-- identity positive injection (R=1) ... [PROVED finite]
+|   |   |   |   |   |       |       |       +-- construct growing positive injection  [OPEN geometric]
+|   |   |   |   |   |       |       |       +-- prove computed R*lambda diverges ..... [OPEN analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1465,6 +1467,28 @@ the normalization algebra.  This still constructs neither side of the
 asymptotic fork.  The four gated declarations use only
 `[propext, Quot.sound]` and pass a focused one-worker 5,185-job build.  No
 full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayPositiveReplicationGate.lean`
+removes the finite raw-row comparison from the geometric certificate.  A
+constructor now supplies only `R` distinct encoded states per excited source,
+literal membership in the positive physical carrier, and injectivity.  The
+compiler computes
+
+```text
+lambda = product over all source/replica pairs of
+         min(1, targetRawRow / sourceRawRow).
+```
+
+Every factor and hence `lambda` is a strictly positive constructive rational;
+the finite product is at most each selected ratio.  This proves every weighted
+row comparison and feeds the existing `rayMass <= 1/(R*lambda)` compiler
+without an added quantitative hypothesis.  The identity spin-cube injection
+inhabits the finite certificate for every cutoff with `R=1`, establishing
+non-vacuity but no asymptotic gain.  At matched cutoff the remaining datum is
+now exactly a growing positive-carrier injection plus a located zero tail for
+the reciprocal of its *computed* effective multiplicity.  The eight gated
+declarations use only `[propext, Quot.sound]` and pass a focused one-worker
+5,185-job build.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
