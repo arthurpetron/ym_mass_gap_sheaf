@@ -126,7 +126,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       unless edge-user masses truncate uniformly
 |   |   |   |   +-- mass-shell sum => full simple certificate ..... [PROVED reduction]
 |   |   |   |   +-- literal edge-user count <= congestion ......... [PROVED necessary]
-|   |   |   |   +-- bounded edge sharing / mass-monotone reroute ... [ACTIVE producer]
+|   |   |   |   +-- sharing x uniform user load => congestion ...... [PROVED reduction]
+|   |   |   |   |   +-- cutoff-uniform literal edge sharing ........ [OPEN producer]
+|   |   |   |   |   `-- cutoff-uniform per-user route load ......... [OPEN producer]
+|   |   |   |   +-- mass-monotone adaptive reroute ................. [ACTIVE design]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -417,6 +420,21 @@ edge-flow load.  Thus any successful uniform congestion certificate for the
 current canonical routing necessarily supplies a uniform literal edge-sharing
 bound; the earlier nonzero filter is now eliminated.
 
+Conversely, a cutoff-uniform literal edge-sharing bound `S` and a compatible
+constant per-user resistance-load ceiling `L` suffice:
+
+```text
+offRayFlowLoad(edge)
+  = sum_{state using edge} stateLoad(state)
+  <= S * L.
+```
+
+This constant ceiling does not conflict with `stateLoad >= 1`.  The remaining
+route-design task is therefore to construct both `S` and `L`, plausibly by an
+adaptive physical-mass-descending peel whose transition ratios and shared
+fibers can be controlled.  The opaque component-merger route supplies neither
+property merely from connectivity.
+
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
 their weighted resistance tail.  The compiler and normalization make
@@ -642,6 +660,15 @@ cofinal congestion certificate bounds literal edge sharing uniformly.  This
 does not produce that bound; it identifies the exact combinatorial theorem
 the active branch must construct.  Its four printed declarations use only
 `[propext, Quot.sound]`; the direct check and focused 5,145-job build pass.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceBoundedSharingCompiler.lean` packages
+the matching sufficient condition: uniform rational bounds on literal
+edge-user cardinality and on every user's constant resistance load multiply
+to bound exact off-ray flow, and the direct-ray compiler then produces the
+full simple-routing certificate.  The two uniform fields remain open; this
+module does not assume geometric decay.  Its three printed declarations use
+only `[propext, Quot.sound]`; the direct check and focused 5,146-job build
+pass.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
