@@ -125,7 +125,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   `-- geometric pointwise decay ................... [OBSTRUCTED]
 |   |   |   |   |       unless edge-user masses truncate uniformly
 |   |   |   |   +-- mass-shell sum => full simple certificate ..... [PROVED reduction]
-|   |   |   |   +-- bounded edge sharing / mass-monotone reroute ... [ACTIVE]
+|   |   |   |   +-- literal edge-user count <= congestion ......... [PROVED necessary]
+|   |   |   |   +-- bounded edge sharing / mass-monotone reroute ... [ACTIVE producer]
 |   |   |   |   +-- path-length-shell alternative ................. [PARTIAL / route risk]
 |   |   |   |   +-- off-ray terminal demand ...................... [OPEN consequence]
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
@@ -410,7 +411,11 @@ occupied at unbounded mass for one fixed edge, so it is an obstruction rather
 than a complete no-go theorem.  The active route must prove cutoff-uniform
 edge-user mass truncation/bounded sharing, or replace the canonical paths by
 a deliberately mass-monotone routing whose local congestion is controlled by
-a different argument.
+a different argument.  Shell cardinality is itself bounded below by shell
+load, and the complete literal edge-user count is bounded below by total
+edge-flow load.  Thus any successful uniform congestion certificate for the
+current canonical routing necessarily supplies a uniform literal edge-sharing
+bound; the earlier nonzero filter is now eliminated.
 
 Every non-vacuum simple-route edge user still contributes at least one unit,
 so a successful family must bound the number of users per edge together with
@@ -623,11 +628,20 @@ Hence neither the monolithic nor the weight/path-factorized decay interface
 can decay geometrically along arbitrarily high occupied shells.  This is not
 yet an unconditional no-go theorem because unbounded occupied mass shells for
 a common directed edge have not been constructed.  It does rule out treating
-stationary heat decay alone as the next producer.  Its three printed
+stationary heat decay alone as the next producer.  Its four printed
 declarations use only `[propext, Quot.sound]`; the direct check and focused
 5,144-job build pass.  The active causal task is now a cutoff-uniform theorem
 that edge-user masses truncate / edge sharing stays bounded, or construction
 of a replacement mass-monotone routing with a different local-load estimate.
+
+`BF4PhysicalSpinCubeOffRayRootResistanceEdgeSharingObstruction.lean` sharpens
+the necessary combinatorial condition by proving every literal edge user is
+nonzero, shell cardinality is at most shell load, total literal edge-user
+cardinality is at most total resistance-flow load, and therefore every
+cofinal congestion certificate bounds literal edge sharing uniformly.  This
+does not produce that bound; it identifies the exact combinatorial theorem
+the active branch must construct.  Its four printed declarations use only
+`[propext, Quot.sound]`; the direct check and focused 5,145-job build pass.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
