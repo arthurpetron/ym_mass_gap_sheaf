@@ -190,6 +190,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- positive injection => computed lambda [PROVED compiler]
 |   |   |   |   |   |       |       |       +-- identity positive injection (R=1) ... [PROVED finite]
 |   |   |   |   |   |       |       |       +-- cutoff-two positive injection (R=2) . [PROVED finite]
+|   |   |   |   |   |       |       |       +-- closed-spin-surface positivity compiler [PROVED]
+|   |   |   |   |   |       |       |       +-- arbitrary-spin transverse positive ray [PROVED]
+|   |   |   |   |   |       |       |       +-- all-cutoff two-ray injection (R=2) ... [PROVED finite family]
 |   |   |   |   |   |       |       |       +-- construct growing positive injection  [OPEN geometric]
 |   |   |   |   |   |       |       |       +-- prove computed R*lambda diverges ..... [OPEN analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
@@ -1505,6 +1508,39 @@ still a fixed-cutoff witness: it neither gives a growing replica count nor an
 asymptotic lower bound on `R*lambda`.  The six gated declarations use only
 `[propext, Quot.sound]`; both the standard monitored source check and a focused
 one-worker 5,187-job target build pass.  No full-root audit is claimed.
+
+`Z4ClosedSpinSurfacePositiveTerm.lean` isolates the reusable constructive
+geometry behind that transverse witness.  A `ClosedSpinSurface` is a literal
+duplicate-free physical-face list meeting every corrected-slab link in zero
+or two selected faces.  Equal-spin labelling then permutes each link's
+incident list to vacuum spins plus either no selected pair or one equal-spin
+pair.  The explicit singlet injection proves the vacuum link multiplicity is
+at most the selected multiplicity, so every admitted equal-spin physical term
+is strictly positive at positive coupling.
+
+`BF4CentralTransverseSpinCubePositiveRay.lean` extracts the exact six-face
+support `[39, 40, 41, 44, 49, 59]` from the fundamental transverse cube,
+checks the zero-or-two incidence law, and identifies every arbitrary-spin
+assembly with the generic equal-spin surface.  It follows that the lower
+transverse single-face state has a positive reflected self-kernel and positive
+row marginal at every cutoff admitting its spin.  Evaluation at face
+thirty-nine recovers the spin constructively.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayAllCutoffTwoRayReplicationWitness.lean`
+combines the lower spatial cube ray and the transverse ray.  For every finite
+cutoff and positive coupling it injects two retained positive-row replicas of
+each excited source: face thirty-nine recovers the spin offset and face zero
+separates the two rays.  The positive-replication compiler consequently gives
+`R=2`, a strictly positive computed finite row floor, exact-numerator-times-
+effective-multiplicity partition domination, and the reciprocal-effective-
+multiplicity ray bound at every cutoff.  The replica count remains the fixed
+value two.  Thus this closes cutoff persistence of the second ray but does
+not supply the growing `R(K)` or divergent `R(K)*lambda(K)` needed for a
+vanishing ray tail.  The active geometric producer is now a growing family of
+distinct closed surfaces or another positive-row family, followed by an
+analytic effective-multiplicity estimate.  These three files are verified by
+focused monitored checks and target builds; their printed load-bearing
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
