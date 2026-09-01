@@ -184,7 +184,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- exact numerator <= eps*Z ......... [OPEN equivalent]
 |   |   |   |   |   |       |       |       +-- explicit raw-envelope route ....... [PROVED sufficient / coarse]
 |   |   |   |   |   |       |       |       +-- R raw-row replicas => ray <= 1/R .. [PROVED compiler]
-|   |   |   |   |   |       |       |       +-- construct divergent matched replicas [OPEN geometric]
+|   |   |   |   |   |       |       |       +-- R replicas at floor lambda => ray <= 1/(R*lambda)
+|   |   |   |   |   |       |       |       |                                      [PROVED compiler]
+|   |   |   |   |   |       |       |       +-- construct divergent effective multiplicity
+|   |   |   |   |   |       |       |       |                                      [OPEN geometric/analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1408,6 +1411,40 @@ lower states—most plausibly by varying residual/off-cube labels—prove carrie
 membership and injectivity, and compare each literal raw reflected row to its
 spin-cube source row.  The five gated declarations use only
 `[propext, Quot.sound]` and pass a focused one-worker 5,183-job build.  No
+full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayWeightedReplicationGate.lean`
+records the result of auditing the proposed literal replica geometry.  The
+existing disjoint-cube theorems factor selected production summands, but they
+do not compare the complete reflected raw-row sums; moreover the geometric
+symmetry group of the fixed `centralExtent 0` slab supplies only a bounded
+number of copies.  Requiring every replica row to dominate its source by a
+factor of one is therefore stronger than the currently justified geometry.
+
+The weighted compiler replaces that condition by a positive common row floor
+`lambda`.  An injection of `R` distinct replicas per excited source with
+
+```text
+sourceRawRow * lambda <= replicaRawRow
+```
+
+now proves
+
+```text
+exactRawRayNumerator * (R * lambda) <= physicalPartition,
+rayMass <= 1 / (R * lambda).
+```
+
+The factor-one certificate embeds as `lambda = 1`.  At matched cutoff, a
+located zero tail for the reciprocal effective multiplicity `1/(R*lambda)`
+again constructs ray-mass tail zero and excludes the cutoff-uniform assigned
+ratio.  This is a strictly more realistic producer interface, but it is not
+inhabited here: the active task is to construct a literal residual-label or
+multi-cube injection and prove a quantitative raw-row floor whose effective
+multiplicity diverges.  Failure of that effective divergence would leave the
+positive-ray-tail branch open and require returning to a direct cofinal ratio
+or broader receiver-column producer.  The five gated declarations use only
+`[propext, Quot.sound]` and pass a focused one-worker 5,184-job build.  No
 full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
