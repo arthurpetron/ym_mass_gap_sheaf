@@ -143,7 +143,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- distributed terminal-spoke producer ............ [ACTIVE design]
 |   |   |   |   |   |   +-- arbitrary-cutoff vacuum boundary delta ..... [PROVED]
 |   |   |   |   |   |   +-- raw root spoke <-> vacuum amplitude ........ [PROVED reduction]
-|   |   |   |   |   |   `-- surviving lower-state amplitude classifier . [ACTIVE]
+|   |   |   |   |   |   +-- finite-sector amplitude filter/count ....... [PROVED exact]
+|   |   |   |   |   |   `-- closed-form carrier/count growth ........... [ACTIVE]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
 |   |   |   |   |   `-- uniform adaptive per-user edge load ........... [OPEN producer]
@@ -837,6 +838,17 @@ exact classifier reduction, not yet a classification of the surviving states
 or a bound on their number.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused build
 pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorRootSpokeAmplitudeClassifier.lean` transports this
+reduction through the positive physical partition and the canonical indexed
+vacuum sector.  The existing routing-level positive-root-predecessor list is
+proved exactly equal to the executable filter selecting represented states
+with positive all-vacuum half-amplitude; their list lengths are therefore
+equal as well.  The open problem is now a structural or asymptotic analysis of
+this explicit filter, not an ambiguity about which kernel support is being
+counted.  The five printed declarations use only `[propext, Quot.sound]`; the
+direct monitored source check and focused build pass.  No full-root audit is
+claimed; the focused build contains 5,099 jobs.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
