@@ -256,8 +256,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   +-- occurrence-index recoding preserves sums [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   +-- weighted inverse fibers => raw cross . [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |   +-- one matched ceiling => atom bound .... [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |   `-- matched weighted-fiber repair ........ [OPEN primary producer]
-|   |   |   |   |   |       |       |       |   |           |       `-- injective switch is stronger alternative [OPEN]
+|   |   |   |   |   |       |       |       |   |           |   +-- faithful three-code target keys ...... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   +-- canonical restriction/assembly repair  [PROVED carrier]
+|   |   |   |   |   |       |       |       |   |           |   +-- canonical repair inverse-fiber capacity [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1113,6 +1115,44 @@ pays the relative partition growth `Z_V / Z_0`.  Conversely, any honest
 raw-row/partition balance of the displayed form compiles back to the exact
 normalized comparison without analytic division or hidden positivity.
 
+`BF4LowSpinGrowingVolumeRawPartitionSwitchingGate.lean` realizes both sides
+of this cross inequality as exact finite weighted products.  The source
+carrier is the fixed-half spin-one row completion crossed with a full
+growing-half slab; the target carrier is the growing-half reference-row
+completion crossed with a full fixed-half slab.  Their sums are exactly
+`raw_0 * Z_V` and `raw_V * Z_0`.  At one displayed volume, a weighted
+injection from source to target therefore compiles to the normalized atom
+comparison.  The matched wrapper asks only for the diagonal volume equal to
+scale, avoiding the false stronger quantifier of one fixed parameter pair
+over all volumes.
+
+`BF4LowSpinGrowingVolumeRawPartitionFiberSwitchingGate.lean` weakens that
+producer from an injection to a deterministic many-to-one repair.  It uses
+occurrence indices to give both finite carriers decidable equality without
+assuming equality of function-valued edge labellings.  Exact indexed sums
+still recover the same crossed products, and a target-by-target weighted
+inverse-fiber capacity bound compiles to the raw cross inequality.  Thus
+several sufficiently light sources may share one target; literal injectivity
+is only a stronger alternative.
+
+`BF4LowSpinGrowingVolumeRawPartitionCanonicalRepair.lean` now constructs the
+specific value-level repair.  It reads the reflected-upper target and fixed
+boundary from the growing slab, retaining that completion when its exact row
+marginal is positive and otherwise using the proved low-spin/zero-boundary
+fallback.  It builds the fixed target slab by assembling the original
+fixed-half completion over the spin-one source.  All resulting target
+membership obligations are proved.  Three mixed-radix edge-labelling codes
+form a decidable target key that is faithful on the bounded target carrier;
+the induced key weights have exact total `raw_V * Z_0`.
+
+The remaining producer is consequently no longer an unspecified switching
+map.  It is the explicit, scale-diagonal estimate that every weighted inverse
+fiber of this canonical repair is bounded by one common rational ceiling
+times its keyed target weight.  The verified compiler turns precisely that
+field into the fixed/growing normalized spin-one comparison at every matched
+scale.  No such capacity estimate, spin-ray compression, cofinal all-vector
+gap, continuum limit, or Clay theorem is claimed.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1134,7 +1174,10 @@ tail target completes successfully in a focused 5,199-job build.  The matched
 ray comparison compiler first completed successfully in a focused 5,200-job
 build; after the necessary first-summand diagnostic and raw/partition
 cross-multiplication were added, the expanded target completes successfully
-in a focused 5,204-job build.
+in a focused 5,204-job build.  The exact raw-partition switching compiler,
+occurrence-index weighted-fiber compiler, and canonical-repair compiler
+complete successfully in focused 5,205-, 5,206-, and 5,207-job builds,
+respectively.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
