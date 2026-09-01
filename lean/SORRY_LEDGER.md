@@ -28132,3 +28132,36 @@ continuum measure, no same-measure OS/GNS reconstruction, and no Clay theorem.
 No `sorry` is introduced.  The focused dependency-complete monitored target
 passes all 1,700 jobs; every printed load-bearing declaration uses only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### One strict rate synchronizes the guarded face and every finite carrier prefix (2026-08-31)
+
+`Z4ReflectedBentCubeEdgeTouchSlabGuardFinitePrefixAllVectorEnvelope` joins two
+previously independent finite certificates.  For every chosen base bound it
+takes the located rational maximum of the constructed finite-prefix
+all-vector rate and the cutoff-independent guarded-face contraction factor.
+The maximum is constructively nonnegative and strictly below one.  The module
+then proves with that same rate:
+
+```text
+all centered coefficient vectors on every base <= bound
+  -> finite moving-form gap
+  -> representation-cutoff-limit eventual-order gap,
+
+literal guarded centered face
+  -> representation-cutoff-limit eventual-order gap.
+```
+
+The maximum is sealed behind an opaque certificate carrying its exact formula
+and both component inequalities, so downstream cutoff-limit expressions do
+not normalize the recursive running maximum.  This does not bound the rates
+uniformly as `bound` grows.  In particular, it does not inhabit
+`FixedNomeCofinalFinitePrefixRateCeiling` or
+`FixedNomeUniformConstructedVacuumSectorRateBound`, and it proves no completed
+operator gap, spacing/volume uniformity, continuum measure, OS/GNS generator
+gap, or Clay theorem.  The next causal milestone is one strict rational
+ceiling on the prefix rates along a constructive cofinal carrier family; a
+separating guarded-event family with conductance, path-Poincare, or
+tensorization control is the active producer route.  No `sorry` is introduced.
+The focused dependency-complete monitored target passes all 5,207 jobs; every
+printed load-bearing declaration uses only `[propext, Quot.sound]`.  No
+full-root audit is claimed.

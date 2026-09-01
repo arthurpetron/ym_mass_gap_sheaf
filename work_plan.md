@@ -83,8 +83,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- same physical face/vector on both form sides ... [PROVED]
 |   |   |   +-- cutoff-uniform positive face-variance floor .... [PROVED]
 |   |   |   `-- cutoff-removed face RC form gap ................ [PROVED]
-|   |   +-- event-family conductance / tensorization ........... [ACTIVE]
-|   |   `-- strict all-vector form / operator gap .............. [OPEN]
+|   |   +-- fixed-cutoff all-vector Poincare gap ............... [PROVED]
+|   |   +-- cutoff-removed fixed-base all-vector form gap ...... [PROVED]
+|   |   +-- common all-vector rate on each finite base prefix .. [PROVED]
+|   |   +-- common face/all-vector finite-prefix envelope ...... [PROVED]
+|   |   +-- cofinal strict rate independent of prefix bound .... [ACTIVE]
+|   |   |   +-- separating guarded-event family ............... [ACTIVE]
+|   |   |   +-- conductance/path-Poincare/tensorization ........ [ACTIVE]
+|   |   |   `-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
+|   |   `-- completed all-vector form / operator gap ........... [OPEN]
 |   |
 |   `-- A5. Parallel verified finite route
 |       `-- BF4 finite-cutoff covariance clustering ............ [PROVED]
@@ -134,10 +141,19 @@ fixed positive rate, while the connected autocorrelation is eventually at
 most `(1-rate)` times that norm, with quotient-real `RCle` packaging.  This is
 still one explicit nonzero vector, not an all-vector gap.  A single face
 indicator cannot span the full finite configuration-function space.  The
-current execution rule is therefore to build a translated/separating family
-of guarded events and a quantitative conductance, path-Poincare, or
-tensorization theorem that controls every centered observable without
-changing the underlying physical object.  The original direct additive
+existing fixed-base all-vector Poincare construction independently gives
+a strict rate at each fixed carrier and a common rate on every chosen finite
+prefix of base carriers.  Taking the located rational maximum of that prefix
+rate and the literal guarded-face factor now gives one strict rate controlling
+both the face and every centered coefficient vector with base at most the
+chosen bound, after representation-cutoff removal.  This is a synchronization
+of two proved finite branches, not an all-carrier theorem: its rate may tend to
+one as the prefix bound grows.  The active causal edge is therefore a single
+strict ceiling independent of every bound in a constructive cofinal family.
+The producer branch remains a translated/separating family of guarded events
+together with a quantitative conductance, path-Poincare, or tensorization
+theorem; the already formalized fixed-nome cofinal-ceiling structures state
+the exact target contract.  The original direct additive
 decoder remains uninhabited.
 `SU2TwoVertexFusionSumRewiring.twoVertexAdditiveOutput_not_injective` proves
 that the two local summed resolutions alone cannot decode their colored
