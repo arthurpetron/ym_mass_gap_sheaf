@@ -161,8 +161,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- simplicity removes edge multiplicity ........... [PROVED exact]
 |   |   |   |   |   |   +-- normalized state load <= raw prefix route ....... [PROVED]
 |   |   |   |   |   |   +-- raw resistance = prefix + terminal reciprocal ... [PROVED exact]
+|   |   |   |   |   |   +-- normalized edge users subset raw edge users ...... [PROVED]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
-|   |   |   |   |   |       +-- normalized edge-user sharing ............. [OPEN]
+|   |   |   |   |   |       +-- raw prefix-route edge-user sharing ........ [OPEN]
 |   |   |   |   |   |       `-- prefix-terminal state-load bound ......... [OPEN]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -1057,6 +1058,18 @@ congestion theorem.  Neither uniform estimate is inhabited here.  The seven
 printed declarations use only `[propext, Quot.sound]`; the direct monitored
 source check and focused 5,165-job one-worker build pass.  No full-root audit
 is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceRawEdgeSharing.lean` proves that
+every state using a directed edge after loop erasure already uses that edge
+in its raw central-face prefix-plus-terminal route.  Because both user lists
+are duplicate-free filters of the same finite sector, the normalized user
+cardinality is bounded by the raw user cardinality.  The cofinal producer can
+therefore be stated entirely on one explicit raw object: uniform raw edge
+sharing plus the explicit prefix-terminal state-load bound compile to the
+normalized exact congestion theorem.  Neither raw uniform estimate is
+inhabited here.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,166-job one-worker build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
