@@ -162,8 +162,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- normalized state load <= raw prefix route ....... [PROVED]
 |   |   |   |   |   |   +-- raw resistance = prefix + terminal reciprocal ... [PROVED exact]
 |   |   |   |   |   |   +-- normalized edge users subset raw edge users ...... [PROVED]
+|   |   |   |   |   |   +-- raw terminal fibers = repaired face-zero fibers ... [PROVED exact]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
-|   |   |   |   |   |       +-- raw prefix-route edge-user sharing ........ [OPEN]
+|   |   |   |   |   |       +-- repaired face-zero fiber bounds ........... [OPEN necessary]
+|   |   |   |   |   |       +-- raw preceding-edge sharing ................ [OPEN]
 |   |   |   |   |   |       `-- prefix-terminal state-load bound ......... [OPEN]
 |   |   |   |   |   +-- cofinal positive macro-step producer ........... [OPEN]
 |   |   |   |   |   +-- uniform adaptive edge sharing ................. [OPEN producer]
@@ -1070,6 +1072,17 @@ normalized exact congestion theorem.  Neither raw uniform estimate is
 inhabited here.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check and focused
 5,166-job one-worker build pass.  No full-root audit is claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceRawTerminalFiber.lean` identifies
+the raw terminal fiber over an admitted spin cube exactly: its members are
+the non-vacuum sector states whose repaired central face-zero label equals
+that spin.  Each such fiber injects into the users of its literal terminal
+edge, so any cofinal raw-sharing certificate must uniformly bound every one
+of these repaired face-label fibers.  This isolates terminal sharing from
+the still-separate preceding-edge sharing problem; no uniform fiber bound is
+proved.  The three printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,167-job one-worker build pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
