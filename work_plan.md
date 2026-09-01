@@ -267,11 +267,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- growing-completion-only keys ........... [PROVED carrier]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- key weight = growing completion * Z_0 .. [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- source fiber = raw_0 * physical fiber .. [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   +-- growing physical fiber cross bound ..... [ACTIVE route test]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- fallback mass outside positive support .. [PROVED zero]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- physical fiber = completion column ...... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- fiber bound iff column Harnack ........... [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- completion-column Harnack ............... [OPEN primary producer]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
-|   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal decays as 1/(s+1) [OPEN required]
-|   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform coarse bound . [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
+|   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [OPEN]
 |   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN; must mix]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
@@ -1242,10 +1245,38 @@ On the matched diagonal this becomes the same statement with
 `volume = scale`.  This is not yet a no-go: the fixed-half marginal varies
 with the matched weight and cutoff.  The coarse route now survives exactly
 through the still-open possibility that this marginal decays at least at the
-required reciprocal-linear rate.  The next audit is therefore to determine
-the actual matched asymptotics or a constructive lower bound for that fixed
-spin-one marginal; a uniform positive lower bound would refute the coarse
-repair, while a reciprocal-linear upper estimate would keep it viable.
+required reciprocal-linear rate.  This is only a necessary route test, not a
+sufficient construction of the coarse producer.
+
+`BF4LowSpinGrowingVolumeRawPartitionCoarseRepairColumn.lean` identifies the
+producer itself without the opaque repair-fiber wrapper.  Normalized joint
+reflection symmetry and nonnegativity show that every complete physical slab
+whose reflected upper row is not positive has exactly zero physical weight;
+thus the canonical fallback used by the coarse repair is weight-invisible.
+For every positive target/boundary completion, the retained physical inverse
+fiber is then exactly the literal completion column
+
+```text
+sum over all lower states of
+  centralPhysicalPartitionTerm(lower, target, boundary).
+```
+
+Consequently, both at one finite cutoff and along the matched dyadic
+trajectory, the reduced coarse fiber bound is constructively equivalent to
+the explicit completion-column Harnack inequality
+
+```text
+fixedRaw * completionColumn(completion)
+  <= ceiling * (referenceCompletionWeight(completion) * fixedZ).
+```
+
+This column Harnack estimate is now the actual active analytic producer.  The
+`volume + 1` multiplicity theorem above is its necessary diagnostic; proving
+reciprocal-linear decay of the fixed marginal alone would not inhabit the
+column estimate.  The next structural audit is to sum the literal columns
+over the boundary coordinate and compare that sum exactly with the target raw
+row.  That identity will separate an averaged row statement from the still
+required pointwise boundary Harnack control.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
@@ -1278,6 +1309,9 @@ factorizations, equivalent reduced producer, and normalized compiler complete
 successfully in a focused 5,209-job build.  The literal low-spin multiplicity,
 necessary raw capacity, normalized fixed-marginal condition, and matched
 diagonal consequence complete successfully in a focused 5,210-job build.
+The zero-support fallback theorem, exact physical-fiber/completion-column
+identity, and the finite and matched column-Harnack equivalences complete
+successfully in a focused 5,211-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
