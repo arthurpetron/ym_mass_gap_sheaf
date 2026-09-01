@@ -167,7 +167,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |   +-- actual normalized fiber ratio <= congestion ........ [PROVED necessary]
 |   |   |   |   |   |   `-- assignment sharing/resistance load .......... [ACTIVE producer]
 |   |   |   |   |   |       +-- terminal-source identification fork ....... [ACTIVE]
-|   |   |   |   |   |       |   +-- prefix avoids vacuum / source preserved  [OPEN]
+|   |   |   |   |   |       |   +-- avoidance => source/fiber identity ...... [PROVED reduction]
+|   |   |   |   |   |       |   |   `-- construct prefix vacuum avoidance ... [OPEN]
 |   |   |   |   |   |       |   `-- direct normalized fiber-ratio estimate . [OPEN]
 |   |   |   |   |   |       +-- repaired face-zero fiber cardinality ....... [OPEN sufficient]
 |   |   |   |   |   |       |       necessary only for the raw-sharing adapter
@@ -1108,6 +1109,23 @@ terminal fibers directly.  The four printed declarations use only
 `[propext, Quot.sound]`; the direct monitored source check passes.  Focused
 5,168-job one-worker module verification also passes.  No full-root audit is
 claimed.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceTerminalSourcePreservation.lean`
+closes the conditional logical bridge on the first side of that fork.  It
+proves generically that loop erasure is the identity on an already
+vertex-simple walk and preserves a BF4 positive path's terminal predecessor.
+For the repaired positive central-face assignment it then packages the exact
+remaining datum as the Type-level structure
+`PositiveCentralFacePrefixVacuumAvoidanceAt`: every non-vacuum state's
+canonical prefix omits the vacuum vertex.  From any inhabitant of that
+structure, the raw prefix-plus-spoke path is vertex-simple, the normalized
+route's terminal source is exactly the assigned positive spin cube, and its
+actual terminal fiber is exactly the repaired face-zero label fiber.  No
+avoidance inhabitant is constructed, so this is a conditional reduction—not
+an unconditional fiber bound, congestion certificate, finite gap, or
+continuum result.  The four printed declarations use only
+`[propext, Quot.sound]`; the direct monitored source check and focused
+5,169-job one-worker module verification pass.  No full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
