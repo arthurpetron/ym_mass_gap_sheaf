@@ -193,8 +193,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       +-- closed-spin-surface positivity compiler [PROVED]
 |   |   |   |   |   |       |       |       +-- arbitrary-spin transverse positive ray [PROVED]
 |   |   |   |   |   |       |       |       +-- all-cutoff two-ray injection (R=2) ... [PROVED finite family]
-|   |   |   |   |   |       |       |       +-- construct growing positive injection  [OPEN geometric]
-|   |   |   |   |   |       |       |       +-- prove computed R*lambda diverges ..... [OPEN analytic]
+|   |   |   |   |   |       |       |       +-- two disjoint closed-surface spin grid [PROVED]
+|   |   |   |   |   |       |       |       +-- growing injection R(K)=K+1 .......... [PROVED finite family]
+|   |   |   |   |   |       |       |       +-- prove (K+1)*lambda(K) diverges ....... [ACTIVE analytic]
 |   |   |   |   |   |       |       |       `-- tail zero => no uniform ratio .... [PROVED reduction]
 |   |   |   |   |   |       |       +-- inhabit cofinal uniform ratio ceiling  [OPEN / route risk]
 |   |   |   |   |   |       |       `-- ratio + return => conductance bound ... [PROVED reduction]
@@ -1541,6 +1542,53 @@ distinct closed surfaces or another positive-row family, followed by an
 analytic effective-multiplicity estimate.  These three files are verified by
 focused monitored checks and target builds; their printed load-bearing
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+`Z4DisjointClosedSpinSurfacesPositiveTerm.lean` lifts the closed-surface
+compiler from one admitted equal spin to two independent admitted spins on
+disjoint supports.  It applies the explicit singlet injection sequentially,
+proves the combined labelling belongs to the literal bounded physical carrier,
+and proves strict positivity of its complete physical term.
+
+`BF4DisjointClosedSpinSurfacePositiveGrid.lean` instantiates that compiler on
+the two corrected extent-one supports
+
+```text
+[0, 2, 4, 6, 20, 40]      [9, 11, 13, 15, 29, 49].
+```
+
+Both supports satisfy the checked zero-or-two incidence law and are disjoint.
+Their lower restrictions record the independent spins literally at faces zero
+and nine, giving an injective Cartesian grid of retained positive-row states.
+
+`BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayGrowingGridReplicationWitness.lean`
+uses the first grid coordinate for the excited source spin `offset + 1` and
+the second for every `replica < K + 1`.  It therefore inhabits the positive
+replication interface at every finite cutoff with the exact, unbounded
+geometric count
+
+```text
+R(K) = K + 1.
+```
+
+The existing computed-floor compiler supplies a strictly positive rational
+`lambda(K)`, exact partition domination, and
+
+```text
+rayMass(K) <= 1 / ((K + 1) * lambda(K)).
+```
+
+This closes the geometric-growth producer.  It does not show that the product
+`(K + 1) * lambda(K)` diverges: `lambda(K)` is the finite product of clipped
+target/source raw-row ratios and may shrink with the cutoff.  The current
+causal edge is therefore analytic—derive a quantitative lower bound on this
+specific computed floor (or replace it by a sharper common row comparison)
+strong enough to force effective-multiplicity divergence along the matched
+trajectory.  Until that is proved, ray-mass tail zero, the assigned-ratio
+no-go consequence, a cofinal all-vector gap, physical scaling, continuum
+OS/GNS reconstruction, and the Clay-facing theorem all remain open.  The
+three new modules pass direct monitored checks and focused one-worker builds;
+all printed load-bearing declarations use only `[propext, Quot.sound]`.  No
+full-root audit is claimed.
 
 ## Physical-scale enrichment overlay (2026-08-18)
 
