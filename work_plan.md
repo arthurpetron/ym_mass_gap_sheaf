@@ -278,19 +278,24 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- zero lower rows vanish termwise ....... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-carrier amplitude factor ..... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- positive-boundary bound <-> posterior floor [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OBSTRUCTED at w=1/2,K=2,V=0]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- same-volume projective posterior window [PROVED]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- projective x volume-comparison compiler [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [ACTIVE / tail-sensitive]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [OBSTRUCTED at finite datum]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- one zero-support boundary => no floor .. [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- isolated reference = source x vacuum ... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- reference support subset vacuum support . [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- positive retained boundary outside vacuum [ACTIVE transport test]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   `-- positive retained boundary outside vacuum [PROVED at w=1/2,K=2,V=0]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |       +-- half-zero leakage translated to half one [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |       +-- lower row and half-amplitude positive [PROVED]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |       +-- retained boundary total positive ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |       +-- vacuum/reference amplitude zero ....... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |       `-- every finite posterior ceiling refuted [PROVED]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
 |   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [OPEN]
-|   |   |   |   |   |       |       |       |   |           |   `-- injective switch is stronger alternative [OPEN; must mix]
+|   |   |   |   |   |       |       |       |   |           |   `-- injective/mixed redesign after no-go .... [ACTIVE route pivot]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1461,6 +1466,43 @@ therefore precise: transport or construct a retained boundary whose total
 amplitude is positive while its vacuum-row amplitude is zero.  This support
 inclusion alone neither constructs that boundary nor proves a posterior floor.
 
+`BF4LowSpinGrowingVolumeCutoffTwoTranslatedLeakage.lean` now completes that
+test at one exact finite datum.  Starting from the earlier positive cutoff-two
+single-face cell at half zero, the certificate translates the cell by one
+Euclidean-time unit, zero-extends it into the ambient box, and restricts it to
+the half-one slab.  Restriction and assembly recover the transported lower,
+boundary, and reflected-upper labellings, and the physical term is exactly
+transported, so it remains strictly positive.  If the transported lower row
+were excluded from the positive carrier, the already-proved zero-row theorem
+would force that positive physical term to vanish; hence the lower row and,
+by the exact Gram factorization, its half amplitude are strictly positive.
+A generic finite-channel lemma then promotes this one positive retained member
+to a strictly positive retained boundary total without unfolding the enormous
+concrete carrier.
+
+On the same boundary, concrete lower forcing-link index `8` has zero vacuum
+link multiplicity.  The vacuum half amplitude is therefore zero, and the
+arbitrary-volume source factorization makes the selected growing-reference
+amplitude zero as well.  The resulting
+`cutoffTwoHalfOneGrowingReferenceBoundarySupportMismatch` inhabits the exact
+obstruction structure at
+
+```text
+coupling w = 1/2, cutoff K = 2, volume V = 0, growing half = 1.
+```
+
+Consequently no finite ceiling can inhabit the growing-reference posterior
+floor at this datum, and no ceiling at least one can inhabit the corresponding
+division-free positive-boundary half-amplitude cross-bound.  This refutes the
+current *universal selected-reference floor producer*.  It does not by itself
+refute every matched trajectory unless that trajectory contains this exact
+datum, and it proves no cofinal contraction, completed operator gap, physical
+spacing-uniform mass, continuum measure, OS/GNS reconstruction, or Clay-facing
+claim.  The active route must therefore pivot to a genuinely mixed/injective
+repair or a redesigned reference family whose support contains every retained
+positive boundary; the fixed-to-growing/projective posterior route cannot be
+the universal producer as presently stated.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1515,6 +1557,16 @@ The exact finite and matched support-mismatch no-go compilers also complete
 successfully in a focused 5,216-job build.
 The arbitrary-cutoff isolated-source half-amplitude factorization and vacuum-
 support inclusion complete successfully in a focused 5,217-job build.
+The translated geometry, restriction/assembly, transported positive term, and
+vacuum-forcing-link certificate complete successfully in a focused 5,218-job
+build.  The opaque lower-row and positive-half-amplitude certificates complete
+successfully in focused 5,219- and 5,220-job builds.  The reusable generic
+finite-channel and BF4 retained-total positivity interfaces pass direct checks
+and focused builds; with those interfaces, the concrete retained-total
+certificate completes successfully in a focused 5,226-job build.  The final
+finite support mismatch and its explicit posterior-floor and positive-boundary
+cross-bound no-go corollaries complete successfully in a focused 5,227-job
+build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
