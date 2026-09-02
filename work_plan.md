@@ -295,13 +295,17 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
 |   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [REFUTED at finite datum]
-|   |   |   |   |   |       |       |       |   |           |   `-- source-dependent cross-boundary redesign . [ACTIVE route pivot]
+|   |   |   |   |   |       |       |       |   |           |   `-- source-dependent cross-boundary redesign . [ACTIVE analytic route]
 |   |   |   |   |   |       |       |       |   |           |       +-- occurrence recoding preserves both sums [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |       +-- weighted inverse fibers => raw cross ... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |       +-- zero target weight => zero source fiber . [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |       +-- positive source maps to nonzero target .. [PROVED necessary]
-|   |   |   |   |   |       |       |       |   |           |       +-- construct support-aware repair .......... [ACTIVE producer]
-|   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [OPEN]
+|   |   |   |   |   |       |       |       |   |           |       +-- finite support-aware constant repair .... [PROVED each positive datum]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- crossed source/target totals positive ... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- constructive positive target selector ... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- constant inverse fibers exact ........... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   `-- exact datum-dependent ratio ceiling ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [ACTIVE analytic producer]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1543,6 +1547,31 @@ cutoff/volume-uniform weighted-fiber capacity.  The existing fixed-to-growing
 marginal comparison is left open and tail-sensitive; it is not itself refuted
 at one finite datum, but it cannot repair the pointwise support failure of the
 completion-only posterior route.
+
+`BF4LowSpinGrowingVolumeRawPartitionConstantFiberSourceTotal.lean` through
+`BF4LowSpinGrowingVolumeRawPartitionConstantFiberSwitching.lean` now inhabit
+that broader support-aware switch at every finite positive-coupling datum.
+The crossed source and target occurrence totals are strictly positive, so a
+constructive finite search selects one target occurrence of positive weight.
+The repair sends every source occurrence to this selected target.  Its inverse
+fiber is the full source sum at the selected target and exactly zero at every
+other target, while the explicit ceiling
+
+```text
+source occurrence total / selected positive target weight
+```
+
+makes the selected capacity identity exact.  This proves the corresponding
+finite raw cross inequality and closes finite existence of a support-aware
+repair.  The ceiling depends on coupling, cutoff, and volume; no bound on its
+growth has been proved.  The active analytic producer is therefore precisely
+a cutoff/volume-uniform upper bound on a suitable matched switching ceiling,
+not another finite support inhabitance theorem.  The five focused monitored
+builds complete through the final 5,216-job switching target.  All printed
+load-bearing declarations use only `[propext, Quot.sound]`; the two generic
+constant-fiber identities use no axioms.  No cofinal contraction, completed
+operator gap, physical spacing-uniform mass, continuum OS/GNS theorem, or
+Clay-facing conclusion is inferred.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
