@@ -52,6 +52,19 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   `-- datum-wise positive aggregate retained fraction [PROVED]
 |   |   +-- marked face covariance / same-object moment < 1 ... [PROVED]
 |   |   |       at each finite positive-coupling datum only
+|   |   +-- support-aligned paired recoupling/activity route
+|   |   |   +-- literal right-tree realization + column capacity [PROVED]
+|   |   |   +-- paired-union component geometry/mass floor ..... [PROVED]
+|   |   |   +-- canonical paired-peel inverse-fiber payment ..... [PROVED at w=1/400]
+|   |   |   +-- normalized residue <= (25/9)(16/25)^(d+1) ...... [PROVED at w=1/400]
+|   |   |   +-- same-object reflected face OS identification .... [PROVED at w=1/400]
+|   |   |   `-- cutoff-removed receding-volume face clustering .. [PROVED at w=1/400]
+|   |   +-- arbitrary-coupling continuation .................... [ACTIVE]
+|   |   |   +-- threshold-paid high-spin exterior path .......... [PROVED for 0<w<1]
+|   |   |   +-- common truncated core target + exact excess mass  [PROVED]
+|   |   |   +-- sum source-assignment fiber into common core ..... [ACTIVE producer]
+|   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
+|   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
 |   |   |   +-- successful receiver-row mass >= 1/4 ........... [PROVED]
@@ -801,11 +814,12 @@ critical path branches.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
-**Status. THE FINITE RECEIVER/CONTRACTION GOAL IS CLOSED BY THE CONCRETE
-GUARDED AGGREGATE ROUTE.  LOW-SPIN SPATIAL-VOLUME REPLICATION NOW GIVES AN
-EXPLICIT FIXED-SOURCE MARGINAL TAIL AT EVERY FINITE REPRESENTATION CUTOFF;
-TRANSPORT FROM ITS GROWING REFLECTION HALF TO THE FIXED-HALF MATCHED RAY IS
-THE ACTIVE COFINAL DESIGN EDGE.**
+**Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE FIXED-ANCHOR PAIRED
+CONNECTED-RESIDUE DECAY ARE CLOSED.  THE LATTER IS ALREADY IDENTIFIED WITH A
+LITERAL SAME-OBJECT OS FACE MOMENT, SURVIVES REPRESENTATION-CUTOFF REMOVAL,
+AND CLUSTERS AS THE REFLECTED BOUNDARY RECEDES.  THE ACTIVE PHYSICAL EDGE IS
+ARBITRARY-COUPLING/SHRINKING-SPACING TRANSPORT: SUM THE COMPLETE SOURCE FIBER
+INTO ITS NOW-CANONICAL TRUNCATED CORE TARGET, THEN CONTROL THE FINITE CORE.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -818,6 +832,46 @@ and strict same-object face contraction.  Thus the finite literal
 receiver/contraction objective is genuinely proved by a concrete specialized
 route, while the old generic interface is honestly marked open and
 superseded at this face.
+
+The subsequent paired-support audit closes a stronger fixed-anchor branch.
+The accepted whole-slab recoupling has literal right-tree realization and
+global dependent column capacity; the exact residue carries a genuine
+connected plaquette support and physical mass floor; and complete canonical
+paired peeling sums every fixed terminal/mass fiber at rate `16/25`.  Exact
+terminal/mass Fubini and geometric summation prove
+
+```text
+normalized paired connected residue
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+uniformly in finite cutoff and slab volume at the production coupling
+`w = 1/400`.  The same covariance is proved equal to the connected
+same-object form of the literal face-positivity observable under the genuine
+BF4 conditional operator.  Its representation-cutoff `CReal` limit obeys the
+same envelope, and the selected boundary-to-reflected-boundary moment
+constructively converges to zero as the slab half-width grows.  These are
+fixed-anchor face-observable theorems, not an all-observable completed gap and
+not a continuum Yang--Mills construction.
+
+For every rational `0 < w < 1`, high-spin Casimir suppression already pays an
+arbitrary-coupling exterior path down to a moving finite-spin threshold.  The
+complete-component reduction now proves the exact identities
+
+```text
+corePhysical(face) = min (physical(face)) threshold
+paidLength = sum_face (physical(face) - threshold),
+```
+
+with the expected unchanged values off the displayed physical carrier.  Both
+the physical target and exponent are independent of the accepted fusion
+assignment.  The next concrete producer is therefore sharply localized:
+bound the summed source-assignment fiber mapping into this one canonical
+truncated core field, then extract decay/coercivity from the remaining finite
+core along a named beta/lattice-spacing trajectory.  The older matched `S/T`
+atom route below remains a useful diagnosed side branch, but its conditional
+tail-zero compiler rules it out as the default cofinal-congestion route once
+the required atom compression is imposed.
 
 `BF4GrowingGridSelectedTermWitnessBound.lean` now closes the first analytic
 fork after the growing-grid construction.  The all-spin coefficient reserve

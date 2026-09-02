@@ -18,14 +18,17 @@ aggregate core     = p - aggregate exterior <= S.
 ```
 
 The aggregate exterior word constructs one actual high-spin path from the
-source field to a field bounded by `S` on every physical face.  The retained
+source field to a field bounded by `S` on every physical face.  Exact complete
+coverage further identifies that target with literal threshold truncation,
+independent of the accepted source assignment, and identifies the paid path
+length with the total displayed spin excess above `S`.  The retained
 fine-intertwiner fiber has unit counting weight, so the existing path
-comparison yields a direct arbitrary-coupling source-to-core estimate with an
-arbitrary target witness.
+comparison yields a canonical arbitrary-coupling source-to-core estimate with
+an arbitrary target witness.
 
-This is a simultaneous finite-core reduction.  It does not yet sum source
-assignments into a partition estimate, encode the finite-core targets, or
-prove finite-core coercivity.
+This is a simultaneous canonical finite-core reduction.  It does not yet sum
+the source-assignment fiber over one truncated target into a partition
+estimate or prove finite-core coercivity.
 
 Constructive contract: deterministic face-link incidence, finite graph
 coverage, exact Boolean counting, and the existing high-spin path compiler
@@ -313,6 +316,27 @@ def slabCompleteCanonicalCorePhysical
     (slabCompleteCanonicalDropCount
       cutoff extent physical assignment hassignment)
 
+/-- The assignment-independent finite-core field obtained by truncating every
+displayed physical face at `threshold` and leaving every other coordinate
+unchanged. -/
+def slabThresholdCorePhysical
+    (extent : Nat) (physical : SlabLabelling)
+    (threshold : Nat) : SlabLabelling :=
+  fun faceId =>
+    if faceId ∈ slabPhysicalFaceEdges extent then
+      min (physical faceId) threshold
+    else
+      physical faceId
+
+/-- The total high-spin excess above `threshold` on the displayed physical
+face carrier. -/
+def slabThresholdExteriorMass
+    (extent : Nat) (physical : SlabLabelling)
+    (threshold : Nat) : Nat :=
+  listNatWeight
+    (fun faceId => physical faceId - threshold)
+    (slabPhysicalFaceEdges extent)
+
 /-- The aggregate exterior constructs one actual threshold-respecting path. -/
 def slabCompleteCanonicalHighSpinPath
     (threshold cutoff extent : Nat) (physical : SlabLabelling)
@@ -356,6 +380,106 @@ theorem slabCompleteCanonicalCorePhysical_le_threshold
   rw [Nat.min_eq_right (Nat.sub_le _ _)]
   omega
 
+/-- The simultaneous complete-component reduction has no hidden dependence
+on the accepted fusion assignment: on every displayed face it is literal
+truncation at `threshold`, and outside the displayed carrier it is unchanged. -/
+theorem slabCompleteCanonicalCorePhysical_eq_thresholdCorePhysical
+    (cutoff extent : Nat) (physical : SlabLabelling)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn cutoff extent physical
+        (boundaryCompleteSlabLinks extent))
+    (threshold : Nat) :
+    slabCompleteCanonicalCorePhysical
+        cutoff extent physical assignment hassignment threshold =
+      slabThresholdCorePhysical extent physical threshold := by
+  funext faceId
+  unfold slabCompleteCanonicalCorePhysical highSpinCorePhysical
+    highSpinExteriorDropFaces lowerSlabFacesByList
+    slabThresholdCorePhysical
+  by_cases hface : faceId ∈ slabPhysicalFaceEdges extent
+  · rw [if_pos hface]
+    rw [slabFaceDropList_count_of_mem extent
+      (exteriorDropCount physical threshold
+        (slabCompleteCanonicalDropCount
+          cutoff extent physical assignment hassignment)) hface]
+    have hdrop := slabCompleteCanonicalComponentSelectionMassAtFace_eq
+      cutoff extent physical assignment hassignment faceId hface
+    unfold exteriorDropCount slabCompleteCanonicalDropCount
+    rw [hdrop]
+    omega
+  · rw [if_neg hface]
+    rw [slabFaceDropList_count_of_not_mem extent
+      (exteriorDropCount physical threshold
+        (slabCompleteCanonicalDropCount
+          cutoff extent physical assignment hassignment)) hface]
+    omega
+
+/-- Consequently, any two accepted assignments over the same physical field
+produce exactly the same simultaneous finite-core target. -/
+theorem slabCompleteCanonicalCorePhysical_assignment_independent
+    (cutoff extent : Nat) (physical : SlabLabelling)
+    (first second : SlabFusionWitnessAssignment)
+    (hfirst : first ∈
+      slabFusionWitnessAssignmentsOn cutoff extent physical
+        (boundaryCompleteSlabLinks extent))
+    (hsecond : second ∈
+      slabFusionWitnessAssignmentsOn cutoff extent physical
+        (boundaryCompleteSlabLinks extent))
+    (threshold : Nat) :
+    slabCompleteCanonicalCorePhysical
+        cutoff extent physical first hfirst threshold =
+      slabCompleteCanonicalCorePhysical
+        cutoff extent physical second hsecond threshold := by
+  rw [slabCompleteCanonicalCorePhysical_eq_thresholdCorePhysical,
+    slabCompleteCanonicalCorePhysical_eq_thresholdCorePhysical]
+
+private theorem flatMap_replicate_length_eq_listNatWeight
+    {A B : Type} (count : A -> Nat) (value : A -> B) :
+    forall items : List A,
+      (items.flatMap fun item =>
+          List.replicate (count item) (value item)).length =
+        listNatWeight count items
+  | [] => rfl
+  | head :: tail => by
+      simp only [List.flatMap_cons, List.length_append,
+        List.length_replicate, listNatWeight]
+      rw [flatMap_replicate_length_eq_listNatWeight count value tail]
+
+private theorem listNatWeight_congr_local
+    {A : Type} (left right : A -> Nat) :
+    forall items : List A,
+      (forall item, item ∈ items -> left item = right item) ->
+      listNatWeight left items = listNatWeight right items
+  | [], _ => rfl
+  | head :: tail, heq => by
+      simp only [listNatWeight]
+      rw [heq head List.mem_cons_self]
+      rw [listNatWeight_congr_local left right tail
+        (fun item hitem => heq item (List.mem_cons_of_mem head hitem))]
+
+/-- The paid path length is also assignment-independent: it is exactly the
+total displayed face mass above the threshold. -/
+theorem slabCompleteCanonicalExteriorFaces_length_eq_thresholdExteriorMass
+    (cutoff extent : Nat) (physical : SlabLabelling)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn cutoff extent physical
+        (boundaryCompleteSlabLinks extent))
+    (threshold : Nat) :
+    (slabCompleteCanonicalExteriorFaces
+        cutoff extent physical assignment hassignment threshold).length =
+      slabThresholdExteriorMass extent physical threshold := by
+  unfold slabCompleteCanonicalExteriorFaces highSpinExteriorDropFaces
+    slabFaceDropList slabThresholdExteriorMass
+  rw [flatMap_replicate_length_eq_listNatWeight]
+  apply listNatWeight_congr_local
+  intro faceId hface
+  unfold exteriorDropCount slabCompleteCanonicalDropCount
+  rw [slabCompleteCanonicalComponentSelectionMassAtFace_eq
+    cutoff extent physical assignment hassignment faceId hface]
+  rw [Nat.min_eq_right (Nat.sub_le _ _)]
+
 /-! ## 4. Direct arbitrary-coupling source-to-core comparison -/
 
 /-- At the moving anchor threshold, the complete assignment receives one
@@ -392,13 +516,53 @@ theorem retainedFineIntertwinerPhysicalFiberWeight_completeCore_le
       (anchorPaidExteriorThreshold w) cutoff (centralExtent half)
       physical assignment hassignment hbounded)
 
+/-- **Canonical arbitrary-coupling source-to-core comparison.**  The complete
+accepted assignment pays exactly once for every displayed unit of spin above
+the moving threshold and lands on the common truncated physical field.  Both
+the exponent and the physical target are independent of the source fusion
+assignment. -/
+theorem retainedFineIntertwinerPhysicalFiberWeight_thresholdCore_le
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (cutoff half : Nat) {physical : SlabLabelling}
+    {assignment : SlabFusionWitnessAssignment}
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn cutoff (centralExtent half) physical
+        (boundaryCompleteSlabLinks (centralExtent half)))
+    (targetWitness : SlabFusionWitnessAssignment)
+    (hbounded : SlabFaceLabellingBounded
+      cutoff (centralExtent half) physical) :
+    let D : SlabPhysicalData :=
+      { coupling := w
+        coupling_nonnegative := Q'.le_of_lt hw0
+        cutoff := cutoff
+        half := half }
+    retainedFineIntertwinerPhysicalFiberWeight D physical assignment <=
+      anchorFaceCoefficient ^
+          slabThresholdExteriorMass
+            (centralExtent half) physical (anchorPaidExteriorThreshold w) *
+        retainedFineIntertwinerPhysicalFiberWeight D
+          (slabThresholdCorePhysical
+            (centralExtent half) physical (anchorPaidExteriorThreshold w))
+          targetWitness := by
+  have hraw := retainedFineIntertwinerPhysicalFiberWeight_completeCore_le
+    hw0 hw1 cutoff half hassignment targetWitness hbounded
+  rw [slabCompleteCanonicalExteriorFaces_length_eq_thresholdExteriorMass,
+    slabCompleteCanonicalCorePhysical_eq_thresholdCorePhysical] at hraw
+  exact hraw
+
 #print axioms slabPhysicalFaceStrandCopy_mem_vertices
 #print axioms slabCompleteCanonicalComponentSelectionMassAtFace_eq
 #print axioms slabCompleteCanonicalDropCount
 #print axioms slabCompleteCanonicalExteriorFaces
 #print axioms slabCompleteCanonicalCorePhysical
+#print axioms slabThresholdCorePhysical
+#print axioms slabThresholdExteriorMass
 #print axioms slabCompleteCanonicalHighSpinPath
 #print axioms slabCompleteCanonicalCorePhysical_le_threshold
+#print axioms slabCompleteCanonicalCorePhysical_eq_thresholdCorePhysical
+#print axioms slabCompleteCanonicalCorePhysical_assignment_independent
+#print axioms slabCompleteCanonicalExteriorFaces_length_eq_thresholdExteriorMass
 #print axioms retainedFineIntertwinerPhysicalFiberWeight_completeCore_le
+#print axioms retainedFineIntertwinerPhysicalFiberWeight_thresholdCore_le
 
 end YMGap.Continuum.CompactDualSlabFaceStrandComponentHighSpinCompleteCoreReduction
