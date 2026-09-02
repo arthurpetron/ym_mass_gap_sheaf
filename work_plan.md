@@ -96,7 +96,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- absolute row discrepancy = literal mismatch mass .. [PROVED]
 |   |   |   |   +-- connected pullback <= averaged mismatch cost ...... [PROVED]
 |   |   |   |   +-- mismatch-resolved exact-decimation bound .......... [PROVED]
-|   |   |   |   `-- actual mismatch/pushed-law remainder decay ........ [ACTIVE]
+|   |   |   |   +-- positive-row mismatch = selected globally glued
+|   |   |   |   |       raw weight / complete row partition ............ [PROVED]
+|   |   |   |   +-- Gibbs-null rows removed from mismatch average ...... [PROVED]
+|   |   |   |   +-- raw-mismatch exact-decimation bound ................ [PROVED]
+|   |   |   |   `-- raw mismatch/pushed-law remainder decay ............ [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1185,6 +1189,25 @@ active quantitative producer is an actual-kernel bound for this literal
 mismatch mass together with decay of the pushed-law connected combination.
 No smallness or refining-scale decay estimate for either term has yet been
 proved.
+
+The literal mismatch cost has now also been unfolded through the actual
+cutoff-one whole-slab kernel.  On a strictly positive fine Gibbs row, its
+event-mismatch mass is exactly
+
+```text
+selected globally-glued recoupling raw mismatch weight
+-------------------------------------------------------.
+          complete recoupling row partition
+```
+
+Here the raw weight is the product of all coarse-face fusion sums times the
+complete coarse link-multiplicity product.  A dependent finite recursion
+proves that every nonpositive fine row has zero normalized fine mass and
+removes it from the average.  The production exact-decimation theorem now
+ends at the sum of these positive-row raw mismatch ratios plus the connected
+pushed-law remainder.  The active edge is a uniform inequality for these
+explicit ratios.  The ratio identity itself is not a smallness or decay
+estimate.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default

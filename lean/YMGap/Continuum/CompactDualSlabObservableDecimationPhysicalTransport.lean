@@ -28,6 +28,7 @@ import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredBlockingDefect
 import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
 import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackFubini
 import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackMismatch
+import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackRawMismatch
 import YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 
 namespace YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
@@ -50,6 +51,7 @@ open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackFubini
 open YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackMismatch
+open YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackRawMismatch
 open YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 open YMGap.Continuum.HeatKernelRGStep
 open YMGap.Continuum.RGTransport
@@ -345,6 +347,49 @@ theorem observableDecimationPhysicalMismatchTransport_covariance_le
   exact Q'.add_le_add_left _ _ _
     (Q'.add_le_add_right _ _ _ hmismatch)
 
+/-- Fully actualized raw-weight form of the physical-decimation bound.  The
+pullback payment is a positive-row sum of selected globally link-glued
+recoupling raw mismatch weights divided by their complete row partitions;
+Gibbs-null source rows have been removed exactly. -/
+theorem observableDecimationPhysicalRawMismatchTransport_covariance_le
+    (G : CutoffOneFaceGeometry)
+    (w : Q') (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+    let effective := observableDecimationCoupling w
+    let heffective : (0 : Q') < effective :=
+      observableDecimationCoupling_pos hw0
+    let S := G.block.candidateScalePair w hg effective heffective
+    let M := G.faceMap w hg effective heffective
+    let K := physicalKernel S rfl heffective
+    slabPhysicalFaceBooleanCovariance
+        S.fine M.fineRoot M.fineTarget ≤
+      slabObservablePairedSupportGlobalAnchorRate
+          S.coarse M.coarseRoot M.coarseTarget +
+        (physicalObservableRawMismatchCost S rfl heffective M +
+          Q'.abs (centeredCylinderRemainder K M)) := by
+  let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+  let effective := observableDecimationCoupling w
+  let heffective : (0 : Q') < effective :=
+    observableDecimationCoupling_pos hw0
+  let S := G.block.candidateScalePair w hg effective heffective
+  let M := G.faceMap w hg effective heffective
+  let K := physicalKernel S rfl heffective
+  have htransport :=
+    observableDecimationPhysicalMismatchTransport_covariance_le
+      G w hw0 hw1
+  have hraw :=
+    observableSourcePullbackMismatchCost_physicalKernel_eqv_raw
+      S rfl heffective M
+  refine Q'.le_trans' _ _ _ htransport ?_
+  exact Q'.le_of_eqv
+    (Q'.add_eqv_congr_left
+      (slabObservablePairedSupportGlobalAnchorRate
+        S.coarse M.coarseRoot M.coarseTarget) _ _
+      (Q'.add_eqv_congr_right
+        (observableSourcePullbackMismatchCost K M)
+        (physicalObservableRawMismatchCost S rfl heffective M)
+        (Q'.abs (centeredCylinderRemainder K M)) hraw))
+
 #print axioms observableDecimationCoupling
 #print axioms observableDecimationCoupling_pos
 #print axioms observableDecimationCoupling_lt_one
@@ -357,5 +402,6 @@ theorem observableDecimationPhysicalMismatchTransport_covariance_le
 #print axioms observableDecimationPhysicalFullyConnectedTransport_covariance_le
 #print axioms observableDecimationPhysicalSourceConnectedTransport_covariance_le
 #print axioms observableDecimationPhysicalMismatchTransport_covariance_le
+#print axioms observableDecimationPhysicalRawMismatchTransport_covariance_le
 
 end YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
