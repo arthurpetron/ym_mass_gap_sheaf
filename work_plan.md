@@ -82,7 +82,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- actual pushed-law remainder L1 ................. [EXPOSED]
 |   |   |   |   +-- finite-corridor argmin of total exact budget .... [PROVED]
 |   |   |   |   +-- exact-decimation singleton + actual kernel join . [PROVED]
-|   |   |   |   `-- decay of the selected/decimated budget .......... [ACTIVE]
+|   |   |   |   +-- centered covariance-to-covariance defect split .. [PROVED]
+|   |   |   |   +-- centered exact-decimation physical join ......... [PROVED]
+|   |   |   |   `-- decay of the centered decimation budget ......... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1087,6 +1089,26 @@ literal covariance, the decimated coarse global-anchor rate, and the exact
 physical transport budget.  No equality between the interacting block step
 and scalar heat decimation is asserted: that identification is exactly what a
 small bound on the retained budget would provide.
+
+The active interface has now been sharpened to preserve centering throughout
+the physical comparison.  The pushed fine law defines an actual blocked
+covariance of the two coarse Boolean face events.  Two computed rational
+defects then give the exact causal chain
+
+```text
+fine literal covariance
+  <= blocked covariance + centeredObservablePullbackDefect
+  <= coarse Gibbs covariance
+       + centeredObservablePullbackDefect
+       + centeredPhysicalRemainderDefect.
+```
+
+Coefficient capture replaces the last coarse covariance by the global-anchor
+rate, and the canonical exact-decimation theorem is now available in this
+centered form.  This avoids demanding that the root and target one-point
+moments decay separately with their separation.  The conservative three-
+moment/L1 theorem remains valid, but the active quantitative producer is now
+decay of these two centered covariance defects for the exact physical kernel.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
