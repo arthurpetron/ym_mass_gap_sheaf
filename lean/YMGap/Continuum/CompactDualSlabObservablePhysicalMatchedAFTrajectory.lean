@@ -30,6 +30,7 @@ declaration, or new axiom.
 
 import YMGap.Continuum.BF4AFPhysicalSpacingToZero
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
+import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
 import YMGap.Continuum.CompactDualSlabObservablePhysicalSignMatchedTransportTail
 
 namespace YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
@@ -46,6 +47,8 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4ObservableMatchedOneStep
 open YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSignMatchedTransportTail
@@ -197,6 +200,48 @@ def matchedShiftedAFPhysicalObservableRefinementSchedule
 
 /-! ## 4. The still-open transport producer on this exact trajectory -/
 
+/-- The sharper remaining producer on the exact matched chart.  It preserves
+the connected pushed-law cancellation rather than majorizing it by total
+variation. -/
+abbrev MatchedShiftedAFConnectedTransportTail
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type :=
+  PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail
+    (matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+      C coupling coupling_pos coupling_le_window identification nested)
+
+/-- On the exact matched chart, sharp raw-mismatch and connected-remainder
+estimates give the literal `anchor + epsilon` covariance bound. -/
+theorem matchedShiftedAFConnectedFineCovariance_le_anchorRate_add_epsilon
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (tail : MatchedShiftedAFConnectedTransportTail family law spacing C
+      coupling coupling_pos coupling_le_window identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : tail.toLinearRawTransportTail.eventualStart epsilon ≤ scale) :
+    let schedule :=
+      matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+        C coupling coupling_pos coupling_le_window identification nested
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
 /-- The remaining analytic producer, now pinned to the exact matched nome and
 the physical spacing on the same shifted AF schedule.  This abbreviation has
 no inhabitant here. -/
@@ -250,6 +295,8 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_fineCoupling
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_spacing
+#print axioms MatchedShiftedAFConnectedTransportTail
+#print axioms matchedShiftedAFConnectedFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFSignMatchedTransportTail
 #print axioms matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 

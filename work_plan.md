@@ -109,12 +109,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- mismatch/sign-match tails => combined O(a) tail ...... [PROVED interface]
 |   |   |   |   +-- finite-atlas raw/TV argmin + reference transfer ...... [PROVED reduction]
 |   |   |   |   |   `-- corridor atlas with O(a) reference candidate ..... [OPEN alternative]
+|   |   |   |   +-- exact connected split => sharp C_m + C_c tail ........ [PROVED interface]
 |   |   |   |   +-- matched-BF4 nome + physical spacing on one AF chart .. [PROVED bridge]
 |   |   |   |   |   +-- shifted-AF identification => spacing to zero ..... [PROVED]
-|   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon .. [PROVED interface]
+|   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
+|   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
-|   |   |   |       +-- raw event-mismatch cost <= C_m * a .............. [OPEN]
-|   |   |   |       `-- candidate sign-match defect <= C_s * a .......... [OPEN]
+|   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
+|   |   |   |       +-- sharp: |connected remainder| <= C_c * a .......... [OPEN preferred]
+|   |   |   |       `-- conservative: sign/TV defect <= C_s * a .......... [OPEN alternative]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1284,6 +1287,23 @@ observable does not by itself minimize this total-variation defect.  A
 uniform candidate-dependent sign-matching estimate, together with the raw
 mismatch estimate, is the active analytic frontier.
 
+`CompactDualSlabObservablePhysicalConnectedRawTransportTail.lean` records the
+sharper cancellation-preserving branch.  It defines the second budget to be
+the absolute value of the exact centered pushed-law remainder and proves the
+identity
+
+```text
+raw transport budget = raw mismatch budget + connected remainder budget.
+```
+
+Its `ConnectedSeparatedLinearRawTransportTail` therefore asks directly for
+the two estimates `raw mismatch <= C_m * a` and
+`|connected remainder| <= C_c * a`.  These compile to a transport tail with
+coefficient exactly `C_m + C_c`, and then to the same eventual
+`anchor + epsilon` covariance theorem.  This is now the preferred analytic
+branch because it retains cancellations that the sufficient
+`3 * remainderL1` bound discards.  Neither estimate is inhabited.
+
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
 coupling atlas it scores each candidate by its literal raw mismatch cost plus
@@ -1324,14 +1344,18 @@ the quadratic physical spacing envelope plus a coupling-to-zero modulus
 constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
-raw/sign `O(a)` tail on this exact schedule yields the literal fine covariance
-bound `anchor + epsilon` at the computed cutoff.
+sharp raw/connected `O(a)` tail on this exact schedule yields the literal fine
+covariance bound `anchor + epsilon` at the computed cutoff.  The conservative
+raw/sign tail remains exposed on the same schedule as an alternative.
 
 This is a proved same-chart bridge, not a physical AF construction.  The
 four-dimensional `CubicMarginLaw`, the dimensional-transmutation
-`PhysicalSpacingEnvelope`, nested physical face data, and the raw/sign tail
-remain supplied objects, and no same-measure continuum or OS/GNS conclusion
-is inferred.
+`PhysicalSpacingEnvelope`, nested physical face data, and either pair of
+transport-tail producers remain supplied objects, and no same-measure
+continuum or OS/GNS conclusion is inferred.  The separate cutoff-two
+total-variation row-rate obstruction concerns another kernel and criterion;
+it motivates preserving this connected branch but is not a no-go theorem for
+the present pushed-law remainder.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
