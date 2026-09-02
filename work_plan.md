@@ -303,13 +303,16 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |       +-- finite support-aware constant repair .... [PROVED each positive datum]
 |   |   |   |   |   |       |       |       |   |           |       |   +-- crossed source/target totals positive ... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       |   +-- constructive positive target selector ... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- constructive maximum target selector .... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       |   +-- constant inverse fibers exact ........... [PROVED]
-|   |   |   |   |   |       |       |       |   |           |       |   `-- exact datum-dependent ratio ceiling ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- exact datum-dependent ratio ceiling ..... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   `-- maximum ceiling <= arbitrary ceiling .... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [ACTIVE analytic producer]
-|   |   |   |   |   |       |       |       |   |           |           +-- exact matched finite ceiling sequence [PROVED]
+|   |   |   |   |   |       |       |       |   |           |           +-- exact matched maximum-ceiling sequence [PROVED]
 |   |   |   |   |   |       |       |       |   |           |           +-- ceiling weakening monotonicity ...... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |           +-- one uniform bound => matched switch . [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |           `-- inhabit uniform analytic bound ...... [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           |           +-- inhabit uniform maximum bound ....... [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           |           `-- distributed multi-target improvement [OPEN alternative]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1592,6 +1595,23 @@ the ceiling is actually uniform.  The direct monitored check and focused
 `[propext, Quot.sound]`.  Compressing the complete excited spin ray remains a
 separate open producer before this diagnostic branch could prove ray-mass
 tail zero and close the assigned-ratio route.
+
+`FinitePositiveMaximumEntry.lean` adds a constructive finite rational arg-max:
+nonnegative entries with positive total yield a positive listed maximum.
+`BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching.lean` applies it to
+the crossed target occurrences, sends the full source fiber to that maximum,
+and proves its exact ceiling is no larger than the earlier arbitrary-selector
+ceiling.  The optimized finite raw cross remains exact.
+`BF4LowSpinGrowingVolumeRawPartitionMaximumFiberMatchedCeilingGate.lean` then
+evaluates this sharper ceiling on the matched trajectory and proves that one
+uniform bound still compiles to the normalized spin-one comparison.  A bound
+on the earlier sequence automatically bounds this sharper sequence, but
+neither bound is inhabited.  This is the optimal *one-target constant repair*;
+it does not rule out a better distributed multi-target repair.  The generic
+maximum target completes in a focused 211-job build, the finite BF4 maximum
+switch in 5,218 jobs, and the matched maximum gate in 5,220 jobs.  Every
+printed declaration uses only `[propext, Quot.sound]` (the recursive maximum
+itself uses only `[propext]`).
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
