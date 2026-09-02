@@ -107,7 +107,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
 |   |   |   |   +-- mismatch/sign-match tails => combined O(a) tail ...... [PROVED interface]
-|   |   |   |   `-- inhabit the two literal O(a) producer bounds ........ [ACTIVE]
+|   |   |   |   +-- finite-atlas raw/TV argmin + reference transfer ...... [PROVED reduction]
+|   |   |   |   |   `-- corridor atlas with O(a) reference candidate ..... [OPEN alternative]
+|   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- raw event-mismatch cost <= C_m * a .............. [OPEN]
 |   |   |   |       `-- candidate sign-match defect <= C_s * a .......... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
@@ -1278,6 +1280,25 @@ depends on the candidate kernel, so the already-proved argmin for one fixed
 observable does not by itself minimize this total-variation defect.  A
 uniform candidate-dependent sign-matching estimate, together with the raw
 mismatch estimate, is the active analytic frontier.
+
+`CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
+constructive alternative selection branch.  On any nonempty finite positive
+coupling atlas it scores each candidate by its literal raw mismatch cost plus
+three copies of its actual `remainderL1`, hence—by the sign theorem above—by
+raw mismatch plus three copies of its own sign-observable matching defect.
+A finite exact-rational argmin chooses the least score.  If every listed
+candidate lies below one and inside the proved coefficient corridor, the
+fine covariance is bounded by the selected coarse anchor plus this least
+score.  A second theorem transfers the score of any listed reference
+candidate directly to that selected covariance bound.
+
+This closes finite selection, not analysis: no corridor atlas carrying an
+`O(a)` reference candidate is constructed, and no compatibility between such
+selected candidates and a single beta/lattice-spacing trajectory is inferred.
+The canonical exact-decimation singleton route still requires its two direct
+raw-mismatch/sign-match producer estimates.  The new atlas route is a genuine
+alternative only if a uniformly controlled reference family and the required
+trajectory coherence can be built.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
