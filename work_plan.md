@@ -69,6 +69,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- fixed terminal/exterior/core global source fiber .. [PROVED]
 |   |   |   +-- sum bounded core counters and total mass .......... [PROVED]
 |   |   |   +-- complete accepted-terminal inverse fiber .......... [PROVED]
+|   |   |   +-- exact core = target-component truncated mass ...... [PROVED]
 |   |   |   +-- finite-core coercivity / localized core decay .... [ACTIVE producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -944,11 +945,26 @@ terminal inverse-fiber weight
 There is no representation-cutoff or terminal-count factor.  This closes the
 complete arbitrary-coupling observable inverse fiber at fixed finite slab
 data, but the displayed core prefactor grows with the slab face count and with
-the coupling-dependent threshold.  The active producer is now a localized
-finite-core coercivity theorem that replaces this whole-volume price by a
-support-local or separation-absorbable cost.  A named beta/lattice-spacing
-trajectory, same-object all-observable OS/GNS gap, and continuum construction
-remain subsequent open edges.
+the coupling-dependent threshold.  The residual counter itself is now proved
+to be exactly local.  If `component` is the initial target-rooted support
+component, then the accepted high-spin profile satisfies
+
+```text
+coreMass
+  = sum (face in component)
+      (min(leftSpin(face), threshold) + min(rightSpin(face), threshold))
+  <= 2 * component.length * threshold.
+```
+
+Thus faces outside the observable component contribute no residual core
+charge; the earlier whole-slab ceiling was a proof-level overestimate rather
+than a physical nonlocality.  This identity does not by itself replace `K` in
+the common terminal-fiber bound, because `component` varies with the source
+inside that fiber.  The active producer is therefore the sharper theorem that
+partitions or coercively pays this source-dependent local low-spin mass with a
+rate below one, making its cost support-local or separation-absorbable.  A
+named beta/lattice-spacing trajectory, same-object all-observable OS/GNS gap,
+and continuum construction remain subsequent open edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
