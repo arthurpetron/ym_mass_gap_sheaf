@@ -72,7 +72,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- exact core = target-component truncated mass ...... [PROVED]
 |   |   |   +-- exact residual coefficient `2*w^3` ................ [PROVED]
 |   |   |   +-- full covariance decay for `0<w<=1/400` ............ [PROVED]
-|   |   |   +-- same-object OS / cutoff removal on that corridor .. [ACTIVE receiver]
+|   |   |   +-- same-object OS / cutoff removal on that corridor .. [PROVED]
+|   |   |   +-- receding-volume face clustering on that corridor .. [PROVED]
 |   |   |   +-- above-corridor RG / finite-core coercivity ........ [ACTIVE producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -824,13 +825,12 @@ critical path branches.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
-**Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE FIXED-ANCHOR PAIRED
-CONNECTED-RESIDUE DECAY ARE CLOSED.  THE LATTER IS ALREADY IDENTIFIED WITH A
-LITERAL SAME-OBJECT OS FACE MOMENT, SURVIVES REPRESENTATION-CUTOFF REMOVAL,
-AND CLUSTERS AS THE REFLECTED BOUNDARY RECEDES.  THE ACTIVE PHYSICAL EDGE IS
-ARBITRARY-COUPLING/SHRINKING-SPACING TRANSPORT: SUM THE COMPLETE SOURCE FIBER
-ALONG AN ACTUAL ACCEPTED PATH, THEN INTO ITS NOW-CANONICAL TRUNCATED CORE
-TARGET, AND FINALLY CONTROL THE FINITE CORE.**
+**Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
+CORRIDOR `0 < w <= 1/400` ARE CLOSED FOR THE LITERAL FACE OBSERVABLE.  THE
+CORRIDOR THEOREM INCLUDES UNIFORM PAIRED CONNECTED-RESIDUE DECAY, SAME-OBJECT
+OS IDENTIFICATION, REPRESENTATION-CUTOFF REMOVAL, AND RECEDING-VOLUME
+CLUSTERING.  THE ACTIVE PHYSICAL EDGE IS NOW ABOVE-CORRIDOR RG/CORE
+COERCIVITY, FOLLOWED BY A NAMED BETA/LATTICE-SPACING TRAJECTORY.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -988,14 +988,18 @@ normalized connected mass and same-object Boolean face covariance
 ```
 
 These estimates are uniform in representation cutoff and finite slab volume
-throughout that explicit strong-coupling corridor.  The immediate receiver is
-the existing same-object reflected-face OS and receding-volume transport,
-which must be generalized from the single production point to the corridor.
-For `w > 1/400`, the current anchor comparison is unavailable; a genuine
-RG/coercivity theorem must replace it rather than reintroducing a finite-core
-prefactor.  A named beta/lattice-spacing trajectory, same-object
-all-observable OS/GNS gap, and continuum construction remain subsequent open
-edges.
+throughout that explicit strong-coupling corridor.  Their same-object receiver
+is now complete: the literal reflected face moment has the OS-positive
+interval at every fixed corridor coupling, its representation-cutoff `CReal`
+limit obeys the same envelope, and the selected boundary-to-reflected-boundary
+moment constructively converges to zero with the existing explicit modulus as
+the slab half-width grows.  This is a family of fixed-coupling finite-slab
+conditional operators; it does not yet identify powers of one common
+time-translation operator.  For `w > 1/400`, the current anchor comparison is
+unavailable; a genuine RG/coercivity theorem must replace it rather than
+reintroducing a finite-core prefactor.  A named beta/lattice-spacing
+trajectory, same-object all-observable OS/GNS gap, and continuum construction
+remain subsequent open edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
