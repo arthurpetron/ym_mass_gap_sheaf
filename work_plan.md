@@ -90,7 +90,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- centered pullback defect = exact connected
 |   |   |   |   |       signed root/target/joint remainder ........... [PROVED]
 |   |   |   |   +-- fully connected exact-decimation bound ........... [PROVED]
-|   |   |   |   `-- decay of the two connected signed remainders ..... [ACTIVE]
+|   |   |   |   +-- pullback moments = fine-law averages of literal
+|   |   |   |   |       source-row kernel discrepancies ............... [PROVED]
+|   |   |   |   +-- source-resolved exact-decimation bound ............ [PROVED]
+|   |   |   |   `-- rowwise/pushed-law connected remainder decay ...... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1140,9 +1143,31 @@ fine covariance - blocked covariance
 Thus `centeredObservablePullbackDefect` is also exactly the absolute value of
 one connected signed combination.  The canonical exact-decimation theorem
 now exposes the sum of the absolute values of these two connected quantities.
-The conservative three-moment/L1 theorem remains valid, but the active
-quantitative producer is decay of the two signed combinations for the exact
-physical kernel.  No decay estimate for either term has yet been proved.
+The stochastic half is now source-resolved as well.  For a fine Boolean event
+`A`, coarse Boolean event `B`, and source state `x`, define the literal row
+discrepancy
+
+```text
+d_K(A,B;x) = K(x,B) - 1_A(x),
+K(x,B)     = sum_y 1_B(y) K(x,y).
+```
+
+Exact finite Fubini proves
+
+```text
+blockedMass(B) - fineMass(A)
+  = sum_x fineNormalizedMass(x) * d_K(A,B;x).
+```
+
+This identity is specialized to the root, target, and joint face events, and
+their three fine-law averages are substituted into the connected pullback
+remainder.  The canonical exact-decimation theorem consequently exposes the
+literal source-averaged kernel discrepancy and the connected pushed-law
+remainder in one bound.  The conservative three-moment/L1 theorem remains
+valid, but the active quantitative producer is now a geometric rowwise bound
+for `d_K` together with decay of the pushed-law connected combination for the
+exact physical kernel.  No smallness or refining-scale decay estimate for
+either term has yet been proved.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default

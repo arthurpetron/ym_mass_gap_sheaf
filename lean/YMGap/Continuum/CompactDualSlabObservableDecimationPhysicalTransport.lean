@@ -26,6 +26,7 @@ the existing physical kernel only; no choice, `Classical`, `native_decide`,
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportDecimationCorridor
 import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredBlockingDefect
 import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
+import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackFubini
 import YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 
 namespace YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
@@ -46,6 +47,7 @@ open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
+open YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackFubini
 open YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 open YMGap.Continuum.HeatKernelRGStep
 open YMGap.Continuum.RGTransport
@@ -261,6 +263,50 @@ theorem observableDecimationPhysicalFullyConnectedTransport_covariance_le
         (Q'.abs (centeredObservablePullbackRemainder K M))
         (Q'.abs (centeredCylinderRemainder K M)) hpullback))
 
+/-- Source-resolved form of the fully connected physical-decimation bound.
+The stochastic pullback cost is now the exact connected combination of three
+fine-law averages of literal kernel-row cylinder discrepancies.  This is the
+canonical finite-cutoff interface on which a geometric rowwise decay estimate
+can act; no such estimate is asserted here. -/
+theorem observableDecimationPhysicalSourceConnectedTransport_covariance_le
+    (G : CutoffOneFaceGeometry)
+    (w : Q') (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+    let effective := observableDecimationCoupling w
+    let heffective : (0 : Q') < effective :=
+      observableDecimationCoupling_pos hw0
+    let S := G.block.candidateScalePair w hg effective heffective
+    let M := G.faceMap w hg effective heffective
+    let K := physicalKernel S rfl heffective
+    slabPhysicalFaceBooleanCovariance
+        S.fine M.fineRoot M.fineTarget ≤
+      slabObservablePairedSupportGlobalAnchorRate
+          S.coarse M.coarseRoot M.coarseTarget +
+        (Q'.abs (centeredObservablePullbackSourceRemainder K M) +
+          Q'.abs (centeredCylinderRemainder K M)) := by
+  let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+  let effective := observableDecimationCoupling w
+  let heffective : (0 : Q') < effective :=
+    observableDecimationCoupling_pos hw0
+  let S := G.block.candidateScalePair w hg effective heffective
+  let M := G.faceMap w hg effective heffective
+  let K := physicalKernel S rfl heffective
+  have htransport :=
+    observableDecimationPhysicalFullyConnectedTransport_covariance_le
+      G w hw0 hw1
+  have hpullback :=
+    centeredObservablePullbackRemainder_eqv_sourceAverage K M
+  refine Q'.le_trans' _ _ _ htransport ?_
+  exact Q'.le_of_eqv
+    (Q'.add_eqv_congr_left
+      (slabObservablePairedSupportGlobalAnchorRate
+        S.coarse M.coarseRoot M.coarseTarget) _ _
+      (Q'.add_eqv_congr_right
+        (Q'.abs (centeredObservablePullbackRemainder K M))
+        (Q'.abs (centeredObservablePullbackSourceRemainder K M))
+        (Q'.abs (centeredCylinderRemainder K M))
+        (Q'.abs_eqv_congr hpullback)))
+
 #print axioms observableDecimationCoupling
 #print axioms observableDecimationCoupling_pos
 #print axioms observableDecimationCoupling_lt_one
@@ -271,5 +317,6 @@ theorem observableDecimationPhysicalFullyConnectedTransport_covariance_le
 #print axioms observableDecimationPhysicalCenteredTransport_covariance_le
 #print axioms observableDecimationPhysicalConnectedTransport_covariance_le
 #print axioms observableDecimationPhysicalFullyConnectedTransport_covariance_le
+#print axioms observableDecimationPhysicalSourceConnectedTransport_covariance_le
 
 end YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
