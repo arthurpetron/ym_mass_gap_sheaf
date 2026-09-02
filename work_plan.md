@@ -316,8 +316,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |           +-- ceiling weakening monotonicity ...... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |           +-- one uniform bound => matched switch . [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |           +-- inhabit uniform maximum bound ....... [OPEN producer]
-|   |   |   |   |   |       |       |       |   |           |           `-- distributed multi-target improvement [ACTIVE alternative]
-|   |   |   |   |   |       |       |       |   |           |               one-target cardinality overhead is now explicit
+|   |   |   |   |   |       |       |       |   |           |           `-- distributed multi-target improvement [PROVED algebraically]
+|   |   |   |   |   |       |       |       |   |           |               +-- normalized fractional kernel .... [PROVED finite]
+|   |   |   |   |   |       |       |       |   |           |               +-- exact columns = (S/T)*target .... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |               +-- S/T is optimal fractional ceiling  [PROVED]
+|   |   |   |   |   |       |       |       |   |           |               +-- matched S/T uniform-bound gate .... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |               +-- inhabit uniform matched S/T bound . [ACTIVE analytic producer]
+|   |   |   |   |   |       |       |       |   |           |               `-- local geometric realization ...... [OPEN if required]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1642,6 +1647,42 @@ use only `[propext, Quot.sound]` (the generic summand-to-sum lemma itself uses
 only `[propext]`).  No uniform matched ceiling, cofinal contraction, operator
 gap, physical mass, continuum reconstruction, or Clay-facing theorem follows
 from this finite sandwich.
+
+`FiniteWeightedFractionalKernelCapacity.lean` and
+`FiniteWeightedProportionalKernel.lean` isolate the exact finite Fubini
+algebra for a normalized rational kernel.  The BF4 specialization in
+`BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalSwitching.lean`
+uses the normalized target occurrence weights at every source.  With the same
+notation as above, every target column then receives exactly
+
+```text
+(S / T) * targetWeight,
+```
+
+so the fractional switch attains ceiling `S/T` with no factor `N`.
+Conversely, summing the columns of any normalized fractional switch proves
+`S/T <= ceiling`, making this proportional allocation optimal for the stated
+finite interface.  It yields the exact finite raw cross; the existing proved
+raw-cross equivalence remains the route to the normalized spin-one statement.
+This kernel is a global mass allocation independent of the source occurrence.
+It is not yet a local geometric recoupling law, so locality or physical
+realizability remains a separate obligation if the downstream construction
+requires it.
+
+`BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedCeilingGate.lean`
+evaluates the exact ratio on the matched dyadic trajectory.  One common bound
+on this matched `S/T` sequence weakens the proportional finite kernels to one
+common ceiling and proves the matched raw cross at every scale.  Any uniform
+maximum-target bound supplies such a ratio bound, but no ratio bound is
+inhabited here.  The active analytic producer is therefore now the uniform
+matched aggregate-ratio bound itself, free of the one-target carrier-length
+artifact; local geometric realization is the parallel structural question.
+The generic capacity and proportional targets complete in focused 210- and
+211-job builds, the finite BF4 fractional target in 5,222 jobs, and the
+matched gate in 5,225 jobs.  All printed load-bearing declarations use only
+`[propext, Quot.sound]` (the generic finite Fubini theorem uses only
+`[propext]`).  No complete-ray compression, cofinal contraction, operator gap,
+physical mass, continuum reconstruction, or Clay-facing theorem is inferred.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
