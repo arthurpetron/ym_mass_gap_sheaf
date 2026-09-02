@@ -80,7 +80,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- exact fine/coarse face covariance defect split . [PROVED]
 |   |   |   |   +-- actual Markov pullback defects ................. [EXPOSED]
 |   |   |   |   +-- actual pushed-law remainder L1 ................. [EXPOSED]
-|   |   |   |   `-- separation/block-depth decay of both errors .... [ACTIVE]
+|   |   |   |   +-- finite-corridor argmin of total exact budget .... [PROVED]
+|   |   |   |   `-- refining-atlas/depth decay of selected budget ... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1055,9 +1056,21 @@ abstract transport certificate.
 The active producer is now quantitative rather than structural: prove
 separation- or block-depth-absorbable bounds for both displayed errors and
 then bind the iterated block depth to a named beta/lattice-spacing trajectory.
-The present theorem does not assert either decay.  Same-object all-observable
-OS/GNS gap, continuum construction, and mass identification remain subsequent
-open edges.
+The first trajectory-selection layer is now constructive.  On any finite
+positive coupling atlas whose entries all lie in the coefficient corridor,
+the actual globally link-glued physical kernels are scored by the complete
+displayed transport budget.  A finite rational argmin selects a candidate,
+proves that its budget is no larger than every listed candidate's, inherits
+the atlas-wide strict/corridor bounds, and instantiates the fine-covariance
+estimate at that selected physical step.  Thus the coarse coupling on this
+branch is derived from the physical transport error rather than supplied as a
+free flow field.
+
+This minimization does not prove that the selected budget is small.  The
+active theorem must construct a refining corridor atlas with an absorbable
+candidate bound, or prove such a bound directly for the exact face-fusion
+kernel and pushed-law remainder.  Same-object all-observable OS/GNS gap,
+continuum construction, and mass identification remain subsequent open edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
