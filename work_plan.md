@@ -75,8 +75,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- same-object OS / cutoff removal on that corridor .. [PROVED]
 |   |   |   +-- receding-volume face clustering on that corridor .. [PROVED]
 |   |   |   +-- core-coefficient bound => full covariance decay .... [PROVED interface]
-|   |   |   +-- exact decimation reaches coefficient corridor ...... [ACTIVE]
-|   |   |   +-- physical observable transport through blocking ..... [OPEN producer]
+|   |   |   +-- exact decimation reaches coefficient corridor ...... [PROVED]
+|   |   |   +-- physical observable transport through blocking ..... [ACTIVE producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -831,8 +831,10 @@ critical path branches.
 CORRIDOR `0 < w <= 1/400` ARE CLOSED FOR THE LITERAL FACE OBSERVABLE.  THE
 CORRIDOR THEOREM INCLUDES UNIFORM PAIRED CONNECTED-RESIDUE DECAY, SAME-OBJECT
 OS IDENTIFICATION, REPRESENTATION-CUTOFF REMOVAL, AND RECEDING-VOLUME
-CLUSTERING.  THE ACTIVE PHYSICAL EDGE IS NOW ABOVE-CORRIDOR RG/CORE
-COERCIVITY, FOLLOWED BY A NAMED BETA/LATTICE-SPACING TRAJECTORY.**
+CLUSTERING.  EXACT HEAT-SEMIGROUP DECIMATION NOW REACHES THAT COEFFICIENT
+CORRIDOR FROM EVERY RATIONAL `0 < w < 1`.  THE ACTIVE PHYSICAL EDGE IS THE
+GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
+ITS COVARIANCE, FOLLOWED BY A NAMED BETA/LATTICE-SPACING TRAJECTORY.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -1009,9 +1011,26 @@ Thus the above-corridor problem is no longer phrased as a vague finite-core
 prefactor improvement.  It has two separately checkable producers: prove that
 a genuine block step reaches an effective coefficient satisfying the displayed
 inequality, and transport the original literal observable/covariance to that
-blocked datum with controlled geometry.  Exact heat-semigroup decimation is a
-candidate for the first producer but is not, by itself, the interacting 4D
-observable transport required by the second.  A named beta/lattice-spacing
+blocked datum with controlled geometry.  The exact heat-semigroup half now
+supplies the first producer.  For every rational `0 < w < 1`, the constructive
+depth
+
+```text
+depth(w) = 400 * ((1 - w).den + 1)
+```
+
+proves
+
+```text
+mkDecimate depth(w) w <= 1/400,
+exteriorFaceCoefficient (mkDecimate depth(w) w) 0
+  <= anchorFaceCoefficient,
+```
+
+and hence gives the complete `16/25` covariance decay for the decimated slab
+datum itself.  This is not the interacting 4D block-spin/observable transport:
+the comparison from the original weak-coupling datum to the blocked datum is
+now the unique open producer on this branch.  A named beta/lattice-spacing
 trajectory, same-object all-observable OS/GNS gap, and continuum construction
 remain subsequent open edges.
 
