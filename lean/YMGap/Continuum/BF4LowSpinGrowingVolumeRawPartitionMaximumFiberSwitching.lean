@@ -109,6 +109,35 @@ theorem fixedGrowingRawPartitionPositiveTargetWeight_le_maximum
         (fixedGrowingRawPartitionPositiveTargetIndex
           w hw K hK volume).item_mem
 
+/-- The full target occurrence total is bounded by target cardinality times
+the selected maximum weight.  This exposes the possible carrier-size overhead
+of every one-target constant repair. -/
+theorem fixedGrowingRawPartitionTargetIndexTotal_le_length_mul_maximum
+    {w : Q'} (hw : (0 : Q') < w) {K : Nat} (hK : 1 ≤ K)
+    (volume : Nat) :
+    listQSum
+        (fixedGrowingRawPartitionTargetIndexWeight
+          w (Q'.le_of_lt hw) K volume)
+        (fixedGrowingRawPartitionTargetIndices
+          w (Q'.le_of_lt hw) K volume) ≤
+      Q'.ofNat
+          (fixedGrowingRawPartitionTargetIndices
+            w (Q'.le_of_lt hw) K volume).length *
+        fixedGrowingRawPartitionTargetIndexWeight
+          w (Q'.le_of_lt hw) K volume
+          (fixedGrowingRawPartitionPositiveMaximumTargetIndex
+            w hw K hK volume).item := by
+  let maximum := fixedGrowingRawPartitionPositiveMaximumTargetIndex
+    w hw K hK volume
+  exact
+    BF4WeightedJointPerronPerturbation.listQSum_le_length_mul
+      (fixedGrowingRawPartitionTargetIndexWeight
+        w (Q'.le_of_lt hw) K volume)
+      (Q'.le_of_lt maximum.value_pos)
+      (fixedGrowingRawPartitionTargetIndices
+        w (Q'.le_of_lt hw) K volume)
+      (fun target htarget => maximum.maximal target htarget)
+
 /-- Maximizing the paid target weight can only improve the exact one-target
 constant-fiber ceiling. -/
 theorem fixedGrowingRawPartitionMaximumFiberCeiling_le_constant
@@ -251,6 +280,8 @@ end YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching
   YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching.fixedGrowingRawPartitionPositiveMaximumTargetIndex
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching.fixedGrowingRawPartitionMaximumFiberCeiling_pos
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching.fixedGrowingRawPartitionTargetIndexTotal_le_length_mul_maximum
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionMaximumFiberSwitching.fixedGrowingRawPartitionMaximumFiberCeiling_le_constant
 #print axioms

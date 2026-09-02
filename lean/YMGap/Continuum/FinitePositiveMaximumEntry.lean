@@ -19,6 +19,19 @@ open YMGap.Constructive
 open YMGap.Continuum.FiniteBistochasticPositiveTarget
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
+private theorem listQSum_nonnegative_local
+    {A : Type} (value : A → Q') :
+    ∀ items : List A,
+      (∀ item, item ∈ items → (0 : Q') ≤ value item) →
+        (0 : Q') ≤ listQSum value items
+  | [], _ => Q'.le_refl' 0
+  | head :: tail, hvalue =>
+      Q'.zero_le_add (value head) (listQSum value tail)
+        (hvalue head List.mem_cons_self)
+        (listQSum_nonnegative_local value tail
+          (fun item hitem =>
+            hvalue item (List.mem_cons_of_mem head hitem)))
+
 private theorem q_le_of_not_le {left right : Q'}
     (hnot : ¬ left ≤ right) :
     right ≤ left := by
@@ -113,9 +126,39 @@ opaque finitePositiveMaximumEntryOfSumPos
             Q'.pos_of_lt_of_le positive.value_pos
               (maximum.maximal positive.item hpositiveMem) }
 
+/-- Every listed nonnegative term is bounded by the complete finite sum. -/
+theorem le_listQSum_of_mem_nonnegative
+    {A : Type} (value : A → Q') :
+    ∀ items item,
+      item ∈ items →
+      (∀ other, other ∈ items → (0 : Q') ≤ value other) →
+        value item ≤ listQSum value items
+  | [], _item, hitem, _ => False.elim (List.not_mem_nil hitem)
+  | head :: tail, item, hitem, hvalue => by
+      change value item ≤ value head + listQSum value tail
+      rcases List.mem_cons.mp hitem with heq | htail
+      · subst item
+        exact Q'.add_le_self_of_nonneg _ _
+          (listQSum_nonnegative_local value tail
+            (fun other hother =>
+              hvalue other (List.mem_cons_of_mem head hother)))
+      · have hterm := le_listQSum_of_mem_nonnegative
+          value tail item htail
+          (fun other hother =>
+            hvalue other (List.mem_cons_of_mem head hother))
+        have hhead : (0 : Q') ≤ value head :=
+          hvalue head List.mem_cons_self
+        exact Q'.le_trans' _ _ _ hterm
+          (Q'.le_trans' _ _ _
+            (Q'.add_le_self_of_nonneg _ _ hhead)
+            (Q'.le_of_eqv
+              (Q'.add_comm_eqv (listQSum value tail) (value head))))
+
 end YMGap.Continuum.FinitePositiveMaximumEntry
 
 #print axioms
   YMGap.Continuum.FinitePositiveMaximumEntry.finiteMaximumEntry
 #print axioms
   YMGap.Continuum.FinitePositiveMaximumEntry.finitePositiveMaximumEntryOfSumPos
+#print axioms
+  YMGap.Continuum.FinitePositiveMaximumEntry.le_listQSum_of_mem_nonnegative

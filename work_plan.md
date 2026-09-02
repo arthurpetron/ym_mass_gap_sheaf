@@ -306,13 +306,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |       |   +-- constructive maximum target selector .... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       |   +-- constant inverse fibers exact ........... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       |   +-- exact datum-dependent ratio ceiling ..... [PROVED]
-|   |   |   |   |   |       |       |       |   |           |       |   `-- maximum ceiling <= arbitrary ceiling .... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- maximum ceiling <= arbitrary ceiling .... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- maximum target weight <= target total ... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   +-- target total <= carrier length * maximum  [PROVED]
+|   |   |   |   |   |       |       |       |   |           |       |   `-- total ratio <= maximum ceiling
+|   |   |   |   |   |       |       |       |   |           |       |       <= carrier length * total ratio ....... [PROVED finite]
 |   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [ACTIVE analytic producer]
 |   |   |   |   |   |       |       |       |   |           |           +-- exact matched maximum-ceiling sequence [PROVED]
 |   |   |   |   |   |       |       |       |   |           |           +-- ceiling weakening monotonicity ...... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |           +-- one uniform bound => matched switch . [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |           +-- inhabit uniform maximum bound ....... [OPEN producer]
-|   |   |   |   |   |       |       |       |   |           |           `-- distributed multi-target improvement [OPEN alternative]
+|   |   |   |   |   |       |       |       |   |           |           `-- distributed multi-target improvement [ACTIVE alternative]
+|   |   |   |   |   |       |       |       |   |           |               one-target cardinality overhead is now explicit
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1612,6 +1617,31 @@ maximum target completes in a focused 211-job build, the finite BF4 maximum
 switch in 5,218 jobs, and the matched maximum gate in 5,220 jobs.  Every
 printed declaration uses only `[propext, Quot.sound]` (the recursive maximum
 itself uses only `[propext]`).
+
+`BF4LowSpinGrowingVolumeRawPartitionMaximumFiberRatioBracket.lean` now makes
+the remaining one-target cost quantitative.  If `S` and `T` are the crossed
+source and target occurrence totals, `M` is the constructively selected
+maximum target occurrence weight, and `N` is the target occurrence-list
+length, then the optimized ceiling satisfies the exact finite sandwich
+
+```text
+S / T  <=  S / M  <=  N * (S / T).
+```
+
+The lower bound follows because `M` is one nonnegative summand of `T`; the
+upper bound follows from `T <= N*M`.  Thus `S/T` is the unavoidable aggregate
+mass ratio, while `N` is an explicitly isolated concentration overhead of the
+one-target repair.  This does not prove that either endpoint grows or remains
+uniform.  It does show why control of the total ratio alone cannot certify the
+present repair when the target carrier grows, and it promotes a genuinely
+distributed multi-target allocation to the active alternative.  The generic
+summand-to-sum lemma completes in the focused 211-job utility build; the BF4
+maximum dependency completes in 5,218 jobs; the new ratio bracket passes its
+direct monitored check and focused 5,219-job build.  All printed declarations
+use only `[propext, Quot.sound]` (the generic summand-to-sum lemma itself uses
+only `[propext]`).  No uniform matched ceiling, cofinal contraction, operator
+gap, physical mass, continuum reconstruction, or Clay-facing theorem follows
+from this finite sandwich.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
