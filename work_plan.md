@@ -63,8 +63,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- threshold-paid high-spin exterior path .......... [PROVED for 0<w<1]
 |   |   |   +-- common truncated core target + exact excess mass  [PROVED]
 |   |   |   +-- accepted canonical completion to vacuum .......... [PROVED]
-|   |   |   +-- telescope accepted-path weights .................. [ACTIVE producer]
-|   |   |   +-- sum source-assignment fiber into common core ..... [OPEN consequence]
+|   |   |   +-- telescope accepted-path weights .................. [PROVED for 0<w<1]
+|   |   |   +-- sum source-assignment fiber along accepted path ... [ACTIVE producer]
 |   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -873,12 +873,17 @@ every accepted expanded source now has a deterministic canonical peeling to
 an actual accepted vacuum source, and the terminal physical field is proved
 extensionally equal to `zeroEdgeLabelling`; the retained terminal assignment
 is a literal member of the vacuum fusion-witness fiber.  This closes target
-existence, but not the quantitative comparison.  The active producer is to
-telescope the sharp exterior and explicit finite-core costs through that
-accepted recursive path, then sum its inverse source-assignment fibers and
-extract decay/coercivity from the remaining finite core along a named
-beta/lattice-spacing trajectory.  The simultaneous truncated-core theorem
-still does not itself manufacture an accepted witness at the truncated field.
+existence.  The quantitative comparison is now also proved pointwise: at
+every rational `0 < w < 1`, the paired product weight telescopes through the
+same deterministic accepted recursion with one exact
+`anchor^exterior * 2^core` multiplier per selected component, and the weighted
+terminal is proved to be the literal vacuum in both replicas.  The active
+producer is therefore the inverse-fiber summation of these complete accepted
+paths, followed by decay/coercivity for the explicitly exposed finite-core
+cost along a named beta/lattice-spacing trajectory.  The simultaneous
+truncated-core theorem still does not itself manufacture an accepted witness
+at the truncated field; it supplies the assignment-independent physical
+target/excess accounting that the summed accepted-path theorem must recover.
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
 cofinal-congestion route once the required atom compression is imposed.
