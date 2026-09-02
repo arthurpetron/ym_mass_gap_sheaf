@@ -102,7 +102,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- raw-mismatch exact-decimation bound ................ [PROVED]
 |   |   |   |   +-- each raw average <= 1; three-event cost <= 3 ........ [PROVED]
 |   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
-|   |   |   |   `-- actual raw mismatch + pushed-law O(a) tail .......... [ACTIVE]
+|   |   |   |   +-- connected pushed-law remainder <= 3 * remainderL1 ... [PROVED]
+|   |   |   |   +-- separate mismatch/L1 tails => combined O(a) tail .... [PROVED interface]
+|   |   |   |   `-- inhabit the two literal O(a) producer bounds ........ [ACTIVE]
+|   |   |   |       +-- raw event-mismatch cost <= C_m * a .............. [OPEN]
+|   |   |   |       `-- pushforward remainderL1 <= C_r * a .............. [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1233,6 +1237,23 @@ constructed: proving this `O(a)` inequality for the globally glued raw ratios
 and connected remainder is the active analytic edge.  The schedule also does
 not by itself supply measure consistency, a continuum observable algebra, or
 OS/GNS reconstruction.
+
+The connected pushed-law half has now been reduced to the standard physical
+pushforward norm.  Since the blocked target and coarse root face moments lie
+in `[0,1]`, the exact signed expansion gives
+
+```text
+|connected pushed-law remainder| <= 3 * physical remainderL1.
+```
+
+`CompactDualSlabObservablePhysicalSeparatedRawTransportTail.lean` therefore
+splits the single combined `O(a)` hypothesis into two independently testable
+literal estimates: the raw root/target/joint mismatch cost is at most
+`C_m * a`, and the physical pushforward `remainderL1` is at most `C_r * a`.
+It constructively compiles those inputs to the complete transport tail with
+coefficient `C_m + 3*C_r`, and hence to the existing eventual
+`anchor + epsilon` covariance theorem.  Neither input estimate is inhabited;
+they are now the two explicit active analytic producers.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
