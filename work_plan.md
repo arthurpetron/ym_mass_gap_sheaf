@@ -62,7 +62,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   +-- arbitrary-coupling continuation .................... [ACTIVE]
 |   |   |   +-- threshold-paid high-spin exterior path .......... [PROVED for 0<w<1]
 |   |   |   +-- common truncated core target + exact excess mass  [PROVED]
-|   |   |   +-- sum source-assignment fiber into common core ..... [ACTIVE producer]
+|   |   |   +-- accepted canonical completion to vacuum .......... [PROVED]
+|   |   |   +-- telescope accepted-path weights .................. [ACTIVE producer]
+|   |   |   +-- sum source-assignment fiber into common core ..... [OPEN consequence]
 |   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -819,7 +821,8 @@ CONNECTED-RESIDUE DECAY ARE CLOSED.  THE LATTER IS ALREADY IDENTIFIED WITH A
 LITERAL SAME-OBJECT OS FACE MOMENT, SURVIVES REPRESENTATION-CUTOFF REMOVAL,
 AND CLUSTERS AS THE REFLECTED BOUNDARY RECEDES.  THE ACTIVE PHYSICAL EDGE IS
 ARBITRARY-COUPLING/SHRINKING-SPACING TRANSPORT: SUM THE COMPLETE SOURCE FIBER
-INTO ITS NOW-CANONICAL TRUNCATED CORE TARGET, THEN CONTROL THE FINITE CORE.**
+ALONG AN ACTUAL ACCEPTED PATH, THEN INTO ITS NOW-CANONICAL TRUNCATED CORE
+TARGET, AND FINALLY CONTROL THE FINITE CORE.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
@@ -866,12 +869,19 @@ paidLength = sum_face (physical(face) - threshold),
 with the expected unchanged values off the displayed physical carrier.  Both
 the physical target and exponent are independent of the accepted fusion
 assignment.  The next concrete producer is therefore sharply localized:
-bound the summed source-assignment fiber mapping into this one canonical
-truncated core field, then extract decay/coercivity from the remaining finite
-core along a named beta/lattice-spacing trajectory.  The older matched `S/T`
-atom route below remains a useful diagnosed side branch, but its conditional
-tail-zero compiler rules it out as the default cofinal-congestion route once
-the required atom compression is imposed.
+every accepted expanded source now has a deterministic canonical peeling to
+an actual accepted vacuum source, and the terminal physical field is proved
+extensionally equal to `zeroEdgeLabelling`; the retained terminal assignment
+is a literal member of the vacuum fusion-witness fiber.  This closes target
+existence, but not the quantitative comparison.  The active producer is to
+telescope the sharp exterior and explicit finite-core costs through that
+accepted recursive path, then sum its inverse source-assignment fibers and
+extract decay/coercivity from the remaining finite core along a named
+beta/lattice-spacing trajectory.  The simultaneous truncated-core theorem
+still does not itself manufacture an accepted witness at the truncated field.
+The older matched `S/T` atom route below remains a useful diagnosed side
+branch, but its conditional tail-zero compiler rules it out as the default
+cofinal-congestion route once the required atom compression is imposed.
 
 `BF4GrowingGridSelectedTermWitnessBound.lean` now closes the first analytic
 fork after the growing-grid construction.  The all-spin coefficient reserve
