@@ -263,14 +263,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   +-- slice capacity => Z_V <= C * raw_V .... [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- capacity => 1 <= C * growingMarginal .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   `-- all-K tail contradicts one matched C .. [PROVED no-go]
-|   |   |   |   |   |       |       |       |   |           |   +-- mixed fixed-completion repair .......... [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           |   +-- mixed fixed-completion repair .......... [OBSTRUCTED at w=1/2,K=2,V=0]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- growing-completion-only keys ........... [PROVED carrier]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- key weight = growing completion * Z_0 .. [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- source fiber = raw_0 * physical fiber .. [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- fallback mass outside positive support .. [PROVED zero]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- physical fiber = completion column ...... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   +-- fiber bound iff column Harnack ........... [PROVED exact]
-|   |   |   |   |   |       |       |       |   |           |   |   +-- completion-column Harnack ............... [OPEN primary producer]
+|   |   |   |   |   |       |       |       |   |           |   |   +-- completion-column Harnack ............... [REFUTED at w=1/2,K=2,V=0]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- boundary sum = target raw row ......... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- column bound => target-row bound ...... [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- column Gram factorization ............. [PROVED exact]
@@ -294,8 +294,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- fiber contains volume+1 equal terms .. [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
-|   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [OPEN]
-|   |   |   |   |   |       |       |       |   |           |   `-- injective/mixed redesign after no-go .... [ACTIVE route pivot]
+|   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [REFUTED at finite datum]
+|   |   |   |   |   |       |       |       |   |           |   `-- source-dependent/reference redesign ..... [ACTIVE route pivot]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1503,6 +1503,23 @@ repair or a redesigned reference family whose support contains every retained
 positive boundary; the fixed-to-growing/projective posterior route cannot be
 the universal producer as presently stated.
 
+`BF4LowSpinGrowingVolumeCutoffTwoCompletionColumnObstruction.lean` strengthens
+that conclusion from the posterior adapter to the full coarse repair.  The
+positive transported physical term forces the concrete boundary weight to be
+strictly positive.  Combining that fact with the positive retained boundary
+total and positive target half amplitude makes the literal completion column
+at `(translated lower, translated boundary)` strictly positive.  At the same
+completion, the selected-reference physical summand factors through the zero
+reference half amplitude and is exactly zero.  Since the fixed slice-zero
+spin-one raw row is strictly positive, every proposed completion-column
+ceiling would bound a positive left side by zero.  The module therefore proves
+no-go theorems not only for `CoarseGrowingCompletionColumnCrossBound`, but also
+for its equivalent `CoarseGrowingPhysicalFiberCrossBound` and the upstream
+`CoarseCanonicalRawPartitionFiberBound`.  The present coarse completion-only
+repair is thus closed at this datum; a viable next producer must change the
+source-dependent allocation or the reference support, not merely sharpen its
+ceiling estimate.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1567,6 +1584,9 @@ certificate completes successfully in a focused 5,226-job build.  The final
 finite support mismatch and its explicit posterior-floor and positive-boundary
 cross-bound no-go corollaries complete successfully in a focused 5,227-job
 build.
+The positive completion-column/zero reference-completion certificate and the
+resulting no-go theorems for the column, physical-fiber, and canonical coarse
+repair packages complete successfully in a focused 5,228-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
