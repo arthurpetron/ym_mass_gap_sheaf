@@ -306,6 +306,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |       |   +-- constant inverse fibers exact ........... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       |   `-- exact datum-dependent ratio ceiling ..... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [ACTIVE analytic producer]
+|   |   |   |   |   |       |       |       |   |           |           +-- exact matched finite ceiling sequence [PROVED]
+|   |   |   |   |   |       |       |       |   |           |           +-- ceiling weakening monotonicity ...... [PROVED]
+|   |   |   |   |   |       |       |       |   |           |           +-- one uniform bound => matched switch . [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |           `-- inhabit uniform analytic bound ...... [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1572,6 +1576,22 @@ load-bearing declarations use only `[propext, Quot.sound]`; the two generic
 constant-fiber identities use no axioms.  No cofinal contraction, completed
 operator gap, physical spacing-uniform mass, continuum OS/GNS theorem, or
 Clay-facing conclusion is inferred.
+
+`BF4LowSpinGrowingVolumeRawPartitionConstantFiberMatchedCeilingGate.lean`
+now evaluates the explicit finite ceiling on the exact matched coupling,
+cutoff, and growing volume.  It proves that increasing a finite ceiling
+preserves weighted-fiber capacity and packages the remaining analytic input
+as one rational bound dominating this displayed ceiling sequence.  Such a
+bound constructively promotes the finite witnesses to
+`MatchedDyadicLowSpinRawPartitionFiberSwitching` and hence gives the uniform
+normalized spin-one fixed/growing comparison.  The bound is not inhabited,
+and the constant-to-one-target switch may be stronger than an optimized
+distributed repair.  Thus this is an exact sufficient gate, not evidence that
+the ceiling is actually uniform.  The direct monitored check and focused
+5,217-job build pass; all four printed declarations use only
+`[propext, Quot.sound]`.  Compressing the complete excited spin ray remains a
+separate open producer before this diagnostic branch could prove ray-mass
+tail zero and close the assigned-ratio route.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
