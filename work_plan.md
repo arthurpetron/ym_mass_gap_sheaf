@@ -67,8 +67,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- total core exponent <= 2*faces*threshold .......... [PROVED]
 |   |   |   +-- terminal/trace/exterior/core proof profile ........ [PROVED]
 |   |   |   +-- fixed terminal/exterior/core global source fiber .. [PROVED]
-|   |   |   +-- sum bounded core counters and total mass .......... [ACTIVE producer]
-|   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
+|   |   |   +-- sum bounded core counters and total mass .......... [PROVED]
+|   |   |   +-- complete accepted-terminal inverse fiber .......... [PROVED]
+|   |   |   +-- finite-core coercivity / localized core decay .... [ACTIVE producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -920,14 +921,34 @@ fixed-profile observable source weight
 ```
 
 The exterior rate is strictly below one and the core exponent remains bounded
-by `2 * faceCount * threshold`, independently of representation cutoff.  This
-is a complete weighted fiber only after fixing both counters; it does not yet
-sum their finite range.  The active inverse-fiber producer is therefore the
-finite Fubini step over core counters and total mass.  A coarse but explicit
-target is to absorb the bounded core cost into a prefactor using
-`40960000 / (16/25) = 64000000`, then apply the existing geometric tail in
-total mass.  Localized control of that finite-volume prefactor and its
-beta/lattice-spacing transport remain subsequent open edges.
+by `2 * faceCount * threshold`, independently of representation cutoff.  The
+finite Fubini step over both counters is now complete.  It keys each source by
+`(totalMass = exteriorMass + coreMass, coreMass)`, proves that total mass is
+literally the old complete trace mass, and uses the exact normalization
+
+```text
+(16/25)^exteriorMass * 40960000^coreMass
+  = (16/25)^totalMass * 64000000^coreMass.
+```
+
+Writing `K = 2 * faceCount * threshold`, the complete connected source fiber
+of every fixed accepted terminal therefore obeys
+
+```text
+terminal inverse-fiber weight
+  <= ((25/9) * (16/25)^(linfDistance + 1))
+       * ((K + 1) * 64000000^K)
+       * terminalWeight.
+```
+
+There is no representation-cutoff or terminal-count factor.  This closes the
+complete arbitrary-coupling observable inverse fiber at fixed finite slab
+data, but the displayed core prefactor grows with the slab face count and with
+the coupling-dependent threshold.  The active producer is now a localized
+finite-core coercivity theorem that replaces this whole-volume price by a
+support-local or separation-absorbable cost.  A named beta/lattice-spacing
+trajectory, same-object all-observable OS/GNS gap, and continuum construction
+remain subsequent open edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
