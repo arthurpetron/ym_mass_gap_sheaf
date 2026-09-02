@@ -321,9 +321,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |               +-- exact columns = (S/T)*target .... [PROVED]
 |   |   |   |   |   |       |       |       |   |           |               +-- S/T is optimal fractional ceiling  [PROVED]
 |   |   |   |   |   |       |       |       |   |           |               +-- matched S/T uniform-bound gate .... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |               +-- S/T <= C iff normalized atom bound . [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |               +-- inhabit uniform matched S/T bound . [ACTIVE analytic producer]
+|   |   |   |   |   |       |       |       |   |           |               +-- bound => normalized fixed atom .... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |               +-- bound => fixed-atom located tail zero [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |               `-- local geometric realization ...... [OPEN if required]
-|   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           +-- complete ray <= C * fixed spin-one atom [OPEN producer]
+|   |   |   |   |   |       |       |       |   |           +-- S/T bound + atom compression => ray gate [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
 |   |   |   |   |   |       |       |       |   `-- adaptive minimum-row branch
@@ -1683,6 +1687,46 @@ matched gate in 5,225 jobs.  All printed load-bearing declarations use only
 `[propext, Quot.sound]` (the generic finite Fubini theorem uses only
 `[propext]`).  No complete-ray compression, cofinal contraction, operator gap,
 physical mass, continuum reconstruction, or Clay-facing theorem is inferred.
+
+`BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail.lean`
+now compiles that matched raw cross through the positive-partition
+cross-multiplication theorem, so a uniform `S/T` bound constructively implies
+the normalized fixed-half/growing-half spin-one comparison.  Combining it
+with the all-cutoff growing-reference estimate gives located tail zero for
+the fixed-half spin-one marginal with explicit rate
+
+```text
+rate(epsilon) = den(epsilon / ceiling).
+```
+
+This is a scalar-atom tail, not tail zero of the complete excited spin ray.
+The module therefore names the exact remaining producer as one common bound
+
+```text
+matchedRayMass(scale)
+  <= rayAtomCeiling * fixedHalfSpinOneMarginal(scale).
+```
+
+Given that producer and the uniform `S/T` bound, a proved compiler inhabits
+the existing complete-ray growing-volume domination gate with combined
+ceiling `rayAtomCeiling * ratioCeiling`.  The already verified downstream
+compiler would then give ray-mass tail zero and exclude the cofinal assigned
+stationary-ratio branch; it would still not prove contraction or a gap.  The
+new source passes its direct monitored check and focused 5,226-job build, and
+all six printed declarations use only `[propext, Quot.sound]`.  In particular,
+the same module proves the finite and matched pointwise biconditional
+
+```text
+S/T <= ceiling
+  <-> fixedHalfSpinOneMarginal
+        <= ceiling * growingHalfSpinOneMarginal.
+```
+
+Thus proportional fractional switching has removed every combinatorial and
+carrier-cardinality overhead at this interface: the uniform matched `S/T`
+problem is exactly the normalized thermodynamic atom comparison, not an
+additional congestion estimate.  The uniform matched `S/T` bound and
+complete-ray atom compression both remain uninhabited.
 
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
