@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-01)
+## Whole-project goal and live completion map (updated 2026-09-02)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -100,7 +100,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       raw weight / complete row partition ............ [PROVED]
 |   |   |   |   +-- Gibbs-null rows removed from mismatch average ...... [PROVED]
 |   |   |   |   +-- raw-mismatch exact-decimation bound ................ [PROVED]
-|   |   |   |   `-- raw mismatch/pushed-law remainder decay ............ [ACTIVE]
+|   |   |   |   +-- each raw average <= 1; three-event cost <= 3 ........ [PROVED]
+|   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
+|   |   |   |   `-- actual raw mismatch + pushed-law O(a) tail .......... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1208,6 +1210,29 @@ ends at the sum of these positive-row raw mismatch ratios plus the connected
 pushed-law remainder.  The active edge is a uniform inequality for these
 explicit ratios.  The ratio identity itself is not a smallness or decay
 estimate.
+
+`CompactDualSlabObservablePhysicalRawTransportTail.lean` now records the
+normalization ceiling and the precise scale-dependent consumer.  Every
+literal row mismatch has probability at most one, hence every positive-row
+raw mismatch average is at most one and the joint/root/target cost is at most
+three.  This is a universal probability bound, not a contraction estimate.
+The same module defines a nested dyadic face schedule carrying a positive
+subunit fine nome and a positive lattice spacing with an explicit to-zero
+modulus.  Its Type-valued `LinearRawTransportTail` asks for the exact remaining
+physical statement
+
+```text
+actual raw mismatch cost + |connected pushed-law remainder|
+  <= C * lattice spacing
+```
+
+after a supplied tail start.  An inhabitant constructively computes, for every
+positive rational `epsilon`, a scale beyond which the literal fine covariance
+is at most the proved coarse anchor rate plus `epsilon`.  No inhabitant is
+constructed: proving this `O(a)` inequality for the globally glued raw ratios
+and connected remainder is the active analytic edge.  The schedule also does
+not by itself supply measure consistency, a continuum observable algebra, or
+OS/GNS reconstruction.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
