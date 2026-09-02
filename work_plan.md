@@ -74,7 +74,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full covariance decay for `0<w<=1/400` ............ [PROVED]
 |   |   |   +-- same-object OS / cutoff removal on that corridor .. [PROVED]
 |   |   |   +-- receding-volume face clustering on that corridor .. [PROVED]
-|   |   |   +-- above-corridor RG / finite-core coercivity ........ [ACTIVE producer]
+|   |   |   +-- core-coefficient bound => full covariance decay .... [PROVED interface]
+|   |   |   +-- exact decimation reaches coefficient corridor ...... [ACTIVE]
+|   |   |   +-- physical observable transport through blocking ..... [OPEN producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -995,9 +997,21 @@ limit obeys the same envelope, and the selected boundary-to-reflected-boundary
 moment constructively converges to zero with the existing explicit modulus as
 the slab half-width grows.  This is a family of fixed-coupling finite-slab
 conditional operators; it does not yet identify powers of one common
-time-translation operator.  For `w > 1/400`, the current anchor comparison is
-unavailable; a genuine RG/coercivity theorem must replace it rather than
-reintroducing a finite-core prefactor.  A named beta/lattice-spacing
+time-translation operator.  The complete inverse-fiber/Fubini/covariance chain
+has also been refactored to expose its exact low-level RG input:
+
+```text
+exteriorFaceCoefficient(w_eff, 0) <= anchorFaceCoefficient
+  ==> covariance <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+Thus the above-corridor problem is no longer phrased as a vague finite-core
+prefactor improvement.  It has two separately checkable producers: prove that
+a genuine block step reaches an effective coefficient satisfying the displayed
+inequality, and transport the original literal observable/covariance to that
+blocked datum with controlled geometry.  Exact heat-semigroup decimation is a
+candidate for the first producer but is not, by itself, the interacting 4D
+observable transport required by the second.  A named beta/lattice-spacing
 trajectory, same-object all-observable OS/GNS gap, and continuum construction
 remain subsequent open edges.
 

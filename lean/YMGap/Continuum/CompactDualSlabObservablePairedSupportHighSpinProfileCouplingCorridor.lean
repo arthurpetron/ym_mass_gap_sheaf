@@ -93,18 +93,21 @@ private theorem pow_le_pow_local {left right : Q'}
           (Q'.pow_nonneg left hleft exponent))
         (Q'.mul_le_mul_of_nonneg_left _ _ _ hpower hright)
 
-/-- On the corridor, exterior and core powers together are bounded by one
-anchor power of their total multiplicity. -/
-theorem highSpinProfileCoefficient_le_anchorPower
-    {w : Q'} (hw0 : (0 : Q') <= w) (hwAnchor : w <= anchorCoupling)
+/-- Whenever the exact residual coefficient is no larger than the anchor
+coefficient, exterior and core powers together are bounded by one anchor
+power of their total multiplicity.  This is the low-level interface an RG or
+coercivity theorem must supply; it does not assume how the coefficient bound
+was obtained. -/
+theorem highSpinProfileCoefficient_le_anchorPower_of_zeroCoefficient_le
+    {w : Q'} (hw0 : (0 : Q') <= w)
+    (hzero : exteriorFaceCoefficient w 0 <= anchorFaceCoefficient)
     (exterior core : Nat) :
     anchorFaceCoefficient ^ exterior *
         exteriorFaceCoefficient w 0 ^ core <=
       anchorFaceCoefficient ^ (exterior + core) := by
   have hcore := pow_le_pow_local
     (exteriorFaceCoefficient_nonnegative hw0 0)
-    (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient hw0 hwAnchor)
-    core
+    hzero core
   have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ _ hcore
     (Q'.pow_nonneg anchorFaceCoefficient (by decide) exterior)
   exact Q'.le_trans' _ _ _ hscaled
@@ -112,17 +115,28 @@ theorem highSpinProfileCoefficient_le_anchorPower
       (Q'.eqv_symm
         (Q'.pow_add_eqv anchorFaceCoefficient exterior core)))
 
+/-- Corridor specialization of the coefficient-level power comparison. -/
+theorem highSpinProfileCoefficient_le_anchorPower
+    {w : Q'} (hw0 : (0 : Q') <= w) (hwAnchor : w <= anchorCoupling)
+    (exterior core : Nat) :
+    anchorFaceCoefficient ^ exterior *
+        exteriorFaceCoefficient w 0 ^ core <=
+      anchorFaceCoefficient ^ (exterior + core) := by
+  exact highSpinProfileCoefficient_le_anchorPower_of_zeroCoefficient_le
+    hw0 (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient hw0 hwAnchor)
+      exterior core
+
 /-! ## 2. Complete fixed-terminal, fixed-mass corridor fiber -/
 
-/-- **Corridor inverse-fiber theorem.**  Every duplicate-free observable
-source family sharing one accepted terminal and one complete trace mass has
-the same strict `(16/25)^mass` bound as at the production anchor, uniformly
-for `0 < coupling <= 1/400`. -/
-theorem slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_corridor
+/-- **Coefficient-level inverse-fiber theorem.**  Every duplicate-free
+observable source family sharing one accepted terminal and one complete trace
+mass has the same strict `(16/25)^mass` bound whenever its exact residual
+coefficient is bounded by the anchor coefficient. -/
+theorem slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_of_zeroCoefficient_le
     (D : SlabPhysicalData)
     (hw0 : (0 : Q') < D.coupling)
     (hw1 : D.coupling < (1 : Q'))
-    (hwAnchor : D.coupling <= anchorCoupling)
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
     (rootFaceId targetFaceId mass : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
     (terminal : SlabAcceptedTwoReplicaState D)
@@ -184,16 +198,54 @@ theorem slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMas
       rw [← hprofileResult]
       rw [htraceResult]
       exact hmass source hsource
-    have hcoefficient := highSpinProfileCoefficient_le_anchorPower
-      (Q'.le_of_lt hw0) hwAnchor result.2.2.1 result.2.2.2
+    have hcoefficient :=
+      highSpinProfileCoefficient_le_anchorPower_of_zeroCoefficient_le
+        (Q'.le_of_lt hw0) hzero result.2.2.1 result.2.2.2
     rw [hmassResult] at hcoefficient
     have hscaled := Q'.mul_le_mul_of_nonneg_right _ _ _ hcoefficient
       (slabAcceptedTwoReplicaStateWeight_nonnegative D result.1)
     rw [hterminalResult] at hweight hscaled
     exact Q'.le_trans' _ _ _ hweight hscaled
 
+/-- **Corridor inverse-fiber theorem.**  Every duplicate-free observable
+source family sharing one accepted terminal and one complete trace mass has
+the same strict `(16/25)^mass` bound as at the production anchor, uniformly
+for `0 < coupling <= 1/400`. -/
+theorem slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_corridor
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hwAnchor : D.coupling <= anchorCoupling)
+    (rootFaceId targetFaceId mass : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (terminal : SlabAcceptedTwoReplicaState D)
+    (sources : List (SlabObservableFourCellPairEntry
+      D rootFaceId targetFaceId))
+    (hsources : sources.Nodup)
+    (hterminal : forall source, source ∈ sources ->
+      (slabObservablePairTargetSupportCanonicalPeeling
+        D rootFaceId targetFaceId htarget source.1 source.2).1 = terminal)
+    (hmass : forall source, source ∈ sources ->
+      slabAcceptedPairedPeelTraceMass
+        (slabObservablePairTargetSupportCanonicalPeeling
+          D rootFaceId targetFaceId htarget source.1 source.2).2 = mass) :
+    listQSum
+        (fun source => slabObservableTwoReplicaPairWeight D source.1)
+        sources <=
+      slabObservablePairedGlobalEntropyAnchorRatio ^ mass *
+        slabAcceptedTwoReplicaStateWeight D terminal := by
+  exact
+    slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_of_zeroCoefficient_le
+      D hw0 hw1
+        (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+          (Q'.le_of_lt hw0) hwAnchor)
+        rootFaceId targetFaceId mass htarget terminal sources hsources
+          hterminal hmass
+
 #print axioms exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+#print axioms highSpinProfileCoefficient_le_anchorPower_of_zeroCoefficient_le
 #print axioms highSpinProfileCoefficient_le_anchorPower
+#print axioms slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_of_zeroCoefficient_le
 #print axioms slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_corridor
 
 end YMGap.Continuum.CompactDualSlabObservablePairedSupportHighSpinProfileCouplingCorridor

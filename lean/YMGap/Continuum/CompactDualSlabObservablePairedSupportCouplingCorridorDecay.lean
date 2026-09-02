@@ -42,6 +42,7 @@ open YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeeling
 open YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingArbitraryCouplingWeight
 open YMGap.Continuum.CompactDualSlabAcceptedPairedCanonicalPeelingSupportMass
 open YMGap.Continuum.CompactDualSlabAcceptedPairedPeel
+open YMGap.Continuum.CompactDualSlabHighSpinFacePeelWeight
 open YMGap.Continuum.CompactDualSlabAcceptedPairedStateCarrier
 open YMGap.Continuum.CompactDualSlabObservableBooleanCovariance
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
@@ -112,6 +113,39 @@ theorem slabAcceptedTwoReplicaStates_weight_total_general
 
 /-- Every deterministic canonical terminal/mass fiber inherits the corridor
 profile estimate. -/
+theorem slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_of_zeroCoefficient_le
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
+    (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (key : Nat × SlabAcceptedTwoReplicaState D) :
+    fiberWeight
+        (slabObservablePairedSupportConnectedFourCellSourceEntries
+          D rootFaceId targetFaceId)
+        (fun source => slabObservableTwoReplicaPairWeight D source.1)
+        (slabObservablePairTargetSupportCanonicalPeelingKey
+          D rootFaceId targetFaceId htarget)
+        key <=
+      slabObservablePairedGlobalEntropyAnchorRatio ^ key.1 *
+        slabAcceptedTwoReplicaStateWeight D key.2 := by
+  unfold fiberWeight
+  apply
+    slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_of_zeroCoefficient_le
+      D hw0 hw1 hzero rootFaceId targetFaceId key.1 htarget key.2
+  · exact List.filter_sublist.nodup
+      (slabObservablePairedSupportConnectedFourCellSourceEntries_nodup
+        D rootFaceId targetFaceId)
+  · intro source hsource
+    have hkey := of_decide_eq_true (List.mem_filter.mp hsource).2
+    exact (congrArg Prod.snd hkey).symm
+  · intro source hsource
+    have hkey := of_decide_eq_true (List.mem_filter.mp hsource).2
+    exact (congrArg Prod.fst hkey).symm
+
+/-- Corridor specialization of the coefficient-level deterministic fiber
+bound. -/
 theorem slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_corridor
     (D : SlabPhysicalData)
     (hw0 : (0 : Q') < D.coupling)
@@ -129,19 +163,12 @@ theorem slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_corridor
         key <=
       slabObservablePairedGlobalEntropyAnchorRatio ^ key.1 *
         slabAcceptedTwoReplicaStateWeight D key.2 := by
-  unfold fiberWeight
-  apply
-    slabObservablePairTargetSupportCanonicalHighSpinProfile_fixedTerminalMass_weight_sum_le_corridor
-      D hw0 hw1 hwAnchor rootFaceId targetFaceId key.1 htarget key.2
-  · exact List.filter_sublist.nodup
-      (slabObservablePairedSupportConnectedFourCellSourceEntries_nodup
-        D rootFaceId targetFaceId)
-  · intro source hsource
-    have hkey := of_decide_eq_true (List.mem_filter.mp hsource).2
-    exact (congrArg Prod.snd hkey).symm
-  · intro source hsource
-    have hkey := of_decide_eq_true (List.mem_filter.mp hsource).2
-    exact (congrArg Prod.fst hkey).symm
+  exact
+    slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_of_zeroCoefficient_le
+      D hw0 hw1
+        (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+          (Q'.le_of_lt hw0) hwAnchor)
+        rootFaceId targetFaceId htarget key
 
 private theorem listQSum_le_termwise_local
     {A : Type} (left right : A -> Q') : forall items : List A,
@@ -156,11 +183,11 @@ private theorem listQSum_le_termwise_local
 
 /-- Summing every accepted terminal introduces exactly the physical partition
 square and no terminal-count prefactor. -/
-theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_corridor
+theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_of_zeroCoefficient_le
     (D : SlabPhysicalData)
     (hw0 : (0 : Q') < D.coupling)
     (hw1 : D.coupling < (1 : Q'))
-    (hwAnchor : D.coupling <= anchorCoupling)
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
     (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
     let floor := linfDist
@@ -211,8 +238,8 @@ theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSu
     apply listQSum_le_termwise_local
     intro key _
     exact
-      slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_corridor
-        D hw0 hw1 hwAnchor rootFaceId targetFaceId htarget key
+      slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_of_zeroCoefficient_le
+        D hw0 hw1 hzero rootFaceId targetFaceId htarget key
   have hcart := listQSum_cartesian_product
     (fun mass => slabObservablePairedGlobalEntropyAnchorRatio ^ mass)
     (slabAcceptedTwoReplicaStateWeight D)
@@ -237,15 +264,42 @@ theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSu
       using hcart
   · exact Q'.mul_eqv_congr_left _ _ _ hterminals
 
-/-! ## 3. Geometric decay and normalized covariance -/
-
-/-- The unnormalized connected carrier has the same volume-independent
-geometric envelope throughout the explicit corridor. -/
-theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_corridor
+/-- Corridor specialization of the coefficient-level exact terminal/mass
+Fubini bound. -/
+theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_corridor
     (D : SlabPhysicalData)
     (hw0 : (0 : Q') < D.coupling)
     (hw1 : D.coupling < (1 : Q'))
     (hwAnchor : D.coupling <= anchorCoupling)
+    (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
+    let floor := linfDist
+      (slabPlaquetteAt D.extent rootFaceId)
+      (slabPlaquetteAt D.extent targetFaceId) + 1
+    listQSum (slabObservableTwoReplicaPairWeight D)
+        (slabObservablePairedSupportConnectedFourCellSourcePairs
+          D rootFaceId targetFaceId) <=
+      listQSum
+          (fun mass =>
+            slabObservablePairedGlobalEntropyAnchorRatio ^ mass)
+          (slabObservablePairedSupportPaidMasses D floor) *
+        (D.physicalPartition * D.physicalPartition) := by
+  exact
+    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_of_zeroCoefficient_le
+      D hw0 hw1
+        (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+          (Q'.le_of_lt hw0) hwAnchor)
+        rootFaceId targetFaceId htarget
+
+/-! ## 3. Geometric decay and normalized covariance -/
+
+/-- The unnormalized connected carrier has the same volume-independent
+geometric envelope throughout the explicit corridor. -/
+theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_of_zeroCoefficient_le
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
     (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
     listQSum (slabObservableTwoReplicaPairWeight D)
@@ -258,8 +312,8 @@ theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partit
     (slabPlaquetteAt D.extent rootFaceId)
     (slabPlaquetteAt D.extent targetFaceId) + 1
   have hpartition :=
-    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_corridor
-      D hw0 hw1 hwAnchor rootFaceId targetFaceId htarget
+    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_of_zeroCoefficient_le
+      D hw0 hw1 hzero rootFaceId targetFaceId htarget
   have hmass := slabObservablePairedSupportPaidMasses_weight_le D floor
   have hpartitionNonnegative :
       (0 : Q') <= D.physicalPartition * D.physicalPartition :=
@@ -273,8 +327,49 @@ theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partit
     hmass hpartitionNonnegative
   exact Q'.le_trans' _ _ _ hpartition hscaled
 
+/-- Corridor specialization of the coefficient-level unnormalized connected
+carrier bound. -/
+theorem slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_corridor
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hwAnchor : D.coupling <= anchorCoupling)
+    (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
+    listQSum (slabObservableTwoReplicaPairWeight D)
+        (slabObservablePairedSupportConnectedFourCellSourcePairs
+          D rootFaceId targetFaceId) <=
+      slabObservablePairedSupportGlobalAnchorRate
+          D rootFaceId targetFaceId *
+        (D.physicalPartition * D.physicalPartition) := by
+  exact
+    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_of_zeroCoefficient_le
+      D hw0 hw1
+        (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+          (Q'.le_of_lt hw0) hwAnchor)
+        rootFaceId targetFaceId htarget
+
 /-- The normalized connected two-replica mass has the common strict
 geometric rate on the full corridor. -/
+theorem slabObservableNormalizedPairedSupportConnectedMass_le_of_zeroCoefficient_le
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
+    (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
+    slabObservableNormalizedPairedSupportConnectedMass
+        D rootFaceId targetFaceId <=
+      slabObservablePairedSupportGlobalAnchorRate
+        D rootFaceId targetFaceId := by
+  unfold slabObservableNormalizedPairedSupportConnectedMass
+  apply Q'.divPos_le_of_le_mul
+  exact
+    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_of_zeroCoefficient_le
+      D hw0 hw1 hzero rootFaceId targetFaceId htarget
+
+/-- Corridor specialization of the coefficient-level normalized connected
+mass bound. -/
 theorem slabObservableNormalizedPairedSupportConnectedMass_le_corridorRate
     (D : SlabPhysicalData)
     (hw0 : (0 : Q') < D.coupling)
@@ -286,11 +381,32 @@ theorem slabObservableNormalizedPairedSupportConnectedMass_le_corridorRate
         D rootFaceId targetFaceId <=
       slabObservablePairedSupportGlobalAnchorRate
         D rootFaceId targetFaceId := by
-  unfold slabObservableNormalizedPairedSupportConnectedMass
-  apply Q'.divPos_le_of_le_mul
   exact
-    slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_corridor
-      D hw0 hw1 hwAnchor rootFaceId targetFaceId htarget
+    slabObservableNormalizedPairedSupportConnectedMass_le_of_zeroCoefficient_le
+      D hw0 hw1
+        (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+          (Q'.le_of_lt hw0) hwAnchor)
+        rootFaceId targetFaceId htarget
+
+/-- **Same-object finite-volume corridor decay.**  The literal centered
+Boolean face covariance is bounded by the cutoff- and volume-independent
+`(25/9)*(16/25)^(distance+1)` envelope for every `0 < w <= 1/400`. -/
+theorem slabObservableFaceBooleanCovariance_le_of_zeroCoefficient_le
+    (D : SlabPhysicalData)
+    (hw0 : (0 : Q') < D.coupling)
+    (hw1 : D.coupling < (1 : Q'))
+    (hzero : exteriorFaceCoefficient D.coupling 0 <= anchorFaceCoefficient)
+    (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
+    slabObservableFaceBooleanCovariance
+        D rootFaceId targetFaceId <=
+      slabObservablePairedSupportGlobalAnchorRate
+        D rootFaceId targetFaceId := by
+  exact Q'.le_trans' _ _ _
+    (slabObservableFaceBooleanCovariance_le_pairedSupportConnectedMass
+      D rootFaceId targetFaceId htarget)
+    (slabObservableNormalizedPairedSupportConnectedMass_le_of_zeroCoefficient_le
+      D hw0 hw1 hzero rootFaceId targetFaceId htarget)
 
 /-- **Same-object finite-volume corridor decay.**  The literal centered
 Boolean face covariance is bounded by the cutoff- and volume-independent
@@ -306,17 +422,22 @@ theorem slabObservableFaceBooleanCovariance_le_corridorRate
         D rootFaceId targetFaceId <=
       slabObservablePairedSupportGlobalAnchorRate
         D rootFaceId targetFaceId := by
-  exact Q'.le_trans' _ _ _
-    (slabObservableFaceBooleanCovariance_le_pairedSupportConnectedMass
-      D rootFaceId targetFaceId htarget)
-    (slabObservableNormalizedPairedSupportConnectedMass_le_corridorRate
-      D hw0 hw1 hwAnchor rootFaceId targetFaceId htarget)
+  exact slabObservableFaceBooleanCovariance_le_of_zeroCoefficient_le
+    D hw0 hw1
+      (exteriorFaceCoefficient_zero_le_anchorFaceCoefficient
+        (Q'.le_of_lt hw0) hwAnchor)
+      rootFaceId targetFaceId htarget
 
 #print axioms slabAcceptedTwoReplicaStates_weight_total_general
+#print axioms slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_of_zeroCoefficient_le
 #print axioms slabObservablePairedSupportCanonicalPeeling_fiberWeight_le_corridor
+#print axioms slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_of_zeroCoefficient_le
 #print axioms slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_massSum_corridor
+#print axioms slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_of_zeroCoefficient_le
 #print axioms slabObservablePairedSupportConnectedFourCellSourcePairs_weight_le_partitionSquare_corridor
+#print axioms slabObservableNormalizedPairedSupportConnectedMass_le_of_zeroCoefficient_le
 #print axioms slabObservableNormalizedPairedSupportConnectedMass_le_corridorRate
+#print axioms slabObservableFaceBooleanCovariance_le_of_zeroCoefficient_le
 #print axioms slabObservableFaceBooleanCovariance_le_corridorRate
 
 end YMGap.Continuum.CompactDualSlabObservablePairedSupportCouplingCorridorDecay
