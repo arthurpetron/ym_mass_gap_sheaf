@@ -81,7 +81,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- actual Markov pullback defects ................. [EXPOSED]
 |   |   |   |   +-- actual pushed-law remainder L1 ................. [EXPOSED]
 |   |   |   |   +-- finite-corridor argmin of total exact budget .... [PROVED]
-|   |   |   |   `-- refining-atlas/depth decay of selected budget ... [ACTIVE]
+|   |   |   |   +-- exact-decimation singleton + actual kernel join . [PROVED]
+|   |   |   |   `-- decay of the selected/decimated budget .......... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1071,6 +1072,21 @@ active theorem must construct a refining corridor atlas with an absorbable
 candidate bound, or prove such a bound directly for the exact face-fusion
 kernel and pushed-law remainder.  Same-object all-observable OS/GNS gap,
 continuum construction, and mass identification remain subsequent open edges.
+
+The explicit decimation coupling is now also joined to this physical
+interface.  For every rational `0 < w < 1`, the singleton atlas containing
+
+```text
+w_eff = mkDecimate (decimationCorridorDepth w) w
+```
+
+is positive, lies in the coefficient corridor, and is definitionally selected
+by the transport argmin.  Instantiating the actual globally link-glued
+cutoff-one kernel at `w_eff` gives one theorem containing the original fine
+literal covariance, the decimated coarse global-anchor rate, and the exact
+physical transport budget.  No equality between the interacting block step
+and scalar heat decimation is asserted: that identification is exactly what a
+small bound on the retained budget would provide.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
