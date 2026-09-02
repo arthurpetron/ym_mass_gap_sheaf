@@ -43,6 +43,7 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
 open YMGap.Continuum.BF4PhysicalSpinCubeRayFlowCapacity
 open YMGap.Continuum.BF4PhysicalSpinCubeRawReturnRatio
+open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedCofinalGate
 open YMGap.Continuum.BF4PhysicalVacuumSectorPositiveCentralFaceAssignedMassMatchedRayTailZeroNoGo
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
@@ -391,6 +392,43 @@ def toMatchedDyadicLowSpinGrowingVolumeRayDomination
               (scale + 1)
               (lowSpinCentralReferenceState scale)))))
 
+/-- With the additional complete-ray atom compression, the aggregate-ratio
+bound produces located tail zero for the full matched excited ray. -/
+def toMatchedDyadicExcitedSpinCubeRayMassTailZero
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling}
+    (bound : MatchedDyadicCrossTotalRatioBound bridge)
+    (compression :
+      MatchedDyadicExcitedSpinCubeRayAtomCompression bridge) :
+    MatchedDyadicExcitedSpinCubeRayMassTailZero bridge :=
+  (toMatchedDyadicLowSpinGrowingVolumeRayDomination
+    bound compression).toMatchedRayMassTailZero
+
+/-- Therefore the two analytic inputs are incompatible with a common
+cofinal assigned stationary-ratio ceiling on the same matched trajectory.
+This closes that route as a no-go; it does not construct contraction. -/
+theorem excludes_cofinalAssignedRatio
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling}
+    (bound : MatchedDyadicCrossTotalRatioBound bridge)
+    (compression :
+      MatchedDyadicExcitedSpinCubeRayAtomCompression bridge) :
+    ¬ Nonempty
+      (MatchedDyadicCofinalPositiveCentralFaceAssignedStationaryRatio
+        bridge) :=
+  (toMatchedDyadicLowSpinGrowingVolumeRayDomination
+    bound compression).excludes_cofinalAssignedRatio
+
 end YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail
 
 #print axioms
@@ -405,3 +443,7 @@ end YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMat
   YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail.MatchedDyadicCrossTotalRatioBound.toFixedHalfSpinOneMarginalTailZero
 #print axioms
   YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail.toMatchedDyadicLowSpinGrowingVolumeRayDomination
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail.toMatchedDyadicExcitedSpinCubeRayMassTailZero
+#print axioms
+  YMGap.Continuum.BF4LowSpinGrowingVolumeRawPartitionProportionalFractionalMatchedMarginalTail.excludes_cofinalAssignedRatio

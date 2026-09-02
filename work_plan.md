@@ -1711,9 +1711,11 @@ Given that producer and the uniform `S/T` bound, a proved compiler inhabits
 the existing complete-ray growing-volume domination gate with combined
 ceiling `rayAtomCeiling * ratioCeiling`.  The already verified downstream
 compiler would then give ray-mass tail zero and exclude the cofinal assigned
-stationary-ratio branch; it would still not prove contraction or a gap.  The
+stationary-ratio branch; the module now exposes both of those final
+conditional consequences directly.  They close that route as a no-go and do
+not prove contraction or a gap.  The
 new source passes its direct monitored check and focused 5,226-job build, and
-all six printed declarations use only `[propext, Quot.sound]`.  In particular,
+all eight printed declarations use only `[propext, Quot.sound]`.  In particular,
 the same module proves the finite and matched pointwise biconditional
 
 ```text
