@@ -65,6 +65,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- accepted canonical completion to vacuum .......... [PROVED]
 |   |   |   +-- telescope accepted-path weights .................. [PROVED for 0<w<1]
 |   |   |   +-- total core exponent <= 2*faces*threshold .......... [PROVED]
+|   |   |   +-- terminal/trace/exterior/core proof profile ........ [PROVED]
 |   |   |   +-- sum source-assignment fiber along accepted path ... [ACTIVE producer]
 |   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
@@ -895,9 +896,16 @@ totalCoreResidual
 ```
 
 Thus representation-cutoff growth lives entirely in the paid exterior; the
-remaining core price is an explicit finite-volume prefactor.  The active
-inverse-fiber theorem must exploit this split rather than charge the adaptive
-entropy base uniformly to every peeled copy.
+remaining core price is an explicit finite-volume prefactor.  A single
+proof-carrying recursive profile now retains the accepted terminal, complete
+adaptive trace, total exterior exponent, and total core exponent.  It proves
+`traceMass = exteriorMass + coreMass`, the displayed core ceiling, and the
+exact `anchor^exterior * 2^core` pointwise telescope.  Forgetting only the two
+counters is proved to recover the pre-existing canonical terminal/trace
+output literally, so its complete-output injection and dependent trace
+carrier remain available without a second decoder.  The active inverse-fiber
+theorem must exploit this split rather than charge the adaptive entropy base
+uniformly to every peeled copy.
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
 cofinal-congestion route once the required atom compression is imposed.
