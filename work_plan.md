@@ -104,9 +104,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
 |   |   |   |   +-- connected pushed-law remainder <= 3 * remainderL1 ... [PROVED]
 |   |   |   |   +-- separate mismatch/L1 tails => combined O(a) tail .... [PROVED interface]
+|   |   |   |   +-- remainderL1 = selected candidate's sign-observable
+|   |   |   |   |       matching defect .................................. [PROVED]
+|   |   |   |   +-- mismatch/sign-match tails => combined O(a) tail ...... [PROVED interface]
 |   |   |   |   `-- inhabit the two literal O(a) producer bounds ........ [ACTIVE]
 |   |   |   |       +-- raw event-mismatch cost <= C_m * a .............. [OPEN]
-|   |   |   |       `-- pushforward remainderL1 <= C_r * a .............. [OPEN]
+|   |   |   |       `-- candidate sign-match defect <= C_s * a .......... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1254,6 +1257,27 @@ It constructively compiles those inputs to the complete transport tail with
 coefficient `C_m + 3*C_r`, and hence to the existing eventual
 `anchor + epsilon` covariance theorem.  Neither input estimate is inhabited;
 they are now the two explicit active analytic producers.
+
+`CompactDualPhysicalRemainderL1DualObservable.lean` now removes any ambiguity
+about what the second producer measures.  For each actual physical kernel it
+constructs the pointwise sign of the pushed-law remainder and proves that the
+existing observable-matching defect on this sign observable is exactly
+`remainderL1`.  The blocked-minus-coarse signed expectation equals the signed
+remainder expectation, whose value is the full absolute remainder sum.  This
+is finite constructive total-variation duality for the actual kernel, not an
+asymptotic estimate.
+
+`CompactDualSlabObservablePhysicalSignMatchedTransportTail.lean` specializes
+that identity at every index of the nested physical schedule.  Its
+`SignMatchedSeparatedLinearRawTransportTail` asks for the raw event-mismatch
+bound `C_m * a` and the actual selected candidate's sign-observable matching
+bound `C_s * a`; it compiles them to the previous separated tail with exact
+coefficient `C_m + 3*C_s`, then to the eventual `anchor + epsilon` covariance
+theorem.  Neither producer is inhabited.  Crucially, the sign observable
+depends on the candidate kernel, so the already-proved argmin for one fixed
+observable does not by itself minimize this total-variation defect.  A
+uniform candidate-dependent sign-matching estimate, together with the raw
+mismatch estimate, is the active analytic frontier.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
