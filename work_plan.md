@@ -93,7 +93,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- pullback moments = fine-law averages of literal
 |   |   |   |   |       source-row kernel discrepancies ............... [PROVED]
 |   |   |   |   +-- source-resolved exact-decimation bound ............ [PROVED]
-|   |   |   |   `-- rowwise/pushed-law connected remainder decay ...... [ACTIVE]
+|   |   |   |   +-- absolute row discrepancy = literal mismatch mass .. [PROVED]
+|   |   |   |   +-- connected pullback <= averaged mismatch cost ...... [PROVED]
+|   |   |   |   +-- mismatch-resolved exact-decimation bound .......... [PROVED]
+|   |   |   |   `-- actual mismatch/pushed-law remainder decay ........ [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1163,11 +1166,25 @@ This identity is specialized to the root, target, and joint face events, and
 their three fine-law averages are substituted into the connected pullback
 remainder.  The canonical exact-decimation theorem consequently exposes the
 literal source-averaged kernel discrepancy and the connected pushed-law
-remainder in one bound.  The conservative three-moment/L1 theorem remains
-valid, but the active quantitative producer is now a geometric rowwise bound
-for `d_K` together with decay of the pushed-law connected combination for the
-exact physical kernel.  No smallness or refining-scale decay estimate for
-either term has yet been proved.
+remainder in one bound.
+
+Row normalization now turns the absolute discrepancy into a nonnegative
+event-mismatch mass exactly.  For each source `x`, mismatch means leaving `B`
+when `A(x)` is true and entering `B` when `A(x)` is false:
+
+```text
+|d_K(A,B;x)| = K(x, mismatch(A,B;x)).
+```
+
+Finite triangle and probability-factor bounds show that the absolute
+connected pullback remainder is at most the sum of the fine-law averaged
+joint, root, and target mismatch masses.  A canonical exact-decimation theorem
+now ends at this mismatch cost plus the absolute connected pushed-law
+remainder.  The conservative three-moment/L1 theorem remains valid, but the
+active quantitative producer is an actual-kernel bound for this literal
+mismatch mass together with decay of the pushed-law connected combination.
+No smallness or refining-scale decay estimate for either term has yet been
+proved.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
