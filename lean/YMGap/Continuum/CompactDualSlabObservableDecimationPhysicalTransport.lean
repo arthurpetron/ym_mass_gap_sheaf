@@ -25,7 +25,7 @@ the existing physical kernel only; no choice, `Classical`, `native_decide`,
 
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportDecimationCorridor
 import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredBlockingDefect
-import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
+import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
 import YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 
 namespace YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport
@@ -44,6 +44,7 @@ open YMGap.Continuum.CompactDualSlabObservablePairedSupportDecimationCorridor
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportGlobalDecay
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredBlockingDefect
+open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredPullbackExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalTransportMatchedStep
 open YMGap.Continuum.HeatKernelRGStep
@@ -218,6 +219,48 @@ theorem observableDecimationPhysicalConnectedTransport_covariance_le
       (Q'.add_eqv_congr_left
         (centeredObservablePullbackDefect K M) _ _ hremainder))
 
+/-- Fully cancellation-aware canonical physical-decimation bound.  Both
+transport errors are absolute values of explicit signed root/target/joint
+combinations, leaving no opaque centered covariance defect in the active
+finite-cutoff interface. -/
+theorem observableDecimationPhysicalFullyConnectedTransport_covariance_le
+    (G : CutoffOneFaceGeometry)
+    (w : Q') (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+    let effective := observableDecimationCoupling w
+    let heffective : (0 : Q') < effective :=
+      observableDecimationCoupling_pos hw0
+    let S := G.block.candidateScalePair w hg effective heffective
+    let M := G.faceMap w hg effective heffective
+    let K := physicalKernel S rfl heffective
+    slabPhysicalFaceBooleanCovariance
+        S.fine M.fineRoot M.fineTarget ≤
+      slabObservablePairedSupportGlobalAnchorRate
+          S.coarse M.coarseRoot M.coarseTarget +
+        (Q'.abs (centeredObservablePullbackRemainder K M) +
+          Q'.abs (centeredCylinderRemainder K M)) := by
+  let hg : (0 : Q') ≤ w := Q'.le_of_lt hw0
+  let effective := observableDecimationCoupling w
+  let heffective : (0 : Q') < effective :=
+    observableDecimationCoupling_pos hw0
+  let S := G.block.candidateScalePair w hg effective heffective
+  let M := G.faceMap w hg effective heffective
+  let K := physicalKernel S rfl heffective
+  have htransport :=
+    observableDecimationPhysicalConnectedTransport_covariance_le
+      G w hw0 hw1
+  have hpullback :=
+    centeredObservablePullbackDefect_eqv_abs_centeredPullbackRemainder K M
+  refine Q'.le_trans' _ _ _ htransport ?_
+  exact Q'.le_of_eqv
+    (Q'.add_eqv_congr_left
+      (slabObservablePairedSupportGlobalAnchorRate
+        S.coarse M.coarseRoot M.coarseTarget) _ _
+      (Q'.add_eqv_congr_right
+        (centeredObservablePullbackDefect K M)
+        (Q'.abs (centeredObservablePullbackRemainder K M))
+        (Q'.abs (centeredCylinderRemainder K M)) hpullback))
+
 #print axioms observableDecimationCoupling
 #print axioms observableDecimationCoupling_pos
 #print axioms observableDecimationCoupling_lt_one
@@ -227,5 +270,6 @@ theorem observableDecimationPhysicalConnectedTransport_covariance_le
 #print axioms observableDecimationPhysicalTransport_covariance_le
 #print axioms observableDecimationPhysicalCenteredTransport_covariance_le
 #print axioms observableDecimationPhysicalConnectedTransport_covariance_le
+#print axioms observableDecimationPhysicalFullyConnectedTransport_covariance_le
 
 end YMGap.Continuum.CompactDualSlabObservableDecimationPhysicalTransport

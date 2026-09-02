@@ -224,7 +224,10 @@ def centeredCylinderRemainder
 
 /-! ## 2. Exact covariance expansion -/
 
-private theorem covarianceRemainderExpansion_local
+/-- Generic exact covariance comparison when each new moment is a reference
+moment plus a signed remainder.  This is public so the Markov-pullback and
+pushed-law remainder sides can share one algebraic seam. -/
+theorem covariance_sub_covariance_eqv_signedMomentRemainders
     (blockedJoint blockedRoot blockedTarget
       coarseJoint coarseRoot coarseTarget
       jointRemainder rootRemainder targetRemainder : Q')
@@ -298,7 +301,7 @@ theorem coarse_sub_blocked_covariance_eqv_centeredCylinderRemainder
           faceCylinderRemainder K M.coarseTarget := by
     exact PhysicalKernel.blockedCylinderMass_decomposition K
       (slabPhysicalFacePositiveB M.coarseTarget)
-  exact covarianceRemainderExpansion_local
+  exact covariance_sub_covariance_eqv_signedMomentRemainders
     (blockedFacePairMoment K M.coarseRoot M.coarseTarget)
     (blockedFaceMoment K M.coarseRoot)
     (blockedFaceMoment K M.coarseTarget)
@@ -324,6 +327,7 @@ theorem centeredPhysicalRemainderDefect_eqv_abs_centeredCylinderRemainder
 #print axioms faceCylinderRemainder
 #print axioms facePairCylinderRemainder
 #print axioms centeredCylinderRemainder
+#print axioms covariance_sub_covariance_eqv_signedMomentRemainders
 #print axioms coarse_sub_blocked_covariance_eqv_centeredCylinderRemainder
 #print axioms centeredPhysicalRemainderDefect_eqv_abs_centeredCylinderRemainder
 

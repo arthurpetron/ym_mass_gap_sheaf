@@ -87,7 +87,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- centered pushed-law defect = exact connected
 |   |   |   |   |       signed root/target/joint remainder ........... [PROVED]
 |   |   |   |   +-- exact-decimation bound with connected remainder .. [PROVED]
-|   |   |   |   `-- decay of centered pullback + connected remainder . [ACTIVE]
+|   |   |   |   +-- centered pullback defect = exact connected
+|   |   |   |   |       signed root/target/joint remainder ........... [PROVED]
+|   |   |   |   +-- fully connected exact-decimation bound ........... [PROVED]
+|   |   |   |   `-- decay of the two connected signed remainders ..... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1123,11 +1126,23 @@ coarse Gibbs covariance - blocked covariance
 
 Consequently `centeredPhysicalRemainderDefect` is exactly the absolute value
 of this one connected signed combination.  The canonical exact-decimation
-bound has been rewritten to expose that quantity directly.  The conservative
-three-moment/L1 theorem remains valid, but the active quantitative producer is
-now a bound on `centeredObservablePullbackDefect` plus this connected signed
-remainder for the exact physical kernel.  No decay estimate for either term
-has yet been proved.
+bound has been rewritten to expose that quantity directly.  The Markov side
+now has the parallel exact expansion.  If the signed pullback remainders are
+the blocked moments minus the selected fine moments, then
+
+```text
+fine covariance - blocked covariance
+  = -jointPullbackRemainder
+      + rootPullbackRemainder * blockedTargetMoment
+      + fineRootMoment * targetPullbackRemainder.
+```
+
+Thus `centeredObservablePullbackDefect` is also exactly the absolute value of
+one connected signed combination.  The canonical exact-decimation theorem
+now exposes the sum of the absolute values of these two connected quantities.
+The conservative three-moment/L1 theorem remains valid, but the active
+quantitative producer is decay of the two signed combinations for the exact
+physical kernel.  No decay estimate for either term has yet been proved.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
