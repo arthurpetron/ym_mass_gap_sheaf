@@ -66,7 +66,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- telescope accepted-path weights .................. [PROVED for 0<w<1]
 |   |   |   +-- total core exponent <= 2*faces*threshold .......... [PROVED]
 |   |   |   +-- terminal/trace/exterior/core proof profile ........ [PROVED]
-|   |   |   +-- sum source-assignment fiber along accepted path ... [ACTIVE producer]
+|   |   |   +-- fixed terminal/exterior/core global source fiber .. [PROVED]
+|   |   |   +-- sum bounded core counters and total mass .......... [ACTIVE producer]
 |   |   |   +-- finite-core coercivity / localized core decay .... [OPEN]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -904,8 +905,30 @@ exact `anchor^exterior * 2^core` pointwise telescope.  Forgetting only the two
 counters is proved to recover the pre-existing canonical terminal/trace
 output literally, so its complete-output injection and dependent trace
 carrier remain available without a second decoder.  The active inverse-fiber
-theorem must exploit this split rather than charge the adaptive entropy base
-uniformly to every peeled copy.
+theorem now exploits this split rather than charging the adaptive entropy
+base uniformly to every peeled copy.
+
+For a fixed accepted terminal and fixed exterior/core counters, the global
+observable entropy carrier sums shapes, spins, auxiliary rows, adaptive
+words, ordered signatures, and positive size compositions while the
+pointwise accepted-path telescope supplies the weight.  The resulting
+profile bound is
+
+```text
+fixed-profile observable source weight
+  <= (16/25)^exteriorMass * 40960000^coreMass * terminalWeight.
+```
+
+The exterior rate is strictly below one and the core exponent remains bounded
+by `2 * faceCount * threshold`, independently of representation cutoff.  This
+is a complete weighted fiber only after fixing both counters; it does not yet
+sum their finite range.  The active inverse-fiber producer is therefore the
+finite Fubini step over core counters and total mass.  A coarse but explicit
+target is to absorb the bounded core cost into a prefactor using
+`40960000 / (16/25) = 64000000`, then apply the existing geometric tail in
+total mass.  Localized control of that finite-volume prefactor and its
+beta/lattice-spacing transport remain subsequent open edges.
+
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
 cofinal-congestion route once the required atom compression is imposed.

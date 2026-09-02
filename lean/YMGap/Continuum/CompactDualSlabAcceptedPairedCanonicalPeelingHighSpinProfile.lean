@@ -259,6 +259,23 @@ termination_by slabAcceptedTwoReplicaStateMass state
 decreasing_by
   apply SlabAcceptedPairedPeelChoice.lowerState_mass_lt
 
+/-- For every scanned face list, the stored residual-core exponent is at most
+the initial threshold-truncated pair mass. -/
+theorem slabAcceptedPairCanonicalHighSpinProfile_core_le_initial
+    (D : SlabPhysicalData) (threshold : Nat)
+    (faces : List Nat)
+    (hphysical : forall faceId, faceId ∈ faces ->
+      faceId ∈ slabPhysicalFaceEdges D.extent)
+    (state : SlabAcceptedTwoReplicaState D) :
+    let result := slabAcceptedPairCanonicalHighSpinProfile
+      D threshold faces hphysical state
+    result.2.2.2 <=
+      slabAcceptedTwoReplicaThresholdCoreMass D threshold state := by
+  have htelescope :=
+    slabAcceptedPairCanonicalHighSpinProfile_core_telescope
+      D threshold faces hphysical state
+  omega
+
 /-- On the complete physical face list, the stored residual-core exponent is
 bounded independently of the representation cutoff. -/
 theorem slabAcceptedPairCanonicalHighSpinProfile_core_le
@@ -275,16 +292,13 @@ theorem slabAcceptedPairCanonicalHighSpinProfile_core_le
     simpa only [SlabPhysicalData.faceEdges] using hface
   let result := slabAcceptedPairCanonicalHighSpinProfile
     D threshold D.faceEdges hphysical state
-  have htelescope :=
-    slabAcceptedPairCanonicalHighSpinProfile_core_telescope
+  have hcore :=
+    slabAcceptedPairCanonicalHighSpinProfile_core_le_initial
       D threshold D.faceEdges hphysical state
   have hinitial := slabAcceptedTwoReplicaThresholdCoreMass_le
     D threshold state
   change result.2.2.2 <= 2 * D.faceEdges.length * threshold
-  change slabAcceptedTwoReplicaThresholdCoreMass D threshold result.1 +
-      result.2.2.2 =
-    slabAcceptedTwoReplicaThresholdCoreMass D threshold state at htelescope
-  omega
+  exact Nat.le_trans hcore hinitial
 
 /-- Every stored production record remains valid for its adaptive carrier. -/
 theorem slabAcceptedPairCanonicalHighSpinProfile_trace_valid
@@ -420,6 +434,7 @@ decreasing_by
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_terminal_trace
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_traceMass
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_core_telescope
+#print axioms slabAcceptedPairCanonicalHighSpinProfile_core_le_initial
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_core_le
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_trace_valid
 #print axioms slabAcceptedPairCanonicalHighSpinProfile_sourceWeight_le
