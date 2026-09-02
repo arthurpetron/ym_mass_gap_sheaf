@@ -281,7 +281,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- uniform reference posterior floor .... [OBSTRUCTED at w=1/2,K=2,V=0]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- same-volume projective posterior window [PROVED]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- projective x volume-comparison compiler [PROVED reduction]
-|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [OBSTRUCTED at finite datum]
+|   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- fixed-to-growing marginal factor ...... [OPEN / tail-sensitive; insufficient for support]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- one zero-support boundary => no floor .. [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- isolated reference = source x vacuum ... [PROVED exact]
 |   |   |   |   |   |       |       |       |   |           |   |   |   |   +-- reference support subset vacuum support . [PROVED exact]
@@ -295,7 +295,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       |       |       |   |           |   |   |   +-- capacity => (V+1)*fixedMarginal <= C [PROVED necessary]
 |   |   |   |   |   |       |       |       |   |           |   |   |   `-- matched fixed marginal = O(1/(s+1)) . [OPEN necessary test]
 |   |   |   |   |   |       |       |       |   |           |   |   `-- inhabit or refute uniform column bound . [REFUTED at finite datum]
-|   |   |   |   |   |       |       |       |   |           |   `-- source-dependent/reference redesign ..... [ACTIVE route pivot]
+|   |   |   |   |   |       |       |       |   |           |   `-- source-dependent cross-boundary redesign . [ACTIVE route pivot]
+|   |   |   |   |   |       |       |       |   |           |       +-- occurrence recoding preserves both sums [PROVED exact]
+|   |   |   |   |   |       |       |       |   |           |       +-- weighted inverse fibers => raw cross ... [PROVED reduction]
+|   |   |   |   |   |       |       |       |   |           |       +-- zero target weight => zero source fiber . [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |       +-- positive source maps to nonzero target .. [PROVED necessary]
+|   |   |   |   |   |       |       |       |   |           |       +-- construct support-aware repair .......... [ACTIVE producer]
+|   |   |   |   |   |       |       |       |   |           |       `-- cutoff/volume-uniform matched ceiling .. [OPEN]
 |   |   |   |   |   |       |       |       |   |           +-- remaining spin-ray sum compression . [OPEN producer]
 |   |   |   |   |   |       |       |       |   |           +-- gate => matched ray tail zero ...... [PROVED reduction]
 |   |   |   |   |   |       |       |       |   |           `-- tail zero excludes ratio route .... [PROVED no-go]
@@ -1520,6 +1526,24 @@ repair is thus closed at this datum; a viable next producer must change the
 source-dependent allocation or the reference support, not merely sharpen its
 ceiling estimate.
 
+The occurrence-indexed
+`LowSpinFixedGrowingRawPartitionFiberSwitching` remains a logically distinct
+route: unlike the completion-only repair, it may send a source occurrence
+across boundary channels and pair it with a different fixed-slab occurrence.
+The translated zero channel therefore does not refute this broader switch by
+itself.  `BF4LowSpinGrowingVolumeRawPartitionFiberSwitchingSupport.lean` now
+states its unavoidable support law constructively.  The source index weights
+are pointwise nonnegative; hence a target of zero weight has exactly zero
+inverse-fiber mass under every valid switching.  Any strictly positive source
+occurrence must consequently be repaired to a target occurrence of nonzero
+weight.  This identifies the next geometric deliverable without smuggling in
+a ceiling: construct a cross-boundary repair whose image covers the positive
+source support inside the nonzero reference-target support, then prove a
+cutoff/volume-uniform weighted-fiber capacity.  The existing fixed-to-growing
+marginal comparison is left open and tail-sensitive; it is not itself refuted
+at one finite datum, but it cannot repair the pointwise support failure of the
+completion-only posterior route.
+
 The new decorated-face, raw-row-ceiling, full-row-obstruction, low-spin
 volume-geometry, reflected-carrier, and raw-row-floor modules pass direct
 monitored source checks.  Focused one-worker builds complete successfully for
@@ -1587,6 +1611,9 @@ build.
 The positive completion-column/zero reference-completion certificate and the
 resulting no-go theorems for the column, physical-fiber, and canonical coarse
 repair packages complete successfully in a focused 5,228-job build.
+The generic zero-target-fiber and positive-source/nonzero-target support laws
+for the surviving occurrence-indexed weighted switch pass a direct check and
+complete successfully in a focused 5,210-job build.
 Printed load-bearing declarations use only `[propext, Quot.sound]`.  No
 full-root audit is claimed.
 
