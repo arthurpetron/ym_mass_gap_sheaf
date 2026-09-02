@@ -109,6 +109,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- mismatch/sign-match tails => combined O(a) tail ...... [PROVED interface]
 |   |   |   |   +-- finite-atlas raw/TV argmin + reference transfer ...... [PROVED reduction]
 |   |   |   |   |   `-- corridor atlas with O(a) reference candidate ..... [OPEN alternative]
+|   |   |   |   +-- matched-BF4 nome + physical spacing on one AF chart .. [PROVED bridge]
+|   |   |   |   |   +-- shifted-AF identification => spacing to zero ..... [PROVED]
+|   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- raw event-mismatch cost <= C_m * a .............. [OPEN]
 |   |   |   |       `-- candidate sign-match defect <= C_s * a .......... [OPEN]
@@ -1299,6 +1302,36 @@ The canonical exact-decimation singleton route still requires its two direct
 raw-mismatch/sign-match producer estimates.  The new atlas route is a genuine
 alternative only if a uniformly controlled reference family and the required
 trajectory coherence can be built.
+
+`CompactDualSlabObservablePhysicalMatchedAFTrajectory.lean` now closes the
+scalar trajectory adapter for the canonical raw/sign route.  It separates
+the nested dyadic face geometry from the scalar inputs, then constructs a
+`PhysicalObservableRefinementSchedule` whose fine nome is definitionally
+
+```text
+blockedWeight family (coupling scale)
+```
+
+and whose physical spacing is definitionally
+
+```text
+spacing.a (coupling scale).
+```
+
+Thus both quantities are evaluated on the same rational AF coordinate.  The
+matched cubic-margin law proves the exact block nome positive and below one;
+the quadratic physical spacing envelope plus a coupling-to-zero modulus
+constructs the schedule's spacing-to-zero modulus.  When the coupling is
+identified with the repository's shifted AF schedule, its existing explicit
+modulus supplies that input automatically.  Finally, an inhabitant of the
+raw/sign `O(a)` tail on this exact schedule yields the literal fine covariance
+bound `anchor + epsilon` at the computed cutoff.
+
+This is a proved same-chart bridge, not a physical AF construction.  The
+four-dimensional `CubicMarginLaw`, the dimensional-transmutation
+`PhysicalSpacingEnvelope`, nested physical face data, and the raw/sign tail
+remain supplied objects, and no same-measure continuum or OS/GNS conclusion
+is inferred.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
