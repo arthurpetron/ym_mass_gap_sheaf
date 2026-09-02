@@ -77,6 +77,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- core-coefficient bound => full covariance decay .... [PROVED interface]
 |   |   |   +-- exact decimation reaches coefficient corridor ...... [PROVED]
 |   |   |   +-- physical observable transport through blocking ..... [ACTIVE producer]
+|   |   |   |   +-- exact fine/coarse face covariance defect split . [PROVED]
+|   |   |   |   +-- actual Markov pullback defects ................. [EXPOSED]
+|   |   |   |   +-- actual pushed-law remainder L1 ................. [EXPOSED]
+|   |   |   |   `-- separation/block-depth decay of both errors .... [ACTIVE]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1028,11 +1032,32 @@ exteriorFaceCoefficient (mkDecimate depth(w) w) 0
 ```
 
 and hence gives the complete `16/25` covariance decay for the decimated slab
-datum itself.  This is not the interacting 4D block-spin/observable transport:
-the comparison from the original weak-coupling datum to the blocked datum is
-now the unique open producer on this branch.  A named beta/lattice-spacing
-trajectory, same-object all-observable OS/GNS gap, and continuum construction
-remain subsequent open edges.
+datum itself.  The interacting observable comparison has now been reduced to
+two concrete, computed errors for the actual globally link-glued cutoff-one
+physical Markov kernel.  For witness-bearing fine/coarse root and target face
+maps, the exact one-step theorem is
+
+```text
+fine literal face covariance
+  <= coarse global-anchor rate
+     + observablePullbackDefect(actual physical kernel)
+     + threePhysicalRemainderCost(actual physical kernel).
+```
+
+Here `observablePullbackDefect` is the sum of the root, target, and joint
+moment defects between the fine Boolean cylinders and their `[0,1]`-valued
+Markov pullbacks.  `threePhysicalRemainderCost` is the corresponding threefold
+L1 pushed-law/coarse-Gibbs remainder payment.  Strict Boolean cylinder
+preservation would be too strong for a stochastic recoupling kernel; this
+decomposition records the correct physical interface without assuming an
+abstract transport certificate.
+
+The active producer is now quantitative rather than structural: prove
+separation- or block-depth-absorbable bounds for both displayed errors and
+then bind the iterated block depth to a named beta/lattice-spacing trajectory.
+The present theorem does not assert either decay.  Same-object all-observable
+OS/GNS gap, continuum construction, and mass identification remain subsequent
+open edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
