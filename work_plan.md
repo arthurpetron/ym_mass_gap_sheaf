@@ -70,7 +70,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- sum bounded core counters and total mass .......... [PROVED]
 |   |   |   +-- complete accepted-terminal inverse fiber .......... [PROVED]
 |   |   |   +-- exact core = target-component truncated mass ...... [PROVED]
-|   |   |   +-- finite-core coercivity / localized core decay .... [ACTIVE producer]
+|   |   |   +-- exact residual coefficient `2*w^3` ................ [PROVED]
+|   |   |   +-- full covariance decay for `0<w<=1/400` ............ [PROVED]
+|   |   |   +-- same-object OS / cutoff removal on that corridor .. [ACTIVE receiver]
+|   |   |   +-- above-corridor RG / finite-core coercivity ........ [ACTIVE producer]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -960,11 +963,39 @@ Thus faces outside the observable component contribute no residual core
 charge; the earlier whole-slab ceiling was a proof-level overestimate rather
 than a physical nonlocality.  This identity does not by itself replace `K` in
 the common terminal-fiber bound, because `component` varies with the source
-inside that fiber.  The active producer is therefore the sharper theorem that
-partitions or coercively pays this source-dependent local low-spin mass with a
-rate below one, making its cost support-local or separation-absorbable.  A
-named beta/lattice-spacing trajectory, same-object all-observable OS/GNS gap,
-and continuum construction remain subsequent open edges.
+inside that fiber.
+
+The deliberately coarse residual price `2` has now been replaced throughout
+the actual accepted paired recursion by its exact threshold-zero SU(2)
+successor coefficient
+
+```text
+residualCoreCoefficient(w) = 2 * w^3.
+```
+
+This gives a sharp branch boundary.  For every rational
+`0 < w <= 1/400`, monotonicity makes the residual coefficient no larger than
+the production-anchor payment `1/32000000`.  Exterior and core copies can
+therefore be recombined before summation.  The complete global entropy code
+then proves, with no core-coordinate or terminal-count prefactor,
+
+```text
+fixed terminal + fixed total mass M
+  <= (16/25)^M * terminalWeight,
+
+normalized connected mass and same-object Boolean face covariance
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+These estimates are uniform in representation cutoff and finite slab volume
+throughout that explicit strong-coupling corridor.  The immediate receiver is
+the existing same-object reflected-face OS and receding-volume transport,
+which must be generalized from the single production point to the corridor.
+For `w > 1/400`, the current anchor comparison is unavailable; a genuine
+RG/coercivity theorem must replace it rather than reintroducing a finite-core
+prefactor.  A named beta/lattice-spacing trajectory, same-object
+all-observable OS/GNS gap, and continuum construction remain subsequent open
+edges.
 
 The older matched `S/T` atom route below remains a useful diagnosed side
 branch, but its conditional tail-zero compiler rules it out as the default
