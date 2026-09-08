@@ -35,6 +35,9 @@ set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberDensity
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedSupportedPaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnNormalizedCost
@@ -53,8 +56,24 @@ open YMGap.Continuum.FiniteDependentKernelCoefficientTransport.FiniteDependentCo
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
+open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem sub_eqv_right_local {a b c : Q'} (hbc : b ≈ c) :
+    a - b ≈ a - c :=
+  Q'.add_eqv_congr' (Q'.eqv_refl a)
+    (Q'.neg_eqv_congr b c hbc)
+
+private theorem partitionDensity_pos_local (S : SlabScalePair) :
+    (0 : Q') < positiveExpandedReceiverFiberPartitionDensity S := by
+  unfold positiveExpandedReceiverFiberPartitionDensity
+  exact Q'.divPos_pos _ _ (coarsePhysicalPartitionSquare_pos S)
+    (Q'.mul_pos
+      (slabParametricKPhysicalPartition_pos
+        S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent)
+      (slabParametricKPhysicalPartition_pos
+        S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent))
 
 local instance uniformCalibrationPairDecidableEq
     (D : SlabPhysicalData) (root : Nat) :
@@ -349,9 +368,127 @@ theorem actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRel
       sourceRelative targetRelative hsourceRelative
       hsourceCoefficient htargetCoefficient
 
+/-! ## Coverage-sensitive boundary of the uniform route -/
+
+/-- Outside the supported source-path image, zero extension makes the source
+density coefficient exactly the full positive partition density. -/
+theorem actualPositiveExpandedReceiverFiberSourceDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (receiver : Receiver S root)
+    (houtside : ∀ supported,
+      supported ∈ positiveExpandedFourCellSourceSupportedPaths S root target →
+        receiver ≠ supported.receiverPair) :
+    Q'.abs
+        (actualPositiveExpandedReceiverFiberSourceDensityCoefficient
+          S hfineCutoff hcoarseCoupling root target receiver) ≈
+      positiveExpandedReceiverFiberPartitionDensity S := by
+  have hfiber :
+      positiveExpandedFourCellSourceReceiverFiberDensity
+          S hfineCutoff hcoarseCoupling root target receiver ≈ 0 :=
+    positiveExpandedFourCellSourceReceiverFiberDensity_eqv_zero_of_not_image
+      S hfineCutoff hcoarseCoupling root target receiver houtside
+  have hcoefficient :
+      actualPositiveExpandedReceiverFiberSourceDensityCoefficient
+          S hfineCutoff hcoarseCoupling root target receiver ≈
+        positiveExpandedReceiverFiberPartitionDensity S := by
+    unfold actualPositiveExpandedReceiverFiberSourceDensityCoefficient
+    exact Q'.eqv_trans _
+      (positiveExpandedReceiverFiberPartitionDensity S - 0) _
+      (sub_eqv_right_local hfiber)
+      (Q'.eqv_of_eq
+        (Q'.sub_zero' (positiveExpandedReceiverFiberPartitionDensity S)))
+  exact Q'.eqv_trans _
+    (Q'.abs (positiveExpandedReceiverFiberPartitionDensity S)) _
+    (Q'.abs_eqv_congr hcoefficient)
+    (YMGap.Continuum.TsumDeriv.Q'.abs_of_nonneg
+      (Q'.le_of_lt (partitionDensity_pos_local S)))
+
+/-- Consequently any source-coefficient ceiling at an uncovered receiver is
+at least the partition density itself. -/
+theorem positiveExpandedReceiverFiberPartitionDensity_le_sourceRelative_of_not_image
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (receiver : Receiver S root)
+    (sourceRelative : Q')
+    (houtside : ∀ supported,
+      supported ∈ positiveExpandedFourCellSourceSupportedPaths S root target →
+        receiver ≠ supported.receiverPair)
+    (hbound :
+      Q'.abs
+          (actualPositiveExpandedReceiverFiberSourceDensityCoefficient
+            S hfineCutoff hcoarseCoupling root target receiver) ≤
+        sourceRelative) :
+    positiveExpandedReceiverFiberPartitionDensity S ≤ sourceRelative := by
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv
+      (actualPositiveExpandedReceiverFiberSourceDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+        S hfineCutoff hcoarseCoupling root target receiver houtside))
+    hbound
+
+/-- Outside the supported target-path image, the target density coefficient
+has the same exact partition-density floor. -/
+theorem actualPositiveExpandedReceiverFiberTargetDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (receiver : Receiver S root)
+    (houtside : ∀ supported,
+      supported ∈ positiveExpandedFourCellTargetSupportedPaths S root target →
+        receiver ≠ supported.receiverPair) :
+    Q'.abs
+        (actualPositiveExpandedReceiverFiberTargetDensityCoefficient
+          S hfineCutoff hcoarseCoupling root target receiver) ≈
+      positiveExpandedReceiverFiberPartitionDensity S := by
+  have hfiber :
+      positiveExpandedFourCellTargetReceiverFiberDensity
+          S hfineCutoff hcoarseCoupling root target receiver ≈ 0 :=
+    positiveExpandedFourCellTargetReceiverFiberDensity_eqv_zero_of_not_image
+      S hfineCutoff hcoarseCoupling root target receiver houtside
+  have hcoefficient :
+      actualPositiveExpandedReceiverFiberTargetDensityCoefficient
+          S hfineCutoff hcoarseCoupling root target receiver ≈
+        positiveExpandedReceiverFiberPartitionDensity S := by
+    unfold actualPositiveExpandedReceiverFiberTargetDensityCoefficient
+    exact Q'.eqv_trans _
+      (positiveExpandedReceiverFiberPartitionDensity S - 0) _
+      (sub_eqv_right_local hfiber)
+      (Q'.eqv_of_eq
+        (Q'.sub_zero' (positiveExpandedReceiverFiberPartitionDensity S)))
+  exact Q'.eqv_trans _
+    (Q'.abs (positiveExpandedReceiverFiberPartitionDensity S)) _
+    (Q'.abs_eqv_congr hcoefficient)
+    (YMGap.Continuum.TsumDeriv.Q'.abs_of_nonneg
+      (Q'.le_of_lt (partitionDensity_pos_local S)))
+
+/-- Any target-coefficient ceiling at an uncovered receiver must likewise be
+at least the partition density. -/
+theorem positiveExpandedReceiverFiberPartitionDensity_le_targetRelative_of_not_image
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (receiver : Receiver S root)
+    (targetRelative : Q')
+    (houtside : ∀ supported,
+      supported ∈ positiveExpandedFourCellTargetSupportedPaths S root target →
+        receiver ≠ supported.receiverPair)
+    (hbound :
+      Q'.abs
+          (actualPositiveExpandedReceiverFiberTargetDensityCoefficient
+            S hfineCutoff hcoarseCoupling root target receiver) ≤
+        targetRelative) :
+    positiveExpandedReceiverFiberPartitionDensity S ≤ targetRelative := by
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv
+      (actualPositiveExpandedReceiverFiberTargetDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+        S hfineCutoff hcoarseCoupling root target receiver houtside))
+    hbound
+
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectConnectedPosteriorColumnDensityL1_le_uniformCalibration
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectDisconnectedPosteriorColumnDensityL1_le_uniformCalibration
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1_le_uniformCalibration
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost_le_uniformCalibration
+#print axioms actualPositiveExpandedReceiverFiberSourceDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+#print axioms positiveExpandedReceiverFiberPartitionDensity_le_sourceRelative_of_not_image
+#print axioms actualPositiveExpandedReceiverFiberTargetDensityCoefficient_abs_eqv_partitionDensity_of_not_image
+#print axioms positiveExpandedReceiverFiberPartitionDensity_le_targetRelative_of_not_image
 
 end YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierUniformCalibration

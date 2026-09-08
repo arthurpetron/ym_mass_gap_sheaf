@@ -232,9 +232,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |       |   +-- signed row <= literal density-defect `l1` .. [PROVED reduction]
 |   |   |   |       |   |   |       |   `-- density-defect `l1` / source mass .......... [OPEN sufficient]
 |   |   |   |       |   |   |       `-- full-carrier posterior relative cost .......... [OPEN scalar]
-|   |   |   |       |   |   |           `-- sufficient uniform density calibration .... [ACTIVE analytic]
-|   |   |   |       |   |   |               +-- full source four-cell coefficient ...... [OPEN]
-|   |   |   |       |   |   |               `-- full target four-cell coefficient ...... [OPEN]
+|   |   |   |       |   |   |           `-- sufficient uniform density calibration .... [OPEN / coverage-sensitive]
+|   |   |   |       |   |   |               +-- off-image coefficient = full density ... [PROVED obstruction]
+|   |   |   |       |   |   |               +-- full supported-image coverage .......... [OPEN prerequisite]
+|   |   |   |       |   |   |               +-- source calibration on covered image .... [OPEN]
+|   |   |   |       |   |   |               `-- target calibration on covered image .... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -1132,10 +1134,13 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |   +-- raw mismatch quadratic estimate .......................... [OPEN]
 |   `-- three-budget posterior quadratic estimate ................ [ACTIVE preferred]
 |       +-- connected row relative estimate ...................... [OPEN]
-|       `-- full-carrier posterior relative-cost estimate ........ [OPEN]
-|           `-- reduced to uniform source/target density errors .. [ACTIVE]
-|               +-- uniform source coefficient `O(g^2*density)` . [OPEN]
-|               `-- uniform target coefficient `O(g^2*density)` . [OPEN]
+|       `-- full-carrier posterior relative-cost estimate ........ [ACTIVE]
+|           +-- aggregate/direct scalar route .................... [OPEN preferred]
+|           `-- uniform source/target density route .............. [OPEN sufficient]
+|               +-- off-image density floor ...................... [PROVED obstruction]
+|               +-- full supported-image coverage ................ [OPEN prerequisite]
+|               +-- uniform source coefficient on image ......... [OPEN]
+|               `-- uniform target coefficient on image ......... [OPEN]
 +-- positive physical gap on a common trajectory ................. [OPEN]
 +-- same-measure continuum construction .......................... [OPEN]
 +-- OS/GNS Hamiltonian with a positive gap ........................ [OPEN]
@@ -30252,6 +30257,51 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 232. Identify the supported-image obstruction to uniform calibration (2026-09-08)
+
+**Status. THE POINTWISE FULL-CARRIER CALIBRATION ROUTE IS NOW PROVED TO BE
+COVERAGE-SENSITIVE: EVERY RECEIVER OUTSIDE THE SUPPORTED-PATH IMAGE HAS
+COEFFICIENT MAGNITUDE EXACTLY EQUAL TO THE POSITIVE PARTITION DENSITY.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierUniformCalibration.lean`
+uses the existing zero-extension theorem to prove, separately for source and
+target receivers,
+
+```text
+receiver not in supported-path image
+  => abs(densityCoefficient) ~= partitionDensity
+  => partitionDensity <= every valid pointwise ceiling.
+```
+
+This is a genuine obstruction to treating the milestone-231 pointwise route
+as the preferred `O(g^2 * partitionDensity)` producer: once a proposed
+quadratic prefactor is below one, an uncovered receiver cannot satisfy that
+bound.  The theorem does not assert that an uncovered receiver exists for
+every scale.  It proves the exact alternative the next analysis must respect:
+either establish full source and target supported-image coverage, restrict the
+pointwise compiler to the actual images, or return to the weaker aggregate or
+direct normalized-scalar estimate.
+
+Accordingly, the active posterior frontier remains the aggregate/direct
+full-carrier relative-cost estimate.  Uniform pointwise calibration is a
+checked sufficient adapter only under an additional coverage argument.  The
+connected-row estimate, lower quadratic spacing, raw mismatch,
+arbitrary-cutoff persistence, uniform physical gap, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+supported-image obstruction focused source check           PASS
+supported-image obstruction dependency target              PASS (1,597 jobs)
+```
+
+The uniform-calibration module now prints eight load-bearing declarations;
+all use only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 231. Reduce posterior relative cost to uniform density calibration (2026-09-08)
 

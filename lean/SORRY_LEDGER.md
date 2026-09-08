@@ -29271,3 +29271,35 @@ prints four; all concrete declarations use only `[propext, Quot.sound]`.
 No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.  No
 full-root audit is claimed.
+
+#### Identify the supported-image obstruction to uniform calibration (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierUniformCalibration`
+now proves the exact boundary of its pointwise sufficient route.  The receiver
+fiber densities are finite zero extensions of supported-path densities, so an
+uncovered source or target receiver has fiber density zero.  Its density
+coefficient therefore has absolute value exactly equal to the strictly
+positive partition density.  Consequently every valid pointwise ceiling at
+that receiver is at least the partition density.
+
+This does not prove that uncovered receivers exist at every scale.  It shows
+that an `O(g^2 * partitionDensity)` full-carrier pointwise estimate requires
+either supported-image coverage (once the quadratic prefactor is below one)
+or a support-restricted reformulation.  The weaker aggregate/direct posterior
+relative-cost estimate remains the preferred open analytic target.  The
+connected-row estimate, lower quadratic spacing, raw mismatch,
+arbitrary-cutoff persistence, uniform physical gap, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+supported-image obstruction focused source check           PASS
+supported-image obstruction dependency target              PASS (1,597 jobs)
+```
+
+The uniform-calibration module now prints eight load-bearing declarations,
+all using only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
