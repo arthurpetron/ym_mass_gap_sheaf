@@ -148,6 +148,32 @@ private theorem edge_difference_sum_local
       (targetCoefficient choice) (localWeight choice)
   · exact listQSum_sub_local _ _ choices
 
+private theorem row_unretained_factor_local
+    (weight coefficient rowMass : Q') :
+    weight * coefficient - weight * (coefficient * rowMass) ≈
+      weight * (coefficient * ((1 : Q') + -rowMass)) := by
+  have hinner :
+      coefficient * ((1 : Q') + -rowMass) ≈
+        coefficient + -(coefficient * rowMass) := by
+    refine Q'.eqv_trans _
+      (coefficient * 1 + coefficient * (-rowMass)) _
+      (Q'.mul_add_eqv coefficient 1 (-rowMass)) ?_
+    exact Q'.add_eqv_congr'
+      (Q'.mul_one_eqv coefficient)
+      (Q'.mul_neg_eqv coefficient rowMass)
+  have hright :
+      weight * (coefficient * ((1 : Q') + -rowMass)) ≈
+        weight * coefficient + -(weight * (coefficient * rowMass)) := by
+    refine Q'.eqv_trans _
+      (weight * (coefficient + -(coefficient * rowMass))) _
+      (Q'.mul_eqv_congr_left weight _ _ hinner) ?_
+    refine Q'.eqv_trans _
+      (weight * coefficient + weight * (-(coefficient * rowMass))) _
+      (Q'.mul_add_eqv weight coefficient (-(coefficient * rowMass))) ?_
+    exact Q'.add_eqv_congr' (Q'.eqv_refl _)
+      (Q'.mul_neg_eqv weight (coefficient * rowMass))
+  exact Q'.eqv_symm hright
+
 /-- All finite data needed for exact signed coefficient transport.  No
 positivity or capacity field is required for the identities below. -/
 structure FiniteDependentCoefficientTransport
@@ -292,6 +318,33 @@ theorem transportedSourceCoefficientMass_eqv_edgeMass
   · exact Q'.eqv_symm
       (listQSum_mul_left (data.sourceCoefficient source)
         (data.localWeight source) (data.choices source))
+
+/-- The row debt is exactly the coefficient-weighted unretained part of each
+source row.  This identity does not assert a sign for the coefficient. -/
+theorem rowCoefficientDefect_eqv_unretained
+    (data : FiniteDependentCoefficientTransport Source Target) :
+    data.rowCoefficientDefect ≈
+      listQSum
+        (fun source =>
+          data.sourceWeight source *
+            (data.sourceCoefficient source *
+              ((1 : Q') + -data.rowMass source)))
+        data.sources := by
+  unfold rowCoefficientDefect sourceCoefficientMass
+    transportedSourceCoefficientMass
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun source =>
+        data.sourceWeight source * data.sourceCoefficient source -
+          data.sourceWeight source *
+            (data.sourceCoefficient source * data.rowMass source))
+      data.sources) _ ?_ ?_
+  · exact Q'.eqv_symm (listQSum_sub_local _ _ data.sources)
+  · apply listQSum_congr
+    intro source
+    exact row_unretained_factor_local
+      (data.sourceWeight source) (data.sourceCoefficient source)
+      (data.rowMass source)
 
 theorem transportedTargetCoefficientMass_eqv_edgeMass
     (data : FiniteDependentCoefficientTransport Source Target) :
@@ -473,6 +526,66 @@ theorem transportedTargetCoefficientMass_eqv_columns
           data.sources)
         (Q'.mul_comm_eqv _ _)
 
+/-- The column debt is the target coefficient paired with the signed incoming
+column slack.  A column-capacity inequality controls the sign of the slack but
+does not by itself control this product when the coefficient is signed. -/
+theorem columnCoefficientDefect_eqv_slack
+    (data : FiniteDependentCoefficientTransport Source Target) :
+    data.columnCoefficientDefect ≈
+      listQSum
+        (fun target =>
+          (listQSum
+                (fun source => data.sourceWeight source *
+                  dependentKernelPushforwardWeight
+                    data.Choice data.choices data.localWeight data.realize
+                    source target)
+                data.sources -
+              data.targetWeight target) *
+            data.targetCoefficient target)
+        data.targets := by
+  unfold columnCoefficientDefect targetCoefficientMass
+  refine Q'.eqv_trans _
+    (listQSum
+          (fun target =>
+            listQSum
+                (fun source => data.sourceWeight source *
+                  dependentKernelPushforwardWeight
+                    data.Choice data.choices data.localWeight data.realize
+                    source target)
+                data.sources *
+              data.targetCoefficient target)
+          data.targets -
+      listQSum
+          (fun target =>
+            data.targetWeight target * data.targetCoefficient target)
+          data.targets) _ ?_ ?_
+  · exact sub_eqv_both_local
+      data.transportedTargetCoefficientMass_eqv_columns (Q'.eqv_refl _)
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun target =>
+        listQSum
+              (fun source => data.sourceWeight source *
+                dependentKernelPushforwardWeight
+                  data.Choice data.choices data.localWeight data.realize
+                  source target)
+              data.sources *
+            data.targetCoefficient target -
+          data.targetWeight target * data.targetCoefficient target)
+      data.targets) _ ?_ ?_
+  · exact Q'.eqv_symm (listQSum_sub_local _ _ data.targets)
+  · apply listQSum_congr
+    intro target
+    exact Q'.eqv_symm
+      (Q'.sub_mul_eqv
+        (listQSum
+          (fun source => data.sourceWeight source *
+            dependentKernelPushforwardWeight
+              data.Choice data.choices data.localWeight data.realize
+              source target)
+          data.sources)
+        (data.targetWeight target) (data.targetCoefficient target))
+
 /-- Exact row/edge/column decomposition of the signed coefficient cross. -/
 theorem coefficientCross_eqv_row_add_edge_add_column
     (data : FiniteDependentCoefficientTransport Source Target) :
@@ -519,9 +632,11 @@ end FiniteDependentCoefficientTransport
 
 #print axioms dependentKernelPushforwardWeight_reindex_mul
 #print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientMass_eqv_edgeMass
+#print axioms FiniteDependentCoefficientTransport.rowCoefficientDefect_eqv_unretained
 #print axioms FiniteDependentCoefficientTransport.transportedTargetCoefficientMass_eqv_edgeMass
 #print axioms FiniteDependentCoefficientTransport.edgeCoefficientDefect_eqv_variation
 #print axioms FiniteDependentCoefficientTransport.transportedTargetCoefficientMass_eqv_columns
+#print axioms FiniteDependentCoefficientTransport.columnCoefficientDefect_eqv_slack
 #print axioms FiniteDependentCoefficientTransport.coefficientCross_eqv_row_add_edge_add_column
 #print axioms FiniteDependentCoefficientTransport.coefficientCross_abs_le_row_add_edge_add_column
 

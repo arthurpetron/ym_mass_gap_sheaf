@@ -180,6 +180,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       exactly into row/edge/column debts ........... [PROVED]
 |   |   |   |       |   +-- actual scaled receiver coefficient transported by
 |   |   |   |       |   |       the successful aggregate posterior kernel .... [PROVED]
+|   |   |   |       |   +-- row debt = unretained coefficient mass, supported
+|   |   |   |       |   |       only on connected source rows .................. [PROVED]
+|   |   |   |       |   +-- edge debt = literal successful-edge variation ..... [PROVED identity]
+|   |   |   |       |   +-- column debt = target coefficient times signed
+|   |   |   |       |   |       incoming capacity slack ........................ [PROVED]
 |   |   |   |       |   `-- cutoff-uniform row/edge/column debt bounds
 |   |   |   |       |       summing to `O(a)` ................................. [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
@@ -1620,6 +1625,15 @@ edge, and realized-column debts, with the corresponding absolute-value bound.
 The edge term is explicitly the local source-to-realized-target coefficient
 variation, and the transported target term is explicitly grouped by common
 receiver columns.
+
+The row branch is also reduced exactly to coefficient times unretained row
+mass.  Since the aggregate posterior has row mass one on the disconnected
+sector, every such term vanishes without a coefficient-sign hypothesis; the
+entire row debt is supported on the connected source list.  The column branch
+is reduced exactly to the target scaled coefficient times
+`incomingWeight - targetWeight`.  Existing column capacity makes this slack
+nonpositive, but because the coefficient itself is signed, capacity alone is
+not yet a magnitude bound.
 
 These are exact finite identities, not smallness theorems.  The active analytic
 seam is now sharper: prove cutoff-uniform bounds for the three actual debts,
