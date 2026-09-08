@@ -212,8 +212,16 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- three analytic inputs => normalized bounds ..... [PROVED bridge]
 |   |   |   |       |   |   |   +-- inhabit lower `c*g^2 <= a(g)` .................. [OPEN]
 |   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
-|   |   |   |       |   |   |   `-- posterior three-budget <=
-|   |   |   |       |   |   |           `(K*g^2)*Z_f^2` ............................ [ACTIVE preferred]
+|   |   |   |       |   |   |   +-- posterior three-budget <=
+|   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
+|   |   |   |       |   |   |   |   +-- relative finite-sum compiler, no column count [PROVED]
+|   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ........... [PROVED]
+|   |   |   |       |   |   |   |   +-- complementary target masses <= `Z_c^2` ..... [PROVED]
+|   |   |   |       |   |   |   |   `-- local relative bounds => global budget ...... [PROVED bridge]
+|   |   |   |       |   |   |   `-- inhabit local relative estimates ............... [ACTIVE preferred]
+|   |   |   |       |   |   |       +-- connected row defect / source weight ........ [OPEN]
+|   |   |   |       |   |   |       +-- connected posterior defect / target weight .. [OPEN]
+|   |   |   |       |   |   |       `-- disconnected posterior / target weight ...... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -30205,6 +30213,57 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 225. Reduce the global posterior budget to local relative estimates (2026-09-08)
+
+**Status. THE MATCHED-AF POSTERIOR ROUTE NO LONGER PAYS THE NUMBER OF
+RECEIVER COLUMNS: THREE LOCAL WEIGHT-RELATIVE ESTIMATES COMPILE TO THE EXACT
+GLOBAL QUADRATIC INPUT.**
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean` proves generic
+finite compilers for a source-relative row defect and target-relative
+posterior-column defects.  Its two-sector theorem combines one connected row
+with connected and disconnected posterior columns under a common mass cap.
+The common column ceiling is paid once against the sum of the complementary
+target-sector masses, not once per receiver column.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+proves the concrete mass caps
+
+```text
+connected source mass <= Z_coarse^2,
+connected target mass + disconnected target mass <= Z_coarse^2.
+```
+
+The first follows from inclusion in the positive-first-replica product and
+the exact finite vacuum complement.  The second uses the literal Boolean
+partition of the four-cell target carrier.  Multiplication by the exact
+partition density then converts `Z_coarse^2` to `Z_fine^2`.  Consequently the
+new matched-AF control replaces the monolithic premise
+
+```text
+posteriorThreeBudget <= ((K_row + K_column) * g^2) * Z_fine^2
+```
+
+by three pointwise premises: a connected row estimate relative to source
+weight, plus connected and disconnected posterior estimates relative to
+their actual target weights.  The adapter supplies the existing normalized
+posterior-cost bridge and hence its `fineCovariance <= anchorRate + epsilon`
+consumer.
+
+The next preferred analytic branch is to inhabit those three local relative
+estimates.  The independent lower physical-spacing comparison and raw
+mismatch quadratic estimate also remain open.  Beyond them, a uniform
+physical gap, continuum measure, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay theorem remain open; this milestone is a finite
+volume-safe reduction only.
+
+Monitored focused checks pass.  The generic dependency target passes all 220
+jobs and its four printed declarations use only `[propext]`.  The concrete
+dependency target passes all 5,443 jobs and its ten printed declarations use
+only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 224. Make the canonical trace pay connected-component mass (2026-08-27)
 

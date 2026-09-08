@@ -28986,3 +28986,42 @@ prints twenty-six declarations and the matched-AF bridge prints nine; all use
 only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
 `native_decide`, new axiom, or noncomputable declaration is introduced.  No
 full-root audit is claimed.
+
+#### Reduce the posterior three-budget to local relative estimates (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound` proves that
+pointwise source-relative row errors sum against total source weight and that
+pointwise target-relative posterior errors sum against total target weight.
+It also combines one row term with two posterior sectors under a common mass
+cap, paying their shared target-relative ceiling once and introducing no
+receiver-cardinality factor.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+specializes that compiler to the actual connected/disconnected density
+transports.  It proves that the connected source mass is at most
+`Z_coarse^2`, that the complementary target-sector masses together are at
+most `Z_coarse^2`, and that the partition density converts this cap exactly
+to `Z_fine^2`.  A new Type-valued matched-AF control compiles three local
+relative estimates to the pre-existing global posterior quadratic premise
+and onward to `fineCovariance <= anchorRate + epsilon`.
+
+No local relative estimate is inhabited.  The connected row, connected
+posterior-column, and disconnected posterior-column bounds remain open, as
+do the independent lower quadratic spacing and raw mismatch inputs.  Uniform
+physical gap, continuum construction, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure remain open.
+
+Monitored verification:
+
+```text
+generic relative-bound focused source check                 PASS
+generic relative-bound dependency target                    PASS (220 jobs)
+concrete local-to-global focused source check               PASS
+concrete local-to-global dependency target                  PASS (5,443 jobs)
+```
+
+The generic module prints four load-bearing declarations, all using only
+`[propext]`.  The concrete module prints ten, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
