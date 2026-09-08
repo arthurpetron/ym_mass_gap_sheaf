@@ -176,8 +176,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       `Z_f^2 - fiberDensity * Z_c^2` .............. [PROVED]
 |   |   |   |       |   +-- full raw defect = `Z_c*Z_f` times the weighted
 |   |   |   |       |   |       scaled receiver-fiber coefficient cross ..... [PROVED]
-|   |   |   |       |   `-- transport the partition-scaled coefficient field
-|   |   |   |       |       through successful receiver columns ............ [ACTIVE causal seam]
+|   |   |   |       |   +-- generic dependent-kernel coefficient cross splits
+|   |   |   |       |   |       exactly into row/edge/column debts ........... [PROVED]
+|   |   |   |       |   +-- actual scaled receiver coefficient transported by
+|   |   |   |       |   |       the successful aggregate posterior kernel .... [PROVED]
+|   |   |   |       |   `-- cutoff-uniform row/edge/column debt bounds
+|   |   |   |       |       summing to `O(a)` ................................. [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
@@ -1590,12 +1594,40 @@ proved exactly equal to `Z_coarse * Z_fine` times that cross.  The general
 physical tail and exact matched shifted-AF chart now expose this factorized
 quantity as their strongest current producer interface.
 
-This is still an exact finite identity, not a smallness theorem.  The active
-analytic seam is to compare the scaled coefficient field along the already
-proved successful guarded receiver columns, controlling both its signed
-variation and carrier multiplicity uniformly enough to obtain an `O(a)`
-bound.  No such bound, continuum measure, OS/GNS reconstruction, Hamiltonian
-gap, or Clay conclusion is asserted here.
+`FiniteDependentKernelCoefficientTransport.lean` now proves the reusable
+constructive transport identity for any finite source-dependent kernel.  The
+signed source-to-target coefficient cross is exactly the sum of three terms:
+
+```text
+source coefficient cross
+|
++-- row debt ....... coefficient mass omitted when retained row mass is < 1
++-- edge debt ...... coefficient variation along each successful choice
+`-- column debt .... realized incoming coefficient mass - target mass
+```
+
+The same module reindexes the edge debt onto the literal dependent choices and
+the transported target term onto common target columns.  Its triangle theorem
+therefore exposes three separate quantities that later analytic estimates can
+address without confusing row retention with receiver congestion.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectTransport.lean`
+specializes that generic identity to the complete receiver source and target
+carriers, the actual partition-scaled fiber coefficients, and an existing
+`SlabObservablePairedAggregatePosteriorTransport`.  It proves that the exact
+receiver-fiber scale-defect cross is the sum of the specialized row, successful
+edge, and realized-column debts, with the corresponding absolute-value bound.
+The edge term is explicitly the local source-to-realized-target coefficient
+variation, and the transported target term is explicitly grouped by common
+receiver columns.
+
+These are exact finite identities, not smallness theorems.  The active analytic
+seam is now sharper: prove cutoff-uniform bounds for the three actual debts,
+with their sum `O(a)`.  The quarter-mass row floor informs the row term and the
+proved column-capacity certificate informs the column term, but neither alone
+bounds the signed coefficient field; the edge variation remains an independent
+regularity obligation.  No such `O(a)` bound, continuum measure, OS/GNS
+reconstruction, Hamiltonian gap, or Clay conclusion is asserted here.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
@@ -1603,11 +1635,12 @@ actual-kernel specialization still contains the source-dependent conditional
 row ratios, whose denominators are the positive whole-slab recoupling row
 partitions.  The receiver-density factorization isolates those ratios and the
 accepted-fiber weights into explicit per-path densities, and the receiver-
-fiber module sums them without losing path multiplicity.  Proving a uniform
-comparison of these fiber coefficients across the successful-event receiver
-kernel, or clearing the nonuniform finite row denominators with a controlled
-common product, is the next causal analytic seam.  No `O(a)` estimate is
-obtained merely from these exact specializations and factorizations.
+fiber module sums them without losing path multiplicity.  The new exact
+dependent-kernel split shows that the remaining uniform comparison consists of
+row-retention, successful-edge variation, and realized-column obligations; an
+alternative remains to clear the nonuniform finite row denominators with a
+controlled common product.  No `O(a)` estimate is obtained merely from these
+exact specializations, factorizations, and transport identities.
 
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
