@@ -34,7 +34,7 @@ hole, noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.FiniteDependentKernelCoefficientPosteriorRelativeBound
-import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFiniteCoreReduction
 import YMGap.Continuum.CompactDualSlabObservableFiniteVolumeVacuumStrictness
@@ -53,6 +53,7 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnNormalizedCost
@@ -492,6 +493,54 @@ theorem splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
     (by simpa only [S, root, target, htarget, connected, disconnected] using
       hcombined)
 
+/-- A ceiling on the single total normalized full-carrier posterior cost is
+equivalent to the preferred aggregate column input, including when the target
+carrier is empty. -/
+theorem splitPosteriorColumnBudget_le_fullCarrierRelativeCost
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) (rowRelative columnRelative : Q')
+    (hrowRelative : (0 : Q') ≤ rowRelative)
+    (hcolumnRelative : (0 : Q') ≤ columnRelative)
+    (hrow :
+      let S := schedule.scalePair scale
+      let connected :=
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (schedule.faceMap scale).coarseTarget_mem
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources)
+    (hcolumnCost :
+      let S := schedule.scalePair scale
+      let root := (schedule.faceMap scale).coarseRoot
+      let target := (schedule.faceMap scale).coarseTarget
+      let htarget := (schedule.faceMap scale).coarseTarget_mem
+      actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
+        columnRelative) :
+    actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
+        schedule scale ≤
+      (rowRelative + columnRelative) *
+        ((schedule.scalePair scale).coarse.physicalPartition *
+          (schedule.scalePair scale).coarse.physicalPartition) := by
+  let S := schedule.scalePair scale
+  let root := (schedule.faceMap scale).coarseRoot
+  let target := (schedule.faceMap scale).coarseTarget
+  let htarget := (schedule.faceMap scale).coarseTarget_mem
+  have hcolumns :=
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1_le_of_relativeCost_le
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+      columnRelative
+      (by simpa only [S, root, target, htarget] using hcolumnCost)
+  exact splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+    schedule scale rowRelative columnRelative
+    hrowRelative hcolumnRelative
+    (by simpa only [S, root, target, htarget] using hrow)
+    (by simpa only [S, root, target, htarget,
+        actualPositiveExpandedReceiverFiberScaleDefectFullCarrierTargetMass]
+      using hcolumns)
+
 /-- A bound on the explicit connected-row density `l1` budget is a sufficient
 row input for the preferred full-carrier posterior compiler. -/
 theorem splitPosteriorColumnBudget_le_fullCarrierRelativeDensityL1
@@ -738,8 +787,8 @@ theorem splitPosteriorColumnBudget_le_relativeWeights
 /-! ## 3. Matched-AF local inputs compile to the existing global bridge -/
 
 /-- The preferred volume-safe matched-AF posterior input.  Its two local
-analytic obligations are one connected-row aggregate and one literal
-full-target-carrier posterior estimate. -/
+analytic obligations are one connected-row aggregate and one ceiling on the
+single total normalized full-target-carrier posterior cost. -/
 structure MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
     (family : MatchedBlockFamily)
     (law : CubicMarginLaw family)
@@ -784,7 +833,7 @@ structure MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostCo
       ((rowQuadraticCeiling * (coupling scale * coupling scale)) *
           positiveExpandedReceiverFiberPartitionDensity S) *
         listQSum connected.sourceWeight connected.sources
-  posteriorColumn_fullCarrierRelative : ∀ scale : Nat, start ≤ scale →
+  posteriorColumn_relativeCost : ∀ scale : Nat, start ≤ scale →
     let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
       family law spacing C coupling coupling_pos coupling_le_window
       identification nested
@@ -792,12 +841,10 @@ structure MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostCo
     let root := (schedule.faceMap scale).coarseRoot
     let target := (schedule.faceMap scale).coarseTarget
     let htarget := (schedule.faceMap scale).coarseTarget_mem
-    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
         S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
-      ((posteriorQuadraticCeiling * (coupling scale * coupling scale)) *
-          positiveExpandedReceiverFiberPartitionDensity S) *
-        listQSum (slabObservableTwoReplicaPairWeight S.coarse)
-          (slabObservableFourCellTargetPairs S.coarse root target)
+      (posteriorQuadraticCeiling * (coupling scale * coupling scale)) *
+        positiveExpandedReceiverFiberPartitionDensity S
 
 namespace MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
 
@@ -873,13 +920,13 @@ def toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
         (Q'.mul_nonneg _ _
           (Q'.le_of_lt control.posteriorQuadraticCeiling_pos) hg2)
         hdensity
-    have hlocal := splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+    have hlocal := splitPosteriorColumnBudget_le_fullCarrierRelativeCost
       schedule scale rowRelative columnRelative
       hrowRelative hcolumnRelative
       (by simpa only [schedule, S, g2, density, rowRelative] using
         control.connectedRow_aggregateRelative scale hscale)
       (by simpa only [schedule, S, g2, density, columnRelative] using
-        control.posteriorColumn_fullCarrierRelative scale hscale)
+        control.posteriorColumn_relativeCost scale hscale)
     exact Q'.le_trans' _ _ _ hlocal
       (Q'.le_of_eqv (by
         simpa only [schedule, S, g2, density, rowRelative, columnRelative,
@@ -1110,6 +1157,7 @@ end MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt_abs_le_densityDefectL1
 #print axioms splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+#print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeCost
 #print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeDensityL1
 #print axioms splitPosteriorColumnBudget_le_aggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_relativeWeights

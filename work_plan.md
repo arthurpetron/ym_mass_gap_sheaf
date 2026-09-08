@@ -219,14 +219,16 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   +-- full-carrier posterior compiler, no column count [PROVED preferred]
 |   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ............. [PROVED]
 |   |   |   |       |   |   |   |   +-- full target-carrier mass <= `Z_c^2` .......... [PROVED]
+|   |   |   |       |   |   |   |   +-- total full-carrier posterior relative cost .... [PROVED exact]
+|   |   |   |       |   |   |   |   |   `-- cost * target mass ~= posterior `l1` ....... [PROVED]
 |   |   |   |       |   |   |   |   +-- row + full-carrier posterior => global budget  [PROVED bridge]
 |   |   |   |       |   |   |   |   +-- combined/separate sector routes retained ...... [PROVED adapters]
 |   |   |   |       |   |   |   |   `-- pointwise route retained ...................... [PROVED stronger]
-|   |   |   |       |   |   |   `-- inhabit two aggregate estimates ................... [ACTIVE preferred]
+|   |   |   |       |   |   |   `-- inhabit two scalar estimates ...................... [ACTIVE preferred]
 |   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN weakest]
 |   |   |   |       |   |   |       |   +-- signed row <= literal density-defect `l1` .. [PROVED reduction]
 |   |   |   |       |   |   |       |   `-- density-defect `l1` / source mass .......... [OPEN sufficient]
-|   |   |   |       |   |   |       `-- full-carrier posterior `l1` / target mass ...... [OPEN]
+|   |   |   |       |   |   |       `-- full-carrier posterior relative cost .......... [OPEN scalar]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -1083,6 +1085,27 @@ posteriorThreeBudget <=
   (connectedQuadraticCeiling * g^2) * Z_fine^2.
 ```
 
+The two posterior sectors have now been normalized on their reassembled
+literal carrier as one total scalar.  With `M_target` the physical mass of the
+full opposite four-cell carrier and `L1_post` its combined posterior mismatch,
+the constructive definition uses positive-denominator division when
+`0 < M_target` and zero otherwise.  Strict positivity of every physical pair
+weight proves that the second branch has an empty carrier, so in all cases
+
+```text
+posteriorRelativeCost * M_target ~= L1_post.
+```
+
+Consequently the preferred Type-valued matched-AF witness asks only for
+
+```text
+posteriorRelativeCost <=
+  posteriorQuadraticCeiling * g^2 * partitionDensity,
+```
+
+while literal aggregate, combined-sector, separate-sector, and pointwise
+forms remain checked sufficient adapters.
+
 If those inputs are inhabited, constructive positive division supplies the
 two uniform normalized-cost ceilings and reaches the existing covariance
 consumer `fineCovariance <= anchorRate + epsilon`.  None of the three analytic
@@ -1102,18 +1125,18 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |   +-- lower quadratic physical spacing comparison .............. [OPEN]
 |   +-- raw mismatch quadratic estimate .......................... [OPEN]
 |   `-- three-budget posterior quadratic estimate ................ [ACTIVE preferred]
-|       `-- uniform normalized physical transport tail ........... [OPEN]
+|       +-- connected row relative estimate ...................... [OPEN]
+|       `-- full-carrier posterior relative-cost estimate ........ [OPEN]
 +-- positive physical gap on a common trajectory ................. [OPEN]
 +-- same-measure continuum construction .......................... [OPEN]
 +-- OS/GNS Hamiltonian with a positive gap ........................ [OPEN]
 `-- Clay-facing same-object assembly .............................. [OPEN]
 ```
 
-The new generic rescaling, normalized posterior-cost, and matched-AF bridge
-modules pass monitored focused checks and dependency-complete 1-job targets
-(220, 1,593, and 5,441 jobs respectively).  Their six, twenty-six, and nine
-printed load-bearing declarations use only no axioms, `[propext]`, or
-`[propext, Quot.sound]` as appropriate.  No full-root audit is claimed.
+The latest full-carrier relative-cost and matched-AF compiler modules pass
+monitored focused checks and dependency-complete one-worker targets (1,595 and
+5,445 jobs respectively).  Their six and twenty-one printed load-bearing
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
@@ -30218,6 +30241,63 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 230. Normalize the full-carrier posterior to one total scalar (2026-09-08)
+
+**Status. THE PREFERRED POSTERIOR-COLUMN INPUT IS NOW A SINGLE TOTAL
+DIMENSIONLESS COST, WITH THE ZERO-TARGET-MASS CASE CLOSED CONSTRUCTIVELY.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost.lean`
+defines the literal full-target-carrier mass and the total normalized posterior
+cost.  When that mass is positive the cost is the constructive quotient of the
+combined posterior `l1` by the mass.  When it is not positive, strict
+positivity of every two-replica physical weight at positive coupling proves
+the carrier is empty and hence the combined `l1` is zero.  This gives the
+unconditional exact identity
+
+```text
+fullCarrierPosteriorRelativeCost * fullCarrierTargetMass
+  ~= fullCarrierPosteriorL1.
+```
+
+The same module proves that a ceiling on this scalar implies the literal
+aggregate estimate `L1 <= ceiling * mass`; no distinct-root/target assumption,
+pointwise receiver estimate, or carrier-cardinality factor is introduced.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+adds the schedule-level scalar compiler and changes the preferred matched-AF
+Type witness to expose
+
+```text
+fullCarrierPosteriorRelativeCost
+  <= posteriorQuadraticCeiling * g^2 * partitionDensity.
+```
+
+The connected aggregate row estimate remains the other preferred local field.
+Literal full-carrier `l1`, combined-sector, separate-sector, and pointwise
+routes remain available as checked sufficient adapters.
+
+No scalar smallness estimate is inhabited.  The active finite analytic
+frontier is therefore exactly the connected row relative estimate and the
+full-carrier posterior relative-cost estimate.  Lower quadratic spacing, raw
+mismatch, arbitrary-cutoff persistence, a uniform physical gap, continuum
+construction, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay
+closure remain open.
+
+Monitored verification:
+
+```text
+full-carrier relative-cost focused source check             PASS
+full-carrier relative-cost dependency target                PASS (1,595 jobs)
+scalar matched-AF compiler focused source check             PASS
+scalar matched-AF compiler dependency target                PASS (5,445 jobs)
+```
+
+The new relative-cost module prints six load-bearing declarations and the
+updated matched-AF module prints twenty-one; all use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
 
 ## 229. Majorize the connected row debt by its literal density-defect sum (2026-09-08)
 

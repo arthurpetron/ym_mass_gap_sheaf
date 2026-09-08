@@ -29174,3 +29174,46 @@ the updated matched-AF module prints twenty; all use only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
+
+#### Normalize the full-carrier posterior to one total scalar (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost`
+defines the full opposite four-cell target mass and a total normalized
+posterior cost.  The positive-mass branch uses constructive `Q'.divPos`.  In
+the other branch, strict positivity of every physical two-replica pair weight
+at positive coupling forces the finite carrier to be empty, and therefore its
+combined posterior `l1` is exactly zero.  The resulting identity is
+
+```text
+fullCarrierPosteriorRelativeCost * fullCarrierTargetMass
+  ~= fullCarrierPosteriorL1.
+```
+
+The module compiles a scalar ceiling into the earlier literal aggregate
+estimate without a pointwise receiver premise or carrier-cardinality loss.
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+then changes the preferred matched-AF Type witness to request only the single
+relative-cost estimate, alongside the existing connected-row aggregate.  The
+literal full-carrier, combined-sector, separate-sector, and pointwise routes
+remain sufficient adapters.
+
+No analytic estimate is inhabited.  The connected-row relative estimate and
+the full-carrier posterior relative-cost estimate remain open, followed by
+lower quadratic spacing, raw mismatch, arbitrary-cutoff persistence, uniform
+physical gap, continuum construction, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure.
+
+Monitored verification:
+
+```text
+full-carrier relative-cost focused source check             PASS
+full-carrier relative-cost dependency target                PASS (1,595 jobs)
+scalar matched-AF compiler focused source check             PASS
+scalar matched-AF compiler dependency target                PASS (5,445 jobs)
+```
+
+The new relative-cost module prints six load-bearing declarations and the
+updated matched-AF module prints twenty-one; all use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
