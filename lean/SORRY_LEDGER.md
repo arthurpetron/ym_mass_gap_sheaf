@@ -28630,3 +28630,35 @@ printed calibration declarations and all five new calibrated-tail declarations
 use only `[propext, Quot.sound]`.  The calibration dependency target passes all
 1,568 jobs, and the updated three-debt target passes all 1,584 jobs.  No
 full-root audit is claimed.
+
+#### Direct receiver calibration removes the posterior input on one branch (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectDirectCalibration`
+defines literal weighted `l1` budgets for the complete source- and target-cell
+receiver-fiber fields relative to the common exact partition density
+`Z_fine^2 / Z_coarse^2`.  The two complete coefficient masses are their exact
+signed calibration sums.  Finite triangle inequalities therefore prove
+
+```text
+abs(receiver scale-defect cross)
+  <= sourceCalibrationL1 + targetCalibrationL1.
+```
+
+After the common outer partition normalization is restored, two separate
+linear-in-spacing calibration hypotheses compile with coefficient
+`C_source + C_target` to the existing matched covariance
+`fineCovariance <= anchorRate + epsilon` consumer.  This branch needs no
+`SlabObservablePairedAggregatePosteriorTransport`.
+
+The posterior is removed only by strengthening the analytic input: both full
+receiver fields must be controlled absolutely, rather than comparing them
+along successful transport edges and exploiting column capacity.  No uniform
+`O(a)` source or target calibration estimate is supplied.  The conditional
+posterior/three-debt route remains available as a potentially sharper
+alternative.  The physical spacing floor, continuum measure, same-measure
+OS/GNS reconstruction, Hamiltonian gap, and Clay conclusion remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
+declaration is introduced.  The focused monitored check passes, all fifteen
+printed declarations use only `[propext, Quot.sound]`, and the dependency-
+complete target passes all 1,584 jobs.  No full-root audit is claimed.

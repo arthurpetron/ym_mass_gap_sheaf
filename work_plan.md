@@ -178,26 +178,24 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       scaled receiver-fiber coefficient cross ..... [PROVED]
 |   |   |   |       |   +-- generic dependent-kernel coefficient cross splits
 |   |   |   |       |   |       exactly into row/edge/column debts ........... [PROVED]
-|   |   |   |       |   +-- scaled receiver coefficient transport, conditional on
-|   |   |   |       |   |       a complete-cell aggregate posterior ........... [PROVED reduction]
-|   |   |   |       |   +-- row debt = unretained coefficient mass, supported
-|   |   |   |       |   |       only on connected source rows .................. [PROVED]
-|   |   |   |       |   |   `-- partition-density calibration `l1` majorant .... [PROVED]
-|   |   |   |       |   +-- edge debt = literal successful-edge variation ..... [PROVED identity]
-|   |   |   |       |   |   +-- common `Z_f^2` cancels exactly ................. [PROVED]
-|   |   |   |       |   |   +-- density-variation double-sum `l1` majorant ..... [PROVED]
-|   |   |   |       |   +-- column debt = target coefficient times signed
-|   |   |   |       |   |       incoming capacity slack ........................ [PROVED]
-|   |   |   |       |   |   `-- partition-density calibration `l1` majorant .... [PROVED]
-|   |   |   |       |   +-- three separate debt tails => existing covariance
-|   |   |   |       |   |       consumer with `C_r+C_e+C_c` ............ [PROVED interface]
-|   |   |   |       |   +-- all three literal receiver-density `l1` budgets =>
-|   |   |   |       |   |       same covariance consumer ............... [PROVED interface]
-|   |   |   |       |   +-- schedule-level complete posterior producer ........ [OPEN]
-|   |   |   |       |   |       fixed-anchor guarded aggregate theorem does not
-|   |   |   |       |   |       inhabit the arbitrary schedule-level interface
-|   |   |   |       |   `-- cutoff-uniform row/edge/column calibration budgets
-|   |   |   |       |       summing to `O(a)` ................................. [ACTIVE causal seam]
+|   |   |   |       |   +-- conditional receiver-transport route
+|   |   |   |       |   |   +-- complete-cell posterior specialization ......... [PROVED reduction]
+|   |   |   |       |   |   +-- row debt = connected unretained coefficient mass [PROVED]
+|   |   |   |       |   |   |   `-- partition-density calibration `l1` majorant  [PROVED]
+|   |   |   |       |   |   +-- edge debt = successful-edge variation .......... [PROVED]
+|   |   |   |       |   |   |   +-- common `Z_f^2` cancels exactly .............. [PROVED]
+|   |   |   |       |   |   |   `-- density-variation double-sum `l1` majorant .. [PROVED]
+|   |   |   |       |   |   +-- column debt = coefficient times capacity slack . [PROVED]
+|   |   |   |       |   |   |   `-- partition-density calibration `l1` majorant  [PROVED]
+|   |   |   |       |   |   +-- three `l1` budgets => covariance consumer ....... [PROVED interface]
+|   |   |   |       |   |   +-- schedule-level complete posterior producer ..... [OPEN]
+|   |   |   |       |   |   |       fixed-anchor theorem does not inhabit it
+|   |   |   |       |   |   `-- uniform row/edge/column budgets sum to `O(a)` ... [ACTIVE]
+|   |   |   |       |   `-- posterior-free direct calibration route
+|   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
+|   |   |   |       |       |       weighted `l1` budgets ....................... [PROVED]
+|   |   |   |       |       +-- two budgets => same covariance consumer ......... [PROVED interface]
+|   |   |   |       |       `-- uniform source/target calibration `O(a)` ......... [OPEN alternative]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
@@ -1719,6 +1717,22 @@ schedule-level complete posterior producer is still absent.  Those producer
 and estimate obligations remain the active finite-to-scaling seam; the
 continuum measure, OS/GNS reconstruction, Hamiltonian gap, and Clay target
 remain open.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectDirectCalibration.lean`
+now records the posterior-free alternative.  It defines the complete source-
+and target-cell weighted `l1` calibration budgets against the same exact
+partition density.  The absolute source-minus-target scale-defect cross is
+bounded by their sum.  A schedule tail with separate positive source and
+target ceilings therefore compiles, with connected coefficient
+`C_source + C_target`, directly to the existing matched covariance
+`anchor + epsilon` conclusion and requires no complete-cell posterior.
+
+This removes the posterior-construction obligation only on this direct branch;
+it replaces it with the potentially stronger requirement that both full
+coefficient fields are individually close to `Z_fine^2 / Z_coarse^2` in the
+displayed weighted `l1` norms.  No such uniform `O(a)` bounds are proved.  The
+transport branch remains available because edgewise regularity plus capacity
+may exploit cancellations that direct absolute calibration discards.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
