@@ -188,9 +188,17 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- column debt = coefficient times capacity slack . [PROVED]
 |   |   |   |       |   |   |   `-- partition-density calibration `l1` majorant  [PROVED]
 |   |   |   |       |   |   +-- three `l1` budgets => covariance consumer ....... [PROVED interface]
-|   |   |   |       |   |   +-- schedule-level complete posterior producer ..... [OPEN]
+|   |   |   |       |   |   +-- schedule-level complete posterior producer ..... [OPEN alternative]
 |   |   |   |       |   |   |       fixed-anchor theorem does not inhabit it
-|   |   |   |       |   |   `-- uniform row/edge/column budgets sum to `O(a)` ... [ACTIVE]
+|   |   |   |       |   |   `-- uniform row/edge/column budgets sum to `O(a)` ... [OPEN alternative]
+|   |   |   |       |   +-- explicit split-sector transport route
+|   |   |   |       |   |   +-- normalized disconnected recoupling kernel ....... [PROVED]
+|   |   |   |       |   |   +-- first-source-thinned connected kernel ........... [PROVED]
+|   |   |   |       |   |   +-- exact source/target Boolean sector partitions ... [PROVED]
+|   |   |   |       |   |   +-- disconnected row debt = 0 ....................... [PROVED]
+|   |   |   |       |   |   +-- full cross = five explicit surviving debts ...... [PROVED]
+|   |   |   |       |   |   +-- five debt bounds => covariance consumer .......... [PROVED interface]
+|   |   |   |       |   |   `-- uniform five-debt `O(a)` estimates ............... [ACTIVE preferred]
 |   |   |   |       |   `-- posterior-free direct calibration route
 |   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
 |   |   |   |       |       |       weighted `l1` budgets ....................... [PROVED]
@@ -537,6 +545,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     +-- compact-simple-group extension ......................... [OPEN]
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
+
+The live receiver-transport frontier is no longer the monolithic complete-cell
+posterior.  The explicit split-sector route instantiates both existing finite
+kernels at every schedule scale and leaves five named analytic debts; exact
+normalization deletes the disconnected row debt.  The preferred next work is
+to rewrite the surviving split row, edge, and column terms as literal
+receiver-density calibration or variation sums and then prove uniform
+linear-in-spacing estimates for them.  Direct full-cell calibration remains a
+shorter but stronger alternative because it discards transport cancellation.
+None of these finite identities or schedule interfaces supplies the still-open
+physical spacing floor, continuum measure, OS/GNS reconstruction, Hamiltonian
+gap, or Clay-facing theorem.
 
 The cutoff-uniform aggregate retained fraction and its first same-object form
 consequence on branch A4 are now proved at the stated finite fixed-geometry

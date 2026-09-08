@@ -28662,3 +28662,40 @@ No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
 declaration is introduced.  The focused monitored check passes, all fifteen
 printed declarations use only `[propext, Quot.sound]`, and the dependency-
 complete target passes all 1,584 jobs.  No full-root audit is claimed.
+
+#### Two explicit sector kernels replace the schedule posterior (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitTransport`
+specializes the generic coefficient-transport identity separately to the two
+constructive kernels already present in the repository: the normalized
+support-disconnected switch and the canonically first-source-thinned
+support-connected switch.  Their source and target carriers are the two
+Boolean sectors of the complete four-cell, so exact filter partition proves
+
+```text
+receiver scale-defect cross
+  = connected row + connected edge + connected column
+      + disconnected edge + disconnected column.
+```
+
+The omitted sixth term is not assumed small: the disconnected row debt is
+proved exactly equivalent to zero from its normalized row.  Thus this branch
+constructs the finite coefficient transport without any inhabitant of
+`SlabObservablePairedAggregatePosteriorTransport`.
+
+A schedule-level five-debt structure states independent partition-scaled
+linear bounds on the surviving terms.  Exact rational distributivity and
+finite triangle inequalities compile those bounds, with coefficient equal to
+the sum of their five ceilings, into the existing matched covariance
+`fineCovariance <= anchorRate + epsilon` consumer.  The only remaining inputs
+on this route are the shared raw mismatch estimate and the five explicit
+uniform debt estimates.
+
+No such `O(a)` estimates are proved here.  In particular, this does not
+supply the physical spacing floor, a continuum measure, same-measure OS/GNS
+reconstruction, a Hamiltonian gap, or a Clay conclusion.  No `sorry`,
+`admit`, `Classical`, `native_decide`, new axiom, or noncomputable declaration
+is introduced.  The focused monitored check passes, all sixteen printed
+load-bearing declarations use only `[propext, Quot.sound]`, and the
+dependency-complete target passes all 1,582 jobs.  No full-root audit is
+claimed.
