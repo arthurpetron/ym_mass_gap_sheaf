@@ -203,6 +203,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- exact positive normalization by `a*(Z_c^3*Z_f^3)` [PROVED]
 |   |   |   |       |   |   +-- cancel common `Z_c*Z_f`; denominator becomes
 |   |   |   |       |   |   |       `a*(Z_c^2*Z_f^2)` .............................. [PROVED]
+|   |   |   |       |   |   +-- pull common `Z_c^2` through five absolute sums;
+|   |   |   |       |   |   |       denominator becomes `a*Z_f^2` .................. [PROVED]
 |   |   |   |       |   |   +-- normalized mismatch/five-budget bounds => consumer [PROVED interface]
 |   |   |   |       |   |   +-- uniformly bound the two normalized sequences ...... [ACTIVE preferred]
 |   |   |   |       |   |   `-- matched-AF coupling-square route
@@ -210,8 +212,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       |       => normalized bounds ...................... [PROVED bridge]
 |   |   |   |       |   |       +-- inhabit lower quadratic spacing comparison .... [OPEN]
 |   |   |   |       |   |       +-- raw mismatch <= `M*g^2` ....................... [OPEN]
-|   |   |   |       |   |       `-- unscaled five-budget sum <=
-|   |   |   |       |   |               `(K*g^2)*(Z_c^2*Z_f^2)` ................... [OPEN]
+|   |   |   |       |   |       `-- dimensionless five-defect sum <=
+|   |   |   |       |   |               `(K*g^2)*Z_f^2` ........................... [OPEN]
 |   |   |   |       |   `-- posterior-free direct calibration route
 |   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
 |   |   |   |       |       |       weighted `l1` budgets ....................... [PROVED]
@@ -570,17 +572,20 @@ variation sum.  Their partition-scaled sum is now one explicit budget, and
 positive division proves exact per-scale identities for that budget divided
 by `a*(Z_c^3*Z_f^3)` and for the raw mismatch divided by `a`.  The common
 positive `Z_c*Z_f` factor in the five-budget numerator and cubic covariance
-denominator is now cancelled exactly, so the same connected normalized cost
-is the unscaled sum of the five literal budgets divided by
-`a*(Z_c^2*Z_f^2)`.  The preferred next work is therefore the honest cutoff-
-independent boundedness problem for these two computed normalized sequences.
-On the exact matched AF chart, the proved bridge reduces that task to three
-named inputs: a lower quadratic comparison `c*g^2 <= a(g)`, a quadratic raw-
-mismatch estimate, and an unscaled quadratic five-budget estimate against the
-residual squared-partition denominator.  The present spacing envelope has only
-the opposite upper comparison, so it cannot inhabit the first input.  Direct
-full-cell calibration remains a shorter but stronger alternative because it
-discards transport cancellation.
+denominator is now cancelled exactly.  Each of the five remaining budgets has
+also been factored constructively as `Z_c^2` times a dimensionless receiver-
+density defect sum; positivity moves the common square through every absolute
+value and finite sum, and a second exact cancellation removes it.  The same
+connected normalized cost is therefore the dimensionless five-defect sum
+divided by `a*Z_f^2`, with no coarse-partition factor left.  The preferred next
+work is the honest cutoff-independent boundedness problem for this cost and
+the raw-mismatch cost.  On the exact matched AF chart, the proved bridge
+reduces that task to three named inputs: a lower quadratic comparison
+`c*g^2 <= a(g)`, a quadratic raw-mismatch estimate, and a quadratic estimate
+on the dimensionless five-defect sum relative only to `Z_f^2`.  The present
+spacing envelope has only the opposite upper comparison, so it cannot inhabit
+the first input.  Direct full-cell calibration remains a shorter but stronger
+alternative because it discards transport cancellation.
 None of these finite identities or schedule interfaces supplies the still-open
 physical spacing floor, continuum measure, OS/GNS reconstruction, Hamiltonian
 gap, or Clay-facing theorem.

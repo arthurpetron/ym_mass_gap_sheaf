@@ -28775,8 +28775,8 @@ estimates at the same coupling coordinate `g`:
 ```text
 spacingFloor * g^2 <= a(g),
 rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
-unscaledSplitDensityBudget <=
-  (connectedQuadraticCeiling * g^2) * cancelledCovarianceDenominator.
+densityDefectSplitBudget <=
+  (connectedQuadraticCeiling * g^2) * finePartitionSquared.
 ```
 
 Constructive positive division proves that the two normalized cost sequences
@@ -28795,7 +28795,7 @@ also remain open.
 
 No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
 declaration is introduced.  The focused monitored source check and the
-dependency-complete 1-job target both pass; all 5,436 target jobs pass, and all
+dependency-complete 1-job target both pass; all 5,437 target jobs pass, and all
 nine newly printed load-bearing declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
 
@@ -28832,6 +28832,9 @@ third input: an `O(g^2)` estimate on the unscaled five-budget sum relative to
 the residual squared-partition denominator.  Its covariance conclusion and
 the two ceiling constants are unchanged.
 
+The subsequent coarse-square cancellation below sharpens this intermediate
+form once more and is the current preferred interface.
+
 This is an exact finite algebraic reduction, not a uniform estimate.  No
 lower quadratic spacing comparison, raw-mismatch `O(g^2)` estimate, or
 unscaled split-density `O(g^2)` estimate is inhabited.  The physical gap
@@ -28844,3 +28847,47 @@ both the new cancellation module and the sharpened matched-AF consumer.  All
 ten new printed declarations and all nine matched-AF declarations use only
 `[propext, Quot.sound]`.  The dependency-complete 1-job targets pass all
 1,588 and 5,436 jobs respectively.  No full-root audit is claimed.
+
+#### Pull the coarse partition square through all five density budgets (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation`
+defines dimensionless row, edge, and column receiver-density defect budgets.
+For the edge budget the proof works over the genuinely dependent choice family;
+for all three forms, exact associativity puts the coarse partition square at
+the right edge of each summand, positivity gives
+
+```text
+abs(base * Z_coarse^2) ~= Z_coarse^2 * abs(base),
+```
+
+and finite-sum distributivity pulls the common factor outside.  Specializing
+to both explicit sector kernels proves that the previous unscaled five-budget
+sum is exactly `Z_coarse^2` times the new dimensionless five-defect sum.
+
+The residual denominator has the same factor, so constructive cancellation
+gives the sharper exact cost identity
+
+```text
+splitDensityNormalizedCost
+  ~= densityDefectSplitBudget / (a * Z_fine^2).
+```
+
+The matched-AF bridge is updated accordingly.  Its third analytic premise is
+now only
+
+```text
+densityDefectSplitBudget <=
+  (connectedQuadraticCeiling * g^2) * Z_fine^2.
+```
+
+No control structure or asymptotic estimate is inhabited.  The lower spacing
+comparison, raw-mismatch quadratic estimate, dimensionless density-defect
+estimate, physical gap floor, continuum measure, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay theorem remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or
+noncomputable declaration is introduced.  Focused monitored checks pass for
+the new module and the updated matched-AF consumer.  All twenty-one new
+printed declarations and all nine matched-AF declarations use only
+`[propext, Quot.sound]`.  The dependency-complete 1-job targets pass all
+1,589 and 5,437 jobs respectively.  No full-root audit is claimed.
