@@ -486,6 +486,47 @@ construction, OS/GNS Hamiltonian gap, or Clay closure.  Its monitored focused
 check and dependency-complete target pass (5,451 jobs); every printed
 declaration uses only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+### 9.4 Post-audit implementation update: assignment saturation and physical endpoint coverage, milestone 236 (2026-09-08)
+
+Milestone 236 removes the auxiliary-coordinate part of the supported-image
+deficit.  For every positive raw-supported coarse endpoint, the new
+assignment-saturation module enumerates every accepted coarse intertwiner
+assignment rather than only the witness selected by
+`jointSelectionFirstFusionWitness`.  A constant path density divided by the
+two physical endpoint weights then satisfies the exact block identity
+
+```text
+saturated path density * complete accepted-assignment block mass
+  ~= original positive raw-supported path mass.
+```
+
+Finite zero-extension preserves the complete source mass, target mass,
+four-cell cross, and connected raw-cross defect.  The companion physical
+coverage module proves that, inside the established receiver cells,
+saturated-image membership is equivalent to existence of a positive
+raw-supported path with the same two physical coarse endpoints.  It also
+proves
+
+```text
+full source-plus-target receiver-cell mass
+  ~= assignment-saturated covered mass
+       + physically unreachable endpoint mass.
+```
+
+The former one-assignment images embed into these saturated images.  Thus an
+analytic coverage theorem no longer has to reproduce an arbitrary auxiliary
+intertwiner assignment; only physical endpoint non-reachability remains.
+The next exact adapter must rebuild the coarse-normalized aggregate variation
+with the saturated densities before its covered calibration and unreachable
+mass can replace the older selected-density inputs.
+
+Focused monitored checks pass for both new modules, and the saturation
+dependency target builds successfully.  Every printed load-bearing
+declaration uses only `[propext, Quot.sound]`.  This remains a finite-cutoff
+disintegration and coverage identity, not an `O(g^2)` estimate, continuum
+measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.  No
+full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

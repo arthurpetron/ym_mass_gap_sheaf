@@ -165,6 +165,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   +-- fine endpoints embedded in receiver sources ... [PROVED]
 |   |   |   |       |   +-- positive-raw coarse endpoints assigned accepted
 |   |   |   |       |   |       witnesses and oriented as receiver cells ... [PROVED]
+|   |   |   |       |   +-- raw-supported coarse endpoints saturated over
+|   |   |   |       |   |       every accepted receiver assignment .......... [PROVED]
+|   |   |   |       |   +-- saturated image membership iff physical endpoint
+|   |   |   |       |   |       reachability ................................. [PROVED]
+|   |   |   |       |   +-- full receiver cell = saturated covered mass plus
+|   |   |   |       |   |       physically unreachable endpoint mass ......... [PROVED exact]
 |   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [PROVED]
 |   |   |   |       |   +-- factor each supported path exactly as receiver
 |   |   |   |       |   |       density times receiver-pair weight ........ [PROVED]
@@ -225,6 +231,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |   +-- normalized variation = covered calibration
 |   |   |   |       |   |   |   |   |   |       + uncovered physical mass ................... [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- covered/uncovered matched-AF compiler ........... [PROVED]
+|   |   |   |       |   |   |   |   |   +-- assignment-saturated raw cross and physical
+|   |   |   |       |   |   |   |   |   |       endpoint coverage decomposition .............. [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- rebuild normalized aggregate variation with the
+|   |   |   |       |   |   |   |   |   |       saturated density .............................. [ACTIVE adapter]
 |   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
 |   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
 |   |   |   |       |   |   |   |   |       +-- covered-image normalized calibration
@@ -1151,6 +1161,12 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       +-- normalized variation = covered calibration
 |       |       + uncovered physical mass ......................... [PROVED exact]
 |       +-- covered/uncovered matched-AF compiler ................. [PROVED]
+|       +-- saturate every accepted assignment over reachable
+|       |       physical endpoints ................................ [PROVED exact]
+|       +-- saturated image iff physical endpoint reachability .... [PROVED]
+|       +-- full cell = saturated coverage + unreachable endpoint
+|       |       mass ............................................... [PROVED exact]
+|       +-- saturated-density normalized-variation adapter ........ [ACTIVE]
 |       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
 |           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
 |           +-- full cell mass <= covered image mass
