@@ -1193,7 +1193,10 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |   +-- rootPositiveMass <= `(K_pos*g^2)*Z_c` .......... [OPEN alternative]
 |           |   |   `-- matched coarse coupling has no such law yet  [OPEN analytic]
 |           |   `-- exact raw-support endpoint coverage ............. [ACTIVE preferred]
-|           |       +-- one positive fine lift per coarse endpoint .. [OPEN finite witness]
+|           |       +-- bounded link-inadmissible endpoints excluded  [PROVED correction]
+|           |       +-- attached endpoint => coarse link factor > 0 .. [PROVED exact]
+|           |       +-- one face-compatible fine lift per attached
+|           |       |       coarse endpoint .......................... [OPEN finite witness]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1225,9 +1228,13 @@ and matched-AF adapter pass their focused check and dependency-complete target
 claimed.  The endpoint-lift factorization likewise passes its focused check
 and dependency-complete target (5,458 jobs), with only
 `[propext, Quot.sound]`: it proves that one positive raw fine lift for every
-physical coarse endpoint gives full saturated receiver coverage, zero
-unreachable mass, and the existing covariance consumer.  Constructing those
-reverse lifts remains the active finite witness problem.
+attached coarse endpoint gives full saturated receiver coverage, zero
+unreachable mass, and the existing covariance consumer.  The attachment's
+accepted coarse intertwiner assignment already forces its global link factor
+to be positive, so the remaining constructor is a positive fine source with
+pointwise compatible face channels.  Constructing those reverse lifts remains
+the active finite witness problem; no lift is required for link-inadmissible
+zero-mass members of the broader bounded Cartesian list.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

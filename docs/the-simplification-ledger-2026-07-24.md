@@ -643,15 +643,18 @@ No full-root audit is claimed.
 
 Milestone 240 factors the stronger zero-unreachable-mass route through one
 explicit finite witness family.  A `PositiveExpandedRawEndpointCoverage`
-supplies, for every physical coarse labelling, an enumerated positive expanded
-fine source with strictly positive literal whole-slab raw transition weight.
-Two such one-replica lifts construct the supported source and opposite target
-four-cell paths needed by the assignment-saturated receiver images.
+supplies, for every attached coarse expanded endpoint, an enumerated positive
+expanded fine source with strictly positive literal whole-slab raw transition
+weight.  The attached carrier is exact: it includes the accepted coarse
+intertwiner assignments actually appearing in receiver cells while excluding
+link-inadmissible zero-mass labellings from the broader bounded Cartesian
+list.  Two such one-replica lifts construct the supported source and opposite
+target four-cell paths needed by the assignment-saturated receiver images.
 
 The resulting exact chain is
 
 ```text
-positive raw fine lift for every physical coarse endpoint
+positive raw fine lift for every attached coarse endpoint
   => full assignment-saturated source and target receiver coverage
   => unreachable source-plus-target receiver mass = 0
   => matched-AF covariance consumer needs no unreachable-mass estimate.
@@ -659,14 +662,19 @@ positive raw fine lift for every physical coarse endpoint
 
 The new module passes a monitored focused check and dependency-complete target
 (5,458 jobs); every printed load-bearing declaration uses only
-`[propext, Quot.sound]`.  It does not construct the endpoint lifts.  The
+`[propext, Quot.sound]`.  The endpoint attachment itself is now proved to
+force a strictly positive complete coarse-link multiplicity.  Consequently
+the producer-facing interface asks only for a positive expanded fine source
+whose local fixed-final face sums are pointwise positive; this data compiles
+to the whole-slab raw lift and then to zero unreachable mass.
+
+The module does not construct those face-compatible endpoint lifts.  The
 existing fine-to-coarse parity target selects one positive coarse endpoint
-for each fine row, whereas this interface needs the reverse statement: a
-positive fine preimage for every physical coarse endpoint.  That finite
-raw-support surjectivity problem is now the preferred active branch.  The
-one-face `O(g^2)` occupation bound remains a valid alternative, but the
-matched coarse coupling currently supplies only a fixed corridor bound, not
-the required quadratic law.
+for each fine row, whereas this interface needs the reverse statement for
+every attached coarse endpoint.  That finite support-lift problem is now the
+preferred active branch.  The one-face `O(g^2)` occupation bound remains a
+valid alternative, but the matched coarse coupling currently supplies only a
+fixed corridor bound, not the required quadratic law.
 
 This is still exact finite-cutoff algebra.  It does not prove the covered
 calibration or spacing/mismatch estimates, cutoff-uniform contraction,

@@ -6,12 +6,15 @@ assignments, but it still asks whether each physical coarse endpoint occurs
 in a strictly positive cutoff-one whole-slab raw row.  This module isolates
 that remaining task at one replica.
 
-A `PositiveExpandedRawEndpointCoverage` supplies, for every physical coarse
-labelling, one enumerated positive expanded fine source whose literal
-whole-slab raw transition to that labelling is strictly positive.  Two such
-lifts assemble constructively into each source or opposite four-cell path.
-It follows that every assignment-saturated receiver is covered and the
-unreachable source-plus-target mass is exactly zero.
+A `PositiveExpandedRawEndpointCoverage` supplies, for every attached coarse
+expanded endpoint, one enumerated positive expanded fine source whose literal
+whole-slab raw transition to that endpoint's physical labelling is strictly
+positive.  This is the exact receiver carrier: unlike the full bounded
+Cartesian list, it contains only labellings with an accepted coarse
+intertwiner assignment.  Two such lifts assemble constructively into each
+source or opposite four-cell path.  It follows that every
+assignment-saturated receiver is covered and the unreachable
+source-plus-target mass is exactly zero.
 
 The matched-AF adapter consequently removes the unreachable-mass analytic
 field entirely, conditional only on this explicit finite raw-support
@@ -20,9 +23,11 @@ mismatch estimates remain unchanged and uninhabited.
 
 No endpoint lift is constructed here.  In particular, the existing
 fine-to-coarse parity target provides one positive target per fine row, not
-the reverse lift for every coarse target required below.  This is a finite
-exact reduction, not a cutoff-uniform contraction, continuum construction,
-OS/GNS reconstruction, Hamiltonian gap, or Yang--Mills mass gap.
+the reverse lift for every attached coarse endpoint required below.  Requiring
+all bounded coarse labellings would be unnecessarily strong: that Cartesian
+list also contains link-inadmissible zero-mass states.  This is a finite exact
+reduction, not a cutoff-uniform contraction, continuum construction, OS/GNS
+reconstruction, Hamiltonian gap, or Yang--Mills mass gap.
 
 Constructive contract: proof-carrying finite members, Boolean support, and
 exact rational inequalities only; no choice, `Classical`, `native_decide`,
@@ -54,6 +59,7 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiv
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 open YMGap.Continuum.CompactDualSlabExpandedSourceEnumeration
 open YMGap.Continuum.CompactDualSlabExpandedPhysicalEventDisintegration
+open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabObservableHighSpinCoreCarrier
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalPushforward
@@ -72,6 +78,7 @@ open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -92,12 +99,78 @@ structure PositiveExpandedRawEndpointLift
     (0 : Q') < wholeSlabRecouplingRawWeight
       S source.1.1 coarseTarget
 
-/-- The remaining finite combinatorial coverage target: every physical
-coarse labelling has a positive raw preimage in the enumerated fine carrier. -/
+/-- An attached coarse endpoint has a strictly positive complete link
+multiplicity: its attachment contains one literal member of the global
+coarse-intertwiner witness list. -/
+theorem attachedEndpoint_linkMultiplicityProduct_pos
+    {S : SlabScalePair}
+    (endpoint : SlabExpandedFineSourceEntry S.coarse) :
+    0 < slabExplicitLinkMultiplicityProduct
+      S.coarse.cutoff S.coarse.extent endpoint.1.1 := by
+  have hassignment :=
+    (mem_slabExpandedFineSources_iff.mp endpoint.2).2
+  have hlength := List.length_pos_of_mem hassignment
+  rwa [slabFineFusionWitnesses_length] at hlength
+
+/-- The constructive payload still needed above one attached coarse endpoint:
+one enumerated positive fine source for which every local fixed-final face
+sum at that endpoint is strictly positive.  The endpoint attachment already
+discharges the separate global coarse-link factor. -/
+structure PositiveExpandedFaceCompatibleEndpointLift
+    (S : SlabScalePair)
+    (endpoint : SlabExpandedFineSourceEntry S.coarse) : Type where
+  source : PositiveExpandedPhysicalSource S
+  source_mem : source ∈ positiveExpandedPhysicalSources S
+  faceRawWeight_pos : ∀ coarseFaceId,
+    coarseFaceId ∈ S.coarse.faceEdges →
+      (0 : Q') < wholeSlabFaceRawWeight
+        S source.1.1 endpoint.1.1 coarseFaceId
+
+private theorem qOfNat_pos_of_pos_local {n : Nat} (hn : 0 < n) :
+    (0 : Q') < Q'.ofNat n := by
+  cases n with
+  | zero => omega
+  | succ n => exact Q'.ofNat_succ_pos n
+
+/-- Pointwise face compatibility plus the endpoint's accepted coarse
+intertwiner assignment gives a strictly positive literal whole-slab raw
+entry. -/
+def PositiveExpandedFaceCompatibleEndpointLift.toRawEndpointLift
+    {S : SlabScalePair} {endpoint : SlabExpandedFineSourceEntry S.coarse}
+    (lift : PositiveExpandedFaceCompatibleEndpointLift S endpoint) :
+    PositiveExpandedRawEndpointLift S endpoint.1.1 where
+  source := lift.source
+  source_mem := lift.source_mem
+  rawWeight_pos := by
+    unfold wholeSlabRecouplingRawWeight
+    exact Q'.mul_pos
+      (wholeSlabFaceRawProduct_pos_of_pointwise
+        S lift.source.1.1 endpoint.1.1 lift.faceRawWeight_pos)
+      (qOfNat_pos_of_pos_local
+        (attachedEndpoint_linkMultiplicityProduct_pos endpoint))
+
+/-- The remaining finite combinatorial coverage target: every attached coarse
+expanded endpoint has a positive raw preimage in the enumerated fine carrier.
+The attachment supplies the accepted coarse intertwiner assignment actually
+seen by the receiver cells and excludes irrelevant link-inadmissible bounded
+labellings. -/
 structure PositiveExpandedRawEndpointCoverage (S : SlabScalePair) : Type where
-  lift : ∀ coarseTarget : EdgeLabelling,
-    coarseTarget ∈ S.coarse.physicalLabellings →
-      PositiveExpandedRawEndpointLift S coarseTarget
+  lift : ∀ endpoint : SlabExpandedFineSourceEntry S.coarse,
+    PositiveExpandedRawEndpointLift S endpoint.1.1
+
+/-- Producer-facing version of endpoint coverage.  It asks only for the
+fine source and pointwise local face compatibility; accepted coarse-link
+coherence is recovered from the attached endpoint itself. -/
+structure PositiveExpandedFaceCompatibleEndpointCoverage
+    (S : SlabScalePair) : Type where
+  lift : ∀ endpoint : SlabExpandedFineSourceEntry S.coarse,
+    PositiveExpandedFaceCompatibleEndpointLift S endpoint
+
+def PositiveExpandedFaceCompatibleEndpointCoverage.toRawEndpointCoverage
+    {S : SlabScalePair}
+    (coverage : PositiveExpandedFaceCompatibleEndpointCoverage S) :
+    PositiveExpandedRawEndpointCoverage S where
+  lift := fun endpoint => (coverage.lift endpoint).toRawEndpointLift
 
 /-! ## 2. Assemble two one-replica lifts into supported four-cell paths -/
 
@@ -169,12 +242,10 @@ def positiveExpandedFourCellSourceSupportedPathAtReceiver
   let leftPhysical := receiver.1.1.1
   let rightPhysical := receiver.2.1.1
   have hphysicalPair := sourceReceiver_physicalPair_mem receiver hreceiver
-  have hphysical := (mem_cartesian_iff _ _
-    (leftPhysical, rightPhysical)).mp hphysicalPair
-  let leftLift := coverage.lift leftPhysical
-    (List.mem_filter.mp hphysical.1).1
-  let rightLift := coverage.lift rightPhysical
-    (List.mem_filter.mp hphysical.2).1
+  let leftEndpoint : SlabExpandedFineSourceEntry S.coarse :=
+    ⟨receiver.1.1, receiver.1.source_mem_expanded⟩
+  let leftLift := coverage.lift leftEndpoint
+  let rightLift := coverage.lift receiver.2
   let path : PositiveExpandedPushedPhysicalTwoReplicaPath S :=
     ((leftPhysical, rightPhysical), (leftLift.source, rightLift.source))
   have hsourcePair : (leftLift.source, rightLift.source) ∈
@@ -221,12 +292,10 @@ def positiveExpandedFourCellTargetSupportedPathAtReceiver
   let rightPhysical := receiver.1.1.1
   have hphysicalPair :=
     targetReceiver_swappedPhysicalPair_mem receiver hreceiver
-  have hphysical := (mem_cartesian_iff _ _
-    (leftPhysical, rightPhysical)).mp hphysicalPair
-  let leftLift := coverage.lift leftPhysical
-    (List.mem_filter.mp hphysical.1).1
-  let rightLift := coverage.lift rightPhysical
-    (List.mem_filter.mp hphysical.2).1
+  let rightEndpoint : SlabExpandedFineSourceEntry S.coarse :=
+    ⟨receiver.1.1, receiver.1.source_mem_expanded⟩
+  let leftLift := coverage.lift receiver.2
+  let rightLift := coverage.lift rightEndpoint
   let path : PositiveExpandedPushedPhysicalTwoReplicaPath S :=
     ((leftPhysical, rightPhysical), (leftLift.source, rightLift.source))
   have hsourcePair : (leftLift.source, rightLift.source) ∈
@@ -308,8 +377,8 @@ private theorem complementFilter_eq_nil_of_subset
         Bool.false_eq_true, if_false]
       exact complementFilter_eq_nil_of_subset image tail htail
 
-/-- Universal one-replica raw endpoint lifts make the physical unreachable
-receiver mass exactly zero. -/
+/-- Raw lifts over the exact attached coarse endpoint carrier make the
+physical unreachable receiver mass exactly zero. -/
 theorem actualPositiveExpandedAssignmentSaturatedUnreachableFullReceiverMass_eqv_zero_of_endpointCoverage
     (S : SlabScalePair) (root target : Nat)
     (coverage : PositiveExpandedRawEndpointCoverage S) :
@@ -407,7 +476,8 @@ structure MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQua
     let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
       family law spacing C coupling coupling_pos coupling_le_window
       identification nested
-    PositiveExpandedRawEndpointCoverage (schedule.scalePair scale)
+    PositiveExpandedFaceCompatibleEndpointCoverage
+      (schedule.scalePair scale)
 
 namespace MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQuadraticCostControl
 
@@ -455,7 +525,8 @@ def toCoveredVariationUnreachableMassQuadraticCostControl
     let target := (schedule.faceMap scale).coarseTarget
     apply
       actualPositiveExpandedAssignmentSaturatedUnreachableFullReceiverMass_le_of_endpointCoverage
-        S root target (control.endpointCoverage scale hscale)
+        S root target
+        (control.endpointCoverage scale hscale).toRawEndpointCoverage
     exact Q'.mul_nonneg _ _
       (Q'.mul_nonneg _ _ (by decide)
         (Q'.mul_nonneg _ _
@@ -503,6 +574,9 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 end MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQuadraticCostControl
 
 #print axioms PositiveExpandedRawEndpointCoverage
+#print axioms attachedEndpoint_linkMultiplicityProduct_pos
+#print axioms PositiveExpandedFaceCompatibleEndpointLift.toRawEndpointLift
+#print axioms PositiveExpandedFaceCompatibleEndpointCoverage.toRawEndpointCoverage
 #print axioms positiveExpandedFourCellSourceSupportedPathAtReceiver
 #print axioms positiveExpandedFourCellTargetSupportedPathAtReceiver
 #print axioms sourceReceiver_mem_assignmentSaturatedImage_of_endpointCoverage
