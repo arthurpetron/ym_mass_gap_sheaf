@@ -197,7 +197,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- exact source/target Boolean sector partitions ... [PROVED]
 |   |   |   |       |   |   +-- disconnected row debt = 0 ....................... [PROVED]
 |   |   |   |       |   |   +-- full cross = five explicit surviving debts ...... [PROVED]
-|   |   |   |       |   |   +-- five debt bounds => covariance consumer .......... [PROVED interface]
+|   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
+|   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   `-- uniform five-debt `O(a)` estimates ............... [ACTIVE preferred]
 |   |   |   |       |   `-- posterior-free direct calibration route
 |   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
@@ -549,11 +550,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 The live receiver-transport frontier is no longer the monolithic complete-cell
 posterior.  The explicit split-sector route instantiates both existing finite
 kernels at every schedule scale and leaves five named analytic debts; exact
-normalization deletes the disconnected row debt.  The preferred next work is
-to rewrite the surviving split row, edge, and column terms as literal
-receiver-density calibration or variation sums and then prove uniform
-linear-in-spacing estimates for them.  Direct full-cell calibration remains a
-shorter but stronger alternative because it discards transport cancellation.
+normalization deletes the disconnected row debt.  Each surviving row, edge,
+and column term is now bounded by a literal receiver-density calibration or
+variation sum.  The preferred next work is to prove uniform linear-in-spacing
+estimates for those five finite sums and the shared raw mismatch.  Direct
+full-cell calibration remains a shorter but stronger alternative because it
+discards transport cancellation.
 None of these finite identities or schedule interfaces supplies the still-open
 physical spacing floor, continuum measure, OS/GNS reconstruction, Hamiltonian
 gap, or Clay-facing theorem.

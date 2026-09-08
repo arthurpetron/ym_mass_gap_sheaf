@@ -28699,3 +28699,35 @@ is introduced.  The focused monitored check passes, all sixteen printed
 load-bearing declarations use only `[propext, Quot.sound]`, and the
 dependency-complete target passes all 1,582 jobs.  No full-root audit is
 claimed.
+
+#### The five split debts are literal density budgets (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitTransportCalibration`
+defines reusable row-calibration, edge-density-variation, and
+column-calibration `l1` budgets for any receiver-valued dependent coefficient
+transport whose coefficients have the established scale-defect forms.  It
+then specializes them to the explicit connected and disconnected sector
+kernels.
+
+The connected row debt is bounded by its partition-density calibration error
+times unretained row mass.  Both sector edge debts are bounded by literal
+dependent double sums of source-to-realized-target receiver-density variation;
+the common fine-partition square has already cancelled.  Both sector column
+debts are bounded by target calibration error times the exact incoming column
+slack.  These are five concrete finite sums, not opaque posterior fields.
+
+A calibrated schedule structure asks for linear-in-spacing bounds directly on
+those five sums and the shared raw mismatch.  Its exact adapter produces the
+split five-debt tail and hence the matched covariance
+`fineCovariance <= anchorRate + epsilon` theorem with the same sum of five
+ceilings.
+
+No uniform estimate is inhabited.  The active analytic frontier is to prove
+the five displayed `O(a)` bounds and the raw mismatch bound.  The physical
+spacing floor, continuum measure, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay theorem remain open.  No `sorry`, `admit`,
+`Classical`, `native_decide`, new axiom, or noncomputable declaration is
+introduced.  The focused monitored check passes, all sixteen printed
+load-bearing declarations use only `[propext, Quot.sound]`, and the
+dependency-complete target passes all 1,586 jobs.  No full-root audit is
+claimed.
