@@ -29100,3 +29100,42 @@ The generic module prints six load-bearing declarations, all using only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Reassemble the split posterior columns on the full target carrier (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier`
+defines one literal posterior-column `l1` sum over the original opposite
+four-cell target carrier.  The established Boolean support-sector predicate
+selects the connected or disconnected density transport at each receiver.
+Exact finite partition identities prove that this full-carrier sum is equal
+to the sum of the two sector posterior costs and that the two sector target
+masses are equal to the physical mass of the same full carrier.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+uses those equalities to compile one full-carrier relative posterior estimate,
+together with the connected aggregate row estimate, into the existing global
+posterior quadratic input.  The preferred matched-AF Type witness now exposes
+those two literal analytic fields.  Combined-sector, separate-sector, and
+pointwise routes remain as sufficient interfaces.
+
+No posterior smallness estimate is inhabited.  The active finite analytic
+frontier is the connected row aggregate relative to connected source mass and
+the full-carrier posterior `l1` relative to full target mass.  Lower quadratic
+spacing, raw mismatch, arbitrary-cutoff persistence, a uniform physical gap,
+continuum construction, same-measure OS/GNS reconstruction, Hamiltonian gap,
+and Clay closure remain open.
+
+Monitored verification:
+
+```text
+full-carrier reassembly focused source check                PASS
+full-carrier reassembly dependency target                   PASS (1,594 jobs)
+full-carrier matched-AF focused source check                PASS
+full-carrier matched-AF dependency target                   PASS (5,444 jobs)
+```
+
+The reassembly module prints four load-bearing declarations and the updated
+matched-AF module prints eighteen; all use only `[propext, Quot.sound]`.  No
+`sorry`, `admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  No full-root audit
+is claimed.

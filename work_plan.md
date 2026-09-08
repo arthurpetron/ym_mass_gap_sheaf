@@ -214,15 +214,17 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
 |   |   |   |       |   |   |   +-- posterior three-budget <=
 |   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
-|   |   |   |       |   |   |   |   +-- combined posterior compiler, no column count .. [PROVED preferred]
+|   |   |   |       |   |   |   |   +-- split posterior `l1` and masses reassemble on
+|   |   |   |       |   |   |   |   |       the original full target carrier ........... [PROVED exact]
+|   |   |   |       |   |   |   |   +-- full-carrier posterior compiler, no column count [PROVED preferred]
 |   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ............. [PROVED]
-|   |   |   |       |   |   |   |   +-- complementary target masses <= `Z_c^2` ....... [PROVED]
-|   |   |   |       |   |   |   |   +-- row + combined posterior => global budget ...... [PROVED bridge]
-|   |   |   |       |   |   |   |   +-- separate sector bounds => combined bound ....... [PROVED stronger]
-|   |   |   |       |   |   |   |   `-- pointwise bounds => separate sector bounds ..... [PROVED stronger]
+|   |   |   |       |   |   |   |   +-- full target-carrier mass <= `Z_c^2` .......... [PROVED]
+|   |   |   |       |   |   |   |   +-- row + full-carrier posterior => global budget  [PROVED bridge]
+|   |   |   |       |   |   |   |   +-- combined/separate sector routes retained ...... [PROVED adapters]
+|   |   |   |       |   |   |   |   `-- pointwise route retained ...................... [PROVED stronger]
 |   |   |   |       |   |   |   `-- inhabit two aggregate estimates ................... [ACTIVE preferred]
 |   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN]
-|   |   |   |       |   |   |       `-- combined posterior `l1` / combined target mass  [OPEN]
+|   |   |   |       |   |   |       `-- full-carrier posterior `l1` / target mass ...... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -30214,6 +30216,68 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 228. Reassemble the split posterior columns on the full target carrier (2026-09-08)
+
+**Status. THE PREFERRED RECEIVER-COLUMN INPUT IS NOW ONE LITERAL POSTERIOR
+`L1` ESTIMATE ON THE ORIGINAL OPPOSITE FOUR-CELL TARGET CARRIER.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier.lean`
+defines the absolute posterior defect at each receiver of the original full
+opposite four-cell carrier, selecting the connected or disconnected density
+transport with the established Boolean support-sector predicate.  Exact
+finite partition identities prove
+
+```text
+full-carrier posterior l1
+  ~= connected posterior l1 + disconnected posterior l1,
+
+connected target mass + disconnected target mass
+  ~= physical mass of the original full target carrier.
+```
+
+No triangle inequality, receiver-cardinality factor, or analytic estimate is
+used in either reassembly.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+now provides the direct compiler
+
+```text
+connected row defect <= rowRelative * connected source mass,
+full-carrier posterior l1 <= columnRelative * full target-carrier mass
+
+-------------------------------------------------------------------------
+posterior three-budget <= (rowRelative + columnRelative) * Z_coarse^2.
+```
+
+Its preferred Type-valued matched-AF witness therefore has exactly two local
+analytic fields: the connected aggregate row estimate and the literal
+full-carrier posterior estimate.  The previously proved combined-sector,
+separate-sector, and pointwise routes remain available as sufficient
+interfaces.
+
+No smallness estimate is inhabited.  The active finite analytic frontier is
+to prove the connected total row defect relative to connected source mass and
+the full-carrier posterior `l1` relative to full target mass.  The independent
+lower quadratic spacing and raw mismatch estimates remain open.  A uniform
+physical gap, arbitrary-cutoff persistence, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+full-carrier reassembly focused source check                PASS
+full-carrier reassembly dependency target                   PASS (1,594 jobs)
+full-carrier matched-AF focused source check                PASS
+full-carrier matched-AF dependency target                   PASS (5,444 jobs)
+```
+
+The reassembly module prints four load-bearing declarations and the updated
+matched-AF module prints eighteen; all use only `[propext, Quot.sound]`.  No
+`sorry`, `admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, or enlarged heartbeat budget is introduced.  No full-root audit
+is claimed.
 
 ## 227. Combine the two posterior sectors before the analytic estimate (2026-09-08)
 

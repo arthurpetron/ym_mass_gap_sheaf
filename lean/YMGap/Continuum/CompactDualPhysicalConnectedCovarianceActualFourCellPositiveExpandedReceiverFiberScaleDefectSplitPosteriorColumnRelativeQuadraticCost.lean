@@ -4,16 +4,17 @@
 The normalized posterior route needs one global three-term estimate.  A
 uniform estimate per receiver column would lose the size of the growing
 finite carrier.  This module replaces that global input by one aggregate
-connected-row estimate and one combined complementary receiver-sector
-estimate relative to their actual physical masses.  Separate-sector and
-pointwise weight-relative estimates are retained as stronger sufficient
-interfaces and compile through the combined aggregate one.
+connected-row estimate and one literal posterior estimate over the original
+full opposite four-cell target carrier, relative to their actual physical
+masses.  Combined-sector, separate-sector, and pointwise weight-relative
+estimates are retained as sufficient interfaces.
 
-The connected source carrier and the connected/disconnected target sectors
-all sit inside the positive-first-replica product carrier.  Their weight is
-therefore bounded without cardinality loss by the coarse physical partition
-square.  The connected and disconnected target sectors are complementary, so
-their common relative column ceiling is paid only once.  Finally
+The connected source carrier and the full opposite target carrier both sit
+inside the positive-first-replica product carrier.  Their weight is therefore
+bounded without cardinality loss by the coarse physical partition square.
+The connected and disconnected posterior columns reassemble exactly on that
+full carrier, so their common relative column ceiling is paid only once.
+Finally
 
 ```text
 partitionDensity * Z_coarse^2 = Z_fine^2
@@ -33,6 +34,7 @@ hole, noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.FiniteDependentKernelCoefficientPosteriorRelativeBound
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFiniteCoreReduction
 import YMGap.Continuum.CompactDualSlabObservableFiniteVolumeVacuumStrictness
@@ -50,6 +52,7 @@ open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrier
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnNormalizedCost
@@ -387,6 +390,89 @@ theorem splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
     apply Q'.eqv_of_eq
     congr <;> apply Subsingleton.elim)
 
+/-- The preferred receiver-column statement uses one literal `l1` sum and
+one physical mass on the original full four-cell target carrier. -/
+theorem splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) (rowRelative columnRelative : Q')
+    (hrowRelative : (0 : Q') ≤ rowRelative)
+    (hcolumnRelative : (0 : Q') ≤ columnRelative)
+    (hrow :
+      let S := schedule.scalePair scale
+      let connected :=
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (schedule.faceMap scale).coarseTarget_mem
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources)
+    (hcolumns :
+      let S := schedule.scalePair scale
+      let root := (schedule.faceMap scale).coarseRoot
+      let target := (schedule.faceMap scale).coarseTarget
+      let htarget := (schedule.faceMap scale).coarseTarget_mem
+      actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
+        columnRelative *
+          listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+            (slabObservableFourCellTargetPairs S.coarse root target)) :
+    actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
+        schedule scale ≤
+      (rowRelative + columnRelative) *
+        ((schedule.scalePair scale).coarse.physicalPartition *
+          (schedule.scalePair scale).coarse.physicalPartition) := by
+  let S := schedule.scalePair scale
+  let root := (schedule.faceMap scale).coarseRoot
+  let target := (schedule.faceMap scale).coarseTarget
+  let htarget := (schedule.faceMap scale).coarseTarget_mem
+  let connected :=
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  let disconnected :=
+    actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  let fullL1 :=
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  let fullMass :=
+    listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+      (slabObservableFourCellTargetPairs S.coarse root target)
+  have hl1 :
+      fullL1 ≈
+        connected.posteriorColumnCoefficientL1 +
+          disconnected.posteriorColumnCoefficientL1 := by
+    simpa only [S, root, target, htarget, connected, disconnected, fullL1]
+      using
+        actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1_eqv_split
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  have hmass :
+      listQSum connected.targetWeight connected.targets +
+          listQSum disconnected.targetWeight disconnected.targets ≈
+        fullMass := by
+    simpa only [S, root, target, htarget, connected, disconnected, fullMass]
+      using
+        splitDensityTransports_targetWeight_eqv_fourCellTargetWeight
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  have hcombined :
+      connected.posteriorColumnCoefficientL1 +
+          disconnected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          (listQSum connected.targetWeight connected.targets +
+            listQSum disconnected.targetWeight disconnected.targets) := by
+    refine Q'.le_trans' _ fullL1 _ (Q'.le_of_eqv (Q'.eqv_symm hl1)) ?_
+    refine Q'.le_trans' _ (columnRelative * fullMass) _
+      (by simpa only [S, root, target, htarget, fullL1, fullMass] using
+        hcolumns) ?_
+    exact Q'.le_of_eqv
+      (Q'.mul_eqv_congr_left columnRelative _ _ (Q'.eqv_symm hmass))
+  exact splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
+    schedule scale rowRelative columnRelative
+    hrowRelative hcolumnRelative
+    (by simpa only [S, root, target, htarget, connected] using hrow)
+    (by simpa only [S, root, target, htarget, connected, disconnected] using
+      hcombined)
+
 /-- Separate posterior-sector aggregates compile to the weaker combined
 posterior interface. -/
 theorem splitPosteriorColumnBudget_le_aggregateRelativeWeights
@@ -575,9 +661,9 @@ theorem splitPosteriorColumnBudget_le_relativeWeights
 /-! ## 3. Matched-AF local inputs compile to the existing global bridge -/
 
 /-- The preferred volume-safe matched-AF posterior input.  Its two local
-analytic obligations are one connected-row aggregate and one combined
-posterior-sector aggregate. -/
-structure MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+analytic obligations are one connected-row aggregate and one literal
+full-target-carrier posterior estimate. -/
+structure MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
     (family : MatchedBlockFamily)
     (law : CubicMarginLaw family)
     (spacing : PhysicalSpacingEnvelope law.g₁)
@@ -621,31 +707,22 @@ structure MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadratic
       ((rowQuadraticCeiling * (coupling scale * coupling scale)) *
           positiveExpandedReceiverFiberPartitionDensity S) *
         listQSum connected.sourceWeight connected.sources
-  posteriorColumns_aggregateRelative : ∀ scale : Nat, start ≤ scale →
+  posteriorColumn_fullCarrierRelative : ∀ scale : Nat, start ≤ scale →
     let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
       family law spacing C coupling coupling_pos coupling_le_window
       identification nested
     let S := schedule.scalePair scale
-    let connected :=
-      actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
-        S rfl (schedule.effectiveCoupling_pos scale)
-        (schedule.faceMap scale).coarseRoot
-        (schedule.faceMap scale).coarseTarget
-        (schedule.faceMap scale).coarseTarget_mem
-    let disconnected :=
-      actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
-        S rfl (schedule.effectiveCoupling_pos scale)
-        (schedule.faceMap scale).coarseRoot
-        (schedule.faceMap scale).coarseTarget
-        (schedule.faceMap scale).coarseTarget_mem
-    connected.posteriorColumnCoefficientL1 +
-        disconnected.posteriorColumnCoefficientL1 ≤
+    let root := (schedule.faceMap scale).coarseRoot
+    let target := (schedule.faceMap scale).coarseTarget
+    let htarget := (schedule.faceMap scale).coarseTarget_mem
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+        S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
       ((posteriorQuadraticCeiling * (coupling scale * coupling scale)) *
           positiveExpandedReceiverFiberPartitionDensity S) *
-        (listQSum connected.targetWeight connected.targets +
-          listQSum disconnected.targetWeight disconnected.targets)
+        listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+          (slabObservableFourCellTargetPairs S.coarse root target)
 
-namespace MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+namespace MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
 
 variable
     {family : MatchedBlockFamily}
@@ -660,14 +737,14 @@ variable
 
 def connectedQuadraticCeiling
     (control :
-      MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+      MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
         family law spacing C coupling coupling_pos coupling_le_window
         identification nested) : Q' :=
   control.rowQuadraticCeiling + control.posteriorQuadraticCeiling
 
 theorem connectedQuadraticCeiling_pos
     (control :
-      MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+      MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
         family law spacing C coupling coupling_pos coupling_le_window
         identification nested) :
     (0 : Q') < control.connectedQuadraticCeiling :=
@@ -678,7 +755,7 @@ theorem connectedQuadraticCeiling_pos
 global matched-AF posterior-cost interface. -/
 def toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
     (control :
-      MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+      MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
         family law spacing C coupling coupling_pos coupling_le_window
         identification nested) :
     MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
@@ -719,13 +796,13 @@ def toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
         (Q'.mul_nonneg _ _
           (Q'.le_of_lt control.posteriorQuadraticCeiling_pos) hg2)
         hdensity
-    have hlocal := splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
+    have hlocal := splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
       schedule scale rowRelative columnRelative
       hrowRelative hcolumnRelative
       (by simpa only [schedule, S, g2, density, rowRelative] using
         control.connectedRow_aggregateRelative scale hscale)
       (by simpa only [schedule, S, g2, density, columnRelative] using
-        control.posteriorColumns_aggregateRelative scale hscale)
+        control.posteriorColumn_fullCarrierRelative scale hscale)
     exact Q'.le_trans' _ _ _ hlocal
       (Q'.le_of_eqv (by
         simpa only [schedule, S, g2, density, rowRelative, columnRelative,
@@ -736,7 +813,7 @@ def toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
 
 theorem fineCovariance_le_anchorRate_add_epsilon
     (control :
-      MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+      MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
         family law spacing C coupling coupling_pos coupling_le_window
         identification nested)
     (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
@@ -751,7 +828,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
   control.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
     epsilon hepsilon scale hscale
 
-end MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
+end MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
 
 /-- A volume-safe refinement of the matched-AF posterior input.  The global
 posterior estimate is replaced by one connected-row relative estimate and one
@@ -954,13 +1031,14 @@ end MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms splitDensityTransports_targetWeight_le_coarseSquare
 #print axioms positiveExpandedReceiverFiberPartitionDensity_pos
 #print axioms splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
+#print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_aggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_relativeWeights
-#print axioms MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl
-#print axioms MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl.connectedQuadraticCeiling
-#print axioms MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl.connectedQuadraticCeiling_pos
-#print axioms MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
-#print axioms MatchedShiftedAFSplitPosteriorColumnCombinedAggregateRelativeQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
+#print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl
+#print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl.connectedQuadraticCeiling
+#print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl.connectedQuadraticCeiling_pos
+#print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
+#print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl.connectedQuadraticCeiling
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl.connectedQuadraticCeiling_pos
