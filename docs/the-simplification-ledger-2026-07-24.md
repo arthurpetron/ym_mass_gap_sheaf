@@ -419,6 +419,43 @@ only `[propext]`; new physical declarations use only
 inhabited smallness estimate, continuum construction, OS/GNS reconstruction,
 Hamiltonian spectral gap, or Clay closure.  No full-root audit is claimed.
 
+### 9.2 Post-audit implementation update: normalized variation and quantitative coverage, milestone 234 (2026-09-08)
+
+Milestone 234 sharpens the aggregate receiver input without changing the
+physical carrier.  The full source-plus-target density-coefficient `l1` mass
+is divided by the exact positive fine-to-coarse partition density and proved
+equivalent to its coarse-law mass-scale form:
+
+```text
+normalized receiver variation <= K * Z_c^2
+  iff aggregate coefficient l1 <= K * Z_f^2.
+```
+
+In
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectAggregateNormalizedVariation.lean`,
+the source and target receiver carriers are filtered by their actual
+supported-path images.  The resulting exact identity is
+
+```text
+normalized receiver variation
+  ~= covered-image relative calibration
+       + uncovered source/target physical mass.
+```
+
+This changes the role of coverage in the live route.  Full supported-image
+surjectivity is one sufficient way to erase the second term, but it is not a
+necessary premise: an `O(g^2 * Z_c^2)` quantitative missing-mass estimate is
+enough.  A producer-facing matched-AF structure combines that estimate with an
+`O(g^2 * Z_c^2)` covered calibration estimate and reaches the existing
+covariance consumer without receiver-cardinality payment.
+
+The two analytic bounds remain uninhabited.  The result is an exact
+finite-cutoff normalization and decomposition, not a proof of receiver
+smallness, cutoff-uniform contraction, continuum construction, OS/GNS
+Hamiltonian gap, or Clay closure.  Its monitored focused check and
+dependency-complete target pass (5,450 jobs), and every printed declaration
+uses only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

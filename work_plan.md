@@ -215,14 +215,22 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- posterior three-budget <=
 |   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
 |   |   |   |       |   |   |   |   +-- aggregate coefficient-`l1` route, no column
-|   |   |   |       |   |   |   |   |       count or image-coverage premise .............. [ACTIVE preferred]
+|   |   |   |       |   |   |   |   |       count or pointwise coverage premise ........... [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |   +-- retained/unretained source reassembly ......... [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- connected/disconnected carrier reassembly ...... [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- row + both posteriors <= full source + target
 |   |   |   |       |   |   |   |   |   |       coefficient `l1` ........................... [PROVED]
 |   |   |   |       |   |   |   |   |   +-- matched-AF covariance consumer ................. [PROVED]
-|   |   |   |       |   |   |   |   |   `-- full source + target coefficient `l1` <=
-|   |   |   |       |   |   |   |   |           `(K*g^2)*Z_f^2` ......................... [OPEN sole receiver input]
+|   |   |   |       |   |   |   |   |   +-- exact coarse-law normalization ................. [PROVED]
+|   |   |   |       |   |   |   |   |   +-- normalized variation = covered calibration
+|   |   |   |       |   |   |   |   |   |       + uncovered physical mass ................... [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- covered/uncovered matched-AF compiler ........... [PROVED]
+|   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
+|   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
+|   |   |   |       |   |   |   |   |       +-- covered-image normalized calibration
+|   |   |   |       |   |   |   |   |       |       <= `(K_cov*g^2)*Z_c^2` ................... [OPEN]
+|   |   |   |       |   |   |   |   |       `-- uncovered source + target physical mass
+|   |   |   |       |   |   |   |   |               <= `(K_miss*g^2)*Z_c^2` ................ [OPEN]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1137,26 +1145,29 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       +-- row + two posteriors <= full source + target
 |       |       coefficient `l1` .................................. [PROVED]
 |       +-- aggregate coefficient-`l1` matched-AF compiler ........ [PROVED]
-|       `-- full source + target coefficient `l1`
-|               <= `(K*g^2)*Z_f^2` ............................... [ACTIVE sole input]
-|           +-- direct aggregate estimate ........................ [OPEN preferred]
-|           `-- pointwise uniform density route .................. [OBSTRUCTED alternative]
-|               +-- off-image density floor ...................... [PROVED obstruction]
-|               +-- full supported-image coverage ................ [OPEN prerequisite]
-|               +-- uniform source coefficient on image ......... [OPEN]
-|               `-- uniform target coefficient on image ......... [OPEN]
+|       +-- exact conversion to coarse-normalized variation ....... [PROVED]
+|       +-- normalized variation = covered calibration
+|       |       + uncovered physical mass ......................... [PROVED exact]
+|       +-- covered/uncovered matched-AF compiler ................. [PROVED]
+|       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
+|           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
+|           +-- uncovered physical mass <= `K_miss*g^2*Z_c^2` ..... [OPEN]
+|           +-- full supported-image coverage ..................... [OPEN sufficient, not required]
+|           `-- full-carrier pointwise calibration ................ [OBSTRUCTED alternative]
+|               `-- off-image density floor ....................... [PROVED obstruction]
 +-- positive physical gap on a common trajectory ................. [OPEN]
 +-- same-measure continuum construction .......................... [OPEN]
 +-- OS/GNS Hamiltonian with a positive gap ........................ [OPEN]
 `-- Clay-facing same-object assembly .............................. [OPEN]
 ```
 
-The latest aggregate coefficient-`l1` generic module passes both a monitored
-focused check and its dependency-complete target (220 jobs), and the concrete
+The aggregate coefficient-`l1` generic module passes both a monitored focused
+check and its dependency-complete target (220 jobs), and the first concrete
 physical compiler passes its monitored focused check and dependency-complete
-target (5,448 jobs).  The new generic declarations use only `[propext]`; the
-physical declarations use only `[propext, Quot.sound]`.  No full-root audit is
-claimed.
+target (5,448 jobs).  The normalized-variation and quantitative-coverage
+module also passes its monitored focused check and dependency-complete target
+(5,450 jobs).  The new generic declarations use only `[propext]`; the physical
+declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
@@ -30261,6 +30272,70 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 234. Normalize aggregate variation and split the coverage debt quantitatively (2026-09-08)
+
+**Status. THE SOLE RECEIVER INPUT IS NOW A COARSE-LAW NORMALIZED VARIATION,
+AND IT SPLITS EXACTLY INTO COVERED-IMAGE RELATIVE CALIBRATION PLUS UNCOVERED
+SOURCE/TARGET PHYSICAL MASS.  FULL IMAGE SURJECTIVITY IS SUFFICIENT BUT NO
+LONGER REQUIRED.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectAggregateNormalizedVariation.lean`
+defines the full source-plus-target density-coefficient `l1` mass and its
+coarse-law normalization.  Positivity of the exact fine/coarse partition
+densities proves, for every proposed ceiling `K`,
+
+```text
+coarse-normalized receiver variation <= K * Z_c^2
+  iff
+full source + target density-coefficient l1 <= K * Z_f^2.
+```
+
+Thus the milestone-233 aggregate estimate is not merely a weighted finite sum:
+it is exactly a total-variation-style defect in coarse product-law mass units.
+
+The module next defines the actual supported receiver images separately for
+the source and target path families.  Constructive finite filtering and the
+existing zero-extension result give the exact decomposition
+
+```text
+normalized receiver variation
+  ~= covered-image relative calibration
+       + uncovered source physical mass + uncovered target physical mass.
+```
+
+Consequently, separate bounds
+
+```text
+covered-image relative calibration <= (K_cov * g^2) * Z_c^2,
+uncovered source + target physical mass <= (K_miss * g^2) * Z_c^2
+```
+
+compile to normalized receiver variation bounded by
+`((K_cov + K_miss) * g^2) * Z_c^2`, and then through the existing matched-AF aggregate
+compiler to `fineCovariance <= anchorRate + epsilon`.  This is the preferred
+producer-facing split: it allows approximate supported-image coverage and
+does not charge a receiver cardinality.  Literal full coverage remains a
+sufficient special case; it is no longer a prerequisite for the route.
+
+Neither quantitative input is inhabited.  The active receiver analysis must
+now bound (i) calibration on the supported image and (ii) coarse physical mass
+missed by the source and target supported paths.  The lower quadratic spacing
+estimate, raw mismatch estimate, arbitrary-cutoff persistence, uniform
+physical gap, continuum construction, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure also remain open.
+
+Monitored verification:
+
+```text
+normalized-variation focused source check                PASS
+normalized-variation dependency target                   PASS (5,450 jobs)
+```
+
+Every printed declaration in the new physical module uses only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
 
 ## 233. Collapse all posterior debts to one aggregate coefficient budget (2026-09-08)
 
