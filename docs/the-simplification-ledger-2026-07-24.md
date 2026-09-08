@@ -682,13 +682,21 @@ fine source and, at every coarse face, one pair channel with the prescribed
 final spin and three true `fusionOK` guards.  A checked adapter proves that
 the selected channel has positive character/fusion weight, occurs in the
 finite channel sum, and therefore makes the fixed-final face sum positive.
-The matched-AF compiler now requests this discrete channel presentation and
-uses positive effective coupling to recover the earlier face-compatible and
-raw endpoint coverage interfaces.  Thus the active constructor no longer
-owes a rational-sum positivity argument: it owes the positive fine source and
-the supported per-face channels themselves.
+Channel-list membership follows from the guards and the bounded fine packet,
+so it is not a separate producer input.
 
-This strengthened layer passes the same monitored focused check and
+The canonical stretched channel removes the remaining channel selection:
+its three guards hold identically, and its final spin is the sum of the four
+fine spins in the dyadic face block.  Moreover, a duplicate-free
+even-incidence cutoff-one support at positive fine coupling is proved to have
+positive physical weight; the positive term constructively yields an
+accepted fine intertwiner and membership in the literal expanded positive
+source enumeration.  The matched-AF compiler therefore requests only an
+`EvenBinarySupportEndpointCoverage`: for each attached coarse endpoint, a
+closed fine binary support whose four-face dyadic block counts reproduce its
+coarse spins exactly.  This is the geometric reverse-lift theorem still open.
+
+These strengthened layers pass the same monitored focused check and
 dependency-complete target (5,458 jobs); its printed adapters use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
 

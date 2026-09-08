@@ -1197,8 +1197,12 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- attached endpoint => coarse link factor > 0 .. [PROVED exact]
 |           |       +-- explicit supported face channels imply
 |           |       |       positive fixed-final face sums ........... [PROVED reduction]
-|           |       +-- one positive fine source plus per-face fusion
-|           |       |       channels for each attached endpoint ...... [ACTIVE finite witness]
+|           |       +-- stretched channel guards and bounds from exact
+|           |       |       four-fine-face block counts ............... [PROVED exact]
+|           |       +-- closed binary support => positive Gibbs source
+|           |       |       + accepted fine intertwiner ............... [PROVED constructive]
+|           |       +-- one closed fine binary support whose dyadic
+|           |       |       block counts equal each attached endpoint . [ACTIVE geometric lift]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1233,11 +1237,14 @@ and dependency-complete target (5,458 jobs), with only
 attached coarse endpoint gives full saturated receiver coverage, zero
 unreachable mass, and the existing covariance consumer.  The attachment's
 accepted coarse intertwiner assignment already forces its global link factor
-to be positive.  The strengthened producer now asks for a positive fine
-source and an explicit pair channel at each coarse face, together with the
-required final spin and three Boolean fusion guards; those discrete witnesses
-are proved sufficient for every fixed-final face sum to be positive.
-Constructing this source-and-channel reverse lift remains the active finite
+to be positive.  Explicit pair channels with the required final spin and
+three Boolean fusion guards are proved sufficient for every fixed-final face
+sum to be positive.  The canonical stretched channel then removes those
+channel inputs whenever the attached coarse spin is the sum of the four fine
+binary spins.  Finally, a duplicate-free even-incidence fine support is proved
+to supply its positive Gibbs term, an accepted fine intertwiner, and literal
+positive-source enumeration membership.  Constructing one such closed fine
+support with the exact dyadic block counts is the active finite geometric
 witness problem; no lift is required for link-inadmissible zero-mass members
 of the broader bounded Cartesian list.
 

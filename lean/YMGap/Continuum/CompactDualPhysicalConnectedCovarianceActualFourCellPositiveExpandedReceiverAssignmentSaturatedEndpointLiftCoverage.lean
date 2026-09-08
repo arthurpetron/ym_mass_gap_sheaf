@@ -19,8 +19,12 @@ source-plus-target mass is exactly zero.
 The face-positivity premise is factored once more into explicit local data:
 one enumerated pair channel at every coarse face, its prescribed final spin,
 and the three Boolean fusion guards making its raw character weight strictly
-positive.  This removes the rational-sum positivity proof from the remaining
-producer and leaves a discrete reverse-lift construction.
+positive.  The stretched channel makes these guards automatic when the
+coarse spin equals the sum of the four fine binary spins.  A duplicate-free
+even-incidence fine support also supplies its positive Gibbs term and one
+accepted fine intertwiner constructively.  The remaining producer is
+therefore the exact geometric reverse lift: one closed binary support whose
+dyadic four-face block counts equal the attached coarse labelling.
 
 The matched-AF adapter consequently removes the unreachable-mass analytic
 field entirely, conditional only on this explicit finite raw-support
@@ -53,7 +57,11 @@ open YMGap.Continuum
 open YMGap.Continuum.AFTrajectoryCertificate
 open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
+open YMGap.Continuum.BF4SU2OuterFineWitnessRoutingReduction
+open YMGap.Continuum.BF4SU2OuterPositiveRowClosureReduction
 open YMGap.Continuum.BondMovingStep
+open YMGap.Continuum.ClusterCount4DProgress
+open YMGap.Continuum.CompactDualSlabBinarySupportLinkCoherence
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedPaths
@@ -70,6 +78,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabObservableHighSpinCoreCarrier
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportFractionalPushforward
+open YMGap.Continuum.CompactDualSlabObservablePairedPositivePhysicalWeights
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
@@ -82,14 +91,20 @@ open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.CompactDualWholeSlabRecouplingRawKernel
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedCartesianInjection
+open YMGap.Continuum.FusionBratteli
 open YMGap.Continuum.FusionResidualBound
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
+open YMGap.Continuum.Z4DyadicDeterministicSupportKernel
 open YMGap.Continuum.Z4DyadicSlabCharacterFusionConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabMultiCharacterPacketKernel
+open YMGap.Continuum.Z4FiniteBoxFusionCompleteCutoff
+open YMGap.Continuum.Z4UnitCubeIncidenceParity
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -143,6 +158,85 @@ private theorem qOfNat_pos_of_pos_local {n : Nat} (hn : 0 < n) :
   | zero => omega
   | succ n => exact Q'.ofNat_succ_pos n
 
+private theorem positivePhysicalSource_mem_aux_local
+    {S : SlabScalePair} (source : PositivePhysicalSource S) :
+    ∀ (sources : List EdgeLabelling)
+      (hphysical : ∀ item, item ∈ sources →
+        item ∈ S.fine.physicalLabellings),
+      source.1 ∈ sources →
+        source ∈ positivePhysicalSourcesAux S sources hphysical
+  | [], _, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: tail, hphysical, hmem => by
+      simp only [positivePhysicalSourcesAux]
+      split
+      next hheadPositive =>
+        rcases List.mem_cons.mp hmem with hhead | htail
+        · subst head
+          apply List.mem_cons.mpr
+          left
+          apply Subtype.ext
+          rfl
+        · exact List.mem_cons_of_mem _
+            (positivePhysicalSource_mem_aux_local source tail
+              (fun item hitem =>
+                hphysical item (List.mem_cons_of_mem head hitem))
+              htail)
+      next hheadNotPositive =>
+        rcases List.mem_cons.mp hmem with hhead | htail
+        · subst head
+          exact False.elim (hheadNotPositive source.2.2)
+        · exact positivePhysicalSource_mem_aux_local source tail
+            (fun item hitem =>
+              hphysical item (List.mem_cons_of_mem head hitem))
+            htail
+
+private theorem positivePhysicalSource_mem_local
+    {S : SlabScalePair} (source : PositivePhysicalSource S) :
+    source ∈ positivePhysicalSources S := by
+  unfold positivePhysicalSources
+  exact positivePhysicalSource_mem_aux_local source
+    S.fine.physicalLabellings (fun _ hitem => hitem) source.2.1
+
+private theorem positiveExpandedPhysicalSource_mem_local
+    {S : SlabScalePair} (source : PositiveExpandedPhysicalSource S) :
+    source ∈ positiveExpandedPhysicalSources S := by
+  unfold positiveExpandedPhysicalSources
+  apply List.mem_flatMap.mpr
+  refine ⟨source.1, positivePhysicalSource_mem_local source.1, ?_⟩
+  unfold positiveExpandedPhysicalSourceBlock
+  apply List.mem_map.mpr
+  exact ⟨source.2, List.mem_attach _ source.2, rfl⟩
+
+private theorem binarySupportPhysicalTerm_pos_local
+    {S : SlabScalePair}
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hfineCoupling : (0 : Q') < S.fine.coupling)
+    {support : List Z4Plaq}
+    (hsubset : ∀ plaquette, plaquette ∈ support →
+      plaquette ∈ boundaryCompleteSlabPlaquettes S.fine.extent)
+    (hnodup : support.Nodup)
+    (heven : EvenFaceIncidence support) :
+    (0 : Q') < S.fine.physicalTerm
+      (slabBinarySupportLabelling S.fine.extent support) := by
+  have hbounded : SlabFaceLabellingBounded S.fine.cutoff S.fine.extent
+      (slabBinarySupportLabelling S.fine.extent support) := by
+    intro faceId _
+    rw [hfineCutoff]
+    exact slabBinarySupportLabelling_le_one
+      S.fine.extent support faceId
+  have hface : (0 : Q') < slabParametricKPhysicalFaceFactor
+      S.fine.coupling S.fine.cutoff S.fine.extent
+      (slabBinarySupportLabelling S.fine.extent support) :=
+    slabParametricKPhysicalFaceFactor_pos_of_bounded
+      S.fine hfineCoupling _ hbounded
+  have hlinks : 0 < slabExplicitLinkMultiplicityProduct
+      S.fine.cutoff S.fine.extent
+      (slabBinarySupportLabelling S.fine.extent support) :=
+    slabBinarySupport_linkMultiplicityProduct_pos
+      (by rw [hfineCutoff]; omega) hsubset hnodup heven
+  unfold SlabPhysicalData.physicalTerm slabParametricKPhysicalTerm
+  exact Q'.mul_pos hface (qOfNat_pos_of_pos_local hlinks)
+
 /-- Pointwise face compatibility plus the endpoint's accepted coarse
 intertwiner assignment gives a strictly positive literal whole-slab raw
 entry. -/
@@ -180,8 +274,49 @@ structure PositiveExpandedFusionChannelEndpointLift
       let packet := wholeSlabFinePacket S source.1.1 coarseFaceId
       let channel := faceChannel coarseFaceId
       fusionOK packet.spin0 packet.spin1 channel.1.1 = true ∧
-        fusionOK packet.spin2 packet.spin3 channel.1.2 = true ∧
+      fusionOK packet.spin2 packet.spin3 channel.1.2 = true ∧
         fusionOK channel.1.1 channel.1.2 channel.2 = true
+
+private theorem faceChannel_mem_of_fusions_local
+    {S : SlabScalePair} {fineState : EdgeLabelling}
+    (hfineMem : fineState ∈ S.fine.physicalLabellings)
+    (coarseFaceId : Nat) (channel : PairChannelState)
+    (hfusions :
+      let packet := wholeSlabFinePacket S fineState coarseFaceId
+      fusionOK packet.spin0 packet.spin1 channel.1.1 = true ∧
+        fusionOK packet.spin2 packet.spin3 channel.1.2 = true ∧
+        fusionOK channel.1.1 channel.1.2 channel.2 = true) :
+    channel ∈ pairChannelStateSpace S.fine.cutoff := by
+  let packet := wholeSlabFinePacket S fineState coarseFaceId
+  have hpacket :=
+    (mem_faceSpinPacketStateSpace_iff S.fine.cutoff packet).mp
+      (wholeSlabFinePacket_mem hfineMem coarseFaceId)
+  have hleft : channel.1.1 ≤ packet.spin0 + packet.spin1 :=
+    fusionOK_output_le_add hfusions.1
+  have hright : channel.1.2 ≤ packet.spin2 + packet.spin3 :=
+    fusionOK_output_le_add hfusions.2.1
+  have hfinal : channel.2 ≤ channel.1.1 + channel.1.2 :=
+    fusionOK_output_le_add hfusions.2.2
+  have hleftBound : channel.1.1 ≤ 2 * S.fine.cutoff := by
+    exact Nat.le_trans hleft
+      (by
+        have hadd := Nat.add_le_add hpacket.1 hpacket.2.1
+        simpa [Nat.two_mul] using hadd)
+  have hrightBound : channel.1.2 ≤ 2 * S.fine.cutoff := by
+    exact Nat.le_trans hright
+      (by
+        have hadd := Nat.add_le_add hpacket.2.2.1 hpacket.2.2.2
+        simpa [Nat.two_mul] using hadd)
+  have hfinalBound : channel.2 ≤ 4 * S.fine.cutoff := by
+    calc
+      channel.2 ≤ channel.1.1 + channel.1.2 := hfinal
+      _ ≤ 2 * S.fine.cutoff + 2 * S.fine.cutoff :=
+        Nat.add_le_add hleftBound hrightBound
+      _ = (2 + 2) * S.fine.cutoff :=
+        (Nat.add_mul 2 2 S.fine.cutoff).symm
+      _ = 4 * S.fine.cutoff := rfl
+  exact (mem_pairChannelStateSpace_iff S.fine.cutoff channel).mpr
+    ⟨hleftBound, hrightBound, hfinalBound⟩
 
 private theorem fusionInd_eq_one_of_true_local
     {a b c : Nat} (h : fusionOK a b c = true) :
@@ -263,6 +398,143 @@ def PositiveExpandedFusionChannelEndpointLift.toFaceCompatibleEndpointLift
       · exact lift.faceChannel_mem coarseFaceId hface
     exact Q'.pos_of_lt_of_le hselected hle
 
+/-- Purely geometric presentation of an endpoint lift at cutoff one.  The
+support is a duplicate-free closed binary surface; local channels record its
+required coarse final spins.  Positivity and one accepted fine intertwiner
+are reconstructed by the adapter below. -/
+structure EvenBinarySupportFusionChannelEndpointLift
+    (S : SlabScalePair)
+    (endpoint : SlabExpandedFineSourceEntry S.coarse) : Type where
+  support : List Z4Plaq
+  support_subset : ∀ plaquette, plaquette ∈ support →
+    plaquette ∈ boundaryCompleteSlabPlaquettes S.fine.extent
+  support_nodup : support.Nodup
+  support_even : EvenFaceIncidence support
+  faceChannel : Nat → PairChannelState
+  faceChannel_final : ∀ coarseFaceId,
+    coarseFaceId ∈ S.coarse.faceEdges →
+      (faceChannel coarseFaceId).2 = endpoint.1.1 coarseFaceId
+  faceChannel_fusions : ∀ coarseFaceId,
+    coarseFaceId ∈ S.coarse.faceEdges →
+      let packet := wholeSlabFinePacket S
+        (slabBinarySupportLabelling S.fine.extent support) coarseFaceId
+      let channel := faceChannel coarseFaceId
+      fusionOK packet.spin0 packet.spin1 channel.1.1 = true ∧
+      fusionOK packet.spin2 packet.spin3 channel.1.2 = true ∧
+        fusionOK channel.1.1 channel.1.2 channel.2 = true
+
+private theorem fusionOK_add_eq_true_local (left right : Nat) :
+    fusionOK left right (left + right) = true := by
+  exact (fusionOK_iff_ladder left right (left + right)).2
+    ⟨0, Nat.zero_le _, Nat.zero_le _, by omega⟩
+
+def endpointFaceSpinTotal (packet : FaceSpinPacket) : Nat :=
+  packet.spin0 + packet.spin1 + packet.spin2 + packet.spin3
+
+def endpointStretchedPairChannel
+    (packet : FaceSpinPacket) : PairChannelState :=
+  ((packet.spin0 + packet.spin1, packet.spin2 + packet.spin3),
+    endpointFaceSpinTotal packet)
+
+/-- The canonical stretched channel of a four-spin packet satisfies all
+three fusion guards. -/
+private theorem stretchedPairChannel_fusions_local
+    (packet : FaceSpinPacket) :
+    let channel := endpointStretchedPairChannel packet
+    fusionOK packet.spin0 packet.spin1 channel.1.1 = true ∧
+      fusionOK packet.spin2 packet.spin3 channel.1.2 = true ∧
+      fusionOK channel.1.1 channel.1.2 channel.2 = true := by
+  dsimp only [endpointStretchedPairChannel, endpointFaceSpinTotal]
+  exact
+    ⟨fusionOK_add_eq_true_local packet.spin0 packet.spin1,
+      fusionOK_add_eq_true_local packet.spin2 packet.spin3,
+      by
+        simpa only [Nat.add_assoc] using
+          fusionOK_add_eq_true_local
+            (packet.spin0 + packet.spin1)
+            (packet.spin2 + packet.spin3)⟩
+
+/-- Exact geometric reverse-lift datum.  Each coarse spin must be the number
+of selected cutoff-one fine faces in its four-face dyadic block.  The
+stretched pair channel is then forced and supported automatically. -/
+structure EvenBinarySupportEndpointLift
+    (S : SlabScalePair)
+    (endpoint : SlabExpandedFineSourceEntry S.coarse) : Type where
+  support : List Z4Plaq
+  support_subset : ∀ plaquette, plaquette ∈ support →
+    plaquette ∈ boundaryCompleteSlabPlaquettes S.fine.extent
+  support_nodup : support.Nodup
+  support_even : EvenFaceIncidence support
+  faceSpinTotal_eq : ∀ coarseFaceId,
+    coarseFaceId ∈ S.coarse.faceEdges →
+      endpointFaceSpinTotal
+          (wholeSlabFinePacket S
+            (slabBinarySupportLabelling S.fine.extent support)
+            coarseFaceId) =
+        endpoint.1.1 coarseFaceId
+
+/-- Exact dyadic block counts determine canonical supported face channels. -/
+def EvenBinarySupportEndpointLift.toFusionChannelLift
+    {S : SlabScalePair} {endpoint : SlabExpandedFineSourceEntry S.coarse}
+    (lift : EvenBinarySupportEndpointLift S endpoint) :
+    EvenBinarySupportFusionChannelEndpointLift S endpoint where
+  support := lift.support
+  support_subset := lift.support_subset
+  support_nodup := lift.support_nodup
+  support_even := lift.support_even
+  faceChannel := fun coarseFaceId =>
+    endpointStretchedPairChannel
+      (wholeSlabFinePacket S
+        (slabBinarySupportLabelling S.fine.extent lift.support)
+        coarseFaceId)
+  faceChannel_final := fun coarseFaceId hface => by
+    exact lift.faceSpinTotal_eq coarseFaceId hface
+  faceChannel_fusions := fun coarseFaceId _ =>
+    stretchedPairChannel_fusions_local
+      (wholeSlabFinePacket S
+        (slabBinarySupportLabelling S.fine.extent lift.support)
+        coarseFaceId)
+
+/-- At cutoff one and positive fine coupling, a closed binary support
+constructively supplies the enumerated positive source and an accepted fine
+intertwiner assignment required by the fusion-channel lift. -/
+def EvenBinarySupportFusionChannelEndpointLift.toPositiveExpandedLift
+    {S : SlabScalePair} {endpoint : SlabExpandedFineSourceEntry S.coarse}
+    (lift : EvenBinarySupportFusionChannelEndpointLift S endpoint)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hfineCoupling : (0 : Q') < S.fine.coupling) :
+    PositiveExpandedFusionChannelEndpointLift S endpoint := by
+  let fineState :=
+    slabBinarySupportLabelling S.fine.extent lift.support
+  have hfineMem : fineState ∈ S.fine.physicalLabellings := by
+    unfold SlabPhysicalData.physicalLabellings
+      SlabPhysicalData.faceEdges
+    exact slabBinarySupportLabelling_mem
+      (by rw [hfineCutoff]; omega) lift.support
+  have hpositive : (0 : Q') < S.fine.physicalTerm fineState := by
+    exact binarySupportPhysicalTerm_pos_local
+      hfineCutoff hfineCoupling lift.support_subset
+        lift.support_nodup lift.support_even
+  let positiveSource : PositivePhysicalSource S :=
+    ⟨fineState, hfineMem, hpositive⟩
+  let fineWitness :=
+    positivePhysicalTermFineFusionWitness
+      S.fine fineState hpositive
+  let expandedSource : PositiveExpandedPhysicalSource S :=
+    ⟨positiveSource, ⟨fineWitness.1, fineWitness.2⟩⟩
+  exact
+    { source := expandedSource
+      source_mem := positiveExpandedPhysicalSource_mem_local expandedSource
+      faceChannel := lift.faceChannel
+      faceChannel_mem := fun coarseFaceId hface =>
+        faceChannel_mem_of_fusions_local hfineMem coarseFaceId
+          (lift.faceChannel coarseFaceId)
+          (lift.faceChannel_fusions coarseFaceId hface)
+      faceChannel_final := lift.faceChannel_final
+      faceChannel_fusions := fun coarseFaceId hface => by
+        simpa only [expandedSource, positiveSource, fineState] using
+          lift.faceChannel_fusions coarseFaceId hface }
+
 /-- The remaining finite combinatorial coverage target: every attached coarse
 expanded endpoint has a positive raw preimage in the enumerated fine carrier.
 The attachment supplies the accepted coarse intertwiner assignment actually
@@ -300,6 +572,37 @@ def PositiveExpandedFusionChannelEndpointCoverage.toFaceCompatibleCoverage
     PositiveExpandedFaceCompatibleEndpointCoverage S where
   lift := fun endpoint =>
     (coverage.lift endpoint).toFaceCompatibleEndpointLift hcoarseCoupling
+
+/-- Geometric endpoint coverage: every attached coarse endpoint is realized
+by one closed cutoff-one binary support and explicit supported face channels. -/
+structure EvenBinarySupportFusionChannelEndpointCoverage
+    (S : SlabScalePair) : Type where
+  lift : ∀ endpoint : SlabExpandedFineSourceEntry S.coarse,
+    EvenBinarySupportFusionChannelEndpointLift S endpoint
+
+def EvenBinarySupportFusionChannelEndpointCoverage.toPositiveExpandedCoverage
+    {S : SlabScalePair}
+    (coverage : EvenBinarySupportFusionChannelEndpointCoverage S)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hfineCoupling : (0 : Q') < S.fine.coupling) :
+    PositiveExpandedFusionChannelEndpointCoverage S where
+  lift := fun endpoint =>
+    (coverage.lift endpoint).toPositiveExpandedLift
+      hfineCutoff hfineCoupling
+
+/-- Pure geometric coverage by closed fine binary supports with the exact
+four-face dyadic block count prescribed by every attached coarse endpoint. -/
+structure EvenBinarySupportEndpointCoverage
+    (S : SlabScalePair) : Type where
+  lift : ∀ endpoint : SlabExpandedFineSourceEntry S.coarse,
+    EvenBinarySupportEndpointLift S endpoint
+
+def EvenBinarySupportEndpointCoverage.toFusionChannelCoverage
+    {S : SlabScalePair}
+    (coverage : EvenBinarySupportEndpointCoverage S) :
+    EvenBinarySupportFusionChannelEndpointCoverage S where
+  lift := fun endpoint =>
+    (coverage.lift endpoint).toFusionChannelLift
 
 /-! ## 2. Assemble two one-replica lifts into supported four-cell paths -/
 
@@ -605,7 +908,7 @@ structure MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQua
     let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
       family law spacing C coupling coupling_pos coupling_le_window
       identification nested
-    PositiveExpandedFusionChannelEndpointCoverage
+    EvenBinarySupportEndpointCoverage
       (schedule.scalePair scale)
 
 namespace MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQuadraticCostControl
@@ -652,10 +955,15 @@ def toCoveredVariationUnreachableMassQuadraticCostControl
     let S := schedule.scalePair scale
     let root := (schedule.faceMap scale).coarseRoot
     let target := (schedule.faceMap scale).coarseTarget
+    let fusionCoverage :=
+      (control.endpointCoverage scale hscale).toFusionChannelCoverage
+    let positiveCoverage :=
+      fusionCoverage.toPositiveExpandedCoverage rfl
+        (schedule.fineCoupling_pos scale)
     apply
       actualPositiveExpandedAssignmentSaturatedUnreachableFullReceiverMass_le_of_endpointCoverage
         S root target
-        ((control.endpointCoverage scale hscale).toFaceCompatibleCoverage
+        (positiveCoverage.toFaceCompatibleCoverage
           (schedule.effectiveCoupling_pos scale)).toRawEndpointCoverage
     exact Q'.mul_nonneg _ _
       (Q'.mul_nonneg _ _ (by decide)
@@ -709,6 +1017,10 @@ end MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQuadratic
 #print axioms PositiveExpandedFaceCompatibleEndpointCoverage.toRawEndpointCoverage
 #print axioms PositiveExpandedFusionChannelEndpointLift.toFaceCompatibleEndpointLift
 #print axioms PositiveExpandedFusionChannelEndpointCoverage.toFaceCompatibleCoverage
+#print axioms EvenBinarySupportFusionChannelEndpointLift.toPositiveExpandedLift
+#print axioms EvenBinarySupportFusionChannelEndpointCoverage.toPositiveExpandedCoverage
+#print axioms EvenBinarySupportEndpointLift.toFusionChannelLift
+#print axioms EvenBinarySupportEndpointCoverage.toFusionChannelCoverage
 #print axioms positiveExpandedFourCellSourceSupportedPathAtReceiver
 #print axioms positiveExpandedFourCellTargetSupportedPathAtReceiver
 #print axioms sourceReceiver_mem_assignmentSaturatedImage_of_endpointCoverage
