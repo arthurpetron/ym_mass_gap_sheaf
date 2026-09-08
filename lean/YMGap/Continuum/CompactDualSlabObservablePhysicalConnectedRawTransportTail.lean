@@ -20,7 +20,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
-import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 import YMGap.Continuum.CompactDualPhysicalConnectedObservableRawCross
 import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
@@ -35,6 +35,7 @@ set_option maxHeartbeats 1000000
 open YMGap.Constructive
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualRawKernel
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 open YMGap.Continuum.CompactDualPhysicalConnectedObservableRawCross
@@ -321,7 +322,91 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end CovarianceRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 5. Literal paired source-to-target path producer -/
+/-! ## 5. Positive paired source-to-target path producer -/
+
+/-- The preferred carrier-respecting production tail.  Gibbs-null fine-source
+paths have been deleted, every surviving source carries its positivity proof,
+and its kernel entries are literal conditional recoupling raw ratios. -/
+structure ActualPositivePathRawCrossSeparatedLinearRawTransportTail
+    (schedule : PhysicalObservableRefinementSchedule) : Type where
+  start : Nat
+  mismatchCeiling : Q'
+  mismatchCeiling_pos : (0 : Q') < mismatchCeiling
+  connectedCeiling : Q'
+  connectedCeiling_pos : (0 : Q') < connectedCeiling
+  mismatch_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget schedule scale ≤
+      mismatchCeiling * schedule.spacing.spacing scale
+  actualPositivePathRawCross_le : ∀ scale : Nat, start ≤ scale →
+    Q'.abs
+        (physicalConnectedCovariancePositivePathRawCrossDefect
+          (schedule.scalePair scale) rfl
+          (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale)) ≤
+      (connectedCeiling * schedule.spacing.spacing scale) *
+        connectedCovarianceRawCrossDenominator
+          (schedule.scalePair scale)
+
+namespace ActualPositivePathRawCrossSeparatedLinearRawTransportTail
+
+variable {schedule : PhysicalObservableRefinementSchedule}
+
+/-- Actual-kernel specialization and constructive deletion of every null path
+compile to the generic raw covariance-cross tail without loss. -/
+def toCovarianceRawCrossSeparatedLinearRawTransportTail
+    (tail : ActualPositivePathRawCrossSeparatedLinearRawTransportTail schedule) :
+    CovarianceRawCrossSeparatedLinearRawTransportTail schedule where
+  start := tail.start
+  mismatchCeiling := tail.mismatchCeiling
+  mismatchCeiling_pos := tail.mismatchCeiling_pos
+  connectedCeiling := tail.connectedCeiling
+  connectedCeiling_pos := tail.connectedCeiling_pos
+  mismatch_le := tail.mismatch_le
+  connectedCovarianceRawCross_le := fun scale hscale => by
+    have hpositivePath := tail.actualPositivePathRawCross_le scale hscale
+    have hspecialization :=
+      connectedCovarianceRawCrossDefect_physicalKernel_eqv_actualRaw
+        (schedule.scalePair scale) rfl
+        (schedule.effectiveCoupling_pos scale) (schedule.faceMap scale)
+    have hpositiveExpansion :=
+      physicalConnectedCovarianceRawCrossDefect_eqv_positivePathRawCross
+        (schedule.scalePair scale) rfl
+        (schedule.effectiveCoupling_pos scale) (schedule.faceMap scale)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.abs_eqv_congr (by
+          simpa only [kernel] using
+            (Q'.eqv_trans _ _ _ hspecialization hpositiveExpansion))))
+      hpositivePath
+
+def toConnectedSeparatedLinearRawTransportTail
+    (tail : ActualPositivePathRawCrossSeparatedLinearRawTransportTail schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule :=
+  tail.toCovarianceRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+
+theorem combinedCeiling_eq
+    (tail : ActualPositivePathRawCrossSeparatedLinearRawTransportTail schedule) :
+    tail.toConnectedSeparatedLinearRawTransportTail.combinedCeiling =
+      tail.mismatchCeiling + tail.connectedCeiling :=
+  rfl
+
+/-- Final covariance consumer for the proof-carrying positive paired-path raw
+cross producer. -/
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (tail : ActualPositivePathRawCrossSeparatedLinearRawTransportTail schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.toConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end ActualPositivePathRawCrossSeparatedLinearRawTransportTail
+
+/-! ## 6. Literal all-source paired path producer -/
 
 /-- The carrier-respecting production tail.  Its connected input is the exact
 coarse-versus-pushed covariance cross after every pushed coarse-output pair
@@ -407,7 +492,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPathRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 6. Actual two-replica four-cell producer -/
+/-! ## 7. Actual two-replica four-cell producer -/
 
 /-- The four-cell production tail.  Its connected input is the exact
 coarse-versus-pushed four-cell raw cross.  The pushed determinant consists of
@@ -491,7 +576,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualFourCellRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 7. Actual-kernel raw covariance-cross producer -/
+/-! ## 8. Actual-kernel raw covariance-cross producer -/
 
 /-- The preferred production tail.  Its connected input is the fully raw
 covariance determinant specialized to the actual globally link-glued kernel,
@@ -570,7 +655,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualCovarianceRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 8. Sharpen the existing raw/L1 producer without new hypotheses -/
+/-! ## 9. Sharpen the existing raw/L1 producer without new hypotheses -/
 
 namespace SeparatedLinearRawTransportTail
 
@@ -633,6 +718,11 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.combinedCeiling_eq
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+#print axioms PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail.toCovarianceRawCrossSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail.combinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
 #print axioms PhysicalObservableRefinementSchedule.ActualPathRawCrossSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ActualPathRawCrossSeparatedLinearRawTransportTail.toCovarianceRawCrossSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ActualPathRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail

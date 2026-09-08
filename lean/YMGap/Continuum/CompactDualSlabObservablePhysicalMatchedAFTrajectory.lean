@@ -200,6 +200,51 @@ def matchedShiftedAFPhysicalObservableRefinementSchedule
 
 /-! ## 4. The still-open transport producer on this exact trajectory -/
 
+/-- The proof-carrying positive paired-path producer on the exact matched
+chart.  Every source is a positive fine physical state and every path weight
+uses its literal conditional recoupling raw ratio.  This abbreviation has no
+inhabitant here. -/
+abbrev MatchedShiftedAFActualPositivePathRawCrossTransportTail
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type :=
+  YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule.ActualPositivePathRawCrossSeparatedLinearRawTransportTail
+    (matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+      C coupling coupling_pos coupling_le_window identification nested)
+
+/-- The positive paired-path raw-cross tail on the exact matched chart gives
+the `anchor + epsilon` covariance bound. -/
+theorem matchedShiftedAFActualPositivePathRawCrossFineCovariance_le_anchorRate_add_epsilon
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (tail : MatchedShiftedAFActualPositivePathRawCrossTransportTail family law
+      spacing C coupling coupling_pos coupling_le_window identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule :=
+      matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+        C coupling coupling_pos coupling_le_window identification nested
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
 /-- The carrier-respecting paired source-to-target path producer on the exact
 matched chart.  Its connected input is the coarse-versus-pushed raw cross
 after every pushed output-pair mass has been expanded over both fine sources.
@@ -520,6 +565,8 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_fineCoupling
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_spacing
+#print axioms MatchedShiftedAFActualPositivePathRawCrossTransportTail
+#print axioms matchedShiftedAFActualPositivePathRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPathRawCrossTransportTail
 #print axioms matchedShiftedAFActualPathRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualFourCellRawCrossTransportTail

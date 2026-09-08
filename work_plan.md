@@ -122,6 +122,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       difference ........................................... [PROVED]
 |   |   |   |   +-- each output-pair mass = literal paired source-to-target
 |   |   |   |   |       kernel-path sum ....................................... [PROVED]
+|   |   |   |   +-- Gibbs-null paths deleted; surviving paths carry positive
+|   |   |   |   |       sources and literal conditional raw rows ............... [PROVED]
 |   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
@@ -140,11 +142,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
-|   |   |   |       +-- actual paired source-to-target path raw cross
+|   |   |   |       +-- actual positive paired source-to-target path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN preferred]
 |   |   |   |       |   +-- coarse-output pairs expanded over fine sources [PROVED]
-|   |   |   |       |   `-- positive-source conditional rows to successful
-|   |   |   |       |       receiver columns .............................. [OPEN causal seam]
+|   |   |   |       |   +-- null paths deleted and positive conditional
+|   |   |   |       |   |       raw rows exposed .......................... [PROVED]
+|   |   |   |       |   `-- positive paired paths to successful receiver
+|   |   |   |       |       columns ....................................... [OPEN causal seam]
+|   |   |   |       +-- actual all-source paired path raw cross
+|   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual positive-row raw-ratio covariance cross
@@ -1467,15 +1473,23 @@ all have exact paired-path forms.  A carrier-respecting relative `O(a)` path
 cross tail now compiles without loss through the matched AF schedule to the
 existing `anchor + epsilon` covariance conclusion.
 
-This supplies both path endpoints but not yet a receiver-column estimate.  The
-path carrier includes Gibbs-null fine sources, whose weights vanish only after
-specialization, while the existing successful-event/posterior contraction
-uses proof-carrying positive same-datum source pairs.  The next causal theorem
-must delete or totalize the null paths, rewrite each surviving kernel entry as
-its positive-source conditional raw ratio, and construct a map into successful
-receiver columns (or prove a controlled alternative).  The previously proved
-quarter success floor cannot be applied across that remaining carrier and
-chronology mismatch without this theorem.
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths.lean`
+constructively deletes the Gibbs-null paths.  Its dependent finite recursion
+retains precisely the fine physical sources carrying strict positivity proofs,
+then rewrites each surviving kernel factor as the corresponding whole-slab
+recoupling raw weight divided by its positive complete row partition.  The
+one-replica source sums, both paired four-cell path cells, the pushed path
+determinant, and the complete connected raw cross are all proved unchanged.
+The positive-path relative tail is now the preferred matched-AF producer.
+
+This supplies proof-carrying positive sources and literal coarse targets but
+not yet a receiver-column estimate.  The existing successful-event/posterior
+contraction uses same-datum paired recoupling rows with a specific guarded
+receiver chronology.  The next causal theorem must construct a map from the
+new positive source/target path pair into those successful receiver columns,
+including the required event orientation and weight comparison, or prove a
+controlled alternative.  The previously proved quarter success floor cannot
+be applied across that remaining chronology mismatch without this theorem.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
@@ -1530,10 +1544,10 @@ the quadratic physical spacing envelope plus a coupling-to-zero modulus
 constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
-actual paired source-to-target path raw-cross `O(a)` tail on this exact
-schedule yields the literal fine covariance bound `anchor + epsilon` at the
-computed cutoff.  The equivalent actual four-cell cross, actual raw-ratio
-covariance cross, generic fully raw covariance cross,
+actual positive paired source-to-target path raw-cross `O(a)` tail on this
+exact schedule yields the literal fine covariance bound `anchor + epsilon` at
+the computed cutoff.  The equivalent all-source paired path cross, actual
+four-cell cross, actual raw-ratio covariance cross, generic fully raw cross,
 structured-observable raw cross, normalized connected, and stronger raw/sign
 inputs remain exposed on the same schedule as alternatives, with no
 factor-three coefficient loss.
