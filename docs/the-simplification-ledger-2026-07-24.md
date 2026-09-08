@@ -564,6 +564,41 @@ exact algebra.  It is not an `O(g^2)` estimate, continuum measure, OS/GNS
 reconstruction, Hamiltonian gap, or Clay closure.  No full-root audit is
 claimed.
 
+### 9.6 Post-audit implementation update: direct matched-AF saturated compiler, milestone 238 (2026-09-08)
+
+Milestone 238 connects the assignment-saturated receiver branch to the
+existing covariance consumer without returning to the older selected-density
+posterior decomposition.  Clearing the exact positive `Z_fine^2`
+normalization proves
+
+```text
+saturated normalized variation <= K * Z_coarse^2
+  ==> |physical connected raw cross|
+        <= K * (Z_coarse^3 * Z_fine^3).
+```
+
+On the matched asymptotically-free chart, a new producer-facing structure
+accepts the four still-honest quadratic inputs:
+
+```text
+c_spacing * g^2 <= a(g),
+raw mismatch <= K_mismatch * g^2,
+covered endpoint calibration <= K_covered * g^2 * Z_coarse^2,
+unreachable endpoint mass <= K_miss * g^2 * Z_coarse^2.
+```
+
+It compiles them directly to the division-free raw-cross transport tail and
+therefore to `fineCovariance <= anchorRate + epsilon`.  A companion interface
+states the last input as the equivalent positive near-full coverage
+inequality for the literal source-plus-target receiver cells.
+
+The module passes a monitored focused check and dependency-complete target
+(5,456 jobs); every printed declaration uses only
+`[propext, Quot.sound]`.  The structure does not inhabit any of its four
+analytic fields.  In particular, this is not a cutoff-uniform contraction,
+continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.
+No full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

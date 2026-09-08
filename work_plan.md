@@ -175,6 +175,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       defect up to the exact partition factor ......... [PROVED exact]
 |   |   |   |       |   +-- saturated normalized variation = covered endpoint
 |   |   |   |       |   |       calibration + unreachable endpoint mass ......... [PROVED exact]
+|   |   |   |       |   +-- saturated variation bound => physical raw-cross bound
+|   |   |   |       |   |       with exact cubic partition denominator ............ [PROVED]
+|   |   |   |       |   +-- matched-AF saturated coverage/calibration compiler
+|   |   |   |       |   |       => `fineCovariance <= anchorRate + epsilon` ........ [PROVED interface]
 |   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [PROVED]
 |   |   |   |       |   +-- factor each supported path exactly as receiver
 |   |   |   |       |   |       density times receiver-pair weight ........ [PROVED]
@@ -1173,6 +1177,8 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       +-- saturated scale-defect/raw-cross bridge ................ [PROVED exact]
 |       +-- saturated normalized variation = covered calibration
 |       |       + physically unreachable endpoint mass ............ [PROVED exact]
+|       +-- saturated physical estimates + spacing/mismatch
+|       |       => matched-AF covariance consumer .................. [PROVED interface]
 |       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
 |           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
 |           +-- full cell mass <= covered image mass
@@ -1196,7 +1202,9 @@ module also passes its monitored focused check and dependency-complete target
 modules pass monitored focused checks, and the latter's dependency-complete
 target builds successfully (5,455 jobs).  The new generic declarations use
 only `[propext]`; the physical declarations use only
-`[propext, Quot.sound]`.  No full-root audit is claimed.
+`[propext, Quot.sound]`.  The direct assignment-saturated matched-AF compiler
+also passes its focused check and dependency-complete target (5,456 jobs),
+again with only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
