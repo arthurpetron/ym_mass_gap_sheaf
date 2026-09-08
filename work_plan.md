@@ -124,6 +124,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       kernel-path sum ....................................... [PROVED]
 |   |   |   |   +-- Gibbs-null paths deleted; surviving paths carry positive
 |   |   |   |   |       sources and literal conditional raw rows ............... [PROVED]
+|   |   |   |   +-- positive paths disintegrated over proof-carrying accepted
+|   |   |   |   |       fine-intertwiner fibers without changing mass ........... [PROVED]
+|   |   |   |   +-- accepted fine endpoints project into the established
+|   |   |   |   |       same-datum receiver source universe with equal weight ... [PROVED]
 |   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
@@ -137,18 +141,22 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- actual-kernel raw-ratio tail => matched-chart
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
+|   |   |   |   |   +-- accepted-fiber path tail => matched-chart
+|   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
-|   |   |   |       +-- actual positive paired source-to-target path raw cross
+|   |   |   |       +-- actual positive accepted-fiber paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN preferred]
 |   |   |   |       |   +-- coarse-output pairs expanded over fine sources [PROVED]
 |   |   |   |       |   +-- null paths deleted and positive conditional
 |   |   |   |       |   |       raw rows exposed .......................... [PROVED]
-|   |   |   |       |   `-- positive paired paths to successful receiver
-|   |   |   |       |       columns ....................................... [OPEN causal seam]
+|   |   |   |       |   +-- accepted assignment fibers inserted exactly .. [PROVED]
+|   |   |   |       |   +-- fine endpoints embedded in receiver sources ... [PROVED]
+|   |   |   |       |   `-- orient cross-scale paths and compare them with
+|   |   |   |       |       successful receiver columns ................... [OPEN causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
@@ -1482,14 +1490,29 @@ one-replica source sums, both paired four-cell path cells, the pushed path
 determinant, and the complete connected raw cross are all proved unchanged.
 The positive-path relative tail is now the preferred matched-AF producer.
 
-This supplies proof-carrying positive sources and literal coarse targets but
-not yet a receiver-column estimate.  The existing successful-event/posterior
-contraction uses same-datum paired recoupling rows with a specific guarded
-receiver chronology.  The next causal theorem must construct a map from the
-new positive source/target path pair into those successful receiver columns,
-including the required event orientation and weight comparison, or prove a
-controlled alternative.  The previously proved quarter success floor cannot
-be applied across that remaining chronology mismatch without this theorem.
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedPaths.lean`
+closes the auxiliary-coordinate part of that mismatch.  Above each retained
+positive physical source it attaches every accepted fine-intertwiner
+assignment as proof-carrying data and weights it by the literal retained
+physical fiber factor before the unchanged conditional kernel row.  Exact
+finite attachment and Fubini prove that summing these assignments recovers the
+one-replica positive path mass, both paired four-cell cells, their determinant,
+and the complete connected raw-cross defect without loss.  Each expanded
+fine endpoint also projects constructively to `SlabExpandedFineSourceEntry`,
+the attached same-datum source universe used by the receiver-column theory,
+and its fine-source weight is definitionally unchanged.  The accepted-fiber
+relative tail is now the strongest preferred matched-AF producer.
+
+This supplies accepted, proof-carrying fine endpoints and literal coarse
+targets but not yet a receiver-column estimate.  The existing successful-
+event/posterior contraction uses same-datum paired recoupling rows with a
+specific guarded receiver chronology, whereas the new carrier still records
+cross-scale whole-slab conditional-kernel targets.  The next causal theorem
+must orient the expanded fine endpoints at the observable root/target events
+and compare their conditional-row weights with successful receiver columns,
+or prove a controlled alternative.  The previously proved quarter success
+floor cannot be applied across that remaining transition mismatch without
+this theorem.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
