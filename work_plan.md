@@ -106,6 +106,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
+|   |   |   |   +-- face-event moments = raw numerators / partition ....... [PROVED]
+|   |   |   |   +-- connected covariance = fully raw cubic determinant
+|   |   |   |   |       / partition^3 ...................................... [PROVED]
+|   |   |   |   +-- fully raw covariance cross / (Z_c^3*Z_f^3) ............ [PROVED]
+|   |   |   |   +-- relative fully raw cross => sharp connected tail ....... [PROVED interface]
 |   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
@@ -115,12 +120,17 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- exact connected split => sharp C_m + C_c tail ........ [PROVED interface]
 |   |   |   |   +-- matched-BF4 nome + physical spacing on one AF chart .. [PROVED bridge]
 |   |   |   |   |   +-- shifted-AF identification => spacing to zero ..... [PROVED]
+|   |   |   |   |   +-- fully raw covariance-cross tail => matched-chart
+|   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
-|   |   |   |       +-- sharp raw cross <= C_c*a*(Z_f*Z_c) ............... [OPEN preferred]
+|   |   |   |       +-- fully raw covariance cross
+|   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN preferred]
+|   |   |   |       +-- structured-observable cross
+|   |   |   |       |       <= C_c*a*(Z_f*Z_c) ........................... [OPEN equivalent]
 |   |   |   |       +-- normalized connected remainder <= C_c * a ........ [OPEN equivalent]
 |   |   |   |       `-- stronger input: sign/TV defect <= C_s * a ........ [OPEN alternative]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
@@ -1358,6 +1368,36 @@ event-mismatch estimate, to the same sharp `C_m + C_c` covariance tail.  This
 does not prove the cross inequality; it locates the active analytic burden in
 explicit unnormalized BF4 sums with no hidden quotient cancellation.
 
+`CompactDualPhysicalConnectedCovarianceRawCross.lean` clears the remaining
+normalized face-moment coefficients inside that structured observable.  Each
+joint, root, and target Boolean moment is proved equal to its literal raw event
+numerator divided by the positive physical partition.  To keep the derivation
+cancellation-free, a covariance with raw data `(J,R,T,Z)` is represented as
+
+```text
+J*Z^2 - (R*T)*Z
+----------------.
+       Z^3
+```
+
+Cross-multiplying the blocked and coarse covariances therefore identifies the
+exact connected remainder with a fully raw determinant divided by
+`Z_coarse^3 * Z_fine^3`.  The numerator contains only pushed or coarse raw
+joint/root/target event sums and the two partitions.  The corresponding
+`CovarianceRawCrossSeparatedLinearRawTransportTail` and matched shifted-AF
+alias compile a relative bound
+
+```text
+|fully raw covariance cross|
+  <= C_c * a * (Z_coarse^3 * Z_fine^3)
+```
+
+to the existing sharp `C_m + C_c` covariance consumer.  The redundant
+partition factor is deliberate proof bookkeeping, not an asymptotic gain, and
+this milestone does not prove the displayed `O(a)` estimate.  It makes that
+estimate the preferred producer because no normalized observable coefficient
+remains hidden in its statement.
+
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
 coupling atlas it scores each candidate by its literal raw mismatch cost plus
@@ -1400,10 +1440,11 @@ the quadratic physical spacing envelope plus a coupling-to-zero modulus
 constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
-division-free raw-cross `O(a)` tail on this exact schedule yields the literal
-fine covariance bound `anchor + epsilon` at the computed cutoff.  The
-normalized raw/connected and stronger raw/sign inputs remain exposed on the
-same schedule as alternatives, with no factor-three coefficient loss.
+fully raw covariance-cross `O(a)` tail on this exact schedule yields the
+literal fine covariance bound `anchor + epsilon` at the computed cutoff.  The
+structured-observable raw cross, normalized connected, and stronger raw/sign
+inputs remain exposed on the same schedule as alternatives, with no
+factor-three coefficient loss.
 
 This is a proved same-chart bridge, not a physical AF construction.  The
 four-dimensional `CubicMarginLaw`, the dimensional-transmutation
