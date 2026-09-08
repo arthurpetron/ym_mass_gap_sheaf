@@ -251,6 +251,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           +-- full cell mass <= covered image mass
 |   |   |   |       |   |   |   |   |           |       + `(K_miss*g^2)*Z_c^2` ............... [OPEN]
 |   |   |   |       |   |   |   |   |           `-- equivalent uncovered-mass bound ......... [PROVED exact]
+|   |   |   |       |   |   |   |   |               +-- unreachable mass <= full receiver mass [PROVED exact]
+|   |   |   |       |   |   |   |   |               +-- full receiver mass <= twice the
+|   |   |   |       |   |   |   |   |               |       root-positive marginal times `Z_c` .. [PROVED]
+|   |   |   |       |   |   |   |   |               `-- root-positive marginal <=
+|   |   |   |       |   |   |   |   |                       `(K_pos*g^2)*Z_c` .................... [ACTIVE]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1181,8 +1186,13 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       |       => matched-AF covariance consumer .................. [PROVED interface]
 |       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
 |           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
+|           +-- unreachable endpoint mass
+|           |   +-- <= full source-plus-target receiver mass ....... [PROVED exact]
+|           |   +-- <= `2 * rootPositiveMass * Z_c` ................ [PROVED]
+|           |   +-- one-face quadratic occupation compiler ......... [PROVED interface]
+|           |   `-- rootPositiveMass <= `(K_pos*g^2)*Z_c` .......... [ACTIVE]
 |           +-- full cell mass <= covered image mass
-|           |       + `(K_miss*g^2)*Z_c^2` ......................... [OPEN]
+|           |       + `(K_miss*g^2)*Z_c^2` ......................... [OPEN alternative]
 |           |   `-- equivalent to uncovered-mass bound ............ [PROVED exact]
 |           +-- full supported-image coverage ..................... [OPEN stronger special case]
 |           `-- full-carrier pointwise calibration ................ [OBSTRUCTED alternative]
@@ -1204,7 +1214,10 @@ target builds successfully (5,455 jobs).  The new generic declarations use
 only `[propext]`; the physical declarations use only
 `[propext, Quot.sound]`.  The direct assignment-saturated matched-AF compiler
 also passes its focused check and dependency-complete target (5,456 jobs),
-again with only `[propext, Quot.sound]`.  No full-root audit is claimed.
+again with only `[propext, Quot.sound]`.  The one-face occupation reduction
+and matched-AF adapter pass their focused check and dependency-complete target
+(5,457 jobs), also with only `[propext, Quot.sound]`.  No full-root audit is
+claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

@@ -599,6 +599,46 @@ analytic fields.  In particular, this is not a cutoff-uniform contraction,
 continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.
 No full-root audit is claimed.
 
+### 9.7 Post-audit implementation update: unreachable mass to one-face occupation, milestone 239 (2026-09-08)
+
+Milestone 239 removes the two-replica unreachable-endpoint mass as an
+independent analytic input.  Both the source cell `11 x 00` and the target
+cell `10 x 01` embed literally into the same broad carrier
+
+```text
+root-positive first replica x arbitrary expanded second replica.
+```
+
+Exact finite Fubini identifies that carrier's mass as
+`rootPositiveMass * Z_coarse`.  Nonnegativity of the physical pair weights
+and filter monotonicity then prove
+
+```text
+assignment-saturated unreachable endpoint mass
+  <= full source-plus-target receiver-cell mass
+  <= 2 * rootPositiveMass * Z_coarse.
+```
+
+A new matched-AF producer therefore replaces the former unreachable-mass
+field by the strictly simpler one-face estimate
+
+```text
+rootPositiveMass <= K_pos * g^2 * Z_coarse.
+```
+
+It pays the coefficient twice, once for each determinant cell, and compiles
+directly to the milestone-238 covariance consumer.  The remaining receiver
+inputs are now this one-face occupation estimate and the covered endpoint
+calibration estimate.  The separate quadratic lower-spacing and raw-mismatch
+inputs also remain open.
+
+The new module passes a monitored focused check and dependency-complete
+target (5,457 jobs); every printed load-bearing declaration uses only
+`[propext, Quot.sound]`.  It does not prove the one-face `O(g^2)` estimate
+itself and therefore does not establish a cutoff-uniform contraction,
+continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.
+No full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
