@@ -155,7 +155,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       raw rows exposed .......................... [PROVED]
 |   |   |   |       |   +-- accepted assignment fibers inserted exactly .. [PROVED]
 |   |   |   |       |   +-- fine endpoints embedded in receiver sources ... [PROVED]
-|   |   |   |       |   `-- orient cross-scale paths and compare them with
+|   |   |   |       |   +-- positive-raw coarse endpoints assigned accepted
+|   |   |   |       |   |       witnesses and oriented as receiver cells ... [PROVED]
+|   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [ACTIVE]
+|   |   |   |       |   `-- compare supported conditional path weights with
 |   |   |   |       |       successful receiver columns ................... [OPEN causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
@@ -1503,16 +1506,26 @@ the attached same-datum source universe used by the receiver-column theory,
 and its fine-source weight is definitionally unchanged.  The accepted-fiber
 relative tail is now the strongest preferred matched-AF producer.
 
-This supplies accepted, proof-carrying fine endpoints and literal coarse
-targets but not yet a receiver-column estimate.  The existing successful-
-event/posterior contraction uses same-datum paired recoupling rows with a
-specific guarded receiver chronology, whereas the new carrier still records
-cross-scale whole-slab conditional-kernel targets.  The next causal theorem
-must orient the expanded fine endpoints at the observable root/target events
-and compare their conditional-row weights with successful receiver columns,
-or prove a controlled alternative.  The previously proved quarter success
-floor cannot be applied across that remaining transition mismatch without
-this theorem.
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverOrientation.lean`
+closes the event-orientation step on the strict raw support of those path
+cells.  A positive whole-slab raw source-to-target entry constructively
+selects a joint channel and its first accepted coarse fusion witness, so every
+supported coarse endpoint becomes an actual `SlabExpandedFineSourceEntry`.
+The source path cell is embedded in the established same-datum receiver
+source carrier in its existing `11 x 00` order.  The opposite path cell is
+stored as `01 x 10`; swapping its two replicas gives the receiver target
+convention `10 x 01`, and exact rational commutativity preserves the paired
+coarse endpoint weight.  Both receiver-carrier memberships and both weight
+identities are kernel checked using only `[propext, Quot.sound]`.
+
+This supplies accepted, proof-carrying fine endpoints and constructively
+oriented coarse receiver endpoints on every strictly positive raw path, but
+not yet a receiver-column estimate.  The immediate causal task is to delete
+zero-raw paths from each complete accepted-fiber path cell without changing
+its mass.  The surviving conditional path weights must then be compared with
+the same-datum receiver weights and successful guarded columns, or bounded by
+a controlled alternative.  The previously proved quarter success floor
+cannot be applied across that remaining weight mismatch without this theorem.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
