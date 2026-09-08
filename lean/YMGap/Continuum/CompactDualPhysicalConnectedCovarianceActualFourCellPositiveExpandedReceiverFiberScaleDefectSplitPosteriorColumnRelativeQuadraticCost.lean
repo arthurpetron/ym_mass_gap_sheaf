@@ -3,8 +3,10 @@
 
 The normalized posterior route needs one global three-term estimate.  A
 uniform estimate per receiver column would lose the size of the growing
-finite carrier.  This module replaces that global input by local estimates
-relative to the actual physical receiver weights.
+finite carrier.  This module replaces that global input by aggregate
+connected-row and complementary receiver-sector estimates relative to their
+actual physical masses.  Pointwise weight-relative estimates are retained as
+a stronger sufficient interface and compile through the aggregate one.
 
 The connected source carrier and the connected/disconnected target sectors
 all sit inside the positive-first-replica product carrier.  Their weight is
@@ -19,10 +21,10 @@ partitionDensity * Z_coarse^2 = Z_fine^2
 converts the local relative bounds into precisely the global quadratic input
 consumed by the matched-AF posterior bridge.
 
-No local relative estimate, raw-mismatch estimate, or lower physical-spacing
-law is inhabited here.  The result is a volume-safe finite reduction, not a
-continuum construction, OS/GNS reconstruction, Hamiltonian gap, or Clay
-conclusion.
+No aggregate or pointwise relative estimate, raw-mismatch estimate, or lower
+physical-spacing law is inhabited here.  The result is a volume-safe finite
+reduction, not a continuum construction, OS/GNS reconstruction, Hamiltonian
+gap, or Clay conclusion.
 
 Constructive contract: exact rational finite sums, inequalities, and
 Type-valued witnesses only; no choice, `Classical`, `native_decide`, proof
@@ -295,9 +297,105 @@ private theorem relativeQuadraticBudget_mul_coarseSquare_eqv
 
 /-! ## 2. Per-scale relative estimates sum without volume loss -/
 
+/-- Aggregate connected-row and posterior-sector bounds imply the full
+dimensionless three-term budget.  This is the preferred interface: it asks
+only for sector totals relative to their physical masses, not a stronger
+estimate at every source or receiver column. -/
+theorem splitPosteriorColumnBudget_le_aggregateRelativeWeights
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) (rowRelative columnRelative : Q')
+    (hrowRelative : (0 : Q') ≤ rowRelative)
+    (hcolumnRelative : (0 : Q') ≤ columnRelative)
+    (hrow :
+      let S := schedule.scalePair scale
+      let connected :=
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (schedule.faceMap scale).coarseTarget_mem
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources)
+    (hconnectedColumn :
+      let S := schedule.scalePair scale
+      let connected :=
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (schedule.faceMap scale).coarseTarget_mem
+      connected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          listQSum connected.targetWeight connected.targets)
+    (hdisconnectedColumn :
+      let S := schedule.scalePair scale
+      let disconnected :=
+        actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (schedule.faceMap scale).coarseTarget_mem
+      disconnected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          listQSum disconnected.targetWeight disconnected.targets) :
+    actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
+        schedule scale ≤
+      (rowRelative + columnRelative) *
+        ((schedule.scalePair scale).coarse.physicalPartition *
+          (schedule.scalePair scale).coarse.physicalPartition) := by
+  let S := schedule.scalePair scale
+  let root := (schedule.faceMap scale).coarseRoot
+  let target := (schedule.faceMap scale).coarseTarget
+  let htarget := (schedule.faceMap scale).coarseTarget_mem
+  let connected :=
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  let disconnected :=
+    actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  have hsourceMass :
+      listQSum connected.sourceWeight connected.sources ≤ coarseSquare := by
+    simpa only [S, root, target, htarget, connected, coarseSquare] using
+      connectedDensityTransport_sourceWeight_le_coarseSquare
+        S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  have htargetMass :
+      listQSum connected.targetWeight connected.targets +
+          listQSum disconnected.targetWeight disconnected.targets ≤
+        coarseSquare := by
+    simpa only [S, root, target, htarget, connected, disconnected,
+      coarseSquare] using
+      splitDensityTransports_targetWeight_le_coarseSquare
+        S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  have hbudget :
+      (Q'.abs connected.rowCoefficientDefect +
+          connected.posteriorColumnCoefficientL1) +
+        disconnected.posteriorColumnCoefficientL1 ≤
+      (rowRelative + columnRelative) * coarseSquare :=
+    connected.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_aggregate
+      disconnected rowRelative columnRelative coarseSquare
+      hrowRelative hcolumnRelative
+      (by simpa only [S, root, target, htarget, connected] using hrow)
+      (by simpa only [S, root, target, htarget, connected] using
+        hconnectedColumn)
+      (by simpa only [S, root, target, htarget, disconnected] using
+        hdisconnectedColumn)
+      hsourceMass htargetMass
+  refine Q'.le_trans' _ _ _ ?_ hbudget
+  exact Q'.le_of_eqv (by
+    unfold actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
+    simp only [S, root, target, connected, disconnected,
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt,
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedPosteriorColumnDensityL1,
+      actualPositiveExpandedReceiverFiberScaleDefectDisconnectedPosteriorColumnDensityL1]
+    apply Q'.eqv_of_eq
+    congr <;> apply Subsingleton.elim)
+
 /-- Source- and target-relative inputs bound the full dimensionless
 three-term posterior budget by the sum of their two relative constants times
-the coarse partition square. -/
+the coarse partition square.  This stronger pointwise route is retained as an
+adapter to the aggregate theorem. -/
 theorem splitPosteriorColumnBudget_le_relativeWeights
     (schedule : PhysicalObservableRefinementSchedule)
     (scale : Nat) (rowRelative columnRelative : Q')
@@ -358,8 +456,6 @@ theorem splitPosteriorColumnBudget_le_relativeWeights
   let disconnected :=
     actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
       S rfl (schedule.effectiveCoupling_pos scale) root target htarget
-  let coarseSquare :=
-    S.coarse.physicalPartition * S.coarse.physicalPartition
   have hsourceWeight : ∀ source, source ∈ connected.sources →
       (0 : Q') ≤ connected.sourceWeight source := by
     intro source _
@@ -369,44 +465,226 @@ theorem splitPosteriorColumnBudget_le_relativeWeights
       actualPositiveExpandedReceiverFiberScaleDefectConnectedCoefficientTransport]
       using slabObservableTwoReplicaPairWeight_nonnegative
         S.coarse root source.1
-  have hsourceMass :
-      listQSum connected.sourceWeight connected.sources ≤ coarseSquare := by
-    simpa only [S, root, target, htarget, connected, coarseSquare] using
-      connectedDensityTransport_sourceWeight_le_coarseSquare
-        S rfl (schedule.effectiveCoupling_pos scale) root target htarget
-  have htargetMass :
-      listQSum connected.targetWeight connected.targets +
-          listQSum disconnected.targetWeight disconnected.targets ≤
-        coarseSquare := by
-    simpa only [S, root, target, htarget, connected, disconnected,
-      coarseSquare] using
-      splitDensityTransports_targetWeight_le_coarseSquare
-        S rfl (schedule.effectiveCoupling_pos scale) root target htarget
-  have hbudget :
-      (Q'.abs connected.rowCoefficientDefect +
-          connected.posteriorColumnCoefficientL1) +
-        disconnected.posteriorColumnCoefficientL1 ≤
-      (rowRelative + columnRelative) * coarseSquare :=
-    connected.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap
-      disconnected rowRelative columnRelative coarseSquare
-      hrowRelative hcolumnRelative hsourceWeight
+  have hrowAggregate :
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources :=
+    connected.rowCoefficientDefect_abs_le_relativeSourceWeight
+      rowRelative hsourceWeight
       (by simpa only [S, root, target, htarget, connected] using hrow)
+  have hconnectedAggregate :
+      connected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          listQSum connected.targetWeight connected.targets :=
+    connected.posteriorColumnCoefficientL1_le_relativeTargetWeight
+      columnRelative
       (by simpa only [S, root, target, htarget, connected] using
         hconnectedColumn)
+  have hdisconnectedAggregate :
+      disconnected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          listQSum disconnected.targetWeight disconnected.targets :=
+    disconnected.posteriorColumnCoefficientL1_le_relativeTargetWeight
+      columnRelative
       (by simpa only [S, root, target, htarget, disconnected] using
         hdisconnectedColumn)
-      hsourceMass htargetMass
-  refine Q'.le_trans' _ _ _ ?_ hbudget
-  exact Q'.le_of_eqv (by
-    unfold actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
-    simp only [S, root, target, connected, disconnected,
-      actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt,
-      actualPositiveExpandedReceiverFiberScaleDefectConnectedPosteriorColumnDensityL1,
-      actualPositiveExpandedReceiverFiberScaleDefectDisconnectedPosteriorColumnDensityL1]
-    apply Q'.eqv_of_eq
-    congr <;> apply Subsingleton.elim)
+  exact splitPosteriorColumnBudget_le_aggregateRelativeWeights
+    schedule scale rowRelative columnRelative
+    hrowRelative hcolumnRelative
+    (by simpa only [S, root, target, htarget, connected] using hrowAggregate)
+    (by simpa only [S, root, target, htarget, connected] using
+      hconnectedAggregate)
+    (by simpa only [S, root, target, htarget, disconnected] using
+      hdisconnectedAggregate)
 
 /-! ## 3. Matched-AF local inputs compile to the existing global bridge -/
+
+/-- The preferred volume-safe matched-AF posterior input.  Its three local
+analytic obligations are aggregate estimates on the connected source sector
+and the two complementary receiver sectors. -/
+structure MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type where
+  start : Nat
+  spacingFloor : Q'
+  spacingFloor_pos : (0 : Q') < spacingFloor
+  mismatchQuadraticCeiling : Q'
+  mismatchQuadraticCeiling_pos : (0 : Q') < mismatchQuadraticCeiling
+  rowQuadraticCeiling : Q'
+  rowQuadraticCeiling_pos : (0 : Q') < rowQuadraticCeiling
+  posteriorQuadraticCeiling : Q'
+  posteriorQuadraticCeiling_pos : (0 : Q') < posteriorQuadraticCeiling
+  spacingQuadratic_lower : ∀ scale : Nat, start ≤ scale →
+    spacingFloor * (coupling scale * coupling scale) ≤
+      spacing.a (coupling scale)
+  rawMismatch_quadratic_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget
+        (matchedShiftedAFPhysicalObservableRefinementSchedule
+          family law spacing C coupling coupling_pos coupling_le_window
+          identification nested)
+        scale ≤
+      mismatchQuadraticCeiling * (coupling scale * coupling scale)
+  connectedRow_aggregateRelative : ∀ scale : Nat, start ≤ scale →
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let connected :=
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+        S rfl (schedule.effectiveCoupling_pos scale)
+        (schedule.faceMap scale).coarseRoot
+        (schedule.faceMap scale).coarseTarget
+        (schedule.faceMap scale).coarseTarget_mem
+    Q'.abs connected.rowCoefficientDefect ≤
+      ((rowQuadraticCeiling * (coupling scale * coupling scale)) *
+          positiveExpandedReceiverFiberPartitionDensity S) *
+        listQSum connected.sourceWeight connected.sources
+  connectedColumn_aggregateRelative : ∀ scale : Nat, start ≤ scale →
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let connected :=
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+        S rfl (schedule.effectiveCoupling_pos scale)
+        (schedule.faceMap scale).coarseRoot
+        (schedule.faceMap scale).coarseTarget
+        (schedule.faceMap scale).coarseTarget_mem
+    connected.posteriorColumnCoefficientL1 ≤
+      ((posteriorQuadraticCeiling * (coupling scale * coupling scale)) *
+          positiveExpandedReceiverFiberPartitionDensity S) *
+        listQSum connected.targetWeight connected.targets
+  disconnectedColumn_aggregateRelative : ∀ scale : Nat, start ≤ scale →
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let disconnected :=
+      actualPositiveExpandedReceiverFiberScaleDefectDisconnectedDensityTransport
+        S rfl (schedule.effectiveCoupling_pos scale)
+        (schedule.faceMap scale).coarseRoot
+        (schedule.faceMap scale).coarseTarget
+        (schedule.faceMap scale).coarseTarget_mem
+    disconnected.posteriorColumnCoefficientL1 ≤
+      ((posteriorQuadraticCeiling * (coupling scale * coupling scale)) *
+          positiveExpandedReceiverFiberPartitionDensity S) *
+        listQSum disconnected.targetWeight disconnected.targets
+
+namespace MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {C : AFTrajectoryCertificate}
+    {coupling : Nat → Q'}
+    {coupling_pos : ∀ scale, (0 : Q') < coupling scale}
+    {coupling_le_window : ∀ scale, coupling scale ≤ law.g₁}
+    {identification : ShiftedAFTrajectoryIdentification C coupling}
+    {nested : NestedCutoffOneFaceGeometry}
+
+def connectedQuadraticCeiling
+    (control :
+      MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested) : Q' :=
+  control.rowQuadraticCeiling + control.posteriorQuadraticCeiling
+
+theorem connectedQuadraticCeiling_pos
+    (control :
+      MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested) :
+    (0 : Q') < control.connectedQuadraticCeiling :=
+  Q'.add_pos control.rowQuadraticCeiling_pos
+    control.posteriorQuadraticCeiling_pos
+
+/-- Compile the aggregate sector-relative estimates into the already checked
+global matched-AF posterior-cost interface. -/
+def toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
+    (control :
+      MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested) :
+    MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested where
+  start := control.start
+  spacingFloor := control.spacingFloor
+  spacingFloor_pos := control.spacingFloor_pos
+  mismatchQuadraticCeiling := control.mismatchQuadraticCeiling
+  mismatchQuadraticCeiling_pos := control.mismatchQuadraticCeiling_pos
+  connectedQuadraticCeiling := control.connectedQuadraticCeiling
+  connectedQuadraticCeiling_pos := control.connectedQuadraticCeiling_pos
+  spacingQuadratic_lower := control.spacingQuadratic_lower
+  rawMismatch_quadratic_le := control.rawMismatch_quadratic_le
+  posteriorColumn_quadratic_le := fun scale hscale => by
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let g2 := coupling scale * coupling scale
+    let density := positiveExpandedReceiverFiberPartitionDensity S
+    let rowRelative := (control.rowQuadraticCeiling * g2) * density
+    let columnRelative :=
+      (control.posteriorQuadraticCeiling * g2) * density
+    have hg2 : (0 : Q') ≤ g2 :=
+      Q'.mul_nonneg _ _
+        (Q'.le_of_lt (coupling_pos scale))
+        (Q'.le_of_lt (coupling_pos scale))
+    have hdensity : (0 : Q') ≤ density :=
+      Q'.le_of_lt (positiveExpandedReceiverFiberPartitionDensity_pos S)
+    have hrowRelative : (0 : Q') ≤ rowRelative :=
+      Q'.mul_nonneg _ _
+        (Q'.mul_nonneg _ _
+          (Q'.le_of_lt control.rowQuadraticCeiling_pos) hg2)
+        hdensity
+    have hcolumnRelative : (0 : Q') ≤ columnRelative :=
+      Q'.mul_nonneg _ _
+        (Q'.mul_nonneg _ _
+          (Q'.le_of_lt control.posteriorQuadraticCeiling_pos) hg2)
+        hdensity
+    have hlocal := splitPosteriorColumnBudget_le_aggregateRelativeWeights
+      schedule scale rowRelative columnRelative
+      hrowRelative hcolumnRelative
+      (by simpa only [schedule, S, g2, density, rowRelative] using
+        control.connectedRow_aggregateRelative scale hscale)
+      (by simpa only [schedule, S, g2, density, columnRelative] using
+        control.connectedColumn_aggregateRelative scale hscale)
+      (by simpa only [schedule, S, g2, density, columnRelative] using
+        control.disconnectedColumn_aggregateRelative scale hscale)
+    exact Q'.le_trans' _ _ _ hlocal
+      (Q'.le_of_eqv (by
+        simpa only [schedule, S, g2, density, rowRelative, columnRelative,
+          connectedQuadraticCeiling] using
+          relativeQuadraticBudget_mul_coarseSquare_eqv
+            S control.rowQuadraticCeiling
+              control.posteriorQuadraticCeiling (coupling scale)))
+
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (control :
+      MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      control.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    schedule.fineCovariance scale ≤ schedule.anchorRate scale + epsilon :=
+  control.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
 
 /-- A volume-safe refinement of the matched-AF posterior input.  The global
 posterior estimate is replaced by one connected-row relative estimate and one
@@ -608,7 +886,13 @@ end MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms connectedDensityTransport_sourceWeight_le_coarseSquare
 #print axioms splitDensityTransports_targetWeight_le_coarseSquare
 #print axioms positiveExpandedReceiverFiberPartitionDensity_pos
+#print axioms splitPosteriorColumnBudget_le_aggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_relativeWeights
+#print axioms MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl
+#print axioms MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl.connectedQuadraticCeiling
+#print axioms MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl.connectedQuadraticCeiling_pos
+#print axioms MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl.toMatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
+#print axioms MatchedShiftedAFSplitPosteriorColumnAggregateRelativeQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl.connectedQuadraticCeiling
 #print axioms MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl.connectedQuadraticCeiling_pos

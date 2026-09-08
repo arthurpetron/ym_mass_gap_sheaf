@@ -214,14 +214,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
 |   |   |   |       |   |   |   +-- posterior three-budget <=
 |   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
-|   |   |   |       |   |   |   |   +-- relative finite-sum compiler, no column count [PROVED]
-|   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ........... [PROVED]
-|   |   |   |       |   |   |   |   +-- complementary target masses <= `Z_c^2` ..... [PROVED]
-|   |   |   |       |   |   |   |   `-- local relative bounds => global budget ...... [PROVED bridge]
-|   |   |   |       |   |   |   `-- inhabit local relative estimates ............... [ACTIVE preferred]
-|   |   |   |       |   |   |       +-- connected row defect / source weight ........ [OPEN]
-|   |   |   |       |   |   |       +-- connected posterior defect / target weight .. [OPEN]
-|   |   |   |       |   |   |       `-- disconnected posterior / target weight ...... [OPEN]
+|   |   |   |       |   |   |   |   +-- aggregate sector compiler, no column count ... [PROVED preferred]
+|   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ............. [PROVED]
+|   |   |   |       |   |   |   |   +-- complementary target masses <= `Z_c^2` ....... [PROVED]
+|   |   |   |       |   |   |   |   +-- aggregate sector bounds => global budget ...... [PROVED bridge]
+|   |   |   |       |   |   |   |   `-- pointwise bounds => aggregate bounds .......... [PROVED stronger]
+|   |   |   |       |   |   |   `-- inhabit aggregate sector estimates ............... [ACTIVE preferred]
+|   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN]
+|   |   |   |       |   |   |       +-- connected posterior `l1` / target mass ........ [OPEN]
+|   |   |   |       |   |   |       `-- disconnected posterior `l1` / target mass ..... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -30213,6 +30214,60 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 226. Weaken the posterior frontier to aggregate physical sectors (2026-09-08)
+
+**Status. THE VOLUME-SAFE POSTERIOR COMPILER NOW ACCEPTS THREE AGGREGATE
+SECTOR ESTIMATES; THE EARLIER POINTWISE PREMISES REMAIN ONLY AS A STRICTLY
+STRONGER SUFFICIENT ROUTE.**
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean` now takes the
+aggregate estimates
+
+```text
+abs(connected row defect) <= rowRelative * connected source mass,
+connected posterior l1 <= columnRelative * connected target mass,
+disconnected posterior l1 <= columnRelative * disconnected target mass.
+```
+
+Together with the existing source-mass and complementary target-mass caps,
+these imply the same global three-budget ceiling without a carrier-cardinality
+factor.  The old pointwise theorem is factored through this aggregate core, so
+no verified stronger route is lost.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+specializes the aggregate compiler to the actual connected and disconnected
+density transports.  Its new Type-valued matched-AF control asks directly for
+the three aggregate sector estimates at order `g^2` times the exact partition
+density.  The existing coarse-square cancellation converts these inputs to
+the global `Z_fine^2` quadratic budget and onward to the established
+`fineCovariance <= anchorRate + epsilon` consumer.  The pointwise control is
+retained and now reaches this same aggregate compiler through the generic
+finite-sum lemmas.
+
+This change identifies the preferred honest analytic frontier.  A target
+column outside the supported transport image can make a pointwise relative
+bound unnecessarily strong; no impossibility theorem is claimed.  The open
+obligations are the aggregate connected-row estimate and the aggregate
+connected/disconnected posterior-sector estimates.  The independent lower
+quadratic spacing and raw-mismatch estimates, uniform physical gap, continuum
+measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay theorem
+remain open.
+
+Monitored verification:
+
+```text
+generic aggregate compiler focused source check             PASS
+generic aggregate compiler dependency target                PASS (220 jobs)
+concrete aggregate matched-AF focused source check           PASS
+concrete aggregate matched-AF dependency target              PASS (5,443 jobs)
+```
+
+The generic module prints five load-bearing declarations, all using only
+`[propext]`.  The concrete module prints sixteen, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 225. Reduce the global posterior budget to local relative estimates (2026-09-08)
 

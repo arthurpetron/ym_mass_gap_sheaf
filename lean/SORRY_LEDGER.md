@@ -29025,3 +29025,42 @@ The generic module prints four load-bearing declarations, all using only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Weaken the posterior frontier to aggregate physical sectors (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound` now proves an
+aggregate common-mass-cap theorem.  It accepts a connected row-defect bound
+relative to total connected source mass and two posterior-`l1` bounds relative
+to the connected and disconnected target-sector masses.  Positivity and the
+existing common mass caps produce the same global row-plus-two-column bound,
+with the shared column ceiling paid once.  The earlier pointwise theorem now
+derives these aggregate hypotheses and delegates to the new core.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+adds the concrete aggregate sector compiler and a Type-valued matched-AF
+aggregate-relative control.  The latter supplies the pre-existing posterior
+quadratic control and hence the finite covariance consumer.  The pointwise
+control remains available as a stronger sufficient route.
+
+The aggregate interface is now the preferred analytic frontier.  Pointwise
+target-weight-relative control can be unnecessarily strong away from the
+supported transport image, but no impossibility theorem is asserted.  No
+aggregate estimate is inhabited here: the connected row total and the two
+posterior-sector totals remain open, as do lower quadratic spacing, raw
+mismatch, a uniform physical gap, continuum construction, same-measure
+OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
+
+Monitored verification:
+
+```text
+generic aggregate compiler focused source check             PASS
+generic aggregate compiler dependency target                PASS (220 jobs)
+concrete aggregate matched-AF focused source check           PASS
+concrete aggregate matched-AF dependency target              PASS (5,443 jobs)
+```
+
+The generic module prints five load-bearing declarations, all using only
+`[propext]`.  The concrete module prints sixteen, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
