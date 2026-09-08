@@ -29064,3 +29064,39 @@ The generic module prints five load-bearing declarations, all using only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Combine the two posterior sectors before estimation (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound` now accepts a single
+bound on the sum of the connected and disconnected posterior-column `l1`
+costs relative to the sum of their target-sector masses.  Together with the
+connected row aggregate and the existing common mass caps, this yields the
+same global three-budget bound.  The separate-sector aggregate theorem and
+the pointwise theorem are retained as successively stronger adapters.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+specializes the combined result and replaces the preferred three-field
+matched-AF aggregate witness by a two-field witness: one connected-row
+aggregate and one combined posterior-sector aggregate.  Its constructive
+adapter still reaches the existing finite covariance consumer.
+
+No estimate is inhabited.  The active analytic obligations are the two
+aggregate coupling-square bounds, followed independently by lower quadratic
+spacing and raw mismatch.  Uniform physical gap, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+generic combined-aggregate focused source check             PASS
+generic combined-aggregate dependency target                PASS (220 jobs)
+concrete combined-aggregate focused source check            PASS
+concrete combined-aggregate dependency target               PASS (5,443 jobs)
+```
+
+The generic module prints six load-bearing declarations, all using only
+`[propext]`.  The concrete module prints seventeen, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.

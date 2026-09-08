@@ -10,10 +10,12 @@ This module proves generic pointwise-to-aggregate compilers.  A
 source-relative estimate on the unretained coefficient controls the signed
 row defect by the total source weight.  A target-relative estimate on each
 posterior column controls the posterior `l1` budget by the total target
-weight.  Its preferred two-sector theorem also accepts those three aggregate
-bounds directly.  Thus later Yang--Mills specializations can use exact finite
-mass identities instead of carrier cardinality without requiring pointwise
-control when only a sector total is needed.
+weight.  Its preferred two-sector theorem accepts one row aggregate and one
+combined posterior-sector aggregate directly.  Separate sector aggregates
+and pointwise bounds remain sufficient adapters.  Thus later Yang--Mills
+specializations can use exact finite mass identities instead of carrier
+cardinality without requiring pointwise or sectorwise control when only the
+combined posterior total is needed.
 
 No relative estimate is inhabited here.  This is exact finite rational
 summation, not stochastic mixing, an asymptotic estimate, a continuum limit,
@@ -189,9 +191,68 @@ theorem rowAbs_add_posteriorColumnL1_le_relativeWeights
     (data.posteriorColumnCoefficientL1_le_relativeTargetWeight
       columnRelative hcolumn)
 
-/-- Aggregate row and posterior-sector estimates pay their relative ceilings
-against a common mass cap.  The two posterior sectors share one column
-ceiling because only their combined target mass is charged. -/
+/-- A row aggregate and one combined posterior-sector aggregate pay their
+relative ceilings against a common mass cap.  This is the weakest interface
+in this module: it does not require the posterior estimate to split between
+the two target sectors. -/
+theorem rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_combinedAggregate
+    {ConnectedSource ConnectedTarget DisconnectedSource DisconnectedTarget : Type}
+    [DecidableEq ConnectedTarget] [DecidableEq DisconnectedTarget]
+    (connected :
+      FiniteDependentCoefficientTransport ConnectedSource ConnectedTarget)
+    (disconnected :
+      FiniteDependentCoefficientTransport DisconnectedSource DisconnectedTarget)
+    (rowRelative columnRelative massCap : Q')
+    (hrowRelative : (0 : Q') ≤ rowRelative)
+    (hcolumnRelative : (0 : Q') ≤ columnRelative)
+    (hrowBound :
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources)
+    (hcolumnsBound :
+      connected.posteriorColumnCoefficientL1 +
+          disconnected.posteriorColumnCoefficientL1 ≤
+        columnRelative *
+          (listQSum connected.targetWeight connected.targets +
+            listQSum disconnected.targetWeight disconnected.targets))
+    (hsourceMass :
+      listQSum connected.sourceWeight connected.sources ≤ massCap)
+    (htargetMass :
+      listQSum connected.targetWeight connected.targets +
+          listQSum disconnected.targetWeight disconnected.targets ≤ massCap) :
+    (Q'.abs connected.rowCoefficientDefect +
+        connected.posteriorColumnCoefficientL1) +
+      disconnected.posteriorColumnCoefficientL1 ≤
+        (rowRelative + columnRelative) * massCap := by
+  have hrowScaled :
+      rowRelative * listQSum connected.sourceWeight connected.sources ≤
+        rowRelative * massCap :=
+    Q'.mul_le_mul_of_nonneg_left _ _ rowRelative hsourceMass hrowRelative
+  have hcolumns :
+      connected.posteriorColumnCoefficientL1 +
+          disconnected.posteriorColumnCoefficientL1 ≤
+        columnRelative * massCap := by
+    exact Q'.le_trans' _ _ _ hcolumnsBound
+      (Q'.mul_le_mul_of_nonneg_left _ _ columnRelative
+        htargetMass hcolumnRelative)
+  refine Q'.le_trans' _
+    (Q'.abs connected.rowCoefficientDefect +
+      (connected.posteriorColumnCoefficientL1 +
+        disconnected.posteriorColumnCoefficientL1)) _
+    (Q'.le_of_eqv
+      (Q'.add_assoc_eqv
+        (Q'.abs connected.rowCoefficientDefect)
+        connected.posteriorColumnCoefficientL1
+        disconnected.posteriorColumnCoefficientL1)) ?_
+  refine Q'.le_trans' _
+    (rowRelative * massCap + columnRelative * massCap) _
+    (Q'.add_le_add
+      (Q'.le_trans' _ _ _ hrowBound hrowScaled) hcolumns) ?_
+  exact Q'.le_of_eqv
+    (Q'.eqv_symm
+      (Q'.add_mul_eqv rowRelative columnRelative massCap))
+
+/-- Separate row and posterior-sector aggregates compile to the weaker
+combined-posterior interface before paying the common mass cap. -/
 theorem rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_aggregate
     {ConnectedSource ConnectedTarget DisconnectedSource DisconnectedTarget : Type}
     [DecidableEq ConnectedTarget] [DecidableEq DisconnectedTarget]
@@ -222,46 +283,27 @@ theorem rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_aggregate
         connected.posteriorColumnCoefficientL1) +
       disconnected.posteriorColumnCoefficientL1 ≤
         (rowRelative + columnRelative) * massCap := by
-  have hrowScaled :
-      rowRelative * listQSum connected.sourceWeight connected.sources ≤
-        rowRelative * massCap :=
-    Q'.mul_le_mul_of_nonneg_left _ _ rowRelative hsourceMass hrowRelative
-  have hcolumns :
+  have hcolumnsBound :
       connected.posteriorColumnCoefficientL1 +
           disconnected.posteriorColumnCoefficientL1 ≤
-        columnRelative * massCap := by
+        columnRelative *
+          (listQSum connected.targetWeight connected.targets +
+            listQSum disconnected.targetWeight disconnected.targets) := by
     refine Q'.le_trans' _
       (columnRelative * listQSum connected.targetWeight connected.targets +
         columnRelative * listQSum disconnected.targetWeight
           disconnected.targets) _
       (Q'.add_le_add hconnectedBound hdisconnectedBound) ?_
-    refine Q'.le_trans' _
-      (columnRelative *
-        (listQSum connected.targetWeight connected.targets +
-          listQSum disconnected.targetWeight disconnected.targets)) _
-      (Q'.le_of_eqv
-        (Q'.eqv_symm
-          (Q'.mul_add_eqv columnRelative
-            (listQSum connected.targetWeight connected.targets)
-            (listQSum disconnected.targetWeight disconnected.targets)))) ?_
-    exact Q'.mul_le_mul_of_nonneg_left _ _ columnRelative
-      htargetMass hcolumnRelative
-  refine Q'.le_trans' _
-    (Q'.abs connected.rowCoefficientDefect +
-      (connected.posteriorColumnCoefficientL1 +
-        disconnected.posteriorColumnCoefficientL1)) _
-    (Q'.le_of_eqv
-      (Q'.add_assoc_eqv
-        (Q'.abs connected.rowCoefficientDefect)
-        connected.posteriorColumnCoefficientL1
-        disconnected.posteriorColumnCoefficientL1)) ?_
-  refine Q'.le_trans' _
-    (rowRelative * massCap + columnRelative * massCap) _
-    (Q'.add_le_add
-      (Q'.le_trans' _ _ _ hrowBound hrowScaled) hcolumns) ?_
-  exact Q'.le_of_eqv
-    (Q'.eqv_symm
-      (Q'.add_mul_eqv rowRelative columnRelative massCap))
+    exact Q'.le_of_eqv
+      (Q'.eqv_symm
+        (Q'.mul_add_eqv columnRelative
+          (listQSum connected.targetWeight connected.targets)
+          (listQSum disconnected.targetWeight disconnected.targets)))
+  exact
+    connected.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_combinedAggregate
+      disconnected rowRelative columnRelative massCap
+      hrowRelative hcolumnRelative hrowBound hcolumnsBound
+      hsourceMass htargetMass
 
 /-- Pointwise source- and target-relative estimates compile to the weaker
 aggregate interface, then pay the same common mass cap without a carrier
@@ -322,6 +364,7 @@ end FiniteDependentCoefficientTransport
 #print axioms FiniteDependentCoefficientTransport.rowCoefficientDefect_abs_le_relativeSourceWeight
 #print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientL1_le_relativeTargetWeight
 #print axioms FiniteDependentCoefficientTransport.rowAbs_add_posteriorColumnL1_le_relativeWeights
+#print axioms FiniteDependentCoefficientTransport.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_combinedAggregate
 #print axioms FiniteDependentCoefficientTransport.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap_of_aggregate
 #print axioms FiniteDependentCoefficientTransport.rowAbs_add_twoPosteriorColumnL1_le_commonMassCap
 

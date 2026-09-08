@@ -214,15 +214,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
 |   |   |   |       |   |   |   +-- posterior three-budget <=
 |   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
-|   |   |   |       |   |   |   |   +-- aggregate sector compiler, no column count ... [PROVED preferred]
+|   |   |   |       |   |   |   |   +-- combined posterior compiler, no column count .. [PROVED preferred]
 |   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ............. [PROVED]
 |   |   |   |       |   |   |   |   +-- complementary target masses <= `Z_c^2` ....... [PROVED]
-|   |   |   |       |   |   |   |   +-- aggregate sector bounds => global budget ...... [PROVED bridge]
-|   |   |   |       |   |   |   |   `-- pointwise bounds => aggregate bounds .......... [PROVED stronger]
-|   |   |   |       |   |   |   `-- inhabit aggregate sector estimates ............... [ACTIVE preferred]
+|   |   |   |       |   |   |   |   +-- row + combined posterior => global budget ...... [PROVED bridge]
+|   |   |   |       |   |   |   |   +-- separate sector bounds => combined bound ....... [PROVED stronger]
+|   |   |   |       |   |   |   |   `-- pointwise bounds => separate sector bounds ..... [PROVED stronger]
+|   |   |   |       |   |   |   `-- inhabit two aggregate estimates ................... [ACTIVE preferred]
 |   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN]
-|   |   |   |       |   |   |       +-- connected posterior `l1` / target mass ........ [OPEN]
-|   |   |   |       |   |   |       `-- disconnected posterior `l1` / target mass ..... [OPEN]
+|   |   |   |       |   |   |       `-- combined posterior `l1` / combined target mass  [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -30214,6 +30214,58 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 227. Combine the two posterior sectors before the analytic estimate (2026-09-08)
+
+**Status. THE PREFERRED POSTERIOR FRONTIER NOW REQUIRES ONLY ONE CONNECTED-ROW
+AGGREGATE AND ONE COMBINED POSTERIOR-SECTOR AGGREGATE.**
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean` now proves the
+strictly weaker implication
+
+```text
+abs(connected row defect)
+  <= rowRelative * connected source mass,
+
+connected posterior l1 + disconnected posterior l1
+  <= columnRelative * (connected target mass + disconnected target mass)
+
+--------------------------------------------------------------------------
+posterior three-budget <= (rowRelative + columnRelative) * common mass cap.
+```
+
+The former theorem with separate connected and disconnected posterior bounds
+now derives the combined premise and delegates to this core.  The pointwise
+theorem still delegates through the separate-sector theorem, so both stronger
+interfaces remain available.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+specializes this combined theorem to the actual density transports.  Its
+preferred Type-valued matched-AF control has two local analytic fields: the
+connected row aggregate and the sum of both posterior-column `l1` costs
+relative to the sum of both target-sector masses.  The adapter reaches the
+same exact coarse-square cancellation, global quadratic posterior bound, and
+finite `fineCovariance <= anchorRate + epsilon` consumer.
+
+No analytic estimate is inhabited.  The active frontier is now exactly those
+two aggregate coupling-square estimates.  Lower quadratic spacing, raw
+mismatch, a uniform physical gap, continuum construction, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
+Monitored verification:
+
+```text
+generic combined-aggregate focused source check             PASS
+generic combined-aggregate dependency target                PASS (220 jobs)
+concrete combined-aggregate focused source check            PASS
+concrete combined-aggregate dependency target               PASS (5,443 jobs)
+```
+
+The generic module prints six load-bearing declarations, all using only
+`[propext]`.  The concrete module prints seventeen, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 226. Weaken the posterior frontier to aggregate physical sectors (2026-09-08)
 
