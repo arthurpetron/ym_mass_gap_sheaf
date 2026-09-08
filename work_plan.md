@@ -1201,8 +1201,12 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       |       four-fine-face block counts ............... [PROVED exact]
 |           |       +-- closed binary support => positive Gibbs source
 |           |       |       + accepted fine intertwiner ............... [PROVED constructive]
-|           |       +-- one closed fine binary support whose dyadic
-|           |       |       block counts equal each attached endpoint . [ACTIVE geometric lift]
+|           |       +-- literal subdivision preserves closure, nodup,
+|           |       |       slab membership, and exact `{0,1}` packets . [PROVED]
+|           |       +-- every closed binary coarse endpoint has an exact
+|           |       |       literal fine-support endpoint lift .......... [PROVED subclass]
+|           |       +-- arbitrary attached spins `0..4`: mixed strand
+|           |       |       routing compatible with coarse intertwiners . [ACTIVE geometric lift]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1243,10 +1247,52 @@ sum to be positive.  The canonical stretched channel then removes those
 channel inputs whenever the attached coarse spin is the sum of the four fine
 binary spins.  Finally, a duplicate-free even-incidence fine support is proved
 to supply its positive Gibbs term, an accepted fine intertwiner, and literal
-positive-source enumeration membership.  Constructing one such closed fine
-support with the exact dyadic block counts is the active finite geometric
-witness problem; no lift is required for link-inadmissible zero-mass members
-of the broader bounded Cartesian list.
+positive-source enumeration membership.  Literal cellular subdivision now
+constructs that support whenever the attached coarse endpoint is itself the
+zero-one indicator of a duplicate-free closed coarse surface.  It preserves
+closure, duplicate freedom, corrected-slab membership, and contributes
+exactly one occupied nondegenerate fine preimage to each selected coarse
+face.  The active finite geometric witness problem is therefore narrower and
+genuinely nonabelian: realize attached coarse spins `2`, `3`, and `4` by
+mixed fine-strand routing compatible with the accepted coarse intertwiner
+assignment.  No lift is required for link-inadmissible zero-mass members of
+the broader bounded Cartesian list.
+
+## Milestone 241: close literal dyadic subdivision for binary endpoints (2026-09-08)
+
+**Status. LITERAL FOUR-CELL SUBDIVISION NOW GIVES AN EXACT CONSTRUCTIVE
+ENDPOINT LIFT FOR EVERY CLOSED BINARY COARSE ENDPOINT; GENERAL ATTACHED
+SPINS `2`, `3`, AND `4` REMAIN OPEN.**
+
+`Z4DyadicSubdivisionClosure.lean` defines coefficient-level dyadic face and
+link subdivision and proves their cellular boundaries commute over `F2`.
+Consequently, subdividing a duplicate-free even-incidence coarse support
+produces a duplicate-free even-incidence fine support.  The construction also
+stays inside the corrected affine fine slab.
+
+The endpoint module computes the literal nondegenerate four-face packet of
+that support exactly:
+
+```text
+closed binary coarse surface
+  -> four coplanar children per selected coarse plaquette
+  -> closed, duplicate-free fine support in the corrected slab
+  -> nondegenerate endpoint packet `[1, 0, 0, 0]` on a selected face
+  -> exact coarse endpoint spin `1` (and `0` off the surface)
+  -> existing stretched-channel positive endpoint-lift chain.
+```
+
+This corrects a tempting but false interpretation: the four coplanar
+subdivision cells do not occupy all four nondegenerate dyadic face preimages
+used by `wholeSlabFinePacket`; exactly one does.  Thus literal subdivision
+solves the closed `{0,1}` endpoint subclass, not a `{0,4}` subclass.
+
+The next active branch must use the accepted coarse intertwiner to route
+multiple fine strands consistently across links and thereby realize general
+attached endpoint spins `2`, `3`, and `4`.  Covered calibration, quadratic
+spacing and mismatch, cutoff-uniform physical contraction, same-measure
+continuum construction, OS/GNS reconstruction, Hamiltonian gap, and Clay
+closure remain open.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

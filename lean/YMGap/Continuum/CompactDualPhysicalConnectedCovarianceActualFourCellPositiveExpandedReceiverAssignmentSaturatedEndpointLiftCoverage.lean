@@ -45,6 +45,7 @@ proof hole, noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedPositiveOccupationQuadraticCost
+import YMGap.Continuum.Z4DyadicSubdivisionClosure
 
 namespace YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedEndpointLiftCoverage
 
@@ -100,11 +101,16 @@ open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
+open YMGap.Continuum.Z4CanonicalPolymerAnimalBridge
 open YMGap.Continuum.Z4DyadicDeterministicSupportKernel
+open YMGap.Continuum.Z4DyadicModTwoCellularKernel
+open YMGap.Continuum.Z4DyadicPlaquetteBlockGeometry
 open YMGap.Continuum.Z4DyadicSlabCharacterFusionConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabMultiCharacterPacketKernel
+open YMGap.Continuum.Z4DyadicSubdivisionClosure
 open YMGap.Continuum.Z4FiniteBoxFusionCompleteCutoff
 open YMGap.Continuum.Z4UnitCubeIncidenceParity
+open YMGap.Continuum.Z4UnitCubeEnumerationParity
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -472,6 +478,114 @@ structure EvenBinarySupportEndpointLift
             (slabBinarySupportLabelling S.fine.extent support)
             coarseFaceId) =
         endpoint.1.1 coarseFaceId
+
+private theorem slabSpinAtPlaquette_binarySupport_local
+    {extent : Nat} {support : List Z4Plaq} {plaquette : Z4Plaq}
+    (hsubset : ∀ face, face ∈ support →
+      face ∈ boundaryCompleteSlabPlaquettes extent) :
+    slabSpinAtPlaquette extent
+        (slabBinarySupportLabelling extent support) plaquette =
+      if plaquette ∈ support then 1 else 0 := by
+  by_cases hslab : plaquette ∈ boundaryCompleteSlabPlaquettes extent
+  · rw [slabSpinAtPlaquette_eq_of_mem hslab]
+    have hindex :
+        listIndexOf plaquette (boundaryCompleteSlabPlaquettes extent) ∈
+          slabPhysicalFaceEdges extent := by
+      unfold slabPhysicalFaceEdges
+      exact List.mem_range.mpr
+        (listIndexOf_lt_of_mem plaquette
+          (boundaryCompleteSlabPlaquettes extent) hslab)
+    rw [slabBinarySupportLabelling_eq_indicator hindex]
+    have hlookup :
+        slabPlaquetteAt extent
+            (listIndexOf plaquette
+              (boundaryCompleteSlabPlaquettes extent)) = plaquette := by
+      unfold slabPlaquetteAt
+      exact getD_listIndexOf_of_mem fallbackPlaquette plaquette
+        (boundaryCompleteSlabPlaquettes extent) hslab
+    rw [hlookup]
+  · rw [slabSpinAtPlaquette_eq_zero_of_not_mem hslab]
+    have hnotSupport : plaquette ∉ support := by
+      intro hmem
+      exact hslab (hsubset plaquette hmem)
+    rw [if_neg hnotSupport]
+
+private theorem wholeSlabFinePacket_dyadicSupportCells_local
+    {S : SlabScalePair} (coarseSupport : List Z4Plaq)
+    (hcoarseSubset : ∀ face, face ∈ coarseSupport →
+      face ∈ boundaryCompleteSlabPlaquettes S.coarse.extent)
+    (coarseFaceId : Nat) :
+    wholeSlabFinePacket S
+        (slabBinarySupportLabelling S.fine.extent
+          (dyadicSupportCells coarseSupport)) coarseFaceId =
+      ⟨if slabPlaquetteAt S.coarse.extent coarseFaceId ∈ coarseSupport
+        then 1 else 0, 0, 0, 0⟩ := by
+  have hfineSubset : ∀ fine, fine ∈ dyadicSupportCells coarseSupport →
+      fine ∈ boundaryCompleteSlabPlaquettes S.fine.extent := by
+    intro fine hfine
+    rw [S.fine_extent]
+    exact dyadicSupportCells_subset_boundaryCompleteFineSlab
+      hcoarseSubset fine hfine
+  have hspin :
+      slabSpinAtPlaquette S.fine.extent
+          (slabBinarySupportLabelling S.fine.extent
+            (dyadicSupportCells coarseSupport)) =
+        fun fine =>
+          (supportCoefficient
+            (dyadicSupportCells coarseSupport) fine).toNat := by
+    funext fine
+    rw [slabSpinAtPlaquette_binarySupport_local hfineSubset]
+    unfold supportCoefficient
+    by_cases hmem : fine ∈ dyadicSupportCells coarseSupport <;>
+      simp [hmem]
+  unfold wholeSlabFinePacket
+  rw [hspin]
+  exact dyadicFaceSpinPacket_dyadicSupportCells coarseSupport
+    (slabPlaquetteAt S.coarse.extent coarseFaceId)
+
+/-- A concrete coarse subclass for which literal four-cell subdivision is a
+complete exact endpoint lift.  The coarse endpoint is the zero-one indicator
+of a duplicate-free closed slab surface.  Literal subdivision then produces
+one occupied nondegenerate fine face in each selected coarse fibre. -/
+structure ClosedBinaryCoarseEndpointPresentation
+    (S : SlabScalePair)
+    (endpoint : SlabExpandedFineSourceEntry S.coarse) : Type where
+  support : List Z4Plaq
+  support_subset : ∀ face, face ∈ support →
+    face ∈ boundaryCompleteSlabPlaquettes S.coarse.extent
+  support_nodup : support.Nodup
+  support_even : EvenFaceIncidence support
+  endpoint_spin : ∀ coarseFaceId,
+    coarseFaceId ∈ S.coarse.faceEdges →
+      (if slabPlaquetteAt S.coarse.extent coarseFaceId ∈ support
+        then 1 else 0) = endpoint.1.1 coarseFaceId
+
+/-- Literal four-cell subdivision constructs the exact fine endpoint lift
+for every closed binary coarse endpoint presentation. -/
+def ClosedBinaryCoarseEndpointPresentation.toEvenBinarySupportEndpointLift
+    {S : SlabScalePair}
+    {endpoint : SlabExpandedFineSourceEntry S.coarse}
+    (presentation : ClosedBinaryCoarseEndpointPresentation S endpoint) :
+    EvenBinarySupportEndpointLift S endpoint where
+  support := dyadicSupportCells presentation.support
+  support_subset := by
+    intro fine hfine
+    rw [S.fine_extent]
+    exact dyadicSupportCells_subset_boundaryCompleteFineSlab
+      presentation.support_subset fine hfine
+  support_nodup :=
+    dyadicSupportCells_nodup presentation.support_nodup
+  support_even :=
+    dyadicSupportCells_preserves_evenFaceIncidence
+      presentation.support_nodup presentation.support_even
+  faceSpinTotal_eq := fun coarseFaceId hface => by
+    rw [wholeSlabFinePacket_dyadicSupportCells_local
+      presentation.support presentation.support_subset coarseFaceId]
+    change
+      (if slabPlaquetteAt S.coarse.extent coarseFaceId ∈
+          presentation.support then 1 else 0) =
+        endpoint.1.1 coarseFaceId
+    exact presentation.endpoint_spin coarseFaceId hface
 
 /-- Exact dyadic block counts determine canonical supported face channels. -/
 def EvenBinarySupportEndpointLift.toFusionChannelLift
@@ -1019,6 +1133,8 @@ end MatchedShiftedAFAssignmentSaturatedCoveredVariationEndpointCoverageQuadratic
 #print axioms PositiveExpandedFusionChannelEndpointCoverage.toFaceCompatibleCoverage
 #print axioms EvenBinarySupportFusionChannelEndpointLift.toPositiveExpandedLift
 #print axioms EvenBinarySupportFusionChannelEndpointCoverage.toPositiveExpandedCoverage
+#print axioms ClosedBinaryCoarseEndpointPresentation
+#print axioms ClosedBinaryCoarseEndpointPresentation.toEvenBinarySupportEndpointLift
 #print axioms EvenBinarySupportEndpointLift.toFusionChannelLift
 #print axioms EvenBinarySupportEndpointCoverage.toFusionChannelCoverage
 #print axioms positiveExpandedFourCellSourceSupportedPathAtReceiver

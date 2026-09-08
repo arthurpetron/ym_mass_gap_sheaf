@@ -705,6 +705,45 @@ calibration or spacing/mismatch estimates, cutoff-uniform contraction,
 continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.
 No full-root audit is claimed.
 
+### 9.9 Post-audit implementation update: literal closed binary endpoint subdivision, milestone 241 (2026-09-08)
+
+`Z4DyadicSubdivisionClosure.lean` supplies the previously missing reverse
+cellular geometry for one exact subclass.  It defines literal dyadic
+subdivision of plaquette and link coefficients and proves that subdivision
+commutes with the mod-two cellular boundary.  A duplicate-free closed coarse
+support therefore refines constructively to a duplicate-free closed fine
+support, and corrected-slab membership is preserved.
+
+The endpoint-lift module computes the relevant packet rather than inferring
+it from the number of subdivision cells.  For a selected coarse plaquette,
+its four coplanar subdivision cells intersect the four nondegenerate
+`wholeSlabFinePacket` preimages in the exact spin tuple
+
+```text
+[1, 0, 0, 0].
+```
+
+Thus subdivision realizes coarse spin `1`, not coarse spin `4`.  Off the
+selected support it realizes spin `0`.  The new
+`ClosedBinaryCoarseEndpointPresentation.toEvenBinarySupportEndpointLift`
+therefore constructs the full exact fine-support lift for every attached
+coarse endpoint presented as the indicator of a duplicate-free closed coarse
+surface.  The existing stretched-channel, positive-Gibbs, accepted-
+intertwiner, and raw-endpoint adapters then apply unchanged.
+
+Monitored verification passes for the new subdivision module and for the
+dependency-complete endpoint target (5,459 jobs).  Every printed new
+load-bearing theorem depends on at most `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom, or
+noncomputable declaration is introduced.  No full-root audit is claimed.
+
+This milestone does not establish coverage for every attached coarse
+endpoint.  General endpoints can carry spins `2`, `3`, and `4`; realizing
+them requires a multiplicity-faithful fine-strand routing compatible with the
+accepted coarse intertwiner assignment.  Covered calibration, quadratic
+spacing and mismatch, cutoff-uniform contraction, continuum construction,
+OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
