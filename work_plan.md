@@ -229,8 +229,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
 |   |   |   |       |   |   |   |   |       +-- covered-image normalized calibration
 |   |   |   |       |   |   |   |   |       |       <= `(K_cov*g^2)*Z_c^2` ................... [OPEN]
-|   |   |   |       |   |   |   |   |       `-- uncovered source + target physical mass
-|   |   |   |       |   |   |   |   |               <= `(K_miss*g^2)*Z_c^2` ................ [OPEN]
+|   |   |   |       |   |   |   |   |       `-- near-full supported-image coverage
+|   |   |   |       |   |   |   |   |           +-- full cell mass <= covered image mass
+|   |   |   |       |   |   |   |   |           |       + `(K_miss*g^2)*Z_c^2` ............... [OPEN]
+|   |   |   |       |   |   |   |   |           `-- equivalent uncovered-mass bound ......... [PROVED exact]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1151,8 +1153,10 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       +-- covered/uncovered matched-AF compiler ................. [PROVED]
 |       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
 |           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
-|           +-- uncovered physical mass <= `K_miss*g^2*Z_c^2` ..... [OPEN]
-|           +-- full supported-image coverage ..................... [OPEN sufficient, not required]
+|           +-- full cell mass <= covered image mass
+|           |       + `(K_miss*g^2)*Z_c^2` ......................... [OPEN]
+|           |   `-- equivalent to uncovered-mass bound ............ [PROVED exact]
+|           +-- full supported-image coverage ..................... [OPEN stronger special case]
 |           `-- full-carrier pointwise calibration ................ [OBSTRUCTED alternative]
 |               `-- off-image density floor ....................... [PROVED obstruction]
 +-- positive physical gap on a common trajectory ................. [OPEN]
@@ -30272,6 +30276,59 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
+
+**Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
+POSITIVE LOWER-COVERAGE STATEMENT ON THE ACTUAL SOURCE AND TARGET RECEIVER
+CELLS, AND THAT STATEMENT HAS A MATCHED-AF COVARIANCE COMPILER.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectAggregateCoverageDeficit.lean`
+defines the physical source and target receiver-cell mass captured by their
+actual supported-path images.  The full two-cell mass then splits exactly:
+
+```text
+full source-plus-target receiver-cell mass
+  ~= covered supported-image mass + uncovered physical mass.
+```
+
+Exact additive cancellation proves, for every budget `B`,
+
+```text
+uncovered physical mass <= B
+  iff
+full receiver-cell mass <= covered supported-image mass + B.
+```
+
+This puts the open coverage branch in a producer-positive form.  It is enough
+to show that the supported path images capture all but
+`(K_miss * g^2) * Z_c^2` of the actual physical four-cell mass; literal
+surjectivity is only the zero-deficit special case.  The new
+`MatchedShiftedAFCoveredVariationCoverageDeficitQuadraticCostControl` combines
+that near-full coverage estimate with supported-image calibration, lower
+quadratic spacing, and raw-mismatch control, then reaches the existing
+`fineCovariance <= anchorRate + epsilon` consumer.
+
+No near-full coverage or calibration estimate is inhabited.  The endpoint
+assignment audit found no existing theorem identifying this coverage deficit
+with the raw-mismatch budget: supported paths construct particular accepted
+coarse endpoints, while the physical receiver cells enumerate all accepted
+endpoint data.  The remaining proof must therefore control that actual
+image-mass deficit or replace the endpoint carrier with a proved
+mass-preserving quotient.  Cutoff-uniform contraction, the continuum measure,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+coverage-deficit focused source check                    PASS
+coverage-deficit dependency target                       PASS (5,451 jobs)
+```
+
+Every printed declaration uses only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 234. Normalize aggregate variation and split the coverage debt quantitatively (2026-09-08)
 

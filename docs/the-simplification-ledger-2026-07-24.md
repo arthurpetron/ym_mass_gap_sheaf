@@ -456,6 +456,36 @@ Hamiltonian gap, or Clay closure.  Its monitored focused check and
 dependency-complete target pass (5,450 jobs), and every printed declaration
 uses only `[propext, Quot.sound]`.  No full-root audit is claimed.
 
+### 9.3 Post-audit implementation update: positive coverage deficit, milestone 235 (2026-09-08)
+
+Milestone 235 rewrites the uncovered-mass branch as a lower bound on what the
+actual supported receiver images capture.  The new coverage-deficit module
+proves
+
+```text
+full source-plus-target receiver-cell mass
+  ~= covered supported-image mass + uncovered physical mass,
+
+uncovered physical mass <= B
+  iff full receiver-cell mass <= covered image mass + B.
+```
+
+The corresponding matched-AF structure accepts the positive near-full
+coverage estimate with `B = (K_miss * g^2) * Z_c^2`, combines it with the
+covered calibration estimate, and reaches the existing covariance consumer.
+This is strictly weaker than demanding literal image surjectivity and exposes
+the actual quantitative target for endpoint transport.
+
+The endpoint audit did not find an existing identification of this deficit
+with raw mismatch.  Supported paths provide particular accepted coarse
+assignments, whereas the receiver cells retain all accepted endpoint data.
+Thus a genuine image-mass estimate or a proved mass-preserving endpoint
+quotient is still required.  The result is a finite-cutoff exact reduction,
+not an inhabited coverage estimate, cutoff-uniform contraction, continuum
+construction, OS/GNS Hamiltonian gap, or Clay closure.  Its monitored focused
+check and dependency-complete target pass (5,451 jobs); every printed
+declaration uses only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
