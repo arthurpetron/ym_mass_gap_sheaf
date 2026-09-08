@@ -12,8 +12,8 @@ If, eventually,
 ```text
 spacingFloor * g^2 <= a(g),
 rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
-splitDensityBudget <=
-  (connectedQuadraticCeiling * g^2) * covarianceDenominator,
+unscaledSplitDensityBudget <=
+  (connectedQuadraticCeiling * g^2) * cancelledCovarianceDenominator,
 ```
 
 then the two normalized costs are uniformly bounded by the corresponding
@@ -29,7 +29,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
-import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCost
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostPartitionCancellation
 import YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 
 namespace YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitMatchedAFQuadraticCost
@@ -45,6 +45,7 @@ open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCost.PhysicalObservableRefinementSchedule
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostPartitionCancellation
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
@@ -113,14 +114,14 @@ structure MatchedShiftedAFSplitQuadraticCostControl
           identification nested)
         scale ≤
       mismatchQuadraticCeiling * (coupling scale * coupling scale)
-  splitDensity_quadratic_le : ∀ scale : Nat, start ≤ scale →
-    actualPositiveExpandedReceiverFiberScaleDefectSplitDensityBudget
+  unscaledSplitDensity_quadratic_le : ∀ scale : Nat, start ≤ scale →
+    actualPositiveExpandedReceiverFiberScaleDefectUnscaledSplitDensityBudget
         (matchedShiftedAFPhysicalObservableRefinementSchedule
           family law spacing C coupling coupling_pos coupling_le_window
           identification nested)
         scale ≤
       (connectedQuadraticCeiling * (coupling scale * coupling scale)) *
-        connectedCovarianceRawCrossDenominator
+        partitionCancelledCovarianceDenominator
           ((matchedShiftedAFPhysicalObservableRefinementSchedule
             family law spacing C coupling coupling_pos coupling_le_window
             identification nested).scalePair scale)
@@ -193,14 +194,20 @@ def toSplitNormalizedCostBound
             control.mismatchQuadraticCeiling_pos
             (control.spacingQuadratic_lower scale hscale)))
   splitDensityNormalizedCost_le := fun scale hscale => by
-    unfold actualPositiveExpandedReceiverFiberScaleDefectSplitDensityNormalizedCost
-    apply Q'.divPos_le_of_le_mul
     let schedule :=
       matchedShiftedAFPhysicalObservableRefinementSchedule
         family law spacing C coupling coupling_pos coupling_le_window
         identification nested
+    apply Q'.le_trans' _
+      (actualPositiveExpandedReceiverFiberScaleDefectPartitionCancelledSplitDensityNormalizedCost
+        schedule scale) _
+    · exact Q'.le_of_eqv
+        (actualPositiveExpandedReceiverFiberScaleDefectSplitDensityNormalizedCost_eqv_partitionCancelled
+          schedule scale)
+    unfold actualPositiveExpandedReceiverFiberScaleDefectPartitionCancelledSplitDensityNormalizedCost
+    apply Q'.divPos_le_of_le_mul
     let denominator :=
-      connectedCovarianceRawCrossDenominator (schedule.scalePair scale)
+      partitionCancelledCovarianceDenominator (schedule.scalePair scale)
     have hquadratic :
         control.connectedQuadraticCeiling *
             (coupling scale * coupling scale) ≤
@@ -214,7 +221,7 @@ def toSplitNormalizedCostBound
           (control.spacingQuadratic_lower scale hscale))
     have hdenominator : (0 : Q') ≤ denominator :=
       Q'.le_of_lt
-        (connectedCovarianceRawCrossDenominator_pos
+        (partitionCancelledCovarianceDenominator_pos
           (schedule.scalePair scale))
     have hscaled := Q'.mul_le_mul_of_nonneg_right
       (control.connectedQuadraticCeiling *
@@ -223,7 +230,7 @@ def toSplitNormalizedCostBound
       denominator hquadratic hdenominator
     exact Q'.le_trans' _ _ _
       (by simpa only [schedule, denominator] using
-        control.splitDensity_quadratic_le scale hscale)
+        control.unscaledSplitDensity_quadratic_le scale hscale)
       (Q'.le_trans' _ _ _ hscaled
         (Q'.le_of_eqv (by
           simpa only [schedule,

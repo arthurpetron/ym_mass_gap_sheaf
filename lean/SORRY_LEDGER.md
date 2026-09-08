@@ -28775,8 +28775,8 @@ estimates at the same coupling coordinate `g`:
 ```text
 spacingFloor * g^2 <= a(g),
 rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
-splitDensityBudget <=
-  (connectedQuadraticCeiling * g^2) * covarianceDenominator.
+unscaledSplitDensityBudget <=
+  (connectedQuadraticCeiling * g^2) * cancelledCovarianceDenominator.
 ```
 
 Constructive positive division proves that the two normalized cost sequences
@@ -28795,6 +28795,52 @@ also remain open.
 
 No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
 declaration is introduced.  The focused monitored source check and the
-dependency-complete 1-job target both pass; all 5,435 target jobs pass, and all
+dependency-complete 1-job target both pass; all 5,436 target jobs pass, and all
 nine newly printed load-bearing declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Cancel the common partition product from the split density cost (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostPartitionCancellation`
+separates the five literal calibration/variation budgets from their common
+outer normalization.  Positivity of both physical partitions removes the
+absolute value and exact rational distributivity proves
+
+```text
+splitDensityBudget
+  ~= (Z_coarse * Z_fine) * unscaledSplitDensityBudget.
+```
+
+The cubic connected-covariance denominator factors with the same positive
+product:
+
+```text
+a * (Z_coarse^3 * Z_fine^3)
+  ~= (Z_coarse * Z_fine) *
+       (a * (Z_coarse^2 * Z_fine^2)).
+```
+
+Constructive positive-factor cancellation therefore identifies the existing
+split-density normalized cost exactly with
+
+```text
+unscaledSplitDensityBudget / (a * (Z_coarse^2 * Z_fine^2)).
+```
+
+The matched-AF quadratic bridge now consumes the correspondingly sharper
+third input: an `O(g^2)` estimate on the unscaled five-budget sum relative to
+the residual squared-partition denominator.  Its covariance conclusion and
+the two ceiling constants are unchanged.
+
+This is an exact finite algebraic reduction, not a uniform estimate.  No
+lower quadratic spacing comparison, raw-mismatch `O(g^2)` estimate, or
+unscaled split-density `O(g^2)` estimate is inhabited.  The physical gap
+floor, continuum measure, same-measure OS/GNS reconstruction, Hamiltonian
+gap, and Clay theorem remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or
+noncomputable declaration is introduced.  Focused monitored checks pass for
+both the new cancellation module and the sharpened matched-AF consumer.  All
+ten new printed declarations and all nine matched-AF declarations use only
+`[propext, Quot.sound]`.  The dependency-complete 1-job targets pass all
+1,588 and 5,436 jobs respectively.  No full-root audit is claimed.
