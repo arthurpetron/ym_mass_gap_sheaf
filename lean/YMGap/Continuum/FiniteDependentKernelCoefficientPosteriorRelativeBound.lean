@@ -65,6 +65,23 @@ private theorem listQSum_le_termwise_local {A : Type}
         (listQSum_le_termwise_local left right tail
           (fun item hitem => hle item (List.mem_cons_of_mem head hitem)))
 
+private theorem listQSum_mul_right_local {A : Type}
+    (value : A → Q') (factor : Q') : ∀ items : List A,
+    listQSum (fun item => value item * factor) items ≈
+      listQSum value items * factor
+  | [] => Q'.eqv_symm (Q'.zero_mul_eqv factor)
+  | head :: tail => by
+      change
+        value head * factor +
+            listQSum (fun item => value item * factor) tail ≈
+          (value head + listQSum value tail) * factor
+      refine Q'.eqv_trans _
+        (value head * factor + listQSum value tail * factor) _
+        (Q'.add_eqv_congr_left (value head * factor) _ _
+          (listQSum_mul_right_local value factor tail)) ?_
+      exact Q'.eqv_symm
+        (Q'.add_mul_eqv (value head) (listQSum value tail) factor)
+
 private theorem abs_mul_nonnegative_left_eqv_local
     (weight value : Q') (hweight : (0 : Q') ≤ weight) :
     Q'.abs (weight * value) ≈ weight * Q'.abs value := by
@@ -96,6 +113,363 @@ private theorem abs_nonnegative_outer_factors_eqv_local
 namespace FiniteDependentCoefficientTransport
 
 variable {Source Target : Type} [DecidableEq Target]
+
+/-! ## Aggregate coefficient mass through incomplete rows -/
+
+/-- Absolute source coefficient mass retained by the dependent rows. -/
+def retainedSourceCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target) : Q' :=
+  listQSum
+    (fun source =>
+      (data.sourceWeight source * data.rowMass source) *
+        Q'.abs (data.sourceCoefficient source))
+    data.sources
+
+/-- Absolute source coefficient mass omitted by the dependent rows. -/
+def unretainedSourceCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target) : Q' :=
+  listQSum
+    (fun source =>
+      (data.sourceWeight source *
+          ((1 : Q') + -data.rowMass source)) *
+        Q'.abs (data.sourceCoefficient source))
+    data.sources
+
+/-- Full absolute coefficient mass on the source carrier. -/
+def sourceCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target) : Q' :=
+  listQSum
+    (fun source =>
+      data.sourceWeight source * Q'.abs (data.sourceCoefficient source))
+    data.sources
+
+/-- Full absolute coefficient mass on the target carrier. -/
+def targetCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target) : Q' :=
+  listQSum
+    (fun target =>
+      data.targetWeight target * Q'.abs (data.targetCoefficient target))
+    data.targets
+
+/-- Absolute mass of the transported source coefficient after regrouping by
+target column. -/
+def transportedSourceCoefficientColumnL1
+    (data : FiniteDependentCoefficientTransport Source Target) : Q' :=
+  listQSum
+    (fun target => Q'.abs (data.transportedSourceCoefficientColumnMass target))
+    data.targets
+
+/-- Finite Fubini sends the absolute transported coefficient mass back to the
+retained source rows.  Unlike a pointwise column estimate, this bound needs no
+column-capacity hypothesis and remains valid when the target carrier contains
+points outside the realization image. -/
+theorem transportedSourceCoefficientColumnL1_le_retainedSourceCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target)
+    (hsourceWeight : ∀ source, source ∈ data.sources →
+      (0 : Q') ≤ data.sourceWeight source)
+    (hlocalWeight : ∀ source choice,
+      choice ∈ data.choices source →
+        (0 : Q') ≤ data.localWeight source choice) :
+    data.transportedSourceCoefficientColumnL1 ≤
+      data.retainedSourceCoefficientL1 := by
+  let pushed := fun source target =>
+    dependentKernelPushforwardWeight
+      data.Choice data.choices data.localWeight data.realize source target
+  have hpushed : ∀ source target, (0 : Q') ≤ pushed source target := by
+    intro source target
+    exact dependentKernelPushforwardWeight_nonnegative
+      data.Choice data.choices data.localWeight data.realize source target
+      (hlocalWeight source)
+  have hcolumns :
+      data.transportedSourceCoefficientColumnL1 ≤
+        listQSum
+          (fun target =>
+            listQSum
+              (fun source =>
+                Q'.abs
+                  ((data.sourceWeight source * data.sourceCoefficient source) *
+                    pushed source target))
+              data.sources)
+          data.targets := by
+    unfold transportedSourceCoefficientColumnL1
+    apply listQSum_le_termwise_local
+    intro target _
+    unfold transportedSourceCoefficientColumnMass
+    simpa only [pushed] using
+      abs_listQSum_le_sum_abs_local
+        (fun source =>
+          (data.sourceWeight source * data.sourceCoefficient source) *
+            pushed source target)
+        data.sources
+  have hfubini :
+      listQSum
+          (fun target =>
+            listQSum
+              (fun source =>
+                Q'.abs
+                  ((data.sourceWeight source * data.sourceCoefficient source) *
+                    pushed source target))
+              data.sources)
+          data.targets ≈
+        data.retainedSourceCoefficientL1 := by
+    refine Q'.eqv_trans _
+      (listQSum
+        (fun source =>
+          listQSum
+            (fun target =>
+              Q'.abs
+                ((data.sourceWeight source * data.sourceCoefficient source) *
+                  pushed source target))
+            data.targets)
+        data.sources) _ ?_ ?_
+    · exact Q'.eqv_symm
+        (listQSum_swap
+          (fun target source =>
+            Q'.abs
+              ((data.sourceWeight source * data.sourceCoefficient source) *
+                pushed source target))
+          data.targets data.sources)
+    · unfold retainedSourceCoefficientL1
+      apply listQSum_congr_on
+      intro source hsource
+      have hpushedTotal :
+          listQSum (pushed source) data.targets ≈ data.rowMass source := by
+        exact Q'.eqv_trans _ _ _
+          (kernelPushforwardWeight_total
+            (data.choices source) (data.localWeight source)
+            (data.realize source) data.targets data.targets_nodup
+            (data.coverage source hsource))
+          (data.row_mass source hsource)
+      refine Q'.eqv_trans _
+        (listQSum
+          (fun target =>
+            (data.sourceWeight source * pushed source target) *
+              Q'.abs (data.sourceCoefficient source))
+          data.targets) _ ?_ ?_
+      · apply listQSum_congr
+        intro target
+        exact abs_nonnegative_outer_factors_eqv_local
+          (data.sourceWeight source) (data.sourceCoefficient source)
+          (pushed source target) (hsourceWeight source hsource)
+          (hpushed source target)
+      · refine Q'.eqv_trans _
+          (listQSum
+              (fun target => data.sourceWeight source * pushed source target)
+              data.targets *
+            Q'.abs (data.sourceCoefficient source)) _
+          (listQSum_mul_right_local
+            (fun target => data.sourceWeight source * pushed source target)
+            (Q'.abs (data.sourceCoefficient source)) data.targets) ?_
+        refine Q'.mul_eqv_congr_right _ _
+          (Q'.abs (data.sourceCoefficient source)) ?_
+        refine Q'.eqv_trans _
+          (data.sourceWeight source * listQSum (pushed source) data.targets) _
+          (listQSum_mul_left
+            (data.sourceWeight source) (pushed source) data.targets) ?_
+        exact Q'.mul_eqv_congr_left (data.sourceWeight source) _ _
+          hpushedTotal
+  exact Q'.le_trans' _ _ _ hcolumns (Q'.le_of_eqv hfubini)
+
+/-- The posterior mismatch is bounded by the retained source coefficient
+mass plus the complete target coefficient mass.  This is the aggregate,
+coverage-insensitive alternative to uniform pointwise column calibration. -/
+theorem posteriorColumnCoefficientL1_le_retainedSource_add_targetCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target)
+    (hsourceWeight : ∀ source, source ∈ data.sources →
+      (0 : Q') ≤ data.sourceWeight source)
+    (hlocalWeight : ∀ source choice,
+      choice ∈ data.choices source →
+        (0 : Q') ≤ data.localWeight source choice)
+    (htargetWeight : ∀ target, target ∈ data.targets →
+      (0 : Q') ≤ data.targetWeight target) :
+    data.posteriorColumnCoefficientL1 ≤
+      data.retainedSourceCoefficientL1 + data.targetCoefficientL1 := by
+  have htriangle :
+      data.posteriorColumnCoefficientL1 ≤
+        listQSum
+          (fun target =>
+            Q'.abs (data.transportedSourceCoefficientColumnMass target) +
+              Q'.abs (data.targetWeight target * data.targetCoefficient target))
+          data.targets := by
+    unfold posteriorColumnCoefficientL1
+    apply listQSum_le_termwise_local
+    intro target _
+    refine Q'.le_trans' _
+      (Q'.abs (data.transportedSourceCoefficientColumnMass target) +
+        Q'.abs (-(data.targetWeight target * data.targetCoefficient target))) _
+      (Q'.abs_add_le'
+        (data.transportedSourceCoefficientColumnMass target)
+        (-(data.targetWeight target * data.targetCoefficient target))) ?_
+    exact Q'.add_le_add
+      (Q'.le_refl' _)
+      (Q'.le_of_eqv
+        (Q'.abs_neg' (data.targetWeight target * data.targetCoefficient target)))
+  have hsplit :
+      listQSum
+          (fun target =>
+            Q'.abs (data.transportedSourceCoefficientColumnMass target) +
+              Q'.abs (data.targetWeight target * data.targetCoefficient target))
+          data.targets ≈
+        data.transportedSourceCoefficientColumnL1 + data.targetCoefficientL1 := by
+    refine Q'.eqv_trans _
+      (listQSum
+          (fun target =>
+            Q'.abs (data.transportedSourceCoefficientColumnMass target))
+          data.targets +
+        listQSum
+          (fun target =>
+            Q'.abs (data.targetWeight target * data.targetCoefficient target))
+          data.targets) _
+      (listQSum_add _ _ data.targets) ?_
+    unfold transportedSourceCoefficientColumnL1 targetCoefficientL1
+    exact Q'.add_eqv_congr_left _ _ _
+      (listQSum_congr_on
+        (fun target =>
+          Q'.abs (data.targetWeight target * data.targetCoefficient target))
+        (fun target =>
+          data.targetWeight target * Q'.abs (data.targetCoefficient target))
+        data.targets
+        (fun target htarget =>
+          abs_mul_nonnegative_left_eqv_local
+            (data.targetWeight target) (data.targetCoefficient target)
+            (htargetWeight target htarget)))
+  exact Q'.le_trans' _ _ _ htriangle
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit)
+      (Q'.add_le_add
+        (data.transportedSourceCoefficientColumnL1_le_retainedSourceCoefficientL1
+          hsourceWeight hlocalWeight)
+        (Q'.le_refl' data.targetCoefficientL1)))
+
+/-- If every row has mass at most one, its omitted and retained absolute
+source coefficient budgets recombine exactly to the full source budget.  The
+row defect plus the complete posterior mismatch is therefore controlled by
+the two full carrier coefficient `l1` masses, without pointwise calibration,
+column capacity, or a carrier-cardinality factor. -/
+theorem rowAbs_add_posteriorColumnL1_le_source_add_targetCoefficientL1
+    (data : FiniteDependentCoefficientTransport Source Target)
+    (hsourceWeight : ∀ source, source ∈ data.sources →
+      (0 : Q') ≤ data.sourceWeight source)
+    (hlocalWeight : ∀ source choice,
+      choice ∈ data.choices source →
+        (0 : Q') ≤ data.localWeight source choice)
+    (htargetWeight : ∀ target, target ∈ data.targets →
+      (0 : Q') ≤ data.targetWeight target)
+    (hrowMass : ∀ source, source ∈ data.sources →
+      data.rowMass source ≤ 1) :
+    Q'.abs data.rowCoefficientDefect +
+        data.posteriorColumnCoefficientL1 ≤
+      data.sourceCoefficientL1 + data.targetCoefficientL1 := by
+  have hrow :
+      Q'.abs data.rowCoefficientDefect ≤
+        data.unretainedSourceCoefficientL1 := by
+    refine Q'.le_trans' _
+      (listQSum
+        (fun source =>
+          Q'.abs
+            (data.sourceWeight source *
+              (data.sourceCoefficient source *
+                ((1 : Q') + -data.rowMass source))))
+        data.sources) _
+      (Q'.le_trans' _ _ _
+        (Q'.le_of_eqv
+          (Q'.abs_eqv_congr data.rowCoefficientDefect_eqv_unretained))
+        (abs_listQSum_le_sum_abs_local _ _)) ?_
+    exact Q'.le_of_eqv
+      (listQSum_congr_on
+        (fun source =>
+          Q'.abs
+            (data.sourceWeight source *
+              (data.sourceCoefficient source *
+                ((1 : Q') + -data.rowMass source))))
+        (fun source =>
+          (data.sourceWeight source *
+              ((1 : Q') + -data.rowMass source)) *
+            Q'.abs (data.sourceCoefficient source))
+        data.sources
+        (fun source hsource => by
+          refine Q'.eqv_trans _
+            (Q'.abs
+              ((data.sourceWeight source * data.sourceCoefficient source) *
+                ((1 : Q') + -data.rowMass source))) _
+            (Q'.abs_eqv_congr
+              (Q'.eqv_symm
+                (Q'.mul_assoc_eqv
+                  (data.sourceWeight source) (data.sourceCoefficient source)
+                  ((1 : Q') + -data.rowMass source)))) ?_
+          exact abs_nonnegative_outer_factors_eqv_local
+            (data.sourceWeight source) (data.sourceCoefficient source)
+            ((1 : Q') + -data.rowMass source)
+            (hsourceWeight source hsource)
+            (Q'.sub_nonneg_of_le (hrowMass source hsource))))
+  have hrecombine :
+      data.unretainedSourceCoefficientL1 +
+          data.retainedSourceCoefficientL1 ≈
+        data.sourceCoefficientL1 := by
+    unfold unretainedSourceCoefficientL1 retainedSourceCoefficientL1
+      sourceCoefficientL1
+    refine Q'.eqv_trans _
+      (listQSum
+        (fun source =>
+          (data.sourceWeight source *
+              ((1 : Q') + -data.rowMass source)) *
+              Q'.abs (data.sourceCoefficient source) +
+            (data.sourceWeight source * data.rowMass source) *
+              Q'.abs (data.sourceCoefficient source))
+        data.sources) _
+      (Q'.eqv_symm (listQSum_add _ _ data.sources)) ?_
+    apply listQSum_congr
+    intro source
+    refine Q'.eqv_trans _
+      ((data.sourceWeight source *
+          ((1 : Q') + -data.rowMass source) +
+        data.sourceWeight source * data.rowMass source) *
+        Q'.abs (data.sourceCoefficient source)) _
+      (Q'.eqv_symm
+        (Q'.add_mul_eqv
+          (data.sourceWeight source *
+            ((1 : Q') + -data.rowMass source))
+          (data.sourceWeight source * data.rowMass source)
+          (Q'.abs (data.sourceCoefficient source)))) ?_
+    refine Q'.eqv_trans _
+      (data.sourceWeight source *
+          (((1 : Q') + -data.rowMass source) + data.rowMass source) *
+        Q'.abs (data.sourceCoefficient source)) _
+      (Q'.mul_eqv_congr_right _ _
+        (Q'.abs (data.sourceCoefficient source))
+        (Q'.eqv_symm
+          (Q'.mul_add_eqv
+            (data.sourceWeight source)
+            ((1 : Q') + -data.rowMass source)
+            (data.rowMass source)))) ?_
+    refine Q'.mul_eqv_congr_right _ _
+      (Q'.abs (data.sourceCoefficient source)) ?_
+    refine Q'.eqv_trans _ (data.sourceWeight source * 1) _
+      (Q'.mul_eqv_congr_left (data.sourceWeight source) _ _
+        (Q'.eqv_trans _
+          (1 + ((-data.rowMass source) + data.rowMass source)) _
+          (Q'.add_assoc_eqv
+            1 (-data.rowMass source) (data.rowMass source))
+          (Q'.eqv_trans _ (1 + 0) _
+            (Q'.add_eqv_congr_left 1
+              ((-data.rowMass source) + data.rowMass source) 0
+              (Q'.neg_add_self_eqv (data.rowMass source)))
+            (Q'.eqv_of_eq (Q'.add_zero' 1))))) ?_
+    exact Q'.mul_one_eqv (data.sourceWeight source)
+  have hposterior :=
+    data.posteriorColumnCoefficientL1_le_retainedSource_add_targetCoefficientL1
+      hsourceWeight hlocalWeight htargetWeight
+  refine Q'.le_trans' _
+    (data.unretainedSourceCoefficientL1 +
+      (data.retainedSourceCoefficientL1 + data.targetCoefficientL1)) _
+    (Q'.add_le_add hrow hposterior) ?_
+  refine Q'.le_of_eqv (Q'.eqv_trans _
+    ((data.unretainedSourceCoefficientL1 +
+        data.retainedSourceCoefficientL1) + data.targetCoefficientL1) _
+    (Q'.eqv_symm
+      (Q'.add_assoc_eqv
+        data.unretainedSourceCoefficientL1
+        data.retainedSourceCoefficientL1 data.targetCoefficientL1)) ?_)
+  exact Q'.add_eqv_congr_right _ _ data.targetCoefficientL1 hrecombine
 
 /-- A pointwise bound on the coefficient carried by the unretained part of
 each row sums against total source weight, with no source-cardinality factor. -/
@@ -601,6 +975,14 @@ end FiniteDependentCoefficientTransport
 
 #print axioms FiniteDependentCoefficientTransport.rowCoefficientDefect_abs_le_relativeSourceWeight
 #print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientL1_le_relativeTargetWeight
+#print axioms FiniteDependentCoefficientTransport.retainedSourceCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.unretainedSourceCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.sourceCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.targetCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientColumnL1
+#print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientColumnL1_le_retainedSourceCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientL1_le_retainedSource_add_targetCoefficientL1
+#print axioms FiniteDependentCoefficientTransport.rowAbs_add_posteriorColumnL1_le_source_add_targetCoefficientL1
 #print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientColumnMass_abs_le_uniformSourceCoefficient
 #print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficient_abs_le_uniformCoefficientBounds
 #print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientL1_le_uniformCoefficientBounds

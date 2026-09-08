@@ -214,29 +214,30 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
 |   |   |   |       |   |   |   +-- posterior three-budget <=
 |   |   |   |       |   |   |   |       `(K*g^2)*Z_f^2` ............................ [PARTIAL]
-|   |   |   |       |   |   |   |   +-- split posterior `l1` and masses reassemble on
-|   |   |   |       |   |   |   |   |       the original full target carrier ........... [PROVED exact]
-|   |   |   |       |   |   |   |   +-- full-carrier posterior compiler, no column count [PROVED preferred]
-|   |   |   |       |   |   |   |   +-- connected source mass <= `Z_c^2` ............. [PROVED]
-|   |   |   |       |   |   |   |   +-- full target-carrier mass <= `Z_c^2` .......... [PROVED]
-|   |   |   |       |   |   |   |   +-- total full-carrier posterior relative cost .... [PROVED exact]
-|   |   |   |       |   |   |   |   |   `-- cost * target mass ~= posterior `l1` ....... [PROVED]
-|   |   |   |       |   |   |   |   |   `-- nonnegative aggregate ceiling <=> cost bound [PROVED]
-|   |   |   |       |   |   |   |   +-- uniform source/target coefficients + physical
-|   |   |   |       |   |   |   |   |       column capacity => posterior cost bound ..... [PROVED reduction]
-|   |   |   |       |   |   |   |   +-- row + full-carrier posterior => global budget  [PROVED bridge]
-|   |   |   |       |   |   |   |   +-- combined/separate sector routes retained ...... [PROVED adapters]
-|   |   |   |       |   |   |   |   `-- pointwise route retained ...................... [PROVED stronger]
-|   |   |   |       |   |   |   `-- inhabit two scalar estimates ...................... [ACTIVE preferred]
-|   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN weakest]
-|   |   |   |       |   |   |       |   +-- signed row <= literal density-defect `l1` .. [PROVED reduction]
-|   |   |   |       |   |   |       |   `-- density-defect `l1` / source mass .......... [OPEN sufficient]
-|   |   |   |       |   |   |       `-- full-carrier posterior relative cost .......... [OPEN scalar]
-|   |   |   |       |   |   |           `-- sufficient uniform density calibration .... [OPEN / coverage-sensitive]
-|   |   |   |       |   |   |               +-- off-image coefficient = full density ... [PROVED obstruction]
-|   |   |   |       |   |   |               +-- full supported-image coverage .......... [OPEN prerequisite]
-|   |   |   |       |   |   |               +-- source calibration on covered image .... [OPEN]
-|   |   |   |       |   |   |               `-- target calibration on covered image .... [OPEN]
+|   |   |   |       |   |   |   |   +-- aggregate coefficient-`l1` route, no column
+|   |   |   |       |   |   |   |   |       count or image-coverage premise .............. [ACTIVE preferred]
+|   |   |   |       |   |   |   |   |   +-- retained/unretained source reassembly ......... [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- connected/disconnected carrier reassembly ...... [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- row + both posteriors <= full source + target
+|   |   |   |       |   |   |   |   |   |       coefficient `l1` ........................... [PROVED]
+|   |   |   |       |   |   |   |   |   +-- matched-AF covariance consumer ................. [PROVED]
+|   |   |   |       |   |   |   |   |   `-- full source + target coefficient `l1` <=
+|   |   |   |       |   |   |   |   |           `(K*g^2)*Z_f^2` ......................... [OPEN sole receiver input]
+|   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
+|   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
+|   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
+|   |   |   |       |   |   |   |       +-- full-carrier posterior compiler, no column count [PROVED]
+|   |   |   |       |   |   |   |       +-- connected source mass <= `Z_c^2` ............. [PROVED]
+|   |   |   |       |   |   |   |       +-- full target-carrier mass <= `Z_c^2` .......... [PROVED]
+|   |   |   |       |   |   |   |       +-- total posterior relative cost ................. [PROVED exact]
+|   |   |   |       |   |   |   |       +-- row + full-carrier posterior => global budget . [PROVED bridge]
+|   |   |   |       |   |   |   |       +-- connected row relative estimate ............... [OPEN]
+|   |   |   |       |   |   |   |       `-- posterior relative cost ........................ [OPEN]
+|   |   |   |       |   |   |   |           `-- uniform density calibration ............... [OBSTRUCTED alternative]
+|   |   |   |       |   |   |   |               +-- off-image coefficient = full density ... [PROVED obstruction]
+|   |   |   |       |   |   |   |               +-- full supported-image coverage .......... [OPEN prerequisite]
+|   |   |   |       |   |   |   |               +-- source calibration on covered image .... [OPEN]
+|   |   |   |       |   |   |   |               `-- target calibration on covered image .... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -1133,10 +1134,13 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |   +-- lower quadratic physical spacing comparison .............. [OPEN]
 |   +-- raw mismatch quadratic estimate .......................... [OPEN]
 |   `-- three-budget posterior quadratic estimate ................ [ACTIVE preferred]
-|       +-- connected row relative estimate ...................... [OPEN]
-|       `-- full-carrier posterior relative-cost estimate ........ [ACTIVE]
-|           +-- aggregate/direct scalar route .................... [OPEN preferred]
-|           `-- uniform source/target density route .............. [OPEN sufficient]
+|       +-- row + two posteriors <= full source + target
+|       |       coefficient `l1` .................................. [PROVED]
+|       +-- aggregate coefficient-`l1` matched-AF compiler ........ [PROVED]
+|       `-- full source + target coefficient `l1`
+|               <= `(K*g^2)*Z_f^2` ............................... [ACTIVE sole input]
+|           +-- direct aggregate estimate ........................ [OPEN preferred]
+|           `-- pointwise uniform density route .................. [OBSTRUCTED alternative]
 |               +-- off-image density floor ...................... [PROVED obstruction]
 |               +-- full supported-image coverage ................ [OPEN prerequisite]
 |               +-- uniform source coefficient on image ......... [OPEN]
@@ -1147,12 +1151,12 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 `-- Clay-facing same-object assembly .............................. [OPEN]
 ```
 
-The latest full-carrier uniform-calibration module passes both a monitored
-focused check and its dependency-complete target (1,597 jobs).  Its four
-printed load-bearing declarations use only `[propext, Quot.sound]`.  The
-generic compiler now prints nine declarations using only `[propext]`, and the
-full-carrier relative-cost module prints seven using only
-`[propext, Quot.sound]`.  No full-root audit is claimed.
+The latest aggregate coefficient-`l1` generic module passes both a monitored
+focused check and its dependency-complete target (220 jobs), and the concrete
+physical compiler passes its monitored focused check and dependency-complete
+target (5,448 jobs).  The new generic declarations use only `[propext]`; the
+physical declarations use only `[propext, Quot.sound]`.  No full-root audit is
+claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
@@ -30257,6 +30261,83 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 233. Collapse all posterior debts to one aggregate coefficient budget (2026-09-08)
+
+**Status. THE CONNECTED ROW DEBT AND BOTH POSTERIOR-COLUMN DEBTS ARE NOW
+BOUNDED BY ONE FULL-SOURCE PLUS FULL-TARGET COEFFICIENT `L1` SUM, WITHOUT A
+COLUMN-CAPACITY, CARDINALITY, OR SUPPORTED-IMAGE-COVERAGE PREMISE.**
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean` defines the
+retained, unretained, full-source, full-target, and transported-column
+coefficient `l1` masses for an arbitrary finite dependent coefficient
+transport.  Constructive finite Fubini proves
+
+```text
+transported source-column l1 <= retained source coefficient l1,
+posterior-column l1 <= retained source l1 + target coefficient l1.
+```
+
+When every row has mass at most one, the omitted row budget and retained
+source budget recombine exactly.  Hence
+
+```text
+abs(row coefficient defect) + posterior-column l1
+  <= full source coefficient l1 + full target coefficient l1.
+```
+
+This generic result needs only nonnegative source, local, and target weights.
+It does not use pointwise coefficient bounds, receiver-column capacity, or
+surjectivity onto the target carrier.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+specializes the bound to the literal physical transports.  Exact Boolean
+sector partitions reassemble the connected and disconnected source and target
+coefficient masses on their original full carriers.  The connected thinned
+row has mass at most one and the disconnected row has mass exactly one, so the
+actual three-term budget satisfies
+
+```text
+(abs connected row + connected posterior) + disconnected posterior
+  <= full source density-coefficient l1
+       + full target density-coefficient l1.
+```
+
+The new
+`MatchedShiftedAFSplitPosteriorColumnAggregateCoefficientL1QuadraticCostControl`
+feeds a single coupling-square estimate for that right-hand side through the
+existing matched-AF compiler to
+`fineCovariance <= anchorRate + epsilon`.  It is now the preferred,
+coverage-insensitive receiver interface.  The previous row-plus-posterior
+relative-cost structure remains a checked adapter; its pointwise uniform
+calibration producer remains coverage-sensitive.
+
+No aggregate smallness estimate is inhabited.  The sole preferred receiver
+input is now
+
+```text
+full source density-coefficient l1 + full target density-coefficient l1
+  <= (K * g^2) * Z_f^2.
+```
+
+The lower quadratic spacing estimate, raw mismatch estimate,
+arbitrary-cutoff persistence, uniform physical gap, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+Monitored verification:
+
+```text
+generic aggregate coefficient-l1 focused source check      PASS
+generic aggregate coefficient-l1 dependency target         PASS (220 jobs)
+physical aggregate compiler focused source check           PASS
+physical aggregate compiler dependency target              PASS (5,448 jobs)
+```
+
+The new generic declarations use only `[propext]`; the physical declarations
+and matched-AF compiler use only `[propext, Quot.sound]`.  No `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
 
 ## 232. Identify the supported-image obstruction to uniform calibration (2026-09-08)
 

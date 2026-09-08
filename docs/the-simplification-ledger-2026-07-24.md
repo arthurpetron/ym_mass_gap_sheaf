@@ -382,6 +382,43 @@ The first two are novel mathematical work.  The third is the corrected
 uniformity target.  The fourth is the assembly discipline needed for a Clay
 result.
 
+### 9.1 Post-audit implementation update: aggregate posterior calibration, milestone 233 (2026-09-08)
+
+Milestone 233 implements a concrete consequence of the ledger's shared-object
+discipline.  The actual physical connected row and both literal posterior
+sectors are no longer routed through separate pointwise receiver bounds.
+Instead, constructive finite Fubini and the exact retained/unretained source
+partition prove
+
+```text
+(abs connected row + connected posterior) + disconnected posterior
+  <= full physical source density-coefficient l1
+       + full physical target density-coefficient l1.
+```
+
+The generic result is in
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean`; its physical
+specialization and matched-AF compiler are in
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`.
+The route needs neither receiver-cardinality payment, column capacity, nor
+full supported-image coverage.  The earlier pointwise calibration path is
+retained as a sufficient adapter but is structurally coverage-sensitive.
+
+The remaining receiver-side analytic obligation is one honest aggregate
+estimate,
+
+```text
+full source density-coefficient l1 + full target density-coefficient l1
+  <= (K * g^2) * Z_f^2.
+```
+
+Monitored focused checks and dependency targets pass for the generic module
+(220 jobs) and physical compiler (5,448 jobs).  New generic declarations use
+only `[propext]`; new physical declarations use only
+`[propext, Quot.sound]`.  This is a finite-cutoff analytic reduction, not an
+inhabited smallness estimate, continuum construction, OS/GNS reconstruction,
+Hamiltonian spectral gap, or Clay closure.  No full-root audit is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
