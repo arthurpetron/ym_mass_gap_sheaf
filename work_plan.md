@@ -183,6 +183,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   +-- row debt = unretained coefficient mass, supported
 |   |   |   |       |   |       only on connected source rows .................. [PROVED]
 |   |   |   |       |   +-- edge debt = literal successful-edge variation ..... [PROVED identity]
+|   |   |   |       |   |   +-- common `Z_f^2` cancels exactly ................. [PROVED]
+|   |   |   |       |   |   +-- density-variation double-sum `l1` majorant ..... [PROVED]
+|   |   |   |       |   |   `-- uniform density variation `O(a)` ............... [ACTIVE edge seam]
 |   |   |   |       |   +-- column debt = target coefficient times signed
 |   |   |   |       |   |       incoming capacity slack ........................ [PROVED]
 |   |   |   |       |   +-- three separate debt tails => existing covariance
@@ -1669,6 +1672,24 @@ inequality compile those three estimates with connected coefficient
 `C_row + C_edge + C_column`, then reuse the existing receiver-scale-defect and
 matched-covariance consumers.  The module constructs neither the posterior nor
 the three estimates; those four inputs remain the active producer obligations.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectEdgeVariation.lean`
+sharpens the edge input algebraically.  The fine-partition square is identical
+in the source and target scale-defect coefficients and cancels exactly on every
+transport choice:
+
+```text
+sourceScaleDefect - targetScaleDefect
+  = (targetFiberDensity - sourceFiberDensity) * coarsePartition^2.
+```
+
+The complete edge debt is therefore rewritten as a literal dependent
+double-list sum of coarse-partition-scaled receiver-density variations.  Two
+finite triangle steps bound it by the corresponding exact `l1` budget.  A
+refined tail interface accepts an `O(a)` estimate on that explicit budget and
+compiles it to the same three-debt and matched-covariance consumers.  This is a
+strict localization of the edge regularity obligation, not a proof that the
+density variation is small and not a posterior producer.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The

@@ -28563,3 +28563,33 @@ declaration is introduced.  The focused monitored source check passes, and
 all eight printed load-bearing declarations use only
 `[propext, Quot.sound]`.  The dependency-complete monitored target passes all
 1,582 jobs.  No full-root audit is claimed here.
+
+#### The receiver edge debt loses its common fine-partition square (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectEdgeVariation`
+proves the exact coefficient cancellation
+
+```text
+sourceScaleDefect - targetScaleDefect
+  = (targetFiberDensity - sourceFiberDensity) * coarsePartition^2.
+```
+
+Thus no `finePartition^2` term survives on a successful receiver-transport
+edge.  The module rewrites the complete conditional edge debt as the literal
+dependent double-list sum of these density variations and constructs its exact
+finite `l1` majorant.  The absolute edge debt, and the edge debt multiplied by
+an arbitrary outer normalization, are bounded by that majorant.
+
+The three-debt tail now has a refined producer interface whose edge hypothesis
+is stated directly on this receiver-density-variation `l1` budget.  It compiles
+to the direct edge-debt bound and then to the existing matched covariance
+consumer.  The complete-cell posterior remains a Type-level input, and no
+uniform `O(a)` density-variation estimate is supplied.  Row and column
+smallness, the continuum measure, OS/GNS reconstruction, Hamiltonian gap, and
+Clay conclusion remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
+declaration is introduced.  Focused monitored source checks pass, and all
+printed load-bearing declarations use only `[propext, Quot.sound]`.  The edge
+module's dependency-complete target passes all 1,567 jobs, and the updated
+three-debt target passes all 1,583 jobs.  No full-root audit is claimed.

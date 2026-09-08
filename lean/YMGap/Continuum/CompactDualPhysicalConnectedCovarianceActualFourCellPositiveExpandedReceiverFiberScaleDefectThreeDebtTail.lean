@@ -18,7 +18,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
-import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectTransport
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectEdgeVariation
 import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
 
 namespace YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectThreeDebtTail
@@ -29,6 +29,7 @@ set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefect
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectEdgeVariation
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectTransport
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportAggregatePosteriorTransport
@@ -363,6 +364,140 @@ theorem fineCovariance_le_anchorRate_add_epsilon
     epsilon hepsilon scale hscale
 
 end ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail
+
+/-! ## Density-variation refinement of the edge producer -/
+
+/-- A sharper three-debt input in which the edge estimate is stated on the
+literal receiver-density-variation `l1` budget.  Row and column estimates are
+unchanged; the exact edge cancellation compiles this structure to the direct
+three-debt tail above. -/
+structure ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+    (schedule : PhysicalObservableRefinementSchedule) : Type 2 where
+  start : Nat
+  mismatchCeiling : Q'
+  mismatchCeiling_pos : (0 : Q') < mismatchCeiling
+  rowCeiling : Q'
+  rowCeiling_pos : (0 : Q') < rowCeiling
+  edgeCeiling : Q'
+  edgeCeiling_pos : (0 : Q') < edgeCeiling
+  columnCeiling : Q'
+  columnCeiling_pos : (0 : Q') < columnCeiling
+  mismatch_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget schedule scale ≤
+      mismatchCeiling * schedule.spacing.spacing scale
+  posterior : ∀ scale : Nat, start ≤ scale →
+    SlabObservablePairedAggregatePosteriorTransport
+      (schedule.scalePair scale).coarse
+      (schedule.faceMap scale).coarseRoot
+      (schedule.faceMap scale).coarseTarget
+  rowDebt_le : ∀ scale : Nat, ∀ hscale : start ≤ scale,
+    Q'.abs
+        (((schedule.scalePair scale).coarse.physicalPartition *
+            (schedule.scalePair scale).fine.physicalPartition) *
+          actualPositiveExpandedReceiverFiberScaleDefectRowDebt
+            (schedule.scalePair scale) rfl
+            (schedule.effectiveCoupling_pos scale)
+            (schedule.faceMap scale).coarseRoot
+            (schedule.faceMap scale).coarseTarget
+            (posterior scale hscale)) ≤
+      (rowCeiling * schedule.spacing.spacing scale) *
+        connectedCovarianceRawCrossDenominator (schedule.scalePair scale)
+  edgeDensityVariationL1_le : ∀ scale : Nat, ∀ hscale : start ≤ scale,
+    Q'.abs
+          ((schedule.scalePair scale).coarse.physicalPartition *
+            (schedule.scalePair scale).fine.physicalPartition) *
+        actualPositiveExpandedReceiverFiberScaleDefectEdgeDensityVariationL1
+          (schedule.scalePair scale) rfl
+          (schedule.effectiveCoupling_pos scale)
+          (schedule.faceMap scale).coarseRoot
+          (schedule.faceMap scale).coarseTarget
+          (posterior scale hscale) ≤
+      (edgeCeiling * schedule.spacing.spacing scale) *
+        connectedCovarianceRawCrossDenominator (schedule.scalePair scale)
+  columnDebt_le : ∀ scale : Nat, ∀ hscale : start ≤ scale,
+    Q'.abs
+        (((schedule.scalePair scale).coarse.physicalPartition *
+            (schedule.scalePair scale).fine.physicalPartition) *
+          actualPositiveExpandedReceiverFiberScaleDefectColumnDebt
+            (schedule.scalePair scale) rfl
+            (schedule.effectiveCoupling_pos scale)
+            (schedule.faceMap scale).coarseRoot
+            (schedule.faceMap scale).coarseTarget
+            (posterior scale hscale)) ≤
+      (columnCeiling * schedule.spacing.spacing scale) *
+        connectedCovarianceRawCrossDenominator (schedule.scalePair scale)
+
+namespace ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+
+variable {schedule : PhysicalObservableRefinementSchedule}
+
+/-- The literal density-variation edge estimate implies the signed scaled-edge
+estimate required by the direct three-debt compiler. -/
+def toThreeDebtLinearRawTransportTail
+    (tail :
+      ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+        schedule) :
+    ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail
+      schedule where
+  start := tail.start
+  mismatchCeiling := tail.mismatchCeiling
+  mismatchCeiling_pos := tail.mismatchCeiling_pos
+  rowCeiling := tail.rowCeiling
+  rowCeiling_pos := tail.rowCeiling_pos
+  edgeCeiling := tail.edgeCeiling
+  edgeCeiling_pos := tail.edgeCeiling_pos
+  columnCeiling := tail.columnCeiling
+  columnCeiling_pos := tail.columnCeiling_pos
+  mismatch_le := tail.mismatch_le
+  posterior := tail.posterior
+  rowDebt_le := tail.rowDebt_le
+  edgeDebt_le := fun scale hscale => by
+    let factor :=
+      (schedule.scalePair scale).coarse.physicalPartition *
+        (schedule.scalePair scale).fine.physicalPartition
+    exact Q'.le_trans' _ _ _
+      (actualPositiveExpandedReceiverFiberScaleDefect_scaledEdgeDebt_abs_le_densityVariationL1
+        (schedule.scalePair scale) rfl
+        (schedule.effectiveCoupling_pos scale)
+        (schedule.faceMap scale).coarseRoot
+        (schedule.faceMap scale).coarseTarget
+        (tail.posterior scale hscale) factor)
+      (by simpa only [factor] using
+        tail.edgeDensityVariationL1_le scale hscale)
+  columnDebt_le := tail.columnDebt_le
+
+def toConnectedSeparatedLinearRawTransportTail
+    (tail :
+      ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+        schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule :=
+  tail.toThreeDebtLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+
+theorem combinedCeiling_eq
+    (tail :
+      ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+        schedule) :
+    tail.toConnectedSeparatedLinearRawTransportTail.combinedCeiling =
+      tail.mismatchCeiling +
+        ((tail.rowCeiling + tail.edgeCeiling) + tail.columnCeiling) :=
+  rfl
+
+/-- Final matched covariance consumer with the edge producer stated directly
+as a receiver-fiber density-variation `l1` estimate. -/
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (tail :
+      ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+        schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤ schedule.anchorRate scale + epsilon :=
+  tail.toConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
 end PhysicalObservableRefinementSchedule
 
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail
@@ -373,5 +508,10 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail.combinedCeiling_eq
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectThreeDebtLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail.toThreeDebtLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail.combinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectDensityVariationLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
 
 end YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectThreeDebtTail
