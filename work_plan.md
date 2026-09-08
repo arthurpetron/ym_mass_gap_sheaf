@@ -202,7 +202,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
 |   |   |   |       |   |   +-- exact positive normalization by `a*(Z_c^3*Z_f^3)` [PROVED]
 |   |   |   |       |   |   +-- normalized mismatch/five-budget bounds => consumer [PROVED interface]
-|   |   |   |       |   |   `-- uniformly bound the two normalized sequences ...... [ACTIVE preferred]
+|   |   |   |       |   |   +-- uniformly bound the two normalized sequences ...... [ACTIVE preferred]
+|   |   |   |       |   |   `-- matched-AF coupling-square route
+|   |   |   |       |   |       +-- lower `c*g^2 <= a(g)` plus quadratic budgets
+|   |   |   |       |   |       |       => normalized bounds ...................... [PROVED bridge]
+|   |   |   |       |   |       +-- inhabit lower quadratic spacing comparison .... [OPEN]
+|   |   |   |       |   |       +-- raw mismatch <= `M*g^2` ....................... [OPEN]
+|   |   |   |       |   |       `-- split budget <= `(K*g^2)*(Z_c^3*Z_f^3)` ...... [OPEN]
 |   |   |   |       |   `-- posterior-free direct calibration route
 |   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
 |   |   |   |       |       |       weighted `l1` budgets ....................... [PROVED]
@@ -534,6 +540,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 +-- B. Uniform physical scaling
 |   +-- mass-normalized persistence algebra .................... [PROVED]
 |   +-- same-object physical separator producer ................ [PARTIAL]
+|   +-- upper quadratic physical spacing envelope .............. [PROVED interface]
+|   +-- matching lower quadratic spacing comparison ............ [OPEN]
 |   +-- beta/lattice-spacing/volume-uniform gap floor .......... [OPEN]
 |   `-- genuine `UniformSpacingFloor` inhabitant ............... [OPEN]
 |
@@ -559,8 +567,13 @@ variation sum.  Their partition-scaled sum is now one explicit budget, and
 positive division proves exact per-scale identities for that budget divided
 by `a*(Z_c^3*Z_f^3)` and for the raw mismatch divided by `a`.  The preferred
 next work is therefore the honest cutoff-independent boundedness problem for
-these two computed normalized sequences.  Direct full-cell calibration remains
-a shorter but stronger alternative because it discards transport cancellation.
+these two computed normalized sequences.  On the exact matched AF chart, a
+proved bridge further reduces that task to three named inputs: a lower
+quadratic comparison `c*g^2 <= a(g)`, a quadratic raw-mismatch estimate, and a
+quadratic five-budget estimate.  The present spacing envelope has only the
+opposite upper comparison, so it cannot inhabit the first input.  Direct
+full-cell calibration remains a shorter but stronger alternative because it
+discards transport cancellation.
 None of these finite identities or schedule interfaces supplies the still-open
 physical spacing floor, continuum measure, OS/GNS reconstruction, Hamiltonian
 gap, or Clay-facing theorem.

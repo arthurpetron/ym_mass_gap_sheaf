@@ -28764,3 +28764,37 @@ noncomputable declaration is introduced.  The focused monitored source check
 and the dependency-complete 1-job target both pass; all 1,587 target jobs pass,
 and all fourteen newly printed load-bearing declarations use only
 `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Matched-AF quadratic inputs compile to the normalized transport tail (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitMatchedAFQuadraticCost`
+specializes the normalized-cost frontier to the exact shifted-AF observable
+schedule.  Its `MatchedShiftedAFSplitQuadraticCostControl` names three eventual
+estimates at the same coupling coordinate `g`:
+
+```text
+spacingFloor * g^2 <= a(g),
+rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
+splitDensityBudget <=
+  (connectedQuadraticCeiling * g^2) * covarianceDenominator.
+```
+
+Constructive positive division proves that the two normalized cost sequences
+are then bounded by `mismatchQuadraticCeiling / spacingFloor` and
+`connectedQuadraticCeiling / spacingFloor`.  The exact adapter reaches the
+existing matched covariance `fineCovariance <= anchorRate + epsilon` consumer
+with the sum of those two quotients.
+
+No control structure is inhabited.  In particular, the existing
+`PhysicalSpacingEnvelope` contains the upper comparison
+`a(g) * Lambda <= C * g^2`, not the lower comparison needed to control division
+by `a(g)`.  The lower physical scaling law and both coupling-square transport
+budgets remain separate open inputs.  The physical gap floor, continuum
+measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay theorem
+also remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
+declaration is introduced.  The focused monitored source check and the
+dependency-complete 1-job target both pass; all 5,435 target jobs pass, and all
+nine newly printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
