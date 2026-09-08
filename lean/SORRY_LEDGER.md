@@ -28731,3 +28731,36 @@ introduced.  The focused monitored check passes, all sixteen printed
 load-bearing declarations use only `[propext, Quot.sound]`, and the
 dependency-complete target passes all 1,586 jobs.  No full-root audit is
 claimed.
+
+#### Split transport now has two exact normalized cost sequences (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCost`
+adds the five partition-scaled calibration and density-variation budgets into
+one literal finite quantity.  The exact split-sector identity, finite triangle
+inequalities, and the five previously proved debt bounds show that this single
+quantity majorizes the complete scaled receiver coefficient cross.
+
+The covariance raw-cross denominator is proved strictly positive from the two
+positive physical partition cubes.  Constructive positive division therefore
+defines the two explicit scale-indexed costs
+
+```text
+rawMismatchBudget / a,
+splitDensityBudget / (a * connectedCovarianceRawCrossDenominator).
+```
+
+Multiplication by each denominator recovers its numerator exactly.  A new
+schedule structure asks only for cutoff-independent upper bounds on these two
+computed sequences after one start scale.  Its exact adapter supplies the
+existing partition-scaled receiver-cross tail and hence the matched covariance
+`fineCovariance <= anchorRate + epsilon` consumer with coefficient equal to the
+sum of the two ceilings.
+
+This is a reduction, not an asymptotic estimate: no uniform bound on either
+normalized sequence is inhabited.  The physical spacing floor, continuum
+measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay theorem
+remain open.  No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or
+noncomputable declaration is introduced.  The focused monitored source check
+and the dependency-complete 1-job target both pass; all 1,587 target jobs pass,
+and all fourteen newly printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.

@@ -199,7 +199,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- full cross = five explicit surviving debts ...... [PROVED]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
-|   |   |   |       |   |   `-- uniform five-debt `O(a)` estimates ............... [ACTIVE preferred]
+|   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
+|   |   |   |       |   |   +-- exact positive normalization by `a*(Z_c^3*Z_f^3)` [PROVED]
+|   |   |   |       |   |   +-- normalized mismatch/five-budget bounds => consumer [PROVED interface]
+|   |   |   |       |   |   `-- uniformly bound the two normalized sequences ...... [ACTIVE preferred]
 |   |   |   |       |   `-- posterior-free direct calibration route
 |   |   |   |       |       +-- source/target fields vs common `Z_f^2/Z_c^2`
 |   |   |   |       |       |       weighted `l1` budgets ....................... [PROVED]
@@ -552,10 +555,12 @@ posterior.  The explicit split-sector route instantiates both existing finite
 kernels at every schedule scale and leaves five named analytic debts; exact
 normalization deletes the disconnected row debt.  Each surviving row, edge,
 and column term is now bounded by a literal receiver-density calibration or
-variation sum.  The preferred next work is to prove uniform linear-in-spacing
-estimates for those five finite sums and the shared raw mismatch.  Direct
-full-cell calibration remains a shorter but stronger alternative because it
-discards transport cancellation.
+variation sum.  Their partition-scaled sum is now one explicit budget, and
+positive division proves exact per-scale identities for that budget divided
+by `a*(Z_c^3*Z_f^3)` and for the raw mismatch divided by `a`.  The preferred
+next work is therefore the honest cutoff-independent boundedness problem for
+these two computed normalized sequences.  Direct full-cell calibration remains
+a shorter but stronger alternative because it discards transport cancellation.
 None of these finite identities or schedule interfaces supplies the still-open
 physical spacing floor, continuum measure, OS/GNS reconstruction, Hamiltonian
 gap, or Clay-facing theorem.
