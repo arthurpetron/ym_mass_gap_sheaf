@@ -20,7 +20,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
-import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverDensity
+import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberDensity
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 import YMGap.Continuum.CompactDualPhysicalConnectedObservableRawCross
 import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
@@ -37,6 +37,7 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedPaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverDensity
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberDensity
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedSupportedPaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualRawKernel
@@ -325,7 +326,101 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end CovarianceRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 5. Receiver-density-weighted paired-path producer -/
+/-! ## 5. Receiver-fiber-density-weighted producer -/
+
+/-- The congestion-aware receiver-fiber production tail.  All supported paths
+sharing one oriented receiver pair have first been summed into a single
+coefficient on the complete duplicate-free receiver carrier.  The field below
+is the remaining analytic estimate; the structure does not manufacture it. -/
+structure ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+    (schedule : PhysicalObservableRefinementSchedule) : Type where
+  start : Nat
+  mismatchCeiling : Q'
+  mismatchCeiling_pos : (0 : Q') < mismatchCeiling
+  connectedCeiling : Q'
+  connectedCeiling_pos : (0 : Q') < connectedCeiling
+  mismatch_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget schedule scale ≤
+      mismatchCeiling * schedule.spacing.spacing scale
+  actualPositiveExpandedReceiverFiberWeightedRawCross_le :
+    ∀ scale : Nat, start ≤ scale →
+      Q'.abs
+          (physicalConnectedCovariancePositiveExpandedReceiverFiberWeightedRawCrossDefect
+            (schedule.scalePair scale) rfl
+            (schedule.effectiveCoupling_pos scale)
+            (schedule.faceMap scale)) ≤
+        (connectedCeiling * schedule.spacing.spacing scale) *
+          connectedCovarianceRawCrossDenominator
+            (schedule.scalePair scale)
+
+namespace ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+
+variable {schedule : PhysicalObservableRefinementSchedule}
+
+/-- Actual-kernel specialization followed by exact receiver-fiber aggregation
+compiles to the generic raw covariance-cross tail with no coefficient loss. -/
+def toCovarianceRawCrossSeparatedLinearRawTransportTail
+    (tail :
+      ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+        schedule) :
+    CovarianceRawCrossSeparatedLinearRawTransportTail schedule where
+  start := tail.start
+  mismatchCeiling := tail.mismatchCeiling
+  mismatchCeiling_pos := tail.mismatchCeiling_pos
+  connectedCeiling := tail.connectedCeiling
+  connectedCeiling_pos := tail.connectedCeiling_pos
+  mismatch_le := tail.mismatch_le
+  connectedCovarianceRawCross_le := fun scale hscale => by
+    have hspecialization :=
+      connectedCovarianceRawCrossDefect_physicalKernel_eqv_actualRaw
+        (schedule.scalePair scale) rfl
+        (schedule.effectiveCoupling_pos scale) (schedule.faceMap scale)
+    have hfibers :=
+      physicalConnectedCovarianceRawCrossDefect_eqv_positiveExpandedReceiverFiberWeighted
+        (schedule.scalePair scale) rfl
+        (schedule.effectiveCoupling_pos scale) (schedule.faceMap scale)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.abs_eqv_congr (by
+          simpa only [kernel] using
+            (Q'.eqv_trans _ _ _ hspecialization hfibers))))
+      (tail.actualPositiveExpandedReceiverFiberWeightedRawCross_le
+        scale hscale)
+
+def toConnectedSeparatedLinearRawTransportTail
+    (tail :
+      ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+        schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule :=
+  tail.toCovarianceRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+
+theorem combinedCeiling_eq
+    (tail :
+      ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+        schedule) :
+    tail.toConnectedSeparatedLinearRawTransportTail.combinedCeiling =
+      tail.mismatchCeiling + tail.connectedCeiling :=
+  rfl
+
+/-- Final covariance consumer for the congestion-aware receiver-fiber
+producer. -/
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (tail :
+      ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+        schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.toConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+
+/-! ## 6. Receiver-density-weighted paired-path producer -/
 
 /-- The receiver-weighted production tail.  Every surviving accepted-fiber
 path has been written exactly as a density times its oriented coarse receiver
@@ -419,7 +514,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPositiveExpandedReceiverWeightedRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 6. Strict-support receiver-orientable paired-path producer -/
+/-! ## 7. Strict-support receiver-orientable paired-path producer -/
 
 /-- The strongest carrier-respecting production tail.  Every path carries
 accepted fine fibers, strict positivity of both raw transitions, and the
@@ -511,7 +606,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPositiveExpandedSupportedPathRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 7. Accepted-fiber positive paired-path producer -/
+/-! ## 8. Accepted-fiber positive paired-path producer -/
 
 /-- The strongest carrier-respecting production tail.  Every positive fine
 physical source has been disintegrated over its proof-carrying accepted
@@ -603,7 +698,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPositiveExpandedPathRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 8. Positive paired source-to-target path producer -/
+/-! ## 9. Positive paired source-to-target path producer -/
 
 /-- The preferred carrier-respecting production tail.  Gibbs-null fine-source
 paths have been deleted, every surviving source carries its positivity proof,
@@ -687,7 +782,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPositivePathRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 9. Literal all-source paired path producer -/
+/-! ## 10. Literal all-source paired path producer -/
 
 /-- The carrier-respecting production tail.  Its connected input is the exact
 coarse-versus-pushed covariance cross after every pushed coarse-output pair
@@ -773,7 +868,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualPathRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 10. Actual two-replica four-cell producer -/
+/-! ## 11. Actual two-replica four-cell producer -/
 
 /-- The four-cell production tail.  Its connected input is the exact
 coarse-versus-pushed four-cell raw cross.  The pushed determinant consists of
@@ -857,7 +952,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualFourCellRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 11. Actual-kernel raw covariance-cross producer -/
+/-! ## 12. Actual-kernel raw covariance-cross producer -/
 
 /-- The preferred production tail.  Its connected input is the fully raw
 covariance determinant specialized to the actual globally link-glued kernel,
@@ -936,7 +1031,7 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ActualCovarianceRawCrossSeparatedLinearRawTransportTail
 
-/-! ## 12. Sharpen the existing raw/L1 producer without new hypotheses -/
+/-! ## 13. Sharpen the existing raw/L1 producer without new hypotheses -/
 
 namespace SeparatedLinearRawTransportTail
 
@@ -999,6 +1094,11 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.combinedCeiling_eq
 #print axioms PhysicalObservableRefinementSchedule.CovarianceRawCrossSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail.toCovarianceRawCrossSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail.combinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverWeightedRawCrossSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverWeightedRawCrossSeparatedLinearRawTransportTail.toCovarianceRawCrossSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverWeightedRawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail

@@ -200,6 +200,53 @@ def matchedShiftedAFPhysicalObservableRefinementSchedule
 
 /-! ## 4. The still-open transport producer on this exact trajectory -/
 
+/-- The congestion-aware receiver-fiber producer on the exact matched chart.
+All supported path densities sharing a receiver pair have been summed on the
+complete receiver carrier.  This abbreviation has no inhabitant here: a
+uniform coefficient-transport estimate remains required. -/
+abbrev MatchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossTransportTail
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type :=
+  YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberWeightedRawCrossSeparatedLinearRawTransportTail
+    (matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+      C coupling coupling_pos coupling_le_window identification nested)
+
+/-- The receiver-fiber-weighted tail on the exact matched chart gives the
+`anchor + epsilon` covariance bound. -/
+theorem matchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossFineCovariance_le_anchorRate_add_epsilon
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (tail :
+      MatchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossTransportTail
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule :=
+      matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+        C coupling coupling_pos coupling_le_window identification nested
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
 /-- The receiver-density-weighted path producer on the exact matched chart.
 Each supported path has been factored exactly into a density times its
 oriented receiver-pair weight.  This abbreviation has no inhabitant here: a
@@ -707,6 +754,8 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_fineCoupling
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_spacing
+#print axioms MatchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossTransportTail
+#print axioms matchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositiveExpandedReceiverWeightedRawCrossTransportTail
 #print axioms matchedShiftedAFActualPositiveExpandedReceiverWeightedRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositiveExpandedSupportedPathRawCrossTransportTail

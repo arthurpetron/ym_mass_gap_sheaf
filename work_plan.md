@@ -147,6 +147,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- receiver-density path tail => matched-chart
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
+|   |   |   |   |   +-- receiver-fiber-density tail => matched-chart
+|   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
@@ -164,7 +166,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [PROVED]
 |   |   |   |       |   +-- factor each supported path exactly as receiver
 |   |   |   |       |   |       density times receiver-pair weight ........ [PROVED]
-|   |   |   |       |   `-- control receiver densities and fiber congestion
+|   |   |   |       |   +-- aggregate all path densities on each full-cell
+|   |   |   |       |   |       receiver fiber without losing multiplicity  [PROVED]
+|   |   |   |       |   `-- transport the fiber-summed coefficient field
 |   |   |   |       |       through successful receiver columns ........... [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
@@ -1546,24 +1550,33 @@ tail compiles this form without coefficient loss through the general physical
 schedule and the exact matched shifted-AF chart to the existing
 `anchor + epsilon` covariance conclusion.
 
-This is a factorization and final-consumer interface, not yet a
-receiver-column estimate.  The active analytic seam is to control or transport
-these densities through the successful guarded receiver columns and account
-constructively for the multiplicity of supported paths sharing a receiver
-pair.  The previously proved quarter success floor cannot be applied without
-that density/congestion theorem.
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberDensity.lean`
+then performs the congestion-aware regrouping.  It uses exact finite
+coefficient zero extension to sum all supported-path densities having the
+same receiver endpoint onto the complete duplicate-free source and target
+four-cell carriers.  Repeated paths retain their multiplicity, coefficients
+vanish away from the receiver image, and both cell masses, their cross, and
+the connected raw-cross defect remain exactly unchanged.  The corresponding
+physical and matched-AF tail interfaces are kernel checked.
+
+This is a factorization, fiber aggregation, and final-consumer interface, not
+yet a receiver-column estimate.  The active analytic seam is now stated on
+the correct carrier: transport or control the fiber-summed coefficient field
+through the successful guarded receiver columns.  The previously proved
+quarter success floor cannot be applied without that coefficient-transport
+theorem.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
 actual-kernel specialization still contains the source-dependent conditional
 row ratios, whose denominators are the positive whole-slab recoupling row
 partitions.  The receiver-density factorization isolates those ratios and the
-accepted-fiber weights into explicit per-path densities.  Regrouping by
-receiver pair and proving a uniform density/congestion comparison against the
-successful-event/receiver-column and posterior-contraction machinery, or
-clearing the nonuniform finite row denominators with a controlled common
-product, is the next causal analytic seam.  No `O(a)` estimate is obtained
-merely from these exact specializations and factorizations.
+accepted-fiber weights into explicit per-path densities, and the receiver-
+fiber module sums them without losing path multiplicity.  Proving a uniform
+comparison of these fiber coefficients across the successful-event receiver
+kernel, or clearing the nonuniform finite row denominators with a controlled
+common product, is the next causal analytic seam.  No `O(a)` estimate is
+obtained merely from these exact specializations and factorizations.
 
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
