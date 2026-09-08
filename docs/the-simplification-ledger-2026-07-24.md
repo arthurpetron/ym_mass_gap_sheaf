@@ -676,6 +676,22 @@ preferred active branch.  The one-face `O(g^2)` occupation bound remains a
 valid alternative, but the matched coarse coupling currently supplies only a
 fixed corridor bound, not the required quadratic law.
 
+The producer boundary is now sharper still.  A
+`PositiveExpandedFusionChannelEndpointLift` retains one enumerated positive
+fine source and, at every coarse face, one pair channel with the prescribed
+final spin and three true `fusionOK` guards.  A checked adapter proves that
+the selected channel has positive character/fusion weight, occurs in the
+finite channel sum, and therefore makes the fixed-final face sum positive.
+The matched-AF compiler now requests this discrete channel presentation and
+uses positive effective coupling to recover the earlier face-compatible and
+raw endpoint coverage interfaces.  Thus the active constructor no longer
+owes a rational-sum positivity argument: it owes the positive fine source and
+the supported per-face channels themselves.
+
+This strengthened layer passes the same monitored focused check and
+dependency-complete target (5,458 jobs); its printed adapters use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
 This is still exact finite-cutoff algebra.  It does not prove the covered
 calibration or spacing/mismatch estimates, cutoff-uniform contraction,
 continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.

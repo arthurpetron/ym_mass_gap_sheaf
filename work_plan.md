@@ -1195,8 +1195,10 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |   `-- exact raw-support endpoint coverage ............. [ACTIVE preferred]
 |           |       +-- bounded link-inadmissible endpoints excluded  [PROVED correction]
 |           |       +-- attached endpoint => coarse link factor > 0 .. [PROVED exact]
-|           |       +-- one face-compatible fine lift per attached
-|           |       |       coarse endpoint .......................... [OPEN finite witness]
+|           |       +-- explicit supported face channels imply
+|           |       |       positive fixed-final face sums ........... [PROVED reduction]
+|           |       +-- one positive fine source plus per-face fusion
+|           |       |       channels for each attached endpoint ...... [ACTIVE finite witness]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1231,10 +1233,13 @@ and dependency-complete target (5,458 jobs), with only
 attached coarse endpoint gives full saturated receiver coverage, zero
 unreachable mass, and the existing covariance consumer.  The attachment's
 accepted coarse intertwiner assignment already forces its global link factor
-to be positive, so the remaining constructor is a positive fine source with
-pointwise compatible face channels.  Constructing those reverse lifts remains
-the active finite witness problem; no lift is required for link-inadmissible
-zero-mass members of the broader bounded Cartesian list.
+to be positive.  The strengthened producer now asks for a positive fine
+source and an explicit pair channel at each coarse face, together with the
+required final spin and three Boolean fusion guards; those discrete witnesses
+are proved sufficient for every fixed-final face sum to be positive.
+Constructing this source-and-channel reverse lift remains the active finite
+witness problem; no lift is required for link-inadmissible zero-mass members
+of the broader bounded Cartesian list.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
