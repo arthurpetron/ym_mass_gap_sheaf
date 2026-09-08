@@ -182,18 +182,21 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       a complete-cell aggregate posterior ........... [PROVED reduction]
 |   |   |   |       |   +-- row debt = unretained coefficient mass, supported
 |   |   |   |       |   |       only on connected source rows .................. [PROVED]
+|   |   |   |       |   |   `-- partition-density calibration `l1` majorant .... [PROVED]
 |   |   |   |       |   +-- edge debt = literal successful-edge variation ..... [PROVED identity]
 |   |   |   |       |   |   +-- common `Z_f^2` cancels exactly ................. [PROVED]
 |   |   |   |       |   |   +-- density-variation double-sum `l1` majorant ..... [PROVED]
-|   |   |   |       |   |   `-- uniform density variation `O(a)` ............... [ACTIVE edge seam]
 |   |   |   |       |   +-- column debt = target coefficient times signed
 |   |   |   |       |   |       incoming capacity slack ........................ [PROVED]
+|   |   |   |       |   |   `-- partition-density calibration `l1` majorant .... [PROVED]
 |   |   |   |       |   +-- three separate debt tails => existing covariance
 |   |   |   |       |   |       consumer with `C_r+C_e+C_c` ............ [PROVED interface]
+|   |   |   |       |   +-- all three literal receiver-density `l1` budgets =>
+|   |   |   |       |   |       same covariance consumer ............... [PROVED interface]
 |   |   |   |       |   +-- schedule-level complete posterior producer ........ [OPEN]
 |   |   |   |       |   |       fixed-anchor guarded aggregate theorem does not
 |   |   |   |       |   |       inhabit the arbitrary schedule-level interface
-|   |   |   |       |   `-- cutoff-uniform row/edge/column debt bounds
+|   |   |   |       |   `-- cutoff-uniform row/edge/column calibration budgets
 |   |   |   |       |       summing to `O(a)` ................................. [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
@@ -1690,6 +1693,32 @@ refined tail interface accepts an `O(a)` estimate on that explicit budget and
 compiles it to the same three-debt and matched-covariance consumers.  This is a
 strict localization of the edge regularity obligation, not a proof that the
 density variation is small and not a posterior producer.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration.lean`
+performs the corresponding exact localization for the row and column inputs.
+The coarse physical partition square is strictly positive, so the exact
+partition density
+
+```text
+partitionDensity = Z_fine^2 / Z_coarse^2
+```
+
+is constructive.  Each source or target scale-defect coefficient is exactly
+`(partitionDensity - receiverFiberDensity) * Z_coarse^2`.  Substitution into
+the connected-row and realized-column formulas gives literal finite `l1`
+majorants for the row and column debts, together with their arbitrary outer-
+normalization bounds.  The calibrated tail interface in the three-debt module
+now accepts exactly these row and column budgets plus the edge density-
+variation budget and compiles them to the matched covariance consumer.
+
+This reduces all three coefficient-transport estimates to named receiver-
+density regularity/calibration hypotheses.  It does not prove any budget is
+`O(a)`, and treating three separate absolute budgets is a sufficient route
+that can be stronger than exploiting cancellations in their signed sum.  The
+schedule-level complete posterior producer is still absent.  Those producer
+and estimate obligations remain the active finite-to-scaling seam; the
+continuum measure, OS/GNS reconstruction, Hamiltonian gap, and Clay target
+remain open.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The

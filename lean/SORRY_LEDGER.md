@@ -28593,3 +28593,40 @@ declaration is introduced.  Focused monitored source checks pass, and all
 printed load-bearing declarations use only `[propext, Quot.sound]`.  The edge
 module's dependency-complete target passes all 1,567 jobs, and the updated
 three-debt target passes all 1,583 jobs.  No full-root audit is claimed.
+
+#### Row and column debts become receiver-density calibration budgets (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration`
+uses strict positivity of the coarse physical partition square to define the
+constructive exact partition density
+
+```text
+Z_fine^2 / Z_coarse^2.
+```
+
+Both source and target scale-defect coefficients are proved exactly equal to
+their receiver-fiber density error from that partition density, multiplied by
+`Z_coarse^2`.  Substitution into the previously exposed connected-row and
+realized-column formulas rewrites both signed debts in calibration variables.
+Finite triangle inequalities then give literal row and column `l1` majorants,
+including bounds after multiplication by an arbitrary outer normalization.
+
+The updated three-debt tail adds a calibrated producer interface.  Its three
+analytic inputs are precisely the row calibration `l1`, successful-edge
+density-variation `l1`, and column calibration `l1` budgets.  Exact adapters
+compile them, without changing `C_row + C_edge + C_column`, to the existing
+matched covariance `anchor + epsilon` consumer.
+
+These are sufficient named hypotheses, not estimates manufactured by the
+formalization.  No uniform `O(a)` bound is proved for any calibration budget,
+and separate absolute bounds may be stronger than a future argument that uses
+signed cancellation between debts.  The complete-cell schedule posterior has
+no repository inhabitant.  The continuum measure, OS/GNS reconstruction,
+Hamiltonian gap, and Clay conclusion remain open.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
+declaration is introduced.  Focused monitored checks pass.  All thirteen
+printed calibration declarations and all five new calibrated-tail declarations
+use only `[propext, Quot.sound]`.  The calibration dependency target passes all
+1,568 jobs, and the updated three-debt target passes all 1,584 jobs.  No
+full-root audit is claimed.
