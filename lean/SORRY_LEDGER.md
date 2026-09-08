@@ -28928,3 +28928,61 @@ dependency-complete target passes all 1,584 jobs; all nine printed
 declarations use only `[propext, Quot.sound]`.  No `sorry`, `admit`,
 `Classical`, `native_decide`, new axiom, or noncomputable declaration is
 introduced.  No full-root audit is claimed.
+
+#### Normalize the three posterior-column debts and compile the matched-AF consumer (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosteriorRescaling` proves that replacing the
+source and target coefficient fields by normalized fields and multiplying them
+by one common nonnegative rational factor transports exactly through source
+coefficient mass, transported coefficient mass, the signed row defect, every
+transported target column, and the posterior-column `l1` budget.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnNormalizedCost`
+specializes that generic result to the connected and disconnected receiver
+transports.  The physical coefficients are the corresponding density
+coefficients times `Z_coarse^2`; hence the connected row debt and both
+posterior-column debts share the same coarse-square factor.  Exact finite-sum
+distributivity and constructive positive-factor cancellation prove
+
+```text
+splitPosteriorColumnNormalizedCost
+  ~= posteriorThreeBudget / (a * Z_fine^2).
+```
+
+The same module defines a schedule-level uniform normalized-cost witness and
+an exact adapter to the established connected covariance consumer.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost`
+then packages the three remaining matched-chart analytic inputs:
+
+```text
+spacingFloor * g^2 <= a(g),
+rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
+posteriorThreeBudget <=
+  (connectedQuadraticCeiling * g^2) * Z_fine^2.
+```
+
+If supplied, these compile constructively to uniform normalized mismatch and
+posterior ceilings, and then to
+`fineCovariance <= anchorRate + epsilon`.  No instance of this control
+structure is constructed: the lower spacing comparison, the raw-mismatch
+quadratic estimate, and the three-budget posterior quadratic estimate remain
+open analytic producers.  The physical gap floor, continuum measure,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay theorem also
+remain open.
+
+Monitored verification:
+
+```text
+focused source checks                                      PASS (all three modules)
+generic rescaling dependency target                        PASS (220 jobs)
+normalized posterior-cost dependency target                PASS (1,593 jobs)
+matched-AF posterior bridge dependency target               PASS (5,441 jobs)
+```
+
+The generic module prints six load-bearing declarations; the definition uses
+no axioms and its theorems use only `[propext]`.  The normalized-cost module
+prints twenty-six declarations and the matched-AF bridge prints nine; all use
+only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, new axiom, or noncomputable declaration is introduced.  No
+full-root audit is claimed.

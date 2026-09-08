@@ -202,9 +202,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- five debts = connected row + two posterior columns [PROVED]
 |   |   |   |       |   |   +-- three-term posterior-column `l1` majorant and
 |   |   |   |       |   |   |       physical partition scaling ................... [PROVED]
-|   |   |   |       |   |   +-- normalize/cancel partition factors in the new
-|   |   |   |       |   |   |       three-budget posterior cost .................. [ACTIVE preferred]
-|   |   |   |       |   |   +-- uniform posterior-column quadratic estimate ...... [OPEN]
+|   |   |   |       |   |   +-- common coefficient rescaling through row/column
+|   |   |   |       |   |   |       posterior debts ................................ [PROVED]
+|   |   |   |       |   |   +-- normalize/cancel all common partition factors ..... [PROVED]
+|   |   |   |       |   |   +-- posterior normalized cost = three-budget /
+|   |   |   |       |   |   |       `(a*Z_f^2)` .................................... [PROVED]
+|   |   |   |       |   |   +-- posterior normalized-cost bound => covariance ..... [PROVED interface]
+|   |   |   |       |   |   +-- matched-AF posterior coupling-square route
+|   |   |   |       |   |   |   +-- three analytic inputs => normalized bounds ..... [PROVED bridge]
+|   |   |   |       |   |   |   +-- inhabit lower `c*g^2 <= a(g)` .................. [OPEN]
+|   |   |   |       |   |   |   +-- raw mismatch <= `M*g^2` ........................ [OPEN]
+|   |   |   |       |   |   |   `-- posterior three-budget <=
+|   |   |   |       |   |   |           `(K*g^2)*Z_f^2` ............................ [ACTIVE preferred]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -216,9 +225,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- normalized mismatch/five-budget bounds => consumer [PROVED interface]
 |   |   |   |       |   |   +-- uniformly bound the two five-budget normalized
 |   |   |   |       |   |   |       sequences ...................................... [OPEN equivalent]
-|   |   |   |       |   |   `-- matched-AF coupling-square route
+|   |   |   |       |   |   `-- matched-AF five-budget coupling-square route
 |   |   |   |       |   |       +-- lower `c*g^2 <= a(g)` plus quadratic budgets
-|   |   |   |       |   |       |       => normalized bounds ...................... [PROVED bridge]
+|   |   |   |       |   |       |       => normalized bounds ...................... [PROVED bridge alternative]
 |   |   |   |       |   |       +-- inhabit lower quadratic spacing comparison .... [OPEN]
 |   |   |   |       |   |       +-- raw mismatch <= `M*g^2` ....................... [OPEN]
 |   |   |   |       |   |       `-- dimensionless five-defect sum <=
@@ -1019,12 +1028,12 @@ critical path branches.
 
 ### Live posterior-column frontier (2026-09-08)
 
-The preferred split-sector route now performs coefficient-weighted finite
-Fubini before estimating magnitudes.  For each explicit connected or
-disconnected transport, the former edge and ordinary target-column debts are
-regrouped exactly as one posterior-column mismatch between transported source
+The preferred split-sector route performs coefficient-weighted finite Fubini
+before estimating magnitudes.  For each explicit connected or disconnected
+transport, the former edge and ordinary target-column debts are regrouped
+exactly as one posterior-column mismatch between transported source
 coefficient mass and literal target coefficient mass.  Since the disconnected
-row is already zero, the full receiver scale-defect cross is exactly
+row is exactly zero, the full receiver scale-defect cross is exactly
 
 ```text
 five split debts
@@ -1034,28 +1043,64 @@ five split debts
 ```
 
 A three-term `l1` majorant and its physical coarse--fine partition scaling are
-proved.  This is an exact finite reduction; it supplies no smallness estimate.
-The next causal proof edge is to pull the common partition factors through
-these posterior-column sums and define their normalized three-budget cost.
-After that, the analytic producer must bound the posterior mismatch uniformly,
-alongside the still-open raw mismatch and lower quadratic spacing comparison.
+proved.  The new coefficient-rescaling theorem transports the common coarse
+partition square through both the row and posterior-column defects.
+Constructive positive-factor cancellation then proves the exact normalized
+cost identity
+
+```text
+physical scaled posterior budget
+--------------------------------
+       a * Z_coarse^3 * Z_fine^3
+
+                 ~=
+
+dimensionless three-term posterior budget
+----------------------------------------- .
+                a * Z_fine^2
+```
+
+The matched shifted-AF bridge is also proved.  It packages three named eventual
+inputs at the same coupling coordinate `g`:
+
+```text
+spacingFloor * g^2 <= a(g),
+rawMismatchBudget <= mismatchQuadraticCeiling * g^2,
+posteriorThreeBudget <=
+  (connectedQuadraticCeiling * g^2) * Z_fine^2.
+```
+
+If those inputs are inhabited, constructive positive division supplies the
+two uniform normalized-cost ceilings and reaches the existing covariance
+consumer `fineCovariance <= anchorRate + epsilon`.  None of the three analytic
+inputs is inhabited here.  In particular, the exact cancellation is a finite
+algebraic reduction, not a posterior smallness estimate, dimensional
+transmutation theorem, physical mass gap, or continuum result.
 
 The whole-project dependency remains explicit:
 
 ```text
-finite posterior normalization [ACTIVE]
-  -> coupling-square posterior estimate [OPEN]
-    -> normalized physical transport tail [OPEN]
-      -> uniform positive physical gap [OPEN]
-        -> same-measure continuum construction [OPEN]
-          -> OS/GNS Hamiltonian gap [OPEN]
-            -> Clay-facing assembly [OPEN]
+constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
+|
++-- finite literal recoupling event and receiver contraction .... [PROVED]
++-- exact posterior-column algebra and normalization ............. [PROVED]
++-- matched-AF posterior estimate-to-covariance bridge ........... [PROVED]
+|   |
+|   +-- lower quadratic physical spacing comparison .............. [OPEN]
+|   +-- raw mismatch quadratic estimate .......................... [OPEN]
+|   `-- three-budget posterior quadratic estimate ................ [ACTIVE preferred]
+|       `-- uniform normalized physical transport tail ........... [OPEN]
++-- positive physical gap on a common trajectory ................. [OPEN]
++-- same-measure continuum construction .......................... [OPEN]
++-- OS/GNS Hamiltonian with a positive gap ........................ [OPEN]
+`-- Clay-facing same-object assembly .............................. [OPEN]
 ```
 
-The two new modules pass monitored focused checks and dependency-complete
-targets (218 jobs for the generic coefficient Fubini module and 1,584 jobs for
-the concrete split specialization).  All newly printed declarations use only
-`[propext]` or `[propext, Quot.sound]`.  No full-root audit is claimed.
+The new generic rescaling, normalized posterior-cost, and matched-AF bridge
+modules pass monitored focused checks and dependency-complete 1-job targets
+(220, 1,593, and 5,441 jobs respectively).  Their six, twenty-six, and nine
+printed load-bearing declarations use only no axioms, `[propext]`, or
+`[propext, Quot.sound]` as appropriate.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
