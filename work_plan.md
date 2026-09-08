@@ -114,6 +114,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- actual pushed event numerator = positive-row sum of
 |   |   |   |   |       physical terms times recoupling raw-event ratios .... [PROVED]
 |   |   |   |   +-- generic covariance cross = actual-kernel raw-ratio cross [PROVED]
+|   |   |   |   +-- actual cubic numerator = raw-ratio four-cell determinant
+|   |   |   |   |       times the fine physical partition .................... [PROVED]
+|   |   |   |   +-- full connected defect = coarse-versus-pushed four-cell
+|   |   |   |   |       raw cross ............................................ [PROVED]
+|   |   |   |   +-- pushed determinant = literal coarse-output pair-mass
+|   |   |   |   |       difference ........................................... [PROVED]
 |   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
@@ -132,8 +138,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
-|   |   |   |       +-- actual positive-row raw-ratio covariance cross
+|   |   |   |       +-- actual two-replica four-cell raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN preferred]
+|   |   |   |       |   `-- carrier-respecting coarse-output pair to
+|   |   |   |       |       successful receiver-column comparison ........ [OPEN causal seam]
+|   |   |   |       +-- actual positive-row raw-ratio covariance cross
+|   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- generic fully raw covariance cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- structured-observable cross
@@ -1422,14 +1432,45 @@ cross, and supplies a no-loss compiler from its relative bound to the
 connected remainder.  The schedule and matched shifted-AF aliases now state
 the preferred connected producer in precisely this actual-kernel form.
 
+`CompactDualPhysicalConnectedCovarianceActualFourCell.lean` exposes the exact
+two-replica determinant inside that production-kernel expression.  It defines
+the unnormalized pushed mass on each coarse target, proves its total mass is
+exactly `Z_fine`, and identifies every pushed event numerator with the
+corresponding filtered target mass.  Consequently
+
+```text
+actual pushed cubic covariance numerator
+  = (TT * FF - FT * TF from positive-row raw ratios) * Z_fine.
+```
+
+The coarse cubic numerator has the identical four-cell factorization, so the
+complete connected defect is now exactly a coarse-versus-pushed four-cell raw
+cross.  Moreover, the pushed determinant is proved equal to the raw mass of
+the literal Cartesian `TT x FF` coarse-output pairs minus the raw mass of the
+opposite `FT x TF` pairs.  A relative estimate on this object compiles without
+loss through a new physical refinement-tail interface and its matched
+shifted-AF alias to the existing `anchor + epsilon` covariance conclusion.
+
+This is the required receiver-column normal form, not yet a receiver-column
+estimate.  The existing successful-event/posterior contraction acts on a
+same-datum fine source-pair carrier, whereas the determinant just exposed is
+on pairs of coarse block outputs whose masses already sum over fine sources.
+The next causal theorem must construct a carrier-respecting comparison--most
+likely by expanding each coarse-output pair mass into two source/target kernel
+paths and then identifying a common receiver column--or prove a controlled
+alternative.  The previously proved quarter success floor cannot be applied
+across this carrier mismatch without that theorem.
+
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
 actual-kernel specialization still contains the source-dependent conditional
 row ratios, whose denominators are the positive whole-slab recoupling row
-partitions.  Estimating those ratios by the successful-event/receiver-column
-and posterior-contraction machinery, or clearing their nonuniform finite
+partitions.  Estimating the new two-replica four-cell cross by the
+successful-event/receiver-column and posterior-contraction machinery, after
+the just-stated carrier bridge, or clearing the nonuniform finite row
 denominators with a controlled common product, is the next causal analytic
-seam.  No `O(a)` estimate is obtained merely from this exact specialization.
+seam.  No `O(a)` estimate is obtained merely from these exact
+specializations.
 
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
@@ -1473,9 +1514,10 @@ the quadratic physical spacing envelope plus a coupling-to-zero modulus
 constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
-actual production-kernel raw-ratio covariance-cross `O(a)` tail on this exact
+actual production-kernel four-cell raw-cross `O(a)` tail on this exact
 schedule yields the literal fine covariance bound `anchor + epsilon` at the
-computed cutoff.  The generic fully raw covariance cross,
+computed cutoff.  The equivalent actual raw-ratio covariance cross, generic
+fully raw covariance cross,
 structured-observable raw cross, normalized connected, and stronger raw/sign
 inputs remain exposed on the same schedule as alternatives, with no
 factor-three coefficient loss.
