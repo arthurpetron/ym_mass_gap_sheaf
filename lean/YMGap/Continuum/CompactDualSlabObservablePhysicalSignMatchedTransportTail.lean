@@ -21,6 +21,7 @@ noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualPhysicalRemainderL1DualObservable
+import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
 import YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
 
 namespace YMGap.Continuum.CompactDualSlabObservablePhysicalSignMatchedTransportTail
@@ -32,6 +33,8 @@ set_option maxHeartbeats 4000000
 open YMGap.Constructive
 open YMGap.Continuum.BF4ObservableMatchedOneStep
 open YMGap.Continuum.CompactDualPhysicalRemainderL1DualObservable
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
@@ -111,8 +114,8 @@ def toSeparatedLinearRawTransportTail
         (signObservableMatchBudget_eqv_remainderL1 schedule scale))
       (tail.signMatch_le scale hscale)
 
-/-- The combined physical coefficient remains `C_m + 3*C_sign`, because the
-sign-matching defect equals `remainderL1` exactly. -/
+/-- The legacy separated-L1 compiler retains coefficient `C_m + 3*C_sign`.
+The sharp connected compiler below removes this factor-three loss. -/
 theorem combinedCeiling_eq
     (tail : SignMatchedSeparatedLinearRawTransportTail schedule) :
     tail.toSeparatedLinearRawTransportTail.combinedCeiling =
@@ -120,6 +123,34 @@ theorem combinedCeiling_eq
         (tail.signMatchCeiling +
           (tail.signMatchCeiling + tail.signMatchCeiling)) :=
   rfl
+
+/-- Pointwise unit boundedness of the structured connected observable turns
+the same sign-matching hypotheses into the sharp connected tail. -/
+def toConnectedSeparatedLinearRawTransportTail
+    (tail : SignMatchedSeparatedLinearRawTransportTail schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule :=
+  SeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+    tail.toSeparatedLinearRawTransportTail
+
+/-- The sharp coefficient is `C_m + C_sign`; no new estimate is assumed. -/
+theorem connectedCombinedCeiling_eq
+    (tail : SignMatchedSeparatedLinearRawTransportTail schedule) :
+    tail.toConnectedSeparatedLinearRawTransportTail.combinedCeiling =
+      tail.mismatchCeiling + tail.signMatchCeiling :=
+  rfl
+
+/-- Final scale consumer using the sharp connected bound. -/
+theorem connectedFineCovariance_le_anchorRate_add_epsilon
+    (tail : SignMatchedSeparatedLinearRawTransportTail schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.toConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
 
 /-- Final scale consumer for the sign-matched formulation. -/
 theorem fineCovariance_le_anchorRate_add_epsilon
@@ -142,6 +173,9 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.toSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.combinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.connectedCombinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.connectedFineCovariance_le_anchorRate_add_epsilon
 #print axioms PhysicalObservableRefinementSchedule.SignMatchedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
 
 end YMGap.Continuum.CompactDualSlabObservablePhysicalSignMatchedTransportTail

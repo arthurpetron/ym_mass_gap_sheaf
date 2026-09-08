@@ -20,6 +20,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
+import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 import YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
 
 namespace YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail
@@ -29,11 +30,14 @@ set_option maxRecDepth 30000
 set_option maxHeartbeats 1000000
 
 open YMGap.Constructive
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail.PhysicalObservableRefinementSchedule
+
+local infix:50 " ≈ " => Q'.eqv
 
 namespace PhysicalObservableRefinementSchedule
 
@@ -47,6 +51,32 @@ def connectedRemainderBudget
   Q'.abs
     (centeredCylinderRemainder
       (schedule.kernel scale) (schedule.faceMap scale))
+
+/-- The sharp second budget is exactly the matching defect of the explicit
+pointwise-unit-bounded connected observable. -/
+theorem connectedRemainderBudget_eqv_structuredObservableMatchDefect
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) :
+    connectedRemainderBudget schedule scale ≈
+      finiteKernelObservableMatchDefect
+        (schedule.kernel scale)
+        (connectedRemainderObservable
+          (schedule.kernel scale) (schedule.faceMap scale)) := by
+  unfold connectedRemainderBudget
+  exact Q'.eqv_symm
+    (connectedObservableMatchDefect_eqv_abs_centeredCylinderRemainder
+      (schedule.kernel scale) (schedule.faceMap scale))
+
+/-- Pointwise unit boundedness of the structured observable improves the
+old universal factor three to one copy of the pushed-law `L1` remainder. -/
+theorem connectedRemainderBudget_le_remainderL1
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) :
+    connectedRemainderBudget schedule scale ≤
+      (schedule.kernel scale).remainderL1 := by
+  unfold connectedRemainderBudget
+  exact centeredCylinderRemainder_abs_le_remainderL1
+    (schedule.kernel scale) (schedule.faceMap scale)
 
 /-- The exact transport budget displayed as its raw and connected parts. -/
 def connectedSeparatedRawTransportBudget
@@ -148,9 +178,55 @@ theorem fineCovariance_le_anchorRate_add_epsilon
     epsilon hepsilon scale hscale
 
 end ConnectedSeparatedLinearRawTransportTail
+
+/-! ## 3. Sharpen the existing raw/L1 producer without new hypotheses -/
+
+namespace SeparatedLinearRawTransportTail
+
+variable {schedule : PhysicalObservableRefinementSchedule}
+
+/-- The existing raw-mismatch and `remainderL1` hypotheses compile into the
+cancellation-preserving tail with coefficient `C_m + C_r`, rather than the
+older conservative coefficient `C_m + 3*C_r`. -/
+def toConnectedSeparatedLinearRawTransportTail
+    (tail : SeparatedLinearRawTransportTail schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule where
+  start := tail.start
+  mismatchCeiling := tail.mismatchCeiling
+  mismatchCeiling_pos := tail.mismatchCeiling_pos
+  connectedCeiling := tail.remainderCeiling
+  connectedCeiling_pos := tail.remainderCeiling_pos
+  mismatch_le := tail.mismatch_le
+  connectedRemainder_le := fun scale hscale =>
+    Q'.le_trans' _ _ _
+      (connectedRemainderBudget_le_remainderL1 schedule scale)
+      (tail.remainderL1_le scale hscale)
+
+theorem connectedCombinedCeiling_eq
+    (tail : SeparatedLinearRawTransportTail schedule) :
+    (toConnectedSeparatedLinearRawTransportTail tail).combinedCeiling =
+      tail.mismatchCeiling + tail.remainderCeiling :=
+  rfl
+
+/-- Final covariance consumer for the sharpened raw/L1 route. -/
+theorem connectedFineCovariance_le_anchorRate_add_epsilon
+    (tail : SeparatedLinearRawTransportTail schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      (toConnectedSeparatedLinearRawTransportTail tail).toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  (toConnectedSeparatedLinearRawTransportTail tail).fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end SeparatedLinearRawTransportTail
 end PhysicalObservableRefinementSchedule
 
 #print axioms PhysicalObservableRefinementSchedule.connectedRemainderBudget
+#print axioms PhysicalObservableRefinementSchedule.connectedRemainderBudget_eqv_structuredObservableMatchDefect
+#print axioms PhysicalObservableRefinementSchedule.connectedRemainderBudget_le_remainderL1
 #print axioms PhysicalObservableRefinementSchedule.connectedSeparatedRawTransportBudget
 #print axioms PhysicalObservableRefinementSchedule.rawTransportBudget_eq_connectedSeparatedRawTransportBudget
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail
@@ -158,5 +234,8 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.rawTransportBudget_le_combinedCeiling_mul_spacing
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+#print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.connectedCombinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.connectedFineCovariance_le_anchorRate_add_epsilon
 
 end YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail

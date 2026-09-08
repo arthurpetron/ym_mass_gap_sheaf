@@ -261,7 +261,8 @@ abbrev MatchedShiftedAFSignMatchedTransportTail
 
 /-- On the exact matched nome/spacing chart, the remaining raw/sign `O(a)`
 producer gives the literal fine covariance bound at its constructive epsilon
-cutoff.  No producer is synthesized by this theorem. -/
+cutoff with sharp coefficient `C_m + C_sign`.  No producer is synthesized by
+this theorem. -/
 theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
     (family : MatchedBlockFamily)
     (law : CubicMarginLaw family)
@@ -277,14 +278,14 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
     (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
     (scale : Nat)
     (hscale :
-      tail.toSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
         epsilon ≤ scale) :
     let schedule :=
       matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
         C coupling coupling_pos coupling_le_window identification nested
     schedule.fineCovariance scale ≤
       schedule.anchorRate scale + epsilon :=
-  tail.fineCovariance_le_anchorRate_add_epsilon
+  tail.connectedFineCovariance_le_anchorRate_add_epsilon
     epsilon hepsilon scale hscale
 
 #print axioms NestedCutoffOneFaceGeometry

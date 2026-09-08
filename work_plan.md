@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-02)
+## Whole-project goal and live completion map (updated 2026-09-07)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -102,11 +102,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- raw-mismatch exact-decimation bound ................ [PROVED]
 |   |   |   |   +-- each raw average <= 1; three-event cost <= 3 ........ [PROVED]
 |   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
-|   |   |   |   +-- connected pushed-law remainder <= 3 * remainderL1 ... [PROVED]
-|   |   |   |   +-- separate mismatch/L1 tails => combined O(a) tail .... [PROVED interface]
+|   |   |   |   +-- connected remainder as one unit-bounded observable ... [PROVED]
+|   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
+|   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
-|   |   |   |   +-- mismatch/sign-match tails => combined O(a) tail ...... [PROVED interface]
+|   |   |   |   +-- mismatch/sign-match tails => sharp C_m + C_s tail .... [PROVED interface]
 |   |   |   |   +-- finite-atlas raw/TV argmin + reference transfer ...... [PROVED reduction]
 |   |   |   |   |   `-- corridor atlas with O(a) reference candidate ..... [OPEN alternative]
 |   |   |   |   +-- exact connected split => sharp C_m + C_c tail ........ [PROVED interface]
@@ -117,7 +118,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
 |   |   |   |       +-- sharp: |connected remainder| <= C_c * a .......... [OPEN preferred]
-|   |   |   |       `-- conservative: sign/TV defect <= C_s * a .......... [OPEN alternative]
+|   |   |   |       `-- stronger input: sign/TV defect <= C_s * a ........ [OPEN alternative]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
 |   |   |   +-- common guarded-receiver fiber payment ......... [PROVED]
@@ -1249,9 +1250,9 @@ and connected remainder is the active analytic edge.  The schedule also does
 not by itself supply measure consistency, a continuum observable algebra, or
 OS/GNS reconstruction.
 
-The connected pushed-law half has now been reduced to the standard physical
-pushforward norm.  Since the blocked target and coarse root face moments lie
-in `[0,1]`, the exact signed expansion gives
+The first connected pushed-law reduction bounded the three signed cylinder
+terms separately.  Since the blocked target and coarse root face moments lie
+in `[0,1]`, that argument gave the sufficient but non-sharp estimate
 
 ```text
 |connected pushed-law remainder| <= 3 * physical remainderL1.
@@ -1261,10 +1262,10 @@ in `[0,1]`, the exact signed expansion gives
 splits the single combined `O(a)` hypothesis into two independently testable
 literal estimates: the raw root/target/joint mismatch cost is at most
 `C_m * a`, and the physical pushforward `remainderL1` is at most `C_r * a`.
-It constructively compiles those inputs to the complete transport tail with
-coefficient `C_m + 3*C_r`, and hence to the existing eventual
-`anchor + epsilon` covariance theorem.  Neither input estimate is inhabited;
-they are now the two explicit active analytic producers.
+Its original compiler pays coefficient `C_m + 3*C_r`; the sharper connected
+compiler described below now reuses the identical hypotheses with coefficient
+`C_m + C_r`.  Neither input estimate is inhabited; they remain explicit
+active analytic producers.
 
 `CompactDualPhysicalRemainderL1DualObservable.lean` now removes any ambiguity
 about what the second producer measures.  For each actual physical kernel it
@@ -1279,9 +1280,10 @@ asymptotic estimate.
 that identity at every index of the nested physical schedule.  Its
 `SignMatchedSeparatedLinearRawTransportTail` asks for the raw event-mismatch
 bound `C_m * a` and the actual selected candidate's sign-observable matching
-bound `C_s * a`; it compiles them to the previous separated tail with exact
-coefficient `C_m + 3*C_s`, then to the eventual `anchor + epsilon` covariance
-theorem.  Neither producer is inhabited.  Crucially, the sign observable
+bound `C_s * a`.  Via the unit-bounded connected observable below, the same
+hypotheses now compile with sharp coefficient `C_m + C_s`, then to the
+eventual `anchor + epsilon` covariance theorem.  Neither producer is
+inhabited.  Crucially, the sign observable
 depends on the candidate kernel, so the already-proved argmin for one fixed
 observable does not by itself minimize this total-variation defect.  A
 uniform candidate-dependent sign-matching estimate, together with the raw
@@ -1303,6 +1305,29 @@ coefficient exactly `C_m + C_c`, and then to the same eventual
 `anchor + epsilon` covariance theorem.  This is now the preferred analytic
 branch because it retains cancellations that the sufficient
 `3 * remainderL1` bound discards.  Neither estimate is inhabited.
+
+`CompactDualSlabObservablePhysicalConnectedRemainderObservable.lean` makes
+that cancellation completely explicit.  The connected remainder is the
+blocked-minus-coarse matching defect of the candidate-dependent observable
+
+```text
+-1_(root and target)
+  + blockedMoment(target) * 1_root
+  + coarseMoment(root) * 1_target.
+```
+
+The observable is constructively proved pointwise bounded in absolute value
+by one.  Finite triangle inequality then sharpens the universal comparison to
+
+```text
+|connected pushed-law remainder| <= remainderL1.
+```
+
+Consequently the old raw/L1 and raw/sign hypotheses compile through the exact
+connected tail with coefficients `C_m + C_r` and `C_m + C_s`, respectively;
+the previous factor-three consumers remain only as compatibility paths.  This
+is a genuine unconditional strengthening, but boundedness still supplies no
+refining-scale `O(a)` estimate by itself.
 
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
@@ -1345,8 +1370,9 @@ constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
 sharp raw/connected `O(a)` tail on this exact schedule yields the literal fine
-covariance bound `anchor + epsilon` at the computed cutoff.  The conservative
-raw/sign tail remains exposed on the same schedule as an alternative.
+covariance bound `anchor + epsilon` at the computed cutoff.  The raw/sign
+input remains exposed on the same schedule as a stronger alternative
+and now pays no factor-three coefficient loss.
 
 This is a proved same-chart bridge, not a physical AF construction.  The
 four-dimensional `CubicMarginLaw`, the dimensional-transmutation
