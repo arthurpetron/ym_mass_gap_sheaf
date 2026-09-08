@@ -191,11 +191,48 @@ theorem actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDen
     Q'.le_trans' l1 (cost * mass) (ceiling * mass)
       (Q'.ge_of_eqv hidentity) hscaled
 
+/-- Conversely, any nonnegative aggregate full-carrier ceiling bounds the
+total normalized scalar.  Together with the preceding theorem, this makes
+the scalar and literal aggregate formulations constructively equivalent. -/
+theorem actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost_le_of_densityL1_le
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat)
+    (htarget : target ∈ slabPhysicalFaceEdges S.coarse.extent)
+    (ceiling : Q') (hceiling : (0 : Q') ≤ ceiling)
+    (hl1 :
+      actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+          S hfineCutoff hcoarseCoupling root target htarget ≤
+        ceiling *
+          actualPositiveExpandedReceiverFiberScaleDefectFullCarrierTargetMass
+            S root target) :
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
+        S hfineCutoff hcoarseCoupling root target htarget ≤ ceiling := by
+  let mass :=
+    actualPositiveExpandedReceiverFiberScaleDefectFullCarrierTargetMass
+      S root target
+  let l1 :=
+    actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+      S hfineCutoff hcoarseCoupling root target htarget
+  by_cases hmass : (0 : Q') < mass
+  · unfold actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
+    change (if h : (0 : Q') < mass then
+      Q'.divPos l1 mass h else 0) ≤ ceiling
+    rw [dif_pos hmass]
+    apply Q'.divPos_le_of_le_mul l1 mass hmass
+    simpa only [l1, mass] using hl1
+  · unfold actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
+    change (if h : (0 : Q') < mass then
+      Q'.divPos l1 mass h else 0) ≤ ceiling
+    rw [dif_neg hmass]
+    exact hceiling
+
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectFullCarrierTargetMass
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectFullCarrierTargetMass_nonnegative
 #print axioms slabObservableFourCellTargetPairs_eq_nil_of_targetMass_not_pos
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost_mul_targetMass_eqv_densityL1
 #print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1_le_of_relativeCost_le
+#print axioms actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnRelativeCost_le_of_densityL1_le
 
 end YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierRelativeCost

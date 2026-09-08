@@ -221,6 +221,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   +-- full target-carrier mass <= `Z_c^2` .......... [PROVED]
 |   |   |   |       |   |   |   |   +-- total full-carrier posterior relative cost .... [PROVED exact]
 |   |   |   |       |   |   |   |   |   `-- cost * target mass ~= posterior `l1` ....... [PROVED]
+|   |   |   |       |   |   |   |   |   `-- nonnegative aggregate ceiling <=> cost bound [PROVED]
+|   |   |   |       |   |   |   |   +-- uniform source/target coefficients + physical
+|   |   |   |       |   |   |   |   |       column capacity => posterior cost bound ..... [PROVED reduction]
 |   |   |   |       |   |   |   |   +-- row + full-carrier posterior => global budget  [PROVED bridge]
 |   |   |   |       |   |   |   |   +-- combined/separate sector routes retained ...... [PROVED adapters]
 |   |   |   |       |   |   |   |   `-- pointwise route retained ...................... [PROVED stronger]
@@ -229,6 +232,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |       |   +-- signed row <= literal density-defect `l1` .. [PROVED reduction]
 |   |   |   |       |   |   |       |   `-- density-defect `l1` / source mass .......... [OPEN sufficient]
 |   |   |   |       |   |   |       `-- full-carrier posterior relative cost .......... [OPEN scalar]
+|   |   |   |       |   |   |           `-- sufficient uniform density calibration .... [ACTIVE analytic]
+|   |   |   |       |   |   |               +-- full source four-cell coefficient ...... [OPEN]
+|   |   |   |       |   |   |               `-- full target four-cell coefficient ...... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -1127,16 +1133,21 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |   `-- three-budget posterior quadratic estimate ................ [ACTIVE preferred]
 |       +-- connected row relative estimate ...................... [OPEN]
 |       `-- full-carrier posterior relative-cost estimate ........ [OPEN]
+|           `-- reduced to uniform source/target density errors .. [ACTIVE]
+|               +-- uniform source coefficient `O(g^2*density)` . [OPEN]
+|               `-- uniform target coefficient `O(g^2*density)` . [OPEN]
 +-- positive physical gap on a common trajectory ................. [OPEN]
 +-- same-measure continuum construction .......................... [OPEN]
 +-- OS/GNS Hamiltonian with a positive gap ........................ [OPEN]
 `-- Clay-facing same-object assembly .............................. [OPEN]
 ```
 
-The latest full-carrier relative-cost and matched-AF compiler modules pass
-monitored focused checks and dependency-complete one-worker targets (1,595 and
-5,445 jobs respectively).  Their six and twenty-one printed load-bearing
-declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+The latest full-carrier uniform-calibration module passes both a monitored
+focused check and its dependency-complete target (1,597 jobs).  Its four
+printed load-bearing declarations use only `[propext, Quot.sound]`.  The
+generic compiler now prints nine declarations using only `[propext]`, and the
+full-carrier relative-cost module prints seven using only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
@@ -30241,6 +30252,72 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 231. Reduce posterior relative cost to uniform density calibration (2026-09-08)
+
+**Status. THE FULL-CARRIER POSTERIOR COST IS NOW BOUNDED BY THE SUM OF ONE
+UNIFORM SOURCE-DENSITY ERROR AND ONE UNIFORM TARGET-DENSITY ERROR, USING THE
+LITERAL CONNECTED AND DISCONNECTED PHYSICAL COLUMN CAPACITIES.**
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound.lean` proves a
+generic constructive compiler.  If all transported source coefficients have
+absolute value at most `sourceRelative`, all target coefficients have
+absolute value at most `targetRelative`, local and physical weights are
+nonnegative, and every incoming column respects its target capacity, then
+
+```text
+posteriorColumnL1
+  <= (sourceRelative + targetRelative) * totalTargetMass.
+```
+
+The proof first bounds the absolute signed mass entering each column and then
+sums target-weight-relative errors, so no source- or target-cardinality factor
+appears.
+
+`CompactDualSlabObservablePairedSplitPosteriorMass.lean` now exposes the
+previously inlined pointwise weighted-column capacity of the normalized
+support-disconnected kernel.  Together with the established connected
+first-source-thinned capacity,
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierUniformCalibration.lean`
+specializes the generic compiler to both concrete density transports,
+reassembles them on the original full target carrier, and proves
+
+```text
+fullCarrierPosteriorRelativeCost
+  <= sourceRelative + targetRelative.
+```
+
+The relative-cost module also proves the converse normalization direction:
+every nonnegative aggregate `L1 <= ceiling * targetMass` estimate implies
+`relativeCost <= ceiling`.  Thus the scalar and aggregate formulations are
+constructively equivalent even when the carrier is empty.
+
+No uniform density-calibration estimate is inhabited.  The active posterior
+analytic seam is now the source and target coefficient bounds at scale
+`O(g^2 * partitionDensity)`; the weaker scalar estimate remains an equivalent
+target.  The connected-row relative estimate, lower quadratic spacing, raw
+mismatch, arbitrary-cutoff persistence, uniform physical gap, continuum
+construction, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay
+closure remain open.
+
+Monitored verification:
+
+```text
+disconnected pointwise-capacity focused source check        PASS
+disconnected pointwise-capacity dependency target           PASS (1,527 jobs)
+generic uniform-coefficient dependency target               PASS
+full-carrier relative-cost dependency target                PASS (joint 1,596 jobs)
+uniform-calibration focused source check                    PASS
+uniform-calibration dependency target                      PASS (1,597 jobs)
+```
+
+The generic module prints nine load-bearing declarations using only
+`[propext]`.  The full-carrier relative-cost module prints seven, the split
+posterior-mass module prints five, and the new uniform-calibration module
+prints four; all of those concrete declarations use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
 
 ## 230. Normalize the full-carrier posterior to one total scalar (2026-09-08)
 

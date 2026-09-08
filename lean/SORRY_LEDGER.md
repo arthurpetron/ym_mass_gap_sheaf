@@ -29217,3 +29217,57 @@ updated matched-AF module prints twenty-one; all use only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
+
+#### Reduce posterior relative cost to uniform density calibration (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosteriorRelativeBound` now proves that
+uniform source- and target-coefficient bounds, nonnegative local and physical
+weights, and weighted column capacity imply
+
+```text
+posteriorColumnL1
+  <= (sourceRelative + targetRelative) * totalTargetMass.
+```
+
+The proof bounds the absolute signed source mass entering each column before
+summing target-weight-relative errors, so it introduces no carrier-cardinality
+factor.  `CompactDualSlabObservablePairedSplitPosteriorMass` exposes the
+previously inlined pointwise weighted-column capacity of the normalized
+disconnected kernel.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnCombinedCarrierUniformCalibration`
+specializes the compiler to the actual connected and disconnected density
+transports.  Exact sector reassembly proves that uniform calibration on the
+full source and target four-cell carriers implies
+
+```text
+fullCarrierPosteriorRelativeCost
+  <= sourceRelative + targetRelative.
+```
+
+The relative-cost module also proves the converse direction from a
+nonnegative aggregate `l1` ceiling to the total normalized scalar, including
+the empty-carrier branch.  No calibration smallness estimate is inhabited:
+uniform source and target bounds at `O(g^2 * partitionDensity)` remain open,
+as do the connected-row estimate, lower quadratic spacing, raw mismatch,
+arbitrary-cutoff persistence, uniform physical gap, continuum construction,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
+
+Monitored verification:
+
+```text
+disconnected pointwise-capacity focused source check        PASS
+disconnected pointwise-capacity dependency target           PASS (1,527 jobs)
+generic uniform-coefficient dependency target               PASS
+full-carrier relative-cost dependency target                PASS (joint 1,596 jobs)
+uniform-calibration focused source check                    PASS
+uniform-calibration dependency target                      PASS (1,597 jobs)
+```
+
+The generic module prints nine load-bearing declarations using only
+`[propext]`.  The full-carrier relative-cost module prints seven, the split
+posterior-mass module prints five, and the new uniform-calibration module
+prints four; all concrete declarations use only `[propext, Quot.sound]`.
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  No
+full-root audit is claimed.

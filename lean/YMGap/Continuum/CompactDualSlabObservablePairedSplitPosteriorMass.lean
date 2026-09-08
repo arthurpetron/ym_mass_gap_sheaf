@@ -93,6 +93,51 @@ theorem slabObservableFourCellTargetPairs_pairedSupport_partition
 
 /-! ## 2. The normalized disconnected branch spends only disconnected columns -/
 
+/-- The normalized disconnected kernel respects the literal physical capacity
+of every target column.  This is the pointwise form of the column argument
+used by the aggregate disconnected-sector budget below. -/
+theorem slabObservablePairedSupportSeparatedWeightedColumn_le_disconnectedTarget
+    (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent)
+    (receiver : SlabObservableTwoReplicaPair D rootFaceId) :
+    listQSum
+        (fun source => slabObservableTwoReplicaPairWeight D source.1 *
+          dependentKernelPushforwardWeight
+            (SlabObservablePairedSupportRecouplingChoice
+              D rootFaceId targetFaceId)
+            (slabObservablePairedSupportRecouplingChoices
+              D rootFaceId targetFaceId)
+            (slabObservablePairedSupportRecouplingWeight
+              D rootFaceId targetFaceId htarget)
+            (slabObservablePairedSupportRecoupledTargetPair
+              D rootFaceId targetFaceId htarget)
+            source receiver)
+        (slabObservablePairedSupportSeparatedSources
+          D rootFaceId targetFaceId) ≤
+      slabObservableTwoReplicaPairWeight D receiver := by
+  exact weightedColumn_le_of_columnCapacity
+    (slabObservablePairedSupportSeparatedSources
+      D rootFaceId targetFaceId)
+    (fun source => slabObservableTwoReplicaPairWeight D source.1)
+    (slabObservableTwoReplicaPairWeight D)
+    (SlabObservablePairedSupportRecouplingChoice
+      D rootFaceId targetFaceId)
+    (slabObservablePairedSupportRecouplingChoices
+      D rootFaceId targetFaceId)
+    (slabObservablePairedSupportRecouplingWeight
+      D rootFaceId targetFaceId htarget)
+    (slabObservablePairedSupportRecoupledTargetPair
+      D rootFaceId targetFaceId htarget)
+    receiver
+    (slabObservableTwoReplicaPairWeight_nonnegative
+      D rootFaceId receiver)
+    (fun source _ choice heq => by
+      rw [heq]
+      exact slabObservablePairedSupportRecoupledTargetPair_weight_preserved
+        D rootFaceId targetFaceId htarget source choice)
+    (slabObservablePairedSupportDependentColumnCapacity
+      D rootFaceId targetFaceId htarget receiver)
+
 theorem slabObservablePairedSupportSeparated_weight_le_disconnectedTarget
     (D : SlabPhysicalData) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges D.extent) :
@@ -258,6 +303,7 @@ theorem slabObservablePairedSplitTransportedMass_le_target
 end YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass
 
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass.slabObservableFourCellTargetPairs_pairedSupport_partition
+#print axioms YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass.slabObservablePairedSupportSeparatedWeightedColumn_le_disconnectedTarget
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass.slabObservablePairedSupportSeparated_weight_le_disconnectedTarget
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass.slabObservablePairedConnectedStrandThinnedTransportedMass_le_connectedTarget
 #print axioms YMGap.Continuum.CompactDualSlabObservablePairedSplitPosteriorMass.slabObservablePairedSplitTransportedMass_le_target
