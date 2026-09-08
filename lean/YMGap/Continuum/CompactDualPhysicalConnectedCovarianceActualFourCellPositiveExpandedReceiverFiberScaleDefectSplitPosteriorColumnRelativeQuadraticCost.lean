@@ -262,6 +262,25 @@ theorem positiveExpandedReceiverFiberPartitionDensity_pos
       (slabParametricKPhysicalPartition_pos
         S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent))
 
+/-- The literal connected-row density `l1` budget majorizes the signed row
+debt used by the posterior compiler. -/
+theorem actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt_abs_le_densityDefectL1
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat)
+    (htarget : target ∈ slabPhysicalFaceEdges S.coarse.extent) :
+    Q'.abs
+        (actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt
+          S hfineCutoff hcoarseCoupling root target htarget) ≤
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDefectL1
+        S hfineCutoff hcoarseCoupling root target htarget := by
+  unfold actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDefectL1
+  apply receiverTransportRowCoefficientDefect_abs_le_densityDefectL1
+  intro source
+  exact Q'.eqv_refl _
+
 private theorem relativeQuadraticBudget_mul_coarseSquare_eqv
     (S : SlabScalePair) (rowCeiling columnCeiling g : Q') :
     (((rowCeiling * (g * g)) *
@@ -472,6 +491,64 @@ theorem splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
     (by simpa only [S, root, target, htarget, connected] using hrow)
     (by simpa only [S, root, target, htarget, connected, disconnected] using
       hcombined)
+
+/-- A bound on the explicit connected-row density `l1` budget is a sufficient
+row input for the preferred full-carrier posterior compiler. -/
+theorem splitPosteriorColumnBudget_le_fullCarrierRelativeDensityL1
+    (schedule : PhysicalObservableRefinementSchedule)
+    (scale : Nat) (rowRelative columnRelative : Q')
+    (hrowRelative : (0 : Q') ≤ rowRelative)
+    (hcolumnRelative : (0 : Q') ≤ columnRelative)
+    (hrowL1 :
+      let S := schedule.scalePair scale
+      let root := (schedule.faceMap scale).coarseRoot
+      let target := (schedule.faceMap scale).coarseTarget
+      let htarget := (schedule.faceMap scale).coarseTarget_mem
+      let connected :=
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+      actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDefectL1
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources)
+    (hcolumns :
+      let S := schedule.scalePair scale
+      let root := (schedule.faceMap scale).coarseRoot
+      let target := (schedule.faceMap scale).coarseTarget
+      let htarget := (schedule.faceMap scale).coarseTarget_mem
+      actualPositiveExpandedReceiverFiberScaleDefectCombinedPosteriorColumnDensityL1
+          S rfl (schedule.effectiveCoupling_pos scale) root target htarget ≤
+        columnRelative *
+          listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+            (slabObservableFourCellTargetPairs S.coarse root target)) :
+    actualPositiveExpandedReceiverFiberScaleDefectCoarseSquareCancelledSplitPosteriorColumnBudget
+        schedule scale ≤
+      (rowRelative + columnRelative) *
+        ((schedule.scalePair scale).coarse.physicalPartition *
+          (schedule.scalePair scale).coarse.physicalPartition) := by
+  let S := schedule.scalePair scale
+  let root := (schedule.faceMap scale).coarseRoot
+  let target := (schedule.faceMap scale).coarseTarget
+  let htarget := (schedule.faceMap scale).coarseTarget_mem
+  let connected :=
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedDensityTransport
+      S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+  have hrow :
+      Q'.abs connected.rowCoefficientDefect ≤
+        rowRelative * listQSum connected.sourceWeight connected.sources := by
+    refine Q'.le_trans' _
+      (actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDefectL1
+        S rfl (schedule.effectiveCoupling_pos scale) root target htarget) _ ?_ ?_
+    · simpa only [connected,
+        actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt]
+        using
+          actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt_abs_le_densityDefectL1
+            S rfl (schedule.effectiveCoupling_pos scale) root target htarget
+    · simpa only [S, root, target, htarget, connected] using hrowL1
+  exact splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+    schedule scale rowRelative columnRelative
+    hrowRelative hcolumnRelative
+    (by simpa only [S, root, target, htarget, connected] using hrow)
+    (by simpa only [S, root, target, htarget] using hcolumns)
 
 /-- Separate posterior-sector aggregates compile to the weaker combined
 posterior interface. -/
@@ -1030,8 +1107,10 @@ end MatchedShiftedAFSplitPosteriorColumnRelativeQuadraticCostControl
 #print axioms connectedDensityTransport_sourceWeight_le_coarseSquare
 #print axioms splitDensityTransports_targetWeight_le_coarseSquare
 #print axioms positiveExpandedReceiverFiberPartitionDensity_pos
+#print axioms actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDebt_abs_le_densityDefectL1
 #print axioms splitPosteriorColumnBudget_le_combinedAggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeWeights
+#print axioms splitPosteriorColumnBudget_le_fullCarrierRelativeDensityL1
 #print axioms splitPosteriorColumnBudget_le_aggregateRelativeWeights
 #print axioms splitPosteriorColumnBudget_le_relativeWeights
 #print axioms MatchedShiftedAFSplitPosteriorColumnFullCarrierRelativeQuadraticCostControl

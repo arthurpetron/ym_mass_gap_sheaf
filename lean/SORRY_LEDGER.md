@@ -29139,3 +29139,38 @@ matched-AF module prints eighteen; all use only `[propext, Quot.sound]`.  No
 `sorry`, `admit`, `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.  No full-root audit
 is claimed.
+
+#### Majorize the connected row debt by its literal density-defect sum (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation`
+now proves that the absolute signed row defect of any density-coefficient
+dependent transport is bounded by the literal source-weighted `l1` sum of its
+unretained density errors.  The concrete specialization identifies that sum
+with the existing connected-row density-defect budget.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost`
+adds the schedule-level adapter: a relative bound on the explicit row `l1`
+budget and a relative bound on the full-carrier posterior `l1` imply the
+global posterior three-budget with no carrier-cardinality factor.
+
+No analytic smallness estimate is inhabited.  The signed aggregate row bound
+remains the weakest open input, while the literal row `l1` estimate is a
+stronger sufficient route.  The full-carrier posterior estimate, lower
+quadratic spacing, raw mismatch, arbitrary-cutoff persistence, uniform
+physical gap, continuum construction, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure remain open.
+
+Monitored verification:
+
+```text
+generic row-density source check                            PASS
+generic row-density dependency target                      PASS (1,589 jobs)
+concrete row-density adapter source check                   PASS
+concrete row-density adapter dependency target              PASS (5,444 jobs)
+```
+
+The coarse-square module now prints twenty-two load-bearing declarations and
+the updated matched-AF module prints twenty; all use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.

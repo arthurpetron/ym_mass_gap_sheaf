@@ -9,10 +9,12 @@ then cancels it from the residual normalized cost.
 
 The exact connected cost is thereby reduced to a sum of five dimensionless
 receiver-density defects divided only by the lattice spacing and the fine
-physical-partition square.  No asymptotic estimate on that sum is supplied.
-In particular, this module proves no uniform normalized-cost bound, physical
-gap floor, continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay
-conclusion.
+physical-partition square.  A direct finite triangle theorem also proves that
+the literal row-density `l1` budget majorizes the signed row defect of any
+density-coefficient transport.  No asymptotic estimate on that sum is
+supplied.  In particular, this module proves no uniform normalized-cost
+bound, physical gap floor, continuum measure, OS/GNS reconstruction,
+Hamiltonian gap, or Clay conclusion.
 
 Constructive contract: finite exact rational algebra and positivity only; no
 choice, `Classical`, `native_decide`, `sorry`, noncomputable declaration, or
@@ -47,6 +49,18 @@ open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem abs_listQSum_le_sum_abs_local {A : Type}
+    (value : A → Q') : ∀ items : List A,
+      Q'.abs (listQSum value items) ≤
+        listQSum (fun item => Q'.abs (value item)) items
+  | [] => Q'.le_refl' 0
+  | head :: tail =>
+      Q'.le_trans' _ _ _
+        (Q'.abs_add_le' (value head) (listQSum value tail))
+        (Q'.add_le_add
+          (Q'.le_refl' (Q'.abs (value head)))
+          (abs_listQSum_le_sum_abs_local value tail))
 
 private theorem move_positive_middle_factor_right
     (left difference factor right : Q') :
@@ -217,6 +231,49 @@ def receiverTransportRowDensityDefectL1
                 (sourceReceiver source)) *
             ((1 : Q') + -data.rowMass source))))
     data.sources
+
+/-- The signed row defect of a density-coefficient transport is bounded by
+the literal source-weighted `l1` sum of its unretained density errors. -/
+theorem receiverTransportRowCoefficientDefect_abs_le_densityDefectL1
+    {Source : Type}
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat)
+    {receiverDecidableEq : DecidableEq (Receiver S root)}
+    (data : @FiniteDependentCoefficientTransport Source (Receiver S root)
+      receiverDecidableEq)
+    (sourceReceiver : Source → Receiver S root)
+    (hcoefficient : ∀ source,
+      data.sourceCoefficient source ≈
+        positiveExpandedReceiverFiberPartitionDensity S -
+          positiveExpandedFourCellSourceReceiverFiberDensity
+            S hfineCutoff hcoarseCoupling root target
+            (sourceReceiver source)) :
+    Q'.abs data.rowCoefficientDefect ≤
+      receiverTransportRowDensityDefectL1
+        S hfineCutoff hcoarseCoupling root target data sourceReceiver := by
+  have hrow :
+      data.rowCoefficientDefect ≈
+        listQSum
+          (fun source =>
+            data.sourceWeight source *
+              ((positiveExpandedReceiverFiberPartitionDensity S -
+                  positiveExpandedFourCellSourceReceiverFiberDensity
+                    S hfineCutoff hcoarseCoupling root target
+                    (sourceReceiver source)) *
+                ((1 : Q') + -data.rowMass source)))
+          data.sources := by
+    refine Q'.eqv_trans _ _ _ data.rowCoefficientDefect_eqv_unretained ?_
+    apply listQSum_congr
+    intro source
+    refine Q'.mul_eqv_congr_left (data.sourceWeight source) _ _ ?_
+    exact Q'.mul_eqv_congr_right _ _
+      ((1 : Q') + -data.rowMass source) (hcoefficient source)
+  refine Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.abs_eqv_congr hrow)) ?_
+  unfold receiverTransportRowDensityDefectL1
+  exact abs_listQSum_le_sum_abs_local _ _
 
 def receiverTransportEdgeDensityDefectL1
     {Source : Type}
@@ -636,6 +693,7 @@ theorem actualPositiveExpandedReceiverFiberScaleDefectSplitDensityNormalizedCost
       schedule scale)
 
 #print axioms receiverTransportRowDensityDefectL1
+#print axioms receiverTransportRowCoefficientDefect_abs_le_densityDefectL1
 #print axioms receiverTransportEdgeDensityDefectL1
 #print axioms receiverTransportColumnDensityDefectL1
 #print axioms receiverTransportRowCalibrationL1_eqv_coarseSquare_mul_densityDefectL1

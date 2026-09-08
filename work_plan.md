@@ -223,7 +223,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   +-- combined/separate sector routes retained ...... [PROVED adapters]
 |   |   |   |       |   |   |   |   `-- pointwise route retained ...................... [PROVED stronger]
 |   |   |   |       |   |   |   `-- inhabit two aggregate estimates ................... [ACTIVE preferred]
-|   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN]
+|   |   |   |       |   |   |       +-- connected total row defect / source mass ...... [OPEN weakest]
+|   |   |   |       |   |   |       |   +-- signed row <= literal density-defect `l1` .. [PROVED reduction]
+|   |   |   |       |   |   |       |   `-- density-defect `l1` / source mass .......... [OPEN sufficient]
 |   |   |   |       |   |   |       `-- full-carrier posterior `l1` / target mass ...... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
@@ -30216,6 +30218,56 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## 229. Majorize the connected row debt by its literal density-defect sum (2026-09-08)
+
+**Status. THE SIGNED CONNECTED ROW INPUT NOW HAS A CONCRETE SOURCE-WEIGHTED
+FINITE `L1` MAJORANT, AND THAT MAJORANT PLUGS DIRECTLY INTO THE FULL-CARRIER
+POSTERIOR COMPILER.**
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation.lean`
+proves the generic constructive triangle bound
+
+```text
+abs(row coefficient defect)
+  <= sum_source abs(sourceWeight *
+       ((partitionDensity - sourceFiberDensity) * (1 - rowMass))).
+```
+
+The theorem works for any dependent transport whose source coefficient is
+the displayed density difference.  Its specialization to the actual
+connected density transport identifies the right side with the already
+literal
+`actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDensityDefectL1`.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnRelativeQuadraticCost.lean`
+then proves a schedule-level adapter: a relative bound on this explicit row
+`l1` sum, together with the full-carrier posterior relative bound from
+milestone 228, supplies the global posterior three-budget without a source-
+or receiver-cardinality factor.
+
+This is a finite triangle reduction, not the missing analytic estimate.  The
+weakest open row premise remains the absolute signed aggregate relative to
+connected source mass; bounding the literal `l1` sum is a stronger sufficient
+route.  The full-carrier posterior estimate, lower quadratic spacing, raw
+mismatch, arbitrary-cutoff persistence, uniform physical gap, continuum
+construction, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay
+closure remain open.
+
+Monitored verification:
+
+```text
+generic row-density source check                            PASS
+generic row-density dependency target                      PASS (1,589 jobs)
+concrete row-density adapter source check                   PASS
+concrete row-density adapter dependency target              PASS (5,444 jobs)
+```
+
+The coarse-square module now prints twenty-two load-bearing declarations and
+the updated matched-AF module prints twenty; all use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
 
 ## 228. Reassemble the split posterior columns on the full target carrier (2026-09-08)
 
