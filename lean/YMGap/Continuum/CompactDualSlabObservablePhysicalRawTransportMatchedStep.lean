@@ -2,20 +2,21 @@
 # Finite-atlas matching for the physical raw transport budget
 
 The source-resolved physical covariance theorem exposes a candidate-dependent
-score with two literal parts:
+sharp score with two literal parts:
 
 * the root/target/joint raw recoupling mismatch cost; and
-* three copies of the pushed-law `remainderL1`.
+* the absolute exact connected pushed-law remainder.
 
 This module selects a least-score positive coupling from any nonempty finite
 atlas.  If the atlas lies in the proved strong-coupling coefficient corridor,
 the selected physical block controls the fine covariance by its coarse anchor
 plus that least score.  A listed reference candidate therefore transfers any
-proved raw/total-variation estimate to the selected block.
+proved raw/connected-observable estimate to the selected block.
 
-The second score component is exactly three copies of the selected
-candidate's own sign-observable matching defect by finite total-variation
-duality.  Candidate dependence is retained throughout.
+The second score component is exactly the selected candidate's own structured
+unit-bounded connected-observable matching defect.  Candidate dependence and
+centering cancellation are retained throughout.  The sign/total-variation
+defect remains a stronger sufficient majorant, but is not used by the argmin.
 
 No atlas or refining-scale estimate is constructed here.  In particular,
 finite minimization does not prove an `O(a)` estimate, projective consistency,
@@ -27,6 +28,7 @@ noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualPhysicalRemainderL1DualObservable
+import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 import YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderL1Bound
 import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackFubini
 import YMGap.Continuum.CompactDualSlabObservablePhysicalPullbackRawMismatch
@@ -41,6 +43,7 @@ set_option maxHeartbeats 500000
 open YMGap.Constructive
 open YMGap.Continuum.BF4ObservableMatchedOneStep
 open YMGap.Continuum.CompactDualPhysicalRemainderL1DualObservable
+open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualSlabExpandedPhysicalEventDisintegration
@@ -61,10 +64,10 @@ open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-! ## 1. The candidate-dependent raw/total-variation score -/
+/-! ## 1. The candidate-dependent sharp raw/connected score -/
 
-/-- Raw mismatch plus three copies of the actual physical pushed-law `L1`
-remainder at one positive candidate. -/
+/-- Raw mismatch plus the absolute exact connected pushed-law remainder at
+one positive candidate. -/
 def physicalRawTransportBudgetAt
     (G : CutoffOneFaceGeometry)
     (g : Q') (hg : (0 : Q') ≤ g)
@@ -73,10 +76,37 @@ def physicalRawTransportBudgetAt
   let K := physicalKernel S rfl hcandidate
   let M := G.faceMap g hg candidate hcandidate
   physicalObservableRawMismatchCost S rfl hcandidate M +
-    threePhysicalRemainderCost K
+    Q'.abs (centeredCylinderRemainder K M)
 
-/-- The candidate-dependent sign-observable matching defect used to read the
-total-variation component of the score observationally. -/
+/-- The structured connected-observable matching defect at one candidate. -/
+def physicalCandidateConnectedMatchBudgetAt
+    (G : CutoffOneFaceGeometry)
+    (g : Q') (hg : (0 : Q') ≤ g)
+    (candidate : Q') (hcandidate : (0 : Q') < candidate) : Q' :=
+  let S := G.block.candidateScalePair g hg candidate hcandidate
+  let K := physicalKernel S rfl hcandidate
+  let M := G.faceMap g hg candidate hcandidate
+  observableMatchDefect G.block g hg candidate hcandidate
+    (connectedRemainderObservable K M)
+
+/-- The candidate's sharp second score is exactly its structured connected
+observable-matching defect. -/
+theorem physicalCandidateConnectedMatchBudgetAt_eqv
+    (G : CutoffOneFaceGeometry)
+    (g : Q') (hg : (0 : Q') ≤ g)
+    (candidate : Q') (hcandidate : (0 : Q') < candidate) :
+    physicalCandidateConnectedMatchBudgetAt G g hg candidate hcandidate ≈
+      let S := G.block.candidateScalePair g hg candidate hcandidate
+      let K := physicalKernel S rfl hcandidate
+      let M := G.faceMap g hg candidate hcandidate
+      Q'.abs (centeredCylinderRemainder K M) := by
+  simpa only [physicalCandidateConnectedMatchBudgetAt] using
+    (physicalObservableMatchDefect_connected_eqv
+      G.block g hg candidate hcandidate
+      (G.faceMap g hg candidate hcandidate))
+
+/-- The candidate-dependent sign-observable matching defect retained as a
+stronger total-variation comparison for the sharp score. -/
 def physicalCandidateSignMatchBudgetAt
     (G : CutoffOneFaceGeometry)
     (g : Q') (hg : (0 : Q') ≤ g)
@@ -85,7 +115,7 @@ def physicalCandidateSignMatchBudgetAt
     (physicalRemainderSignObservable G.block g hg candidate hcandidate)
 
 /-- At each candidate, the observational sign-match budget is exactly the
-physical pushed-law `L1` remainder appearing in the raw transport score. -/
+physical pushed-law `L1` remainder that majorizes the connected score. -/
 theorem physicalCandidateSignMatchBudgetAt_eqv_remainderL1
     (G : CutoffOneFaceGeometry)
     (g : Q') (hg : (0 : Q') ≤ g)
@@ -123,7 +153,8 @@ theorem atlasPhysicalRawTransportScore_of_mem
 
 /-! ## 2. Constructive finite selection -/
 
-/-- The listed positive candidate with least actual raw/TV transport score. -/
+/-- The listed positive candidate with least actual sharp raw/connected
+transport score. -/
 @[irreducible] def physicalRawTransportMatchedCoupling
     (G : CutoffOneFaceGeometry)
     (g : Q') (hg : (0 : Q') ≤ g)
@@ -234,7 +265,7 @@ theorem physicalRawTransportMatchedCoupling_coefficient
     (physicalRawTransportMatchedCoupling_mem G g hg atlas)
 
 /-- The selected fine covariance is bounded by the selected coarse anchor plus
-the least actual raw/total-variation score on the finite atlas. -/
+the least actual sharp raw/connected score on the finite atlas. -/
 theorem physicalRawTransportMatchedSlabFaceBooleanCovariance_le
     (G : CutoffOneFaceGeometry)
     (g : Q') (hg : (0 : Q') ≤ g)
@@ -276,12 +307,10 @@ theorem physicalRawTransportMatchedSlabFaceBooleanCovariance_le
         S rfl hselected M)
   have hremainder :
       centeredPhysicalRemainderDefect K M ≤
-        threePhysicalRemainderCost K := by
-    refine Q'.le_trans' _ _ _
-      (Q'.le_of_eqv
-        (centeredPhysicalRemainderDefect_eqv_abs_centeredCylinderRemainder
-          K M)) ?_
-    exact centeredCylinderRemainder_abs_le_threePhysicalRemainderCost K M
+        Q'.abs (centeredCylinderRemainder K M) :=
+    Q'.le_of_eqv
+      (centeredPhysicalRemainderDefect_eqv_abs_centeredCylinderRemainder
+        K M)
   have hbudget :
       centeredPhysicalTransportBudget K M ≤
         physicalRawTransportBudgetAt G g hg selected hselected := by
@@ -319,6 +348,7 @@ theorem physicalRawTransportMatchedSlabFaceBooleanCovariance_le_reference
         G g hg atlas reference hreference))
 
 #print axioms physicalRawTransportBudgetAt
+#print axioms physicalCandidateConnectedMatchBudgetAt_eqv
 #print axioms physicalCandidateSignMatchBudgetAt_eqv_remainderL1
 #print axioms physicalRawTransportMatchedCoupling_mem
 #print axioms physicalRawTransportMatchedCoupling_pos
