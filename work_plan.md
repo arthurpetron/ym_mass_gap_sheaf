@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-07)
+## Whole-project goal and live completion map (updated 2026-09-08)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -104,6 +104,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
 |   |   |   |   +-- connected remainder as one unit-bounded observable ... [PROVED]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
+|   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
+|   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
 |   |   |   |   +-- separate mismatch/L1 tails => sharp C_m + C_r tail ... [PROVED interface]
 |   |   |   |   +-- remainderL1 = selected candidate's sign-observable
 |   |   |   |   |       matching defect .................................. [PROVED]
@@ -113,11 +115,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- exact connected split => sharp C_m + C_c tail ........ [PROVED interface]
 |   |   |   |   +-- matched-BF4 nome + physical spacing on one AF chart .. [PROVED bridge]
 |   |   |   |   |   +-- shifted-AF identification => spacing to zero ..... [PROVED]
+|   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
-|   |   |   |       +-- sharp: |connected remainder| <= C_c * a .......... [OPEN preferred]
+|   |   |   |       +-- sharp raw cross <= C_c*a*(Z_f*Z_c) ............... [OPEN preferred]
+|   |   |   |       +-- normalized connected remainder <= C_c * a ........ [OPEN equivalent]
 |   |   |   |       `-- stronger input: sign/TV defect <= C_s * a ........ [OPEN alternative]
 |   |   |   `-- beta and lattice-spacing trajectory transport .... [OPEN]
 |   |   +-- cutoff-uniform aggregate retained-fraction floor .. [PROVED]
@@ -1329,6 +1333,31 @@ the previous factor-three consumers remain only as compatibility paths.  This
 is a genuine unconditional strengthening, but boundedness still supplies no
 refining-scale `O(a)` estimate by itself.
 
+`CompactDualPhysicalConnectedObservableRawCross.lean` now clears both Gibbs
+normalizations for that structured observable.  It defines the literal
+unnormalized coarse numerator and the raw pushed numerator obtained by applying
+the actual finite physical kernel before dividing by the fine partition.  The
+normalized connected defect is exactly
+
+```text
+| pushedNumerator * Z_coarse - coarseNumerator * Z_fine |
+----------------------------------------------------------------.
+                         Z_fine * Z_coarse
+```
+
+The division-free compiler proves that a bound of the form
+
+```text
+|raw cross determinant| <= C_c * a * (Z_fine * Z_coarse)
+```
+
+implies the required normalized connected estimate `<= C_c * a`.
+`RawCrossSeparatedLinearRawTransportTail` installs precisely this hypothesis
+along the physical refinement schedule and compiles it, together with the raw
+event-mismatch estimate, to the same sharp `C_m + C_c` covariance tail.  This
+does not prove the cross inequality; it locates the active analytic burden in
+explicit unnormalized BF4 sums with no hidden quotient cancellation.
+
 `CompactDualSlabObservablePhysicalRawTransportMatchedStep.lean` adds a
 constructive alternative selection branch.  On any nonempty finite positive
 coupling atlas it scores each candidate by its literal raw mismatch cost plus
@@ -1371,10 +1400,10 @@ the quadratic physical spacing envelope plus a coupling-to-zero modulus
 constructs the schedule's spacing-to-zero modulus.  When the coupling is
 identified with the repository's shifted AF schedule, its existing explicit
 modulus supplies that input automatically.  Finally, an inhabitant of the
-sharp raw/connected `O(a)` tail on this exact schedule yields the literal fine
-covariance bound `anchor + epsilon` at the computed cutoff.  The raw/sign
-input remains exposed on the same schedule as a stronger alternative
-and now pays no factor-three coefficient loss.
+division-free raw-cross `O(a)` tail on this exact schedule yields the literal
+fine covariance bound `anchor + epsilon` at the computed cutoff.  The
+normalized raw/connected and stronger raw/sign inputs remain exposed on the
+same schedule as alternatives, with no factor-three coefficient loss.
 
 This is a proved same-chart bridge, not a physical AF construction.  The
 four-dimensional `CubicMarginLaw`, the dimensional-transmutation

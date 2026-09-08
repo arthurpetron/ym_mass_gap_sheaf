@@ -20,6 +20,7 @@ Type-valued witnesses only; no choice, `Classical`, `native_decide`, `sorry`,
 noncomputable declaration, or new axiom.
 -/
 
+import YMGap.Continuum.CompactDualPhysicalConnectedObservableRawCross
 import YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 import YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
 
@@ -30,6 +31,7 @@ set_option maxRecDepth 30000
 set_option maxHeartbeats 1000000
 
 open YMGap.Constructive
+open YMGap.Continuum.CompactDualPhysicalConnectedObservableRawCross
 open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
@@ -179,7 +181,75 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 
 end ConnectedSeparatedLinearRawTransportTail
 
-/-! ## 3. Sharpen the existing raw/L1 producer without new hypotheses -/
+/-! ## 3. Division-free raw-cross producer -/
+
+/-- The cancellation-preserving tail stated entirely before normalization.
+The connected hypothesis is a raw cross-determinant estimate relative to the
+exact fine/coarse product partition. -/
+structure RawCrossSeparatedLinearRawTransportTail
+    (schedule : PhysicalObservableRefinementSchedule) : Type where
+  start : Nat
+  mismatchCeiling : Q'
+  mismatchCeiling_pos : (0 : Q') < mismatchCeiling
+  connectedCeiling : Q'
+  connectedCeiling_pos : (0 : Q') < connectedCeiling
+  mismatch_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget schedule scale ≤
+      mismatchCeiling * schedule.spacing.spacing scale
+  connectedRawCross_le : ∀ scale : Nat, start ≤ scale →
+    Q'.abs
+        (physicalObservableRawCrossDefect
+          (schedule.kernel scale)
+          (connectedRemainderObservable
+            (schedule.kernel scale) (schedule.faceMap scale))) ≤
+      (connectedCeiling * schedule.spacing.spacing scale) *
+        ((schedule.scalePair scale).fine.physicalPartition *
+          (schedule.scalePair scale).coarse.physicalPartition)
+
+namespace RawCrossSeparatedLinearRawTransportTail
+
+variable {schedule : PhysicalObservableRefinementSchedule}
+
+/-- Clearing the positive product partition compiles the raw cross estimate
+to the exact connected tail with no coefficient loss. -/
+def toConnectedSeparatedLinearRawTransportTail
+    (tail : RawCrossSeparatedLinearRawTransportTail schedule) :
+    ConnectedSeparatedLinearRawTransportTail schedule where
+  start := tail.start
+  mismatchCeiling := tail.mismatchCeiling
+  mismatchCeiling_pos := tail.mismatchCeiling_pos
+  connectedCeiling := tail.connectedCeiling
+  connectedCeiling_pos := tail.connectedCeiling_pos
+  mismatch_le := tail.mismatch_le
+  connectedRemainder_le := fun scale hscale => by
+    unfold connectedRemainderBudget
+    exact connectedRemainder_abs_le_of_rawCross
+      (schedule.kernel scale) (schedule.faceMap scale)
+      (tail.connectedCeiling * schedule.spacing.spacing scale)
+      (tail.connectedRawCross_le scale hscale)
+
+theorem combinedCeiling_eq
+    (tail : RawCrossSeparatedLinearRawTransportTail schedule) :
+    tail.toConnectedSeparatedLinearRawTransportTail.combinedCeiling =
+      tail.mismatchCeiling + tail.connectedCeiling :=
+  rfl
+
+/-- Final covariance consumer for the division-free raw-cross producer. -/
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (tail : RawCrossSeparatedLinearRawTransportTail schedule)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.toConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end RawCrossSeparatedLinearRawTransportTail
+
+/-! ## 4. Sharpen the existing raw/L1 producer without new hypotheses -/
 
 namespace SeparatedLinearRawTransportTail
 
@@ -234,6 +304,10 @@ end PhysicalObservableRefinementSchedule
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.rawTransportBudget_le_combinedCeiling_mul_spacing
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.ConnectedSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
+#print axioms PhysicalObservableRefinementSchedule.RawCrossSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.RawCrossSeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
+#print axioms PhysicalObservableRefinementSchedule.RawCrossSeparatedLinearRawTransportTail.combinedCeiling_eq
+#print axioms PhysicalObservableRefinementSchedule.RawCrossSeparatedLinearRawTransportTail.fineCovariance_le_anchorRate_add_epsilon
 #print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.toConnectedSeparatedLinearRawTransportTail
 #print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.connectedCombinedCeiling_eq
 #print axioms PhysicalObservableRefinementSchedule.SeparatedLinearRawTransportTail.connectedFineCovariance_le_anchorRate_add_epsilon
