@@ -28530,3 +28530,36 @@ reconstruction, and Clay conclusion remain open.
 No `sorry` is introduced.  The new file passes a direct monitored check and
 its dependency-complete target passes all 5,100 jobs.  All six printed
 declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+
+#### Separate receiver debts compile to the matched covariance tail (2026-09-08)
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectThreeDebtTail`
+replaces the previous single combined receiver-scale-defect estimate with four
+explicit Type-level producer inputs on an eventual schedule tail: a
+`SlabObservablePairedAggregatePosteriorTransport` and independent linear bounds
+for the partition-scaled row-retention, successful-edge variation, and
+realized-column debts.  Exact rational distributivity and two triangle steps
+prove that their sum controls the actual receiver-fiber scale-defect cross with
+coefficient
+
+```text
+C_row + C_edge + C_column.
+```
+
+The resulting structure compiles to the existing scale-defect raw-transport
+tail and therefore to the final matched covariance bound.  No coefficient is
+lost in the compiler.
+
+These are named hypotheses, not manufactured estimates.  Repository-wide
+constructor search finds no inhabitant of the complete-cell aggregate
+posterior interface, and the concrete fixed-anchor guarded aggregate theorem
+does not match the arbitrary-coupling physical refinement schedule.  The
+posterior producer and all three uniform `O(a)` estimates remain open, as do
+the continuum measure, OS/GNS reconstruction, Hamiltonian gap, and Clay
+conclusion.
+
+No `sorry`, `admit`, `Classical`, `native_decide`, new axiom, or noncomputable
+declaration is introduced.  The focused monitored source check passes, and
+all eight printed load-bearing declarations use only
+`[propext, Quot.sound]`.  The dependency-complete monitored target passes all
+1,582 jobs.  No full-root audit is claimed here.

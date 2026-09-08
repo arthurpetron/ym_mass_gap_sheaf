@@ -2,9 +2,9 @@
 # Receiver-column transport of the partition-scaled covariance coefficient
 
 The exact receiver-fiber scale defect is a signed coefficient mass on the
-coarse source and target pair carriers.  This module puts that coefficient
-field through the same source-dependent successful posterior kernel used by
-the paired aggregate transport.
+coarse source and target pair carriers.  Conditional on a
+`SlabObservablePairedAggregatePosteriorTransport`, this module puts that
+coefficient field through its source-dependent successful posterior kernel.
 
 The resulting cross splits exactly into three analytic debts:
 
@@ -13,8 +13,11 @@ The resulting cross splits exactly into three analytic debts:
 * mismatch between the realized incoming coefficient columns and the target
   coefficient mass.
 
-This is an identity, not an estimate.  No bound on any of the three debts is
-asserted here, and therefore no `O(a)` estimate, continuum measure, OS/GNS
+This is an identity, not an estimate or a construction of that posterior
+interface.  No repository module currently inhabits the complete-cell
+posterior parameter used here.  The fixed-anchor guarded aggregate theorem is
+not a schedule-level instance.  No bound on any of the three debts is asserted
+here, and therefore no `O(a)` estimate, continuum measure, OS/GNS
 reconstruction, Hamiltonian gap, or Clay conclusion is claimed.
 
 Constructive contract: finite lists and exact `Q'` identities only; no choice,
@@ -80,8 +83,9 @@ private theorem listQSum_eqv_zero_of_pointwise_local
 abbrev Receiver (S : SlabScalePair) (root : Nat) :=
   SlabObservableTwoReplicaPair S.coarse root
 
-/-- The actual scaled receiver coefficient field, equipped with the successful
-posterior kernel already present in the paired aggregate transport. -/
+/-- The actual scaled receiver coefficient field, conditional on a supplied
+complete-cell successful posterior kernel.  This definition does not construct
+that kernel. -/
 def actualPositiveExpandedReceiverFiberScaleDefectCoefficientTransport
     (S : SlabScalePair)
     (hfineCutoff : S.fine.cutoff = 1)

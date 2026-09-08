@@ -178,13 +178,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       scaled receiver-fiber coefficient cross ..... [PROVED]
 |   |   |   |       |   +-- generic dependent-kernel coefficient cross splits
 |   |   |   |       |   |       exactly into row/edge/column debts ........... [PROVED]
-|   |   |   |       |   +-- actual scaled receiver coefficient transported by
-|   |   |   |       |   |       the successful aggregate posterior kernel .... [PROVED]
+|   |   |   |       |   +-- scaled receiver coefficient transport, conditional on
+|   |   |   |       |   |       a complete-cell aggregate posterior ........... [PROVED reduction]
 |   |   |   |       |   +-- row debt = unretained coefficient mass, supported
 |   |   |   |       |   |       only on connected source rows .................. [PROVED]
 |   |   |   |       |   +-- edge debt = literal successful-edge variation ..... [PROVED identity]
 |   |   |   |       |   +-- column debt = target coefficient times signed
 |   |   |   |       |   |       incoming capacity slack ........................ [PROVED]
+|   |   |   |       |   +-- three separate debt tails => existing covariance
+|   |   |   |       |   |       consumer with `C_r+C_e+C_c` ............ [PROVED interface]
+|   |   |   |       |   +-- schedule-level complete posterior producer ........ [OPEN]
+|   |   |   |       |   |       fixed-anchor guarded aggregate theorem does not
+|   |   |   |       |   |       inhabit the arbitrary schedule-level interface
 |   |   |   |       |   `-- cutoff-uniform row/edge/column debt bounds
 |   |   |   |       |       summing to `O(a)` ................................. [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
@@ -1618,13 +1623,22 @@ address without confusing row retention with receiver congestion.
 
 `CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectTransport.lean`
 specializes that generic identity to the complete receiver source and target
-carriers, the actual partition-scaled fiber coefficients, and an existing
+carriers and the actual partition-scaled fiber coefficients, conditional on a
 `SlabObservablePairedAggregatePosteriorTransport`.  It proves that the exact
 receiver-fiber scale-defect cross is the sum of the specialized row, successful
 edge, and realized-column debts, with the corresponding absolute-value bound.
 The edge term is explicitly the local source-to-realized-target coefficient
 variation, and the transported target term is explicitly grouped by common
 receiver columns.
+
+Repository-wide constructor search confirms that this complete-cell aggregate
+posterior interface has no inhabitant.  The concrete guarded aggregate route is
+genuine and stronger for its fixed extent-five anchor face at coupling `2`, but
+it neither constructs a kernel on every complete source-cell row nor matches the
+arbitrary effective couplings of `PhysicalObservableRefinementSchedule`.
+Accordingly this specialization is a proved conditional reduction, not an
+actual schedule-level posterior construction and not a consequence of the
+fixed-anchor guarded theorem.
 
 The row branch is also reduced exactly to coefficient times unretained row
 mass.  Since the aggregate posterior has row mass one on the disconnected
@@ -1635,13 +1649,26 @@ is reduced exactly to the target scaled coefficient times
 nonpositive, but because the coefficient itself is signed, capacity alone is
 not yet a magnitude bound.
 
-These are exact finite identities, not smallness theorems.  The active analytic
-seam is now sharper: prove cutoff-uniform bounds for the three actual debts,
-with their sum `O(a)`.  The quarter-mass row floor informs the row term and the
-proved column-capacity certificate informs the column term, but neither alone
-bounds the signed coefficient field; the edge variation remains an independent
-regularity obligation.  No such `O(a)` bound, continuum measure, OS/GNS
-reconstruction, Hamiltonian gap, or Clay conclusion is asserted here.
+These are exact finite identities, not smallness theorems.  The active branch
+now has two prerequisites: construct the missing schedule-level posterior (or a
+direct coefficient-aware guarded aggregate replacement), and prove
+cutoff-uniform bounds for the three conditional debts with their sum `O(a)`.
+The fixed-anchor quarter-mass row floor and column-capacity certificate explain
+what such a producer should preserve, but they cannot be applied directly to
+the arbitrary schedule.  Neither controls the signed coefficient field, and
+the edge variation remains an independent regularity obligation.  No such
+producer or `O(a)` bound, continuum measure, OS/GNS reconstruction, Hamiltonian
+gap, or Clay conclusion is asserted here.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectThreeDebtTail.lean`
+now packages the conditional analytic frontier without recombining it into one
+opaque estimate.  A Type-level tail supplies a complete-cell posterior on the
+eventual scale range and independent positive ceilings for the scaled row,
+edge, and column debts.  Exact rational distributivity and the triangle
+inequality compile those three estimates with connected coefficient
+`C_row + C_edge + C_column`, then reuse the existing receiver-scale-defect and
+matched-covariance consumers.  The module constructs neither the posterior nor
+the three estimates; those four inputs remain the active producer obligations.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
