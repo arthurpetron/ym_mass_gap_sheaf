@@ -200,6 +200,53 @@ def matchedShiftedAFPhysicalObservableRefinementSchedule
 
 /-! ## 4. The still-open transport producer on this exact trajectory -/
 
+/-- The exact partition-scaled receiver-fiber coefficient producer on the
+matched AF chart.  This is the closest current interface to the successful
+receiver-column analysis: it has no inhabitant here, and still requires a
+uniform linear estimate for the scaled coefficient cross. -/
+abbrev MatchedShiftedAFActualPositiveExpandedReceiverFiberScaleDefectTransportTail
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type :=
+  YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule.ActualPositiveExpandedReceiverFiberScaleDefectSeparatedLinearRawTransportTail
+    (matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+      C coupling coupling_pos coupling_le_window identification nested)
+
+/-- A partition-scaled receiver-fiber tail on the exact matched chart gives
+the final `anchor + epsilon` covariance bound. -/
+theorem matchedShiftedAFActualPositiveExpandedReceiverFiberScaleDefectFineCovariance_le_anchorRate_add_epsilon
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (tail :
+      MatchedShiftedAFActualPositiveExpandedReceiverFiberScaleDefectTransportTail
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule :=
+      matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+        C coupling coupling_pos coupling_le_window identification nested
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
 /-- The congestion-aware receiver-fiber producer on the exact matched chart.
 All supported path densities sharing a receiver pair have been summed on the
 complete receiver carrier.  This abbreviation has no inhabitant here: a
@@ -754,6 +801,8 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_fineCoupling
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_spacing
+#print axioms MatchedShiftedAFActualPositiveExpandedReceiverFiberScaleDefectTransportTail
+#print axioms matchedShiftedAFActualPositiveExpandedReceiverFiberScaleDefectFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossTransportTail
 #print axioms matchedShiftedAFActualPositiveExpandedReceiverFiberWeightedRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositiveExpandedReceiverWeightedRawCrossTransportTail

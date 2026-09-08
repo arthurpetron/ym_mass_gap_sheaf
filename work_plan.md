@@ -149,6 +149,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- receiver-fiber-density tail => matched-chart
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
+|   |   |   |   |   +-- partition-scaled receiver-fiber tail => matched-chart
+|   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
@@ -168,8 +170,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       density times receiver-pair weight ........ [PROVED]
 |   |   |   |       |   +-- aggregate all path densities on each full-cell
 |   |   |   |       |   |       receiver fiber without losing multiplicity  [PROVED]
-|   |   |   |       |   `-- transport the fiber-summed coefficient field
-|   |   |   |       |       through successful receiver columns ........... [ACTIVE causal seam]
+|   |   |   |       |   +-- coarse physical cross = source-minus-target mass
+|   |   |   |       |   |       on those same receiver carriers ............. [PROVED]
+|   |   |   |       |   +-- partition-scaled coefficient
+|   |   |   |       |   |       `Z_f^2 - fiberDensity * Z_c^2` .............. [PROVED]
+|   |   |   |       |   +-- full raw defect = `Z_c*Z_f` times the weighted
+|   |   |   |       |   |       scaled receiver-fiber coefficient cross ..... [PROVED]
+|   |   |   |       |   `-- transport the partition-scaled coefficient field
+|   |   |   |       |       through successful receiver columns ............ [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
@@ -1565,6 +1573,29 @@ the correct carrier: transport or control the fiber-summed coefficient field
 through the successful guarded receiver columns.  The previously proved
 quarter success floor cannot be applied without that coefficient-transport
 theorem.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefect.lean`
+now identifies the precise coefficient that theorem must transport.  First,
+the coarse physical four-cell determinant is rewritten as source receiver
+mass minus target receiver mass on the same complete carriers.  Then every
+receiver coefficient is put in the common partition units
+
+```text
+Z_fine^2 - receiverFiberDensity * Z_coarse^2.
+```
+
+Summing this field against the receiver-pair weights gives a signed source-
+minus-target cross, and the complete connected raw covariance defect is
+proved exactly equal to `Z_coarse * Z_fine` times that cross.  The general
+physical tail and exact matched shifted-AF chart now expose this factorized
+quantity as their strongest current producer interface.
+
+This is still an exact finite identity, not a smallness theorem.  The active
+analytic seam is to compare the scaled coefficient field along the already
+proved successful guarded receiver columns, controlling both its signed
+variation and carrier multiplicity uniformly enough to obtain an `O(a)`
+bound.  No such bound, continuum measure, OS/GNS reconstruction, Hamiltonian
+gap, or Clay conclusion is asserted here.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
