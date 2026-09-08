@@ -200,7 +200,55 @@ def matchedShiftedAFPhysicalObservableRefinementSchedule
 
 /-! ## 4. The still-open transport producer on this exact trajectory -/
 
-/-- The strongest proof-carrying paired-path producer on the exact matched
+/-- The strongest receiver-orientable paired-path producer on the exact
+matched chart.  Every accepted-fiber path has two strictly positive raw
+transitions, so its coarse endpoints constructively inhabit the established
+same-datum receiver source/target cells.  This abbreviation has no inhabitant
+here. -/
+abbrev MatchedShiftedAFActualPositiveExpandedSupportedPathRawCrossTransportTail
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type :=
+  YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRawTransportTail.PhysicalObservableRefinementSchedule.ActualPositiveExpandedSupportedPathRawCrossSeparatedLinearRawTransportTail
+    (matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+      C coupling coupling_pos coupling_le_window identification nested)
+
+/-- The strict-support receiver-orientable path tail on the exact matched
+chart gives the `anchor + epsilon` covariance bound. -/
+theorem matchedShiftedAFActualPositiveExpandedSupportedPathRawCrossFineCovariance_le_anchorRate_add_epsilon
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (tail :
+      MatchedShiftedAFActualPositiveExpandedSupportedPathRawCrossTransportTail
+        family law spacing C coupling coupling_pos coupling_le_window
+        identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      tail.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule :=
+      matchedShiftedAFPhysicalObservableRefinementSchedule family law spacing
+        C coupling coupling_pos coupling_le_window identification nested
+    schedule.fineCovariance scale ≤
+      schedule.anchorRate scale + epsilon :=
+  tail.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+/-- The accepted-fiber proof-carrying paired-path producer on the exact matched
 chart.  Each positive physical source is disintegrated over its accepted
 fine-intertwiner fiber, so its fine endpoint projects directly to the
 same-datum expanded-source universe used by the receiver theory.  This
@@ -612,6 +660,8 @@ theorem matchedShiftedAFFineCovariance_le_anchorRate_add_epsilon
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_fineCoupling
 #print axioms matchedShiftedAFPhysicalObservableRefinementSchedule_spacing
+#print axioms MatchedShiftedAFActualPositiveExpandedSupportedPathRawCrossTransportTail
+#print axioms matchedShiftedAFActualPositiveExpandedSupportedPathRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositiveExpandedPathRawCrossTransportTail
 #print axioms matchedShiftedAFActualPositiveExpandedPathRawCrossFineCovariance_le_anchorRate_add_epsilon
 #print axioms MatchedShiftedAFActualPositivePathRawCrossTransportTail

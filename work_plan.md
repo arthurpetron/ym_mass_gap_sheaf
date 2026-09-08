@@ -143,6 +143,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- accepted-fiber path tail => matched-chart
 |   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
+|   |   |   |   |   +-- strict-support receiver path tail => matched-chart
+|   |   |   |   |   |       anchor + epsilon ............................... [PROVED interface]
 |   |   |   |   |   +-- raw-cross tail => matched-chart anchor + epsilon .. [PROVED interface]
 |   |   |   |   |   +-- connected tail => matched-chart anchor + epsilon . [PROVED interface]
 |   |   |   |   |   `-- raw/sign tail => matched-chart anchor + epsilon ... [PROVED interface]
@@ -157,9 +159,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   +-- fine endpoints embedded in receiver sources ... [PROVED]
 |   |   |   |       |   +-- positive-raw coarse endpoints assigned accepted
 |   |   |   |       |   |       witnesses and oriented as receiver cells ... [PROVED]
-|   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [ACTIVE]
+|   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [PROVED]
 |   |   |   |       |   `-- compare supported conditional path weights with
-|   |   |   |       |       successful receiver columns ................... [OPEN causal seam]
+|   |   |   |       |       successful receiver columns ................... [ACTIVE causal seam]
 |   |   |   |       +-- actual all-source paired path raw cross
 |   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN equivalent]
 |   |   |   |       +-- actual two-replica four-cell raw cross
@@ -1518,14 +1520,24 @@ convention `10 x 01`, and exact rational commutativity preserves the paired
 coarse endpoint weight.  Both receiver-carrier memberships and both weight
 identities are kernel checked using only `[propext, Quot.sound]`.
 
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedSupportedPaths.lean`
+then deletes every remaining zero-raw transition path from both complete
+accepted-fiber four-cell sums.  Whole-slab raw weights are nonnegative, so a
+nonpositive entry is exactly zero; division by the positive row partition
+keeps its conditional-kernel factor zero, and either zero replica kills the
+paired contribution.  Filtering and dependent attachment therefore preserve
+both cell masses, their determinant, and the complete connected raw-cross
+defect while making both positivity witnesses explicit on every survivor.
+The resulting strict-support raw-cross tail compiles without loss through the
+general physical schedule and the matched shifted-AF chart.
+
 This supplies accepted, proof-carrying fine endpoints and constructively
-oriented coarse receiver endpoints on every strictly positive raw path, but
-not yet a receiver-column estimate.  The immediate causal task is to delete
-zero-raw paths from each complete accepted-fiber path cell without changing
-its mass.  The surviving conditional path weights must then be compared with
-the same-datum receiver weights and successful guarded columns, or bounded by
-a controlled alternative.  The previously proved quarter success floor
-cannot be applied across that remaining weight mismatch without this theorem.
+oriented coarse receiver endpoints for the complete path-cell masses, but not
+yet a receiver-column estimate.  The surviving conditional path weights must
+now be compared with the same-datum receiver weights and successful guarded
+columns, or bounded by a controlled alternative.  The previously proved
+quarter success floor cannot be applied across that remaining weight mismatch
+without this theorem.
 
 The phrase "fully raw covariance cross" above refers to clearing the two
 global Gibbs normalizations and all normalized face-moment coefficients.  The
