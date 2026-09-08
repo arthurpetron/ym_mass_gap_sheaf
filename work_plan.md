@@ -197,6 +197,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- exact source/target Boolean sector partitions ... [PROVED]
 |   |   |   |       |   |   +-- disconnected row debt = 0 ....................... [PROVED]
 |   |   |   |       |   |   +-- full cross = five explicit surviving debts ...... [PROVED]
+|   |   |   |       |   |   +-- coefficient-weighted finite Fubini regroups each
+|   |   |   |       |   |   |       edge/column pair as one posterior column ..... [PROVED]
+|   |   |   |       |   |   +-- five debts = connected row + two posterior columns [PROVED]
+|   |   |   |       |   |   +-- three-term posterior-column `l1` majorant and
+|   |   |   |       |   |   |       physical partition scaling ................... [PROVED]
+|   |   |   |       |   |   +-- normalize/cancel partition factors in the new
+|   |   |   |       |   |   |       three-budget posterior cost .................. [ACTIVE preferred]
+|   |   |   |       |   |   +-- uniform posterior-column quadratic estimate ...... [OPEN]
 |   |   |   |       |   |   +-- five debts => literal calibration/variation `l1` . [PROVED]
 |   |   |   |       |   |   +-- five `l1` budgets => covariance consumer .......... [PROVED interface]
 |   |   |   |       |   |   +-- one literal sum majorizes the five scaled debts ... [PROVED]
@@ -206,7 +214,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   +-- pull common `Z_c^2` through five absolute sums;
 |   |   |   |       |   |   |       denominator becomes `a*Z_f^2` .................. [PROVED]
 |   |   |   |       |   |   +-- normalized mismatch/five-budget bounds => consumer [PROVED interface]
-|   |   |   |       |   |   +-- uniformly bound the two normalized sequences ...... [ACTIVE preferred]
+|   |   |   |       |   |   +-- uniformly bound the two five-budget normalized
+|   |   |   |       |   |   |       sequences ...................................... [OPEN equivalent]
 |   |   |   |       |   |   `-- matched-AF coupling-square route
 |   |   |   |       |   |       +-- lower `c*g^2 <= a(g)` plus quadratic budgets
 |   |   |   |       |   |       |       => normalized bounds ...................... [PROVED bridge]
@@ -1007,6 +1016,46 @@ route.  B, C, and D remain unchanged until explicit
 physical scaling, continuum, and OS/GNS bridges are inhabited.
 This map should be refreshed whenever an `[ACTIVE]` edge closes or the
 critical path branches.
+
+### Live posterior-column frontier (2026-09-08)
+
+The preferred split-sector route now performs coefficient-weighted finite
+Fubini before estimating magnitudes.  For each explicit connected or
+disconnected transport, the former edge and ordinary target-column debts are
+regrouped exactly as one posterior-column mismatch between transported source
+coefficient mass and literal target coefficient mass.  Since the disconnected
+row is already zero, the full receiver scale-defect cross is exactly
+
+```text
+five split debts
+  = connected row debt
+      + connected posterior-column debt
+      + disconnected posterior-column debt.
+```
+
+A three-term `l1` majorant and its physical coarse--fine partition scaling are
+proved.  This is an exact finite reduction; it supplies no smallness estimate.
+The next causal proof edge is to pull the common partition factors through
+these posterior-column sums and define their normalized three-budget cost.
+After that, the analytic producer must bound the posterior mismatch uniformly,
+alongside the still-open raw mismatch and lower quadratic spacing comparison.
+
+The whole-project dependency remains explicit:
+
+```text
+finite posterior normalization [ACTIVE]
+  -> coupling-square posterior estimate [OPEN]
+    -> normalized physical transport tail [OPEN]
+      -> uniform positive physical gap [OPEN]
+        -> same-measure continuum construction [OPEN]
+          -> OS/GNS Hamiltonian gap [OPEN]
+            -> Clay-facing assembly [OPEN]
+```
+
+The two new modules pass monitored focused checks and dependency-complete
+targets (218 jobs for the generic coefficient Fubini module and 1,584 jobs for
+the concrete split specialization).  All newly printed declarations use only
+`[propext]` or `[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

@@ -28891,3 +28891,40 @@ the new module and the updated matched-AF consumer.  All twenty-one new
 printed declarations and all nine matched-AF declarations use only
 `[propext, Quot.sound]`.  The dependency-complete 1-job targets pass all
 1,589 and 5,437 jobs respectively.  No full-root audit is claimed.
+
+#### Compress the five split debts into three posterior-column debts (2026-09-08)
+
+`FiniteDependentKernelCoefficientPosterior` adds a coefficient-weighted
+finite Fubini theorem to every dependent coefficient transport.  It regroups
+the transported source coefficient by realized target column and proves the
+exact identity
+
+```text
+source coefficient mass - target coefficient mass
+  ~= row coefficient defect + posterior-column coefficient defect.
+```
+
+The same module proves the literal target-column `l1` majorant.  It does not
+discard the earlier edge and column debts; it combines them before taking
+absolute values.
+
+`CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumn`
+specializes this identity to the explicit connected and disconnected kernels.
+The disconnected row defect is already exactly zero, so the five-debt
+receiver scale-defect identity becomes one connected row debt plus two
+posterior-column debts.  A three-term `l1` bound and its physically scaled
+schedule budget are proved.
+
+No posterior smallness estimate, normalized cost bound, lower spacing law,
+physical gap floor, continuum measure, OS/GNS reconstruction, Hamiltonian
+gap, or Clay conclusion is inhabited.  The next preferred theorem is exact
+partition-factor cancellation for this three-budget posterior form, followed
+by a uniform coupling-square posterior estimate.
+
+The generic focused source check passes and its dependency-complete target
+passes all 218 jobs; its eight printed declarations use no axioms or only
+`[propext]`.  The concrete focused source check passes and its
+dependency-complete target passes all 1,584 jobs; all nine printed
+declarations use only `[propext, Quot.sound]`.  No `sorry`, `admit`,
+`Classical`, `native_decide`, new axiom, or noncomputable declaration is
+introduced.  No full-root audit is claimed.
