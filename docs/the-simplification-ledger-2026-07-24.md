@@ -527,6 +527,43 @@ disintegration and coverage identity, not an `O(g^2)` estimate, continuum
 measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure.  No
 full-root audit is claimed.
 
+### 9.5 Post-audit implementation update: saturated normalized variation, milestone 237 (2026-09-08)
+
+Milestone 237 completes that exact adapter.  The assignment-saturated source
+and target densities now define pointwise scale defects
+
+```text
+Z_fine^2 - saturatedDensity(receiver) * Z_coarse^2.
+```
+
+Their signed receiver cross is proved equal to the physical connected
+raw-cross defect after multiplication by the exact `Z_coarse * Z_fine`
+factor, and its absolute value is bounded by the full weighted scale-defect
+`l1` sum.  Outside the saturated receiver image, finite zero extension makes
+the density exactly zero, so the absolute scale-defect contribution is
+exactly `Z_fine^2` times the physical receiver weight.  Positive rational
+division therefore proves the exact dimensionless identity
+
+```text
+assignment-saturated normalized variation
+  ~= covered physical-endpoint calibration
+       + physically unreachable endpoint mass.
+```
+
+The old auxiliary-assignment coverage loss has consequently disappeared from
+the active producer.  The receiver branch now has precisely two analytic
+obligations: an `O(g^2)` bound for covered endpoint calibration and an
+`O(g^2)` bound for physically unreachable endpoint mass.  These estimates,
+as well as the separate lower spacing comparison and raw mismatch estimate,
+remain open.
+
+Both new modules pass monitored focused checks, the normalized module passes
+its dependency-complete target (5,455 jobs), and every printed load-bearing
+declaration uses only `[propext, Quot.sound]`.  This is still finite-cutoff
+exact algebra.  It is not an `O(g^2)` estimate, continuum measure, OS/GNS
+reconstruction, Hamiltonian gap, or Clay closure.  No full-root audit is
+claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

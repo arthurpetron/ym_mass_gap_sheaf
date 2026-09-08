@@ -171,6 +171,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |       reachability ................................. [PROVED]
 |   |   |   |       |   +-- full receiver cell = saturated covered mass plus
 |   |   |   |       |   |       physically unreachable endpoint mass ......... [PROVED exact]
+|   |   |   |       |   +-- saturated scale-defect cross = physical raw-cross
+|   |   |   |       |   |       defect up to the exact partition factor ......... [PROVED exact]
+|   |   |   |       |   +-- saturated normalized variation = covered endpoint
+|   |   |   |       |   |       calibration + unreachable endpoint mass ......... [PROVED exact]
 |   |   |   |       |   +-- delete zero-raw paths from complete path cells .. [PROVED]
 |   |   |   |       |   +-- factor each supported path exactly as receiver
 |   |   |   |       |   |       density times receiver-pair weight ........ [PROVED]
@@ -234,7 +238,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |   +-- assignment-saturated raw cross and physical
 |   |   |   |       |   |   |   |   |   |       endpoint coverage decomposition .............. [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- rebuild normalized aggregate variation with the
-|   |   |   |       |   |   |   |   |   |       saturated density .............................. [ACTIVE adapter]
+|   |   |   |       |   |   |   |   |   |       saturated density .............................. [PROVED exact]
 |   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
 |   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
 |   |   |   |       |   |   |   |   |       +-- covered-image normalized calibration
@@ -1166,7 +1170,9 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |       +-- saturated image iff physical endpoint reachability .... [PROVED]
 |       +-- full cell = saturated coverage + unreachable endpoint
 |       |       mass ............................................... [PROVED exact]
-|       +-- saturated-density normalized-variation adapter ........ [ACTIVE]
+|       +-- saturated scale-defect/raw-cross bridge ................ [PROVED exact]
+|       +-- saturated normalized variation = covered calibration
+|       |       + physically unreachable endpoint mass ............ [PROVED exact]
 |       `-- normalized receiver variation <= `(K*g^2)*Z_c^2` ...... [ACTIVE sole input]
 |           +-- covered-image calibration <= `(K_cov*g^2)*Z_c^2` .. [OPEN]
 |           +-- full cell mass <= covered image mass
@@ -1186,8 +1192,11 @@ check and its dependency-complete target (220 jobs), and the first concrete
 physical compiler passes its monitored focused check and dependency-complete
 target (5,448 jobs).  The normalized-variation and quantitative-coverage
 module also passes its monitored focused check and dependency-complete target
-(5,450 jobs).  The new generic declarations use only `[propext]`; the physical
-declarations use only `[propext, Quot.sound]`.  No full-root audit is claimed.
+(5,450 jobs).  The assignment-saturated scale-defect and normalized-variation
+modules pass monitored focused checks, and the latter's dependency-complete
+target builds successfully (5,455 jobs).  The new generic declarations use
+only `[propext]`; the physical declarations use only
+`[propext, Quot.sound]`.  No full-root audit is claimed.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
