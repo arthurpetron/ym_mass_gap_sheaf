@@ -1190,11 +1190,16 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |   +-- <= full source-plus-target receiver mass ....... [PROVED exact]
 |           |   +-- <= `2 * rootPositiveMass * Z_c` ................ [PROVED]
 |           |   +-- one-face quadratic occupation compiler ......... [PROVED interface]
-|           |   `-- rootPositiveMass <= `(K_pos*g^2)*Z_c` .......... [ACTIVE]
+|           |   +-- rootPositiveMass <= `(K_pos*g^2)*Z_c` .......... [OPEN alternative]
+|           |   |   `-- matched coarse coupling has no such law yet  [OPEN analytic]
+|           |   `-- exact raw-support endpoint coverage ............. [ACTIVE preferred]
+|           |       +-- one positive fine lift per coarse endpoint .. [OPEN finite witness]
+|           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
+|           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
+|           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
 |           +-- full cell mass <= covered image mass
 |           |       + `(K_miss*g^2)*Z_c^2` ......................... [OPEN alternative]
 |           |   `-- equivalent to uncovered-mass bound ............ [PROVED exact]
-|           +-- full supported-image coverage ..................... [OPEN stronger special case]
 |           `-- full-carrier pointwise calibration ................ [OBSTRUCTED alternative]
 |               `-- off-image density floor ....................... [PROVED obstruction]
 +-- positive physical gap on a common trajectory ................. [OPEN]
@@ -1217,7 +1222,12 @@ also passes its focused check and dependency-complete target (5,456 jobs),
 again with only `[propext, Quot.sound]`.  The one-face occupation reduction
 and matched-AF adapter pass their focused check and dependency-complete target
 (5,457 jobs), also with only `[propext, Quot.sound]`.  No full-root audit is
-claimed.
+claimed.  The endpoint-lift factorization likewise passes its focused check
+and dependency-complete target (5,458 jobs), with only
+`[propext, Quot.sound]`: it proves that one positive raw fine lift for every
+physical coarse endpoint gives full saturated receiver coverage, zero
+unreachable mass, and the existing covariance consumer.  Constructing those
+reverse lifts remains the active finite witness problem.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
