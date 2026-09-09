@@ -295,7 +295,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |   +-- ratio-scaled pushed law and actual `Z_f` total . [PROVED]
 |   |   |   |       |   |   |   |   |           |   +-- refresh reference scale defect = zero .......... [PROVED]
 |   |   |   |       |   |   |   |   |           |   +-- one signed-cross input => aggregate calibration  [PROVED]
-|   |   |   |       |   |   |   |   |           |   `-- refresh cross - production cross = `O(g^2)` ... [ACTIVE preferred]
+|   |   |   |       |   |   |   |   |           |   `-- refresh-versus-production signed cross
+|   |   |   |       |   |   |   |   |           |       +-- equals `Z_f^2` times centered remainder ..... [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       +-- equals `Z_f^2` times one unit-bounded
+|   |   |   |       |   |   |   |   |           |       |       connected-observable defect ................. [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       +-- centered remainder <= `K*g^2` .............. [ACTIVE preferred]
+|   |   |   |       |   |   |   |   |           |       `-- full physical remainder `l1` <= `K*g^2` ... [OPEN stronger fallback]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
@@ -2185,6 +2190,63 @@ of the same interacting continuum measure and observable algebra, same-object
 OS/GNS reconstruction, a positive Hamiltonian gap, and Clay closure remain
 open downstream obligations.
 
+## Milestone 260: Gibbs-refresh cross equals the connected remainder (2026-09-09)
+
+**Status. THE SOLE GIBBS-REFRESH SIGNED-CROSS INPUT IS NOW IDENTIFIED EXACTLY
+WITH THE PRE-EXISTING CANCELLATION-AWARE CENTERED PHYSICAL REMAINDER.  IT IS
+NOT A SECOND ANALYTIC OBLIGATION.  THE PREFERRED PRODUCER IS A QUADRATIC
+BOUND FOR ONE EXPLICIT UNIT-BOUNDED CONNECTED OBSERVABLE; A FULL PHYSICAL
+REMAINDER-`L1` BOUND IS A STRONGER FALLBACK.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean` first cancels the raw
+covariance normalization constructively.  For every witness-bearing physical
+face block map `M`, it proves
+
+```text
+rawColumnScaleDefect
+  = (Z_c^2 * Z_f^2) * centeredCylinderRemainder,
+```
+
+and combines this with the zero-defect Gibbs-refresh factorization from
+milestone 259 to cancel the positive coarse partition square:
+
+```text
+refreshCross - physicalKernelCross
+  = Z_f^2 * centeredCylinderRemainder.
+```
+
+The existing connected-remainder observable theorem then gives the exact
+second presentation
+
+```text
+refreshCross - physicalKernelCross
+  = Z_f^2 * remainderExpectation(connectedRemainderObservable).
+```
+
+The observable is the established three-cylinder combination and is already
+pointwise bounded in absolute value by one.  A calibration
+
+```text
+|centeredCylinderRemainder| <= kernelCeiling * g^2
+```
+
+therefore compiles directly to the aggregate raw-column consumer.  The module
+also records the conservative implication from
+`physicalKernel.remainderL1 <= kernelCeiling*g^2`, while preserving in the
+preferred interface the joint/root/target signs that the full `L1` norm
+would discard.
+
+The dependency-complete monitored target passes all 5,503 jobs.  All nine
+printed declarations depend only on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, or noncomputable witness is
+introduced.  No full-root audit is claimed.
+
+This closes an interface identification, not its quadratic analytic input.
+The direct connected remainder bound remains active.  Physical spacing,
+raw-event mismatch, all-cutoff and volume-uniform persistence, the same
+interacting continuum measure, OS/GNS reconstruction, the Hamiltonian gap,
+and Clay closure remain downstream.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2210,11 +2272,15 @@ COMPILE TO THE RAW-COLUMN CONSUMER.  THAT ABSTRACT ROUTE NOW HAS A CONCRETE
 RANK-ONE COARSE GIBBS-REFRESH REFERENCE ON THE LITERAL PHYSICAL CARRIERS:
 ITS PUSHED LAW HAS TOTAL MASS `Z_F`, ITS REFERENCE SCALE DEFECT IS EXACTLY
 ZERO, AND THE FULL DEFECT IS `Z_C^2` TIMES ONE REFRESH-VERSUS-PRODUCTION
-SIGNED CROSS.  THE PREFERRED ACTIVE PRODUCER IS A QUADRATIC BOUND FOR THAT
-SIGNED CROSS WHICH PRESERVES ITS DETERMINANT CANCELLATION, WITH THE
-VOLUME-UNIFORM LOCALIZED PAIR-CELL MOMENT AS A CO-PRODUCER.  THE INDEPENDENT
-SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
-CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
+SIGNED CROSS.  THAT SIGNED CROSS IS NOW PROVED EXACTLY `Z_F^2` TIMES THE
+EXISTING CENTERED CYLINDER REMAINDER, EQUIVALENTLY `Z_F^2` TIMES THE SIGNED
+REMAINDER EXPECTATION OF ONE EXPLICIT POINTWISE-UNIT-BOUNDED CONNECTED
+OBSERVABLE.  THE PREFERRED ACTIVE PRODUCER IS A QUADRATIC BOUND FOR THAT
+CANCELLATION-AWARE CENTERED REMAINDER; A FULL PHYSICAL REMAINDER-`L1` BOUND
+IS RECORDED ONLY AS A STRONGER FALLBACK.  THE VOLUME-UNIFORM LOCALIZED
+PAIR-CELL MOMENT REMAINS A CO-PRODUCER.  THE INDEPENDENT SPACING AND
+RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
+GAP CHAIN REMAIN DOWNSTREAM.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:

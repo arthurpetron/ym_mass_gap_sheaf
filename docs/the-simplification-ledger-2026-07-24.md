@@ -1290,6 +1290,43 @@ finite cutoff-one scale comparison, not all-cutoff persistence, a continuum
 measure construction, OS/GNS reconstruction, a Hamiltonian gap, or Clay
 closure.
 
+### 9.28 Post-audit implementation update: refresh cross is the connected remainder, milestone 260 (2026-09-09)
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean` proves that the sole
+signed-cross input left by milestone 259 is exactly the connected pushed-law
+remainder already isolated earlier in the physical transport stack.  For a
+witness-bearing face block map `M`, constructive positive-factor cancellation
+gives
+
+```text
+rawColumnScaleDefect
+  = (Z_c^2 * Z_f^2) * centeredCylinderRemainder,
+
+refreshCross - physicalKernelCross
+  = Z_f^2 * centeredCylinderRemainder.
+```
+
+The second identity also equals `Z_f^2` times the signed remainder expectation
+of `connectedRemainderObservable`, the established three-cylinder observable
+whose pointwise absolute value is at most one.  Therefore the preferred
+quadratic premise is directly
+
+```text
+|centeredCylinderRemainder| <= kernelCeiling * g^2.
+```
+
+It compiles to the aggregate raw-column calibration without a global
+partition-drift, receiver-cardinality, or extra triangle-factor payment.  A
+full `physicalKernel.remainderL1 <= kernelCeiling*g^2` estimate is sufficient
+through the existing sharp one-copy `L1` majorant, but is deliberately marked
+as a stronger fallback because it discards the selected-cylinder signs.
+
+The dependency-complete monitored target passes all 5,503 jobs, and all nine
+printed declarations use exactly `[propext, Quot.sound]`.  No quadratic
+centered-remainder estimate is asserted.  Cutoff/volume uniformity, continuum
+measure construction, OS/GNS reconstruction, the Hamiltonian gap, and Clay
+closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
