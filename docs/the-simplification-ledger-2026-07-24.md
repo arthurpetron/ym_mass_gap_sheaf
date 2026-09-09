@@ -1355,6 +1355,38 @@ printed declarations use exactly `[propext, Quot.sound]`.  Arbitrary-cutoff
 and volume-uniform persistence, the continuum measure, same-object OS/GNS,
 the Hamiltonian gap, and Clay closure remain open.
 
+### 9.30 Post-audit implementation update: exact reverse normalization cancellation, milestone 262 (2026-09-09)
+
+The updated `Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean` proves that
+the raw-column and centered-remainder calibrations are constructively
+equivalent.  The reverse implication uses the exact scale-defect identity,
+multiplicativity of absolute value by a nonnegative factor, strict positivity
+of `Z_c^2*Z_f^2`, and ordered-field cancellation to derive
+
+```text
+|rawScaleDefect| <= (K*g^2)*(Z_c^2*Z_f^2)
+  iff
+|centeredCylinderRemainder| <= K*g^2.
+```
+
+It also composes the reverse direction with the existing coupling-one
+reference/localized-moment compiler.  Hence quadratic control of the honest
+reference residual and a volume-uniform bound on only the two selected
+pair-cell Casimir moments imply the preferred centered calibration with
+coefficient `referenceCeiling + 2*momentCeiling`.
+
+This proves that receiver normalization is no longer a frontier.  The
+analytic frontier is exactly the normalized centered quantity itself, with
+the reference/localized-moment pair retained as a sufficient decomposition.
+Neither estimate is inhabited.  The full remainder-`L1` branch remains a
+strictly stronger fallback.
+
+The dependency-complete monitored target passes all 5,504 jobs.  All twelve
+printed connected-remainder declarations and the four downstream matched-AF
+declarations use exactly `[propext, Quot.sound]`.  Cutoff/volume uniformity,
+continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
+closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -36,6 +36,7 @@ set_option maxRecDepth 30000
 set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
@@ -48,6 +49,7 @@ open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservab
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceScaleDefect
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshReferenceCross
 open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
 
@@ -73,6 +75,15 @@ private theorem covarianceNormalization_regroup_local
       (coarse * fine) *
         (((coarse * coarse) * (fine * fine)) * value) := by
   ring_qeqv
+
+private theorem abs_mul_nonnegative_left_eqv_local
+    (factor value : Q') (hfactor : (0 : Q') ≤ factor) :
+    Q'.abs (factor * value) ≈ factor * Q'.abs value := by
+  refine Q'.eqv_trans _ (Q'.abs (value * factor)) _
+    (Q'.abs_eqv_congr (Q'.mul_comm_eqv factor value)) ?_
+  refine Q'.eqv_trans _ (Q'.abs value * factor) _
+    (YMGap.Continuum.TsumDeriv.abs_mul_nonneg_right value hfactor) ?_
+  exact Q'.mul_comm_eqv (Q'.abs value) factor
 
 /-! ## 1. Cancel the raw covariance normalization -/
 
@@ -320,6 +331,111 @@ theorem positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRef
     (coarseGibbsRefreshPhysicalKernelCrossCalibration_of_connectedRemainder
       S hfineCutoff hcoarseCoupling M g kernelCeiling hcentered)
 
+/-- The aggregate raw-column calibration is not stronger on this branch:
+the exact positive partition factor cancels back to the selected centered
+remainder with no coefficient loss. -/
+theorem coarseGibbsRefreshConnectedRemainderCalibration_of_rawColumnCross
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q')
+    (hraw :
+      PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          (kernelCeiling * (g * g))) :
+    CoarseGibbsRefreshConnectedRemainderCalibration
+      S hfineCutoff hcoarseCoupling M g kernelCeiling := by
+  let factor :=
+    (S.coarse.physicalPartition * S.coarse.physicalPartition) *
+      (S.fine.physicalPartition * S.fine.physicalPartition)
+  let raw := positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross
+    S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+  let centered := centeredCylinderRemainder
+    (physicalKernel S hfineCutoff hcoarseCoupling) M
+  have hcoarse := slabParametricKPhysicalPartition_pos
+    S.coarse.coupling_nonnegative S.coarse.cutoff S.coarse.extent
+  have hfine := slabParametricKPhysicalPartition_pos
+    S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent
+  have hfactorPos : (0 : Q') < factor := by
+    simpa only [factor] using
+      (Q'.mul_pos (Q'.mul_pos hcoarse hcoarse)
+        (Q'.mul_pos hfine hfine))
+  have hrawEq : raw ≈ factor * centered := by
+    simpa only [raw, factor, centered] using
+      (positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_partitionSquares_mul_centeredRemainder
+        S hfineCutoff hcoarseCoupling M)
+  have habsEq : Q'.abs raw ≈ factor * Q'.abs centered := by
+    refine Q'.eqv_trans _ (Q'.abs (factor * centered)) _
+      (Q'.abs_eqv_congr hrawEq) ?_
+    exact abs_mul_nonnegative_left_eqv_local factor centered
+      (Q'.le_of_lt hfactorPos)
+  have hrawBound :
+      Q'.abs raw ≤ (kernelCeiling * (g * g)) * factor := by
+    simpa only [PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration,
+      raw, factor] using hraw
+  have hscaled :
+      factor * Q'.abs centered ≤
+        factor * (kernelCeiling * (g * g)) := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm habsEq))
+      (Q'.le_trans' _ _ _ hrawBound
+        (Q'.le_of_eqv
+          (Q'.mul_comm_eqv (kernelCeiling * (g * g)) factor)))
+  unfold CoarseGibbsRefreshConnectedRemainderCalibration
+  simpa only [centered] using
+    (Q'.le_of_mul_le_mul_left hscaled hfactorPos)
+
+/-- Exact equivalence of the preferred normalized connected calibration and
+the formerly exposed aggregate raw-column calibration. -/
+theorem coarseGibbsRefreshConnectedRemainderCalibration_iff_rawColumnCross
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    CoarseGibbsRefreshConnectedRemainderCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          (kernelCeiling * (g * g)) := by
+  constructor
+  · exact
+      positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRefreshConnectedRemainder
+        S hfineCutoff hcoarseCoupling M g kernelCeiling
+  · exact
+      coarseGibbsRefreshConnectedRemainderCalibration_of_rawColumnCross
+        S hfineCutoff hcoarseCoupling M g kernelCeiling
+
+/-- The earlier coupling-one reference residual and localized selected-cell
+Casimir moment route therefore supplies the preferred centered calibration
+itself.  Both analytic premises remain explicit and uninhabited. -/
+theorem coarseGibbsRefreshConnectedRemainderCalibration_of_fineUnitReference_and_localizedMoment
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (M : SlabFaceBlockMap S)
+    (referenceCeiling momentCeiling : Q')
+    (hreference :
+      FineUnitCouplingReferenceRawColumnScaleDefectCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          g referenceCeiling)
+    (hmoment :
+      FineUnitCouplingLocalizedFourCellCasimirMomentBound
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          momentCeiling) :
+    CoarseGibbsRefreshConnectedRemainderCalibration
+      S hfineCutoff hcoarseCoupling M g
+        (referenceCeiling + Q'.ofNat 2 * momentCeiling) := by
+  apply coarseGibbsRefreshConnectedRemainderCalibration_of_rawColumnCross
+  exact positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_reference_and_moment
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one
+    family law g hg hgle hcoupling M.coarseRoot M.coarseTarget
+    referenceCeiling momentCeiling hreference hmoment
+
 /-- Conservative alternative input: a quadratic bound on the full physical
 pushforward remainder `L1`. -/
 def CoarseGibbsRefreshPhysicalRemainderL1Calibration
@@ -373,6 +489,9 @@ theorem positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRef
 #print axioms CoarseGibbsRefreshConnectedRemainderCalibration
 #print axioms coarseGibbsRefreshPhysicalKernelCrossCalibration_of_connectedRemainder
 #print axioms positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRefreshConnectedRemainder
+#print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_rawColumnCross
+#print axioms coarseGibbsRefreshConnectedRemainderCalibration_iff_rawColumnCross
+#print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_fineUnitReference_and_localizedMoment
 #print axioms CoarseGibbsRefreshPhysicalRemainderL1Calibration
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_physicalRemainderL1
 #print axioms positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRefreshPhysicalRemainderL1

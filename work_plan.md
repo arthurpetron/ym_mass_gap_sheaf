@@ -300,6 +300,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |       +-- equals `Z_f^2` times one unit-bounded
 |   |   |   |       |   |   |   |   |           |       |       connected-observable defect ................. [PROVED exact]
 |   |   |   |       |   |   |   |   |           |       +-- direct matched-AF three-input compiler ........ [PROVED interface]
+|   |   |   |       |   |   |   |   |           |       +-- aggregate raw-column calibration iff centered
+|   |   |   |       |   |   |   |   |           |       |       remainder calibration ........................ [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       +-- coupling-one reference + localized moment
+|   |   |   |       |   |   |   |   |           |       |       => centered remainder calibration ............ [PROVED interface]
 |   |   |   |       |   |   |   |   |           |       +-- centered remainder <= `K*g^2` .............. [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |           |       `-- full physical remainder `l1` <= `K*g^2` ... [OPEN stronger fallback]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
@@ -2291,6 +2295,59 @@ This remains a finite cutoff-one/matched-chart compiler.  Uniform cutoff and
 volume persistence, construction of the same interacting continuum measure
 and observable algebra, same-object OS/GNS reconstruction, a positive
 Hamiltonian gap, and Clay closure remain open.
+
+## Milestone 262: raw-column and centered calibrations are equivalent (2026-09-09)
+
+**Status. THE AGGREGATE RAW-COLUMN CALIBRATION IS NOW PROVED EQUIVALENT TO
+THE PREFERRED NORMALIZED CENTERED-REMAINDER CALIBRATION.  POSITIVE PHYSICAL
+PARTITIONS CANCEL IN BOTH DIRECTIONS, SO THE RECEIVER-COLUMN FORMULATION
+CARRIES NO ADDITIONAL ANALYTIC CONTENT.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean` now proves the reverse
+of the milestone-260 compiler.  From
+
+```text
+|rawColumnScaleDefect|
+  <= (K*g^2) * (Z_c^2 * Z_f^2)
+```
+
+and the exact identity
+
+```text
+rawColumnScaleDefect
+  = (Z_c^2 * Z_f^2) * centeredCylinderRemainder,
+```
+
+strict positivity of both physical partitions cancels the common factor and
+gives `|centeredCylinderRemainder| <= K*g^2`.  Together with the already
+proved forward implication, this yields a constructive `iff` with no change
+of coefficient.
+
+The module also composes that reverse cancellation with the earlier
+fine-coupling theorem.  A quadratic calibration of the coupling-one
+reference scale defect plus a volume-uniform bound on the two selected
+pair-cell Casimir moments now supplies the preferred connected calibration
+with coefficient
+
+```text
+referenceCeiling + 2 * momentCeiling.
+```
+
+This unifies rather than duplicates the two analytic routes.  It does not
+inhabit either premise: the coupling-one reference residual and localized
+moment remain a sufficient producer pair, while a direct cancellation-aware
+proof of the centered bound remains the weakest named target.
+
+The dependency-complete monitored target passes all 5,504 jobs.  The twelve
+printed declarations in the updated connected-remainder module and the four
+downstream matched-AF declarations depend only on `[propext, Quot.sound]`.
+No `Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+This is still a finite cutoff-one identity and compiler.  Raw-event mismatch,
+lower physical spacing, cutoff/volume-uniform persistence, continuum measure
+construction, same-object OS/GNS reconstruction, the Hamiltonian gap, and
+Clay closure remain open.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
