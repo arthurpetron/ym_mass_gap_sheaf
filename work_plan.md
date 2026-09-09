@@ -119,7 +119,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       literal-cylinder crosses .............................. [PROVED exact]
 |   |   |   |   +-- relative three-event cross bound => centered calibration . [PROVED interface]
 |   |   |   |   +-- clear embedded moment denominators into one fully raw
-|   |   |   |           joint/root/target polynomial .......................... [ACTIVE algebraic edge]
+|   |   |   |   |       joint/root/target polynomial .......................... [PROVED exact]
+|   |   |   |   +-- relative fully raw row polynomial => centered calibration . [PROVED interface]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that polynomial .. [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2627,6 +2629,55 @@ lower physical spacing, cutoff/volume-uniform persistence, construction of
 the same interacting continuum measure, same-object OS/GNS reconstruction,
 the Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 268: fully raw connected row polynomial (2026-09-09)
+
+**Status. THE TWO NORMALIZED MOMENT COEFFICIENTS HAVE BEEN CLEARED FROM THE
+THREE-EVENT ROW CROSS.  EACH POSITIVE CONNECTED ROW IS NOW EXACTLY ONE
+DIVISION-FREE JOINT/ROOT/TARGET POLYNOMIAL OVER ONE STRICTLY POSITIVE RAW
+DENOMINATOR, AND A RELATIVE BOUND ON THAT POLYNOMIAL COMPILES DIRECTLY TO
+THE EXISTING CENTERED-REMAINDER CALIBRATION.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCross.lean` multiplies
+the three-event cross by the hidden moment scale `Zf*Zc` and proves the
+exact numerator
+
+```text
+-(jointCross * (Zf*Zc))
+  + (pushedTargetRaw * rootCross) * Zc
+  + (coarseRootRaw  * targetCross) * Zf.
+```
+
+Here every `eventCross` is still the signed production-versus-Gibbs
+difference `rowEventRaw*Zc - coarseEventRaw*rowZ`.  No absolute value is
+taken during denominator clearing.  The positive row action is this fully
+raw numerator divided by
+
+```text
+(rowZ*Zc)*(Zf*Zc) = rowZ*Zf*Zc^2
+```
+
+up to constructive rational association and commutation, and that denominator
+is proved strictly positive.  The division-free premise
+
+```text
+|fullyRawEventCross| <= K*g^2 * ((rowZ*Zc)*(Zf*Zc))
+```
+
+therefore compiles without coefficient loss to the positive-row pointwise
+bound and then the normalized centered-cylinder remainder.
+
+The monitored leaf target passes all 5,509 jobs.  All eleven printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+No relative fully raw estimate is inhabited.  The active analytic producer
+is a cutoff- and volume-uniform `O(g^2)` bound on the displayed signed
+polynomial, retaining its event-cross cancellations.  Raw-event mismatch,
+lower physical spacing, cutoff/volume-uniform persistence, construction of
+the same interacting continuum measure, same-object OS/GNS reconstruction,
+the Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2675,9 +2726,12 @@ ROW-VERSUS-GIBBS CROSS-MULTIPLICATION IS NOW PROVED EXACTLY, WITH POSITIVE
 DENOMINATOR `ROWZ*ZC`, AND ITS RELATIVE `K*G^2` PREMISE COMPILES DIRECTLY TO
 THE CENTERED CONSUMER.  THAT CROSS IS NOW EXPANDED EXACTLY AS THE SIGNED SUM
 OF THE LITERAL JOINT, ROOT, AND TARGET CYLINDER CROSSES, AND A RELATIVE BOUND
-ON THIS COMBINED EVENT NUMERATOR HAS THE SAME CONSUMER.  THE ACTIVE ALGEBRAIC
-EDGE IS TO CLEAR THE TWO REMAINING FINE/COARSE MOMENT DENOMINATORS INTO ONE
-FULLY RAW JOINT/ROOT/TARGET POLYNOMIAL WITHOUT SPLITTING ITS SIGNS.  THE
+ON THIS COMBINED EVENT NUMERATOR HAS THE SAME CONSUMER.  THE TWO REMAINING
+FINE/COARSE MOMENT DENOMINATORS ARE NOW CLEARED EXACTLY INTO ONE FULLY RAW
+JOINT/ROOT/TARGET POLYNOMIAL OVER THE POSITIVE DENOMINATOR
+`(ROWZ*ZC)*(ZF*ZC)`, WITHOUT SPLITTING ITS SIGNS.  THE ACTIVE ANALYTIC
+PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM RELATIVE `K*G^2` BOUND ON THAT
+FULLY RAW POLYNOMIAL.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/

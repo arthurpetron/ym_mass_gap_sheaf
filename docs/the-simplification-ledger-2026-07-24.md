@@ -1543,6 +1543,35 @@ declarations depend exactly on `[propext, Quot.sound]`.  No aggregate root
 pass is claimed.  Cutoff/volume uniformity, continuum construction,
 same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.
 
+### 9.36 Post-audit implementation update: fully raw row polynomial, milestone 268 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCross.lean`
+clears the fine and coarse partition denominators hidden in the two moment
+coefficients while retaining all event-cross signs.  Multiplying the
+three-event cross by `Zf*Zc` gives exactly
+
+```text
+-(jointCross * (Zf*Zc))
+  + (pushedTargetRaw * rootCross) * Zc
+  + (coarseRootRaw  * targetCross) * Zf,
+```
+
+where each event cross remains
+`rowEventRaw*Zc - coarseEventRaw*rowZ`.  The selected positive connected row
+is therefore this fully raw polynomial divided by the strictly positive
+denominator `(rowZ*Zc)*(Zf*Zc)`, constructively equal up to association and
+commutation to `rowZ*Zf*Zc^2`.
+
+A relative `K*g^2` bound on the polynomial compiles directly to the existing
+positive-row pointwise and normalized centered-remainder calibrations.  No
+such estimate is inhabited: the next analytic producer must prove it
+uniformly in cutoff and volume without discarding the signed cancellations.
+The monitored leaf target passes all 5,509 jobs, and all eleven printed
+declarations depend exactly on `[propext, Quot.sound]`.  No aggregate root
+pass is claimed.  Raw-event mismatch, lower physical spacing,
+cutoff/volume persistence, continuum construction, same-object OS/GNS, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
