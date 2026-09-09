@@ -1564,13 +1564,46 @@ commutation to `rowZ*Zf*Zc^2`.
 
 A relative `K*g^2` bound on the polynomial compiles directly to the existing
 positive-row pointwise and normalized centered-remainder calibrations.  No
-such estimate is inhabited: the next analytic producer must prove it
-uniformly in cutoff and volume without discarding the signed cancellations.
+such estimate is inhabited.  It is a sufficient pointwise route but stronger
+than the signed fine-law aggregate actually consumed by the physical
+remainder; the next audit therefore retains source cancellation before
+selecting the analytic premise.
 The monitored leaf target passes all 5,509 jobs, and all eleven printed
 declarations depend exactly on `[propext, Quot.sound]`.  No aggregate root
 pass is claimed.  Raw-event mismatch, lower physical spacing,
 cutoff/volume persistence, continuum construction, same-object OS/GNS, the
 Hamiltonian gap, and Clay closure remain open.
+
+### 9.37 Post-audit implementation update: signed fully raw source aggregate, milestone 269 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCrossAverage.lean`
+keeps the cancellation between positive fine Gibbs sources.  It forms the
+literal finite sum
+
+```text
+sum_source fineNormalizedMass(source)
+  * fullyRawEventCross(source)
+      / ((rowZ(source)*Zc)*(Zf*Zc)),
+```
+
+omitting Gibbs-null rows before requesting any positive denominator witness.
+This aggregate is proved exactly equal to the previous signed raw-row average
+and hence to the normalized `centeredCylinderRemainder`.
+
+Therefore an aggregate `K*g^2` estimate is equivalent, without coefficient
+loss, to the physical centered-remainder calibration.  This is strictly the
+preferred interface over the sufficient pointwise fully raw premise because
+it preserves source cancellation.  The pointwise premise is nevertheless
+proved to imply the aggregate as a fallback.
+
+No quadratic estimate is inhabited.  The active producer is a cutoff- and
+volume-uniform bound on this signed aggregate, ideally from the established
+receiver-column or posterior-contraction machinery.  The monitored leaf
+target passes all 5,510 jobs, and all eight printed declarations depend
+exactly on `[propext, Quot.sound]`.  No aggregate root pass is claimed.
+Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
+continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
+closure remain open.
 
 ## 10. What this changes—and what it does not
 

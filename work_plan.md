@@ -120,8 +120,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- relative three-event cross bound => centered calibration . [PROVED interface]
 |   |   |   |   +-- clear embedded moment denominators into one fully raw
 |   |   |   |   |       joint/root/target polynomial .......................... [PROVED exact]
-|   |   |   |   +-- relative fully raw row polynomial => centered calibration . [PROVED interface]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that polynomial .. [ACTIVE analytic producer]
+|   |   |   |   +-- relative fully raw row polynomial => pointwise calibration  [PROVED stronger interface]
+|   |   |   |   +-- signed fine-law average of fully raw row ratios = centered
+|   |   |   |   |       pushed-law remainder ................................... [PROVED exact]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that aggregate .... [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2671,12 +2673,58 @@ declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
 choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
 enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
 
-No relative fully raw estimate is inhabited.  The active analytic producer
-is a cutoff- and volume-uniform `O(g^2)` bound on the displayed signed
-polynomial, retaining its event-cross cancellations.  Raw-event mismatch,
-lower physical spacing, cutoff/volume-uniform persistence, construction of
-the same interacting continuum measure, same-object OS/GNS reconstruction,
-the Hamiltonian gap, and Clay closure remain open.
+No relative fully raw estimate is inhabited.  This pointwise route is a
+sufficient but potentially stronger producer than the signed fine-law
+average required by the centered remainder.  The next exact seam is therefore
+to expose the fully raw ratios under that aggregate before selecting the
+analytic hypothesis.  Raw-event mismatch, lower physical spacing,
+cutoff/volume-uniform persistence, construction of the same interacting
+continuum measure, same-object OS/GNS reconstruction, the Hamiltonian gap,
+and Clay closure remain open.
+
+## Milestone 269: cancellation-preserving fully raw source aggregate (2026-09-09)
+
+**Status. THE FULLY RAW CONNECTED ROW RATIOS ARE NOW AGGREGATED WITH THEIR
+ACTUAL FINE GIBBS WEIGHTS BEFORE TAKING AN ABSOLUTE VALUE.  THIS SIGNED
+AGGREGATE IS EXACTLY THE NORMALIZED CENTERED-CYLINDER REMAINDER, SO ITS
+`K*G^2` CALIBRATION IS EQUIVALENT TO THE PHYSICAL PRODUCER WITH NO CONSTANT
+LOSS.  THE PER-ROW FULLY RAW BOUND IS RETAINED ONLY AS A STRONGER FALLBACK.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCrossAverage.lean`
+recurses over the literal fine physical carrier.  Gibbs-null sources are
+omitted, while every positive source contributes
+
+```text
+fineNormalizedMass(source)
+  * fullyRawEventCross(source)
+      / ((rowZ(source)*Zc)*(Zf*Zc)).
+```
+
+The source sum is proved exactly equal first to the earlier signed positive
+raw-row average and then to `centeredCylinderRemainder`.  Consequently
+
+```text
+|signed fully raw source aggregate| <= K*g^2
+```
+
+is logically equivalent to the existing centered-remainder calibration.
+This is the weakest exact producer exposed by the row expansion: it retains
+the joint/root/target signs inside every row and cancellation between
+different fine Gibbs sources.  The former pointwise fully raw calibration
+still compiles to it, but is no longer identified as the preferred target.
+
+The monitored leaf target passes all 5,510 jobs.  All eight printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+No quadratic aggregate estimate is inhabited.  The active analytic producer
+is a cutoff- and volume-uniform `O(g^2)` bound on this signed fully raw source
+aggregate, preferably by a receiver-column or posterior-contraction estimate
+that keeps the source cancellation.  Raw-event mismatch, lower physical
+spacing, cutoff/volume persistence, construction of the same interacting
+continuum measure, same-object OS/GNS reconstruction, the Hamiltonian gap,
+and Clay closure remain open.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
@@ -2729,9 +2777,14 @@ OF THE LITERAL JOINT, ROOT, AND TARGET CYLINDER CROSSES, AND A RELATIVE BOUND
 ON THIS COMBINED EVENT NUMERATOR HAS THE SAME CONSUMER.  THE TWO REMAINING
 FINE/COARSE MOMENT DENOMINATORS ARE NOW CLEARED EXACTLY INTO ONE FULLY RAW
 JOINT/ROOT/TARGET POLYNOMIAL OVER THE POSITIVE DENOMINATOR
-`(ROWZ*ZC)*(ZF*ZC)`, WITHOUT SPLITTING ITS SIGNS.  THE ACTIVE ANALYTIC
-PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM RELATIVE `K*G^2` BOUND ON THAT
-FULLY RAW POLYNOMIAL.  THE
+`(ROWZ*ZC)*(ZF*ZC)`, WITHOUT SPLITTING ITS SIGNS.  THOSE FULLY RAW ROW
+RATIOS ARE NOW SUMMED WITH THEIR ACTUAL FINE GIBBS WEIGHTS BEFORE THE
+ABSOLUTE VALUE, AND THE RESULT IS EXACTLY THE CENTERED REMAINDER.  THE
+POINTWISE FULLY RAW PREMISE IS THEREFORE RECORDED ONLY AS A STRONGER
+FALLBACK.  THE ACTIVE ANALYTIC PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM
+`K*G^2` BOUND ON THE SIGNED FULLY RAW SOURCE AGGREGATE, PREFERABLY THROUGH A
+RECEIVER-COLUMN OR POSTERIOR-CONTRACTION ESTIMATE THAT RETAINS SOURCE
+CANCELLATION.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
