@@ -1909,6 +1909,35 @@ Hamiltonian gap, and Clay closure remain open.  The monitored leaf target
 passes all 5,504 jobs; all 12 printed declarations depend exactly on
 `[propext, Quot.sound]`.
 
+### 9.47 Post-audit implementation update: physical-face localization of the centered score, milestone 279 (2026-09-09)
+
+The global geometric coupling quotient is now telescoped exactly over the
+literal ordered physical-face list.  For every fine source the construction
+retains each face identifier and assigns it a prefix-weighted local geometric
+quotient; these coefficients sum exactly to the source's complete geometric
+quotient.  The flattened source-face raw mass consequently sums to the global
+fine coupling-margin partition.
+
+The one-replica centered score moment from milestone 278 is now exactly
+
+```text
+sum_(source,face) localFaceMarginMass(source,face)
+  * (Z_actual * rowEventMass(source) - actualEventRawMass).
+```
+
+This preserves normalization cancellation before any absolute value and
+exposes the inserted physical face.  It does not itself prove locality or a
+uniform estimate: each coefficient includes the ordered prefix heat weight,
+so the resulting term belongs naturally to a one-face hybrid measure rather
+than being a pointwise face-local observable under one fixed measure.  The
+next analytic obligation is a cutoff- and volume-uniform covariance bound for
+those hybrid measures, or an exact symmetric recoding that eliminates the
+prefix dependence.  The balanced-blocking calibration remains independently
+open, as do the centered `O(g^2)` remainder bound, cutoff/volume persistence,
+continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
+closure.  The monitored leaf target passes all 5,505 jobs; all 11 printed
+load-bearing declarations stay within `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

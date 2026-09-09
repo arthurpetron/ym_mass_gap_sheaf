@@ -150,7 +150,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- product-kernel four-cell contrast = one-row 2x2 determinant ......... [PROVED exact]
 |   |   |   |   +-- source-pair average = four products of one-source moments ........... [PROVED exact]
 |   |   |   |   +-- four centered one-source cell moments sum to zero ................... [PROVED exact]
-|   |   |   |   +-- volume-uniform balanced-blocking + centered score-moment bounds ..... [ACTIVE analytic producers]
+|   |   |   |   +-- global geometric quotient telescopes over literal slab faces ......... [PROVED exact]
+|   |   |   |   +-- centered score moments = source-face hybrid insertions ................ [PROVED exact]
+|   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
+|   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -3176,6 +3179,51 @@ load-bearing declarations depend exactly on `[propext, Quot.sound]`.  No
 aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
 is introduced.
+
+## Milestone 279: localize the centered coupling score by physical face (2026-09-09)
+
+**Status. THE GLOBAL GEOMETRIC COUPLING QUOTIENT IS NOW TELESCOPED EXACTLY
+OVER THE LITERAL ORDERED SLAB-FACE LIST.  EACH ONE-REPLICA CENTERED SCORE
+MOMENT IS EXACTLY A SUM OF FACE-LABELLED HYBRID INSERTIONS.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginLocalInsertion.lean` proves the
+finite geometric identity
+
+```text
+geomSum(w, left + right)
+  = geomSum(w, left) + w^left * geomSum(w, right)
+```
+
+and uses it to construct, for every fine physical source, an ordered list of
+face-labelled coefficients whose sum is the source's complete coupling
+margin.  Flattening over fine sources gives a source-face carrier whose raw
+mass is exactly the global coupling-margin partition.  The centered event
+moment from milestone 278 is then proved equal to
+
+```text
+sum_(source,face) localFaceMarginMass(source,face)
+  * (Z_actual * rowEventMass(source) - actualEventRawMass).
+```
+
+No absolute value or estimate enters this identity.  It exposes the face at
+which the finite coupling change is inserted while retaining exact
+normalization cancellation.
+
+The coefficient is a prefix-weighted hybrid contribution, not yet an
+observable depending only on that face.  Therefore the active analytic
+producer is specifically a cutoff- and volume-uniform covariance estimate
+for the induced one-face hybrid measures, or an exact symmetric recoding
+that removes the ordered-prefix dependence.  Merely grouping the present
+carrier by face distance would not establish locality.  The balanced
+blocking producer remains independently open, as do the centered `O(g^2)`
+consumer, all-cutoff persistence, the interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure.
+
+The monitored leaf target passes all 5,505 jobs.  The 11 printed
+load-bearing declarations use only `[propext, Quot.sound]` (some require only
+`[propext]` or no axioms).  No aggregate root pass is claimed, and no
+`Classical`, choice, `sorry`, new axiom, `native_decide`, noncomputable
+witness, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
