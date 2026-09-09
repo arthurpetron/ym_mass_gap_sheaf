@@ -258,8 +258,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |       |       from relative density calibration ......... [PROVED reduction]
 |   |   |   |       |   |   |   |   |       +-- eventual relative-density field compiles to
 |   |   |   |       |   |   |   |   |       |       matched-AF finite covariance comparison ..... [PROVED]
-|   |   |   |       |   |   |   |   |       `-- saturated receiver density differs from
-|   |   |   |       |   |   |   |   |               `Z_f^2/Z_c^2` by relative `K*g^2` ... [ACTIVE analytic producer]
+|   |   |   |       |   |   |   |   |       `-- literal raw receiver pushforward calibration
+|   |   |   |       |   |   |   |   |           +-- density * receiver weight = pushed raw mass [PROVED exact]
+|   |   |   |       |   |   |   |   |           +-- raw-mass bound iff relative-density bound .. [PROVED exact]
+|   |   |   |       |   |   |   |   |           +-- raw schedule field => finite covariance ..... [PROVED interface]
+|   |   |   |       |   |   |   |   |           `-- prove uniform `K*g^2` raw pushforward error . [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1685,6 +1688,53 @@ printed declarations in the module depend exactly on
 displayed analytic premises.  Uniform all-cutoff contraction, the same
 interacting continuum measure, OS/GNS reconstruction, a positive Hamiltonian
 gap, and Clay closure remain open after those premises.
+
+## Milestone 251: division-free receiver raw-pushforward seam (2026-09-08)
+
+**Status. THE RECEIVER CALIBRATION IS NOW EXACTLY RESTATED AS A FINITE RAW
+PUSHFORWARD-MASS ESTIMATE, AND THAT PRODUCER INTERFACE REACHES THE MATCHED-AF
+FINITE COVARIANCE CONCLUSION.**
+
+`Z4DyadicSpinFourReceiverRawPushforwardCalibration.lean` defines, separately
+on the source and replica-oriented target cells, the literal raw mass pushed
+to one canonical receiver.  It is a multiplicity-faithful zero extension of
+the saturated-lift contributions, before division by the receiver Gibbs
+weight.  The new exact pointwise identities are
+
+```text
+saturatedReceiverDensity(receiver) * receiverWeight(receiver)
+  = saturatedRawPushforwardMass(receiver).
+```
+
+Every canonical receiver weight is strictly positive at positive coarse
+coupling.  Positive-factor cancellation therefore proves that the previous
+relative-density estimate is equivalent, receiver by receiver, to
+
+```text
+|partitionDensity * receiverWeight - saturatedRawPushforwardMass|
+  <= relative * partitionDensity * receiverWeight.
+```
+
+`MatchedShiftedAFSpinFourRawPushforwardQuadraticCostControl` carries this
+division-free estimate at relative scale `K*g^2`, preserves the independent
+spacing and raw-event-mismatch inputs, and compiles through the existing
+relative-density control to `fineCovariance <= anchorRate + epsilon`.
+
+The dependency-complete monitored target passes 5,493 jobs.  All nine
+printed load-bearing declarations depend exactly on `[propext, Quot.sound]`;
+no `Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+The audit found no stationarity identity or `O(g^2)` perturbation theorem for
+the literal whole-slab recoupling kernel.  The all-cutoff physical frontier
+also still names positive-row closure as an open input.  Consequently the
+next analytic milestone must prove the displayed raw pushforward estimate
+from the actual heat/intertwiner weights, with constants uniform in the
+required finite volume, or weaken/localize the pointwise premise if such
+uniformity is false.  Lower physical spacing and raw event mismatch remain
+independent open inputs.  All-cutoff persistence, continuum construction,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain downstream.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

@@ -968,6 +968,40 @@ exactly `[propext, Quot.sound]`.  The schedule structure does not inhabit its
 three analytic fields and does not provide all-cutoff persistence, a
 continuum measure, OS/GNS reconstruction, a Hamiltonian gap, or Clay closure.
 
+### 9.19 Post-audit implementation update: raw receiver pushforward, milestone 251 (2026-09-08)
+
+The new raw-pushforward module removes the normalization quotient from the
+active receiver premise.  For both source and replica-oriented target cells,
+it defines the receiver-wise raw mass as the finite zero extension of every
+assignment-saturated lift contribution and proves exactly
+
+```text
+fiberDensity(receiver) * physicalReceiverWeight(receiver)
+  = rawPushforwardMass(receiver).
+```
+
+Since each receiver weight is strictly positive, the pointwise raw estimate
+
+```text
+|partitionDensity * receiverWeight - rawPushforwardMass|
+  <= relative * partitionDensity * receiverWeight
+```
+
+is equivalent to the earlier relative-density estimate.  A matched-AF raw
+schedule structure now compiles that premise, together with the still
+independent spacing and raw-event-mismatch fields, to the same eventual
+finite covariance comparison.
+
+The 5,493-job monitored target passes and all nine printed declarations use
+exactly `[propext, Quot.sound]`.  This does not prove the raw estimate.  The
+repository audit found no literal whole-slab stationarity identity or
+small-`g` kernel perturbation theorem, and the all-cutoff raw kernel still has
+an open positive-row-closure input.  The active research edge is therefore a
+uniform estimate on these explicit raw weights, with a fallback to a
+localized or aggregate receiver statement if the pointwise volume-uniform
+form is too strong.  No continuum, OS/GNS, Hamiltonian-gap, or Clay claim is
+made.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
