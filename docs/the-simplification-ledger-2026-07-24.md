@@ -1063,6 +1063,43 @@ spacing, raw mismatch, all-cutoff persistence, continuum construction,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain open.
 
+### 9.22 Post-audit implementation update: matched-AF quadratic reference loss, milestone 254 (2026-09-09)
+
+The scalar mismatch isolated in milestone 253 is now closed.
+`BF4MatchedPhysicalAFBridge.lean` derives the constructive upper comparison
+
+```text
+1 - blockedWeight(family,g) <= 2*g^2
+```
+
+from the existing `CubicMarginLaw`; the proof uses the absolute cubic
+remainder, the same one-sided window as the lower comparison, positivity of
+the AF coefficients, and no new hypothesis.
+
+`Z4DyadicSpinFourFineCouplingReferencePerturbation.lean` adds the two sign
+lemmas needed to multiply this comparison by the literal receiver-local and
+total coupling-one Casimir moments.  At a matched fine coupling, it proves
+
+```text
+unit pushed column - actual pushed column
+  <= 2*g^2 * receiver-local unit-coupling Casimir moment,
+
+unit fine partition - actual fine partition
+  <= 2*g^2 * total unit-coupling Casimir moment.
+```
+
+The dependency-complete monitored target passes all 5,495 jobs.  The new
+load-bearing declarations use at most `[propext, Quot.sound]`, and the
+Casimir-exponent definition remains axiom-free.
+
+This does not supply a volume-uniform raw-column cross estimate: both
+moments are still global slab sums.  The next honest producer must prove the
+coupling-one reference-cross identity and exploit observable cancellation or
+localization to control the relevant moment uniformly in volume.  Physical
+spacing, raw-event mismatch, all-cutoff persistence, continuum construction,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

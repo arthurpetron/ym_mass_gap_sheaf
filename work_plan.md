@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-08)
+## Whole-project goal and live completion map (updated 2026-09-09)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -268,7 +268,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |       at coupling one ............................ [PROVED]
 |   |   |   |       |   |   |   |   |           +-- pushed-column and partition losses bounded by
 |   |   |   |       |   |   |   |   |           |       `(1-w)` times explicit Casimir moments ..... [PROVED]
-|   |   |   |       |   |   |   |   |           +-- blocked-margin upper comparison to `g^2` ..... [OPEN]
+|   |   |   |       |   |   |   |   |           +-- blocked-margin upper comparison to `2*g^2` ... [PROVED]
+|   |   |   |       |   |   |   |   |           +-- matched-AF pushed-column/partition loss
+|   |   |   |       |   |   |   |   |           |       <= `2*g^2` times Casimir moment ........... [PROVED]
 |   |   |   |       |   |   |   |   |           +-- coupling-one reference cross/stationarity ..... [OPEN]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized/cancelled moment ..... [ACTIVE]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
@@ -1841,7 +1843,52 @@ independent open inputs; all-cutoff persistence, the same interacting
 continuum measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay
 closure remain downstream.
 
-## Current goal-mode checkpoint (2026-09-08)
+## Milestone 254: matched-AF quadratic reference loss (2026-09-09)
+
+**Status. THE CUBIC MATCHED-AF LAW NOW CONTROLS THE PHYSICAL BLOCKED-NOME
+MARGIN FROM BOTH SIDES, AND THE LITERAL PUSHED-COLUMN AND PARTITION LOSSES
+HAVE AN EXPLICIT `2*G^2` PREFACTOR.**
+
+`BF4MatchedPhysicalAFBridge.lean` proves the missing constructive upper
+comparison
+
+```text
+1 - blockedWeight(family,g) <= 2*g^2
+```
+
+from the same `CubicMarginLaw` remainder and window that already supply the
+lower half-square comparison.  No stronger AF hypothesis is added.
+
+`Z4DyadicSpinFourFineCouplingReferencePerturbation.lean` proves
+nonnegativity of the receiver-local and total coupling-one Casimir moments,
+then transports the new scalar comparison through the milestone-253 loss
+bounds.  For a matched fine coupling, the literal conclusions are
+
+```text
+unit pushed column - actual pushed column
+  <= 2*g^2 * receiver-local unit-coupling Casimir moment,
+
+unit fine partition - actual fine partition
+  <= 2*g^2 * total unit-coupling Casimir moment.
+```
+
+The dependency-complete monitored target passes all 5,495 jobs.  The four
+new perturbation declarations and `blockedMargin_le_two_square` depend only
+on `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, new axiom,
+`native_decide`, or noncomputable witness is introduced.  No full-root audit
+is claimed.
+
+This closes the previously open blocked-margin comparison, but not the
+aggregate raw-column `K*g^2` producer.  The displayed moments still sum the
+whole fine slab and can grow with volume.  The active analytic edge is
+therefore unchanged in substance: establish the needed coupling-one
+reference-cross identity and a localized or cancellation-preserving moment
+estimate uniform in the required finite volume.  Physical spacing and raw
+event mismatch remain independent inputs; all-cutoff persistence, continuum
+construction, same-object OS/GNS reconstruction, the Hamiltonian gap, and
+Clay closure remain downstream.
+
+## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
 CORRIDOR `0 < w <= 1/400` ARE CLOSED FOR THE LITERAL FACE OBSERVABLE.  THE
@@ -1851,9 +1898,11 @@ CLUSTERING.  EXACT HEAT-SEMIGROUP DECIMATION NOW REACHES THAT COEFFICIENT
 CORRIDOR FROM EVERY RATIONAL `0 < w < 1`.  THE ACTIVE PHYSICAL EDGE IS THE
 GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
 ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE AGGREGATE SIGNED
-RAW-COLUMN `K*G^2` ESTIMATE, ALONGSIDE THE INDEPENDENT SPACING AND RAW-EVENT
-MISMATCH INPUTS; ALL-CUTOFF PERSISTENCE AND THE CONTINUUM/OS/GNS/GAP CHAIN
-REMAIN DOWNSTREAM.**
+RAW-COLUMN `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
+`2*G^2` CASIMIR-MOMENT PREFACTOR ARE CLOSED; THE COUPLING-ONE REFERENCE CROSS
+AND A VOLUME-UNIFORM LOCALIZED/CANCELLED MOMENT ARE ACTIVE.  THE INDEPENDENT
+SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
+CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:

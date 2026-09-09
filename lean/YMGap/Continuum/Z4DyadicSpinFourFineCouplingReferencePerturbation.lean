@@ -40,6 +40,7 @@ set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BondMovingStep
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualSlabPhysicalData
@@ -362,6 +363,40 @@ def fineUnitCouplingPhysicalCasimirMoment
         fineUnitCouplingPhysicalTerm S source)
     S.fine.physicalLabellings
 
+/-- The receiver-local Casimir moment is nonnegative on every literal coarse
+target in the carrier.  This is the sign needed to transport a sharper scalar
+coupling-margin bound through the moment. -/
+theorem fineUnitCouplingPushedTargetCasimirMoment_nonnegative
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    {target : EdgeLabelling}
+    (htarget : target ∈ S.coarse.physicalLabellings) :
+    (0 : Q') ≤ fineUnitCouplingPushedTargetCasimirMoment K target := by
+  unfold fineUnitCouplingPushedTargetCasimirMoment
+  apply listQSum_nonnegative_on
+  intro source hsource
+  exact Q'.mul_nonneg _ _
+    (Q'.mul_nonneg _ _
+      (ExpNeg.ofNat_nonneg'
+        (slabPhysicalCasimirExponent S.fine.extent source))
+      (slabParametricKPhysicalTerm_nonnegative
+        (by decide : (0 : Q') ≤ (1 : Q'))
+        S.fine.cutoff S.fine.extent source))
+    (K.nonnegative source target hsource htarget)
+
+/-- The total coupling-one Casimir moment is nonnegative. -/
+theorem fineUnitCouplingPhysicalCasimirMoment_nonnegative
+    (S : SlabScalePair) :
+    (0 : Q') ≤ fineUnitCouplingPhysicalCasimirMoment S := by
+  unfold fineUnitCouplingPhysicalCasimirMoment
+  apply listQSum_nonnegative_on
+  intro source _
+  exact Q'.mul_nonneg _ _
+    (ExpNeg.ofNat_nonneg'
+      (slabPhysicalCasimirExponent S.fine.extent source))
+    (slabParametricKPhysicalTerm_nonnegative
+      (by decide : (0 : Q') ≤ (1 : Q'))
+      S.fine.cutoff S.fine.extent source)
+
 /-- The unit-coupling pushed reference has the unit-coupling fine partition
 as its total mass. -/
 theorem fineUnitCouplingPushedTargetRawMass_total
@@ -541,11 +576,68 @@ theorem fineUnitCouplingPhysicalPartition_sub_actual_le_margin_mul_moment
         S.fine.physicalLabellings
         (fun _ _ => Q'.eqv_refl _))
 
+/-! ## 4. Matched-AF quadratic specialization -/
+
+/-- On an exact matched-AF fine coupling, the receiver-local reference loss
+has the explicit quadratic prefactor `2*g²`.  The remaining moment is still
+literal and may depend on the slab volume. -/
+theorem fineUnitCouplingPushedTargetRawMass_sub_actual_le_two_square_mul_moment
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    {target : EdgeLabelling}
+    (htarget : target ∈ S.coarse.physicalLabellings) :
+    fineUnitCouplingPushedTargetRawMass K target -
+        pushedPhysicalTargetRawMass K target ≤
+      (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPushedTargetCasimirMoment K target := by
+  have hbase :=
+    fineUnitCouplingPushedTargetRawMass_sub_actual_le_margin_mul_moment
+      K hfineCoupling_le_one htarget
+  have hmargin :
+      1 + -S.fine.coupling ≤ Q'.ofNat 2 * (g * g) := by
+    rw [hcoupling]
+    exact blockedMargin_le_two_square family law g hg hgle
+  exact Q'.le_trans' _ _ _ hbase
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ hmargin
+      (fineUnitCouplingPushedTargetCasimirMoment_nonnegative K htarget))
+
+/-- The same matched-AF quadratic prefactor controls the total fine partition
+loss from its coupling-one reference. -/
+theorem fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
+    (S : SlabScalePair)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    fineUnitCouplingPhysicalPartition S -
+        S.fine.physicalPartition ≤
+      (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMoment S := by
+  have hbase :=
+    fineUnitCouplingPhysicalPartition_sub_actual_le_margin_mul_moment
+      S hfineCoupling_le_one
+  have hmargin :
+      1 + -S.fine.coupling ≤ Q'.ofNat 2 * (g * g) := by
+    rw [hcoupling]
+    exact blockedMargin_le_two_square family law g hg hgle
+  exact Q'.le_trans' _ _ _ hbase
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ hmargin
+      (fineUnitCouplingPhysicalCasimirMoment_nonnegative S))
+
 #print axioms slabPhysicalCasimirExponent
 #print axioms slabParametricKPhysicalTerm_eqv_power_mul_atOne
 #print axioms slabParametricKPhysicalTerm_atOne_sub_le_casimirMargin
+#print axioms fineUnitCouplingPushedTargetCasimirMoment_nonnegative
+#print axioms fineUnitCouplingPhysicalCasimirMoment_nonnegative
 #print axioms fineUnitCouplingPushedTargetRawMass_total
 #print axioms fineUnitCouplingPushedTargetRawMass_sub_actual_le_margin_mul_moment
 #print axioms fineUnitCouplingPhysicalPartition_sub_actual_le_margin_mul_moment
+#print axioms fineUnitCouplingPushedTargetRawMass_sub_actual_le_two_square_mul_moment
+#print axioms fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferencePerturbation

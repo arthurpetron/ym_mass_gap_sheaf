@@ -27,9 +27,10 @@ certificates:
 2. `PhysicalSpacingEnvelope g₁`: a positive physical spacing family with the
    collapsed spacing estimate `a(g) Λ <= C g²`.
 
-The cubic recurrence plus its window proves
+The cubic recurrence plus its window proves the two-sided comparison
 
     (1/2) g² <= 1 - blockedWeight(F,g).
+    1 - blockedWeight(F,g) <= 2 g².
 
 With `t(g) = 4 g²`, this is exactly the `AFEnvelope.w_floor` field.  The
 spacing certificate supplies the logically independent `spacing_quad` field.
@@ -261,6 +262,66 @@ theorem blockedMargin_ge_half_square
       (law.cubic_remainder g hg hgle)
       (law.cubic_window g hg hgle))
 
+/-- The same cubic remainder and one-sided window also give a constructive
+upper comparison for the physical blocked margin.  The constant `2` is
+deliberately coarse: the purpose is to expose an explicit volume-independent
+`O(g²)` factor for downstream physical perturbation estimates. -/
+theorem blockedMargin_le_two_square
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁) :
+    blockedMargin family g ≤ Q'.ofNat 2 * (g * g) := by
+  have hg0 : (0 : Q') ≤ g := Q'.le_of_lt hg
+  have hsquare0 : (0 : Q') ≤ g * g :=
+    Q'.mul_nonneg g g hg0 hg0
+  have hfine0 : (0 : Q') ≤ fineMargin family g :=
+    Q'.le_trans' _ (g * g) _ hsquare0
+      (Q'.ge_of_eqv (law.current_margin g hg hgle))
+  have hhalfFine0 :
+      (0 : Q') ≤ half * fineMargin family g :=
+    Q'.mul_nonneg half (fineMargin family g) (by decide) hfine0
+  have herror_le_model :
+      law.E * ((g * g) * ((g * g) * (g * g))) ≤
+        (g * g) - law.β * ((g * g) * (g * g)) := by
+    refine Q'.le_trans' _
+      (half * fineMargin family g +
+        law.E * ((g * g) * ((g * g) * (g * g)))) _ ?_ ?_
+    · exact Q'.le_trans' _
+        (law.E * ((g * g) * ((g * g) * (g * g))) +
+          half * fineMargin family g) _
+        (Q'.add_le_self_of_nonneg _ _ hhalfFine0)
+        (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+    · exact law.cubic_window g hg hgle
+  have hbetaFourth0 :
+      (0 : Q') ≤ law.β * ((g * g) * (g * g)) :=
+    Q'.mul_nonneg law.β ((g * g) * (g * g))
+      (Q'.le_of_lt law.β_pos)
+      (Q'.mul_nonneg (g * g) (g * g) hsquare0 hsquare0)
+  have hmodel_le_square :
+      (g * g) - law.β * ((g * g) * (g * g)) ≤ g * g := by
+    refine Q'.le_trans' _ ((g * g) + 0) _ ?_ ?_
+    · change (g * g) + (-(law.β * ((g * g) * (g * g)))) ≤
+        (g * g) + 0
+      exact Q'.add_le_add_left (g * g) _ _
+        (Q'.neg_le_neg hbetaFourth0)
+    · exact Q'.le_of_eqv (Q'.eqv_of_eq (Q'.add_zero' (g * g)))
+  have hupper :
+      blockedMargin family g ≤
+        ((g * g) - law.β * ((g * g) * (g * g))) +
+          law.E * ((g * g) * ((g * g) * (g * g))) :=
+    YMGap.Constructive.ExpNeg.le_add_of_abs_sub_le
+      (law.cubic_remainder g hg hgle)
+  refine Q'.le_trans' _ _ _ hupper
+    (Q'.le_trans' _
+      ((g * g) +
+        ((g * g) - law.β * ((g * g) * (g * g)))) _
+      (Q'.add_le_add hmodel_le_square herror_le_model)
+      ?_)
+  refine Q'.le_trans' _ ((g * g) + (g * g)) _
+    (Q'.add_le_add_left (g * g) _ _ hmodel_le_square) ?_
+  exact Q'.le_of_eqv
+    (Q'.eqv_symm (YMGap.Constructive.ExpNeg.two_mul_eqv (g * g)))
+
 /-! ## 4. The independent physical spacing input -/
 
 /-- Positive physical spacing data on the same rational AF chart.
@@ -383,6 +444,7 @@ end YMGap.Continuum.BF4MatchedPhysicalAFBridge
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.blockedWeight_pos
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.lower_of_abs_remainder
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.blockedMargin_ge_half_square
+#print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.blockedMargin_le_two_square
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.oneEighth_physicalTime
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.physicalWeight_floor
 #print axioms YMGap.Continuum.BF4MatchedPhysicalAFBridge.physicalAFEnvelope
