@@ -907,6 +907,30 @@ the full-carrier quadratic bound, lower physical spacing, raw mismatch,
 all-cutoff contraction, continuum construction, OS/GNS reconstruction, the
 Hamiltonian gap, or Clay closure.
 
+### 9.16 Post-audit implementation update: pointwise relative calibration compiler, milestone 248 (2026-09-08)
+
+`Z4DyadicSpinFourReceiverPointwiseCalibration.lean` turns a common pointwise
+bound on the saturated source and target receiver defects into the full
+aggregate normalized-variation bound.  The useful pointwise scale is
+`relative * Z_f^2`: the weighted source and target sums factor
+through the exact full receiver-cell mass, that mass is at most `2*Z_c^2`,
+and positive division cancels `Z_f^2`.  Consequently the full normalized
+variation is at most `2*relative*Z_c^2`; taking `relative = K*g^2` gives the
+quadratic receiver bound in exactly the matched-AF producer's units, with no
+carrier count.  Exact endpoint coverage then transfers that estimate directly
+to the covered-variation field consumed by the covariance compiler.
+
+This supersedes the old unsaturated off-image pointwise alternative only
+after exact spin-four endpoint coverage: the current pointwise obligation is
+on the assignment-saturated density over the now-covered canonical carriers.
+The theorem does not inhabit that obligation.
+
+The dependency-complete monitored target passes 5,491 jobs, and all seven new
+printed declarations depend exactly on `[propext, Quot.sound]`.  The actual
+pointwise density calibration, lower physical-spacing bound, raw-mismatch
+bound, uniform all-cutoff contraction, continuum construction, OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
