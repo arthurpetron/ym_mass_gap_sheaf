@@ -133,8 +133,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- separate posterior l1 estimates ............................... [PROVED stronger fallback]
 |   |   |   |   +-- signed posterior debt = signed density debt * Z_coarse^2 ....... [PROVED exact]
 |   |   |   |   +-- density-debt calibration <=> fully raw aggregate ............... [PROVED exact]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2)*Z_fine^2 estimate for signed
-|   |   |   |   |       posterior density sum ...................................... [ACTIVE analytic producer]
+|   |   |   |   +-- signed density debt = refresh-production cross
+|   |   |   |   |       = Z_fine^2 * centered remainder ............................. [PROVED exact]
+|   |   |   |   +-- density-debt calibration <=> centered-remainder calibration ..... [PROVED exact]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2) centered-remainder estimate ........ [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2881,6 +2883,54 @@ Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 construction of the same interacting continuum measure, same-object OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 273: identify the signed posterior density with the connected remainder (2026-09-09)
+
+**Status. THE COMPLETE SIGNED POSTERIOR-DENSITY SUM IS NOW IDENTIFIED
+EXACTLY WITH THE CONCRETE GIBBS-REFRESH-VERSUS-PRODUCTION CROSS AND WITH
+`Z_FINE^2` TIMES THE ALREADY ISOLATED CENTERED CYLINDER REMAINDER.  THE
+POSTERIOR AND CONNECTED-OBSERVABLE ANALYTIC FRONTIERS ARE THE SAME PREMISE.**
+
+The positive coarse partition square appears in two previously separate
+exact presentations of the assignment-saturated raw-column defect:
+
+```text
+rawColumnDefect = signedPosteriorDensityDebt * Z_coarse^2
+rawColumnDefect = Z_coarse^2 * (refreshCross - productionCross).
+```
+
+Its strict positivity permits cancellation before any absolute value, giving
+
+```text
+signedPosteriorDensityDebt
+  = refreshCross - productionCross
+  = Z_fine^2 * centeredCylinderRemainder.
+```
+
+Consequently, with the same quadratic constant in both directions,
+
+```text
+|signedPosteriorDensityDebt| <= K*g^2*Z_fine^2
+  <=>
+|centeredCylinderRemainder| <= K*g^2.
+```
+
+This closes an interface-identification seam; it does not prove the bound.
+The preferred analytic producer is again the cutoff- and volume-uniform
+quadratic estimate on the single centered connected remainder (equivalently,
+the signed fine-Gibbs average of the established unit-bounded connected
+observable).  Separate posterior row/column `l1` estimates remain a stronger
+fallback and the unit-normalized two-premise recentering remains the active
+cancellation-aware decomposition of that producer.
+
+The monitored leaf target passes all 5,511 jobs.  All four new exact bridge
+theorems depend exactly on `[propext, Quot.sound]`; no aggregate root pass is
+claimed, and no `Classical`, choice, `sorry`, new axiom, `native_decide`,
+noncomputable witness, or enlarged heartbeat budget is introduced.
+
+Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
+construction of the same interacting continuum measure, same-object OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2890,8 +2940,8 @@ OS IDENTIFICATION, REPRESENTATION-CUTOFF REMOVAL, AND RECEDING-VOLUME
 CLUSTERING.  EXACT HEAT-SEMIGROUP DECIMATION NOW REACHES THAT COEFFICIENT
 CORRIDOR FROM EVERY RATIONAL `0 < w < 1`.  THE ACTIVE PHYSICAL EDGE IS THE
 GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
-ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE AGGREGATE SIGNED
-RAW-COLUMN `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
+ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE CUTOFF- AND VOLUME-
+UNIFORM CENTERED-REMAINDER `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
 `2*G^2` CASIMIR-MOMENT PREFACTOR ARE CLOSED, INCLUDING THE SIGNED CROSS
 PERTURBATION LOCALIZED TO THE TWO SELECTED PAIR CELLS.  THE FULL SCALE DEFECT
 IS NOW EXACTLY RECENTERED AT A REFERENCE DEFECT AGAINST THE ACTUAL DECIMATED
@@ -2946,9 +2996,13 @@ THE SAME QUADRATIC CONSTANT.  BEFORE THE POSTERIOR TRIANGLE INEQUALITY, THE
 RAW COLUMN IS NOW EXACTLY THE SIGNED SUM OF THE CONNECTED ROW LOSS,
 CONNECTED POSTERIOR-COLUMN MISMATCH, AND DISCONNECTED POSTERIOR-COLUMN
 MISMATCH.  ITS QUADRATIC CALIBRATION IS EXACTLY EQUIVALENT TO THE FULLY RAW
-AGGREGATE CALIBRATION.  THE ACTIVE ANALYTIC PRODUCER IS THEREFORE A CUTOFF-
-AND VOLUME-UNIFORM `K*G^2` BOUND ON THIS SIGNED POSTERIOR SUM; SEPARATE `L1`
-BOUNDS FOR ITS THREE TERMS REMAIN A STRONGER FALLBACK.  THE
+AGGREGATE CALIBRATION.  AFTER EXACT CANCELLATION OF THE COMMON COARSE
+PARTITION SQUARE, THE NORMALIZED SIGNED POSTERIOR SUM IS THE CONCRETE
+GIBBS-REFRESH-VERSUS-PRODUCTION CROSS AND `Z_F^2` TIMES THE SAME CENTERED
+CYLINDER REMAINDER ALREADY ISOLATED ON THE CONNECTED-OBSERVABLE BRANCH.  THE
+ACTIVE ANALYTIC PRODUCER IS THEREFORE THE CUTOFF- AND VOLUME-UNIFORM
+`K*G^2` CENTERED-REMAINDER BOUND; SEPARATE `L1` BOUNDS FOR THE THREE
+POSTERIOR TERMS REMAIN A STRONGER FALLBACK.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/

@@ -19,9 +19,11 @@ signed source-average calibration at every controlled matched-AF scale.
 The signed route now cancels the common positive coarse partition square
 before any absolute value is taken.  Its exact analytic residue is the sum of
 one dimensionless connected row-density debt and the two dimensionless
-posterior-column density debts.  Bounding that one signed density sum by
-`K*g^2*Z_fine^2` is equivalent, with no constant loss, to the physical signed
-posterior calibration and hence to the fully raw source-average calibration.
+posterior-column density debts.  This residue is exactly the concrete Gibbs-
+refresh-versus-production signed cross.  Bounding it by `K*g^2*Z_fine^2` is
+therefore the already exposed Gibbs-refresh physical-kernel calibration and,
+with no constant loss, is equivalent to the physical signed posterior and
+fully raw source-average calibrations.
 
 No posterior smallness estimate is inhabited here.  Cutoff/volume uniformity,
 continuum persistence, OS/GNS reconstruction, the Hamiltonian gap, and the
@@ -33,6 +35,7 @@ or new axiom.
 -/
 
 import YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCrossAverage
+import YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshReferenceCross
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnMatchedAFQuadraticCost
 
 namespace YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedFullyRawPosteriorColumn
@@ -47,7 +50,9 @@ open YMGap.Continuum.AFTrajectoryCertificate
 open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
+open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedScaleDefect
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefect
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitTransport
@@ -58,12 +63,15 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiv
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualRawKernel
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
+open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteDependentKernelCoefficientTransport
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCrossAverage
+open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedRemainder
+open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshReferenceCross
 open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 
@@ -344,6 +352,84 @@ theorem positivePhysicalConnectedSignedPosteriorDebtSum_eqv_density_mul_coarseSq
             connectedDensity.posteriorColumnCoefficientDefect)
           disconnectedDensity.posteriorColumnCoefficientDefect factor))
 
+/-- The normalized signed posterior debt is not a new analytic object: it is
+exactly the signed discrepancy between the concrete coarse Gibbs refresh and
+the production physical kernel at the selected receiver column.  The proof
+cancels the common strictly positive coarse partition square before applying
+any absolute value. -/
+theorem positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_gibbsRefresh_sub_physicalKernel
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) :
+    positivePhysicalConnectedSignedPosteriorDensityDebtSum
+        S hfineCutoff hcoarseCoupling M ≈
+      coarseGibbsRefreshPushedRawFourCellCross
+          S M.coarseRoot M.coarseTarget -
+        pushedFaceRawFourCellCross
+          (physicalKernel S hfineCutoff hcoarseCoupling)
+          M.coarseRoot M.coarseTarget := by
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  let density :=
+    positivePhysicalConnectedSignedPosteriorDensityDebtSum
+      S hfineCutoff hcoarseCoupling M
+  let discrepancy :=
+    coarseGibbsRefreshPushedRawFourCellCross
+        S M.coarseRoot M.coarseTarget -
+      pushedFaceRawFourCellCross
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M.coarseRoot M.coarseTarget
+  let rawDefect :=
+    positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+  have hcoarseSquare : (0 : Q') < coarseSquare := by
+    simpa only [coarseSquare] using coarsePhysicalPartitionSquare_pos S
+  have hrawDensity : rawDefect ≈ density * coarseSquare := by
+    refine Q'.eqv_trans _
+      (positivePhysicalConnectedSignedPosteriorDebtSum
+        S hfineCutoff hcoarseCoupling M) _ ?_ ?_
+    · simpa only [rawDefect] using
+        (positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_signedPosteriorDebtSum
+          S hfineCutoff hcoarseCoupling M)
+    · simpa only [density, coarseSquare] using
+        (positivePhysicalConnectedSignedPosteriorDebtSum_eqv_density_mul_coarseSquare
+          S hfineCutoff hcoarseCoupling M)
+  have hrawDiscrepancy : rawDefect ≈ coarseSquare * discrepancy := by
+    simpa only [rawDefect, coarseSquare, discrepancy] using
+      (positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_refresh_sub_physicalKernel
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget)
+  apply Q'.mul_left_cancel_of_pos hcoarseSquare
+  refine Q'.eqv_trans _ (density * coarseSquare) _ ?_ ?_
+  · exact Q'.mul_comm_eqv coarseSquare density
+  exact Q'.eqv_trans _ rawDefect _
+    (Q'.eqv_symm hrawDensity) hrawDiscrepancy
+
+/-- Equivalently, the signed posterior-density sum is the fine partition
+square times the single centered-cylinder remainder already isolated on the
+Gibbs-refresh branch.  This is the direct join between the posterior-column
+and connected-observable analytic frontiers. -/
+theorem positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_finePartitionSquare_mul_centeredRemainder
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) :
+    positivePhysicalConnectedSignedPosteriorDensityDebtSum
+        S hfineCutoff hcoarseCoupling M ≈
+      (S.fine.physicalPartition * S.fine.physicalPartition) *
+        centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M := by
+  exact Q'.eqv_trans _
+    (coarseGibbsRefreshPushedRawFourCellCross
+        S M.coarseRoot M.coarseTarget -
+      pushedFaceRawFourCellCross
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M.coarseRoot M.coarseTarget) _
+    (positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_gibbsRefresh_sub_physicalKernel
+      S hfineCutoff hcoarseCoupling M)
+    (coarseGibbsRefreshCross_sub_physicalKernelCross_eqv_finePartitionSquare_mul_centeredRemainder
+      S hfineCutoff hcoarseCoupling M)
+
 /-- The normalized cancellation-preserving analytic premise after exact
 removal of the coarse partition square. -/
 def PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
@@ -356,6 +442,32 @@ def PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
         S hfineCutoff hcoarseCoupling M) ≤
     (kernelCeiling * (g * g)) *
       (S.fine.physicalPartition * S.fine.physicalPartition)
+
+/-- The normalized signed posterior-density calibration is precisely the
+existing Gibbs-refresh physical-kernel cross calibration at the face map's
+selected coarse root and target. -/
+theorem positiveSignedPosteriorDensityDebtCalibration_iff_gibbsRefreshPhysicalKernelCross
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      CoarseGibbsRefreshPhysicalKernelCrossCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+        g kernelCeiling := by
+  unfold PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
+    CoarseGibbsRefreshPhysicalKernelCrossCalibration
+  have hexact :=
+    positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_gibbsRefresh_sub_physicalKernel
+      S hfineCutoff hcoarseCoupling M
+  constructor
+  · intro h
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.eqv_symm hexact))) h
+  · intro h
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.abs_eqv_congr hexact)) h
 
 /-- Exact positive-factor cancellation makes the dimensionless signed-density
 premise equivalent to the physical signed posterior premise. -/
@@ -436,6 +548,29 @@ theorem positiveSignedPosteriorDensityDebtCalibration_iff_physical
     refine Q'.le_trans' _ (Q'.abs physical) _
       (Q'.le_of_eqv (Q'.eqv_symm habs)) ?_
     exact Q'.le_trans' _ _ _ hphysicalBound (Q'.le_of_eqv hbound)
+
+/-- The posterior-density calibration and the one-observable centered-
+remainder calibration are the same analytic premise.  The intervening raw
+column and partition factors cancel exactly, so neither direction changes
+the quadratic constant. -/
+theorem positiveSignedPosteriorDensityDebtCalibration_iff_connectedRemainder
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      CoarseGibbsRefreshConnectedRemainderCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling := by
+  exact Iff.trans
+    (positiveSignedPosteriorDensityDebtCalibration_iff_physical
+      S hfineCutoff hcoarseCoupling M g kernelCeiling)
+    (Iff.trans
+      (positiveSignedPosteriorDebtCalibration_iff_rawColumnCross
+        S hfineCutoff hcoarseCoupling M g kernelCeiling)
+      (Iff.symm
+        (coarseGibbsRefreshConnectedRemainderCalibration_iff_rawColumnCross
+          S hfineCutoff hcoarseCoupling M g kernelCeiling)))
 
 /-- After exact coarse-square cancellation, the dimensionless signed
 posterior-density estimate is still equivalent to the fully raw signed
@@ -613,8 +748,12 @@ end MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
 #print axioms positiveSignedPosteriorDebtCalibration_iff_fullyRawSignedSourceAverage
 #print axioms positivePhysicalConnectedSignedPosteriorDensityDebtSum
 #print axioms positivePhysicalConnectedSignedPosteriorDebtSum_eqv_density_mul_coarseSquare
+#print axioms positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_gibbsRefresh_sub_physicalKernel
+#print axioms positivePhysicalConnectedSignedPosteriorDensityDebtSum_eqv_finePartitionSquare_mul_centeredRemainder
 #print axioms PositivePhysicalConnectedSignedPosteriorDensityDebtCalibration
+#print axioms positiveSignedPosteriorDensityDebtCalibration_iff_gibbsRefreshPhysicalKernelCross
 #print axioms positiveSignedPosteriorDensityDebtCalibration_iff_physical
+#print axioms positiveSignedPosteriorDensityDebtCalibration_iff_connectedRemainder
 #print axioms positiveSignedPosteriorDensityDebtCalibration_iff_fullyRawSignedSourceAverage
 #print axioms positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_splitPosteriorColumn
 #print axioms MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.toRawColumnCrossQuadraticCostControl

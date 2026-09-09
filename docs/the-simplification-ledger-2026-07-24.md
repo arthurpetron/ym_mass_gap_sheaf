@@ -1712,6 +1712,43 @@ mismatch, lower physical spacing, cutoff/volume persistence, continuum
 construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
 remain open.
 
+### 9.41 Post-audit implementation update: posterior-density and connected-remainder join, milestone 273 (2026-09-09)
+
+The normalized posterior frontier has now been joined to the pre-existing
+Gibbs-refresh connected-observable frontier.  The assignment-saturated raw
+column already had the two exact presentations
+
+```text
+rawColumnDefect = signedPosteriorDensityDebt * Z_coarse^2
+rawColumnDefect = Z_coarse^2 * (refreshCross - productionCross).
+```
+
+Cancelling the strictly positive common factor before taking an absolute
+value proves
+
+```text
+signedPosteriorDensityDebt
+  = refreshCross - productionCross
+  = Z_fine^2 * centeredCylinderRemainder.
+```
+
+The density-debt calibration is therefore equivalent both to the concrete
+Gibbs-refresh physical-kernel cross calibration and to the centered-
+remainder calibration, in both directions with the same quadratic constant.
+The posterior-column expansion has not created a second analytic hypothesis:
+it is another exact coordinate system for the already identified connected
+remainder.
+
+No quadratic estimate is inhabited.  The preferred active producer is the
+cutoff- and volume-uniform `O(g^2)` centered-remainder bound; the signed
+fine-law aggregate, unit-normalized two-premise recentering, and stronger
+posterior componentwise `l1` route remain the existing decompositions of that
+same obligation.  The monitored leaf target passes all 5,511 jobs, and all
+four new bridge theorems depend exactly on `[propext, Quot.sound]`.  No
+aggregate root pass is claimed.  Raw-event mismatch, lower physical spacing,
+cutoff/volume persistence, continuum construction, same-object OS/GNS, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
