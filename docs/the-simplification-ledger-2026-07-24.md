@@ -1819,6 +1819,33 @@ depend exactly on `[propext, Quot.sound]`.  Cutoff/volume persistence,
 continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
 closure remain open.
 
+### 9.44 Post-audit implementation update: centered receiver-pair margin debt, milestone 276 (2026-09-09)
+
+The residual signed geometric-quotient numerator from milestone 274 is now
+identified exactly with a selected cross of a centered receiver-pair debt.
+At one coarse target pair the debt is
+
+```text
+pairMarginMass * Z_actual^2
+  - actualPairMass * partitionSquareMargin.
+```
+
+Exact finite-sum identities show that its total over the complete coarse
+target-pair carrier is zero.  The source four-cell debt minus the opposite
+target four-cell debt is precisely the cancellation-preserving normalized
+margin numerator.  Bounding this selected mass-zero debt cross is therefore
+equivalent to the existing margin calibration with no change of constant.
+
+This removes the interpretation of whole-partition drift as an independent
+positive loss; it is the centering component of the signed pair measure.
+The theorem does not inhabit the volume-uniform bound.  The two active
+analytic producers are still the balanced blocking calibration and the
+selected centered-debt-cross calibration.  Cutoff/volume persistence,
+continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
+closure remain open.  The monitored leaf target passes all 5,502 jobs.  Nine
+printed declarations depend exactly on `[propext, Quot.sound]`, and the pair
+carrier definition depends on no axioms.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

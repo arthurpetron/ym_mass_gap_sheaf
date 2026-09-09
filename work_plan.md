@@ -142,7 +142,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- balanced raw defect / unit-normalized residual quotient .......... [PROVED exact]
 |   |   |   |   +-- balanced calibration => normalized residual, no constant loss .... [PROVED interface]
 |   |   |   |   +-- balanced + margin compiler => centered O(g^2) remainder ........... [PROVED interface]
-|   |   |   |   +-- volume-uniform balanced-blocking + signed-quotient bounds ......... [ACTIVE analytic producers]
+|   |   |   |   +-- margin quotient = selected centered receiver-pair debt cross ....... [PROVED exact]
+|   |   |   |   +-- complete receiver-pair centered debt has total mass zero ........... [PROVED exact]
+|   |   |   |   +-- volume-uniform balanced-blocking + selected-debt bounds ............ [ACTIVE analytic producers]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -3038,6 +3040,50 @@ aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
 is introduced.
 
+## Milestone 276: center the signed coupling margin on receiver pairs (2026-09-09)
+
+**Status. THE REMAINING SIGNED GEOMETRIC-QUOTIENT NUMERATOR IS NOW EXACTLY
+THE SOURCE-CELL MINUS TARGET-CELL CROSS OF ONE CENTERED RECEIVER-PAIR DEBT.
+THAT DEBT HAS EXACTLY ZERO TOTAL MASS ON THE COMPLETE COARSE PAIR CARRIER.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebt.lean` defines the debt at a
+coarse receiver pair by
+
+```text
+pairMarginMass * Z_actual^2
+  - actualPairMass * partitionSquareMargin.
+```
+
+The pushed one-column margin totals to the fine partition margin, the pushed
+pair margin totals to the fine partition-square margin, and the actual pair
+law totals to `Z_actual^2`.  Consequently the displayed centered debt sums
+to zero over every coarse receiver pair.  On the two literal four-cell event
+carriers, the source debt minus the opposite target debt is exactly the
+existing cancellation-preserving normalized margin numerator.
+
+Thus the two equivalent analytic premises are
+
+```text
+|centeredNormalizedMarginNumerator| <= C_margin * commonDenominator
+
+|selectedCenteredReceiverPairDebtCross| <= C_margin * commonDenominator.
+```
+
+The equivalence changes no constant.  It shows that global partition drift
+is the centering term of a signed mass-zero receiver-pair measure, rather
+than a separate positive cost.  It does not prove the required uniform
+bound.  The active producers remain a cutoff- and volume-uniform balanced
+blocking estimate and a cutoff- and volume-uniform estimate of this selected
+debt cross.  All-cutoff persistence, the interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.
+
+The monitored leaf target passes all 5,502 jobs.  Nine printed load-bearing
+declarations depend exactly on `[propext, Quot.sound]`, while the complete
+pair-carrier definition depends on no axioms.  No aggregate root pass is
+claimed, and no `Classical`, choice, `sorry`, new axiom, `native_decide`,
+noncomputable witness, or enlarged heartbeat budget is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -3118,7 +3164,11 @@ RAW SCALE DEFECT DIVIDED BY `Z_COARSE^2*Z_UNIT^2`; BELOW `W<=1`, THE PRIOR
 BALANCED RAW CALIBRATION IMPLIES THE NORMALIZED RESIDUAL BOUND WITH NO
 CONSTANT LOSS.  THE COMBINED COMPILER LEAVES EXACTLY TWO LOCAL PRODUCERS:
 THE VOLUME-UNIFORM BALANCED BLOCKING CALIBRATION AND THE SIGNED
-GEOMETRIC-QUOTIENT CEILING.  THE
+GEOMETRIC-QUOTIENT CEILING.  THE LATTER NUMERATOR IS NOW EXACTLY THE
+SOURCE-CELL MINUS TARGET-CELL CROSS OF A CENTERED RECEIVER-PAIR DEBT WHOSE
+TOTAL OVER THE COMPLETE COARSE PAIR CARRIER IS ZERO.  THE ACTIVE MARGIN
+PRODUCER CAN THEREFORE TARGET THIS SELECTED MASS-ZERO DEBT CROSS WITHOUT
+SEPARATING A GLOBAL PARTITION-DRIFT COST.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
