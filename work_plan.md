@@ -3424,6 +3424,55 @@ aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
 is introduced.
 
+## Milestone 284: prove the occupation-skew component cocycle (2026-09-09)
+
+**Status. THE MIXED-COUPLING SKEW HAS A UNIVERSAL DIFFERENCE NORMAL FORM,
+AND ITS CHANGE UNDER COMPONENT EXCHANGE IS ONE EXACT TELESCOPING TERM.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginOccupationSwapCocycle.lean`
+first proves the division-free identity
+
+```text
+geomSum(w,a)*w^b - w^a*geomSum(w,b)
+  = geomSum(w,a) - geomSum(w,b).
+```
+
+It follows by comparing the two additive expansions of
+`geomSum(w,a+b)`; no division by `1-w` and no ordering case split is needed.
+The previous ordered normal forms are therefore contractions of one simpler
+universal antisymmetric potential difference.
+
+Writing `u,v` for outside exponents and `p,q` for the exponents inside one
+support component, the module proves the exact cocycle
+
+```text
+K_w(u+p,v+q)
+  = K_w(u+q,v+p) + (w^u+w^v)*K_w(p,q).
+```
+
+After substituting the canonical target-rooted component counts from
+milestone 283, this gives an exact theorem for the actual cutoff-one
+occupation skew: its value before the support swap is its value after the
+swap plus an outside heat multiplier times the component skew.  Thus the
+failure of invariance is now itself a component-local telescoping term.
+
+The next causal edge is to lift this scalar cocycle through the common
+coupling-one pair product and kernel-row response difference, using the
+existing accepted support-switch involution.  That will decide which
+disconnected terms cancel and leave only a target-reaching component
+remainder for the existing geometric mass floor.  No such summed
+cancellation or bound is claimed here.  The balanced-blocking producer,
+centered `O(g^2)` consumer, all-cutoff persistence, interacting continuum
+measure, same-object OS/GNS reconstruction, Hamiltonian gap, and Clay closure
+remain open.
+
+The focused monitored source check and dependency-complete target both pass;
+the latter builds all 5,510 jobs.  All eight printed declarations use only
+`[propext, Quot.sound]` (the generic cocycle uses only `[propext]`, and its
+underlying definition uses no axioms).  No aggregate root pass is claimed,
+and no `Classical`, choice, `sorry`, new axiom, `native_decide`, noncomputable
+witness, or enlarged heartbeat budget is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING

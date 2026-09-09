@@ -2076,6 +2076,40 @@ construction, OS/GNS reconstruction, Hamiltonian gap, or Clay result is
 claimed.  The focused check and 5,509-job dependency target pass; all 14 new
 declarations remain within `[propext, Quot.sound]`.
 
+### 9.52 Post-audit implementation update: geometric-skew component cocycle, milestone 284 (2026-09-09)
+
+The apparent geometric/power determinant has a universal potential-difference
+normal form:
+
+```text
+geomSum(w,a)*w^b - w^a*geomSum(w,b)
+  = geomSum(w,a) - geomSum(w,b).
+```
+
+This is proved without dividing by `1-w`: the two sides arise by comparing
+the additive decompositions of `geomSum(w,a+b)` and `geomSum(w,b+a)`.  It
+removes the previous need to orient the coefficient by deciding `a <= b` or
+`b <= a`.
+
+For an exchange of inside exponents `p,q` with fixed outside exponents `u,v`,
+the exact cocycle is
+
+```text
+K_w(u+p,v+q)
+  = K_w(u+q,v+p) + (w^u+w^v)*K_w(p,q).
+```
+
+The canonical support-swap theorem instantiates this with three times the
+component and outside occupied-face counts.  Hence the moving part of the
+full mixed-coupling cofactor is not global: it is the component skew times
+an explicit outside heat multiplier.  This is the correct algebraic input
+for a support-switch telescoping argument.
+
+No full weighted-term involution, disconnected cancellation, covariance
+bound, continuum construction, OS/GNS reconstruction, Hamiltonian gap, or
+Clay result is claimed.  The focused check and 5,510-job dependency target
+pass; all eight new declarations remain within `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
