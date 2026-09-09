@@ -931,6 +931,28 @@ pointwise density calibration, lower physical-spacing bound, raw-mismatch
 bound, uniform all-cutoff contraction, continuum construction, OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure remain open.
 
+### 9.17 Post-audit implementation update: saturated relative-density seam, milestone 249 (2026-09-08)
+
+`Z4DyadicSpinFourReceiverRelativeDensityCalibration.lean` factors each
+assignment-saturated source and target scale defect exactly as
+`(Z_f^2/Z_c^2 - saturatedDensity) * Z_c^2`.  It then proves that a relative
+density error at most `relative * (Z_f^2/Z_c^2)` supplies the pointwise
+`relative * Z_f^2` premise of milestone 248.  The quadratic specialization
+feeds the exact endpoint-covered matched-AF field with bound
+`(2*K*g^2)*Z_c^2` and no receiver count.
+
+The module names the remaining analytic input as
+`PositiveExpandedAssignmentSaturatedRelativeDensityCalibration`; it does not
+inhabit it.  This sharply separates the proved normalization and aggregation
+algebra from the open comparison between actual saturated raw path masses
+and physical receiver weights.
+
+The dependency-complete monitored target passes 5,492 jobs, and all seven
+printed declarations depend exactly on `[propext, Quot.sound]`.  The actual
+relative-density estimate, lower physical-spacing bound, raw-mismatch bound,
+uniform all-cutoff contraction, continuum construction, OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

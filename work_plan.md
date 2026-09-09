@@ -254,8 +254,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |       |       normalized variation .................... [PROVED exact]
 |   |   |   |       |   |   |   |   |       +-- relative pointwise defects sum with no
 |   |   |   |       |   |   |   |   |       |       receiver-cardinality loss ................. [PROVED reduction]
-|   |   |   |       |   |   |   |   |       `-- source/target defect <=
-|   |   |   |       |   |   |   |   |               `K*g^2*Z_f^2` ...................... [ACTIVE analytic producer]
+|   |   |   |       |   |   |   |   |       +-- source/target defect <= `K*g^2*Z_f^2`
+|   |   |   |       |   |   |   |   |       |       from relative density calibration ......... [PROVED reduction]
+|   |   |   |       |   |   |   |   |       `-- saturated receiver density differs from
+|   |   |   |       |   |   |   |   |               `Z_f^2/Z_c^2` by relative `K*g^2` ... [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1225,7 +1227,11 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           +-- full-carrier pointwise relative calibration
 |           |   +-- pointwise `K*g^2*Z_f^2` bounds imply full
 |           |   |       normalized variation <= `(2*K*g^2)*Z_c^2` . [PROVED reduction]
-|           |   `-- prove those source/target pointwise bounds ..... [ACTIVE preferred]
+|           |   +-- saturated defect = `(partitionDensity-rho)*Z_c^2`
+|           |   |       and relative density error gives those
+|           |   |       pointwise bounds ........................... [PROVED exact]
+|           |   `-- prove `|partitionDensity-rho| <=
+|           |           K*g^2*partitionDensity` .................... [ACTIVE preferred]
 |           `-- unsaturated off-image pointwise route ............. [OBSTRUCTED alternative]
 |               `-- off-image density floor ....................... [PROVED obstruction]
 +-- positive physical gap on a common trajectory ................. [OPEN]
@@ -1611,6 +1617,40 @@ pointwise defects on every matched scale.  Lower physical spacing and raw
 mismatch remain independent open quadratic inputs; all-cutoff contraction,
 the same interacting continuum measure, OS/GNS reconstruction, the positive
 Hamiltonian gap, and Clay closure remain open downstream.
+
+## Milestone 249: assignment-saturated relative-density seam (2026-09-08)
+
+**Status. THE REMAINING RECEIVER ESTIMATE IS NOW A NAMED DIMENSIONLESS
+RELATIVE-DENSITY CALIBRATION, WITH A VERIFIED HANDOFF TO THE COVERED
+MATCHED-AF VARIATION FIELD.**
+
+`Z4DyadicSpinFourReceiverRelativeDensityCalibration.lean` proves, for both
+source and target canonical receivers, the exact factorization
+
+```text
+Z_f^2 - saturatedDensity * Z_c^2
+  = (Z_f^2 / Z_c^2 - saturatedDensity) * Z_c^2.
+```
+
+It names the still-open analytic input
+`PositiveExpandedAssignmentSaturatedRelativeDensityCalibration`: every
+source and target saturated density must differ from the exact partition
+density `Z_f^2/Z_c^2` by at most a prescribed relative factor.  A factor
+`K*g^2` implies the required pointwise `K*g^2*Z_f^2` scale-defect bounds and,
+through exact endpoint coverage, the covered normalized-variation estimate
+`(2*K*g^2)*Z_c^2`.  No receiver-cardinality term enters.
+
+The dependency-complete monitored target passes 5,492 jobs.  All seven
+printed declarations depend exactly on `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+The named relative-density proposition is deliberately not inhabited here.
+Its proof must now come from the actual assignment-saturated raw path masses
+and positive receiver weights.  Lower physical spacing and raw mismatch stay
+independent open quadratic inputs, followed by all-cutoff contraction,
+continuum construction, same-object OS/GNS reconstruction, the Hamiltonian
+gap, and Clay closure.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
