@@ -1002,6 +1002,40 @@ localized or aggregate receiver statement if the pointwise volume-uniform
 form is too strong.  No continuum, OS/GNS, Hamiltonian-gap, or Clay claim is
 made.
 
+### 9.20 Post-audit implementation update: aggregate raw-column cross, milestone 252 (2026-09-08)
+
+The fallback identified in milestone 251 is now a checked, strictly weaker
+producer interface.  `Z4DyadicSpinFourReceiverRawColumnCrossCalibration.lean`
+sums the saturated raw receiver masses across the complete source and target
+four-cell carriers and proves that each total is exactly a sum of products of
+literal one-replica pushed column masses.  Their signed difference is exactly
+the actual pushed four-cell cross.
+
+With the coarse and fine partition squares restored, the resulting signed
+raw-column scale-defect cross is exactly the saturated scale-defect cross
+already connected to the physical covariance numerator.  Consequently the
+single cancellation-preserving estimate
+
+```text
+|signed raw-column scale-defect cross|
+  <= relative * (Z_c^2 * Z_f^2)
+```
+
+implies the existing physical raw-cross bound with no receiver count and no
+pointwise absolute-value sum.  A matched-AF schedule structure turns the
+quadratic specialization `relative = K*g^2`, together with the independent
+spacing and raw-event-mismatch fields, into the finite comparison
+`fineCovariance <= anchorRate + epsilon`.
+
+The 5,494-job monitored target passes, and all twelve printed declarations
+use exactly `[propext, Quot.sound]`.  This module does not inhabit the
+aggregate estimate and does not imply receiver total-variation contraction;
+it controls only the selected signed connected four-cell observable.  The
+actual aggregate `K*g^2` bound is the active analytic producer.  Physical
+spacing, raw mismatch, all-cutoff persistence, the same interacting continuum
+measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay closure remain
+open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

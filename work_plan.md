@@ -157,7 +157,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- canonical-decimation schedule producers ............. [ACTIVE]
 |   |   |   |       +-- shared raw event-mismatch <= C_m * a ............. [OPEN]
 |   |   |   |       +-- actual positive accepted-fiber paired path raw cross
-|   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN preferred]
+|   |   |   |       |       <= C_c*a*(Z_c^3*Z_f^3) ....................... [OPEN broader route]
 |   |   |   |       |   +-- coarse-output pairs expanded over fine sources [PROVED]
 |   |   |   |       |   +-- null paths deleted and positive conditional
 |   |   |   |       |   |       raw rows exposed .......................... [PROVED]
@@ -248,21 +248,22 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |   +-- both assignment-saturated receiver columns covered [PROVED]
 |   |   |   |       |   |   |   |   |   +-- unreachable receiver mass = 0 .................... [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- matched-AF endpoint-coverage field automatic ...... [PROVED]
-|   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
-|   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
-|   |   |   |       |   |   |   |   |       +-- covered variation = full-carrier
-|   |   |   |       |   |   |   |   |       |       normalized variation .................... [PROVED exact]
-|   |   |   |       |   |   |   |   |       +-- relative pointwise defects sum with no
-|   |   |   |       |   |   |   |   |       |       receiver-cardinality loss ................. [PROVED reduction]
-|   |   |   |       |   |   |   |   |       +-- source/target defect <= `K*g^2*Z_f^2`
-|   |   |   |       |   |   |   |   |       |       from relative density calibration ......... [PROVED reduction]
-|   |   |   |       |   |   |   |   |       +-- eventual relative-density field compiles to
-|   |   |   |       |   |   |   |   |       |       matched-AF finite covariance comparison ..... [PROVED]
-|   |   |   |       |   |   |   |   |       `-- literal raw receiver pushforward calibration
-|   |   |   |       |   |   |   |   |           +-- density * receiver weight = pushed raw mass [PROVED exact]
-|   |   |   |       |   |   |   |   |           +-- raw-mass bound iff relative-density bound .. [PROVED exact]
-|   |   |   |       |   |   |   |   |           +-- raw schedule field => finite covariance ..... [PROVED interface]
-|   |   |   |       |   |   |   |   |           `-- prove uniform `K*g^2` raw pushforward error . [ACTIVE analytic producer]
+|   |   |   |       |   |   |   |   |   +-- full normalized receiver-variation route
+|   |   |   |       |   |   |   |   |   |   +-- covered variation = full-carrier variation ...... [PROVED exact]
+|   |   |   |       |   |   |   |   |   |   +-- relative pointwise defects sum without a
+|   |   |   |       |   |   |   |   |   |   |       receiver-cardinality loss ................... [PROVED reduction]
+|   |   |   |       |   |   |   |   |   |   +-- relative-density field => finite covariance ..... [PROVED]
+|   |   |   |       |   |   |   |   |   |   +-- density * receiver weight = pushed raw mass ..... [PROVED exact]
+|   |   |   |       |   |   |   |   |   |   +-- raw-mass bound iff relative-density bound ........ [PROVED exact]
+|   |   |   |       |   |   |   |   |   |   `-- uniform pointwise `K*g^2` raw error .............. [OPEN stronger route]
+|   |   |   |       |   |   |   |   |   `-- cancellation-preserving raw-column-cross route
+|   |   |   |       |   |   |   |   |       +-- raw cell totals = products of literal
+|   |   |   |       |   |   |   |   |       |       one-replica pushed column masses ............. [PROVED exact]
+|   |   |   |       |   |   |   |   |       +-- signed receiver cross = actual pushed cross ..... [PROVED exact]
+|   |   |   |       |   |   |   |   |       +-- signed scale-defect cross = physical raw defect
+|   |   |   |       |   |   |   |   |       |       up to the exact partition factor ............. [PROVED exact]
+|   |   |   |       |   |   |   |   |       +-- aggregate `K*g^2` field => finite covariance .... [PROVED interface]
+|   |   |   |       |   |   |   |   |       `-- prove aggregate `K*g^2` raw-column cross ........ [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1736,7 +1737,56 @@ independent open inputs.  All-cutoff persistence, continuum construction,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain downstream.
 
-## Current goal-mode checkpoint (2026-09-01)
+## Milestone 252: cancellation-preserving receiver raw-column cross (2026-09-08)
+
+**Status. THE SELECTED CONNECTED FOUR-CELL COVARIANCE NOW REDUCES TO ONE
+SIGNED AGGREGATE OF LITERAL PUSHED COLUMNS; POINTWISE RECEIVER CONTROL AND
+TOTAL-VARIATION CONTRACTION ARE NO LONGER REQUIRED ON THIS BRANCH.**
+
+`Z4DyadicSpinFourReceiverRawColumnCrossCalibration.lean` sums the
+assignment-saturated raw receiver masses over each complete source and
+replica-oriented target cell.  Exact finite disintegration, deletion of
+zero-raw paths, and path-to-column Fubini prove
+
+```text
+source or target saturated receiver raw-cell total
+  = sum over the corresponding coarse target-pair cell
+      pushedColumnMass(left) * pushedColumnMass(right).
+```
+
+Subtracting the target cell from the source cell identifies the signed
+receiver raw-column cross exactly with the actual pushed four-cell cross.
+After inserting the coarse and fine partition squares, the earlier saturated
+scale-defect cross is exactly the new division-free raw-column scale-defect
+cross.  Thus a single bound
+
+```text
+|signed raw-column scale-defect cross|
+  <= relative * (Z_c^2 * Z_f^2)
+```
+
+has precisely the normalization needed by the physical connected covariance
+raw-cross denominator.  The matched-AF schedule compiler takes this aggregate
+input at `relative = K*g^2`, together with the independent spacing and raw
+event-mismatch fields, to the existing eventual finite conclusion
+`fineCovariance <= anchorRate + epsilon`.
+
+The dependency-complete monitored target passes 5,494 jobs.  All twelve
+printed load-bearing declarations depend exactly on `[propext, Quot.sound]`;
+no `Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+This is a strictly weaker analytic producer tailored to the selected
+connected four-cell observable: it preserves the cancellation the consumer
+actually uses, but it proves neither pointwise receiver calibration nor
+total-variation contraction.  The aggregate `K*g^2` raw-column bound is not
+inhabited here and is now the active analytic edge.  Lower physical spacing
+and raw event mismatch remain separate open inputs, followed by all-cutoff
+persistence, construction of the same interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian spectral gap, and Clay
+closure.
+
+## Current goal-mode checkpoint (2026-09-08)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
 CORRIDOR `0 < w <= 1/400` ARE CLOSED FOR THE LITERAL FACE OBSERVABLE.  THE
@@ -1745,7 +1795,10 @@ OS IDENTIFICATION, REPRESENTATION-CUTOFF REMOVAL, AND RECEDING-VOLUME
 CLUSTERING.  EXACT HEAT-SEMIGROUP DECIMATION NOW REACHES THAT COEFFICIENT
 CORRIDOR FROM EVERY RATIONAL `0 < w < 1`.  THE ACTIVE PHYSICAL EDGE IS THE
 GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
-ITS COVARIANCE, FOLLOWED BY A NAMED BETA/LATTICE-SPACING TRAJECTORY.**
+ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE AGGREGATE SIGNED
+RAW-COLUMN `K*G^2` ESTIMATE, ALONGSIDE THE INDEPENDENT SPACING AND RAW-EVENT
+MISMATCH INPUTS; ALL-CUTOFF PERSISTENCE AND THE CONTINUUM/OS/GNS/GAP CHAIN
+REMAIN DOWNSTREAM.**
 
 The receiver/posterior chronology has been re-audited.  The generic
 `SlabObservablePairedPosteriorTransport` remains deliberately uninhabited:
