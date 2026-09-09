@@ -1128,6 +1128,47 @@ co-producers.  Physical spacing, raw-event mismatch, all-cutoff persistence,
 the same interacting continuum measure, OS/GNS reconstruction, the
 Hamiltonian gap, and Clay closure remain open.
 
+### 9.24 Post-audit implementation update: reference scale-defect decomposition, milestone 256 (2026-09-09)
+
+The coarse nome audit changes the correct next target.  The matched schedule
+uses a fine blocked nome near one but an explicitly decimated coarse nome in
+the strong-coupling corridor.  Therefore the coupling-one pushed reference
+cross is not expected to vanish by itself, and an all-unit coarse reference
+would not match the covariance consumer.
+
+`Z4DyadicSpinFourFineCouplingReferenceScaleDefect.lean` instead defines the
+literal coarse Gibbs signed cross and proves
+
+```text
+rawScaleDefect
+  = Z_f^2 * coarseCross - Z_c^2 * actualReceiverCross
+  = referenceScaleDefect
+      + Z_c^2 * (couplingOnePushedCross - actualReceiverCross),
+```
+
+where `referenceScaleDefect` retains the actual fine/coarse partitions and
+the actual decimated coarse Gibbs law.  The milestone-255 theorem gives
+
+```text
+|rawScaleDefect|
+  <= |referenceScaleDefect|
+       + Z_c^2 * (2*g^2) * localizedPairCellCasimirMoment.
+```
+
+A final constructive compiler shows that a quadratic reference-residual
+bound normalized by `Z_c^2*Z_f^2`, together with a localized moment bound
+normalized by `Z_f^2`, inhabits the existing aggregate raw-column
+calibration with coefficient
+`(referenceCeiling + 2*momentCeiling)*g^2`.
+
+The dependency-complete monitored target passes all 5,497 jobs, and all nine
+printed declarations use exactly `[propext, Quot.sound]`.  The theorem does
+not inhabit either remaining analytic input: reference scale-defect
+calibration against the decimated coarse law and volume-uniform localized
+moment normalization remain open.  Physical spacing, raw-event mismatch,
+all-cutoff persistence, the same interacting continuum measure, OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure also remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -274,7 +274,14 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           +-- actual signed cross differs from coupling-one
 |   |   |   |       |   |   |   |   |           |       cross by `2*g^2` times exactly the two selected
 |   |   |   |       |   |   |   |   |           |       pair-cell Casimir moments .................... [PROVED]
-|   |   |   |       |   |   |   |   |           +-- coupling-one reference cross cancellation ...... [ACTIVE]
+|   |   |   |       |   |   |   |   |           +-- raw scale defect regrouped into coarse and
+|   |   |   |       |   |   |   |   |           |       receiver signed crosses .................... [PROVED exact]
+|   |   |   |       |   |   |   |   |           +-- exact reference-scale-defect plus localized
+|   |   |   |       |   |   |   |   |           |       coupling-one perturbation split ............. [PROVED]
+|   |   |   |       |   |   |   |   |           +-- reference residual + normalized moment compiler
+|   |   |   |       |   |   |   |   |           |       => aggregate raw-column calibration ......... [PROVED]
+|   |   |   |       |   |   |   |   |           +-- reference scale-defect calibration against the
+|   |   |   |       |   |   |   |   |           |       actual decimated coarse law ................. [ACTIVE]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
@@ -1938,6 +1945,60 @@ event-mismatch estimates.  All-cutoff persistence, construction of the same
 interacting continuum measure, same-object OS/GNS reconstruction, the
 Hamiltonian gap, and Clay closure remain downstream.
 
+## Milestone 256: reference scale-defect decomposition and calibration compiler (2026-09-09)
+
+**Status. THE AGGREGATE RAW-COLUMN SCALE DEFECT NOW SPLITS EXACTLY INTO AN
+HONEST COARSE-LAW REFERENCE SCALE DEFECT PLUS THE ALREADY CONTROLLED
+COUPLING-ONE/ACTUAL RECEIVER PERTURBATION.  QUADRATIC REFERENCE CALIBRATION
+AND A NORMALIZED LOCALIZED-MOMENT BOUND NOW COMPILE DIRECTLY TO THE FINITE
+COVARIANCE CONSUMER.**
+
+`Z4DyadicSpinFourFineCouplingReferenceScaleDefect.lean` defines the signed
+coarse Gibbs four-cell cross on the same `TT x FF` and `FT x TF` carriers as
+the observable.  It first proves the exact regrouping
+
+```text
+rawScaleDefect
+  = Z_f^2 * coarseCross - Z_c^2 * actualReceiverCross.
+```
+
+Replacing only the receiver cross by its fine coupling-one pushed reference
+gives an explicit residual against the *actual decimated coarse law*.  The
+full defect then decomposes as
+
+```text
+referenceScaleDefect
+  + Z_c^2 * (couplingOnePushedCross - actualReceiverCross).
+```
+
+The milestone-255 perturbation theorem therefore yields the matched bound
+
+```text
+|rawScaleDefect|
+  <= |referenceScaleDefect|
+       + Z_c^2 * (2*g^2) * localizedPairCellCasimirMoment.
+```
+
+Finally, a reference bound normalized by `Z_c^2*Z_f^2` and a local-moment
+bound normalized by `Z_f^2` compile to the existing aggregate calibration
+with coefficient `(referenceCeiling + 2*momentCeiling)*g^2`.  This removes
+the earlier misleading suggestion that the reference cross itself should
+vanish: the schedule's coarse coupling is the strong-coupling nome produced
+by exact decimation, not coupling one.
+
+The dependency-complete monitored target passes all 5,497 jobs.  All nine
+printed load-bearing declarations depend only on `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+The two genuine analytic co-producers are now (i) quadratic calibration of
+the displayed reference scale defect against the literal decimated coarse
+law and (ii) a volume-uniform normalized bound on the localized two-cell
+Casimir moment.  Physical spacing and raw-event mismatch remain independent
+inputs.  All-cutoff persistence, the same interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain downstream.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -1950,9 +2011,12 @@ GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
 ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE AGGREGATE SIGNED
 RAW-COLUMN `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
 `2*G^2` CASIMIR-MOMENT PREFACTOR ARE CLOSED, INCLUDING THE SIGNED CROSS
-PERTURBATION LOCALIZED TO THE TWO SELECTED PAIR CELLS.  COUPLING-ONE
-REFERENCE-CROSS CANCELLATION AND A VOLUME-UNIFORM BOUND FOR THAT LOCALIZED
-MOMENT ARE THE TWO ACTIVE CO-PRODUCERS.  THE INDEPENDENT
+PERTURBATION LOCALIZED TO THE TWO SELECTED PAIR CELLS.  THE FULL SCALE DEFECT
+IS NOW EXACTLY RECENTERED AT A REFERENCE DEFECT AGAINST THE ACTUAL DECIMATED
+COARSE LAW, AND THE TWO REMAINING NORMALIZED INPUTS COMPILE TO THE EXISTING
+COVARIANCE CONSUMER.  QUADRATIC REFERENCE-SCALE-DEFECT CALIBRATION AND A
+VOLUME-UNIFORM BOUND FOR THE LOCALIZED MOMENT ARE THE TWO ACTIVE
+CO-PRODUCERS.  THE INDEPENDENT
 SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
 CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
 
