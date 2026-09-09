@@ -828,6 +828,39 @@ full-root audit is claimed.  This closes finite support realization only.  It
 does not establish receiver coverage, uniform contraction, the continuum
 measure, OS/GNS reconstruction, a Hamiltonian gap, or Clay closure.
 
+### 9.13 Post-audit implementation update: accepted-endpoint lift and receiver coverage, milestone 245 (2026-09-08)
+
+`Z4DyadicSpinFourEndpointLift.lean` closes both interfaces isolated in
+section 9.12.  First, the accepted endpoint's global coarse intertwiner
+assignment makes every local production multiplicity positive.  The SU(2)
+odd-sum obstruction therefore proves even incidence of the coarse odd-spin
+support.  Second, a face on a positive spatial boundary exposes a literal
+far link whose corrected-slab incident-face list is a singleton.  The
+one-valent multiplicity theorem forces that face spin to zero.  Every
+selected spin `2`, `3`, or `4` consequently has the exact spatial margin
+needed by the closed pair-bubble generator.
+
+This gives a finite duplicate-free even binary support inside the affine
+fine slab for every attached endpoint, with exact ordered packet total equal
+to each coarse spin from zero through four.  At fine cutoff one and positive
+fine/coarse couplings, the existing support-to-channel-to-positive-source
+compiler yields positive raw endpoint coverage.  The existing two-replica
+coverage theorems then cover both assignment-saturated receiver columns and
+prove the physically unreachable receiver mass exactly equivalent to zero.
+
+The monitored dependency-complete target passes 5,489 jobs.  All printed
+load-bearing declarations depend on at most `[propext, Quot.sound]`.  Broad
+arithmetic and list-membership simplification initially leaked
+`Classical.choice`; the accepted proof replaces those steps with explicit
+constructive inequalities and literal cons-membership witnesses.  No
+full-root audit is claimed.
+
+The active issue is no longer endpoint reachability.  It is the quantitative
+covered-image calibration bound, together with the lower physical-spacing
+and raw-mismatch estimates needed by the matched-AF contraction compiler.
+Cutoff-uniform contraction, the same interacting continuum measure, OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

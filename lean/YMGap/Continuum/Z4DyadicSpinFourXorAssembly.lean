@@ -12,11 +12,10 @@ coincidences and preserves cellular closure.  Under closure of the coarse
 odd-spin support, the assembled fine coefficient is closed and has the exact
 ordered four-child packet for every carrier face with spin at most four.
 
-This module stops at a finitely generated Boolean coefficient.  Turning that
-coefficient into the endpoint module's duplicate-free corrected-slab support
-still requires a finite ambient support and a proof that every selected
-bubble stays in that slab.  No receiver, measure, continuum, or mass-gap
-claim is made here.
+The Boolean coefficient is realized constructively as a canonical finite,
+duplicate-free support.  Corrected-slab containment is reduced to the exact
+condition that every actually selected local bubble stays in that slab.  No
+receiver, measure, continuum, or mass-gap claim is made here.
 -/
 
 import YMGap.Continuum.Z4DyadicClosedPairBubble

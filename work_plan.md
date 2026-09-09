@@ -1192,7 +1192,7 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |   +-- one-face quadratic occupation compiler ......... [PROVED interface]
 |           |   +-- rootPositiveMass <= `(K_pos*g^2)*Z_c` .......... [OPEN alternative]
 |           |   |   `-- matched coarse coupling has no such law yet  [OPEN analytic]
-|           |   `-- exact raw-support endpoint coverage ............. [ACTIVE preferred]
+|           |   `-- exact raw-support endpoint coverage ............. [PROVED exact]
 |           |       +-- bounded link-inadmissible endpoints excluded  [PROVED correction]
 |           |       +-- attached endpoint => coarse link factor > 0 .. [PROVED exact]
 |           |       +-- explicit supported face channels imply
@@ -1212,10 +1212,10 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       |       XOR assembly and exact packets ................ [PROVED]
 |           |       +-- canonical finite duplicate-free XOR support and
 |           |       |       exact support coefficient ..................... [PROVED]
-|           |       +-- odd-spin parity incidence => assembled closure .... [PROVED interface]
-|           |       +-- selected bubbles stay in corrected fine slab ...... [PROVED interface]
-|           |       +-- derive parity + bubble boundary condition from
-|           |       |       accepted attached endpoints ................... [ACTIVE geometric lift]
+|           |       +-- odd-spin parity from accepted link multiplicity ... [PROVED exact]
+|           |       +-- one-valent boundary links force vacuum spins ...... [PROVED exact]
+|           |       +-- selected-spin spatial margin and bubble containment [PROVED exact]
+|           |       +-- every attached endpoint has exact fine lift ....... [PROVED exact]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1261,12 +1261,17 @@ constructs that support whenever the attached coarse endpoint is itself the
 zero-one indicator of a duplicate-free closed coarse surface.  It preserves
 closure, duplicate freedom, corrected-slab membership, and contributes
 exactly one occupied nondegenerate fine preimage to each selected coarse
-  face.  The active finite geometric witness problem is therefore narrower and
-genuinely nonabelian: realize the proved Boolean XOR coefficient as a finite,
-duplicate-free corrected-slab support, and derive its odd-spin parity
-incidence hypothesis from the accepted coarse intertwiner assignment.  No
-lift is required for link-inadmissible zero-mass members of the broader
-bounded Cartesian list.
+face.  The spin-zero-through-four XOR support now completes the remaining
+finite geometric witness: accepted local multiplicity gives odd-spin parity,
+and each nonzero positive-boundary face is ruled out by a literal one-valent
+outer link and the SU(2) vacuum rule.  The resulting spatial margin keeps all
+selected pair bubbles inside the corrected fine slab.  At fine cutoff one,
+every attached endpoint therefore has an exact positive raw preimage, both
+assignment-saturated receiver columns are covered, and unreachable receiver
+mass is exactly zero.  No lift is required for link-inadmissible zero-mass
+members of the broader bounded Cartesian list.  The active quantitative
+frontier is now the covered-image calibration bound, together with the
+already-open physical spacing and raw-mismatch estimates.
 
 ## Milestone 241: close literal dyadic subdivision for binary endpoints (2026-09-08)
 
@@ -1447,6 +1452,53 @@ no `Classical.choice`, `sorry`, new axiom, or noncomputable witness is present.
 No full-root audit is claimed.  Finite support realization is not receiver
 coverage, cutoff-uniform contraction, a continuum measure, OS/GNS
 reconstruction, a Hamiltonian gap, or the Clay theorem.
+
+## Milestone 245: accepted-endpoint spin-four lift and exact receiver coverage (2026-09-08)
+
+**Status. EVERY ATTACHED ACCEPTED COARSE ENDPOINT NOW HAS A CONSTRUCTIVE
+FINE-CUTOFF-ONE SPIN-ZERO-THROUGH-FOUR LIFT; BOTH ASSIGNMENT-SATURATED
+RECEIVER COLUMNS ARE COVERED AND UNREACHABLE MASS IS EXACTLY ZERO.**
+
+`Z4DyadicSpinFourEndpointLift.lean` derives the parity and boundary facts
+that milestone 244 left as honest interfaces.  The accepted global coarse
+intertwiner assignment makes every local link multiplicity positive, so the
+odd-spin support has even incidence.  On a positive spatial boundary, the
+far link of a face is incident to that face alone.  Rewriting the exact
+incident-ID list as a singleton and applying the one-valent SU(2) rule forces
+the boundary face spin to zero.  Consequently every selected spin `2`, `3`,
+or `4` has precisely the spatial margin required by its pair bubble.
+
+```text
+attached accepted endpoint
+|
++-- positive local multiplicities
+|   +-- odd-spin support has even incidence
+|   `-- one-valent outer link => boundary spin = 0
++-- selected spins 2/3/4 have spatial margin
++-- every selected pair bubble stays in the affine fine slab
++-- canonical finite XOR support
+|   +-- duplicate-free and even-incidence
+|   `-- exact four-child packet total = every coarse spin 0..4
++-- positive fine Gibbs source + accepted fine intertwiner
+`-- exact positive raw endpoint coverage
+    +-- source receiver column covered
+    +-- target receiver column covered
+    `-- assignment-saturated unreachable mass = 0
+```
+
+The dependency-complete monitored target passes 5,489 jobs.  Every printed
+load-bearing declaration depends on at most `[propext, Quot.sound]`.  Two
+initial proof drafts exposed `Classical.choice` through broad arithmetic and
+list-membership simplification; both were replaced by explicit constructive
+order lemmas and literal list-membership witnesses before accepting this
+milestone.  No full-root audit is claimed.
+
+This closes the preferred finite endpoint-coverage branch, not the full
+Yang--Mills goal.  The active contraction input is now the covered-image
+calibration estimate; the lower physical-spacing and raw-mismatch quadratic
+estimates also remain open.  A cutoff-uniform contraction theorem, the same
+interacting continuum measure, OS/GNS reconstruction, a positive Hamiltonian
+gap, and the Clay-facing same-object assembly remain open.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
