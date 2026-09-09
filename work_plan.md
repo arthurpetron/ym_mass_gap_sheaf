@@ -3379,6 +3379,51 @@ aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
 is introduced.
 
+## Milestone 283: compute occupation transport under the paired-support swap (2026-09-09)
+
+**Status. THE TARGET-ROOTED COMPONENT SWAP NOW HAS EXACT INDIVIDUAL COUNT,
+TOTAL HEAT-EXPONENT, AND SIGNED IMBALANCE TRANSPORT LAWS.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginOccupationSwapTransport.lean`
+defines the occupation count restricted to an arbitrary Boolean face mask.
+Selected and complementary counts partition the complete cutoff-one
+occupation count.  Under the literal two-replica face swap it proves
+
+```text
+n(left')  = n_mask(right) + n_complement(left),
+n(right') = n_mask(left)  + n_complement(right).
+```
+
+Consequently `n(left') + n(right') = n(left) + n(right)`.  Specializing the
+mask to the target-rooted union-support component proves that the common pair
+heat exponent `3*(n(left)+n(right))` is exactly preserved.
+
+The stronger signed law identifies the remaining obstruction.  If
+`M = n_mask(left)-n_mask(right)` and `I = n(left)-n(right)`, both interpreted
+in `Int`, then
+
+```text
+I_after + 2*M = I_before.
+```
+
+Thus the support switch preserves the common heat factor but does not, in
+general, preserve the antisymmetric occupation cofactor: it reverses exactly
+the selected component's contribution to the global imbalance.  The next
+causal edge is to substitute this transport law into the geometric-sum skew
+coefficient and either obtain a component-telescoping identity or isolate a
+single-component remainder that the existing connected mass floor can pay.
+No cancellation or connected estimate is claimed yet.  The balanced-blocking
+producer, centered `O(g^2)` consumer, all-cutoff persistence, interacting
+continuum measure, same-object OS/GNS reconstruction, Hamiltonian gap, and
+Clay closure remain open.
+
+The focused monitored source check and dependency-complete target both pass;
+the latter builds all 5,509 jobs.  All 14 printed declarations use only
+`[propext, Quot.sound]` (the masked-count definition uses no axioms).  No
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING

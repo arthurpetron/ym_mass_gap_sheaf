@@ -2047,6 +2047,35 @@ Hamiltonian gap, and Clay closure remain open.  The focused check and
 5,508-job target pass; all 22 printed declarations remain within
 `[propext, Quot.sound]`.
 
+### 9.51 Post-audit implementation update: exact support-swap occupation transport, milestone 283 (2026-09-09)
+
+The cutoff-one occupation count is now split into its selected-mask and
+complementary parts.  For an arbitrary facewise transposition, the new left
+replica takes the old right occupation on the mask and retains the old left
+occupation off it; the new right replica has the complementary formula.
+This proves exact conservation of total two-replica occupation.
+
+Specialization to the canonical target-rooted physical-support component
+therefore preserves the common pair heat exponent
+`3*(n(left)+n(right))`.  The signed imbalance has the more informative law
+
+```text
+I_after + 2*(n_component(left)-n_component(right)) = I_before.
+```
+
+This distinguishes the invariant part of the mixed-coupling determinant from
+the genuinely moving part.  The common coupling-one pair product and total
+heat degree are compatible with the established support switch; the
+geometric-sum skew still detects the component's left-right occupation
+imbalance.  The next proof should act on that exact scalar, seeking a
+component telescoping or a remainder paid by the connected component mass,
+not re-open the already closed same-coupling weight transport.
+
+No cofactor cancellation, covariance bound, uniform mixing, continuum
+construction, OS/GNS reconstruction, Hamiltonian gap, or Clay result is
+claimed.  The focused check and 5,509-job dependency target pass; all 14 new
+declarations remain within `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
