@@ -1249,6 +1249,47 @@ summation need not equal the physical coarse Gibbs weight.  All-cutoff
 persistence, the continuum measure, OS/GNS reconstruction, the Hamiltonian
 gap, and Clay closure remain open.
 
+### 9.27 Post-audit implementation update: concrete Gibbs refresh, milestone 259 (2026-09-09)
+
+`Z4DyadicSpinFourGibbsRefreshReferenceCross.lean` constructs the preferred
+normalization-preserving reference explicitly.  Every fine source uses the
+normalized actual coarse Gibbs row.  This rank-one row is nonnegative,
+normalized, and reflection-intertwining on the literal physical
+edge-labelling carriers.  It is intentionally not declared a
+`FiniteSlabKernel`, because that structure requires source dependence.
+
+The generic proportional-column calculation gives the exact pushed law
+
+```text
+refreshRawMass(y) = (Z_f / Z_c) * coarsePhysicalTerm(y),
+```
+
+including total mass `Z_f`.  Its four-cell determinant therefore scales by
+`(Z_f/Z_c)^2`, and the coarse partition square cancels the denominator:
+
+```text
+Z_c^2 * refreshCross = Z_f^2 * coarseCross.
+```
+
+Thus the refresh blocking defect is zero, not merely small.  The production
+raw-column scale defect is exactly
+
+```text
+Z_c^2 * (refreshCross - physicalKernelCross).
+```
+
+Only one quadratic signed-cross calibration remains on this branch.  The
+next proof should expand or bound that determinant difference through the
+already exposed physical-kernel pushed-mass remainder while retaining signed
+cancellation; an independent pointwise or full-carrier variation bound would
+risk reintroducing receiver-cardinality or volume loss.
+
+The dependency-complete monitored target passes all 5,502 jobs, and all
+sixteen printed declarations use exactly `[propext, Quot.sound]`.  This is a
+finite cutoff-one scale comparison, not all-cutoff persistence, a continuum
+measure construction, OS/GNS reconstruction, a Hamiltonian gap, or Clay
+closure.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

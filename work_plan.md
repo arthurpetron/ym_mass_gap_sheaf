@@ -291,7 +291,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |   +-- every finite kernel pushes the same actual `Z_f` [PROVED]
 |   |   |   |       |   |   |   |   |           |   +-- exact reference + signed kernel-cross split .. [PROVED]
 |   |   |   |       |   |   |   |   |           |   +-- two calibrated inputs => aggregate calibration [PROVED]
-|   |   |   |       |   |   |   |   |           |   `-- concrete local/ideal reference kernel ........ [ACTIVE preferred]
+|   |   |   |       |   |   |   |   |           |   +-- concrete coarse Gibbs refresh row .............. [PROVED]
+|   |   |   |       |   |   |   |   |           |   +-- ratio-scaled pushed law and actual `Z_f` total . [PROVED]
+|   |   |   |       |   |   |   |   |           |   +-- refresh reference scale defect = zero .......... [PROVED]
+|   |   |   |       |   |   |   |   |           |   +-- one signed-cross input => aggregate calibration  [PROVED]
+|   |   |   |       |   |   |   |   |           |   `-- refresh cross - production cross = `O(g^2)` ... [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
@@ -2125,6 +2129,62 @@ mismatch, all-cutoff persistence, the same interacting continuum measure,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain downstream.
 
+## Milestone 259: concrete Gibbs-refresh reference cross (2026-09-09)
+
+**Status. THE NORMALIZATION-PRESERVING REFERENCE IS NOW A CONCRETE
+CONSTRUCTIVE KERNEL ON THE LITERAL PHYSICAL EDGE-LABELLING CARRIERS.  ITS
+REFERENCE BLOCKING DEFECT VANISHES EXACTLY, SO THE AGGREGATE RAW-COLUMN
+CALIBRATION HAS ONE REMAINING ANALYTIC INPUT: THE SIGNED FOUR-CELL CROSS OF
+THE GIBBS REFRESH VERSUS THE PRODUCTION PHYSICAL KERNEL.**
+
+`Z4DyadicSpinFourGibbsRefreshReferenceCross.lean` defines a rank-one reference
+row from the normalized coarse physical Gibbs weight.  The generic finite
+proportional-kernel calculation proves constructively that this row is
+nonnegative and normalized.  The module also proves reflection intertwining
+on the physical coarse carrier.  It deliberately does not package the row as
+a `FiniteSlabKernel`, whose `source_dependent` field excludes a rank-one
+refresh; no source-dependence claim is hidden.
+
+Writing `Z_f` and `Z_c` for the actual fine and coarse physical partitions,
+the pushed raw column is proved exactly
+
+```text
+refreshRawMass(y) = (Z_f / Z_c) * coarsePhysicalTerm(y).
+```
+
+Consequently its total mass is the actual `Z_f`, and its signed four-cell
+cross is `(Z_f/Z_c)^2` times the literal coarse physical cross.  Restoring
+the coarse partition square gives
+
+```text
+Z_c^2 * refreshCross = Z_f^2 * coarseCross,
+```
+
+so the refresh reference scale defect is exactly zero.  The full production
+scale defect therefore has the exact one-term form
+
+```text
+rawScaleDefect
+  = Z_c^2 * (refreshCross - physicalKernelCross).
+```
+
+A quadratic bound on that signed discrepancy immediately inhabits the
+existing aggregate raw-column calibration.  The active producer is now to
+derive this bound from local physical-kernel remainder information without
+losing the determinant cancellation or introducing a receiver-cardinality
+or volume factor.
+
+The dependency-complete monitored target passes all 5,502 jobs.  All sixteen
+printed declarations depend only on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, or noncomputable witness is
+introduced.  No full-root audit is claimed.
+
+This remains a finite, cutoff-one scale-transport theorem.  Physical spacing,
+raw-event mismatch, all-cutoff and volume-uniform persistence, construction
+of the same interacting continuum measure and observable algebra, same-object
+OS/GNS reconstruction, a positive Hamiltonian gap, and Clay closure remain
+open downstream obligations.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2146,8 +2206,12 @@ DRIFT; THE LATTER IS PROVED TO PAY A WHOLE-SLAB CASIMIR MOMENT.  THE
 NORMALIZATION-PRESERVING ALTERNATIVE IS NOW PROVED AS AN ABSTRACT
 REFERENCE-KERNEL COMPILER: BOTH PUSHED CROSSES RETAIN THE ACTUAL FINE LAW,
 THE EXACT SPLIT HAS NO PARTITION DRIFT, AND TWO EXPLICIT QUADRATIC INPUTS
-COMPILE TO THE RAW-COLUMN CONSUMER.  THE PREFERRED ACTIVE PRODUCER IS A
-CONCRETE LOCAL OR IDEAL REFERENCE KERNEL SATISFYING THOSE INPUTS, WITH THE
+COMPILE TO THE RAW-COLUMN CONSUMER.  THAT ABSTRACT ROUTE NOW HAS A CONCRETE
+RANK-ONE COARSE GIBBS-REFRESH REFERENCE ON THE LITERAL PHYSICAL CARRIERS:
+ITS PUSHED LAW HAS TOTAL MASS `Z_F`, ITS REFERENCE SCALE DEFECT IS EXACTLY
+ZERO, AND THE FULL DEFECT IS `Z_C^2` TIMES ONE REFRESH-VERSUS-PRODUCTION
+SIGNED CROSS.  THE PREFERRED ACTIVE PRODUCER IS A QUADRATIC BOUND FOR THAT
+SIGNED CROSS WHICH PRESERVES ITS DETERMINANT CANCELLATION, WITH THE
 VOLUME-UNIFORM LOCALIZED PAIR-CELL MOMENT AS A CO-PRODUCER.  THE INDEPENDENT
 SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
 CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
