@@ -256,6 +256,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |       |       receiver-cardinality loss ................. [PROVED reduction]
 |   |   |   |       |   |   |   |   |       +-- source/target defect <= `K*g^2*Z_f^2`
 |   |   |   |       |   |   |   |   |       |       from relative density calibration ......... [PROVED reduction]
+|   |   |   |       |   |   |   |   |       +-- eventual relative-density field compiles to
+|   |   |   |       |   |   |   |   |       |       matched-AF finite covariance comparison ..... [PROVED]
 |   |   |   |       |   |   |   |   |       `-- saturated receiver density differs from
 |   |   |   |       |   |   |   |   |               `Z_f^2/Z_c^2` by relative `K*g^2` ... [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
@@ -1230,6 +1232,8 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |   +-- saturated defect = `(partitionDensity-rho)*Z_c^2`
 |           |   |       and relative density error gives those
 |           |   |       pointwise bounds ........................... [PROVED exact]
+|           |   +-- schedule-level relative-density control yields
+|           |   |       `fineCovariance <= anchorRate + epsilon` ... [PROVED compiler]
 |           |   `-- prove `|partitionDensity-rho| <=
 |           |           K*g^2*partitionDensity` .................... [ACTIVE preferred]
 |           `-- unsaturated off-image pointwise route ............. [OBSTRUCTED alternative]
@@ -1640,7 +1644,7 @@ density `Z_f^2/Z_c^2` by at most a prescribed relative factor.  A factor
 through exact endpoint coverage, the covered normalized-variation estimate
 `(2*K*g^2)*Z_c^2`.  No receiver-cardinality term enters.
 
-The dependency-complete monitored target passes 5,492 jobs.  All seven
+The dependency-complete monitored target passes 5,492 jobs.  All ten
 printed declarations depend exactly on `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
 witness is introduced.  No full-root audit is claimed.
@@ -1651,6 +1655,36 @@ and positive receiver weights.  Lower physical spacing and raw mismatch stay
 independent open quadratic inputs, followed by all-cutoff contraction,
 continuum construction, same-object OS/GNS reconstruction, the Hamiltonian
 gap, and Clay closure.
+
+## Milestone 250: schedule-level relative-density covariance compiler (2026-09-08)
+
+**Status. THE SATURATED RELATIVE-DENSITY INPUT NOW REACHES THE EXISTING
+MATCHED-AF FINITE COVARIANCE CONCLUSION AT EVERY EVENTUAL SCALE.**
+
+The same relative-density module now defines
+`MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl`.  Its three
+genuine analytic fields are kept visible:
+
+```text
+spacingFloor * g^2 <= physical spacing,
+rawMismatch <= K_mismatch * g^2,
+|partitionDensity - saturatedDensity|
+  <= K_density * g^2 * partitionDensity.
+```
+
+The last field is required for every canonical source and target receiver.
+The compiler doubles only `K_density` for the source-plus-target variation,
+inserts the already-proved spin-four endpoint coverage, constructs
+`MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl`, and reaches
+the existing eventual theorem
+`fineCovariance <= anchorRate + epsilon`.
+
+The dependency-complete monitored target still passes 5,492 jobs.  All ten
+printed declarations in the module depend exactly on
+`[propext, Quot.sound]`.  This closes the formal handoff, not any of the three
+displayed analytic premises.  Uniform all-cutoff contraction, the same
+interacting continuum measure, OS/GNS reconstruction, a positive Hamiltonian
+gap, and Clay closure remain open after those premises.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

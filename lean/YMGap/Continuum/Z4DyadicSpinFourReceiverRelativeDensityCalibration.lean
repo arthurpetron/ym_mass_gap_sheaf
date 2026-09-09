@@ -36,6 +36,9 @@ set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.AFTrajectoryCertificate
+open YMGap.Continuum.BF4AFPhysicalSpacingToZero
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturation
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedEndpointLiftCoverage
@@ -43,6 +46,11 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiv
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedPhysicalCoverage
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedScaleDefect
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectCalibration
+open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
+open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
+open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
+open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
+open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
 open YMGap.Continuum.CompactDualSlabPhysicalData
@@ -318,6 +326,126 @@ theorem actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariatio
           (coefficient * (coupling * coupling))
           (hcalibration.2 receiver hreceiver))
 
+/-! ## 4. Matched-AF schedule compiler -/
+
+/-- Producer-facing matched-AF interface whose receiver field is exactly the
+dimensionless saturated relative-density calibration.  The independent
+spacing and raw-mismatch estimates remain explicit. -/
+structure MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry) : Type where
+  start : Nat
+  spacingFloor : Q'
+  spacingFloor_pos : (0 : Q') < spacingFloor
+  mismatchQuadraticCeiling : Q'
+  mismatchQuadraticCeiling_pos : (0 : Q') < mismatchQuadraticCeiling
+  relativeDensityQuadraticCeiling : Q'
+  relativeDensityQuadraticCeiling_pos :
+    (0 : Q') < relativeDensityQuadraticCeiling
+  spacingQuadratic_lower : ∀ scale : Nat, start ≤ scale →
+    spacingFloor * (coupling scale * coupling scale) ≤
+      spacing.a (coupling scale)
+  rawMismatch_quadratic_le : ∀ scale : Nat, start ≤ scale →
+    rawMismatchBudget
+        (matchedShiftedAFPhysicalObservableRefinementSchedule
+          family law spacing C coupling coupling_pos coupling_le_window
+          identification nested)
+        scale ≤
+      mismatchQuadraticCeiling * (coupling scale * coupling scale)
+  relativeDensity_quadratic : ∀ scale : Nat, start ≤ scale →
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let root := (schedule.faceMap scale).coarseRoot
+    let target := (schedule.faceMap scale).coarseTarget
+    PositiveExpandedAssignmentSaturatedRelativeDensityCalibration
+      S rfl (schedule.effectiveCoupling_pos scale) root target
+        (relativeDensityQuadraticCeiling *
+          (coupling scale * coupling scale))
+
+namespace MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {C : AFTrajectoryCertificate}
+    {coupling : Nat → Q'}
+    {coupling_pos : ∀ scale, (0 : Q') < coupling scale}
+    {coupling_le_window : ∀ scale, coupling scale ≤ law.g₁}
+    {identification : ShiftedAFTrajectoryIdentification C coupling}
+    {nested : NestedCutoffOneFaceGeometry}
+
+/-- The dimensionless receiver estimate compiles to the exact covered
+variation field, doubling only the common source/target coefficient. -/
+def toCoveredVariationQuadraticCostControl
+    (control : MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested) :
+    MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested where
+  start := control.start
+  spacingFloor := control.spacingFloor
+  spacingFloor_pos := control.spacingFloor_pos
+  mismatchQuadraticCeiling := control.mismatchQuadraticCeiling
+  mismatchQuadraticCeiling_pos := control.mismatchQuadraticCeiling_pos
+  coveredVariationQuadraticCeiling :=
+    control.relativeDensityQuadraticCeiling +
+      control.relativeDensityQuadraticCeiling
+  coveredVariationQuadraticCeiling_pos :=
+    Q'.add_pos control.relativeDensityQuadraticCeiling_pos
+      control.relativeDensityQuadraticCeiling_pos
+  spacingQuadratic_lower := control.spacingQuadratic_lower
+  rawMismatch_quadratic_le := control.rawMismatch_quadratic_le
+  coveredVariation_quadratic_le := by
+    intro scale hscale
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let root := (schedule.faceMap scale).coarseRoot
+    let target := (schedule.faceMap scale).coarseTarget
+    exact
+      actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1_le_quadratic_mul_coarseSquare_of_relativeDensityCalibration_endpointCoverage
+        S rfl (schedule.effectiveCoupling_pos scale) root target
+        (matchedShiftedAFSpinFourPositiveExpandedRawEndpointCoverage
+          family law spacing C coupling coupling_pos coupling_le_window
+            identification nested scale)
+        control.relativeDensityQuadraticCeiling (coupling scale)
+        (Q'.le_of_lt control.relativeDensityQuadraticCeiling_pos)
+        (Q'.le_of_lt (coupling_pos scale))
+        (control.relativeDensity_quadratic scale hscale)
+
+/-- Final finite covariance consumer for the relative-density interface.
+The premise remains an analytic field of `control`, not a theorem of this
+module. -/
+theorem fineCovariance_le_anchorRate_add_epsilon
+    (control : MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale :
+      control.toCoveredVariationQuadraticCostControl.toConnectedSeparatedLinearRawTransportTail.toLinearRawTransportTail.eventualStart
+        epsilon ≤ scale) :
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    schedule.fineCovariance scale ≤ schedule.anchorRate scale + epsilon :=
+  control.toCoveredVariationQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
+    epsilon hepsilon scale hscale
+
+end MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+
 #print axioms positiveExpandedFourCellSourceAssignmentSaturatedScaleDefect_eqv_calibration
 #print axioms positiveExpandedFourCellTargetAssignmentSaturatedScaleDefect_eqv_calibration
 #print axioms positiveExpandedFourCellSourceAssignmentSaturatedScaleDefect_abs_le_relative_mul_fineSquare_of_density
@@ -325,5 +453,8 @@ theorem actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariatio
 #print axioms PositiveExpandedAssignmentSaturatedRelativeDensityCalibration
 #print axioms actualPositiveExpandedAssignmentSaturatedCoarseNormalizedVariationL1_le_twice_relative_mul_coarseSquare_of_relativeDensityCalibration
 #print axioms actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1_le_quadratic_mul_coarseSquare_of_relativeDensityCalibration_endpointCoverage
+#print axioms MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl
+#print axioms MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl.toCoveredVariationQuadraticCostControl
+#print axioms MatchedShiftedAFSpinFourRelativeDensityQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
 
 end YMGap.Continuum.Z4DyadicSpinFourReceiverRelativeDensityCalibration

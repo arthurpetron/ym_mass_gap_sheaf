@@ -947,11 +947,26 @@ inhabit it.  This sharply separates the proved normalization and aggregation
 algebra from the open comparison between actual saturated raw path masses
 and physical receiver weights.
 
-The dependency-complete monitored target passes 5,492 jobs, and all seven
+The dependency-complete monitored target passes 5,492 jobs, and all ten
 printed declarations depend exactly on `[propext, Quot.sound]`.  The actual
 relative-density estimate, lower physical-spacing bound, raw-mismatch bound,
 uniform all-cutoff contraction, continuum construction, OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure remain open.
+
+### 9.18 Post-audit implementation update: schedule-level density compiler, milestone 250 (2026-09-08)
+
+The relative-density module now packages the pointwise saturated estimate as
+an eventual matched-AF schedule field.  It preserves the independent spacing
+floor and raw-mismatch hypotheses, doubles the common density coefficient
+only when adding source and target receiver variation, inserts automatic
+spin-four endpoint coverage, and constructs the existing covered-variation
+control.  Its final consumer is the finite comparison
+`fineCovariance <= anchorRate + epsilon`.
+
+The 5,492-job monitored target passes, and all ten printed declarations use
+exactly `[propext, Quot.sound]`.  The schedule structure does not inhabit its
+three analytic fields and does not provide all-cutoff persistence, a
+continuum measure, OS/GNS reconstruction, a Hamiltonian gap, or Clay closure.
 
 ## 10. What this changes—and what it does not
 
