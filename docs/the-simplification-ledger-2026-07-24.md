@@ -888,6 +888,25 @@ estimate.  Covered-image calibration, physical spacing, and raw mismatch are
 still open, as are all-cutoff contraction, the same interacting continuum
 measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay closure.
 
+### 9.15 Post-audit implementation update: filter-free receiver variation, milestone 247 (2026-09-08)
+
+The exact coverage theorem has one further quantitative consequence.  In
+`Z4DyadicSpinFourMatchedAFCoverage.lean`, the covered normalized variation is
+proved exactly equivalent to the full normalized variation on the canonical
+source and target receiver carriers.  A companion order theorem transfers a
+full-carrier upper bound to the covered term with no change in its budget.
+
+The active analytic input can therefore be stated without supported-image
+filters: bound the full source-plus-target assignment-saturated scale-defect
+`l1` by `(K * g^2) * Z_c^2`.  The endpoint lift and its receiver-image
+bookkeeping no longer appear in that estimate.
+
+The dependency-complete monitored target passes 5,490 jobs, and both new
+declarations depend exactly on `[propext, Quot.sound]`.  This does not prove
+the full-carrier quadratic bound, lower physical spacing, raw mismatch,
+all-cutoff contraction, continuum construction, OS/GNS reconstruction, the
+Hamiltonian gap, or Clay closure.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

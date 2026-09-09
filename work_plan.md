@@ -250,8 +250,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |   +-- matched-AF endpoint-coverage field automatic ...... [PROVED]
 |   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
 |   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
-|   |   |   |       |   |   |   |   |       `-- covered-image normalized calibration
-|   |   |   |       |   |   |   |   |               <= `(K_cov*g^2)*Z_c^2` ........... [ACTIVE analytic producer]
+|   |   |   |       |   |   |   |   |       +-- covered variation = full-carrier
+|   |   |   |       |   |   |   |   |       |       normalized variation .................... [PROVED exact]
+|   |   |   |       |   |   |   |   |       `-- full-carrier normalized variation
+|   |   |   |       |   |   |   |   |               <= `(K*g^2)*Z_c^2` ............... [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1535,6 +1537,37 @@ three analytic fields.  In particular it does not establish cutoff-uniform
 contraction, construct the interacting continuum measure, perform same-object
 OS/GNS reconstruction, prove a positive Hamiltonian gap, or close the Clay
 problem.
+
+## Milestone 247: filter-free full receiver-variation reduction (2026-09-08)
+
+**Status. THE REMAINING RECEIVER ESTIMATE CAN BE STATED ON THE FULL CANONICAL
+SOURCE AND TARGET CARRIERS; SUPPORTED-IMAGE FILTERS ARE NO LONGER PART OF THE
+ANALYTIC OBLIGATION.**
+
+The automatic positive raw coverage in
+`Z4DyadicSpinFourMatchedAFCoverage.lean` is now combined with the exact
+covered-plus-unreachable decomposition.  Since the unreachable mass is zero,
+Lean proves
+
+```text
+covered normalized variation ~= full normalized variation.
+```
+
+The companion order theorem transfers any bound on the full variation to the
+covered variation with the identical right-hand side.  Thus the remaining
+quadratic producer may work directly with the unfiltered source-plus-target
+scale-defect `l1` sums on the canonical receiver carriers; it need not reason
+about membership in a constructed path image.
+
+The dependency-complete monitored target still passes 5,490 jobs.  The two
+new equivalence/order declarations depend exactly on
+`[propext, Quot.sound]`.  No full-root audit is claimed.
+
+This removes a finite bookkeeping layer, not the analytic estimate itself.
+The full normalized variation `O(g^2)` bound, lower physical-spacing bound,
+and raw-mismatch bound remain open, followed by all-cutoff contraction,
+continuum construction, same-object OS/GNS reconstruction, the Hamiltonian
+gap, and Clay closure.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

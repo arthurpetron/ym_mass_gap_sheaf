@@ -15,6 +15,11 @@ consumer still yields the eventual covariance comparison
 
   fineCovariance scale <= anchorRate scale + epsilon.
 
+Because endpoint coverage is exact, the covered normalized variation is also
+proved equivalent to the full normalized variation on the canonical source
+and target receiver carriers.  A full-carrier estimate therefore implies the
+remaining covered estimate with the identical budget and no filter debt.
+
 This is an interface reduction on a finite cutoff-one schedule, not a proof
 of any of those estimates, an all-cutoff contraction, a continuum measure,
 OS/GNS reconstruction, a Hamiltonian gap, or the Yang--Mills mass gap.
@@ -36,15 +41,20 @@ open YMGap.Continuum
 open YMGap.Continuum.AFTrajectoryCertificate
 open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
+open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedEndpointLiftCoverage
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedMatchedAFQuadraticCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedNormalizedVariation
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedPhysicalCoverage
 open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalRawTransportTail.PhysicalObservableRefinementSchedule
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail
 open YMGap.Continuum.CompactDualSlabObservablePhysicalSeparatedRawTransportTail.PhysicalObservableRefinementSchedule
+open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.Z4DyadicSpinFourEndpointLift
+
+local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Endpoint coverage is automatic on the matched schedule -/
 
@@ -66,6 +76,81 @@ def matchedShiftedAFSpinFourEndpointCoverage
       identification nested
     EvenBinarySupportEndpointCoverage (schedule.scalePair scale) :=
   attachedEndpointSpinFourEvenBinarySupportCoverage _ rfl
+
+/-- Positive matched-schedule couplings upgrade the automatic geometric lift
+to the exact positive raw endpoint coverage used by the receiver image. -/
+def matchedShiftedAFSpinFourPositiveExpandedRawEndpointCoverage
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (spacing : PhysicalSpacingEnvelope law.g₁)
+    (C : AFTrajectoryCertificate)
+    (coupling : Nat → Q')
+    (coupling_pos : ∀ scale, (0 : Q') < coupling scale)
+    (coupling_le_window : ∀ scale, coupling scale ≤ law.g₁)
+    (identification : ShiftedAFTrajectoryIdentification C coupling)
+    (nested : NestedCutoffOneFaceGeometry)
+    (scale : Nat) :
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    PositiveExpandedRawEndpointCoverage (schedule.scalePair scale) :=
+  let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+    family law spacing C coupling coupling_pos coupling_le_window
+    identification nested
+  attachedEndpointSpinFourPositiveExpandedRawCoverage
+    (schedule.scalePair scale) rfl (schedule.fineCoupling_pos scale)
+      (schedule.effectiveCoupling_pos scale)
+
+/-- Under exact endpoint coverage the filtered covered variation is exactly
+the full normalized variation on the canonical receiver carriers. -/
+theorem coveredCoarseNormalizedVariationL1_eqv_full_of_endpointCoverage
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat)
+    (coverage : PositiveExpandedRawEndpointCoverage S) :
+    actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1
+        S hfineCutoff hcoarseCoupling root target ≈
+      actualPositiveExpandedAssignmentSaturatedCoarseNormalizedVariationL1
+        S hfineCutoff hcoarseCoupling root target := by
+  apply Q'.eqv_symm
+  refine Q'.eqv_trans _
+    (actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1
+        S hfineCutoff hcoarseCoupling root target +
+      actualPositiveExpandedAssignmentSaturatedUnreachableFullReceiverMass
+        S root target) _
+    (actualPositiveExpandedAssignmentSaturatedCoarseNormalizedVariationL1_eqv_covered_add_unreachable
+      S hfineCutoff hcoarseCoupling root target) ?_
+  refine Q'.eqv_trans _
+    (actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1
+        S hfineCutoff hcoarseCoupling root target + 0) _ ?_ ?_
+  · exact Q'.add_eqv_congr_left _ _ _
+      (actualPositiveExpandedAssignmentSaturatedUnreachableFullReceiverMass_eqv_zero_of_endpointCoverage
+        S root target coverage)
+  · exact Q'.eqv_of_eq
+      (Q'.add_zero'
+        (actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1
+          S hfineCutoff hcoarseCoupling root target))
+
+/-- The filter-free full-carrier bound implies the covered-image bound at
+the same scale, with no change of budget. -/
+theorem coveredCoarseNormalizedVariationL1_le_of_full_le_endpointCoverage
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat)
+    (coverage : PositiveExpandedRawEndpointCoverage S)
+    (budget : Q')
+    (hfull :
+      actualPositiveExpandedAssignmentSaturatedCoarseNormalizedVariationL1
+          S hfineCutoff hcoarseCoupling root target ≤ budget) :
+    actualPositiveExpandedAssignmentSaturatedCoveredCoarseNormalizedVariationL1
+        S hfineCutoff hcoarseCoupling root target ≤ budget :=
+  Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (coveredCoarseNormalizedVariationL1_eqv_full_of_endpointCoverage
+        S hfineCutoff hcoarseCoupling root target coverage))
+    hfull
 
 /-! ## 2. Quantitative compiler with no endpoint-coverage field -/
 
@@ -187,6 +272,9 @@ theorem fineCovariance_le_anchorRate_add_epsilon
 end MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl
 
 #print axioms matchedShiftedAFSpinFourEndpointCoverage
+#print axioms matchedShiftedAFSpinFourPositiveExpandedRawEndpointCoverage
+#print axioms coveredCoarseNormalizedVariationL1_eqv_full_of_endpointCoverage
+#print axioms coveredCoarseNormalizedVariationL1_le_of_full_le_endpointCoverage
 #print axioms MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl.toEndpointCoverageQuadraticCostControl
 #print axioms MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl.toCoveredVariationUnreachableMassQuadraticCostControl
 #print axioms MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl.fineCovariance_le_anchorRate_add_epsilon
