@@ -136,7 +136,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- signed density debt = refresh-production cross
 |   |   |   |   |       = Z_fine^2 * centered remainder ............................. [PROVED exact]
 |   |   |   |   +-- density-debt calibration <=> centered-remainder calibration ..... [PROVED exact]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2) centered-remainder estimate ........ [ACTIVE analytic producer]
+|   |   |   |   +-- normalized centered-change numerator = (1-w) * signed
+|   |   |   |   |       geometric-quotient numerator ................................. [PROVED exact]
+|   |   |   |   +-- matched-AF margin compiler: quotient ceiling => O(g^2) change .... [PROVED interface]
+|   |   |   |   +-- volume-uniform signed quotient + unit-reference residual bounds .. [ACTIVE analytic producers]
+|   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2931,6 +2935,56 @@ Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 construction of the same interacting continuum measure, same-object OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 274: factor the normalized centered change by the exact coupling margin (2026-09-09)
+
+**Status. THE COMPLETE CANCELLATION-PRESERVING NORMALIZED CHANGE NUMERATOR
+NOW FACTORS EXACTLY AS `(1 - W)` TIMES ONE SIGNED GEOMETRIC-QUOTIENT
+NUMERATOR.  ON A MATCHED-AF CHART, A NONNEGATIVE UNIFORM QUOTIENT CEILING
+COMPILES TO THE EXISTING RAW `O(G^2)` CALIBRATION WITH CONSTANT `2C`.**
+
+`Z4DyadicSpinFourFineCouplingNormalizedMarginFactorization.lean` propagates
+the finite geometric identity
+
+```text
+1 - w^n = (1 - w) * geomSum(w,n)
+```
+
+through one corrected-slab term, the fine partition, one pushed receiver
+column, a target-pair product, both selected four-cell pair carriers, their
+signed cross, and the fine partition square.  Before any absolute value is
+taken, this proves
+
+```text
+centeredNormalizedChangeNumerator
+  = (1 - fineCoupling) * centeredNormalizedMarginNumerator.
+```
+
+The residual numerator retains cancellation between the four-cell cross
+loss and partition normalization drift.  Its dimensionless calibration is
+now explicit:
+
+```text
+|centeredNormalizedMarginNumerator| <= C * commonDenominator.
+```
+
+If the actual fine coupling is the exact blocked weight of a `CubicMarginLaw`,
+then `0 <= 1-w <= 2*g^2`; the new compiler turns the displayed premise into
+the pre-existing centered-change raw calibration with ceiling `2*C`.
+
+No such volume-independent `C` is inhabited, and the separate
+unit-normalized coupling-one blocking residual still needs its own uniform
+quadratic bound.  Those two signed estimates, rather than the earlier
+separate whole-partition Casimir bounds, are the active analytic producers.
+Cutoff/volume persistence, construction of the same interacting continuum
+measure, same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay
+closure remain open.
+
+The monitored leaf target passes all 5,498 jobs.  All eleven printed
+load-bearing declarations depend exactly on `[propext, Quot.sound]`; no
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -3002,7 +3056,13 @@ GIBBS-REFRESH-VERSUS-PRODUCTION CROSS AND `Z_F^2` TIMES THE SAME CENTERED
 CYLINDER REMAINDER ALREADY ISOLATED ON THE CONNECTED-OBSERVABLE BRANCH.  THE
 ACTIVE ANALYTIC PRODUCER IS THEREFORE THE CUTOFF- AND VOLUME-UNIFORM
 `K*G^2` CENTERED-REMAINDER BOUND; SEPARATE `L1` BOUNDS FOR THE THREE
-POSTERIOR TERMS REMAIN A STRONGER FALLBACK.  THE
+POSTERIOR TERMS REMAIN A STRONGER FALLBACK.  THE UNIT-NORMALIZED CENTERED
+CHANGE NUMERATOR IS NOW EXACTLY `(1-W)` TIMES ONE SIGNED GEOMETRIC-QUOTIENT
+NUMERATOR, AND THE MATCHED-AF `1-W <= 2*G^2` BOUND COMPILES ANY NONNEGATIVE
+UNIFORM QUOTIENT CEILING `C` INTO THE REQUIRED RAW QUADRATIC CALIBRATION
+WITH CEILING `2*C`.  THE REMAINING LOCAL PRODUCERS ARE THEREFORE THAT
+VOLUME-UNIFORM SIGNED QUOTIENT CEILING AND THE UNIT-REFERENCE BLOCKING
+RESIDUAL.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/

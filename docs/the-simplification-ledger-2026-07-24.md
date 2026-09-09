@@ -1749,6 +1749,44 @@ aggregate root pass is claimed.  Raw-event mismatch, lower physical spacing,
 cutoff/volume persistence, continuum construction, same-object OS/GNS, the
 Hamiltonian gap, and Clay closure remain open.
 
+### 9.42 Post-audit implementation update: exact normalized margin factorization, milestone 274 (2026-09-09)
+
+The cancellation-preserving unit-normalized recentering has now been refined
+before any absolute-value estimate.  The exact finite identity
+
+```text
+1 - w^n = (1 - w) * geomSum(w,n)
+```
+
+is propagated through corrected-slab terms, the fine partition, pushed
+receiver columns, pair products, the signed four-cell cross, and the
+partition square.  The complete centered normalized-change numerator is
+therefore exactly
+
+```text
+(1 - fineCoupling) * centeredNormalizedMarginNumerator.
+```
+
+This is a material improvement over separately bounding cross loss and
+whole-partition drift: the residual numerator still contains their signed
+cancellation.  A new dimensionless calibration asks only for
+
+```text
+|centeredNormalizedMarginNumerator| <= C * commonDenominator.
+```
+
+When the actual fine coupling is the matched-AF blocked weight, the already
+proved `0 <= 1-w <= 2*g^2` estimate compiles any nonnegative ceiling `C` into
+the existing raw centered-change calibration with ceiling `2*C`.
+
+No volume-uniform ceiling is constructed, and the unit-normalized
+coupling-one blocking residual remains a second signed analytic producer.
+The result is an exact localization of the open estimate, not a continuum or
+mass-gap claim.  The monitored leaf target passes all 5,498 jobs, and all
+eleven printed declarations depend exactly on `[propext, Quot.sound]`.
+Cutoff/volume persistence, continuum construction, same-object OS/GNS, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
