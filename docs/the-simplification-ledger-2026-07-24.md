@@ -1591,7 +1591,9 @@ This aggregate is proved exactly equal to the previous signed raw-row average
 and hence to the normalized `centeredCylinderRemainder`.  Composing with the
 existing positive partition-square cancellation also proves a two-way,
 constant-preserving equivalence with the aggregate receiver-column raw-cross
-calibration.
+calibration.  A schedule-level accessor then shows that the existing
+matched-AF raw-column control supplies the fully raw aggregate calibration at
+every controlled scale, with no additional hypothesis.
 
 Therefore an aggregate `K*g^2` estimate is equivalent, without coefficient
 loss, to the physical centered-remainder calibration.  This is strictly the
@@ -1602,7 +1604,7 @@ proved to imply the aggregate as a fallback.
 No quadratic estimate is inhabited.  The active producer is a cutoff- and
 volume-uniform bound on this signed aggregate, ideally from the established
 receiver-column or posterior-contraction machinery.  The monitored leaf
-target passes all 5,510 jobs, and all nine printed declarations depend
+target passes all 5,510 jobs, and all ten printed declarations depend
 exactly on `[propext, Quot.sound]`.  No aggregate root pass is claimed.
 Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay

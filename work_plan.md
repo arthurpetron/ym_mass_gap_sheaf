@@ -124,6 +124,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- signed fine-law average of fully raw row ratios = centered
 |   |   |   |   |       pushed-law remainder ................................... [PROVED exact]
 |   |   |   |   +-- fully raw aggregate calibration <=> receiver-column cross .. [PROVED exact]
+|   |   |   |   +-- matched-AF raw-column control supplies fully raw aggregate .. [PROVED exact]
 |   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that aggregate .... [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -2715,8 +2716,11 @@ is the weakest exact producer exposed by the row expansion: it retains the
 joint/root/target signs inside every row and cancellation between different
 fine Gibbs sources.  The former pointwise fully raw calibration still
 compiles to it, but is no longer identified as the preferred target.
+Moreover, the existing matched-AF receiver-column control now has a direct
+accessor furnishing this fully raw aggregate calibration at every controlled
+scale; this introduces no new field or hypothesis.
 
-The monitored leaf target passes all 5,510 jobs.  All nine printed
+The monitored leaf target passes all 5,510 jobs.  All ten printed
 declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
 choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
 enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
@@ -2785,6 +2789,8 @@ RATIOS ARE NOW SUMMED WITH THEIR ACTUAL FINE GIBBS WEIGHTS BEFORE THE
 ABSOLUTE VALUE, AND THE RESULT IS EXACTLY THE CENTERED REMAINDER.  THE
 FULLY RAW AGGREGATE CALIBRATION IS ALSO EXACTLY EQUIVALENT TO THE ESTABLISHED
 AGGREGATE RECEIVER-COLUMN RAW-CROSS CALIBRATION, WITH NO CONSTANT LOSS.  THE
+EXISTING MATCHED-AF RAW-COLUMN CONTROL NOW SUPPLIES THE FULLY RAW AGGREGATE
+AT EACH CONTROLLED SCALE WITHOUT AN ADDITIONAL ANALYTIC FIELD.  THE
 POINTWISE FULLY RAW PREMISE IS THEREFORE RECORDED ONLY AS A STRONGER
 FALLBACK.  THE ACTIVE ANALYTIC PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM
 `K*G^2` BOUND ON THE SIGNED FULLY RAW SOURCE AGGREGATE, PREFERABLY THROUGH A

@@ -32,10 +32,14 @@ set_option maxRecDepth 30000
 set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
+open YMGap.Continuum.AFTrajectoryCertificate
+open YMGap.Continuum.BF4AFPhysicalSpacingToZero
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4ObservableMatchedOneStep
 open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualCutoffOneTotalKernel
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
+open YMGap.Continuum.CompactDualSlabObservablePhysicalMatchedAFTrajectory
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
 open YMGap.Continuum.CompactDualSlabObservablePhysicalConnectedRemainderObservable
@@ -256,6 +260,51 @@ theorem fullyRawSignedSourceAverageCalibration_of_pointwise
       (coarseGibbsRefreshConnectedRemainderCalibration_of_fullyRawEventCross
         S hfineCutoff hcoarseCoupling M g kernelCeiling hpointwise)
 
+/-! ## 3. Matched-AF receiver-column handoff -/
+
+namespace MatchedShiftedAFSpinFourRawColumnCrossQuadraticCostControl
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {C : AFTrajectoryCertificate}
+    {coupling : Nat → Q'}
+    {coupling_pos : ∀ scale, (0 : Q') < coupling scale}
+    {coupling_le_window : ∀ scale, coupling scale ≤ law.g₁}
+    {identification : ShiftedAFTrajectoryIdentification C coupling}
+    {nested : NestedCutoffOneFaceGeometry}
+
+/-- The existing matched-AF receiver-column control supplies the exact
+signed fully raw source-aggregate calibration at every controlled scale.
+This is an accessor to the same analytic field, not a new hypothesis. -/
+theorem fullyRawSignedSourceAverage_quadratic
+    (control : MatchedShiftedAFSpinFourRawColumnCrossQuadraticCostControl
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested)
+    (scale : Nat) (hscale : control.start ≤ scale) :
+    let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+      family law spacing C coupling coupling_pos coupling_le_window
+      identification nested
+    let S := schedule.scalePair scale
+    let M := schedule.faceMap scale
+    PositivePhysicalConnectedFullyRawSignedSourceAverageCalibration
+      S rfl (schedule.effectiveCoupling_pos scale) M
+        (coupling scale) control.rawColumnCrossQuadraticCeiling := by
+  let schedule := matchedShiftedAFPhysicalObservableRefinementSchedule
+    family law spacing C coupling coupling_pos coupling_le_window
+    identification nested
+  let S := schedule.scalePair scale
+  let M := schedule.faceMap scale
+  apply
+    (positiveFullyRawSignedSourceAverageCalibration_iff_rawColumnCross
+      S rfl (schedule.effectiveCoupling_pos scale) M
+      (coupling scale) control.rawColumnCrossQuadraticCeiling).mpr
+  simpa only [schedule, S, M] using
+    (control.rawColumnCross_quadratic scale hscale)
+
+end MatchedShiftedAFSpinFourRawColumnCrossQuadraticCostControl
+
 #print axioms positivePhysicalConnectedFullyRawSignedSourceAverageAux
 #print axioms positivePhysicalConnectedFullyRawSignedSourceAverage
 #print axioms positivePhysicalConnectedRawSignedSourceAverage_eqv_fullyRaw
@@ -265,5 +314,6 @@ theorem fullyRawSignedSourceAverageCalibration_of_pointwise
 #print axioms positiveFullyRawSignedSourceAverageCalibration_iff_rawColumnCross
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_fullyRawSignedSourceAverage
 #print axioms fullyRawSignedSourceAverageCalibration_of_pointwise
+#print axioms MatchedShiftedAFSpinFourRawColumnCrossQuadraticCostControl.fullyRawSignedSourceAverage_quadratic
 
 end YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCrossAverage
