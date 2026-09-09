@@ -776,6 +776,31 @@ bubble side faces may overlap.  The receiver calibration, uniform physical
 estimates, continuum construction, OS/GNS reconstruction, Hamiltonian gap,
 and Clay closure remain open.
 
+### 9.11 Post-audit implementation update: global spin-four XOR assembly, milestone 243 (2026-09-08)
+
+`Z4DyadicSpinFourXorAssembly.lean` now performs the required global
+coefficient-level construction.  It recursively XORs the local lower and
+upper pair-bubble coefficients over a duplicate-free finite carrier, proves
+that off-target bubble contributions vanish on each queried dyadic fibre, and
+then XORs that assembly with literal subdivision of the odd-spin support.
+
+The resulting ordered packets are exact for all supported spin values zero
+through four: `[0,0,0,0]`, `[1,0,0,0]`, `[1,1,0,0]`, `[1,0,1,1]`, and
+`[1,1,1,1]`.  In particular, their coordinate totals reproduce the attached
+coarse spin.  Closure follows under the explicit condition that the coarse
+odd-spin support has even face incidence.  This isolates, rather than hides,
+the parity consequence that the endpoint adapter must obtain from accepted
+coarse link admissibility.
+
+The monitored dependency-complete target passes 823 jobs, and every printed
+load-bearing theorem audits to at most `[propext, Quot.sound]`.  No full-root
+audit is claimed.  The remaining geometric work is to turn this finitely
+generated Boolean function into a duplicate-free finite support with the same
+coefficient and prove corrected-slab containment.  Transverse cube faces at
+the spatial boundary remain a real containment seam.  Receiver calibration,
+uniform physical estimates, continuum construction, OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

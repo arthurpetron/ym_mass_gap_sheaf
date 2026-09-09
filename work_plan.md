@@ -1208,8 +1208,11 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- closed all-plane pair bubbles contribute exact
 |           |       |       packets `[1,1,0,0]` or `[0,0,1,1]` ........... [PROVED]
 |           |       +-- pair bubbles vanish on every other coarse fibre .. [PROVED]
-|           |       +-- arbitrary attached spins `0..4`: XOR assembly,
-|           |       |       corrected-slab containment, and exact packets  [ACTIVE geometric lift]
+|           |       +-- arbitrary attached spins `0..4`: coefficient-level
+|           |       |       XOR assembly and exact packets ................ [PROVED]
+|           |       +-- odd-spin parity incidence => assembled closure .... [PROVED interface]
+|           |       +-- finite duplicate-free support realization and
+|           |       |       corrected-slab containment .................... [ACTIVE geometric lift]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1255,11 +1258,12 @@ constructs that support whenever the attached coarse endpoint is itself the
 zero-one indicator of a duplicate-free closed coarse surface.  It preserves
 closure, duplicate freedom, corrected-slab membership, and contributes
 exactly one occupied nondegenerate fine preimage to each selected coarse
-face.  The active finite geometric witness problem is therefore narrower and
-genuinely nonabelian: realize attached coarse spins `2`, `3`, and `4` by
-mixed fine-strand routing compatible with the accepted coarse intertwiner
-assignment.  No lift is required for link-inadmissible zero-mass members of
-the broader bounded Cartesian list.
+  face.  The active finite geometric witness problem is therefore narrower and
+genuinely nonabelian: realize the proved Boolean XOR coefficient as a finite,
+duplicate-free corrected-slab support, and derive its odd-spin parity
+incidence hypothesis from the accepted coarse intertwiner assignment.  No
+lift is required for link-inadmissible zero-mass members of the broader
+bounded Cartesian list.
 
 ## Milestone 241: close literal dyadic subdivision for binary endpoints (2026-09-08)
 
@@ -1350,6 +1354,51 @@ This is exact finite lattice geometry.  It does not prove full attached-
 endpoint coverage, receiver calibration, spacing or mismatch estimates,
 cutoff-uniform contraction, a continuum measure, OS/GNS reconstruction, a
 Hamiltonian gap, or the Clay theorem.
+
+## Milestone 243: global coefficient-level XOR routing for spins zero through four (2026-09-08)
+
+**Status. EXACT ORDERED FOUR-CHILD PACKETS ARE NOW CONSTRUCTED FOR EVERY
+DUPLICATE-FREE FINITE CARRIER WITH SPINS `0..4`; FINITE SUPPORT REALIZATION
+AND CORRECTED-SLAB CONTAINMENT REMAIN ACTIVE.**
+
+`Z4DyadicSpinFourXorAssembly.lean` combines the literal odd-spin subdivision
+with the lower and upper pair bubbles by pointwise Boolean XOR.  This is the
+correct global operation: coincident bubble side faces cancel mod two instead
+of surviving as duplicate list entries.  A recursive finite assembly proves
+that bubbles attached to every other coarse face vanish on the queried fibre,
+so each query sees precisely its own local generator.
+
+```text
+finite duplicate-free coarse carrier with spin : face -> Nat
+|
++-- odd spin support -> literal dyadic child `[1,0,0,0]`
+|
++-- spin 2 -> lower closed pair bubble `[1,1,0,0]`
++-- spin 3 -> upper closed pair bubble `[0,0,1,1]`
++-- spin 4 -> lower XOR upper       `[1,1,1,1]`
+|
+`-- global pointwise XOR
+    +-- exact packet for spin 0  `[0,0,0,0]`
+    +-- exact packet for spin 1  `[1,0,0,0]`
+    +-- exact packet for spin 2  `[1,1,0,0]`
+    +-- exact packet for spin 3  `[1,0,1,1]`
+    `-- exact packet for spin 4  `[1,1,1,1]`
+```
+
+The assembly is mod-two closed whenever the odd-spin coarse support has even
+face incidence.  That hypothesis is stated honestly: the next endpoint
+adapter must derive it from coarse link admissibility, enumerate the finite
+true support of the Boolean coefficient without choice, prove duplicate
+freedom and coefficient equality, and keep every selected face in the
+corrected fine slab.  The last item retains a genuine spatial-boundary seam
+because a local cube bubble can extend transversely beyond a boundary face.
+
+The monitored dependency-complete target passes 823 jobs.  Every printed
+load-bearing declaration depends on at most `[propext, Quot.sound]`; no
+`Classical.choice`, `sorry`, new axiom, or noncomputable witness is present.
+No full-root audit is claimed.  This remains exact finite lattice geometry;
+receiver calibration, uniform physical estimates, continuum construction,
+OS/GNS reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
