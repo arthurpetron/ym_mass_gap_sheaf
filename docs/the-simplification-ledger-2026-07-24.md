@@ -1972,6 +1972,41 @@ same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain open.  The focused check and 5,506-job target pass; all 32 printed
 declarations remain within `[propext, Quot.sound]`.
 
+### 9.49 Post-audit implementation update: marked source-pair response difference, milestone 281 (2026-09-09)
+
+The centered response left by the symmetric occupied-face recoding is now
+expanded exactly against a second actual fine source:
+
+```text
+Z_actual * F(x) - sum_y a(y) * F(y)
+  = sum_y a(y) * (F(x) - F(y)).
+```
+
+Finite Cartesian flattening turns the full centered score moment into a
+marked-pair carrier.  An entry consists of an occupied source-face `(x,p)`
+and a second physical source `y`; its term is the symmetric marked margin
+mass times `a(y)` times the kernel-row event difference `F(x)-F(y)`.  The
+carrier retains kernel-checked physical membership of both sources and the
+fact `x(p)=1`.
+
+The same module proves the first pointwise estimate on the symmetric
+coefficient: for `0 <= w <= 1`, every share lies in `[0,3]`, independently
+of occupation count and slab volume.  This removes the apparent growth from
+the global numerator `geomSum(w,3n)` after division by `n`.
+
+The exact recoding exposes rather than hides the remaining incompatibility
+with the existing paired-support switch: one source factor is at coupling
+one and the other at the actual coupling, while the existing weight
+preservation theorem concerns a common same-coupling product.  Therefore no
+connected-support cancellation is claimed yet.  The next contraction is an
+exact occupation-exponent factorization or antisymmetrization of this mixed
+weight, followed by a marked switch theorem that preserves the resulting
+carrier.  Uniform mixing, the balanced-blocking estimate, the centered
+`O(g^2)` bound, all-cutoff/volume passage, the interacting continuum theory,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.  The focused check and 5,507-job target pass; all 12 printed
+declarations remain within `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

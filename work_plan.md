@@ -3278,6 +3278,53 @@ root pass is claimed, and no `Classical`, choice, `sorry`, new axiom,
 `native_decide`, noncomputable witness, or enlarged heartbeat budget is
 introduced.
 
+## Milestone 281: expose the centered response as a marked source-pair difference (2026-09-09)
+
+**Status. THE GLOBAL CENTERING TERM IS NOW ELIMINATED EXACTLY.  THE CUTOFF-ONE
+SCORE MOMENT IS A FINITE SUM OVER AN OCCUPIED SOURCE-FACE AND A SECOND ACTUAL
+SOURCE, WEIGHTED BY THE DIFFERENCE OF THEIR KERNEL-ROW EVENT MASSES.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginMarkedPairDifference.lean` proves
+the exact finite identity
+
+```text
+Z_actual * F(x) - sum_y a(y) * F(y)
+  = sum_y a(y) * (F(x) - F(y)).
+```
+
+Substitution into the symmetric occupied-face carrier from milestone 280
+gives the complete centered score-event moment as
+
+```text
+sum_((x,p),y)
+  markedMarginMass(x,p) * actualMass(y) * (F(x) - F(y)),
+```
+
+with association made explicit in the Lean definition.  Carrier membership
+constructively certifies that both sources are physical and that the marked
+face `p` has spin one.  In addition, the common occupied-face share satisfies
+the genuinely volume-independent pointwise estimate
+`0 <= share(x,p) <= 3` for every `0 <= w <= 1`.
+
+This is the first exact object on this branch to retain a local occupied-face
+anchor while presenting the observable response as a two-source difference.
+It also reveals why the existing same-coupling paired-support switch cannot
+yet simply be invoked: the marked factor uses a coupling-one source mass,
+whereas the unmarked second factor uses the actual-coupling mass.  No switch
+invariance for this mixed product is claimed.  The next causal edge is to
+factor that mixed weight into its common pair product and its explicit
+occupation-exponent imbalance, then determine the exact marked switch or
+antisymmetric cancellation law before taking absolute values.  The
+balanced-blocking producer, centered `O(g^2)` consumer, all-cutoff
+persistence, interacting continuum measure, same-object OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
+The focused monitored source check and dependency-complete target both pass;
+the latter builds all 5,507 jobs.  All 12 printed declarations use only
+`[propext, Quot.sound]` (one uses no axioms).  No aggregate root pass is
+claimed, and no `Classical`, choice, `sorry`, new axiom, `native_decide`,
+noncomputable witness, or enlarged heartbeat budget is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
