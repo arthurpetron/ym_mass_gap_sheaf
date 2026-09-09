@@ -3325,6 +3325,60 @@ the latter builds all 5,507 jobs.  All 12 printed declarations use only
 claimed, and no `Classical`, choice, `sorry`, new axiom, `native_decide`,
 noncomputable witness, or enlarged heartbeat budget is introduced.
 
+## Milestone 282: antisymmetrize the centered source pair and isolate occupation imbalance (2026-09-09)
+
+**Status. THE MIXED COUPLING WEIGHT IS NOW AN EXACT ANTISYMMETRIC
+DETERMINANT.  AT CUTOFF ONE ITS ENTIRE HEAT DEPENDENCE IS A SIGNED
+OCCUPATION-IMBALANCE COFACTOR MULTIPLYING A COMMON COUPLING-ONE PAIR
+PRODUCT.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginAntisymmetricPair.lean` proves the
+generic finite identity
+
+```text
+sum_(x,y) (m(x)a(y) - a(x)m(y)) * (F(x) - F(y))
+  = 2 * sum_(x,y) m(x)a(y) * (F(x) - F(y)).
+```
+
+Finite Fubini identifies the oriented sum on the right with the genuine
+centered one-replica score-event moment.  At cutoff one it is also the marked
+occupied-face sum from milestone 281, so the antisymmetric determinant gives
+twice that exact marked observable.
+
+For a physical source `x`, let `n(x)` be its number of occupied fine faces.
+The module proves
+
+```text
+actualMass(x) = w^(3*n(x)) * unitMass(x),
+marginMass(x) = geomSum(w,3*n(x)) * unitMass(x).
+```
+
+The determinant therefore factors through `unitMass(x)*unitMass(y)`.  Its
+remaining scalar is reduced without division:
+
+```text
+n(y) <= n(x):  + w^(3*n(y)) * geomSum(w,3*(n(x)-n(y)))
+n(x) <= n(y):  - w^(3*n(x)) * geomSum(w,3*(n(y)-n(x))).
+```
+
+This replaces the opaque mixed-coupling obstruction by one explicit signed
+occupation-difference factor.  It does not yet show that a paired-support
+component switch preserves or cancels that factor.  The next causal edge is
+to track how the two occupation counts change under the literal physical
+component swap and either construct a cofactor-preserving marked involution
+or telescope the imbalance into single occupied-face transfers.  Only after
+that exact step is it honest to bound the connected residue.  The
+balanced-blocking producer, centered `O(g^2)` consumer, all-cutoff
+persistence, interacting continuum measure, same-object OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
+The focused monitored source check and dependency-complete target both pass;
+the latter builds all 5,508 jobs.  All 22 printed declarations use only
+`[propext, Quot.sound]` (several use only `[propext]` or no axioms).  No
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING

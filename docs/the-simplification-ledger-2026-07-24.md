@@ -2007,6 +2007,46 @@ same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain open.  The focused check and 5,507-job target pass; all 12 printed
 declarations remain within `[propext, Quot.sound]`.
 
+### 9.50 Post-audit implementation update: antisymmetric occupation-imbalance normal form, milestone 282 (2026-09-09)
+
+The mixed marked/actual source weight is now antisymmetrized before any
+absolute value.  A generic exact finite theorem shows that the determinant
+
+```text
+(m(x)a(y)-a(x)m(y)) * (F(x)-F(y))
+```
+
+sums to twice the oriented centered-pair expression.  Finite Fubini then
+identifies the latter with the existing centered source moment and, at
+cutoff one, with the marked occupied-face carrier.
+
+Binary occupation supplies a sharper normal form.  If `n(x)` counts occupied
+fine faces, the actual and margin source masses are exactly
+`w^(3*n(x))*u(x)` and `geomSum(w,3*n(x))*u(x)`.  Hence their antisymmetric
+determinant is a common coupling-one pair product times a scalar depending
+only on the two occupation counts.  The scalar has the exact ordered forms
+
+```text
++ w^(3*n(y)) * geomSum(w,3*(n(x)-n(y)))  when n(y) <= n(x),
+- w^(3*n(x)) * geomSum(w,3*(n(y)-n(x)))  when n(x) <= n(y).
+```
+
+The proof uses the new division-free identity
+`geomSum(w,b+d)w^b - w^(b+d)geomSum(w,b) = w^b geomSum(w,d)`.
+This is the mathematically relevant contraction: the failure of a naive
+same-coupling switch is now exactly one signed occupation-imbalance cofactor,
+not an opaque global centered response.
+
+No component-switch invariance or connected-residue estimate is claimed.
+The next step must track occupation-count transport under the literal
+paired-support face swap, or refine the cofactor into a telescoping carrier
+of single occupied-face transfers.  Uniform mixing, the balanced-blocking
+estimate, the centered `O(g^2)` bound, all-cutoff/volume passage, the
+interacting continuum theory, same-object OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain open.  The focused check and
+5,508-job target pass; all 22 printed declarations remain within
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
