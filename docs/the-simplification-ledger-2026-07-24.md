@@ -1387,6 +1387,39 @@ declarations use exactly `[propext, Quot.sound]`.  Cutoff/volume uniformity,
 continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
 closure remain open.
 
+### 9.31 Post-audit implementation update: normalized signed change-of-measure seam, milestone 263 (2026-09-09)
+
+The new `Z4DyadicSpinFourFineCouplingNormalizedRecentering.lean` removes the
+need to estimate coupling-one cross loss and global partition drift as two
+separate positive costs.  It normalizes the coupling-one pushed four-cell
+cross by the coupling-one partition square and proves
+
+```text
+unitCross / unitZ^2 - actualCross / actualZ^2
+  = (unitCross*actualZ^2 - actualCross*unitZ^2)
+      / (unitZ^2*actualZ^2).
+```
+
+The numerator is one signed determinant, so cancellation is retained until
+the analytic producer chooses where to apply an absolute value.  The module
+also proves that `actualCross/actualZ^2` is the existing blocked covariance
+and inserts the unit-normalized cross into the centered-cylinder remainder.
+Consequently the preferred centered calibration follows from exactly two
+named quadratic premises: a unit-normalized blocking residual and a raw
+centered-change numerator bound.
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean` specializes that
+compiler to the production physical kernel.  This route does not inhabit the
+two premises; it exposes a sharper proof target.  The earlier selected-cell
+Casimir estimate remains a sufficient fallback, but because it weights by
+the total fine-slab Casimir exponent before selecting receiver cells, it is
+not presently a volume-uniform local producer.
+
+The monitored leaf target passes all 5,497 jobs and the downstream Gibbs
+target passes all 5,504 jobs.  The printed declarations use exactly
+`[propext, Quot.sound]`.  Cutoff/volume uniformity, continuum construction,
+same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

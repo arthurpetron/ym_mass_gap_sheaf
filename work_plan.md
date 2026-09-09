@@ -304,9 +304,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |       |       remainder calibration ........................ [PROVED exact]
 |   |   |   |       |   |   |   |   |           |       +-- coupling-one reference + localized moment
 |   |   |   |       |   |   |   |   |           |       |       => centered remainder calibration ............ [PROVED interface]
+|   |   |   |       |   |   |   |   |           |       +-- unit-normalized cancellation recentering
+|   |   |   |       |   |   |   |   |           |       |   +-- unit partition positive; actual blocked covariance
+|   |   |   |       |   |   |   |   |           |       |   |       = actual four-cell cross / actual `Z_f^2` ... [PROVED]
+|   |   |   |       |   |   |   |   |           |       |   +-- normalized unit/actual change = one signed
+|   |   |   |       |   |   |   |   |           |       |   |       cross determinant / positive denominator .... [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       |   +-- centered remainder = unit-normalized blocking
+|   |   |   |       |   |   |   |   |           |       |   |       residual + centered normalized change ....... [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       |   +-- two raw quadratic premises => centered bound .. [PROVED interface]
+|   |   |   |       |   |   |   |   |           |       |   `-- prove both premises cutoff-uniformly .......... [ACTIVE co-producers]
 |   |   |   |       |   |   |   |   |           |       +-- centered remainder <= `K*g^2` .............. [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |           |       `-- full physical remainder `l1` <= `K*g^2` ... [OPEN stronger fallback]
-|   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
+|   |   |   |       |   |   |   |   |           `-- localized pair-cell moment route ................. [PARTIAL / extensive-risk fallback]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -2349,6 +2358,62 @@ lower physical spacing, cutoff/volume-uniform persistence, continuum measure
 construction, same-object OS/GNS reconstruction, the Hamiltonian gap, and
 Clay closure remain open.
 
+## Milestone 263: cancellation-preserving normalized coupling-one recentering (2026-09-09)
+
+**Status. THE COUPLING-ONE/ACTUAL COMPARISON NOW HAS AN EXACT NORMALIZED
+FORM THAT KEEPS CROSS CHANGE AND PARTITION CHANGE INSIDE ONE SIGNED
+DETERMINANT.  THE EARLIER WHOLE-SLAB PARTITION-DRIFT PAYMENT IS NO LONGER A
+REQUIRED PREMISE OF THIS BRANCH.**
+
+`Z4DyadicSpinFourFineCouplingNormalizedRecentering.lean` proves strict
+positivity of the literal coupling-one fine partition and defines the
+coupling-one pushed four-cell cross normalized by its own partition square.
+It also proves directly that the actual blocked covariance is the actual
+pushed four-cell cross divided by the actual fine partition square.
+
+For unit cross `U`, actual cross `A`, unit partition square `Z_u^2`, and
+actual partition square `Z_a^2`, the exact normalized change is
+
+```text
+U / Z_u^2 - A / Z_a^2
+  = (U*Z_a^2 - A*Z_u^2) / (Z_u^2*Z_a^2).
+```
+
+The numerator is retained as one signed cross determinant.  In particular,
+the proof does not take separate absolute values of cross loss and global
+partition drift.  Inserting the unit-normalized cross between the coarse and
+actual blocked covariances gives the exact decomposition
+
+```text
+centeredCylinderRemainder
+  = unitNormalizedBlockingResidual + centeredNormalizedChange.
+```
+
+Two explicit quadratic premises now compile to the preferred centered
+remainder calibration: a bound on the unit-normalized blocking residual and
+a raw bound on the signed centered-change numerator against its positive
+common denominator.  The compiler is connected to the concrete physical
+kernel in `Z4DyadicSpinFourGibbsRefreshConnectedRemainder.lean`.
+
+Neither quadratic premise is inhabited here.  This is a sharper analytic
+interface, not an estimate: the active work is to expand the signed
+determinant before absolute values and prove cutoff/volume-uniform control.
+The selected pair-cell Casimir route remains sufficient, but its inserted
+Casimir exponent is the total fine-slab exponent and therefore is not yet a
+volume-safe producer.
+
+The monitored leaf target passes all 5,497 jobs, and the downstream Gibbs
+target passes all 5,504 jobs.  All ten printed declarations in the new module
+and all thirteen printed declarations in the updated Gibbs module depend
+only on `[propext, Quot.sound]`.  No `Classical`, choice, `sorry`, new axiom,
+`native_decide`, or noncomputable witness is introduced.  No full-root audit
+is claimed.
+
+This remains finite cutoff-one algebra.  Raw-event mismatch, lower physical
+spacing, cutoff/volume-uniform persistence, construction of the same
+interacting continuum measure, same-object OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2379,8 +2444,11 @@ EXISTING CENTERED CYLINDER REMAINDER, EQUIVALENTLY `Z_F^2` TIMES THE SIGNED
 REMAINDER EXPECTATION OF ONE EXPLICIT POINTWISE-UNIT-BOUNDED CONNECTED
 OBSERVABLE.  THE PREFERRED ACTIVE PRODUCER IS A QUADRATIC BOUND FOR THAT
 CANCELLATION-AWARE CENTERED REMAINDER; A FULL PHYSICAL REMAINDER-`L1` BOUND
-IS RECORDED ONLY AS A STRONGER FALLBACK.  THE VOLUME-UNIFORM LOCALIZED
-PAIR-CELL MOMENT REMAINS A CO-PRODUCER.  THE INDEPENDENT SPACING AND
+IS RECORDED ONLY AS A STRONGER FALLBACK.  A NEW UNIT-NORMALIZED RECENTERING
+SPLITS THE CENTERED REMAINDER INTO A UNIT-NORMALIZED BLOCKING RESIDUAL AND
+ONE SIGNED CROSS DETERMINANT THAT RETAINS PARTITION-DRIFT CANCELLATION.  THESE
+ARE THE ACTIVE CO-PRODUCERS.  THE LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS
+SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
 GAP CHAIN REMAIN DOWNSTREAM.**
 

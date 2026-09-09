@@ -27,6 +27,7 @@ cancellation only; no `Classical`, choice, `native_decide`, proof hole,
 noncomputable declaration, or new axiom.
 -/
 
+import YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedRecentering
 import YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshReferenceCross
 
 namespace YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedRemainder
@@ -50,6 +51,7 @@ open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceScaleDefect
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedRecentering
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshReferenceCross
 open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
 
@@ -436,6 +438,32 @@ theorem coarseGibbsRefreshConnectedRemainderCalibration_of_fineUnitReference_and
     family law g hg hgle hcoupling M.coarseRoot M.coarseTarget
     referenceCeiling momentCeiling hreference hmoment
 
+/-- Cancellation-preserving alternative to the global coupling-one split.
+The unit-reference blocking residual is normalized by the unit partition,
+while the cross loss and partition drift remain together in one signed raw
+numerator until after cancellation. -/
+theorem coarseGibbsRefreshConnectedRemainderCalibration_of_unitNormalizedResidual_and_centeredChange
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g referenceCeiling changeCeiling : Q')
+    (hreference :
+      FineUnitCouplingNormalizedBlockingResidualCalibration
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M g referenceCeiling)
+    (hchange :
+      FineUnitCouplingCenteredNormalizedChangeRawCalibration
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M g changeCeiling) :
+    CoarseGibbsRefreshConnectedRemainderCalibration
+      S hfineCutoff hcoarseCoupling M g
+        (referenceCeiling + changeCeiling) := by
+  unfold CoarseGibbsRefreshConnectedRemainderCalibration
+  exact
+    centeredCylinderRemainder_abs_le_of_unitNormalizedResidual_and_centeredChange
+      (physicalKernel S hfineCutoff hcoarseCoupling)
+      M g referenceCeiling changeCeiling hreference hchange
+
 /-- Conservative alternative input: a quadratic bound on the full physical
 pushforward remainder `L1`. -/
 def CoarseGibbsRefreshPhysicalRemainderL1Calibration
@@ -492,6 +520,7 @@ theorem positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRef
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_rawColumnCross
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_iff_rawColumnCross
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_fineUnitReference_and_localizedMoment
+#print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_unitNormalizedResidual_and_centeredChange
 #print axioms CoarseGibbsRefreshPhysicalRemainderL1Calibration
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_physicalRemainderL1
 #print axioms positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_gibbsRefreshPhysicalRemainderL1
