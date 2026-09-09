@@ -1036,6 +1036,33 @@ spacing, raw mismatch, all-cutoff persistence, the same interacting continuum
 measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay closure remain
 open.
 
+### 9.21 Post-audit implementation update: fine-coupling reference perturbation, milestone 253 (2026-09-08)
+
+The first concrete analytic reduction after the aggregate raw-column cross is
+now checked.  `Z4DyadicSpinFourFineCouplingReferencePerturbation.lean` defines
+the total face Casimir exponent of a corrected-slab physical labelling and
+proves that its production summand at coupling `w` is exactly `w` to that
+exponent times the coupling-one summand.  Constructive Bernoulli control for
+`0 <= w <= 1` bounds the loss by `(1-w)` times the explicit Casimir-weighted
+coupling-one summand.
+
+Kernel positivity transports the estimate to each literal pushed receiver
+column, and finite summation gives the analogous partition loss.  Row
+normalization also proves that the total unit-coupling pushed mass is exactly
+the unit-coupling fine partition.  The 5,495-job monitored target passes; the
+six printed declarations use at most `[propext, Quot.sound]`.
+
+This is not a volume-uniform `K*g^2` estimate.  The Casimir moment can grow
+with the slab, no coupling-one stationarity or reference signed-cross identity
+has been proved, and the matched schedule uses `blockedWeight` rather than the
+fine nome whose margin is definitionally `g^2`.  The next honest analytic edge
+is to combine a blocked-margin upper bound from `CubicMarginLaw` with a
+localized/cancellation-preserving Casimir estimate, or to prove that this
+global reference route is too volume-expensive and refine it.  Physical
+spacing, raw mismatch, all-cutoff persistence, continuum construction,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -264,6 +264,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |       |       up to the exact partition factor ............. [PROVED exact]
 |   |   |   |       |   |   |   |   |       +-- aggregate `K*g^2` field => finite covariance .... [PROVED interface]
 |   |   |   |       |   |   |   |   |       `-- prove aggregate `K*g^2` raw-column cross ........ [ACTIVE analytic producer]
+|   |   |   |       |   |   |   |   |           +-- exact term at `w` = `w^Casimir` times term
+|   |   |   |       |   |   |   |   |           |       at coupling one ............................ [PROVED]
+|   |   |   |       |   |   |   |   |           +-- pushed-column and partition losses bounded by
+|   |   |   |       |   |   |   |   |           |       `(1-w)` times explicit Casimir moments ..... [PROVED]
+|   |   |   |       |   |   |   |   |           +-- blocked-margin upper comparison to `g^2` ..... [OPEN]
+|   |   |   |       |   |   |   |   |           +-- coupling-one reference cross/stationarity ..... [OPEN]
+|   |   |   |       |   |   |   |   |           `-- volume-uniform localized/cancelled moment ..... [ACTIVE]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1785,6 +1792,54 @@ and raw event mismatch remain separate open inputs, followed by all-cutoff
 persistence, construction of the same interacting continuum measure,
 same-object OS/GNS reconstruction, the Hamiltonian spectral gap, and Clay
 closure.
+
+## Milestone 253: exact fine-coupling reference perturbation (2026-09-08)
+
+**Status. THE ACTUAL FINE HEAT-NOME DEPENDENCE OF EVERY CORRECTED-SLAB
+PRODUCTION TERM AND PUSHED RECEIVER COLUMN IS NOW FACTORED EXACTLY, WITH A
+CONSTRUCTIVE FIRST-ORDER CASIMIR-MOMENT LOSS BOUND.**
+
+`Z4DyadicSpinFourFineCouplingReferencePerturbation.lean` defines the total
+face Casimir exponent of a bounded corrected-slab physical labelling and
+proves the exact identity
+
+```text
+physicalTerm(w, source)
+  = w^(total face Casimir(source)) * physicalTerm(1, source).
+```
+
+For `0 <= w <= 1`, constructive Bernoulli control then gives the termwise
+loss estimate
+
+```text
+physicalTerm(1, source) - physicalTerm(w, source)
+  <= (1-w) * totalCasimir(source) * physicalTerm(1, source).
+```
+
+Positivity of the literal finite recoupling kernel transports this inequality
+to every pushed receiver column.  The same summation proves the corresponding
+fine-partition loss, while row normalization shows that total unit-coupling
+pushed mass is exactly the unit-coupling partition.  These results expose the
+actual perturbative quantity without replacing the physical kernel or erasing
+receiver multiplicity.
+
+The dependency-complete monitored target passes 5,495 jobs.  All six printed
+load-bearing declarations use at most `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+This milestone does **not** yet inhabit the aggregate signed raw-column
+`K*g^2` estimate.  The matched schedule uses the physically blocked nome, so
+its margin is not definitionally `g^2`; an upper comparison must be derived
+from the named cubic remainder law.  More importantly, the exposed total
+Casimir moment can grow with slab volume, and no coupling-one reference-law
+stationarity or signed-cross cancellation theorem has been established.  The
+active producer is therefore a localized or cancellation-preserving moment
+estimate uniform in the required finite volume, together with the reference
+cross identity it needs.  Physical spacing and raw event mismatch remain
+independent open inputs; all-cutoff persistence, the same interacting
+continuum measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay
+closure remain downstream.
 
 ## Current goal-mode checkpoint (2026-09-08)
 
