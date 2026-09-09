@@ -1610,6 +1610,40 @@ Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
 closure remain open.
 
+### 9.38 Post-audit implementation update: posterior producer for the fully raw aggregate, milestone 270 (2026-09-09)
+
+The new
+`Z4DyadicSpinFourGibbsRefreshConnectedFullyRawPosteriorColumn.lean` closes the
+exact seam between the previously separate posterior-column and fully raw
+branches.  The assignment-saturated raw-column cross and the accepted
+receiver-fiber scale-defect cross are proved equal by observing that each,
+after multiplication by the same positive `Z_coarse*Z_fine` factor, is the
+physical raw covariance defect.  Positive-factor cancellation avoids any
+new dependent receiver transport.
+
+The receiver-fiber cross is already bounded by the three-term posterior
+budget.  Its exact rescaling by `Z_coarse^2` now yields
+
+```text
+posteriorThreeBudget <= relative * Z_fine^2
+  => |rawColumnCross| <= relative * (Z_coarse^2 * Z_fine^2),
+```
+
+with no cardinality factor or change of constant.  Hence the existing
+`MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl` produces the
+raw-column quadratic control and, through the signed-average equivalence,
+the fully raw aggregate calibration at every controlled scale.
+
+No posterior estimate is inhabited.  The active analytic edge is now the
+cutoff- and volume-uniform `O(g^2)` control of the connected row loss and the
+connected/disconnected posterior-column mismatches, rather than a separate
+abstract aggregate premise.  The monitored leaf target passes all 5,511
+jobs, and all four printed declarations depend exactly on
+`[propext, Quot.sound]`.  No aggregate root pass is claimed.  Raw-event
+mismatch, lower physical spacing, cutoff/volume persistence, continuum
+construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

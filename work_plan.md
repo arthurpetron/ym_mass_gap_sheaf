@@ -125,7 +125,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       pushed-law remainder ................................... [PROVED exact]
 |   |   |   |   +-- fully raw aggregate calibration <=> receiver-column cross .. [PROVED exact]
 |   |   |   |   +-- matched-AF raw-column control supplies fully raw aggregate .. [PROVED exact]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that aggregate .... [ACTIVE analytic producer]
+|   |   |   |   +-- posterior three-budget control => raw-column/full-raw
+|   |   |   |   |       aggregate control ........................................ [PROVED exact compiler]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimates for the connected-row,
+|   |   |   |   |       connected-posterior, disconnected-posterior terms ....... [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2733,6 +2736,53 @@ spacing, cutoff/volume persistence, construction of the same interacting
 continuum measure, same-object OS/GNS reconstruction, the Hamiltonian gap,
 and Clay closure remain open.
 
+## Milestone 270: posterior-column producer for the fully raw aggregate (2026-09-09)
+
+**Status. THE EXISTING MATCHED-AF THREE-TERM POSTERIOR CONTROL NOW COMPILES
+DIRECTLY TO THE ASSIGNMENT-SATURATED RAW-COLUMN CONTROL AND THEREFORE TO THE
+SIGNED FULLY RAW SOURCE-AGGREGATE CALIBRATION.  THIS USES THE SAME ANALYTIC
+FIELD AND THE SAME QUADRATIC CONSTANT; NO NEW HYPOTHESIS OR CARDINALITY LOSS
+IS INTRODUCED.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedFullyRawPosteriorColumn.lean` first
+proves that the assignment-saturated raw-column scale-defect cross and the
+accepted receiver-fiber scale-defect cross are exactly equal.  Each already
+factors the same physical raw covariance defect through the strictly positive
+factor `Z_coarse*Z_fine`, so constructive positive-factor cancellation gives
+the identification without inspecting dependent receiver extents.
+
+The established posterior triangle bound and exact coarse-square rescaling
+then give the constant-preserving compiler
+
+```text
+posteriorThreeBudget <= relative * Z_fine^2
+  => |rawColumnCross| <= relative * (Z_coarse^2 * Z_fine^2).
+```
+
+At the matched-AF schedule, this turns
+`MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl` into
+`MatchedShiftedAFSpinFourRawColumnCrossQuadraticCostControl`.  Composing with
+Milestone 269 supplies
+
+```text
+|signed fully raw source aggregate| <= connectedCeiling * g^2
+```
+
+at every controlled scale.  Thus the abstract aggregate estimate is no
+longer the narrowest named frontier: the remaining analytic work is to
+inhabit cutoff- and volume-uniform `O(g^2)` bounds for the three displayed
+posterior components (connected row loss, connected posterior-column
+mismatch, and disconnected posterior-column mismatch).
+
+The monitored leaf target passes all 5,511 jobs.  All four printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
+construction of the same interacting continuum measure, same-object OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2792,10 +2842,12 @@ AGGREGATE RECEIVER-COLUMN RAW-CROSS CALIBRATION, WITH NO CONSTANT LOSS.  THE
 EXISTING MATCHED-AF RAW-COLUMN CONTROL NOW SUPPLIES THE FULLY RAW AGGREGATE
 AT EACH CONTROLLED SCALE WITHOUT AN ADDITIONAL ANALYTIC FIELD.  THE
 POINTWISE FULLY RAW PREMISE IS THEREFORE RECORDED ONLY AS A STRONGER
-FALLBACK.  THE ACTIVE ANALYTIC PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM
-`K*G^2` BOUND ON THE SIGNED FULLY RAW SOURCE AGGREGATE, PREFERABLY THROUGH A
-RECEIVER-COLUMN OR POSTERIOR-CONTRACTION ESTIMATE THAT RETAINS SOURCE
-CANCELLATION.  THE
+FALLBACK.  THE EXISTING MATCHED-AF THREE-TERM POSTERIOR-COLUMN CONTROL NOW
+COMPILES TO THAT RAW-COLUMN CONTROL AND HENCE TO THE FULLY RAW AGGREGATE WITH
+THE SAME QUADRATIC CONSTANT.  THE ACTIVE ANALYTIC PRODUCER IS THEREFORE A
+CUTOFF- AND VOLUME-UNIFORM `K*G^2` BOUND FOR THE CONNECTED ROW LOSS,
+CONNECTED POSTERIOR-COLUMN MISMATCH, AND DISCONNECTED POSTERIOR-COLUMN
+MISMATCH.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
