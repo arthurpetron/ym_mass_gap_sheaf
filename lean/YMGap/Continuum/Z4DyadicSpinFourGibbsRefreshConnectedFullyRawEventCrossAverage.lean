@@ -44,6 +44,7 @@ open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedFullyRawEventCross
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedRemainder
 open YMGap.Continuum.Z4DyadicSpinFourGibbsRefreshConnectedRawRow
+open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -205,6 +206,25 @@ theorem positiveFullyRawSignedSourceAverageCalibration_iff_centeredRemainder
     exact Q'.le_trans' _ _ _
       (Q'.le_of_eqv (Q'.abs_eqv_congr hexact)) h
 
+/-- Exact two-way handoff from the signed fully raw source aggregate to the
+established aggregate receiver-column cross.  Both positive partition-square
+normalizations cancel, so neither direction loses a constant. -/
+theorem positiveFullyRawSignedSourceAverageCalibration_iff_rawColumnCross
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    PositivePhysicalConnectedFullyRawSignedSourceAverageCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          (kernelCeiling * (g * g)) := by
+  exact Iff.trans
+    (positiveFullyRawSignedSourceAverageCalibration_iff_centeredRemainder
+      S hfineCutoff hcoarseCoupling M g kernelCeiling)
+    (coarseGibbsRefreshConnectedRemainderCalibration_iff_rawColumnCross
+      S hfineCutoff hcoarseCoupling M g kernelCeiling)
+
 /-- Direct compiler from the cancellation-preserving fully raw aggregate to
 the normalized centered producer. -/
 theorem coarseGibbsRefreshConnectedRemainderCalibration_of_fullyRawSignedSourceAverage
@@ -242,6 +262,7 @@ theorem fullyRawSignedSourceAverageCalibration_of_pointwise
 #print axioms positivePhysicalConnectedFullyRawSignedSourceAverage_eqv_centeredRemainder
 #print axioms PositivePhysicalConnectedFullyRawSignedSourceAverageCalibration
 #print axioms positiveFullyRawSignedSourceAverageCalibration_iff_centeredRemainder
+#print axioms positiveFullyRawSignedSourceAverageCalibration_iff_rawColumnCross
 #print axioms coarseGibbsRefreshConnectedRemainderCalibration_of_fullyRawSignedSourceAverage
 #print axioms fullyRawSignedSourceAverageCalibration_of_pointwise
 

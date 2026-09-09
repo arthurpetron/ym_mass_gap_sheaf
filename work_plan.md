@@ -123,6 +123,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- relative fully raw row polynomial => pointwise calibration  [PROVED stronger interface]
 |   |   |   |   +-- signed fine-law average of fully raw row ratios = centered
 |   |   |   |   |       pushed-law remainder ................................... [PROVED exact]
+|   |   |   |   +-- fully raw aggregate calibration <=> receiver-column cross .. [PROVED exact]
 |   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for that aggregate .... [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -2707,13 +2708,15 @@ raw-row average and then to `centeredCylinderRemainder`.  Consequently
 |signed fully raw source aggregate| <= K*g^2
 ```
 
-is logically equivalent to the existing centered-remainder calibration.
-This is the weakest exact producer exposed by the row expansion: it retains
-the joint/root/target signs inside every row and cancellation between
-different fine Gibbs sources.  The former pointwise fully raw calibration
-still compiles to it, but is no longer identified as the preferred target.
+is logically equivalent to the existing centered-remainder calibration and,
+through exact cancellation of the positive coarse/fine partition squares,
+to the established aggregate receiver-column raw-cross calibration.  This
+is the weakest exact producer exposed by the row expansion: it retains the
+joint/root/target signs inside every row and cancellation between different
+fine Gibbs sources.  The former pointwise fully raw calibration still
+compiles to it, but is no longer identified as the preferred target.
 
-The monitored leaf target passes all 5,510 jobs.  All eight printed
+The monitored leaf target passes all 5,510 jobs.  All nine printed
 declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
 choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
 enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
@@ -2780,6 +2783,8 @@ JOINT/ROOT/TARGET POLYNOMIAL OVER THE POSITIVE DENOMINATOR
 `(ROWZ*ZC)*(ZF*ZC)`, WITHOUT SPLITTING ITS SIGNS.  THOSE FULLY RAW ROW
 RATIOS ARE NOW SUMMED WITH THEIR ACTUAL FINE GIBBS WEIGHTS BEFORE THE
 ABSOLUTE VALUE, AND THE RESULT IS EXACTLY THE CENTERED REMAINDER.  THE
+FULLY RAW AGGREGATE CALIBRATION IS ALSO EXACTLY EQUIVALENT TO THE ESTABLISHED
+AGGREGATE RECEIVER-COLUMN RAW-CROSS CALIBRATION, WITH NO CONSTANT LOSS.  THE
 POINTWISE FULLY RAW PREMISE IS THEREFORE RECORDED ONLY AS A STRONGER
 FALLBACK.  THE ACTIVE ANALYTIC PRODUCER IS A CUTOFF- AND VOLUME-UNIFORM
 `K*G^2` BOUND ON THE SIGNED FULLY RAW SOURCE AGGREGATE, PREFERABLY THROUGH A
