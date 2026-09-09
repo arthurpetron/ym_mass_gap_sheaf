@@ -1482,6 +1482,36 @@ memory-reserve stop, so no aggregate pass is claimed.  Cutoff/volume
 uniformity, continuum construction, same-object OS/GNS, the Hamiltonian gap,
 and Clay closure remain open.
 
+### 9.34 Post-audit implementation update: source-resolved raw cross, milestone 266 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedRawCross.lean` clears the two
+outer normalizations of each positive connected row without splitting the
+signed difference.  The production raw observable numerator over its
+complete conditional-row partition and the coarse raw observable numerator
+over the coarse physical partition become one cross numerator over the
+strictly positive product denominator.
+
+The connected specialization exposes the division-free local premise
+
+```text
+|rowNumerator*Zc - coarseNumerator*rowZ|
+  <= K*g^2*(rowZ*Zc).
+```
+
+This premise compiles through the positive-raw pointwise interface to the
+existing normalized centered-remainder calibration with no coefficient
+loss.  Thus target and normalization cancellation remain available to the
+analytic proof until the final absolute value.
+
+No bound is inhabited.  The observable numerator still carries the blocked
+fine-law target moment and coarse-law root moment as normalized coefficients;
+clearing those factors into one fully raw joint/root/target expression is
+the next algebraic frontier.  The monitored leaf target passes all 5,507
+jobs, and all eleven printed declarations depend exactly on
+`[propext, Quot.sound]`.  No aggregate root pass is claimed.  Cutoff/volume
+uniformity, continuum construction, same-object OS/GNS, the Hamiltonian gap,
+and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

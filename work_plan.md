@@ -112,6 +112,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- Gibbs-null rows deleted from signed/source-L1 averages .. [PROVED exact]
 |   |   |   |   +-- positive-raw signed/source-L1/pointwise quadratic
 |   |   |   |   |       calibration hierarchy ............................... [PROVED interface]
+|   |   |   |   +-- positive row-versus-Gibbs signed raw cross
+|   |   |   |   |       / (row partition * coarse partition) ................ [PROVED exact]
+|   |   |   |   +-- relative row raw-cross bound => centered calibration ..... [PROVED interface]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2529,6 +2532,53 @@ spacing, cutoff/volume-uniform persistence, construction of the same
 interacting continuum measure, same-object OS/GNS reconstruction, the
 Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 266: common-denominator signed cross for each positive connected row (2026-09-09)
+
+**Status. THE POSITIVE-SOURCE PRODUCTION-MINUS-GIBBS ACTION IS NOW EXACTLY
+ONE SIGNED RAW CROSS NUMERATOR DIVIDED BY THE PRODUCT OF THE COMPLETE ROW
+PARTITION AND THE COARSE PHYSICAL PARTITION.  A RELATIVE POINTWISE BOUND ON
+THAT NUMERATOR COMPILES WITHOUT COEFFICIENT LOSS TO THE EXISTING NORMALIZED
+CENTERED-REMAINDER CALIBRATION.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRawCross.lean` proves the generic
+cancellation-preserving identity
+
+```text
+rowRawObservableNumerator / rowPartition
+  - coarseRawObservableNumerator / coarsePartition
+= (rowRawObservableNumerator * coarsePartition
+     - coarseRawObservableNumerator * rowPartition)
+    / (rowPartition * coarsePartition).
+```
+
+Both denominator factors are proved strictly positive from the existing
+proof-carrying coherent source and coarse physical partition.  Specializing
+the identity to the connected observable gives a source-resolved signed raw
+cross.  The module defines the division-free pointwise premise
+
+```text
+|rowConnectedRawCross|
+  <= K*g^2 * (rowPartition * coarsePartition)
+```
+
+and compiles it first to the positive-raw pointwise row calibration and then
+to the normalized centered-cylinder remainder.  No separate numerator and
+partition errors are introduced.
+
+The monitored leaf target passes all 5,507 jobs.  All eleven printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+No relative raw-cross bound is inhabited.  The connected observable still
+contains one blocked fine-law moment and one coarse-law moment.  The next
+algebraic seam is to clear those embedded partition factors into one fully
+raw joint/root/target polynomial while retaining all signs and cancellations.
+Raw-event mismatch, lower physical spacing, cutoff/volume-uniform
+persistence, construction of the same interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2572,7 +2622,12 @@ GLUED RAW CONNECTED-OBSERVABLE NUMERATOR DIVIDED BY THE COMPLETE ROW
 PARTITION, MINUS THE COARSE GIBBS MEAN.  ZERO-MASS ROWS ARE DELETED EXACTLY
 FROM THE SIGNED AND SOURCE-`L1` AVERAGES.  THE ACTIVE PRODUCER CAN THEREFORE
 TARGET ONE COMMON-DENOMINATOR SIGNED RAW NUMERATOR AND RETAIN BOTH TARGET
-AND NORMALIZATION CANCELLATION BEFORE TAKING ABSOLUTE VALUES.  THE LOCALIZED
+AND NORMALIZATION CANCELLATION BEFORE TAKING ABSOLUTE VALUES.  THAT
+ROW-VERSUS-GIBBS CROSS-MULTIPLICATION IS NOW PROVED EXACTLY, WITH POSITIVE
+DENOMINATOR `ROWZ*ZC`, AND ITS RELATIVE `K*G^2` PREMISE COMPILES DIRECTLY TO
+THE CENTERED CONSUMER.  THE ACTIVE ALGEBRAIC EDGE IS TO CLEAR THE CONNECTED
+OBSERVABLE'S EMBEDDED FINE/COARSE MOMENT DENOMINATORS INTO ONE FULLY RAW
+JOINT/ROOT/TARGET POLYNOMIAL WITHOUT SPLITTING ITS SIGNS.  THE LOCALIZED
 PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
