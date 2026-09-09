@@ -1100,6 +1100,34 @@ spacing, raw-event mismatch, all-cutoff persistence, continuum construction,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain open.
 
+### 9.23 Post-audit implementation update: localized coupling-one raw-column cross perturbation, milestone 255 (2026-09-09)
+
+The scalar and one-column bounds now reach the cancellation-preserving
+four-cell observable.  `Z4DyadicSpinFourFineCouplingReferenceCross.lean`
+defines the coupling-one product mass of a coarse target pair and its
+product-rule Casimir moment.  Monotonicity below coupling one, the exact
+product-difference decomposition, and finite-cell summation prove
+
+```text
+|couplingOneRawColumnCross - actualPushedFourCellCross|
+  <= (1 - fineCoupling)
+       * (sourcePairCellCasimirMoment + targetPairCellCasimirMoment).
+```
+
+Only the two literal pair cells selected by the signed observable occur.  The
+matched-AF specialization replaces the margin by `2*g^2`, and the terminal
+corollary uses the milestone-252 identity to state the result directly for
+the assignment-saturated receiver raw-column cross.
+
+The dependency-complete monitored target passes all 5,496 jobs, and all
+eleven printed declarations use exactly `[propext, Quot.sound]`.  This is not
+yet the aggregate `K*g^2` producer: the coupling-one reference cross has not
+been proved to vanish, and the localized pair-cell moment has not been
+bounded uniformly in the growing slab.  These are now the exact active
+co-producers.  Physical spacing, raw-event mismatch, all-cutoff persistence,
+the same interacting continuum measure, OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

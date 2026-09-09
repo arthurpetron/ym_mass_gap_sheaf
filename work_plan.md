@@ -271,8 +271,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           +-- blocked-margin upper comparison to `2*g^2` ... [PROVED]
 |   |   |   |       |   |   |   |   |           +-- matched-AF pushed-column/partition loss
 |   |   |   |       |   |   |   |   |           |       <= `2*g^2` times Casimir moment ........... [PROVED]
-|   |   |   |       |   |   |   |   |           +-- coupling-one reference cross/stationarity ..... [OPEN]
-|   |   |   |       |   |   |   |   |           `-- volume-uniform localized/cancelled moment ..... [ACTIVE]
+|   |   |   |       |   |   |   |   |           +-- actual signed cross differs from coupling-one
+|   |   |   |       |   |   |   |   |           |       cross by `2*g^2` times exactly the two selected
+|   |   |   |       |   |   |   |   |           |       pair-cell Casimir moments .................... [PROVED]
+|   |   |   |       |   |   |   |   |           +-- coupling-one reference cross cancellation ...... [ACTIVE]
+|   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1888,6 +1891,53 @@ event mismatch remain independent inputs; all-cutoff persistence, continuum
 construction, same-object OS/GNS reconstruction, the Hamiltonian gap, and
 Clay closure remain downstream.
 
+## Milestone 255: localized coupling-one raw-column cross perturbation (2026-09-09)
+
+**Status. THE LITERAL COUPLING-ONE PUSHED COLUMNS NOW DEFINE A SIGNED
+REFERENCE CROSS ON EXACTLY THE TWO FOUR-CELL PAIR CARRIERS CONSUMED BY THE
+OBSERVABLE, AND THE ACTUAL ASSIGNMENT-SATURATED RECEIVER CROSS DIFFERS FROM
+IT BY AT MOST `2*G^2` TIMES AN EXPLICIT LOCALIZED PAIR-CELL CASIMIR MOMENT.**
+
+`Z4DyadicSpinFourFineCouplingReferenceCross.lean` first proves monotonicity
+of every corrected-slab physical term and pushed receiver column below
+coupling one.  For a coarse target pair, it defines the coupling-one product
+mass and the product-rule Casimir moment
+
+```text
+reference(left) * moment(right)
+  + reference(right) * moment(left).
+```
+
+The exact product-difference identity and positivity then give a pairwise
+loss bound with scalar factor `1 - fineCoupling`.  Summing only over the
+`TT x FF` source pair cell and the opposite `FT x TF` target pair cell, while
+retaining their signed cancellation until the final absolute value, proves
+
+```text
+|couplingOneRawColumnCross - actualPushedFourCellCross|
+  <= (1 - fineCoupling)
+       * (sourcePairCellCasimirMoment + targetPairCellCasimirMoment).
+```
+
+The matched-AF margin theorem specializes this to the prefactor `2*g^2`.
+The final theorem replaces the actual pushed cross by the already established
+assignment-saturated receiver raw-column cross, so the result lands directly
+at the current finite covariance seam.  No sum over unrelated receivers and
+no receiver-cardinality factor is introduced.
+
+The dependency-complete monitored target passes all 5,496 jobs.  All eleven
+printed load-bearing declarations depend only on `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, new axiom, `native_decide`, or noncomputable
+witness is introduced.  No full-root audit is claimed.
+
+This milestone does **not** prove that the coupling-one reference cross is
+zero, nor that the displayed two-cell Casimir moment is bounded uniformly in
+the growing slab.  Those are now the two exact active analytic co-producers.
+They must then be combined with the independent physical-spacing and raw
+event-mismatch estimates.  All-cutoff persistence, construction of the same
+interacting continuum measure, same-object OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain downstream.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -1899,8 +1949,10 @@ CORRIDOR FROM EVERY RATIONAL `0 < w < 1`.  THE ACTIVE PHYSICAL EDGE IS THE
 GENUINE INTERACTING 4D BLOCK-SPIN TRANSPORT OF THE ORIGINAL OBSERVABLE AND
 ITS COVARIANCE.  ITS CURRENT NARROW PRODUCER IS THE AGGREGATE SIGNED
 RAW-COLUMN `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
-`2*G^2` CASIMIR-MOMENT PREFACTOR ARE CLOSED; THE COUPLING-ONE REFERENCE CROSS
-AND A VOLUME-UNIFORM LOCALIZED/CANCELLED MOMENT ARE ACTIVE.  THE INDEPENDENT
+`2*G^2` CASIMIR-MOMENT PREFACTOR ARE CLOSED, INCLUDING THE SIGNED CROSS
+PERTURBATION LOCALIZED TO THE TWO SELECTED PAIR CELLS.  COUPLING-ONE
+REFERENCE-CROSS CANCELLATION AND A VOLUME-UNIFORM BOUND FOR THAT LOCALIZED
+MOMENT ARE THE TWO ACTIVE CO-PRODUCERS.  THE INDEPENDENT
 SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
 CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
 
