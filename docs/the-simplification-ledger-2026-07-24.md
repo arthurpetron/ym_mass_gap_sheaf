@@ -1787,6 +1787,38 @@ eleven printed declarations depend exactly on `[propext, Quot.sound]`.
 Cutoff/volume persistence, continuum construction, same-object OS/GNS, the
 Hamiltonian gap, and Clay closure remain open.
 
+### 9.43 Post-audit implementation update: balanced raw defect to normalized residual, milestone 275 (2026-09-09)
+
+The unit-normalized blocking residual introduced by the cancellation-
+preserving recentering is now proved to be an exact normalization of the
+already existing balanced coupling-one raw scale defect:
+
+```text
+coarseCovariance - unitNormalizedPushedCross
+  = balancedRawScaleDefect / (Z_coarse^2 * Z_unit^2).
+```
+
+The new module proves the missing coarse four-cell quotient identity and the
+strict positivity of this denominator.  Below coupling one the actual fine
+partition is bounded by the coupling-one partition, so the stronger prior
+calibration normalized by `Z_coarse^2 * Z_actual^2` transports to the
+unit-normalized residual with no loss in its constant.
+
+Together with the exact margin factorization from milestone 274, this yields
+
+```text
+|centeredCylinderRemainder|
+  <= (C_balanced + 2*C_margin) * g^2
+```
+
+from precisely two raw premises: a balanced blocking calibration and a
+signed centered margin-quotient calibration.  No premise is inhabited; the
+result consolidates the analytic frontier rather than closing it.  The
+monitored leaf target passes all 5,501 jobs, and all six printed declarations
+depend exactly on `[propext, Quot.sound]`.  Cutoff/volume persistence,
+continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
+closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

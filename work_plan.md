@@ -139,7 +139,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- normalized centered-change numerator = (1-w) * signed
 |   |   |   |   |       geometric-quotient numerator ................................. [PROVED exact]
 |   |   |   |   +-- matched-AF margin compiler: quotient ceiling => O(g^2) change .... [PROVED interface]
-|   |   |   |   +-- volume-uniform signed quotient + unit-reference residual bounds .. [ACTIVE analytic producers]
+|   |   |   |   +-- balanced raw defect / unit-normalized residual quotient .......... [PROVED exact]
+|   |   |   |   +-- balanced calibration => normalized residual, no constant loss .... [PROVED interface]
+|   |   |   |   +-- balanced + margin compiler => centered O(g^2) remainder ........... [PROVED interface]
+|   |   |   |   +-- volume-uniform balanced-blocking + signed-quotient bounds ......... [ACTIVE analytic producers]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -2985,6 +2988,56 @@ aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
 is introduced.
 
+## Milestone 275: identify the unit-normalized residual with the balanced raw defect (2026-09-09)
+
+**Status. THE UNIT-NORMALIZED BLOCKING RESIDUAL IS NOW EXACTLY THE EXISTING
+BALANCED COUPLING-ONE RAW SCALE DEFECT DIVIDED BY THE POSITIVE COARSE/UNIT
+PARTITION-SQUARE PRODUCT.  BELOW COUPLING ONE, THE EXISTING BALANCED RAW
+CALIBRATION IMPLIES THE NORMALIZED RESIDUAL CALIBRATION WITH NO CONSTANT
+LOSS.**
+
+`Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge.lean` first proves the
+missing normalized four-cell identity for the literal coarse Gibbs law and
+then obtains
+
+```text
+coarseCovariance - unitNormalizedPushedCross
+  = balancedRawScaleDefect / (Z_coarse^2 * Z_unit^2).
+```
+
+The denominator is strictly positive.  If the fine coupling is at most one,
+then `Z_actual <= Z_unit`, so a balanced calibration at the stronger raw
+scale
+
+```text
+|balancedRawScaleDefect| <= C_balanced * g^2 * Z_coarse^2 * Z_actual^2
+```
+
+implies the unit-normalized residual bound with the same `C_balanced`.
+Combining that bridge with milestone 274's matched-AF margin compiler now
+gives the single end-to-end interface
+
+```text
+balanced raw calibration C_balanced
++ signed margin-quotient calibration C_margin
+------------------------------------------------
+|centeredCylinderRemainder|
+  <= (C_balanced + 2*C_margin) * g^2.
+```
+
+This removes a duplicated normalized residual premise; it does not inhabit
+either analytic calibration.  The active producers are the cutoff- and
+volume-uniform balanced blocking estimate and the signed geometric-quotient
+estimate.  Cutoff/volume persistence, construction of the same interacting
+continuum measure, same-object OS/GNS reconstruction, the Hamiltonian gap,
+and Clay closure remain open.
+
+The monitored leaf target passes all 5,501 jobs.  All six printed
+load-bearing declarations depend exactly on `[propext, Quot.sound]`; no
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -3060,9 +3113,12 @@ POSTERIOR TERMS REMAIN A STRONGER FALLBACK.  THE UNIT-NORMALIZED CENTERED
 CHANGE NUMERATOR IS NOW EXACTLY `(1-W)` TIMES ONE SIGNED GEOMETRIC-QUOTIENT
 NUMERATOR, AND THE MATCHED-AF `1-W <= 2*G^2` BOUND COMPILES ANY NONNEGATIVE
 UNIFORM QUOTIENT CEILING `C` INTO THE REQUIRED RAW QUADRATIC CALIBRATION
-WITH CEILING `2*C`.  THE REMAINING LOCAL PRODUCERS ARE THEREFORE THAT
-VOLUME-UNIFORM SIGNED QUOTIENT CEILING AND THE UNIT-REFERENCE BLOCKING
-RESIDUAL.  THE
+WITH CEILING `2*C`.  THE UNIT-REFERENCE RESIDUAL IS NOW EXACTLY THE BALANCED
+RAW SCALE DEFECT DIVIDED BY `Z_COARSE^2*Z_UNIT^2`; BELOW `W<=1`, THE PRIOR
+BALANCED RAW CALIBRATION IMPLIES THE NORMALIZED RESIDUAL BOUND WITH NO
+CONSTANT LOSS.  THE COMBINED COMPILER LEAVES EXACTLY TWO LOCAL PRODUCERS:
+THE VOLUME-UNIFORM BALANCED BLOCKING CALIBRATION AND THE SIGNED
+GEOMETRIC-QUOTIENT CEILING.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
