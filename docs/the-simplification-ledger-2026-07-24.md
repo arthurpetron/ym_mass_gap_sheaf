@@ -1453,6 +1453,35 @@ stopped at the configured 12 GiB memory reserve and is not reported as
 passed.  Cutoff/volume uniformity, continuum construction, same-object OS/GNS,
 the Hamiltonian gap, and Clay closure remain open.
 
+### 9.33 Post-audit implementation update: positive raw connected rows, milestone 265 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedRawRow.lean` expands the
+selected connected action on each strictly positive fine Gibbs source.  Its
+production expectation is proved exactly equal to the globally link-glued
+raw observable numerator divided by the complete positive row partition;
+the reference expectation is the normalized coarse Gibbs mean of the same
+connected observable.  Thus the local producer now sees literal physical
+raw weights and one positive denominator rather than an opaque normalized
+kernel row.
+
+Dependent recursions separate strictly positive physical terms from the
+remaining sources.  Each non-positive branch has exactly zero normalized
+fine Gibbs mass, so removing it preserves both the signed source average and
+the source-weighted selected-row `L1`.  The surviving positive-raw signed
+average is therefore exactly the centered-cylinder remainder.  Direct
+signed-average, source-`L1`, and pointwise positive-raw quadratic interfaces
+compile to the established centered calibration without coefficient loss.
+
+This is an exact raw recoupling surface, not a smallness proof.  The next
+preferred reduction is to place the raw production numerator and coarse
+Gibbs mean over one common positive denominator and estimate their signed
+cross numerator before taking absolute values.  The monitored leaf target
+passes all 5,506 jobs, and all nineteen printed declarations depend exactly
+on `[propext, Quot.sound]`.  The aggregate root target was not rerun after its
+memory-reserve stop, so no aggregate pass is claimed.  Cutoff/volume
+uniformity, continuum construction, same-object OS/GNS, the Hamiltonian gap,
+and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

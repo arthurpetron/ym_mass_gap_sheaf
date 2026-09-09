@@ -107,6 +107,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       production-minus-refresh observable row action .... [PROVED exact]
 |   |   |   |   +-- selected row-action signed/source-L1/pointwise
 |   |   |   |   |       quadratic calibration hierarchy ................... [PROVED interface]
+|   |   |   |   +-- connected positive row = literal raw observable
+|   |   |   |   |       numerator / complete row partition - Gibbs mean .... [PROVED exact]
+|   |   |   |   +-- Gibbs-null rows deleted from signed/source-L1 averages .. [PROVED exact]
+|   |   |   |   +-- positive-raw signed/source-L1/pointwise quadratic
+|   |   |   |   |       calibration hierarchy ............................... [PROVED interface]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2472,6 +2477,58 @@ spacing, cutoff/volume-uniform persistence, construction of the same
 interacting continuum measure, same-object OS/GNS reconstruction, the
 Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 265: positive raw-row expansion of the connected Gibbs action (2026-09-09)
+
+**Status. ON EVERY STRICTLY POSITIVE FINE GIBBS SOURCE, THE SELECTED
+PRODUCTION-MINUS-REFRESH ACTION IS NOW AN EXACT DIFFERENCE BETWEEN A
+GLOBALLY LINK-GLUED RAW OBSERVABLE NUMERATOR DIVIDED BY THE COMPLETE ROW
+PARTITION AND THE NORMALIZED COARSE GIBBS EXPECTATION.  GIBBS-NULL SOURCES
+ARE DELETED EXACTLY FROM BOTH THE SIGNED AVERAGE AND THE SOURCE-WEIGHTED
+SELECTED-ROW `L1`.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRawRow.lean` first proves the generic
+positive-row identity
+
+```text
+conditional row expectation of observable
+  = sum_target rawWeight(source,target) * observable(target)
+      / completeRowPartition(source).
+```
+
+It specializes this to the one connected observable from milestone 264 and
+defines the literal positive-source target
+
+```text
+positiveRawRowAction(source)
+  = rawConnectedObservableNumerator(source) / rowPartition(source)
+      - coarseGibbsConnectedObservableMean.
+```
+
+The selected Gibbs-refresh row action is exactly this raw-ratio difference
+on every strictly positive source.  Dependent recursions then split positive
+from non-positive physical terms.  In the non-positive branch the fine
+normalized Gibbs mass is proved exactly zero, so deleting that row changes
+neither the signed source average nor the weighted selected-row `L1`.
+Consequently the positive-raw signed average remains exactly the existing
+centered-cylinder remainder, while positive-raw source-`L1` and pointwise
+quadratic hypotheses compile with no coefficient loss to the existing
+centered-remainder calibration.
+
+The monitored leaf target passes all 5,506 jobs.  All nineteen printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  The previously stopped aggregate
+root audit was not rerun because it crossed the configured 12 GiB memory
+reserve; no aggregate pass is claimed.
+
+No quadratic estimate is inhabited.  This milestone exposes the genuine
+raw positive-row recoupling surface; the next algebraic seam is to retain
+the production-versus-Gibbs cancellation in one common-denominator signed
+numerator before any absolute value.  Raw-event mismatch, lower physical
+spacing, cutoff/volume-uniform persistence, construction of the same
+interacting continuum measure, same-object OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2509,7 +2566,13 @@ ARE NOW REFINED BY AN EXACT SOURCE-ROW FORMULA: THE CENTERED REMAINDER IS THE
 FINE GIBBS-WEIGHTED AVERAGE OF THE PRODUCTION-MINUS-COARSE-REFRESH ACTION ON
 THE ONE CONNECTED OBSERVABLE.  THE ACTIVE LOCAL PRODUCER IS A POINTWISE OR
 FINE-WEIGHTED SELECTED-ROW `O(G^2)` ESTIMATE, WHICH RETAINS TARGET
-CANCELLATION; FULL KERNEL-ROW `L1` IS ONLY A STRONGER FALLBACK.  THE LOCALIZED
+CANCELLATION; FULL KERNEL-ROW `L1` IS ONLY A STRONGER FALLBACK.  ON EVERY
+POSITIVE FINE GIBBS SOURCE THIS SELECTED ACTION IS NOW THE LITERAL GLOBALLY
+GLUED RAW CONNECTED-OBSERVABLE NUMERATOR DIVIDED BY THE COMPLETE ROW
+PARTITION, MINUS THE COARSE GIBBS MEAN.  ZERO-MASS ROWS ARE DELETED EXACTLY
+FROM THE SIGNED AND SOURCE-`L1` AVERAGES.  THE ACTIVE PRODUCER CAN THEREFORE
+TARGET ONE COMMON-DENOMINATOR SIGNED RAW NUMERATOR AND RETAIN BOTH TARGET
+AND NORMALIZATION CANCELLATION BEFORE TAKING ABSOLUTE VALUES.  THE LOCALIZED
 PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
