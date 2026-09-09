@@ -146,7 +146,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- complete receiver-pair centered debt has total mass zero ........... [PROVED exact]
 |   |   |   |   +-- selected debt = centered fine-source-pair signed average ........... [PROVED exact]
 |   |   |   |   +-- product-kernel output contrast has pointwise abs <= 1 .............. [PROVED]
-|   |   |   |   +-- volume-uniform balanced-blocking + source-average bounds ........... [ACTIVE analytic producers]
+|   |   |   |   +-- source-pair debt factors through zero-mass one-source score ......... [PROVED exact]
+|   |   |   |   +-- product-kernel four-cell contrast = one-row 2x2 determinant ......... [PROVED exact]
+|   |   |   |   +-- source-pair average = four products of one-source moments ........... [PROVED exact]
+|   |   |   |   +-- four centered one-source cell moments sum to zero ................... [PROVED exact]
+|   |   |   |   +-- volume-uniform balanced-blocking + centered score-moment bounds ..... [ACTIVE analytic producers]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -3121,6 +3125,53 @@ persistence, the interacting continuum measure, same-object OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
 The monitored leaf target passes all 5,503 jobs.  All 17 printed
+load-bearing declarations depend exactly on `[propext, Quot.sound]`.  No
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
+## Milestone 278: contract the centered pair debt to one-replica score moments (2026-09-09)
+
+**Status. THE OPEN SIGNED FINE-SOURCE-PAIR AVERAGE IS NOW CONTRACTED
+EXACTLY TO FOUR PRODUCTS OF ONE-REPLICA EVENT MOMENTS.  THE ONLY SIGNED
+WEIGHT IN THOSE MOMENTS IS A ONE-SOURCE CENTERED COUPLING SCORE WHOSE TOTAL
+MASS IS ZERO; ITS FOUR BOOLEAN OUTPUT-CELL MOMENTS ALSO SUM EXACTLY TO
+ZERO.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginOneReplica.lean` defines the
+one-source centered score
+
+```text
+d(x) = marginMass(x) * Z_actual - actualMass(x) * marginPartition.
+```
+
+It proves `sum_x d(x) = 0` and factors the prior two-source centered debt
+through `d`.  Independently, the product-kernel four-cell output contrast
+is proved to be the `TT*FF - FT*TF` determinant of four one-row event
+masses.  Finite Cartesian Fubini then proves that the complete signed pair
+average is
+
+```text
+Z_actual * (U_TT*D_FF - U_FT*D_TF)
+  + Z_unit * (D_TT*A_FF - D_FT*A_TF),
+```
+
+where `U`, `A`, and `D` are one-replica moments with unit, actual, and
+centered-score source weights.  The four `D` cell moments obey
+`D_TT + D_TF + D_FT + D_FF = 0`.  No absolute value or triangle inequality
+is used.
+
+This strictly narrows the active margin producer: instead of estimating a
+two-replica source-debt `L1` mass, it may estimate the covariance-like
+response of one centered global coupling score against the four local
+coarse-output cells, retaining complement cancellation.  No such
+cutoff/volume-uniform analytic estimate is inhabited here.  The balanced
+blocking producer remains independently open, as do the centered
+`O(g^2)` consumer, all-cutoff persistence, the interacting continuum
+measure, same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay
+closure.
+
+The monitored leaf target passes all 5,504 jobs.  All 12 printed
 load-bearing declarations depend exactly on `[propext, Quot.sound]`.  No
 aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget

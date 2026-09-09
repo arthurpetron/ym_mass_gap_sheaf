@@ -1874,6 +1874,41 @@ same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.  The
 monitored leaf target passes all 5,503 jobs, and all 17 printed load-bearing
 declarations depend exactly on `[propext, Quot.sound]`.
 
+### 9.46 Post-audit implementation update: one-replica centered-score contraction, milestone 278 (2026-09-09)
+
+The fine-source pair debt from milestone 277 is now proved to factor through
+the one-source centered score
+
+```text
+d(x) = marginMass(x) * Z_actual - actualMass(x) * marginPartition,
+```
+
+whose total mass is exactly zero.  The product-kernel four-cell contrast is
+independently factored as the one-row determinant `TT*FF - FT*TF`.
+Consequently the full signed pair average contracts, before any absolute
+value, to
+
+```text
+Z_actual * (U_TT*D_FF - U_FT*D_TF)
+  + Z_unit * (D_TT*A_FF - D_FT*A_TF).
+```
+
+Here `U`, `A`, and `D` are one-replica output-event moments under the unit,
+actual, and centered-score source weights.  Exact Boolean partition proves
+the further conservation law
+`D_TT + D_TF + D_FT + D_FF = 0`.
+
+This is the first reduction on this branch that converts the pairwise margin
+frontier into a covariance-like one-source analytic object.  It preserves
+both normalization and output-complement cancellation and avoids the
+potentially volume-extensive full pair-debt `L1` fallback.  It does not
+prove the required uniform score-moment estimate.  The volume-uniform
+balanced-blocking calibration, the centered `O(g^2)` remainder bound,
+all-cutoff persistence, continuum construction, same-object OS/GNS, the
+Hamiltonian gap, and Clay closure remain open.  The monitored leaf target
+passes all 5,504 jobs; all 12 printed declarations depend exactly on
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
