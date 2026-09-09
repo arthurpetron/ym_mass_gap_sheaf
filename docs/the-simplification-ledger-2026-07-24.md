@@ -1673,6 +1673,45 @@ mismatch, lower physical spacing, cutoff/volume persistence, continuum
 construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
 remain open.
 
+### 9.40 Post-audit implementation update: coarse-square cancellation in the signed posterior seam, milestone 272 (2026-09-09)
+
+The signed posterior frontier has been normalized one step further without
+losing cancellation.  Two generic finite-dependent-transport lemmas show
+that a common coefficient rescaling passes through the target coefficient
+mass and the signed posterior-column defect.  In contrast to the existing
+posterior-column `l1` rescaling theorem, the signed-defect result needs no
+factor-sign assumption because no absolute value has yet been taken.
+
+Applying these identities to the connected and disconnected literal
+receiver transports gives the exact factorization
+
+```text
+signedPosteriorDebt
+  = signedPosteriorDensityDebt * Z_coarse^2.
+```
+
+Consequently the former physical premise is equivalent to
+
+```text
+|signedPosteriorDensityDebt| <= K*g^2*Z_fine^2,
+```
+
+and hence, through milestones 269 and 271, to the same quadratic calibration
+of the signed fully raw source aggregate.  The coarse partition square is
+cancelled before the absolute value, so cancellation among the connected
+row, connected posterior column, and disconnected posterior column remains
+available to the analytic proof.
+
+No density estimate is inhabited.  The active producer is now a cutoff- and
+volume-uniform bound on this one normalized signed sum; componentwise `l1`
+control remains a sufficient but stronger fallback.  The monitored leaf
+target passes all 5,511 jobs.  The two generic declarations use only
+`[propext]`, and the five new literal declarations use exactly
+`[propext, Quot.sound]`.  No aggregate root pass is claimed.  Raw-event
+mismatch, lower physical spacing, cutoff/volume persistence, continuum
+construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

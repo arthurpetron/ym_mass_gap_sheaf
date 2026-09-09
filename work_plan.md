@@ -131,7 +131,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       debt sum = raw column ..................................... [PROVED exact]
 |   |   |   |   +-- signed posterior calibration <=> fully raw aggregate .......... [PROVED exact]
 |   |   |   |   +-- separate posterior l1 estimates ............................... [PROVED stronger fallback]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for signed posterior sum  [ACTIVE analytic producer]
+|   |   |   |   +-- signed posterior debt = signed density debt * Z_coarse^2 ....... [PROVED exact]
+|   |   |   |   +-- density-debt calibration <=> fully raw aggregate ............... [PROVED exact]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2)*Z_fine^2 estimate for signed
+|   |   |   |   |       posterior density sum ...................................... [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2826,6 +2829,53 @@ The monitored leaf target again passes all 5,511 jobs.  All nine printed
 declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
 choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
 enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
+construction of the same interacting continuum measure, same-object OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
+## Milestone 272: cancel the coarse partition square before analysis (2026-09-09)
+
+**Status. THE COMMON COARSE PHYSICAL PARTITION SQUARE HAS BEEN REMOVED
+EXACTLY FROM THE COMPLETE SIGNED POSTERIOR DEBT BEFORE TAKING AN ABSOLUTE
+VALUE.  THE REMAINING ANALYTIC PREMISE IS THE SMALLER DIMENSIONLESS SIGNED
+DENSITY SUM, WITH ALL ROW/COLUMN CANCELLATION PRESERVED.**
+
+`FiniteDependentKernelCoefficientPosteriorRescaling.lean` now proves that a
+common coefficient rescaling passes exactly through both the total target
+coefficient mass and the signed posterior-column coefficient defect.  The
+signed theorem has no factor-sign premise because it performs algebra before
+any absolute value or triangle inequality.
+
+Using those generic identities for both connected and disconnected
+transports, the literal posterior module proves
+
+```text
+signedPosteriorDebt
+  = signedPosteriorDensityDebt * Z_coarse^2.
+```
+
+Strict positivity of `Z_coarse^2` then gives the exact equivalence
+
+```text
+|signedPosteriorDensityDebt| <= K*g^2*Z_fine^2
+  <=>
+|signedPosteriorDebt| <= K*g^2*(Z_coarse^2*Z_fine^2)
+  <=>
+|signed fully raw source aggregate| <= K*g^2.
+```
+
+No estimate is inhabited.  The preferred active producer is now a cutoff-
+and volume-uniform `O(g^2)*Z_fine^2` bound on this one signed density sum;
+separate row/column `l1` estimates remain a stronger fallback which discards
+cancellation.
+
+The monitored leaf target passes all 5,511 jobs.  The two new generic
+rescaling theorems depend only on `[propext]`, while all five new literal
+posterior declarations depend exactly on `[propext, Quot.sound]`.  No
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
 
 Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 construction of the same interacting continuum measure, same-object OS/GNS

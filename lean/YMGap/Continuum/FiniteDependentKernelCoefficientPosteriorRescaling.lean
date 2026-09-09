@@ -4,8 +4,9 @@
 The posterior-column decomposition is linear in the source and target
 coefficient fields.  This module makes that fact literal: replacing both
 coefficient fields by normalized fields and then multiplying them by one
-common nonnegative rational factor multiplies the signed row defect by that
-factor and the posterior-column `l1` budget by that factor.
+common rational factor multiplies the signed row and posterior-column defects
+by that factor.  For a nonnegative factor, the posterior-column `l1` budget
+also scales exactly.
 
 This is the exact algebra needed to remove physical partition factors from a
 posterior-column cost.  It asserts no stochastic contraction, asymptotic
@@ -134,6 +135,36 @@ theorem sourceCoefficientMass_eqv_replaceCoefficients_mul
         (data.sourceWeight source) (sourceCoefficient source) factor)
   · exact listQSum_mul_right_local _ _ _
 
+/-- A common target-coefficient rescaling passes exactly through the total
+target coefficient mass. -/
+theorem targetCoefficientMass_eqv_replaceCoefficients_mul
+    (data : FiniteDependentCoefficientTransport Source Target)
+    (sourceCoefficient : Source → Q')
+    (targetCoefficient : Target → Q')
+    (factor : Q')
+    (htarget : ∀ target,
+      data.targetCoefficient target ≈ targetCoefficient target * factor) :
+    data.targetCoefficientMass ≈
+      (data.replaceCoefficients sourceCoefficient targetCoefficient
+        ).targetCoefficientMass * factor := by
+  unfold targetCoefficientMass replaceCoefficients
+  dsimp only
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun target => (data.targetWeight target * targetCoefficient target) *
+        factor)
+      data.targets) _ ?_ ?_
+  · apply listQSum_congr
+    intro target
+    refine Q'.eqv_trans _
+      (data.targetWeight target * (targetCoefficient target * factor)) _
+      (Q'.mul_eqv_congr_left (data.targetWeight target) _ _
+        (htarget target)) ?_
+    exact Q'.eqv_symm
+      (Q'.mul_assoc_eqv
+        (data.targetWeight target) (targetCoefficient target) factor)
+  · exact listQSum_mul_right_local _ _ _
+
 theorem transportedSourceCoefficientMass_eqv_replaceCoefficients_mul
     (data : FiniteDependentCoefficientTransport Source Target)
     (sourceCoefficient : Source → Q')
@@ -246,6 +277,47 @@ theorem transportedSourceCoefficientColumnMass_eqv_replaceCoefficients_mul
         data.Choice data.choices data.localWeight data.realize source target)
   · exact listQSum_mul_right_local _ _ _
 
+/-- A common coefficient rescaling passes exactly through the signed
+posterior-column defect.  Unlike the `l1` theorem below, this retains all
+cancellation between target columns and does not require a sign assumption
+on the factor. -/
+theorem posteriorColumnCoefficientDefect_eqv_replaceCoefficients_mul
+    (data : FiniteDependentCoefficientTransport Source Target)
+    (sourceCoefficient : Source → Q')
+    (targetCoefficient : Target → Q')
+    (factor : Q')
+    (hsource : ∀ source,
+      data.sourceCoefficient source ≈ sourceCoefficient source * factor)
+    (htarget : ∀ target,
+      data.targetCoefficient target ≈ targetCoefficient target * factor) :
+    data.posteriorColumnCoefficientDefect ≈
+      (data.replaceCoefficients sourceCoefficient targetCoefficient
+        ).posteriorColumnCoefficientDefect * factor := by
+  let normalized :=
+    data.replaceCoefficients sourceCoefficient targetCoefficient
+  refine Q'.eqv_trans _
+    (data.transportedSourceCoefficientMass - data.targetCoefficientMass) _
+    data.posteriorColumnCoefficientDefect_eqv_transport_sub_target ?_
+  refine Q'.eqv_trans _
+    (normalized.transportedSourceCoefficientMass * factor -
+      normalized.targetCoefficientMass * factor) _ ?_ ?_
+  · exact Q'.add_eqv_congr'
+      (data.transportedSourceCoefficientMass_eqv_replaceCoefficients_mul
+        sourceCoefficient targetCoefficient factor hsource)
+      (Q'.neg_eqv_congr _ _
+        (data.targetCoefficientMass_eqv_replaceCoefficients_mul
+          sourceCoefficient targetCoefficient factor htarget))
+  refine Q'.eqv_trans _
+    ((normalized.transportedSourceCoefficientMass -
+        normalized.targetCoefficientMass) * factor) _
+    (Q'.eqv_symm
+      (Q'.sub_mul_eqv
+        normalized.transportedSourceCoefficientMass
+        normalized.targetCoefficientMass factor)) ?_
+  exact Q'.mul_eqv_congr_right _ _ factor
+    (Q'.eqv_symm
+      normalized.posteriorColumnCoefficientDefect_eqv_transport_sub_target)
+
 /-- A common nonnegative coefficient rescaling passes exactly through the
 literal posterior-column `l1` budget. -/
 theorem posteriorColumnCoefficientL1_eqv_factor_mul_replaceCoefficients
@@ -318,9 +390,11 @@ end FiniteDependentCoefficientTransport
 
 #print axioms FiniteDependentCoefficientTransport.replaceCoefficients
 #print axioms FiniteDependentCoefficientTransport.sourceCoefficientMass_eqv_replaceCoefficients_mul
+#print axioms FiniteDependentCoefficientTransport.targetCoefficientMass_eqv_replaceCoefficients_mul
 #print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientMass_eqv_replaceCoefficients_mul
 #print axioms FiniteDependentCoefficientTransport.rowCoefficientDefect_eqv_replaceCoefficients_mul
 #print axioms FiniteDependentCoefficientTransport.transportedSourceCoefficientColumnMass_eqv_replaceCoefficients_mul
+#print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientDefect_eqv_replaceCoefficients_mul
 #print axioms FiniteDependentCoefficientTransport.posteriorColumnCoefficientL1_eqv_factor_mul_replaceCoefficients
 
 end YMGap.Continuum.FiniteDependentKernelCoefficientTransport
