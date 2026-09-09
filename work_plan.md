@@ -103,6 +103,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- each raw average <= 1; three-event cost <= 3 ........ [PROVED]
 |   |   |   |   +-- nested physical schedule + O(a) tail compiler ....... [PROVED interface]
 |   |   |   |   +-- connected remainder as one unit-bounded observable ... [PROVED]
+|   |   |   |   +-- connected remainder = fine Gibbs average of one
+|   |   |   |   |       production-minus-refresh observable row action .... [PROVED exact]
+|   |   |   |   +-- selected row-action signed/source-L1/pointwise
+|   |   |   |   |       quadratic calibration hierarchy ................... [PROVED interface]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2414,6 +2418,60 @@ spacing, cutoff/volume-uniform persistence, construction of the same
 interacting continuum measure, same-object OS/GNS reconstruction, the
 Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 264: selected connected observable at the Gibbs row-action seam (2026-09-09)
+
+**Status. THE NORMALIZED CENTERED REMAINDER IS NOW EXACTLY THE FINE
+GIBBS-WEIGHTED AVERAGE OF A PER-SOURCE PRODUCTION-MINUS-REFRESH ACTION ON THE
+ONE POINTWISE-UNIT-BOUNDED CONNECTED OBSERVABLE.  THE ACTIVE QUADRATIC INPUT
+CAN THEREFORE BE PROVED DIRECTLY AS A SIGNED AVERAGE, A SOURCE-WEIGHTED
+SELECTED-ROW `L1` BOUND, OR A POINTWISE SELECTED-ROW BOUND.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRowAction.lean` first proves that the
+proportional coarse Gibbs refresh row is exactly the existing normalized
+coarse physical mass.  A carrier-generic finite Fubini theorem then rewrites
+the fine-law average of a candidate-minus-reference observable row action as
+the blocked-minus-reference observable expectation.  Specializing to the
+production physical kernel and the established connected observable gives
+
+```text
+sum_source fineMass(source) *
+  sum_target (physicalKernel(source,target) - refresh(target)) *
+    connectedObservable(target)
+  = centeredCylinderRemainder.
+```
+
+The module exposes three quantitative premises with exact compilers:
+
+```text
+|signed source average| <= K*g^2
+    [exactly equivalent to the centered calibration]
+
+sum_source fineMass(source) * |selected row action(source)| <= K*g^2
+    [sufficient, retaining cancellation across coarse targets]
+
+forall source, |selected row action(source)| <= K*g^2
+    [sufficient local recoupling/posterior target]
+```
+
+A pointwise full kernel-row `L1` bound also compiles through the observable's
+unit bound, but is recorded only as a conservative fallback.  The preferred
+next analytic proof should act on the selected row action itself, where the
+existing literal recoupling and receiver-column data can retain target
+cancellation before any absolute value is taken.
+
+The monitored leaf target passes all 5,505 jobs.  All fourteen printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or enlarged
+heartbeat budget is introduced.  A subsequent monitored `YMGap` aggregate
+check was safely stopped when available memory reached 11.6 GiB, below the
+12 GiB reserve; it is not reported as passed and was not immediately rerun.
+
+This remains a finite cutoff-one identity and calibration hierarchy.  No
+quadratic premise is inhabited here.  Raw-event mismatch, lower physical
+spacing, cutoff/volume-uniform persistence, construction of the same
+interacting continuum measure, same-object OS/GNS reconstruction, the
+Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2447,8 +2505,13 @@ CANCELLATION-AWARE CENTERED REMAINDER; A FULL PHYSICAL REMAINDER-`L1` BOUND
 IS RECORDED ONLY AS A STRONGER FALLBACK.  A NEW UNIT-NORMALIZED RECENTERING
 SPLITS THE CENTERED REMAINDER INTO A UNIT-NORMALIZED BLOCKING RESIDUAL AND
 ONE SIGNED CROSS DETERMINANT THAT RETAINS PARTITION-DRIFT CANCELLATION.  THESE
-ARE THE ACTIVE CO-PRODUCERS.  THE LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS
-SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE INDEPENDENT SPACING AND
+ARE NOW REFINED BY AN EXACT SOURCE-ROW FORMULA: THE CENTERED REMAINDER IS THE
+FINE GIBBS-WEIGHTED AVERAGE OF THE PRODUCTION-MINUS-COARSE-REFRESH ACTION ON
+THE ONE CONNECTED OBSERVABLE.  THE ACTIVE LOCAL PRODUCER IS A POINTWISE OR
+FINE-WEIGHTED SELECTED-ROW `O(G^2)` ESTIMATE, WHICH RETAINS TARGET
+CANCELLATION; FULL KERNEL-ROW `L1` IS ONLY A STRONGER FALLBACK.  THE LOCALIZED
+PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
+INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
 GAP CHAIN REMAIN DOWNSTREAM.**
 

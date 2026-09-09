@@ -1420,6 +1420,39 @@ target passes all 5,504 jobs.  The printed declarations use exactly
 `[propext, Quot.sound]`.  Cutoff/volume uniformity, continuum construction,
 same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.
 
+### 9.32 Post-audit implementation update: selected observable row-action seam, milestone 264 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedRowAction.lean` pushes the
+normalized connected remainder down to the source-row level without replacing
+the production kernel or observable.  It proves that the proportional Gibbs
+refresh row is exactly the normalized coarse physical law and uses finite
+Fubini to identify
+
+```text
+fine Gibbs average of
+  [production row - coarse Gibbs refresh row]
+  acting on the connected observable
+= centeredCylinderRemainder.
+```
+
+This exposes the preferred local analytic target: bound the selected signed
+row action, not the full kernel-row variation.  Three nested interfaces are
+now checked: the signed average is exactly equivalent to the existing
+centered calibration; its absolute value is bounded by the fine-weighted sum
+of absolute selected row actions; and a pointwise selected-row estimate
+implies that weighted bound because the fine Gibbs law is nonnegative and
+normalized.  A full kernel-row `L1` estimate compiles as a conservative
+fallback using the observable's pointwise unit bound.
+
+No estimate is inhabited.  The gain is localization and preserved target
+cancellation: literal recoupling or receiver/posterior arguments can now
+target one observable action per source.  The monitored leaf target passes
+all 5,505 jobs, and all fourteen printed declarations depend exactly on
+`[propext, Quot.sound]`.  A subsequent monitored aggregate check was safely
+stopped at the configured 12 GiB memory reserve and is not reported as
+passed.  Cutoff/volume uniformity, continuum construction, same-object OS/GNS,
+the Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
