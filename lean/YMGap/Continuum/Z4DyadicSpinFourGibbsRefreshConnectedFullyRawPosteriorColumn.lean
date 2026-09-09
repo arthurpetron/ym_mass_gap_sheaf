@@ -42,6 +42,7 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverAssignmentSaturatedScaleDefect
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefect
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitTransport
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumn
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitPosteriorColumnNormalizedCost
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositiveExpandedReceiverFiberScaleDefectSplitNormalizedCostCoarseSquareCancellation
@@ -111,7 +112,105 @@ theorem positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_receive
   exact Q'.eqv_trans _ rawDefect _
     (Q'.eqv_symm hrawColumn) hreceiverFiber
 
-/-! ## 2. The three posterior debts produce raw-column calibration -/
+/-! ## 2. Preserve the signed three-debt posterior cancellation -/
+
+/-- The exact signed posterior expression: one connected row loss plus the
+connected and disconnected posterior-column mismatches. -/
+def positivePhysicalConnectedSignedPosteriorDebtSum
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) : Q' :=
+  (actualPositiveExpandedReceiverFiberScaleDefectConnectedRowDebt
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+      M.coarseTarget_mem +
+    actualPositiveExpandedReceiverFiberScaleDefectConnectedPosteriorColumnDebt
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+      M.coarseTarget_mem) +
+  actualPositiveExpandedReceiverFiberScaleDefectDisconnectedPosteriorColumnDebt
+    S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+    M.coarseTarget_mem
+
+/-- The assignment-saturated raw column is exactly the signed three-debt
+posterior expression, before any triangle inequality splits its cancellation. -/
+theorem positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_signedPosteriorDebtSum
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) :
+    positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget ≈
+      positivePhysicalConnectedSignedPosteriorDebtSum
+        S hfineCutoff hcoarseCoupling M := by
+  refine Q'.eqv_trans _
+    (actualPositiveExpandedReceiverFiberScaleDefectCross
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget) _
+    (positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_receiverFiber
+      S hfineCutoff hcoarseCoupling M) ?_
+  simpa only [positivePhysicalConnectedSignedPosteriorDebtSum] using
+    (actualPositiveExpandedReceiverFiberScaleDefectCross_eqv_splitThreePosteriorDebts
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+      M.coarseTarget_mem)
+
+/-- Cancellation-preserving posterior premise.  The absolute value is taken
+only after the three signed debts have been assembled. -/
+def PositivePhysicalConnectedSignedPosteriorDebtCalibration
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') : Prop :=
+  Q'.abs
+      (positivePhysicalConnectedSignedPosteriorDebtSum
+        S hfineCutoff hcoarseCoupling M) ≤
+    (kernelCeiling * (g * g)) *
+      ((S.coarse.physicalPartition * S.coarse.physicalPartition) *
+        (S.fine.physicalPartition * S.fine.physicalPartition))
+
+/-- The signed posterior premise is exactly the raw-column calibration; no
+triangle inequality or change of constant occurs in either direction. -/
+theorem positiveSignedPosteriorDebtCalibration_iff_rawColumnCross
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    PositivePhysicalConnectedSignedPosteriorDebtCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          (kernelCeiling * (g * g)) := by
+  unfold PositivePhysicalConnectedSignedPosteriorDebtCalibration
+    PositiveExpandedAssignmentSaturatedRawColumnCrossCalibration
+  have hexact :=
+    positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_signedPosteriorDebtSum
+      S hfineCutoff hcoarseCoupling M
+  constructor
+  · intro h
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.abs_eqv_congr hexact)) h
+  · intro h
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.eqv_symm hexact))) h
+
+/-- The weakest signed posterior premise exposed here is equivalent to the
+signed fully raw source-average calibration.  Both directions retain every
+row/column sign and the same quadratic constant. -/
+theorem positiveSignedPosteriorDebtCalibration_iff_fullyRawSignedSourceAverage
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (M : SlabFaceBlockMap S) (g kernelCeiling : Q') :
+    PositivePhysicalConnectedSignedPosteriorDebtCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling ↔
+      PositivePhysicalConnectedFullyRawSignedSourceAverageCalibration
+        S hfineCutoff hcoarseCoupling M g kernelCeiling := by
+  exact Iff.trans
+    (positiveSignedPosteriorDebtCalibration_iff_rawColumnCross
+      S hfineCutoff hcoarseCoupling M g kernelCeiling)
+    (Iff.symm
+      (positiveFullyRawSignedSourceAverageCalibration_iff_rawColumnCross
+        S hfineCutoff hcoarseCoupling M g kernelCeiling))
+
+/-! ## 3. The three posterior `l1` debts produce raw-column calibration -/
 
 /-- A bound on the exact coarse-square-cancelled posterior budget gives the
 signed raw-column calibration with no cardinality factor and no loss in the
@@ -197,7 +296,7 @@ theorem positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_splitPos
   simpa only [S, coarseSquare, fineSquare] using
     (Q'.mul_assoc_eqv relative coarseSquare fineSquare)
 
-/-! ## 3. Matched-AF posterior control supplies the fully raw aggregate -/
+/-! ## 4. Matched-AF posterior control supplies the fully raw aggregate -/
 
 namespace MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
 
@@ -264,6 +363,11 @@ theorem fullyRawSignedSourceAverage_quadratic
 end MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl
 
 #print axioms positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_receiverFiber
+#print axioms positivePhysicalConnectedSignedPosteriorDebtSum
+#print axioms positiveExpandedAssignmentSaturatedRawColumnScaleDefectCross_eqv_signedPosteriorDebtSum
+#print axioms PositivePhysicalConnectedSignedPosteriorDebtCalibration
+#print axioms positiveSignedPosteriorDebtCalibration_iff_rawColumnCross
+#print axioms positiveSignedPosteriorDebtCalibration_iff_fullyRawSignedSourceAverage
 #print axioms positiveExpandedAssignmentSaturatedRawColumnCrossCalibration_of_splitPosteriorColumn
 #print axioms MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.toRawColumnCrossQuadraticCostControl
 #print axioms MatchedShiftedAFSplitPosteriorColumnQuadraticCostControl.fullyRawSignedSourceAverage_quadratic

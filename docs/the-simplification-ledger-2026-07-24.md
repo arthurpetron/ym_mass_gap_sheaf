@@ -1644,6 +1644,35 @@ mismatch, lower physical spacing, cutoff/volume persistence, continuum
 construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
 remain open.
 
+### 9.39 Post-audit implementation update: signed posterior cancellation, milestone 271 (2026-09-09)
+
+The posterior-to-fully-raw bridge now preserves the cancellation which the
+three-term `l1` majorant discards.  The exact receiver-fiber posterior
+identity, composed with the raw-column/receiver-fiber equality, proves
+
+```text
+rawColumnCross
+  = connectedRowDebt
+      + connectedPosteriorColumnDebt
+      + disconnectedPosteriorColumnDebt.
+```
+
+A named calibration bounds the absolute value only after forming this signed
+sum.  It is proved equivalent to the raw-column calibration and therefore to
+the signed fully raw source-average calibration, in both directions with the
+same quadratic constant.  No partition or receiver-cardinality factor is
+lost.
+
+The previously compiled separate row/column `l1` estimates remain a
+sufficient fallback.  They are not the minimal physical hypothesis.  The
+preferred active producer is now a cutoff- and volume-uniform `O(g^2)` bound
+on the signed posterior debt sum itself.  The monitored leaf target passes
+all 5,511 jobs, and all nine printed declarations depend exactly on
+`[propext, Quot.sound]`.  No aggregate root pass is claimed.  Raw-event
+mismatch, lower physical spacing, cutoff/volume persistence, continuum
+construction, same-object OS/GNS, the Hamiltonian gap, and Clay closure
+remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

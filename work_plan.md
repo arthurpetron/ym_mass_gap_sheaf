@@ -127,8 +127,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- matched-AF raw-column control supplies fully raw aggregate .. [PROVED exact]
 |   |   |   |   +-- posterior three-budget control => raw-column/full-raw
 |   |   |   |   |       aggregate control ........................................ [PROVED exact compiler]
-|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimates for the connected-row,
-|   |   |   |   |       connected-posterior, disconnected-posterior terms ....... [ACTIVE analytic producer]
+|   |   |   |   +-- signed row + connected-posterior + disconnected-posterior
+|   |   |   |   |       debt sum = raw column ..................................... [PROVED exact]
+|   |   |   |   +-- signed posterior calibration <=> fully raw aggregate .......... [PROVED exact]
+|   |   |   |   +-- separate posterior l1 estimates ............................... [PROVED stronger fallback]
+|   |   |   |   +-- cutoff/volume-uniform O(g^2) estimate for signed posterior sum  [ACTIVE analytic producer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2783,6 +2786,51 @@ Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
 construction of the same interacting continuum measure, same-object OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
+## Milestone 271: cancellation-preserving signed posterior frontier (2026-09-09)
+
+**Status. THE ASSIGNMENT-SATURATED RAW COLUMN IS NOW IDENTIFIED EXACTLY WITH
+THE SIGNED SUM OF THE CONNECTED ROW LOSS, CONNECTED POSTERIOR-COLUMN
+MISMATCH, AND DISCONNECTED POSTERIOR-COLUMN MISMATCH.  A QUADRATIC BOUND ON
+THIS SIGNED SUM IS EQUIVALENT, IN BOTH DIRECTIONS AND WITH NO CONSTANT LOSS,
+TO THE SIGNED FULLY RAW SOURCE-AGGREGATE CALIBRATION.**
+
+Milestone 270 used the established posterior `l1` majorant to feed the raw
+column.  The same module now exposes the strictly weaker exact object before
+that triangle inequality:
+
+```text
+rawColumnCross
+  = connectedRowDebt
+      + connectedPosteriorColumnDebt
+      + disconnectedPosteriorColumnDebt.
+```
+
+The corresponding named calibration takes one absolute value only after the
+three debts have been added.  Composing the exact raw-column equality with
+Milestone 269 proves
+
+```text
+|signed posterior debt sum|
+    <= K*g^2*(Z_coarse^2*Z_fine^2)
+  <=>
+|signed fully raw source aggregate| <= K*g^2.
+```
+
+Thus individual `l1` bounds on the row and the two columns remain a useful
+volume-safe sufficient route, but they are no longer stated as the weakest
+analytic frontier.  The preferred open producer is a cutoff- and
+volume-uniform `O(g^2)` estimate on the signed posterior sum itself, retaining
+all cancellation selected by the physical connected observable.
+
+The monitored leaf target again passes all 5,511 jobs.  All nine printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+Raw-event mismatch, lower physical spacing, cutoff/volume persistence,
+construction of the same interacting continuum measure, same-object OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2844,10 +2892,13 @@ AT EACH CONTROLLED SCALE WITHOUT AN ADDITIONAL ANALYTIC FIELD.  THE
 POINTWISE FULLY RAW PREMISE IS THEREFORE RECORDED ONLY AS A STRONGER
 FALLBACK.  THE EXISTING MATCHED-AF THREE-TERM POSTERIOR-COLUMN CONTROL NOW
 COMPILES TO THAT RAW-COLUMN CONTROL AND HENCE TO THE FULLY RAW AGGREGATE WITH
-THE SAME QUADRATIC CONSTANT.  THE ACTIVE ANALYTIC PRODUCER IS THEREFORE A
-CUTOFF- AND VOLUME-UNIFORM `K*G^2` BOUND FOR THE CONNECTED ROW LOSS,
+THE SAME QUADRATIC CONSTANT.  BEFORE THE POSTERIOR TRIANGLE INEQUALITY, THE
+RAW COLUMN IS NOW EXACTLY THE SIGNED SUM OF THE CONNECTED ROW LOSS,
 CONNECTED POSTERIOR-COLUMN MISMATCH, AND DISCONNECTED POSTERIOR-COLUMN
-MISMATCH.  THE
+MISMATCH.  ITS QUADRATIC CALIBRATION IS EXACTLY EQUIVALENT TO THE FULLY RAW
+AGGREGATE CALIBRATION.  THE ACTIVE ANALYTIC PRODUCER IS THEREFORE A CUTOFF-
+AND VOLUME-UNIFORM `K*G^2` BOUND ON THIS SIGNED POSTERIOR SUM; SEPARATE `L1`
+BOUNDS FOR ITS THREE TERMS REMAIN A STRONGER FALLBACK.  THE
 LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
