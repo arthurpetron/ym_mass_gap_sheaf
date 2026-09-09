@@ -144,7 +144,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- balanced + margin compiler => centered O(g^2) remainder ........... [PROVED interface]
 |   |   |   |   +-- margin quotient = selected centered receiver-pair debt cross ....... [PROVED exact]
 |   |   |   |   +-- complete receiver-pair centered debt has total mass zero ........... [PROVED exact]
-|   |   |   |   +-- volume-uniform balanced-blocking + selected-debt bounds ............ [ACTIVE analytic producers]
+|   |   |   |   +-- selected debt = centered fine-source-pair signed average ........... [PROVED exact]
+|   |   |   |   +-- product-kernel output contrast has pointwise abs <= 1 .............. [PROVED]
+|   |   |   |   +-- volume-uniform balanced-blocking + source-average bounds ........... [ACTIVE analytic producers]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
@@ -3084,6 +3086,46 @@ pair-carrier definition depends on no axioms.  No aggregate root pass is
 claimed, and no `Classical`, choice, `sorry`, new axiom, `native_decide`,
 noncomputable witness, or enlarged heartbeat budget is introduced.
 
+## Milestone 277: pull centered margin debt back to fine source pairs (2026-09-09)
+
+**Status. THE SELECTED CENTERED RECEIVER-PAIR DEBT CROSS IS NOW PULLED BACK
+EXACTLY THROUGH THE LITERAL INDEPENDENT TWO-REPLICA PRODUCT KERNEL.  IT IS A
+SIGNED FINE-SOURCE-PAIR AVERAGE WHOSE SOURCE DEBT HAS TOTAL MASS ZERO AND
+WHOSE OUTPUT-EVENT CONTRAST HAS POINTWISE ABSOLUTE VALUE AT MOST ONE.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback.lean` defines the
+fine physical source-pair margin and actual masses, their centered debt, the
+two-replica product-kernel weight, and its literal four-cell output contrast.
+Exact finite-sum identities prove that the source-pair centered debt totals
+to zero and that the coarse target-pair margin, actual mass, and centered
+debt are the corresponding product-kernel pushforwards.  Therefore
+
+```text
+centeredNormalizedMarginNumerator
+  = sum_finePair centeredSourcePairDebt(finePair)
+      * (P_K^2(source cell | finePair) - P_K^2(target cell | finePair)).
+```
+
+Each selected output-cell probability lies in `[0,1]`, so the displayed
+product-kernel output contrast has absolute value at most one for every fine
+source pair.  The prior normalized margin calibration is exactly equivalent
+to bounding this signed fine-source average, with no change of constant.
+
+This identity does not prove the required uniform estimate.  The active
+analytic producers are a cutoff- and volume-uniform balanced blocking
+calibration and a cutoff- and volume-uniform estimate of the signed
+fine-source average that retains both source-debt centering and output-event
+cancellation before taking an absolute value.  Bounding the full source-debt
+`L1` mass is a stronger fallback and may be volume-extensive.  All-cutoff
+persistence, the interacting continuum measure, same-object OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
+The monitored leaf target passes all 5,503 jobs.  All 17 printed
+load-bearing declarations depend exactly on `[propext, Quot.sound]`.  No
+aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
+axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
+is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -3166,10 +3208,15 @@ CONSTANT LOSS.  THE COMBINED COMPILER LEAVES EXACTLY TWO LOCAL PRODUCERS:
 THE VOLUME-UNIFORM BALANCED BLOCKING CALIBRATION AND THE SIGNED
 GEOMETRIC-QUOTIENT CEILING.  THE LATTER NUMERATOR IS NOW EXACTLY THE
 SOURCE-CELL MINUS TARGET-CELL CROSS OF A CENTERED RECEIVER-PAIR DEBT WHOSE
-TOTAL OVER THE COMPLETE COARSE PAIR CARRIER IS ZERO.  THE ACTIVE MARGIN
-PRODUCER CAN THEREFORE TARGET THIS SELECTED MASS-ZERO DEBT CROSS WITHOUT
-SEPARATING A GLOBAL PARTITION-DRIFT COST.  THE
-LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
+TOTAL OVER THE COMPLETE COARSE PAIR CARRIER IS ZERO.  THAT SELECTED DEBT
+CROSS IS NOW PULLED BACK EXACTLY THROUGH THE INDEPENDENT TWO-REPLICA PRODUCT
+KERNEL TO A SIGNED FINE-SOURCE-PAIR AVERAGE.  THE FINE SOURCE DEBT ALSO HAS
+TOTAL MASS ZERO, AND ITS PRODUCT-KERNEL SOURCE-CELL MINUS TARGET-CELL OUTPUT
+CONTRAST HAS POINTWISE ABSOLUTE VALUE AT MOST ONE.  THE ACTIVE MARGIN
+PRODUCER CAN THEREFORE TARGET THIS CANCELLATION-PRESERVING SIGNED AVERAGE
+WITHOUT SEPARATING A GLOBAL PARTITION-DRIFT COST.  A FULL SOURCE-DEBT `L1`
+BOUND AND THE LOCALIZED PAIR-CELL MOMENT ROUTE REMAIN SUFFICIENT BUT MAY
+STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
 GAP CHAIN REMAIN DOWNSTREAM.**

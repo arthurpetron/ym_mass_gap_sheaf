@@ -1846,6 +1846,34 @@ closure remain open.  The monitored leaf target passes all 5,502 jobs.  Nine
 printed declarations depend exactly on `[propext, Quot.sound]`, and the pair
 carrier definition depends on no axioms.
 
+### 9.45 Post-audit implementation update: fine-source pullback of centered margin debt, milestone 277 (2026-09-09)
+
+The selected centered receiver-pair debt cross is now pulled back exactly
+through the literal independent two-replica product kernel.  The resulting
+identity is
+
+```text
+centeredNormalizedMarginNumerator
+  = sum_finePair centeredSourcePairDebt(finePair)
+      * (P_K^2(source cell | finePair) - P_K^2(target cell | finePair)).
+```
+
+The centered source-pair debt has exactly zero total mass.  The coarse
+target-pair margin, actual mass, and centered debt are its exact
+product-kernel pushforwards, while each selected output-cell probability is
+in `[0,1]`; hence the product-kernel output contrast has pointwise absolute
+value at most one.  Bounding this signed fine-source average is exactly
+equivalent to the prior normalized margin calibration with no constant loss.
+
+This is a localization, not an inhabited uniform estimate.  The active
+analytic producers remain the volume-uniform balanced blocking calibration
+and a volume-uniform bound on the signed fine-source average that preserves
+both cancellations.  A full source-debt `L1` estimate is stronger and may be
+volume-extensive.  Cutoff/volume persistence, continuum construction,
+same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.  The
+monitored leaf target passes all 5,503 jobs, and all 17 printed load-bearing
+declarations depend exactly on `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
