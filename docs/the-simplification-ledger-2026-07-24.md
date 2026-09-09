@@ -1512,6 +1512,37 @@ jobs, and all eleven printed declarations depend exactly on
 uniformity, continuum construction, same-object OS/GNS, the Hamiltonian gap,
 and Clay closure remain open.
 
+### 9.35 Post-audit implementation update: literal three-event row cross, milestone 267 (2026-09-09)
+
+The new `Z4DyadicSpinFourGibbsRefreshConnectedRawEventCross.lean` expands the
+source-resolved connected numerator before estimating it.  Both the selected
+conditional recoupling row and the coarse physical comparison row become the
+same signed joint/root/target cylinder combination.  Cross-multiplication then
+regroups them exactly as
+
+```text
+- jointCylinderCross
+  + blockedTargetMoment * rootCylinderCross
+  + coarseRootMoment    * targetCylinderCross,
+
+cylinderCross(event) = rowEventRaw(event)*Zc
+                       - coarseEventRaw(event)*rowZ.
+```
+
+Thus each literal event retains production-versus-Gibbs cancellation, and
+the signs among the three centered terms are also retained.  A relative
+pointwise `K*g^2` bound on the combined event-cross numerator compiles to the
+previous raw-cross interface and hence to the normalized centered remainder
+without coefficient loss.
+
+No estimate is inhabited.  The blocked target moment and coarse root moment
+remain normalized coefficients; clearing their fine/coarse partition
+denominators into one fully raw signed polynomial is the next algebraic edge.
+The monitored leaf target passes all 5,508 jobs, and all thirteen printed
+declarations depend exactly on `[propext, Quot.sound]`.  No aggregate root
+pass is claimed.  Cutoff/volume uniformity, continuum construction,
+same-object OS/GNS, the Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

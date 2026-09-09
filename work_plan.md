@@ -115,6 +115,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- positive row-versus-Gibbs signed raw cross
 |   |   |   |   |       / (row partition * coarse partition) ................ [PROVED exact]
 |   |   |   |   +-- relative row raw-cross bound => centered calibration ..... [PROVED interface]
+|   |   |   |   +-- connected row raw cross = signed joint/root/target
+|   |   |   |   |       literal-cylinder crosses .............................. [PROVED exact]
+|   |   |   |   +-- relative three-event cross bound => centered calibration . [PROVED interface]
+|   |   |   |   +-- clear embedded moment denominators into one fully raw
+|   |   |   |           joint/root/target polynomial .......................... [ACTIVE algebraic edge]
 |   |   |   |   +-- connected pushed-law remainder <= remainderL1 ....... [PROVED sharp]
 |   |   |   |   +-- normalized connected defect = raw cross / (Z_f*Z_c) .. [PROVED]
 |   |   |   |   +-- relative raw-cross O(a) => sharp connected tail ....... [PROVED interface]
@@ -2579,6 +2584,49 @@ persistence, construction of the same interacting continuum measure,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain open.
 
+## Milestone 267: literal three-event expansion of the connected row cross (2026-09-09)
+
+**Status. THE SOURCE-RESOLVED CONNECTED RAW CROSS IS NOW EXACTLY ONE SIGNED
+COMBINATION OF THE JOINT, ROOT, AND TARGET LITERAL-CYLINDER CROSSES.  A
+RELATIVE BOUND ON THIS COMBINED THREE-EVENT NUMERATOR COMPILES WITHOUT
+COEFFICIENT LOSS TO THE EXISTING NORMALIZED CENTERED-REMAINDER CALIBRATION.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRawEventCross.lean` proves finite-sum
+linearity and the exact raw numerator of a weighted Boolean cylinder.  It
+then expands both the conditional recoupling row and the coarse physical
+numerator of the connected observable into the same three event masses:
+
+```text
+- jointCylinderCross
+  + blockedTargetMoment * rootCylinderCross
+  + coarseRootMoment    * targetCylinderCross.
+```
+
+Each cylinder cross retains the cancellation
+
+```text
+rowEventRaw * Zc - coarseEventRaw * rowZ
+```
+
+before any absolute value.  The positive physical specialization is proved
+equal to the preceding arbitrary-observable raw cross, so its relative
+`K*g^2` premise feeds the already established pointwise-row and centered
+consumers directly.
+
+The monitored leaf target passes all 5,508 jobs.  All thirteen printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, noncomputable witness, or
+enlarged heartbeat budget is introduced.  No aggregate root pass is claimed.
+
+No relative event-cross estimate is inhabited.  The blocked target and
+coarse root coefficients still contain their fine and coarse partition
+denominators.  The next algebraic seam is to clear those two factors into a
+single fully raw joint/root/target polynomial with one positive denominator,
+still without splitting its signed cancellations.  Raw-event mismatch,
+lower physical spacing, cutoff/volume-uniform persistence, construction of
+the same interacting continuum measure, same-object OS/GNS reconstruction,
+the Hamiltonian gap, and Clay closure remain open.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2625,10 +2673,12 @@ TARGET ONE COMMON-DENOMINATOR SIGNED RAW NUMERATOR AND RETAIN BOTH TARGET
 AND NORMALIZATION CANCELLATION BEFORE TAKING ABSOLUTE VALUES.  THAT
 ROW-VERSUS-GIBBS CROSS-MULTIPLICATION IS NOW PROVED EXACTLY, WITH POSITIVE
 DENOMINATOR `ROWZ*ZC`, AND ITS RELATIVE `K*G^2` PREMISE COMPILES DIRECTLY TO
-THE CENTERED CONSUMER.  THE ACTIVE ALGEBRAIC EDGE IS TO CLEAR THE CONNECTED
-OBSERVABLE'S EMBEDDED FINE/COARSE MOMENT DENOMINATORS INTO ONE FULLY RAW
-JOINT/ROOT/TARGET POLYNOMIAL WITHOUT SPLITTING ITS SIGNS.  THE LOCALIZED
-PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
+THE CENTERED CONSUMER.  THAT CROSS IS NOW EXPANDED EXACTLY AS THE SIGNED SUM
+OF THE LITERAL JOINT, ROOT, AND TARGET CYLINDER CROSSES, AND A RELATIVE BOUND
+ON THIS COMBINED EVENT NUMERATOR HAS THE SAME CONSUMER.  THE ACTIVE ALGEBRAIC
+EDGE IS TO CLEAR THE TWO REMAINING FINE/COARSE MOMENT DENOMINATORS INTO ONE
+FULLY RAW JOINT/ROOT/TARGET POLYNOMIAL WITHOUT SPLITTING ITS SIGNS.  THE
+LOCALIZED PAIR-CELL MOMENT ROUTE REMAINS SUFFICIENT BUT MAY STILL BE EXTENSIVE.  THE
 INDEPENDENT SPACING AND
 RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE CONTINUUM/OS/GNS/
 GAP CHAIN REMAIN DOWNSTREAM.**
