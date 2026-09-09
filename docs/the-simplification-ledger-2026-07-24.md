@@ -794,12 +794,39 @@ coarse link admissibility.
 
 The monitored dependency-complete target passes 823 jobs, and every printed
 load-bearing theorem audits to at most `[propext, Quot.sound]`.  No full-root
-audit is claimed.  The remaining geometric work is to turn this finitely
-generated Boolean function into a duplicate-free finite support with the same
-coefficient and prove corrected-slab containment.  Transverse cube faces at
-the spatial boundary remain a real containment seam.  Receiver calibration,
-uniform physical estimates, continuum construction, OS/GNS reconstruction,
-Hamiltonian gap, and Clay closure remain open.
+audit is claimed.  Milestone 244 turns this finitely generated Boolean
+function into a duplicate-free finite support with the same coefficient and
+reduces corrected-slab containment to the precise selected-bubble boundary
+condition.  Transverse cube faces at the spatial boundary remain a real
+containment seam.  Receiver calibration, uniform physical estimates,
+continuum construction, OS/GNS reconstruction, Hamiltonian gap, and Clay
+closure remain open.
+
+### 9.12 Post-audit implementation update: finite XOR support and slab interface, milestone 244 (2026-09-08)
+
+`Z4DyadicSpinFourXorAssembly.lean` now enumerates a finite ambient list
+containing every face that can be selected by the global spin-four XOR
+coefficient.  Filtering by that coefficient and applying `eraseDups` produces
+the canonical `dyadicSpinFourSupport`.  The formalization proves this list is
+duplicate-free, that membership is equivalent to truth of the Boolean
+coefficient, and therefore that its induced support coefficient is exactly
+the previously verified global XOR assembly.  Closure and every ordered
+four-child packet theorem transfer to the finite support.
+
+Corrected-slab containment is reduced to two explicit inputs: containment of
+the literal odd-subdivision carrier and `PairBubbleSlabAdmissible`, which asks
+only that each actually selected local bubble face lie in the corrected fine
+slab.  This isolates the genuine transverse-boundary question without
+claiming that arbitrary local cubes remain in the slab.  The active endpoint
+adapter must derive odd-spin even incidence from accepted coarse link
+admissibility and either prove the selected-bubble condition or construct a
+boundary-corrected generator.
+
+The monitored dependency-complete target passes 823 jobs.  All newly printed
+load-bearing declarations audit to at most `[propext, Quot.sound]`; no
+full-root audit is claimed.  This closes finite support realization only.  It
+does not establish receiver coverage, uniform contraction, the continuum
+measure, OS/GNS reconstruction, a Hamiltonian gap, or Clay closure.
 
 ## 10. What this changes—and what it does not
 

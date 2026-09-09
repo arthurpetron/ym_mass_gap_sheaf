@@ -33,6 +33,7 @@ open YMGap.Continuum.Z4DyadicDeterministicSupportKernel
 open YMGap.Continuum.Z4DyadicModTwoCellularKernel
 open YMGap.Continuum.Z4DyadicPlaquetteBlockGeometry
 open YMGap.Continuum.Z4DyadicSlabMultiCharacterPacketKernel
+open YMGap.Continuum.Z4DyadicSlabReflectionParityKernel
 open YMGap.Continuum.Z4DyadicSubdivisionClosure
 open YMGap.Continuum.Z4CanonicalPolymerAnimalBridge
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
@@ -491,6 +492,268 @@ theorem dyadicSpinFourCoefficient_faceSpinTotal
     hnodup spin hquery hspin]
   exact faceSpinPacketTotal_spinFourPacket hspin
 
+/-! ## 5. Canonical finite support of the assembled coefficient -/
+
+/-- A finite list containing every fine face that can occur in the assembled
+coefficient.  Both bubble layers are retained in the ambient list even when
+the local spin selects only one; the final Boolean filter removes the unused
+faces and cancels overlaps. -/
+def dyadicSpinFourAmbient
+    (carrier : List Z4Plaq) (spin : Z4Plaq → Nat) : List Z4Plaq :=
+  dyadicSupportCells (oddSpinSupport carrier spin) ++
+    carrier.flatMap fun coarse =>
+      dyadicPairBubble coarse false ++ dyadicPairBubble coarse true
+
+private theorem bool_or_of_xor_eq_true
+    {left right : Bool} (htrue : (left ^^ right) = true) :
+    left = true ∨ right = true := by
+  cases left <;> cases right
+  · cases htrue
+  · exact Or.inr rfl
+  · exact Or.inl rfl
+  · exact Or.inl rfl
+
+private theorem mem_of_supportCoefficient_eq_true
+    {support : List Z4Plaq} {fine : Z4Plaq}
+    (htrue : supportCoefficient support fine = true) :
+    fine ∈ support := by
+  unfold supportCoefficient at htrue
+  exact of_decide_eq_true htrue
+
+private theorem localPairBubbleCoefficient_true_mem_ambient
+    {spin : Z4Plaq → Nat} {coarse fine : Z4Plaq}
+    (htrue : localPairBubbleCoefficient spin coarse fine = true) :
+    fine ∈ dyadicPairBubble coarse false ++ dyadicPairBubble coarse true := by
+  by_cases htwo : spin coarse = 2
+  · rw [localPairBubbleCoefficient, if_pos htwo] at htrue
+    exact List.mem_append.mpr
+      (Or.inl (mem_of_supportCoefficient_eq_true htrue))
+  · rw [localPairBubbleCoefficient, if_neg htwo] at htrue
+    by_cases hthree : spin coarse = 3
+    · rw [if_pos hthree] at htrue
+      exact List.mem_append.mpr
+        (Or.inr (mem_of_supportCoefficient_eq_true htrue))
+    · rw [if_neg hthree] at htrue
+      by_cases hfour : spin coarse = 4
+      · rw [if_pos hfour] at htrue
+        rcases bool_or_of_xor_eq_true htrue with hlower | hupper
+        · exact List.mem_append.mpr
+            (Or.inl (mem_of_supportCoefficient_eq_true hlower))
+        · exact List.mem_append.mpr
+            (Or.inr (mem_of_supportCoefficient_eq_true hupper))
+      · rw [if_neg hfour] at htrue
+        cases htrue
+
+private theorem pairBubbleAssemblyCoefficient_true_mem_ambient
+    {spin : Z4Plaq → Nat} {fine : Z4Plaq} :
+    ∀ {carrier : List Z4Plaq},
+      pairBubbleAssemblyCoefficient spin carrier fine = true →
+        fine ∈ carrier.flatMap fun coarse =>
+          dyadicPairBubble coarse false ++ dyadicPairBubble coarse true
+  | [], htrue => by cases htrue
+  | coarse :: rest, htrue => by
+      change
+        (localPairBubbleCoefficient spin coarse fine ^^
+          pairBubbleAssemblyCoefficient spin rest fine) = true at htrue
+      rcases bool_or_of_xor_eq_true htrue with hlocal | hrest
+      · apply List.mem_flatMap.mpr
+        exact ⟨coarse, List.mem_cons_self,
+          localPairBubbleCoefficient_true_mem_ambient hlocal⟩
+      · obtain ⟨source, hsource, hfine⟩ := List.mem_flatMap.mp
+          (pairBubbleAssemblyCoefficient_true_mem_ambient hrest)
+        apply List.mem_flatMap.mpr
+        exact ⟨source, List.mem_cons_of_mem coarse hsource, hfine⟩
+
+theorem dyadicSpinFourCoefficient_true_mem_ambient
+    {carrier : List Z4Plaq} {spin : Z4Plaq → Nat} {fine : Z4Plaq}
+    (htrue : dyadicSpinFourCoefficient carrier spin fine = true) :
+    fine ∈ dyadicSpinFourAmbient carrier spin := by
+  unfold dyadicSpinFourCoefficient at htrue
+  change
+    (supportCoefficient
+        (dyadicSupportCells (oddSpinSupport carrier spin)) fine ^^
+      pairBubbleAssemblyCoefficient spin carrier fine) = true at htrue
+  rcases bool_or_of_xor_eq_true htrue with hsubdivision | hbubbles
+  · unfold dyadicSpinFourAmbient
+    exact List.mem_append.mpr
+      (Or.inl (mem_of_supportCoefficient_eq_true hsubdivision))
+  · unfold dyadicSpinFourAmbient
+    exact List.mem_append.mpr
+      (Or.inr
+        (pairBubbleAssemblyCoefficient_true_mem_ambient hbubbles))
+
+/-- The canonical finite list support: filter the finite generator ambient by
+the assembled coefficient, then erase duplicates caused by overlapping
+bubble side faces. -/
+def dyadicSpinFourSupport
+    (carrier : List Z4Plaq) (spin : Z4Plaq → Nat) : List Z4Plaq :=
+  ((dyadicSpinFourAmbient carrier spin).filter
+    (dyadicSpinFourCoefficient carrier spin)).eraseDups
+
+private theorem filteredEraseDupsNodup_local {A : Type}
+    [BEq A] [LawfulBEq A] (items : List A) :
+    ∀ predicate : A → Bool,
+      (items.filter predicate).eraseDups.Nodup := by
+  induction items with
+  | nil =>
+      intro _
+      exact List.nodup_nil
+  | cons head tail ih =>
+      intro predicate
+      rw [List.filter_cons]
+      split
+      · rw [List.eraseDups_cons, List.filter_filter]
+        refine List.nodup_cons.mpr
+          ⟨?_, ih (fun item => (!(item == head)) && predicate item)⟩
+        intro hmem
+        have hfiltered : head ∈ tail.filter
+            (fun item => (!(item == head)) && predicate item) :=
+          List.mem_eraseDups.mp hmem
+        have hfalse := (List.mem_filter.mp hfiltered).2
+        have hself : (head == head) = true := BEq.rfl
+        rw [hself] at hfalse
+        contradiction
+      · exact ih predicate
+
+theorem dyadicSpinFourSupport_nodup
+    (carrier : List Z4Plaq) (spin : Z4Plaq → Nat) :
+    (dyadicSpinFourSupport carrier spin).Nodup := by
+  unfold dyadicSpinFourSupport
+  exact filteredEraseDupsNodup_local _ _
+
+theorem mem_dyadicSpinFourSupport_iff
+    (carrier : List Z4Plaq) (spin : Z4Plaq → Nat) (fine : Z4Plaq) :
+    fine ∈ dyadicSpinFourSupport carrier spin ↔
+      dyadicSpinFourCoefficient carrier spin fine = true := by
+  constructor
+  · intro hmem
+    unfold dyadicSpinFourSupport at hmem
+    exact (List.mem_filter.mp (List.mem_eraseDups.mp hmem)).2
+  · intro htrue
+    unfold dyadicSpinFourSupport
+    apply List.mem_eraseDups.mpr
+    apply List.mem_filter.mpr
+    exact ⟨dyadicSpinFourCoefficient_true_mem_ambient htrue, htrue⟩
+
+theorem dyadicSpinFourSupport_subset_ambient
+    {carrier : List Z4Plaq} {spin : Z4Plaq → Nat} {fine : Z4Plaq}
+    (hmem : fine ∈ dyadicSpinFourSupport carrier spin) :
+    fine ∈ dyadicSpinFourAmbient carrier spin := by
+  exact dyadicSpinFourCoefficient_true_mem_ambient
+    ((mem_dyadicSpinFourSupport_iff carrier spin fine).mp hmem)
+
+theorem supportCoefficient_dyadicSpinFourSupport
+    (carrier : List Z4Plaq) (spin : Z4Plaq → Nat) :
+    supportCoefficient (dyadicSpinFourSupport carrier spin) =
+      dyadicSpinFourCoefficient carrier spin := by
+  funext fine
+  unfold supportCoefficient
+  by_cases htrue : dyadicSpinFourCoefficient carrier spin fine = true
+  · have hmem :=
+      (mem_dyadicSpinFourSupport_iff carrier spin fine).mpr htrue
+    rw [show decide (fine ∈ dyadicSpinFourSupport carrier spin) = true from
+      decide_eq_true hmem, htrue]
+  · have hnotMem : fine ∉ dyadicSpinFourSupport carrier spin := by
+      intro hmem
+      exact htrue
+        ((mem_dyadicSpinFourSupport_iff carrier spin fine).mp hmem)
+    rw [show decide (fine ∈ dyadicSpinFourSupport carrier spin) = false from
+      decide_eq_false hnotMem]
+    cases hvalue : dyadicSpinFourCoefficient carrier spin fine
+    · rfl
+    · exact False.elim (htrue hvalue)
+
+theorem dyadicSpinFourSupport_evenFaceIncidence
+    {carrier : List Z4Plaq} (hnodup : carrier.Nodup)
+    (spin : Z4Plaq → Nat)
+    (hoddClosed : EvenFaceIncidence (oddSpinSupport carrier spin)) :
+    EvenFaceIncidence (dyadicSpinFourSupport carrier spin) := by
+  apply (modTwoClosed_supportCoefficient_iff_evenFaceIncidence
+    (dyadicSpinFourSupport carrier spin)
+    (dyadicSpinFourSupport_nodup carrier spin)).1
+  rw [supportCoefficient_dyadicSpinFourSupport]
+  exact dyadicSpinFourCoefficient_modTwoClosed hnodup spin hoddClosed
+
+theorem dyadicSpinFourSupport_faceSpinTotal
+    {carrier : List Z4Plaq} (hnodup : carrier.Nodup)
+    (spin : Z4Plaq → Nat) {query : Z4Plaq}
+    (hquery : query ∈ carrier) (hspin : spin query ≤ 4) :
+    faceSpinPacketTotal
+        (dyadicFaceSpinPacket
+          (fun fine =>
+            (supportCoefficient
+              (dyadicSpinFourSupport carrier spin) fine).toNat)
+          query) =
+      spin query := by
+  rw [supportCoefficient_dyadicSpinFourSupport]
+  exact dyadicSpinFourCoefficient_faceSpinTotal
+    hnodup spin hquery hspin
+
+/-! ## 6. Exact corrected-slab boundary interface -/
+
+/-- Minimal local boundary obligation for the selected bubble coefficient.
+It asks for containment only when the spin-selected local coefficient is
+true, so unused bubble layers are not charged. -/
+def PairBubbleSlabAdmissible
+    (fineExtent : Nat) (carrier : List Z4Plaq)
+    (spin : Z4Plaq → Nat) : Prop :=
+  ∀ coarse, coarse ∈ carrier → ∀ fine,
+    localPairBubbleCoefficient spin coarse fine = true →
+      fine ∈ boundaryCompleteSlabPlaquettes fineExtent
+
+private theorem pairBubbleAssemblyCoefficient_true_mem_slab
+    {fineExtent : Nat} {spin : Z4Plaq → Nat} {fine : Z4Plaq} :
+    ∀ {carrier : List Z4Plaq},
+      PairBubbleSlabAdmissible fineExtent carrier spin →
+      pairBubbleAssemblyCoefficient spin carrier fine = true →
+        fine ∈ boundaryCompleteSlabPlaquettes fineExtent
+  | [], _, htrue => by cases htrue
+  | coarse :: rest, hadmissible, htrue => by
+      change
+        (localPairBubbleCoefficient spin coarse fine ^^
+          pairBubbleAssemblyCoefficient spin rest fine) = true at htrue
+      rcases bool_or_of_xor_eq_true htrue with hlocal | hrest
+      · exact hadmissible coarse List.mem_cons_self fine hlocal
+      · exact pairBubbleAssemblyCoefficient_true_mem_slab
+          (carrier := rest) (spin := spin)
+          (fun source hsource selected hselected =>
+            hadmissible source
+              (List.mem_cons_of_mem coarse hsource) selected hselected)
+          hrest
+
+/-- The canonical finite support lies in the corrected fine slab once the
+literal subdivision input is a coarse-slab carrier and the precisely selected
+local bubbles satisfy the boundary interface above. -/
+theorem dyadicSpinFourSupport_subset_boundaryCompleteFineSlab
+    {coarseExtent : Nat} {carrier : List Z4Plaq}
+    {spin : Z4Plaq → Nat}
+    (hcarrier : ∀ coarse, coarse ∈ carrier →
+      coarse ∈ boundaryCompleteSlabPlaquettes coarseExtent)
+    (hbubbles : PairBubbleSlabAdmissible
+      (dyadicSlabFineExtent coarseExtent) carrier spin) :
+    ∀ fine, fine ∈ dyadicSpinFourSupport carrier spin →
+      fine ∈ boundaryCompleteSlabPlaquettes
+        (dyadicSlabFineExtent coarseExtent) := by
+  intro fine hmem
+  have htrue :=
+    (mem_dyadicSpinFourSupport_iff carrier spin fine).mp hmem
+  unfold dyadicSpinFourCoefficient at htrue
+  change
+    (supportCoefficient
+        (dyadicSupportCells (oddSpinSupport carrier spin)) fine ^^
+      pairBubbleAssemblyCoefficient spin carrier fine) = true at htrue
+  rcases bool_or_of_xor_eq_true htrue with hsubdivision | hbubble
+  · have hfine : fine ∈
+        dyadicSupportCells (oddSpinSupport carrier spin) :=
+      mem_of_supportCoefficient_eq_true hsubdivision
+    apply dyadicSupportCells_subset_boundaryCompleteFineSlab
+      (support := oddSpinSupport carrier spin)
+    · intro coarse hodd
+      exact hcarrier coarse (List.mem_filter.mp hodd).1
+    · exact hfine
+  · exact pairBubbleAssemblyCoefficient_true_mem_slab
+      hbubbles hbubble
+
 #print axioms modTwoClosed_pointwise_xor
 #print axioms localPairBubbleCoefficient_modTwoClosed
 #print axioms dyadicFaceSpinPacket_bothPairBubbles_target
@@ -502,5 +765,13 @@ theorem dyadicSpinFourCoefficient_faceSpinTotal
 #print axioms dyadicFaceSpinPacket_pointwise_xor
 #print axioms dyadicFaceSpinPacket_dyadicSpinFourCoefficient
 #print axioms dyadicSpinFourCoefficient_faceSpinTotal
+#print axioms dyadicSpinFourCoefficient_true_mem_ambient
+#print axioms dyadicSpinFourSupport_nodup
+#print axioms mem_dyadicSpinFourSupport_iff
+#print axioms supportCoefficient_dyadicSpinFourSupport
+#print axioms dyadicSpinFourSupport_evenFaceIncidence
+#print axioms dyadicSpinFourSupport_faceSpinTotal
+#print axioms pairBubbleAssemblyCoefficient_true_mem_slab
+#print axioms dyadicSpinFourSupport_subset_boundaryCompleteFineSlab
 
 end YMGap.Continuum.Z4DyadicSpinFourXorAssembly

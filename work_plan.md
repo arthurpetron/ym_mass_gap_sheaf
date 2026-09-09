@@ -1210,9 +1210,12 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- pair bubbles vanish on every other coarse fibre .. [PROVED]
 |           |       +-- arbitrary attached spins `0..4`: coefficient-level
 |           |       |       XOR assembly and exact packets ................ [PROVED]
+|           |       +-- canonical finite duplicate-free XOR support and
+|           |       |       exact support coefficient ..................... [PROVED]
 |           |       +-- odd-spin parity incidence => assembled closure .... [PROVED interface]
-|           |       +-- finite duplicate-free support realization and
-|           |       |       corrected-slab containment .................... [ACTIVE geometric lift]
+|           |       +-- selected bubbles stay in corrected fine slab ...... [PROVED interface]
+|           |       +-- derive parity + bubble boundary condition from
+|           |       |       accepted attached endpoints ................... [ACTIVE geometric lift]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1358,8 +1361,8 @@ Hamiltonian gap, or the Clay theorem.
 ## Milestone 243: global coefficient-level XOR routing for spins zero through four (2026-09-08)
 
 **Status. EXACT ORDERED FOUR-CHILD PACKETS ARE NOW CONSTRUCTED FOR EVERY
-DUPLICATE-FREE FINITE CARRIER WITH SPINS `0..4`; FINITE SUPPORT REALIZATION
-AND CORRECTED-SLAB CONTAINMENT REMAIN ACTIVE.**
+DUPLICATE-FREE FINITE CARRIER WITH SPINS `0..4`; MILESTONE 244 REALIZES THE
+FINITE SUPPORT AND ISOLATES THE REMAINING ENDPOINT BOUNDARY INPUT.**
 
 `Z4DyadicSpinFourXorAssembly.lean` combines the literal odd-spin subdivision
 with the lower and upper pair bubbles by pointwise Boolean XOR.  This is the
@@ -1386,12 +1389,12 @@ finite duplicate-free coarse carrier with spin : face -> Nat
 ```
 
 The assembly is mod-two closed whenever the odd-spin coarse support has even
-face incidence.  That hypothesis is stated honestly: the next endpoint
-adapter must derive it from coarse link admissibility, enumerate the finite
-true support of the Boolean coefficient without choice, prove duplicate
-freedom and coefficient equality, and keep every selected face in the
-corrected fine slab.  The last item retains a genuine spatial-boundary seam
-because a local cube bubble can extend transversely beyond a boundary face.
+face incidence.  That hypothesis is stated honestly.  Milestone 244 now
+enumerates the finite true support of the Boolean coefficient without choice,
+proves duplicate freedom and coefficient equality, and reduces corrected-slab
+containment to a selected-bubble boundary condition.  A local cube bubble can
+extend transversely beyond a boundary face, so that final input is not
+silently inferred.
 
 The monitored dependency-complete target passes 823 jobs.  Every printed
 load-bearing declaration depends on at most `[propext, Quot.sound]`; no
@@ -1399,6 +1402,51 @@ load-bearing declaration depends on at most `[propext, Quot.sound]`; no
 No full-root audit is claimed.  This remains exact finite lattice geometry;
 receiver calibration, uniform physical estimates, continuum construction,
 OS/GNS reconstruction, the Hamiltonian gap, and Clay closure remain open.
+
+## Milestone 244: canonical finite XOR support and boundary interface (2026-09-08)
+
+**Status. THE GLOBAL BOOLEAN ASSEMBLY NOW HAS A CANONICAL FINITE,
+DUPLICATE-FREE SUPPORT WITH EXACT COEFFICIENT AND SPIN PACKETS; ENDPOINT
+PARITY AND THE SELECTED-BUBBLE BOUNDARY CONDITION ARE THE ACTIVE EDGE.**
+
+`Z4DyadicSpinFourXorAssembly.lean` now constructs an explicit finite ambient
+list from the literal odd subdivision and every selected lower or upper pair
+bubble.  Filtering this list by the assembled Boolean coefficient and then
+erasing duplicates gives `dyadicSpinFourSupport`.  Constructive membership
+lemmas prove the exact equivalence
+`p \in dyadicSpinFourSupport ... <-> dyadicSpinFourCoefficient ... p = true`,
+so its support coefficient is definitionally the global XOR coefficient.
+
+```text
+arbitrary attached endpoint spins `0..4`
+|
++-- global closed Boolean XOR coefficient .............. [PROVED]
+|   `-- closure needs odd-spin even incidence .......... [PROVED interface]
++-- explicit finite ambient enumeration ................ [PROVED]
++-- filter + eraseDups ................................. [PROVED]
+|   +-- duplicate freedom .............................. [PROVED]
+|   +-- exact coefficient equality ..................... [PROVED]
+|   `-- exact ordered packets / spin totals ............ [PROVED]
+`-- corrected-slab membership
+    +-- literal odd-subdivision carrier containment .... [INPUT]
+    `-- every actually selected bubble stays in slab ... [ACTIVE endpoint input]
+```
+
+The theorem `dyadicSpinFourSupport_subset_boundaryCompleteFineSlab` proves
+corrected-slab containment from exactly those two geometric inputs.  The
+second is packaged as `PairBubbleSlabAdmissible` and applies only to bubbles
+whose local coefficient is actually selected; it does not impose an
+unnecessary global cube condition.  The endpoint adapter must now derive
+odd-spin even incidence from the accepted coarse intertwiner/link assignment
+and establish this boundary condition for the attached carrier, or refine the
+local generator at the spatial boundary if the condition is false.
+
+The monitored dependency-complete target passes 823 jobs.  Every newly
+printed load-bearing declaration depends on at most `[propext, Quot.sound]`;
+no `Classical.choice`, `sorry`, new axiom, or noncomputable witness is present.
+No full-root audit is claimed.  Finite support realization is not receiver
+coverage, cutoff-uniform contraction, a continuum measure, OS/GNS
+reconstruction, a Hamiltonian gap, or the Clay theorem.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
