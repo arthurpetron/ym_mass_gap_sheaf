@@ -1938,6 +1938,40 @@ continuum construction, same-object OS/GNS, the Hamiltonian gap, and Clay
 closure.  The monitored leaf target passes all 5,505 jobs; all 11 printed
 load-bearing declarations stay within `[propext, Quot.sound]`.
 
+### 9.48 Post-audit implementation update: symmetric cutoff-one occupied-face recoding, milestone 280 (2026-09-09)
+
+The actual spin-four dyadic hypothesis `S.fine.cutoff = 1` now acts
+load-bearingly on the local-insertion frontier.  Every physical face label is
+constructively extracted as zero or one from the literal bounded-labelling
+enumeration.  Thus every nonzero face insertion has exact SU(2) Casimir
+exponent three, giving the binary recurrence
+
+```text
+empty -> unchanged tail,
+occupied -> geomSum(w,3) * response + w^3 * tail.
+```
+
+More importantly, the response at fixed source is independent of the chosen
+face.  The prefix-weighted decomposition can therefore be replaced exactly
+by equal sharing among occupied faces.  For a source with `n > 0` occupied
+faces, each retained face receives `geomSum(w,3*n)/n`; if `n = 0`, the carrier
+is empty.  The sum of shares is the original global quotient, and the full
+centered score moment is unchanged.  Every member of the new source-face
+carrier comes with the kernel-checked fact that the inserted face has spin
+one.
+
+This eliminates the arbitrary ordering artifact and removes empty faces from
+the analytic carrier.  It does not make the term strictly local: the equal
+share retains the global occupation count and the event response retains the
+complete production-kernel row.  The next simplification is therefore a
+connected-support cancellation theorem anchored at the retained occupied
+face, followed by a bound only on the component that reaches the coarse
+event.  Uniform mixing, the balanced-blocking estimate, the centered
+`O(g^2)` bound, all-cutoff/volume passage, the interacting continuum theory,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain open.  The focused check and 5,506-job target pass; all 32 printed
+declarations remain within `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

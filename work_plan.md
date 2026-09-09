@@ -3225,6 +3225,59 @@ load-bearing declarations use only `[propext, Quot.sound]` (some require only
 `Classical`, choice, `sorry`, new axiom, `native_decide`, noncomputable
 witness, or enlarged heartbeat budget is introduced.
 
+## Milestone 280: symmetrize the cutoff-one centered face insertion (2026-09-09)
+
+**Status. THE ACTUAL FINE CUTOFF MAKES EVERY PHYSICAL FACE BINARY.  THE
+ORDERED HYBRID INSERTION IS NOW RECODED EXACTLY ON AN ORDER-FREE CARRIER
+CONTAINING ONLY OCCUPIED FACES.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginBinaryHybrid.lean` first extracts
+from the literal bounded-labelling carrier that every physical face spin is
+zero or one when `S.fine.cutoff = 1`.  Hence an empty face has Casimir
+exponent zero, while an occupied face has exact SU(2) exponent
+`C4(1) = 3`.  The ordered local response therefore obeys the binary
+recurrence
+
+```text
+empty face    -> tail
+occupied face -> geomSum(w,3) * localResponse + w^3 * tail.
+```
+
+The centered response is constant in the inserted face at fixed fine
+source.  The module uses this fact to remove the arbitrary prefix ordering
+entirely.  If `n` faces of a source are occupied, each occupied face receives
+the exact common share
+
+```text
+geomSum(w, 3*n) / n,
+```
+
+and empty faces are absent.  Finite positive-denominator cancellation proves
+that these shares sum to the source's global geometric quotient.  Flattening
+over sources yields a symmetric source-face carrier, and membership in that
+carrier constructively implies both membership of the source in the physical
+state list and `source(insertedFace) = 1`.  The complete one-replica centered
+score-event moment is exactly the corresponding symmetric insertion sum.
+
+This closes the exact symmetric-recoding alternative left open by milestone
+279.  It does not yet prove a local covariance estimate: the common share
+still depends on the source's global occupied-face count, and the centered
+coarse-output response still depends on the full kernel row.  The next causal
+edge is to exploit the now-genuine occupied insertion anchor in the existing
+two-replica support-switch/path decomposition, separating source components
+that do not connect the inserted face to the coarse event from the connected
+residue, before estimating the latter.  The balanced-blocking producer,
+centered `O(g^2)` consumer, all-cutoff persistence, interacting continuum
+measure, same-object OS/GNS reconstruction, Hamiltonian gap, and Clay closure
+remain open.
+
+The focused monitored source check and dependency-complete target both pass;
+the latter builds all 5,506 jobs.  All 32 printed declarations use only
+`[propext, Quot.sound]` (many use only `[propext]` or no axioms).  No aggregate
+root pass is claimed, and no `Classical`, choice, `sorry`, new axiom,
+`native_decide`, noncomputable witness, or enlarged heartbeat budget is
+introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
