@@ -1205,8 +1205,11 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       |       slab membership, and exact `{0,1}` packets . [PROVED]
 |           |       +-- every closed binary coarse endpoint has an exact
 |           |       |       literal fine-support endpoint lift .......... [PROVED subclass]
-|           |       +-- arbitrary attached spins `0..4`: mixed strand
-|           |       |       routing compatible with coarse intertwiners . [ACTIVE geometric lift]
+|           |       +-- closed all-plane pair bubbles contribute exact
+|           |       |       packets `[1,1,0,0]` or `[0,0,1,1]` ........... [PROVED]
+|           |       +-- pair bubbles vanish on every other coarse fibre .. [PROVED]
+|           |       +-- arbitrary attached spins `0..4`: XOR assembly,
+|           |       |       corrected-slab containment, and exact packets  [ACTIVE geometric lift]
 |           |       +-- two lifts => saturated receiver coverage .... [PROVED reduction]
 |           |       +-- saturated coverage => unreachable mass = 0 .. [PROVED exact]
 |           |       `-- exact-coverage matched-AF compiler ........... [PROVED interface]
@@ -1293,6 +1296,60 @@ attached endpoint spins `2`, `3`, and `4`.  Covered calibration, quadratic
 spacing and mismatch, cutoff-uniform physical contraction, same-measure
 continuum construction, OS/GNS reconstruction, Hamiltonian gap, and Clay
 closure remain open.
+
+## Milestone 242: closed dyadic pair bubbles in every face orientation (2026-09-08)
+
+**Status. THE LOCAL CLOSED GENERATOR FOR COARSE SPIN TWO IS NOW PROVED IN
+ALL SIX PLAQUETTE ORIENTATIONS; GLOBAL XOR ASSEMBLY AND CORRECTED-SLAB
+CONTAINMENT REMAIN OPEN.**
+
+`Z4DyadicClosedPairBubble.lean` constructs a translated six-face fine unit-
+cube boundary over any coarse plaquette.  The cube orientation is chosen so
+that exactly two opposite faces lie in the target plane.  Those faces are
+the lower or upper adjacent pair in the explicit four-element nondegenerate
+dyadic fibre; the other four cube faces are dyadically degenerate.
+
+```text
+chosen coarse face q
+  +-- lower pair bubble  -> packet(q) = [1,1,0,0]
+  +-- upper pair bubble  -> packet(q) = [0,0,1,1]
+  `-- every r != q       -> packet(r) = [0,0,0,0]
+
+each bubble
+  -> six distinct fine plaquettes
+  -> even incidence at every fine link
+  -> one exact nondegenerate coarse image
+```
+
+The construction works uniformly for planes `01`, `02`, `03`, `12`, `13`,
+and `23`.  The monitored dependency-complete target passes 822 jobs.  Every
+printed load-bearing declaration depends on at most
+`[propext, Quot.sound]`; the initial symbolic proof was explicitly repaired
+to remove a `Classical.choice` dependency before this milestone was accepted.
+No full-root audit is claimed.
+
+Together with literal parity subdivision, the packet arithmetic now has the
+required local generators:
+
+```text
+spin 0 : nothing
+spin 1 : literal parity child                     [1,0,0,0]
+spin 2 : lower pair bubble                        [1,1,0,0]
+spin 3 : literal parity child + upper pair bubble [1,0,1,1]
+spin 4 : lower pair + upper pair bubbles          [1,1,1,1]
+```
+
+The `+` in the last two lines must be implemented as coefficient-level XOR,
+not list append: side faces of different cube bubbles can overlap and must
+cancel mod two.  The next theorem must construct the canonical finite XOR
+support, preserve cellular closure, prove its exact packet at every coarse
+face, and show it stays in the corrected fine slab.  Boundary containment is
+a genuine remaining condition, not silently inferred from the local cube.
+
+This is exact finite lattice geometry.  It does not prove full attached-
+endpoint coverage, receiver calibration, spacing or mismatch estimates,
+cutoff-uniform contraction, a continuum measure, OS/GNS reconstruction, a
+Hamiltonian gap, or the Clay theorem.
 
 ## Current goal-mode checkpoint (2026-09-01)
 

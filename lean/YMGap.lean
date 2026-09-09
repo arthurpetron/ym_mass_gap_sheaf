@@ -1366,6 +1366,8 @@ import YMGap.Continuum.Z4DyadicSU2ParityGlobalPushforward
 import YMGap.Continuum.Z4DyadicSU2ParityPhysicalWeightFence
 import YMGap.Continuum.Z4DyadicSU2ParityActivityMatchedDefect
 import YMGap.Continuum.Z4DyadicSU2ParityMinimalLiftFence
+import YMGap.Continuum.Z4DyadicSubdivisionClosure
+import YMGap.Continuum.Z4DyadicClosedPairBubble
 import YMGap.Continuum.Z4AdjacentTimeUnitCubeCylinder
 import YMGap.Continuum.Z4AdjacentTimeUnitCubeActivity
 import YMGap.Continuum.Z4AdjacentTimeJointPositivity

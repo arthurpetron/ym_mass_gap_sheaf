@@ -744,6 +744,38 @@ accepted coarse intertwiner assignment.  Covered calibration, quadratic
 spacing and mismatch, cutoff-uniform contraction, continuum construction,
 OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain open.
 
+### 9.10 Post-audit implementation update: all-plane closed pair bubbles, milestone 242 (2026-09-08)
+
+`Z4DyadicClosedPairBubble.lean` supplies a local closed generator for two
+occupied children in one dyadic coarse-face fibre.  It explicitly enumerates
+the unit-cube boundaries in coordinate triples `012`, `013`, and `023`, then
+translates the appropriate orientation over each of the six coarse
+plaquette planes.  The resulting support is duplicate-free and has even
+incidence at every fine link.
+
+For either transverse dyadic layer, exactly the two target-plane cube faces
+are nondegenerate.  Their ordered packet is respectively
+`[1,1,0,0]` or `[0,0,1,1]`; the other four faces are degenerate under dyadic
+projection.  A separate locality theorem proves that every different coarse
+fibre receives the zero packet.  Thus this is a genuine one-fibre generator,
+not merely a target-face count.
+
+The monitored dependency-complete target passes 822 jobs.  Every printed
+load-bearing declaration uses at most `[propext, Quot.sound]`.  During the
+audit, broad simplification of symbolic half-coordinates and `getD`
+membership was found to introduce `Classical.choice`; both proofs were
+replaced by explicit constructive division and finite-membership witnesses,
+and the final audit is clean.  No full-root audit is claimed.
+
+This closes the local spin-two geometry but not the global reverse lift.
+Literal parity subdivision and lower/upper pair bubbles must now be combined
+by coefficient-level XOR over the entire attached coarse assignment.  That
+construction must preserve closure, compute all packets for spins `0..4`,
+and remain inside the corrected fine slab; list append is invalid because
+bubble side faces may overlap.  The receiver calibration, uniform physical
+estimates, continuum construction, OS/GNS reconstruction, Hamiltonian gap,
+and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
