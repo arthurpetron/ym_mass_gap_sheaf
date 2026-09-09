@@ -299,6 +299,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |       +-- equals `Z_f^2` times centered remainder ..... [PROVED exact]
 |   |   |   |       |   |   |   |   |           |       +-- equals `Z_f^2` times one unit-bounded
 |   |   |   |       |   |   |   |   |           |       |       connected-observable defect ................. [PROVED exact]
+|   |   |   |       |   |   |   |   |           |       +-- direct matched-AF three-input compiler ........ [PROVED interface]
 |   |   |   |       |   |   |   |   |           |       +-- centered remainder <= `K*g^2` .............. [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |           |       `-- full physical remainder `l1` <= `K*g^2` ... [OPEN stronger fallback]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
@@ -2246,6 +2247,50 @@ The direct connected remainder bound remains active.  Physical spacing,
 raw-event mismatch, all-cutoff and volume-uniform persistence, the same
 interacting continuum measure, OS/GNS reconstruction, the Hamiltonian gap,
 and Clay closure remain downstream.
+
+## Milestone 261: direct connected producer reaches the matched-AF consumer (2026-09-09)
+
+**Status. THE GIBBS-REFRESH CENTERED-REMAINDER PREMISE NOW SITS DIRECTLY ON
+THE EXACT SHIFTED MATCHED-AF SCHEDULE AND COMPILES TO THE FINAL FINITE
+`ANCHOR + EPSILON` COVARIANCE THEOREM.  THE PRODUCER-FACING INTERFACE HAS
+EXACTLY THREE INDEPENDENT QUANTITATIVE FIELDS.**
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainderMatchedAF.lean` defines the
+schedule-level Type witness
+`MatchedShiftedAFSpinFourGibbsRefreshConnectedRemainderQuadraticCostControl`.
+After a common tail start it asks for precisely
+
+```text
+spacingFloor * g(scale)^2 <= physicalSpacing(scale),
+rawMismatch(scale) <= mismatchCeiling * g(scale)^2,
+|centeredCylinderRemainder(scale)|
+  <= connectedCeiling * g(scale)^2.
+```
+
+The last field uses the actual production physical kernel, the literal face
+map, and the exact effective coarse coupling at that same schedule index.
+The milestone-260 Gibbs-refresh theorem converts it to the aggregate signed
+raw-column cross with no coefficient loss.  The existing matched-AF compiler
+then divides both quadratic budgets by the positive spacing floor and reaches
+the exact actual-covariance raw-cross tail and the finite
+`fineCovariance <= anchorRate + epsilon` consumer.
+
+Thus no receiver-column determinant, partition normalization, full-carrier
+variation, or total-variation norm remains in the preferred schedule-facing
+premise.  No one of the three quantitative estimates is inhabited here: the
+direct centered-remainder bound is still the active cancellation-aware
+producer, while raw mismatch and lower physical spacing remain independent
+co-producers.
+
+The dependency-complete monitored target passes all 5,504 jobs.  All four
+printed declarations depend only on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, or noncomputable witness is
+introduced.  No full-root audit is claimed.
+
+This remains a finite cutoff-one/matched-chart compiler.  Uniform cutoff and
+volume persistence, construction of the same interacting continuum measure
+and observable algebra, same-object OS/GNS reconstruction, a positive
+Hamiltonian gap, and Clay closure remain open.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

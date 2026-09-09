@@ -1327,6 +1327,34 @@ centered-remainder estimate is asserted.  Cutoff/volume uniformity, continuum
 measure construction, OS/GNS reconstruction, the Hamiltonian gap, and Clay
 closure remain open.
 
+### 9.29 Post-audit implementation update: direct matched-AF connected producer, milestone 261 (2026-09-09)
+
+`Z4DyadicSpinFourGibbsRefreshConnectedRemainderMatchedAF.lean` removes the
+last adapter-level ambiguity from the cancellation-preserving branch.  Its
+schedule witness asks directly for a positive quadratic spacing floor, an
+`O(g^2)` raw-event mismatch, and
+
+```text
+|centeredCylinderRemainder| <= connectedCeiling * g^2
+```
+
+on the actual shifted matched-AF scale pair and face map.  The milestone-260
+compiler supplies the aggregate receiver raw-column cross with the identical
+coefficient, and the existing matched-AF raw-column compiler reaches the
+actual covariance raw-cross tail and final finite `anchor + epsilon` theorem.
+
+This is the preferred three-input interface: no receiver cardinality,
+pointwise density calibration, global coupling-one partition drift, or full
+remainder `L1` norm is introduced.  It does not inhabit any of the three
+quantitative fields.  The next analytic proof must act on the selected
+centered observable itself (or knowingly choose the stronger `L1` fallback),
+alongside the independent raw-mismatch and lower-spacing estimates.
+
+The dependency-complete monitored target passes all 5,504 jobs, and all four
+printed declarations use exactly `[propext, Quot.sound]`.  Arbitrary-cutoff
+and volume-uniform persistence, the continuum measure, same-object OS/GNS,
+the Hamiltonian gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
