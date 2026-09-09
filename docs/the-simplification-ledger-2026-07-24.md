@@ -861,6 +861,33 @@ and raw-mismatch estimates needed by the matched-AF contraction compiler.
 Cutoff-uniform contraction, the same interacting continuum measure, OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
+### 9.14 Post-audit implementation update: automatic matched-AF coverage, milestone 246 (2026-09-08)
+
+`Z4DyadicSpinFourMatchedAFCoverage.lean` removes one more historical interface
+artifact.  A matched physical observable schedule constructs every scale pair
+from cutoff-one fine geometry.  Consequently the concrete spin-four endpoint
+coverage from section 9.13 applies definitionally at every scale; it is not an
+analytic hypothesis and does not need an eventual-start qualifier.
+
+The minimized record
+`MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl` retains only
+the lower quadratic physical-spacing estimate, the upper quadratic raw-
+mismatch estimate, and the upper quadratic covered normalized-variation
+estimate.  Its constructive adapter inserts automatic endpoint coverage into
+the established assignment-saturated compiler.  The resulting chain proves
+zero unreachable mass and reaches the existing eventual
+`fineCovariance <= anchorRate + epsilon` theorem.
+
+The dependency-complete monitored target passes 5,490 jobs.  All four printed
+declarations depend exactly on `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, new axiom, or noncomputable witness is introduced.  No full-root
+audit is claimed.
+
+This is a strict interface simplification, not an analytic contraction
+estimate.  Covered-image calibration, physical spacing, and raw mismatch are
+still open, as are all-cutoff contraction, the same interacting continuum
+measure, OS/GNS reconstruction, the Hamiltonian gap, and Clay closure.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -243,19 +243,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |   |       endpoint coverage decomposition .............. [PROVED exact]
 |   |   |   |       |   |   |   |   |   +-- rebuild normalized aggregate variation with the
 |   |   |   |       |   |   |   |   |   |       saturated density .............................. [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- every attached spin-0-through-4 endpoint has a
+|   |   |   |       |   |   |   |   |   |       closed fine cutoff-one binary lift ............ [PROVED]
+|   |   |   |       |   |   |   |   |   +-- both assignment-saturated receiver columns covered [PROVED]
+|   |   |   |       |   |   |   |   |   +-- unreachable receiver mass = 0 .................... [PROVED exact]
+|   |   |   |       |   |   |   |   |   +-- matched-AF endpoint-coverage field automatic ...... [PROVED]
 |   |   |   |       |   |   |   |   |   `-- normalized receiver variation <=
 |   |   |   |       |   |   |   |   |           `(K*g^2)*Z_c^2` ........................... [ACTIVE sole receiver input]
-|   |   |   |       |   |   |   |   |       +-- covered-image normalized calibration
-|   |   |   |       |   |   |   |   |       |       <= `(K_cov*g^2)*Z_c^2` ................... [OPEN]
-|   |   |   |       |   |   |   |   |       `-- near-full supported-image coverage
-|   |   |   |       |   |   |   |   |           +-- full cell mass <= covered image mass
-|   |   |   |       |   |   |   |   |           |       + `(K_miss*g^2)*Z_c^2` ............... [OPEN]
-|   |   |   |       |   |   |   |   |           `-- equivalent uncovered-mass bound ......... [PROVED exact]
-|   |   |   |       |   |   |   |   |               +-- unreachable mass <= full receiver mass [PROVED exact]
-|   |   |   |       |   |   |   |   |               +-- full receiver mass <= twice the
-|   |   |   |       |   |   |   |   |               |       root-positive marginal times `Z_c` .. [PROVED]
-|   |   |   |       |   |   |   |   |               `-- root-positive marginal <=
-|   |   |   |       |   |   |   |   |                       `(K_pos*g^2)*Z_c` .................... [ACTIVE]
+|   |   |   |       |   |   |   |   |       `-- covered-image normalized calibration
+|   |   |   |       |   |   |   |   |               <= `(K_cov*g^2)*Z_c^2` ........... [ACTIVE analytic producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
 |   |   |   |       |   |   |   |       |       the original full target carrier ........... [PROVED exact]
@@ -1499,6 +1495,46 @@ calibration estimate; the lower physical-spacing and raw-mismatch quadratic
 estimates also remain open.  A cutoff-uniform contraction theorem, the same
 interacting continuum measure, OS/GNS reconstruction, a positive Hamiltonian
 gap, and the Clay-facing same-object assembly remain open.
+
+## Milestone 246: automatic matched-AF spin-four coverage compiler (2026-09-08)
+
+**Status. ENDPOINT COVERAGE IS NOW A THEOREM OF EVERY MATCHED-AF SCHEDULE
+SCALE, NOT A FIELD THAT THE QUANTITATIVE PRODUCER MUST SUPPLY.**
+
+`Z4DyadicSpinFourMatchedAFCoverage.lean` observes that every scale pair built
+by `matchedShiftedAFPhysicalObservableRefinementSchedule` has fine cutoff one
+definitionally.  It therefore specializes milestone 245's concrete endpoint
+lift at every scale and constructs
+`matchedShiftedAFSpinFourEndpointCoverage` without an eventual-start or
+coverage premise.
+
+The new producer record
+`MatchedShiftedAFSpinFourCoveredVariationQuadraticCostControl` deletes the
+old `endpointCoverage` field.  Its adapter inserts the theorematic spin-four
+coverage into the existing assignment-saturated compiler, obtains exact zero
+unreachable mass, and reaches the unchanged final consumer
+
+```text
+three genuine analytic bounds
+|
++-- c * g(scale)^2 <= physical spacing               [OPEN]
++-- raw mismatch <= M * g(scale)^2                   [OPEN]
+`-- covered normalized variation <= K * g(scale)^2   [ACTIVE]
+    |
+    `-- automatic spin-four endpoint coverage        [PROVED]
+        `-- fine covariance <= anchor rate + epsilon [PROVED consumer]
+```
+
+The dependency-complete monitored target passes 5,490 jobs.  Every printed
+load-bearing declaration depends exactly on `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, new axiom, or noncomputable witness is present.
+No full-root audit is claimed.
+
+This milestone minimizes the quantitative interface but does not inhabit its
+three analytic fields.  In particular it does not establish cutoff-uniform
+contraction, construct the interacting continuum measure, perform same-object
+OS/GNS reconstruction, prove a positive Hamiltonian gap, or close the Clay
+problem.
 
 ## Current goal-mode checkpoint (2026-09-01)
 
