@@ -1169,6 +1169,86 @@ moment normalization remain open.  Physical spacing, raw-event mismatch,
 all-cutoff persistence, the same interacting continuum measure, OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure also remain open.
 
+### 9.25 Post-audit implementation update: coupling-one partition drift, milestone 257 (2026-09-09)
+
+The reference calibration has been audited one layer further.
+`Z4DyadicSpinFourFineCouplingPartitionDrift.lean` proves that the actual fine
+partition is at most its coupling-one counterpart and defines the
+nonnegative loss
+
+```text
+unitFinePartition^2 - actualFinePartition^2.
+```
+
+It factors this exactly as the one-power partition loss times the partition
+sum, then applies the matched-AF perturbation theorem to obtain
+
+```text
+partitionSquareLoss
+  <= 2*g^2 * totalUnitCasimirMoment
+       * (unitFinePartition + actualFinePartition).
+```
+
+The milestone-256 reference defect itself satisfies the exact second
+recentring
+
+```text
+referenceScaleDefect
+  = balancedUnitBlockingDefect
+      - partitionSquareLoss * coarseCross,
+```
+
+where the balanced defect uses the coupling-one fine partition square as
+well as the coupling-one pushed cross.  The resulting absolute bound exposes
+two distinct analytic obligations: a true unit-fine versus decimated-coarse
+blocking-law comparison, and a global normalization term containing the
+Casimir exponent summed over the entire fine slab.
+
+The dependency-complete monitored target passes all 5,498 jobs, and all
+twelve printed declarations use exactly `[propext, Quot.sound]`.  This does
+not prove a no-go for every global interpolation, but it rules out treating
+the existing coupling-one reference as a purely receiver-local perturbation.
+The preferred next branch is a face-local or normalization-preserving
+reference that retains the two selected pair-cell estimate without paying
+the whole-slab moment.  The balanced blocking calibration and localized
+moment bound remain open, as do physical spacing, raw-event mismatch,
+all-cutoff persistence, the same interacting continuum measure, OS/GNS
+reconstruction, the Hamiltonian gap, and Clay closure.
+
+### 9.26 Post-audit implementation update: same-fine-law reference kernels, milestone 258 (2026-09-09)
+
+`Z4DyadicSpinFourNormalizationPreservingReferenceKernel.lean` realizes the
+normalization-preserving alternative at the correct abstract level.  Every
+`FiniteSlabKernel` is row-normalized, so its unnormalized pushed target law
+has total mass equal to the same actual fine partition.  An arbitrary
+reference kernel can therefore be compared directly with the production
+physical kernel without changing the fine Gibbs weights.
+
+The aggregate signed raw-column scale defect has the exact decomposition
+
+```text
+rawScaleDefect
+  = referenceKernelScaleDefect
+      + Z_c^2 * (referenceKernelCross - physicalKernelCross).
+```
+
+The associated absolute bound contains no partition-drift payment.  A
+reference blocking defect bounded by
+`referenceCeiling*g^2*(Z_c^2*Z_f^2)` and a same-fine-law signed-cross
+discrepancy bounded by `kernelCeiling*g^2*Z_f^2` compile to the existing
+aggregate raw-column calibration with coefficient
+`(referenceCeiling + kernelCeiling)*g^2`.
+
+The dependency-complete monitored target passes all 5,499 jobs, and all nine
+printed declarations use exactly `[propext, Quot.sound]`.  This is an honest
+interface rather than a hidden existence claim: a concrete local or ideal
+reference kernel satisfying the two bounds remains to be constructed.  The
+older deterministic parity pushforward is not automatically such a producer,
+because its own physical-weight fence already proves that bare parity-fibre
+summation need not equal the physical coarse Gibbs weight.  All-cutoff
+persistence, the continuum measure, OS/GNS reconstruction, the Hamiltonian
+gap, and Clay closure remain open.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

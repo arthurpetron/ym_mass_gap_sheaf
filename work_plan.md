@@ -280,8 +280,18 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |       |   |   |   |   |           |       coupling-one perturbation split ............. [PROVED]
 |   |   |   |       |   |   |   |   |           +-- reference residual + normalized moment compiler
 |   |   |   |       |   |   |   |   |           |       => aggregate raw-column calibration ......... [PROVED]
-|   |   |   |       |   |   |   |   |           +-- reference scale-defect calibration against the
-|   |   |   |       |   |   |   |   |           |       actual decimated coarse law ................. [ACTIVE]
+|   |   |   |       |   |   |   |   |           +-- reference defect = balanced coupling-one blocking
+|   |   |   |       |   |   |   |   |           |       defect - global fine-partition drift ........ [PROVED exact]
+|   |   |   |       |   |   |   |   |           +-- global partition-square drift <= `2*g^2` times
+|   |   |   |       |   |   |   |   |           |       whole-slab Casimir normalization term ....... [PROVED]
+|   |   |   |       |   |   |   |   |           +-- global coupling-one continuation
+|   |   |   |       |   |   |   |   |           |   +-- balanced blocking-law calibration ........... [PARTIAL]
+|   |   |   |       |   |   |   |   |           |   `-- volume-uniform whole-slab moment ............ [OPEN / extensive risk]
+|   |   |   |       |   |   |   |   |           +-- normalization-preserving reference-kernel route
+|   |   |   |       |   |   |   |   |           |   +-- every finite kernel pushes the same actual `Z_f` [PROVED]
+|   |   |   |       |   |   |   |   |           |   +-- exact reference + signed kernel-cross split .. [PROVED]
+|   |   |   |       |   |   |   |   |           |   +-- two calibrated inputs => aggregate calibration [PROVED]
+|   |   |   |       |   |   |   |   |           |   `-- concrete local/ideal reference kernel ........ [ACTIVE preferred]
 |   |   |   |       |   |   |   |   |           `-- volume-uniform localized pair-cell moment ....... [ACTIVE co-producer]
 |   |   |   |       |   |   |   |   `-- two-scalar/full-carrier route ................... [OPEN adapter]
 |   |   |   |       |   |   |   |       +-- split posterior `l1` and masses reassemble on
@@ -1999,6 +2009,122 @@ inputs.  All-cutoff persistence, the same interacting continuum measure,
 same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
 remain downstream.
 
+## Milestone 257: coupling-one partition-drift audit (2026-09-09)
+
+**Status. THE REFERENCE SCALE DEFECT NOW SPLITS A SECOND TIME INTO A
+BALANCED COUPLING-ONE BLOCKING-LAW DEFECT AND AN EXPLICIT GLOBAL
+FINE-PARTITION DRIFT.  THE LATTER IS PROVED TO CARRY THE TOTAL WHOLE-SLAB
+CASIMIR MOMENT, SO THE GLOBAL COUPLING-ONE ROUTE NO LONGER HIDES ITS
+POTENTIAL VOLUME COST.**
+
+`Z4DyadicSpinFourFineCouplingPartitionDrift.lean` proves termwise and then
+partition monotonicity below coupling one,
+
+```text
+Z_f(actual) <= Z_f(unit),
+```
+
+defines the nonnegative square loss
+
+```text
+partitionSquareLoss = Z_f(unit)^2 - Z_f(actual)^2,
+```
+
+and factors it exactly as
+
+```text
+(Z_f(unit) - Z_f(actual)) * (Z_f(unit) + Z_f(actual)).
+```
+
+The matched-AF perturbation theorem therefore gives
+
+```text
+partitionSquareLoss
+  <= 2*g^2 * totalUnitCasimirMoment
+       * (Z_f(unit) + Z_f(actual)).
+```
+
+The reference scale defect from milestone 256 is then recentered exactly:
+
+```text
+referenceScaleDefect
+  = balancedUnitBlockingDefect
+      - partitionSquareLoss * coarseCross.
+```
+
+Consequently its absolute value is bounded by the balanced blocking-law
+residual plus the displayed whole-slab normalization payment.  The module
+names separate calibration interfaces for those two obligations.  This is
+not a proof that a volume-uniform global-moment bound is impossible, but it
+does show that the coupling-one interpolation changes every fine face and
+therefore requires control of the total slab Casimir exponent; the earlier
+"localized moment only" reading was incomplete.
+
+The dependency-complete monitored target passes all 5,498 jobs.  All twelve
+printed declarations depend only on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, or noncomputable witness is
+introduced.  No full-root audit is claimed.
+
+The preferred active branch is now to construct a genuinely local or
+normalization-preserving reference that keeps the already proved two-cell
+perturbation without changing the entire fine partition.  The balanced
+blocking-law calibration and the localized pair-cell moment remain honest
+co-producers.  Physical spacing, raw-event mismatch, all-cutoff persistence,
+the same interacting continuum measure, same-object OS/GNS reconstruction,
+the Hamiltonian gap, and Clay closure remain downstream.
+
+## Milestone 258: normalization-preserving reference-kernel compiler (2026-09-09)
+
+**Status. THE RAW-COLUMN SCALE DEFECT NOW HAS AN EXACT REFERENCE-KERNEL
+DECOMPOSITION IN WHICH BOTH PUSHED CROSSES USE THE SAME ACTUAL FINE GIBBS
+LAW.  THE GLOBAL FINE-PARTITION DRIFT FROM THE COUPLING-ONE ROUTE IS ABSENT,
+AND TWO EXPLICIT QUADRATIC CALIBRATIONS COMPILE TO THE EXISTING FINITE
+COVARIANCE CONSUMER.**
+
+`Z4DyadicSpinFourNormalizationPreservingReferenceKernel.lean` first records
+that every `FiniteSlabKernel` has pushed raw target mass exactly
+`Z_f(actual)`, by its constructive row-normalization field.  In particular,
+an arbitrary reference kernel and the production physical kernel share the
+same source Gibbs mass and the same pushed normalization.
+
+For any such reference kernel the aggregate signed scale defect is recentered
+exactly as
+
+```text
+rawScaleDefect
+  = referenceKernelScaleDefect
+      + Z_c^2 * (referenceKernelCross - physicalKernelCross).
+```
+
+Taking absolute values introduces no partition correction.  The module
+therefore exposes exactly two honest inputs:
+
+```text
+|referenceKernelScaleDefect|
+  <= referenceCeiling*g^2*(Z_c^2*Z_f^2),
+
+|referenceKernelCross - physicalKernelCross|
+  <= kernelCeiling*g^2*Z_f^2.
+```
+
+They compile constructively to the existing raw-column calibration with
+coefficient `(referenceCeiling + kernelCeiling)*g^2`.  This milestone does
+not manufacture a reference kernel satisfying those estimates; its next
+producer is a concrete local or ideal transport kernel whose blocking-law
+and signed-cross errors can be bounded without a volume factor.
+
+The dependency-complete monitored target passes all 5,499 jobs.  All nine
+printed declarations depend only on `[propext, Quot.sound]`; no `Classical`,
+choice, `sorry`, new axiom, `native_decide`, or noncomputable witness is
+introduced.  No full-root audit is claimed.
+
+The global coupling-one branch remains an informative comparison with an
+explicit whole-slab normalization risk.  The preferred branch is now the
+normalization-preserving kernel producer.  Physical spacing, raw-event
+mismatch, all-cutoff persistence, the same interacting continuum measure,
+same-object OS/GNS reconstruction, the Hamiltonian gap, and Clay closure
+remain downstream.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
@@ -2014,9 +2140,15 @@ RAW-COLUMN `K*G^2` ESTIMATE.  THE MATCHED-AF BLOCKED MARGIN AND RESULTING
 PERTURBATION LOCALIZED TO THE TWO SELECTED PAIR CELLS.  THE FULL SCALE DEFECT
 IS NOW EXACTLY RECENTERED AT A REFERENCE DEFECT AGAINST THE ACTUAL DECIMATED
 COARSE LAW, AND THE TWO REMAINING NORMALIZED INPUTS COMPILE TO THE EXISTING
-COVARIANCE CONSUMER.  QUADRATIC REFERENCE-SCALE-DEFECT CALIBRATION AND A
-VOLUME-UNIFORM BOUND FOR THE LOCALIZED MOMENT ARE THE TWO ACTIVE
-CO-PRODUCERS.  THE INDEPENDENT
+COVARIANCE CONSUMER.  A SECOND EXACT RECENTERING SEPARATES THAT REFERENCE
+INTO A BALANCED COUPLING-ONE BLOCKING DEFECT AND A GLOBAL FINE-PARTITION
+DRIFT; THE LATTER IS PROVED TO PAY A WHOLE-SLAB CASIMIR MOMENT.  THE
+NORMALIZATION-PRESERVING ALTERNATIVE IS NOW PROVED AS AN ABSTRACT
+REFERENCE-KERNEL COMPILER: BOTH PUSHED CROSSES RETAIN THE ACTUAL FINE LAW,
+THE EXACT SPLIT HAS NO PARTITION DRIFT, AND TWO EXPLICIT QUADRATIC INPUTS
+COMPILE TO THE RAW-COLUMN CONSUMER.  THE PREFERRED ACTIVE PRODUCER IS A
+CONCRETE LOCAL OR IDEAL REFERENCE KERNEL SATISFYING THOSE INPUTS, WITH THE
+VOLUME-UNIFORM LOCALIZED PAIR-CELL MOMENT AS A CO-PRODUCER.  THE INDEPENDENT
 SPACING AND RAW-EVENT MISMATCH INPUTS, ALL-CUTOFF PERSISTENCE, AND THE
 CONTINUUM/OS/GNS/GAP CHAIN REMAIN DOWNSTREAM.**
 
