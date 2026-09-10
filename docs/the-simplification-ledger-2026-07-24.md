@@ -2977,6 +2977,30 @@ then can fixed-mass entropy yield a strict connected-fraction bound.  The
 focused monitored check passes and all thirteen printed declarations use
 only `[propext, Quot.sound]`.
 
+### 9.91 Post-audit implementation update: oriented connected product measures, milestone 323 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedOrientationDecomposition.lean`
+splits the connected envelope exactly into forward and reverse product
+measures, fixing one source-to-target assignment in each branch.  Each full
+oriented measure sums to the same explicit normalization,
+
+`tiltedRowMass(first) * tiltedRowMass(second)`.
+
+Nonnegativity plus duplicate-free subcarrier inclusion gives two oriented
+connected probabilities bounded by one.  A lossless gluing theorem shows that
+a common `rate` bound on the forward and reverse connected masses implies the
+same `rate` bound on the original symmetrized connected fraction.  This is
+the precise interface needed to use milestone 322's orientation-specific
+relative-excitation marks.
+
+No strict bound is asserted.  The next missing mathematical edge is an
+oriented boundary/contour certificate locating the obstruction to swapping
+the observable target component while remaining inside both assigned
+lowering rows.  That obstruction, rather than common parity-ground target
+mass, must carry the activity used in the fixed-mass sum.  The focused
+monitored check passes and all eighteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

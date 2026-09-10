@@ -4661,6 +4661,46 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 `admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
 external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 323: split the connected fraction into two oriented product measures (2026-09-10)
+
+**Status. THE SYMMETRIZED CONNECTED EVENT IS NOW EXACTLY THE SUM OF FORWARD
+AND REVERSE SOURCE-ASSIGNED PRODUCT MEASURES, EACH NORMALIZED BY ONE PRODUCT
+OF THE TWO TILTED ROW MASSES.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedOrientationDecomposition.lean`
+defines the forward and reverse connected masses using the oriented raw pair
+weights from milestone 322.  Their sum is exactly the M319 connected envelope
+sum.  On the complete physical square, finite Cartesian Fubini and the two
+localized row identities prove that each orientation has total mass
+
+`tiltedRowMass(first) * tiltedRowMass(second)`.
+
+Both oriented weights are nonnegative and the connected carrier is a
+duplicate-free subcarrier, so each connected mass is at most its exact
+oriented normalization.  The resulting forward and reverse connected
+fractions are each at most one.
+
+Most importantly, the gluing theorem
+`finePacketConnectedEnvelopeFraction_le_of_oriented_mass_bounds` proves that
+if both oriented connected masses are at most `rate` times their common row
+product, then the original symmetrized connected fraction is at most the same
+`rate`, with no factor-of-two loss.  The strictness problem may therefore be
+solved one unambiguous source assignment at a time, exactly where M322's
+relative-excitation marks apply.
+
+The next causal frontier is the oriented component-boundary theorem: encode
+where an observable-rooted target-component swap ceases to preserve that
+orientation's two lowering rows, and lower-bound the resulting boundary by
+relative excitation/source-disagreement activity.  Any summed strict rate
+must keep coupling, cutoff, volume, and load-bearing SU(2) dependence
+explicit.  Completed gap, thermodynamic/continuum passage, and the Clay
+theorem remain open.
+
+The focused monitored check passes.  All eighteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
