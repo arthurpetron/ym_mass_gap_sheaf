@@ -4868,6 +4868,46 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 328: factor the actual joint summand into heat suppression and reference (2026-09-10)
+
+**Status. EVERY ORIENTED JOINT FINE-SOURCE/COARSE-TARGET RAW SUMMAND NOW
+FACTORS EXACTLY INTO THE TWO HEAT POWERS THAT PAY CONTOUR ACTIVITY AND AN
+EXPLICIT PARITY-GROUND REFERENCE WEIGHT.**
+
+`Z4DyadicBinaryJointGibbsHeatExponentFactorization.lean` first replaces only
+the coarse heat coupling in one localized target row by one, retaining the
+complete common-exterior multiplicity, disagreement-carrier multiplicity,
+and corrected-slab link factor.  The actual row is exactly its coupling-one
+version times the heat power of its complete target Casimir exponent.
+
+For both forward and reverse lowering orientations, the two target powers
+combine and milestone 327's exact SU(2) decomposition separates them into
+source-parity-ground and excitation-excess powers.  Independently, the two
+actual cutoff-one fine source masses combine into the heat power
+
+`fineCoupling ^ (3 * (occupied(first) + occupied(second)))`
+
+times their exact coupling-one masses.  The complete joint summand therefore
+has the constructive rational identity
+
+`joint weight =`
+`  (fine source heat power * coarse excitation heat power)`
+`  * (coarse parity-ground heat power * coupling-one finite reference)`.
+
+Both fine and coarse couplings are named and may differ.  In particular, the
+parity-ground factor has not been discarded or called uniform.  No heat-power
+inequality, multiplicity/link entropy estimate, normalized strict response,
+completed gap, thermodynamic/continuum passage, or Clay theorem is asserted.
+The next causal frontier is an explicit suppression inequality under a named
+common coupling ceiling `rate < 1`, followed by a separate bound on the
+parity-ground reference entropy before any contour sum.
+
+The focused monitored check passes.  All thirteen printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

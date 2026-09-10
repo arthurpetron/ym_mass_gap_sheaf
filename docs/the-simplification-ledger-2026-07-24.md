@@ -3096,6 +3096,29 @@ oriented row normalizations must still be handled before a strict contour
 rate is available.  The focused monitored check passes and all twenty
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.96 Post-audit implementation update: exact joint heat factorization, milestone 328 (2026-09-10)
+
+`Z4DyadicBinaryJointGibbsHeatExponentFactorization.lean` contracts the mixed
+physical exponent budget into the actual unnormalized joint weight.  Each
+localized coarse target row is factored at coupling one without changing any
+common-exterior, disagreement-carrier, fusion, or corrected-slab link
+multiplicity.  The forward and reverse target pairs then split exactly into
+source-parity-ground and SU(2) excitation-excess heat powers.
+
+The two fine source masses independently factor through their exact
+cutoff-one occupied-face exponent.  Consequently one complete oriented joint
+summand is exactly
+
+`(fine-source power * coarse-excitation power)`
+`  * (coarse parity-ground power * coupling-one reference weight)`.
+
+This separates the geometric suppression compiler from its finite reference
+background while keeping both couplings explicit.  It is not yet a decay
+bound: a named subunit coupling ceiling must control the first factor, and the
+remaining parity-ground/fusion/link reference must be counted or normalized
+without introducing volume dependence.  The focused monitored check passes
+and all thirteen printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
