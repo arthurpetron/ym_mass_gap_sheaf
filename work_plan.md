@@ -4553,6 +4553,43 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 320: identify the connected envelope as an exact event probability (2026-09-10)
+
+**Status. THE M319 ENVELOPE IS NOW EXACTLY NORMALIZED: ON THE COMPLETE
+TWO-REPLICA CARRIER ITS MASS IS `2 * ROWMASS(first) * ROWMASS(second)`, AND
+ITS CONNECTED RESTRICTION DEFINES AN EXPLICIT RATIONAL FRACTION IN `[0,1]`.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedEnvelopeNormalization.lean` proves
+pointwise that the positive determinant envelope is the sum of the two
+oriented products of the localized raw tilted rows.  Finite Cartesian Fubini
+then sums those products exactly, while the full-carrier localization
+identities recover the two original source-dependent row masses.
+
+The connected active carrier is a duplicate-free subcarrier of the complete
+physical square.  A constructive weighted injection therefore proves its
+envelope mass is at most the exact normalization.  At positive coarse
+coupling the denominator is positive, so the file defines
+`finePacketConnectedEnvelopeFraction` and proves both `0 <= fraction` and
+`fraction <= 1`.  Thus no partition function or source-dependent
+normalization remains hidden in the next strictness estimate: the remaining
+analytic target is literally to bound this named connected-event fraction by
+an explicit rate below one.
+
+The M318 absolute target-mass floor alone is not yet such a strict estimate,
+because a source-dependent parity ground state can contribute extensive
+common target mass that cancels under row normalization.  The next causal
+geometry must therefore expose a connected carrier paid by excitation
+relative to the two source parity grounds (or an equivalent component-swap
+boundary cost) before applying fixed-mass entropy.  Its eventual strict rate
+must keep coupling, cutoff, and volume ranges explicit and use load-bearing
+SU(2) data.  Completed gap, thermodynamic/continuum passage, and the Clay
+theorem remain open.
+
+The focused monitored check passes.  All twelve printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

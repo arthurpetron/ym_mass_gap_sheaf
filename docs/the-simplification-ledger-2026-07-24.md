@@ -2904,6 +2904,34 @@ normalized response, completed gap, thermodynamic/continuum passage, and the
 Clay theorem remain open.  The focused monitored check passes and all seven
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.88 Post-audit implementation update: exact connected-envelope normalization, milestone 320 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedEnvelopeNormalization.lean` proves
+that the M319 positive envelope is pointwise equal to the symmetrized product
+of the two localized raw tilted rows.  Summing on the complete two-replica
+physical carrier and using exact finite Cartesian Fubini gives
+
+`sum fullCarrier envelope`
+`  = 2 * tiltedRowMass(first) * tiltedRowMass(second)`.
+
+The connected active carrier is proved duplicate-free and included in that
+complete square.  Hence its envelope sum is bounded by the displayed exact
+normalization.  For positive coarse coupling, division by the positive
+normalization defines `finePacketConnectedEnvelopeFraction`, with
+kernel-checked bounds `0 <= fraction <= 1`.
+
+This contracts all source-dependent partition normalization into one literal
+finite event probability.  It does not prove that the probability is
+strictly below one.  In particular, M318's absolute target-mass floor cannot
+by itself supply normalized activity: source-forced parity-ground mass may be
+extensive and common to both rows.  The next honest carrier must be paid by
+relative parity excitation or by the equivalent boundary obstruction to the
+component swap.  Any strict estimate must expose its coupling/cutoff/volume
+range and retain load-bearing SU(2) input.  Completed spectral gap,
+thermodynamic/continuum construction, and the Clay theorem remain open.  The
+focused monitored check passes and all twelve printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
