@@ -2429,6 +2429,31 @@ The dependency-complete monitored target passes all 5,496 jobs.  All thirteen
 printed declarations across the three new modules use only
 `[propext, Quot.sound]`.
 
+### 9.64 Post-audit implementation update: exact simultaneous spin-four target, milestone 296 (2026-09-09)
+
+`Z4DyadicSpinFourFixedFinalExact.lean` replaces any packet table with a
+structural maximal-channel proof.  A supported final spin equal to the sum of
+all four fine spins forces each internal pair channel to its own maximal sum.
+The stretched channel is therefore unique, and the fixed-final raw weight of
+the canonical packet for every spin zero through four is exactly the coarse
+heat coefficient `coeffW w spin`.
+
+`Z4DyadicSpinFourWholeSlabTargetExact.lean` applies this identity
+simultaneously on the literal global XOR support of every accepted coarse
+endpoint.  It proves support containment, fine physical membership, and the
+exact canonical packet on every coarse face.  The complete face product is
+then the coarse heat-kernel face factor; multiplication by the unchanged
+global coarse-link multiplicity proves that the whole-slab raw transition at
+the intended endpoint equals its complete coarse physical summand.
+
+This is the first exact non-vacuum multi-face target theorem for the
+spin-four lift.  It does not identify the complete row partition with the
+coarse partition and does not bound the sum of off-target raw weights.  The
+next target is precisely that normalization-sensitive off-target control,
+before any uniform centered-remainder or continuum claim.  Focused monitored
+checks pass, and all sixteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

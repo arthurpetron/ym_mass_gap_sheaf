@@ -175,7 +175,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- pair-bubble/vacuum shared-link tensor = vacuum tensor ................. [PROVED local]
 |   |   |   |   +-- isolated nonzero face kills valence-<=6 slab link product .............. [PROVED exact]
 |   |   |   |   +-- literal isolated pair-bubble whole raw row = vacuum row ................ [PROVED exact]
-|   |   |   |   +-- interacting bubbles in a non-vacuum closed coarse background ........... [ACTIVE exact producer]
+|   |   |   |   +-- canonical spin-0..4 maximal-final face weight = coarse heat coefficient . [PROVED exact]
+|   |   |   |   +-- simultaneous spin-four endpoint raw target = coarse physical term ....... [PROVED exact]
+|   |   |   |   +-- control all off-target row mass relative to the exact target ............. [ACTIVE exact/analytic producer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -3944,6 +3946,42 @@ and six literal-bubble declarations printed in the new modules all remain
 within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.
+
+## Milestone 296: preserve the complete coarse physical summand at the simultaneous spin-four endpoint (2026-09-09)
+
+**Status. EVERY ACCEPTED COARSE ENDPOINT NOW HAS AN EXPLICIT CUTOFF-ONE FINE
+SUPPORT WHOSE COMPLETE GLOBALLY LINK-GLUED RAW WEIGHT AT THAT SAME ENDPOINT
+IS EXACTLY THE COARSE PHYSICAL SPIN-FOAM SUMMAND.  INTERACTING PAIR BUBBLES
+ARE HANDLED SIMULTANEOUSLY, NOT DELETED ONE AT A TIME.**
+
+`Z4DyadicSpinFourFixedFinalExact.lean` proves the structural local theorem.
+If a supported pair channel reaches the total of all four packet spins, the
+upper fusion bounds force both internal channels to be their maximal sums.
+Thus the stretched state is the unique surviving maximal-final channel.  For
+the canonical packets representing spins zero through four, the complete
+fixed-final channel sum is therefore exactly `coeffW w spin`.
+
+`Z4DyadicSpinFourWholeSlabTargetExact.lean` multiplies that identity over
+every physical coarse face.  The canonical XOR support of an accepted coarse
+endpoint is read literally as its ordered spin-four packets and is proved to
+be an actual fine cutoff-one physical labelling.  The face product becomes
+the exact coarse heat-kernel face factor, while the globally shared coarse
+link-multiplicity product is already identical on both sides.  Consequently
+`wholeSlabRecouplingRawWeight` of the constructed fine source at its intended
+endpoint is exactly `S.coarse.physicalTerm endpoint`.
+
+This closes the simultaneous distinguished-target numerator, not the row
+normalization.  Other coarse targets can still receive positive raw mass.
+The active producer is now a cancellation-aware control of the complete
+off-target row mass relative to the exact diagonal target, strong enough for
+the centered production-versus-refresh comparison.  A volume-uniform
+centered remainder, completed gap, continuum construction, and Clay theorem
+remain open.
+
+Focused monitored checks pass for both new modules.  All sixteen printed
+load-bearing declarations remain within `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
