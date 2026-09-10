@@ -251,7 +251,7 @@ theorem finePacketConnectedFourEntryRateProfiledNormalizedTerminalCompilerCode_e
   exact Prod.ext hsource
     (Prod.ext hsize (Prod.ext hshape (Prod.ext hprofile hlowering)))
 
-private def profiledNormalizedTerminalCompilerCodeDecidableEq
+def profiledNormalizedTerminalCompilerCodeDecidableEq
     (S : SlabScalePair) (rate : Q') (hrate0 : (0 : Q') ≤ rate) :
     DecidableEq
       (FinePacketConnectedFourEntryRateProfiledNormalizedTerminalCompilerCode
@@ -625,6 +625,7 @@ theorem finePacketConnectedRateDistanceTerminalResidualFiber_total
 #print axioms FinePacketConnectedFourEntryRateProfiledNormalizedTerminalCompilerExactKey
 #print axioms finePacketConnectedFourEntryRateProfiledNormalizedTerminalCompilerExactKey
 #print axioms finePacketConnectedFourEntryRateProfiledNormalizedTerminalCompilerCode_eq_of_exactKey_eq
+#print axioms profiledNormalizedTerminalCompilerCodeDecidableEq
 #print axioms finePacketConnectedRateProfiledNormalizedTerminalCodes
 #print axioms finePacketConnectedRateProfiledNormalizedTerminalCodes_nodup
 #print axioms finePacketConnectedRateProfiledNormalizedTerminalCode_mem
