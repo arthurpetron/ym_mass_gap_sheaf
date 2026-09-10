@@ -2454,6 +2454,29 @@ before any uniform centered-remainder or continuum claim.  Focused monitored
 checks pass, and all sixteen printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.65 Post-audit implementation update: exact lower-triangular spin-four row, milestone 297 (2026-09-09)
+
+`Z4DyadicSpinFourLoweringKernel.lean` computes the entire off-target kernel
+left open by the exact diagonal theorem.  A supported internal channel always
+contributes one copy of the retained target heat coefficient, so the local
+weight is the number of supported fusion paths times that coefficient.  The
+kernel-checked five-by-five multiplicity matrix is
+`[[1,0,0,0,0],[0,1,0,0,0],[1,0,1,0,0],
+[0,2,0,1,0],[2,0,3,0,1]]`.
+
+Its nonzero entries are exactly the parity-preserving lowerings.  Multiplying
+the local formula over every coarse face while retaining the complete target
+link-multiplicity product identifies the whole raw row with an explicit
+lower-triangular coarse spin-foam weight.  Thus the active normalization
+problem is now a finite sum over a known global lowering downset, not an
+opaque internal-channel network.
+
+No estimate of that downset sum is claimed.  The next exact step is to delete
+all coarse targets outside the downset from the row partition; the subsequent
+analytic step is a cancellation-aware bound in the centered
+production-versus-refresh cross.  The focused monitored check passes and all
+five printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

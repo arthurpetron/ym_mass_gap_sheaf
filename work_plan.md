@@ -177,7 +177,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- literal isolated pair-bubble whole raw row = vacuum row ................ [PROVED exact]
 |   |   |   |   +-- canonical spin-0..4 maximal-final face weight = coarse heat coefficient . [PROVED exact]
 |   |   |   |   +-- simultaneous spin-four endpoint raw target = coarse physical term ....... [PROVED exact]
-|   |   |   |   +-- control all off-target row mass relative to the exact target ............. [ACTIVE exact/analytic producer]
+|   |   |   |   +-- complete local off-target kernel = parity-preserving lowering matrix ..... [PROVED exact]
+|   |   |   |   +-- complete raw row = explicit lower-triangular coarse spin-foam weight ..... [PROVED exact]
+|   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [ACTIVE exact producer]
+|   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -3982,6 +3985,45 @@ Focused monitored checks pass for both new modules.  All sixteen printed
 load-bearing declarations remain within `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.
+
+## Milestone 297: expose the exact lower-triangular off-target kernel (2026-09-09)
+
+**Status. THE COMPLETE RAW ROW OF THE CANONICAL SPIN-FOUR FINE SOURCE IS NOW
+AN EXPLICIT COARSE SPIN-FOAM KERNEL: EACH FACE CAN ONLY LOWER ITS SOURCE SPIN
+BY AN EVEN AMOUNT, WITH EXACT PATH MULTIPLICITIES, WHILE ALL COARSE LINKS
+REMAIN GLOBALLY GLUED.**
+
+`Z4DyadicSpinFourLoweringKernel.lean` defines the internal-channel path count
+and proves its complete cutoff-one matrix:
+
+```text
+source \ target   0  1  2  3  4
+0                  1  0  0  0  0
+1                  0  1  0  0  0
+2                  1  0  1  0  0
+3                  0  2  0  1  0
+4                  2  0  3  0  1
+```
+
+The support is characterized exactly as `target <= source` with equal
+parity.  Every fixed-final face sum is the displayed integer multiplicity
+times `coeffW w target`; no inequality or positivity hypothesis is used.
+Finite product congruence then identifies every entry of the globally glued
+whole-slab raw row with the product of these local lowering weights times the
+literal target link-multiplicity product.
+
+The remaining row normalization is no longer an unspecified recoupling sum.
+The next exact producer is to filter the physical coarse carrier to the
+finite global parity-preserving lowering downset and prove all excluded terms
+zero.  The analytic consumer must then control that downset mass in the
+signed centered production-versus-refresh comparison.  A volume-uniform
+centered remainder, completed gap, continuum construction, and Clay theorem
+remain open.
+
+The focused monitored check passes.  All five printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
