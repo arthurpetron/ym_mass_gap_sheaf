@@ -793,7 +793,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- retained blocked-law point density ................... [PROVED exact]
 |       +-- retained two-replica point law ....................... [PROVED exact]
 |       +-- connected retained-pair component estimate ........... [PROVED on 0<w<=1/400]
-|       +-- coherent/mixed enriched-pair observable bridge ........ [NEXT]
+|       +-- all-branch source-labelled connected joint flow ....... [PROVED exact]
+|       +-- joint-flow target marginal = enriched blocked pair law  [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1213,6 +1214,42 @@ enriched blocked pair law and whose source projection retains the component
 geometry.  Reflection on the enriched target, the linked same-object cutoff
 tower, beta/lattice-spacing scaling, completed gap, continuum construction,
 and Clay closure remain open.
+
+#### Carry the connected witness through every enriched output branch (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedJointFlow` constructs the
+source-labelled two-replica joint law suggested by the preceding frontier.
+For each expanded observable source pair, its output fiber is the complete
+Cartesian square of the corrected coarse-or-retained target.  It therefore
+contains coarse/coarse, coarse/retained, retained/coarse, and
+retained/retained outputs in one finite object.
+
+The two-replica output kernel is the product of the two genuine enriched
+kernel rows.  Exact row normalization proves that summing the complete output
+fiber gives one.  Consequently
+
+```text
+normalized mass of source-connected pairs with every enriched output
+  = normalized source-connected expanded-pair Gibbs mass
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+throughout the explicit SU(2) corridor `0 < w < 1`, `w <= 1/400`, with
+fine cutoff positivity named explicitly.  This removes the branch-coverage
+gap without erasing the component witness.
+
+The focused monitored source check and dependency-complete 1,553-job target
+build pass.  All four printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next exact seam is marginalization: forget the expanded source labels and
+prove that the resulting target-pair law is the product of the two enriched
+blocked masses.  Only after that equality can a target observable or
+reflection statement inherit the source-connected estimate.  The linked
+same-object cutoff tower, beta/lattice-spacing scaling, completed gap,
+continuum construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

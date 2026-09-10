@@ -29861,3 +29861,42 @@ construct the linked same-object cutoff tower; prove beta/lattice-spacing
 scaling and the completed physical gap; and construct the thermodynamic and
 continuum measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and
 Clay closure.
+
+#### Construct the complete source-labelled enriched connected joint flow (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedJointFlow` attaches two
+independent corrected enriched outputs to every expanded observable source
+pair while retaining that source pair as proof-relevant data.  The output
+carrier is the full square of the coarse-or-retained carrier, so all four
+branch combinations occur.
+
+The product kernel row is proved exactly normalized from the two one-copy row
+normalizations.  Summing all output targets therefore leaves the source pair
+weight unchanged, and normalization by the physical partition square gives
+
+```text
+complete source-labelled connected joint mass
+  = normalized paired-support connected Gibbs mass
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+under the explicit SU(2) hypotheses `1 <= fine.cutoff`, `0 < w < 1`, and
+`w <= 1/400`.  No beta-uniform or group-agnostic estimate is introduced.
+
+Monitored verification:
+
+```text
+retained connected joint-flow focused source check         PASS
+retained connected joint-flow dependency target            PASS (1,553 jobs)
+```
+
+All four printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: prove that forgetting source labels gives the product enriched
+blocked target law; define and control the corresponding enriched target
+observable; lift reflection; build the linked same-object cutoff tower; prove
+beta/lattice-spacing scaling and the completed physical gap; and construct
+the continuum theory and Clay closure.
