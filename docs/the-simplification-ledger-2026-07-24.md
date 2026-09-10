@@ -2210,6 +2210,36 @@ checks pass; all 21 printed accepted-response declarations and all 17 printed
 raw-cross declarations stay within `[propext, Quot.sound]`.  A
 dependency-complete monitored target passes all 5,513 jobs.
 
+### 9.56 Post-audit implementation update: cubic accepted response suppression, milestone 288 (2026-09-09)
+
+Exact response cancellation is not required for the first quantitative
+control.  The accepted support swap leaves a positive root in its left row
+and transfers a positive target into its right row.  At cutoff one, both
+switched heat exponents therefore have a common prefix three.  A new generic
+geometric-skew identity removes this prefix exactly, and the complete
+response-defect summand becomes `w^3` times an explicit residual.
+
+The same module proves directly from row normalization and nonnegativity that
+every event response lies in `[0,1]`, every pair response lies in `[-1,1]`,
+and the change under a support swap has absolute value at most two.  Combining
+this with the uniform geometric-sum ceiling gives
+
+```text
+|response residue| <= 2*w^3/(1-w) * unit-coupling assignment weight.
+```
+
+The estimate is pointwise and volume-independent in its scalar.  The
+unit-coupling assignment weights are not summable uniformly in volume by this
+inequality alone; erasing all remaining heat powers would reintroduce the
+background-entropy problem.  The active next edge is therefore a signed
+background-component cancellation/peeling theorem or a sharper raw-cross
+posterior bound that retains those powers.  No aggregate centered-remainder,
+continuum, OS/GNS, Hamiltonian-gap, or Clay theorem is claimed.
+
+The focused monitored check passes; all printed load-bearing declarations
+remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
+passes all 5,515 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -162,7 +162,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- actual response defect = four whole-row raw-event ratios ................ [PROVED exact]
 |   |   |   |   +-- clear four positive row partitions to one division-free raw cross ....... [PROVED exact]
 |   |   |   |   +-- raw-cross zero => defect-free accepted contraction ....................... [PROVED exact compiler]
-|   |   |   |   +-- raw-cross component factorization / target-reaching bound ................ [ACTIVE analytic producer]
+|   |   |   |   +-- switched root/target occupancy => exact cubic response factor ............. [PROVED exact]
+|   |   |   |   +-- response defect <= 2; complete response term
+|   |   |   |   |       <= 2*w^3/(1-w) times unit-coupling target weight ....................... [PROVED pointwise]
+|   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [ACTIVE analytic producer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
@@ -3622,6 +3625,50 @@ The focused monitored checks pass.  The 21 declarations printed by the
 accepted-response module and the 17 declarations printed by the raw-cross
 module remain within `[propext, Quot.sound]`.  A dependency-complete monitored
 target passes all 5,513 jobs.  No aggregate root pass is claimed.
+
+## Milestone 288: extract the cubic response suppression (2026-09-09)
+
+**Status. THE ACCEPTED SUPPORT-SWAP RESPONSE DEFECT NEED NOT VANISH: ITS
+COMPLETE OCCUPATION-RESPONSE SUMMAND INSTEAD HAS AN EXACT COMMON `w^3`
+FACTOR AND A VOLUME-INDEPENDENT POINTWISE CEILING.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginAcceptedSupportSwapResponseCubic.lean`
+proves the general common-prefix identity
+
+```text
+geomSumQpowSkew w (base + left) (base + right)
+  = w^base * geomSumQpowSkew w left right.
+```
+
+On an accepted support-disconnected source, the switch fixes the positive
+root face in the left row and moves the positive target face into the right
+row.  At cutoff one both switched occupation counts are therefore positive,
+so their complete antisymmetric occupation cofactor is exactly `w^3` times
+an explicit reduced skew.  The accepted cocycle is recompiled with that
+cubic factor visible in the full response-defect summand.
+
+Independently, every normalized kernel-row event response is proved to lie in
+`[0,1]`; hence each two-row response difference lies in `[-1,1]`, and its
+support-swap change has absolute value at most `2`.  Geometric summability
+then gives the pointwise bound
+
+```text
+|complete response-defect summand|
+  <= (2*w^3/(1-w)) * coupling-one target assignment weight.
+```
+
+This bound is uniform in occupation count and slab volume.  It does not by
+itself sum the coupling-one target weights uniformly in volume: disconnected
+background components still require signed cancellation, iterative peeling,
+or a raw-cross/posterior component estimate that retains their heat payment.
+That aggregate theorem is the next analytic producer.  The centered
+`O(g^2)` remainder, all-cutoff persistence, interacting continuum measure,
+same-object OS/GNS reconstruction, Hamiltonian gap, and Clay closure remain
+open.
+
+The focused monitored check passes, and all printed load-bearing declarations
+remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
+passes all 5,515 jobs.  No aggregate root pass is claimed here.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
