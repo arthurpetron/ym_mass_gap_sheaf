@@ -3212,6 +3212,25 @@ beta-uniform, entropy, or volume-uniform claim is made.  The focused monitored
 check passes and all six printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.102 Post-audit implementation update: normalized residual-heat connected sum, milestone 334 (2026-09-10)
+
+`Z4DyadicBinaryNormalizedConnectedResidualHeatSum.lean` threads milestone
+333's residual factor through the positive tilted-row normalization and the
+full attached connected pair carrier.  It proves, for each orientation and
+positive fine-source pair,
+
+`normalized connected mass`
+`  <= sum_connected (rate^3)^(distance + 1)`
+`       * rate^residual * unit congestion`.
+
+Zero orientations vanish exactly; nonzero orientations use their checked
+lowering and path witnesses.  Both physical coupling ceilings remain named,
+and no beta- or volume-uniform entropy constant is claimed.  This replaces
+the heat-free extensive sum by the residual-heat carrier that must next be
+grouped by component and terminal exterior state.  The focused monitored
+check passes and all five printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

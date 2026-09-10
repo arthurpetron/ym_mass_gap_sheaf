@@ -5093,6 +5093,41 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 334: sum the normalized connected carrier with residual heat retained (2026-09-10)
+
+**Status. THE COMPLETE NORMALIZED CONNECTED TARGET-PAIR MASS IS NOW BOUNDED
+BY A DISTANCE-WEIGHTED RESIDUAL-HEAT SUM; THE NEXT ENTROPY ARGUMENT CAN USE
+THE PHYSICAL HEAT PAYMENT INSTEAD OF FACING AN EXTENSIVE COUPLING-ONE SUM.**
+
+`Z4DyadicBinaryNormalizedConnectedResidualHeatSum.lean` combines the exact
+tilted-row normalization of milestone 332 with the residual suppression of
+milestone 333.  For either orientation and every positive fine-source pair,
+it proves
+
+`normalized connected joint mass`
+`  <= sum_connected`
+`       (rate^3)^(distance + 1) * rate^residual * unit congestion`.
+
+The proof treats zero raw orientations exactly as zero.  A nonzero
+orientation supplies its checked lowering pair and observable-rooted path;
+the refined suppression inequality is then multiplied only by the proved
+nonnegative unit congestion.  Finite-sum monotonicity completes the carrier
+bound.
+
+The fine- and coarse-coupling ceilings remain explicit in the theorem.  No
+beta-uniform or volume-uniform constant is asserted.  The next mathematical
+frontier is to peel/regroup the residual-heat source-target carrier by its
+connected component, terminal exterior state, and boundary data, so the
+residual power absorbs component code multiplicity and terminal weights sum
+into a partition.  Normalized strict response, completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All five printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
