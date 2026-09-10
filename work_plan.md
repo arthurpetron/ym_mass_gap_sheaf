@@ -773,6 +773,16 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       `-- BF4 finite-cutoff covariance clustering ............ [PROVED]
 |           quotient/norm-relative operator interpretation ..... [OPEN]
 |
+|   `-- A6. Carrier-reproducing physical block-flow route
+|       +-- arbitrary-cutoff raw whole-slab recoupling ......... [PROVED]
+|       +-- total reflected stochastic kernel `K -> 4K` ........ [PROVED]
+|       +-- exact agreement with physical cutoff-one kernel ..... [PROVED]
+|       +-- positive incoherent fallback mass exposed .......... [PROVED definition]
+|       +-- fallback mass vanishes at cutoff one ............... [PROVED]
+|       +-- higher-cutoff fallback-mass estimate ................ [ACTIVE analytic producer]
+|       +-- pushforward = coherent law + controlled fallback .... [NEXT]
+|       `-- linked full finite-law cutoff tower ................. [OPEN]
+|
 +-- B. Uniform physical scaling
 |   +-- mass-normalized persistence algebra .................... [PROVED]
 |   +-- same-object physical separator producer ................ [PARTIAL]
@@ -837,6 +847,38 @@ build pass.  All nine printed load-bearing
 declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
 `Classical`, `native_decide`, custom axiom, noncomputable declaration, or
 enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Construct the all-cutoff total block kernel and expose its coherence mass (2026-09-10)
+
+`CompactDualAllCutoffTotalKernel` removes the artificial cutoff-one carrier
+restart without assuming a false general coherence theorem.  The existing raw
+whole-slab recoupling row already maps cutoff `K` into the lossless cutoff
+`4*K`.  For every positive `K`, the new total row uses the exact normalized
+recoupling law when both the source Gibbs term and raw row partition are
+positive, and otherwise uses the already-audited reflection-fixed stochastic
+completion.  Finite positive-entry search supplies the conditional-kernel
+witness constructively.
+
+The resulting `allCutoffWholeSlabFiniteKernel` is nonnegative, row-normalized,
+reflection-intertwining, and source-dependent.  At cutoff one it agrees
+pointwise (up to `Q'.eqv`) with the established physical cutoff-one kernel.
+The only new higher-cutoff fallback sector is measured explicitly by
+`positiveIncoherentRecouplingMass`; it is nonnegative and is exactly zero at
+cutoff one.
+
+This repairs the *type-level carrier flow* `K -> 4*K`, not the physical RG
+flow.  The next causal theorem must decompose the pushed normalized law into
+the coherent recoupling contribution plus a remainder bounded by the named
+incoherent mass.  A higher-cutoff estimate on that mass is then required before
+assembling a linked full finite-law cutoff tower.  No posterior variance,
+uniform physical form bound, completed gap, continuum construction, or Clay
+theorem is claimed.
+
+The focused monitored source check and dependency-complete 702-job target
+build pass.  The eight printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

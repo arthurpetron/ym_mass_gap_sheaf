@@ -29455,3 +29455,50 @@ The module prints six load-bearing declarations, all using only
 `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
+
+#### Construct the all-cutoff total recoupling kernel and expose coherence mass (2026-09-10)
+
+`CompactDualAllCutoffTotalKernel` constructs a total whole-slab finite kernel
+for every positive fine cutoff.  The literal recoupling row already targets
+the lossless coarse cutoff `4 * fine.cutoff`.  On a positive fine Gibbs row
+with positive raw-row partition, the kernel is the exact normalized
+whole-slab recoupling conditional law.  Every other row is sent through the
+existing reflection-fixed stochastic completion, so no higher-cutoff
+positive-row closure theorem is assumed.
+
+The new module proves:
+
+```text
+wholeSlabRawRowPartition >= 0,
+raw-row partition positivity is reflection invariant,
+allCutoffWholeSlabKernel is nonnegative and row-normalized,
+allCutoffWholeSlabKernel intertwines slab reflection,
+allCutoffWholeSlabFiniteKernel packages the total finite kernel,
+allCutoffWholeSlabKernel = cutoffOneWholeSlabKernel at cutoff one,
+positiveIncoherentRecouplingMass >= 0,
+positiveIncoherentRecouplingMass = 0 at cutoff one.
+```
+
+The named incoherent mass is the normalized fine Gibbs mass of precisely the
+positive rows whose complete raw recoupling partition is not positive.  It is
+an explicit higher-cutoff defect, not a placeholder and not a claim that the
+physical blocked law is reproduced.
+
+Monitored verification:
+
+```text
+all-cutoff total-kernel focused source check                 PASS
+all-cutoff total-kernel dependency target                    PASS (702 jobs)
+```
+
+The eight printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: bound or eliminate the positive incoherent mass at general
+cutoff; prove the corresponding pushforward-law decomposition and remainder
+estimate; assemble a linked full-state `K -> 4*K` cutoff trajectory; prove the
+localized posterior capacity/form bound; and construct the physical-spacing,
+thermodynamic, continuum, same-measure OS/GNS, Hamiltonian-gap, and Clay
+closures.
