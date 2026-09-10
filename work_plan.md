@@ -794,7 +794,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- retained two-replica point law ....................... [PROVED exact]
 |       +-- connected retained-pair component estimate ........... [PROVED on 0<w<=1/400]
 |       +-- all-branch source-labelled connected joint flow ....... [PROVED exact]
-|       +-- joint-flow target marginal = enriched blocked pair law  [NEXT]
+|       +-- full expanded target marginal = enriched blocked pair . [PROVED exact]
+|       +-- connected target submeasure / observable event ........ [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1250,6 +1251,45 @@ blocked masses.  Only after that equality can a target observable or
 reflection statement inherit the source-connected estimate.  The linked
 same-object cutoff tower, beta/lattice-spacing scaling, completed gap,
 continuum construction, and Clay closure remain open.
+
+#### Identify the expanded joint law's enriched target marginal (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerExpandedMarginal` groups the
+proof-relevant expanded source carrier by physical labelling and enumerates
+the complete accepted fine-intertwiner fiber above each physical source.  A
+named one-source block theorem uses the exact SU(2) fiber identity to prove
+
+```text
+sum_witness (expanded normalized weight * enriched kernel row)
+  = physical normalized mass * enriched kernel row.
+```
+
+Summing the physical blocks therefore identifies the one-copy target marginal
+with `allCutoffRetainedFineIntertwinerBlockedMass` exactly.  Cartesian
+factorization then gives, at every pair of enriched targets,
+
+```text
+full expanded two-copy target marginal
+  = blockedMass(targetLeft) * blockedMass(targetRight).
+```
+
+Thus the expanded source labels used by the component compiler form a genuine
+disintegration of the actual enriched pair law rather than a comparison
+measure.
+
+The focused monitored source check and dependency-complete 1,554-job target
+build pass.  All three printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next causal edge is to define the targetwise contribution of the
+support-connected source subcarrier, prove it is a nonnegative submeasure of
+this product blocked law, and show its total target mass inherits the SU(2)
+corridor rate.  A reflected target event still requires a theorem relating
+target observables to this connected contribution.  The linked tower,
+physical scaling, completed gap, continuum construction, and Clay closure
+remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

@@ -29900,3 +29900,42 @@ blocked target law; define and control the corresponding enriched target
 observable; lift reflection; build the linked same-object cutoff tower; prove
 beta/lattice-spacing scaling and the completed physical gap; and construct
 the continuum theory and Clay closure.
+
+#### Identify the full expanded-source target marginal (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerExpandedMarginal` constructs a
+grouped expanded source carrier consisting of an attached physical source and
+one accepted global fine-intertwiner assignment.  Exact summation over each
+witness block reconstructs the normalized physical-source contribution to
+every enriched target.  Hence the complete one-copy expanded pushforward is
+exactly `allCutoffRetainedFineIntertwinerBlockedMass`.
+
+Applying the same identity to both factors and using finite Cartesian
+factorization proves
+
+```text
+expanded two-copy target marginal(targetLeft,targetRight)
+  = enrichedBlockedMass(targetLeft) * enrichedBlockedMass(targetRight).
+```
+
+This is the required measure-theoretic disintegration equality.  It does not
+yet identify which target event is forced by source connectivity or assert a
+reflection/form estimate.
+
+Monitored verification:
+
+```text
+expanded enriched marginal focused source check            PASS
+expanded enriched marginal dependency target               PASS (1,554 jobs)
+```
+
+All three printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: construct the connected source contribution as a targetwise
+submeasure of the product blocked law and relate it to an enriched target
+observable; lift reflection; build the linked same-object cutoff tower; prove
+physical scaling and the completed gap; and construct the continuum theory
+and Clay closure.
