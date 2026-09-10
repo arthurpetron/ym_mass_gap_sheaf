@@ -186,6 +186,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- every positive fine-source row = its normalized tilted Gibbs downset ...... [PROVED exact]
 |   |   |   |   +-- compile all-source row laws into the signed source average ................. [PROVED exact]
 |   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [PROVED local]
+|   |   |   |   +-- parity pushforward = minimal lowering target with positive ground mass ..... [PROVED exact]
+|   |   |   |   +-- split every tilted row into ground plus relative excitations ............... [ACTIVE exact producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4222,6 +4224,40 @@ variation.  The required volume-uniform `O(g^2)` estimate, completed gap,
 continuum construction, and Clay theorem remain open.
 
 The focused monitored check passes.  All seven printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 304: identify the physical parity ground term in every tilted row (2026-09-09)
+
+**Status. THE GEOMETRIC MOD-TWO PUSHFORWARD OF EVERY CUTOFF-ONE POSITIVE
+SOURCE IS THE POINTWISE MINIMAL MEMBER OF ITS EXACT LOWERING DOWNSET, AND ITS
+LITERAL TILTED-GIBBS MASS IS A STRICTLY POSITIVE LOWER BOUND ON THE COMPLETE
+ROW DENOMINATOR.**
+
+`Z4DyadicBinarySourceParityGroundState.lean` contracts two previously
+separate constructions.  The cellular parity target already equals the
+final parity channel on each coarse face, while that channel is definitionally
+the four-strand packet total modulo two.  Hence the geometric target is the
+minimal parity-compatible label below every packet total and belongs to the
+exact source-dependent lowering carrier.
+
+The local SU(2) table gives ground multiplicities `1, 1, 1, 2, 2` for source
+totals zero through four.  Their all-face product is proved positive and is
+identified with the exact global lowering multiplier at the parity target.
+The corresponding complete coarse physical summand is exactly the original
+globally glued raw row entry, is strictly positive for every positive source,
+and is bounded above by the full tilted row partition because it is a literal
+member of that nonnegative finite sum.  The actual production kernel
+therefore gives its parity ground target strictly positive mass.
+
+The next exact producer is to remove this certified ground member from the
+lowering list and expose the remaining targets as even-spin excitations above
+the parity background.  A relative excitation-mass estimate, the required
+volume-uniform `O(g^2)` centered remainder, completed gap, continuum
+construction, and Clay theorem remain open.
+
+The focused monitored check passes.  All nine printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.

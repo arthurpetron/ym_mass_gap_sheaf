@@ -2587,6 +2587,25 @@ the analytic reorganization and bound of this explicit signed mixture; no
 claimed.  The focused monitored check passes and all seven printed
 declarations use only `[propext, Quot.sound]`.
 
+### 9.72 Post-audit implementation update: physical parity ground term, milestone 304 (2026-09-09)
+
+`Z4DyadicBinarySourceParityGroundState.lean` proves that the already
+constructed cellular parity pushforward is the pointwise minimal member of
+every positive cutoff-one source's exact lowering downset.  Facewise this is
+the identity between the geometric parity channel and the binary packet total
+modulo two.  The local lowering table then gives the exact ground
+multiplicities `1, 1, 1, 2, 2`, whose complete face product is positive.
+
+The resulting tilted-Gibbs ground summand is exactly the literal globally
+glued production raw entry at the parity target.  It is strictly positive and
+is a certified lower bound on the complete source-dependent row denominator;
+the normalized physical kernel consequently assigns positive mass to this
+ground state.  This creates the base point for an exact ground-plus-excitation
+decomposition but does not yet bound the relative excitation mass.  The
+volume-uniform centered-remainder estimate, completed gap, continuum
+construction, and Clay theorem remain open.  The focused monitored check
+passes and all nine printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
