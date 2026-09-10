@@ -797,8 +797,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- full expanded target marginal = enriched blocked pair . [PROVED exact]
 |       +-- connected target contribution is a product submeasure . [PROVED exact]
 |       +-- total target contribution inherits corridor rate ...... [PROVED on 0<w<=1/400]
-|       +-- enriched target observable / reflection identity ....... [NEXT]
-|       +-- reflection on the retained sector .................... [OPEN]
+|       +-- enriched target observable ........................... [PROVED]
+|       +-- retained intertwiner equal-rank reflection ........... [PROVED exact]
+|       +-- enriched kernel/law reflection identity .............. [NEXT]
+|       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
 +-- B. Uniform physical scaling
@@ -1580,6 +1582,31 @@ recoupling event moments on a named SU(2), beta, cutoff, and lattice-spacing
 trajectory.  No such smallness estimate is claimed here.  Reflection/
 covariance contraction, the linked cutoff tower, physical scaling, completed
 gap, continuum construction, and Clay closure remain open.
+
+#### Reflect the retained fine-intertwiner fibre by exact rank (2026-09-10)
+
+`CompactDualRetainedFineIntertwinerReflection` equips every literal retained
+SU(2) intertwiner fibre with a canonical constructive reflection.  Each
+assignment is encoded by its exact finite auxiliary word and transported to
+the equal written rank over the reflected physical state.  The key list is
+duplicate-free, while equality of the two fibre cardinalities follows from
+the proved reflection invariance of the complete SU(2) link multiplicity.
+
+The resulting map lands in the reflected production fibre, preserves the
+written rank, and is involutive on that fibre.  This avoids choosing an
+unverified local reversal convention for trivalent auxiliary coordinates.
+
+The focused monitored source check passes.  All five printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next causal edge is to combine geometric reflection on the coarse branch
+with this equal-rank map on the retained branch, then prove exact reflection
+covariance of the enriched stochastic kernel and its pushed probability law.
+Reflection positivity is a later, strictly stronger obligation.  The linked
+cutoff tower, physical scaling, completed gap, continuum construction, and
+Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

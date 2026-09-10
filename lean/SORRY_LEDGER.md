@@ -30252,3 +30252,29 @@ prove SU(2)-specific coarse recoupling event-moment ceilings on an explicit
 beta/cutoff/spacing trajectory, connect the result to reflection/covariance,
 prove physical scaling and the completed gap, and construct the continuum
 theory and Clay closure.
+
+#### Reflect retained fine intertwiners by exact finite rank (2026-09-10)
+
+`CompactDualRetainedFineIntertwinerReflection` encodes every retained
+assignment by its finite auxiliary word and transports it to the same written
+rank in the fibre over the reflected physical state.  Exact SU(2) link-
+multiplicity reflection proves equal fibre lengths; finite-word injectivity
+proves duplicate freedom.  The transported assignment is proved to belong to
+the reflected production fibre, retain its rank, and return to the original
+assignment after two reflections.
+
+Monitored verification:
+
+```text
+retained fine-intertwiner reflection focused source check  PASS
+```
+
+All five printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation is introduced.  No
+full-root audit is claimed.
+
+Still open: lift the map to the disjoint enriched target, prove enriched
+kernel and pushed-law reflection covariance, establish reflection positivity
+on the retained sector, build the linked same-object cutoff tower, prove the
+physical completed gap, and construct the continuum theory and Clay closure.
