@@ -52,8 +52,9 @@ def finePacketGlobalNonzeroConnectedEntryCoarseComponentFaces
     (observableFaceId : Nat)
     (entry : FinePacketGlobalOrientedNonzeroConnectedEntry
       S orientation observableFaceId) : List Nat :=
-  finePacketGlobalConnectedEntryTargetComponent
-    S observableFaceId entry.1
+  S.coarse.faceEdges.filter fun faceId =>
+    decide (faceId ∈ finePacketGlobalConnectedEntryTargetComponent
+      S observableFaceId entry.1)
 
 def finePacketGlobalNonzeroConnectedEntryFineComponentFaces
     (S : SlabScalePair) (orientation : FinePacketEnvelopeOrientation)
@@ -67,7 +68,7 @@ def finePacketGlobalNonzeroConnectedEntryFineComponentFaces
 theorem finePacketGlobalNonzeroConnectedEntryCoarseComponentFaces_mem_physical
     (S : SlabScalePair) (orientation : FinePacketEnvelopeOrientation)
     (observableFaceId : Nat)
-    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (_hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
     (entry : FinePacketGlobalOrientedNonzeroConnectedEntry
       S orientation observableFaceId)
     (faceId : Nat)
@@ -76,12 +77,8 @@ theorem finePacketGlobalNonzeroConnectedEntryCoarseComponentFaces_mem_physical
         S orientation observableFaceId entry) :
     faceId ∈ slabPhysicalFaceEdges
       (coarseUnitCouplingSlabPhysicalData S).extent := by
-  let path := finePacketGlobalConnectedEntryPath
-    S observableFaceId hobservableFace entry.1
-  have hphysical :=
-    finePacketObservableTargetSupportComponent_face_mem_physical
-      S entry.1.targets observableFaceId hobservableFace
-        path.observable_targetStates_ne faceId hface
+  have hphysical : faceId ∈ S.coarse.faceEdges :=
+    (List.mem_filter.mp hface).1
   simpa only [coarseUnitCouplingSlabPhysicalData] using hphysical
 
 theorem finePacketGlobalNonzeroConnectedEntryFineComponentFaces_mem_physical
