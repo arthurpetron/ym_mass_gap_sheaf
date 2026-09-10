@@ -5017,6 +5017,46 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 332: sum normalized connected response against heat-free unit congestion (2026-09-10)
+
+**Status. FOR EACH POSITIVE FINE-SOURCE PAIR, THE ENTIRE NORMALIZED CONNECTED
+TARGET CARRIER IS NOW BOUNDED BY ONE EXPLICIT DISTANCE-WEIGHTED SUM OF
+COUPLING-ONE CONGESTION WEIGHTS.**
+
+`Z4DyadicBinaryNormalizedConnectedUnitCongestionSum.lean` divides every
+oriented joint source-target raw weight by the exact product of its two
+positive tilted-row normalization masses.  Milestones 330 and 331 then give
+the pointwise bound
+
+`normalized joint weight <= heat suppression * unit congestion`.
+
+On the proof-carrying attached connected carrier, a zero localized raw
+orientation contributes exactly zero.  Every nonzero forward or reverse
+orientation supplies the already-checked lowering pair and observable-rooted
+disagreement path, so milestone 329 replaces its heat suppression by
+
+`(rate^3)^(distance + 1)`
+
+under the explicit hypotheses `fine coupling <= rate`,
+`coarse coupling <= rate`, and `rate < 1`.  Monotonicity of the finite sum
+therefore proves
+
+`normalized connected joint mass`
+`  <= sum_connected (rate^3)^(distance + 1) * unit congestion`.
+
+No pointwise volume-independent ceiling is introduced.  The remaining
+mathematical frontier is to regroup this summed coupling-one carrier so
+disconnected exterior factors cancel against source normalization and only
+the observable-connected component pays finite SU(2) animal entropy.  A
+uniform bound for that sum, normalized strict response, completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All ten printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

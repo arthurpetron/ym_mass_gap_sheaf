@@ -3174,6 +3174,24 @@ sum this heat-free congestion over the connected source-target carrier while
 normalizing arbitrary exterior backgrounds.  The focused monitored check
 passes and all five printed declarations use only `[propext, Quot.sound]`.
 
+### 9.100 Post-audit implementation update: normalized connected unit-congestion sum, milestone 332 (2026-09-10)
+
+`Z4DyadicBinaryNormalizedConnectedUnitCongestionSum.lean` normalizes each
+oriented joint source-target weight by the exact positive product of the two
+tilted-row masses.  On the attached connected target-pair carrier, zero raw
+orientations contribute zero, while every nonzero orientation supplies the
+checked lowering and observable-rooted path witnesses needed to prove
+
+`normalized connected joint mass`
+`  <= sum_connected (rate^3)^(distance + 1) * unit congestion`.
+
+The fine and coarse coupling hypotheses remain explicit, as does `rate < 1`.
+The remaining coupling-one congestion sum is not assigned a pointwise or
+volume-uniform bound: it must next be regrouped with the positive source-pair
+carrier so disconnected exterior factors are absorbed by normalization.  The
+focused monitored check passes and all ten printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
