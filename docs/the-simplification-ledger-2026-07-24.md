@@ -2932,6 +2932,27 @@ thermodynamic/continuum construction, and the Clay theorem remain open.  The
 focused monitored check passes and all twelve printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.89 Post-audit implementation update: normalized response-to-event bridge, milestone 321 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedResponseFraction.lean` proves the
+direct observable inequality
+
+`abs(tiltedFaceResponse(first) - tiltedFaceResponse(second))`
+`  <= finePacketConnectedEnvelopeFraction(...)`.
+
+The proof uses the existing exact row-mass denominator clearing, M319's
+absolute connected-envelope domination, and M320's exact normalization.
+There is no opaque normalization constant: the positive denominator remains
+literally twice the product of the two source-dependent row masses.
+
+Consequently the sole next strictness target is the named connected-event
+fraction itself.  A usable subunit bound must pay for relative parity
+excitation or the equivalent component-swap boundary, keep every parameter
+range explicit, and use load-bearing SU(2) information.  No such strict bound,
+completed spectral gap, thermodynamic/continuum construction, or Clay theorem
+is claimed.  The focused monitored check passes and the printed theorem uses
+only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

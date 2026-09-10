@@ -4590,6 +4590,38 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 321: dominate the actual normalized response by the connected-event fraction (2026-09-10)
+
+**Status. THE ABSOLUTE DIFFERENCE OF THE TWO NORMALIZED TILTED-ROW FACE
+RESPONSES IS NOW BOUNDED DIRECTLY BY THE M320 CONNECTED-EVENT FRACTION.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedResponseFraction.lean` combines the
+exact denominator-clearing identity with M319's connected-envelope bound and
+M320's exact normalization.  Constructive absolute-value algebra shows that
+multiplying the normalized response difference by
+
+`2 * tiltedRowMass(first) * tiltedRowMass(second)`
+
+produces the absolute twice-raw-cross quantity already controlled by the
+connected envelope.  Positive-division order transport then proves
+
+`abs(response(first) - response(second))`
+`  <= finePacketConnectedEnvelopeFraction(...)`.
+
+This removes the final normalization bookkeeping between the analytic event
+estimate and the physical one-face observable.  The next load-bearing theorem
+is exactly a strict subunit bound for the connected fraction.  Its geometry
+must be paid relative to the source parity grounds, or by an equivalent
+component-swap boundary, because absolute target mass includes common
+source-forced background.  Coupling, cutoff, volume, and SU(2)-specific
+strictness must remain explicit.  Completed gap, thermodynamic/continuum
+passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  The printed theorem remains within
+`[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
