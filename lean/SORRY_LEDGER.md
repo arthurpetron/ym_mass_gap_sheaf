@@ -30119,3 +30119,37 @@ submass, isolate and bound the coherent observable defect, connect the result
 to reflection/covariance, build the linked cutoff tower, prove physical
 scaling and the completed gap, and construct the continuum theory and Clay
 closure.
+
+#### Integrate the retained target four-cell landing mass (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellLandingMass`
+defines the normalized joint mass obtained by summing the branch-explicit
+target `11 x 00` event over every positive-incoherent support-connected source
+row.  Exact rowwise event normalization and finite-sum algebra prove
+
+```text
+retainedConnectedFourCellLandingMass
+  = retainedIncoherentConnectedMass
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+The first equality identifies the previously bounded scalar with a concrete
+observable event in the genuine enriched source-target joint law.  The
+second inequality retains the explicit positive-coupling SU(2) corridor.
+
+Monitored verification:
+
+```text
+integrated retained four-cell landing focused source check PASS
+```
+
+All three printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: identify this source-major joint event as a submass of the
+target-major connected submeasure, isolate and bound coherent observable
+transport, connect the result to reflection/covariance, build the linked
+cutoff tower, prove physical scaling and the completed gap, and construct the
+continuum theory and Clay closure.

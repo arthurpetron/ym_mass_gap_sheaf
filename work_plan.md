@@ -1455,6 +1455,35 @@ coherent observable defect, reflection, linked cutoff tower, physical
 scaling, completed gap, continuum construction, and Clay closure remain
 open.
 
+#### Integrate the retained target four-cell landing mass (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellLandingMass`
+weights each retained connected source row by its normalized accepted
+two-replica Gibbs mass and sums its literal enriched target `11 x 00` event
+moment.  The probability-one row theorem contracts the joint source-target
+sum exactly:
+
+```text
+retainedConnectedFourCellLandingMass
+  = retainedIncoherentConnectedMass
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+Thus the previously bounded retained scalar is now the mass of a concrete
+observable landing event in the genuine enriched kernel joint law.  The
+coupling corridor remains explicit and SU(2)-specific.
+
+The focused monitored source check passes.  All three printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next exact bridge is to express this source-major landing mass inside the
+target-major connected submeasure and prove the corresponding submass
+inequality.  The coherent observable defect, reflection, linked cutoff
+tower, physical scaling, completed gap, continuum construction, and Clay
+closure remain open.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving
