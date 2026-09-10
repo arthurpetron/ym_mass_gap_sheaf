@@ -180,7 +180,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- complete local off-target kernel = parity-preserving lowering matrix ..... [PROVED exact]
 |   |   |   |   +-- complete raw row = explicit lower-triangular coarse spin-foam weight ..... [PROVED exact]
 |   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [PROVED exact]
-|   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [ACTIVE exact producer]
+|   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [PROVED exact]
+|   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [ACTIVE exact producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4057,6 +4058,43 @@ The focused monitored check passes.  All eight printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 or enlarged heartbeat budget is introduced.
+
+## Milestone 299: identify the complete spin-four row as an integer-tilted Gibbs downset (2026-09-09)
+
+**Status. EVERY SURVIVING ENTRY OF THE CANONICAL SPIN-FOUR ROW IS NOW
+FACTORED EXACTLY AS A SOURCE-DEPENDENT INTEGER FUSION-PATH PRODUCT TIMES THE
+ORDINARY COMPLETE COARSE GIBBS PHYSICAL SUMMAND.**
+
+`Z4DyadicSpinFourLoweringGibbsTilt.lean` defines the product of local
+spin-four lowering multiplicities over all physical coarse faces.  Structural
+finite-product lemmas separate those integers from the retained heat
+coefficients.  Physical target membership identifies the coefficient product
+with the actual coarse heat-kernel face factor; the target's globally shared
+link-multiplicity product is unchanged and therefore lies entirely in the
+coarse Gibbs summand.
+
+Combining this pointwise factorization with milestone 298 gives the complete
+row-normalization identity
+
+```text
+rowMass(source)
+  = sum[target in loweringDownset(source)]
+      pathMultiplicityProduct(source,target) * coarsePhysicalTerm(target).
+```
+
+This is the precise measure that must be compared with coarse Gibbs refresh.
+It also records why a naive rowwise near-identity estimate is not available:
+the tilt rewards some strict lowerings by local factors two or three, and the
+lower target heat weight can be larger than the source weight.  The next
+mathematical producer is therefore the exact local reward/count structure
+needed for cancellation after centering, rather than an unproved pointwise
+smallness claim.  A volume-uniform centered remainder, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The focused monitored check passes.  All four printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

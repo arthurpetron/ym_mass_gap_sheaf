@@ -2495,6 +2495,23 @@ summand, followed by cancellation-aware control of that tilt in the centered
 production-versus-refresh cross.  The focused monitored check passes and all
 eight printed declarations use only `[propext, Quot.sound]`.
 
+### 9.67 Post-audit implementation update: exact integer-tilted Gibbs row, milestone 299 (2026-09-09)
+
+`Z4DyadicSpinFourLoweringGibbsTilt.lean` separates every retained lowering
+weight into the product of its local SU(2) fusion-path counts and the ordinary
+complete coarse Gibbs summand.  The proof factors the finite face product,
+uses physical target boundedness to recover the exact heat-packet
+coefficients, and leaves the globally shared target link multiplicity inside
+the Gibbs factor.
+
+Hence the whole canonical row normalization is exactly a source-dependent
+integer tilt of coarse Gibbs mass on the lowering downset.  No comparison or
+uniform estimate is claimed.  In particular, strict lowerings can receive
+local rewards two or three, so the next proof must exploit the connected
+centering and the exact reward/count structure rather than assume rowwise
+closeness to Gibbs refresh.  The focused monitored check passes and all four
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
