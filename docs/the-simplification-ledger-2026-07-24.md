@@ -2110,6 +2110,49 @@ bound, continuum construction, OS/GNS reconstruction, Hamiltonian gap, or
 Clay result is claimed.  The focused check and 5,510-job dependency target
 pass; all eight new declarations remain within `[propext, Quot.sound]`.
 
+### 9.53 Post-audit implementation update: multiplicity-faithful response-defect split, milestone 285 (2026-09-09)
+
+The occupation cocycle is now lifted through the full SU(2) source
+multiplicity without assuming that raw physical multiplicities are
+pointwise switch-invariant.  The fine datum is copied with coupling one but
+unchanged cutoff and geometry, and each physical source pair is expanded
+over the Cartesian product of its two accepted global intertwiner fibers.
+Exact one-replica disintegration and finite Cartesian Fubini prove
+
+```text
+sum_assignmentPairs expandedPairWeight
+  = unitPhysicalTerm(left) * unitPhysicalTerm(right).
+```
+
+Each literal assignment has unit counting weight.  Its expanded pair weight
+is therefore only the coupling-one face-factor product, and the existing
+facewise transposition theorem makes that weight exactly invariant for
+arbitrary switched assignments.  Multiplying by the occupation skew and
+kernel-row event difference, then summing the complete fiber, reconstructs
+the original physical antisymmetric source-pair term exactly.
+
+At the pointwise expanded level the source term now has the exact split
+
+```text
+switched term
+  + component-skew correction
+  + switched-cofactor * switched-weight * response defect.
+```
+
+The last factor is explicitly the change in the pair's block-kernel event
+response under the support swap.  Thus neither the scalar cofactor nor the
+SU2 link multiplicity remains hidden: the sole non-algebraic switch seam is
+now row-response locality.  The next proof must place the accepted support
+switch inside the actual block-kernel source/target carrier and show that
+components disconnected from the selected coarse event have zero response
+defect, leaving a target-reaching connected remainder.
+
+No such locality or connected estimate, uniform mixing, continuum
+construction, OS/GNS reconstruction, Hamiltonian gap, or Clay result is
+claimed.  The focused check passes; all twelve printed declarations stay
+within `[propext, Quot.sound]`.  The dependency-complete monitored target
+also passes all 5,511 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -152,6 +152,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- four centered one-source cell moments sum to zero ................... [PROVED exact]
 |   |   |   |   +-- global geometric quotient telescopes over literal slab faces ......... [PROVED exact]
 |   |   |   |   +-- centered score moments = source-face hybrid insertions ................ [PROVED exact]
+|   |   |   |   +-- cutoff-one insertion symmetrized over occupied faces ................... [PROVED exact]
+|   |   |   |   +-- centered score antisymmetrized into occupation skew .................... [PROVED exact]
+|   |   |   |   +-- support swap preserves total occupation and has a scalar cocycle ....... [PROVED exact]
+|   |   |   |   +-- coupling-one multiplicities expanded into assignment pairs ............. [PROVED exact]
+|   |   |   |   +-- support-swap term = switched + component + response defect ............. [PROVED exact]
+|   |   |   |   +-- disconnected row-response invariance / connected response bound ........ [ACTIVE analytic producer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
@@ -3472,6 +3478,56 @@ the latter builds all 5,510 jobs.  All eight printed declarations use only
 underlying definition uses no axioms).  No aggregate root pass is claimed,
 and no `Classical`, choice, `sorry`, new axiom, `native_decide`, noncomputable
 witness, or enlarged heartbeat budget is introduced.
+
+## Milestone 285: lift the occupation cocycle through the exact SU(2) fiber (2026-09-09)
+
+**Status. THE COMMON COUPLING-ONE PHYSICAL MULTIPLICITY IS NOW EXPANDED INTO
+LITERAL INTERTWINER-ASSIGNMENT PAIRS, AND THE FULL SOURCE TERM SPLITS EXACTLY
+INTO SWITCHED, COMPONENT-SKEW, AND BLOCK-ROW-RESPONSE-DEFECT TERMS.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginOccupationSwapResponseDefect.lean`
+introduces the coupling-one fine slab with the same cutoff and geometry as
+the actual fine datum.  For every physical source pair, the Cartesian pair of
+its two global SU(2) intertwiner fibers has total weight exactly
+
+```text
+fineUnitPhysicalTerm(left) * fineUnitPhysicalTerm(right).
+```
+
+This is the needed multiplicity-faithful expansion: each assignment pair
+carries only the two face factors, so the existing facewise transposition
+theorem proves exact pointwise weight preservation for arbitrary source and
+target assignments.  Summing the new expanded occupation-response term over
+the complete assignment-pair carrier reconstructs the original physical
+antisymmetric source-pair term exactly.  No link multiplicity is dropped or
+treated as if it were pointwise invariant.
+
+Combining that weight preservation with milestone 284 gives the exact
+three-term identity
+
+```text
+source term
+  = switched term
+    + outsideHeat * componentOccupationSkew * sourceWeight * sourceResponse
+    + switchedOccupationSkew * switchedWeight * responseDefect.
+```
+
+The response defect is the original pair's block-kernel event-response
+difference minus the switched pair's response difference.  Hence the next
+causal edge is sharply exposed: prove this defect vanishes for components
+outside the selected coarse event's fine interaction cone, and bound it on
+the component that reaches that cone.  The accepted whole-link switch and
+its recoupling rows can now be applied without reopening the physical
+multiplicity seam.
+
+No response-locality theorem or summed connected estimate is claimed.  The
+volume-uniform balanced-blocking producer, centered `O(g^2)` consumer,
+all-cutoff persistence, interacting continuum measure, same-object OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.  The focused
+monitored source check passes, and all twelve printed declarations remain
+within `[propext, Quot.sound]` (three definitions use no axioms).  A
+dependency-complete monitored target also passes all 5,511 jobs.  No
+aggregate root pass is claimed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
