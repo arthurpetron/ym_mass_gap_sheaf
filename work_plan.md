@@ -5349,6 +5349,45 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 341: compile every component face into the exact finite SU(2) lowering catalogue (2026-09-10)
+
+**Status. EVERY FACE OF EVERY NONZERO ORIENTED CONNECTED COMPONENT NOW MAPS
+TO ONE OF EXACTLY 72 KERNEL-CERTIFIED LOCAL LOWERING STATES, AND THE WORD'S
+EXCESS STATISTIC IS EXACTLY THE LOCAL-ACTIVITY HEAT FUND.**
+
+`Z4DyadicBinaryConnectedComponentLocalCode.lean` defines the four-spin local
+code consisting of the two oriented fine packet totals and two coarse target
+spins.  Admissibility requires all four spins to lie in `0,...,4`, both
+targets to belong to their SU(2) parity-preserving lowering rows, and at
+least one target to be positive.
+
+Lean reduction proves the complete admissible catalogue has 72 states.  It
+also certifies the activity histogram for activities `0,...,12` as
+
+`[0, 2, 1, 6, 6, 10, 10, 12, 9, 8, 5, 2, 1]`.
+
+Thus only two local states have the minimum activity one; every other local
+state carries positive local-excess heat.  Each literal target-component
+face compiles into the catalogue using its physical face membership,
+cutoff-four bounds, nonzero-orientation lowering witness, and target-support
+positivity.
+
+Mapping the complete component produces a local-code word whose activity
+sum is exactly the component activity.  Its sum of `(activity - 1)` is
+exactly `component activity - component size`, so three times that word
+statistic is the milestone-340 local-excess heat.
+
+The next frontier is the weighted word theorem using the certified histogram,
+followed by the connected-animal detour code.  Those estimates must still be
+combined with terminal/reserve normalization; no strict global fraction,
+completed gap, thermodynamic/continuum passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All sixteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, enlarged heartbeat budget, or external certificate
+is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

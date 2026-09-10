@@ -3326,6 +3326,22 @@ weighted entropy or strict estimate is yet claimed.  The focused monitored
 check passes and all twelve printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.109 Post-audit implementation update: finite SU(2) component-local code, milestone 341 (2026-09-10)
+
+`Z4DyadicBinaryConnectedComponentLocalCode.lean` enumerates all bounded
+four-spin local states compatible with the two oriented lowering rows and
+positive target support.  Lean reduction certifies exactly 72 admissible
+states and the activity histogram
+`[0, 2, 1, 6, 6, 10, 10, 12, 9, 8, 5, 2, 1]`.
+
+Every literal face of a nonzero oriented component compiles into this
+catalogue.  The resulting word has total activity equal to the component
+activity, and its summed `(activity - 1)` equals the local activity excess.
+This gives the next weighted entropy proof a finite kernel-checked alphabet
+and exact cost statistic.  No strict or continuum estimate is claimed.  The
+focused monitored check passes and all sixteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
