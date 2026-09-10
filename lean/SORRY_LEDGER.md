@@ -30084,3 +30084,38 @@ four-cell, isolate the coherent-branch observable mismatch, connect the
 result to reflection/covariance, build the linked cutoff tower, prove physical
 scaling and the completed gap, and construct the continuum theory and Clay
 closure.
+
+#### Force the target four-cell on retained connected rows (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellTransport`
+defines the two-copy conditional moment of the literal branch-explicit target
+`11 x 00` event and proves its exact factorization into independent one-copy
+event moments.  Source determinant-cell membership and the preceding retained
+event identity then give
+
+```text
+retained connected source pair row event mass = 1.
+```
+
+The hypotheses name positive fine coupling and literal membership in the
+retained-incoherent support-connected source carrier.  Physical-row
+positivity is derived from the accepted fine-intertwiner witnesses, rather
+than assumed or inferred from a zero-coupling statement.  Coherent coarse
+rows remain untreated.
+
+Monitored verification:
+
+```text
+retained connected target four-cell focused source check   PASS
+```
+
+Both printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: sum the rowwise event identity into an exact target-event
+submass, isolate and bound the coherent observable defect, connect the result
+to reflection/covariance, build the linked cutoff tower, prove physical
+scaling and the completed gap, and construct the continuum theory and Clay
+closure.

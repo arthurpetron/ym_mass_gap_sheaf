@@ -1425,6 +1425,36 @@ as a named observable mismatch until an actual pullback estimate is proved.
 Reflection, the linked cutoff tower, physical scaling, completed gap,
 continuum construction, and Clay closure remain open.
 
+#### Force the target four-cell on retained connected rows (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellTransport`
+factors the conditional mass of the literal enriched target `11 x 00` event
+into two one-copy event moments.  Exact product-row Fubini and the retained
+one-copy identity then prove, for every source pair in the positive-
+incoherent support-connected carrier,
+
+```text
+P_enriched-row(target lies in branch-explicit 11 x 00) = 1.
+```
+
+The proof uses the actual source determinant-cell membership: the first
+replica is positive at both fine faces and the second is zero at both.  It
+also derives positivity of both physical rows from the retained
+fine-intertwiner witnesses at explicitly positive coupling.  No statement is
+made about coherent coarse rows.
+
+The focused monitored source check passes.  Both printed declarations use
+only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next contraction is measure-level: sum this rowwise probability-one
+identity over the retained connected source carrier and identify the result
+as an exact submass of the branch-explicit connected target event.  The
+coherent observable defect, reflection, linked cutoff tower, physical
+scaling, completed gap, continuum construction, and Clay closure remain
+open.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving
