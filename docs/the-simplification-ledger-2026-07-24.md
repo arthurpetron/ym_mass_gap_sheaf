@@ -2397,6 +2397,38 @@ continuum construction, or Clay theorem is asserted.
 The focused monitored source check passes.  All three printed declarations
 use only `[propext, Quot.sound]`.
 
+### 9.63 Post-audit implementation update: literal whole-slab pair-bubble cancellation, milestone 295 (2026-09-09)
+
+The isolated pair-bubble calculation now reaches the complete globally
+link-glued raw kernel.  `Z4WholeSlabFaceFirstLinkIsolation.lean` removes link
+choice by selecting the first genuine boundary link of any physical coarse
+face and verifying its carrier and incidence properties.
+
+`Z4DyadicPairBubbleWholeSlabRawContraction.lean` compiles an exact isolated
+packet profile into pointwise whole-row equality with vacuum.  At retained
+target spin zero, the pair-bubble and vacuum fixed-final weights are both one.
+At nonzero target spin, either an off-target nonzero label kills a vacuum face
+factor or all off-target labels vanish and the canonical link multiplicity is
+zero.  This finite alternative covers every bounded physical coarse target.
+
+`Z4DyadicLiteralPairBubbleWholeSlabRawContraction.lean` instantiates the
+profile from the binary slab labelling of the actual translated dyadic pair
+bubble.  The established spatial margin gives fine-slab containment, and the
+literal support is shown to produce the bubble packet on exactly one coarse
+fibre and vacuum packets elsewhere.  Thus its complete raw row equals the
+vacuum raw row pointwise and after summing all coarse physical targets.
+
+The result is an isolated closed-bubble identity.  It does not factor a
+single bubble out of a non-vacuum multi-face background, where shared coarse
+links couple the retained labels.  The active target is a simultaneous
+multi-face bubble-network transport compatible with the closed coarse
+endpoint.  No uniform centered remainder, completed gap, continuum
+construction, or Clay theorem is asserted.
+
+The dependency-complete monitored target passes all 5,496 jobs.  All thirteen
+printed declarations across the three new modules use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

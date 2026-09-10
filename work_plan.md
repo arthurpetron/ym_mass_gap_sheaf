@@ -174,7 +174,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- free retained-face target sum = `1 + coeffW w 2` ...................... [PROVED exact]
 |   |   |   |   +-- pair-bubble/vacuum shared-link tensor = vacuum tensor ................. [PROVED local]
 |   |   |   |   +-- isolated nonzero face kills valence-<=6 slab link product .............. [PROVED exact]
-|   |   |   |   +-- expose the isolated-label pattern in the whole pair-bubble row ......... [ACTIVE exact producer]
+|   |   |   |   +-- literal isolated pair-bubble whole raw row = vacuum row ................ [PROVED exact]
+|   |   |   |   +-- interacting bubbles in a non-vacuum closed coarse background ........... [ACTIVE exact producer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1350,7 +1351,8 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       |       `1 + coeffW w 2` .............................. [PROVED]
 |           |       +-- bubble/vacuum shared-link tensor contracts exactly [PROVED local]
 |           |       +-- isolated spin kills actual whole-slab link product  [PROVED exact]
-|           |       +-- whole-row bubble packet/link-product case split .... [ACTIVE]
+|           |       +-- literal isolated bubble whole raw row = vacuum row . [PROVED exact]
+|           |       +-- interacting multi-face bubble-network transport .... [ACTIVE]
 |           |       +-- arbitrary attached spins `0..4`: coefficient-level
 |           |       |       XOR assembly and exact packets ................ [PROVED]
 |           |       +-- canonical finite duplicate-free XOR support and
@@ -3897,6 +3899,51 @@ The focused monitored source check passes.  All three printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 or enlarged heartbeat budget is introduced.
+
+## Milestone 295: cancel a literal isolated pair bubble in the complete globally link-glued raw row (2026-09-09)
+
+**Status. SUBJECT ONLY TO THE ALREADY EXPLICIT FINE-SLAB SPATIAL MARGIN, A
+LITERAL LOWER OR UPPER DYADIC PAIR-BUBBLE FINE SOURCE HAS EXACTLY THE SAME
+COMPLETE WHOLE-SLAB RAW RECOUPLING ROW AS THE VACUUM FINE SOURCE, POINTWISE
+ON EVERY BOUNDED COARSE TARGET AND AFTER THE FULL TARGET SUM.**
+
+Three modules close the causal chain.  `Z4WholeSlabFaceFirstLinkIsolation.lean`
+chooses the first genuine boundary link of every physical coarse plaquette
+and proves both its whole-slab link membership and the selected face's
+membership in its incident list.  Together with milestone 294, a globally
+isolated nonzero coarse label therefore kills the actual complete production
+link product without existential choice.
+
+`Z4DyadicPairBubbleWholeSlabRawContraction.lean` performs the exhaustive
+coarse-target case split from an explicit packet profile.  If the selected
+target label is zero, the bubble and vacuum face factors both equal one.  If
+it is nonzero, either another physical face is nonzero, in which case its
+vacuum packet has zero face weight, or every other label is zero, in which
+case the selected canonical link is the one-nonzero-spin annihilator.  The
+vacuum row vanishes in either nonzero-target branch as well.
+
+`Z4DyadicLiteralPairBubbleWholeSlabRawContraction.lean` constructs the actual
+binary slab labelling of `dyadicPairBubble`, proves that `slabSpinAtPlaquette`
+recovers its support coefficient, and derives the exact packet profile:
+`pairBubblePacket upper` on the selected fibre and vacuum on every other
+physical coarse face.  The existing spatial-margin theorem supplies fine-
+slab containment.  This yields both pointwise whole-raw-row equality and
+equality of the complete unnormalized row masses.
+
+This does not permit pair bubbles to be deleted independently inside an
+arbitrary non-vacuum coarse background.  In the spin-four endpoint lift,
+several bubbles and subdivided odd faces jointly realize a closed coarse
+configuration, and their shared-link labels interact.  The active exact
+producer is therefore a simultaneous multi-face bubble-network transport,
+not another facewise scalar.  The centered blocking estimate, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The dependency-complete monitored target passes all 5,496 jobs.  The four
+canonical-link declarations, three packet-profile compiler declarations,
+and six literal-bubble declarations printed in the new modules all remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
