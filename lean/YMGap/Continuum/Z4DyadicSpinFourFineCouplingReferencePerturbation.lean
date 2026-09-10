@@ -238,6 +238,24 @@ private theorem slabFaceProduct_eqv_power_mul_atOne
             (c4 (physical faceId))
             (slabPhysicalCasimirExponentOn physical rest)))
 
+/-- A bounded corrected-slab face factor, before the independent link
+multiplicity is restored, factors into its coupling-one value and the exact
+total face Casimir power.  This is the form consumed by literal expanded
+fine-intertwiner entries, each of which carries one Haar counting unit. -/
+theorem slabParametricKPhysicalFaceFactor_eqv_power_mul_atOne
+    (w : Q') (K extent : Nat) (physical : EdgeLabelling)
+    (hphysical : physical ∈ boundedEdgeLabellings K
+      (slabPhysicalFaceEdges extent)) :
+    slabParametricKPhysicalFaceFactor w K extent physical ≈
+      qpow w (slabPhysicalCasimirExponent extent physical) *
+        slabParametricKPhysicalFaceFactor 1 K extent physical := by
+  have hsound := boundedEdgeLabellings_sound K
+    (slabPhysicalFaceEdges extent) physical hphysical
+  unfold slabParametricKPhysicalFaceFactor
+    slabPhysicalCasimirExponent
+  exact slabFaceProduct_eqv_power_mul_atOne
+    w K physical (slabPhysicalFaceEdges extent) hsound.1
+
 /-- A bounded corrected-slab production term factors exactly into its
 coupling-one value and one heat power carrying the sum of all face Casimirs. -/
 theorem slabParametricKPhysicalTerm_eqv_power_mul_atOne
@@ -631,6 +649,7 @@ theorem fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
 
 #print axioms slabPhysicalCasimirExponent
 #print axioms slabParametricKPhysicalTerm_eqv_power_mul_atOne
+#print axioms slabParametricKPhysicalFaceFactor_eqv_power_mul_atOne
 #print axioms slabParametricKPhysicalTerm_atOne_sub_le_casimirMargin
 #print axioms fineUnitCouplingPushedTargetCasimirMoment_nonnegative
 #print axioms fineUnitCouplingPhysicalCasimirMoment_nonnegative
