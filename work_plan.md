@@ -789,7 +789,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- exact normalized enriched pushforward law ............ [PROVED]
 |       +-- lossy projection recovers old fallback kernel ........ [PROVED exact]
 |       +-- blocked-law projection recovers old pushforward ...... [PROVED exact]
-|       +-- retained component/dynamics carrier bridge ........... [NEXT]
+|       +-- retained component/dynamics carrier bridge ........... [PROVED exact]
+|       +-- retained blocked-law point density ................... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1064,6 +1065,39 @@ constructed expanded-source/component-peeling carrier, without forgetting its
 fine-intertwiner assignment.  Reflection on that retained sector, a linked
 same-object tower, localized posterior contraction, completed gap, continuum
 construction, and Clay closure remain open.
+
+#### Join retained probability flow to canonical component dynamics (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPeelingBridge` proves that the
+retained sector and the previously constructed expanded-source carrier are
+literally the same fine physical labelling plus accepted global intertwiner
+assignment.  On that common object it proves the exact density identity
+
+```text
+normalized physical source mass * retained conditional row
+  = normalized expanded-source weight used by component estimates.
+```
+
+Any pair of retained targets is then embedded in the duplicate-free accepted
+two-replica carrier.  The existing deterministic component compiler peels the
+pair to zero on every physical slab face, emits only valid adaptive component
+codes, and its trace pays exactly the sum of the two initial physical masses.
+This supplies a genuinely connected path from the new probability-flow node
+into the strand/component/peeling mathematics; no forgetting kernel occurs at
+this seam.
+
+The focused monitored source check and dependency-complete 1,290-job target
+build pass.  All six printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+The next causal edge is targetwise: prove that the complete enriched blocked
+mass of a positive incoherent retained target equals this normalized expanded
+point mass, using uniqueness of the attached physical source.  Reflection,
+the linked same-object cutoff tower, a beta- and spacing-aware localized
+posterior contraction, completed gap, continuum construction, and Clay closure
+remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

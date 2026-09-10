@@ -29702,3 +29702,41 @@ fine-intertwiner/component-peeling dynamics; lift reflection to that sector;
 construct a linked same-object tower; prove localized posterior contraction;
 and construct the completed physical gap, thermodynamic/continuum measure,
 same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Connect the retained law to the accepted component-peeling carrier (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPeelingBridge` proves membership in
+the retained `Sum.inr` sector is equivalent to membership in the literal
+expanded fine-source carrier.  It attaches the corresponding subtype witness
+and establishes the density equality
+
+```text
+fine normalized mass * same-physical retained Haar row
+  = expanded fine-entry weight / complete fine partition.
+```
+
+Thus the stochastic-kernel density and the component-removal weight are now
+the same exact rational quantity on the same witnessed object.  Any two such
+retained targets embed in the accepted two-replica state carrier, and complete
+canonical peeling produces a valid component-code trace ending at zero on all
+physical faces.  Its total peel mass is exactly the sum of the two source
+physical masses.
+
+Monitored verification:
+
+```text
+retained peeling bridge focused source check               PASS
+retained peeling bridge dependency target                  PASS (1,290 jobs)
+```
+
+All six printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: identify the full enriched blocked-law point mass on a retained
+incoherent target with its normalized expanded entry weight; lift reflection;
+construct the linked same-object cutoff tower; prove a beta- and
+spacing-dependent localized posterior contraction; and construct the completed
+physical gap, thermodynamic/continuum measure, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure.
