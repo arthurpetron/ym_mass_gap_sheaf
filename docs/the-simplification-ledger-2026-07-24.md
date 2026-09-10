@@ -3157,6 +3157,23 @@ carrier sum of the exposed congestion ratios; no uniform entropy bound is
 claimed here.  The focused monitored check passes and all twelve printed
 declarations use only `[propext, Quot.sound]`.
 
+### 9.99 Post-audit implementation update: heat-free unit reference congestion, milestone 331 (2026-09-10)
+
+`Z4DyadicBinaryJointUnitReferenceCongestion.lean` cancels the common strictly
+positive parity-ground heat power inside milestone 330's congestion ratio.
+It proves the exact remaining expression
+
+`fine coupling-one source pair weight`
+`  * (coupling-one target weight / coupling-one ground-target weight)`.
+
+Thus the strict heat suppression and the finite SU(2) entropy have been
+separated without hiding beta dependence in an opaque constant.  The target
+ratio still carries all fusion and corrected-slab link multiplicities, and no
+pointwise or volume-uniform ceiling is claimed.  The next causal estimate must
+sum this heat-free congestion over the connected source-target carrier while
+normalizing arbitrary exterior backgrounds.  The focused monitored check
+passes and all five printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

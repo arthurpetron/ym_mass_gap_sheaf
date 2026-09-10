@@ -4982,6 +4982,41 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 331: cancel all heat coupling from the remaining reference congestion (2026-09-10)
+
+**Status. THE REFERENCE-CONGESTION RATIO IS NOW EXACTLY A COUPLING-ONE FINE
+SOURCE WEIGHT TIMES A COUPLING-ONE TARGET-TO-GROUND RATIO; NO HEAT POWER OR
+OPAQUE COUPLING CONSTANT REMAINS INSIDE IT.**
+
+`Z4DyadicBinaryJointUnitReferenceCongestion.lean` proves that the oriented
+coupling-one ground target weight is strictly positive.  It then cancels the
+common positive coarse parity-ground heat power from the numerator and
+denominator of milestone 330's congestion ratio.
+
+The result factors exactly as
+
+`fine source unit-coupling pair weight`
+`  * (oriented target unit weight / oriented ground target unit weight)`.
+
+All source, target, fusion, and corrected-slab link data remain literal.  The
+coarse coupling is used only to provide the positivity witness for the
+already-defined ground denominator; the resulting rational expression uses
+neither fine nor coarse heat coupling.
+
+This identifies the correct next proof path.  A pointwise volume-independent
+ceiling is not asserted and would ignore arbitrary exterior backgrounds.
+Instead, the coupling-one ratio must be summed on the existing positive
+two-replica source-target path carrier so disconnected exterior factors are
+absorbed by normalization and only the observable-connected component incurs
+animal entropy.  That summed congestion estimate, normalized strict response,
+completed gap, thermodynamic/continuum passage, and Clay theorem remain open.
+
+The focused monitored check passes.  All five printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
