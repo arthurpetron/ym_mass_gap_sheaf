@@ -2550,6 +2550,25 @@ completed gap, continuum construction, and Clay theorem therefore remain
 open.  The focused monitored check passes and all six printed declarations
 use only `[propext, Quot.sound]`.
 
+### 9.70 Post-audit implementation update: every positive source has an exact tilted-Gibbs row, milestone 302 (2026-09-09)
+
+`Z4DyadicBinarySourceLoweringConditionalLaw.lean` globalizes the arbitrary
+binary-packet theorem.  Each cutoff-one fine physical source determines a
+facewise total-spin labelling bounded by four.  Its complete globally glued
+raw transition equals the canonical lowering weight at that labelling,
+including the unchanged target-link multiplicity.  Exact filtering removes
+all targets outside the corresponding lowering downset, and the remaining
+row mass factors as an integer tilt of the full coarse Gibbs summands.
+
+For every `PositivePhysicalSource S`, the coherent conditional row and the
+actual `physicalKernel` row are therefore exactly the normalized tilted Gibbs
+law.  The canonical endpoint-selection restriction is no longer present.
+What remains is to substitute this formula into the already exposed signed
+fine-source average and then prove a volume-uniform cancellation estimate for
+the resulting mixture.  The centered remainder, completed gap, continuum
+construction, and Clay theorem remain open.  The focused monitored check
+passes and all nine printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -183,8 +183,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [PROVED exact]
 |   |   |   |   +-- canonical physicalKernel row = normalized tilted Gibbs downset ........... [PROVED exact]
 |   |   |   |   +-- arbitrary binary packet kernel depends only on total source spin .......... [PROVED exact]
-|   |   |   |   +-- every positive fine-source row = its normalized tilted Gibbs downset ...... [ACTIVE exact producer]
-|   |   |   |   +-- compile all-source row laws into the signed source average ................. [OPEN exact producer]
+|   |   |   |   +-- every positive fine-source row = its normalized tilted Gibbs downset ...... [PROVED exact]
+|   |   |   |   +-- compile all-source row laws into the signed source average ................. [ACTIVE exact producer]
 |   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [PROVED local]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
@@ -4164,6 +4164,39 @@ The focused monitored check passes.  All six printed load-bearing declarations
 remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 302: identify every positive fine-source production row with its tilted Gibbs law (2026-09-09)
+
+**Status. EVERY PROOF-CARRYING POSITIVE CUTOFF-ONE FINE SOURCE USED BY THE
+OBSERVABLE PATH EXPANSION NOW HAS AN EXACT `physicalKernel` ROW FORMULA AS A
+SOURCE-DEPENDENT NORMALIZED INTEGER-TILTED COARSE GIBBS DOWNSET.**
+
+`Z4DyadicBinarySourceLoweringConditionalLaw.lean` assigns a coarse source
+label by taking the total of the four binary fine spins above each coarse
+face.  Milestone 301 identifies every local face weight with the canonical
+lowering weight at that total.  Finite-product congruence lifts the identity
+through all faces while retaining the exact globally shared target-link
+multiplicity.
+
+Every target outside the resulting pointwise parity-preserving lowering
+downset is then deleted by an exact zero theorem.  Each surviving entry is
+factored as the product of its local fusion-path multiplicities and the full
+coarse Gibbs physical summand.  Transport through the positive coherent
+partition and positive rational division proves the formula both for the
+coherent conditional row and for the literal `physicalKernel` used downstream.
+
+The endpoint-coverage caveat of milestone 300 is therefore gone: the theorem
+quantifies over every `PositivePhysicalSource S`.  The next exact producer is
+to rewrite the existing signed fine-Gibbs source average of the connected
+production-minus-refresh observable using these row laws.  The analytic
+frontier will then be cancellation-aware control of that explicit mixture of
+source-dependent tilts.  A volume-uniform centered remainder, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The focused monitored check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
