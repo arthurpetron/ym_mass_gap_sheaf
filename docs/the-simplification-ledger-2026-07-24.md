@@ -3001,6 +3001,30 @@ mass, must carry the activity used in the fixed-mass sum.  The focused
 monitored check passes and all eighteen printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.92 Post-audit implementation update: connected swap-obstruction endpoint, milestone 324 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedSwapObstruction.lean` identifies the
+first exact reason why the disconnected-branch component-swap cancellation
+cannot be reused for free on a connected oriented contribution.  The complete
+cutoff-four local table proves that unequal targets in their assigned lowering
+rows either fail the two cross-assigned lowering relations after transposition
+or carry positive relative parity excitation.
+
+At a face in the observable-rooted target component, the local cross-support
+failure forces the canonical swapped target pair out of the two assigned
+global lowering rows.  The computed connected path and nonzero oriented raw
+weight then produce forward and reverse boundary certificates at an actual
+source packet-disagreement endpoint:
+
+`component swap exits the oriented carrier OR source endpoint is excited`.
+
+No probability bound follows yet.  In particular, one endpoint mark cannot
+be exponentiated into distance decay.  The next obligation is a pathwise
+decomposition that counts distinct swap obstructions or relative excitations
+and then prices them using explicit, load-bearing SU(2) local weights.  The
+focused monitored check passes and all eleven printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

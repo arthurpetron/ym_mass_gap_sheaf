@@ -4701,6 +4701,45 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 `admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
 external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 324: locate the oriented component-swap obstruction (2026-09-10)
+
+**Status. EVERY NONZERO CONNECTED ORIENTED CONTRIBUTION NOW COMPUTES AN
+ACTUAL SOURCE-DISAGREEMENT PATH ENDPOINT WHERE EITHER COMPONENT-SWAP
+CANCELLATION EXITS THE ASSIGNED LOWERING ROWS OR POSITIVE RELATIVE EXCITATION
+IS PRESENT.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedSwapObstruction.lean` proves the
+complete cutoff-four local dichotomy.  If two unequal target spins are
+supported by their orientation-assigned source spins, then either the two
+cross-assigned lowering relations fail after transposition, or at least one
+original target lies strictly above its assigned parity ground.  The proof
+checks the complete five-spin table in Lean; no external computation is
+trusted.
+
+The local obstruction is then connected to the canonical observable-rooted
+component swap.  At any face in that component, cross-support failure implies
+that the swapped pair cannot simultaneously belong to the original two
+global lowering rows.  Finally, the existing computed connected path selects
+a source packet-disagreement endpoint with unequal targets, and the nonzero
+oriented weight supplies the original two lowering memberships.  The forward
+and reverse constructors therefore return path-carrying boundary
+certificates with the exact disjunction
+
+`component swap exits the oriented carrier OR source endpoint is excited`.
+
+This is a location theorem, not an activity estimate.  One marked endpoint
+does not yield distance decay, and the probability of the carrier-exit branch
+is not yet controlled.  The next causal frontier is to expose a sequence of
+swap-preserving and swap-obstructed transitions along the computed path and
+extract enough distinct paid defects, with explicit SU(2), coupling, cutoff,
+and volume dependence, to support a fixed-mass entropy sum.  Completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All eleven printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
