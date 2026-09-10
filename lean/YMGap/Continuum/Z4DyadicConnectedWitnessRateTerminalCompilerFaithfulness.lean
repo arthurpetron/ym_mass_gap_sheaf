@@ -101,7 +101,7 @@ private theorem slabAcceptedPairCanonicalPeeling_injective_of_faces_eq
   exact slabAcceptedPairCanonicalPeeling_injective
     D leftFaces hleftPhysical leftState rightState (by simpa using houtput)
 
-private theorem fineUnitAcceptedState_eq_of_shape_ratePeeling_eq
+theorem fineUnitAcceptedState_eq_of_shape_ratePeeling_eq
     (S : SlabScalePair) (rate : Q') (hrate0 : (0 : Q') ≤ rate)
     (orientation : FinePacketEnvelopeOrientation)
     (observableFaceId : Nat)
@@ -163,7 +163,7 @@ private theorem fineUnitAcceptedState_eq_of_shape_ratePeeling_eq
       rate hrate0 right.2.1.1)
     hfineOutput
 
-private theorem coarseUnitAcceptedState_eq_of_shape_ratePeeling_eq
+theorem coarseUnitAcceptedState_eq_of_shape_ratePeeling_eq
     (S : SlabScalePair) (rate : Q') (hrate0 : (0 : Q') ≤ rate)
     (orientation : FinePacketEnvelopeOrientation)
     (observableFaceId : Nat)
@@ -310,6 +310,8 @@ theorem finePacketGlobalNonzeroConnectedExpandedWitnessRateTerminalCompiler_inje
 
 #print axioms FinePacketConnectedFourEntryRateTerminalCompilerCode
 #print axioms finePacketGlobalNonzeroConnectedExpandedWitnessRateTerminalCompiler
+#print axioms fineUnitAcceptedState_eq_of_shape_ratePeeling_eq
+#print axioms coarseUnitAcceptedState_eq_of_shape_ratePeeling_eq
 #print axioms finePacketGlobalNonzeroConnectedExpandedWitnessRateTerminalCompiler_injective
 
 end YMGap.Continuum.Z4DyadicConnectedWitnessRateTerminalCompilerFaithfulness
