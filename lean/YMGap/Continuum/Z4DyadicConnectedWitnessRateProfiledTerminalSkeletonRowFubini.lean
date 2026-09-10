@@ -84,7 +84,7 @@ private theorem eraseDupsNodupLocal {A : Type}
 theorem.  In particular, the full adaptive peel records are replaced by their
 skeletons, but the two terminal accepted states and both counter pairs remain
 visible. -/
-structure FinePacketConnectedRateProfiledTerminalSkeletonRowCode : Type where
+structure FinePacketConnectedRateProfiledTerminalSkeletonRowKey : Type where
   leftSource : List Nat
   rightSource : List Nat
   leftTarget : List Nat
@@ -97,8 +97,76 @@ structure FinePacketConnectedRateProfiledTerminalSkeletonRowCode : Type where
   coarseSkeletons : List SlabAcceptedPairedPeelSkeleton
   coarseExterior : Nat
   coarseCore : Nat
-  weight : Q'
 deriving DecidableEq
+
+/-- Keep the exact row weight in a shallow product coordinate.  This avoids
+forcing reduction of the large geometric key when later proofs project only
+the weight. -/
+abbrev FinePacketConnectedRateProfiledTerminalSkeletonRowCode :=
+  Q' × FinePacketConnectedRateProfiledTerminalSkeletonRowKey
+
+namespace FinePacketConnectedRateProfiledTerminalSkeletonRowCode
+
+def weight (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.1
+def leftSource (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.leftSource
+def rightSource (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.rightSource
+def leftTarget (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.leftTarget
+def rightTarget (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.rightTarget
+def fineTerminal (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.fineTerminal
+def fineSkeletons (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.fineSkeletons
+def fineExterior (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.fineExterior
+def fineCore (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.fineCore
+def coarseTerminal (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.coarseTerminal
+def coarseSkeletons (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.coarseSkeletons
+def coarseExterior (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.coarseExterior
+def coarseCore (code : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :=
+  code.2.coarseCore
+
+end FinePacketConnectedRateProfiledTerminalSkeletonRowCode
+
+/-- A shallow weighted-key compiler.  Keeping this combinator separate gives
+later proofs a small beta theorem for the weight coordinate even when the
+weight and key functions themselves have large dependent arguments. -/
+def weightedTerminalSkeletonRowCode {A : Type}
+    (weight : A → Q')
+    (key : A → FinePacketConnectedRateProfiledTerminalSkeletonRowKey)
+    (item : A) : FinePacketConnectedRateProfiledTerminalSkeletonRowCode :=
+  (weight item, key item)
+
+theorem weightedTerminalSkeletonRowCode_weight {A : Type}
+    (weight : A → Q')
+    (key : A → FinePacketConnectedRateProfiledTerminalSkeletonRowKey)
+    (item : A) :
+    (weightedTerminalSkeletonRowCode weight key item).weight = weight item := by
+  rfl
+
+theorem weightedTerminalSkeletonRowCode_leftTarget {A : Type}
+    (weight : A → Q')
+    (key : A → FinePacketConnectedRateProfiledTerminalSkeletonRowKey)
+    (item : A) :
+    (weightedTerminalSkeletonRowCode weight key item).leftTarget =
+      (key item).leftTarget := by
+  rfl
+
+theorem weightedTerminalSkeletonRowCode_rightTarget {A : Type}
+    (weight : A → Q')
+    (key : A → FinePacketConnectedRateProfiledTerminalSkeletonRowKey)
+    (item : A) :
+    (weightedTerminalSkeletonRowCode weight key item).rightTarget =
+      (key item).rightTarget := by
+  rfl
 
 /-- The physical target words of the first expanded witness realizing a
 structural code.  Unrealized codes receive empty words; every structural code
@@ -119,17 +187,16 @@ def finePacketConnectedRateProfiledStructuralTargetWords
       (finiteEdgeLabellingWord S.coarse.faceEdges reference.1.1.targets.1,
         finiteEdgeLabellingWord S.coarse.faceEdges reference.1.1.targets.2)
 
-/-- Forget the adaptive peel words and structural presentation while
-retaining the exact coordinates needed for the next weighted fiber bound. -/
-def finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
-    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
-    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+/-- The geometric and terminal/skeleton coordinates, kept opaque to proofs
+that need to project only the shallow weight coordinate. -/
+def finePacketConnectedRateProfiledTerminalSkeletonRowKeyCompiler
+    (S : SlabScalePair)
     (rate : Q') (hrate0 : (0 : Q') ≤ rate)
     (orientation : FinePacketEnvelopeOrientation)
     (observableFaceId : Nat)
     (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
     (structural : FinePacketConnectedRateProfiledStructuralCode) :
-    FinePacketConnectedRateProfiledTerminalSkeletonRowCode where
+    FinePacketConnectedRateProfiledTerminalSkeletonRowKey where
   leftSource := structural.leftSource
   rightSource := structural.rightSource
   leftTarget :=
@@ -148,10 +215,197 @@ def finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
     SlabAcceptedPairedPeelRecord.skeleton
   coarseExterior := structural.coarseProfile.2.2.1
   coarseCore := structural.coarseProfile.2.2.2
-  weight :=
-    finePacketConnectedRateProfiledStructuralLoweringRowEnvelope
+
+/-- Forget the adaptive peel words and structural presentation while
+retaining the exact coordinates needed for the next weighted fiber bound. -/
+def finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    FinePacketConnectedRateProfiledTerminalSkeletonRowCode :=
+  weightedTerminalSkeletonRowCode
+    (finePacketConnectedRateProfiledStructuralLoweringRowEnvelope
       S hfineCutoff hcoarseCoupling rate hrate0 orientation
-        observableFaceId hobservableFace structural
+        observableFaceId hobservableFace)
+    (finePacketConnectedRateProfiledTerminalSkeletonRowKeyCompiler
+      S rate hrate0 orientation observableFaceId hobservableFace)
+    structural
+
+/-! These projection theorems are deliberately shallow.  Downstream fiber
+arguments compare just one coordinate of two compiled rows; unfolding the full
+dependent key in such a comparison needlessly normalizes all of its geometric
+coordinates. -/
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_leftSource
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).leftSource = structural.leftSource := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_rightSource
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).rightSource = structural.rightSource := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_leftTarget
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).leftTarget =
+      (finePacketConnectedRateProfiledStructuralTargetWords
+        S rate hrate0 orientation observableFaceId hobservableFace structural).1 := by
+  simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    weightedTerminalSkeletonRowCode_leftTarget,
+    finePacketConnectedRateProfiledTerminalSkeletonRowKeyCompiler]
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_rightTarget
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).rightTarget =
+      (finePacketConnectedRateProfiledStructuralTargetWords
+        S rate hrate0 orientation observableFaceId hobservableFace structural).2 := by
+  simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    weightedTerminalSkeletonRowCode_rightTarget,
+    finePacketConnectedRateProfiledTerminalSkeletonRowKeyCompiler]
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineTerminal
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).fineTerminal = structural.fineProfile.1 := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineSkeletons
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).fineSkeletons =
+      structural.fineProfile.2.1.map SlabAcceptedPairedPeelRecord.skeleton := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineExterior
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).fineExterior = structural.fineProfile.2.2.1 := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineCore
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).fineCore = structural.fineProfile.2.2.2 := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseTerminal
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).coarseTerminal = structural.coarseProfile.1 := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseSkeletons
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).coarseSkeletons =
+      structural.coarseProfile.2.1.map SlabAcceptedPairedPeelRecord.skeleton := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseExterior
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).coarseExterior =
+      structural.coarseProfile.2.2.1 := by
+  rfl
+
+theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseCore
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (structural : FinePacketConnectedRateProfiledStructuralCode) :
+    (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      S hfineCutoff hcoarseCoupling rate hrate0 orientation observableFaceId
+        hobservableFace structural).coarseCore = structural.coarseProfile.2.2.2 := by
+  rfl
 
 /-- One occurrence of every realized terminal-skeleton row. -/
 def finePacketConnectedRateProfiledTerminalSkeletonRowCodes
@@ -278,7 +532,10 @@ theorem finePacketConnectedRateProfiledTerminalCodeMass_le_terminalSkeletonRowFi
         observableFaceId hobservableFace))
 
 #print axioms FinePacketConnectedRateProfiledTerminalSkeletonRowCode
+#print axioms weightedTerminalSkeletonRowCode
+#print axioms weightedTerminalSkeletonRowCode_weight
 #print axioms finePacketConnectedRateProfiledStructuralTargetWords
+#print axioms finePacketConnectedRateProfiledTerminalSkeletonRowKeyCompiler
 #print axioms finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
 #print axioms finePacketConnectedRateProfiledTerminalSkeletonRowCodes
 #print axioms finePacketConnectedRateProfiledTerminalSkeletonRowCodes_nodup

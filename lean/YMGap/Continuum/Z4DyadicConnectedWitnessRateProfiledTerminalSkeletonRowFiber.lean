@@ -72,9 +72,28 @@ def finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow
   (finePacketConnectedRateProfiledStructuralCodes
       S rate hrate0 orientation observableFaceId hobservableFace).filter
     (fun structural => decide
-      (finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+      (row = finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
+        S hfineCutoff hcoarseCoupling rate hrate0 orientation
+          observableFaceId hobservableFace structural))
+
+theorem finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow_eq_filter
+    (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (rate : Q') (hrate0 : (0 : Q') ≤ rate)
+    (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (hobservableFace : observableFaceId ∈ S.coarse.faceEdges)
+    (row : FinePacketConnectedRateProfiledTerminalSkeletonRowCode) :
+    finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow
+        S hfineCutoff hcoarseCoupling rate hrate0 orientation
+          observableFaceId hobservableFace row =
+      (finePacketConnectedRateProfiledStructuralCodes
+        S rate hrate0 orientation observableFaceId hobservableFace).filter
+      (fun structural => decide
+        (row = finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
           S hfineCutoff hcoarseCoupling rate hrate0 orientation
-            observableFaceId hobservableFace structural = row))
+            observableFaceId hobservableFace structural)) := by
+  rfl
 
 theorem finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow_nodup
     (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
@@ -125,7 +144,7 @@ theorem finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_eq_of_mem_row
     finePacketConnectedRateProfiledTerminalSkeletonRowCompiler
         S hfineCutoff hcoarseCoupling rate hrate0 orientation
           observableFaceId hobservableFace structural = row :=
-  of_decide_eq_true (List.mem_filter.mp hstructural).2
+  (of_decide_eq_true (List.mem_filter.mp hstructural).2).symm
 
 /-- The only intended variable coordinates in one row fiber. -/
 def finePacketConnectedRateProfiledStructuralTracePair
@@ -198,7 +217,8 @@ private theorem canonicalRepresentatives_entry_eq_of_row_eq
   have hsourceFirst : leftReference.1.1.sources.1 =
       rightReference.1.1.sources.1 := by
     apply positivePhysicalSource_eq_of_finiteKey_eq S
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_leftSource,
       hleftStructural, hrightStructural,
       finePacketConnectedRateProfiledStructuralCompiler,
       finePacketGlobalNonzeroConnectedExpandedWitnessRateProfiledNormalizedTerminalCompiler]
@@ -206,7 +226,8 @@ private theorem canonicalRepresentatives_entry_eq_of_row_eq
   have hsourceSecond : leftReference.1.1.sources.2 =
       rightReference.1.1.sources.2 := by
     apply positivePhysicalSource_eq_of_finiteKey_eq S
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_rightSource,
       hleftStructural, hrightStructural,
       finePacketConnectedRateProfiledStructuralCompiler,
       finePacketGlobalNonzeroConnectedExpandedWitnessRateProfiledNormalizedTerminalCompiler]
@@ -216,7 +237,8 @@ private theorem canonicalRepresentatives_entry_eq_of_row_eq
           leftReference.1.1.targets.1 =
         finiteEdgeLabellingWord S.coarse.faceEdges
           rightReference.1.1.targets.1 := by
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_leftTarget,
       finePacketConnectedRateProfiledStructuralTargetWords,
       hleftOption, hrightOption] using hleftTargetWord
   have htargetSecondWord :
@@ -224,7 +246,8 @@ private theorem canonicalRepresentatives_entry_eq_of_row_eq
           leftReference.1.1.targets.2 =
         finiteEdgeLabellingWord S.coarse.faceEdges
           rightReference.1.1.targets.2 := by
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler,
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_rightTarget,
       finePacketConnectedRateProfiledStructuralTargetWords,
       hleftOption, hrightOption] using hrightTargetWord
   have htargetFirst : leftReference.1.1.targets.1 =
@@ -370,36 +393,40 @@ theorem finePacketConnectedRateProfiledStructuralTracePair_injective_on_row
         using hrightShape
     exact hleftShape'.trans (hreferenceShape.trans hrightShape'.symm)
   have hleftSource' : left.leftSource = right.leftSource := by
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_leftSource]
       using hleftSource
   have hrightSource' : left.rightSource = right.rightSource := by
-    simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+    simpa only [
+      finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_rightSource]
       using hrightSource
   have hfineProfile : left.fineProfile = right.fineProfile := by
     apply Prod.ext
-    · simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+    · simpa only [
+        finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineTerminal]
         using hfineTerminal
     · apply Prod.ext
       · exact hfineTrace
       · exact Prod.ext
           (by simpa only
-            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineExterior]
             using hfineExterior)
           (by simpa only
-            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineCore]
             using hfineCore)
   have hcoarseProfile : left.coarseProfile = right.coarseProfile := by
     apply Prod.ext
-    · simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+    · simpa only [
+        finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseTerminal]
         using hcoarseTerminal
     · apply Prod.ext
       · exact hcoarseTrace
       · exact Prod.ext
           (by simpa only
-            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseExterior]
             using hcoarseExterior)
           (by simpa only
-            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+            [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseCore]
             using hcoarseCore)
   cases left
   cases right
@@ -929,7 +956,13 @@ theorem finePacketConnectedRateProfiledTerminalSkeletonRow_skeletonMass_eq_of_me
           structural.coarseProfile.2.2.2) := by
     rw [hfine, hcoarse]
   rw [← hcompiler]
-  simpa only [finePacketConnectedRateProfiledTerminalSkeletonRowCompiler]
+  simpa only [
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineSkeletons,
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseSkeletons,
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineExterior,
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_fineCore,
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseExterior,
+    finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_coarseCore]
     using hsum
 
 theorem finePacketConnectedRateProfiledStructuralRowFiber_length_le_profileMass
@@ -958,6 +991,7 @@ theorem finePacketConnectedRateProfiledStructuralRowFiber_length_le_profileMass
   exact hbound
 
 #print axioms finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow
+#print axioms finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow_eq_filter
 #print axioms finePacketConnectedRateProfiledStructuralCodesAtTerminalSkeletonRow_nodup
 #print axioms finePacketConnectedRateProfiledStructuralCode_mem_of_mem_row
 #print axioms finePacketConnectedRateProfiledTerminalSkeletonRowCompiler_eq_of_mem_row
