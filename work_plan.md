@@ -160,7 +160,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- generic support swap placed on accepted source/target carrier ........... [PROVED exact]
 |   |   |   |   +-- accepted rows positive from literal intertwiner witnesses ............... [PROVED]
 |   |   |   |   +-- actual response defect = four whole-row raw-event ratios ................ [PROVED exact]
-|   |   |   |   +-- cross-partition cancellation / connected response bound ................. [ACTIVE analytic producer]
+|   |   |   |   +-- clear four positive row partitions to one division-free raw cross ....... [PROVED exact]
+|   |   |   |   +-- raw-cross zero => defect-free accepted contraction ....................... [PROVED exact compiler]
+|   |   |   |   +-- raw-cross component factorization / target-reaching bound ................ [ACTIVE analytic producer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
@@ -3580,6 +3582,46 @@ The focused monitored source check passes and all twenty printed
 declarations remain within `[propext, Quot.sound]`.  A dependency-complete
 monitored target also passes all 5,512 jobs.  No aggregate root pass is
 claimed.
+
+## Milestone 287: clear the four accepted row partitions to one raw cross (2026-09-09)
+
+**Status. THE NORMALIZED SUPPORT-SWAP RESPONSE DEFECT NOW HAS ONE EXPLICIT
+POSITIVE COMMON DENOMINATOR AND ONE DIVISION-FREE RAW CROSS; VANISHING OF THAT
+CROSS COMPILES DIRECTLY TO THE DEFECT-FREE ACCEPTED OCCUPATION IDENTITY.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginAcceptedSupportSwapRawCross.lean`
+packages the four accepted positive coherent rows and their raw event masses.
+For arbitrary positive rational denominators it proves the exact identity
+
+```text
+four-ratio response defect * (Z_SL * Z_SR * Z_TL * Z_TR)
+  = rawEvent_SL * Z_SR * Z_TL * Z_TR
+  - rawEvent_SR * Z_SL * Z_TL * Z_TR
+  - rawEvent_TL * Z_SL * Z_SR * Z_TR
+  + rawEvent_TR * Z_SL * Z_SR * Z_TL.
+```
+
+The common denominator is proved strictly positive.  Therefore a proof that
+the single division-free raw cross vanishes implies that the production-kernel
+response defect vanishes.  The accepted response module now also exposes the
+minimal compiler whose sole premise is this vanishing defect; the earlier
+two-row event-invariance structure remains available as a stronger wrapper.
+Consequently raw-cross cancellation feeds the literal accepted occupation
+decomposition without separately proving equality of either normalized row.
+
+This removes normalization from the algebraic obstruction but does not prove
+locality: each raw event mass and row partition still sums the globally glued
+whole-slab face product times coarse-link multiplicity.  The next causal edge
+is a componentwise factorization, involution, or quantitative bound for this
+one raw cross, isolating the component that can reach the selected output
+event.  No such cancellation or estimate, volume-uniform balanced-blocking
+bound, continuum construction, OS/GNS reconstruction, Hamiltonian gap, or
+Clay result is claimed.
+
+The focused monitored checks pass.  The 21 declarations printed by the
+accepted-response module and the 17 declarations printed by the raw-cross
+module remain within `[propext, Quot.sound]`.  A dependency-complete monitored
+target passes all 5,513 jobs.  No aggregate root pass is claimed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

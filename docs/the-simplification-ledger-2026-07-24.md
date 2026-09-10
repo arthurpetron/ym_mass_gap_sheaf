@@ -2183,6 +2183,33 @@ Clay result is claimed.  The focused check passes and all twenty printed
 declarations stay within `[propext, Quot.sound]`.  The dependency-complete
 monitored target also passes all 5,512 jobs.
 
+### 9.55 Post-audit implementation update: division-free accepted response cross, milestone 287 (2026-09-09)
+
+The four source-dependent normalizations in the accepted support-swap response
+are now cleared simultaneously.  The new raw-cross module constructs the four
+literal positive coherent rows, proves their common partition product positive,
+and identifies the actual response defect times that product with one explicit
+division-free polynomial in four raw event masses and four complete row
+partitions.
+
+This is weaker and more useful than demanding separate invariance of the left
+and right normalized rows.  Vanishing of the combined raw cross suffices to
+cancel the response defect.  The accepted decomposition consequently exposes a
+minimal `responseDefect = 0` compiler, and the raw-cross module feeds its
+vanishing premise directly into the exact switched-term plus
+component-correction identity.  The former two-row event-invariance
+proposition is retained only as a stronger source of the same premise.
+
+No factorization of the raw cross is asserted.  Its terms still contain the
+globally glued whole-slab face product and coarse-link multiplicity through the
+four row partitions and event masses.  The active analytic producer is now a
+component factorization, cancellation involution, or target-reaching bound for
+that division-free cross.  No uniform mixing, continuum construction, OS/GNS
+reconstruction, Hamiltonian gap, or Clay result is claimed.  Focused monitored
+checks pass; all 21 printed accepted-response declarations and all 17 printed
+raw-cross declarations stay within `[propext, Quot.sound]`.  A
+dependency-complete monitored target passes all 5,513 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

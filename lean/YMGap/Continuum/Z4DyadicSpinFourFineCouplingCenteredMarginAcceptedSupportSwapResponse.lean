@@ -294,11 +294,11 @@ theorem FineCouplingSupportSwapEventInvariant.responseDefect_eqv_zero
   unfold fineCouplingPhysicalSupportSwapResponseDefect
   exact sub_eqv_zero_of_eqv_local h.pairResponseDifference
 
-/-- Once the two-row event-invariance certificate is supplied, the accepted
-decomposition contracts exactly to the switched target term plus the explicit
-component occupation correction.  No inequality or absolute-value loss is
-introduced. -/
-theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventInvariant
+/-- Once the response defect itself vanishes, the accepted decomposition
+contracts exactly to the switched target term plus the explicit component
+occupation correction.  This is the weakest exact compiler needed by a
+cross-partition cancellation proof. -/
+theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_responseDefect_eqv_zero
     {S : SlabScalePair} (K : S.FiniteSlabKernel)
     (event : EdgeLabelling → Bool) (rootFaceId targetFaceId : Nat)
     (htarget : targetFaceId ∈ slabPhysicalFaceEdges S.fine.extent)
@@ -306,10 +306,10 @@ theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventIn
       S.fine rootFaceId targetFaceId)
     (choice : SlabObservablePairedSupportRecouplingChoice
       S.fine rootFaceId targetFaceId source)
-    (hinvariant : FineCouplingSupportSwapEventInvariant
+    (hresponseDefect : fineCouplingPhysicalSupportSwapResponseDefect
       K event targetFaceId
         (fineCouplingAcceptedSeparatedPhysicalPair
-          S rootFaceId targetFaceId source)) :
+          S rootFaceId targetFaceId source) ≈ 0) :
     let pair := fineCouplingAcceptedSeparatedPhysicalPair
       S rootFaceId targetFaceId source
     let swapped := fineCouplingAcceptedRecoupledPhysicalPair
@@ -371,10 +371,6 @@ theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventIn
       correction, defectTerm] using
       fineCouplingAcceptedSeparatedOccupationResponse_decomposition
         K event rootFaceId targetFaceId htarget source choice
-  have hdefect :
-      fineCouplingPhysicalSupportSwapResponseDefect
-          K event targetFaceId pair ≈ 0 := by
-    exact hinvariant.responseDefect_eqv_zero
   have hinner :
       fineUnitCouplingExpandedFiberPairWeight
             S swapped targetAssignments *
@@ -385,7 +381,7 @@ theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventIn
         S swapped targetAssignments * 0) _
       (Q'.mul_eqv_congr_left
         (fineUnitCouplingExpandedFiberPairWeight
-          S swapped targetAssignments) _ _ hdefect)
+          S swapped targetAssignments) _ _ hresponseDefect)
       (Q'.mul_zero_eqv _)
   have hdefectTerm : defectTerm ≈ 0 := by
     unfold defectTerm
@@ -404,6 +400,49 @@ theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventIn
   exact Q'.eqv_trans _ (correction + 0) _
     (Q'.add_eqv_congr' (Q'.eqv_refl _) hdefectTerm)
     (Q'.eqv_of_eq (Q'.add_zero' correction))
+
+/-- The stronger two-row event-invariance certificate supplies the minimal
+vanishing-response-defect compiler automatically. -/
+theorem fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventInvariant
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (event : EdgeLabelling → Bool) (rootFaceId targetFaceId : Nat)
+    (htarget : targetFaceId ∈ slabPhysicalFaceEdges S.fine.extent)
+    (source : SlabObservablePairedSupportSeparatedSource
+      S.fine rootFaceId targetFaceId)
+    (choice : SlabObservablePairedSupportRecouplingChoice
+      S.fine rootFaceId targetFaceId source)
+    (hinvariant : FineCouplingSupportSwapEventInvariant
+      K event targetFaceId
+        (fineCouplingAcceptedSeparatedPhysicalPair
+          S rootFaceId targetFaceId source)) :
+    let pair := fineCouplingAcceptedSeparatedPhysicalPair
+      S rootFaceId targetFaceId source
+    let swapped := fineCouplingAcceptedRecoupledPhysicalPair
+      S rootFaceId targetFaceId htarget source choice
+    let sourceAssignments := fineCouplingAcceptedSeparatedAssignmentPair
+      S rootFaceId targetFaceId source
+    let targetAssignments := fineCouplingAcceptedRecoupledAssignmentPair
+      S rootFaceId targetFaceId htarget source choice
+    fineCouplingExpandedOccupationResponseTerm
+        K event pair sourceAssignments ≈
+      fineCouplingExpandedOccupationResponseTerm
+          K event swapped targetAssignments +
+        ((qpow S.fine.coupling
+              (3 * fineCouplingPhysicalOutsideOccupiedFaceCount
+                S targetFaceId pair pair.1) +
+            qpow S.fine.coupling
+              (3 * fineCouplingPhysicalOutsideOccupiedFaceCount
+                S targetFaceId pair pair.2)) *
+          fineCouplingPhysicalComponentOccupationSkewCoefficient
+            S targetFaceId pair) *
+          (fineUnitCouplingExpandedFiberPairWeight
+              S pair sourceAssignments *
+            fineCouplingPhysicalPairEventResponseDifference
+              K event pair) := by
+  exact
+    fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_responseDefect_eqv_zero
+      K event rootFaceId targetFaceId htarget source choice
+      hinvariant.responseDefect_eqv_zero
 
 /-! ## 4. Positive accepted rows and the actual raw-ratio normal form -/
 
@@ -624,6 +663,7 @@ theorem fineCouplingAcceptedSeparated_actualResponseDefect_eqv_rawRatios
 #print axioms FineCouplingSupportSwapEventInvariant
 #print axioms FineCouplingSupportSwapEventInvariant.pairResponseDifference
 #print axioms FineCouplingSupportSwapEventInvariant.responseDefect_eqv_zero
+#print axioms fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_responseDefect_eqv_zero
 #print axioms fineCouplingAcceptedSeparatedOccupationResponse_decomposition_of_eventInvariant
 #print axioms slabPhysicalTerm_pos_of_bounded_of_fusionWitness
 #print axioms fineCouplingAcceptedSeparated_left_physicalTerm_pos
