@@ -2880,6 +2880,30 @@ strictness input.  Uniform response, completed gap, thermodynamic/continuum
 passage, and the Clay theorem remain open.  The focused monitored check passes
 and all eight printed declarations use only `[propext, Quot.sound]`.
 
+### 9.87 Post-audit implementation update: positive connected-response envelope, milestone 319 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedEnvelope.lean` replaces each signed
+connected response term by an explicit nonnegative envelope: paired common
+exterior Gibbs background times the sum of the forward and reverse local
+tilt monomials.  Positivity is proved from the natural lowering
+multiplicities and the full coarse SU(2) physical-term positivity theorem.
+
+The event-indicator difference costs at most one, while the local tilt
+determinant costs at most the sum of its two nonnegative monomials.  A finite
+triangle induction bounds the absolute connected sum by the envelope sum on
+the same carrier.  Exact disconnected cancellation then gives
+
+`abs(2 * denominatorClearedTwoRowResponse)`
+`  <= sum connectedActivePairs positiveEnvelope`.
+
+All parameters remain visible inside the envelope; no uniformity is claimed
+or hidden.  The next open seam is a fixed-paid-mass fiber bound connecting
+this envelope to M318's target mass and then to genuine Z4 animal entropy,
+with a coupling corridor and load-bearing SU(2) strictness.  Uniform
+normalized response, completed gap, thermodynamic/continuum passage, and the
+Clay theorem remain open.  The focused monitored check passes and all seven
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

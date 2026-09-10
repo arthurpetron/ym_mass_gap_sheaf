@@ -4515,6 +4515,44 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 319: dominate the signed connected response by an explicit positive envelope (2026-09-10)
+
+**Status. THE ABSOLUTE DENOMINATOR-CLEARED TWO-ROW RESPONSE IS NOW BOUNDED
+BY ONE EXPLICIT NONNEGATIVE WEIGHT SUM OVER ONLY THE CONNECTED ACTIVE
+TARGET-PAIR CARRIER.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedEnvelope.lean` defines the positive
+pair envelope as the paired common exterior Gibbs background multiplied by
+the sum of the forward and reverse source-local tilt monomials.  Every factor
+is proved nonnegative from the literal natural multiplicities and the coarse
+SU(2) physical-term positivity theorem.
+
+The Boolean event-indicator difference has absolute value at most one.  The
+absolute local tilt determinant is bounded by the sum of its two nonnegative
+oriented products.  Constructive rational multiplication and the triangle
+inequality therefore give the pointwise bound
+
+`abs(signedResponseTerm pair) <= positiveEnvelope pair`.
+
+A finite-list triangle induction sums this inequality on exactly the
+connected active carrier.  Combining it with milestone 316's exact
+disconnected cancellation gives an absolute bound for twice the actual
+denominator-cleared two-row response.  Coupling, cutoff, extent, sources, and
+target states all remain visible through the displayed envelope; no opaque
+uniform constant is introduced.
+
+The next causal theorem is the fixed-paid-mass comparison: recode or dominate
+the envelope by positive target-pair weights grouped by the M318 mass, prove
+the inverse-fiber entropy bound, and identify the coupling corridor in which
+activity beats the genuine 4D animal count.  Strictness must retain a
+load-bearing SU(2) input.  Uniform normalized response, completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All seven printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
