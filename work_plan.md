@@ -165,7 +165,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- switched root/target occupancy => exact cubic response factor ............. [PROVED exact]
 |   |   |   |   +-- response defect <= 2; complete response term
 |   |   |   |   |       <= 2*w^3/(1-w) times unit-coupling target weight ....................... [PROVED pointwise]
-|   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [ACTIVE analytic producer]
+|   |   |   |   +-- exact w^(3*min switched occupations) response factor ....................... [PROVED exact]
+|   |   |   |   +-- min-heat residual <= 1/(1-w); full accepted cocycle recompiled ............. [PROVED pointwise]
+|   |   |   |   +-- componentwise telescope retaining heat payment on every background piece .. [ACTIVE analytic producer]
+|   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
@@ -3669,6 +3672,42 @@ open.
 The focused monitored check passes, and all printed load-bearing declarations
 remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
 passes all 5,515 jobs.  No aggregate root pass is claimed here.
+
+## Milestone 289: retain the complete minimum-row heat payment (2026-09-09)
+
+**Status. THE ACCEPTED RESPONSE RESIDUE NOW RETAINS THE HEAT POWER OF EVERY
+OCCUPIED FACE IN THE SMALLER SWITCHED ROW, NOT ONLY THE FORCED CUBIC PREFIX.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginAcceptedSupportSwapResponseMinHeat.lean`
+packages the two exact orientations of the occupation skew into a decidable
+signed residual and proves
+
+```text
+occupation skew
+  = w^(3 * min(left occupation, right occupation)) * signed residual,
+|signed residual| <= 1/(1-w).
+```
+
+The exact factorization and its pointwise bound are lifted to the complete
+accepted response-defect summand.  The literal support-swap cocycle is then
+recompiled with this minimum-row heat power visible in the response term.
+Unlike the cubic ceiling, this form preserves the heat payment of background
+occupation shared by the two switched rows.
+
+This still is not an aggregate contraction.  Occupation present only in the
+larger row is not paid by the minimum factor, and no theorem yet telescopes
+the unmatched components or sums the accepted source carrier.  The active
+producer is therefore a componentwise support-swap telescope retaining heat
+payment at each peeled component; the existing inverse-fiber and
+dependent-kernel capacity theorems can become consumers only after that
+signed component statement exists.  No volume-uniform centered remainder,
+continuum measure, OS/GNS reconstruction, Hamiltonian gap, or Clay closure is
+claimed.
+
+The focused monitored check passes, and all six printed load-bearing
+declarations remain within `[propext, Quot.sound]`.  A dependency-complete
+monitored target passes all 5,516 jobs.  No aggregate root pass is claimed
+here.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

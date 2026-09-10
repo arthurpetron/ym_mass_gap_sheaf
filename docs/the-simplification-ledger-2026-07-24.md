@@ -2240,6 +2240,30 @@ The focused monitored check passes; all printed load-bearing declarations
 remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
 passes all 5,515 jobs.
 
+### 9.57 Post-audit implementation update: minimum-row heat retention, milestone 289 (2026-09-09)
+
+The cubic response bound discarded heat powers from every occupation beyond
+the forced root and target.  The accepted response layer now keeps the exact
+smaller-row exponent.  A decidable orientation split defines one signed
+geometric residual and proves
+
+```text
+occupation skew = w^(3 * min(n_left,n_right)) * residual,
+|residual| <= 1/(1-w).
+```
+
+The factorization is carried through the full response-defect summand and
+back into the literal accepted support-swap decomposition.  It therefore
+retains heat payment for all background occupation common to the two rows.
+The unmatched occupation in the larger row still requires a componentwise
+telescope or signed raw-cross cancellation before any volume-uniform source
+sum can be claimed.  No aggregate contraction, completed gap, continuum
+construction, or Clay theorem is asserted.
+
+The focused monitored check passes; all six printed load-bearing declarations
+remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
+passes all 5,516 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
