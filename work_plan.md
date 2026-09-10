@@ -184,7 +184,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- canonical physicalKernel row = normalized tilted Gibbs downset ........... [PROVED exact]
 |   |   |   |   +-- arbitrary binary packet kernel depends only on total source spin .......... [PROVED exact]
 |   |   |   |   +-- every positive fine-source row = its normalized tilted Gibbs downset ...... [PROVED exact]
-|   |   |   |   +-- compile all-source row laws into the signed source average ................. [ACTIVE exact producer]
+|   |   |   |   +-- compile all-source row laws into the signed source average ................. [PROVED exact]
 |   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [PROVED local]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
@@ -4194,6 +4194,34 @@ source-dependent tilts.  A volume-uniform centered remainder, completed gap,
 continuum construction, and Clay theorem remain open.
 
 The focused monitored check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 303: rewrite the centered remainder as a signed mixture of explicit tilted Gibbs rows (2026-09-09)
+
+**Status. THE SELECTED CENTERED PHYSICAL BLOCKING REMAINDER IS NOW EXACTLY A
+FINE-GIBBS-WEIGHTED SIGNED MIXTURE OF SOURCE-DEPENDENT INTEGER-TILTED COARSE
+GIBBS EXPECTATIONS MINUS THE COMMON COARSE GIBBS REFRESH EXPECTATION.**
+
+`Z4DyadicBinarySourceTiltedGibbsSignedAverage.lean` defines the normalized
+tilted kernel supplied by milestone 302 and its action on the already selected
+connected observable.  For each proof-carrying positive source, the previous
+raw recoupling-ratio action equals this explicit tilted action.  A dependent
+finite recursion substitutes the equality through every positive branch of
+the complete fine-source average and skips exactly the same Gibbs-null rows as
+the established raw-row expansion.
+
+The resulting signed average is proved equal to the existing
+`centeredCylinderRemainder`.  No triangle inequality is used: cancellation
+inside each target row and across fine sources is preserved.  This is the
+observable-connected form needed for the analytic frontier.  The next task is
+to reorganize the exact mixture by local packet-total changes and exploit the
+lowering matrix's parity triangularity, rather than bound individual row
+variation.  The required volume-uniform `O(g^2)` estimate, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The focused monitored check passes.  All seven printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.

@@ -2569,6 +2569,24 @@ the resulting mixture.  The centered remainder, completed gap, continuum
 construction, and Clay theorem remain open.  The focused monitored check
 passes and all nine printed declarations use only `[propext, Quot.sound]`.
 
+### 9.71 Post-audit implementation update: signed tilted-Gibbs source mixture, milestone 303 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsSignedAverage.lean` substitutes milestone
+302's row formula into the complete positive-source connected average.  Each
+raw recoupling-ratio action becomes the expectation under its explicit
+source-dependent normalized integer tilt of coarse Gibbs mass, minus the
+common coarse Gibbs expectation.  A dependent recursion preserves the exact
+positive-source evidence and deletes precisely the already identified
+Gibbs-null branches.
+
+The final mixture is exactly the selected `centeredCylinderRemainder`.  No
+sourcewise or targetwise absolute value is taken, so the cancellation needed
+for a volume-uniform estimate has not been discarded.  The next open edge is
+the analytic reorganization and bound of this explicit signed mixture; no
+`O(g^2)` estimate, completed gap, continuum construction, or Clay theorem is
+claimed.  The focused monitored check passes and all seven printed
+declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
