@@ -2530,6 +2530,26 @@ theorem is required before cancellation can be concluded.  The focused
 monitored check passes and all six printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.69 Post-audit implementation update: arbitrary binary-packet lowering kernel, milestone 301 (2026-09-09)
+
+`Z4DyadicBinaryPacketLoweringKernel.lean` removes the ordering convention from
+the canonical spin-four calculation.  It factors the fixed-final face weight
+of an arbitrary packet into one retained heat coefficient times its exact
+supported fusion-path count.  Exhaustive kernel reduction over the sixteen
+binary packets and five retained spins then proves that the count depends only
+on `faceSpinPacketTotal` and agrees with the previously certified spin-four
+lowering matrix.
+
+This local theorem applies to the literal packets of every cutoff-one fine
+source, not only the constructed canonical endpoint lifts.  It does not yet
+identify their whole-slab row normalizations: that requires lifting the
+facewise packet-total labelling through the globally shared coarse-link
+multiplicity and filtering each source's complete row to its own lowering
+downset.  The signed fine-source average, uniform centered remainder,
+completed gap, continuum construction, and Clay theorem therefore remain
+open.  The focused monitored check passes and all six printed declarations
+use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -182,8 +182,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [PROVED exact]
 |   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [PROVED exact]
 |   |   |   |   +-- canonical physicalKernel row = normalized tilted Gibbs downset ........... [PROVED exact]
-|   |   |   |   +-- compile canonical endpoint coverage into the signed source average ....... [ACTIVE exact producer]
-|   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [OPEN exact producer]
+|   |   |   |   +-- arbitrary binary packet kernel depends only on total source spin .......... [PROVED exact]
+|   |   |   |   +-- every positive fine-source row = its normalized tilted Gibbs downset ...... [ACTIVE exact producer]
+|   |   |   |   +-- compile all-source row laws into the signed source average ................. [OPEN exact producer]
+|   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [PROVED local]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4133,6 +4135,35 @@ The focused monitored check passes.  All six printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 301: remove binary strand-placement dependence from the local lowering kernel (2026-09-09)
+
+**Status. FOR EVERY CUTOFF-ONE FOUR-STRAND PACKET, THE COMPLETE RETAINED-SPIN
+MULTIPLICITY DEPENDS ONLY ON THE TOTAL NUMBER OF FUNDAMENTAL STRANDS, NOT ON
+THEIR PLACEMENT IN THE BALANCED FUSION TREE.**
+
+`Z4DyadicBinaryPacketLoweringKernel.lean` defines the supported-path count for
+an arbitrary face packet and factors its exact fixed-final raw face weight as
+that integer count times the retained heat coefficient.  A kernel-checked
+census of all sixteen binary packets and five possible retained spins proves
+that the count equals `spinFourLoweringMultiplicity` indexed by
+`faceSpinPacketTotal`.  Thus every binary packet has the same lower-triangular
+matrix as the canonical packet with the same total spin.
+
+This is the missing local symmetry needed to pass from milestone 300's
+selected canonical sources to arbitrary positive cutoff-one fine sources.
+The next exact producer is global: assign each fine source its facewise packet
+totals, lift this local identity through the complete shared-link product, and
+identify every row of the actual `physicalKernel` with its corresponding
+normalized tilted Gibbs downset.  Only then can the full signed fine-source
+average be rewritten without a coverage gap.  A volume-uniform centered
+remainder, completed gap, continuum construction, and Clay theorem remain
+open.
+
+The focused monitored check passes.  All six printed load-bearing declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
