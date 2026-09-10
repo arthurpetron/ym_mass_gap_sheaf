@@ -2831,6 +2831,32 @@ dependence; uniform response, completed gap, continuum construction, and the
 Clay theorem remain open.  The focused monitored check passes and all five
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.85 Post-audit implementation update: genuine geometry of the surviving response, milestone 317 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedGeometry.lean` compiles every
+numerical support-component chain retained after exact disconnected
+cancellation into a genuine Z4 plaquette path.  Each compiled adjacency uses
+the same explicit boundary-complete slab link that witnessed the Boolean
+face adjacency.
+
+The deduplicated plaquette image of the observable-rooted target-pair support
+component is proved internally connected by constructive finite preimage
+selection, and hence is an actual finite Z4 lattice animal.  It contains the
+observable plaquette and the selected source-disagreement plaquette, yielding
+the kernel-checked floor
+
+`linfDist(observablePlaquette, disagreementPlaquette) + 1 <= support.length`.
+
+Thus the surviving response now feeds the repository's real 4D animal
+geometry rather than merely carrying an abstract diagram path.  No activity
+or probability estimate is asserted yet.  The next open seam is an explicit
+absolute-weight comparison from these connected response terms to a paid
+mass/animal sum, with coupling, cutoff, and volume dependence named and a
+load-bearing SU(2)-specific strictness input.  Uniform response, completed
+gap, thermodynamic/continuum passage, and the Clay theorem remain open.  The
+focused monitored check passes and all seven printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

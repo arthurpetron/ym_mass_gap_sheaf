@@ -4443,6 +4443,42 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 317: compile surviving response paths to genuine Z4 geometry (2026-09-10)
+
+**Status. EVERY TARGET PAIR LEFT BY EXACT DISCONNECTED CANCELLATION NOW
+CARRIES AN ACTUAL Z4 PLAQUETTE PATH AND A FINITE LATTICE ANIMAL WHOSE SIZE IS
+AT LEAST ITS OBSERVABLE-TO-DISAGREEMENT SEPARATION PLUS ONE.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedGeometry.lean` maps each Boolean
+adjacency in the numerical slab-face component to a genuine adjacency of Z4
+plaquettes, witnessed by the same actual boundary-complete slab link.  It
+therefore compiles the Type-level path retained by milestone 316 into a
+literal plaquette-lattice path from the observable face to the selected
+source-disagreement face.
+
+The module also deduplicates the plaquette image of the whole observable-
+rooted target-pair support component.  Constructive finite preimage search
+proves internal connectivity without eliminating a propositional existence
+into data.  The image is consequently a genuine finite Z4 lattice animal
+containing both endpoints.  The unconditional animal enumeration contracts
+this structure to the exact geometric floor
+
+`linfDist(observablePlaquette, disagreementPlaquette) + 1 <= support.length`.
+
+This closes the representation seam between the connected-response carrier
+and the existing four-dimensional lattice-animal entropy machinery.  It does
+not yet convert support size to an explicit heat/intertwiner activity cost.
+The next causal theorem must bound the absolute connected response weight by
+a paid-mass sum with the coupling, cutoff, and volume arguments visible; its
+strict rate must contain a load-bearing SU(2)-specific input rather than a
+group-agnostic all-beta assertion.  Uniform response, completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All seven printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
