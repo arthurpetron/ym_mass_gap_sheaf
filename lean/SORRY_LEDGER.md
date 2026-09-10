@@ -29584,3 +29584,46 @@ fine-intertwiner/collared carrier; connect its component dynamics to a
 localized posterior Dirichlet/capacity estimate; and construct the completed
 physical gap, thermodynamic/continuum measure, same-measure OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Construct the exact lossless coarse-or-retained probability flow (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerKernel` constructs the corrected
+finite target as the disjoint sum of the ordinary coarse physical carrier and
+the literal expanded fine-intertwiner carrier.  Its faithful mixed-radix
+physical-state key is injective on the bounded slab labellings, so the exact
+normalized Haar conditional row can be extended by zero to the full expanded
+carrier without function equality or choice.
+
+The total kernel sends coherent positive rows through normalized whole-slab
+recoupling, incoherent positive rows through their exact retained Haar fiber,
+and Gibbs-null rows through the old coarse null completion.  It proves
+
+```text
+every row is nonnegative,
+every row has total mass one,
+the enriched target enumeration is duplicate-free,
+the pushed normalized fine Gibbs law is nonnegative and has total mass one.
+```
+
+Thus the retained target is now an exact finite probability-flow object, not
+only an inhabited auxiliary carrier.  No beta-uniform or group-agnostic
+estimate is asserted.
+
+Monitored verification:
+
+```text
+retained all-cutoff kernel focused source check             PASS
+retained all-cutoff kernel dependency target                PASS (1,080 jobs)
+```
+
+All ten printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: lift slab reflection to the retained fine-intertwiner sector;
+prove that the lossy coarse projection of this kernel is exactly the prior
+null-fallback kernel; build a linked same-object enriched cutoff tower; connect
+its component dynamics to localized posterior contraction; and construct the
+completed physical gap, thermodynamic/continuum measure, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure.

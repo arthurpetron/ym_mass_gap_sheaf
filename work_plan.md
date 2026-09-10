@@ -783,9 +783,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- its four-preimage raw row partition not positive .... [PROVED]
 |       +-- total incoherent probability and fallback `L1` > 0 .. [PROVED]
 |       +-- four-preimage carrier as exact all-cutoff flow ....... [REFUTED at K=2]
-|       +-- retained fine-intertwiner/collar carrier ............. [ACTIVE replacement]
-|       +-- exact enriched coarse pushforward .................... [NEXT]
-|       `-- linked enriched finite-law cutoff tower .............. [OPEN]
+|       +-- retained fine-intertwiner/collar carrier ............. [PROVED inhabited]
+|       +-- disjoint coarse-or-retained finite target ............ [PROVED nodup]
+|       +-- exact enriched stochastic kernel ..................... [PROVED]
+|       +-- exact normalized enriched pushforward law ............ [PROVED]
+|       +-- reflection on the retained sector .................... [NEXT]
+|       +-- lossy projection recovers old fallback kernel ........ [NEXT]
+|       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
 +-- B. Uniform physical scaling
 |   +-- mass-normalized persistence algebra .................... [PROVED]
@@ -945,6 +949,47 @@ completed gap, thermodynamic/continuum construction, or Clay target.
 
 The focused monitored source check and dependency-complete 877-job target
 build pass.  All six printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+#### Construct the lossless retained-intertwiner all-cutoff kernel (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerKernel` replaces the refuted
+four-preimage target by the disjoint finite carrier
+
+```text
+coarse physical states
+  + (fine physical state, accepted global fine-intertwiner assignment).
+```
+
+The carrier is duplicate-free.  A faithful mixed-radix code identifies the
+physical block of each expanded source without assuming decidable equality
+of function-valued labellings.  The total row has three exact branches:
+
+```text
+positive fine term + positive raw partition
+  -> normalized whole-slab recoupling on the coarse sector;
+positive fine term + nonpositive raw partition
+  -> exact normalized Haar-fiber law on that row's retained sector;
+nonpositive fine term
+  -> existing coarse null completion.
+```
+
+Each branch is nonnegative and has exact row mass one.  Pushing the normalized
+fine Gibbs law through this kernel therefore constructs a nonnegative enriched
+law of exact total mass one at every positive fine cutoff.  In particular, the
+cutoff-two collar obstruction is retained as physical fiber data rather than
+discarded into an arbitrary coarse state.
+
+This is the corrected finite carrier and probability-flow node.  Reflection
+on the retained sector, the theorem that forgetting retained data reproduces
+the old null-fallback kernel, a repeated same-object enriched cutoff tower,
+localized posterior contraction, completed gap, continuum construction, and
+Clay closure remain open.
+
+The focused monitored source check and dependency-complete 1,080-job target
+build pass.  All ten printed load-bearing declarations use only
 `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
