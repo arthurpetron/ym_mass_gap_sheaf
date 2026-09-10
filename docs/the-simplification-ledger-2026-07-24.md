@@ -3049,6 +3049,28 @@ activity to heat exponents or sum the connected carrier.  The focused
 monitored check passes and all fourteen printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.94 Post-audit implementation update: injected fine-source payment, milestone 326 (2026-09-10)
+
+`Z4DyadicBinarySourcePacketOccupiedFaceBound.lean` supplies the source half
+of the joint heat-exponent comparison.  Each nondegenerate packet face has a
+unique coarse dyadic projection, so fibres over distinct coarse faces are
+disjoint.  Their inverse-indexed fine face identifiers form a duplicate-free
+subset of the complete corrected-slab fine face carrier.
+
+The total of all coarse packet-source labels is exactly the fine-source spin
+sum on that injected subset.  Cutoff-one binarity and duplicate-free subset
+accounting therefore prove
+
+`packet source activity <= actual fine occupied-face count`.
+
+For both envelope orientations, the two packet-source activities are bounded
+without multiplicity by the two actual fine occupation counts.  The statement
+deliberately does not identify the packet carrier with the whole fine slab.
+The remaining half is the exact target-excitation/Casimir-excess identity,
+after which the joint Gibbs factors can be compared before contour counting.
+The focused monitored check passes and all thirteen printed declarations use
+only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

@@ -4784,6 +4784,45 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 `admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
 external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 326: inject source-packet activity into the fine heat exponent (2026-09-10)
+
+**Status. THE COMPLETE COARSE PACKET-TOTAL SOURCE ACTIVITY IS NOW BOUNDED BY
+THE ACTUAL CUTOFF-ONE FINE OCCUPIED-FACE COUNT, WITHOUT CLAIMING THAT PACKET
+FIBRES COVER THE FINE SLAB.**
+
+`Z4DyadicBinarySourcePacketOccupiedFaceBound.lean` proves that every fine
+face in a nondegenerate dyadic packet fibre remembers its unique coarse
+plaquette under dyadic projection.  The four-face fibres over distinct
+physical coarse face identifiers are therefore disjoint.  After constructive
+inverse indexing into the corrected fine slab, their flattened fine
+face-identifier carrier is duplicate-free and contained in the complete fine
+physical face list.
+
+The sum of all coarse packet totals for one source is exactly the sum of its
+fine spins on this injected carrier.  At cutoff one those spins are binary,
+so duplicate-free inclusion gives
+
+`sum(coarse packet totals of source) <= fine occupied-face count(source)`.
+
+For either connected-envelope orientation, the two assigned packet-source
+activities are consequently bounded by the two actual fine occupied-face
+counts.  Those counts enter the exact fine source Casimir exponents as
+`3 * count`, so the source half of milestone 325's joint contour is now paid
+by the genuine fine Gibbs weight.
+
+No target-excitation comparison or strict rate is asserted yet.  The next
+causal frontier is to rewrite target excitation as excess coarse Casimir
+exponent above the source-determined parity ground, then combine the source
+and target factors before the animal-entropy sum.  Coupling, volume, cutoff,
+and load-bearing SU(2) data must remain explicit.  Completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All thirteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, enlarged heartbeat budget, or Rust certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
