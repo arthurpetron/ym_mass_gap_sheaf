@@ -29502,3 +29502,47 @@ estimate; assemble a linked full-state `K -> 4*K` cutoff trajectory; prove the
 localized posterior capacity/form bound; and construct the physical-spacing,
 thermodynamic, continuum, same-measure OS/GNS, Hamiltonian-gap, and Clay
 closures.
+
+#### Split the all-cutoff pushforward by coherent probability mass (2026-09-10)
+
+`CompactDualAllCutoffPhysicalPushforward` removes the next bookkeeping
+ambiguity.  Its dependent coherent source sum and ordinary fallback source
+sum prove, target by target,
+
+```text
+allCutoffPhysicalKernel.blockedMass
+  = coherentRecouplingBlockedMass
+    + positiveIncoherentFallbackBlockedMass.
+```
+
+The fallback column is nonnegative.  Summing it over the complete coarse
+carrier and using row normalization proves exact conservation of its selected
+source mass.  After exact rational cancellation and absolute-value reduction,
+the complete result is
+
+```text
+coherenceFallbackL1
+  = positiveIncoherentRecouplingMass.
+```
+
+No carrier-cardinality factor or global minimum is introduced.  The identity
+also specializes pointwise to zero fallback at cutoff one.
+
+Monitored verification:
+
+```text
+all-cutoff pushforward focused source check                  PASS
+all-cutoff pushforward dependency target                     PASS (704 jobs)
+```
+
+All seven printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: estimate this named probability along an explicit beta- and
+spacing-dependent cutoff trajectory, or replace the information-losing
+four-preimage target by a retained fine-intertwiner carrier; connect the
+result to the localized posterior Dirichlet/capacity estimate; and construct
+the completed physical gap, thermodynamic/continuum measure, same-measure
+OS/GNS reconstruction, Hamiltonian gap, and Clay closure.

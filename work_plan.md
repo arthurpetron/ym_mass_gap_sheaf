@@ -780,7 +780,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- positive incoherent fallback mass exposed .......... [PROVED definition]
 |       +-- fallback mass vanishes at cutoff one ............... [PROVED]
 |       +-- higher-cutoff fallback-mass estimate ................ [ACTIVE analytic producer]
-|       +-- pushforward = coherent law + controlled fallback .... [NEXT]
+|       +-- pushforward = coherent law + weighted fallback ...... [PROVED exact]
+|       +-- fallback `L1` = incoherent source probability ....... [PROVED exact]
 |       `-- linked full finite-law cutoff tower ................. [OPEN]
 |
 +-- B. Uniform physical scaling
@@ -876,6 +877,40 @@ theorem is claimed.
 
 The focused monitored source check and dependency-complete 702-job target
 build pass.  The eight printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+#### Split the all-cutoff physical pushforward by coherent probability mass (2026-09-10)
+
+`CompactDualAllCutoffPhysicalPushforward` pushes the normalized fine Gibbs
+law through the all-cutoff total kernel and separates the result into two
+literal nonnegative columns:
+
+```text
+full blocked mass
+  = coherent positive-row recoupling mass
+    + positive-incoherent fallback mass.
+```
+
+Finite Fubini and exact row normalization then prove the stronger identity
+
+```text
+sum_target |full blocked mass - coherent recoupling mass|
+  = positiveIncoherentRecouplingMass.
+```
+
+Thus the coherence loss is paid by its exact normalized source probability,
+not by a carrier size, a worst-row floor, or an opaque constant.  This is the
+first probability-weighted replacement for the globally obstructed
+path-ceiling/minimum-edge compiler.  It does not make the old four-preimage
+raw row positive: the existing collar counterexample remains decisive, so
+the next physical construction must either control this explicit probability
+or enlarge the retained coarse carrier to preserve the missing fine
+intertwiner information.
+
+The focused monitored source check and dependency-complete 704-job target
+build pass.  All seven printed load-bearing declarations use only
 `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
