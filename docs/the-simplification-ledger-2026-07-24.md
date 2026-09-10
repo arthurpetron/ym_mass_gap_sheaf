@@ -2648,6 +2648,28 @@ completed gap, continuum construction, or Clay theorem is claimed.  The
 focused monitored check passes and all printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.75 Post-audit implementation update: target-component localization of the response carrier, milestone 307 (2026-09-09)
+
+`Z4DyadicBinarySourceSupportSwapPacketComponent.lean` proves the missing
+finite geometric edge from milestone 306.  It defines whether the
+target-rooted support component touches one coarse packet's four-face dyadic
+fibre and proves that avoidance leaves both replicas' full fine packet, and
+therefore its total-spin coordinate, unchanged.  Membership in either
+packet-total disagreement list consequently yields a concrete fine face in
+that fibre and in the target-rooted component.
+
+The module identifies these generic lists with the accepted left/right
+carriers occurring in the exact four-row tilted-Gibbs response.  For the
+same accepted physical pair, it also proves target membership and root
+nonmembership in the component directly from the existing four-cell source
+and separation witnesses.  Hence the response carrier is now attached to a
+literal component separated from the observable root; this is a support
+localization theorem, not a probability or decay theorem.  A uniform
+root-to-component activity estimate, centered `O(g^2)` remainder, completed
+gap, continuum construction, and Clay theorem remain open.  The focused
+monitored check passes and all fifteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

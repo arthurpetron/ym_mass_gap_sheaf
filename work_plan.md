@@ -4336,6 +4336,40 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 `admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
 external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 307: carry every tilted response disagreement into the target component (2026-09-09)
+
+**Status. EVERY COARSE PACKET-TOTAL DISAGREEMENT IN THE EXACT FOUR-ROW
+RESPONSE HAS A CONCRETE FINE DYADIC PREIMAGE IN THE TARGET-ROOTED
+TWO-REPLICA PHYSICAL-SUPPORT COMPONENT, WHILE THE OBSERVABLE ROOT IS PROVED
+TO LIE OUTSIDE THAT COMPONENT.**
+
+`Z4DyadicBinarySourceSupportSwapPacketComponent.lean` defines Boolean touch
+and propositional avoidance for the four fine faces read by one coarse
+packet.  If the support-swap mask avoids that fibre, both swapped fine
+packets, and hence both packet-total coordinates, are literally unchanged.
+Contraposition on the finite disagreement filter therefore produces an
+explicit fine preimage whose support-swap bit is true, equivalently a member
+of the target-rooted union-support component.
+
+The generic carrier is then identified definitionally with each accepted
+left/right disagreement carrier from milestone 306.  Thus the exact
+tilted-Gibbs response identity and the component geometry now refer to the
+same source pair and the same finite carrier.  Finally, accepted source
+membership proves the target is in that component, while the source's
+ledgered separation proof puts the observable root outside it.
+
+This closes the finite geometric localization edge but supplies no decay
+estimate by itself.  The next analytic producer is a root-to-component
+activity bound for the signed four-row event response, with constants that
+remain uniform in volume and explicit in coupling.  The volume-uniform
+`O(g^2)` centered remainder, completed gap, thermodynamic/continuum passage,
+and Clay theorem remain open.
+
+The focused monitored check passes.  All fifteen printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
