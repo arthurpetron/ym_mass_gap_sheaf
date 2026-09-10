@@ -2323,6 +2323,34 @@ The focused monitored source check passes.  All nine printed load-bearing
 declarations remain within `[propext, Quot.sound]`; a dependency-complete
 monitored target passes all 824 jobs.  No aggregate root pass is claimed.
 
+### 9.60 Post-audit implementation update: exact free-face pair-bubble sum, milestone 292 (2026-09-09)
+
+`Z4DyadicPairBubbleRetainedTargetSum.lean` performs the first aggregate
+contraction still allowed by the pointwise no-go.  A generic constructive
+finite-Fubini argument shows that summing a pinned target weight over a
+complete duplicate-free target list recovers the corresponding unpinned
+source sum.  Consequently the sum of `fixedFinalFaceRawWeight` over retained
+spins `0,...,4` is exactly the cutoff-one pair-channel partition.
+
+Kernel computation classifies the surviving channels.  Vacuum contributes
+only `((0,0),0)` with weight one.  A lower pair bubble contributes that vacuum
+channel and `((2,0),2)`; an upper pair bubble contributes the vacuum channel
+and `((0,2),2)`.  In either case the second weight is exactly `coeffW w 2`, so
+the freely contracted face has total mass `1 + coeffW w 2` for arbitrary
+rational `w`.
+
+The contraction is deliberately local and free: it does not commute through
+the production coarse-link multiplicity product, which couples retained
+labels on adjacent faces.  The exact frontier is now the finite shared-link
+boundary tensor and a joint contraction or target reindexing compatible with
+that gluing.  No physical-slab scalar identity, uniform centered remainder,
+completed gap, continuum construction, or Clay theorem is asserted.
+
+The focused monitored target passes all 825 jobs.  All eleven printed
+declarations use only `[propext, Quot.sound]`.  An umbrella `YMGap` replay was
+safely interrupted at the launcher's 12 GiB memory reserve and is not counted
+as a passing check.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

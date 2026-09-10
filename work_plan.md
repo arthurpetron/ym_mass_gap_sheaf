@@ -1342,6 +1342,10 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- closed all-plane pair bubbles contribute exact
 |           |       |       packets `[1,1,0,0]` or `[0,0,1,1]` ........... [PROVED]
 |           |       +-- pair bubbles vanish on every other coarse fibre .. [PROVED]
+|           |       +-- target-independent pointwise bubble scalar ....... [OBSTRUCTED exact]
+|           |       +-- free retained-target sum gives exact scalar
+|           |       |       `1 + coeffW w 2` .............................. [PROVED]
+|           |       +-- shared-link boundary-tensor contraction .......... [ACTIVE]
 |           |       +-- arbitrary attached spins `0..4`: coefficient-level
 |           |       |       XOR assembly and exact packets ................ [PROVED]
 |           |       +-- canonical finite duplicate-free XOR support and
@@ -3784,6 +3788,41 @@ claimed.
 The focused monitored source check passes.  All nine printed load-bearing
 declarations remain within `[propext, Quot.sound]`; a dependency-complete
 monitored target passes all 824 jobs.  No aggregate root pass is claimed.
+
+## Milestone 292: contract one pair bubble after the complete retained-target sum (2026-09-09)
+
+**Status. THE FIRST CLOSED PAIR BUBBLE HAS AN EXACT LOCAL SCALAR ONLY AFTER
+THE RETAINED COARSE-FACE LABEL IS FREELY SUMMED: VACUUM MASS IS `1`, WHILE
+EITHER LOWER OR UPPER PAIR-BUBBLE MASS IS `1 + coeffW w 2`.  THE REMAINING
+OBSTRUCTION IS THEREFORE THE SHARED-LINK BOUNDARY TENSOR THAT PREVENTS THOSE
+FACE LABELS FROM BEING SUMMED INDEPENDENTLY.**
+
+`Z4DyadicPairBubbleRetainedTargetSum.lean` first proves a reusable finite
+Fubini lemma: whenever a duplicate-free target list contains the target of
+every source, summing target-pinned source weights over the complete target
+list recovers the unpinned source sum.  Applied to the cutoff-one pair-channel
+carrier and retained spins `0,...,4`, this identifies the complete retained-
+target sum of `fixedFinalFaceRawWeight` with `packetPairChannelPartition`.
+
+The proof then classifies the exact SU(2) support of all three relevant
+packets.  The vacuum has only `((0,0),0)`.  The lower pair bubble adds
+`((2,0),2)`, and the upper pair bubble adds `((0,2),2)`.  The two channel
+weights are exactly `1` and `coeffW w 2`, giving the claimed free-face
+contraction without a positivity assumption on `w`.
+
+This theorem does not cancel a bubble inside the physical slab.  Production
+coarse-link multiplicities glue retained labels from incident faces, so the
+physical sum is not a product of independent free-face sums.  The next exact
+producer is a finite shared-link boundary-tensor carrier and its joint
+contraction/reindexing law.  A uniform centered remainder, completed gap,
+continuum construction, and Clay theorem remain open.
+
+The focused monitored target passes all 825 jobs.  All eleven printed
+load-bearing declarations remain within `[propext, Quot.sound]`; no
+`Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
+noncomputable declaration, or enlarged heartbeat budget is introduced.  A
+subsequent umbrella `YMGap` replay was safely interrupted when the monitored
+launcher reached its 12 GiB memory reserve; it is not reported as passed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
