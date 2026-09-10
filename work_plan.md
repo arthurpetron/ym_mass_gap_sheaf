@@ -157,7 +157,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- support swap preserves total occupation and has a scalar cocycle ....... [PROVED exact]
 |   |   |   |   +-- coupling-one multiplicities expanded into assignment pairs ............. [PROVED exact]
 |   |   |   |   +-- support-swap term = switched + component + response defect ............. [PROVED exact]
-|   |   |   |   +-- disconnected row-response invariance / connected response bound ........ [ACTIVE analytic producer]
+|   |   |   |   +-- generic support swap placed on accepted source/target carrier ........... [PROVED exact]
+|   |   |   |   +-- accepted rows positive from literal intertwiner witnesses ............... [PROVED]
+|   |   |   |   +-- actual response defect = four whole-row raw-event ratios ................ [PROVED exact]
+|   |   |   |   +-- cross-partition cancellation / connected response bound ................. [ACTIVE analytic producer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
 |   |   |   |   `-- cutoff/volume-uniform O(g^2) centered-remainder estimate .......... [OPEN consumer]
@@ -3528,6 +3531,55 @@ monitored source check passes, and all twelve printed declarations remain
 within `[propext, Quot.sound]` (three definitions use no axioms).  A
 dependency-complete monitored target also passes all 5,511 jobs.  No
 aggregate root pass is claimed.
+
+## Milestone 286: place the response defect on accepted rows and expose its raw denominators (2026-09-09)
+
+**Status. THE GENERIC SUPPORT-SWAP COCYCLE NOW ACTS ON THE LITERAL
+SUPPORT-DISCONNECTED OBSERVABLE CARRIER, AND ITS PRODUCTION-KERNEL RESPONSE
+DEFECT IS EXACTLY FOUR WHOLE-SLAB RAW-EVENT RATIOS.**
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginAcceptedSupportSwapResponse.lean`
+projects every accepted support-disconnected two-replica source to its two
+physical rows and two literal intertwiner assignments.  For every target
+recoupling choice, the generic canonical support swap is proved equal to the
+physical projection of the realized target pair, which is already an actual
+member of the opposite observable four-cell.  The milestone-285
+three-summand cocycle therefore specializes without a surrogate carrier.
+
+The module isolates the minimal two-row event-invariance proposition and
+proves that it removes exactly the response-defect summand, leaving the
+switched term plus the explicit component occupation correction.  This is a
+lossless equality, not an assumed estimate.
+
+For the concrete cutoff-one globally link-glued physical kernel, each of the
+four source/switched physical rows is proved strictly positive at positive
+fine coupling.  Positivity is constructed from the bounded face labels and
+one literal accepted global intertwiner assignment.  Hence every event
+response can be rewritten through the existing positive-row theorem, and the
+remaining defect has the exact normal form
+
+```text
+(rawEvent(sourceLeft) / rowPartition(sourceLeft)
+ - rawEvent(sourceRight) / rowPartition(sourceRight))
+-
+(rawEvent(switchedLeft) / rowPartition(switchedLeft)
+ - rawEvent(switchedRight) / rowPartition(switchedRight)).
+```
+
+This changes the next causal edge.  Support disconnection alone does not make
+the response invariant by definition, because the production kernel has a
+source-dependent complete whole-slab denominator.  The active theorem must
+cross-multiply these four ratios and prove cancellation for components away
+from the selected output event, or bound the remaining target-reaching
+component.  No such cross-partition cancellation or bound is claimed.  The
+volume-uniform balanced-blocking producer, centered `O(g^2)` consumer,
+all-cutoff persistence, interacting continuum measure, same-object OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure remain open.
+
+The focused monitored source check passes and all twenty printed
+declarations remain within `[propext, Quot.sound]`.  A dependency-complete
+monitored target also passes all 5,512 jobs.  No aggregate root pass is
+claimed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

@@ -2153,6 +2153,36 @@ claimed.  The focused check passes; all twelve printed declarations stay
 within `[propext, Quot.sound]`.  The dependency-complete monitored target
 also passes all 5,511 jobs.
 
+### 9.54 Post-audit implementation update: accepted raw-ratio response seam, milestone 286 (2026-09-09)
+
+The support-swap response decomposition now lands on the literal accepted
+observable carrier.  An accepted support-disconnected source is projected to
+its physical and auxiliary pair, and every realized recoupling choice gives
+an actual opposite-four-cell target whose physical pair is exactly the
+canonical support swap.  Thus the generic expanded-fiber cocycle is now a
+theorem about the established source and target carriers.
+
+A minimal two-row event-invariance proposition is kept separate from the
+generic finite-kernel structure.  When supplied, it proves the response
+defect exactly zero and contracts the full identity to the switched term plus
+the component occupation correction without an inequality loss.
+
+More importantly, the proposition is not silently asserted for the
+production kernel.  The four accepted physical rows are first proved
+strictly positive from bounded face labels and literal accepted global
+intertwiner witnesses.  The actual kernel response defect is then rewritten
+exactly as the difference between two differences of whole-slab raw-event
+ratios.  Each ratio retains its own source-dependent complete row partition.
+Consequently the active locality proof is now the explicit cross-partition
+cancellation/bound for these four raw ratios; ordinary support disconnection
+does not erase the normalized response by unfolding definitions.
+
+No cross-partition cancellation, connected response estimate, uniform
+mixing, continuum construction, OS/GNS reconstruction, Hamiltonian gap, or
+Clay result is claimed.  The focused check passes and all twenty printed
+declarations stay within `[propext, Quot.sound]`.  The dependency-complete
+monitored target also passes all 5,512 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
