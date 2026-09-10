@@ -3295,6 +3295,22 @@ common heat exponent.  No uniform or strict estimate is claimed.  The
 focused monitored check passes and all ten printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.107 Post-audit implementation update: exact component heat budget, milestone 339 (2026-09-10)
+
+`Z4DyadicBinaryConnectedComponentHeatBudget.lean` proves that the canonical
+observable-rooted target component has joint activity at least its geometric
+separation.  Three times that component activity is bounded by the actual
+fine-source occupation plus coarse SU(2) Casimir-excess exponent.
+
+Guarded natural subtraction therefore splits the complete common exponent
+exactly into distance heat, component slack, and complementary heat reserve.
+The residual rational power and the full refined carrier weight are factored
+accordingly, without dropping the ground-row fraction or unit-coupling
+congestion.  The complementary reserve is not yet identified with terminal
+exterior data, and no entropy or strict estimate is claimed.  The focused
+monitored check passes and all eighteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

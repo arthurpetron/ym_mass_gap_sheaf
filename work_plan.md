@@ -5276,6 +5276,44 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 339: split the physical heat exponent into distance, component slack, and reserve (2026-09-10)
+
+**Status. EVERY NONZERO ORIENTED CONNECTED ENTRY NOW HAS AN EXACT THREE-PART
+HEAT BUDGET: DISTANCE PAYMENT, OBSERVABLE-COMPONENT SLACK, AND THE COMPLETE
+REMAINING PHYSICAL HEAT RESERVE.**
+
+`Z4DyadicBinaryConnectedComponentHeatBudget.lean` first proves that the
+literal observable-rooted target-support component already carries joint
+source-packet/target-excitation activity at least the geometric separation.
+This uses the actual component path, its duplicate-free plaquette image, and
+the SU(2) lowering witness retained by milestone 338.
+
+It then proves that three times this component activity is bounded by the
+actual common heat exponent: the complete cutoff-one fine occupied-face
+count plus coarse SU(2) Casimir excess.  Guarded natural subtraction gives
+the exact identity
+
+`common heat exponent`
+`  = distance heat + component heat slack + complementary heat reserve`.
+
+Consequently the residual power factors exactly into component-slack and
+reserve powers.  The complete strengthened global carrier is rewritten with
+this factorization while retaining its distance fugacity, unit-coupling
+congestion, and ground-row probability fraction.
+
+The reserve is deliberately not identified with an exterior partition: it
+also contains unused Casimir strength and fine faces outside the dyadic
+packet image.  The next frontier is to recode each component at fixed trace
+and isolate the part of this reserve that contracts with terminal source-row
+normalization.  No component entropy ceiling, strict global fraction,
+completed gap, thermodynamic/continuum passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All eighteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, enlarged heartbeat budget, or external certificate
+is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
