@@ -792,7 +792,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- retained component/dynamics carrier bridge ........... [PROVED exact]
 |       +-- retained blocked-law point density ................... [PROVED exact]
 |       +-- retained two-replica point law ....................... [PROVED exact]
-|       +-- connected retained-pair component estimate ........... [NEXT]
+|       +-- connected retained-pair component estimate ........... [PROVED on 0<w<=1/400]
+|       +-- coherent/mixed enriched-pair observable bridge ........ [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1168,6 +1169,50 @@ and inherit the existing SU(2), `0 < w <= 1/400` component-decay bound on the
 resulting literal retained probability event.  Reflection, the linked
 same-object cutoff tower, beta/lattice-spacing scaling, completed gap,
 continuum construction, and Clay closure remain open.
+
+#### Bound the retained connected event by the SU(2) corridor rate (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedCorridor` filters the
+literal observable support-connected source-pair carrier by the two exact
+tests that select nonpositive four-preimage raw partitions.  It evaluates
+each pair with the product of the two actual enriched blocked-law retained
+point masses, not with a proxy measure.
+
+Summing the preceding point identity gives
+
+```text
+retained positive-incoherent connected probability
+  = filtered accepted-pair Gibbs weight / physicalPartition^2.
+```
+
+All accepted-pair weights are positive at positive coupling.  The filtered
+numerator is therefore no larger than the complete connected numerator, so
+the existing non-abelian SU(2) component/peeling estimate proves the explicit
+cutoff- and finite-volume-independent corridor bound
+
+```text
+retained connected probability
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+for the fully named range `0 < S.fine.coupling < 1` and
+`S.fine.coupling <= 1/400`.  This is not a group-agnostic or beta-uniform
+claim; the coupling range and concrete SU(2) component compiler are
+load-bearing.
+
+The focused monitored source check and dependency-complete 1,552-job target
+build pass.  All three printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next causal edge is to cover the coherent/coarse and mixed output sectors
+without losing the source-connected component witness.  The natural exact
+object is a source-labelled two-replica joint law whose target marginal is the
+enriched blocked pair law and whose source projection retains the component
+geometry.  Reflection on the enriched target, the linked same-object cutoff
+tower, beta/lattice-spacing scaling, completed gap, continuum construction,
+and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

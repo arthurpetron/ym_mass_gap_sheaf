@@ -29815,3 +29815,49 @@ lift reflection; construct the linked same-object cutoff tower; prove the
 beta/lattice-spacing scaling estimate and completed physical gap; and
 construct the thermodynamic/continuum measure, same-measure OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Transport the SU(2) corridor estimate to the retained connected event (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedCorridor` constructs the
+finite observable support-connected pair subcarrier on which both raw
+four-preimage partitions are nonpositive.  Its weight is the product of the
+two actual retained point masses in the enriched blocked law.  Exact finite
+summation proves
+
+```text
+retained connected event mass
+  = filtered accepted-pair weight / physicalPartition^2.
+```
+
+The filtered numerator is bounded by the complete connected numerator using
+strict positivity of the concrete SU(2) weights.  The existing canonical
+component estimate therefore yields
+
+```text
+retained connected event mass
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+under the explicit hypotheses `0 < S.fine.coupling < 1` and
+`S.fine.coupling <= anchorCoupling = 1/400`.  This is cutoff- and
+finite-volume-independent within that named corridor, not beta-uniform and
+not group-agnostic.
+
+Monitored verification:
+
+```text
+retained connected corridor focused source check           PASS
+retained connected corridor dependency target              PASS (1,552 jobs)
+```
+
+All three printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: connect coherent/coarse and mixed enriched output sectors to the
+same source component witness; lift reflection to the enriched target;
+construct the linked same-object cutoff tower; prove beta/lattice-spacing
+scaling and the completed physical gap; and construct the thermodynamic and
+continuum measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and
+Clay closure.
