@@ -2688,6 +2688,23 @@ response bound, completed gap, continuum construction, or Clay theorem is
 claimed.  The focused monitored check passes and all nine printed
 declarations use only `[propext, Quot.sound]`.
 
+### 9.77 Post-audit implementation update: antisymmetric localized response determinant, milestone 309 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsResponseDeterminant.lean` clears the two
+positive row denominators in a normalized tilted-event response difference.
+Finite Fubini and antisymmetrization then express twice the raw cross on the
+square of the common physical carrier.
+
+Each pair term factors exactly into two common exterior Gibbs backgrounds,
+the antisymmetric determinant of the two packet-disagreement tilts, and the
+Boolean observable difference.  The algebra therefore kills both common
+source factors and unchanged observable sectors before absolute values are
+taken.  The remaining next edge is to restrict to the surviving pair carrier
+and attach it to a root-to-target connected activity expansion.  No uniform
+response bound, completed gap, continuum construction, or Clay theorem is
+claimed.  The focused monitored check passes and all nine printed
+declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

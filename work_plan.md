@@ -4202,6 +4202,40 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
+
+**Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
+CLEARS TO AN EXACT RAW CROSS, AND TWICE THAT CROSS IS A SQUARE-CARRIER SUM
+WHOSE ONLY SOURCE-DEPENDENT SIGNED FACTOR IS THE DETERMINANT OF THE TWO LOCAL
+PACKET-DISAGREEMENT TILTS.**
+
+`Z4DyadicBinarySourceTiltedGibbsResponseDeterminant.lean` represents each
+normalized event mass as its full-carrier raw numerator divided by its
+positive tilted-row mass, and clears the two denominators without an
+inequality.  A generic finite Fubini identity then rewrites the raw cross as
+an oriented square-carrier sum; antisymmetrization makes it twice the cross.
+
+Specializing the identity to milestone 308 factors every pair term as
+
+`commonBackground(x) * commonBackground(y)`
+
+times the antisymmetric determinant of the two disagreement-carrier tilts,
+times the difference of the two Boolean event indicators.  Hence an
+unchanged event or a common source tilt cancels before any absolute value is
+taken.  This is the exact connected integrand to which a root-to-component
+polymer/path estimate must be applied.
+
+The next producer restricts the square carrier to pairs on which both the
+local tilt determinant and observable difference survive, then attaches
+those pairs to a root-to-target connected support with explicit activity and
+entropy data.  No volume-uniform response estimate, completed gap,
+thermodynamic/continuum passage, or Clay theorem is claimed.
+
+The focused monitored check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 303: rewrite the centered remainder as a signed mixture of explicit tilted Gibbs rows (2026-09-09)
 
 **Status. THE SELECTED CENTERED PHYSICAL BLOCKING REMAINDER IS NOW EXACTLY A
