@@ -2739,6 +2739,24 @@ response bound, completed gap, continuum construction, or Clay theorem is
 claimed.  The focused monitored check passes and all nine printed
 declarations use only `[propext, Quot.sound]`.
 
+### 9.80 Post-audit implementation update: connected active response paths, milestone 312 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsActiveConnectedPath.lean` makes the next
+geometric branch decidable.  It tests whether milestone 311's selected changed
+source-disagreement coordinate belongs to the coarse target-pair support
+component rooted at the one-face observable.
+
+On the true branch, the finite graph compiler returns a Type-level `ChainIn`
+from the observable coordinate to that source-disagreement coordinate.  The
+returned bridge retains the selected fine dyadic preimage and its membership
+in the physical fine-source component, so it is a literal cross-scale
+connected certificate rather than a propositional reachability claim.  The
+false branch's support-swap cancellation and the connected branch's
+activity-versus-entropy bound remain open, as do the uniform response,
+completed gap, continuum construction, and Clay theorem.  The focused
+monitored check passes and all five printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

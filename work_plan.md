@@ -4270,6 +4270,40 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 312: construct the connected active response path (2026-09-09)
+
+**Status. THE CONNECTED BRANCH OF EVERY ACTIVE ACCEPTED ONE-FACE RESPONSE
+NOW RETURNS AN ACTUAL COARSE UNION-SUPPORT CHAIN FROM THE OBSERVABLE FACE TO
+THE CHANGED SOURCE-DISAGREEMENT FACE, WHOSE FINE PREIMAGE REMAINS IN THE
+PHYSICAL SOURCE COMPONENT.**
+
+`Z4DyadicBinarySourceTiltedGibbsActiveConnectedPath.lean` introduces the
+decidable branch test asking whether milestone 311's selected changed coarse
+face lies in the observable-rooted union-support component of the two coarse
+target states.  An active one-face event proves that the observable root is
+itself in that support, while a true branch test places the changed source
+face in the same component.
+
+The constructive finite-component compiler then returns a Type-level
+`ChainIn` between the two faces.  The resulting bridge structure also retains
+the complete milestone-311 endpoint, including its fine dyadic preimage and
+membership in the target-rooted physical source component.  Thus the
+connected response branch is now one explicit cross-scale geometric object,
+not two unrelated nonemptiness statements.
+
+The next producer is the complementary disconnected-branch involution: swap
+the two coarse target states on the observable-rooted component, prove the
+full localized pair weight is preserved while the one-face event difference
+reverses sign, and cancel that branch exactly.  After that, the surviving
+connected paths require an explicit activity-versus-entropy estimate with
+coupling dependence visible.  The uniform centered remainder, completed gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
+
+The focused monitored check passes.  All five printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
