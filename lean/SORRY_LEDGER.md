@@ -30049,3 +30049,38 @@ enriched kernel, identify the resulting connected expression with a target
 covariance/reflection form, build the linked cutoff tower, prove physical
 scaling and the completed gap, and construct the continuum theory and Clay
 closure.
+
+#### Separate retained event identity from coherent recoupling (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerTargetEventTransport` defines the
+conditional moment of arbitrary branch-explicit Boolean predicates under one
+enriched all-cutoff kernel row.  The retained Haar row resamples only the
+fine-intertwiner witness, and the faithful physical-state code yields the
+exact observable identity
+
+```text
+retained event moment = fine event indicator at the source state.
+```
+
+For a positive source with nonpositive raw partition, the full enriched row
+has exactly this retained expectation.  For a positive source with positive
+raw partition, the full enriched expectation is exactly the coarse event
+moment of the genuine whole-slab recoupling kernel.  No smallness property is
+assigned to that coherent moment.
+
+Monitored verification:
+
+```text
+branchwise enriched event transport focused source check   PASS
+```
+
+All three printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: lift the exact retained identity to the two-replica target
+four-cell, isolate the coherent-branch observable mismatch, connect the
+result to reflection/covariance, build the linked cutoff tower, prove physical
+scaling and the completed gap, and construct the continuum theory and Clay
+closure.

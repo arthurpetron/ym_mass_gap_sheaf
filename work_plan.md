@@ -1395,6 +1395,36 @@ positive event restriction with a target covariance/reflection expression.
 The linked cutoff tower, physical scaling, completed gap, continuum
 construction, and Clay closure remain open.
 
+#### Separate exact retained transport from coherent recoupling (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerTargetEventTransport` defines the
+conditional moment of arbitrary fine/coarse Boolean physical predicates in
+one enriched kernel row.  The faithful physical-state code proves that the
+retained Haar row preserves every fine physical event exactly:
+
+```text
+E_retained[1_event] = 1_event(source physical state).
+```
+
+The full positive-source row then has an exact dichotomy.  If the raw
+recoupling partition is nonpositive, its enriched moment is the fine source
+indicator.  If the partition is positive, its enriched moment is exactly the
+coarse event expectation under the genuine whole-slab recoupling row.  Thus
+the observable mismatch is absent on the retained branch and localized to
+the coherent coarse branch.
+
+The focused monitored source check passes.  All three printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next causal edge is the two-replica contraction: prove that a connected
+source pair whose two positive rows are both retained lands in the literal
+target `11 x 00` four-cell with row mass one.  The coherent branch must remain
+as a named observable mismatch until an actual pullback estimate is proved.
+Reflection, the linked cutoff tower, physical scaling, completed gap,
+continuum construction, and Clay closure remain open.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving
