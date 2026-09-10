@@ -4622,6 +4622,45 @@ The focused monitored check passes.  The printed theorem remains within
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 322: replace absolute target mass by source-relative excitation marks (2026-09-10)
+
+**Status. EVERY NONZERO ORIENTED CONTRIBUTION TO THE CONNECTED ENVELOPE HAS
+AN OBSERVABLE ENDPOINT MARKED EITHER BY SOURCE PACKET DISAGREEMENT OR BY A
+POSITIVE TWO-SPIN EXCITATION ABOVE THE ASSIGNED SOURCE PARITY GROUND.**
+
+`Z4DyadicBinarySourceTiltedGibbsRelativeExcitationEndpoints.lean` defines the
+forward and reverse relative-excitation predicates matching the two oriented
+products in the M320 symmetrized envelope.  A five-case-free local argument
+uses the exact lowering support theorem: if the source packet totals agree,
+two unequal supported targets cannot both equal their common parity ground.
+Thus at least one assigned target has positive excitation level.
+
+For an arbitrary physical face with unequal target labels, each orientation
+therefore yields the exact dichotomy
+
+`source packet totals differ at the face`
+`  OR one assigned target has positive relative excitation`.
+
+The file also closes the support seam.  A nonzero forward or reverse raw pair
+weight forces both targets into precisely the lowering rows assigned by that
+orientation; otherwise the complete raw row is zero and so is the oriented
+product.  Applying the dichotomy to the target inequality at the observable
+endpoint of every connected active pair gives the stated marked endpoint
+without an extra support hypothesis.
+
+This corrects the activity coordinate but does not yet propagate payment
+through the entire connecting component.  The next causal theorem must turn
+the endpoint mark and the component-swap obstruction into a connected marked
+carrier or a boundary-energy lower bound.  Only after that can fixed-mass
+fibers be summed.  Any strict rate must keep coupling, cutoff, volume, and
+load-bearing SU(2) dependence explicit.  Completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All thirteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

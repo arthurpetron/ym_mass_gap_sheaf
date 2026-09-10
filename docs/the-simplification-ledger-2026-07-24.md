@@ -2953,6 +2953,30 @@ completed spectral gap, thermodynamic/continuum construction, or Clay theorem
 is claimed.  The focused monitored check passes and the printed theorem uses
 only `[propext, Quot.sound]`.
 
+### 9.90 Post-audit implementation update: source-relative excitation endpoints, milestone 322 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsRelativeExcitationEndpoints.lean` replaces
+the misleading absolute-target activity coordinate by the parity-excitation
+level relative to the source assigned in each of the two envelope
+orientations.  On a face where the two packet totals agree, two unequal
+supported targets cannot both be their common parity ground.  Therefore every
+target disagreement is either itself on the source packet-disagreement
+carrier or pays positive relative excitation in the chosen orientation.
+
+Nonzero forward and reverse raw pair products are proved to lie in their
+corresponding exact lowering rows: failure of a pointwise lowering test makes
+the complete raw row, its localized form, and hence the oriented product
+exactly zero.  It follows that every nonzero oriented connected contribution
+has the marked dichotomy at its observable endpoint.
+
+This is an endpoint theorem, not yet a distance-proportional activity floor.
+The open geometric seam is to propagate relative payment through the
+observable-rooted component, most likely by recording the boundary where an
+observable-component swap ceases to preserve the assigned source rows.  Only
+then can fixed-mass entropy yield a strict connected-fraction bound.  The
+focused monitored check passes and all thirteen printed declarations use
+only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
