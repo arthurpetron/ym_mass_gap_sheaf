@@ -303,6 +303,69 @@ theorem upperPairBubblePacket_excitedChannel_rawWeight_eqv_coeffW
         (Q'.one_mul_eqv (1 * 1)) (Q'.one_mul_eqv 1)))
     (Q'.mul_one_eqv (coeffW w 2))
 
+private theorem fixedFinalZero_eqv_supportedSum
+    (w : Q') (packet : FaceSpinPacket) :
+    fixedFinalFaceRawWeight w packet 0 ≈
+      listQSum
+        (fun state =>
+          if state.2 = 0 then
+            packetPairChannelRawWeight w packet state
+          else 0)
+        ((pairChannelStateSpace 1).filter
+          (packetPairChannelSupportedBool packet)) := by
+  unfold fixedFinalFaceRawWeight
+  apply listQSum_eq_filter_of_zero_local
+  intro state _ hsupport
+  by_cases hfinal : state.2 = 0
+  · rw [if_pos hfinal]
+    exact packetPairChannelRawWeight_eqv_zero_of_support_false
+      w packet state hsupport
+  · rw [if_neg hfinal]
+    exact Q'.eqv_refl 0
+
+theorem vacuumPacket_fixedFinalZero_eqv_one (w : Q') :
+    fixedFinalFaceRawWeight w
+        (⟨0, 0, 0, 0⟩ : FaceSpinPacket) 0 ≈ 1 := by
+  refine Q'.eqv_trans _ _ _
+    (fixedFinalZero_eqv_supportedSum w
+      (⟨0, 0, 0, 0⟩ : FaceSpinPacket)) ?_
+  rw [vacuumPacket_supportedChannels]
+  simp only [listQSum]
+  rw [if_pos (by decide : pairBubbleVacuumChannel.2 = 0)]
+  exact Q'.eqv_trans _ (1 + 0) _
+    (Q'.add_eqv_congr'
+      (vacuumPacket_vacuumChannel_rawWeight_eqv_one w)
+      (Q'.eqv_refl 0))
+    (Q'.eqv_of_eq (Q'.add_zero' 1))
+
+theorem lowerPairBubblePacket_fixedFinalZero_eqv_one (w : Q') :
+    fixedFinalFaceRawWeight w (pairBubblePacket false) 0 ≈ 1 := by
+  refine Q'.eqv_trans _ _ _
+    (fixedFinalZero_eqv_supportedSum w (pairBubblePacket false)) ?_
+  rw [lowerPairBubblePacket_supportedChannels]
+  simp only [listQSum]
+  rw [if_pos (by decide : pairBubbleVacuumChannel.2 = 0),
+    if_neg (by decide : pairBubbleExcitedChannel.2 ≠ 0)]
+  exact Q'.eqv_trans _ (1 + (0 + 0)) _
+    (Q'.add_eqv_congr'
+      (lowerPairBubblePacket_vacuumChannel_rawWeight_eqv_one w)
+      (Q'.eqv_refl (0 + 0)))
+    (by decide)
+
+theorem upperPairBubblePacket_fixedFinalZero_eqv_one (w : Q') :
+    fixedFinalFaceRawWeight w (pairBubblePacket true) 0 ≈ 1 := by
+  refine Q'.eqv_trans _ _ _
+    (fixedFinalZero_eqv_supportedSum w (pairBubblePacket true)) ?_
+  rw [upperPairBubblePacket_supportedChannels]
+  simp only [listQSum]
+  rw [if_pos (by decide : pairBubbleVacuumChannel.2 = 0),
+    if_neg (by decide : pairBubbleUpperExcitedChannel.2 ≠ 0)]
+  exact Q'.eqv_trans _ (1 + (0 + 0)) _
+    (Q'.add_eqv_congr'
+      (upperPairBubblePacket_vacuumChannel_rawWeight_eqv_one w)
+      (Q'.eqv_refl (0 + 0)))
+    (by decide)
+
 /-! ## 3. The exact free-face bubble scalar -/
 
 theorem vacuumPacket_pairChannelPartition_eqv_one (w : Q') :
@@ -400,6 +463,9 @@ theorem pairBubblePacket_retainedTargetMass_eqv
 #print axioms upperPairBubblePacket_vacuumChannel_rawWeight_eqv_one
 #print axioms lowerPairBubblePacket_excitedChannel_rawWeight_eqv_coeffW
 #print axioms upperPairBubblePacket_excitedChannel_rawWeight_eqv_coeffW
+#print axioms vacuumPacket_fixedFinalZero_eqv_one
+#print axioms lowerPairBubblePacket_fixedFinalZero_eqv_one
+#print axioms upperPairBubblePacket_fixedFinalZero_eqv_one
 #print axioms vacuumPacket_pairChannelPartition_eqv_one
 #print axioms pairBubblePacket_pairChannelPartition_eqv
 #print axioms vacuumPacket_retainedTargetMass_eqv_one

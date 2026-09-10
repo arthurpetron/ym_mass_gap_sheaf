@@ -2346,10 +2346,35 @@ boundary tensor and a joint contraction or target reindexing compatible with
 that gluing.  No physical-slab scalar identity, uniform centered remainder,
 completed gap, continuum construction, or Clay theorem is asserted.
 
-The focused monitored target passes all 825 jobs.  All eleven printed
+The focused monitored target passes all 825 jobs.  All fourteen printed
 declarations use only `[propext, Quot.sound]`.  An umbrella `YMGap` replay was
 safely interrupted at the launcher's 12 GiB memory reserve and is not counted
 as a passing check.
+
+### 9.61 Post-audit implementation update: exact bubble/vacuum shared-link contraction, milestone 293 (2026-09-09)
+
+`Z4DyadicPairBubbleSharedLinkContraction.lean` now inserts the literal
+production degree-two link projector between a cutoff-one pair-bubble face
+and a vacuum neighbour.  After each face's internal pair channels are summed
+at fixed retained spin, the projector is exactly
+`fusionInd leftFinal rightFinal 0`.
+
+The resulting raw two-face boundary tensor equals the two-vacuum tensor for
+every retained-spin pair.  If the vacuum target spin is nonzero, its face row
+vanishes.  If it is zero and the bubble target spin is nonzero, the production
+projector vanishes.  At the sole remaining target `(0,0)`, both the vacuum
+and the lower or upper pair-bubble fixed-final rows have exact mass one.  A
+finite congruence then contracts the complete `0,...,4` target box.
+
+This theorem is intentionally local.  It does not show that an arbitrary
+closed component in the actual slab has a vacuum-adjacent production link,
+nor does it commute the equality through the full coarse-link multiplicity
+network.  Those are the next geometric and tensorial obligations.  No
+whole-slab cancellation, uniform centered remainder, completed gap,
+continuum construction, or Clay theorem is asserted.
+
+The focused monitored source check passes.  All four printed declarations
+use only `[propext, Quot.sound]`.
 
 ## 10. What this changes—and what it does not
 

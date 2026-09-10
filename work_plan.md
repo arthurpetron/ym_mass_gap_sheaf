@@ -171,7 +171,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- untouched whole-slab raw face product is invariant .......................... [PROVED exact]
 |   |   |   |   +-- target-independent touched scalar => normalized response cancellation ....... [PROVED exact compiler]
 |   |   |   |   +-- facewise target-independent bubble scalar .............................. [OBSTRUCTED exact no-go]
-|   |   |   |   +-- finite touched target-channel reindex/sum identity ..................... [ACTIVE analytic producer]
+|   |   |   |   +-- free retained-face target sum = `1 + coeffW w 2` ...................... [PROVED exact]
+|   |   |   |   +-- pair-bubble/vacuum shared-link tensor = vacuum tensor ................. [PROVED local]
+|   |   |   |   +-- expose a vacuum-adjacent link in the whole touched carrier ............. [ACTIVE exact producer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1345,7 +1347,8 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- target-independent pointwise bubble scalar ....... [OBSTRUCTED exact]
 |           |       +-- free retained-target sum gives exact scalar
 |           |       |       `1 + coeffW w 2` .............................. [PROVED]
-|           |       +-- shared-link boundary-tensor contraction .......... [ACTIVE]
+|           |       +-- bubble/vacuum shared-link tensor contracts exactly [PROVED local]
+|           |       +-- whole-carrier vacuum-link exposure and lift ....... [ACTIVE]
 |           |       +-- arbitrary attached spins `0..4`: coefficient-level
 |           |       |       XOR assembly and exact packets ................ [PROVED]
 |           |       +-- canonical finite duplicate-free XOR support and
@@ -3817,12 +3820,46 @@ producer is a finite shared-link boundary-tensor carrier and its joint
 contraction/reindexing law.  A uniform centered remainder, completed gap,
 continuum construction, and Clay theorem remain open.
 
-The focused monitored target passes all 825 jobs.  All eleven printed
+The focused monitored target passes all 825 jobs.  All fourteen printed
 load-bearing declarations remain within `[propext, Quot.sound]`; no
 `Classical`, choice, `sorry`, `admit`, `native_decide`, custom axiom,
 noncomputable declaration, or enlarged heartbeat budget is introduced.  A
 subsequent umbrella `YMGap` replay was safely interrupted when the monitored
 launcher reached its 12 GiB memory reserve; it is not reported as passed.
+
+## Milestone 293: contract a pair bubble through the literal shared-link projector (2026-09-09)
+
+**Status. A CUTOFF-ONE PAIR BUBBLE GLUED TO A VACUUM NEIGHBOUR HAS EXACTLY
+THE SAME TWO-FACE RAW BOUNDARY TENSOR AS TWO VACUUM FACES, POINTWISE IN BOTH
+RETAINED FINAL SPINS AND AFTER THEIR COMPLETE FINITE SUM.**
+
+`Z4DyadicPairBubbleSharedLinkContraction.lean` supplies the smallest physical
+gluing missing from milestone 292.  It marginalizes the internal pair
+channels on each face while retaining both final spins, then multiplies by
+the literal production degree-two link factor.  The existing link theorem
+identifies that factor with `fusionInd leftFinal rightFinal 0`.
+
+The proof has two exhaustive causal branches.  A nonzero retained spin on the
+vacuum face has zero raw weight.  If the vacuum retained spin is zero, any
+nonzero retained spin on the bubble face is killed by the vacuum fusion
+projector.  Only `(leftFinal,rightFinal) = (0,0)` remains, where the vacuum
+and either orientation of the pair bubble both have exact raw mass one.
+Consequently the full two-face tensor agrees pointwise and its sum over
+`List.range 5` in both coordinates agrees exactly.
+
+This is a local two-face contraction, not yet a whole-slab bubble identity.
+The active exact producer is geometric: expose a production link adjacent to
+a vacuum face for the relevant closed bubble inside the actual touched
+carrier, then lift the local equality through the remaining face and link
+products.  Arbitrary background faces can carry retained spin two, so no
+background-independent cancellation is claimed.  The centered blocking
+estimate, completed gap, continuum construction, and Clay theorem remain
+open.
+
+The focused monitored source check passes.  All four printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
