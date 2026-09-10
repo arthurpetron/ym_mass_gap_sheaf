@@ -2294,6 +2294,35 @@ or Clay theorem is asserted.  The focused check passes; all eleven printed
 declarations use only `[propext, Quot.sound]`, and the dependency-complete
 monitored target passes all 942 jobs.
 
+### 9.59 Post-audit implementation update: pointwise bubble-scalar no-go, milestone 291 (2026-09-09)
+
+`Z4DyadicPairBubbleRawScalarNoGo.lean` tests the strongest premise accepted by
+the touched-product compiler against the first explicit closed generator.  It
+proves that the lower pair-bubble packet `[1,1,0,0]` and the vacuum packet
+`[0,0,0,0]` cannot be related by one target-independent scalar at either of
+two levels: individual internal pair channels, or the weights obtained after
+summing both internal pair channels at each retained coarse spin.
+
+The proof is support-theoretic.  The vacuum retained-spin-zero weight is
+positive.  Its retained-spin-two weight is exactly zero because vacuum fusion
+forces both pair channels and hence the final channel to zero.  The pair
+bubble, by contrast, has an explicit positive `((2,0),2)` channel.  Therefore
+the target-independent scalar premise is false already for one local lower
+pair bubble.  This does not refute an identity after summing or reindexing the
+retained coarse-target network.
+
+The route is repointed accordingly: untouched-face locality remains valid,
+and the scalar-cancellation compiler remains a correct conditional theorem,
+but a facewise scalar evaluation is now marked obstructed.  The active exact
+producer is a finite target-channel reindexing or aggregate-sum identity on
+the complete touched network.  No such identity, aggregate contraction,
+uniform centered remainder, completed gap, continuum construction, or Clay
+theorem is asserted.
+
+The focused monitored source check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; a dependency-complete
+monitored target passes all 824 jobs.  No aggregate root pass is claimed.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

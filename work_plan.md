@@ -170,7 +170,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- component -> finite touched coarse-face carrier ............................. [PROVED exact]
 |   |   |   |   +-- untouched whole-slab raw face product is invariant .......................... [PROVED exact]
 |   |   |   |   +-- target-independent touched scalar => normalized response cancellation ....... [PROVED exact compiler]
-|   |   |   |   +-- evaluate the finite closed touched bubble as a target-independent scalar .... [ACTIVE analytic producer]
+|   |   |   |   +-- facewise target-independent bubble scalar .............................. [OBSTRUCTED exact no-go]
+|   |   |   |   +-- finite touched target-channel reindex/sum identity ..................... [ACTIVE analytic producer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -3750,6 +3751,39 @@ is claimed.
 The focused monitored source check passes.  All eleven printed load-bearing
 declarations remain within `[propext, Quot.sound]`; a dependency-complete
 monitored target passes all 942 jobs.  No aggregate root pass is claimed.
+
+## Milestone 291: rule out a pointwise pair-bubble scalar (2026-09-09)
+
+**Status. THE FIRST CLOSED PAIR BUBBLE IS PROVED NOT TO CONTRACT TO ONE
+TARGET-INDEPENDENT SCALAR, EVEN AFTER BOTH INTERNAL PAIR CHANNELS ARE SUMMED.
+THE ACTIVE CONTRACTION EDGE IS THEREFORE A FINITE REINDEXING OR SUM IDENTITY
+ON THE RETAINED COARSE-TARGET NETWORK.**
+
+`Z4DyadicPairBubbleRawScalarNoGo.lean` compares the lower pair-bubble packet
+`[1,1,0,0]` with the vacuum packet `[0,0,0,0]`.  At the individual-channel
+level both packets have unit raw weight in the vacuum channel, while only the
+pair bubble has a positive raw weight in the explicit channel `((2,0),2)`.
+Thus no single rational scalar can relate every channel weight.
+
+The obstruction survives the internal pair-channel marginal.  Structural
+finite-sum proofs show that the vacuum packet has positive retained-spin-zero
+weight and exactly zero retained-spin-two weight, whereas the pair-bubble
+packet has positive retained-spin-two weight.  Hence no scalar can relate the
+two `fixedFinalFaceRawWeight` rows for every retained coarse spin.  This is an
+exact support obstruction, not a failed numerical search and not an artifact
+of unfolding the finite Cartesian state space.
+
+Accordingly, the conditional scalar compiler from milestone 290 remains a
+valid theorem but its premise is false for the first local bubble.  The next
+honest producer must compare an aggregate over retained coarse-target labels
+or provide a weight-preserving finite target reindexing compatible with the
+rest of the touched network.  No such aggregate recoupling identity, uniform
+centered remainder, completed gap, continuum construction, or Clay theorem is
+claimed.
+
+The focused monitored source check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; a dependency-complete
+monitored target passes all 824 jobs.  No aggregate root pass is claimed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 
