@@ -4291,15 +4291,47 @@ membership in the target-rooted physical source component.  Thus the
 connected response branch is now one explicit cross-scale geometric object,
 not two unrelated nonemptiness statements.
 
-The next producer is the complementary disconnected-branch involution: swap
-the two coarse target states on the observable-rooted component, prove the
-full localized pair weight is preserved while the one-face event difference
-reverses sign, and cancel that branch exactly.  After that, the surviving
-connected paths require an explicit activity-versus-entropy estimate with
-coupling dependence visible.  The uniform centered remainder, completed gap,
-thermodynamic/continuum passage, and Clay theorem remain open.
+The selected endpoint alone does not classify the complementary branch:
+another changed disagreement face may still connect.  The next producer is
+therefore the complete finite `any` classifier over every changed source-
+disagreement coordinate.  Only its false branch is strong enough for the
+coarse component-swap involution.  The activity/entropy estimate, uniform
+centered remainder, completed gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
 
 The focused monitored check passes.  All five printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 313: partition active response pairs by complete connectivity (2026-09-09)
+
+**Status. THE ACTIVE ONE-FACE RESPONSE CARRIER NOW SPLITS EXACTLY ACCORDING
+TO WHETHER ANY CHANGED SOURCE-DISAGREEMENT COORDINATE LIES IN THE
+OBSERVABLE-ROOTED COARSE TARGET COMPONENT.**
+
+`Z4DyadicBinarySourceTiltedGibbsActiveConnectivityPartition.lean` replaces
+the insufficient selected-endpoint complement by a complete finite `any`
+test over the entire source packet-disagreement carrier.  A true result
+constructively returns a changed disagreement face in the observable
+component and a Type-level `ChainIn` from the observable face to it.
+
+The false result proves the exact complementary statement needed downstream:
+the two coarse target states agree at every source-disagreement coordinate
+inside the observable component.  Exact finite filtering partitions the
+full active response sum into connected and disconnected pieces, and every
+member of the connected carrier computes its explicit path certificate.
+
+The next producer is now the valid disconnected-branch involution.  It must
+swap the two coarse target states on their observable-rooted component, use
+the false-branch agreement theorem to preserve both local disagreement tilts,
+prove preservation of the remaining common physical background and carrier,
+reverse the one-face event difference, and cancel the disconnected sum
+exactly.  The connected branch activity-versus-entropy estimate, uniform
+centered remainder, completed gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
+
+The focused monitored check passes.  All ten printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.

@@ -2751,11 +2751,29 @@ from the observable coordinate to that source-disagreement coordinate.  The
 returned bridge retains the selected fine dyadic preimage and its membership
 in the physical fine-source component, so it is a literal cross-scale
 connected certificate rather than a propositional reachability claim.  The
-false branch's support-swap cancellation and the connected branch's
-activity-versus-entropy bound remain open, as do the uniform response,
-completed gap, continuum construction, and Clay theorem.  The focused
-monitored check passes and all five printed declarations use only
-`[propext, Quot.sound]`.
+selected endpoint's false branch is not a complete disconnection statement,
+so a finite classifier over every changed disagreement coordinate remains
+necessary before support-swap cancellation.  The connected branch's
+activity-versus-entropy bound, uniform response, completed gap, continuum
+construction, and Clay theorem remain open.  The focused monitored check
+passes and all five printed declarations use only `[propext, Quot.sound]`.
+
+### 9.81 Post-audit implementation update: complete active connectivity partition, milestone 313 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsActiveConnectivityPartition.lean` searches
+the entire source packet-disagreement carrier for a changed coarse target
+coordinate lying in the observable-rooted target-pair support component.  A
+true result returns that coordinate and a Type-level component chain.
+
+The false branch proves that both coarse targets agree on every disagreement
+coordinate inside the observable component.  Exact finite filtering then
+partitions the active one-face response sum into connected and disconnected
+branches, and connected membership computes its path certificate.  This is
+the complement strong enough for the next component-swap cancellation; that
+cancellation and the connected activity/entropy estimate remain open, as do
+the uniform response, completed gap, continuum construction, and Clay
+theorem.  The focused monitored check passes and all ten printed declarations
+use only `[propext, Quot.sound]`.
 
 ## 10. What this changes—and what it does not
 
