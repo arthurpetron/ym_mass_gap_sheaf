@@ -2512,6 +2512,24 @@ centering and the exact reward/count structure rather than assume rowwise
 closeness to Gibbs refresh.  The focused monitored check passes and all four
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.68 Post-audit implementation update: normalized canonical production law, milestone 300 (2026-09-09)
+
+`Z4DyadicSpinFourLoweringConditionalLaw.lean` connects the exact tilt to the
+literal normalized production kernel.  The canonical spin-four support is
+proved to be the same proof-carrying positive fine source supplied by the
+binary-support endpoint adapter.  Its coherent raw partition is therefore
+positive and is exactly the tilted Gibbs downset mass from milestone 299.
+
+The resulting theorem identifies every target entry of the actual
+`physicalKernel` row with the normalized integer-tilted coarse Gibbs weight.
+This is a direct observable-path theorem, not merely a raw recoupling
+identity.  Its remaining limitation is explicit: it controls the selected
+canonical preimage of each endpoint, whereas the centered remainder is a
+signed average over all positive fine sources.  A new embedding or pairing
+theorem is required before cancellation can be concluded.  The focused
+monitored check passes and all six printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

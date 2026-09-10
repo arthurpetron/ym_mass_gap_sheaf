@@ -181,7 +181,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- complete raw row = explicit lower-triangular coarse spin-foam weight ..... [PROVED exact]
 |   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [PROVED exact]
 |   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [PROVED exact]
-|   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [ACTIVE exact producer]
+|   |   |   |   +-- canonical physicalKernel row = normalized tilted Gibbs downset ........... [PROVED exact]
+|   |   |   |   +-- compile canonical endpoint coverage into the signed source average ....... [ACTIVE exact producer]
+|   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [OPEN exact producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4092,6 +4094,42 @@ smallness claim.  A volume-uniform centered remainder, completed gap,
 continuum construction, and Clay theorem remain open.
 
 The focused monitored check passes.  All four printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 300: identify the actual canonical production row with the normalized Gibbs tilt (2026-09-09)
+
+**Status. THE EXPLICIT SPIN-FOUR PREIMAGE OF EVERY ACCEPTED COARSE ENDPOINT
+IS NOW A STRICTLY POSITIVE FINE GIBBS SOURCE, AND ITS ROW IN THE LITERAL
+`physicalKernel` IS EXACTLY THE NORMALIZED INTEGER-TILTED GIBBS LAW.**
+
+`Z4DyadicSpinFourLoweringConditionalLaw.lean` reuses the closed binary-support
+positivity adapter to prove that the exact fine labelling computed in
+milestones 296--299 lies on the positive branch of the production kernel.
+It constructs the corresponding coherent recoupling source and transports
+the exact raw-row partition to a strictly positive tilted Gibbs denominator.
+
+Positive rational division then proves, target by target, that both the
+coherent conditional kernel and the actual `physicalKernel` row equal
+
+```text
+pathMultiplicityProduct(source,target) * coarsePhysicalTerm(target)
+------------------------------------------------------------------
+sum[lowering targets y]
+  pathMultiplicityProduct(source,y) * coarsePhysicalTerm(y).
+```
+
+This closes the normalization-sensitive path from the spin-four recoupling
+calculation to the kernel consumed by the observable and covariance chain.
+It is still a theorem about the explicit canonical preimage selected for
+each accepted endpoint.  The next producer must embed or pair those
+canonical rows inside the complete fine-Gibbs signed source average; endpoint
+coverage alone is not such an averaging theorem.  The volume-uniform
+centered remainder, completed gap, continuum construction, and Clay theorem
+remain open.
+
+The focused monitored check passes.  All six printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
