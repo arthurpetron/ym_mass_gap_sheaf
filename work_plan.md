@@ -787,8 +787,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- disjoint coarse-or-retained finite target ............ [PROVED nodup]
 |       +-- exact enriched stochastic kernel ..................... [PROVED]
 |       +-- exact normalized enriched pushforward law ............ [PROVED]
-|       +-- reflection on the retained sector .................... [NEXT]
-|       +-- lossy projection recovers old fallback kernel ........ [NEXT]
+|       +-- lossy projection recovers old fallback kernel ........ [PROVED exact]
+|       +-- blocked-law projection recovers old pushforward ...... [NEXT]
+|       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
 +-- B. Uniform physical scaling
@@ -993,6 +994,42 @@ build pass.  All ten printed load-bearing declarations use only
 `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
+
+#### Identify the old fallback as the exact lossy retained projection (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerProjection` defines a stochastic
+forgetting kernel from the corrected coarse-or-retained carrier back to the
+old coarse physical carrier.  It fixes a coarse state by a supported Dirac
+row and sends a retained fine-intertwiner state through exactly the former
+source-dependent null-completion row.
+
+The row-level commuting square is now kernel checked:
+
+```text
+fine physical source
+  -> lossless coarse-or-retained kernel
+  -> forgetting kernel
+  = old total four-preimage kernel.
+```
+
+Thus the old fallback is no longer merely compared qualitatively with the
+retained construction: it is exactly its information-losing quotient.  The
+cutoff-two positive fallback theorem shows separately that the erased sector
+has positive Gibbs mass, so this identity does not assert that forgetting is
+physically harmless.  No beta-uniform estimate or group-agnostic gap claim is
+introduced.
+
+The focused monitored source check and dependency-complete 1,081-job target
+build pass.  All five printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+The next causal edge is to lift this row square through the normalized fine
+Gibbs law, proving that forgetting the enriched blocked law exactly recovers
+the old blocked pushforward.  Reflection on the retained sector, the linked
+same-object tower, localized posterior contraction, completed gap, continuum
+construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

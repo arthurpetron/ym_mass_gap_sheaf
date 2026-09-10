@@ -29627,3 +29627,42 @@ null-fallback kernel; build a linked same-object enriched cutoff tower; connect
 its component dynamics to localized posterior contraction; and construct the
 completed physical gap, thermodynamic/continuum measure, same-measure OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Identify the old total kernel as the exact lossy retained projection (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerProjection` constructs the literal
+forgetting kernel from the enriched coarse-or-retained target to the old coarse
+physical carrier.  Coarse states are preserved by a supported Dirac row;
+retained fine-intertwiner states are sent through precisely the old
+source-dependent null-completion row.  Both branches are nonnegative and every
+carrier row has exact mass one.
+
+The main theorem proves the exact row identity
+
+```text
+lossless retained kernel ; forgetting kernel
+  = old all-cutoff whole-slab kernel.
+```
+
+Consequently the old fallback is formally identified as a lossy quotient of
+the corrected finite probability flow.  The earlier cutoff-two counterexample
+still proves that the forgotten sector has positive Gibbs mass, so no claim of
+physical equivalence, contraction, or spectral gap follows.
+
+Monitored verification:
+
+```text
+retained projection focused source check                   PASS
+retained projection dependency target                      PASS (1,081 jobs)
+```
+
+All five printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: lift the commuting square from rows to the blocked Gibbs law;
+lift reflection to the retained sector; construct a linked same-object
+enriched cutoff tower; connect its component dynamics to localized posterior
+contraction; and construct the completed physical gap, thermodynamic/continuum
+measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
