@@ -29939,3 +29939,39 @@ submeasure of the product blocked law and relate it to an enriched target
 observable; lift reflection; build the linked same-object cutoff tower; prove
 physical scaling and the completed gap; and construct the continuum theory
 and Clay closure.
+
+#### Embed the connected source sector as a targetwise submeasure (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetSubmeasure` uses the
+finite expanded-target key to attach constructive equality to the grouped
+source carrier.  The observable support-connected pair list maps injectively
+into the full attached expanded-source square, with no duplicate source pair.
+
+At every enriched target pair, its normalized joint density defines a
+connected target contribution.  Constructive subset summation proves
+
+```text
+0 <= connected target contribution
+  <= enriched blocked mass(left) * enriched blocked mass(right).
+```
+
+The right side is the actual product target marginal from the preceding
+disintegration theorem.  No target observable, reflection identity, or
+uniformity claim is added at this layer.
+
+Monitored verification:
+
+```text
+connected enriched target submeasure focused source check  PASS
+connected enriched target submeasure dependency target     PASS (1,555 jobs)
+```
+
+All four printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: sum the target submeasure and inherit the explicit SU(2) corridor
+rate; relate it to an enriched target observable and reflection; build the
+linked cutoff tower; prove physical scaling and the completed gap; and
+construct the continuum theory and Clay closure.

@@ -795,7 +795,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- connected retained-pair component estimate ........... [PROVED on 0<w<=1/400]
 |       +-- all-branch source-labelled connected joint flow ....... [PROVED exact]
 |       +-- full expanded target marginal = enriched blocked pair . [PROVED exact]
-|       +-- connected target submeasure / observable event ........ [NEXT]
+|       +-- connected target contribution is a product submeasure . [PROVED exact]
+|       +-- total target contribution inherits corridor rate ...... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1290,6 +1291,41 @@ corridor rate.  A reflected target event still requires a theorem relating
 target observables to this connected contribution.  The linked tower,
 physical scaling, completed gap, continuum construction, and Clay closure
 remain open.
+
+#### Embed the connected carrier as an enriched target submeasure (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetSubmeasure`
+attaches carrier membership to the grouped expanded sources and equips those
+function-valued records with constructive decidable equality through the
+existing finite-support SU(2) key.  It then embeds every literal
+support-connected observable source pair injectively into the complete
+attached expanded-source square.
+
+For each enriched target pair, the connected contribution is the sum of the
+two-copy normalized source/kernel density over that embedded list.  A generic
+duplicate-free finite subset theorem and nonnegativity prove the targetwise
+interval
+
+```text
+0 <= connectedTargetContribution(targetLeft,targetRight)
+  <= enrichedBlockedMass(targetLeft) * enrichedBlockedMass(targetRight).
+```
+
+The upper endpoint is identified by the preceding exact expanded marginal,
+so this is a genuine submeasure of the actual product blocked law rather than
+an external comparison.
+
+The focused monitored source check and dependency-complete 1,555-job target
+build pass.  All four printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next theorem sums this submeasure over the complete enriched target
+square, uses Fubini and product-row normalization to recover the normalized
+source-connected mass, and hence transports the explicit SU(2) corridor
+rate.  A target observable/reflection identity, linked cutoff tower, physical
+scaling, completed gap, continuum construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
