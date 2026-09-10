@@ -29303,3 +29303,55 @@ The uniform-calibration module now prints eight load-bearing declarations,
 all using only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
 `native_decide`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Separate the matched AF regime and propagate linked RG residuals (2026-09-10)
+
+`BF4MatchedPhysicalAFStrongCorridorSeparation` proves that the weak-coupling
+matched BF4 rate cannot simultaneously lie in the previously proved
+`anchorCoupling = 1/400` strong-coupling corridor when `0 < g <= g1` and
+`g <= 1/2`.  This prevents the strong-corridor terminal-history estimates from
+being silently reused as ultraviolet matched-AF estimates.
+
+`BF4LinkedBondMovingTrajectoryStability` closes the deterministic stability
+compiler for the repaired `LinkedBondMovingTrajectory` interface.  It proves
+the constructive power estimate
+
+```text
+|x^n - y^n| <= n * |x-y|                 for x,y in [0,1],
+```
+
+propagates the certified local deviations through
+
+```text
+E(0) = 0,
+E(n+1) = delta(n) + b * E(n),
+|actual(n) - ideal(n)| <= E(n),
+ideal(n) ~= initial^(b^n),
+```
+
+and proves the explicit uniform-residual corridor criterion
+
+```text
+initial^(b^n) + ceiling * geomSum(b,n) <= 1/400
+  -> actual(n) <= 1/400.
+```
+
+No four-dimensional linked trajectory and no residual ceiling is inhabited.
+Those are now the precise physical obligations.  In particular, this module
+does not identify scalar heat-semigroup decimation with the interacting BF4
+block map, does not prove a beta-uniform ultraviolet estimate, and does not
+close the continuum, same-measure OS/GNS, Hamiltonian-gap, or Clay targets.
+
+Monitored verification:
+
+```text
+matched-AF/strong-corridor separation focused source check   PASS
+matched-AF/strong-corridor separation dependency target      PASS (722 jobs)
+linked-trajectory stability focused source check             PASS
+linked-trajectory stability dependency target                PASS (1,287 jobs)
+```
+
+The separation module prints four and the stability module prints seven
+load-bearing declarations; all use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
