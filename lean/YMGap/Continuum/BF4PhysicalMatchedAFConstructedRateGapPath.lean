@@ -25,6 +25,13 @@ carrier, continuum Yang--Mills theory, or Clay conclusion is inhabited here.
 
 No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom,
 `noncomputable`, or enlarged heartbeat budget is used.
+
+The subsequent module
+`BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` proves that this specific
+producer is uninhabited: its global all-pairs path ceiling grows along the
+spin-cube ray while its global floor is at most one.  The definitions here are
+retained as an exact compiler boundary and must not be treated as an open
+candidate route.
 -/
 
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
@@ -53,7 +60,8 @@ open YMGap.Continuum.PhysicalSeparatorLinearTail
 /-- At every physical scale, one strict rate bounds the explicit Poincare
 rate already constructed on every finite base carrier.  Uniformity in the
 representation cutoff is a field of the datum, rather than an unqualified
-claim in the conclusion. -/
+claim in the conclusion.  The later constructed-rate no-go theorem proves
+that this structure has no inhabitant. -/
 structure MatchedPhysicalConstructedRateGapProducer
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}

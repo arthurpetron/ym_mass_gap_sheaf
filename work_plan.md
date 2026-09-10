@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-09)
+## Whole-project goal and live completion map (updated 2026-09-10)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -763,7 +763,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
-|   |   |   +-- matched constructed-Poincare rate path ......... [PROVED reduction]
+|   |   |   |   `-- global path-ceiling / edge-floor instance .. [OBSTRUCTED exact no-go]
+|   |   |   +-- matched constructed-Poincare rate path ......... [OBSTRUCTED exact no-go]
+|   |   |   +-- localized posterior Dirichlet/capacity path .... [ACTIVE]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
 |   |   `-- completed all-vector form / operator gap ........... [OPEN]
 |   |
@@ -792,10 +794,55 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
 
-#### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10)
+#### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
-`BF4PhysicalMatchedAFConstructedRateGapPath` bypasses the obstructed row-total-
-variation route.  At each exact matched nome it takes one strict rational
+`BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` proves that the specific
+cross-carrier premise used by the matched constructed-rate path is
+uninhabited at half-extent zero.  At cutoff `K`, the canonical vacuum sector
+contains `K` distinct excited SU(2) spin-cube states.  The all-pairs path
+ceiling contains one nontrivial vacuum-to-excited path term for each of them,
+so
+
+```text
+K <= pathCeiling_K.
+```
+
+The pulled positive-edge floor is at most one: it lies below a positive
+pulled kernel entry, the entry lies below its exact row sum, and that row sum
+is a physical stationary weight bounded by one.  If a strict common rate
+`q < 1` bounded every constructed rate, denominator clearing would give
+
+```text
+(1-q) * K <= (1-q) * pathCeiling_K
+            <= q * floor_K <= 1
+```
+
+for every positive `K`.  Taking the explicit constructive witness
+`K = (den(1-q)+1)^2` contradicts the established rational denominator bound.
+The module proves both that
+`FixedNomeUniformConstructedVacuumSectorRateBound ... half=0` is empty and
+that `MatchedPhysicalConstructedRateGapProducer` is empty already at physical
+scale zero.
+
+This is a no-go for the compiler, not for the physical signed-form gap.  The
+failure comes from replacing local probability-weighted geometry by one
+global all-pairs sum and one global minimum.  The active replacement frontier
+is therefore the localized posterior Dirichlet/capacity route: retain the
+stationary weights inside edge loads or conditional variances so that the
+growing spin-ray count is paid by its total probability mass rather than by a
+global cardinality factor.
+
+The monitored focused source check and dependency-complete 5,087-job target
+build pass.  All nine printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
+
+`BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving
+compiler boundary beyond the obstructed row-total-variation route.  At each
+exact matched nome it takes one strict rational
 ceiling on the Poincare rates already constructed for every finite base
 carrier.  The existing cofinal bridge then produces the actual completed
 canonical vacuum-sector transfer with definitionally that same rate.
@@ -810,8 +857,10 @@ constructed finite-base Poincare rates
   -> physical gap floor from c*a_j <= 1-q_j <= C*a_j.
 ```
 
-The per-scale uniform ceiling and its two-sided comparison with the physical
-spacing remain named inputs; no inhabitant is claimed.  Unlike the exact
+The subsequent constructed-rate no-go proves that the per-scale uniform
+ceiling in this *global path-ceiling/global-floor form* has no inhabitant at
+half-extent zero, so this path is now closed as an obstruction rather than an
+open producer.  Unlike the exact
 mass-normalized row coefficient, this route retains signed-form cancellation
 and is therefore compatible with the verified cutoff-two `49/50` gap even
 though the cutoff-two row-total-variation coefficient exceeds one.  The

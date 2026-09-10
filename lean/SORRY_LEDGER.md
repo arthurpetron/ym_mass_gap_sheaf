@@ -28929,7 +28929,33 @@ declarations use only `[propext, Quot.sound]`.  No `sorry`, `admit`,
 `Classical`, `native_decide`, new axiom, or noncomputable declaration is
 introduced.  No full-root audit is claimed.
 
-#### Matched AF cancellation-preserving constructed-rate gap path (2026-09-10)
+#### Global constructed-rate compiler no-go and local-capacity repoint (2026-09-10)
+
+`BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` closes the status of the
+global all-pairs path-ceiling/global minimum-edge-floor compiler.  The SU(2)
+spin-cube ray supplies `K` distinct non-vacuum states, and every corresponding
+vacuum-to-state canonical path contributes at least one to the all-pairs
+ceiling.  Thus `K <= pathCeiling_K`.  Independently, the certificate floor is
+at most one because it is bounded by a positive pulled kernel entry, its row
+sum, and the normalized physical stationary weight.
+
+Denominator clearing a hypothetical all-cutoff bound `q < 1` yields
+`(1-q)*K <= 1` for every positive cutoff.  The explicit witness
+`K=(den(1-q)+1)^2` contradicts this inequality.  Hence the module proves that
+the fixed-nome uniform constructed-rate structure is empty at half-extent
+zero, and that the matched physical constructed-rate producer is empty at
+scale zero.  This discharges no physical gap obligation; it formally removes
+a lossy compiler whose global cardinality factor destroys uniformity.  The
+live frontier is repointed to localized posterior Dirichlet/capacity estimates
+that preserve stationary-mass cancellation.
+
+The focused monitored source check and dependency-complete 5,087-job target
+build pass.  All nine printed declarations
+use only `[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Matched AF cancellation-preserving constructed-rate gap path (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` contracts the fixed-base
 positive-edge Poincare construction through the existing cross-carrier rate
