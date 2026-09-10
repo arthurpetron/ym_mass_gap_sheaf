@@ -3248,6 +3248,21 @@ physical coupling ceilings remain explicit and no beta- or volume-uniform
 constant is asserted.  The focused monitored check passes and all twelve
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.104 Post-audit implementation update: global cross-scale probability normalization, milestone 336 (2026-09-10)
+
+`Z4DyadicBinaryGlobalNormalizedConnectedCarrier.lean` proves that one full
+normalized oriented target-pair row sums exactly to its actual fine
+source-pair mass.  Deleting zero fine sources preserves the fine partition,
+so Cartesian Fubini gives exact total positive source-pair mass
+`finePartition^2`.
+
+The global connected fraction is consequently at most one, and the
+milestone-335 bound sums to one explicit global refined-carrier mass over the
+same positive source pairs.  The remaining entropy target is that refined
+mass divided by the exact fine partition square.  No beta- or volume-uniform
+strict estimate is claimed.  The focused monitored check passes and all
+twelve printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

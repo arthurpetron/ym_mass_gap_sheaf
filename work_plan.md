@@ -5164,7 +5164,43 @@ trace, and terminal exterior data.  No entropy ceiling, normalized strict
 response, completed gap, thermodynamic/continuum passage, or Clay theorem is
 asserted.
 
-The focused monitored check passes.  All eleven printed declarations remain
+The focused monitored check passes.  All twelve printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
+## Milestone 336: normalize the complete cross-scale source-target carrier globally (2026-09-10)
+
+**Status. THE FULL POSITIVE SOURCE-TARGET CARRIER NOW HAS EXACT TOTAL MASS
+ONE AFTER DIVISION BY THE FINE PARTITION SQUARE; THE CONNECTED FRONTIER IS A
+GENUINE GLOBAL SUBPROBABILITY WITH ONE PRECISE REFINED-CARRIER QUOTIENT.**
+
+`Z4DyadicBinaryGlobalNormalizedConnectedCarrier.lean` first proves that the
+complete forward or reverse target-pair row, divided by its exact positive
+row-product normalization, sums to the actual weight of the fixed fine
+source pair.  The connected active target carrier is a duplicate-free
+subcarrier, so its normalized mass is bounded by that source-pair weight.
+
+A constructive deletion of zero fine sources proves that all positive fine
+sources still sum to the genuine fine physical partition.  Finite Cartesian
+Fubini therefore gives the exact global identity
+
+`sum_positive_source_pairs sourcePairWeight = finePartition^2`.
+
+The module defines the global connected mass and its partition-square
+fraction, proves that fraction is at most one, and sums milestone 335 over all
+positive source pairs to obtain
+
+`global normalized connected mass <= global refined carrier mass`.
+
+Thus the remaining analytic target is exactly the refined carrier divided by
+`finePartition^2`.  The next frontier is to construct its component/terminal
+fiber decomposition and prove a strict bound using the retained residual heat
+and ground-row fraction.  No such strict bound, completed gap,
+thermodynamic/continuum passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All twelve printed declarations remain
 within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, enlarged heartbeat budget, or external certificate is
