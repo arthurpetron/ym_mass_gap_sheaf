@@ -3279,6 +3279,22 @@ component/terminal fiber compiler; it does not yet prove a fiber-weight
 identity or any entropy ceiling.  The focused monitored check passes and all
 thirteen printed declarations use only `[propext, Quot.sound]`.
 
+### 9.106 Post-audit implementation update: delete zero orientations, milestone 338 (2026-09-10)
+
+`Z4DyadicBinaryGlobalOrientedNonzeroConnectedCarrier.lean` replaces the
+refined upper weight by zero whenever the chosen forward or reverse raw row
+is zero, proves the pointwise normalized comparison, and then deletes those
+zero entries by structural recursion without changing the active refined
+sum.
+
+Every surviving subtype entry carries nonzero oriented raw weight.  The
+existing source-relative endpoint theorems therefore construct its literal
+two-row lowering witness.  This removes orientation-incompatible entropy
+before component coding and exposes the correct domain for splitting the
+common heat exponent.  No uniform or strict estimate is claimed.  The
+focused monitored check passes and all ten printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

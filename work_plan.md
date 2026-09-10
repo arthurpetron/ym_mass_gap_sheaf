@@ -5245,6 +5245,37 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 external computation, enlarged heartbeat budget, or external certificate
 is introduced.
 
+## Milestone 338: delete orientation-zero entries before component coding (2026-09-10)
+
+**Status. THE GLOBAL REFINED CARRIER NOW CONTAINS ONLY TARGET PAIRS WITH
+NONZERO RAW WEIGHT IN THE CHOSEN ORIENTATION, AND EVERY SURVIVOR CARRIES ITS
+CONSTRUCTIVE LOWERING-PAIR WITNESS.**
+
+`Z4DyadicBinaryGlobalOrientedNonzeroConnectedCarrier.lean` observes that the
+connected target list is shared by the forward and reverse envelopes, so a
+member can have zero raw weight in one chosen orientation.  It defines a
+zero-aware refined weight that is exactly zero there, and proves the
+normalized entry weight is bounded pointwise by this strengthened weight.
+
+Structural recursion deletes precisely the zero orientations and attaches a
+proof of nonzero raw weight to every survivor.  The active refined sum is
+proved exactly equal to the refined sum on this smaller subtype carrier.  On
+each survivor, existing nonzero-row theorems construct the two literal
+SU(2) parity-preserving lowering rows required by the component heat proof.
+
+Thus the next component compiler will never be asked to explain a spurious
+orientation-incompatible upper summand.  It must split each surviving
+entry's actual common heat exponent into distance payment, component slack,
+and off-component reserve before terminal/exterior regrouping.  No entropy
+ceiling, strict global fraction, completed gap, thermodynamic/continuum
+passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All ten printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
