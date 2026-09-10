@@ -4740,6 +4740,50 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 325: replace target-only mass by joint source-target activity (2026-09-10)
+
+**Status. EVERY NONZERO CONNECTED ORIENTED CONTRIBUTION NOW PAYS ITS ACTUAL
+OBSERVABLE-TO-SOURCE-DISAGREEMENT SEPARATION IN A NORMALIZATION-AWARE JOINT
+ACTIVITY: SOURCE PACKET OCCUPATION PLUS TARGET EXCITATION ABOVE THE ASSIGNED
+PARITY GROUND.**
+
+`Z4DyadicBinarySourceTiltedGibbsJointActivityFloor.lean` corrects the failed
+target-only contour heuristic.  A positive coarse target can be free relative
+to its source-dependent row when it is the forced parity ground.  But such a
+positive parity ground forces the assigned source packet total to be odd and
+therefore positive.  Conversely, any target above that ground contributes a
+positive relative-excitation level.
+
+The file packages the forward and reverse source assignments in one finite
+orientation type and defines the corresponding pointwise, component, and
+total joint activities.  The local lowering identity proves that every face
+of the observable-rooted target support component contributes at least one
+unit.  Duplicate-free component inclusion and the genuine Z4 animal floor
+then give, for either orientation,
+
+`linf distance(observable, selected source-disagreement face) + 1`
+`  <= total(source packet totals + assigned target excitation levels)`.
+
+The nonzero oriented raw weights supply exactly the global lowering-row
+memberships required by this theorem.  This is the first distance-
+proportional activity floor on the current branch that survives exact row
+normalization.  It also repoints the estimate from an unrealistically uniform
+conditional-row bound to the joint fine-source/coarse-target measure where
+parity-ground highways are paid by the fine source Gibbs weight.
+
+No weighted comparison or strict rate is asserted yet.  The next causal
+frontier is to identify the source-packet part with the actual cutoff-one fine
+heat exponent and the excitation part with an explicit excess coarse heat
+exponent, then dominate the joint connected weight by a geometric activity
+factor before the animal entropy sum.  All coupling, cutoff, volume, and
+SU(2)-specific multiplicity data must remain explicit.  Completed gap,
+thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All fourteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

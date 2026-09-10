@@ -3025,6 +3025,30 @@ and then prices them using explicit, load-bearing SU(2) local weights.  The
 focused monitored check passes and all eleven printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.93 Post-audit implementation update: joint normalized contour activity, milestone 325 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsJointActivityFloor.lean` proves the corrected
+distance-proportional contour floor.  Target-only mass is not the appropriate
+normalized activity because a positive target may be the parity ground forced
+by its source.  The new local theorem observes that such a positive ground
+forces its assigned source packet total to be positive; otherwise the target
+has positive excitation above that ground.
+
+The forward and reverse assignments are unified by a finite orientation
+type.  On either oriented lowering carrier, every face in the observable-
+rooted target component pays at least one unit in source packet totals plus
+target excitation levels.  Component duplicate-freedom and the genuine Z4
+animal distance bound yield
+
+`distance + 1 <= total joint source-target activity`
+
+for every nonzero connected oriented raw contribution.  This repoints the
+next estimate to the joint fine-source/coarse-target measure, where the fine
+Gibbs weight pays parity-ground background.  It does not yet compare that
+activity to heat exponents or sum the connected carrier.  The focused
+monitored check passes and all fourteen printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
