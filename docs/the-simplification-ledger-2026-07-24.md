@@ -3263,6 +3263,22 @@ mass divided by the exact fine partition square.  No beta- or volume-uniform
 strict estimate is claimed.  The focused monitored check passes and all
 twelve printed declarations use only `[propext, Quot.sound]`.
 
+### 9.105 Post-audit implementation update: one dependent global connected carrier, milestone 337 (2026-09-10)
+
+`Z4DyadicBinaryGlobalConnectedDependentCarrier.lean` flattens the nested
+positive-source-pair and connected-target-pair sums into one typed finite
+carrier.  Every entry retains the literal sources, literal targets,
+connected-membership proof, canonical observable-to-source path, and target
+support component.
+
+Exact finite Fubini recodings express both the normalized connected mass and
+the refined distance/residual/ground-normalized mass as sums of two weights
+on this identical carrier.  The global comparison therefore no longer hides
+a dependent change of index.  This supplies the honest domain for the next
+component/terminal fiber compiler; it does not yet prove a fiber-weight
+identity or any entropy ceiling.  The focused monitored check passes and all
+thirteen printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

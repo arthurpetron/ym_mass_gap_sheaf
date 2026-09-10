@@ -5206,6 +5206,45 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 337: flatten the connected cross-scale sum onto one typed carrier (2026-09-10)
+
+**Status. THE NESTED POSITIVE-SOURCE/CONNECTED-TARGET SUM IS NOW ONE
+PROOF-CARRYING GLOBAL CARRIER, AND BOTH SIDES OF THE REFINED BOUND ARE
+WEIGHTS ON THE SAME LITERAL ENTRIES.**
+
+`Z4DyadicBinaryGlobalConnectedDependentCarrier.lean` defines one dependent
+entry containing a positive fine-source pair, a coarse target pair, and the
+proof that this target pair belongs to the connected active fiber indexed by
+those sources.  Each entry computes its canonical observable-to-source path
+and its literal target support component.
+
+Finite `flatMap` and `map` Fubini identities prove exact recodings
+
+`global normalized connected mass`
+`  = sum_global_entries normalizedEntryWeight`
+
+and
+
+`global refined carrier mass`
+`  = sum_global_entries refinedEntryWeight`.
+
+The milestone-336 inequality is then transported to these two weights on
+the identical entry list.  No source, target, membership witness, path, heat
+factor, ground-row fraction, or normalization denominator is erased.
+
+The next frontier is a fiber map from each entry to its connected-component
+code, boundary trace, and terminal exterior data, with an exact fixed-fiber
+weight identity.  Only after that recoding can residual heat pay component
+code multiplicity while terminal exterior weights contract into the fine
+partition square.  No entropy ceiling, normalized strict response,
+completed gap, thermodynamic/continuum passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All thirteen printed declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, enlarged heartbeat budget, or external certificate
+is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
