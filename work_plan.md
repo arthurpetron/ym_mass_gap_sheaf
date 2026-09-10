@@ -1364,6 +1364,37 @@ this submeasure or only bounded by it.  Reflection on that enriched target,
 the linked cutoff tower, physical scaling, completed gap, continuum
 construction, and Clay closure remain open.
 
+#### Restrict the connected target submeasure by observable events (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetEvent` defines the
+mass of an arbitrary Boolean event under the enriched connected target
+submeasure.  Positivity and finite filtering prove the exact interval
+
+```text
+0 <= connectedTargetEventMass(event)
+  <= connectedTargetTotalMass
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+The module also defines a literal target `11 x 00` four-cell observable.
+Because the enriched target is a disjoint sum of a coarse physical state and
+a retained fine physical state, its face predicate takes separate fine and
+coarse indices from `SlabFaceBlockMap`; it does not silently identify the two
+lattices.  The resulting four-cell restriction inherits the same explicit
+SU(2) corridor rate.
+
+The focused monitored source check passes.  All four printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next causal edge is to quantify event transport across the enriched
+kernel: either prove a branchwise physical pullback identity or retain its
+literal mismatch as a named defect.  Only that theorem can identify this
+positive event restriction with a target covariance/reflection expression.
+The linked cutoff tower, physical scaling, completed gap, continuum
+construction, and Clay closure remain open.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving

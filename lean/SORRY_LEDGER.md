@@ -30011,3 +30011,41 @@ Still open: define the branch-consistent enriched face observable and relate
 its connected moment to this target submeasure; lift reflection; build the
 linked cutoff tower; prove physical scaling and the completed gap; and
 construct the continuum theory and Clay closure.
+
+#### Restrict the connected target submeasure by observable events (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetEvent` restricts
+the enriched connected submeasure by an arbitrary Boolean event on the target
+pair.  Constructive finite filtering gives
+
+```text
+0 <= connectedTargetEventMass(event)
+  <= connectedTargetTotalMass
+  <= (25/9) * (16/25)^(linfDistance + 1)
+```
+
+under the same explicit hypotheses `1 <= fine.cutoff`, `0 < w < 1`, and
+`w <= 1/400`.  The rate is SU(2)-specific and is not claimed uniformly in
+beta outside this named corridor.
+
+The module instantiates the generic theorem with a literal target `11 x 00`
+four-cell event.  Fine and coarse face indices remain separate and are read
+from `SlabFaceBlockMap`; no geometric pullback equality between the two
+branches is assumed.
+
+Monitored verification:
+
+```text
+connected enriched target event focused source check       PASS
+```
+
+All four printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: prove or defect-control the branchwise event pullback through the
+enriched kernel, identify the resulting connected expression with a target
+covariance/reflection form, build the linked cutoff tower, prove physical
+scaling and the completed gap, and construct the continuum theory and Clay
+closure.
