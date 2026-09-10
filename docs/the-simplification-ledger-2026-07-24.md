@@ -2670,6 +2670,24 @@ gap, continuum construction, and Clay theorem remain open.  The focused
 monitored check passes and all fifteen printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.76 Post-audit implementation update: common-exterior tilted-row factorization, milestone 308 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsLocalFactorization.lean` removes the
+source-dependent carrier from the comparison: every tilted-row mass is
+exactly the sum of its zero-extended numerator over the same complete coarse
+physical carrier.  It then partitions the fusion-path multiplier over faces
+where two fine packet profiles agree and disagree.
+
+The agreement multiplier is proved literally identical for the two sources.
+Consequently each raw row weight is an exact product of one common exterior
+Gibbs background and a source-specific multiplier supported only on the
+packet-disagreement carrier already localized in milestone 307.  The next
+edge is the denominator-cleared normalized response determinant on this
+common carrier and its connected root-to-component expansion.  No uniform
+response bound, completed gap, continuum construction, or Clay theorem is
+claimed.  The focused monitored check passes and all nine printed
+declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

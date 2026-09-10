@@ -4370,6 +4370,38 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 308: factor every tilted row through one common exterior (2026-09-09)
+
+**Status. EVERY SOURCE-DEPENDENT LOWERING ROW IS NOW SUMMED ON ONE FIXED
+PHYSICAL CARRIER, AND THE TWO SUPPORT-SWAP ROW WEIGHTS FACTOR EXACTLY AS A
+COMMON EXTERIOR GIBBS BACKGROUND TIMES A SOURCE-SPECIFIC MULTIPLIER ON THE
+FINITE PACKET-DISAGREEMENT CARRIER.**
+
+`Z4DyadicBinarySourceTiltedGibbsLocalFactorization.lean` first extends the
+integer-tilted Gibbs numerator by zero from its source-dependent lowering
+downset to the complete coarse physical carrier.  The resulting finite sum
+is exactly the original tilted-row mass, so two rows can henceforth be
+compared term by term without changing carriers.
+
+The all-face fusion-path product is then partitioned into agreement and
+disagreement faces.  On the agreement list the two fine packet profiles are
+literally equal, which proves that both rows have the same exterior
+multiplicity factor.  Their remaining dependence is confined to the
+disagreement list localized by milestone 307 inside the target-rooted
+component.  This is an exact change-of-measure identity; it does not yet
+bound the normalized event-response contrast.
+
+The next analytic producer is the denominator-cleared two-row response
+determinant on this common carrier, followed by a connected root-to-component
+expansion with an explicit volume-uniform rate.  The centered `O(g^2)`
+remainder, completed gap, thermodynamic/continuum passage, and Clay theorem
+remain open.
+
+The focused monitored check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Current goal-mode checkpoint (2026-09-09)
 
 **Status. THE FINITE RECEIVER/CONTRACTION GOAL AND THE COMPLETE FIXED-SPACING
