@@ -4336,6 +4336,44 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 314: construct the disconnected component-swap involution (2026-09-10)
+
+**Status. THE COMPLETE DISCONNECTED ACTIVE RESPONSE CARRIER IS NOW CLOSED
+UNDER A CANONICAL OBSERVABLE-COMPONENT TRANSPOSITION THAT PRESERVES EVERY
+SOURCE-LOCAL DISAGREEMENT TILT AND REVERSES THE ONE-FACE OBSERVABLE SIGN.**
+
+`Z4DyadicBinarySourceTiltedGibbsDisconnectedComponentSwap.lean` transposes
+the two coarse target states on their observable-rooted union-support
+component.  The component and complete connectivity classifier are invariant,
+the operation is pointwise involutive, and bounded support proves that both
+outputs remain in the enumerated coarse physical carrier.
+
+On milestone 313's false branch, the two targets agree at every source-
+disagreement coordinate inside the component; outside the component the swap
+mask is false.  Therefore each swapped target agrees with its original target
+throughout the entire local tilt carrier.  All four natural multiplicities in
+the response determinant are exactly preserved, the active Boolean is
+unchanged, and a witnessing subtype returns the swapped member of the same
+disconnected active list.  At the observable root the mask is true for every
+active pair, so the two Boolean event values exchange and their rational
+indicator difference changes sign.
+
+The next producer must prove that the remaining common exterior Gibbs
+background is pairwise invariant.  Its agreement-face multiplicity is a
+facewise commutative product; its SU(2) physical term additionally requires
+the already constructed whole-link switch to preserve the product of the two
+explicit link multiplicities.  Only after that seam is closed can the full
+disconnected pair term and its finite sum cancel.  The connected activity-
+versus-entropy estimate, uniform centered remainder, completed gap,
+thermodynamic/continuum passage, and Clay theorem remain open.
+
+The focused monitored check passes.  Every printed load-bearing declaration
+remains within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, or enlarged heartbeat budget is introduced.  The
+pointwise involution and witnessing-subtype carrier closure deliberately avoid
+forcing Lean to normalize enormous public equalities of dependent functions.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

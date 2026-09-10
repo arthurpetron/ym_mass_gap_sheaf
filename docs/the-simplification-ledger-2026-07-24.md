@@ -2775,6 +2775,26 @@ the uniform response, completed gap, continuum construction, and Clay
 theorem.  The focused monitored check passes and all ten printed declarations
 use only `[propext, Quot.sound]`.
 
+### 9.82 Post-audit implementation update: disconnected component-swap involution, milestone 314 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsDisconnectedComponentSwap.lean` turns the
+complete false branch into the exact target-pair involution needed for
+cancellation.  It swaps the two target labellings on their observable-rooted
+union-support component, stays in the finite physical carrier, preserves the
+complete disconnected classifier and every source-local disagreement
+multiplicity, and maps a disconnected active pair back into the same list as
+explicit subtype data.  At the observable root it exchanges the two event
+values, so their rational indicator difference reverses sign.
+
+The remaining cancellation seam is now isolated to the common exterior Gibbs
+background.  Agreement-face multiplicities must be rearranged as a
+commutative pair product, while the two SU(2) physical terms require
+whole-link preservation of their explicit link-multiplicity product.  The
+full disconnected-sum cancellation and connected activity/entropy estimate
+remain open, as do the uniform response, completed gap, continuum
+construction, and Clay theorem.  The focused monitored check passes and all
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
