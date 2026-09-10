@@ -3136,6 +3136,27 @@ and hence is not yet a complete connected-response or covariance bound.  The
 focused monitored check passes and all six printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.98 Post-audit implementation update: literal parity-ground row normalization, milestone 330 (2026-09-10)
+
+`Z4DyadicBinaryJointParityGroundNormalization.lean` uses the existing
+geometric parity target in each positive source row as the denominator
+anchor.  The oriented pair of those targets is in the exact lowering carrier
+and has zero excitation excess.  Its two raw masses factor exactly into the
+parity-ground heat power and the coupling-one oriented ground weight.
+
+Because these are literal positive terms of the two row sums, their product
+is bounded by the exact row-product normalization.  Dividing the remaining
+reference weight by this positive ground product defines one explicit finite
+reference-congestion ratio, and every actual joint summand satisfies
+
+`joint <= suppression * congestion * rowNormalization`.
+
+The common parity-ground heat factor is therefore no longer an untracked
+background constant.  The next analytic obligation is precisely a connected-
+carrier sum of the exposed congestion ratios; no uniform entropy bound is
+claimed here.  The focused monitored check passes and all twelve printed
+declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

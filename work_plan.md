@@ -4944,6 +4944,44 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 330: cancel the parity-ground heat factor against literal row normalization (2026-09-10)
+
+**Status. THE PARITY-GROUND BACKGROUND IS NOW NORMALIZED BY AN ACTUAL
+POSITIVE SUMMAND IN EACH TILTED ROW, LEAVING ONE EXPLICIT FINITE REFERENCE-
+CONGESTION RATIO AS THE ENTIRE POINTWISE ENTROPY OBLIGATION.**
+
+`Z4DyadicBinaryJointParityGroundNormalization.lean` constructs, for both
+envelope orientations, the pair of geometric parity-ground coarse targets
+assigned to the two fine sources.  This pair lies in the exact lowering
+carrier and has zero SU(2) target-excitation Casimir excess.
+
+The product of the two literal parity-ground row masses is proved exactly
+equal to the coarse parity-ground heat power times the oriented coupling-one
+ground target weight.  Because each ground mass is already a literal positive
+summand of its full tilted row, this reference normalizer is bounded by the
+exact product of the two row masses without a volume-dependent constant.
+
+The file then defines the remaining congestion ratio as
+
+`joint parity-ground reference / literal ground reference normalizer`.
+
+Positivity-guarded rational cancellation proves that one actual joint
+source-target summand is bounded by
+
+`suppression * congestion ratio * exact row normalization`.
+
+Together with milestone 329, the normalized pointwise problem has therefore
+contracted to bounding this explicit finite congestion ratio while summing
+the connected carrier.  No bound on that ratio, lattice-animal entropy sum,
+normalized strict response, completed gap, thermodynamic/continuum passage,
+or Clay theorem is asserted.
+
+The focused monitored check passes.  All twelve printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
