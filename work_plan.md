@@ -173,7 +173,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- facewise target-independent bubble scalar .............................. [OBSTRUCTED exact no-go]
 |   |   |   |   +-- free retained-face target sum = `1 + coeffW w 2` ...................... [PROVED exact]
 |   |   |   |   +-- pair-bubble/vacuum shared-link tensor = vacuum tensor ................. [PROVED local]
-|   |   |   |   +-- expose a vacuum-adjacent link in the whole touched carrier ............. [ACTIVE exact producer]
+|   |   |   |   +-- isolated nonzero face kills valence-<=6 slab link product .............. [PROVED exact]
+|   |   |   |   +-- expose the isolated-label pattern in the whole pair-bubble row ......... [ACTIVE exact producer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1348,7 +1349,8 @@ constructive 4D Yang--Mills existence + positive physical mass gap [GOAL]
 |           |       +-- free retained-target sum gives exact scalar
 |           |       |       `1 + coeffW w 2` .............................. [PROVED]
 |           |       +-- bubble/vacuum shared-link tensor contracts exactly [PROVED local]
-|           |       +-- whole-carrier vacuum-link exposure and lift ....... [ACTIVE]
+|           |       +-- isolated spin kills actual whole-slab link product  [PROVED exact]
+|           |       +-- whole-row bubble packet/link-product case split .... [ACTIVE]
 |           |       +-- arbitrary attached spins `0..4`: coefficient-level
 |           |       |       XOR assembly and exact packets ................ [PROVED]
 |           |       +-- canonical finite duplicate-free XOR support and
@@ -3857,6 +3859,41 @@ estimate, completed gap, continuum construction, and Clay theorem remain
 open.
 
 The focused monitored source check passes.  All four printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+## Milestone 294: annihilate one isolated nonzero face in the actual multivalent slab link product (2026-09-09)
+
+**Status. AT ANY PRODUCTION LINK OF THE CORRECTED SLAB, ONE NONZERO INCIDENT
+COARSE-FACE SPIN WITH EVERY OTHER INCIDENT SPIN ZERO HAS EXACTLY ZERO SU(2)
+INVARIANT MULTIPLICITY; THAT SINGLE ZERO FACTOR KILLS THE COMPLETE WHOLE-SLAB
+LINK PRODUCT.**
+
+`Z4WholeSlabIsolatedFaceLinkAnnihilation.lean` replaces the temporary
+two-valent picture by the actual production valence-zero-through-six
+resolver.  From membership of a selected face identifier in the literal
+duplicate-free incident list, it constructs a singleton sublist.  The full
+incident spin word is then a `ZeroExtension` of the selected singleton when
+all other incident labels vanish.
+
+The existing zero-insertion theorem reduces the full explicit multiplicity
+to the one-valent multiplicity.  A nonzero selected spin cannot fuse to the
+vacuum terminator, so that factor is zero.  Membership of the selected link
+in `boundaryCompleteSlabLinks` propagates the zero through
+`slabExplicitLinkMultiplicityProduct`; a final theorem provides the exact
+`Q'.ofNat ... ≈ 0` form consumed by the whole-slab raw kernel.
+
+This closes the local link algebra for an isolated coarse excitation, but it
+does not yet prove the necessary case split for the whole pair-bubble row.
+The active producer must show that every off-target coarse face with nonzero
+label already has zero vacuum face weight; in the remaining case it must
+select one literal link incident on the target coarse face and apply this
+annihilator.  Arbitrary background components remain outside this isolated-
+bubble theorem.  The centered blocking estimate, completed gap, continuum
+construction, and Clay theorem remain open.
+
+The focused monitored source check passes.  All three printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 or enlarged heartbeat budget is introduced.

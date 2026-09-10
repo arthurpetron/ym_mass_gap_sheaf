@@ -2376,6 +2376,27 @@ continuum construction, or Clay theorem is asserted.
 The focused monitored source check passes.  All four printed declarations
 use only `[propext, Quot.sound]`.
 
+### 9.62 Post-audit implementation update: multivalent isolated-face annihilation, milestone 294 (2026-09-09)
+
+`Z4WholeSlabIsolatedFaceLinkAnnihilation.lean` lifts the local bubble insight
+from a degree-two link to the actual corrected-slab production resolver of
+valence at most six.  If one incident coarse-face spin is nonzero and every
+other incident spin is zero, the complete incident word is proved to be a
+zero extension of the selected singleton.  Exact zero-insertion invariance
+then identifies its multiplicity with the one-valent vacuum resolver, which
+vanishes for every nonzero selected spin.
+
+The selected zero link factor is propagated through the complete literal
+whole-slab link product, including the `Q'.ofNat` form used by the recoupling
+raw weight.  This is a reusable algebraic compiler, not yet the whole
+pair-bubble theorem: the source-packet support case split and selection of an
+incident link for the target coarse face are still required.  No arbitrary-
+background cancellation, uniform centered remainder, completed gap,
+continuum construction, or Clay theorem is asserted.
+
+The focused monitored source check passes.  All three printed declarations
+use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
