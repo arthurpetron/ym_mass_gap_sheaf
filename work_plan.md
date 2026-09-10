@@ -4479,6 +4479,42 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 318: convert connected response geometry to physical activity (2026-09-10)
+
+**Status. EVERY TARGET PAIR IN THE EXACT CONNECTED RESPONSE CARRIER NOW PAYS
+ITS OBSERVABLE-TO-SOURCE-DISAGREEMENT SEPARATION IN ACTUAL TWO-REPLICA
+TWICE-SPIN MASS.**
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedMassFloor.lean` defines both the
+twice-spin mass on the observable-rooted target support component and the
+complete physical mass of the two coarse target replicas.  Root-component
+containment proves that every component face is a physical slab face and is
+positive in at least one replica.  Hence component cardinality is at most
+component mass, and duplicate-free containment bounds component mass by the
+complete target-pair mass.
+
+Combining these inequalities with milestone 317 yields
+
+`linfDist(observablePlaquette, disagreementPlaquette) + 1`
+`  <= targetPairTotalPhysicalMass`
+
+for the computational source endpoint attached to every member of the exact
+connected active-pair carrier.  This is the activity half of the required
+activity-versus-entropy argument, expressed in the exponent variable of the
+coarse heat weights.
+
+No summation bound has yet been proved.  The next causal theorem must compare
+the absolute antisymmetric response term with an explicit nonnegative
+two-replica weight organized by this paid mass, then sum fixed-mass fibers
+against the Z4 animal count.  Coupling, cutoff, and volume must stay visible,
+and strictness must use load-bearing SU(2) data.  Uniform response, completed
+gap, thermodynamic/continuum passage, and the Clay theorem remain open.
+
+The focused monitored check passes.  All eight printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

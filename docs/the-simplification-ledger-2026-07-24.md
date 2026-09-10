@@ -2857,6 +2857,29 @@ gap, thermodynamic/continuum passage, and the Clay theorem remain open.  The
 focused monitored check passes and all seven printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.86 Post-audit implementation update: physical activity floor for the surviving response, milestone 318 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsConnectedMassFloor.lean` proves that every
+face in the observable-rooted target support component is a physical slab
+face and has positive twice-spin in at least one target replica.  Thus the
+component's cardinality is bounded by its two-replica twice-spin mass; its
+mass is in turn bounded by the complete physical mass of the target pair.
+
+Together with milestone 317, every pair in the exact connected active
+response carrier now satisfies the kernel-checked activity floor
+
+`linfDist(observablePlaquette, disagreementPlaquette) + 1`
+`  <= targetPairTotalPhysicalMass`.
+
+The surviving connected geometry is therefore paid for in the actual natural
+number exponent seen by the heat weights.  The remaining analytic seam is to
+bound the absolute signed response term by a nonnegative paid-mass carrier
+and sum its fixed-mass fibers with an explicit rate.  The rate must expose
+coupling, cutoff, and volume dependence and retain a load-bearing SU(2)
+strictness input.  Uniform response, completed gap, thermodynamic/continuum
+passage, and the Clay theorem remain open.  The focused monitored check passes
+and all eight printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
