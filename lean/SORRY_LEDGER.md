@@ -29778,3 +29778,40 @@ linked same-object cutoff tower; prove beta- and spacing-aware localized
 posterior contraction; and construct the completed physical gap,
 thermodynamic/continuum measure, same-measure OS/GNS reconstruction,
 Hamiltonian gap, and Clay closure.
+
+#### Identify the exact retained two-replica point law (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerTwoReplicaLaw` derives the missing
+row-positivity premise from positive coupling and retained-carrier membership:
+the retained target's strictly positive SU(2) fine-intertwiner weight is a
+member of the nonnegative finite fiber sum that reconstructs its physical
+row.  It then defines the accepted paired probability density and proves
+
+```text
+retained blocked mass(left) * retained blocked mass(right)
+  = accepted paired weight(left,right) / physicalPartition^2
+```
+
+for two retained targets whose raw four-preimage partitions are nonpositive.
+This is an equality of the actual enriched two-copy law with the paired weight
+used by component peeling; it introduces no hidden comparison constant and
+makes no uniform-in-beta claim.
+
+Monitored verification:
+
+```text
+retained two-replica law focused source check              PASS
+retained two-replica law dependency target                 PASS (1,538 jobs)
+```
+
+All three printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: sum the point law on the observable support-connected incoherent
+subcarrier and transport the existing explicit SU(2) strong-coupling bound;
+lift reflection; construct the linked same-object cutoff tower; prove the
+beta/lattice-spacing scaling estimate and completed physical gap; and
+construct the thermodynamic/continuum measure, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure.

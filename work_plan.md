@@ -791,7 +791,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- blocked-law projection recovers old pushforward ...... [PROVED exact]
 |       +-- retained component/dynamics carrier bridge ........... [PROVED exact]
 |       +-- retained blocked-law point density ................... [PROVED exact]
-|       +-- retained two-replica law/component estimate .......... [NEXT]
+|       +-- retained two-replica point law ....................... [PROVED exact]
+|       +-- connected retained-pair component estimate ........... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1132,6 +1133,41 @@ the normalized accepted-pair weight, and transport the existing connected
 component/peeling estimates to that literal law.  Reflection, the linked
 same-object cutoff tower, a beta- and spacing-aware strict contraction,
 completed gap, continuum construction, and Clay closure remain open.
+
+#### Identify the retained two-replica point law (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerTwoReplicaLaw` proves first that
+positive coupling alone forces positivity of every retained target's physical
+row.  The selected expanded-source weight is strictly positive, occurs in the
+exact nonnegative fine-intertwiner fiber sum, and that sum reconstructs the
+genuine physical row.  Thus the earlier point-density theorem no longer needs
+row positivity supplied as an external hypothesis.
+
+For two retained targets with nonpositive four-preimage raw partitions, the
+module then proves the exact product identity
+
+```text
+product of the two enriched blocked-law point masses
+  = accepted two-replica Gibbs weight / physicalPartition^2.
+```
+
+The right-hand side is precisely the accepted paired weight already consumed
+by canonical component peeling.  Quotient cancellation is proved directly in
+`Q'`; no carrier-size factor, multiplicity, opaque constant, or forgetting
+projection occurs.
+
+The focused monitored source check and dependency-complete 1,538-job target
+build pass.  All three printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next causal edge is to filter the existing observable support-connected
+pair carrier by the two explicit incoherence tests, sum this point identity,
+and inherit the existing SU(2), `0 < w <= 1/400` component-decay bound on the
+resulting literal retained probability event.  Reflection, the linked
+same-object cutoff tower, beta/lattice-spacing scaling, completed gap,
+continuum construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
