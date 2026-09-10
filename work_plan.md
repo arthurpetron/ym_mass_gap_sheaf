@@ -4735,7 +4735,7 @@ extract enough distinct paid defects, with explicit SU(2), coupling, cutoff,
 and volume dependence, to support a fixed-mass entropy sum.  Completed gap,
 thermodynamic/continuum passage, and the Clay theorem remain open.
 
-The focused monitored check passes.  All eleven printed declarations remain
+The focused monitored check passes.  All twelve printed declarations remain
 within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, or enlarged heartbeat budget is introduced.
@@ -5123,6 +5123,48 @@ into a partition.  Normalized strict response, completed gap,
 thermodynamic/continuum passage, and the Clay theorem remain open.
 
 The focused monitored check passes.  All five printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
+## Milestone 335: restore the exact parity-ground row probability fraction (2026-09-10)
+
+**Status. NORMALIZATION IS NO LONGER DISCARDED AFTER THE PARITY-GROUND
+ANCHOR: EVERY NORMALIZED JOINT SUMMAND FACTORS EXACTLY THROUGH AN EXPLICIT
+GROUND-ROW FRACTION BETWEEN ZERO AND ONE.**
+
+`Z4DyadicBinaryNormalizedConnectedGroundFractionSum.lean` defines the
+literal parity-ground pair mass divided by the complete positive product of
+the two tilted-row masses.  It proves constructively that this fraction is
+nonnegative and at most one.
+
+A generic positive-intermediate quotient identity then proves
+
+`reference / full row normalization`
+`  = unit congestion * ground-row fraction`.
+
+Consequently every lowering contribution satisfies the exact identity
+
+`normalized joint weight`
+`  = suppression * unit congestion * ground-row fraction`.
+
+Combining this identity with milestone 333 and summing the attached
+connected carrier yields
+
+`normalized connected mass`
+`  <= sum_connected distancePower * residualHeat`
+`       * unitCongestion * groundRowFraction`.
+
+This corrects a second artificial source of volume congestion: both unused
+heat activity and the literal full-row normalization now remain present for
+the component/exterior regrouping.  The next frontier is an exact fiber map
+from this cross-scale source-target carrier to component code, boundary
+trace, and terminal exterior data.  No entropy ceiling, normalized strict
+response, completed gap, thermodynamic/continuum passage, or Clay theorem is
+asserted.
+
+The focused monitored check passes.  All eleven printed declarations remain
 within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 `native_decide`, custom axiom, noncomputable declaration, trusted external
 computation, enlarged heartbeat budget, or external certificate is

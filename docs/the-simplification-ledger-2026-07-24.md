@@ -3231,6 +3231,23 @@ grouped by component and terminal exterior state.  The focused monitored
 check passes and all five printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.103 Post-audit implementation update: exact ground-row normalization fraction, milestone 335 (2026-09-10)
+
+`Z4DyadicBinaryNormalizedConnectedGroundFractionSum.lean` restores the
+literal parity-ground summand divided by the full positive tilted-row
+product.  The fraction is proved to lie between zero and one, and exact
+positive-denominator cancellation gives
+
+`normalized joint weight`
+`  = suppression * unit congestion * ground-row fraction`.
+
+The connected sum is then bounded by distance power times residual heat
+times this ground-normalized congestion.  Thus neither unused heat activity
+nor full-row normalization is erased before the entropy argument.  Both
+physical coupling ceilings remain explicit and no beta- or volume-uniform
+constant is asserted.  The focused monitored check passes and all twelve
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
