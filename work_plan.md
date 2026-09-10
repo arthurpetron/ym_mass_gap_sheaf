@@ -1517,6 +1517,38 @@ defects is required before reflection/covariance contraction, the linked
 cutoff tower, physical scaling, completed gap, continuum construction, and
 Clay closure.
 
+#### Isolate the coherent-or-mixed observable excess exactly (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellCoherentExcess`
+partitions the original connected source carrier by the decidable retained-
+incoherent test.  It names the complementary target-event mass and proves
+
+```text
+full connected target four-cell mass
+  = retained connected four-cell landing mass
+  + coherent-or-mixed target four-cell excess,
+
+0 <= coherent-or-mixed target four-cell excess.
+```
+
+The complement consists exactly of connected source pairs for which at least
+one raw recoupling partition is positive.  Finite Fubini also rewrites the
+excess source-first as the sum of literal normalized target-event landing
+masses over that complementary carrier.
+
+The focused monitored source check passes.  All four printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next causal contraction is a three-case identity: left coherent/right
+retained, left retained/right coherent, and both coherent.  Each case should
+reduce the two-copy event moment to one or two explicit coarse recoupling
+event moments.  Quantitative smallness of those moments remains a separate
+analytic obligation before reflection/covariance contraction, the linked
+cutoff tower, physical scaling, completed gap, continuum construction, and
+Clay closure.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving

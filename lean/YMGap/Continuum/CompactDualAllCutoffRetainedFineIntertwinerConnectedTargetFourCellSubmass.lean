@@ -267,7 +267,7 @@ theorem allCutoffRetainedConnectedTargetFourCellSubmass_eqv_landingMass
 
 /-! ## 4. Inclusion in the full connected target event -/
 
-private theorem connectedTargetContribution_eqv_originalSourcePairs
+theorem connectedTargetContribution_eqv_originalSourcePairs
     (S : SlabScalePair) (rootFaceId targetFaceId : Nat)
     (target : AllCutoffRetainedTarget × AllCutoffRetainedTarget) :
     allCutoffConnectedExpandedTargetContribution
@@ -331,6 +331,7 @@ theorem allCutoffRetainedConnectedFourCellLandingMass_le_targetEventMass
 
 #print axioms allCutoffObservablePairExpandedTargetWeight_eqv_normalizedKernel
 #print axioms allCutoffRetainedConnectedTargetFourCellSubmass_eqv_landingMass
+#print axioms connectedTargetContribution_eqv_originalSourcePairs
 #print axioms allCutoffRetainedConnectedFourCellLandingMass_le_targetEventMass
 
 end YMGap.Continuum.CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellSubmass

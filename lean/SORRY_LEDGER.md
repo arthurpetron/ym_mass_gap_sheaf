@@ -30191,3 +30191,38 @@ coarse event-moment defects, prove those defects small on a linked cutoff
 trajectory, connect the result to reflection/covariance, prove physical
 scaling and the completed gap, and construct the continuum theory and Clay
 closure.
+
+#### Isolate the coherent-or-mixed observable excess exactly (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellCoherentExcess`
+partitions the connected source carrier into its retained-incoherent part and
+the complement where at least one raw recoupling partition is positive.  It
+proves the exact nonnegative decomposition
+
+```text
+full connected target four-cell mass
+  = retained landing mass + coherent-or-mixed excess,
+0 <= coherent-or-mixed excess.
+```
+
+Finite Fubini supplies a source-major form of the excess as a sum of the
+literal normalized target-event landing mass for each complementary source
+pair.  The attached-entry and original-pair presentations are linked by an
+exported exact marginal identity.
+
+Monitored verification:
+
+```text
+coherent target four-cell excess focused source check       PASS
+```
+
+All four printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: reduce the excess by its three coherent/retained branch cases,
+bound the resulting one-copy coarse recoupling event moments along a linked
+cutoff trajectory, connect the result to reflection/covariance, prove
+physical scaling and the completed gap, and construct the continuum theory
+and Clay closure.
