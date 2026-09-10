@@ -1064,6 +1064,7 @@ import YMGap.Continuum.BF4PhysicalTrajectoryFence
 import YMGap.Continuum.BF4BlockOperatorExtensionalFence
 import YMGap.Continuum.CompactDualAllCutoffTotalKernel
 import YMGap.Continuum.CompactDualAllCutoffPhysicalPushforward
+import YMGap.Continuum.CompactDualAllCutoffPhysicalPushforwardCounterexample
 import YMGap.Continuum.BF4ObservableMatchedOneStep
 import YMGap.Continuum.BF4ObservableMatchedTrajectory
 import YMGap.Continuum.BF4ExponentGramMatchedOneStep

@@ -29546,3 +29546,41 @@ four-preimage target by a retained fine-intertwiner carrier; connect the
 result to the localized posterior Dirichlet/capacity estimate; and construct
 the completed physical gap, thermodynamic/continuum measure, same-measure
 OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Refute exact all-cutoff reproduction by the four-preimage carrier (2026-09-10)
+
+`CompactDualAllCutoffPhysicalPushforwardCounterexample` proves that the
+incoherent fallback isolated above has strictly positive normalized source
+probability on the already-certified cutoff-two SU(2) collar state.  More
+precisely, the same row has positive fine Gibbs term and positive normalized
+mass, while its complete four-preimage raw recoupling partition is not
+positive.  Consequently
+
+```text
+0 < positiveIncoherentRecouplingMass counterScalePair,
+allCutoffWholeSlabKernel counterScalePair collarState = nullCompletionKernel ...,
+0 < coherenceFallbackL1 counterScalePair.
+```
+
+Thus no estimate can make this exact fallback identically vanish at every
+positive cutoff.  The old four-preimage target is formally ruled out as an
+exact physical all-cutoff RG carrier; the active replacement must retain the
+fine intertwiner/collar information lost by that target.
+
+Monitored verification:
+
+```text
+positive-fallback counterexample focused source check       PASS
+positive-fallback counterexample dependency target          PASS (877 jobs)
+```
+
+All six printed load-bearing declarations use only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: construct the exact coarse pushforward on the retained
+fine-intertwiner/collared carrier; connect its component dynamics to a
+localized posterior Dirichlet/capacity estimate; and construct the completed
+physical gap, thermodynamic/continuum measure, same-measure OS/GNS
+reconstruction, Hamiltonian gap, and Clay closure.

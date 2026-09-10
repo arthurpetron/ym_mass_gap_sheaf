@@ -777,12 +777,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- arbitrary-cutoff raw whole-slab recoupling ......... [PROVED]
 |       +-- total reflected stochastic kernel `K -> 4K` ........ [PROVED]
 |       +-- exact agreement with physical cutoff-one kernel ..... [PROVED]
-|       +-- positive incoherent fallback mass exposed .......... [PROVED definition]
-|       +-- fallback mass vanishes at cutoff one ............... [PROVED]
-|       +-- higher-cutoff fallback-mass estimate ................ [ACTIVE analytic producer]
 |       +-- pushforward = coherent law + weighted fallback ...... [PROVED exact]
 |       +-- fallback `L1` = incoherent source probability ....... [PROVED exact]
-|       `-- linked full finite-law cutoff tower ................. [OPEN]
+|       +-- cutoff-two collar Gibbs mass positive ............... [PROVED]
+|       +-- its four-preimage raw row partition not positive .... [PROVED]
+|       +-- total incoherent probability and fallback `L1` > 0 .. [PROVED]
+|       +-- four-preimage carrier as exact all-cutoff flow ....... [REFUTED at K=2]
+|       +-- retained fine-intertwiner/collar carrier ............. [ACTIVE replacement]
+|       +-- exact enriched coarse pushforward .................... [NEXT]
+|       `-- linked enriched finite-law cutoff tower .............. [OPEN]
 |
 +-- B. Uniform physical scaling
 |   +-- mass-normalized persistence algebra .................... [PROVED]
@@ -911,6 +914,37 @@ intertwiner information.
 
 The focused monitored source check and dependency-complete 704-job target
 build pass.  All seven printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+#### Prove the four-preimage all-cutoff flow has positive fallback mass (2026-09-10)
+
+`CompactDualAllCutoffPhysicalPushforwardCounterexample` connects the explicit
+cutoff-two SU(2) collar certificate to the exact all-cutoff pushforward split.
+The collar row has strictly positive normalized fine Gibbs mass but a
+nonpositive complete four-preimage raw recoupling partition.  Therefore its
+incoherent-row weight is strictly positive, the total incoherent source
+probability is strictly positive, and
+
+```text
+0 < coherenceFallbackL1 counterScalePair.
+```
+
+The total kernel is also proved to use its null-completion row on this exact
+positive source.  Hence the fallback is not a conservative branch awaiting a
+better tail estimate: it occurs on a concrete physical SU(2) row already at
+cutoff two.  The information-losing four-preimage carrier is therefore
+refuted as an exact all-cutoff physical RG flow.  The causal replacement is
+the existing retained fine-intertwiner/collar carrier, followed by an exact
+enriched coarse pushforward that keeps the missing channel data.
+
+This is a carrier no-go and route correction, not a spectral-gap theorem.  It
+does not supply the enriched pushforward, localized posterior form bound,
+completed gap, thermodynamic/continuum construction, or Clay target.
+
+The focused monitored source check and dependency-complete 877-job target
+build pass.  All six printed load-bearing declarations use only
 `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
 custom axiom, noncomputable declaration, or enlarged heartbeat budget is
 introduced.  No full-root audit is claimed.
