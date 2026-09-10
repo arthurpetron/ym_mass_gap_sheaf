@@ -3119,6 +3119,23 @@ remaining parity-ground/fusion/link reference must be counted or normalized
 without introducing volume dependence.  The focused monitored check passes
 and all thirteen printed declarations use only `[propext, Quot.sound]`.
 
+### 9.97 Post-audit implementation update: named subunit distance fugacity, milestone 329 (2026-09-10)
+
+`Z4DyadicBinaryJointGibbsSubunitSuppression.lean` states the coupling range
+rather than hiding it in a constant: both the fine and coarse heat couplings
+must be at most a supplied rational `rate < 1`.  Base monotonicity combines
+the fine-source and coarse-excitation powers under that rate.  The exact
+SU(2) mixed activity floor then gives
+
+`suppression <= (rate^3)^(distance + 1)`
+
+for every nonzero connected forward or reverse pair.  The declaration also
+proves `rate^3 < 1`.  This is a strict physical suppression estimate, but it
+does not bound the parity-ground coupling-one reference weight or its entropy,
+and hence is not yet a complete connected-response or covariance bound.  The
+focused monitored check passes and all six printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

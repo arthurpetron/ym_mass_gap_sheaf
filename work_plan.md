@@ -4908,6 +4908,42 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 329: turn the mixed heat exponent into an explicit subunit distance fugacity (2026-09-10)
+
+**Status. UNDER AN EXPLICIT COMMON RATIONAL CEILING ON THE FINE AND COARSE
+HEAT COUPLINGS, EVERY NONZERO CONNECTED ORIENTED SUPPRESSION FACTOR IS BOUNDED
+BY ONE STRICTLY SUBUNIT `RATE^3` FACTOR PER UNIT OF DISTANCE PLUS ONE.**
+
+`Z4DyadicBinaryJointGibbsSubunitSuppression.lean` assumes the named window
+
+`fine.coupling <= rate`, `coarse.coupling <= rate`, and `rate < 1`.
+
+The nonnegativity of both physical couplings is already carried by the two
+`SlabPhysicalData` objects.  Base monotonicity bounds the two powers exposed
+in milestone 328 by powers of the same `rate`; exact exponent additivity
+combines them.  Milestone 327's SU(2)-specific physical activity floor and
+power antitonicity then prove
+
+`joint suppression <= (rate^3)^(distance + 1)`.
+
+The file defines `finePacketJointDistanceFugacity rate = rate^3` and proves
+it is strictly below one from the stated window.  Forward and reverse wrapper
+theorems attach the bound directly to every nonzero connected active pair.
+Thus neither beta nor lattice-spacing uniformity is hidden: the result is
+only as uniform as the two displayed coupling ceilings supplied to it.
+
+This is not yet a bound on the complete joint summand.  The exact
+parity-ground/coupling-one reference factor still contains finite fusion and
+link multiplicities and must be controlled relative to row normalization
+before lattice-animal entropy can be summed.  A normalized strict response,
+completed gap, thermodynamic/continuum passage, and Clay theorem remain open.
+
+The focused monitored check passes.  All six printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
