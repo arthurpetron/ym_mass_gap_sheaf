@@ -29975,3 +29975,39 @@ Still open: sum the target submeasure and inherit the explicit SU(2) corridor
 rate; relate it to an enriched target observable and reflection; build the
 linked cutoff tower; prove physical scaling and the completed gap; and
 construct the continuum theory and Clay closure.
+
+#### Sum the connected target submeasure and transport corridor decay (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetMass` proves exact
+target normalization for each attached expanded source and its two-copy
+product.  It also identifies the product of two normalized grouped source
+weights with the accepted observable-pair weight over the physical partition
+square.
+
+Finite Fubini then closes the target-marginal calculation:
+
+```text
+sum_targetPair connectedTargetContribution(targetPair)
+  = normalized paired-support connected source mass
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+The bound names `1 <= fine.cutoff`, `0 < fine.coupling < 1`, and
+`fine.coupling <= 1/400`; it is not a beta-uniform group-agnostic estimate.
+
+Monitored verification:
+
+```text
+connected enriched target total focused source check       PASS
+connected enriched target total dependency target          PASS (1,556 jobs)
+```
+
+All four printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: define the branch-consistent enriched face observable and relate
+its connected moment to this target submeasure; lift reflection; build the
+linked cutoff tower; prove physical scaling and the completed gap; and
+construct the continuum theory and Clay closure.

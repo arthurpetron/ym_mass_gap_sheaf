@@ -796,7 +796,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- all-branch source-labelled connected joint flow ....... [PROVED exact]
 |       +-- full expanded target marginal = enriched blocked pair . [PROVED exact]
 |       +-- connected target contribution is a product submeasure . [PROVED exact]
-|       +-- total target contribution inherits corridor rate ...... [NEXT]
+|       +-- total target contribution inherits corridor rate ...... [PROVED on 0<w<=1/400]
+|       +-- enriched target observable / reflection identity ....... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1326,6 +1327,42 @@ square, uses Fubini and product-row normalization to recover the normalized
 source-connected mass, and hence transports the explicit SU(2) corridor
 rate.  A target observable/reflection identity, linked cutoff tower, physical
 scaling, completed gap, continuum construction, and Clay closure remain open.
+
+#### Sum the enriched connected submeasure and inherit corridor decay (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetMass` proves first
+that one normalized expanded-source joint row sums over the complete enriched
+target to its normalized source mass.  Cartesian factorization gives the
+corresponding two-copy identity.
+
+The product of the two normalized grouped source weights is then identified
+exactly with the accepted observable-pair weight divided by the physical
+partition square.  Finite Fubini and the injective connected-source embedding
+therefore prove
+
+```text
+sum over all enriched target pairs of connectedTargetContribution
+  = normalized paired-support connected source mass
+  <= (25/9) * (16/25)^(linfDistance + 1).
+```
+
+The final inequality holds under the explicit SU(2) corridor hypotheses
+`1 <= fine.cutoff`, `0 < w < 1`, and `w <= 1/400`.  Together with the
+targetwise interval from the preceding milestone, this is a nonnegative
+decaying submeasure of the actual product enriched blocked law.
+
+The focused monitored source check and dependency-complete 1,556-job target
+build pass.  All four printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, or
+enlarged heartbeat budget is introduced.  No full-root audit is claimed.
+
+The next causal edge is semantic but finite: define observables on the
+coarse-or-retained target that preserve the physical face event in both
+branches, then prove whether their two-copy connected contribution is exactly
+this submeasure or only bounded by it.  Reflection on that enriched target,
+the linked cutoff tower, physical scaling, completed gap, continuum
+construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
