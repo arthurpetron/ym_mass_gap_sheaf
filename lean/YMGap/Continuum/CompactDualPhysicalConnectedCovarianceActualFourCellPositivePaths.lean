@@ -25,6 +25,7 @@ noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
+import YMGap.Continuum.CompactDualSlabExpandedSourceEnumeration
 
 namespace YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 
@@ -42,6 +43,7 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualRawKernel
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceRawCross
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
+open YMGap.Continuum.CompactDualSlabExpandedSourceEnumeration
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.CompactDualWholeSlabRecouplingRawKernel
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -111,6 +113,65 @@ def positivePhysicalSources (S : SlabScalePair) :
     List (PositivePhysicalSource S) :=
   positivePhysicalSourcesAux S S.fine.physicalLabellings
     (fun _ hsource => hsource)
+
+private theorem positivePhysicalSourcesAux_value_mem
+    (S : SlabScalePair) :
+    ∀ (sources : List EdgeLabelling)
+      (hphysical : ∀ source, source ∈ sources →
+        source ∈ S.fine.physicalLabellings)
+      (item : PositivePhysicalSource S),
+      item ∈ positivePhysicalSourcesAux S sources hphysical →
+        item.1 ∈ sources
+  | [], _, item, hitem => by
+      simp only [positivePhysicalSourcesAux, List.not_mem_nil] at hitem
+  | source :: tail, hphysical, item, hitem => by
+      let htail : ∀ entry, entry ∈ tail →
+          entry ∈ S.fine.physicalLabellings := fun entry hentry =>
+        hphysical entry (List.mem_cons_of_mem source hentry)
+      by_cases hpositive : (0 : Q') < S.fine.physicalTerm source
+      · simp only [positivePhysicalSourcesAux, dif_pos hpositive] at hitem
+        rcases List.mem_cons.mp hitem with hhead | htailMem
+        · subst item
+          exact List.mem_cons_self
+        · exact List.mem_cons_of_mem source
+            (positivePhysicalSourcesAux_value_mem
+              S tail htail item htailMem)
+      · simp only [positivePhysicalSourcesAux, dif_neg hpositive] at hitem
+        exact List.mem_cons_of_mem source
+          (positivePhysicalSourcesAux_value_mem
+            S tail htail item hitem)
+
+private theorem positivePhysicalSourcesAux_nodup
+    (S : SlabScalePair) :
+    ∀ (sources : List EdgeLabelling)
+      (hphysical : ∀ source, source ∈ sources →
+        source ∈ S.fine.physicalLabellings),
+      sources.Nodup →
+        (positivePhysicalSourcesAux S sources hphysical).Nodup
+  | [], _, _ => List.nodup_nil
+  | source :: tail, hphysical, hsources => by
+      have hparts := List.nodup_cons.mp hsources
+      let htail : ∀ entry, entry ∈ tail →
+          entry ∈ S.fine.physicalLabellings := fun entry hentry =>
+        hphysical entry (List.mem_cons_of_mem source hentry)
+      by_cases hpositive : (0 : Q') < S.fine.physicalTerm source
+      · simp only [positivePhysicalSourcesAux, dif_pos hpositive]
+        apply List.nodup_cons.mpr
+        constructor
+        · intro hmem
+          exact hparts.1
+            (positivePhysicalSourcesAux_value_mem
+              S tail htail ⟨source,
+                hphysical source List.mem_cons_self, hpositive⟩ hmem)
+        · exact positivePhysicalSourcesAux_nodup S tail htail hparts.2
+      · simp only [positivePhysicalSourcesAux, dif_neg hpositive]
+        exact positivePhysicalSourcesAux_nodup S tail htail hparts.2
+
+theorem positivePhysicalSources_nodup (S : SlabScalePair) :
+    (positivePhysicalSources S).Nodup := by
+  unfold positivePhysicalSources
+  exact positivePhysicalSourcesAux_nodup S S.fine.physicalLabellings
+    (fun _ hsource => hsource) (slabPhysicalLabellings_nodup S.fine)
 
 /-- One retained fine-source to coarse-target path, with the actual kernel
 entry exposed as the positive whole-slab conditional recoupling row. -/
@@ -238,6 +299,13 @@ abbrev PositivePushedPhysicalTwoReplicaPath (S : SlabScalePair) :=
 def positivePhysicalSourcePairs (S : SlabScalePair) :
     List (PositivePhysicalSourcePair S) :=
   cartesian (positivePhysicalSources S) (positivePhysicalSources S)
+
+theorem positivePhysicalSourcePairs_nodup (S : SlabScalePair) :
+    (positivePhysicalSourcePairs S).Nodup := by
+  unfold positivePhysicalSourcePairs
+  exact cartesian_nodup _ _
+    (positivePhysicalSources_nodup S)
+    (positivePhysicalSources_nodup S)
 
 def positivePushedFaceRawFourCellSourcePaths
     (S : SlabScalePair) (root target : Nat) :
@@ -511,12 +579,14 @@ theorem centeredCylinderRemainder_physicalKernel_abs_le_of_positivePathRawCross
 #print axioms PositivePhysicalSource
 #print axioms positivePhysicalSourcesAux
 #print axioms positivePhysicalSources
+#print axioms positivePhysicalSources_nodup
 #print axioms positivePhysicalSourceKernelPathRawMass
 #print axioms positivePhysicalSourceKernelPathRawMass_eqv_rawRatio
 #print axioms physicalSourcePathSum_eqv_positive
 #print axioms PositivePhysicalSourcePair
 #print axioms PositivePushedPhysicalTwoReplicaPath
 #print axioms positivePhysicalSourcePairs
+#print axioms positivePhysicalSourcePairs_nodup
 #print axioms positivePushedFaceRawFourCellSourcePaths
 #print axioms positivePushedFaceRawFourCellTargetPaths
 #print axioms positivePushedPhysicalTwoReplicaPathRawMass

@@ -169,6 +169,86 @@ def finePacketGlobalNonzeroConnectedExpandedWitnessEntries
       (finePacketGlobalNonzeroConnectedExpandedWitnessBlock
         S orientation observableFaceId)
 
+private theorem nodup_map_of_injective_local {A B : Type}
+    (map : A → B) (hinjective : Function.Injective map) :
+    ∀ {items : List A}, items.Nodup → (items.map map).Nodup
+  | [], _ => List.nodup_nil
+  | head :: tail, hitems => by
+      have hparts := List.nodup_cons.mp hitems
+      refine List.nodup_cons.mpr
+        ⟨?_, nodup_map_of_injective_local map hinjective hparts.2⟩
+      intro hmem
+      obtain ⟨item, hitem, heq⟩ := List.mem_map.mp hmem
+      exact hparts.1 ((hinjective heq.symm) ▸ hitem)
+
+private theorem nodup_flatMap_of_disjoint_blocks_local {A B : Type}
+    (block : A → List B) :
+    ∀ source : List A, source.Nodup →
+      (∀ item, item ∈ source → (block item).Nodup) →
+      (∀ left, left ∈ source → ∀ right, right ∈ source →
+        left ≠ right → ∀ value, value ∈ block left →
+          value ∉ block right) →
+      (source.flatMap block).Nodup
+  | [], _, _, _ => List.nodup_nil
+  | head :: tail, hsource, hblocks, hdisjoint => by
+      have hparts := List.nodup_cons.mp hsource
+      rw [List.flatMap_cons]
+      apply List.nodup_append.mpr
+      refine ⟨hblocks head List.mem_cons_self,
+        nodup_flatMap_of_disjoint_blocks_local block tail hparts.2
+          (fun item hitem =>
+            hblocks item (List.mem_cons_of_mem head hitem))
+          (fun left hleft right hright hne =>
+            hdisjoint left (List.mem_cons_of_mem head hleft)
+              right (List.mem_cons_of_mem head hright) hne), ?_⟩
+      intro value hhead other htail heq
+      have hvalueTail : value ∈ tail.flatMap block := heq ▸ htail
+      obtain ⟨item, hitem, hvalueItem⟩ :=
+        List.mem_flatMap.mp hvalueTail
+      have hne : head ≠ item := by
+        intro hsame
+        subst item
+        exact hparts.1 hitem
+      exact (hdisjoint head List.mem_cons_self item
+        (List.mem_cons_of_mem head hitem) hne value hhead) hvalueItem
+
+theorem finePacketGlobalNonzeroConnectedExpandedWitnessBlock_nodup
+    (S : SlabScalePair) (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat)
+    (entry : FinePacketGlobalOrientedNonzeroConnectedEntry
+      S orientation observableFaceId) :
+    (finePacketGlobalNonzeroConnectedExpandedWitnessBlock
+      S orientation observableFaceId entry).Nodup := by
+  unfold finePacketGlobalNonzeroConnectedExpandedWitnessBlock
+  apply nodup_map_of_injective_local
+  · intro left right heq
+    apply Subtype.ext
+    exact congrArg
+      (fun expanded : FinePacketGlobalNonzeroConnectedExpandedWitnessEntry
+          S orientation observableFaceId => expanded.2.1) heq
+  · exact attach_nodup_of_nodup _
+      (finePacketGlobalNonzeroConnectedEntryJointWitnessCarrier_nodup
+        S orientation observableFaceId entry)
+
+theorem finePacketGlobalNonzeroConnectedExpandedWitnessEntries_nodup
+    (S : SlabScalePair) (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat) :
+    (finePacketGlobalNonzeroConnectedExpandedWitnessEntries
+      S orientation observableFaceId).Nodup := by
+  unfold finePacketGlobalNonzeroConnectedExpandedWitnessEntries
+  apply nodup_flatMap_of_disjoint_blocks_local
+  · exact finePacketGlobalOrientedNonzeroConnectedEntries_nodup
+      S orientation observableFaceId
+  · intro entry _
+    exact finePacketGlobalNonzeroConnectedExpandedWitnessBlock_nodup
+      S orientation observableFaceId entry
+  · intro left _ right _ hne value hleft hright
+    obtain ⟨leftWitness, _, rfl⟩ := List.mem_map.mp hleft
+    obtain ⟨rightWitness, _, heq⟩ := List.mem_map.mp hright
+    exact hne (congrArg
+      (fun expanded : FinePacketGlobalNonzeroConnectedExpandedWitnessEntry
+          S orientation observableFaceId => expanded.1) heq.symm)
+
 /-! ## 3. Exact shape-child and normalized witness weight -/
 
 def finePacketGlobalNonzeroConnectedEntryExpandedWitnessPrefix
@@ -419,6 +499,8 @@ theorem finePacketGlobalNonzeroConnectedExpandedWitnessMass_eqv_entropyFunded
 #print axioms FinePacketGlobalNonzeroConnectedExpandedWitnessEntry
 #print axioms finePacketGlobalNonzeroConnectedExpandedWitnessBlock
 #print axioms finePacketGlobalNonzeroConnectedExpandedWitnessEntries
+#print axioms finePacketGlobalNonzeroConnectedExpandedWitnessBlock_nodup
+#print axioms finePacketGlobalNonzeroConnectedExpandedWitnessEntries_nodup
 #print axioms finePacketGlobalNonzeroConnectedEntryExpandedWitnessPrefix
 #print axioms finePacketGlobalNonzeroConnectedEntryExpandedWitnessWeight
 #print axioms finePacketGlobalNonzeroConnectedExpandedWitnessWeight

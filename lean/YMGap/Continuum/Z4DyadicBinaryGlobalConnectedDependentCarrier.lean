@@ -30,6 +30,7 @@ open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPositivePaths
 open YMGap.Continuum.CompactDualSlabObservablePairedSupportComponent
 open YMGap.Continuum.CompactDualSlabPhysicalData
+open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -37,6 +38,7 @@ open YMGap.Continuum.Z4DyadicBinaryGlobalNormalizedConnectedCarrier
 open YMGap.Continuum.Z4DyadicBinaryNormalizedConnectedGroundFractionSum
 open YMGap.Continuum.Z4DyadicBinaryNormalizedConnectedUnitCongestionSum
 open YMGap.Continuum.Z4DyadicBinarySourceTiltedGibbsActiveConnectivityPartition
+open YMGap.Continuum.Z4DyadicBinarySourceTiltedGibbsConnectedEnvelopeNormalization
 open YMGap.Continuum.Z4DyadicBinarySourceTiltedGibbsConnectedOrientationDecomposition
 open YMGap.Continuum.Z4DyadicBinarySourceTiltedGibbsJointActivityFloor
 
@@ -78,6 +80,81 @@ def finePacketGlobalConnectedEntries
     List (FinePacketGlobalConnectedEntry S observableFaceId) :=
   (positivePhysicalSourcePairs S).flatMap
     (finePacketGlobalConnectedSourceBlock S observableFaceId)
+
+private theorem nodup_map_of_injective_local {A B : Type}
+    (map : A → B) (hinjective : Function.Injective map) :
+    ∀ {items : List A}, items.Nodup → (items.map map).Nodup
+  | [], _ => List.nodup_nil
+  | head :: tail, hitems => by
+      have hparts := List.nodup_cons.mp hitems
+      refine List.nodup_cons.mpr
+        ⟨?_, nodup_map_of_injective_local map hinjective hparts.2⟩
+      intro hmem
+      obtain ⟨item, hitem, heq⟩ := List.mem_map.mp hmem
+      exact hparts.1 ((hinjective heq.symm) ▸ hitem)
+
+private theorem nodup_flatMap_of_disjoint_blocks_local {A B : Type}
+    (block : A → List B) :
+    ∀ source : List A, source.Nodup →
+      (∀ item, item ∈ source → (block item).Nodup) →
+      (∀ left, left ∈ source → ∀ right, right ∈ source →
+        left ≠ right → ∀ value, value ∈ block left →
+          value ∉ block right) →
+      (source.flatMap block).Nodup
+  | [], _, _, _ => List.nodup_nil
+  | head :: tail, hsource, hblocks, hdisjoint => by
+      have hparts := List.nodup_cons.mp hsource
+      rw [List.flatMap_cons]
+      apply List.nodup_append.mpr
+      refine ⟨hblocks head List.mem_cons_self,
+        nodup_flatMap_of_disjoint_blocks_local block tail hparts.2
+          (fun item hitem =>
+            hblocks item (List.mem_cons_of_mem head hitem))
+          (fun left hleft right hright hne =>
+            hdisjoint left (List.mem_cons_of_mem head hleft)
+              right (List.mem_cons_of_mem head hright) hne), ?_⟩
+      intro value hhead other htail heq
+      have hvalueTail : value ∈ tail.flatMap block := heq ▸ htail
+      obtain ⟨item, hitem, hvalueItem⟩ :=
+        List.mem_flatMap.mp hvalueTail
+      have hne : head ≠ item := by
+        intro hsame
+        subst item
+        exact hparts.1 hitem
+      exact (hdisjoint head List.mem_cons_self item
+        (List.mem_cons_of_mem head hitem) hne value hhead) hvalueItem
+
+theorem finePacketGlobalConnectedSourceBlock_nodup
+    (S : SlabScalePair) (observableFaceId : Nat)
+    (sources : PositivePhysicalSourcePair S) :
+    (finePacketGlobalConnectedSourceBlock
+      S observableFaceId sources).Nodup := by
+  unfold finePacketGlobalConnectedSourceBlock
+  apply nodup_map_of_injective_local
+  · intro left right heq
+    apply Subtype.ext
+    exact congrArg
+      (fun entry : FinePacketGlobalConnectedEntry S observableFaceId =>
+        entry.targets) heq
+  · exact attach_nodup_of_nodup _
+      (finePacketFaceResponseConnectedActivePairs_nodup
+        S sources.1.1 sources.2.1 observableFaceId)
+
+theorem finePacketGlobalConnectedEntries_nodup
+    (S : SlabScalePair) (observableFaceId : Nat) :
+    (finePacketGlobalConnectedEntries S observableFaceId).Nodup := by
+  unfold finePacketGlobalConnectedEntries
+  apply nodup_flatMap_of_disjoint_blocks_local
+  · exact positivePhysicalSourcePairs_nodup S
+  · intro sources _
+    exact finePacketGlobalConnectedSourceBlock_nodup
+      S observableFaceId sources
+  · intro left _ right _ hne value hleft hright
+    obtain ⟨leftTarget, _, rfl⟩ := List.mem_map.mp hleft
+    obtain ⟨rightTarget, _, heq⟩ := List.mem_map.mp hright
+    exact hne (congrArg
+      (fun entry : FinePacketGlobalConnectedEntry S observableFaceId =>
+        entry.sources) heq.symm)
 
 /-! ## 2. Canonical component data retained by an entry -/
 
@@ -256,6 +333,8 @@ theorem finePacketGlobalConnectedEntryNormalizedSum_le_refinedSum
 #print axioms finePacketGlobalConnectedEntryOfTarget
 #print axioms finePacketGlobalConnectedSourceBlock
 #print axioms finePacketGlobalConnectedEntries
+#print axioms finePacketGlobalConnectedSourceBlock_nodup
+#print axioms finePacketGlobalConnectedEntries_nodup
 #print axioms finePacketGlobalConnectedEntryPath
 #print axioms finePacketGlobalConnectedEntryTargetComponent
 #print axioms finePacketGlobalConnectedEntry_source_mem_targetComponent

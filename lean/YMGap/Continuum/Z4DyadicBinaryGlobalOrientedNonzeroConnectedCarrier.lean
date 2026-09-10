@@ -127,6 +127,52 @@ def finePacketGlobalOrientedNonzeroConnectedEntries
       S orientation observableFaceId)
     (finePacketGlobalConnectedEntries S observableFaceId)
 
+private theorem orientedNonzeroEntriesAux_value_mem
+    {A : Type} (raw : A → Q') :
+    ∀ (items : List A) (item : {entry : A // ¬ raw entry ≈ 0}),
+      item ∈ orientedNonzeroEntriesAux raw items → item.1 ∈ items
+  | [], item, hitem => by
+      simp only [orientedNonzeroEntriesAux, List.not_mem_nil] at hitem
+  | head :: tail, item, hitem => by
+      by_cases hzero : raw head ≈ 0
+      · simp only [orientedNonzeroEntriesAux, dif_pos hzero] at hitem
+        exact List.mem_cons_of_mem head
+          (orientedNonzeroEntriesAux_value_mem raw tail item hitem)
+      · simp only [orientedNonzeroEntriesAux, dif_neg hzero] at hitem
+        rcases List.mem_cons.mp hitem with hhead | htail
+        · subst item
+          exact List.mem_cons_self
+        · exact List.mem_cons_of_mem head
+            (orientedNonzeroEntriesAux_value_mem raw tail item htail)
+
+private theorem orientedNonzeroEntriesAux_nodup
+    {A : Type} (raw : A → Q') :
+    ∀ (items : List A), items.Nodup →
+      (orientedNonzeroEntriesAux raw items).Nodup
+  | [], _ => List.nodup_nil
+  | head :: tail, hitems => by
+      have hparts := List.nodup_cons.mp hitems
+      by_cases hzero : raw head ≈ 0
+      · simp only [orientedNonzeroEntriesAux, dif_pos hzero]
+        exact orientedNonzeroEntriesAux_nodup raw tail hparts.2
+      · simp only [orientedNonzeroEntriesAux, dif_neg hzero]
+        apply List.nodup_cons.mpr
+        constructor
+        · intro hmem
+          exact hparts.1
+            (orientedNonzeroEntriesAux_value_mem raw tail
+              ⟨head, hzero⟩ hmem)
+        · exact orientedNonzeroEntriesAux_nodup raw tail hparts.2
+
+theorem finePacketGlobalOrientedNonzeroConnectedEntries_nodup
+    (S : SlabScalePair) (orientation : FinePacketEnvelopeOrientation)
+    (observableFaceId : Nat) :
+    (finePacketGlobalOrientedNonzeroConnectedEntries
+      S orientation observableFaceId).Nodup := by
+  unfold finePacketGlobalOrientedNonzeroConnectedEntries
+  exact orientedNonzeroEntriesAux_nodup _ _
+    (finePacketGlobalConnectedEntries_nodup S observableFaceId)
+
 def finePacketGlobalOrientedNonzeroConnectedEntryRefinedWeight
     (S : SlabScalePair) (hfineCutoff : S.fine.cutoff = 1)
     (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
@@ -291,6 +337,7 @@ theorem finePacketGlobalConnectedEntryNormalizedSum_le_nonzeroRefinedSum
 #print axioms finePacketGlobalConnectedEntryActiveRefinedWeight
 #print axioms FinePacketGlobalOrientedNonzeroConnectedEntry
 #print axioms finePacketGlobalOrientedNonzeroConnectedEntries
+#print axioms finePacketGlobalOrientedNonzeroConnectedEntries_nodup
 #print axioms finePacketGlobalOrientedNonzeroConnectedEntryRefinedWeight
 #print axioms finePacketGlobalOrientedNonzeroConnectedEntryLowering
 #print axioms finePacketGlobalConnectedEntryNormalizedWeight_le_activeRefined
