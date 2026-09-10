@@ -29740,3 +29740,41 @@ construct the linked same-object cutoff tower; prove a beta- and
 spacing-dependent localized posterior contraction; and construct the completed
 physical gap, thermodynamic/continuum measure, same-measure OS/GNS
 reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Identify the exact retained blocked-law point density (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerBlockedDensity` proves that a
+positive incoherent retained target receives contribution from exactly one
+attached physical source.  Differently coded physical rows vanish in the
+retained column, and injectivity of the mixed-radix code on the physical
+carrier identifies the surviving source with the target's own physical
+labelling.  Hence
+
+```text
+allCutoffRetainedFineIntertwinerBlockedMass S (.inr target)
+  = slabExpandedFineEntryNormalizedMass S.fine targetEntry.
+```
+
+The theorem assumes the target row's explicit positivity and nonpositive raw
+four-preimage partition; it makes no uniform-in-beta statement.  This is the
+exact point-density bridge from the new stochastic law to the established
+component-removal weights.
+
+Monitored verification:
+
+```text
+retained blocked density focused source check              PASS
+retained blocked density dependency target                 PASS (1,291 jobs)
+```
+
+Both printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: build the observable-relevant two-replica retained law and
+transport connected component estimates to it; lift reflection; construct the
+linked same-object cutoff tower; prove beta- and spacing-aware localized
+posterior contraction; and construct the completed physical gap,
+thermodynamic/continuum measure, same-measure OS/GNS reconstruction,
+Hamiltonian gap, and Clay closure.

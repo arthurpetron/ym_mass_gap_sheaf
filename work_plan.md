@@ -790,7 +790,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- lossy projection recovers old fallback kernel ........ [PROVED exact]
 |       +-- blocked-law projection recovers old pushforward ...... [PROVED exact]
 |       +-- retained component/dynamics carrier bridge ........... [PROVED exact]
-|       +-- retained blocked-law point density ................... [NEXT]
+|       +-- retained blocked-law point density ................... [PROVED exact]
+|       +-- retained two-replica law/component estimate .......... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1098,6 +1099,39 @@ point mass, using uniqueness of the attached physical source.  Reflection,
 the linked same-object cutoff tower, a beta- and spacing-aware localized
 posterior contraction, completed gap, continuum construction, and Clay closure
 remain open.
+
+#### Identify each incoherent retained blocked-law point exactly (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerBlockedDensity` closes the final
+measure-level seam into component dynamics.  For every retained target whose
+physical row is positive and has nonpositive four-preimage raw partition, it
+proves
+
+```text
+complete enriched blocked mass of that retained target
+  = its normalized literal expanded-source weight.
+```
+
+A constructive unique-code summation theorem collapses the complete source
+sum: every source with a different mixed-radix physical code contributes zero,
+and code injectivity on the attached bounded carrier identifies the sole
+remaining source.  The previous normalized row-density theorem evaluates that
+term.  Therefore neither an unspecified multiplicity nor a hidden comparison
+constant lies between the retained probability law and the component-peeling
+weight.
+
+The focused monitored source check and dependency-complete 1,291-job target
+build pass.  Both printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+The next causal edge is the two-replica law: restrict to observable-relevant
+positive incoherent retained pairs, identify their product probability with
+the normalized accepted-pair weight, and transport the existing connected
+component/peeling estimates to that literal law.  Reflection, the linked
+same-object cutoff tower, a beta- and spacing-aware strict contraction,
+completed gap, continuum construction, and Clay closure remain open.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
