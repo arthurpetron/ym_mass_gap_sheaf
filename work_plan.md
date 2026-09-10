@@ -763,6 +763,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- off-ray preceding-edge resistance tail ....... [OPEN consequence]
 |   |   |   +-- separating guarded-event family alternative ... [PARTIAL]
 |   |   |   +-- fixed-nome cofinal ceiling interfaces ......... [PROVED reductions]
+|   |   |   +-- matched constructed-Poincare rate path ......... [PROVED reduction]
 |   |   |   `-- ceiling also synchronizes guarded face ......... [PROVED reduction]
 |   |   `-- completed all-vector form / operator gap ........... [OPEN]
 |   |
@@ -790,6 +791,32 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     +-- compact-simple-group extension ......................... [OPEN]
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
+
+#### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10)
+
+`BF4PhysicalMatchedAFConstructedRateGapPath` bypasses the obstructed row-total-
+variation route.  At each exact matched nome it takes one strict rational
+ceiling on the Poincare rates already constructed for every finite base
+carrier.  The existing cofinal bridge then produces the actual completed
+canonical vacuum-sector transfer with definitionally that same rate.
+
+The observable-connected contraction is now the causal chain
+
+```text
+constructed finite-base Poincare rates
+  -> one common cutoff-uniform signed-form rate q_j < 1
+  -> completed canonical vacuum-sector transfer at q_j
+  -> same-object connected correlator bounded by q_j^n
+  -> physical gap floor from c*a_j <= 1-q_j <= C*a_j.
+```
+
+The per-scale uniform ceiling and its two-sided comparison with the physical
+spacing remain named inputs; no inhabitant is claimed.  Unlike the exact
+mass-normalized row coefficient, this route retains signed-form cancellation
+and is therefore compatible with the verified cutoff-two `49/50` gap even
+though the cutoff-two row-total-variation coefficient exceeds one.  The
+thermodynamic/continuum construction, same-measure OS/GNS identification,
+Hamiltonian, isolated vacuum, and Clay theorem remain open.
 
 The live receiver-transport frontier is no longer the monolithic complete-cell
 posterior.  The explicit split-sector route instantiates both existing finite

@@ -28929,6 +28929,35 @@ declarations use only `[propext, Quot.sound]`.  No `sorry`, `admit`,
 `Classical`, `native_decide`, new axiom, or noncomputable declaration is
 introduced.  No full-root audit is claimed.
 
+#### Matched AF cancellation-preserving constructed-rate gap path (2026-09-10)
+
+`BF4PhysicalMatchedAFConstructedRateGapPath` contracts the fixed-base
+positive-edge Poincare construction through the existing cross-carrier rate
+frontier.  A scale-indexed producer supplies one strict rational ceiling on
+all already constructed finite-base rates at the exact matched BF4 nome.  It
+now yields the concrete completed canonical vacuum-sector transfer at that
+same rate, its physical spacing, the same-object connected-correlation bound,
+and a physical gap floor from the explicit two-sided margin law
+
+```text
+lower * a_j <= 1 - q_j <= upper * a_j.
+```
+
+This is a cancellation-preserving alternative to the mass-normalized row-
+total-variation path, whose exact cutoff-two coefficient is known to exceed
+one despite the verified signed-form gap.  No `sorry` is introduced.  The
+per-scale cross-carrier ceiling, its physical margin scaling, the matched
+cubic/spacing inputs, observable pin, continuum carrier/QFT axioms, isolated
+vacuum, and Clay conclusion remain open.
+
+The monitored focused source check and dependency-complete 5,079-job target
+build pass.  All eight printed load-bearing declarations use only
+`[propext, Quot.sound]`.  A subsequent root integration build was stopped by
+the safety monitor when available memory reached the reserved 12 GiB floor;
+it is not reported as passed.  No `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, or enlarged
+heartbeat budget is introduced.  No full-root audit is claimed.
+
 #### Normalize the three posterior-column debts and compile the matched-AF consumer (2026-09-08)
 
 `FiniteDependentKernelCoefficientPosteriorRescaling` proves that replacing the
