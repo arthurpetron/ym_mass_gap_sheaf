@@ -3071,6 +3071,31 @@ after which the joint Gibbs factors can be compared before contour counting.
 The focused monitored check passes and all thirteen printed declarations use
 only `[propext, Quot.sound]`.
 
+### 9.95 Post-audit implementation update: target Casimir-excess payment, milestone 327 (2026-09-10)
+
+`Z4DyadicBinaryTargetExcitationCasimirExcess.lean` identifies target
+excitation with an exact excess in the actual SU(2) heat exponent.  On a
+supported lowering entry,
+
+`c4(target) = c4(source mod 2) + excitation excess`,
+
+and the SU(2) formula `c4(t) = t * (t + 2)` charges at least eight exponent
+units per two-spin excitation step.  The target heat power therefore factors
+exactly into source-parity-ground and excitation powers.
+
+The identity is summed over the complete two-replica coarse carrier.  With
+milestone 326's source payment and the exact fine exponent
+`3 * occupiedFaceCount`, every nonzero connected forward or reverse pair now
+carries the mixed physical exponent floor
+
+`3 * (distance + 1) <= fine source Casimir exponent + target Casimir excess`.
+
+This is an exact, SU(2)-specific exponent compiler.  It is not yet a rational
+weight inequality: ground factors, fusion and link multiplicities, and the
+oriented row normalizations must still be handled before a strict contour
+rate is available.  The focused monitored check passes and all twenty
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

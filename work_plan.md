@@ -4823,6 +4823,51 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 external computation, enlarged heartbeat budget, or Rust certificate is
 introduced.
 
+## Milestone 327: identify target excitation with SU(2) Casimir excess (2026-09-10)
+
+**Status. EVERY NONZERO CONNECTED ORIENTED CONTRIBUTION NOW PAYS THREE TIMES
+ITS GEOMETRIC SEPARATION IN THE ACTUAL FINE SOURCE CASIMIR EXPONENT PLUS THE
+EXACT COARSE TARGET CASIMIR EXCESS ABOVE ITS SOURCE-DETERMINED PARITY GROUND.**
+
+`Z4DyadicBinaryTargetExcitationCasimirExcess.lean` defines the local excess
+
+`c4(target) - c4(source mod 2)`
+
+on the exact spin-four lowering carrier.  The supported target reconstruction
+proves that this is a genuine nonnegative decomposition of the target
+Casimir.  The load-bearing SU(2) formula `c4(t) = t * (t + 2)` then proves
+that every two-spin excitation step above parity ground costs at least eight
+Casimir units.  The corresponding target heat power factors exactly into a
+ground power and an excitation power.
+
+Summing over both replicas gives an exact decomposition of their complete
+coarse physical Casimir exponents into parity-ground and excitation parts.
+Combining the eight-unit target bound with milestone 326's exact
+three-units-per-occupied-fundamental-face identity uses the smaller common
+scale and yields
+
+`3 * (distance + 1)`
+`  <= 3 * (fine occupied counts of both sources)`
+`     + coarse target Casimir excitation excess`.
+
+This theorem is attached directly to every nonzero forward and reverse
+connected raw pair.  It is the first current-branch distance floor expressed
+entirely in exponents that occur in the actual fine and coarse Gibbs factors,
+and its target payment uses the non-linear SU(2) Casimir.
+
+No rational weight domination, multiplicity/link entropy estimate, normalized
+strict rate, completed gap, thermodynamic/continuum passage, or Clay theorem
+is asserted.  The next causal frontier is to factor these exponents out of
+the exact oriented raw weights, preserve the source-parity ground factors
+through row normalization, and isolate an explicit subunit activity fugacity
+before summing animals.
+
+The focused monitored check passes.  All twenty printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
