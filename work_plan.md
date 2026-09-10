@@ -4236,6 +4236,40 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 311: give every accepted active pair explicit component endpoints (2026-09-09)
+
+**Status. EVERY ACTIVE LEFT OR RIGHT ACCEPTED RESPONSE PAIR NOW RETURNS A
+CHANGED COARSE TARGET FACE AND A CONCRETE FINE DYADIC PREIMAGE IN THE
+TARGET-ROOTED SOURCE COMPONENT; ROOT, TARGET, AND JOINT OBSERVABLE EVENTS
+ALSO RETURN THEIR CHANGED COARSE ENDPOINTS.**
+
+`Z4DyadicBinarySourceTiltedGibbsActiveComponentEndpoints.lean` specializes
+the active-pair witness of milestone 310 to both accepted support-swap row
+comparisons.  The source-disagreement face is transported to the generic
+support-swap carrier, whose true finite `any` search is evaluated
+constructively to select an actual fine face.  The resulting structure
+carries the coarse membership, target-state inequality, fine dyadic-fibre
+membership, and target-component membership as data.
+
+For the other endpoint, an active one-face event is proved to change the
+underlying spin coordinate at that face.  An active root-target joint event
+constructively selects either the root or target coordinate and returns its
+inequality proof.  Thus the exact response integrand no longer refers merely
+to unspecified nonempty support: it has explicit endpoints on both the
+source-component side and the observable side.
+
+The next analytic producer must factor or expand the common physical
+background into connected objects joining those endpoints and prove that
+their activity beats their four-dimensional entropy uniformly in volume,
+with coupling dependence explicit.  That path estimate, the uniform
+centered remainder, completed gap, thermodynamic/continuum passage, and Clay
+theorem remain open.
+
+The focused monitored check passes.  All six printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

@@ -2705,6 +2705,23 @@ completed gap, continuum construction, or Clay theorem is claimed.  The
 focused monitored check passes and all ten printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.79 Post-audit implementation update: accepted active component endpoints, milestone 311 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsActiveComponentEndpoints.lean` turns each
+active accepted left or right response pair into explicit endpoint data.  A
+constructive finite search selects a fine dyadic preimage of the changed
+coarse target coordinate and proves that it belongs to the target-rooted
+source component.
+
+The observable side is specialized as well: active root and target events
+change their exact coordinate, while an active joint event returns one of
+the two marked coordinates with its inequality witness.  The remaining
+analytic object is therefore a weighted connection problem between two
+certified endpoints, not an unlocalized normalized-row difference.  No
+connecting polymer or uniform estimate, completed gap, continuum
+construction, or Clay theorem is claimed.  The focused monitored check
+passes and all six printed declarations use only `[propext, Quot.sound]`.
+
 ### 9.77 Post-audit implementation update: antisymmetric localized response determinant, milestone 309 (2026-09-09)
 
 `Z4DyadicBinarySourceTiltedGibbsResponseDeterminant.lean` clears the two
