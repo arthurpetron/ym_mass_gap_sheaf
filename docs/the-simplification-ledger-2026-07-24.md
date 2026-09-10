@@ -3192,6 +3192,26 @@ carrier so disconnected exterior factors are absorbed by normalization.  The
 focused monitored check passes and all ten printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.101 Post-audit implementation update: residual heat after distance extraction, milestone 333 (2026-09-10)
+
+`Z4DyadicBinaryJointResidualHeatSuppression.lean` repairs the summation
+interface identified after milestone 332.  Rather than discard all heat
+activity beyond the connected distance floor, it defines the guarded residual
+exponent and proves
+
+`common exponent = 3 * (distance + 1) + residual`,
+
+hence the exact common-rate factorization
+
+`rate^common = (rate^3)^(distance + 1) * rate^residual`.
+
+Under explicitly named fine- and coarse-coupling ceilings, the actual joint
+suppression is bounded by this product.  The residual heat is therefore
+available to absorb exterior state multiplicity in the next carrier sum; no
+beta-uniform, entropy, or volume-uniform claim is made.  The focused monitored
+check passes and all six printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

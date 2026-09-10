@@ -5057,6 +5057,42 @@ within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
 computation, enlarged heartbeat budget, or external certificate is
 introduced.
 
+## Milestone 333: preserve residual heat after extracting distance (2026-09-10)
+
+**Status. THE DISTANCE FUGACITY IS NOW EXTRACTED WITHOUT DISCARDING THE
+REMAINING PHYSICAL HEAT ACTIVITY; THE ARTIFICIALLY EXTENSIVE COUPLING-ONE
+FRONTIER OF MILESTONE 332 HAS BEEN REPLACED BY A RESIDUAL-HEAT CARRIER.**
+
+`Z4DyadicBinaryJointResidualHeatSuppression.lean` names the complete
+common-rate exponent, the three-times-distance exponent, and their guarded
+natural-number difference.  The SU(2) connected activity floor proves the
+exact reconstruction
+
+`common-rate exponent = 3 * (distance + 1) + residual exponent`.
+
+The common rate power consequently factors exactly as
+
+`(rate^3)^(distance + 1) * rate^residual`.
+
+Combining this identity with the explicit assumptions
+`fine coupling <= rate` and `coarse coupling <= rate` yields the stronger
+pointwise suppression bound with the residual heat factor retained.  The
+previous distance-only inequality remains true, but is no longer the right
+summation interface because erasing the residual heat exposes arbitrary
+exterior coupling-one multiplicities.
+
+The next causal step is to replace milestone 332's heat-free weighted sum by
+the residual-heat-weighted connected sum, then regroup that carrier by its
+observable component and exterior boundary data.  No entropy ceiling,
+normalized strict response, completed gap, thermodynamic/continuum passage,
+or Clay theorem is asserted.
+
+The focused monitored check passes.  All six printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
