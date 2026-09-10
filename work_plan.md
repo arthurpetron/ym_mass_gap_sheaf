@@ -1549,6 +1549,38 @@ analytic obligation before reflection/covariance contraction, the linked
 cutoff tower, physical scaling, completed gap, continuum construction, and
 Clay closure.
 
+#### Classify every coherent-excess row by exact one-copy moments (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellCoherentCases`
+constructively classifies each source pair in the coherent-or-mixed excess as
+left coherent/right retained, left retained/right coherent, or both coherent.
+In those three cases the literal two-copy target four-cell moment is exactly,
+respectively,
+
+```text
+left coarse positive-pair moment,
+right coarse zero-pair moment,
+left coarse positive-pair moment * right coarse zero-pair moment.
+```
+
+The retained factors contract to one by the source determinant-cell facts.
+Thus every remaining target-observable contribution has been reduced to an
+event moment of a genuine one-copy whole-slab coarse recoupling row.  The
+classification returns explicit branch witnesses and exact moment identities;
+it is not merely a disjunction.
+
+The focused monitored source check passes.  All five printed proposition-
+valued declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation is introduced.
+
+The next causal edge is quantitative and analytic: package the excess sum by
+these three cases and prove explicit ceilings for the two one-copy coarse
+recoupling event moments on a named SU(2), beta, cutoff, and lattice-spacing
+trajectory.  No such smallness estimate is claimed here.  Reflection/
+covariance contraction, the linked cutoff tower, physical scaling, completed
+gap, continuum construction, and Clay closure remain open.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving

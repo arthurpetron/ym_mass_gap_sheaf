@@ -30226,3 +30226,29 @@ bound the resulting one-copy coarse recoupling event moments along a linked
 cutoff trajectory, connect the result to reflection/covariance, prove
 physical scaling and the completed gap, and construct the continuum theory
 and Clay closure.
+
+#### Classify coherent-excess rows by exact coarse moments (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellCoherentCases`
+returns an explicit three-way certificate for every complementary source
+pair: left coherent/right retained, left retained/right coherent, or both
+coherent.  The corresponding two-replica four-cell moment is proved equal to
+the left coarse event moment, the right coarse event moment, or their product.
+Fine determinant-cell membership makes each retained factor exactly one.
+
+Monitored verification:
+
+```text
+coherent target four-cell case focused source check         PASS
+```
+
+All five printed proposition-valued declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: sum the three branch formulas into a quantitative excess bound,
+prove SU(2)-specific coarse recoupling event-moment ceilings on an explicit
+beta/cutoff/spacing trajectory, connect the result to reflection/covariance,
+prove physical scaling and the completed gap, and construct the continuum
+theory and Clay closure.
