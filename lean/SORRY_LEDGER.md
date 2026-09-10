@@ -29355,3 +29355,48 @@ The separation module prints four and the stability module prints seven
 load-bearing declarations; all use only `[propext, Quot.sound]`.  No `sorry`,
 `admit`, `Classical`, custom axiom, noncomputable declaration, or enlarged
 heartbeat budget is introduced.  No full-root audit is claimed.
+
+#### Link the exact observable-matched scalar trajectory and expose carrier non-reproduction (2026-09-10)
+
+`BF4ObservableMatchedLinkedResidual` turns the already-constructed recursive
+observable-matched coupling sequence into an exact linked scalar residual
+trajectory.  Its one-step residual is the literal finite rational
+
+```text
+delta(k) = |couplingAt(k+1) - couplingAt(k)^4|.
+```
+
+The residual record is inhabited without asserting smallness: its legacy
+dimensional bound is saturated by the explicit reciprocal cutoff
+`Lambda(k) = 1/a(k)`.  The substantive compiler instead proves that a finite
+candidate-defect witness together with observable identifiability bounds the
+literal residual by `constant * epsilon`.  Uniform instances of those two
+inputs compose with the linked-trajectory stability theorem to give the
+explicit corridor-entry criterion
+
+```text
+initial^(4^n) + (constant * epsilon) * geomSum(4,n) <= 1/400
+  -> couplingAt(n) <= 1/400.
+```
+
+The same module proves the carrier fence that the recursive scalar sequence
+does not yet supply a full physical trajectory: every present matched scale
+pair has fine cutoff one and coarse cutoff four, whereas the next pair again
+has fine cutoff one.  Hence the coarse and next-fine cutoff fields are
+kernel-checked unequal (`4 != 1`).  A general-cutoff physical block kernel or
+an explicit controlled cutoff recoding remains open.  No observable
+identifiability witness or uniform defect ceiling is supplied, and no
+completed physical transfer gap, thermodynamic/continuum construction, or
+Clay theorem is claimed.
+
+Monitored verification:
+
+```text
+observable-matched linked residual focused source check     PASS
+observable-matched linked residual dependency target        PASS (1,289 jobs)
+```
+
+The module prints six load-bearing declarations, all using only
+`[propext, Quot.sound]`.  No `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
