@@ -5314,6 +5314,41 @@ remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
 external computation, enlarged heartbeat budget, or external certificate
 is introduced.
 
+## Milestone 340: separate geometric-detour entropy from local SU(2) activity entropy (2026-09-10)
+
+**Status. THE COMPONENT HEAT SLACK NOW SPLITS EXACTLY INTO TWO INDEPENDENT
+FUNDS: EXTRA COMPONENT GEOMETRY AND EXTRA LOCAL SOURCE/TARGET ACTIVITY.**
+
+`Z4DyadicBinaryConnectedComponentSlackDecomposition.lean` places the
+literal target-support component size between observable separation and
+component joint activity.  The first inequality is the connected Z4
+plaquette geometry; the second is the one-unit SU(2) joint-activity payment
+at every supported component face.
+
+Guarded natural arithmetic then proves
+
+`component heat slack`
+`  = 3 * (component size - distance)`
+`  + 3 * (component activity - component size)`.
+
+The two terms are named geometric-detour heat and local-activity-excess heat.
+Their rational powers factor exactly, and the complete global carrier is
+rewritten with separate factors for distance, detour, local excess,
+complementary reserve, and ground-normalized unit congestion.
+
+This determines the next two compilers.  Connected-animal shape codes must
+be charged only to geometric detour; finite local lowering-state codes must
+be charged only to activity excess.  Their fixed-code fibers must then be
+contracted against the complementary reserve and row normalization.  No
+weighted entropy ceiling, strict global fraction, completed gap,
+thermodynamic/continuum passage, or Clay theorem is asserted.
+
+The focused monitored check passes.  All twelve printed declarations remain
+within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`, `admit`,
+`native_decide`, custom axiom, noncomputable declaration, trusted external
+computation, enlarged heartbeat budget, or external certificate is
+introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

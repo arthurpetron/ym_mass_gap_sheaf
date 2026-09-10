@@ -3311,6 +3311,21 @@ exterior data, and no entropy or strict estimate is claimed.  The focused
 monitored check passes and all eighteen printed declarations use only
 `[propext, Quot.sound]`.
 
+### 9.108 Post-audit implementation update: split component slack by cause, milestone 340 (2026-09-10)
+
+`Z4DyadicBinaryConnectedComponentSlackDecomposition.lean` proves that
+observable separation is at most target-component size, which is at most
+component joint activity.  The component heat slack therefore splits
+exactly into three times geometric detour plus three times local activity
+excess.
+
+The complete global carrier weight is rewritten with separate rational
+powers for those two funds.  This permits independent connected-animal and
+finite local SU(2) encoders without double-counting heat payment.  No
+weighted entropy or strict estimate is yet claimed.  The focused monitored
+check passes and all twelve printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
