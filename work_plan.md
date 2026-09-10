@@ -4408,6 +4408,41 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 316: cancel the disconnected response exactly (2026-09-10)
+
+**Status. THE COMPLETE DISCONNECTED ACTIVE TARGET-PAIR CONTRIBUTION NOW
+CANCELS EXACTLY, AND TWICE THE ACTUAL DENOMINATOR-CLEARED TWO-ROW RESPONSE IS
+IDENTIFIED WITH THE CONNECTED-PATH PAIR SUM.**
+
+`Z4DyadicBinarySourceTiltedGibbsDisconnectedCancellation.lean` combines the
+three exact component-swap identities: preservation of the paired common
+Gibbs background, preservation of all four source-local tilts, and reversal
+of the one-face indicator difference.  Hence every complete localized
+antisymmetric pair term is sent to its exact negative.
+
+The module packages the pointwise component identities carefully to prove a
+genuine involution and injection on pairs of function-valued labellings.  The
+physical Cartesian carrier is duplicate-free, its two Boolean filters remain
+duplicate-free, and the swap maps the disconnected carrier into itself.
+A constructive no-`DecidableEq` list theorem then proves that the mapped
+carrier is a literal permutation.  Reindexing its finite rational sum makes
+the sum equal to its own negative; cancellation by the positive rational two
+proves that it is zero.
+
+Combining this zero theorem with the exact connected/disconnected partition
+and the active-carrier reduction yields the observable-path contraction:
+twice the actual denominator-cleared response cross is exactly the sum over
+active target pairs carrying a source-disagreement-to-observable component
+path.  Thus no estimate is spent on disconnected configurations.  The next
+frontier is the load-bearing connected activity-versus-entropy estimate with
+all coupling, cutoff, and volume dependence explicit; only after that can a
+genuinely non-abelian uniform response and completed gap be claimed.
+
+The focused monitored check passes.  All five printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW

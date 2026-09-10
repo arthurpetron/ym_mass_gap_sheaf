@@ -2813,6 +2813,24 @@ activity/entropy estimate, uniform response, completed gap, continuum
 construction, and Clay theorem remain open.  The focused monitored check
 passes and all eight printed declarations use only `[propext, Quot.sound]`.
 
+### 9.84 Post-audit implementation update: exact disconnected cancellation, milestone 316 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsDisconnectedCancellation.lean` combines
+paired-background invariance, four local-tilt identities, and observable-sign
+reversal to prove exact antisymmetry of each disconnected response term.  It
+then proves that the component swap constructively permutes the duplicate-free
+disconnected carrier, without requiring decidable equality for function-valued
+labellings, and cancels the entire finite sum.
+
+The resulting contraction identifies twice the actual denominator-cleared
+two-row response cross with the connected active-pair sum.  Every remaining
+term therefore carries the explicit source-to-observable component path from
+milestone 312.  The next unproved step is the connected
+activity-versus-entropy estimate with explicit coupling, cutoff, and volume
+dependence; uniform response, completed gap, continuum construction, and the
+Clay theorem remain open.  The focused monitored check passes and all five
+printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
