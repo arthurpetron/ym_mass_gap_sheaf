@@ -4290,16 +4290,51 @@ sum partitioning therefore proves the exact denominator identity
 The excitation mass is nonnegative at nonnegative coupling.  Membership in
 its filtered carrier constructively supplies a coarse face whose excitation
 level is positive, so every non-ground term now has an explicit local charge
-to which a heat/activity estimate can attach.  The next analytic producer is
-to compare the complete excitation activity with the certified ground term
-without paying volume cardinality.  The required volume-uniform `O(g^2)`
-centered remainder, completed gap, continuum construction, and Clay theorem
-remain open.
+to which a heat/activity estimate can attach.  The complete excitation mass
+is volume-extensive and is therefore not itself the next uniform object; the
+next producer must retain the signed source average and reorganize only the
+root-to-target connected excitation support.  The required volume-uniform
+`O(g^2)` centered remainder, completed gap, continuum construction, and Clay
+theorem remain open.
 
 The focused monitored check passes.  All eight printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 306: expose the connected support of the tilted-row response defect (2026-09-09)
+
+**Status. THE TARGET-ROOTED SUPPORT-SWAP RESPONSE DEFECT IS NOW EXACTLY A
+SIGNED CONTRAST OF FOUR SOURCE-DEPENDENT INTEGER-TILTED COARSE GIBBS EVENT
+MASSES, AND IT VANISHES WHEN ITS TWO FINITE PACKET-TOTAL DISAGREEMENT
+CARRIERS ARE EMPTY.**
+
+`Z4DyadicBinarySourceTiltedGibbsSupportSwapResponse.lean` joins the
+all-positive-source row classification of milestone 302 to the existing
+accepted component-swap cocycle.  Each of the four production rows before
+and after the support swap is packaged with its already proved physical
+membership and strict positivity witness, and its event response is replaced
+exactly by the corresponding normalized tilted-Gibbs event mass.
+
+The row law is then proved to depend only on the four-bit packet totals on
+the finite physical coarse-face carrier.  The module defines the literal
+list of coarse faces where a swap changes those totals, proves that this list
+is empty exactly when the profiles agree on the carrier, and compiles two
+empty disagreement lists to exact vanishing of the actual response defect.
+Thus the global row-normalization seam has been contracted to a finite
+connected-support problem; no total excitation mass or rowwise total
+variation is taken.
+
+The next analytic producer is to map each disagreement face into the
+target-rooted fine strand component and bound the surviving event-response
+contrast by a connected, root-to-component estimate.  A volume-uniform
+`O(g^2)` centered remainder, completed gap, continuum construction, and Clay
+theorem remain open.
+
+The focused monitored check passes.  All printed load-bearing declarations
+remain within `[propext, Quot.sound]`; no `Classical`, choice, `sorry`,
+`admit`, `native_decide`, custom axiom, noncomputable declaration, trusted
+external computation, or enlarged heartbeat budget is introduced.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

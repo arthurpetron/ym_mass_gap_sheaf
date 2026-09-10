@@ -2619,11 +2619,33 @@ Finite Boolean partitioning gives the exact identity
 mass is nonnegative, and every member of its carrier has a constructively
 witnessed physical coarse face with positive excitation level.  Thus the
 prospective relative polymer charge is now a literal integer coordinate on
-the actual production row.  No volume-uniform estimate on the excitation
-mass is yet claimed; that comparison with the positive ground term is the
-next analytic frontier.  The centered-remainder estimate, completed gap,
-continuum construction, and Clay theorem remain open.  The focused monitored
-check passes and all eight printed declarations use only
+the actual production row.  The total excitation mass is volume-extensive,
+so it is not a viable uniform comparison object; the next frontier must keep
+the signed source average and isolate root-to-target connected support.  The
+centered-remainder estimate, completed gap, continuum construction, and Clay
+theorem remain open.  The focused monitored check passes and all eight
+printed declarations use only `[propext, Quot.sound]`.
+
+### 9.74 Post-audit implementation update: finite support of the tilted response defect, milestone 306 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsSupportSwapResponse.lean` connects the exact
+all-source tilted-row formula to the older accepted target-rooted
+support-swap cocycle.  It rewrites the actual production response defect as
+a signed four-row contrast of explicit tilted-Gibbs event masses, with all
+four source membership and positivity witnesses supplied by the accepted
+recoupling construction.
+
+The module proves that both the lowering carrier and its fusion-path
+multiplicity product depend only on packet totals on the finite physical
+coarse-face list.  It therefore introduces a literal packet-total
+disagreement carrier and proves that empty disagreement support in both
+replicas forces the complete response defect to vanish exactly.  The
+surviving analytic object is now a connected finite support, rather than the
+volume-extensive total non-ground excitation mass.  The missing next edge is
+to relate that carrier to the target-rooted fine strand component and obtain
+root-to-component response decay.  No uniform centered-remainder estimate,
+completed gap, continuum construction, or Clay theorem is claimed.  The
+focused monitored check passes and all printed declarations use only
 `[propext, Quot.sound]`.
 
 ## 10. What this changes—and what it does not
