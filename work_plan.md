@@ -1484,6 +1484,39 @@ inequality.  The coherent observable defect, reflection, linked cutoff
 tower, physical scaling, completed gap, continuum construction, and Clay
 closure remain open.
 
+#### Embed the retained landing in the target connected submeasure (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellSubmass`
+identifies the grouped expanded-source target density with normalized
+accepted-pair mass times the genuine two-replica enriched kernel.  A finite
+indicator/filter identity and Fubini then prove that the source-major landing
+mass equals the target-major joint restriction in which both the source is
+retained-incoherent and the target lies in the branch-explicit four-cell.
+
+Constructive subset summation gives the literal inclusion
+
+```text
+retainedConnectedFourCellLandingMass
+  = retained-source / target-four-cell joint submass
+  <= full connected target four-cell event mass.
+```
+
+This closes the observable path through the existing compilers without
+changing measures.  The difference between the upper event mass and the
+retained submass consists of connected sources with at least one coherent
+coarse branch; it remains nonnegative but analytically uncontrolled.
+
+The focused monitored source check passes.  All three printed declarations
+use only `[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, or trusted external computation is introduced.
+
+The next frontier is to name that coherent excess exactly and reduce it to
+one-copy coarse event-moment defects.  A quantitative estimate for those
+defects is required before reflection/covariance contraction, the linked
+cutoff tower, physical scaling, completed gap, continuum construction, and
+Clay closure.
+
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 
 `BF4PhysicalMatchedAFConstructedRateGapPath` exposed a cancellation-preserving

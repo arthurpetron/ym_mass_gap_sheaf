@@ -30153,3 +30153,41 @@ target-major connected submeasure, isolate and bound coherent observable
 transport, connect the result to reflection/covariance, build the linked
 cutoff tower, prove physical scaling and the completed gap, and construct the
 continuum theory and Clay closure.
+
+#### Embed the retained landing in the target connected submeasure (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerConnectedTargetFourCellSubmass`
+proves that the grouped expanded-source target density is exactly normalized
+accepted-pair mass times the actual two-replica enriched kernel.  It then
+uses finite indicator/filter conversion and Fubini to identify the
+source-major landing mass with a target-major restriction of the connected
+joint law.
+
+Nonnegative source filtering proves
+
+```text
+retainedConnectedFourCellLandingMass
+  <= full connected target four-cell event mass.
+```
+
+The lower side is therefore a genuine submass of the already-constructed
+target connected submeasure, not an external comparison quantity.  The
+uncontrolled complement is exactly the contribution of connected sources
+with at least one coherent coarse branch.
+
+Monitored verification:
+
+```text
+retained target four-cell submass focused source check      PASS
+```
+
+All three printed declarations use only `[propext, Quot.sound]`; no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation is
+introduced.  No full-root audit is claimed.
+
+Still open: define the coherent excess and reduce it to explicit one-copy
+coarse event-moment defects, prove those defects small on a linked cutoff
+trajectory, connect the result to reflection/covariance, prove physical
+scaling and the completed gap, and construct the continuum theory and Clay
+closure.
