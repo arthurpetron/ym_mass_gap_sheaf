@@ -2606,6 +2606,26 @@ volume-uniform centered-remainder estimate, completed gap, continuum
 construction, and Clay theorem remain open.  The focused monitored check
 passes and all nine printed declarations use only `[propext, Quot.sound]`.
 
+### 9.73 Post-audit implementation update: exact parity excitation split, milestone 305 (2026-09-09)
+
+`Z4DyadicBinarySourceParityExcitationSplit.lean` introduces the local
+two-spin excitation level above a packet total's parity ground and proves the
+exact reconstruction `target = parity + 2 * level` throughout the lowering
+matrix.  It then uses a decidable all-face predicate, not function equality,
+to isolate the unique geometric parity target in the physical lowering list.
+
+Finite Boolean partitioning gives the exact identity
+`tiltedRowMass ≈ parityGroundMass + parityExcitationMass`.  The excitation
+mass is nonnegative, and every member of its carrier has a constructively
+witnessed physical coarse face with positive excitation level.  Thus the
+prospective relative polymer charge is now a literal integer coordinate on
+the actual production row.  No volume-uniform estimate on the excitation
+mass is yet claimed; that comparison with the positive ground term is the
+next analytic frontier.  The centered-remainder estimate, completed gap,
+continuum construction, and Clay theorem remain open.  The focused monitored
+check passes and all eight printed declarations use only
+`[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

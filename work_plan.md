@@ -187,7 +187,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- compile all-source row laws into the signed source average ................. [PROVED exact]
 |   |   |   |   +-- expose the tilt's local reward/count structure for centered cancellation . [PROVED local]
 |   |   |   |   +-- parity pushforward = minimal lowering target with positive ground mass ..... [PROVED exact]
-|   |   |   |   +-- split every tilted row into ground plus relative excitations ............... [ACTIVE exact producer]
+|   |   |   |   +-- split every tilted row into ground plus relative excitations ............... [PROVED exact]
+|   |   |   |   +-- every excitation has a facewise positive two-spin level .................... [PROVED exact]
+|   |   |   |   +-- compare excitation activities with the certified ground term ............... [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4258,6 +4260,43 @@ volume-uniform `O(g^2)` centered remainder, completed gap, continuum
 construction, and Clay theorem remain open.
 
 The focused monitored check passes.  All nine printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
+## Milestone 305: split every tilted row into its ground state and parity excitations (2026-09-09)
+
+**Status. EVERY POSITIVE SOURCE'S EXACT TILTED-GIBBS DENOMINATOR IS NOW
+DECOMPOSED AS ITS UNIQUE PARITY-GROUND SUMMAND PLUS THE COMPLETE NON-GROUND
+EXCITATION MASS, AND EVERY EXCITATION CARRIES A WITNESSED POSITIVE TWO-SPIN
+LEVEL ON A PHYSICAL COARSE FACE.**
+
+`Z4DyadicBinarySourceParityExcitationSplit.lean` defines the local coordinate
+
+`targetSpin = sourceSpin % 2 + 2 * excitationLevel`
+
+on the complete cutoff-one lowering matrix and proves it exactly for every
+supported source/target pair.  Positive level is equivalent to differing
+from the parity ground spin.  A Boolean all-face discriminator then isolates
+the geometric parity state on the function-valued coarse carrier without
+assuming decidable equality for arbitrary labelling functions.
+
+Duplicate freedom of the exact lowering list and uniqueness of the physical
+ground state reduce its true-filtered sublist to a singleton.  Boolean finite
+sum partitioning therefore proves the exact denominator identity
+
+`tiltedRowMass ≈ parityGroundMass + parityExcitationMass`.
+
+The excitation mass is nonnegative at nonnegative coupling.  Membership in
+its filtered carrier constructively supplies a coarse face whose excitation
+level is positive, so every non-ground term now has an explicit local charge
+to which a heat/activity estimate can attach.  The next analytic producer is
+to compare the complete excitation activity with the certified ground term
+without paying volume cardinality.  The required volume-uniform `O(g^2)`
+centered remainder, completed gap, continuum construction, and Clay theorem
+remain open.
+
+The focused monitored check passes.  All eight printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
