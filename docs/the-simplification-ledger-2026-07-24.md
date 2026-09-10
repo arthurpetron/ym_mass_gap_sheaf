@@ -2477,6 +2477,24 @@ analytic step is a cancellation-aware bound in the centered
 production-versus-refresh cross.  The focused monitored check passes and all
 five printed declarations use only `[propext, Quot.sound]`.
 
+### 9.66 Post-audit implementation update: exact global lowering downset, milestone 298 (2026-09-09)
+
+`Z4DyadicSpinFourLoweringDownset.lean` turns the local support matrix into an
+exact statement about the entire globally glued row.  Its decidable carrier
+contains precisely the physical targets that lower the source spin on every
+coarse face while preserving parity.  A failed carrier test yields a literal
+bad face, whose zero local path multiplicity annihilates the whole raw
+summand even after the unchanged global link factor is restored.
+
+Consequently the full row partition of every canonical accepted spin-four
+source is exactly the sum of the explicit lower-triangular weight over this
+finite downset.  The intended endpoint is included.  This is a support and
+normalization-domain theorem, not yet an estimate of retained mass.  The
+next exact target is the integer-tilted Gibbs factorization of every retained
+summand, followed by cancellation-aware control of that tilt in the centered
+production-versus-refresh cross.  The focused monitored check passes and all
+eight printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

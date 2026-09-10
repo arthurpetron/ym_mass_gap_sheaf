@@ -179,7 +179,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- simultaneous spin-four endpoint raw target = coarse physical term ....... [PROVED exact]
 |   |   |   |   +-- complete local off-target kernel = parity-preserving lowering matrix ..... [PROVED exact]
 |   |   |   |   +-- complete raw row = explicit lower-triangular coarse spin-foam weight ..... [PROVED exact]
-|   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [ACTIVE exact producer]
+|   |   |   |   +-- restrict and sum the row over the global lowering downset ................ [PROVED exact]
+|   |   |   |   +-- factor each surviving row entry as integer tilt * coarse Gibbs weight .... [ACTIVE exact producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -4021,6 +4022,38 @@ centered remainder, completed gap, continuum construction, and Clay theorem
 remain open.
 
 The focused monitored check passes.  All five printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+or enlarged heartbeat budget is introduced.
+
+## Milestone 298: restrict the complete row to its exact global lowering downset (2026-09-09)
+
+**Status. EVERY PHYSICAL COARSE TARGET OUTSIDE THE POINTWISE PARITY-PRESERVING
+LOWERING ORDER HAS EXACTLY ZERO RAW WEIGHT, SO THE COMPLETE CANONICAL
+SPIN-FOUR ROW PARTITION IS NOW A FINITE SUM OVER ITS EXPLICIT LOWERING
+DOWNSET.**
+
+`Z4DyadicSpinFourLoweringDownset.lean` defines a decidable facewise lowering
+test and filters the literal physical coarse carrier with it.  Failure of the
+global test constructively exposes a bad face; the local multiplicity there
+is zero, which annihilates the complete globally linked raw weight.  A finite
+sum-filter theorem then removes every excluded target without changing the
+row mass.
+
+For every accepted coarse endpoint, its canonical spin-four fine lift now
+has an exact row-normalization formula over this downset, and the intended
+endpoint is proved to belong to it.  No link constraint or link multiplicity
+has been relaxed: each retained summand remains the complete coarse
+spin-foam weight from milestone 297.
+
+The next exact producer is to factor every surviving summand as an integer
+fusion-path multiplicity product times the ordinary coarse Gibbs physical
+weight.  The subsequent analytic consumer must control that explicitly
+tilted downset in the centered production-versus-refresh cross.  A
+volume-uniform centered remainder, completed gap, continuum construction,
+and Clay theorem remain open.
+
+The focused monitored check passes.  All eight printed load-bearing
 declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 or enlarged heartbeat budget is introduced.
