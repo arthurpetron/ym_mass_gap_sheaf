@@ -788,7 +788,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- exact enriched stochastic kernel ..................... [PROVED]
 |       +-- exact normalized enriched pushforward law ............ [PROVED]
 |       +-- lossy projection recovers old fallback kernel ........ [PROVED exact]
-|       +-- blocked-law projection recovers old pushforward ...... [NEXT]
+|       +-- blocked-law projection recovers old pushforward ...... [PROVED exact]
+|       +-- retained component/dynamics carrier bridge ........... [NEXT]
 |       +-- reflection on the retained sector .................... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1028,6 +1029,39 @@ introduced.  No full-root audit is claimed.
 The next causal edge is to lift this row square through the normalized fine
 Gibbs law, proving that forgetting the enriched blocked law exactly recovers
 the old blocked pushforward.  Reflection on the retained sector, the linked
+same-object tower, localized posterior contraction, completed gap, continuum
+construction, and Clay closure remain open.
+
+#### Lift the retained projection square through the blocked Gibbs law (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerBlockedProjection` pushes the
+normalized enriched law through the forgetting kernel and proves, target by
+target,
+
+```text
+normalized fine Gibbs law
+  -> lossless coarse-or-retained kernel
+  -> forgetting kernel
+  = blocked law of the old total four-preimage kernel.
+```
+
+The proof is exact finite Fubini: source and enriched-target sums are swapped,
+the row composition is exposed by rational associativity, and the row-level
+commuting theorem contracts every source contribution to the former kernel.
+The enriched probability flow is therefore connected exactly to the existing
+coarse blocked-law API.  The equality deliberately preserves the audit
+warning: the old observable is a lossy projection, and the cutoff-two theorem
+proves that the forgotten sector has positive Gibbs mass.
+
+The focused monitored source check and dependency-complete 1,083-job target
+build pass.  Both printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+The next causal edge is to connect every retained target to the already
+constructed expanded-source/component-peeling carrier, without forgetting its
+fine-intertwiner assignment.  Reflection on that retained sector, a linked
 same-object tower, localized posterior contraction, completed gap, continuum
 construction, and Clay closure remain open.
 

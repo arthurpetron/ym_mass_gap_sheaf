@@ -29666,3 +29666,39 @@ lift reflection to the retained sector; construct a linked same-object
 enriched cutoff tower; connect its component dynamics to localized posterior
 contraction; and construct the completed physical gap, thermodynamic/continuum
 measure, same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
+
+#### Lift the retained projection through the complete blocked law (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerBlockedProjection` defines the
+coarse law obtained by applying the stochastic forgetting kernel to the
+normalized enriched blocked law.  Exact finite Fubini and the row-level
+projection theorem prove
+
+```text
+forgotten enriched blocked mass at each coarse target
+  = (allCutoffPhysicalKernel S hfineCutoff).blockedMass at that target.
+```
+
+This closes the probability-law comparison square: the corrected retained
+flow now feeds the existing coarse blocked-law interface by a proved lossy
+projection, rather than by an informal identification.  It does not erase the
+positive-mass counterexample and asserts no uniform estimate, contraction, or
+gap.
+
+Monitored verification:
+
+```text
+retained blocked projection focused source check           PASS
+retained blocked projection dependency target              PASS (1,083 jobs)
+```
+
+Both printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, or enlarged heartbeat budget is
+introduced.  No full-root audit is claimed.
+
+Still open: connect the retained target to the literal expanded
+fine-intertwiner/component-peeling dynamics; lift reflection to that sector;
+construct a linked same-object tower; prove localized posterior contraction;
+and construct the completed physical gap, thermodynamic/continuum measure,
+same-measure OS/GNS reconstruction, Hamiltonian gap, and Clay closure.
