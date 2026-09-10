@@ -2688,6 +2688,23 @@ response bound, completed gap, continuum construction, or Clay theorem is
 claimed.  The focused monitored check passes and all nine printed
 declarations use only `[propext, Quot.sound]`.
 
+### 9.78 Post-audit implementation update: doubly active response carrier, milestone 310 (2026-09-09)
+
+`Z4DyadicBinarySourceTiltedGibbsResponseActiveCarrier.lean` filters the
+localized square-carrier sum by its two exact nonvanishing tests: the local
+packet-tilt determinant and the Boolean observable difference.  Terms
+failing either test are proved exactly zero, so the restriction loses no
+mass through an inequality.
+
+For each surviving pair, a constructive finite search returns a specific
+coarse face in the source packet-disagreement carrier where the two target
+states differ.  The active test also returns the observable-value
+inequality.  These are the two explicit endpoints for the next connected
+support construction.  No connecting polymer, uniform response bound,
+completed gap, continuum construction, or Clay theorem is claimed.  The
+focused monitored check passes and all ten printed declarations use only
+`[propext, Quot.sound]`.
+
 ### 9.77 Post-audit implementation update: antisymmetric localized response determinant, milestone 309 (2026-09-09)
 
 `Z4DyadicBinarySourceTiltedGibbsResponseDeterminant.lean` clears the two

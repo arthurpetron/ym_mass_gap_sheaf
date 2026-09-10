@@ -4202,6 +4202,40 @@ declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
 trusted external computation, or enlarged heartbeat budget is introduced.
 
+## Milestone 310: prune the response to its doubly active pair carrier (2026-09-09)
+
+**Status. THE LOCALIZED SQUARE-CARRIER RESPONSE SUM NOW RETAINS EXACTLY THE
+PAIRS WITH BOTH A NONZERO PACKET-TILT DETERMINANT AND A CHANGED OBSERVABLE,
+AND EVERY SURVIVING PAIR RETURNS A CONCRETE CHANGED COARSE FACE INSIDE THE
+SOURCE PACKET-DISAGREEMENT CARRIER.**
+
+`Z4DyadicBinarySourceTiltedGibbsResponseActiveCarrier.lean` introduces two
+decidable cancellation tests on each coarse target-state pair.  If either
+the forward and reverse local multiplicity products agree or the Boolean
+event values agree, the fully factored term is exactly zero.  Finite
+zero-extension therefore replaces the complete square carrier by its active
+filter without an inequality.
+
+Agreement of the two target states on every source-disagreement face is
+proved to force equality of both local multiplicity products and hence a
+zero determinant.  A constructive recursive search turns the contrapositive
+for every active pair into a subtype carrying a specific coarse face, its
+membership proof in the source-disagreement list, and the proof that the two
+target states differ there.  Together with the explicit event inequality,
+the response term now has two witnessed endpoints.
+
+The next producer lifts the changed carrier face through milestone 307 to a
+concrete fine face in the accepted target-rooted source component and
+specializes the event endpoint to the root/joint/target cylinders used by
+the connected remainder.  The connecting polymer/path and its explicit
+activity/entropy bound remain open, as do the uniform remainder, completed
+gap, thermodynamic/continuum passage, and Clay theorem.
+
+The focused monitored check passes.  All ten printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
