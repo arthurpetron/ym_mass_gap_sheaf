@@ -167,7 +167,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |       <= 2*w^3/(1-w) times unit-coupling target weight ....................... [PROVED pointwise]
 |   |   |   |   +-- exact w^(3*min switched occupations) response factor ....................... [PROVED exact]
 |   |   |   |   +-- min-heat residual <= 1/(1-w); full accepted cocycle recompiled ............. [PROVED pointwise]
-|   |   |   |   +-- componentwise telescope retaining heat payment on every background piece .. [ACTIVE analytic producer]
+|   |   |   |   +-- component -> finite touched coarse-face carrier ............................. [PROVED exact]
+|   |   |   |   +-- untouched whole-slab raw face product is invariant .......................... [PROVED exact]
+|   |   |   |   +-- target-independent touched scalar => normalized response cancellation ....... [PROVED exact compiler]
+|   |   |   |   +-- evaluate the finite closed touched bubble as a target-independent scalar .... [ACTIVE analytic producer]
+|   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
 |   |   |   |   +-- uniform hybrid-measure local-insertion covariance bound ............... [ACTIVE analytic producer]
@@ -3708,6 +3712,44 @@ The focused monitored check passes, and all six printed load-bearing
 declarations remain within `[propext, Quot.sound]`.  A dependency-complete
 monitored target passes all 5,516 jobs.  No aggregate root pass is claimed
 here.
+
+## Milestone 290: localize the raw response to a finite touched-face bubble (2026-09-09)
+
+**Status. A ROOTED STRAND-COMPONENT PEEL NOW CHANGES ONLY AN EXPLICIT FINITE
+LIST OF COARSE-FACE PACKETS, AND ONE TARGET-INDEPENDENT SCALAR EVALUATION OF
+THAT TOUCHED PRODUCT CANCELS FROM EVERY NORMALIZED RAW EVENT RESPONSE.**
+
+`Z4DyadicWholeSlabComponentRawFaceLocality.lean` first proves literal packet
+locality: agreement on the four `dyadicFacePreimages` of a coarse face gives
+the same `FaceSpinPacket`, hence the same actual SU(2) recoupling face factor
+for every coarse target label.  A decidable touch test then filters the finite
+coarse-face list into touched and untouched carriers.  The complete raw face
+product factors exactly across this partition, and the entire untouched
+product is identical before and after lowering the strand component.
+
+The module then proves the normalization compiler needed by the response
+route.  If a single rational `bubble` satisfies
+
+```text
+touchedProduct(lowerPhysical, coarseTarget)
+  = bubble * touchedProduct(sourcePhysical, coarseTarget)
+```
+
+for every coarse target, the same scalar factors the complete globally glued
+raw kernel, every raw event mass, and the complete row mass.  Exact cross
+multiplication therefore cancels it from the normalized event response.  The
+compiler does not assume or manufacture the bubble identity.
+
+The remaining analytic theorem is now sharply local: evaluate the finite
+touched closed-component recoupling network as a target-independent scalar,
+or classify the target-reaching exception and bound only that local residue.
+No component bubble evaluation, aggregate contraction, uniform centered
+remainder, continuum measure, OS generator, Hamiltonian gap, or Clay closure
+is claimed.
+
+The focused monitored source check passes.  All eleven printed load-bearing
+declarations remain within `[propext, Quot.sound]`; a dependency-complete
+monitored target passes all 942 jobs.  No aggregate root pass is claimed.
 
 ## Current goal-mode checkpoint (2026-09-09)
 

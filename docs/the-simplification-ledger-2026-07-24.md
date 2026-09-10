@@ -2264,6 +2264,36 @@ The focused monitored check passes; all six printed load-bearing declarations
 remain within `[propext, Quot.sound]`.  A dependency-complete monitored target
 passes all 5,516 jobs.
 
+### 9.58 Post-audit implementation update: finite touched-face raw locality, milestone 290 (2026-09-09)
+
+The component route now meets the actual globally glued raw kernel locally.
+For each coarse face, its raw recoupling factor reads only the four explicit
+fine plaquettes in its dyadic fibre.  A rooted strand component selecting zero
+copies on those four fine face identifiers leaves both the packet and the
+complete local raw factor unchanged for every coarse target label.
+
+A decidable touch test filters the literal finite coarse-face list into the
+touched carrier and its complement.  The complete raw face product factors
+exactly into those two products, and the untouched product is identical before
+and after the component peel.  Thus the background volume no longer appears
+as an undifferentiated product in the local obstruction.
+
+The associated exact compiler takes one remaining mathematical premise: the
+touched product after peeling is a single target-independent rational scalar
+times the source touched product.  From that premise it proves that the same
+scalar factors every complete raw-kernel entry, raw event mass, and row mass,
+then cancels it from the normalized response by cross multiplication.  No
+positivity of the scalar is needed beyond the already explicit positivity of
+the two row denominators.
+
+The scalar premise itself is not proved.  The active frontier is the finite
+closed-bubble evaluation on the touched carrier, followed by a classification
+and bound for components that reach the selected target event.  No aggregate
+contraction, uniform centered remainder, completed gap, continuum construction,
+or Clay theorem is asserted.  The focused check passes; all eleven printed
+declarations use only `[propext, Quot.sound]`, and the dependency-complete
+monitored target passes all 942 jobs.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:
