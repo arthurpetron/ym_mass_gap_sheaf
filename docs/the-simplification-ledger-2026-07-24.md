@@ -2795,6 +2795,24 @@ remain open, as do the uniform response, completed gap, continuum
 construction, and Clay theorem.  The focused monitored check passes and all
 printed declarations use only `[propext, Quot.sound]`.
 
+### 9.83 Post-audit implementation update: complete paired-background invariance, milestone 315 (2026-09-10)
+
+`Z4DyadicBinarySourceTiltedGibbsComponentSwapBackground.lean` proves that the
+disconnected component swap preserves the paired common exterior Gibbs
+background.  Agreement-face lowering multiplicities are handled by a generic
+commutative finite-product identity.  At each actual slab link, component
+closure supplies one Boolean switch bit for the whole incident spin list, so
+the two explicit SU(2) fusion multiplicities are transposed rather than
+changed.  Folding over all boundary-complete links and combining with the
+heat-face-factor identity preserves the paired full physical terms.
+
+Thus the only remaining disconnected-branch work is algebraic: combine this
+background identity with the already fixed local tilts and reversed event
+indicator, then reindex and cancel the finite involutive sum.  The connected
+activity/entropy estimate, uniform response, completed gap, continuum
+construction, and Clay theorem remain open.  The focused monitored check
+passes and all eight printed declarations use only `[propext, Quot.sound]`.
+
 ## 10. What this changes—and what it does not
 
 This investigation changes the priority order:

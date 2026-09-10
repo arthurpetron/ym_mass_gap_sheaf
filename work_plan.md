@@ -4374,6 +4374,40 @@ external computation, or enlarged heartbeat budget is introduced.  The
 pointwise involution and witnessing-subtype carrier closure deliberately avoid
 forcing Lean to normalize enormous public equalities of dependent functions.
 
+## Milestone 315: preserve the complete paired Gibbs background (2026-09-10)
+
+**Status. THE CANONICAL DISCONNECTED COMPONENT SWAP NOW PRESERVES THE PRODUCT
+OF THE TWO COMPLETE COMMON EXTERIOR GIBBS BACKGROUNDS, INCLUDING THE FULL
+NON-ABELIAN SU(2) LINK-MULTIPLICITY CONTRIBUTION.**
+
+`Z4DyadicBinarySourceTiltedGibbsComponentSwapBackground.lean` first proves a
+generic commutative finite-product identity and applies it to the
+agreement-face lowering multiplicities.  It then uses the canonical support
+component's one-bit-per-link theorem: on every actual boundary-complete slab
+link, all incident spins of each swapped target come from one entire original
+replica.  The two explicit SU(2) link multiplicities are therefore merely
+transposed, and their product is unchanged.
+
+The local link equality folds over every slab link.  Combined with the
+existing arbitrary facewise heat-factor product identity, it proves exact
+invariance of the paired full physical summands.  Combining that result with
+the agreement-face multiplier identity proves invariance of the complete
+paired `finePacketCommonExteriorGibbsWeight` for every active one-face target
+pair.  This closes the last weight-preservation seam identified at milestone
+314 without an inequality, asymptotic argument, or opaque uniform constant.
+
+The next producer can now combine background invariance, local-tilt
+invariance, and observable sign reversal to prove that the complete localized
+antisymmetric response term changes sign.  It must then reindex the finite
+disconnected carrier by the pointwise involution and cancel its sum exactly.
+The connected activity-versus-entropy estimate, uniform centered response,
+completed gap, thermodynamic/continuum passage, and Clay theorem remain open.
+
+The focused monitored check passes.  All eight printed load-bearing
+declarations remain within `[propext, Quot.sound]`; no `Classical`, choice,
+`sorry`, `admit`, `native_decide`, custom axiom, noncomputable declaration,
+trusted external computation, or enlarged heartbeat budget is introduced.
+
 ## Milestone 309: expose the antisymmetric local response determinant (2026-09-09)
 
 **Status. THE DIFFERENCE OF TWO NORMALIZED TILTED-ROW EVENT RESPONSES NOW
