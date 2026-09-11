@@ -31027,6 +31027,45 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Exact global target/root/size block Fubini (2026-09-11)
+
+- **milestone**: lossless global coarse-target partition
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetBlockPartition.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelRepresentativeBlockKey`,
+  `globalCubeInwardMateFullPeelRepresentative_peelSize_le`,
+  `globalCubeInwardMateFullPeelRepresentativeBlockKey_mem`,
+  `globalCubeInwardMateFullPeelBlock_fiberWeight_eq`,
+  `globalCubeInwardMateFullPeelTargetBlockWeight`,
+  `globalCubeInwardMateFullPeelTargetBlocksStrictRateWeight`, and
+  `globalCubeInwardMateFullPeelTargetBlocks_weight_total`
+- **closed obligation**: cover every distinct global lowered-target
+  representative by the explicit bounded physical-target, cube-root, and peel-
+  size carrier; identify each deterministic coarse-key fiber with the literal
+  global block; and prove that the strict-rate block sum equals the full
+  distinct-target payment exactly.
+- **remaining named obligation**: combine the global block-cardinality theorem
+  with the common target atom to obtain a weighted block bound, then sum peel
+  sizes, roots, and physical targets to the global `384/425` bad-mass estimate.
+  Total-source normalization, the all-target complement, and every subsequent
+  conditional/posterior/operator/continuum bridge remain open.
+- **constructive or propositional**: coordinates, keys, fibers, and scalar
+  block sums are explicit finite data; coverage and exact Fubini are kernel
+  checked.
+
+Monitored verification:
+
+```text
+global coarse-block partition focused source check         PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Bound global target blocks by genuine SU(2) multiplicity (2026-09-11)
 
 - **milestone**: all-physical residual-code block injection
