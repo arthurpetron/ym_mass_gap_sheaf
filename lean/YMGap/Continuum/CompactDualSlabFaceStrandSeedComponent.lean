@@ -170,6 +170,49 @@ theorem SlabFaceStrandSeed.selected_eq_of_edge_mem
       exact False.elim (hsource hsource')
     · simp [SlabFaceStrandSeed.selected, hsource, htarget]
 
+/-- Every rooted strand component contains a copy on a face distinct from the
+root face.  Indeed, the root lies in the endpoint carrier of some displayed
+edge; the opposite endpoint belongs to the same component by edge closure,
+and physical terminal pairing records that the two endpoint face identifiers
+are distinct. -/
+theorem SlabFaceStrandSeed.exists_component_faceId_ne_root
+    {physical : SlabLabelling} {edges : List (SlabFaceStrandEdge physical)}
+    (seed : SlabFaceStrandSeed edges) :
+    Exists fun copy : SlabFaceStrandCopy physical =>
+      copy ∈ seed.component ∧ copy.faceId ≠ seed.root.faceId := by
+  obtain ⟨edge, hedge, hendpoint⟩ := List.mem_flatMap.mp seed.root_mem
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hendpoint
+  have hsym := slabFaceStrandAdjacentB_symmetric edges
+  have hadj := slabFaceStrandAdjacentB_true_of_mem hedge
+  have hroot : seed.root ∈ seed.component := by
+    unfold SlabFaceStrandSeed.component
+    exact root_mem_rootComponent
+      (slabFaceStrandAdjacentB edges) seed.root_mem
+  rcases hendpoint with hsource | htarget
+  · have hsourceComponent : edge.source ∈ seed.component := by
+      rw [← hsource]
+      exact hroot
+    have htargetComponent : edge.target ∈ seed.component :=
+      rootComponent_closed_under_edge
+        (slabFaceStrandAdjacentB edges) hsym seed.root_mem
+        hsourceComponent (slabFaceStrandEdge_target_mem_vertices hedge) hadj
+    exact ⟨edge.target, htargetComponent, by
+      simpa [hsource] using edge.faceId_ne.symm⟩
+  · have htargetComponent : edge.target ∈ seed.component := by
+      rw [← htarget]
+      exact hroot
+    have hreverse :
+        slabFaceStrandAdjacentB edges edge.target edge.source = true := by
+      rw [hsym edge.target edge.source]
+      exact hadj
+    have hsourceComponent : edge.source ∈ seed.component :=
+      rootComponent_closed_under_edge
+        (slabFaceStrandAdjacentB edges) hsym seed.root_mem
+        htargetComponent (slabFaceStrandEdge_source_mem_vertices hedge)
+        hreverse
+    exact ⟨edge.source, hsourceComponent, by
+      simpa [htarget] using edge.faceId_ne⟩
+
 /-! ## 3. A global assignment seed induces every local physical selection -/
 
 /-- Seed data for the literal global face-strand edge list of one accepted
@@ -245,6 +288,7 @@ def SlabFusionWitnessFaceStrandSeed.atLinkMateClosedSelection
 #print axioms SlabFaceStrandSeed.component
 #print axioms SlabFaceStrandSeed.selected
 #print axioms SlabFaceStrandSeed.selected_eq_of_edge_mem
+#print axioms SlabFaceStrandSeed.exists_component_faceId_ne_root
 #print axioms SlabFusionWitnessFaceStrandSeed
 #print axioms SlabFusionWitnessFaceStrandSeed.atLinkSelection
 #print axioms SlabFusionWitnessFaceStrandSeed.atLinkMateClosedSelection

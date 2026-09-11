@@ -459,6 +459,25 @@ theorem SlabFusionWitnessFaceStrandSeed.selectionCount_root_pos
         K extent physical links assignment hassignment))
     seed.root_mem
 
+/-- Every selected component copy contributes a positive multiplicity at its
+face identifier. -/
+theorem SlabFusionWitnessFaceStrandSeed.selectionCount_pos_of_mem
+    {K extent : Nat} {physical : SlabLabelling}
+    {links : List SlabLink} {assignment : SlabFusionWitnessAssignment}
+    {hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links}
+    (seed : SlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment hassignment)
+    (copy : SlabFaceStrandCopy physical) (hcopy : copy ∈ seed.component) :
+    0 < slabFaceStrandSelectionCount seed.selected copy.faceId := by
+  apply boolCountFrom_pos_of_true
+    (slabFaceStrandSelectionAt seed.selected copy.faceId)
+    0 (physical copy.faceId) copy.slot.val copy.slot.isLt
+  rw [Nat.zero_add, slabFaceStrandSelectionAt_fin]
+  unfold SlabFaceStrandSeed.selected
+  simp only [decide_eq_true_eq]
+  exact hcopy
+
 /-! ## 4. The component's canonical peel path -/
 
 /-- Serialize the exact selected-copy count of the rooted component. -/
@@ -514,6 +533,58 @@ theorem SlabFusionWitnessFaceStrandSeed.peelFaces_length_pos
         (SlabFusionWitnessFaceStrandSeed.peelFaces seed).length :=
     List.count_le_length
   omega
+
+private theorem two_le_length_of_two_distinct_members
+    {A : Type} [DecidableEq A] (items : List A) (left right : A)
+    (hleft : left ∈ items) (hright : right ∈ items) (hne : left ≠ right) :
+    2 <= items.length := by
+  cases items with
+  | nil => cases hleft
+  | cons head tail =>
+      cases tail with
+      | nil =>
+          simp only [List.mem_cons, List.not_mem_nil, or_false] at hleft hright
+          exact False.elim (hne (hleft.trans hright.symm))
+      | cons next rest =>
+          simp only [List.length_cons]
+          omega
+
+/-- A rooted physical strand component always peels at least two face copies.
+The partner endpoint supplied by the root's displayed edge lies on a distinct
+face in the same component, so both distinct face identifiers occur in the
+serialized multiplicity list. -/
+theorem SlabFusionWitnessFaceStrandSeed.two_le_peelFaces_length
+    {K extent : Nat} {physical : SlabLabelling}
+    {links : List SlabLink} {assignment : SlabFusionWitnessAssignment}
+    {hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links}
+    (seed : SlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment hassignment) :
+    2 <= (SlabFusionWitnessFaceStrandSeed.peelFaces seed).length := by
+  obtain ⟨copy, hcopy, hne⟩ :=
+    SlabFaceStrandSeed.exists_component_faceId_ne_root seed
+  have hrootPos := SlabFusionWitnessFaceStrandSeed.selectionCount_root_pos seed
+  have hcopyPos :=
+    SlabFusionWitnessFaceStrandSeed.selectionCount_pos_of_mem seed copy hcopy
+  have hrootMem : seed.root.faceId ∈
+      SlabFusionWitnessFaceStrandSeed.peelFaces seed := by
+    by_cases hmem : seed.root.faceId ∈
+        SlabFusionWitnessFaceStrandSeed.peelFaces seed
+    · exact hmem
+    · have hzero := List.count_eq_zero.mpr hmem
+      rw [SlabFusionWitnessFaceStrandSeed.peelFaces_count seed] at hzero
+      exact False.elim (by omega)
+  have hcopyMem : copy.faceId ∈
+      SlabFusionWitnessFaceStrandSeed.peelFaces seed := by
+    by_cases hmem : copy.faceId ∈
+        SlabFusionWitnessFaceStrandSeed.peelFaces seed
+    · exact hmem
+    · have hzero := List.count_eq_zero.mpr hmem
+      rw [SlabFusionWitnessFaceStrandSeed.peelFaces_count seed] at hzero
+      exact False.elim (by omega)
+  exact two_le_length_of_two_distinct_members
+    (SlabFusionWitnessFaceStrandSeed.peelFaces seed)
+    seed.root.faceId copy.faceId hrootMem hcopyMem hne.symm
 
 /-- Multiplicity subtraction along the serialized component list is the
 previously defined common lowered physical labelling. -/
@@ -597,9 +668,11 @@ theorem SlabFusionWitnessFaceStrandSeed.expandedFiberWeight_le
 #print axioms SlabFusionWitnessFaceStrandSeed.component_faceId_physical
 #print axioms SlabFusionWitnessFaceStrandSeed.selectionCount_eq_zero_of_not_physical
 #print axioms SlabFusionWitnessFaceStrandSeed.selectionCount_root_pos
+#print axioms SlabFusionWitnessFaceStrandSeed.selectionCount_pos_of_mem
 #print axioms SlabFusionWitnessFaceStrandSeed.peelFaces
 #print axioms SlabFusionWitnessFaceStrandSeed.peelFaces_count
 #print axioms SlabFusionWitnessFaceStrandSeed.peelFaces_length_pos
+#print axioms SlabFusionWitnessFaceStrandSeed.two_le_peelFaces_length
 #print axioms SlabFusionWitnessFaceStrandSeed.lowerSlabFacesByList_peelFaces
 #print axioms SlabFusionWitnessFaceStrandSeed.peelPath
 #print axioms SlabFusionWitnessFaceStrandSeed.expandedFiberWeight_le

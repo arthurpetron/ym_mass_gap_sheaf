@@ -30626,3 +30626,60 @@ with explicit coupling, cutoff, volume, and lattice-spacing dependence,
 assemble retained-sector OS positivity and the linked same-object cutoff
 tower, prove the physical completed gap, and construct the continuum theory
 and Clay closure.
+
+#### Start the anchor packet tail at the first physically possible size (2026-09-10)
+
+`CompactDualSlabFaceStrandSeedComponent` now proves that every rooted strand
+component contains the opposite endpoint of one displayed physical strand
+edge on a face distinct from the root face.  Component closure places that
+endpoint in the same component.  `CompactDualSlabFaceStrandComponentWeight`
+therefore proves that every serialized physical component peel has length at
+least two.
+
+`CompactDualSlabObservableRemovalTwoFaceGeometric` uses this geometry to show
+that both size-zero and size-one observable removal fibers are empty.  The
+existing exact anchor ratio `8/25` can consequently be summed from exponent
+two, giving the sharpened one-face occupation bound
+
+```text
+(8/25)^2 / (1 - 8/25) = 64/425.
+```
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeAnchorOccupation`
+transfers the new expanded-source bound to the genuine normalized slab law.
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeAnchorPacketOccupation`
+then proves a constructive finite union bound for the exact four-face dyadic
+packet and obtains
+
+```text
+normalized fine packet occupation <= 4 * (64/425) = 256/425 < 1.
+```
+
+At fine cutoff one, the existing load-bearing SU(2) lowering support transfers
+this to the causally matched coherent packet/coarse-face raw mismatch average.
+This is a strict finite-volume estimate only at the explicitly named SU(2)
+anchor.  It is not beta-, lattice-spacing-, or continuum-uniform.
+
+Monitored verification:
+
+```text
+strand seed component focused source check                 PASS
+strand component weight focused source check               PASS
+two-face geometric removal focused source check            PASS
+positive-time anchor occupation focused source check       PASS
+anchor packet occupation focused source check              PASS
+positive-time anchor occupation dependency target          PASS (1579 jobs)
+```
+
+Every printed new load-bearing declaration uses only
+`[propext, Quot.sound]` (or `[propext]`/no axioms where stronger); no `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation is introduced.  No
+full-root audit is claimed here.
+
+Still open: compile reflected and joint packet observables on the enriched
+positive-time carrier, pass the strict constant through a retained-sector OS
+form statement, extend the anchor estimate along the physical beta/spacing
+trajectory with explicit parameters, build the linked same-object cutoff
+tower, prove the completed physical gap, and construct the continuum theory
+and Clay closure.
