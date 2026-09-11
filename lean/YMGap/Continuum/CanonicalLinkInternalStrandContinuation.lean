@@ -94,6 +94,90 @@ def resolvedNetworkHalfEdgePortAt
   cases halfEdge with
   | mk index leg => cases leg <;> rfl
 
+/-- Rebuilding a port on an `a` half-edge and selecting a slot in its `ca`
+bundle makes the local mate land on the `c` leg. -/
+theorem resolvedNetworkHalfEdgePortAt_localMate_leg_of_a
+    {vertices : List TrivalentVertex} {label : EdgeLabelling}
+    {network : ResolvedTrivalentNetwork vertices label}
+    (halfEdge : ResolvedNetworkHalfEdge network) (slot : Nat)
+    (hslot : slot < label halfEdge.edgeId)
+    (hleg : halfEdge.leg = .a)
+    (hca : slot <
+      (resolvedVertexAt network halfEdge.vertexIndex).strands.ca) :
+    (resolvedNetworkHalfEdgePortAt halfEdge slot hslot).localMate.leg = .c := by
+  cases halfEdge with
+  | mk index leg =>
+      cases leg with
+      | a =>
+          simp [resolvedNetworkHalfEdgePortAt,
+            ResolvedNetworkPort.localMate, ResolvedNetworkPort.leg,
+            TrivalentStrandPort.leg, strandMate, hca]
+      | b => simp at hleg
+      | c => simp at hleg
+
+/-- In the same `a`-to-`c` branch, the output slot is shifted by the complete
+`bc` bundle. -/
+theorem resolvedNetworkHalfEdgePortAt_localMate_slot_of_a
+    {vertices : List TrivalentVertex} {label : EdgeLabelling}
+    {network : ResolvedTrivalentNetwork vertices label}
+    (halfEdge : ResolvedNetworkHalfEdge network) (slot : Nat)
+    (hslot : slot < label halfEdge.edgeId)
+    (hleg : halfEdge.leg = .a)
+    (hca : slot <
+      (resolvedVertexAt network halfEdge.vertexIndex).strands.ca) :
+    (resolvedNetworkHalfEdgePortAt halfEdge slot hslot).localMate.slot =
+      (resolvedVertexAt network halfEdge.vertexIndex).strands.bc + slot := by
+  cases halfEdge with
+  | mk index leg =>
+      cases leg with
+      | a =>
+          simp [resolvedNetworkHalfEdgePortAt,
+            ResolvedNetworkPort.localMate, ResolvedNetworkPort.slot,
+            TrivalentStrandPort.slot, strandMate, hca]
+      | b => simp at hleg
+      | c => simp at hleg
+
+/-- Rebuilding a port on a `b` half-edge and selecting a slot in its `bc`
+bundle makes the local mate land on the `c` leg. -/
+theorem resolvedNetworkHalfEdgePortAt_localMate_leg_of_b
+    {vertices : List TrivalentVertex} {label : EdgeLabelling}
+    {network : ResolvedTrivalentNetwork vertices label}
+    (halfEdge : ResolvedNetworkHalfEdge network) (slot : Nat)
+    (hslot : slot < label halfEdge.edgeId)
+    (hleg : halfEdge.leg = .b)
+    (hbc : slot <
+      (resolvedVertexAt network halfEdge.vertexIndex).strands.bc) :
+    (resolvedNetworkHalfEdgePortAt halfEdge slot hslot).localMate.leg = .c := by
+  cases halfEdge with
+  | mk index leg =>
+      cases leg with
+      | a => simp at hleg
+      | b =>
+          simp [resolvedNetworkHalfEdgePortAt,
+            ResolvedNetworkPort.localMate, ResolvedNetworkPort.leg,
+            TrivalentStrandPort.leg, strandMate, hbc]
+      | c => simp at hleg
+
+/-- In the same `b`-to-`c` branch, the output retains its input slot. -/
+theorem resolvedNetworkHalfEdgePortAt_localMate_slot_of_b
+    {vertices : List TrivalentVertex} {label : EdgeLabelling}
+    {network : ResolvedTrivalentNetwork vertices label}
+    (halfEdge : ResolvedNetworkHalfEdge network) (slot : Nat)
+    (hslot : slot < label halfEdge.edgeId)
+    (hleg : halfEdge.leg = .b)
+    (hbc : slot <
+      (resolvedVertexAt network halfEdge.vertexIndex).strands.bc) :
+    (resolvedNetworkHalfEdgePortAt halfEdge slot hslot).localMate.slot = slot := by
+  cases halfEdge with
+  | mk index leg =>
+      cases leg with
+      | a => simp at hleg
+      | b =>
+          simp [resolvedNetworkHalfEdgePortAt,
+            ResolvedNetworkPort.localMate, ResolvedNetworkPort.slot,
+            TrivalentStrandPort.slot, strandMate, hbc]
+      | c => simp at hleg
+
 /-- A port's slot is bounded at its forgotten half-edge. -/
 theorem resolvedNetworkPortSlot_lt_halfEdgeLabel
     {vertices : List TrivalentVertex} {label : EdgeLabelling}
@@ -302,6 +386,10 @@ theorem canonicalInternalStrandContinue_involutive
 #print axioms resolvedNetworkHalfEdgePortAt_halfEdge
 #print axioms resolvedNetworkHalfEdgePortAt_slot
 #print axioms resolvedNetworkHalfEdgePortAt_edgeId
+#print axioms resolvedNetworkHalfEdgePortAt_localMate_leg_of_a
+#print axioms resolvedNetworkHalfEdgePortAt_localMate_slot_of_a
+#print axioms resolvedNetworkHalfEdgePortAt_localMate_leg_of_b
+#print axioms resolvedNetworkHalfEdgePortAt_localMate_slot_of_b
 #print axioms resolvedNetworkPortSlot_lt_halfEdgeLabel
 #print axioms resolvedNetworkPortAt_halfEdge_slot
 #print axioms resolvedNetworkPort_eq_of_halfEdge_eq_of_slot_eq

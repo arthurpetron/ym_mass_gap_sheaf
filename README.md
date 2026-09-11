@@ -166,11 +166,19 @@ any specified face position and strand slot.  At the active cube root this
 produces two literal slot-zero terminals whose occurrences are exactly the two
 previously named positive root copies; see
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals.lean).
+Those selected terminals are now identified as full dependent ports at the
+first canonical trivalent vertex, not merely by face ID.  The first channel is
+proved to carry exactly the SU(2) stretched spin sum; its strand counts are
+`ab = 0`, `bc = right`, and `ca = left`.  Consequently the two selected local
+mates both land on the third leg but in distinct slots (`right` and `0`).  See
+[`CanonicalLinkFirstVertexPorts.lean`](lean/YMGap/Continuum/CanonicalLinkFirstVertexPorts.lean)
+and
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex.lean).
 
-The next causal step is to identify those terminals' ports at the first
-resolved trivalent vertex with the explicit stretched input ports, then glue
-and reroute the resulting complete strand component.  The carrier sum must
-then be bounded by a cutoff-independent multiple of the pure mate product.
+The next causal step is to continue those two explicit third-leg ports through
+the canonical internal chain (or terminate them immediately at valence three),
+then glue and reroute the resulting complete strand component.  The carrier
+sum must then be bounded by a cutoff-independent multiple of the pure mate product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

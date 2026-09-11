@@ -31746,6 +31746,54 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports both modules.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Identify the active root with the stretched first vertex (2026-09-11)
+
+- **milestone**: exact first-vertex SU(2) strand continuation
+- **files**:
+  `lean/YMGap/Continuum/CanonicalLinkInternalStrandContinuation.lean`,
+  `lean/YMGap/Continuum/CanonicalLinkFirstVertexPorts.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex.lean`
+- **proved declarations**: `canonicalLinkFirstVertexIndex`,
+  `canonicalLinkFirstAHalfEdge_edgeId`,
+  `canonicalLinkFirstBHalfEdge_edgeId`,
+  `canonicalLinkFirstAHalfEdge_vertex_c`,
+  `resolvedNetworkHalfEdgePortAt_localMate_leg_of_a`,
+  `resolvedNetworkHalfEdgePortAt_localMate_slot_of_a`,
+  `resolvedNetworkHalfEdgePortAt_localMate_leg_of_b`,
+  `resolvedNetworkHalfEdgePortAt_localMate_slot_of_b`,
+  `rootOrderedRest_ne_nil`, `rootFirstVertex_output_label`,
+  `rootFirstResolution_stretched_counts`,
+  `rootLeftOrderedTerminal_eq_firstA`,
+  `rootRightOrderedTerminal_eq_firstB`,
+  `rootLeftOrderedTerminal_localMate_slot`,
+  `rootRightOrderedTerminal_localMate_slot`, and
+  `rootOrderedTerminal_localMates_ne`
+- **closed obligation**: identify the two selected root terminals as the full
+  dependent `a`/`b` ports of vertex zero, prove the third leg carries the
+  stretched spin sum, and compute their local mates as distinct third-leg
+  slots `right` and `0`
+- **remaining named obligation**: carry both third-leg ports through the
+  canonical internal chain or its valence-three terminal case, glue their
+  physical endpoints into the global face-strand component, and construct the
+  complete component rerouting used by the inward-mate comparison
+- **constructive or propositional**: finite valence case analysis, exact
+  natural-number SU(2) balance equations, singleton physical half-edge fibers,
+  and explicit dependent ports only
+
+Monitored verification:
+
+```text
+canonical first-link half-edges explicit olean emission    PASS
+generic rebuilt-port local-mate explicit olean emission    PASS
+active-root first-vertex explicit olean emission            PASS
+```
+
+All printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the new modules.  No aggregate or full-root audit
+is claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

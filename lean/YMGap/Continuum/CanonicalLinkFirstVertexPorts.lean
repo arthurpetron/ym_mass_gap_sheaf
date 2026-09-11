@@ -160,6 +160,44 @@ def canonicalLinkFirstBHalfEdge
     omega
   rcases hdegreeCases with rfl | rfl | rfl | rfl | rfl <;> rfl
 
+/-! ## 3. The first outgoing channel identifier -/
+
+/-- Identifier on the third leg of the first canonical vertex.  At valence
+two or three it is the last physical identifier `2`; at higher valence it is
+the first fresh auxiliary identifier `degree + 1`. -/
+def canonicalLinkFirstOutputEdge (degree : Nat) : Nat :=
+  if degree ≤ 3 then 2 else degree + 1
+
+@[simp] theorem canonicalLinkFirstAHalfEdge_vertex_c
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    (hdegreeLower : 2 ≤ degree)
+    (hdegreeUpper : degree ≤ linkIncidenceBound)
+    (hallowed :
+      canonicalLinkConditionalAllowedB degree external auxiliary = true) :
+    (canonicalLinkFirstAHalfEdge
+      hdegreeLower hdegreeUpper hallowed).vertex.2.2 =
+        canonicalLinkFirstOutputEdge degree := by
+  unfold linkIncidenceBound at hdegreeUpper
+  have hdegreeCases : degree = 2 ∨ degree = 3 ∨ degree = 4 ∨
+      degree = 5 ∨ degree = 6 := by
+    omega
+  rcases hdegreeCases with rfl | rfl | rfl | rfl | rfl <;> rfl
+
+@[simp] theorem canonicalLinkFirstBHalfEdge_vertex_c
+    {degree : Nat} {external auxiliary : EdgeLabelling}
+    (hdegreeLower : 2 ≤ degree)
+    (hdegreeUpper : degree ≤ linkIncidenceBound)
+    (hallowed :
+      canonicalLinkConditionalAllowedB degree external auxiliary = true) :
+    (canonicalLinkFirstBHalfEdge
+      hdegreeLower hdegreeUpper hallowed).vertex.2.2 =
+        canonicalLinkFirstOutputEdge degree := by
+  unfold linkIncidenceBound at hdegreeUpper
+  have hdegreeCases : degree = 2 ∨ degree = 3 ∨ degree = 4 ∨
+      degree = 5 ∨ degree = 6 := by
+    omega
+  rcases hdegreeCases with rfl | rfl | rfl | rfl | rfl <;> rfl
+
 end YMGap.Continuum.CanonicalLinkFirstVertexPorts
 
 /-! ## Axiom-dependency gates -/
@@ -170,3 +208,5 @@ end YMGap.Continuum.CanonicalLinkFirstVertexPorts
   YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstAHalfEdge_edgeId
 #print axioms
   YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstBHalfEdge_edgeId
+#print axioms
+  YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstAHalfEdge_vertex_c

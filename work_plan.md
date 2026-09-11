@@ -108,13 +108,19 @@ one-element physical half-edge fiber also constructs the terminal at any
 specified position and slot.  Specializing this selector at the active root
 turns both positive slot-zero face copies into literal terminals of the same
 accepted resolved source network; each full-chain partner reaches a different
-plaquette.
+plaquette.  The first-vertex bridge is now exact as well.  A generic canonical
+link compiler identifies physical positions zero and one with the `a` and `b`
+half-edges of vertex zero.  At the active root, positivity rules out the
+degenerate two-valent case, the lifted source auxiliary labels the third leg
+by the precise stretched sum, and the three SU(2) strand counts reduce to
+`ab = 0`, `bc = right`, and `ca = left`.  The two actual selected terminals
+therefore enter the common third leg in the disjoint slots `right` and `0`.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. identify the two root terminals' first-vertex ports with the explicit
-   stretched input ports, construct the SU(2)-specific closed-component
-   rerouting, and sum those routes into a
+1. carry the two now-explicit stretched third-leg ports through the canonical
+   internal chain (including the valence-three terminal case), construct the
+   SU(2)-specific closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;
