@@ -30438,3 +30438,31 @@ raw-weight ratios, bound those ratios with explicit SU(2), coupling, cutoff,
 volume, and lattice-spacing dependence, assemble retained-sector OS
 positivity and the linked same-object cutoff tower, prove the physical
 completed gap, and construct the continuum theory and Clay closure.
+
+#### Rewrite coherent positive-time defects as raw mismatch ratios (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeRawMismatch` proves
+for arbitrary fine/coarse Boolean events that the absolute coherent-row
+expectation mismatch is exactly the raw mass of disagreeing coarse targets
+divided by the complete positive whole-slab recoupling partition.  It
+specializes this identity to the lower face, reflected face, and joint event,
+then rewrites all three full normalized-source defect averages as explicit
+positive-coherent sums of those selected raw ratios.
+
+Monitored verification:
+
+```text
+coherent positive-time raw mismatch focused source check PASS
+coherent positive-time raw mismatch dependency target     PASS (1575 jobs)
+```
+
+All six printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: compare each selected SU(2) packet-channel/link-multiplicity
+numerator with its complete row partition using explicit coupling, cutoff,
+volume, and lattice-spacing parameters, assemble retained-sector OS
+positivity and the linked same-object cutoff tower, prove the physical
+completed gap, and construct the continuum theory and Clay closure.

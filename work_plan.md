@@ -806,8 +806,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- retained-row positive-time face identification ....... [PROVED exact]
 |       +-- coherent root/reflected/joint recoupling compiler ..... [PROVED exact]
 |       +-- weighted defect localization to coherent rows ......... [PROVED exact]
-|       +-- coherent defect as selected raw-weight ratio .......... [NEXT]
-|       +-- beta/cutoff/volume-explicit raw-ratio bound ............ [OPEN]
+|       +-- coherent defect as selected raw-weight ratio .......... [PROVED exact]
+|       +-- SU(2) raw numerator/partition factor comparison ........ [NEXT]
+|       +-- beta/cutoff/volume-explicit ratio bound ................ [OPEN]
 |       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
