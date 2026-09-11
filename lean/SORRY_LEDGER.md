@@ -30466,3 +30466,33 @@ numerator with its complete row partition using explicit coupling, cutoff,
 volume, and lattice-spacing parameters, assemble retained-sector OS
 positivity and the linked same-object cutoff tower, prove the physical
 completed gap, and construct the continuum theory and Clay closure.
+
+#### Bound the coherent mismatch by an occupation envelope (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeOccupationEnvelope`
+corrects the next analytic reduction at the mathematical level: the selected
+raw mismatch ratio need not be small pointwise.  It proves instead, by the
+rational triangle inequality, that each row is bounded by its fine-event
+indicator plus its coarse-event conditional moment.  A dependent finite-sum
+compiler preserves the unit coefficients, yielding exact lower, reflected,
+and joint bounds for the actual enriched defect averages by named
+fine-source and coherent coarse-output occupation masses.
+
+Monitored verification:
+
+```text
+positive-time occupation envelope focused source check PASS
+positive-time occupation envelope dependency target     PASS (1576 jobs)
+```
+
+All nine printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: identify the coherent coarse-output occupation with the appropriate
+pushed-law marginal, control the resulting fine/coarse occupations using
+load-bearing SU(2) data with explicit coupling, cutoff, volume, and
+lattice-spacing dependence, assemble retained-sector OS positivity and the
+linked same-object cutoff tower, prove the physical completed gap, and
+construct the continuum theory and Clay closure.
