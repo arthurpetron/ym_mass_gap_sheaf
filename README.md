@@ -90,11 +90,18 @@ to the proved local two-face mate, yielding the actual corrected-slab
 multiplicity bound with one explicit stretched continuation.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean).
 
-The next causal step is now genuinely global: reroute precisely those twelve
-stretched-channel continuations through complete strand components and compare
-the complete fixed-boundary intertwiner contraction. A genuine physical
-mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
-posterior conditional-variance estimate.
+Those twelve local certificates now form one explicit global debt profile.
+Lean proves that every link outside the cube boundary is unchanged and that
+the boundary products obey
+`product(source) <= product(mate + stretchedDebt)`.  See
+[`BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile.lean).
+This deliberately does not absorb the debts independently.
+
+The next causal step is to expand that finite product and reroute precisely
+its stretched-channel terms through complete strand components, thereby
+comparing the complete fixed-boundary intertwiner contraction. A genuine
+physical mate-transition floor would then feed a rooted-subtree
+Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

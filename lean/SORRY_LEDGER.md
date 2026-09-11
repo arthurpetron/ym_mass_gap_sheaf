@@ -31194,6 +31194,47 @@ declaration, enlarged heartbeat budget, `sorry`, Rust computation, or trusted
 external computation.  The root aggregator imports the module.  No aggregate
 or full-root audit is claimed by these checks.
 
+#### Assemble the twelve-link inward-mate stretched-debt profile (2026-09-11)
+
+- **milestone**: observable global support and product compiler for the twelve
+  local cube-boundary multiplicity comparisons
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile.lean`
+- **proved declarations**:
+  `centralLowerCubeEvenInwardMatePhysical_bounded`,
+  `mem_coarseCubeBoundaryLinks_of_slabIncident_selected`,
+  `slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_eq_of_not_boundary`,
+  `cubeInwardMateLinkCertificate`, `cubeInwardMateLinkRest`,
+  `cubeInwardMateStretchedDebt`, and
+  `cubeInwardMateSourceBoundaryProduct_le_targetPlusDebt`
+- **closed obligation**: prove the global six-face mate is cutoff-admissible;
+  show geometrically that every production link outside the twelve-element
+  cube boundary is unchanged; retain one explicit residual word and stretched
+  debt per attached incidence-table entry; and multiply the twelve local
+  inequalities into `product(source) <= product(mate + stretchedDebt)`
+- **remaining named obligation**: expand the finite product and reroute every
+  nonempty stretched-debt term through complete SU(2) strand components;
+  compare the complete intertwiner contraction; obtain the physical transition
+  floor and posterior-variance/Hardy--Poincare estimate; then prove the
+  completed gap, thermodynamic and continuum passage, continuum QFT axioms,
+  isolated vacuum, and the Clay theorem
+- **constructive or propositional**: every per-link residual word is a `Sigma`
+  projection from an attached finite incidence entry; multiplication is
+  structural recursion over the literal twelve-entry list
+
+Monitored verification:
+
+```text
+inward-mate global-debt focused source check                PASS
+inward-mate global-debt explicit olean emission             PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

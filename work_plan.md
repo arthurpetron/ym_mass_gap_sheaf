@@ -54,13 +54,18 @@ then feeds them through the production multiplicity compiler.  The
 cube-specific instantiation is also proved: on each of the twelve recorded
 boundary links, the two named face IDs occur and exhaust the selected
 six-face support, so the global mate gives the corrected-slab multiplicity
-bound with exactly one explicit stretched continuation.
+bound with exactly one explicit stretched continuation.  These twelve
+certificates are now assembled into an observable attached-list debt profile:
+the global mate is unchanged off the cube boundary, and the full boundary
+source product is bounded by the product of the twelve explicit
+`mate + stretchedDebt` factors.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. lift the resulting exact one-link stretched-continuation debts to an
-   SU(2)-specific global strand rerouting that compares the complete
-   fixed-boundary intertwiner contraction of a state with its inward mate;
+1. expand the twelve-factor debt product and construct an SU(2)-specific
+   closed-component rerouting for every nonempty stretched-debt term, thereby
+   comparing the complete fixed-boundary intertwiner contraction of a state
+   with its inward mate;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
