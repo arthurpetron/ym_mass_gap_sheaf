@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Put the global SU(2) target on an actual weighted BF4 atom (2026-09-11)
+
+- **milestone**: raw target atom and exact retained-fiber weight
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetWeight.lean`
+- **proved declarations**:
+  `coeffW_half_le_four_evenInwardMate`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetRaw`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetAtom`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight`, and
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight_eqv_faceFactor`
+- **closed obligation**: forget the accepted target presentation to the raw
+  auxiliary payload consumed by the actual BF4 retained-fiber formula; package
+  its physical/raw target atom; identify its weight exactly with the target
+  physical face factor; and prove the parity-free local heat comparison
+  `c_j <= 4 c_mate(j)` at the physical nome.
+- **scope boundary**: the six local coefficient comparisons have not yet been
+  multiplied through the complete slab face product, and equal target atoms
+  have not yet been grouped into fibers.  Hence no target-column capacity,
+  summed transport, posterior variance, OS form bound, or spectral gap is
+  asserted.
+- **remaining named obligation**: prove the complete source-atom bound by the
+  target atom with the explicit six-face factor, serialize and bound target
+  fibers, and combine those facts with the global `41/425` source mass.
+- **constructive or propositional**: exact rational heat coefficients,
+  dependent presentation erasure, and the existing unit-Haar BF4 fiber
+  identity only.  No `sorry`, new named hypothesis, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target weight focused source check             PASS
+global all-target weight dependency target                PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Complete the global SU(2) parity-flipped target presentation (2026-09-11)
 
 - **milestone**: accepted whole-slab target intertwiner assignment
