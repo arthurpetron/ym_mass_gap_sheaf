@@ -30412,3 +30412,29 @@ explicit SU(2), coupling, cutoff, and volume dependence, assemble the
 whole-law reflected Gram and retained-sector OS positivity, build the linked
 same-object cutoff tower, prove the physical completed gap, and construct the
 continuum theory and Clay closure.
+
+#### Localize the weighted positive-time defect to coherent rows (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeDefectLocalization`
+proves a generic dependent finite-sum theorem for normalized source defects.
+Gibbs-null rows vanish by exact zero normalized mass, positive incoherent rows
+vanish by retained same-object transport, and the complete root, reflected,
+and joint defect averages reduce exactly to sums over positive coherent rows.
+
+Monitored verification:
+
+```text
+weighted positive-time defect localization focused source check PASS
+weighted positive-time defect localization dependency target     PASS (1568 jobs)
+```
+
+All five printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: rewrite the three coherent defects as selected globally glued
+raw-weight ratios, bound those ratios with explicit SU(2), coupling, cutoff,
+volume, and lattice-spacing dependence, assemble retained-sector OS
+positivity and the linked same-object cutoff tower, prove the physical
+completed gap, and construct the continuum theory and Clay closure.
