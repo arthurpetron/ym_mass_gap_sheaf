@@ -45,11 +45,17 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   that the selected normalized source traffic has total mass at least
   `41/425`, and that every compiled-target fiber's incoming traffic is at most
   `globalInwardMateTransportCost` times the actual second OS joint edge.
-- **OPEN next edge:** verify that this selected-demand flow supplies the exact
-  demand identity required by an existing all-vector posterior/Poincare
-  compiler.  No all-vector variance bound, finite-volume spectral gap,
-  continuum limit, or Clay theorem follows from the selected-flow inequalities
-  alone.
+- **PROVED first-edge aggregation:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad` partitions
+  the complete source family by its actual first OS edge and injects every
+  fiber into that edge's literal boundary--fine-intertwiner summands.  Hence
+  the total traffic of each fiber is at most the normalized OS joint capacity,
+  with no source-collision cardinality factor.
+- **OPEN next edge:** prove the analogous aggregate second-edge load, then
+  determine whether the resulting selected-demand flow supplies an exact
+  all-vector variance identity.  No all-vector variance bound, finite-volume
+  spectral gap, continuum limit, or Clay theorem follows from the present
+  selected-flow inequalities alone.
 
 ---
 

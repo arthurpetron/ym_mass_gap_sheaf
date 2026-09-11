@@ -49,6 +49,22 @@ useful theorems exist but a required bridge is missing.
 The present bottleneck is a cutoff-uniform gap for the **actual physical SU(2)
 BF4 vacuum-sector transfer**, not an abstract spectral theorem.
 
+The latest checked path is already on that actual OS object.  Every successful
+six-face inward-mate source gives a supported two-edge path in the normalized
+symmetric OS joint kernel.  Its selected source traffic has total mass at
+least `41/425`; exact production-target fibers have congestion bounded by
+`globalInwardMateTransportCost`; and all complete sources that forget to the
+same first OS edge now inject into distinct literal boundary--intertwiner
+summands of that edge.  Consequently their **aggregate** first-edge traffic is
+at most the actual OS joint capacity, without a volume- or cutoff-cardinality
+loss.  The immediate frontier is the corresponding aggregate second-edge
+bound, followed by the still-open question whether this selected demand
+controls the full vacuum-complement pairwise variance.  These results do not
+yet prove a Poincare inequality or spectral gap.
+
+See
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
+
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
 certified first-stretched strand source.  Lean compiles the complete two-root

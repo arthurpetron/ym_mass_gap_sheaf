@@ -316,9 +316,14 @@ The next load-bearing producers are, in causal order:
    capacities.  The normalized source demands now sum to at least `41/425`,
    and every compiled-target fiber has total incoming demand at most
    `globalInwardMateTransportCost` times its actual second OS edge capacity.
-   The normalization introduces no hidden cutoff factor.  Matching this
-   selected-demand flow to the exact demand identity of an all-vector
-   posterior/Poincare compiler is the active sub-edge;
+   The normalization introduces no hidden cutoff factor.  Source collisions
+   created by forgetting a complete slab to its first OS edge are now summed
+   exactly: each source injects into its literal boundary--fine-intertwiner
+   summand of that edge, so the aggregate first-edge traffic is at most the
+   actual normalized OS joint capacity with no cardinality loss.  The active
+   sub-edge is the analogous aggregate second-edge bound.  Only after both
+   edge loads are closed can the selected demand be compared with the exact
+   all-vector variance identity required by the posterior/Poincare compiler;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -380,7 +385,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- raw, normalized, conditional OS path support ...... [PROVED]
 |   |   |   +-- production weights -> normalized OS edge capacity . [PROVED]
 |   |   |   +-- normalized source mass + target-fiber edge load ... [PROVED]
-|   |   |   +-- selected demand -> all-vector variance identity ... [ACTIVE]
+|   |   |   +-- aggregate first OS-edge traffic without collisions . [PROVED]
+|   |   |   +-- aggregate second OS-edge traffic ................... [ACTIVE]
+|   |   |   +-- selected demand -> all-vector variance identity .... [OPEN]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
