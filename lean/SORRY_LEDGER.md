@@ -31027,6 +31027,56 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Recode all-target representatives into the production BF4 carrier (2026-09-11)
+
+- **milestone**: constructive fixed-order-to-production-order target compiler
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetProductionCarrier.lean`
+- **proved declarations**:
+  `globalInwardMateAnchorSlabData`,
+  `globalInwardMateProductionFiber_length_eq_targetCodes`,
+  `globalInwardMateProductionRawAt`,
+  `globalInwardMateProductionRawAt_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionRaw`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionRaw_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionAtom`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionAtom_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionWeight`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionWeight_eqv_targetWeight`,
+  `globalInwardMateProductionTargets_weight_eqv`, and
+  `globalInwardMateRetainedTargetFraction_partition_le_productionTargets`
+- **closed obligation**: use the proved equality between the complete
+  fixed-order residual-code cardinality and the literal production
+  intertwiner-fiber cardinality to select the equal-rank production
+  assignment; prove every retained all-target representative lands in
+  `slabExpandedFineSources`; and transport its positive retained fraction
+  without changing the exact unit-Haar BF4 weight.
+- **scope boundary**: this closes same-object carrier membership and weight,
+  not yet collision-freeness of the recoded representative list.  No
+  two-copy conditional joint, posterior variance, OS form bound, spectral
+  gap, beta/lattice-spacing uniformity, or continuum theorem is asserted.
+- **remaining named obligation**: prove the equal-rank recoding is injective
+  on each physical target block and hence globally; package the resulting
+  duplicate-free production target subcarrier; then identify it inside a
+  literal off-diagonal conditional joint before deriving posterior variance.
+- **constructive or propositional**: structural finite-list ranks, proved
+  SU2 multiplicity equality, and exact rational weight equivalence only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+all-target production-carrier focused source check        PASS
+all-target production-carrier dependency target           PASS (1,312 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+There is no new `sorry`, `Classical`, choice, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation.  The root aggregator imports the module.  No
+aggregate or full-root audit is claimed by these focused checks.
+
 #### Package the positive retained-target fraction (2026-09-11)
 
 - **milestone**: witness-bearing cutoff-uniform retained-target rate at the
