@@ -31489,6 +31489,42 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Resolve the stretched SU(2) vertex into exact strand continuations (2026-09-11)
+
+- **milestone**: canonical port-level continuation through the stretched
+  Clebsch--Gordan channel
+- **file**:
+  `lean/YMGap/Continuum/SU2StretchedTrivalentStrandContinuation.lean`
+- **proved declarations**: `stretchedTrivalentStrandResolution`,
+  `fusionOK_stretched`, `canonicalTrivalentStrandResolution_stretched`,
+  `canonicalAB_stretched`, `canonicalBC_stretched`,
+  `canonicalCA_stretched`, `leftSummedPort`, `rightSummedPort`,
+  `canonicalTrivalentPortMate_stretched_left`,
+  `canonicalTrivalentPortMate_stretched_right`, and
+  `leftSummedPort_ne_rightSummedPort`
+- **closed obligation**: compute the unique resolution of
+  `(left, right, left + right)`; prove it has zero input-to-input bundle;
+  define the two bounded continuation maps into the summed leg; identify the
+  canonical port mate with those maps; and prove their ranges are disjoint
+- **remaining named obligation**: specialize these port continuations to the
+  two active cube-root strand copies and connect the summed leg to the stored
+  collapsed auxiliary network
+- **constructive or propositional**: all ports and continuation maps are
+  explicit finite data; uniqueness of the SU(2) trivalent resolution supplies
+  the canonical identification
+
+Monitored verification:
+
+```text
+SU(2) stretched-port explicit olean emission               PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

@@ -83,6 +83,9 @@ auxiliary labelling read there, and kernel-checked positivity of both root
 faces.  No existential proposition is eliminated to manufacture this data.
 Those two positive faces now produce distinct literal slot-zero
 `SlabFaceStrandCopy` values, both proved incident on the recorded root link.
+At the SU(2) stretched trivalent vertex, the canonical port mate is also
+explicit: right input slots map to the initial summed-leg segment and left
+input slots to the disjoint shifted segment, with no input-to-input strands.
 
 The next load-bearing analytic producers are, in causal order:
 

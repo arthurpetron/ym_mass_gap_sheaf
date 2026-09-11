@@ -133,6 +133,10 @@ propositionally extracted witness.  See
 The two positive root faces are now also realized as distinct literal
 slot-zero strand-copy vertices on their common recorded link; see
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandCopies.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandCopies.lean).
+For the stretched SU(2) vertex itself, the canonical resolution is now exact:
+no strand joins the two input legs, while their strands occupy two disjoint
+segments of the summed internal leg.  See
+[`SU2StretchedTrivalentStrandContinuation.lean`](lean/YMGap/Continuum/SU2StretchedTrivalentStrandContinuation.lean).
 
 The next causal step is now a single precise theorem: unfold the root's
 collapsed stretched witness to an accepted source trivalent network, then reroute the
