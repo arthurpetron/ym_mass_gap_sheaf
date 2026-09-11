@@ -219,7 +219,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- normalized RG-row bias = centered cylinder remainder .......... [PROVED exact]
 |   |   |   |   +-- matched-AF `O(g^2)` control of that literal bias ............... [OPEN named producer]
 |   |   |   |   +-- relative all-observable RG contraction ........................ [OPEN; not implied by spanning]
-|   |   |   |   +-- completed weak-to-strong OS transfer intertwiner ............... [OPEN named realization]
+|   |   |   |   +-- symmetric SU(2) reference + physical row-relative error ........ [OPEN analytic producer]
+|   |   |   |   +-- arbitrary-rate finite form gap -> completed physical gap ....... [PROVED exact compiler]
+|   |   |   |   +-- exact RG endpoint intertwiner ........................ [BYPASSED on symmetric-reference route]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1614,6 +1616,45 @@ bound instead assumes the fine slab itself is the strong anchor
 producer.  The next causal analytic target is `O(g^2)` control of the exact
 `centeredCylinderRemainder` on the weak matched-AF schedule, followed by the
 completed weak-to-strong OS operator realization.
+
+#### Repoint the finite completed gap through symmetric-reference perturbation (2026-09-11)
+
+`BF4PhysicalSymmetricReferenceCompletedGap` removes the hard-coded `1/16`
+from the direct finite-to-completed theorem.  For any named rational `q`, an
+all-observable finite physical mean-zero estimate at `q` now passes through
+exact stationary centering and constructive GNS completion at the identical
+rate.  If `0 <= q < 1`, the existing division-free consumer gives
+
+```text
+<T v,v> <= q <v,v>,
+||T v||^2 <= q^2 ||v||^2,
+|<T^n v,test>|^2 <= q^(2n) ||v||^2 ||test||^2
+```
+
+for the concrete completed physical transfer on its vacuum complement.
+
+The existing symmetric-reference comparison supplies the finite input with
+`q = reference.rate + epsilon`.  Thus no exact return of the blocked law to a
+one-parameter heat family, exact RG endpoint intertwiner, entrywise-positive
+reference matrix, or reference probability marginal is needed on this proof
+path.  The missing load-bearing mathematical input is now precisely a
+physical SU(2) symmetric reference together with an all-row relative error
+and a proof `reference.rate + epsilon < 1` along the required scaling family.
+This theorem is finite-cutoff; cutoff, volume, lattice-spacing, and continuum
+persistence remain open.
+
+Monitored verification:
+
+```text
+symmetric-reference completed-gap focused check           PASS
+symmetric-reference completed-gap dependency              PASS (1,232 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No full-root audit is claimed in this entry.
 
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 

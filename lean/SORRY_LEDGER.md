@@ -31414,6 +31414,53 @@ All printed declarations use only `[propext, Quot.sound]`.  There is no
 enlarged heartbeat budget, or trusted external computation.  The root
 aggregator imports the module.  No full-root audit is claimed in this entry.
 
+#### Repoint the finite completed gap through symmetric-reference perturbation (2026-09-11)
+
+- **milestone**: arbitrary-rate physical finite-to-completed gap compiler
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSymmetricReferenceCompletedGap.lean`
+- **proved declarations**:
+  `CentralPhysicalFiniteQuadraticGapAtRate`,
+  `centralPhysical_cauchyCenteredFormSeq_le_of_finite_gap_at_rate`,
+  `centralPhysical_cinnerRep_form_gap_of_finite_gap_at_rate`,
+  `centralPhysical_completed_vacuum_form_gap_of_finite_gap_at_rate`,
+  `centralPhysicalCompletedVacuumFormGapData_of_finiteGapAtRate`,
+  `symmetricReference_finite_quadratic_gap_at_combined_rate`,
+  `symmetricReference_completed_vacuum_form_gap_data`,
+  `symmetricReference_completed_vacuum_operator_norm_gap`, and
+  `symmetricReference_completed_power_matrixCoefficientSq_decay`
+- **closed obligation**: remove the inessential public specialization of the
+  direct finite-to-completed argument to `1/16`; pass any named rational
+  finite mean-zero rate through exact stationary centering and constructive
+  GNS completion; and connect the existing symmetric-reference perturbation
+  estimate at `reference.rate + epsilon` directly to the concrete completed
+  physical transfer, its operator contraction, and completed matrix-
+  coefficient decay.
+- **remaining named obligation**: construct, on the physical SU(2) carrier
+  and uniformly along the required cutoff/volume/spacing family, a symmetric
+  reference and physical row-relative comparison satisfying
+  `reference.rate + epsilon < 1`.  This path no longer needs an exact RG
+  endpoint intertwiner or a positive normalized reference joint law.  The
+  thermodynamic and continuum limit maps, continuum QFT axioms, isolated
+  vacuum, and positive dimensionful mass remain open.
+- **constructive or propositional**: exact rational inequalities, finite
+  physical joint forms, stationary centering, and explicit Cauchy completion.
+  No new hypothesis is hidden: the uninhabited symmetric-reference comparison
+  remains a named Type-level argument.  No `sorry`, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+symmetric-reference completed-gap focused check           PASS
+symmetric-reference completed-gap dependency              PASS (1,232 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  The root
+aggregator imports the module.  No full-root audit is claimed in this entry.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric
