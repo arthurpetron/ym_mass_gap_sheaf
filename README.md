@@ -49,9 +49,10 @@ useful theorems exist but a required bridge is missing.
 The present bottleneck is a cutoff-uniform gap for the **actual physical SU(2)
 BF4 vacuum-sector transfer**, not an abstract spectral theorem.
 
-The current verified frontier is a fixed-target contraction for the actual
-certified first-stretched SU(2) strand source.  Lean now compiles the complete
-two-root component union into three finite words:
+The current verified frontier joins a multiplicity-exact finite enumeration
+of the root-first SU(2) cube source to a fixed-target contraction for every
+certified first-stretched strand source.  Lean compiles the complete two-root
+component union into three finite words:
 
 - one connected rooted `Z^4` animal word in a carrier of size `625^n`;
 - one exact physical strand-multiplicity word in a carrier of size `4^n`;
@@ -74,10 +75,18 @@ See
 and
 [`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveFiberWeight.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveFiberWeight.lean).
 
-The remaining immediate bridge is to enumerate the actual first-stretched
-source family into these common lowered-target fibers and sum over roots and
-peel sizes.  The theorem does **not** yet give a physical transfer minorization,
-a posterior-variance fraction, an OS transfer gap, or a continuum result.
+The classifier domain is now also a literal duplicate-free heterogeneous
+product over the twelve cube incidences.  SU(2) fusion-path permutation
+invariance proves that every root-first local fiber has the same cardinality
+as its production-order fiber.  Hence the complete function-valued source
+enumeration, and its injective target-or-first-stretched image, have exactly
+`cubeInwardMateSourceBoundaryProduct K physical` members.
+
+The remaining immediate bridge is to extract the first-stretched branch,
+join it to the off-cube production fibers without overcounting, partition the
+result by common lowered target, root, and peel size, and sum those fibers.
+The theorem does **not** yet give a physical transfer minorization, a
+posterior-variance fraction, an OS transfer gap, or a continuum result.
 
 Earlier in the same causal chain, the Casimir/heat payment for an inward mate
 at the physical nome `w = 1/2` established that a parity-uniform six-face cube
