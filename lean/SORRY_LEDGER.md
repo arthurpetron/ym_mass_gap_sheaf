@@ -31151,6 +31151,52 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed here.
 
+#### Localize the rational connected-observable two-row determinant (2026-09-10)
+
+- **milestone**: exact division-free connected-response cross and lossless
+  two-face envelope bound
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableTwoRowDeterminant.lean`
+- **proved declarations**:
+  `finiteWeightedObservableOrientedPairSum_eqv_crossNumerator`,
+  `finiteWeightedObservableAntisymmetricPairSum_eqv_two_crossNumerator`,
+  `positivePhysicalTiltedGibbsTwoRowRawObservableCross_eqv_localized`,
+  `localizedTiltedWeightDeterminant_eqv_factored`,
+  `localizedAntisymmetricConnectedObservableTerm_eqv_factored`,
+  `two_mul_positivePhysicalTiltedGibbsConnectedRawCross_eqv_localizedPairSum`,
+  `connectedRootGradientFullPairSum_eqv_active`,
+  `connectedTargetGradientFullPairSum_eqv_active`,
+  `four_mul_positivePhysicalTiltedGibbsConnectedRawCross_eqv_gradientActiveSums`,
+  and
+  `two_mul_positivePhysicalTiltedGibbsConnectedRawCross_abs_le_envelopeSums`
+- **closed obligation**: extend the finite weighted determinant identity to a
+  rational observable; localize the two positive source rows and factor their
+  common exterior weights; identify four times the actual connected-observable
+  raw cross with the root-plus-target active gradient sums; and cancel the
+  common positive factor two against the existing gradient-envelope bound.
+- **remaining named obligation**: normalize by the positive source-row masses,
+  average the pairwise response bound over the fine source law, prove the
+  connected observable's pairwise response difference has absolute value at
+  most one, and derive the strict connected posterior variance.  Centered
+  production/refresh identification, the dense/completed gap, and controlled
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: exact rational equivalence, finite-list
+  sums and filters, positive-factor cancellation, and the previously proved
+  SU(2)-specific connected envelopes.  No `sorry`, new named hypothesis, Rust
+  result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected-observable two-row determinant focused check    PASS
+connected-observable two-row determinant dependency       PASS (5,619 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or no axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.  No
+aggregate or full-root audit is claimed here.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric

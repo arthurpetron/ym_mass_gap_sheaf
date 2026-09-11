@@ -208,6 +208,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- both-empty fine packets force connected target-row mass = 0 ............. [PROVED]
 |   |   |   |   +-- SU(2) anchor packet occupation `p <= 256/425` ............................ [PROVED]
 |   |   |   |   +-- global connected production fraction `<= 1449/1700 < 1` .... [PROVED finite volume]
+|   |   |   |   +-- connected observable = two exact symmetric face gradients ............... [PROVED exact]
+|   |   |   |   +-- disconnected gradient carriers cancel by finite involutions ............. [PROVED exact]
+|   |   |   |   +-- rational-observable two-row cross <= root + target envelopes ............ [PROVED raw]
+|   |   |   |   +-- normalize and prove connected-response unit oscillation ................. [ACTIVE]
 |   |   |   |   +-- feed strict production fraction into centered production/refresh cross .. [ACTIVE consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -1321,6 +1325,51 @@ cylinder while preserving the three-term vacuum cancellation, identify the
 result with the centered production/refresh form, and prove the strict dense
 two-step form bound.  Completed OS extension and controlled thermodynamic/
 continuum passage remain downstream.
+
+#### Localize the rational connected-observable two-row determinant (2026-09-10)
+
+`Z4DyadicBinaryConnectedObservableTwoRowDeterminant` extends the finite
+two-row determinant identity from Boolean events to an arbitrary
+rational-valued observable.  It localizes both positive tilted-Gibbs rows,
+factors their common exterior weights, and applies the exact symmetric-face
+gradient identity without expanding the connected observable into three
+separately estimated cylinder events.
+
+The full root and target gradient sums are pruned to their active carriers.
+After the already-proved disconnected involution cancellations and gradient
+envelopes, the module proves the exact-and-sharp chain
+
+```text
+4 * connectedRawCross
+  = rootGradientActiveSum + targetGradientActiveSum
+
+abs(2 * connectedRawCross)
+  <= rootConnectedEnvelopeSum + targetConnectedEnvelopeSum.
+```
+
+Thus the common factor two from antisymmetrization is cancelled without loss.
+This is a division-free two-row statement.  It is not yet the normalized
+connected-response oscillation or posterior variance.
+
+Monitored verification:
+
+```text
+connected-observable two-row determinant focused check    PASS
+connected-observable two-row determinant dependency       PASS (5,619 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or no axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed here.
+
+Still open: divide by the two positive row masses and average over the fine
+source-pair law; prove the actual connected response has pairwise range at
+most one so squaring costs no constant; then derive its strict posterior
+variance and identify that variance with the centered production/refresh
+form.  The dense/completed gap and controlled thermodynamic/continuum passage
+remain downstream.
 
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
