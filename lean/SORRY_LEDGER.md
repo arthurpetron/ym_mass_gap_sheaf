@@ -31197,6 +31197,67 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Inject every fixed target/root/size block into the physical SU(2) carrier (2026-09-11)
+
+- **milestone**: exact target-side block capacity by lossless finite residual
+  words
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetKey.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetOrder.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetCarrier.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetWeight.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetPhysical.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetOrderWords.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetBlockInjection.lean`
+- **proved declarations**:
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData_lowerAssignment_order`,
+  `cubeInwardMateFixedOrderTargetTuples_length`,
+  `cubeInwardMateFixedOrderTargetTuples_weight_total`,
+  `cubeInwardMateFixedOrderPhysicalTargets_weight_total`,
+  `EnumeratedCubeInwardMateFullSource.lowerPhysical_mem`,
+  `EnumeratedCubeInwardMateFullSource.rootFaceId_mem_cube`,
+  `PresentedAdaptiveInverseData.targetKey_eq_of_serialized_fields_eq`,
+  `cubeInwardMateFullPeelTargetBlock_residualCode_injective`,
+  `cubeInwardMateFullPeelTargetBlock_residualCode_mem_targetCodes`, and
+  `cubeInwardMateFullPeelTargetBlock_length_le_physicalMultiplicity`
+- **closed obligation**: prove that every complete-source lowered assignment
+  uses one source-independent link order; enumerate its exact heterogeneous
+  Cartesian target fiber and identify its cardinality with the genuine SU(2)
+  production multiplicity; sum the corresponding constant-weight blocks to
+  the full extent-one physical BF4 partition; prove lowered physical targets
+  remain in that partition and roots lie among the literal six cube faces;
+  serialize the remaining order/auxiliary coordinates into flat finite words;
+  and inject every fixed physical-target/root/peel-size representative block
+  into a flat Cartesian word carrier of exactly the physical multiplicity.
+- **remaining named obligation**: partition the distinct representative
+  target-weight sum exactly across bounded physical targets, the six literal
+  roots, and positive peel sizes; apply the fixed-block capacity and the
+  geometric tail from size two to prove the cutoff-independent congestion
+  constant `6 * (64/425) = 384/425 < 1`.  Then convert that physical
+  transition comparison into a positive posterior-variance/Poincare fraction.
+  The completed finite-volume gap, thermodynamic/continuum passage, continuum
+  QFT axioms, isolated vacuum, and the Clay theorem remain open.
+- **constructive or propositional**: every carrier and code is an explicit
+  finite list; dependent assignments are contracted only through exact
+  coordinate recovery and serialized equality.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+fixed common-order word focused olean                    PASS
+fixed target/root/size block-injection focused check     PASS
+root aggregator source check                             STOPPED before load
+  (unrelated `CRealRateClosure.olean` absent; not counted as a pass)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the complete target compiler.  No
+aggregate or full-root audit is claimed by these focused checks.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target

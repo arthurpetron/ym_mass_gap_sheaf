@@ -217,6 +217,50 @@ def presentedAdaptiveInverseTargetKey
   lowerAuxiliaryWords := presentedSlabFusionWitnessAssignmentAuxiliaryWords
     (boundaryCompleteSlabLinks extent) data.lowerAssignment
 
+private theorem cubeInwardMateFullPeelTargetKey_eq_of_fields_eq
+    (left right : CubeInwardMateFullPeelTargetKey)
+    (hroot : left.rootFaceId = right.rootFaceId)
+    (hsize : left.peelSize = right.peelSize)
+    (hphysical : left.lowerPhysicalWord = right.lowerPhysicalWord)
+    (horder : left.lowerOrderWords = right.lowerOrderWords)
+    (hauxiliary : left.lowerAuxiliaryWords = right.lowerAuxiliaryWords) :
+    left = right := by
+  cases left with
+  | mk leftRoot leftSize leftPhysical leftOrder leftAuxiliary =>
+      cases right with
+      | mk rightRoot rightSize rightPhysical rightOrder rightAuxiliary =>
+          dsimp only at hroot hsize hphysical horder hauxiliary
+          cases hroot
+          cases hsize
+          cases hphysical
+          cases horder
+          cases hauxiliary
+          rfl
+
+/-- Equality of the five written serialized fields reconstructs equality of
+the flat adaptive target key without inspecting any other inverse-data field. -/
+theorem PresentedAdaptiveInverseData.targetKey_eq_of_serialized_fields_eq
+    {K extent : Nat} (left right : PresentedAdaptiveInverseData K extent)
+    (hroot : left.rootFaceId = right.rootFaceId)
+    (hsize : left.peelSize = right.peelSize)
+    (hphysical : finiteEdgeLabellingWord (slabPhysicalFaceEdges extent)
+        left.lowerPhysical =
+      finiteEdgeLabellingWord (slabPhysicalFaceEdges extent)
+        right.lowerPhysical)
+    (horder : presentedSlabFusionWitnessAssignmentOrderWords
+        (boundaryCompleteSlabLinks extent) left.lowerAssignment =
+      presentedSlabFusionWitnessAssignmentOrderWords
+        (boundaryCompleteSlabLinks extent) right.lowerAssignment)
+    (hauxiliary : presentedSlabFusionWitnessAssignmentAuxiliaryWords
+        (boundaryCompleteSlabLinks extent) left.lowerAssignment =
+      presentedSlabFusionWitnessAssignmentAuxiliaryWords
+        (boundaryCompleteSlabLinks extent) right.lowerAssignment) :
+    presentedAdaptiveInverseTargetKey left =
+      presentedAdaptiveInverseTargetKey right := by
+  unfold presentedAdaptiveInverseTargetKey
+  exact cubeInwardMateFullPeelTargetKey_eq_of_fields_eq
+    _ _ hroot hsize hphysical horder hauxiliary
+
 private theorem edgeLabelling_eq_of_word_eq_of_eq_off
     (edges : List Nat) (left right : EdgeLabelling)
     (hoff : forall edge, edge ∉ edges -> left edge = right edge)
@@ -312,14 +356,49 @@ theorem EnumeratedCubeInwardMateFullSource.target_eq_of_key_eq
         right faceId hface]
   · exact hkey
 
+/-- Reverse exactness needed by finite block compilers: equality of the five
+serialized target coordinates gives equality of the enumerated target keys. -/
+theorem EnumeratedCubeInwardMateFullSource.targetKey_eq_of_serialized_fields_eq
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (left right : EnumeratedCubeInwardMateFullSource
+      K physical hK hbounded)
+    (hroot : left.adaptiveInverseData.rootFaceId =
+      right.adaptiveInverseData.rootFaceId)
+    (hsize : left.adaptiveInverseData.peelSize =
+      right.adaptiveInverseData.peelSize)
+    (hphysical : finiteEdgeLabellingWord (slabPhysicalFaceEdges 1)
+        left.adaptiveInverseData.lowerPhysical =
+      finiteEdgeLabellingWord (slabPhysicalFaceEdges 1)
+        right.adaptiveInverseData.lowerPhysical)
+    (horder : presentedSlabFusionWitnessAssignmentOrderWords
+        (boundaryCompleteSlabLinks 1)
+        left.adaptiveInverseData.lowerAssignment =
+      presentedSlabFusionWitnessAssignmentOrderWords
+        (boundaryCompleteSlabLinks 1)
+        right.adaptiveInverseData.lowerAssignment)
+    (hauxiliary : presentedSlabFusionWitnessAssignmentAuxiliaryWords
+        (boundaryCompleteSlabLinks 1)
+        left.adaptiveInverseData.lowerAssignment =
+      presentedSlabFusionWitnessAssignmentAuxiliaryWords
+        (boundaryCompleteSlabLinks 1)
+        right.adaptiveInverseData.lowerAssignment) :
+    EnumeratedCubeInwardMateFullSource.targetKey left =
+      EnumeratedCubeInwardMateFullSource.targetKey right :=
+  PresentedAdaptiveInverseData.targetKey_eq_of_serialized_fields_eq
+    left.adaptiveInverseData right.adaptiveInverseData
+    hroot hsize hphysical horder hauxiliary
+
 #print axioms presentedSlabFusionWitnessAssignmentOrderWords
 #print axioms presentedSlabFusionWitnessAssignmentAuxiliaryWords
 #print axioms presentedSlabFusionWitnessAssignment_heq_of_words_eq
 #print axioms CubeInwardMateFullPeelTargetKey
 #print axioms presentedAdaptiveInverseTargetKey
+#print axioms PresentedAdaptiveInverseData.targetKey_eq_of_serialized_fields_eq
 #print axioms PresentedAdaptiveInverseData.target_eq_of_key_eq
 #print axioms EnumeratedCubeInwardMateFullSource.lowerPhysical_eq_physical_of_not_mem
 #print axioms EnumeratedCubeInwardMateFullSource.targetKey
 #print axioms EnumeratedCubeInwardMateFullSource.target_eq_of_key_eq
+#print axioms EnumeratedCubeInwardMateFullSource.targetKey_eq_of_serialized_fields_eq
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetKey
