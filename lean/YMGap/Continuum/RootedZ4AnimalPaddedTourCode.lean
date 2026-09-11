@@ -54,6 +54,27 @@ structure RootedZ4AnimalData : Type where
   /-- Every two support plaquettes are connected inside the support. -/
   connected : connectedIn (L := z4Chain.toLattice) support
 
+/-- A rooted Z4 animal together with the explicit common-word budget consumed
+by the padded compiler.  Keeping the support bound in this flat record avoids
+reconstructing it through large dependent source presentations. -/
+structure BoundedRootedZ4AnimalData : Type where
+  root : Z4Plaq
+  support : List Z4Plaq
+  root_mem : root ∈ support
+  support_nodup : support.Nodup
+  connected : connectedIn (L := z4Chain.toLattice) support
+  budget : Nat
+  support_length_le_budget : support.length <= budget
+
+/-- Forget only the common-word budget, retaining the rooted animal data. -/
+def BoundedRootedZ4AnimalData.toRooted
+    (animal : BoundedRootedZ4AnimalData) : RootedZ4AnimalData where
+  root := animal.root
+  support := animal.support
+  root_mem := animal.root_mem
+  support_nodup := animal.support_nodup
+  connected := animal.connected
+
 /-! ## 2. Construct the faithful spanning tree -/
 
 /-- The one-root initial BFS state. -/
@@ -263,6 +284,48 @@ theorem rootedZ4AnimalPaddedTourCarrier_length (budget : Nat) :
   unfold rootedZ4AnimalPaddedTourCarrier
   exact componentPlaquettePaddedTourCarrier_length budget
 
+/-! ## 5. The bound-carrying compiler interface -/
+
+/-- Compile a bound-carrying rooted animal without any extra proof argument. -/
+def boundedRootedZ4AnimalPaddedTourCode
+    (animal : BoundedRootedZ4AnimalData) :
+    List (Fin (z4Chain.D + 1)) :=
+  rootedZ4AnimalPaddedTourCode animal.toRooted animal.budget
+
+/-- The bound-carrying production word has exactly twice its stored budget. -/
+theorem boundedRootedZ4AnimalPaddedTourCode_length
+    (animal : BoundedRootedZ4AnimalData) :
+    (boundedRootedZ4AnimalPaddedTourCode animal).length =
+      2 * animal.budget :=
+  rootedZ4AnimalPaddedTourCode_length animal.toRooted animal.budget
+    animal.support_length_le_budget
+
+/-- Every bound-carrying production word lies in the carrier selected by its
+stored budget. -/
+theorem boundedRootedZ4AnimalPaddedTourCode_mem_carrier
+    (animal : BoundedRootedZ4AnimalData) :
+    boundedRootedZ4AnimalPaddedTourCode animal ∈
+      rootedZ4AnimalPaddedTourCarrier animal.budget :=
+  rootedZ4AnimalPaddedTourCode_mem_carrier animal.toRooted animal.budget
+    animal.support_length_le_budget
+
+/-- Decoding a bound-carrying production word recovers its stored support. -/
+theorem boundedRootedZ4AnimalPaddedTourCode_decode_sameSupport
+    (animal : BoundedRootedZ4AnimalData) :
+    sameSupport animal.support
+      (decode z4Chain animal.root
+        (boundedRootedZ4AnimalPaddedTourCode animal)) :=
+  rootedZ4AnimalPaddedTourCode_decode_sameSupport
+    animal.toRooted animal.budget
+
+/-- The carrier selected by a bound-carrying animal has exact cardinality
+`625 ^ budget`. -/
+theorem boundedRootedZ4AnimalPaddedTourCarrier_length
+    (animal : BoundedRootedZ4AnimalData) :
+    (rootedZ4AnimalPaddedTourCarrier animal.budget).length =
+      625 ^ animal.budget :=
+  rootedZ4AnimalPaddedTourCarrier_length animal.budget
+
 /-- At a common root, equal padded codes force support equality up to
 membership, even when the two animal presentations have different list order. -/
 theorem rootedZ4AnimalPaddedTourCode_eq_sameSupport
@@ -279,6 +342,8 @@ theorem rootedZ4AnimalPaddedTourCode_eq_sameSupport
   exact sameSupport_trans hleft (sameSupport_symm hright)
 
 #print axioms RootedZ4AnimalData
+#print axioms BoundedRootedZ4AnimalData
+#print axioms BoundedRootedZ4AnimalData.toRooted
 #print axioms rootedZ4AnimalInitialState
 #print axioms rootedZ4AnimalSpanningResult
 #print axioms rootedZ4AnimalRawTree_sameSupport
@@ -290,6 +355,11 @@ theorem rootedZ4AnimalPaddedTourCode_eq_sameSupport
 #print axioms rootedZ4AnimalPaddedTourCode_decode_sameSupport
 #print axioms rootedZ4AnimalPaddedTourCode_mem_carrier
 #print axioms rootedZ4AnimalPaddedTourCarrier_length
+#print axioms boundedRootedZ4AnimalPaddedTourCode
+#print axioms boundedRootedZ4AnimalPaddedTourCode_length
+#print axioms boundedRootedZ4AnimalPaddedTourCode_mem_carrier
+#print axioms boundedRootedZ4AnimalPaddedTourCode_decode_sameSupport
+#print axioms boundedRootedZ4AnimalPaddedTourCarrier_length
 #print axioms rootedZ4AnimalPaddedTourCode_eq_sameSupport
 
 end YMGap.Continuum.RootedZ4AnimalPaddedTourCode
