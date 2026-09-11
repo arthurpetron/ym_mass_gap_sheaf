@@ -31027,6 +31027,47 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Bound global target blocks by genuine SU(2) multiplicity (2026-09-11)
+
+- **milestone**: all-physical residual-code block injection
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetBlockInjection.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelTargetBlockRepresentatives`,
+  `globalCubeInwardMateFullPeelTargetBlockRepresentative_lowerPhysical_eq`,
+  `globalCubeInwardMateFullPeelRepresentativeResidualCode`,
+  `globalCubeInwardMateFullPeelTargetBlock_residualCode_injective`,
+  `globalCubeInwardMateFullPeelTargetBlock_residualCodes_nodup`,
+  `globalCubeInwardMateFullPeelTargetBlock_residualCode_mem_targetCodes`,
+  `globalCubeInwardMateFullPeelTargetBlock_length_le_targetTuples`, and
+  `globalCubeInwardMateFullPeelTargetBlock_length_le_physicalMultiplicity`
+- **closed obligation**: prove that source-physical globalization introduces
+  no additional congestion.  Within a fixed lowered physical target, cube
+  root, and peel size, equality of the common order/auxiliary residual code
+  reconstructs the global exact target key.  Hence distinct representatives
+  inject into the genuine heterogeneous SU(2) target tuple carrier, and the
+  block cardinality is bounded by the BF4 production multiplicity.
+- **remaining named obligation**: perform exact global coarse-block Fubini,
+  turn cardinality into a weighted block bound, and sum sizes, roots, and
+  physical targets to the global `384/425` bad-mass estimate.  Exact source
+  normalization and the complementary all-target event remain open, as do the
+  conditional/posterior/operator and continuum bridges.
+- **constructive or propositional**: global block lists and residual codes are
+  explicit finite data; code injectivity, carrier membership, and cardinality
+  bounds are kernel checked.
+
+Monitored verification:
+
+```text
+global target-block injection focused source check         PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Exact Fubini over all-physical lowered-target fibers (2026-09-11)
 
 - **milestone**: lossless global target-fiber summation
