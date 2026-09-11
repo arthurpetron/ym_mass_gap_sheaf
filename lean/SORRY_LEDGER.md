@@ -30358,6 +30358,36 @@ cutoff, volume, and lattice-spacing dependence, assemble retained-sector OS
 positivity and the linked same-object cutoff tower, prove the physical
 completed gap, and construct the continuum theory and Clay closure.
 
+#### Connect the fine occupation to the SU(2) anchor estimate (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeAnchorOccupation`
+proves that the normalized physical positive-face probability is exactly the
+expanded positive-source mass used by the removal-fiber contraction.  It
+therefore transfers the existing `8/17` estimate to
+`normalizedSlabEventMass` and to the coherent fine-source submass whenever
+the fine datum is explicitly identified with
+`anchorSlabPhysicalData cutoff half`.
+
+Monitored verification:
+
+```text
+positive-time anchor occupation focused source check PASS
+positive-time anchor occupation dependency target     PASS (1578 jobs)
+```
+
+All three printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+The theorem is parameter-correct: it is not a coupling-, cutoff-, volume-, or
+lattice-spacing-uniform estimate.
+
+Still open: relate a coarse positive face to its exact four-face dyadic fine
+packet, control the coherent coarse-output occupation, produce an explicit
+rare-event modulus over the required scaling corridor, assemble retained-
+sector OS positivity and the linked same-object cutoff tower, prove the
+physical completed gap, and construct the continuum theory and Clay closure.
+
 #### Compile enriched observables back to the physical source (2026-09-10)
 
 `CompactDualAllCutoffRetainedFineIntertwinerObservablePullback` defines the
