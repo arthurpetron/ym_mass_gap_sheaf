@@ -31027,6 +31027,58 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Normalize all distinct global all-target atoms (2026-09-11)
+
+- **milestone**: weighted all-target transport through the physical partition
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetNormalization.lean`
+- **proved declarations**:
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight_eqv_blockEntry`,
+  `globalInwardMateTargetPhysicalBlockWeight_le_targetBlock`,
+  `globalInwardMateTargetRepresentativePhysicalKey`,
+  `boundedPhysicalTargetWords_nodup`,
+  `globalInwardMateTargetRepresentativePhysicalKey_mem`,
+  `globalInwardMateTargetPhysicalBlock_fiberWeight_eq`,
+  `globalInwardMateTargetPhysicalBlocks_weight_total`,
+  `globalInwardMateTargetRepresentatives_weight_le_physicalPartition`,
+  `globalInwardMateSuccessfulSourceWeight_le_physicalPartition`, and
+  `globalInwardMateSuccessRate_partition_le_transportCost_mul_targets`
+- **closed obligation**: identify the common weight within each physical
+  target block; multiply the genuine SU2 carrier capacity through that weight;
+  Fubini-partition distinct exact target representatives by their bounded
+  physical target; sum the weighted block inequalities through the exact BF4
+  partition normalization; and combine with the proved `41/425` success mass.
+  In particular,
+  `distinct target mass <= Z_K` and
+  `(41/425) * Z_K <= 64 * 32,000,000^6 * distinct target mass`.
+- **scope boundary**: the positive constant belongs to the fixed anchor
+  coupling `1/400` and is cutoff-independent only.  The distinct target mass
+  has not yet been identified as one side of a same-object conditional law or
+  posterior variance.  No beta/lattice-spacing uniformity, OS form bound,
+  spectral gap, or continuum theorem is asserted.
+- **remaining named obligation**: divide by the explicit positive transport
+  cost to package a witness-bearing retained-target fraction; then connect the
+  source/target coupling to a same-object conditional two-copy observable and
+  derive the corresponding posterior-variance lower estimate before any OS
+  transfer-form contraction.
+- **constructive or propositional**: exact finite block weights, decidable
+  physical-word Fubini, rational monotonicity, and the existing SU2 partition
+  normalization only.  No `sorry`, new named hypothesis, Rust result, or
+  trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target normalization focused source check      PASS
+global all-target normalization dependency target         PASS (1,309 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Inject distinct all-target atoms into genuine SU2 tuple fibers (2026-09-11)
 
 - **milestone**: physical-block target-carrier injection
