@@ -30776,3 +30776,60 @@ constant is quantitatively sufficient without a lossy three-term triangle
 bound; extend any strict estimate along the physical beta/spacing trajectory,
 build the linked same-object cutoff tower, prove the completed physical gap,
 and construct the continuum theory and Clay closure.
+
+#### Bound the enriched centered reflected form by one causal packet (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeCenteredReflectionForm`
+defines the exact centered covariance of the enriched lower-face indicator
+with its reflected copy under the normalized pushed law.  Reflection
+invariance identifies the two one-face means, so the form is exactly the
+same-object expression
+
+```text
+joint moment - root mean * root mean.
+```
+
+The proof avoids combining the three separate mismatch estimates.  Instead
+it establishes the direct causal chain
+
+```text
+centered reflected form
+  <= joint event
+  <= root event
+  <= normalized occupation of the one dyadic root packet
+  <= 256/425
+  < 1.
+```
+
+The root-to-packet step is checked on every source row.  A coherent coarse
+root event vanishes when the packet is empty by the SU(2) lowering-support
+theorem; an incoherent positive row retains the selected fine root, whose
+packet incidence is canonical; a Gibbs-null row contributes zero.  Thus the
+packet constant is paid once, with no three-term triangle loss.
+
+This is a strict absolute upper bound for one finite enriched centered
+reflected covariance at the named SU(2) anchor and fine cutoff one.  It is not
+yet reflection positivity of the enriched pushed law, a bound relative to an
+OS diagonal norm, a dense-vector/operator gap, scaling uniformity, or a
+continuum theorem.
+
+Monitored verification:
+
+```text
+centered reflected-form focused source check    PASS
+centered reflected-form dependency target       PASS (5597 jobs)
+aggregate YMGap target                           SAFE-STOPPED at 3266/7982
+                                                 (12 GiB memory reserve)
+```
+
+Every printed new load-bearing declaration uses only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: prove reflection positivity for the enriched pushed law, convert
+the absolute one-observable estimate into a norm-relative same-object form
+contraction on a dense vacuum complement, extend the rate along the physical
+beta/spacing trajectory with all parameters named, construct the linked
+cutoff tower, and complete the thermodynamic, continuum, and Clay-facing
+steps.

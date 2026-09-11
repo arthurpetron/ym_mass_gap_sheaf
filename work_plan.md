@@ -823,11 +823,13 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- actual root/reflected/joint mismatch <= 256/425 ......... [PROVED given incidence bundle]
 |       +-- canonical reflected dyadic-incidence bundle producer .... [PROVED exact]
 |       +-- canonical actual three defects <= 256/425 ............... [PROVED at anchor, K=1]
-|       +-- retained-sector centered OS-form compiler ................ [ACTIVE]
+|       +-- enriched centered reflected-form compiler ................ [PROVED exact]
+|       +-- canonical centered reflected form <= 256/425 < 1 ......... [PROVED anchor, K=1]
 |       +-- scaling-corridor packet-occupation modulus .............. [OPEN]
 |       +-- parameter-correct SU(2) rare-event branch ............... [PROVED at anchor, K=1]
 |       +-- beta/cutoff/volume-explicit rare-event bound ........... [OPEN]
-|       +-- reflection positivity on the retained sector ......... [OPEN]
+|       +-- reflection positivity of the enriched pushed law ........ [OPEN]
+|       +-- norm-relative same-object form contraction .............. [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
 +-- B. Uniform physical scaling
