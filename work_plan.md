@@ -804,7 +804,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- enriched observable pullback / expectation compiler .. [PROVED exact]
 |       +-- cross-carrier block `L2` contraction ................. [PROVED exact]
 |       +-- retained-row positive-time face identification ....... [PROVED exact]
-|       +-- coherent-row positive-time recoupling identity ....... [NEXT]
+|       +-- coherent root/reflected/joint recoupling compiler ..... [PROVED exact]
+|       +-- weighted coherent positive-time defect control ........ [NEXT]
 |       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |

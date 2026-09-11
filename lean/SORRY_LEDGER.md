@@ -30381,3 +30381,34 @@ observable or control its defect, assemble the resulting whole-law reflected
 Gram and retained-sector OS positivity, build the linked same-object cutoff
 tower, prove the physical completed gap, and construct the continuum theory
 and Clay closure.
+
+#### Compile the coherent positive-time moment triple (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeMomentCompiler`
+adds the reflected joint face observable and compiles the root, reflected,
+and joint pullbacks on both positive-source branches.  An incoherent retained
+row gives the literal product of one fine lower-half observable with the same
+observable on the reflected upper restriction.  A coherent row gives the
+three explicit whole-slab recoupling expectations.  Reflection exchanges the
+coherent root and reflected moments exactly, and three named absolute defects
+isolate the remaining rowwise mismatch without claiming it is small.
+
+Monitored verification:
+
+```text
+enriched positive-time moment compiler focused source check PASS
+enriched positive-time moment compiler dependency target     PASS (1567 jobs)
+```
+
+All six printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+An attempted umbrella `YMGap` build was stopped cleanly by the monitored
+memory-reserve guard and is not counted as a pass.
+
+Still open: control the weighted coherent root/reflected/joint defects with
+explicit SU(2), coupling, cutoff, and volume dependence, assemble the
+whole-law reflected Gram and retained-sector OS positivity, build the linked
+same-object cutoff tower, prove the physical completed gap, and construct the
+continuum theory and Clay closure.
