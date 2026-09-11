@@ -142,6 +142,38 @@ theorem PreInnerForm.two_cross_le_tail_head_budget
 
 /-! ## 2. Contraction of the assembled head plus tail -/
 
+/-- Exact diagonal expansion for a sum in a constructive GNS datum. -/
+theorem GNSData.add_self_expand
+    (D : GNSData) (a b : D.V) :
+    D.B (D.add a b) (D.add a b) ≈
+      (D.B a a + 2 * D.B a b) + D.B b b := by
+  refine Q'.eqv_trans _
+    (D.B a (D.add a b) + D.B b (D.add a b)) _
+    (D.B_add_left a b (D.add a b)) ?_
+  refine Q'.eqv_trans _
+    ((D.B a a + D.B a b) + (D.B b a + D.B b b)) _
+    (QPoly.q_add_congr
+      (D.B_add_right a a b)
+      (D.B_add_right b a b)) ?_
+  refine Q'.eqv_trans _
+    ((D.B a a + D.B a b) + (D.B a b + D.B b b)) _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.add_eqv_congr_right _ _ _ (D.B_symm b a))) ?_
+  refine Q'.eqv_trans _
+    (D.B a a + (D.B a b + (D.B a b + D.B b b))) _
+    (Q'.add_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _
+    (D.B a a + ((D.B a b + D.B a b) + D.B b b)) _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _))) ?_
+  refine Q'.eqv_trans _
+    ((D.B a a + (D.B a b + D.B a b)) + D.B b b) _
+    (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
+  exact QPoly.q_add_congr
+    (QPoly.q_add_congr (Q'.eqv_refl _)
+      (OSReconstructionProgress.q_two_mul (D.B a b)))
+    (Q'.eqv_refl _)
+
 /-- A positive form with head rate `q` and tail rate `tau` contracts their
 sum at the additive rate `q+tau`.  This theorem is deliberately stated on
 `GNSData`, whose bilinearity identifies the left side with the three-term
@@ -160,39 +192,147 @@ theorem GNSData.add_self_le_of_head_tail
       (D.B a a + 2 * D.B a b) + D.B b b ≤
         (q * X + (tau * X + q * Y)) + tau * Y :=
     Q'.add_le_add (Q'.add_le_add hhead hcross) htail
-  have hexpand :
-      D.B (D.add a b) (D.add a b) ≈
-        (D.B a a + 2 * D.B a b) + D.B b b := by
-    refine Q'.eqv_trans _
-      (D.B a (D.add a b) + D.B b (D.add a b)) _
-      (D.B_add_left a b (D.add a b)) ?_
-    refine Q'.eqv_trans _
-      ((D.B a a + D.B a b) + (D.B b a + D.B b b)) _
-      (QPoly.q_add_congr
-        (D.B_add_right a a b)
-        (D.B_add_right b a b)) ?_
-    refine Q'.eqv_trans _
-      ((D.B a a + D.B a b) + (D.B a b + D.B b b)) _
-      (Q'.add_eqv_congr_left _ _ _
-        (Q'.add_eqv_congr_right _ _ _ (D.B_symm b a))) ?_
-    refine Q'.eqv_trans _
-      (D.B a a + (D.B a b + (D.B a b + D.B b b))) _
-      (Q'.add_assoc_eqv _ _ _) ?_
-    refine Q'.eqv_trans _
-      (D.B a a + ((D.B a b + D.B a b) + D.B b b)) _
-      (Q'.add_eqv_congr_left _ _ _
-        (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _))) ?_
-    refine Q'.eqv_trans _
-      ((D.B a a + (D.B a b + D.B a b)) + D.B b b) _
-      (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
-    exact QPoly.q_add_congr
-      (QPoly.q_add_congr (Q'.eqv_refl _)
-        (OSReconstructionProgress.q_two_mul (D.B a b)))
-      (Q'.eqv_refl _)
+  have hexpand := GNSData.add_self_expand D a b
   exact Q'.le_trans' _ _ _
     (Q'.le_of_eqv hexpand)
     (Q'.le_trans' _ _ _ hthree
       (Q'.le_of_eqv (by ring_qeqv)))
+
+/-! ## 3. Zero-rate-safe gluing -/
+
+/-- A nonnegative rational squeezed above by zero is semantically zero. -/
+private theorem eqv_zero_of_nonnegative_le_zero
+    {value : Q'} (hnonnegative : (0 : Q') ≤ value)
+    (hle : value ≤ (0 : Q')) : value ≈ 0 := by
+  show value.num * ((0 : Q').den : Int) =
+    (0 : Q').num * (value.den : Int)
+  exact Int.le_antisymm hle hnonnegative
+
+/-- A nonnegative rational that is not semantically zero is positive. -/
+private theorem pos_of_nonnegative_not_eqv_zero
+    {value : Q'} (hnonnegative : (0 : Q') ≤ value)
+    (hne : ¬ value ≈ 0) : (0 : Q') < value := by
+  have hnumNonnegative : (0 : Int) ≤ value.num :=
+    (Q'.zero_le_iff_num_nonneg value).mp hnonnegative
+  have hnumNe : value.num ≠ 0 := by
+    intro hnum
+    apply hne
+    show value.num * (1 : Int) = (0 : Int) * (value.den : Int)
+    simp [hnum]
+  show (0 : Int) * (value.den : Int) < value.num * (1 : Int)
+  rw [Int.zero_mul, Int.mul_one]
+  omega
+
+/-- The additive-rate gluing theorem remains valid when either rate is zero.
+In a zero-rate branch, nonnegativity of the form makes the corresponding
+vector radical, so all of its cross terms vanish exactly. -/
+theorem GNSData.add_self_le_of_head_tail_nonnegative
+    (D : GNSData) (a b : D.V) (q tau X Y : Q')
+    (hq : (0 : Q') ≤ q) (htau : (0 : Q') ≤ tau)
+    (hX : (0 : Q') ≤ X) (hY : (0 : Q') ≤ Y)
+    (hhead : D.B a a ≤ q * X)
+    (htail : D.B b b ≤ tau * Y) :
+    D.B (D.add a b) (D.add a b) ≤
+      (q + tau) * (X + Y) := by
+  by_cases hqZero : q ≈ 0
+  · have hqXZero : q * X ≈ 0 :=
+      Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right q 0 X hqZero)
+        (Q'.zero_mul_eqv X)
+    have hheadLeZero : D.B a a ≤ (0 : Q') :=
+      OSReconstructionProgress.le_of_le_eqv hhead hqXZero
+    have hheadZero : D.B a a ≈ 0 :=
+      eqv_zero_of_nonnegative_le_zero (D.self_nonneg a) hheadLeZero
+    have hcrossZero : D.B a b ≈ 0 :=
+      D.radical_form_zero a b hheadZero
+    have htwoCrossZero : 2 * D.B a b ≈ 0 :=
+      Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left 2 _ _ hcrossZero)
+        (Q'.mul_zero_eqv 2)
+    have hleft :
+        D.B (D.add a b) (D.add a b) ≈ D.B b b := by
+      refine Q'.eqv_trans _ _ _ (GNSData.add_self_expand D a b) ?_
+      refine Q'.eqv_trans _
+        ((0 : Q') + 0 + D.B b b) _ ?_ ?_
+      · exact QPoly.q_add_congr
+          (QPoly.q_add_congr hheadZero htwoCrossZero)
+          (Q'.eqv_refl _)
+      · rw [Q'.zero_add', Q'.zero_add']
+        exact Q'.eqv_refl _
+    have hYLe : Y ≤ X + Y :=
+      Q'.le_trans' _ (Y + X) _
+        (Q'.add_le_self_of_nonneg Y X hX)
+        (Q'.le_of_eqv (Q'.add_comm_eqv Y X))
+    have htailGrow : D.B b b ≤ tau * (X + Y) :=
+      Q'.le_trans' _ _ _ htail
+        (Q'.mul_le_mul_of_nonneg_left Y (X + Y) tau hYLe htau)
+    have hrhs : (q + tau) * (X + Y) ≈ tau * (X + Y) := by
+      refine Q'.eqv_trans _
+        (q * (X + Y) + tau * (X + Y)) _
+        (QPoly.q_add_mul q tau (X + Y)) ?_
+      refine Q'.eqv_trans _
+        (0 * (X + Y) + tau * (X + Y)) _ ?_ ?_
+      · exact QPoly.q_add_congr
+          (Q'.mul_eqv_congr_right q 0 (X + Y) hqZero)
+          (Q'.eqv_refl _)
+      · refine Q'.eqv_trans _
+          (0 + tau * (X + Y)) _ ?_ ?_
+        · exact QPoly.q_add_congr
+            (Q'.zero_mul_eqv (X + Y)) (Q'.eqv_refl _)
+        · exact QPoly.q_zero_add_eqv _
+    exact OSReconstructionProgress.le_of_eqv_le hleft
+      (OSReconstructionProgress.le_of_le_eqv htailGrow
+        (Q'.eqv_symm hrhs))
+  · by_cases htauZero : tau ≈ 0
+    · have htauYZero : tau * Y ≈ 0 :=
+        Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right tau 0 Y htauZero)
+          (Q'.zero_mul_eqv Y)
+      have htailLeZero : D.B b b ≤ (0 : Q') :=
+        OSReconstructionProgress.le_of_le_eqv htail htauYZero
+      have htailZero : D.B b b ≈ 0 :=
+        eqv_zero_of_nonnegative_le_zero (D.self_nonneg b) htailLeZero
+      have hcrossZero : D.B a b ≈ 0 :=
+        D.radical_form_zero_right a b htailZero
+      have htwoCrossZero : 2 * D.B a b ≈ 0 :=
+        Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_left 2 _ _ hcrossZero)
+          (Q'.mul_zero_eqv 2)
+      have hleft :
+          D.B (D.add a b) (D.add a b) ≈ D.B a a := by
+        refine Q'.eqv_trans _ _ _ (GNSData.add_self_expand D a b) ?_
+        refine Q'.eqv_trans _
+          ((D.B a a + 0) + 0) _ ?_ ?_
+        · exact QPoly.q_add_congr
+            (QPoly.q_add_congr (Q'.eqv_refl _) htwoCrossZero)
+            htailZero
+        · rw [Q'.add_zero', Q'.add_zero']
+          exact Q'.eqv_refl _
+      have hXLe : X ≤ X + Y := Q'.add_le_self_of_nonneg X Y hY
+      have hheadGrow : D.B a a ≤ q * (X + Y) :=
+        Q'.le_trans' _ _ _ hhead
+          (Q'.mul_le_mul_of_nonneg_left X (X + Y) q hXLe hq)
+      have hrhs : (q + tau) * (X + Y) ≈ q * (X + Y) := by
+        refine Q'.eqv_trans _
+          (q * (X + Y) + tau * (X + Y)) _
+          (QPoly.q_add_mul q tau (X + Y)) ?_
+        refine Q'.eqv_trans _
+          (q * (X + Y) + 0 * (X + Y)) _ ?_ ?_
+        · exact QPoly.q_add_congr
+            (Q'.eqv_refl _)
+            (Q'.mul_eqv_congr_right tau 0 (X + Y) htauZero)
+        · refine Q'.eqv_trans _
+            (q * (X + Y) + 0) _ ?_ ?_
+          · exact QPoly.q_add_congr
+              (Q'.eqv_refl _) (Q'.zero_mul_eqv (X + Y))
+          · exact QPoly.q_add_zero_eqv _
+      exact OSReconstructionProgress.le_of_eqv_le hleft
+        (OSReconstructionProgress.le_of_le_eqv hheadGrow
+          (Q'.eqv_symm hrhs))
+    · exact GNSData.add_self_le_of_head_tail D a b q tau X Y
+        (pos_of_nonnegative_not_eqv_zero hq hqZero)
+        (pos_of_nonnegative_not_eqv_zero htau htauZero)
+        hhead htail
 
 end YMGap.Continuum.FinitePositiveFormHeadTailGluing
 
@@ -203,4 +343,8 @@ end YMGap.Continuum.FinitePositiveFormHeadTailGluing
 #print axioms
   YMGap.Continuum.FinitePositiveFormHeadTailGluing.PreInnerForm.two_cross_le_tail_head_budget
 #print axioms
+  YMGap.Continuum.FinitePositiveFormHeadTailGluing.GNSData.add_self_expand
+#print axioms
   YMGap.Continuum.FinitePositiveFormHeadTailGluing.GNSData.add_self_le_of_head_tail
+#print axioms
+  YMGap.Continuum.FinitePositiveFormHeadTailGluing.GNSData.add_self_le_of_head_tail_nonnegative

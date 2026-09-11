@@ -31069,6 +31069,54 @@ physical BF4 head--tail dependency target                 PASS (1,489 jobs)
 
 All printed load-bearing declarations use only `[propext, Quot.sound]`.
 
+#### Reduce the centered physical BF4 new tail to one exact trace (2026-09-11)
+
+- **milestone**: literal new-tail normalized-trace certificate boundary
+- **files**:
+  `lean/YMGap/Continuum/FinitePositiveFormHeadTailGluing.lean`,
+  `lean/YMGap/Continuum/FinitePositiveFormTraceGluing.lean`,
+  `lean/YMGap/Continuum/FiniteWeightedGramGNSData.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredTailTrace.lean`
+- **proved declarations**:
+  `GNSData.add_self_le_of_head_tail_nonnegative`,
+  `finiteLinearCombination_self_le_traceBudget`,
+  `finiteWeightedGramGNSData`,
+  `weightedGramBilinear_congr_on`,
+  `centralPhysicalFiniteVacuumSectorCoordinateCombination_eqv_newTail_on`,
+  `centralPhysicalFiniteVacuumSectorDiagonalQuadratic_newTail_eqv_budget`,
+  and
+  `centralPhysicalFiniteVacuumSectorCenteredNewTailCoefficient_le_of_traceBound`
+- **closed obligation**: package the actual component-centered BF4 boundary
+  transform as a positive `GNSData`; recursively contract exact normalized
+  coordinate diagonals into a full-form trace estimate, including zero-rate
+  coordinates by radical descent; reassemble the duplicate-free coordinate
+  list as the literal physical new-tail mask on the later carrier; and identify
+  its coordinate budget with its full stationary diagonal norm.
+- **remaining named obligation**: prove the explicit scalar inequality
+  `centralPhysicalFiniteVacuumSectorExactNewTailTraceRate <= tau` with a
+  cutoff-uniform `tau < 1/50`, and persist the cutoff-two `49/50` head estimate
+  in this same later-cutoff centered Gram.  These are finite/high-spin SU(2)
+  analytic obligations; thermodynamic and continuum passage, continuum QFT
+  axioms, isolated vacuum, and the Clay theorem remain open.
+- **constructive or propositional**: finite rational sums, exact delta-basis
+  reassembly, and positive-form algebra.  External Rust is permitted only to
+  generate exact certificate data that Lean checks; no Rust result is trusted
+  by these declarations.
+
+Monitored verification:
+
+```text
+generic trace gluing focused source check                 PASS
+finite weighted Gram focused source check                 PASS
+finite weighted Gram dependency target                    PASS (216 jobs)
+physical centered-tail focused source check               PASS
+physical centered-tail dependency target                  PASS (1,493 jobs)
+```
+
+Every printed load-bearing declaration uses only `[propext, Quot.sound]`;
+there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.
+
 #### Contract the connected production rows through the vacuum packet (2026-09-10)
 
 - **milestone**: explicit strict finite-volume connected production fraction
