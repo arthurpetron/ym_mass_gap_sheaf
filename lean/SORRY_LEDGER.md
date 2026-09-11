@@ -30355,3 +30355,29 @@ Still open: identify the positive-time half-amplitudes and reflected joint law
 on the enriched carrier, use that identification to establish retained-sector
 OS positivity, build the linked same-object cutoff tower, prove the physical
 completed gap, and construct the continuum theory and Clay closure.
+
+#### Identify retained enriched faces with one positive-time observable (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeFaceCompiler` chooses
+a lower-half face in each target branch and proves that enriched reflection
+exchanges the root and reflected observables.  On every positive incoherent
+source row, the two pullbacks are identified with the same existing physical
+face observable evaluated respectively on the lower and reflected-upper half
+restrictions.
+
+Monitored verification:
+
+```text
+retained positive-time face compiler focused source check  PASS
+```
+
+All five printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: identify the coherent recoupling branch with a positive-time
+observable or control its defect, assemble the resulting whole-law reflected
+Gram and retained-sector OS positivity, build the linked same-object cutoff
+tower, prove the physical completed gap, and construct the continuum theory
+and Clay closure.
