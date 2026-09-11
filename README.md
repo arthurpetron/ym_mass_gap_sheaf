@@ -116,8 +116,16 @@ flattened finite carrier has length exactly
 `cubeInwardMateNonemptyStretchedRemainder`.  See
 [`BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber.lean).
 
+The raw expansion has now been sharpened at its mathematical source.  The
+SU(2) ladder proof shows that if either changed face label is zero, every
+source channel survives and the additive debt is exactly zero.  The active
+remainder therefore retains a stretched fiber only when both incident cube
+faces are positive; it again has an exact finite-carrier cardinality theorem.
+See
+[`BF4PhysicalVacuumSectorInwardMateActiveStretchedDebt.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveStretchedDebt.lean).
+
 The next causal step is now a single precise theorem: reroute the terms in
-that concrete finite carrier from their computed roots through complete strand
+that positivity-gated finite carrier from their computed roots through complete strand
 components and bound their sum
 by a cutoff-independent multiple of the pure mate product.  That would compare
 the complete fixed-boundary intertwiner contraction. A genuine physical

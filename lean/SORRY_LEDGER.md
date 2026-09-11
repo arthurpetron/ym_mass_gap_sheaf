@@ -31362,6 +31362,54 @@ declaration, enlarged heartbeat budget, `sorry`, Rust computation, or trusted
 external computation.  The root aggregator imports the module.  No aggregate
 or full-root audit is claimed by this check.
 
+#### Gate the stretched debt by its exact positive-face condition (2026-09-11)
+
+- **milestone**: delete every spurious zero-face summand before global strand
+  rerouting
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveStretchedDebt.lean`
+- **proved declarations**:
+  `activeStretchedContinuation`,
+  `fusionPathMultiplicity_evenInwardMate_le_of_not_both_positive`,
+  `fusionPathMultiplicity_evenInwardMate_le_add_activeStretched`,
+  `explicitValenceMultiplicity_physical_inwardMate_le_add_activeStretched`,
+  `explicitValenceMultiplicity_physical_inwardMate_of_permutations_active`,
+  `cubeInwardMateActiveStretchedDebt`,
+  `cubeInwardMateSourceLinkMultiplicity_le_target_add_activeDebt`,
+  `cubeInwardMateSourceBoundaryProduct_le_target_add_activeRemainder`,
+  `cubeInwardMateActiveStretchedFusionWitnesses`,
+  `cubeInwardMateActiveStretchedFusionWitnesses_length`,
+  `cubeActiveDebtWordFusionAssignments`, and
+  `cubeInwardMateNonemptyActiveDebtFusionCarriers_length`
+- **closed obligation**: strengthen the local ladder comparison to prove that
+  a zero incident label makes every source path survive; gate the unique
+  stretched continuation by positivity of both incident labels; transport the
+  sharper inequality across physical list permutations; and rebuild the
+  twelve-link product, nonempty Boolean expansion, and exact finite carrier
+  with only active fibers
+- **remaining named obligation**: extract the active root's two physical
+  strand copies, unfold its collapsed stretched witness to an accepted source
+  trivalent network, and trace/reroute the resulting closed component into a
+  bounded-fiber family over pure mate assignments; then obtain the physical
+  transition floor, posterior variance/Hardy--Poincare estimate, completed
+  gap, thermodynamic and continuum passage, QFT axioms, isolated vacuum, and
+  the Clay theorem
+- **constructive or propositional**: the active gate is a decidable
+  positive-positive test; inactive fibers are literally empty, and the
+  sharpened carrier remains an explicit finite list with exact cardinality
+
+Monitored verification:
+
+```text
+inward-mate active-debt explicit olean emission             PASS
+```
+
+The five printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

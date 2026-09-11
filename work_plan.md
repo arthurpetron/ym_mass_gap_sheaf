@@ -71,12 +71,19 @@ carrier.  At each link the Boolean word chooses either the ordinary mate
 auxiliary fiber or a newly exposed stretched-spin auxiliary fiber; a Cartesian
 compiler assembles these choices, and Lean proves that the flattened carrier's
 length is exactly `cubeInwardMateNonemptyStretchedRemainder`.
+The raw debt has also been sharpened before rerouting: when either incident
+cube-face label is zero, every source fusion path survives the mate, so the
+local additive term is definitionally zero.  The active twelve-link product,
+nonempty remainder, and finite witness carrier retain only positive-positive
+stretched fibers.  This removes spurious zero-face summands and guarantees
+that every genuine root can supply physical strand copies on both incident
+faces.
 
 The next load-bearing analytic producers are, in causal order:
 
 1. start at the computed first-stretched incidence of every concrete carrier
    member in
-   `cubeInwardMateNonemptyStretchedRemainder`, construct its SU(2)-specific
+   `cubeInwardMateNonemptyActiveStretchedRemainder`, construct its SU(2)-specific
    closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
