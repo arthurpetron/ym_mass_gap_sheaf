@@ -30731,3 +30731,48 @@ retained-sector OS form statement, extend the anchor estimate along the
 physical beta/spacing trajectory with explicit parameters, build the linked
 same-object cutoff tower, prove the completed physical gap, and construct the
 continuum theory and Clay closure.
+
+#### Construct the canonical reflected dyadic incidence bundle (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeCanonicalDyadicGeometry`
+chooses the existing canonical bottom spatial coarse plaquette and its first
+dyadic fine child `((1,1,0,0), p01)`.  It proves directly that the fine child
+is physical and lower-half, belongs to the four-face packet of the coarse
+root, and that its reflected face belongs to the packet of the reflected
+coarse root.
+
+The reflected incidence is an exact consequence of the boundary-complete
+affine extent identity
+
+```text
+fine.extent = 2 * coarse.extent + 1:
+```
+
+reflection sends the first bottom child to the last child of the reflected
+coarse packet.  These witnesses inhabit
+`DyadicEnrichedLowerFaceGeometry` canonically for every `SlabScalePair`.
+Consequently the actual canonical root, reflected, and joint enriched
+positive-time defect averages all obey `<= 256/425` at fine cutoff one and
+the named SU(2) anchor, with no remaining incidence hypothesis.
+
+The initial arithmetic proof of fine-slab membership elaborated with
+`Classical.choice`; it was replaced by explicit `Nat.lt_succ_of_le` witnesses.
+The final declarations remain inside the project axiom gate.
+
+Monitored verification:
+
+```text
+canonical reflected dyadic geometry focused source check    PASS
+```
+
+Every printed new load-bearing declaration uses only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: identify the exact centered retained-sector OS form controlled by
+the canonical three moments and determine whether the present `256/425`
+constant is quantitatively sufficient without a lossy three-term triangle
+bound; extend any strict estimate along the physical beta/spacing trajectory,
+build the linked same-object cutoff tower, prove the completed physical gap,
+and construct the continuum theory and Clay closure.
