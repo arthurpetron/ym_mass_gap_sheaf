@@ -31276,6 +31276,47 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Root every nonempty stretched-debt word constructively (2026-09-11)
+
+- **milestone**: canonical geometric starting incidence for each exact
+  nonempty Boolean debt term
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot.lean`
+- **proved declarations**:
+  `debtChoiceWords_word_length`,
+  `nonemptyDebtChoiceWords_word_length`,
+  `true_mem_of_mem_nonemptyDebtChoiceWords`, `firstTrueIndex`,
+  `firstTrueIndex_lt_of_mem_true`,
+  `getD_firstTrueIndex_eq_true_of_mem`, `CubeNonemptyDebtWord`,
+  `cubeDebtRootPosition`, `cubeDebtRootIncidence`, and
+  `cubeDebtRootChoice_eq_true`
+- **closed obligation**: prove every generated word is aligned with the
+  incidence list; compute the first stretched bit by total recursion; package
+  its bounded index as data; select the corresponding attached cube-boundary
+  incidence; and prove that selected choice is stretched
+- **remaining named obligation**: use the computed incidence to root a closed
+  SU(2) strand-component rerouting of each debt carrier, bound the complete
+  nonempty remainder by a cutoff-independent multiple of the pure mate
+  product, and then obtain the intertwiner comparison, physical transition
+  floor, posterior variance/Hardy--Poincare estimate, completed gap,
+  thermodynamic and continuum passage, QFT axioms, isolated vacuum, and the
+  Clay theorem
+- **constructive or propositional**: the root index and geometric incidence
+  are returned as Type-level data computed from the Boolean word; membership
+  proofs only certify their bounds, and no choice or external search is used
+
+Monitored verification:
+
+```text
+inward-mate stretched-root explicit olean emission          PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

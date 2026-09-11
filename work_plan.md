@@ -61,12 +61,17 @@ source product is bounded by the product of the twelve explicit
 `mate + stretchedDebt` factors.  Exact finite distributivity now enumerates
 that product by Boolean words on the attached link list, separates the
 all-target word, and names the sum of every nonempty stretched word as
-`cubeInwardMateNonemptyStretchedRemainder`.
+`cubeInwardMateNonemptyStretchedRemainder`.  Every such word now also carries
+a canonical computed root: its first stretched bit gives a bounded index into
+the attached twelve-link production-incidence list, and the selected bit is
+proved `true`.  This is Type-level input for the strand tracer, not an
+existential choice.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. construct an SU(2)-specific closed-component rerouting for every term in
-   `cubeInwardMateNonemptyStretchedRemainder`, and sum those routes into a
+1. start at the computed first-stretched incidence of every term in
+   `cubeInwardMateNonemptyStretchedRemainder`, construct its SU(2)-specific
+   closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;

@@ -103,8 +103,15 @@ nonempty stretched words sum to the named
 `cubeInwardMateNonemptyStretchedRemainder`.  See
 [`BF4PhysicalVacuumSectorInwardMateStretchedDebtExpansion.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtExpansion.lean).
 
+Every summand in that remainder now has a canonical constructive root.  Lean
+computes the first stretched choice, proves its index lies in the attached
+twelve-link incidence list, returns the corresponding geometric incidence as
+data, and proves the root bit is `true`.  See
+[`BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot.lean).
+
 The next causal step is now a single precise theorem: reroute the terms in
-that named remainder through complete strand components and bound their sum
+that named remainder from their computed roots through complete strand
+components and bound their sum
 by a cutoff-independent multiple of the pure mate product.  That would compare
 the complete fixed-boundary intertwiner contraction. A genuine physical
 mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
