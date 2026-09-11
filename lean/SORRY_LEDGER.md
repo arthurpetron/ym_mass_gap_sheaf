@@ -31027,6 +31027,60 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Transfer exact target congestion to production coordinates (2026-09-11)
+
+- **milestone**: all-success-source compiled-target fiber capacity and weighted
+  congestion
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceProductionCongestion.lean`
+- **proved declarations**:
+  `globalInwardMateTargetKey_eq_of_targetProductionAtom_eq`,
+  `globalInwardMateTargetProductionAtom_eq_of_targetKey_eq`,
+  `globalInwardMateTargetProductionAtom_eq_iff_targetKey_eq`,
+  `globalInwardMateProductionTargetKey`,
+  `globalInwardMateProductionTargetKey_eq_iff_targetKey_eq`,
+  `globalInwardMateProductionTargetFiber`,
+  `globalInwardMateProductionTargetFiber_eq_targetFiber`,
+  `globalInwardMateProductionTargetFiber_length_le_sixtyFour`,
+  `globalInwardMateProductionTargetFiber_sourceWeight_le_sixtyFour_mateCost`,
+  `GlobalInwardMateProductionTargetCongestionCertificate`, and
+  `globalInwardMateProductionTargetCongestionCertificate`
+- **closed obligation**: prove that the production positional compiler loses
+  no target identity; identify equality of compiled target atoms and finite
+  production-support keys with equality of the established exact target key;
+  prove the resulting production target fiber literally equal to the old key
+  fiber; and transfer both its capacity `<= 64` and its incoming source-weight
+  bound
+  `<= 64 * anchorInwardMateCost^6 * targetProductionWeight`.
+- **scope boundary**: this controls collisions in the constructed full-slab
+  transport.  It does not assert that its source--target pairs are positive
+  edges, one-step transitions, or paths of the actual lower/boundary-indexed
+  OS kernel.  No posterior variance, OS form bound, beta/lattice-spacing
+  uniformity, completed gap, or continuum theorem is asserted.
+- **remaining named obligation**: construct a same-object disintegration or
+  splicing theorem that realizes every full-slab inward-mate transport pair as
+  a supported path of the actual OS kernel and transfers the source-mass and
+  target-congestion bounds to its edge loads.  Then invoke the existing
+  mass-normalized canonical-flow/posterior compiler.
+- **constructive or propositional**: finite support keys and fibers are
+  explicit Type-level data; equivalence of keys, list equality, cardinality,
+  and rational weighted congestion are kernel-checked propositions.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+production target-congestion focused source check        PASS
+production target-congestion dependency target           PASS (1,318 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Preserve the full all-target success mass in production coordinates (2026-09-11)
 
 - **milestone**: multiplicity-faithful all-success-source production transport

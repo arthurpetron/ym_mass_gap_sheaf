@@ -302,18 +302,14 @@ congestion.
 
 The next load-bearing producers are, in causal order:
 
-1. prove that equality of compiled production target atoms implies equality
-   of the existing exact target key, and transfer the key-fiber capacity
-   `<= 64` plus its weighted congestion estimate to the all-source production
-   transport;
-2. disintegrate or splice the full-slab source--mate transport into supported
+1. disintegrate or splice the full-slab source--mate transport into supported
    paths of the actual lower/boundary-indexed OS kernel, with the edge loads
    explicit rather than treating the constructed pair relation as a joint
    probability law;
-3. feed those supported paths into the existing mass-normalized
+2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
-4. contract that rate through the already proved same-object
+3. contract that rate through the already proved same-object
    dense/completed-gap machinery, then construct the thermodynamic and
    continuum limit maps.
 
@@ -365,9 +361,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- source/target endpoints in production carrier .. [PROVED]
 |   |   |   +-- full source compiler and pair list injective .... [PROVED]
 |   |   |   +-- source marginal preserves full successful mass .. [PROVED]
-|   |   |   +-- compiled target fibers have capacity <= 64 ...... [ACTIVE]
-|   |   |   +-- weighted production target congestion ........... [OPEN next]
-|   |   |   +-- full-slab transport -> supported OS-kernel paths  [OPEN]
+|   |   |   +-- compiled target fibers have capacity <= 64 ...... [PROVED]
+|   |   |   +-- weighted production target congestion ........... [PROVED]
+|   |   |   +-- full-slab transport -> supported OS-kernel paths  [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
