@@ -31027,6 +31027,52 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Globalize the complete first-stretched carrier before normalization (2026-09-11)
+
+- **milestone**: exact all-physical dependent source carrier
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalFullSource.lean`
+- **proved declarations**:
+  `cubeInwardMatePhysicalBoundedOfMem`,
+  `GlobalEnumeratedCubeInwardMateFullSource.eq_of_rawSource_eq`,
+  `GlobalEnumeratedCubeInwardMateFullSource.target_eq_of_key_eq`,
+  `GlobalEnumeratedCubeInwardMateFullSource.lowerPhysical_mem`,
+  `GlobalEnumeratedCubeInwardMateFullSource.two_le_peelSize`, and
+  `globalEnumeratedCubeInwardMateFullSources_nodup`
+- **closed obligation**: perform the missing outer finite Fubini over every
+  bounded extent-one physical source; retain each dependent complete
+  first-stretched source and adaptive inverse record; prove exact recovery
+  from the physical/raw pair; and strengthen lowered-target key exactness from
+  a fixed source physical field to arbitrary bounded source physical fields by
+  using their common zero extension off the genuine slab carrier.
+- **scope correction**: the earlier fixed-physical `384/425` theorem compares
+  one source block with the whole physical partition.  It is therefore not a
+  conditional row estimate, and its `41/425` slack cannot yet be subtracted
+  from one row.  The new global carrier is the required common-mass domain on
+  which a partition-relative complement can eventually be valid.
+- **remaining named obligation**: partition the global carrier by its exact
+  lowered target, prove the global adaptive-fiber and target-block capacities,
+  and only then derive a global bad-mass bound.  Exact total-mass
+  normalization and the all-target complement must be proved before any
+  success fraction is claimed.  A pointwise conditional transition,
+  posterior-variance/Poincare fraction, completed uniform gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: all outer physical memberships, dependent
+  entries, exact keys, and recovery data are retained in `Type`; finite-list
+  duplicate-freeness and supported zero extension are kernel checked.
+
+Monitored verification:
+
+```text
+global complete-source carrier focused source check       PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Complete cube sources from only the off-cube production fibers (2026-09-11)
 
 - **milestone**: no-overcount full presented source completion
