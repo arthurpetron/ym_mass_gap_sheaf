@@ -1322,6 +1322,40 @@ result with the centered production/refresh form, and prove the strict dense
 two-step form bound.  Completed OS extension and controlled thermodynamic/
 continuum passage remain downstream.
 
+#### Cancel both disconnected connected-gradient carriers exactly (2026-09-10)
+
+`Z4DyadicBinaryConnectedObservableGradientDisconnectedCancellation` turns the
+pointwise component-swap sign laws into finite exact cancellations.  A reusable
+constructive lemma proves that a finite `Q'` sum is zero whenever a
+self-permutation sends each summand to its exact negative.  Applying it to the
+root- and target-face disconnected active carriers proves both gradient sums
+zero.
+
+The exact Boolean filter partition then contracts each complete active
+gradient sum to the corresponding connected carrier.  There is no orbit
+quotient, fixed-point assumption, excluded middle, or estimate in this step;
+the disconnected branch is removed by a literal finite reindexing.
+
+Monitored verification:
+
+```text
+connected-gradient disconnected-cancellation focused check PASS
+connected-gradient disconnected-cancellation dependency    PASS (5,617 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation
+is introduced.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed here.
+
+Still open: bound the two surviving connected gradient sums by their one-face
+connected envelopes, identify the full connected-observable two-row cross
+with these active sums, and derive a strict posterior variance for the actual
+connected response.  Centered production/refresh identification, the
+dense/completed spectral gap, and controlled thermodynamic/continuum passage
+remain downstream.
+
 #### Make both connected gradients antisymmetric under component swap (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableSymmetricGradientSwap` proves that the

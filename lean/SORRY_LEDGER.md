@@ -31151,6 +31151,43 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed here.
 
+#### Cancel both disconnected connected-gradient carriers exactly (2026-09-10)
+
+- **milestone**: finite exact cancellation of both disconnected gradient sums
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableGradientDisconnectedCancellation.lean`
+- **proved declarations**:
+  `listQSum_eqv_zero_of_perm_negation`,
+  `connectedRootGradientDisconnectedPairSum_eqv_zero`,
+  `connectedTargetGradientDisconnectedPairSum_eqv_zero`,
+  `connectedRootGradientActivePairSum_eqv_connected`, and
+  `connectedTargetGradientActivePairSum_eqv_connected`
+- **closed obligation**: reindex each finite disconnected one-face carrier by
+  its existing component-swap permutation, combine the pointwise negative
+  summand law with the reindexed sum, derive exact zero, and contract each
+  complete active gradient sum to the complementary connected carrier.
+- **remaining named obligation**: dominate the two surviving connected
+  gradient sums by their already strict one-face envelopes, link the actual
+  connected-observable two-row cross to these sums, and derive a strict
+  connected posterior-variance fraction.  Centered production/refresh
+  identification, the dense/completed spectral gap, and controlled
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: finite list permutations, Boolean filter
+  partitions, and exact rational equivalence only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected-gradient disconnected-cancellation focused check PASS
+connected-gradient disconnected-cancellation dependency    PASS (5,617 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, or trusted external computation.  No aggregate or full-root
+audit is claimed here.
+
 #### Make both connected gradients antisymmetric under component swap (2026-09-10)
 
 - **milestone**: pointwise disconnected antisymmetry for both symmetric
