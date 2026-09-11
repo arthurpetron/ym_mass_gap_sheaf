@@ -34,12 +34,20 @@ open YMGap.Continuum.CayleyPruferInjection
 open YMGap.Continuum.ClusterCount4DProgress
 open YMGap.Continuum.CompactDualSlabDecodedPhysicalMultiplicityCode
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentDrop
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalDropDecoder
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalMultiplicityCode
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentWeakCompositionCode
+open YMGap.Continuum.CompactDualSlabFaceStrandSeedComponent
+open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
+open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction
 open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentAnimal
+open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop
+open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight
+open YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent
 open YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 open YMGap.Continuum.RootedZ4AnimalPaddedTourCode
+open YMGap.Continuum.ResolvedTrivalentNetworkSelectionRemoval
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4DyadicSlabCubeCoupledConditionalKernel
 open YMGap.Continuum.Z4FiniteBoxPacketState
@@ -47,6 +55,93 @@ open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 
 /-! ## 1. The one observable record passed through both compilers -/
+
+private theorem boolCountFrom_falseLocal (start : Nat) : forall length : Nat,
+    boolCountFrom (fun _ => false) start length = 0
+  | 0 => rfl
+  | length + 1 => by
+      rw [boolCountFrom]
+      simp only [boolIndicator, Nat.zero_add]
+      exact boolCountFrom_falseLocal (start + 1) length
+
+/-- A face outside the complete two-root union carries no selected physical
+strand copy. -/
+theorem certifiedStretchedComponentUnionSelectionCount_eq_zero_of_not_support
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 <= K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (stretched : CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded)
+    (background : PresentedSlabFusionWitnessAssignment
+      K 1 physical (boundaryCompleteSlabLinks 1))
+    (faceId : Nat)
+    (hface : slabPlaquetteAt 1 faceId ∉
+      presentedSeedUnionPlaquetteSupport
+        (certifiedStretchedLeftRootSeed stretched background)
+        (certifiedStretchedRightRootSeed stretched background)) :
+    slabFaceStrandSelectionCount
+        (certifiedStretchedComponentUnionSupportedSelection
+          stretched background).closed.selected faceId = 0 := by
+  unfold slabFaceStrandSelectionCount
+  have hcount := boolCountFrom_congr
+    (slabFaceStrandSelectionAt
+      (certifiedStretchedComponentUnionSupportedSelection
+        stretched background).closed.selected faceId)
+    (fun _ => false) 0 0 (physical faceId) (by
+      intro offset hoffset
+      let copy : SlabFaceStrandCopy physical :=
+        { faceId := faceId, slot := ⟨offset, hoffset⟩ }
+      have hselectedFalse :
+          (certifiedStretchedComponentUnionSupportedSelection
+            stretched background).closed.selected copy = false := by
+        cases hselected :
+            (certifiedStretchedComponentUnionSupportedSelection
+              stretched background).closed.selected copy with
+        | false => rfl
+        | true =>
+            exfalso
+            unfold certifiedStretchedComponentUnionSupportedSelection
+              PresentedSlabSupportedPartnerClosedFaceSelection.ofSeedUnion
+              PresentedSlabPartnerClosedFaceSelection.ofSeedUnion at hselected
+            dsimp only at hselected
+            rcases (Bool.or_eq_true _ _).mp hselected with hleft | hright
+            · have hcopy : copy ∈
+                  (certifiedStretchedLeftRootSeed
+                    stretched background).component := by
+                unfold SlabFaceStrandSeed.selected at hleft
+                exact of_decide_eq_true hleft
+              apply hface
+              apply (mem_presentedSeedUnionPlaquetteSupport_iff
+                (certifiedStretchedLeftRootSeed stretched background)
+                (certifiedStretchedRightRootSeed stretched background)
+                (slabPlaquetteAt 1 faceId)).mpr
+              apply List.mem_append.mpr
+              exact Or.inl
+                ((mem_presentedComponentPlaquetteSupport_iff
+                  (certifiedStretchedLeftRootSeed stretched background)
+                  (slabPlaquetteAt 1 faceId)).mpr
+                    ⟨copy, hcopy, rfl⟩)
+            · have hcopy : copy ∈
+                  (certifiedStretchedRightRootSeed
+                    stretched background).component := by
+                unfold SlabFaceStrandSeed.selected at hright
+                exact of_decide_eq_true hright
+              apply hface
+              apply (mem_presentedSeedUnionPlaquetteSupport_iff
+                (certifiedStretchedLeftRootSeed stretched background)
+                (certifiedStretchedRightRootSeed stretched background)
+                (slabPlaquetteAt 1 faceId)).mpr
+              apply List.mem_append.mpr
+              exact Or.inr
+                ((mem_presentedComponentPlaquetteSupport_iff
+                  (certifiedStretchedRightRootSeed stretched background)
+                  (slabPlaquetteAt 1 faceId)).mpr
+                    ⟨copy, hcopy, rfl⟩)
+      simp only [Nat.zero_add]
+      change slabFaceStrandSelectionAt
+          (certifiedStretchedComponentUnionSupportedSelection
+            stretched background).closed.selected faceId offset = false
+      simp [slabFaceStrandSelectionAt, hoffset, copy, hselectedFalse])
+  exact hcount.trans (boolCountFrom_falseLocal 0 (physical faceId))
 
 /-- The actual certified union with its physical multiplicity function and
 exact common peel budget. -/
@@ -58,7 +153,7 @@ def certifiedStretchedComponentUnionShapePhysicalData
     (background : PresentedSlabFusionWitnessAssignment
       K 1 physical (boundaryCompleteSlabLinks 1)) :
     SlabRootedAnimalMultiplicityData 1 where
-  root := slabPlaquetteAt 1
+  rootFaceId :=
     (certifiedStretchedLeftRootSeed stretched background).root.faceId
   support := presentedSeedUnionPlaquetteSupport
     (certifiedStretchedLeftRootSeed stretched background)
@@ -91,6 +186,12 @@ def certifiedStretchedComponentUnionShapePhysicalData
   multiplicity := slabFaceStrandSelectionCount
     (certifiedStretchedComponentUnionSupportedSelection
       stretched background).closed.selected
+  multiplicity_zero_of_not_physical :=
+    (certifiedStretchedComponentUnionSupportedSelection
+      stretched background).selectionCount_eq_zero_of_not_physical
+  multiplicity_zero_of_not_support :=
+    certifiedStretchedComponentUnionSelectionCount_eq_zero_of_not_support
+      stretched background
   total_multiplicity_le_budget := Nat.le_of_eq
     (presentedSelection_peelFaces_length_eq_physicalDrop_l1
       (certifiedStretchedComponentUnionSupportedSelection
@@ -171,6 +272,30 @@ theorem certifiedStretchedComponentUnionPhysicalMultiplicityBinaryDecode
   slabRootedAnimalPhysicalMultiplicityBinaryDecode
     (certifiedStretchedComponentUnionShapePhysicalData stretched background)
 
+/-- The two connected structural words reconstruct the complete selected-copy
+count at every ambient face identifier, including all zero cases. -/
+theorem certifiedStretchedComponentUnionPhysicalDropDecode
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 <= K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (stretched : CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded)
+    (background : PresentedSlabFusionWitnessAssignment
+      K 1 physical (boundaryCompleteSlabLinks 1))
+    (faceId : Nat) :
+    componentPhysicalDropDecode 1
+        (certifiedStretchedComponentUnionShapePhysicalData
+          stretched background).rootFaceId
+        (certifiedStretchedComponentUnionConnectedShapeCode
+          stretched background)
+        (certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode
+          stretched background) faceId =
+      slabFaceStrandSelectionCount
+        (certifiedStretchedComponentUnionSupportedSelection
+          stretched background).closed.selected faceId :=
+  componentPhysicalDropDecode_slabRootedAnimalCode
+    (certifiedStretchedComponentUnionShapePhysicalData stretched background)
+    faceId
+
 /-- The common physical carrier has the exact `4 ^ peelSize` cardinality. -/
 theorem certifiedStretchedComponentUnionPhysicalMultiplicityCarrier_length
     {K : Nat} {physical : EdgeLabelling}
@@ -187,11 +312,13 @@ theorem certifiedStretchedComponentUnionPhysicalMultiplicityCarrier_length
   slabDecodedPhysicalMultiplicityCarrier_length _
 
 #print axioms certifiedStretchedComponentUnionShapePhysicalData
+#print axioms certifiedStretchedComponentUnionSelectionCount_eq_zero_of_not_support
 #print axioms certifiedStretchedComponentUnionConnectedShapeCode
 #print axioms certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode
 #print axioms certifiedStretchedComponentUnionConnectedShapeCode_mem_carrier
 #print axioms certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode_mem_carrier
 #print axioms certifiedStretchedComponentUnionPhysicalMultiplicityBinaryDecode
+#print axioms certifiedStretchedComponentUnionPhysicalDropDecode
 #print axioms certifiedStretchedComponentUnionPhysicalMultiplicityCarrier_length
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPhysicalMultiplicityCode

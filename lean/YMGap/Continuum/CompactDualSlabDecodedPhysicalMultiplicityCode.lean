@@ -20,6 +20,7 @@ or trusted external computation.
 -/
 
 import YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalMultiplicityCode
+import YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalDropDecoder
 import YMGap.Continuum.RootedZ4AnimalPaddedTourCode
 
 namespace YMGap.Continuum.CompactDualSlabDecodedPhysicalMultiplicityCode
@@ -31,12 +32,14 @@ open YMGap.Continuum.BddLatticeAnimal
 open YMGap.Continuum.ClusterCount4DProgress
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentGlobalAuxiliaryL1
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalMultiplicityCode
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentPhysicalDropDecoder
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentWeakCompositionCode
 open YMGap.Continuum.FiniteSimpleWalk
 open YMGap.Continuum.DecodeComplete
 open YMGap.Continuum.RootedZ4AnimalPaddedTourCode
 open YMGap.Continuum.Z4FiniteBoxPacketState
 open YMGap.Continuum.Z4CanonicalPolymerBoundaryTail
+open YMGap.Continuum.Z4CanonicalPolymerAnimalBridge
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4ValenceFusionCutoffIndependence
@@ -61,9 +64,9 @@ structure SlabDecodedPhysicalMultiplicityData (extent : Nat) : Type where
 multiplicity compiler.  The geometric support is supplied only once; the
 second compiler consumes the canonical support decoded from the first. -/
 structure SlabRootedAnimalMultiplicityData (extent : Nat) : Type where
-  root : Z4Plaq
+  rootFaceId : Nat
   support : List Z4Plaq
-  root_mem : root ∈ support
+  root_mem : slabPlaquetteAt extent rootFaceId ∈ support
   support_nodup : support.Nodup
   connected : PolymerModel.connectedIn (L := z4Chain.toLattice) support
   budget : Nat
@@ -71,6 +74,10 @@ structure SlabRootedAnimalMultiplicityData (extent : Nat) : Type where
   support_boundary : forall plaquette, plaquette ∈ support ->
     plaquette ∈ boundaryCompleteSlabPlaquettes extent
   multiplicity : Nat -> Nat
+  multiplicity_zero_of_not_physical : forall faceId,
+    faceId ∉ slabPhysicalFaceEdges extent -> multiplicity faceId = 0
+  multiplicity_zero_of_not_support : forall faceId,
+    slabPlaquetteAt extent faceId ∉ support -> multiplicity faceId = 0
   total_multiplicity_le_budget :
     natListSum ((slabPhysicalFaceEdges extent).map multiplicity) <= budget
 
@@ -78,7 +85,7 @@ structure SlabRootedAnimalMultiplicityData (extent : Nat) : Type where
 def SlabRootedAnimalMultiplicityData.toBoundedRooted {extent : Nat}
     (data : SlabRootedAnimalMultiplicityData extent) :
     BoundedRootedZ4AnimalData where
-  root := data.root
+  root := slabPlaquetteAt extent data.rootFaceId
   support := data.support
   root_mem := data.root_mem
   support_nodup := data.support_nodup
@@ -96,7 +103,8 @@ def slabRootedAnimalShapeCode {extent : Nat}
 compiler. -/
 def slabRootedAnimalDecodedSupport {extent : Nat}
     (data : SlabRootedAnimalMultiplicityData extent) : List Z4Plaq :=
-  decode z4Chain data.root (slabRootedAnimalShapeCode data)
+  decode z4Chain (slabPlaquetteAt extent data.rootFaceId)
+    (slabRootedAnimalShapeCode data)
 
 /-- The compiler boundary preserves the complete geometric support. -/
 theorem slabRootedAnimalDecodedSupport_sameSupport {extent : Nat}
@@ -304,6 +312,66 @@ theorem slabRootedAnimalPhysicalMultiplicityBinaryDecode {extent : Nat}
       slabDecodedPhysicalMultiplicityWord data.toDecodedPhysical :=
   slabDecodedPhysicalMultiplicityBinaryDecode data.toDecodedPhysical
 
+private theorem getD_map_of_ltLocal
+    {A B : Type} (map : A -> B) (source : List A) (index : Nat)
+    (hindex : index < source.length) (sourceFallback : A)
+    (targetFallback : B) :
+    (source.map map).getD index targetFallback =
+      map (source.getD index sourceFallback) := by
+  induction source generalizing index with
+  | nil => simp at hindex
+  | cons head tail induction =>
+      cases index with
+      | zero => rfl
+      | succ index =>
+          simp only [List.length_cons, Nat.succ_lt_succ_iff] at hindex
+          simpa using induction index hindex
+
+/-- The connected shape and physical words reconstruct the total stored
+physical multiplicity at every ambient face, including both zero regions. -/
+theorem componentPhysicalDropDecode_slabRootedAnimalCode
+    {extent : Nat} (data : SlabRootedAnimalMultiplicityData extent)
+    (faceId : Nat) :
+    componentPhysicalDropDecode extent data.rootFaceId
+        (slabRootedAnimalShapeCode data)
+        (slabRootedAnimalPhysicalMultiplicityBinaryCode data) faceId =
+      data.multiplicity faceId := by
+  by_cases hphysical : faceId ∈ slabPhysicalFaceEdges extent
+  · unfold componentPhysicalDropDecode
+    simp only [if_pos hphysical]
+    change (if slabPlaquetteAt extent faceId ∈
+        slabRootedAnimalDecodedSupport data then
+      (weakCompositionBinaryDecode
+        (slabRootedAnimalPhysicalMultiplicityBinaryCode data)).getD
+          (listIndexOf (slabPlaquetteAt extent faceId)
+            (slabRootedAnimalDecodedSupport data)) 0
+      else 0) = data.multiplicity faceId
+    by_cases hsupport : slabPlaquetteAt extent faceId ∈
+        slabRootedAnimalDecodedSupport data
+    · rw [if_pos hsupport,
+        slabRootedAnimalPhysicalMultiplicityBinaryDecode]
+      unfold slabDecodedPhysicalMultiplicityWord
+        SlabRootedAnimalMultiplicityData.toDecodedPhysical
+      have hindex := listIndexOf_lt_of_mem
+        (slabPlaquetteAt extent faceId)
+        (slabRootedAnimalDecodedSupport data) hsupport
+      rw [getD_map_of_ltLocal _ _ _ hindex fallbackPlaquette 0,
+        getD_listIndexOf_of_mem fallbackPlaquette
+          (slabPlaquetteAt extent faceId)
+          (slabRootedAnimalDecodedSupport data) hsupport,
+        slabFaceIdOfPlaquette_slabPlaquetteAt hphysical]
+    · rw [if_neg hsupport]
+      have hnotOriginal : slabPlaquetteAt extent faceId ∉ data.support := by
+        intro horiginal
+        exact hsupport
+          ((slabRootedAnimalDecodedSupport_sameSupport data).1
+            _ horiginal)
+      exact (data.multiplicity_zero_of_not_support
+        faceId hnotOriginal).symm
+  · unfold componentPhysicalDropDecode
+    rw [if_neg hphysical]
+    exact (data.multiplicity_zero_of_not_physical faceId hphysical).symm
+
 #print axioms SlabDecodedPhysicalMultiplicityData
 #print axioms SlabRootedAnimalMultiplicityData
 #print axioms SlabRootedAnimalMultiplicityData.toBoundedRooted
@@ -326,5 +394,6 @@ theorem slabRootedAnimalPhysicalMultiplicityBinaryDecode {extent : Nat}
 #print axioms slabRootedAnimalShapeCode_mem_carrier
 #print axioms slabRootedAnimalPhysicalMultiplicityBinaryCode_mem_carrier
 #print axioms slabRootedAnimalPhysicalMultiplicityBinaryDecode
+#print axioms componentPhysicalDropDecode_slabRootedAnimalCode
 
 end YMGap.Continuum.CompactDualSlabDecodedPhysicalMultiplicityCode
