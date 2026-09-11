@@ -141,15 +141,20 @@ The cube-root specialization now sends both literal face copies through those
 canonical mates to distinct summed-channel ports and certifies the stored
 auxiliary on the exact collapsed word; see
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandContinuation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandContinuation.lean).
+The resulting collapsed auxiliary can now be lifted constructively back across
+the stretched vertex.  For every source word of length at most six,
+`stretchedFusionWitnessLift_mem` inserts the forced first channel, shifts the
+remaining internal coordinates, and proves that the resulting auxiliary is
+accepted on the ordered source word; see
+[`SU2StretchedFusionWitnessLift.lean`](lean/YMGap/Continuum/SU2StretchedFusionWitnessLift.lean).
 
-The next causal step is now a single precise theorem: transplant the collapsed
-root auxiliary coordinates behind the inserted stretched vertex to obtain an
-accepted source trivalent network, then reroute the
-resulting complete strand component and bound the carrier sum
-by a cutoff-independent multiple of the pure mate product.  That would compare
-the complete fixed-boundary intertwiner contraction. A genuine physical
-mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
-posterior conditional-variance estimate.
+The next causal step is to specialize that lift to the active cube root,
+transport the ordered source witness back to the production incident-spin
+order, then reroute the resulting complete strand component and bound the
+carrier sum by a cutoff-independent multiple of the pure mate product.  That
+would compare the complete fixed-boundary intertwiner contraction. A genuine
+physical mate-transition floor would then feed a rooted-subtree
+Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

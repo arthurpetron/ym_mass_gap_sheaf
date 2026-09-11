@@ -89,14 +89,16 @@ input slots to the disjoint shifted segment, with no input-to-input strands.
 The active cube specialization now joins these facts: both geometric root
 copies enter those input ports, their mates are distinct summed-channel ports,
 and the stored root auxiliary is accepted on the exact collapsed word headed
-by their spin sum.
+by their spin sum.  A new finite-valence coordinate compiler now lifts any
+such collapsed accepted auxiliary back across the stretched vertex: it inserts
+the forced spin-sum channel, shifts every surviving internal coordinate, and
+proves acceptance on the ordered source word through valence six.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. transplant the stored collapsed auxiliary coordinates behind the inserted
-   stretched root vertex to obtain an accepted source trivalent network,
-   construct its SU(2)-specific closed-
-   component rerouting, and sum those routes into a
+1. specialize the proved collapsed-witness lift to the active cube root,
+   transport the resulting ordered source witness back to production incident
+   order, construct its SU(2)-specific closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;

@@ -31560,6 +31560,38 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Lift collapsed stretched witnesses back to the ordered source (2026-09-11)
+
+- **milestone**: finite-valence stretched-vertex coordinate transplant
+- **file**:
+  `lean/YMGap/Continuum/SU2StretchedFusionWitnessLift.lean`
+- **proved declarations**: `canonicalAllowed_one`, `canonicalAllowed_two`,
+  `canonicalAllowed_three`, `canonicalAllowed_four`,
+  `canonicalAllowed_five`, `canonicalAllowed_six`,
+  `stretchedFusionWitnessLift`, and `stretchedFusionWitnessLift_mem`
+- **closed obligation**: for every source spin word of length at most six,
+  insert the forced first channel `left + right`, shift the collapsed internal
+  auxiliary coordinates into their source positions, prove their cutoff
+  bounds, and prove every source SU(2) fusion constraint
+- **remaining named obligation**: specialize the lift to the active cube-root
+  carrier, then transport the accepted ordered source auxiliary back to the
+  production incident-spin order before tracing the complete strand component
+- **constructive or propositional**: the lifted auxiliary is a computable
+  `EdgeLabelling`; its accepted-fiber membership is proved by an exhaustive
+  five-case valence argument with the SU(2) ladder normal form
+
+Monitored verification:
+
+```text
+stretched-witness lift explicit olean emission             PASS
+```
+
+The two printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual
