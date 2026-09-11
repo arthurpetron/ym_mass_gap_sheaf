@@ -3626,6 +3626,7 @@ import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
 -- Keeping these in the semantic root makes their declarations visible to the

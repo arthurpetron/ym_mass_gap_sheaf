@@ -31794,6 +31794,51 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the new modules.  No aggregate or full-root audit
 is claimed by these checks.
 
+#### Classify and terminate the active-root first channel (2026-09-11)
+
+- **milestone**: constructive first-channel branch and retained endpoint paths
+- **files**:
+  `lean/YMGap/Continuum/CanonicalLinkFirstVertexPorts.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch.lean`
+- **proved declarations**:
+  `canonicalLinkFirstOutputEdge_physical_of_degree_eq_three`,
+  `canonicalLinkFirstOutputEdge_mem_internal`,
+  `rootFirstAPort_localMate_edgeId`,
+  `rootFirstBPort_localMate_edgeId`,
+  `RootFirstChannelClass`, `rootFirstChannelClass`,
+  `rootLeftFirstChannelStep_of_physical`,
+  `rootRightFirstChannelStep_of_physical`,
+  `rootLeftFirstChannelStep_of_internal`,
+  `rootRightFirstChannelStep_of_internal`,
+  `rootLeftFirstChannelPartnerPath`,
+  `rootRightFirstChannelPartnerPath`, and
+  `rootFirstChannelPartners_ne`
+- **closed obligation**: identify the shared outgoing graph edge, expose the
+  valence-three physical stop versus valence-four-to-six internal continuation
+  as Type-valued data, feed both selected root strands through the exact first
+  compiler step, retain their complete terminal paths, and prove their
+  physical endpoints are distinct
+- **remaining named obligation**: reindex both endpoints as literal physical
+  face copies, glue them across neighboring link presentations into the global
+  face-strand component, and construct the component rerouting used by the
+  inward-mate comparison
+- **constructive or propositional**: the branch, terminal endpoints, and whole
+  paths are Type-level data; edge classification, step equations, and endpoint
+  separation are proof certificates
+
+Monitored verification:
+
+```text
+canonical first-output classification explicit olean emission PASS
+active-root first-channel branch explicit olean emission       PASS
+```
+
+All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the new module.  No aggregate or
+full-root audit is claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

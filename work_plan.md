@@ -115,11 +115,17 @@ degenerate two-valent case, the lifted source auxiliary labels the third leg
 by the precise stretched sum, and the three SU(2) strand counts reduce to
 `ab = 0`, `bc = right`, and `ca = left`.  The two actual selected terminals
 therefore enter the common third leg in the disjoint slots `right` and `0`.
+That common outgoing edge is now constructively classified: it is physical
+edge two at valence three and the first genuine internal fusion edge at
+valence four through six.  Both alternatives feed the existing exact
+stop-or-same-slot-advance compiler.  Complete paths from the two local mates
+to physical terminals are retained as Type-level data, and involutivity proves
+that their endpoint terminals are distinct.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. carry the two now-explicit stretched third-leg ports through the canonical
-   internal chain (including the valence-three terminal case), construct the
+1. reindex the two now-terminated, distinct physical endpoints to literal face
+   copies, glue them across neighboring link occurrences, construct the
    SU(2)-specific closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward

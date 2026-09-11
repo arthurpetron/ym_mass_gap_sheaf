@@ -174,11 +174,17 @@ mates both land on the third leg but in distinct slots (`right` and `0`).  See
 [`CanonicalLinkFirstVertexPorts.lean`](lean/YMGap/Continuum/CanonicalLinkFirstVertexPorts.lean)
 and
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex.lean).
+The outgoing channel is now constructively classified as physical at valence
+three or genuinely internal at valence four through six.  Both root strands
+are fed to the exact stop-or-same-slot-advance compiler; their complete paths
+to physical endpoints are retained as data, and those endpoints are proved
+distinct.  See
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch.lean).
 
-The next causal step is to continue those two explicit third-leg ports through
-the canonical internal chain (or terminate them immediately at valence three),
-then glue and reroute the resulting complete strand component.  The carrier
-sum must then be bounded by a cutoff-independent multiple of the pure mate product.
+The next causal step is to reindex those two distinct physical endpoints to
+their literal face copies, glue them across neighboring link occurrences, and
+reroute the resulting complete strand component.  The carrier sum must then
+be bounded by a cutoff-independent multiple of the pure mate product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

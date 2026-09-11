@@ -15,6 +15,7 @@ No `Classical`, choice, `native_decide`, `sorry`, custom axiom, noncomputable
 declaration, or trusted external computation is used.
 -/
 
+import YMGap.Continuum.CanonicalLinkEdgeOccurrenceMultiplicity
 import YMGap.Continuum.ResolvedTrivalentNetworkHalfEdges
 
 namespace YMGap.Continuum.CanonicalLinkFirstVertexPorts
@@ -22,6 +23,7 @@ namespace YMGap.Continuum.CanonicalLinkFirstVertexPorts
 set_option autoImplicit false
 
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
+open YMGap.Continuum.CanonicalLinkEdgeOccurrenceMultiplicity
 open YMGap.Continuum.ResolvedTrivalentNetworkHalfEdges
 open YMGap.Continuum.ResolvedTrivalentNetworkPorts
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
@@ -163,10 +165,31 @@ def canonicalLinkFirstBHalfEdge
 /-! ## 3. The first outgoing channel identifier -/
 
 /-- Identifier on the third leg of the first canonical vertex.  At valence
-two or three it is the last physical identifier `2`; at higher valence it is
-the first fresh auxiliary identifier `degree + 1`. -/
+three it is the last physical identifier `2`; at valence two it is the
+vacuum terminator `2`; and at higher valence it is the first fresh auxiliary
+identifier `degree + 1`. -/
 def canonicalLinkFirstOutputEdge (degree : Nat) : Nat :=
   if degree ≤ 3 then 2 else degree + 1
+
+/-- At the only active-root valence where the first outgoing channel is
+physical, it is identifier two. -/
+theorem canonicalLinkFirstOutputEdge_physical_of_degree_eq_three
+    {degree : Nat} (hdegree : degree = 3) :
+    canonicalLinkFirstOutputEdge degree < degree := by
+  subst degree
+  decide
+
+/-- At every geometrically possible valence above three, the first outgoing
+channel is a genuine internal fusion identifier. -/
+theorem canonicalLinkFirstOutputEdge_mem_internal
+    {degree : Nat} (hdegreeLower : 4 ≤ degree)
+    (hdegreeUpper : degree ≤ linkIncidenceBound) :
+    canonicalLinkFirstOutputEdge degree ∈
+      canonicalInternalFusionEdges degree := by
+  unfold linkIncidenceBound at hdegreeUpper
+  have hdegreeCases : degree = 4 ∨ degree = 5 ∨ degree = 6 := by
+    omega
+  rcases hdegreeCases with rfl | rfl | rfl <;> decide
 
 @[simp] theorem canonicalLinkFirstAHalfEdge_vertex_c
     {degree : Nat} {external auxiliary : EdgeLabelling}
@@ -208,5 +231,9 @@ end YMGap.Continuum.CanonicalLinkFirstVertexPorts
   YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstAHalfEdge_edgeId
 #print axioms
   YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstBHalfEdge_edgeId
+#print axioms
+  YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstOutputEdge_physical_of_degree_eq_three
+#print axioms
+  YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstOutputEdge_mem_internal
 #print axioms
   YMGap.Continuum.CanonicalLinkFirstVertexPorts.canonicalLinkFirstAHalfEdge_vertex_c
