@@ -31128,6 +31128,59 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new modules.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Peel the two-root union into a complete accepted presentation (2026-09-11)
+
+- **milestone**: exact ordered physical-drop square and accepted global peel
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandSeedComponent.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDrop.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootPresentedComponents.lean`
+- **proved declarations**:
+  `OrderedSlabLinkPartnerClosedFaceSelection.toCanonical`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.toCoherentRemoval`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.drop`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem`,
+  `orderedSlabLinkCanonicalLabel_at_position`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.edgeSlotValue_at_position_slot`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.drop_at_position`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.externalSpins_lowerPhysical`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem_global`,
+  `rootFirstChannelComponentUnionLowerPhysical`,
+  `rootFirstChannelComponentUnionLoweredWitnessAt`,
+  `rootFirstChannelComponentUnionLoweredAssignment`,
+  `rootFirstChannelComponentUnionSelectionCount_leftRoot_pos`,
+  `rootFirstChannelComponentUnionLowerPhysical_leftRoot_lt`, and
+  `rootFirstChannelComponentUnionLowerPhysical_rightRoot_lt`
+- **closed obligation**: compile ordered terminal-partner closure into a
+  coherent SU(2) trivalent removal; identify the canonical external drop with
+  the common literal face-copy count; construct the complete lowered
+  heterogeneous assignment over one physical field; and prove strict descent
+  at both distinct root faces
+- **remaining named obligation**: serialize the two-root face-copy drop into a
+  multiplicity-faithful weight/peel certificate and connect that source-side
+  map to the stretched remainder.  The coarse mixed target/debt Cartesian
+  carrier still lacks a common accepted source presentation, so a valid
+  source-witness decomposition or equivalent checked recoupling certificate
+  remains necessary.
+- **constructive or propositional**: every coherent removal, lowered physical
+  field, and lowered presented assignment is Type-level data; count
+  commutation, acceptance, and strict descent are proof certificates
+
+Monitored verification:
+
+```text
+ordered coherent-removal explicit olean emission          PASS
+presented physical-drop square explicit olean emission    PASS
+active-root accepted-union peel explicit olean emission   PASS
+```
+
+All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the new module.  No aggregate or
+full-root audit is claimed by these checks.
+
 #### Isolate the exact stretched-channel debt of the inward mate (2026-09-11)
 
 - **milestone**: local SU(2) fusion and production-link multiplicity

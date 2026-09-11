@@ -137,15 +137,20 @@ every independently ordered link.  At the active root, the Boolean union of
 the left- and right-rooted components contains both required face copies and
 is closed across every global edge; no equality or disjointness of those two
 components is assumed.
+The ordered pullback now compiles further to a coherent trivalent-network
+removal.  Its canonical external-edge count is proved equal to the global
+selected-copy count on the literal ordered face.  Thus every link sees one
+common lowered physical field, every lowered auxiliary remains accepted in
+its retained order, the complete lowered presented assignment is Type-level
+data, and both distinct root-face labels decrease strictly.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. compile the two-root ordered-link partner closure into the existing
-   coherent strand-removal plan and prove its exact physical/auxiliary drops;
-   then replace the coarse mixed target/debt Cartesian overcount by a valid
-   source-presentation decomposition (or an equivalent checked recoupling
-   certificate), and sum the resulting routes into a cutoff-independent bound
-   by the pure mate product;
+1. serialize the exact two-root drop into a multiplicity-faithful peel and
+   weight certificate; replace the coarse mixed target/debt Cartesian
+   overcount by a valid source-presentation decomposition (or an equivalent
+   checked recoupling certificate); and sum the resulting routes into a
+   cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

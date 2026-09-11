@@ -204,15 +204,21 @@ without asserting that the two components coincide.  See
 [`CompactDualSlabPresentedFaceStrandSeedComponent.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandSeedComponent.lean)
 and
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootPresentedComponents.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootPresentedComponents.lean).
+That ordered partner closure now compiles all the way through the existing
+Kirchhoff strand-removal theorem.  At every link, the canonical edge drop is
+proved equal to the global selected-copy count on the literal face occupying
+that ordered position.  Consequently the two-root union constructs one common
+lowered physical field and a complete accepted heterogeneous auxiliary
+assignment over it; both distinct root-face labels decrease strictly.  See
+[`CompactDualSlabPresentedFaceStrandComponentDrop.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDrop.lean).
 
-The next causal step is to compile this ordered-link partner closure into the
-existing coherent SU(2) strand-removal plan and prove the exact physical and
-auxiliary label drops.  Separately, the coarse mixed target/debt Cartesian
-carrier still does not itself provide one common accepted source background;
-the counting argument must supply a valid source-presentation decomposition
-or an equivalent recoupling certificate.  The resulting carrier sum must
-ultimately be bounded by a cutoff-independent multiple of the pure mate
-product.
+The next causal step is to serialize the exact two-root drop into a
+multiplicity-faithful peel/weight certificate and relate that source-side map
+to the stretched remainder.  The coarse mixed target/debt Cartesian carrier
+still does not itself provide one common accepted source background; the
+counting argument must supply a valid source-presentation decomposition or an
+equivalent recoupling certificate.  The resulting carrier sum must ultimately
+be bounded by a cutoff-independent multiple of the pure mate product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

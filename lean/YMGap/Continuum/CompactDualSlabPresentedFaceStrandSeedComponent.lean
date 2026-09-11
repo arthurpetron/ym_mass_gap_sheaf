@@ -21,11 +21,20 @@ namespace YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent
 set_option autoImplicit false
 
 open YMGap.Continuum.CompactDualSlabFaceStrandSeedComponent
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
 open YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
+open YMGap.Continuum.CompactDualSlabPhysicalSelectionPullback
 open YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
+open YMGap.Continuum.ResolvedTrivalentNetworkPortSelectionRemoval
+open YMGap.Continuum.ResolvedTrivalentNetworkSelectionRemoval
+open YMGap.Continuum.ResolvedTrivalentNetworkStrandRemoval
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
+open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4FiniteBoxFusionCompleteCutoff
+open YMGap.Continuum.Z4LinkAuxiliaryCoordinatePartition
 
 /-! ## 1. Ordered local partner closure -/
 
@@ -50,6 +59,80 @@ structure OrderedSlabLinkPartnerClosedFaceSelection
           (orderedSlabLinkPhysicalTerminalFaceStrandCopy
             K physical witness.order witness.auxiliary
               witness.auxiliary_mem terminal)
+
+/-- Forget the literal face identifier after evaluating it, obtaining the
+generic canonical physical-terminal selection used by strand removal. -/
+def OrderedSlabLinkPartnerClosedFaceSelection.toCanonical
+    {K : Nat} {extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {witness : PresentedSlabLinkFusionWitness K extent physical link}
+    (selection : OrderedSlabLinkPartnerClosedFaceSelection K witness) :
+    CanonicalPhysicalPartnerClosedSelection
+      (by simpa [linkIncidenceBound] using witness.order.length_le_six)
+      (orderedSlabLinkFusionWitness_mem_allowed K physical witness.order
+        witness.auxiliary witness.auxiliary_mem) where
+  selected := fun terminal =>
+    selection.selected
+      (orderedSlabLinkPhysicalTerminalFaceStrandCopy K physical
+        witness.order witness.auxiliary witness.auxiliary_mem terminal)
+  partner_closed := selection.partner_closed
+
+/-- Ordered-link component closure compiles directly to one coherent removal
+of the actual resolved trivalent network. -/
+def OrderedSlabLinkPartnerClosedFaceSelection.toCoherentRemoval
+    {K : Nat} {extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {witness : PresentedSlabLinkFusionWitness K extent physical link}
+    (selection : OrderedSlabLinkPartnerClosedFaceSelection K witness) :
+    CoherentResolvedTrivalentRemoval
+      (orderedSlabLinkResolvedStrandNetwork K physical witness.order
+        witness.auxiliary witness.auxiliary_mem) :=
+  selection.toCanonical.toCoherentRemoval
+
+/-- The common canonical edge-drop compiled from the ordered physical
+selection. -/
+def OrderedSlabLinkPartnerClosedFaceSelection.drop
+    {K : Nat} {extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {witness : PresentedSlabLinkFusionWitness K extent physical link}
+    (selection : OrderedSlabLinkPartnerClosedFaceSelection K witness) :
+    EdgeLabelling :=
+  selection.toCoherentRemoval.drop
+
+@[simp] theorem OrderedSlabLinkPartnerClosedFaceSelection.toCoherentRemoval_drop
+    {K : Nat} {extent : Nat} {physical : SlabLabelling} {link : SlabLink}
+    {witness : PresentedSlabLinkFusionWitness K extent physical link}
+    (selection : OrderedSlabLinkPartnerClosedFaceSelection K witness) :
+    selection.toCoherentRemoval.drop = selection.drop := rfl
+
+/-- Pointwise removal of the compiled internal strand counts remains an
+accepted ordered auxiliary as soon as the target physical presentation
+realizes the same compiled drops on its external canonical edges. -/
+theorem OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
+    {K : Nat} {extent : Nat} {sourcePhysical targetPhysical : SlabLabelling}
+    {link : SlabLink}
+    {witness : PresentedSlabLinkFusionWitness
+      K extent sourcePhysical link}
+    (selection : OrderedSlabLinkPartnerClosedFaceSelection K witness)
+    (hexternal :
+      orderedSlabLinkExternalSpins targetPhysical witness.order =
+        lowerEdgeLabellingBy
+          (orderedSlabLinkExternalSpins sourcePhysical witness.order)
+          selection.drop) :
+    lowerEdgeLabellingBy witness.auxiliary
+        selection.drop ∈
+      orderedSlabLinkFusionWitnesses K targetPhysical witness.order := by
+  have hsourceMem := witness.auxiliary_mem
+  unfold orderedSlabLinkFusionWitnesses fusionWitnessesForSpins at hsourceMem ⊢
+  simp only [List.length_map] at hsourceMem ⊢
+  obtain ⟨hbounded, hallowed⟩ := List.mem_filter.mp hsourceMem
+  apply List.mem_filter.mpr
+  constructor
+  · exact lowerEdgeLabellingBy_mem_bounded
+      (canonicalUsedAuxiliaryCoordinates witness.order.faceIds.length)
+      hbounded
+  · unfold orderedSlabLinkExternalSpins at hexternal
+    rw [hexternal]
+    exact canonicalLinkConditionalAllowedB_lower_of_plan
+      hallowed
+      selection.toCoherentRemoval.plan
 
 /-! ## 2. Pull a heterogeneous component back to every presented link -/
 
@@ -92,6 +175,14 @@ end YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent
 
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.OrderedSlabLinkPartnerClosedFaceSelection
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.OrderedSlabLinkPartnerClosedFaceSelection.toCanonical
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.OrderedSlabLinkPartnerClosedFaceSelection.toCoherentRemoval
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.OrderedSlabLinkPartnerClosedFaceSelection.drop
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent.PresentedSlabFusionWitnessFaceStrandSeed
 #print axioms
