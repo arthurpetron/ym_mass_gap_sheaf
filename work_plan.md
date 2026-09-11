@@ -100,13 +100,16 @@ is retained with an exact permutation to it.  The matching root-first order of
 literal plaquette IDs is now also Type-level data: it is duplicate-free,
 permutes the production incidence list, and maps exactly to that ordered source
 spin word.  A small upstream refactor makes the residual ID and spin words
-compute transparently rather than through proof recursors.
+compute transparently rather than through proof recursors.  The local strand
+machinery is now generalized to any such certified face order: the unchanged
+canonical SU(2) partner terminates on literal incident faces, remains an
+involution, and crosses to a distinct plaquette by duplicate-freeness.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. generalize the accepted-link strand presentation from the production face
-   order to the certified root-first face order, construct its SU(2)-specific
-   closed-component rerouting, and sum those routes into a
+1. instantiate the ordered-link presentation at the active root, identify its
+   two literal root terminals inside the resolved source network, construct
+   the SU(2)-specific closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;

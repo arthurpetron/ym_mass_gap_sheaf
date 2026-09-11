@@ -31664,6 +31664,46 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Pair physical terminals in any certified incident-face order (2026-09-11)
+
+- **milestone**: presentation-independent accepted-link strand compiler
+- **file**:
+  `lean/YMGap/Continuum/CompactDualSlabOrderedLinkPhysicalStrandPairing.lean`
+- **proved declarations**: `SlabLinkFaceOrder`,
+  `SlabLinkFaceOrder.length_eq`, `SlabLinkFaceOrder.length_le_six`,
+  `SlabLinkFaceOrder.nodup`, `orderedSlabLinkExternalSpins`,
+  `orderedSlabLinkFusionWitnesses`,
+  `orderedSlabLinkFusionWitness_mem_allowed`,
+  `OrderedSlabLinkPhysicalStrandTerminal`,
+  `OrderedSlabLinkFaceStrandOccurrence`,
+  `OrderedSlabLinkFaceStrandOccurrence.faceId_mem_incident`,
+  `orderedSlabLinkPhysicalTerminalOccurrence`,
+  `orderedSlabLinkPhysicalStrandPartner`,
+  `orderedSlabLinkPhysicalStrandPartner_involutive`, and
+  `orderedSlabLinkPhysicalStrandPartner_faceId_ne`
+- **closed obligation**: feed any accepted auxiliary on a certified ordering
+  of literal incident plaquette IDs through the existing canonical SU(2)
+  ordered-chain terminator, reindex its terminals back to physical faces, and
+  prove the local mate is involutive and crosses to a distinct face
+- **remaining named obligation**: instantiate the compiler at the active
+  root-first order, construct the two root terminals at slots zero, and glue
+  their local edges into the global face-strand component
+- **constructive or propositional**: the alternative face order and terminal
+  occurrences are data; the production permutation, acceptance, incidence,
+  involutivity, and distinct-face facts are proof certificates
+
+Monitored verification:
+
+```text
+ordered-link physical pairing explicit olean emission      PASS
+```
+
+The five printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

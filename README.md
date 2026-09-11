@@ -156,15 +156,20 @@ The corresponding root-first order of literal plaquette IDs is now retained
 as data as well.  It is duplicate-free, permutes the production incidence
 list, and maps exactly to the accepted ordered spin word; see
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootFaceOrder.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFaceOrder.lean).
+The canonical ordered-chain termination and fixed-point-free terminal mate now
+work for any such certified face presentation.  The generic compiler reindexes
+every terminal to a literal incident plaquette and proves its mate lies on a
+different face; see
+[`CompactDualSlabOrderedLinkPhysicalStrandPairing.lean`](lean/YMGap/Continuum/CompactDualSlabOrderedLinkPhysicalStrandPairing.lean).
 
-The next causal step is to generalize the accepted-link strand presentation to
-this certified root-first face order, then reroute the resulting complete
-strand component and bound the carrier sum by a cutoff-independent multiple of
-the pure mate product.  That avoids mistaking a change of fusion basis for a
-pointwise permutation of basis witnesses.  The resulting fixed-boundary
-intertwiner comparison would feed a genuine physical mate-transition floor and
-then a rooted-subtree Hardy--Poincare or posterior conditional-variance
-estimate.
+The next causal step is to instantiate that presentation at the active root,
+identify its two literal root terminals in the resolved network, then glue and
+reroute the resulting complete strand component.  The carrier sum must then be
+bounded by a cutoff-independent multiple of the pure mate product.  This
+avoids mistaking a change of fusion basis for a pointwise permutation of basis
+witnesses.  The resulting fixed-boundary intertwiner comparison would feed a
+genuine physical mate-transition floor and then a rooted-subtree
+Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already
