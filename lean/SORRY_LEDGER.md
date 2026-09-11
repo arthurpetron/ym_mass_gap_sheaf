@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Split the complete SU(2) slab-link source multiplicity exactly (2026-09-11)
+
+- **milestone**: exact cube/off-cube source multiplicity conservation
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalSourceMultiplicitySplit.lean`
+- **proved declarations**:
+  `boundaryCompleteSlabLinks_filter_cube_perm`,
+  `cubeInwardMateSourceBoundaryProduct_eq_cubeLinkProduct`, and
+  `cubeInwardMateSourceBoundary_mul_offCube_eq_slabMultiplicity`
+- **closed obligation**: prove that filtering the complete extent-one slab-link
+  list by membership in the literal cube boundary gives precisely the twelve
+  incidence links up to permutation; identify the classifier's root-first
+  boundary product with the ordinary product on those links; and multiply it
+  by the complementary off-cube product to recover the complete SU(2) slab
+  multiplicity exactly.
+- **scope boundary**: this is a natural-number carrier conservation theorem.
+  It does not yet state a weighted all-target/first-stretched branch identity,
+  a success-event fraction, a pointwise conditional lower bound, or a spectral
+  estimate.
+- **remaining named obligation**: combine the existing target-versus-first-
+  stretched branch-length identity with this product split and the off-cube
+  Cartesian completion; transport the common physical face factor across both
+  branches; then derive exact global source normalization and the complementary
+  `41/425` all-target mass fraction.  The same-object posterior/Poincare, OS
+  form-bound, completed-gap, thermodynamic, and continuum bridges remain open.
+- **constructive or propositional**: finite Boolean filter partitions, list
+  permutations, and natural-number product equalities only.  No `sorry`, new
+  named hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+source multiplicity split focused source check            PASS
+source multiplicity split dependency target               PASS (1,118 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Complete the global first-stretched 384/425 contraction (2026-09-11)
 
 - **milestone**: partition-relative all-physical SU(2) bad-mass bound
