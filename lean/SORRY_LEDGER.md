@@ -31027,6 +31027,59 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Bound every exact global inward-mate target fiber by sixty-four (2026-09-11)
+
+- **milestone**: cutoff-independent exact target-column capacity `64`
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetFiberCapacity.lean`
+- **proved declarations**:
+  `globalTargetRaw_eq_of_auxiliaryWords_eq`,
+  `globalTargetPhysical_eq_zero_of_not_mem`,
+  `globalTargetAtom_eq_of_targetKey_eq`,
+  `globalTargetKey_eq_of_targetAtom_eq`,
+  `globalTargetKey_eq_iff_targetAtom_eq`,
+  `globalTargetSource_eq_of_targetKey_eq_of_code_eq`,
+  `globalCubeInwardMateCertifiedTargetFullSources_nodup`,
+  `globalInwardMateTargetFiber_nodup`,
+  `globalInwardMateTargetFiber_key_eq`, and
+  `globalInwardMateTargetFiber_length_le_sixtyFour`
+- **closed obligation**: serialize every function-valued target physical and
+  auxiliary coordinate on its exact finite support; prove equality of this
+  decidable key is equivalent to equality of the realized target atom; prove
+  the dependent global successful-source enumeration has neither within-block
+  nor cross-physical duplicates; and inject each exact target fiber into the
+  exhaustive six-bit carrier of length `64`.
+- **elaboration boundary**: the finite target coordinates are packaged behind
+  one kernel-defined opaque witness carrying exact projection equations.  This
+  prevents reducible dependent target presentations from overflowing WHNF;
+  it is not an axiom or trusted computation.
+- **scope boundary**: target-column cardinality is now bounded, but the
+  pointwise source-weight comparison has not yet been summed over the exact
+  target partition.  No posterior variance, OS form bound, or spectral gap is
+  asserted.
+- **remaining named obligation**: partition or Fubini-sum the global successful
+  source mass by exact target keys; use capacity `64` and the pointwise
+  `32,000,000^6` source-to-target comparison to bound transported retained
+  mass; then combine it with the global `41/425` success fraction.
+- **constructive or propositional**: finite support words, an internally
+  defined opaque witness with exact equations, decidable key equality,
+  duplicate-free dependent finite lists, and finite pigeonhole only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+global all-target fiber-capacity focused source check    PASS
+global all-target fiber-capacity dependency target       PASS (1,292 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Recover every successful source from target atom plus six-bit code (2026-09-11)
 
 - **milestone**: complete global source-to-`(target atom, code)` injectivity
