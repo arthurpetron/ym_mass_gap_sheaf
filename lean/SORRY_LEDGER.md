@@ -31027,6 +31027,50 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Encode every physical target preimage by six bits (2026-09-11)
+
+- **milestone**: exact `64`-word physical ambiguity carrier
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetPreimageCode.lean`
+- **proved declarations**:
+  `evenInwardMateLabel_injective_with_bit`,
+  `globalInwardMateBoolWords_complete`,
+  `globalInwardMateBoolWords_length`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPreimageCode_length`,
+  `globalInwardMateTargetPreimageCodeSpace_length`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPreimageCode_mem`, and
+  `GlobalCubeInwardMateCertifiedTargetFullSource.physical_eq_of_targetPhysical_eq_of_targetPreimageCode_eq`
+- **closed obligation**: identify the only scalar collision of the inward-mate
+  map, resolve it by recording whether the source label was zero, enumerate
+  every six-bit word in an exact carrier of length `64`, and prove that a
+  target physical field plus its six-bit code recovers the complete source
+  physical field.
+- **scope boundary**: this bounds only the physical-coordinate ambiguity.
+  Equality of the complete target raw assignment has not yet been used to
+  recover the dependent cube and off-cube source intertwiners, so a full
+  target-atom fiber capacity and summed mass transport are not yet asserted.
+- **remaining named obligation**: prove that, after the source physical field
+  is recovered, equality of complete target raw assignments recovers the
+  source entry; combine that injectivity with this `64`-word carrier to bound
+  every target-atom fiber; then sum the pointwise source-to-target weight
+  comparison over the global `41/425` event.
+- **constructive or propositional**: Boolean recursion, finite-list lookup,
+  function extensionality, and natural arithmetic only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target preimage code focused source check    PASS
+global all-target preimage code dependency target       PASS (1,124 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+There is no new `sorry`, `Classical`, choice, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation.  The root aggregator imports the module.  No
+aggregate or full-root audit is claimed by these focused checks.
+
 #### Pay the exact six-face anchor cost from source atom to target atom (2026-09-11)
 
 - **milestone**: complete source-to-target BF4 weight comparison
