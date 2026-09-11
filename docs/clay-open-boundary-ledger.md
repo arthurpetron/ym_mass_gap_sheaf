@@ -51,11 +51,18 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   fiber into that edge's literal boundary--fine-intertwiner summands.  Hence
   the total traffic of each fiber is at most the normalized OS joint capacity,
   with no source-collision cardinality factor.
-- **OPEN next edge:** prove the analogous aggregate second-edge load, then
-  determine whether the resulting selected-demand flow supplies an exact
-  all-vector variance identity.  No all-vector variance bound, finite-volume
-  spectral gap, continuum limit, or Clay theorem follows from the present
-  selected-flow inequalities alone.
+- **PROVED second-edge aggregation and completeness:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad` first
+  partitions every selected source into its exact production-target class,
+  then partitions those classes by the literal second OS edge.  Both
+  partitions preserve the total traffic exactly.  Distinct target atoms over
+  one edge inject into its literal boundary--intertwiner summands, giving load
+  at most `globalInwardMateTransportCost` times the actual normalized OS joint
+  capacity.
+- **OPEN next edge:** determine and prove the exact variance demand controlled
+  by this complete selected-flow partition.  The present positive sub-demand
+  does not by itself imply an all-vector variance bound, finite-volume spectral
+  gap, continuum limit, or Clay theorem.
 
 ---
 

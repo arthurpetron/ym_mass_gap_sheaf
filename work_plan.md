@@ -320,10 +320,17 @@ The next load-bearing producers are, in causal order:
    created by forgetting a complete slab to its first OS edge are now summed
    exactly: each source injects into its literal boundary--fine-intertwiner
    summand of that edge, so the aggregate first-edge traffic is at most the
-   actual normalized OS joint capacity with no cardinality loss.  The active
-   sub-edge is the analogous aggregate second-edge bound.  Only after both
-   edge loads are closed can the selected demand be compared with the exact
-   all-vector variance identity required by the posterior/Poincare compiler;
+   actual normalized OS joint capacity with no cardinality loss.  The second
+   edge is now aggregated exactly as well: production-target classes partition
+   all selected traffic, those classes are repartitioned by their literal
+   second OS edge, and distinct target atoms inject into distinct boundary--
+   fine-intertwiner summands.  Every second-edge load is therefore at most
+   `globalInwardMateTransportCost` times its actual normalized OS joint
+   capacity, while the edge loads sum exactly to the selected traffic.  The
+   active sub-edge is now the genuine mathematical question: identify a
+   variance demand controlled by this selected transport, or prove the
+   additional statewise demand coverage needed by the all-vector
+   posterior/Poincare compiler;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -386,8 +393,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- production weights -> normalized OS edge capacity . [PROVED]
 |   |   |   +-- normalized source mass + target-fiber edge load ... [PROVED]
 |   |   |   +-- aggregate first OS-edge traffic without collisions . [PROVED]
-|   |   |   +-- aggregate second OS-edge traffic ................... [ACTIVE]
-|   |   |   +-- selected demand -> all-vector variance identity .... [OPEN]
+|   |   |   +-- aggregate second OS-edge traffic + exact partition . [PROVED]
+|   |   |   +-- selected demand -> controlled variance identity .... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

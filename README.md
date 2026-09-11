@@ -57,13 +57,20 @@ least `41/425`; exact production-target fibers have congestion bounded by
 same first OS edge now inject into distinct literal boundary--intertwiner
 summands of that edge.  Consequently their **aggregate** first-edge traffic is
 at most the actual OS joint capacity, without a volume- or cutoff-cardinality
-loss.  The immediate frontier is the corresponding aggregate second-edge
-bound, followed by the still-open question whether this selected demand
-controls the full vacuum-complement pairwise variance.  These results do not
-yet prove a Poincare inequality or spectral gap.
+loss.  The second edge is now complete too: exact production-target classes
+partition all selected source traffic, those classes partition again by their
+actual second OS edge, and the resulting loads sum exactly to the original
+traffic.  Each second-edge load is bounded by
+`globalInwardMateTransportCost` times its OS capacity.  The immediate frontier
+is the still-open mathematical question whether this selected demand controls
+a useful variance—and, ultimately, the full vacuum-complement pairwise
+variance.  These results do not yet prove a Poincare inequality or spectral
+gap.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
+The two-level second-edge partition is in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
