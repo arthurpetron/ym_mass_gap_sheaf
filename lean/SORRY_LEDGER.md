@@ -31384,6 +31384,43 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the size-tail module.  No aggregate
 or full-root audit is claimed by these focused checks.
 
+#### Sum the six roots and all physical SU(2) targets (2026-09-11)
+
+- **milestone**: nested complete congestion factor `384/425`
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetRootSum.lean`
+- **proved declarations**:
+  `cubeInwardMateFullPeelTargetRootsStrictRateWeight_le` and
+  `cubeInwardMateFullPeelAllTargetsRootsStrictRateWeight_le_partition`
+- **closed obligation**: sum the exact `64/425` fixed-target/root size-tail
+  bound over the literal six-face root carrier; kernel-check the rational
+  identity `6 * 64/425 = 384/425`; sum the resulting bound over every bounded
+  physical target; and contract the target weights through
+  `cubeInwardMateFixedOrderPhysicalTargets_weight_total` to the complete
+  extent-one physical BF4 partition.
+- **remaining named obligation**: prove that this nested target/root/size sum
+  is exactly the flat Cartesian block total used by the already-proved coarse
+  deterministic Fubini theorem; then compose with the complete-source fiber
+  contraction to obtain the physical `384/425` strict transition comparison.
+  Posterior-variance/Poincare control, the completed physical gap,
+  thermodynamic/continuum passage, continuum QFT axioms, isolated vacuum, and
+  Clay theorem remain open.
+- **constructive or propositional**: the six-root constant is exact `Q'`
+  arithmetic checked by the kernel, and every target sum is over the explicit
+  bounded physical carrier.  No asymptotic or external computation is used.
+
+Monitored verification:
+
+```text
+six-root and all-target nested congestion focused olean    PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target
