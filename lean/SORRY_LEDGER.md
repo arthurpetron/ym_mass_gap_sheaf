@@ -31027,6 +31027,40 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Sum the global peel-size tail from two (2026-09-11)
+
+- **milestone**: cutoff-independent global target/root size tail
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetSizeTail.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelTargetBlockRepresentatives_eq_nil_of_lt_two`,
+  `globalCubeInwardMateFullPeelTargetRootSizesStrictRateWeight`, and
+  `globalCubeInwardMateFullPeelTargetRootSizesStrictRateWeight_le`
+- **closed obligation**: use the two distinct certified root faces to prove
+  the global size-zero and size-one blocks empty, then sum the weighted block
+  estimate from size two through the cutoff-dependent ceiling with the exact
+  adaptive geometric tail `64/425`.
+- **remaining named obligation**: sum the six literal cube roots and all
+  bounded physical targets, reconcile nested and flat block orders, and derive
+  the global `384/425` bad-mass estimate.  Exact source normalization, the
+  complementary all-target event, and the conditional/posterior/operator/
+  continuum bridges remain open.
+- **constructive or propositional**: empty-block equalities and the finite
+  size sum are explicit; the cutoff-independent rational inequality is kernel
+  checked.
+
+Monitored verification:
+
+```text
+global size-two tail focused source check                  PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Convert global target-block capacity into weight (2026-09-11)
 
 - **milestone**: weighted all-physical coarse-block contraction
