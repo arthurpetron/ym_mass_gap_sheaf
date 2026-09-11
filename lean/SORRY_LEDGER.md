@@ -31704,6 +31704,48 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Realize the two active root copies as physical terminals (2026-09-11)
+
+- **milestone**: same-network root terminal realization
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabOrderedLinkPhysicalStrandPairing.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals.lean`
+- **proved declarations**: `orderedSlabLinkResolvedStrandNetwork`,
+  `orderedSlabLinkPhysicalHalfEdgeAt`,
+  `orderedSlabLinkPhysicalHalfEdgeAt_edgeId`,
+  `orderedSlabLinkPhysicalPortAt`, `orderedSlabLinkPhysicalTerminalAt`,
+  `rootSlabLinkFaceOrder`,
+  `rootSourceAuxiliary_mem_orderedSlabLinkFusionWitnesses`,
+  `rootLeftFacePosition`, `rootRightFacePosition`,
+  `rootLeftOrderedTerminal`, `rootRightOrderedTerminal`,
+  `rootLeftOrderedTerminal_occurrence_faceId`,
+  `rootRightOrderedTerminal_occurrence_faceId`, and
+  `rootLeftOrderedTerminal_partner_faceId_ne`
+- **closed obligation**: use the proved singleton half-edge fiber of every
+  canonical physical identifier to construct a terminal at any requested face
+  copy, then instantiate it at the two positive slot-zero active root copies
+  in one accepted resolved source network
+- **remaining named obligation**: identify the two terminals with the first
+  resolved vertex's stretched input ports, carry their disjoint internal mates
+  through the canonical chain, and enter the global component tracer
+- **constructive or propositional**: half-edge, port, and terminal selection is
+  finite Type-level data; exact edge, slot, face, acceptance, and partner
+  separation are proof certificates
+
+Monitored verification:
+
+```text
+ordered physical-terminal selector explicit olean emission PASS
+active-root ordered terminals explicit olean emission       PASS
+```
+
+All printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports both modules.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

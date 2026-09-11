@@ -161,14 +161,19 @@ work for any such certified face presentation.  The generic compiler reindexes
 every terminal to a literal incident plaquette and proves its mate lies on a
 different face; see
 [`CompactDualSlabOrderedLinkPhysicalStrandPairing.lean`](lean/YMGap/Continuum/CompactDualSlabOrderedLinkPhysicalStrandPairing.lean).
+The one-element physical half-edge fiber now gives a constructive terminal at
+any specified face position and strand slot.  At the active cube root this
+produces two literal slot-zero terminals whose occurrences are exactly the two
+previously named positive root copies; see
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals.lean).
 
-The next causal step is to instantiate that presentation at the active root,
-identify its two literal root terminals in the resolved network, then glue and
-reroute the resulting complete strand component.  The carrier sum must then be
-bounded by a cutoff-independent multiple of the pure mate product.  This
-avoids mistaking a change of fusion basis for a pointwise permutation of basis
-witnesses.  The resulting fixed-boundary intertwiner comparison would feed a
-genuine physical mate-transition floor and then a rooted-subtree
+The next causal step is to identify those terminals' ports at the first
+resolved trivalent vertex with the explicit stretched input ports, then glue
+and reroute the resulting complete strand component.  The carrier sum must
+then be bounded by a cutoff-independent multiple of the pure mate product.
+This avoids mistaking a change of fusion basis for a pointwise permutation of
+basis witnesses.  The resulting fixed-boundary intertwiner comparison would
+feed a genuine physical mate-transition floor and then a rooted-subtree
 Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a

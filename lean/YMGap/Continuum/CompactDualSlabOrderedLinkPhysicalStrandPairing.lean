@@ -27,11 +27,13 @@ set_option autoImplicit false
 
 open YMGap.Continuum.CanonicalLinkPhysicalTerminalPairing
 open YMGap.Continuum.CanonicalLinkPhysicalTerminalPartner
+open YMGap.Continuum.CanonicalLinkInternalStrandContinuation
 open YMGap.Continuum.CanonicalLinkStrandStep
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabLinkPhysicalStrandPairing
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber
+open YMGap.Continuum.ResolvedTrivalentNetworkHalfEdges
 open YMGap.Continuum.ResolvedTrivalentNetworkPorts
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4ConditionalLinkAuxiliaryElimination
@@ -164,7 +166,221 @@ def orderedSlabLinkPhysicalTerminalOccurrence
     exact Eq.mp (congrArg (fun upper => terminal.1.slot < upper) hlabel)
       hslot⟩
 
-/-! ## 3. The local mate is independent of the chosen face presentation -/
+/-! ## 3. Construct the terminal at a specified physical face copy -/
+
+def orderedSlabLinkResolvedStrandNetwork
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order) :=
+  canonicalLinkResolvedStrandNetwork order.faceIds.length
+    (orderedSlabLinkExternalSpins physical order) auxiliary
+    (orderedSlabLinkFusionWitness_mem_allowed
+      K physical order auxiliary hmem)
+
+/-- The unique half-edge carrying a specified physical position. -/
+def orderedSlabLinkPhysicalHalfEdgeAt
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length) :
+    ResolvedNetworkHalfEdge
+      (orderedSlabLinkResolvedStrandNetwork
+        K physical order auxiliary hmem) := by
+  let network := orderedSlabLinkResolvedStrandNetwork
+    K physical order auxiliary hmem
+  have hlength : (halfEdgesOnEdge network position.val).length = 1 := by
+    exact canonicalLinkResolved_halfEdgesOnEdge_length_physical
+      (by simpa [linkIncidenceBound] using order.length_le_six)
+      (orderedSlabLinkFusionWitness_mem_allowed
+        K physical order auxiliary hmem) position.isLt
+  exact (halfEdgesOnEdge network position.val).get
+    ⟨0, by omega⟩
+
+@[simp] theorem orderedSlabLinkPhysicalHalfEdgeAt_edgeId
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length) :
+    (orderedSlabLinkPhysicalHalfEdgeAt
+      K physical order auxiliary hmem position).edgeId = position.val := by
+  have hlength :
+      (halfEdgesOnEdge
+        (orderedSlabLinkResolvedStrandNetwork
+          K physical order auxiliary hmem) position.val).length = 1 := by
+    unfold orderedSlabLinkResolvedStrandNetwork
+    exact canonicalLinkResolved_halfEdgesOnEdge_length_physical
+      (by simpa [linkIncidenceBound] using order.length_le_six)
+      (orderedSlabLinkFusionWitness_mem_allowed
+        K physical order auxiliary hmem) position.isLt
+  have hselected := List.get_mem
+    (halfEdgesOnEdge
+      (orderedSlabLinkResolvedStrandNetwork
+        K physical order auxiliary hmem) position.val)
+    ⟨0, by
+      rw [hlength]
+      decide⟩
+  have hedge := (List.mem_filter.mp hselected).2
+  simpa only [decide_eq_true_eq] using hedge
+
+/-- The typed resolved-network port at a displayed face position and copy. -/
+def orderedSlabLinkPhysicalPortAt
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    ResolvedNetworkPort
+      (orderedSlabLinkResolvedStrandNetwork
+        K physical order auxiliary hmem) :=
+  let halfEdge := orderedSlabLinkPhysicalHalfEdgeAt
+    K physical order auxiliary hmem position
+  resolvedNetworkHalfEdgePortAt halfEdge slot.val (by
+    have hedge : halfEdge.edgeId = position.val :=
+      orderedSlabLinkPhysicalHalfEdgeAt_edgeId
+        K physical order auxiliary hmem position
+    have hlabel :
+        canonicalLinkLabelling order.faceIds.length
+            (orderedSlabLinkExternalSpins physical order) auxiliary
+            halfEdge.edgeId =
+          physical (order.faceIds.get position) := by
+      rw [hedge]
+      unfold canonicalLinkLabelling
+      exact (overlayOn_apply_of_mem
+        (List.mem_range.mpr position.isLt)).trans
+        (externalSpinsOfList_map_get order.faceIds physical position)
+    rw [hlabel]
+    exact slot.isLt)
+
+@[simp] theorem orderedSlabLinkPhysicalPortAt_edgeId
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalPortAt
+      K physical order auxiliary hmem position slot).edgeId =
+      position.val := by
+  unfold orderedSlabLinkPhysicalPortAt
+  rw [resolvedNetworkHalfEdgePortAt_edgeId]
+  exact orderedSlabLinkPhysicalHalfEdgeAt_edgeId
+    K physical order auxiliary hmem position
+
+@[simp] theorem orderedSlabLinkPhysicalPortAt_slot
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalPortAt
+      K physical order auxiliary hmem position slot).slot = slot.val := by
+  unfold orderedSlabLinkPhysicalPortAt
+  rw [resolvedNetworkHalfEdgePortAt_slot]
+
+/-- The canonical physical terminal at any displayed face position and copy. -/
+def orderedSlabLinkPhysicalTerminalAt
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    OrderedSlabLinkPhysicalStrandTerminal
+      K physical order auxiliary hmem :=
+  ⟨orderedSlabLinkPhysicalPortAt
+      K physical order auxiliary hmem position slot,
+    by
+      exact calc
+        (orderedSlabLinkPhysicalPortAt
+            K physical order auxiliary hmem position slot).edgeId =
+            position.val := orderedSlabLinkPhysicalPortAt_edgeId
+              K physical order auxiliary hmem position slot
+        _ < order.faceIds.length := position.isLt⟩
+
+@[simp] theorem orderedSlabLinkPhysicalTerminalAt_edgeId
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalTerminalAt
+      K physical order auxiliary hmem position slot).1.edgeId =
+      position.val := by
+  exact orderedSlabLinkPhysicalPortAt_edgeId
+    K physical order auxiliary hmem position slot
+
+@[simp] theorem orderedSlabLinkPhysicalTerminalAt_slot
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalTerminalAt
+      K physical order auxiliary hmem position slot).1.slot = slot.val := by
+  exact orderedSlabLinkPhysicalPortAt_slot
+    K physical order auxiliary hmem position slot
+
+@[simp] theorem orderedSlabLinkPhysicalTerminalAt_occurrence_position
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalTerminalOccurrence K physical order auxiliary hmem
+      (orderedSlabLinkPhysicalTerminalAt
+        K physical order auxiliary hmem position slot)).position = position := by
+  apply Fin.ext
+  exact orderedSlabLinkPhysicalTerminalAt_edgeId
+    K physical order auxiliary hmem position slot
+
+@[simp] theorem orderedSlabLinkPhysicalTerminalAt_occurrence_faceId
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalTerminalOccurrence K physical order auxiliary hmem
+      (orderedSlabLinkPhysicalTerminalAt
+        K physical order auxiliary hmem position slot)).faceId =
+      order.faceIds.get position := by
+  unfold OrderedSlabLinkFaceStrandOccurrence.faceId
+  rw [orderedSlabLinkPhysicalTerminalAt_occurrence_position]
+
+@[simp] theorem orderedSlabLinkPhysicalTerminalAt_occurrence_slot
+    (K : Nat) {extent : Nat} {link : SlabLink}
+    (physical : SlabLabelling) (order : SlabLinkFaceOrder extent link)
+    (auxiliary : SlabLabelling)
+    (hmem : auxiliary ∈
+      orderedSlabLinkFusionWitnesses K physical order)
+    (position : Fin order.faceIds.length)
+    (slot : Fin (physical (order.faceIds.get position))) :
+    (orderedSlabLinkPhysicalTerminalOccurrence K physical order auxiliary hmem
+      (orderedSlabLinkPhysicalTerminalAt
+        K physical order auxiliary hmem position slot)).slot.val = slot.val := by
+  exact orderedSlabLinkPhysicalTerminalAt_slot
+    K physical order auxiliary hmem position slot
+
+/-! ## 4. The local mate is independent of the chosen face presentation -/
 
 def orderedSlabLinkPhysicalStrandPartner
     (K : Nat) {extent : Nat} {link : SlabLink}
@@ -272,6 +488,10 @@ end YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
   YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing.OrderedSlabLinkFaceStrandOccurrence.faceId_mem_incident
 #print axioms
   YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing.orderedSlabLinkPhysicalTerminalOccurrence
+#print axioms
+  YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing.orderedSlabLinkPhysicalHalfEdgeAt_edgeId
+#print axioms
+  YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing.orderedSlabLinkPhysicalTerminalAt
 #print axioms
   YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing.orderedSlabLinkPhysicalStrandPartner_involutive
 #print axioms
