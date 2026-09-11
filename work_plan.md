@@ -167,10 +167,16 @@ returns the first stretched incidence with its actual collapsed witness and
 both positive-face certificates.  An explicit unsplit map recovers the whole
 classified family, so composing the split with the twelve-link classifier is
 still injective on complete source assignments.
+The exact source-image invariant is now retained at every classified
+coordinate: decoding either branch is certified to return an auxiliary
+accepted in that coordinate's literal source order.  Its dependent product
+therefore reconstructs a common presented cube source after classification.
+The strengthened first-stretched output retains this certified family and
+identifies its returned root with the actual stored debt constructor.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. connect each first-stretched classified branch to the existing exact
+1. adapt each certified first-stretched root to the existing exact
    two-root component peel; extend each presented cube source with accepted
    off-cube entries to a complete slab background; serialize the resulting
    drop into a

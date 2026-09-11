@@ -60,6 +60,36 @@ def firstCubeInwardMateStretched?
           K physical hK hbounded classified rest
       | Sum.inr debt => some ⟨linked, debt⟩
 
+/-- A successful scan result is an actual member of the scanned list and its
+stored debt is exactly the classified value at that coordinate. -/
+theorem firstCubeInwardMateStretched_eq_some_parts
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical)
+    (classified : CubeInwardMateClassifiedWitnessAssignment
+      K physical hK hbounded) :
+    ∀ (items : List CubeProductionIncidenceMember)
+      (root : CubeInwardMateStretchedRoot K physical hK hbounded),
+      firstCubeInwardMateStretched?
+          K physical hK hbounded classified items = some root →
+        root.1 ∈ items ∧ classified root.1 = Sum.inr root.2
+  | [], _, hroot => by
+      simp [firstCubeInwardMateStretched?] at hroot
+  | head :: tail, root, hroot => by
+      cases hhead : classified head with
+      | inl target =>
+          have hparts := firstCubeInwardMateStretched_eq_some_parts
+            K physical hK hbounded classified tail root (by
+              simpa [firstCubeInwardMateStretched?, hhead] using hroot)
+          exact ⟨List.mem_cons_of_mem head hparts.1, hparts.2⟩
+      | inr debt =>
+          have heq :
+              (⟨head, debt⟩ : CubeInwardMateStretchedRoot
+                K physical hK hbounded) = root := by
+            exact Option.some.inj (by
+              simpa [firstCubeInwardMateStretched?, hhead] using hroot)
+          subst root
+          exact ⟨List.mem_cons_self, hhead⟩
+
 theorem firstCubeInwardMateStretched_ne_none_of_mem_inr
     (K : Nat) (physical : EdgeLabelling)
     (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical)

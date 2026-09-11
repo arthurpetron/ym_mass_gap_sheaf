@@ -31181,6 +31181,52 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Retain source acceptance through the classified cube product (2026-09-11)
+
+- **milestone**: certified source-image classification and rooted global split
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification.lean`
+- **proved declarations**:
+  `firstCubeInwardMateStretched_eq_some_parts`,
+  `cubeInwardMateCertifiedClassifiedWitness`,
+  `recoverCubeInwardMateCertifiedClassifiedWitness_apply`,
+  `recoverCubeInwardMateCertifiedClassifiedAssignment_apply`,
+  `cubeInwardMatePresentedSourceAssignmentOfCertified`,
+  `CubeInwardMateCertifiedFirstStretchedSource.root_parts`,
+  `unsplit_certifiedSourceTargetOrFirstStretched`, and
+  `cubeInwardMateCertifiedSourceTargetOrFirstStretched_injective`
+- **closed obligation**: distinguish arbitrary target/debt sum values from the
+  actual classifier image by retaining proof that the exact decoder is
+  accepted on the literal source word; take this invariant over the dependent
+  twelve-link product; reconstruct the complete presented cube source; prove a
+  successful first-stretched scan names a literal attached incidence whose
+  classified value is exactly the returned debt; and preserve the lossless
+  source split with the strengthened branch
+- **remaining named obligation**: adapt the certified positive root and its
+  collapsed witness to the exact two-root component peel; extend the presented
+  source family across every off-cube slab link; and construct an injective
+  peel history with exact weight payment.  The cutoff-independent pure-mate
+  comparison, physical transition floor, posterior-variance/Poincare estimate,
+  completed gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: every recovered source witness and its
+  acceptance proof, the dependent certified product, presented cube source,
+  strengthened first root, and split output are explicit Type-level data
+
+Monitored verification:
+
+```text
+source first-stretched scan refinement explicit olean emission PASS
+certified cube source classification explicit olean emission   PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the new module.  No aggregate or
+full-root audit is claimed by these checks.
+
 #### Split the dependent source product at its first stretched link (2026-09-11)
 
 - **milestone**: lossless all-target/first-stretched global source dichotomy

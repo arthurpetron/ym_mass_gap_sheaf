@@ -245,8 +245,16 @@ reconstructs the complete classified assignment, so the source-to-branch map
 remains injective.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean).
 
-The next causal step is to connect the new first-stretched branch to the exact
-two-root component peel, extend the cube family with accepted off-cube
+The classifier's source-image invariant is now explicit rather than implicit
+in its construction.  Every local output retains proof that its exact decoder
+is accepted in the source fiber; the dependent product reconstructs a common
+presented cube source.  The strengthened first-stretched branch keeps this
+entire certified product and proves that its root output is exactly the stored
+debt witness.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification.lean).
+
+The next causal step is to adapt that certified root to the exact two-root
+component peel, extend the cube family with accepted off-cube
 witnesses into one complete slab presentation, and serialize the resulting
 drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
