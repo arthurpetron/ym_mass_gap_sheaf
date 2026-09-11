@@ -31258,6 +31258,53 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the complete target compiler.  No
 aggregate or full-root audit is claimed by these focused checks.
 
+#### Partition realized peel traffic by physical target, root, and size (2026-09-11)
+
+- **milestone**: exact finite Fubini over the three coarse congestion
+  coordinates
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetBlockPartition.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetBlockFubini.lean`
+- **proved declarations**:
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData_peelSize_le`,
+  `cubeInwardMateFullPeelBlockCoordinateKeys_nodup`,
+  `cubeInwardMateFullPeelRepresentativeBlockKey_mem`,
+  `cubeInwardMateFullPeelBlock_fiberWeight_eq`, and
+  `cubeInwardMateFullPeelTargetBlocks_weight_total`
+- **closed obligation**: bound every deterministic peel by the explicit total
+  physical-strand ceiling; form the finite Cartesian carrier of all bounded
+  physical targets, six literal roots, and allowed sizes; prove its serialized
+  keys duplicate-free; prove it covers every realized representative; identify
+  each deterministic coarse-key fiber with the previously defined literal
+  target/root/size block; and contract the finite pushforward into an exact
+  partition of the strict-rate representative sum.
+- **remaining named obligation**: use the proved fixed-block physical
+  multiplicity capacity to bound each block weight, sum sizes from the proved
+  lower bound two by the exact `64/425` geometric tail, sum the six literal
+  roots, and prove the cutoff-independent strict factor
+  `6 * (64/425) = 384/425 < 1` against the physical BF4 partition.  Then turn
+  that transition comparison into a positive posterior-variance/Poincare
+  fraction.  The completed physical gap, thermodynamic/continuum passage,
+  continuum QFT axioms, isolated vacuum, and Clay theorem remain open.
+- **constructive or propositional**: all coordinates, keys, fibers, ceilings,
+  and coverage witnesses are explicit finite data.  The final Fubini proof uses
+  the checked deterministic pushforward interface through an opaque module
+  boundary rather than enlarging Lean's heartbeat budget.
+
+Monitored verification:
+
+```text
+coarse target/root/size carrier and fiber focused olean    PASS
+strict-rate block Fubini focused olean                     PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports both modules.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target
