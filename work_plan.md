@@ -203,8 +203,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- global connected fraction <= source-weighted excitation entropy fraction ... [PROVED]
 |   |   |   |   +-- complete target rate `q(w)` <= common anchor `1/400` on corridor ............. [PROVED]
 |   |   |   |   `-- source heat + target excitation -> one connected joint-activity power ........ [PROVED]
-|   |   |   |   +-- observable-anchored connected target entropy sum ........................ [ACTIVE analytic producer]
-|   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
+|   |   |   |   +-- joint-activity entropy sum .................................... [PARTIAL; valid but too coarse]
+|   |   |   |   +-- normalize complete target rows before exterior summation ................ [PROVED]
+|   |   |   |   +-- both-empty fine packets force connected target-row mass = 0 ............. [PROVED]
+|   |   |   |   +-- SU(2) anchor packet occupation `p <= 256/425` ............................ [PROVED]
+|   |   |   |   +-- global connected production fraction `<= 1449/1700 < 1` .... [PROVED finite volume]
+|   |   |   |   +-- feed strict production fraction into centered production/refresh cross .. [ACTIVE consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1166,6 +1170,59 @@ Still open: the volume-independent observable-anchored entropy bound for the
 last joint-activity/unit-source sum and its use in the centered
 production/refresh contraction.  The dense/completed OS gap and controlled
 thermodynamic/continuum limits remain downstream.
+
+#### Contract the connected production rows through the vacuum packet (2026-09-10)
+
+`Z4DyadicBinaryGlobalConnectedVacuumPacketStrictness` takes the sharper
+normalized-row route.  It first sums the complete target exterior through
+the exact production-row normalization.  If both fine source packets above
+the observable face are empty, every nonzero lowering row forces both
+observable target spins to zero, contradicting membership in the connected
+target carrier.  Hence that entire conditional connected row is exactly
+zero.
+
+Writing `p` for the normalized probability that one fine packet is nonempty,
+the only contributing independent source pairs have mass
+
+```text
+p + (1-p)*p.
+```
+
+At the named SU(2) anchor the already-constructed packet estimate gives
+`p <= 256/425`.  Rational square nonnegativity gives
+`p(1-p) <= 1/4`, and therefore
+
+```text
+actual global connected production fraction
+  <= 256/425 + 1/4
+   = 1449/1700
+   < 1.
+```
+
+The rate is independent of the finite slab volume at this exact anchor.  The
+input is SU(2)-specific: it uses the constructed dyadic packet occupation
+estimate, so this is not a group-agnostic or U(1) contraction claim.  The
+previous joint-activity theorem remains valid, but its single common rate
+discards source heat powers and is not the selected entropy closure.
+
+Monitored verification:
+
+```text
+vacuum-packet strictness focused source check              PASS
+vacuum-packet strictness dependency target                 PASS (5,612 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports
+the module.  No aggregate or full-root audit is claimed by these checks.
+
+Still open: identify this literal connected production fraction with the
+precise positive term in the centered production/refresh cross, retain the
+vacuum cancellation there, and obtain the uniform strict dense form bound.
+The completed OS gap and controlled thermodynamic/continuum limits remain
+downstream.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 

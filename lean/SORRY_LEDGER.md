@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Contract the connected production rows through the vacuum packet (2026-09-10)
+
+- **milestone**: explicit strict finite-volume connected production fraction
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalConnectedVacuumPacketStrictness.lean`
+- **proved declarations**:
+  `finePacketOrientedNormalizedConnectedJointMass_eqv_zero_of_both_empty`,
+  `finePacketGlobalNormalizedConnectedJointFraction_le_activeSourcePairMass`,
+  `finePacketObservableActiveNormalizedSourcePairMass_eqv`,
+  `finePacketObservableActiveNormalizedSourcePairMass_le_anchorRate`,
+  `finePacketGlobalNormalizedConnectedJointFraction_le_anchorVacuumPacketRate`,
+  and
+  `finePacketGlobalNormalizedConnectedJointFraction_lt_one_at_anchor`
+- **closed obligation**: sum target labels by exact normalized-row mass;
+  prove that two empty observable fine packets force every connected target
+  row to vanish; identify the active independent source-pair mass as
+  `p + (1-p)*p`; use the SU(2)-specific anchor estimate `p <= 256/425` and
+  rational square nonnegativity to obtain the volume-independent strict rate
+  `1449/1700 < 1` at the named finite-cutoff anchor.
+- **remaining named obligation**: identify this literal connected production
+  fraction with the load-bearing positive contribution to the centered
+  production/refresh cross, preserve the vacuum cancellation in that signed
+  expression, and prove the strict dense two-step form bound.  Completed OS
+  extension and controlled thermodynamic/continuum passage remain open.
+- **constructive or propositional**: constructive finite-list normalization,
+  Boolean packet complements, exact lowering support, and rational square
+  nonnegativity; no `sorry` or new named hypothesis was introduced.  The
+  strict input is SU(2)-specific and is not a group-agnostic U(1) claim.
+
+Monitored verification:
+
+```text
+vacuum-packet strictness focused source check              PASS
+vacuum-packet strictness dependency target                 PASS (5,612 jobs)
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Contract source heat and target excitation to one joint activity (2026-09-10)
 
 - **milestone**: common-rate connected joint-activity fraction
