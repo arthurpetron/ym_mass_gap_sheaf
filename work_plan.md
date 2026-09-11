@@ -130,17 +130,22 @@ retains an independently certified face order and accepted auxiliary witness
 at each link, enumerates all local terminal-pair edges, and concatenates them
 on that common carrier.  Given any complete presented background, replacing
 its root entry by the actual root-first witness is constructive and puts both
-root edges literally in the resulting global list.
+root edges literally in the resulting global list.  Ordinary accepted source
+assignments now embed in the presented interface through their production
+orders.  The generic rooted-component engine pulls back to partner closure at
+every independently ordered link.  At the active root, the Boolean union of
+the left- and right-rooted components contains both required face copies and
+is closed across every global edge; no equality or disjointness of those two
+components is assumed.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. construct the complete presented background assignment from the actual
-   mixed inward-mate debt carrier, then glue the already-assembled
-   heterogeneous global list across neighboring link occurrences, construct
-   the SU(2)-specific closed-component rerouting, and sum those routes into a
-   cutoff-independent bound by the pure mate product; this compares the
-   complete fixed-boundary intertwiner contraction of a state with its inward
-   mate;
+1. compile the two-root ordered-link partner closure into the existing
+   coherent strand-removal plan and prove its exact physical/auxiliary drops;
+   then replace the coarse mixed target/debt Cartesian overcount by a valid
+   source-presentation decomposition (or an equivalent checked recoupling
+   certificate), and sum the resulting routes into a cutoff-independent bound
+   by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

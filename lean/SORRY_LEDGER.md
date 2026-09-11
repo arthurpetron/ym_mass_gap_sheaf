@@ -31054,10 +31054,11 @@ claimed by these checks.
   land in the same presentation-independent global carrier; concatenate the
   local lists; replace one dependent assignment entry; and prove that both
   actual root-first edges occur after replacing the root presentation
-- **remaining named obligation**: construct a complete presented background
-  assignment from the actual mixed inward-mate debt carrier, then build and
-  reroute the shared-copy component in that heterogeneous global graph.  No
-  pointwise permutation between different fusion bases is asserted.
+- **remaining named obligation**: pull rooted components back through every
+  presented link, compile the resulting partner closure into coherent strand
+  removal, and resolve the mismatch between the coarse mixed target/debt
+  carrier and a common accepted source background.  No pointwise permutation
+  between different fusion bases is asserted.
 - **constructive or propositional**: all orders, accepted auxiliaries,
   assignments, terminals, edges, and replacement data are Type-level; list
   membership and transport are proof certificates
@@ -31073,6 +31074,58 @@ All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
 no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
 enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports both modules.  No aggregate or
+full-root audit is claimed by these checks.
+
+#### Glue the two active root strands into a closed presented selection (2026-09-11)
+
+- **milestone**: heterogeneous rooted-component pullback and two-seed union
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandSeedComponent.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFusionGlobalFaceStrandEdges.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandSeedComponent.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootPresentedComponents.lean`
+- **proved declarations**:
+  `SlabFaceStrandSeed.selected_root`,
+  `productionSlabLinkFaceOrder`,
+  `presentedSlabFusionWitnessAssignmentOfAssignment`,
+  `OrderedSlabLinkPartnerClosedFaceSelection`,
+  `PresentedSlabFusionWitnessFaceStrandSeed.atLinkSelection`,
+  `rootInsertedPresentedSlabFusionWitnessAssignmentOfAssignment`,
+  `rootLeftFirstChannelSeed`, `rootRightFirstChannelSeed`,
+  `rootFirstChannelComponentUnionSelected_eq_of_edge_mem`,
+  `rootFirstChannelComponentUnionAtLinkSelection`,
+  `rootFirstChannelComponentUnionSelected_leftRoot`, and
+  `rootFirstChannelComponentUnionSelected_rightRoot`
+- **closed obligation**: embed an ordinary accepted source assignment into the
+  presented interface; construct both root-generated global components after
+  root replacement; retain their union without assuming equality or
+  disjointness; prove both literal root face copies selected; and pull global
+  edge closure back to the exact ordered partner at every displayed link
+- **remaining named obligation**: compile each ordered-link selection into a
+  coherent SU(2) strand-removal plan and prove its exact physical and auxiliary
+  drops.  The coarse mixed target/debt Cartesian carrier does not itself carry
+  a common accepted source background; the counting proof still requires a
+  valid source-presentation decomposition or an equivalent checked recoupling
+  certificate before this geometry bounds the stretched remainder.
+- **constructive or propositional**: ordinary-to-presented conversion, both
+  seeds, both finite components, their Boolean union, and every local
+  selection are Type-level data; closure and root containment are proof
+  certificates
+
+Monitored verification:
+
+```text
+production-to-presented explicit olean emission           PASS
+presented component pullback explicit olean emission      PASS
+active-root two-component union explicit olean emission   PASS
+```
+
+All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the new modules.  No aggregate or
 full-root audit is claimed by these checks.
 
 #### Isolate the exact stretched-channel debt of the inward mate (2026-09-11)

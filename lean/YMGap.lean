@@ -3630,6 +3630,8 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBra
 import YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
 import YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
+import YMGap.Continuum.CompactDualSlabPresentedFaceStrandSeedComponent
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootPresentedComponents
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
 -- Keeping these in the semantic root makes their declarations visible to the

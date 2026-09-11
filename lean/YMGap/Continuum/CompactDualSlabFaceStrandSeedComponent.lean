@@ -141,6 +141,16 @@ def SlabFaceStrandSeed.selected
     (copy : SlabFaceStrandCopy physical) : Bool :=
   decide (copy ∈ seed.component)
 
+/-- The explicit seed is selected by its own rooted component. -/
+@[simp] theorem SlabFaceStrandSeed.selected_root
+    {physical : SlabLabelling} {edges : List (SlabFaceStrandEdge physical)}
+    (seed : SlabFaceStrandSeed edges) :
+    seed.selected seed.root = true := by
+  unfold SlabFaceStrandSeed.selected SlabFaceStrandSeed.component
+  simp only [decide_eq_true_eq]
+  exact root_mem_rootComponent
+    (slabFaceStrandAdjacentB edges) seed.root_mem
+
 /-- **Component edge closure.**  The characteristic function of a rooted
 component takes equal values on the two endpoints of every displayed edge. -/
 theorem SlabFaceStrandSeed.selected_eq_of_edge_mem
@@ -287,6 +297,7 @@ def SlabFusionWitnessFaceStrandSeed.atLinkMateClosedSelection
 #print axioms SlabFaceStrandSeed.ofEdge
 #print axioms SlabFaceStrandSeed.component
 #print axioms SlabFaceStrandSeed.selected
+#print axioms SlabFaceStrandSeed.selected_root
 #print axioms SlabFaceStrandSeed.selected_eq_of_edge_mem
 #print axioms SlabFaceStrandSeed.exists_component_faceId_ne_root
 #print axioms SlabFusionWitnessFaceStrandSeed

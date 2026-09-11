@@ -322,6 +322,24 @@ def rootInsertedPresentedSlabFusionWitnessAssignment
     ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩
     (rootPresentedSlabLinkFusionWitness carrier)
 
+/-- An ordinary accepted source assignment supplies the production-order
+background before the root entry is replaced by its root-first presentation. -/
+def rootInsertedPresentedSlabFusionWitnessAssignmentOfAssignment
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded)
+    (links : List SlabLink)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K 1 physical links)
+    (hroot : (cubeDebtRootIncidence carrier.word).1.link ∈ links) :
+    PresentedSlabFusionWitnessAssignment K 1 physical links :=
+  rootInsertedPresentedSlabFusionWitnessAssignment carrier links
+    (presentedSlabFusionWitnessAssignmentOfAssignment
+      K 1 physical links assignment hassignment)
+    hroot
+
 @[simp] theorem rootInsertedPresentedSlabFusionWitnessAssignment_at_root
     {K : Nat} {physical : EdgeLabelling}
     {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
@@ -409,6 +427,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootPresentedSlabLinkFusionWitness
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootInsertedPresentedSlabFusionWitnessAssignment_at_root
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootInsertedPresentedSlabFusionWitnessAssignmentOfAssignment
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootLeftFirstChannelEdge_mem_inserted_global
 #print axioms

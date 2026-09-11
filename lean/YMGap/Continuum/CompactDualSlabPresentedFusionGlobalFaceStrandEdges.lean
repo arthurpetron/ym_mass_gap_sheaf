@@ -24,6 +24,7 @@ namespace YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 set_option autoImplicit false
 
 open YMGap.Continuum.CanonicalLinkStrandStep
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabLinkStrandResolution
@@ -31,6 +32,7 @@ open YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
 open YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 open YMGap.Continuum.ResolvedTrivalentNetworkPorts
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4HalfTimeReflectionIncidenceReindex
 
 /-! ## 1. Enumerate the physical terminals and edges in one presentation -/
 
@@ -108,12 +110,42 @@ structure PresentedSlabLinkFusionWitness
   auxiliary_mem : auxiliary ∈
     orderedSlabLinkFusionWitnesses K physical order
 
+/-- The production incidence list is itself a certified face presentation. -/
+def productionSlabLinkFaceOrder
+    (extent : Nat) (link : SlabLink) : SlabLinkFaceOrder extent link where
+  faceIds := slabIncidentPlaqIds extent link
+  production_perm := List.Perm.refl _
+
+@[simp] theorem productionSlabLinkFaceOrder_faceIds
+    (extent : Nat) (link : SlabLink) :
+    (productionSlabLinkFaceOrder extent link).faceIds =
+      slabIncidentPlaqIds extent link := rfl
+
 /-- One certified presented witness for every member of a displayed link
 list.  The dependency on the attached link prevents mismatched local data. -/
 abbrev PresentedSlabFusionWitnessAssignment
     (K extent : Nat) (physical : SlabLabelling) (links : List SlabLink) :=
   (linked : {link // link ∈ links}) →
     PresentedSlabLinkFusionWitness K extent physical linked.1
+
+/-- Every ordinary Cartesian fusion assignment canonically becomes a
+presented assignment by retaining the production face order at every link. -/
+def presentedSlabFusionWitnessAssignmentOfAssignment
+    (K extent : Nat) (physical : SlabLabelling) (links : List SlabLink)
+    (assignment : SlabFusionWitnessAssignment)
+    (hassignment : assignment ∈
+      slabFusionWitnessAssignmentsOn K extent physical links) :
+    PresentedSlabFusionWitnessAssignment K extent physical links :=
+  fun linked =>
+    { order := productionSlabLinkFaceOrder extent linked.1
+      auxiliary := slabFusionWitnessAssignmentAt linked.1 assignment
+      auxiliary_mem := by
+        simpa [orderedSlabLinkFusionWitnesses,
+          productionSlabLinkFaceOrder, slabLinkFusionWitnesses,
+          slabLinkExternalSpins, fusionWitnessesForSpins] using
+            (slabFusionWitnessAssignmentAt_mem_local
+              K extent physical links assignment hassignment
+              linked.1 linked.2) }
 
 /-- Replace one attached link presentation while retaining the supplied
 presentations at every other attached link. -/
@@ -224,6 +256,8 @@ end YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
   YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges.PresentedSlabLinkFusionWitness
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges.PresentedSlabFusionWitnessAssignment
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges.presentedSlabFusionWitnessAssignmentOfAssignment
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges.presentedSlabFusionWitnessAssignmentReplace_at
 #print axioms
