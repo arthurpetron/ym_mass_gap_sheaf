@@ -82,9 +82,12 @@ as its production-order fiber.  Hence the complete function-valued source
 enumeration, and its injective target-or-first-stretched image, have exactly
 `cubeInwardMateSourceBoundaryProduct K physical` members.
 
-The remaining immediate bridge is to extract the first-stretched branch,
-join it to the off-cube production fibers without overcounting, partition the
-result by common lowered target, root, and peel size, and sum those fibers.
+The target and first-stretched branches are now extracted as separate
+duplicate-free lists whose lengths add back to the exact production
+cube-boundary multiplicity.  The remaining immediate bridge is to join the
+first-stretched list to the off-cube production fibers without overcounting,
+partition the result by common lowered target, root, and peel size, and sum
+those fibers.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

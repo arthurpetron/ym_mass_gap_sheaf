@@ -31041,18 +31041,22 @@ claimed by these checks.
   `cubeInwardMateOrderedSourceAssignments_nodup`,
   `cubeInwardMateOrderedSourceAssignments_length`,
   `cubeInwardMateCertifiedSourceOutcomes_length`, and
-  `cubeInwardMateCertifiedSourceOutcomes_nodup`
+  `cubeInwardMateCertifiedSourceOutcomes_nodup`,
+  `cubeInwardMateCertifiedFirstStretchedSources_nodup`, and
+  `cubeInwardMateCertifiedBranches_length`
 - **closed obligation**: construct the heterogeneous product of all twelve
   root-first accepted SU(2) witness fibers; use physical fusion-path
   permutation invariance to identify each local fiber cardinality with the
   production multiplicity; convert dependent tuples injectively to the
   function-valued classifier input; and prove that the certified dichotomy
-  preserves exact total cardinality and duplicate-freeness
-- **remaining named obligation**: extract the first-stretched branch, combine
-  it with the off-cube production fibers without multiplying by discarded
-  cube-background choices, partition the resulting full-slab sources by
-  lowered presented target, root, and peel size, and sum the proved fixed
-  fibers against the pure mate product
+  preserves exact total cardinality and duplicate-freeness; finally extract
+  the target and first-stretched branches as duplicate-free lists whose
+  lengths partition that exact cardinality
+- **remaining named obligation**: combine the extracted first-stretched list
+  with the off-cube production fibers without multiplying by discarded cube-
+  background choices, partition the resulting full-slab sources by lowered
+  presented target, root, and peel size, and sum the proved fixed fibers
+  against the pure mate product
 - **constructive or propositional**: the dependent tuple, its local accepted
   witnesses, and the complete finite enumeration are Type-level data;
   structural lookup, permutation-invariant cardinality, injectivity, and

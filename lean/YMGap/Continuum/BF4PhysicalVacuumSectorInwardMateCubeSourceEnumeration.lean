@@ -347,6 +347,136 @@ theorem cubeInwardMateCertifiedSourceOutcomes_nodup
     exact cubeInwardMateCertifiedSourceTargetOrFirstStretched_injective
       K physical hK hbounded heq
 
+/-! ## 5. Extract the two classified branches without losing witnesses -/
+
+/-- Retain the left payloads of a finite sum-valued family. -/
+def sumInlValues {A B : Type} : List (Sum A B) -> List A
+  | [] => []
+  | Sum.inl left :: rest => left :: sumInlValues rest
+  | Sum.inr _ :: rest => sumInlValues rest
+
+/-- Retain the right payloads of a finite sum-valued family. -/
+def sumInrValues {A B : Type} : List (Sum A B) -> List B
+  | [] => []
+  | Sum.inl _ :: rest => sumInrValues rest
+  | Sum.inr right :: rest => right :: sumInrValues rest
+
+theorem mem_sumInlValues_iff {A B : Type} {left : A} :
+    forall items : List (Sum A B),
+    left ∈ sumInlValues items <-> Sum.inl left ∈ items
+  | [] => by simp [sumInlValues]
+  | Sum.inl head :: rest => by
+      simp only [sumInlValues, List.mem_cons, Sum.inl.injEq]
+      rw [mem_sumInlValues_iff rest]
+  | Sum.inr head :: rest => by
+      simp only [sumInlValues, List.mem_cons,
+        Sum.inl_ne_inr, false_or]
+      exact mem_sumInlValues_iff rest
+
+theorem mem_sumInrValues_iff {A B : Type} {right : B} :
+    forall items : List (Sum A B),
+    right ∈ sumInrValues items <-> Sum.inr right ∈ items
+  | [] => by simp [sumInrValues]
+  | Sum.inl head :: rest => by
+      simp only [sumInrValues, List.mem_cons, Sum.inr_ne_inl, false_or]
+      exact mem_sumInrValues_iff rest
+  | Sum.inr head :: rest => by
+      simp only [sumInrValues, List.mem_cons, Sum.inr.injEq]
+      rw [mem_sumInrValues_iff rest]
+
+/-- Projecting either disjoint constructor branch preserves
+duplicate-freeness. -/
+theorem sumInlValues_nodup {A B : Type} :
+    forall {items : List (Sum A B)}, items.Nodup ->
+      (sumInlValues items).Nodup
+  | [], _ => List.nodup_nil
+  | Sum.inl head :: rest, hnodup => by
+      have hparts := List.nodup_cons.mp hnodup
+      apply List.nodup_cons.mpr
+      refine ⟨?_, sumInlValues_nodup hparts.2⟩
+      intro hhead
+      exact hparts.1 ((mem_sumInlValues_iff rest).mp hhead)
+  | Sum.inr _ :: rest, hnodup =>
+      sumInlValues_nodup (items := rest) (List.nodup_cons.mp hnodup).2
+
+theorem sumInrValues_nodup {A B : Type} :
+    forall {items : List (Sum A B)}, items.Nodup ->
+      (sumInrValues items).Nodup
+  | [], _ => List.nodup_nil
+  | Sum.inl _ :: rest, hnodup =>
+      sumInrValues_nodup (items := rest) (List.nodup_cons.mp hnodup).2
+  | Sum.inr head :: rest, hnodup => by
+      have hparts := List.nodup_cons.mp hnodup
+      apply List.nodup_cons.mpr
+      refine ⟨?_, sumInrValues_nodup hparts.2⟩
+      intro hhead
+      exact hparts.1 ((mem_sumInrValues_iff rest).mp hhead)
+
+/-- The two extracted branch lengths partition the original finite family. -/
+theorem sumInlValues_length_add_sumInrValues_length {A B : Type} :
+    forall items : List (Sum A B),
+    (sumInlValues items).length + (sumInrValues items).length = items.length
+  | [] => rfl
+  | Sum.inl _ :: rest => by
+      have ih := sumInlValues_length_add_sumInrValues_length rest
+      simp only [sumInlValues, sumInrValues, List.length_cons]
+      omega
+  | Sum.inr _ :: rest => by
+      have ih := sumInlValues_length_add_sumInrValues_length rest
+      simp only [sumInlValues, sumInrValues, List.length_cons]
+      omega
+
+/-- Every certified all-target assignment in the exact outcome family. -/
+def cubeInwardMateCertifiedTargetAssignments
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 <= K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
+    List (CubeInwardMateOrderedTargetWitnessAssignment K physical) :=
+  sumInlValues
+    (cubeInwardMateCertifiedSourceOutcomes K physical hK hbounded)
+
+/-- Every certified first-stretched source in the exact outcome family. -/
+def cubeInwardMateCertifiedFirstStretchedSources
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 <= K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
+    List (CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded) :=
+  sumInrValues
+    (cubeInwardMateCertifiedSourceOutcomes K physical hK hbounded)
+
+theorem cubeInwardMateCertifiedTargetAssignments_nodup
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 <= K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
+    (cubeInwardMateCertifiedTargetAssignments
+      K physical hK hbounded).Nodup :=
+  sumInlValues_nodup
+    (cubeInwardMateCertifiedSourceOutcomes_nodup
+      K physical hK hbounded)
+
+theorem cubeInwardMateCertifiedFirstStretchedSources_nodup
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 <= K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
+    (cubeInwardMateCertifiedFirstStretchedSources
+      K physical hK hbounded).Nodup :=
+  sumInrValues_nodup
+    (cubeInwardMateCertifiedSourceOutcomes_nodup
+      K physical hK hbounded)
+
+/-- The target and first-stretched lists are an exact cardinality partition
+of the production cube-boundary source multiplicity. -/
+theorem cubeInwardMateCertifiedBranches_length
+    (K : Nat) (physical : EdgeLabelling)
+    (hK : 1 <= K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
+    (cubeInwardMateCertifiedTargetAssignments
+        K physical hK hbounded).length +
+      (cubeInwardMateCertifiedFirstStretchedSources
+        K physical hK hbounded).length =
+      cubeInwardMateSourceBoundaryProduct K physical := by
+  exact (sumInlValues_length_add_sumInrValues_length
+    (cubeInwardMateCertifiedSourceOutcomes
+      K physical hK hbounded)).trans
+    (cubeInwardMateCertifiedSourceOutcomes_length
+      K physical hK hbounded)
+
 #print axioms dependentFiniteAssignments_length
 #print axioms DependentFiniteAssignment.eq_of_get_eq
 #print axioms dependentFiniteAssignments_nodup
@@ -355,5 +485,10 @@ theorem cubeInwardMateCertifiedSourceOutcomes_nodup
 #print axioms cubeInwardMateOrderedSourceAssignments_length
 #print axioms cubeInwardMateCertifiedSourceOutcomes_length
 #print axioms cubeInwardMateCertifiedSourceOutcomes_nodup
+#print axioms mem_sumInrValues_iff
+#print axioms sumInrValues_nodup
+#print axioms sumInlValues_length_add_sumInrValues_length
+#print axioms cubeInwardMateCertifiedFirstStretchedSources_nodup
+#print axioms cubeInwardMateCertifiedBranches_length
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceEnumeration

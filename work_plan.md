@@ -233,16 +233,19 @@ then injects the tuple carrier into the function-valued source type, and the
 certified target-or-first-stretched classifier preserves its exact cardinality
 `cubeInwardMateSourceBoundaryProduct K physical` and duplicate-freeness.
 
-This is still a cube-boundary enumeration plus a fixed-fiber theorem.  The
-first-stretched branch has not yet been joined to the off-cube production
-fibers without overcounting, partitioned by common lowered target, root, and
-peel size, or summed over roots and sizes.
+The two outcome branches are now extracted constructively into separate
+duplicate-free target and first-stretched lists.  Their lengths add exactly
+to the production cube-boundary source multiplicity.  This is still a
+cube-boundary enumeration plus a fixed-fiber theorem: the first-stretched
+list has not yet been joined to the off-cube production fibers without
+overcounting, partitioned by common lowered target, root, and peel size, or
+summed over roots and sizes.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. extract the certified first-stretched branch of the exact cube-boundary
-   outcome enumeration, join it to the off-cube production fibers without
-   overcounting, partition it by common lowered target, root, and peel size,
+1. join the extracted certified first-stretched cube-boundary list to the
+   off-cube production fibers without overcounting, partition it by common
+   lowered target, root, and peel size,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
    pure mate product;
