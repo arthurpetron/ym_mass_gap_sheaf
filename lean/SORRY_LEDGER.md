@@ -31152,6 +31152,51 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by this focused check.
 
+#### Attach deterministic peel data to every complete source (2026-09-11)
+
+- **milestone**: duplicate-free complete sources with flat inverse-data
+  projections
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullPeelData.lean`
+- **proved declarations**:
+  `completePresentedSlabSourceOfCertifiedCube_on_fullSource_auxiliary`,
+  `completePresentedSlabSourceOfCertifiedCube_on_fullSource_raw`,
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData`,
+  `EnumeratedCubeInwardMateFullSource.two_le_adaptiveInverseData_peelSize`,
+  `enumeratedCubeInwardMateFullSources_length`, and
+  `enumeratedCubeInwardMateFullSources_nodup`
+- **closed obligation**: prove that the older defensive cube override is
+  auxiliarywise and raw-idempotent on a source already completed by the
+  off-cube compiler; attach every literal full-source member to the existing
+  deterministic two-root adaptive inverse record while retaining the upstream
+  source as an injective key; preserve exact length and duplicate-freeness;
+  and prove that every attached peel removes at least the two distinct
+  certified root faces.
+- **remaining named obligation**: construct the dependent subfamilies with one
+  common lowered presented target, root, and peel size, compile their
+  `PresentedAdaptiveRemovalWitness` values, and sum the proved fixed-target
+  contraction against the pure mate product.  A shallow projection from the
+  large inverse record to the already-proved raw-idempotence equality may be
+  useful, but no increased recursion limit is admitted.  Physical transition
+  minorization, posterior-variance/Poincare control, the completed physical
+  gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the attachment is a mapped `List.attach`;
+  every retained source, membership proof, inverse record, and positive peel
+  certificate is Type-level or kernel-checked finite data.
+
+Monitored verification:
+
+```text
+complete-source peel-data attachment focused olean        PASS
+adaptive inverse dependency re-emission                   PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Enumerate the root-first cube source product exactly (2026-09-11)
 
 - **milestone**: multiplicity-faithful finite input to the certified

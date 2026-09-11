@@ -107,7 +107,12 @@ while equality off the cube reconstructs the complement assignment.  The
 resulting physical/raw source list remains duplicate-free.  The active edge is
 now to attach each member's deterministic lowered target, root, and peel size,
 then partition this list into the fixed fibers consumed by the existing
-`(8/25)^n` contraction theorem.
+`(8/25)^n` contraction theorem.  That attachment is now explicit and
+duplicate-free: every entry retains its upstream source as an injective key,
+projects the existing flat inverse record, and has peel size at least two.
+Reapplying the older defensive cube override is also proved to leave the raw
+complete source unchanged.  The live edge is the actual dependent target/root/
+size partition and its fixed-fiber witness compiler.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

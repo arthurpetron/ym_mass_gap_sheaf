@@ -263,11 +263,20 @@ duplicate-free.  The next step is to attach deterministic peel data to every
 member and partition the resulting list by its common lowered presented target,
 root, and peel size.
 
+Every complete source is now attached to that deterministic peel data in a
+duplicate-free list of the same cardinality.  The attachment retains the
+upstream source itself as its injective key and exposes the existing flat
+adaptive inverse record as a projection; both distinct certified root faces
+prove every attached peel size is at least two.  The older defensive cube
+override is raw-idempotent on these already-complete sources.  Constructing
+the dependent fixed-target/root/size subfamilies and their removal witnesses
+is the next open edge.
+
 The next load-bearing analytic producers are, in causal order:
 
-1. attach the existing deterministic two-root peel/inverse data to every
-   member of the duplicate-free full-source family, partition it by common
-   lowered target, root, and peel size,
+1. partition the now-attached deterministic two-root peel/inverse data by
+   common lowered target, root, and peel size and compile the corresponding
+   fixed-fiber removal witnesses,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
    pure mate product;
