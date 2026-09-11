@@ -30,6 +30,23 @@ Axiom convention: "axiom-clean" below means the theorem's `#print axioms`
 reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
 `Classical.*`, no `sorryAx`, no `native_decide`. See `lean/AGENTS.md`.
 
+### Live finite-volume frontier update (2026-09-11)
+
+- **PROVED, SU(2) at the fixed anchor and every cutoff `K >= 1`:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSEdgeCapacity` proves that
+  the normalized production source weight is bounded by the actual symmetric
+  OS joint capacity of the first edge
+  `sourceLower -> commonRight`, and the normalized production target weight is
+  bounded by the second edge `commonRight -> targetLower`.  The proof uses the
+  exact fine-intertwiner physical disintegration and the literal common
+  boundary summand; the resulting certificate is axiom-clean.
+- **OPEN next edge:** sum those normalized source traffics, transport the
+  existing at-most-64 target-fiber weighted congestion to normalized OS edge
+  load, and verify that the resulting demand identity meets an existing
+  all-vector posterior/Poincare compiler.  No finite-volume spectral gap,
+  continuum limit, or Clay theorem follows from the pointwise capacities
+  alone.
+
 ---
 
 ## The three Jaffe–Witten requirements

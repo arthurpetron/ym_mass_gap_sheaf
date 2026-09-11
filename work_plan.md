@@ -309,8 +309,13 @@ The next load-bearing producers are, in causal order:
    and mate assemble from distinct lower states against one common boundary
    and one common reflected-upper state.  Both displayed boundary summands
    are now strictly positive, and hence give a genuine two-edge path in the
-   retained row-conditional physical kernel.  Transporting source mass and
-   target congestion to the normalized edge loads is the active sub-edge;
+   retained row-conditional physical kernel.  Each production witness weight
+   is now proved bounded by its exact physical term, then by the displayed raw
+   OS-kernel entry.  Dividing by the common physical partition gives literal
+   quantitative lower bounds on both normalized symmetric-joint edge
+   capacities.  Summing the normalized source traffic and transferring the
+   existing target-fiber congestion through this normalization is the active
+   sub-edge;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -370,7 +375,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- weighted production target congestion ........... [PROVED]
 |   |   |   +-- common-channel two-edge OS path geometry ......... [PROVED]
 |   |   |   +-- raw, normalized, conditional OS path support ...... [PROVED]
-|   |   |   +-- transport weights -> normalized OS edge loads ..... [ACTIVE]
+|   |   |   +-- production weights -> normalized OS edge capacity . [PROVED]
+|   |   |   +-- normalized source mass + target-fiber edge load ... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
