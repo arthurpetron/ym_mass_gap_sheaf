@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Recover every successful source from target atom plus six-bit code (2026-09-11)
+
+- **milestone**: complete global source-to-`(target atom, code)` injectivity
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetPreimageInjectivity.lean`
+- **proved declarations**:
+  `globalTargetRaw_auxiliary_eq_of_eq`,
+  `targetEntry_eq_of_targetRaw_eq`,
+  `globalTargetAtom_eq`,
+  `globalTargetSource_eq_of_physical_eq_of_targetRaw_eq`, and
+  `globalTargetSource_eq_of_targetAtom_eq_of_targetPreimageCode_eq`
+- **closed obligation**: read the classified cube witness from each cube-link
+  target auxiliary; read every retained off-cube source auxiliary from the
+  unchanged complement; reconstruct the complete duplicate-free Cartesian
+  assignment from its lookups; transport this fixed-physical recovery across
+  the dependent global source; and combine it with the six-bit physical code.
+- **scope boundary**: injectivity has been proved, but it has not yet been
+  converted into an explicit length bound for each filtered target-atom fiber.
+  No summed mass transport, posterior variance, OS form bound, or spectral gap
+  is asserted.
+- **remaining named obligation**: prove the global successful-source carrier
+  is duplicate-free, filter it by an arbitrary target atom, map that fiber
+  injectively into the exact `64`-word code space, and derive the target-column
+  capacity bound used by finite weighted transport.
+- **constructive or propositional**: exact list lookups, function and subtype
+  extensionality, dependent transport along a proved physical-source equality,
+  and duplicate-free Cartesian reconstruction only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target preimage injectivity focused source check    PASS
+global all-target preimage injectivity dependency target       PASS (1,291 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Encode every physical target preimage by six bits (2026-09-11)
 
 - **milestone**: exact `64`-word physical ambiguity carrier
