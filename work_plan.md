@@ -81,12 +81,13 @@ faces.  Every active carrier member now additionally stores its complete
 assignment-membership proof, the first active assignment position, the actual
 auxiliary labelling read there, and kernel-checked positivity of both root
 faces.  No existential proposition is eliminated to manufacture this data.
+Those two positive faces now produce distinct literal slot-zero
+`SlabFaceStrandCopy` values, both proved incident on the recorded root link.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. construct the two literal physical face-strand copies at every stored
-   positive root, unfold the stored collapsed stretched auxiliary into an
-   accepted source trivalent network, construct its SU(2)-specific closed-
+1. unfold the stored collapsed stretched auxiliary at its two literal root
+   strand copies into an accepted source trivalent network, construct its SU(2)-specific closed-
    component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward

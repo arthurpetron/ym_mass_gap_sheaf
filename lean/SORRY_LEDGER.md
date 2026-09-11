@@ -31457,6 +31457,38 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Materialize the two physical strand copies at the active root (2026-09-11)
+
+- **milestone**: literal distinct root vertices on the recorded cube-boundary
+  link
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandCopies.lean`
+- **proved declarations**: `leftRootCopy`, `rightRootCopy`,
+  `leftRootCopy_mem_incident`, `rightRootCopy_mem_incident`, and
+  `leftRootCopy_ne_rightRootCopy`
+- **closed obligation**: use the root-face positivity proofs to construct
+  actual slot-zero `SlabFaceStrandCopy` data; retain exact face IDs; prove both
+  vertices lie on the same recorded root link; and prove the two vertices are
+  distinct
+- **remaining named obligation**: unfold the collapsed root auxiliary into an
+  accepted source trivalent network containing these copies, then trace and
+  reroute its closed component with cutoff-independent congestion
+- **constructive or propositional**: both copies are explicit Type-level data;
+  positivity supplies their `Fin` bounds and exact cube incidence supplies
+  their geometric certificates
+
+Monitored verification:
+
+```text
+inward-mate root-strand-copy explicit olean emission        PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual
