@@ -30328,6 +30328,36 @@ a same-object enriched observable/transfer system, build the linked cutoff
 tower, prove the physical completed gap, and construct the continuum theory
 and Clay closure.
 
+#### Recode the same mismatch through complementary events (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeComplementEnvelope`
+proves that simultaneous Boolean complementation leaves the exact selected
+raw mismatch ratio and its complete normalized coherent average unchanged.
+Thus each lower, reflected, and joint enriched positive-time defect can be
+bounded either through the positive-event fine/pushed occupations or through
+their complementary occupations.  The joint complement is explicitly the
+event that at least one of the two faces is not positive; it is not mislabeled
+as simultaneous zero occupation.
+
+Monitored verification:
+
+```text
+positive-time complement envelope focused source check PASS
+positive-time complement envelope dependency target     PASS (1578 jobs)
+```
+
+All seven printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: determine from the actual SU(2) coupling convention which of the
+positive or complementary event branches is quantitatively rare in each
+required parameter corridor, prove that estimate with explicit coupling,
+cutoff, volume, and lattice-spacing dependence, assemble retained-sector OS
+positivity and the linked same-object cutoff tower, prove the physical
+completed gap, and construct the continuum theory and Clay closure.
+
 #### Compile enriched observables back to the physical source (2026-09-10)
 
 `CompactDualAllCutoffRetainedFineIntertwinerObservablePullback` defines the

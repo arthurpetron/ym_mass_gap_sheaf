@@ -809,8 +809,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- coherent defect as selected raw-weight ratio .......... [PROVED exact]
 |       +-- mismatch <= fine-source + coarse-output occupation ..... [PROVED exact]
 |       +-- coherent output marginal / pushed-law bridge ........... [PROVED exact]
-|       +-- positive/zero complement mismatch recoding ............. [NEXT]
-|       +-- SU(2), beta/cutoff/volume rare-event bound ............. [OPEN]
+|       +-- positive/complement mismatch recoding .................. [PROVED exact]
+|       +-- parameter-correct SU(2) rare-event branch .............. [NEXT]
+|       +-- beta/cutoff/volume-explicit rare-event bound ........... [OPEN]
 |       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
