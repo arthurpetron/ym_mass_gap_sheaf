@@ -1,46 +1,37 @@
 /-
-Admissible compact simple gauge groups — the rep-theory lower-bound
-interface for the uniform (all-simple-groups) σ̂-budget reduction.
+Legacy scalar admissibility certificates for the uniform σ̂-budget reduction.
 
 # Why this module exists
 
-The Clay statement asks for a mass gap for *every* compact simple gauge
-group `G` — the four classical families `A_n = SU(n+1)`, `B_n = SO(2n+1)`,
-`C_n = Sp(n)`, `D_n = SO(2n)`, and the five exceptionals `G₂,F₄,E₆,E₇,E₈`.
-
 `RepTheory/RepData.lean` already parametrizes the σ̂-budget closure by a
 handful of scalar invariants (`C₂_fund`, `C₂_adj = h^∨`, `g²`, …) and
-proves the *conditional* closure `RepData.budget_closes`.  What it does
-**not** carry is the fact that pins SU(2) as the worst case of the whole
-family.  That fact is two rep-theory lower bounds, in the normalization
-`C₂_adj = h^∨` (dual Coxeter), `T(fund) = 1/2` (long root):
+proves the *conditional* closure `RepData.budget_closes`.  This file adds two
+numeric lower-bound hypotheses on those stored scalars.  It does **not**
+construct a compact simple group, identify `R.C2_fund` with the least nonzero
+Casimir of that group, derive descent through a global form, or prove that a
+chosen faithful action is irreducible.  In particular, the historical name
+`AdmissibleSimpleGroup` denotes only a scalar certificate, not provenance from
+an actual group.
 
-  * **Smallest nonzero Casimir (the spectral gap)** `Δ := C₂_min ≥ 3/4`,
-    attained *only* at the spin-½ of `su(2)`.  For every other simple `G`
-    the smallest nontrivial irrep has a strictly larger Casimir.  Here we
-    identify `Δ` with `C₂_fund` (the defining/fundamental rep realises the
-    minimum for every simple group; cf. the appendix table of the plan).
-  * **Dual Coxeter number** `h^∨ = C₂_adj ≥ 2`, attained *only* at
-    `A₁ = su(2)`.
-
-These are finite, decidable inputs — a literature table plus two minimum
-arguments, no analysis.  An `AdmissibleSimpleGroup R` bundles them as
-structure fields, so any concrete group instantiates the interface by
-supplying its Casimirs and discharging the two `decide`-able bounds.
+The rational floor `3/4` is the desired universal lower bound for the eventual
+global-form spectral minimum, and `2` is the dual-Coxeter floor.  Their general
+representation-theoretic justification is still owed by the constructive
+root/weight, central-character, and highest-weight development.  A defining
+representation need not minimize the Casimir (already for simply connected
+`B₂` and `B₃`), and quotient global forms can reject cover representations.
 
 # What this module proves
 
   * `AdmissibleSimpleGroup` — the structure carrying the two lower bounds
     `gap_lb : (3/4 : Q') ≤ R.C2_fund` and `hvee_lb : (2 : Q') ≤ R.C2_adj`,
     plus the certificate the group already owns (`RepData.ClosureCertificate`).
-  * `Casimir.gapFloor = 3/4`, `Casimir.hveeFloor = 2` — the family minima,
-    as exact `Q'` constants.
+  * `Casimir.gapFloor = 3/4`, `Casimir.hveeFloor = 2` — exact target floors.
   * `su2_admissible` — SU(2) **saturates** both bounds (`3/4 ≤ 3/4`,
-    `2 ≤ 2`, by `decide`); it is the worst case, the boundary instance.
-  * `su3_admissible` — SU(3) is admissible with strict slack
-    (`3/4 ≤ 4/3`, `2 ≤ 3`).
+    `2 ≤ 2`, by `decide`); it is the scalar boundary instance.
+  * `su3_admissible` — the SU(3) scalar record has strict slack
+    (`3/4 ≤ 4/3`, `2 ≤ 3`) for the stored SU(3) scalars.
   * `suN_gap_lb` / `suN_hvee_lb` — the `SU(N)` family (`N ≥ 2`) satisfies
-    both bounds, so every `A_{N-1}` is admissible.
+    both numerical bounds.
 
 # Axiom-gate (AGENTS.md Rule 1)
 
@@ -55,18 +46,16 @@ namespace YMGap.RepTheory
 
 open YMGap.Constructive
 
-/-! ## The family minima as exact `Q'` constants -/
+/-! ## Exact target floors -/
 
 namespace Casimir
 
-/-- The smallest nonzero quadratic Casimir over all compact simple
-groups: `Δ_min = 3/4`, attained only by the spin-½ of `su(2)`.  Every
-admissible group has `C₂_fund ≥ gapFloor`. -/
+/-- Exact rational floor used by the legacy scalar budget interface.  The
+future global-form highest-weight development must prove that the actual least
+nonzero descended Casimir is at least this value. -/
 def gapFloor : Q' := Q'.mkPos 3 4 (by decide)
 
-/-- The smallest dual Coxeter number over all compact simple groups:
-`h^∨_min = 2`, attained only by `A₁ = su(2)`.  Every admissible group has
-`C₂_adj ≥ hveeFloor`. -/
+/-- Exact rational dual-Coxeter floor used by the scalar budget interface. -/
 def hveeFloor : Q' := Q'.ofNat 2
 
 /-- `0 < gapFloor`. -/
@@ -79,29 +68,30 @@ end Casimir
 
 /-! ## The admissibility interface
 
-`AdmissibleSimpleGroup R` asserts that `R`'s invariants are those of
-*some* compact simple gauge group.  Concretely it carries the two
-rep-theory lower bounds that pin the family minimum at SU(2), together
-with the closure certificate `R` already owes.  The reduction
-(`MassGap/SimpleGroup.lean`) consumes exactly `gap_lb`, `hvee_lb`, and
-`cert`. -/
+Despite its historical name, `AdmissibleSimpleGroup R` does not assert that
+`R` comes from a compact simple gauge group.  It carries two scalar lower
+bounds together with the closure certificate `R` already owes.  The reduction
+(`MassGap/SimpleGroup.lean`) uses `gap_lb` in one character-tail input adapter,
+exposes `cert` through a separate accessor, and does not currently use
+`hvee_lb` in its main budget theorem.  The base budget route is driven by the
+separate `UniformBudgetWitness`; this structure records scalar obligations for
+later representation-theoretic closure rather than claiming they are all
+load-bearing today. -/
 structure AdmissibleSimpleGroup (R : RepData) : Prop where
-  /-- Smallest-Casimir lower bound `Δ ≥ 3/4` (the spectral-gap floor),
-  realised through the fundamental Casimir.  Equality only at `su(2)`. -/
+  /-- Lower bound `3/4 ≤ R.C2_fund` on the stored legacy scalar. -/
   gap_lb  : Casimir.gapFloor ≤ R.C2_fund
-  /-- Dual-Coxeter lower bound `h^∨ = C₂_adj ≥ 2`.  Equality only at
-  `A₁ = su(2)`. -/
+  /-- Lower bound `2 ≤ R.C2_adj` on the stored adjoint scalar. -/
   hvee_lb : Casimir.hveeFloor ≤ R.C2_adj
   /-- The group's own σ̂-budget closure certificate (Bałaban tie + the
   per-step budget); see `RepData.ClosureCertificate`. -/
   cert    : R.ClosureCertificate
 
-/-! ## SU(2): the boundary instance (saturates both floors)
+/-! ## SU(2): the scalar boundary instance
 
-SU(2) is the *worst case* of the entire family: its invariants sit
-exactly on the two floors, `C₂_fund = 3/4 = gapFloor` and
+The stored SU(2) invariants sit exactly on the two floors,
+`C₂_fund = 3/4 = gapFloor` and
 `C₂_adj = 2 = hveeFloor`.  Both bounds hold with equality (`decide`),
-which is the formal content of "SU(2) saturates the lower bounds". -/
+which is the complete formal content of this section. -/
 
 /-- SU(2) saturates the gap floor: `3/4 ≤ 3/4`. -/
 theorem su2_gap_lb : Casimir.gapFloor ≤ su2.C2_fund := by decide
@@ -109,9 +99,8 @@ theorem su2_gap_lb : Casimir.gapFloor ≤ su2.C2_fund := by decide
 /-- SU(2) saturates the dual-Coxeter floor: `2 ≤ 2`. -/
 theorem su2_hvee_lb : Casimir.hveeFloor ≤ su2.C2_adj := by decide
 
-/-- **SU(2) is admissible** — the boundary instance.  Both lower bounds
-hold with equality, exhibiting SU(2) as the family minimum, and the
-existing `su2_cert` supplies the closure certificate. -/
+/-- The stored SU(2) scalar record satisfies both bounds with equality, and
+`su2_cert` supplies its conditional closure certificate. -/
 theorem su2_admissible : AdmissibleSimpleGroup su2 where
   gap_lb  := su2_gap_lb
   hvee_lb := su2_hvee_lb
@@ -125,8 +114,8 @@ theorem su3_gap_lb : Casimir.gapFloor ≤ su3.C2_fund := by decide
 /-- SU(3) clears the dual-Coxeter floor with slack: `2 ≤ 3`. -/
 theorem su3_hvee_lb : Casimir.hveeFloor ≤ su3.C2_adj := by decide
 
-/-- **SU(3) is admissible** — an interior instance with strict slack in
-both invariants. -/
+/-- The stored SU(3) scalar record satisfies the legacy admissibility structure,
+with strict slack in both recorded invariants. -/
 theorem su3_admissible : AdmissibleSimpleGroup su3 where
   gap_lb  := su3_gap_lb
   hvee_lb := su3_hvee_lb
@@ -134,12 +123,12 @@ theorem su3_admissible : AdmissibleSimpleGroup su3 where
 
 /-! ## The `A_{N-1} = SU(N)` family clears both floors for `N ≥ 2`
 
-The `SU(N)` invariant formulas (`C₂_fund = (N²−1)/(2N)`, `C₂_adj = N`)
+The chosen `SU(N)` scalar formulas (`C₂_fund = (N²−1)/(2N)`, `C₂_adj = N`)
 satisfy both lower bounds for every `N ≥ 2`, so every group in the
-`A` family is admissible (modulo its own closure certificate).  We prove
+`A` family clears these numerical tests (modulo its own closure certificate).
+We prove
 the two bounds at the level of the `suN_C2_fund`/`suN_C2_adj` formulas,
-exhibiting the floors as genuine family-wide minima, not SU(2)-specific
-fiducials. -/
+without claiming the global-form spectral minimum. -/
 
 /-- `C₂_adj = N ≥ 2` for `SU(N)` with `N ≥ 2`: the dual-Coxeter floor.
 `hveeFloor = 2 = ofNat 2 ≤ ofNat N`, monotone in `N`. -/

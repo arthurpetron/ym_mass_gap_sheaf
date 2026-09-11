@@ -55,8 +55,13 @@ bookkeeping) and the 2026-05-24 audit note in §1.
 
 - [Seiler 1982] E. Seiler, "Gauge theories as a problem of constructive
   quantum field theory and statistical mechanics", Lecture Notes in
-  Physics 159, Springer 1982.  Plaquette-polymer connectivity bound
-  ``μ_plaq ≤ 5d - 4 = 16`` for d-dimensional cubic lattice (d = 4).
+  Physics 159, Springer 1982.  Historically cited for the
+  plaquette-polymer connectivity bound ``μ_plaq ≤ 5d - 4 = 16``; the
+  SL.1 exact enumeration (2026-07-24,
+  `computations/plaquette_connectivity.py`) showed 5d - 4 matches NO
+  natural plaquette-adjacency count at any d, so the citation is
+  retained for history only and the code default is now the derived
+  Brydges–Federbush bound (see ``MU_PLAQUETTE_4D``).
 - [DrouffeItzykson1978] J.-M. Drouffe and C. Itzykson, "Lattice gauge
   fields", Phys. Rep. 38 (1978), 133–175.  Heat-kernel character
   expansion for compact gauge groups.
@@ -73,11 +78,25 @@ bookkeeping) and the 2026-05-24 audit note in §1.
 
 See `notes/fiducials_notes.md` §3 / §4 for the project-wide audit of
 `MU_PLAQUETTE_4D` and `J_MAX_DEFAULT`; BibTeX entries are in
-`formal/references.bib`.  The specific value ``μ_plaq = 5d - 4 = 16``
-for `d = 4` is widely cited in lattice gauge theory but the project's
-2026-05-24 web-search pass did not directly verify it against a
-primary source verbatim — `MU_PLAQUETTE_4D` is therefore marked as a
-literature-shape fiducial pending direct paper consultation.
+`formal/references.bib`.
+
+**Provenance upgrade (SL.1, 2026-07-25): `MU_PLAQUETTE_4D` is now a
+DERIVED bound, no longer LITERATURE-SHAPE.**  The exact enumeration in
+`computations/plaquette_connectivity.py` (pinned by
+`tests/test_plaquette_connectivity.py`) established that (i) the
+Seiler-cited formula ``5d - 4`` counts NO natural plaquette-adjacency
+notion on Z^d at any d — its d = 4 value 16 coincides with the
+non-coplanar edge-neighbour count ``8(d - 2)`` at d = 4 only; and
+(ii) the polymer counts the code consumes (edge-connected plaquette
+polymers, N_1..5 = 1, 20, 458, 11132, 280175 at d = 4) have one-step
+growth ratios 20.0, 22.9, 24.3, 25.2 — already above 16 from n = 2 —
+so ``N_n ≤ 16^n`` is not asymptotically defensible.  What IS a
+theorem: the plaquette edge-adjacency graph has max-degree exactly
+``Δ = 8d - 12 = 20`` at d = 4, so the Brydges–Federbush universal
+bound gives ``N_n ≤ (e·Δ)^n = (20e)^n``.  The module default is the
+exact-rational majorant of ``20e`` (see ``MU_PLAQUETTE_4D_RATIONAL``);
+the old 16 is retained as ``SEILER_5D_MINUS_4_LEGACY`` for comparison
+sweeps only.
 
 ## Structural independence from small-field
 
@@ -92,6 +111,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
+from fractions import Fraction
 from typing import Final
 
 from computations.heat_kernel import (
@@ -119,21 +139,72 @@ is far above the convergence threshold anyway, so ``K_lf = ∞`` is
 the correct (vacuous) result.
 """
 
-MU_PLAQUETTE_4D: Final[float] = 16.0
-"""Plaquette-connectivity ``μ_plaq`` for the d = 4 cubic lattice.
+MU_PLAQUETTE_4D_RATIONAL: Final[Fraction] = Fraction(1359141, 25000)
+"""Exact-rational majorant of the derived bound ``20e`` (d = 4).
 
-Per [Seiler 1982] / [Drouffe–Itzykson 1989]: the number of connected
-plaquette-polymers of size ``n`` containing a fixed plaquette on a
-d-dimensional cubic lattice is bounded by ``(5d - 4)^n``.  For
-``d = 4``: ``16^n``.  This is a fiducial literature value with the
-cited form; specific numerical refinement (tighter polymer-counting
-bounds) is deferred to a future analytic upgrade.
+``1359141/25000 = 20 × 2718282/1000000 = 54.36564`` exactly.
 
-See `notes/fiducials_notes.md` §3 for the project-wide audit: the
-``5d - 4`` formula is widely cited in lattice gauge theory but was not
-verified verbatim against a primary source in the 2026-05-24 web-search
-pass.  A rigorously-derivable alternative is
-``MU_PLAQUETTE_CONSERVATIVE_4D`` below.
+**Proof that this is an upper bound on 20e** (validity of the polymer
+KP bound requires ``μ_plaq ≥`` the true growth constant, so μ must
+enter as a RATIONAL UPPER bound on ``20e``, never a rounding-down):
+
+    e = 2.718281828459045…  <  2.718282 = 2718282/1000000,
+
+(certified in exact rational arithmetic by
+``tests/test_large_field_kp.py::TestMuPlaquetteGe20eGuard`` via the
+factorial-series tail bound ``e ≤ Σ_{k≤n} 1/k! + 1/(n!·n)``), hence
+
+    20e  <  20 · 2718282/1000000  =  1359141/25000.
+
+This is the tightest "clean-decimal" rational majorant at 6
+significant digits of e; the slack over 20e is ≈ 3.4e-6.
+"""
+
+MU_PLAQUETTE_4D: Final[float] = float(MU_PLAQUETTE_4D_RATIONAL)
+"""Plaquette-connectivity ``μ_plaq`` for the d = 4 cubic lattice:
+``54.36564``, the float image of ``MU_PLAQUETTE_4D_RATIONAL``.
+
+**Status: DERIVED bound (SL.1, 2026-07-25), no longer
+LITERATURE-SHAPE.**  Derivation: the number of edge-connected
+plaquette-polymers of size ``n`` containing a fixed plaquette on the
+d = 4 cubic lattice satisfies the Brydges–Federbush universal
+connected-subgraph bound
+
+    N_n(P₀)  ≤  (e · Δ)^n,      Δ = max-degree = 8d - 12 = 20,
+
+with ``Δ = 20`` an exact enumerated integer
+(`computations/plaquette_connectivity.py`, exhaustiveness-certified;
+also ``plaquette_edge_neighbor_count(4)`` below).  The constant wired
+in here is the exact-rational majorant ``1359141/25000 ≥ 20e``
+(see ``MU_PLAQUETTE_4D_RATIONAL`` for the ≥ proof), so the bound
+``N_n ≤ μ_plaq^n`` is rigorous.
+
+Note the float conversion cannot break the majorant: the rounding
+error of ``float(1359141/25000)`` is < 1e-14 while the rational's
+slack over 20e is ≈ 3.4e-6.
+
+Replaces the former literature-shape value 16 (Seiler "5d - 4"),
+which the SL.1 enumeration showed matches no adjacency notion and
+fails the enumerated growth ratios from n = 2 onward; see
+``SEILER_5D_MINUS_4_LEGACY`` and `notes/fiducials_notes.md` §3.
+"""
+
+SEILER_5D_MINUS_4_LEGACY: Final[float] = 16.0
+"""LEGACY value ``5d - 4 = 16`` at d = 4 — comparison sweeps ONLY.
+
+DO NOT use as the default μ_plaq: exact enumeration
+(`computations/plaquette_connectivity.py`, SL.1 2026-07-24) shows the
+``5d - 4`` formula matches NO natural plaquette-adjacency notion at
+any d (edge: 8d-12; non-coplanar edge: 8(d-2); vertex: 8(d-1)²;
+per-bond: 2(d-1); per-vertex: 2d(d-1)).  Its d = 4 agreement with
+``8(d - 2) = 16`` is a numerical coincidence (d = 3: 8 vs 11; d = 5:
+24 vs 21).  The enumerated polymer counts N_n = 1, 20, 458, 11132,
+280175 satisfy ``N_n ≤ 16^n`` only for the checked n ≤ 5, with growth
+ratios (20.0 → 25.2) already exceeding 16 — the bound is expected to
+fail near n ≈ 8.  Retained solely so sensitivity sweeps can quantify
+what the unsupported literature value would have bought.  Provenance:
+`computations/plaquette_connectivity.py` and
+`notes/fiducials_notes.md` §3.
 """
 
 MU_PLAQUETTE_CONSERVATIVE_4D: Final[float] = 8.0 * math.e
@@ -165,9 +236,9 @@ corrected derivation.
 
 
 MU_PLAQUETTE_4D_LOG: Final[float] = math.log(MU_PLAQUETTE_4D)
-"""``log μ_plaq = log 16 ≈ 2.7726``.  The cluster-expansion convergence
-threshold on the activity rate: ``ρ_lf > log μ_plaq`` is necessary for
-``K_lf`` to be finite.
+"""``log μ_plaq = log(1359141/25000) ≈ 3.9959``.  The cluster-expansion
+convergence threshold on the activity rate: ``ρ_lf > log μ_plaq`` is
+necessary for ``K_lf`` to be finite.
 """
 
 
@@ -184,14 +255,16 @@ def plaquette_edge_neighbor_count(d: int) -> int:
       * $d = 3$: $12$
       * $d = 4$: $20$
 
-    **Audit use** (``notes/fiducials_notes.md`` §3.1, 2026-05-25): the
+    **Audit use** (``notes/fiducials_notes.md`` §3.1–§3.4): the
     Brydges–Federbush universal bound for connected n-subgraphs of a
     max-degree-$\\Delta$ graph gives $\\mu \\le e \\cdot \\Delta$, so
     the direct-count BF bound for ``MU_PLAQUETTE_4D`` is
-    ``e * plaquette_edge_neighbor_count(4) ≈ 54.4`` — strictly looser
-    than Seiler's literature 16 and the project's conservative 8e fallback.
-    This function exposes the direct count for sanity-checking;
-    it does NOT replace ``MU_PLAQUETTE_4D``.
+    ``e * plaquette_edge_neighbor_count(4) = 20e ≈ 54.37``.  As of the
+    SL.1 provenance upgrade (2026-07-25) this IS the source of the
+    default: ``MU_PLAQUETTE_4D`` is the exact-rational majorant of
+    ``e · plaquette_edge_neighbor_count(4)``.  The exact enumeration
+    cross-check for this count lives in
+    ``computations/plaquette_connectivity.py``.
 
     Raises ``ValueError`` for $d < 2$ (no plaquettes in 1D or 0D).
     """
@@ -217,11 +290,13 @@ def mu_plaquette_bf_conservative(d: int) -> float:
       * d = 3: ``12e ≈ 32.619``
       * d = 4: ``20e ≈ 54.366``
 
-    This is the **honest** rigorous-from-direct-count alternative to the
-    Seiler-cited (but unverified) ``MU_PLAQUETTE_4D = 16``.  Strictly
-    looser than ``16`` (the literature value depends on refinements
-    beyond the BF universal bound), but truly conservative — derivable
-    from first principles, no paper-specific argument required.
+    This is the honest rigorous-from-direct-count bound, and since the
+    SL.1 provenance upgrade (2026-07-25) it is also the source of the
+    module default: ``MU_PLAQUETTE_4D`` is the exact-rational majorant
+    of this function's d = 4 value (the float here is ``20 * math.e``;
+    the default is ``1359141/25000 ≥ 20e``).  The formerly-default
+    ``5d - 4 = 16`` (now ``SEILER_5D_MINUS_4_LEGACY``) matches no
+    adjacency notion and is retained for comparison sweeps only.
 
     Replaces ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e`` as the project's
     preferred genuinely-conservative fallback; the 8e value is the
@@ -251,14 +326,17 @@ count).  See ``mu_plaquette_bf_conservative`` and
 ``notes/fiducials_notes.md`` §3.2.
 
 **Pilot impact** (canonical convention, K = 3):
-  * Default ``MU_PLAQUETTE_4D = 16``:                   ``g_max_lf ≈ 0.4245``.
-  * Site-bound ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e``:   ``g_max_lf ≈ 0.4098``.
-  * Genuine BF ``MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e``: ``g_max_lf ≈ 0.374``.
+  * Legacy ``SEILER_5D_MINUS_4_LEGACY = 16``:             ``g_max_lf ≈ 0.4245``.
+  * Site-bound ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e``:     ``g_max_lf ≈ 0.4098``.
+  * Default ``MU_PLAQUETTE_4D = 1359141/25000 (≥ 20e)``:  ``g_max_lf ≈ 0.3733``.
 
-Switching to the genuine-BF default shrinks the pilot lf-window by ~12%
-vs the literature default, but the small-field sf-window (≈ 0.40) is
-the binding constraint on the SU(2) pilot, so pilot closure at the
-canonical ``g_0 = 0.30`` wire-in is essentially unchanged.
+Since the SL.1 provenance upgrade (2026-07-25) the module default IS
+this bound (in exact-rational-majorant form), so the ≈12% lf-window
+shrinkage vs the legacy 16 is already priced into every default
+computation.  Pilot closure at the canonical ``g_0 = 0.30`` wire-in is
+unchanged: the pilot trajectory (g_k ≈ 0.300–0.301) sits well inside
+the new lf-window (0.3733) and the small-field machinery, and the
+σ̂-budget margin remains ≫ 10².
 """
 
 
@@ -436,14 +514,17 @@ def compute_large_field_kp(
     ``ρ_lf := -log Z_t`` per outline §6.5's spec form.
 
     Per [Brydges–Federbush 1978] cluster-expansion convergence on a 4D
-    cubic lattice with plaquette connectivity ``μ = 16`` ([Seiler 1982]):
+    cubic lattice with the DERIVED plaquette connectivity bound
+    ``μ = 1359141/25000 ≥ 20e`` (BF universal bound ``e · Δ`` at the
+    enumerated max-degree ``Δ = 8d - 12 = 20``;
+    `computations/plaquette_connectivity.py`):
 
         Σ_{X ∋ p₀} |a_k^lf(X)|  ≤  Σ_n μ^n · e^{-ρ_lf · n}  =  q / (1 - q)
 
     with ``q := μ · Z_t``.  Converges iff ``q < 1``, i.e., ``Z_t < 1/μ
-    = 1/16``.  Estimated thresholds (small-``g`` leading asymptotic):
-    canonical ``g_max ≈ √(3 / (4 · log 64)) ≈ 0.4247``; Wilson
-    ``g_max ≈ √(3 / log 64) ≈ 0.849``.
+    ≈ 1/54.366``.  Estimated thresholds (small-``g`` leading
+    asymptotic): canonical ``g_max ≈ √(3 / (4 · log(4μ))) ≈ 0.3733``;
+    Wilson ``g_max ≈ 2 · 0.3733 ≈ 0.7466``.
 
     ``Z_t`` is computed via ``heat_kernel_character_tail_Z`` as a
     constructive upper bound (partial sum + geometric tail).  The
@@ -519,7 +600,7 @@ def compute_large_field_kp(
             f"{'Convergent' if convergent else 'NOT convergent (K_lf = ∞)'}; "
             f"K_lf = {K_lf:.4e}.  "
             f"μ_plaq = {mu_plaq:.4f} "
-            f"({'literature-shape (5d-4 = 16, Seiler 1982)' if mu_plaq == MU_PLAQUETTE_4D else 'site-bound 8e (NOT a true plaquette BF-conservative; see fiducials_notes §3.1)' if mu_plaq == MU_PLAQUETTE_CONSERVATIVE_4D else 'BF-conservative 20e (genuine plaquette-BF bound from direct count)' if mu_plaq == MU_PLAQUETTE_BF_CONSERVATIVE_4D else 'custom override'})."
+            f"({'DERIVED rational majorant 1359141/25000 ≥ 20e of the BF bound e·Δ, Δ = 8d-12 = 20 (plaquette_connectivity.py)' if mu_plaq == MU_PLAQUETTE_4D else 'LEGACY 5d-4 = 16 (Seiler-cited; matches no adjacency notion — comparison sweeps only)' if mu_plaq == SEILER_5D_MINUS_4_LEGACY else 'site-bound 8e (NOT a true plaquette BF-conservative; see fiducials_notes §3.1)' if mu_plaq == MU_PLAQUETTE_CONSERVATIVE_4D else 'BF-conservative 20e float (use the default rational majorant instead)' if mu_plaq == MU_PLAQUETTE_BF_CONSERVATIVE_4D else 'custom override'})."
         ),
         "convergent": (
             f"q = μ_plaq · Z_t^upper = {q:.4e} "
@@ -540,7 +621,9 @@ def compute_large_field_kp(
         "status": (
             "DERIVED: ρ_lf and K_lf computed constructively via heat-kernel "
             "character-tail truncation + Brydges–Federbush cluster expansion. "
-            "μ_plaq = 16 is a fiducial literature value (Seiler 1982)."
+            "μ_plaq = 1359141/25000 (= 54.36564 ≥ 20e) is the DERIVED "
+            "BF bound e·Δ at the enumerated max-degree Δ = 20 "
+            "(computations/plaquette_connectivity.py; SL.1 2026-07-25)."
         ),
     }
 

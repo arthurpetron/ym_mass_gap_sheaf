@@ -35,6 +35,9 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 pythonpath = ["."]
 addopts = "-ra --strict-markers"
+markers = [
+    "slow: heavy exact gates (deselect with -m 'not slow')",
+]
 
 [tool.ruff]
 line-length = 100

@@ -8,6 +8,37 @@ not "reach a milestone" — **solve it.** Every session is a continuation of tha
 objective. The problem is assumed solvable and the job is to solve it. Keep going until
 it is solved.
 
+## MACHINE SAFETY — hard resource limits
+
+Two uncapped verification runs exhausted this host and crashed the MacBook Pro. Host
+safety takes precedence over verification throughput.
+
+- Never run bare `lake build`, `lake env lean YMGap.lean`, `make test`, a full
+  `pytest` suite, or concurrent build/test commands.
+- Inspect statically first. Then use the smallest targeted check with one worker
+  through the repository lock, from the repository root:
+  `scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build <Module.Target>`.
+  Run one named pytest file/node through the same wrapper with
+  `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+  VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1`.
+- Before compiling/testing, check for an existing GitHub runner
+  supervisor/helper/listener/worker/plugin host, `lean`, `lake`, or `pytest` process.
+  Do not compete with or kill a user-owned process.
+- Never bypass the lock wrapper or a locked Make target. The lock serializes
+  repository-managed entry points; arbitrary bare executables remain outside
+  that cooperative boundary.
+- After Control-C, TERM, HUP, or an abrupt child failure, keep any retained
+  lock until process inspection conclusively finds no GitHub runner
+  supervisor/helper/listener/worker/plugin host, Lean, Lake, or pytest process.
+- Full-tree builds, full tests, audits, and guards require explicit user approval
+  for the current run, after targeted checks pass. `LEAN_JOBS=1` is a hard
+  repository invariant on this host; do not raise or bypass it.
+- Keep the `-M 20480` per-process ceiling in `lean/lakefile.toml`. Raising it (for
+  example to `-M 40960`) or bypassing it requires explicit approval for that run.
+- Stop rather than escalating if a check nears the cap, swaps, stalls, or creates
+  thermal pressure. Report exactly what was and was not verified; a historical
+  green build is not a current-session verification.
+
 ## ANTI-GATEKEEPING — the hard behavioral rules
 
 I have a recurring failure mode of quietly telling the user to stop. It is forbidden.

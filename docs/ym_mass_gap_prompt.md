@@ -130,8 +130,18 @@ following heuristics:
   discharged); non-vacuity (inhabited hypotheses, no trivially-true
   instances); no smuggled normalization errors (character-vs-eigenvalue
   misidentification, wrong vacuum renormalization, free-part multiplicity
-  miscounts); no circular use of an equivalent gap statement; and no
-  numerical input masquerading as a derived constant.
+  miscounts); no circular use of an equivalent gap statement; no
+  numerical input masquerading as a derived constant; the **U(1)
+  discriminator** (no gap-critical positivity/contraction step may rest
+  on a mechanism that would equally prove a gap for 4D U(1) — every such
+  step must name where non-abelian-ness/anti-screening enters, on pain of
+  being presumed wrong or not yet the real mechanism; the Migdal–Kadanoff
+  recursion, which confines 4D U(1), is the canonical failure); and the
+  **coupled-simplification audit** (the SU(2) worst-case reduction and
+  the multiplicity-free 6j vertex calculus stand or fall together — any
+  audit touching the character-tail domination input `Z_t(G) ≤
+  Z_t(SU(2))` or the vertex product formula must re-verify both in the
+  same pass).
 - Require agents to return concrete theorems, constructions, exact
   identities, kernel-checked anchors, or machine-refuted dead routes.
   Reject status reports, vague optimism, and claims that an unproved global

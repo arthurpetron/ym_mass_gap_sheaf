@@ -1,0 +1,10 @@
+name = "cat_structural"
+defaultTargets = ["CatStructural"]
+
+# Keep the standalone spike inside the repository-wide Mac safety envelope.
+# The package is small, but no Lean entry point is allowed to rely on size as
+# its resource-control argument.
+weakLeanArgs = ["-s", "65536", "-M", "20480"]
+
+[[lean_lib]]
+name = "CatStructural"

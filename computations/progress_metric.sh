@@ -56,8 +56,9 @@ for f in "${FRONTIER[@]}"; do echo "     - $f"; done
 GUARD=$(python3 "$REPO_ROOT/scripts/safe_lean_build.py" -- YMGapGuard 2>&1 \
   | grep -oE "[0-9]+ Clay-frontier types" | grep -oE "^[0-9]+" || echo "?")
 echo
-echo "D  (critical-path obligations DISCHARGED; guard must break)  : $([ "$GUARD" = 5 ] && echo 0 || echo ">=1  (guard=$GUARD, CHECK!)")"
-echo "     frontier-guard uninhabited types = $GUARD   (5 = nothing discharged; <5 = something closed)"
+echo "D  (critical-path obligations DISCHARGED; guard must break)  : $D_RESULT"
+echo "     frontier-guard uninhabited types = $GUARD"
+echo "     $REGISTERED_FRONTIER_TOTAL = nothing discharged; only a successful numeric count below $REGISTERED_FRONTIER_TOTAL is discharge evidence"
 
 # --- STATUS LADDER for the top obligation (singleStep) ------------------------
 echo

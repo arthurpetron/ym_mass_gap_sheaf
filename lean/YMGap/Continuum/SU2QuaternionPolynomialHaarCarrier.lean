@@ -1,5 +1,5 @@
 /-
-# Rational quaternion-polynomial carrier and exact low-degree SU(2) Haar block
+# Rational quaternion-polynomial carrier and exact `S^3` moment block
 
 The five Peter--Weyl coordinates are a linear block but not an observable
 algebra: their first product already exposes spin two.  This file replaces
@@ -15,18 +15,21 @@ normalized `S^3` monomial formula
   E[x_0^(2k_0) ... x_3^(2k_3)]
     = prod_i (2k_i-1)!! / prod_{r<K} (4+2r),
 
-and zero when an exponent is odd.  Product Haar is the product of two such
-formulas.  From this formula, rather than from a free Schur table, we derive
+and zero when an exponent is odd.  The historically named `productHaar`
+functional is the product of two such sphere-moment formulas.  From it, rather
+than from a free Schur table, we derive
 
-  * `Z = int int (1 + (1/4) chi_1(g h^-1)) = 1`;
-  * the vacuum/fundamental reflected block `diag(1,1/8)`;
-  * `chi_1(g h^-1) = 2 sum_i g_i h_i` on rational unit quaternions.
+  * unit normalization of the retained raw polynomial kernel;
+  * the vacuum/first-coordinate reflected block `diag(1,1/8)`;
+  * the exact polynomial kernel `2 sum_i g_i h_i`, with the Hamilton-group
+    character bridge deliberately deferred to the rational unit-quaternion
+    development.
 
-What remains honestly open in this file is the all-degree positivity theorem
-for the explicit moment functional (and its Wilson reweighting).  That theorem
-is the precise next input needed to package `productHaar` as a
-`ProbFunctional`, hence to inhabit `ReferenceWeight`; it is not replaced by a
-finite table or assumed field.
+This leaf exposes all-degree positivity and weighted positivity as explicit
+inputs.  Later modules prove the bare all-degree result on the strict
+eight-coordinate carrier.  None of those moment identities, nor the legacy
+record name `ProbFunctional`, supplies left/right group-translation invariance;
+that genuinely Haar-theoretic bridge remains separate.
 -/
 
 import YMGap.Continuum.SU2PeterWeylPlaquetteAlgebraClosureFence
@@ -155,9 +158,11 @@ theorem evalRatPoly_mul (rho : Nat → Q') (p q : RatPoly) :
           (Q'.add_mul_eqv (s.2 * evalMono rho s.1)
             (evalRatPoly rho p) (evalRatPoly rho q))
 
-/-- The polynomial carrier is a literal observable algebra.  Since all
-coefficients are real, its algebraic involution is the identity; Euclidean
-time reflection is the separate `theta` below. -/
+/-- Package the polynomial carrier's raw operations into the repository's
+legacy `ObsAlg` interface.  That record does not itself require the full
+unital associative star-algebra laws.  Since the coefficients are rational,
+the intended coefficient involution is the identity; Euclidean boundary
+exchange is the separate `theta` below. -/
 def quaternionPairAlg : ObservableMeasure.ObsAlg where
   carrier := RatPoly
   one := polyOne
@@ -183,8 +188,9 @@ theorem sphereFourDenominator_pos (k : Nat) :
       unfold sphereFourDenominator
       exact Nat.mul_pos (by omega) ih
 
-/-- Exact normalized Haar moment on `S^3`, for one monomial in the four real
-quaternion coordinates. -/
+/-- Exact normalized `S^3` monomial-moment formula in four real quaternion
+coordinates.  Its identification with group Haar requires the later
+translation-invariance bridge. -/
 def sphereMoment4 (e0 e1 e2 e3 : Nat) : Q' :=
   if _hEven : e0 % 2 = 0 ∧ e1 % 2 = 0 ∧ e2 % 2 = 0 ∧ e3 % 2 = 0 then
     let k0 := e0 / 2
@@ -205,8 +211,9 @@ def allZero : List Nat → Bool
   | [] => true
   | e :: es => decide (e = 0) && allZero es
 
-/-- Exact product-Haar moment of an eight-coordinate monomial.  Variables
-above index seven evaluate as zero unless their exponent is zero. -/
+/-- Exact product of two `S^3` monomial-moment formulas.  The declaration keeps
+its historical Haar-oriented name, but no group invariance is asserted here.
+Variables above index seven evaluate as zero unless their exponent is zero. -/
 def productHaarMono (m : List Nat) : Q' :=
   if allZero (m.drop 8) then
     sphereMoment4 (exponentAt m 0) (exponentAt m 1)
@@ -215,8 +222,8 @@ def productHaarMono (m : List Nat) : Q' :=
         (exponentAt m 6) (exponentAt m 7)
   else 0
 
-/-- The explicit rational product-Haar moment functional on the full
-finite-support carrier. -/
+/-- The explicit rational product sphere-moment functional on the full
+finite-support carrier, retaining its historical declaration name. -/
 def productHaar : RatPoly → Q'
   | [] => 0
   | t :: p =>
@@ -271,15 +278,20 @@ def relativeDot : RatPoly :=
       (polyAdd (polyMul (gCoordinate 2) (hCoordinate 2))
         (polyMul (gCoordinate 3) (hCoordinate 3))))
 
-/-- `chi_1(g h^-1) = 2 dot(g,h)` in real quaternion coordinates. -/
+/-- The polynomial `2 dot(g,h)` intended to become
+`chi_1(g h⁻¹)` after a separate Hamilton-group evaluation bridge is proved.
+This module itself has no quaternion multiplication or inversion. -/
 def relativeFundamentalCharacter : RatPoly :=
   polySmul 2 relativeDot
 
-/-- The exact retained Wilson kernel `1 + (1/4) chi_1(g h^-1)`. -/
+/-- The retained polynomial kernel `1 + (1/4)·(2 dot(g,h))`.
+Calling it the Wilson character kernel requires the later group-evaluation
+bridge; no such identification is assumed here. -/
 def retainedRelativeWeight : RatPoly :=
   polyAdd polyOne (polySmul quarter relativeFundamentalCharacter)
 
-/-- The boundary fundamental character `chi_1(g)=2g_0`. -/
+/-- The raw boundary polynomial `2g_0`, intended to become the fundamental
+character only after the rational quaternion matrix-trace bridge. -/
 def boundaryFundamental : RatPoly := polySmul 2 (gCoordinate 0)
 
 def boundaryObservable (a : ModeVec) : RatPoly :=
@@ -292,9 +304,12 @@ theorem boundary_vacuum_eqv :
     evalMono, evalMonoFrom, qpow]
   ring_qeqv
 
-/-- On rational unit quaternions the scalar part of `g h^-1` is their dot
-product, hence the fundamental relative character is twice that dot product.
-This ties the polynomial kernel to the exact quaternion witness carrier. -/
+/-- Definitional expansion of the raw four-coordinate dot product.
+
+Despite the historical theorem name, the inputs are arbitrary raw tuples and
+this proof is reflexivity: it does **not** establish unit norm, Hamilton
+multiplication, inversion, or a character identity.  Those claims belong to a
+future bridge from the realized rational unit-quaternion group. -/
 theorem relative_character_value (g h : RationalSU2Point) :
     (2 : Q') * relativeClassCoordinate g h ≈
       (2 : Q') *
@@ -327,13 +342,14 @@ theorem no_rational_scalar_complex_fundamental :
   rintro ⟨u⟩
   exact no_rational_imaginary_unit u.value u.square_neg_one
 
-/-! ## Partition and the exact Schur block from the moment formula -/
+/-! ## Normalization and the exact two-coordinate block -/
 
-/-- Product Haar is normalized on the polynomial unit. -/
+/-- The explicit product sphere-moment functional is normalized on the
+polynomial unit.  This statement alone is not Haar invariance. -/
 theorem productHaar_one : productHaar polyOne ≈ 1 := by decide
 
-/-- Every term of the relative character has one odd coordinate on each
-boundary, so its product-Haar mean is zero. -/
+/-- Every term of the raw relative dot kernel has one odd coordinate on each
+boundary, so its product sphere-moment value is zero. -/
 theorem productHaar_relativeFundamental_zero :
     productHaar relativeFundamentalCharacter ≈ 0 := by decide
 
@@ -347,7 +363,8 @@ equivalence. -/
 theorem retained_partition_strict :
     productHaar (polyMul retainedRelativeWeight polyOne) = (1 : Q') := by decide
 
-/-- Vacuum/fundamental cross terms vanish directly from the odd-moment rule. -/
+/-- Vacuum/first-coordinate cross terms vanish directly from the odd-moment
+rule. -/
 theorem retained_vacuum_fundamental_cross :
     productHaar
       (polyMul retainedRelativeWeight
@@ -358,7 +375,7 @@ theorem retained_fundamental_vacuum_cross :
       (polyMul retainedRelativeWeight
         (polyMul (theta boundaryFundamental) polyOne)) ≈ 0 := by decide
 
-/-- The fundamental reflected norm is derived from
+/-- The first-coordinate reflected norm is derived from
 `E[g_0 g_i] E[h_0 h_i] = delta_(0i)/16` and the kernel coefficient `1/2`.
 The result is exactly `1/8`. -/
 theorem retained_fundamental_norm :
@@ -367,8 +384,9 @@ theorem retained_fundamental_norm :
         (polyMul (theta boundaryFundamental) boundaryFundamental)) ≈
       eighth := by decide
 
-/-- The full retained two-mode Schur block, now computed by the explicit
-all-degree polynomial carrier and the `S^3` moment formula. -/
+/-- The full retained two-mode coordinate block, computed by the explicit
+all-degree polynomial carrier and the `S^3` moment formula.  Identifying the
+second mode with a representation character is a later bridge. -/
 theorem retained_doubleHaar_schur (a b : ModeVec) :
     productHaar
       (polyMul retainedRelativeWeight
@@ -382,8 +400,9 @@ theorem retained_doubleHaar_schur (a b : ModeVec) :
   unfold quarter eighth
   ring_qeqv
 
-/-- The computed numerator agrees with the pre-existing exact Wilson block,
-but is no longer sourced from its Schur table. -/
+/-- The computed raw numerator agrees algebraically with the pre-existing
+legacy Wilson-block formula, but this equality does not itself supply the
+missing quaternion character or group-invariance bridges. -/
 theorem retained_doubleHaar_matches_Wilson (a b : ModeVec) :
     productHaar
       (polyMul retainedRelativeWeight
@@ -392,24 +411,27 @@ theorem retained_doubleHaar_matches_Wilson (a b : ModeVec) :
   Q'.eqv_trans _ _ _ (retained_doubleHaar_schur a b)
     (Q'.eqv_symm (reflectedWilsonGram_diagonal a b))
 
-/-! ## Exact remaining wall -/
+/-! ## Explicit positivity interfaces -/
 
-/-- The sole analytic property still required to promote the explicit moment
-functional to `ProbFunctional`.  It is stated on the concrete carrier, not as
-an opaque replacement for the Haar rules above. -/
+/-- Bare square positivity for the explicit moment functional.  It is stated
+on the concrete carrier rather than assumed as an opaque field; later modules
+construct this proof for the strict eight-coordinate support. -/
 def ProductHaarAllDegreePositive : Prop :=
   forall p : RatPoly, (0 : Q') ≤ productHaar (polyMul p p)
 
-/-- Wilson-weighted all-degree positivity on the same concrete carrier. -/
+/-- All-degree positivity after reweighting by the retained raw polynomial
+kernel on the same concrete carrier.  Calling that kernel Wilson-theoretic
+requires the later character bridge. -/
 def RetainedWeightedAllDegreePositive : Prop :=
   forall p : RatPoly,
     (0 : Q') ≤
       productHaar
         (polyMul retainedRelativeWeight (polyMul p p))
 
-/-- Given the all-degree moment positivity theorem, the concrete full carrier
-immediately becomes a normalized probability functional.  This theorem makes
-the residual exact without assuming it. -/
+/-- Package normalization and square positivity into the repository's legacy
+`ProbFunctional` record.  That record does not itself carry additivity,
+homogeneity, or group-translation invariance, so this constructor is not yet a
+measure-theoretic Haar probability functional. -/
 def productHaarProbFunctional
     (hpos : ProductHaarAllDegreePositive) :
     ObservableMeasure.ProbFunctional quaternionPairAlg where
@@ -417,9 +439,10 @@ def productHaarProbFunctional
   normalized := by decide
   positive := hpos
 
-/-- Once the two displayed all-degree positivity statements are proved, the
-full quaternion polynomial carrier gives an actual, nontrivially weighted
-`ReferenceWeight`; its partition is definitionally one. -/
+/-- Once the two displayed positivity statements are supplied, package the
+raw polynomial data into the repository's `ReferenceWeight` interface; its
+partition is definitionally one.  This packaging does not add the absent
+character or Haar-invariance theorems. -/
 def retainedReferenceWeight
     (hpos : ProductHaarAllDegreePositive)
     (hweighted : RetainedWeightedAllDegreePositive) :

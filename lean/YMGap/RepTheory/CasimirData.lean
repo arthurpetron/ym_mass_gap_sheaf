@@ -1,38 +1,21 @@
 /-
-Per-type exact-ℚ quadratic-Casimir / dual-Coxeter data for every compact
-simple gauge group, verified against the repo's normalization to clear the
-two family floors that pin SU(2) as the worst case.
+Legacy per-type rational scalar data used to clear two budget floors.
 
 # Why this module exists
 
-`RepTheory/SimpleGroup.lean` fixes the two rep-theory lower bounds that the
-uniform reduction consumes, in the repo's normalization (`T(fund) = 1/2`,
-long-root² = 2, the ÷2 sub-convention that sends `A₁ = su(2)` to
-`C₂_fund = 3/4`):
-
-  * `Casimir.gapFloor = 3/4`  — the smallest nonzero quadratic Casimir over
-    all compact simple groups, attained only by the spin-½ of `su(2)`.
-  * `Casimir.hveeFloor = 2`   — the smallest dual Coxeter number `h^∨`,
-    attained only by `A₁ = su(2)`.
-
-`SimpleGroup.lean` proves the `A_{N-1} = SU(N)` family clears both floors
-(`suN_gap_lb`, `suN_hvee_lb`).  Precisely: every fundamental weight ω_i
-(1 ≤ i ≤ N−1) of all SU(N), N ≥ 2, clears the 3/4 gap floor (the worst
-case is i = 1, the defining representation, attaining 3/4 only at N = 2).  What it does *not* carry is the same fact
-for the other Cartan types — `B_n = SO(2n+1)`, `C_n = Sp(n)`,
-`D_n = SO(2n)`, and the five exceptionals `G₂, F₄, E₆, E₇, E₈`.  This
-module supplies those: the exact minimal nonzero `C₂_fund` and the dual
-Coxeter `h^∨ = C₂_adj` for each type, as exact `Q'`, each *verified in the
-repo convention* to clear the `3/4` gap floor and the `2` dual-Coxeter
-floor.
+`RepTheory/SimpleGroup.lean` asks only for the inequalities
+`3/4 ≤ C2_fund` and `2 ≤ C2_adj` on legacy `RepData` scalars.  This module
+supplies rational literals and proves those inequalities.  It does **not**
+derive a least nonzero Casimir from a root datum, impose a global-form descent
+condition, or relate the stored scalar to a realized representation.
 
 # The convention, anchored
 
 The repo's anchor is `SU(N): C₂_fund = (N²−1)/(2N)`, `C₂_adj = N`.  At
-`N = 2` (`A₁`) this is `3/4` and `2` — exactly `gapFloor` and `hveeFloor`.
-We reproduce the minimal-Casimir table in *that* normalization:
+`N = 2` (`A₁`) this is `3/4` and `2`.  The legacy scalar table currently
+stored here is:
 
-  | type | rank r | h^∨ = C₂_adj | C₂_min = C₂_fund |
+  | type | rank r | stored `C₂_adj` | stored `C₂_fund` |
   | A_n  | n      | n+1          | n(n+2)/(2(n+1))  |  (= (N²−1)/(2N), N=n+1)
   | B_n  | n      | 2n−1         | n                |
   | C_n  | n      | n+1          | (2n+1)/4         |
@@ -43,24 +26,28 @@ We reproduce the minimal-Casimir table in *that* normalization:
   | E₇   | 7      | 18           | 57/4             |
   | E₈   | 8      | 30           | 30               |
 
-Check `A₁`: `n=1 ⇒ C₂_fund = 1·3/(2·2) = 3/4`, `h^∨ = 2`.  ✓  Both floors
-are attained *only* there; every other type is strictly above.
+These rows must not be read as a global minimum table.  Cover representations
+can be rejected by a quotient.  For simply connected `B₂` and `B₃`, the
+spinor Casimir `n(2n+1)/8` is smaller than the vector value `n`.  In type
+`D_n`, the vector and half-spin values in the stated long-root-square-two
+normalization are `(2n-1)/2` and `n(2n-1)/8`; the stored `(2n-1)/4` is therefore
+neither claimed value and is retained only as a legacy floor-clearing scalar.
 
 # What this module proves
 
-  * Per-type `C₂_fund`/`C₂_adj` as exact `Q'` functions of the rank (the
-    classical families) or constants (the exceptionals).
+  * Per-type legacy `C₂_fund`/`C₂_adj` literals as exact `Q'` functions of the
+    rank (the classical families) or constants (the exceptionals).
   * `*_gap_lb` / `*_hvee_lb` for each type: the floors `3/4` and `2` are
     cleared.  The classical families `B/C/D` are `Q'`-functions of `n`
     shown `≥ 3/4` (resp. `≥ 2`) for the simple range of `n`, by the same
     cross-multiplied `omega` route as `suN_gap_lb`.  The five exceptionals
     are closed by `decide` on closed `Q'` literals.
 
-These are exactly the inputs `AdmissibleSimpleGroup.gap_lb` /
-`AdmissibleSimpleGroup.hvee_lb` consume; supplying them for every Cartan
-type removes the per-axis Casimir/gap data from the named-input list of the
-uniform reduction (the remaining named input being the analytic
-budget/η-domination, not these rep-theory floors).
+These are exactly the numeric inequalities consumed by
+`AdmissibleSimpleGroup.gap_lb` / `AdmissibleSimpleGroup.hvee_lb`.  They do not
+remove the representation-theoretic obligation: the future constructive
+`P/Q`, central-character, normalized-root-metric, and highest-weight minimum
+layers must supply provenance and the actual global-form spectral pin.
 
 # Axiom-gate (AGENTS.md Rule 1)
 
@@ -77,15 +64,14 @@ namespace YMGap.RepTheory
 
 open YMGap.Constructive
 
-/-! ## Classical families `B_n, C_n, D_n`: exact `C₂` as `Q'` functions of `n`
+/-! ## Classical-family legacy scalars as `Q'` functions of `n`
 
-The defining-representation quadratic Casimir and the dual Coxeter number
-`h^∨`, in the repo normalization (anchored so `A₁ → 3/4`, `h^∨ = 2`).  We
-expose them as `Q'`-valued functions of the rank `n`, mirroring
-`suN_C2_fund` / `suN_C2_adj`. -/
+These historical names mirror `suN_C2_fund` / `suN_C2_adj`.  Only their exact
+rational values and the proved floor inequalities are load-bearing here; no
+minimum or global-form semantics is attached by this module. -/
 
-/-- `C₂(fund)` for `B_n = SO(2n+1)`: the minimal nonzero Casimir is the
-vector representation's, `= n` (repo normalization).  Integer-valued. -/
+/-- Legacy `B_n` vector scalar, `n`.  It need not be the simply connected
+spectral minimum at low rank and need not descend to every global form. -/
 def soOdd_C2_fund (n : Nat) : Q' := Q'.ofNat n
 
 /-- `C₂(adj) = h^∨` for `B_n = SO(2n+1)`: `2n − 1`. -/
@@ -97,7 +83,8 @@ def sp_C2_fund (n : Nat) : Q' := Q'.mkPos (2 * (n : Int) + 1) 4 (by decide)
 /-- `C₂(adj) = h^∨` for `C_n = Sp(n)`: `n + 1`. -/
 def sp_C2_adj (n : Nat) : Q' := Q'.ofNat (n + 1)
 
-/-- `C₂(fund)` for `D_n = SO(2n)`: `(2n−1)/4`. -/
+/-- Legacy `D_n` floor-clearing scalar `(2n−1)/4`.  This is not the vector or
+half-spin Casimir in the stated long-root-square-two normalization. -/
 def soEven_C2_fund (n : Nat) : Q' := Q'.mkPos (2 * (n : Int) - 1) 4 (by decide)
 
 /-- `C₂(adj) = h^∨` for `D_n = SO(2n)`: `2n − 2`. -/
@@ -209,11 +196,11 @@ theorem soEven_hvee_lb (n : Nat) (hn : 2 ≤ n) :
     exact_mod_cast this
   omega
 
-/-! ## The five exceptionals — exact `Q'` constants, floors by `decide`
+/-! ## Five exceptional-type legacy constants, floors by `decide`
 
-`C₂_fund` (minimal nonzero) and `h^∨ = C₂_adj`, in the repo normalization.
-Each clears both floors with strict slack, closed by `decide` on closed
-`Q'` literals. -/
+Each stored literal clears the relevant floor, closed by `decide` on exact
+`Q'` data.  Actual global-form minima still require the highest-weight and
+central-character calculation. -/
 
 /-- `G₂`: `C₂_fund = 2`, `h^∨ = 4`. -/
 def g2_C2_fund : Q' := Q'.ofNat 2
@@ -256,14 +243,11 @@ theorem e8_gap_lb  : Casimir.gapFloor  ≤ e8_C2_fund := by decide
 /-- `E₈` clears the dual-Coxeter floor: `2 ≤ 30`. -/
 theorem e8_hvee_lb : Casimir.hveeFloor ≤ e8_C2_adj  := by decide
 
-/-! ## SU(2) is the unique global minimum (both floors attained only at A₁)
+/-! ## Scalar boundary checks at SU(2)
 
-The floors are *attained* at the A₁ values (`C₂_fund = 3/4`, `h^∨ = 2`) and
-strictly cleared everywhere else: the smallest off-A₁ classical value is
-`B_2: C₂_fund = 2`, `C_3: (2·3+1)/4 = 7/4`, `D_4: (2·4−1)/4 = 7/4`, and
-`A_2: 8/6 = 4/3` — all `> 3/4`; the smallest off-A₁ `h^∨` is `2` again only
-at the A₁-isomorphic low-rank cases, `≥ 3` for every distinct simple type.
-We record the two boundary equalities and one representative strict gap. -/
+We record two A₁ equalities and the single comparison `3/4 < 4/3` for the
+stored A₂ scalar.  These three facts do not prove uniqueness of a minimum over
+all Cartan types or global forms. -/
 
 /-- The gap floor is exactly attained at `A₁`: `C₂_fund(SU2) = 3/4 = gapFloor`. -/
 theorem gapFloor_attained_su2 : su2.C2_fund.eqv Casimir.gapFloor := by decide
@@ -272,8 +256,8 @@ theorem gapFloor_attained_su2 : su2.C2_fund.eqv Casimir.gapFloor := by decide
 `C₂_adj(SU2) = 2 = hveeFloor`. -/
 theorem hveeFloor_attained_su2 : su2.C2_adj.eqv Casimir.hveeFloor := by decide
 
-/-- Strictness off `A₁`: the next type up, `A₂ = SU(3)`, is strictly above
-the gap floor (`3/4 < 4/3`), witnessing that `A₁` is the unique minimum. -/
+/-- The stored `A₂ = SU(3)` scalar is strictly above the floor:
+`3/4 < 4/3`. -/
 theorem gapFloor_strict_su3 : Casimir.gapFloor < su3.C2_fund := by decide
 
 end YMGap.RepTheory

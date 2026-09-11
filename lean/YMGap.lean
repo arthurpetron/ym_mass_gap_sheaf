@@ -1,8 +1,11 @@
 /-
-Root aggregator for the `YMGap` Lean library.
+Semantic and reflection-audit root for the `YMGap` Lean library.
 
-Each phase's constructivity-critical modules are imported here so
-`lake build` covers the whole library.
+Each phase's constructivity-critical modules is imported here so the frontier
+and statement guards inspect one coherent environment.  Compile coverage is a
+separate invariant: `lakefile.toml` uses `globs = ["YMGap.*"]`, so a full
+`lake build YMGap` compiles every source module independently, including
+reviewed alternative certificates that cannot coexist in one environment.
 
 Currently populated:
 
@@ -45,6 +48,8 @@ import YMGap.Constructive.CRealComplete
 import YMGap.Constructive.CRealCompleteIdx
 import YMGap.Constructive.CRealCompleteCauchy
 import YMGap.Constructive.CRealCompleteRate
+import YMGap.Constructive.CRealRateClosure
+import YMGap.Constructive.CRealCanonicalReciprocalIndex
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigAdd
@@ -73,6 +78,15 @@ import YMGap.Constructive.GeomBeatsLinear
 import YMGap.Constructive.CharacterTermBound
 import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.SU3CharFactor
+import YMGap.RepTheory.CartanType
+import YMGap.RepTheory.ConstructiveGroup
+import YMGap.RepTheory.ConstructiveRepresentationDescent
+import YMGap.RepTheory.LocatedCentralQuotient
+import YMGap.RepTheory.QuaternionSign
+import YMGap.RepTheory.RationalQuaternionAlgebra
+import YMGap.RepTheory.RationalQuaternionUnitNormGroup
+import YMGap.RepTheory.RationalQuaternionQ8Fixture
+import YMGap.RepTheory.CompactSimpleGlobalForm
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
@@ -516,6 +530,7 @@ import YMGap.Continuum.GNSHilbertSpace
 import YMGap.Continuum.GNSComplete
 import YMGap.Continuum.GNSDynamics
 import YMGap.Continuum.PositiveTimeCompressedTransfer
+import YMGap.Continuum.CanonicalOSRoot
 import YMGap.Continuum.PositiveTimeCompressedTransferHalf
 import YMGap.Continuum.PositiveTimeCompressedSpectralGapHalf
 import YMGap.Continuum.KleinCharacterWilsonCompression
@@ -695,10 +710,9 @@ import YMGap.Continuum.BlockingStepFrontier
 import YMGap.Continuum.DeltaFrontierLedger
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
--- load-bearing"); no other module imports them and nothing references their
--- contents.  They are intentionally EXCLUDED from the default build aggregator
--- to keep the load-bearing / axiom-audit surface honest.  The files remain on
--- disk and build on demand (`lake build YMGap.PolyAtlas YMGap.ModuliAlgebra`).
+-- load-bearing").  They are intentionally excluded from this SEMANTIC root,
+-- but the `YMGap.*` library glob still compiles them independently.  Every
+-- semantic exclusion is reviewed in `lean/SEMANTIC_ROOT_EXCLUSIONS.txt`.
 import YMGap.Continuum.MultiComponentKPProgress
 import YMGap.Continuum.PartitionBeyondTree
 import YMGap.Continuum.SixJRecouplingCutoffFence
@@ -1934,6 +1948,7 @@ import YMGap.Continuum.UrsellCompleteGraphFence
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
+import YMGap.Rubric.ClayResolutionRoot
 import YMGap.Rubric.FrontierDAG
 import YMGap.Rubric.CoreBPhysicalBridge
 import YMGap.Continuum.TrueMarginRecursionPhysical
@@ -2522,9 +2537,15 @@ import YMGap.Continuum.SU2PeterWeylReferenceWeightFidelityFence
 import YMGap.Continuum.SU2PeterWeylReferenceWeightCarrierFence
 import YMGap.Continuum.SU2PeterWeylPlaquetteAlgebraClosureFence
 import YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+import YMGap.Continuum.RatPolySubstitution
+import YMGap.Continuum.RationalQuaternionRatPoly
 import YMGap.Continuum.SU2QuaternionPolynomialHaarLinearity
 import YMGap.Continuum.SU2QuaternionWilsonWeightSOS
 import YMGap.Continuum.SU2QuaternionHaarSphereIdeal
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarCarrier
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarSphereIdeal
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarFubini
+import YMGap.Continuum.SU2QuaternionGlobalFaceRatPolySupport
 import YMGap.Continuum.SU2QuaternionHaarSphereIdealAnnihilation
 import YMGap.Continuum.SU2QuaternionHaarParitySectors
 import YMGap.Continuum.SU2QuaternionHaarGaussianRadialFactor
@@ -2538,6 +2559,94 @@ import YMGap.Continuum.SU2QuaternionGaussianHermiteTriangular
 import YMGap.Continuum.SU2QuaternionGaussianPolynomialPositivity
 import YMGap.Continuum.SU2QuaternionProductGaussianTensor
 import YMGap.Continuum.SU2QuaternionProductGaussianHermiteGram
+import YMGap.Continuum.SU2QuaternionFiniteProductGaussianPositivity
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarGaussianRadialFactor
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarMultihomogeneousPositivity
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarParitySectors
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarPolynomialParityClosure
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarParityHomogenization
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarPolynomialPositivity
+import YMGap.Continuum.SU2QuaternionAdjacentEvenLazyPlaneHaarPositivity
+import YMGap.Continuum.SU2QuaternionLazyFiniteProductHaarSOSPositivity
+import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenEndpointBoundaryCharacterRatPoly
+import YMGap.Continuum.SU2QuaternionAdjacentEvenBoundaryCharacterHaarQuadratic
+import YMGap.Continuum.SU2QuaternionAdjacentEvenTwoFaceProductHaarFence
+import YMGap.Continuum.SU2QuaternionOneLinkFundamentalSchur
+import YMGap.Continuum.SU2QuaternionFundamentalMatrixSemantics
+import YMGap.Continuum.SU2QuaternionFundamentalTraceInversion
+import YMGap.Continuum.SU2QuaternionOneLinkFundamentalSchurSpectatorFubini
+import YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur
+import YMGap.Continuum.SU2QuaternionGenericBlockFundamentalCoefficientSupport
+import YMGap.Continuum.SU2QuaternionFundamentalSelfDuality
+import YMGap.Continuum.SU2QuaternionGenericBlockOrientedBivalentHaarProjector
+import YMGap.Continuum.SU2QuaternionGenericBlockOddValentHaarVanishing
+import YMGap.Continuum.SU2QuaternionGenericBlockOrientedEvenWordNormalization
+import YMGap.Continuum.SU2QuaternionGenericBlockCutoffOneHaarDispatcher
+import YMGap.Continuum.SU2QuaternionBivalentOperatorKernel
+import YMGap.Continuum.PositiveChannelTraceBound
+import YMGap.Continuum.FactoredPositiveChannelTraceBound
+import YMGap.Continuum.TwoSidedFactoredPositiveChannelTraceBound
+import YMGap.Continuum.SymbolicFiniteBoolTensor
+import YMGap.Continuum.SymbolicFiniteBoolTensorContraction
+import YMGap.Continuum.SymbolicFiniteBoolTensorContractionPlan
+import YMGap.Continuum.SymbolicFiniteBoolTensorPortReordering
+import YMGap.Continuum.SymbolicFiniteBoolTensorContractionEvaluation
+import YMGap.Continuum.SymbolicFiniteBoolTensorWeightedContractionBound
+import YMGap.Continuum.SU2QuaternionFourValentOperatorKernel
+import YMGap.Continuum.SU2QuaternionSixValentOperatorKernel
+import YMGap.Continuum.SU2QuaternionLocalChannelBoolTensor
+import YMGap.Continuum.SU2QuaternionLocalChannelPivotalInvariance
+import YMGap.Continuum.SU2QuaternionCutoffOneLocalChannelMass
+import YMGap.Continuum.SU2QuaternionCutoffOneOrientedFaceRows
+import YMGap.Continuum.SU2QuaternionCutoffOneNamedTraceExpansionProduct
+import YMGap.Continuum.SU2QuaternionCutoffOneLinkBucketWords
+import YMGap.Continuum.SU2QuaternionAtMostSixBlockWordFubini
+import YMGap.Continuum.SU2QuaternionCutoffOneLinkBucketHaarNetwork
+import YMGap.Continuum.SU2QuaternionOccurrenceBoolTensorTransport
+import YMGap.Continuum.SU2QuaternionCutoffOneOrientedPositiveChannels
+import YMGap.Continuum.SU2QuaternionCutoffOneEndpointChannelPorts
+import YMGap.Continuum.SU2QuaternionCutoffOneGlobalDegreeTwoPorts
+import YMGap.Continuum.SymbolicFiniteBoolTensorDegreeTwoCompiler
+import YMGap.Continuum.SU2QuaternionComplexRatPolyAlgebra
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexReordering
+import YMGap.Continuum.SU2QuaternionDistinctBlockFundamentalContractionProduct
+import YMGap.Continuum.SU2QuaternionDistinctBlockFundamentalContractionReordering
+import YMGap.Continuum.SU2QuaternionComplexBoolSumAlgebra
+import YMGap.Continuum.SU2QuaternionRationalComplexNamedBoolSum
+import YMGap.Continuum.SU2QuaternionRationalComplexNamedBoolWord
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexBoolFubini
+import YMGap.Continuum.SU2QuaternionFundamentalPlaquetteTraceExpansion
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexFourBoolFubini
+import YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjector
+import YMGap.Continuum.SU2QuaternionSixValentPairingGram
+import YMGap.Continuum.SU2QuaternionOneLinkSixValentHaarProjector
+import YMGap.Continuum.SU2QuaternionSixValentTemperleyLiebChannelBridge
+import YMGap.Continuum.SU2QuaternionFourValentChannelDiagonalization
+import YMGap.Continuum.SU2QuaternionFourValentOrderedAssociatorBridge
+import YMGap.Continuum.SU2QuaternionPlaquetteOrientationHaarReindex
+import YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjectorReordering
+import YMGap.Continuum.SU2QuaternionGenericBlockPartialFourValentHaarProjector
+import YMGap.Continuum.SU2QuaternionGenericBlockPartialSixValentHaarProjector
+import YMGap.Continuum.SU2QuaternionFiniteProductHaarFourFactorGrouping
+import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenRadiusZeroClosedGeometryFence
+import YMGap.Continuum.SU2QuaternionElementaryCubeOrientedTraceWiring
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeSharedLinkHaarNormalization
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeBivalentContraction
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeDeltaComponents
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeFaceWordBridge
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeBooleanDeltaResolution
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeLiteralTraceNetwork
+import YMGap.Continuum.SU2QuaternionElementaryCubeTaggedFundamentalContraction
+import YMGap.Continuum.SU2QuaternionElementaryCubeTaggedOccurrenceCoverage
+import YMGap.Continuum.SU2QuaternionElementaryCubeTaggedProductReconciliation
+import YMGap.Continuum.SU2QuaternionElementaryCubeOutwardFaceProductBridge
+import YMGap.Continuum.SU2QuaternionElementaryCubeNamedBoolReindex
+import YMGap.Continuum.SU2QuaternionElementaryCubeBooleanDeltaResolution
+import YMGap.Continuum.SU2QuaternionElementaryCubeOutwardTraceNetwork
+import YMGap.Continuum.SU2QuaternionElementaryCubeOutwardTraceExpansionProduct
+import YMGap.Continuum.SU2QuaternionElementaryCubeCanonicalTraceExpansionProduct
+import YMGap.Continuum.SU2QuaternionElementaryCubeWeightedActivityNormalization
+import YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeWeightedActivityNormalization
 import YMGap.Continuum.SU2QuaternionProductGaussianPositivity
 import YMGap.Continuum.SU2QuaternionHaarBihomogeneousPositivity
 import YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization
@@ -3496,6 +3605,17 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorNewTailSelfReturnRawRatio
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
+
+-- Production leaves promoted by the import-coverage audit of 2026-07-17.
+-- Keeping these in the semantic root makes their declarations visible to the
+-- reflection and axiom-audit environment; the remaining compile-only roots are
+-- explicitly classified in `SEMANTIC_ROOT_EXCLUSIONS.txt`.
+import YMGap.Continuum.FiniteOccurrenceReverseRecovery
+import YMGap.Continuum.HarmonicLowerSixCubicDebtCoefficient1330Certificate
+import YMGap.Continuum.HarmonicLowerSixCubicDebtCoefficient1330Physical
+import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighCertificate
+import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenReachableEndpointCompression
+import YMGap.Continuum.Z4OutwardSevenCubeGoodBackgroundSwitching
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

@@ -1,0 +1,21 @@
+{
+ "bch45": true,
+ "u1_tau3": true,
+ "star": true,
+ "fusion": true,
+ "gram_internal": true,
+ "X": {
+  "1,1": {
+   "tau2": "6",
+   "tau3": "115/6"
+  },
+  "1,2": {
+   "tau2": "16",
+   "tau3": "460/9"
+  },
+  "2,2": {
+   "tau2": "128/3",
+   "tau3": "3680/27"
+  }
+ }
+}

@@ -14624,39 +14624,79 @@ program, no proof at all.
 
 #### CI axiom-gate enforcement
 
-The constructive law above is enforced in CI by a per-theorem
-axiom-baseline audit:
+The constructive law above is enforced in CI by a complete source-site
+axiom-gate audit:
 
-- `scripts/lean_axiom_audit.py` parses `lake build` output and compares
-  each theorem's `#print axioms` result against `lean/AXIOM_AUDIT.md`
-  (the maintained baseline of permitted axioms per theorem).
-- **Drift detection** (CI fails, exit 1): a tracked theorem acquires
-  an axiom dependency NOT listed in the baseline (e.g. `Classical.choice`
-  appears where only `propext` is permitted).
-- **Improvement detection** (silent pass): a tracked theorem's axiom
-  set shrinks (the proof became more constructive).
-- **Strict mode** (`--strict`, exit 2): also flag new theorems not in
-  the baseline and tracked theorems missing from the build.  Used as
-  an informational warning in CI; the maintainer accepts new theorems
-  by running `make lean-audit-update` and committing the manifest.
+- `scripts/lean_axiom_audit.py` inventories every executable
+  `#print axioms` site in every source selected by the `YMGap.*` library,
+  then requires the completed `lake build` log to contain exactly those
+  diagnostics. Missing, stale, duplicate, truncated, and failed-build logs
+  are infrastructure failures rather than weaker evidence.
+- **Gate enforcement** (mandatory): every observed declaration must stay
+  within `{propext, Quot.sound}`, except for an explicitly reviewed
+  out-of-gate entry in `lean/AXIOM_AUDIT.md`. Repeated canonical names are
+  combined by union, so a clean colliding declaration cannot hide a forbidden
+  dependency from an independently compiled alternative.
+- **Improvement/new-clean detection** (silent pass): an axiom set may shrink
+  or a new declaration may remain inside the gate.
+- **Strict mode** (`--strict`, exit 2): additionally compares compact
+  per-namespace axiom-profile digests. It is informational in CI because
+  ordinary new axiom-clean declarations cause digest drift; deliberate
+  review and `make lean-audit-update` re-pin the manifest.
 
 Makefile targets:
 - `make lean-build`         — `lake build` in `lean/`.
-- `make lean-audit`         — non-strict drift check.
-- `make lean-audit-strict`  — also fail on new/missing theorems.
+- `make lean-audit`         — mandatory completeness + axiom-gate check.
+- `make lean-audit-strict`  — also fail on namespace-profile drift.
 - `make lean-audit-update`  — regenerate the baseline.
 
-GitHub Actions workflow: `.github/workflows/lean-audit.yml` runs
-`make lean-build` + `make lean-audit` on every push/PR that touches
-`lean/`, `scripts/lean_axiom_audit.py`, or the workflow itself.  The
-strict mode is run informationally (`continue-on-error: true`) and
-surfaces new/missing-theorem warnings without blocking the merge.
+GitHub Actions workflow: `.github/workflows/lean-audit.yml` runs the
+all-module build and mandatory audit only for Lean-relevant pushes to trusted
+`main`, plus explicit manual dispatches whose selected ref is also `main`.
+It has no pull-request trigger: PR code is deliberately excluded from the
+personal Mac. The strict digest comparison remains informational.
 
 This converts the manuscript's Appendix B (Lean axiom-gate audit, per
-`docs/outline.md` Part B §22) from a one-time snapshot to a
-maintained guarantee: every PR-merge commit has a passing axiom-gate
-audit, and the `lean/AXIOM_AUDIT.md` manifest is the auditable
-reproducible record.
+`docs/outline.md` Part B §22) from a one-time snapshot into a maintained
+mechanism. Only a green run whose `headSha` equals the intended trusted-main
+commit certifies that commit; neither a PR merge nor a queued/cancelled run is
+claimed as kernel evidence. The compact `lean/AXIOM_AUDIT.md` manifest and
+the exact source-site completeness check are the auditable record.
+
+### Adversarial audit rules (added 2026-07-24, from the Simplification Ledger)
+
+Two standing audit rules, derived from the counterfactual analysis in
+the Simplification Ledger (project doc `claude/simplification-ledger.md`;
+ledger entries L11/L21 and L16):
+
+1. **Coupled-simplification audit: R1 reduction + 6j calculus are one
+   unit.** The SU(2) worst-case reduction (monotonicity in `(h^∨, Δ)` +
+   the named character-tail domination input `Z_t(G) ≤ Z_t(SU(2))`) and
+   the multiplicity-free 6j recoupling calculus (the vertex product
+   formula `Z = ∏ {6j}_v`, exact only because A₁ trivalent intertwiner
+   spaces are ≤ 1-dimensional) are load-bearing **together**: the
+   SU(2)-only recoupling layer is legitimate exactly as far as the
+   worst-case reduction stands. Any audit, weakening, restatement, or
+   discharge attempt touching either one must re-verify the other in
+   the same pass, and any doubt cast on the domination lemma
+   immediately propagates "unverified" status to every consumer of the
+   vertex formula. Do not close one side while the other is open.
+
+2. **U(1) discriminator (the Migdal–Kadanoff lesson): every
+   critical-path positivity/contraction step must name where it uses
+   non-abelian-ness.** The Migdal–Kadanoff recursion confines 4D U(1),
+   where the gap statement is false — a mechanism insensitive to the
+   abelian/non-abelian distinction proves too much. Therefore every
+   gap-critical argument (cone contraction, defect bound, anchor
+   transport, positivity survival) must carry an explicit tag
+   identifying where the non-abelian structure (anti-screening /
+   SELF-CHARGE; nonvanishing structure constants; `h^∨ ≥ 2`) enters,
+   such that the argument demonstrably fails or weakens for U(1). A
+   load-bearing step with no such tag is presumed to be either wrong or
+   not yet the real mechanism, and must be flagged in review.
+   Envelope-type bounds (bond-moving, MK) remain admissible only as
+   one-sided inequalities whose direction is proved, never as the
+   gap-producing mechanism itself.
 
 ### Test discipline
 
@@ -15537,12 +15577,23 @@ calls "the single irreducibly hard" one.
 
 ### Milestone 11.12 — All compact simple groups: realize the per-group data
 
-**Status.** DONE (2026-07-03, faithfulness + per-type machinery; physical η = shared residual) — item 1 `RG/WeylDimGeneralData.lean` (crude WeylDimData, all 9 types). items 2–5 `MassGap/AllSimpleTypes.lean` (new leaf, axiom-clean): `admissible_of_cartanType` — FAITHFULNESS: every `CartanType` at a genuine-simple rank yields `AdmissibleSimpleGroup (repDataOf T)` via the PROVEN per-type `CasimirData` gap/h∨ floors (minimized only at A₁=SU(2)); `repDataOf : CartanType → RepData` carries the real per-type quadratic Casimirs; `uniformBudgetWitness_of_cartanType` (per-type `UniformBudgetWitness` via `uniformBudgetWitness_of_characterTail`, strict-monotone 13/313<1/2 regime); `mass_gap_of_cartanType` + per-type `mass_gap_A/B/C/D/G2/F4/E6/E7/E8` + `mass_gap_G2_via_weylData` (through `ofWeylData`), all conditional on the SAME OS interface as `mass_gap_SU3`. HONEST SCOPE: the faithfulness layer is genuine + type-specific (all ranks + all 5 exceptionals); the budget/η layer uses an admissible REPRESENTATIVE operating point (η_max = SU(3)'s proven value), so the group's OWN physical heat-kernel η — esp. the G₂/F₄ short-root Killing-form normalization — stays the pre-existing SHARED `UniformBudget.eta_dominated` residual (the same gate SU(3) is under). NET: R1 (group dependence) is realized for ALL compact simple types at SU(3)'s standing.
+**Status.** PARTIAL, RECLASSIFIED 2026-07-17.  The 2026-07-03 entry called
+this milestone DONE and described `repDataOf` as faithful realized per-group
+data.  That was mathematically too strong.  What is actually complete is an
+axiom-controlled *scalar-interface* exercise: raw `CartanType` rows, crude Weyl
+majorants, abstract `AdmissibleSimpleGroup` inequalities, representative
+budget witnesses, and conclusions conditional on caller-supplied OS data.  It
+constructs no global group `G_sc/Gamma`, faithful action, representation
+descent, Haar theory, or group-pinned OS family.  The legacy Casimir rows also
+conflate three distinct notions and include the `D_n` vector normalization
+defect recorded in §8.9.  Therefore R1 is not realized for all compact simple
+groups; these modules are reusable legacy scaffolding pending the global-form,
+root-datum, and corrected-Casimir bridge of §§8.6–8.9.
 
-**Goal.** The Clay quantifier "any compact simple gauge group G" is
-covered at the lattice layer: the uniform reduction
+**Goal.** Cover the Clay quantifier "any compact simple gauge group G" at the
+lattice layer.  The current uniform reduction
 (`mass_gap_simple_group` via `uniformBudgetWitness_of_characterTail`)
-is instantiated for every compact simple type, not only SU(2)/SU(3).
+is instantiated only at legacy scalar rows, not yet at realized global groups.
 Checkable predicate: `WeylDimData` + `AxisFactorBound` (+ the
 `ZtEtaModel` equalities) realized for the classical families
 A_n/B_n/C_n/D_n at general rank and the five exceptionals — either by
@@ -19082,9 +19133,12 @@ keep every gate inside `{propext, Quot.sound}` (191 and 280 seconds in their
 respective named replays).  The fifth `448 <= k < 548` tranche is also green:
 its 491-job named replay completed in 383 seconds and all four public gates use
 exactly `[propext, Quot.sound]`.  The sixth `548 <= k < 648` tranche is now
-green too: two replay-sized `Fin 50` decisions are reassembled constructively
-into the full `Fin 100` band, and composition with the earlier tranches makes
-`GrowingResidualLowerSix k` unconditional for every `10 <= k < 648`.
+green too.  Ten independently compiled `Fin 10` decisions cover the exact,
+disjoint bands `548..557`, ..., `638..647`; lightweight constructive index
+glue reassembles the original two `Fin 50` declarations and the full `Fin 100`
+band without unfolding a certificate leaf.  Composition with the earlier
+tranches makes `GrowingResidualLowerSix k` unconditional for every
+`10 <= k < 648`.
 `HarmonicMassCrossLowerSixRecoveryBootstrapSixthClosure` records the physical
 content rather than leaving it as a certificate table: the sharp physical
 Pascal cross, coefficient-two harmonic mass cross, and located character-GNS

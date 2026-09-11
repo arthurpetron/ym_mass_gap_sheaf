@@ -91,10 +91,6 @@ structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.
 **(c) Fields explicitly marked OPEN in source documentation:**
 
 - `node1` — OPEN node ①.
-- `trueMargin` — OPEN: the genuine dimensionless physical margin.
-- `physicalWilsonBridge` — OPEN: the physical Wilson double-Haar bridge.
-- `boundedH` — OPEN: the bounded functional-calculus Hamiltonian `H = −log T`.
-- `continuumMinlos` — OPEN: the cited-classical continuum Minlos measure.
 - `OpenNode1FiniteSMargin` = `AcNReserveAnalytic.FiniteSMargin w`
 - `OpenTrueMargin` = `ReconstructionScorecard.OpenTrueMargin`
 - `OpenPhysicalWilsonBridge` = `WilsonSpectralBridge.CharacterDiagResolution op RCScaleClose.rcScaleResidualPlus w N`
@@ -105,12 +101,12 @@ structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.
 
 | field | status | doc |
 |---|---|---|
-| `status` | PROVED | the PROVED-UNCONDITIONAL status. |
+| `status` | — | The proved legacy status record. |
 | `node1` | OPEN | OPEN node ①. |
-| `trueMargin` | OPEN | OPEN: the genuine dimensionless physical margin. |
-| `physicalWilsonBridge` | OPEN | OPEN: the physical Wilson double-Haar bridge. |
-| `boundedH` | OPEN | OPEN: the bounded functional-calculus Hamiltonian `H = −log T`. |
-| `continuumMinlos` | OPEN | OPEN: the cited-classical continuum Minlos measure. |
+| `trueMargin` | — | Historical dimensionless-margin token. |
+| `physicalWilsonBridge` | — | Historical Wilson character-diagonalization bridge token. |
+| `boundedH` | — | Legacy bounded-log auxiliary, not the canonical unbounded generator. |
+| `continuumMinlos` | — | Optional sigma-additive Minlos-style measure packaging. |
 
 </details>
 
@@ -387,10 +383,12 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 
 </details>
 
-## Unimported-file audit
+## Semantic-root exclusion audit
 
-Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
-silently skipped by the default `lake build` and therefore un-audited.
+Every `YMGap/*.lean` not reachable (transitively) from the selective
+`YMGap.lean` semantic/audit root.  The `YMGap.*` Lake glob still compiles
+each of these modules independently; `scripts/lean_import_guard.py`
+requires every exclusion component to have a reviewed manifest root.
 
 Reachable modules parsed from import closure; **67 of 3266** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 

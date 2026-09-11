@@ -9,8 +9,6 @@ Biedenharn-Elliott pentagon / orthogonality sweeps (max residual == 0).
 from fractions import Fraction as F
 from itertools import permutations
 
-import pytest
-
 from computations.wigner_6j import (
     QuadRadical,
     SixJValue,
@@ -164,7 +162,3 @@ def test_orthogonality_diagonal_normalization():
     """Diagonal orthogonality sum_x (2x+1){a b x; c d p}^2 = 1/(2p+1) exactly."""
     a, b, c, d, p = F(1, 2), F(1, 2), F(1, 2), F(1, 2), F(1)
     assert orthogonality_residual(a, b, c, d, p, p) == F(0)
-
-
-if __name__ == "__main__":
-    raise SystemExit(pytest.main([__file__, "-v"]))

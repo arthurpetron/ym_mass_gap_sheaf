@@ -14,7 +14,7 @@ SAFE_LEAN = python3 scripts/safe_lean_build.py $(SAFE_LEAN_JOBS_FLAG)
 
 help:
 	@echo "Targets:"
-	@echo "  test                Run the pytest suite."
+	@echo "  test                HIGH-LOAD: run the serialized, one-thread pytest suite."
 	@echo "  lint                Run ruff and mypy (strict)."
 	@echo "  typecheck           Run mypy only."
 	@echo "  figures             Regenerate plots in visualizations/ (no-op until Phase 1)."
@@ -26,6 +26,9 @@ help:
 	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
 	@echo "  lean-statement-guard Fail if a Clay-frontier STATEMENT (type/field signature or shared param) is weakened."
+	@echo "  lean-import-guard   Fail on missing imports or unreviewed modules outside the YMGap semantic root."
+	@echo "  host-load-guard     Reject lock bypasses; mock-check Mac JIT cleanup and bounded shutdown."
+	@echo "  lean-affected       List reverse-dependency build targets (optionally LEAN_BASE=<git-ref>)."
 	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
 	@echo "  frontier-dag-check  Fail if a new *Scorecard/*Frontier/*Target enumeration lacks a FrontierDAG bridge."
 	@echo "  five-cycle-progress Print the compact parameter-driven project work guide."
@@ -34,7 +37,7 @@ help:
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
 test:
-	pytest
+	$(SESSION_LOCK_RUN) . env $(PYTHON_THREAD_CAPS) pytest
 
 lint:
 	ruff check .

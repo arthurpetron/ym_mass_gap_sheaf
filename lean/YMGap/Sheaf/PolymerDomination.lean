@@ -122,8 +122,9 @@ looseness factor as `1 + ε/K_sf` — tighter than the factor-of-2 bound
 when `ε << K_sf`.
 
 Empirically for SU(2) canonical at the SigmaHatPilot wire-in
-`g_0 = 0.30`: ``ε ≈ 0.0156`` (from `K_lf ≈ 0.0156`), giving looseness
-factor `1 + 0.0156/1.0918 ≈ 1.014` — well below the factor of 2.
+`g_0 = 0.30` (re-pinned 2026-07-25, SL.1 μ_plaq upgrade → 20e-majorant):
+``ε ≈ 0.0552`` (from `K_lf ≈ 0.0552`), giving looseness factor
+`1 + 0.0552/1.005 ≈ 1.055` — still well below the factor of 2.
 
 Proof: direct application of `Q'.add_le_add_left` with the user-supplied
 ε bound. -/
@@ -146,15 +147,15 @@ Python value (see `tests/test_overlap_kp.py`). -/
 def K_sf_pilot : Q' := Q'.mkPos 11 10 (by decide)
 
 /-- Rational upper bound on `K_lf` at the canonical wire-in.
-Python value: `K_lf ≈ 0.0156`.  Rational over-approximation:
-`16/1000 = 2/125`. -/
-def K_lf_pilot : Q' := Q'.mkPos 2 125 (by decide)
+Python value (re-pinned 2026-07-25, μ_plaq → 20e-majorant):
+`K_lf ≈ 0.05515`.  Rational over-approximation: `56/1000 = 7/125`. -/
+def K_lf_pilot : Q' := Q'.mkPos 7 125 (by decide)
 
 /-- The K-level dominance witness for the canonical pilot: `K_lf ≤ K_sf`,
-i.e. `2/125 ≤ 11/10`.  Cross-product check: `2 · 10 = 20 ≤ 11 · 125 = 1375`. -/
+i.e. `7/125 ≤ 11/10`.  Cross-product check: `7 · 10 = 70 ≤ 11 · 125 = 1375`. -/
 theorem K_lf_pilot_le_K_sf_pilot : KLevelDominance K_sf_pilot K_lf_pilot := by
   show K_lf_pilot ≤ K_sf_pilot
-  show (2 : Int) * (10 : Int) ≤ (11 : Int) * (125 : Int)
+  show (7 : Int) * (10 : Int) ≤ (11 : Int) * (125 : Int)
   decide
 
 /-- **Conjecture 7.4 closure at the canonical SU(2) wire-in (concrete form).**

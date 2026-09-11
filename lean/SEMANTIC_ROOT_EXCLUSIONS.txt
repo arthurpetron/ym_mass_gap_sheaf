@@ -1,0 +1,11 @@
+# Reviewed roots that are compiled independently by the `YMGap.*` Lake glob
+# but intentionally excluded from the single `YMGap.lean` semantic/audit
+# environment.  Format: `Module.Name # nonempty mathematical/build reason`.
+# The import guard rejects missing, stale, reachable, or unexplained entries.
+
+YMGap.ModuliAlgebra # Non-load-bearing expository design closure; its module header explicitly quarantines it from the proof spine.
+YMGap.PolyAtlas # Non-load-bearing expository atlas; its module header explicitly quarantines it from the proof spine.
+YMGap.Continuum.ScratchGraphFour # Named scratch calculation with no consumer; compile-checked but not a semantic theorem root.
+YMGap.Continuum.HarmonicLowerSixTailBaseSemanticFactors # Dormant generated raw-factor table reserved for a future refactor; it currently has no theorem consumer.
+YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartA # Alternative monolithic generated certificate; it collides by declaration name with the split X-Pascal variant and therefore must compile in an independent environment.
+YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartAXPascal # Alternative split certificate stage; it deliberately shares its namespace and theorem name with the monolithic Chart-A certificate, so the two cannot be imported together.

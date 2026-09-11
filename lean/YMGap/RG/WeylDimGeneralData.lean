@@ -1,6 +1,6 @@
 /-
-Rank- and type-general crude squared-Weyl-dimension `WeylDimData`, instantiated
-for EVERY compact-simple Cartan type from the single generic crude engine.
+Rank- and family-code-general crude squared-Weyl-dimension `WeylDimData`,
+instantiated for every raw `CartanType` code by one generic crude engine.
 
 # What this module supplies (and what stays a NAMED residual)
 
@@ -10,16 +10,18 @@ product of `m` factors each in `[0, B]` with `1 ≤ B` is `≤ B^m`
 (`dimSq_le_crude`), packaged as `weylDimData_crude`.  It then instantiated the
 type-A family (`suN_weylDimData_crude`) with `m = #Δ⁺(A_{N−1}) = N(N−1)/2`.
 
-This module carries the *counting* fact — the number of positive roots
-`m = #Δ⁺` — for every Cartan type, and packages the crude `WeylDimData` per
-type from it.  The crude route is **convention-blind**: it needs only the
-positive-root COUNT `m` (a pure `Nat`), never the root lengths, so the
-non-simply-laced types `B_n, C_n, G₂, F₄` need no special treatment here (the
-short/long-root convention only enters the *tail coefficient* `c_i` of
-`AxisFactorBound`, a different structure).
+This module carries the arithmetic formula called `numPosRoots` on every raw
+Cartan code and packages the crude `WeylDimData` from it.  On a code satisfying
+`IsCanonicalSimpleCode`, this is the corresponding positive-root count; on
+invalid raw values such as `A 0` it is only the same total `Nat` formula.  The
+crude route is **convention-blind**: it needs only that number, never root
+lengths, so the non-simply-laced families `B_n, C_n, G₂, F₄` need no special
+treatment here (the short/long-root convention enters elsewhere).
 
-  * `CartanType` — the nine compact-simple families/exceptionals, tagged by
-    rank where relevant.
+  * `CartanType` — raw Dynkin-family/rank codes; classical constructors accept
+    every `Nat`.
+  * `IsCanonicalSimpleCode` — the preferred validation/nonredundancy predicate;
+    `IsSimpleRank` is retained only as its legacy compatibility alias.
   * `CartanType.rank` — the Lie rank `r` (number of Cartan axes).
   * `CartanType.numPosRoots` — `#Δ⁺` per type
     (A_n: n(n+1)/2, B_n/C_n: n², D_n: n(n−1), G₂:6, F₄:24, E₆:36, E₇:63, E₈:120).
@@ -43,6 +45,7 @@ Every load-bearing fact reports `[propext]` / `[propext, Quot.sound]` (the
 no custom axiom.  See the `#print axioms` block at the end.
 -/
 
+import YMGap.RepTheory.CartanType
 import YMGap.RG.WeylDimGeneral
 
 namespace YMGap.RG
@@ -50,57 +53,19 @@ namespace YMGap.RG
 open YMGap.Constructive
 open YMGap.RepTheory
 
-/-! ## The compact-simple Cartan types
+/-! ## The raw Cartan-family classification input
 
-The four classical families (tagged by rank `n`) plus the five exceptionals.
-This inductive is the scalar-invariant carrier: the crude `WeylDimData` route
-depends on a Cartan type ONLY through its positive-root count, exposed below.
-No enumeration of "19 types" lives in the logic — the classical families are
-parametric in `n`. -/
+`CartanType`, `CartanType.rank`, and `CartanType.numPosRoots` now come from the
+cycle-free `RepTheory/CartanType.lean` leaf.  They retain their original
+`YMGap.RG` names.  The classical families remain parametric in `n`, including
+invalid and noncanonical low-rank codes.  Use `IsCanonicalSimpleCode` before
+reading a value as the repository's nonredundant simple classification;
+`IsSimpleRank` is the historical alias, not a literal simplicity test.
 
-/-- The compact-simple Cartan types: `A_n, B_n, C_n, D_n` (rank `n`) and the
-five exceptionals `G₂, F₄, E₆, E₇, E₈`. -/
-inductive CartanType
-  | A (n : Nat)
-  | B (n : Nat)
-  | C (n : Nat)
-  | D (n : Nat)
-  | G2
-  | F4
-  | E6
-  | E7
-  | E8
-  deriving DecidableEq
-
-/-- The Lie rank `r` (number of Cartan axes) of each type. -/
-def CartanType.rank : CartanType → Nat
-  | .A n => n
-  | .B n => n
-  | .C n => n
-  | .D n => n
-  | .G2 => 2
-  | .F4 => 4
-  | .E6 => 6
-  | .E7 => 7
-  | .E8 => 8
-
-/-- The number of positive roots `#Δ⁺` of each type — the ONLY combinatorial
-input the crude route needs (convention-blind: root COUNT, not root lengths).
-
-  * `A_n`: `n(n+1)/2`  (`= N(N−1)/2` with `N = n+1`)
-  * `B_n`, `C_n`: `n²`
-  * `D_n`: `n(n−1)`
-  * `G₂`: 6, `F₄`: 24, `E₆`: 36, `E₇`: 63, `E₈`: 120. -/
-def CartanType.numPosRoots : CartanType → Nat
-  | .A n => n * (n + 1) / 2
-  | .B n => n * n
-  | .C n => n * n
-  | .D n => n * (n - 1)
-  | .G2 => 6
-  | .F4 => 24
-  | .E6 => 36
-  | .E7 => 63
-  | .E8 => 120
+These declarations classify Lie algebras/root systems only.  They do not
+select a simply connected compact group, adjoint group, or intermediate
+finite central quotient.  This RG module consumes only the positive-root
+count and rank. -/
 
 /-! ## Crude cardinality bounds `#Δ⁺ ≤ (r+1)²` (classical) / exact (exceptional)
 
@@ -152,22 +117,23 @@ theorem numPosRoots_exceptional_le :
 
 /-! ## The type-general crude `WeylDimData`
 
-For ANY Cartan type `T`, the crude squared bound at `m := numPosRoots T` and
-`B := crudeBound lab (rank T)`.  A single wrapper over the proven
-`weylDimData_crude`, parametric in the type — the whole classical + exceptional
-landscape at once.  The abstract Weyl-product datum (`hdim`, `hle`) stays the
-named honest residual, identical to `suN_weylDimData_crude`. -/
+For any raw Cartan code `T`, the crude algebraic wrapper uses
+`m := numPosRoots T` and `B := crudeBound lab (rank T)`.  This totality is not a
+claim that every raw code denotes a simple root system.  On validated codes it
+covers the classical and exceptional classification uniformly.  The abstract
+Weyl-product datum (`hdim`, `hle`) stays the named honest residual, identical
+to `suN_weylDimData_crude`. -/
 
-/-- **The type-general crude `WeylDimData`.**  Given a Cartan type `T`, the
-`m = #Δ⁺(T)` positive-root Weyl factors `fac` each under the crude bound
+/-- **The code-general crude `WeylDimData`.**  Given a raw Cartan code `T`, the
+`m = numPosRoots T` formal Weyl factors `fac` each under the crude bound
 `B = ∏_{p<r}(1 + λ_p)` (`hle`, discharged concretely by
 `weyl_factor_le_crudeBound`), and the Weyl dimension as their product
 (`hdim`), this packages the crude squared bound `(dim V_λ)² ≤ B^{2·#Δ⁺(T)}`
 as a `WeylDimData R` at the UNIFORM per-axis exponent.
 
-The genuine per-type residual — the abstract Weyl dimension product over the
-`#Δ⁺(T)` positive roots — is the hypothesis, not faked; the squared
-majorization is proven. -/
+The root-system interpretation requires a validated canonical code.  In every
+case the abstract Weyl-product inequality is a hypothesis, not a constructed
+group formula; only the squared majorization from those hypotheses is proven. -/
 def cartanType_weylDimData_crude {R : RepData} (T : CartanType)
     {lab fac : Nat → Q'} {dimVal : Q'}
     (hlab : ∀ p, (0 : Q') ≤ lab p)
@@ -184,7 +150,7 @@ def cartanType_weylDimData_crude {R : RepData} (T : CartanType)
 Named entry points for each family/exceptional, each just `cartanType_weylDimData_crude`
 at the given type.  Discoverability only — no new mathematics. -/
 
-/-- `A_n = SU(n+1)` crude `WeylDimData` (`m = n(n+1)/2`). -/
+/-- `A_n`-code crude `WeylDimData` (`m = n(n+1)/2`). -/
 def weylDimData_A {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hlab : ∀ p, (0 : Q') ≤ lab p) (hfac : ∀ j, (0 : Q') ≤ fac j)
     (hle : ∀ j, fac j ≤ crudeBound lab (CartanType.A n).rank)
@@ -192,7 +158,7 @@ def weylDimData_A {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hdim : dimVal ≤ prodFac fac (CartanType.A n).numPosRoots) : WeylDimData R :=
   cartanType_weylDimData_crude (.A n) hlab hfac hle hdim_nonneg hdim
 
-/-- `B_n = SO(2n+1)` crude `WeylDimData` (`m = n²`). -/
+/-- `B_n`-code crude `WeylDimData` (`m = n²`). -/
 def weylDimData_B {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hlab : ∀ p, (0 : Q') ≤ lab p) (hfac : ∀ j, (0 : Q') ≤ fac j)
     (hle : ∀ j, fac j ≤ crudeBound lab (CartanType.B n).rank)
@@ -200,7 +166,7 @@ def weylDimData_B {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hdim : dimVal ≤ prodFac fac (CartanType.B n).numPosRoots) : WeylDimData R :=
   cartanType_weylDimData_crude (.B n) hlab hfac hle hdim_nonneg hdim
 
-/-- `C_n = Sp(n)` crude `WeylDimData` (`m = n²`). -/
+/-- `C_n`-code crude `WeylDimData` (`m = n²`). -/
 def weylDimData_C {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hlab : ∀ p, (0 : Q') ≤ lab p) (hfac : ∀ j, (0 : Q') ≤ fac j)
     (hle : ∀ j, fac j ≤ crudeBound lab (CartanType.C n).rank)
@@ -208,7 +174,7 @@ def weylDimData_C {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hdim : dimVal ≤ prodFac fac (CartanType.C n).numPosRoots) : WeylDimData R :=
   cartanType_weylDimData_crude (.C n) hlab hfac hle hdim_nonneg hdim
 
-/-- `D_n = SO(2n)` crude `WeylDimData` (`m = n(n−1)`). -/
+/-- `D_n`-code crude `WeylDimData` (`m = n(n−1)`). -/
 def weylDimData_D {R : RepData} (n : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
     (hlab : ∀ p, (0 : Q') ≤ lab p) (hfac : ∀ j, (0 : Q') ≤ fac j)
     (hle : ∀ j, fac j ≤ crudeBound lab (CartanType.D n).rank)

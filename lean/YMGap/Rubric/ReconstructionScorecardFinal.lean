@@ -1,72 +1,30 @@
 /-
-The FINAL RECONSTRUCTION / OS SCORECARD — one honest status record that CONSUMES
-every newly-discharged reconstruction witness (never re-postulates it) and names,
-in one place, EXACTLY the cores that remain open.
+The LEGACY RECONSTRUCTION-STATUS SCORECARD.
 
-# What this module is (read first)
+This module assembles previously proved algebraic, fixed-spacing, and
+finite-model witnesses into `ReconstructionStatus`.  Its fields are genuine Lean
+terms at their declared types, but the record is not the canonical physical OS
+reconstruction.  In particular it does not supply one two-parameter continuum
+Wilson functional, its reflected positive-time quotient, a full strongly
+continuous time action, the resulting `C0` semigroup, an unbounded generator, or
+an identification of that generator's spectral edge.
 
-Over several rounds the continuum program discharged a family of witnesses about
-the concrete excited-tower transfer object and the OS reconstruction data.  This
-module is the single downstream CONSUMER that assembles them into ONE record,
-`ReconstructionStatus`, whose every field is an ACTUAL discharge term (never
-`True`, never a vacuous predicate), and then names the residual frontier as a
-handful of deliberately-uninhabited `Type`-level tokens.
+The five tokens grouped in `ReconstructionOpenFrontier` are a historical
+surrogate census, not an exhaustive Clay frontier.  Two qualifications are
+especially important:
 
-## PROVED-UNCONDITIONAL green fields (each a re-export of a real theorem)
+  * `OpenBoundedHamiltonian` is the older bounded-log auxiliary.  A generic
+    continuum transfer operator may have spectrum accumulating at zero, so
+    `-log T` need not be bounded; the physical Hamiltonian is normally treated as
+    an unbounded self-adjoint generator of the full time semigroup.  Thus this
+    token is not the canonical operator-theoretic target.
+  * `OpenContinuumMinlos` is optional sigma-additive measure packaging.  It is not
+    required to formulate a Schwinger functional or its reflected OS root.
 
-  * `provedLine` — the six-field `ReconstructionProvedLine` bundle: the strictly
-    positive mass gap `Δ = −log sep > 0` UNCONDITIONAL in the separator
-    (`mass_gap_hamiltonian_all`); the completion vector-space + scalar action
-    `cSmul` (`SmulGNSData.vectorScalingResidual`); the located spectrum-infimum
-    residual (`spectrumInfResidual`) and its LOWER bound made unconditional by
-    feeding the genuine `ArtanhMonotone` witnesses `yOfMonotone` /
-    `artanhMonotoneWindow`; the invertible order-4 `O(4)` rotation automorphism
-    `rot4` (two-sided inverse, order exactly 4); the uniform-in-coupling survival
-    surrogate floor.
-  * `rcScaleClosed` — the `RC`-by-`Q'` scaling residual is CLOSED
-    (`RCScaleClose.rcScaleResidualPlus`): `RCscale s = ofQ' s · (·)` with
-    nonnegative-scalar monotonicity and the scale-over-finite-sum law.
-  * `o4Restored` — the reciprocal-model rotation-breaking coefficient satisfies
-    the legacy Cauchy predicate (`O4BetaSign.o4_restored_of_tauModel`), fired from
-    the reciprocal asymptotic-freedom trajectory with NO posited `betaDrop`.
-    This field does not state a zero limit or observable O(4) covariance.
-  * `betaDropDerived` — the `CouplingRunning` whose `betaDrop` is DERIVED from
-    trajectory antitonicity via `couplingRunningOfTrajectory` (the posited sign
-    field replaced by a proved consequence).
-  * `loopyRealLineDecay` — a GENUINE inhabitant of `LoopyCorrelatorResidual` for
-    the single-cycle geometry (`CycleMayer.loopyResidual_singleCycle`): the REAL
-    cyclic Wilson correlator obeys geometric real-line decay
-    `cycleG ≤ (ofNat M)·ρ^L`, `ρ = 2·gw³ < 1`, PROVED.
-
-## OPEN cores (NAMED, uninhabited `Type`-level tokens)
-
-  * `OpenNode1FiniteSMargin` — node ①, the finite-`s` truncated theta-floor
-    margin (`AcNReserveAnalytic.FiniteSMargin`), a uniform steepest-descent
-    saddle remainder `≥ 0`.
-  * `OpenTrueMargin` — the genuine dimensionless physical margin recursion
-    `Δ_k = m_lat(a_k)/a_k` (`UniformCouplingFromAF.TrueMarginRecursion`),
-    DISTINCT from the survival-product surrogate.
-  * `OpenPhysicalWilsonBridge` — the PHYSICAL Wilson double-Haar / Peter–Weyl
-    character-diagonalization inside the physical `cinner`
-    (`WilsonSpectralBridge.CharacterDiagResolution`); the concrete char-diagonal
-    instance is discharged (`WilsonSchurIdentities.wilsonSchurFormGap`), but the
-    interacting finite-volume moment functional is NOT that instance.
-  * `OpenBoundedHamiltonian` — the bounded self-adjoint additive `H` with
-    `e^{−H} = T` (`BoundedFunctionalCalculusResidual`), the single irreducibly
-    hard operator-theoretic node.
-  * `OpenContinuumMinlos` — the cited-classical `a → 0` Minlos σ-additive lift
-    (`ClayScorecard.ClayContinuumExistence`).
-
-# Honesty (AGENTS.md Rules 1, 6, 8)
-
-Every green field is a genuine discharge term of an already-proved theorem; NO
-field is `True` or a vacuous predicate.  Every open token is `Type`-level data
-with NO inhabitant here and is NOT trivially provable.  The combined frontier
-`ReconstructionOpenFrontier` is provided with NO inhabitant — inhabiting it
-WITHOUT `sorry` / `axiom` / `Prop := True` is exactly the open continuum
-Yang–Mills reconstruction problem.  This module only WIRES already-proved terms;
-its axiom footprint is `[propext]` / `[propext, Quot.sound]`.  Underclaim: the
-Clay problem remains OPEN.
+Other fields, including the encoded `-log sep` margin, model rotation, and
+single-cycle decay, retain only the scope of their named surrogate structures.
+No theorem here constructs the Yang--Mills continuum mass gap.  The axiom gates
+at the end check the declarations actually exported by this legacy scorecard.
 -/
 
 import YMGap.Rubric.ReconstructionScorecard
@@ -85,24 +43,24 @@ open YMGap.Continuum.HamiltonianSpectrumInf
 open YMGap.Continuum.WilsonSpectralBridge
 open YMGap.Rubric
 
-/-! ## 1. `ReconstructionStatus` — the single PROVED-UNCONDITIONAL record
+/-! ## 1. `ReconstructionStatus` — a proved legacy status record
 
-CONCRETE about the named excited-tower transfer object `excG op w hw0 hw1 N`.
-Every field is an actual discharge term of an already-proved theorem, consuming
-the newly-discharged witnesses rather than re-postulating them. -/
+This record is about the named excited-tower transfer surrogate
+`excG op w hw0 hw1 N`.  Each field consumes an already-proved witness at its
+literal type; the collection is not a canonical reflected-OS construction. -/
 
-/-- **The single honest reconstruction/OS status record.**  All fields are
-PROVED-UNCONDITIONAL (at fixed lattice spacing); each is a re-export of a genuine
-theorem. -/
+/-- A legacy reconstruction-status record.  All fields are proved at the stated
+fixed-spacing surrogate types; none by itself pins the model to the continuum
+Yang--Mills functional or Hamiltonian. -/
 structure ReconstructionStatus
     (D : SmulGNSData)
     (op : TransferOperator D.toGNSData.gnsComplete)
     (w : Q') (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (hwpos : (0 : Q') < w)
     (N : Nat) : Type where
-  /-- (1–6) the six-field proved-unconditional line: mass gap `Δ = −log sep > 0`
-  (unconditional in sep), GNS vector-space + scalar action, located spectrum-inf
-  and its unconditional lower bound (`ArtanhMonotone` witnesses fed), invertible
-  order-4 `O(4)` automorphism, uniform-in-coupling surrogate floor. -/
+  /-- (1–6) the six-field legacy line: the encoded margin
+  `Delta = -log sep > 0`, GNS vector-space/scalar-action data, a located
+  spectrum-infimum surrogate and lower bound, an invertible order-four model
+  automorphism, and a uniform-in-coupling survival floor. -/
   provedLine : ReconstructionScorecard.ReconstructionProvedLine D op w hw0 hw1 hwpos N
   /-- (7) the `RC`-by-`Q'` scaling residual, CLOSED (`rcScaleResidualPlus`). -/
   rcScaleClosed : RCScaleResidualPlus
@@ -116,8 +74,8 @@ structure ReconstructionStatus
   /-- (9) the `CouplingRunning` whose `betaDrop` is DERIVED (not posited), via
   `couplingRunningOfTrajectory` from trajectory antitonicity. -/
   betaDropDerived : O4RestorationProgress.CouplingRunning
-  /-- (10) genuine geometric real-line decay of the REAL cyclic Wilson correlator
-  (`loopyResidual_singleCycle`). -/
+  /-- (10) geometric real-line decay for the named single-cycle correlator model
+  (`loopyResidual_singleCycle`), without a pin to the continuum functional. -/
   loopyRealLineDecay : MultiPlaquetteMayer.LoopyCorrelatorResidual GenuineKP.gw
 
 /-- **The status record, INHABITED** for ANY excited-tower transfer object.  Every
@@ -134,67 +92,76 @@ def reconstruction_status
   betaDropDerived := O4BetaSign.tauModelRunning
   loopyRealLineDecay := CycleMayer.loopyResidual_singleCycle 0
 
-/-! ## 2. The OPEN residual tokens (uninhabited here — NO inhabitant provided) -/
+/-! ## 2. Historical residual tokens (uninhabited here) -/
 
 /-- **OPEN — node ①.**  The finite-`s` truncated theta-floor margin (a uniform
 steepest-descent saddle remainder `≥ 0`). -/
 abbrev OpenNode1FiniteSMargin (w : Q') : Type := AcNReserveAnalytic.FiniteSMargin w
 
-/-- **OPEN.**  The genuine dimensionless physical margin recursion
-`Δ_k = m_lat(a_k)/a_k` — DISTINCT from the survival-product surrogate. -/
+/-- **HISTORICAL OPEN TOKEN.**  The older route's intended dimensionless margin
+recursion `Delta_k = m_lat(a_k)/a_k`, distinct from its survival-product
+surrogate.  This type is not itself a pin to the canonical generator spectrum. -/
 abbrev OpenTrueMargin : Type := ReconstructionScorecard.OpenTrueMargin
 
-/-- **OPEN.**  The PHYSICAL Wilson double-Haar / Peter–Weyl character
-diagonalization inside the physical inner product (the concrete char-diagonal
-instance is discharged; the interacting functional is not that instance). -/
+/-- **HISTORICAL OPEN TOKEN.**  The older route's proposed Wilson double-Haar /
+Peter--Weyl character diagonalization inside its named inner product.  The
+concrete character-diagonal instance is detached from the interacting continuum
+functional, so this token is not a canonical Wilson-functional bridge. -/
 abbrev OpenPhysicalWilsonBridge
     (D : SmulGNSData) (op : TransferOperator D.toGNSData.gnsComplete)
     (w : Q') (N : Nat) : Type :=
   WilsonSpectralBridge.CharacterDiagResolution op RCScaleClose.rcScaleResidualPlus w N
 
-/-- **OPEN.**  The bounded self-adjoint additive Hamiltonian `H` with `e^{−H}=T`
-— the single irreducibly hard operator-theoretic node. -/
+/-- **LEGACY OPEN AUXILIARY.**  A bounded self-adjoint logarithm with
+`exp(-H) = T`.  This is not the canonical physical Hamiltonian target: for a
+generic continuum transfer operator the spectrum may accumulate at zero, so the
+generator `-log T` may be unbounded and must instead be constructed from the
+full strongly continuous semigroup. -/
 abbrev OpenBoundedHamiltonian
     (D : SmulGNSData) (op : TransferOperator D.toGNSData.gnsComplete)
     (w : Q') (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (N : Nat)
     (L : AdditiveTransferOperator D.toGNSData) : Type :=
   BoundedFunctionalCalculusResidual (excG op w hw0 hw1 N) L
 
-/-- **OPEN.**  The cited-classical `a → 0` Minlos σ-additive continuum-measure
-lift (OS reconstruction with tightness). -/
+/-- **OPTIONAL LEGACY PACKAGING.**  A sigma-additive Minlos-style continuum
+measure lift.  The canonical Schwinger-functional and reflected-OS formulation
+does not require this extra measure representation. -/
 abbrev OpenContinuumMinlos : Type := ReconstructionScorecard.OpenContinuumMeasure
 
-/-! ## 3. `ReconstructionOpenFrontier` — DELIBERATELY UNINHABITED
+/-! ## 3. `ReconstructionOpenFrontier` — a historical uninhabited bundle
 
-Bundles the PROVED status with the five remaining OPEN cores.  A
-`reconstruction_status` term IS provided (above); NO `ReconstructionOpenFrontier`
-term is.  Inhabiting this WITHOUT `sorry` / `axiom` / a vacuous `Prop := True`
-field requires genuine inhabitants of all five open tokens, none of which this
-development possesses. -/
+Bundles the proved status with five residual tokens selected by the older route.
+A `reconstruction_status` term is provided above; no
+`ReconstructionOpenFrontier` term is provided.  Even an inhabitant would close
+only these five encoded obligations: the canonical two-parameter limit,
+reflected quotient, full time semigroup, unbounded generator, and spectral pin
+are not fields of this structure. -/
 structure ReconstructionOpenFrontier
     (D : SmulGNSData)
     (op : TransferOperator D.toGNSData.gnsComplete)
     (L : AdditiveTransferOperator D.toGNSData)
     (w : Q') (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (hwpos : (0 : Q') < w)
     (N : Nat) : Type where
-  /-- the PROVED-UNCONDITIONAL status. -/
+  /-- The proved legacy status record. -/
   status : ReconstructionStatus D op w hw0 hw1 hwpos N
   /-- OPEN node ①. -/
   node1 : OpenNode1FiniteSMargin w
-  /-- OPEN: the genuine dimensionless physical margin. -/
+  /-- Historical dimensionless-margin token. -/
   trueMargin : OpenTrueMargin
-  /-- OPEN: the physical Wilson double-Haar bridge. -/
+  /-- Historical Wilson character-diagonalization bridge token. -/
   physicalWilsonBridge : OpenPhysicalWilsonBridge D op w N
-  /-- OPEN: the bounded functional-calculus Hamiltonian `H = −log T`. -/
+  /-- Legacy bounded-log auxiliary, not the canonical unbounded generator. -/
   boundedH : OpenBoundedHamiltonian D op w hw0 hw1 N L
-  /-- OPEN: the cited-classical continuum Minlos measure. -/
+  /-- Optional sigma-additive Minlos-style measure packaging. -/
   continuumMinlos : OpenContinuumMinlos
 
-/-! ## 4. The capstone — a fully concrete inhabited status (unconditional fields only)
+/-! ## 4. Legacy surrogate capstone (unconditional fields only)
 
 `statusW = gw = 1/6` (the strong-coupling heat weight); the transfer object is the
-identity additive transfer on the weighted GNS completion.  The capstone bundles
-ONLY the PROVED-UNCONDITIONAL fields — no open token appears. -/
+identity additive transfer on the ordinary weighted GNS completion.  Thus this
+is an inhabited algebraic/status surrogate, not a physical positive-time OS
+reconstruction or mass-gap theorem.  It bundles only its stated proved legacy
+fields; no open token appears. -/
 
 /-- The concrete weight `gw = 1/6`. -/
 def statusW : Q' := GenuineKP.gw
@@ -203,13 +170,15 @@ theorem statusW_nonneg : (0 : Q') ≤ statusW := by decide
 theorem statusW_lt_one : statusW < (1 : Q') := by decide
 theorem statusW_pos : (0 : Q') < statusW := by decide
 
-/-- **CAPSTONE — the reconstruction/OS status is INHABITED, unconditionally.**
-A fully concrete `ReconstructionStatus` over the weighted GNS completion at
-`w = gw`, bundling only the PROVED-UNCONDITIONAL fields (mass gap `Δ = −log sep`,
+/-- **LEGACY SURROGATE — the algebraic status is INHABITED, unconditionally.**
+A concrete `ReconstructionStatus` over the weighted GNS completion at
+`w = gw`, bundling only the stated fields (encoded margin `Delta = -log sep`,
 GNS scalar action, located spectrum-inf, an invertible order-four model
 automorphism plus the legacy anisotropy-Cauchy predicate with derived `betaDrop`,
 uniform-in-coupling surrogate, closed
-`RC`-scaling, real-line loopy decay).  No open token is consumed. -/
+`RC`-scaling, real-line loopy decay).  Its identity transfer and detached finite
+status fields must not be projected into the canonical Clay target.  No open
+token is consumed. -/
 def all_fixed_spacing_reconstruction_proved :
     ReconstructionStatus (qSmulGNS statusW statusW_nonneg)
       ((qSmulGNS statusW statusW_nonneg).toGNSData.idTransfer)
@@ -218,14 +187,14 @@ def all_fixed_spacing_reconstruction_proved :
     ((qSmulGNS statusW statusW_nonneg).toGNSData.idTransfer)
     statusW statusW_nonneg statusW_lt_one statusW_pos 1
 
-/-! ## 5. Documentation: PROVED-UNCONDITIONAL vs OPEN (AGENTS.md Rule 6)
+/-! ## 5. Documentation: proved legacy fields and historical residuals
 
-PROVED-UNCONDITIONAL (green fields of `ReconstructionStatus`, each a real theorem):
+PROVED (fields of `ReconstructionStatus`, at their literal surrogate types):
 
   * `provedLine`         ⟸ `ReconstructionScorecard.reconstruction_proved_line`
-      (mass gap `Δ = −log sep > 0`, GNS vector-space + scalar action, located
-      spectrum-inf + unconditional lower bound, invertible order-4 `O(4)`
-      automorphism, uniform-in-coupling surrogate);
+      (encoded `Delta = -log sep > 0`, GNS vector-space/scalar action, located
+      spectrum-infimum surrogate and lower bound, invertible order-four model
+      automorphism, uniform-in-coupling survival surrogate);
   * `rcScaleClosed`      ⟸ `RCScaleClose.rcScaleResidualPlus`;
   * `o4Restored`         ⟸ `O4BetaSign.o4_restored_of_tauModel`;
   * `betaDropDerived`    ⟸ `O4BetaSign.tauModelRunning`
@@ -234,20 +203,24 @@ PROVED-UNCONDITIONAL (green fields of `ReconstructionStatus`, each a real theore
 
   ⟹ `all_fixed_spacing_reconstruction_proved : ReconstructionStatus …`  [INHABITED].
 
-OPEN (NAMED, NO inhabitant here):
+HISTORICAL RESIDUAL TOKENS (no inhabitant here):
 
   * `OpenNode1FiniteSMargin` — node ①, the finite-`s` theta-floor saddle margin;
-  * `OpenTrueMargin` — the genuine dimensionless physical margin recursion;
-  * `OpenPhysicalWilsonBridge` — the physical Wilson double-Haar / Peter–Weyl bridge;
-  * `OpenBoundedHamiltonian` — the bounded self-adjoint `H` with `e^{−H}=T`;
-  * `OpenContinuumMinlos` — the cited-classical `a → 0` Minlos lift.
+  * `OpenTrueMargin` — the older dimensionless-margin recursion token;
+  * `OpenPhysicalWilsonBridge` — the older Wilson character-diagonalization bridge;
+  * `OpenBoundedHamiltonian` — the rejected bounded-log auxiliary, not the
+    canonical possibly-unbounded semigroup generator;
+  * `OpenContinuumMinlos` — optional sigma-additive measure packaging.
 
-  ⟹ `ReconstructionOpenFrontier`  [DELIBERATELY UNINHABITED — the open frontier].
+  ⟹ `ReconstructionOpenFrontier`  [UNINHABITED — a non-exhaustive legacy bundle].
 
-The fixed-spacing reconstruction/OS status is PROVED and consolidated into ONE
-inhabited record; the continuum reconstruction target reduces to exactly the five
-named open cores.  Inhabiting them is the open Yang–Mills problem; nothing here
-claims to have done so. -/
+The fixed-spacing legacy status surrogate is proved and consolidated into one
+inhabited record.  It does not construct the standard reflected positive-time
+OS carrier.  The five historical open cores listed above are therefore not an
+exhaustive Clay frontier: the canonical two-parameter Schwinger limit,
+half-space reconstruction, `C0` semigroup, unbounded generator, and spectral
+identification are independent prerequisites recorded in the revised work
+plan.  Nothing here claims the continuum Yang--Mills result. -/
 
 end YMGap.Rubric.ReconstructionScorecardFinal
 

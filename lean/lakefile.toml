@@ -26,6 +26,11 @@ weakLeanArgs = ["-s", "65536", "-M", "32768"]
 
 [[lean_lib]]
 name = "YMGap"
+# Compile every source module in the production namespace during a full library
+# build, including modules not yet reachable from the selective `YMGap.lean`
+# semantic/audit root. Targeted `lake build YMGap.Some.Module` checks remain
+# targeted; this glob only expands the `YMGap` library target itself.
+globs = ["YMGap.*"]
 
 # Frontier uninhabitedness guard — a separate root that `import YMGap` and, at
 # elaboration time, fails the build if any Clay-frontier type (Tier0Scorecard /

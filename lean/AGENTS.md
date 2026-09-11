@@ -6,6 +6,37 @@ The rules below are **non-negotiable**. The entire point of the Lean
 formalization is to enforce constructivity that prose cannot. An
 agent that closes goals classically silently defeats that purpose.
 
+## Machine-safety precondition
+
+Uncapped Lean checks have exhausted this host and crashed the MacBook Pro twice.
+No rule below authorizes an unsafe verification run.
+
+- Never run bare `lake build` or `lake env lean YMGap.lean`. Never run Lean
+  builds concurrently with each other or with a broad test suite.
+- Static inspection comes first. The default agent-initiated check is the
+  smallest relevant target with one worker, launched from the repository root
+  through the atomic session lock:
+  `scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build <Module.Target>`.
+- Check for an existing GitHub runner supervisor/helper/listener/worker or
+  `lean`/`lake`/`pytest` process before compiling. Do not compete with or
+  kill a user-owned process.
+- Never bypass the lock wrapper or a locked repository Make target.  The lock
+  covers repository-managed entry points; the process check is still required
+  because no project script can prevent an arbitrary bare executable.
+- After Control-C, TERM, HUP, or an abrupt child failure, never remove a
+  retained lock until process inspection conclusively shows that no
+  GitHub runner supervisor/helper/listener/worker, Lean, Lake, or pytest
+  process survives.
+- A full build, audit, or guard run requires explicit user approval for that
+  specific run after targeted checks pass. Use the repository Make target with
+  `LEAN_JOBS=1`. This one-worker setting is a hard repository invariant on this
+  host; do not raise or bypass it.
+- The `-M 20480` per-worker ceiling in `lakefile.toml` is mandatory. Raising or
+  bypassing it, including a solo `-M 40960` check, requires explicit user
+  approval for that run.
+- Stop on memory pressure, swapping, stalling, or thermal pressure. Report an
+  unrun check honestly; do not call a historical green build a current check.
+
 ---
 
 ## Rule 0: Read before writing
@@ -248,9 +279,11 @@ complete constructive machinery, the established pattern (used by
 
 ---
 
-## Rule 7: Build and check before declaring done
+## Rule 7: Targeted, resource-capped build and check before declaring done
 
-A change is complete only when:
+A change is complete only when the proportionate verification below succeeds.
+Verification is targeted-first and is always subject to the machine-safety
+precondition above:
 
 1. `make lean-build` (the monitored launcher) succeeds, or the explicitly
    reported verification boundary is recorded when a safety cutoff prevents a
@@ -262,6 +295,8 @@ A change is complete only when:
 4. New holes are in `SORRY_LEDGER.md` (Rule 6).
 5. The corresponding `work_plan.md` milestone status is updated if a
    Lean deliverable was its blocker.
+6. If a full build/audit/guard was not run because it was unnecessary or unsafe,
+   the handoff says so and does not imply current-session full-tree verification.
 
 ---
 

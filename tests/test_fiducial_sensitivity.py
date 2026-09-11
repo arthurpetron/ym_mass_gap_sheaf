@@ -18,6 +18,7 @@ from computations.large_field_kp import (
     MU_PLAQUETTE_4D,
     MU_PLAQUETTE_BF_CONSERVATIVE_4D,
     MU_PLAQUETTE_CONSERVATIVE_4D,
+    SEILER_5D_MINUS_4_LEGACY,
 )
 
 
@@ -91,14 +92,25 @@ class TestSweepMuPlaq:
         # Genuine BF-conservative is included (post 2026-05-25).
         assert any(abs(v - MU_PLAQUETTE_BF_CONSERVATIVE_4D) < 1e-9 for v in values)
 
-    def test_conservative_shrinks_g_max(self):
-        # Larger μ_plaq ↔ smaller g_max_lf.
-        result = sweep_mu_plaq(values=[MU_PLAQUETTE_4D, MU_PLAQUETTE_CONSERVATIVE_4D])
-        g_default = result.points[0].g_max_lf
-        g_conservative = result.points[1].g_max_lf
-        assert g_conservative < g_default, (
-            f"Conservative μ_plaq = 8e should shrink g_max_lf; "
-            f"got default={g_default}, conservative={g_conservative}"
+    def test_larger_mu_shrinks_g_max(self):
+        # Larger μ_plaq ↔ smaller g_max_lf.  Re-pinned 2026-07-25: the
+        # default is now the 20e-majorant (largest of the named values),
+        # so compare legacy 16 < 8e < default.
+        result = sweep_mu_plaq(values=[
+            SEILER_5D_MINUS_4_LEGACY,
+            MU_PLAQUETTE_CONSERVATIVE_4D,
+            MU_PLAQUETTE_4D,
+        ])
+        g_legacy = result.points[0].g_max_lf
+        g_site = result.points[1].g_max_lf
+        g_default = result.points[2].g_max_lf
+        assert g_site < g_legacy, (
+            f"site-bound μ_plaq = 8e should shrink g_max_lf vs legacy 16; "
+            f"got legacy={g_legacy}, site={g_site}"
+        )
+        assert g_default < g_site, (
+            f"derived default (20e-majorant) should shrink g_max_lf further; "
+            f"got site={g_site}, default={g_default}"
         )
 
     def test_g_max_monotone_in_mu_plaq(self):
@@ -221,22 +233,34 @@ class TestRunAllAndFormat:
 class TestMaxG0Closure:
     def test_default_in_known_range(self):
         # The default pilot fails at g_0 = 1.0 and passes well below
-        # g_0 = 0.40 (sf threshold).  The bisection should land
-        # somewhere in (0.30, 0.42) for the canonical convention.
+        # the lf threshold (≈ 0.3733 post-2026-07-25 μ_plaq upgrade).
+        # The bisection lands near 0.3655 (trajectory drift below the
+        # lf threshold) for the canonical convention.
         g_max = max_g0_closure(K=3, sigma_hat_initial=1.0)
         assert 0.10 < g_max < 0.50, f"unexpected default g_0_max: {g_max}"
+        assert 0.36 < g_max < 0.38, f"re-pinned window: expected ≈0.3655, got {g_max}"
 
-    def test_conservative_mu_plaq_does_not_grow_window(self):
-        # Larger μ_plaq tightens the convergent regime; the pilot
-        # window cannot grow when switching to the conservative value.
+    def test_default_mu_plaq_window_not_larger_than_alternatives(self):
+        # Re-pinned 2026-07-25: the default μ_plaq is now the LARGEST
+        # defensible value (20e-majorant), so the default pilot window is
+        # the smallest — switching to any smaller μ (site-bound 8e or
+        # legacy 16) can only enlarge it.
         g_default = max_g0_closure(K=3, sigma_hat_initial=1.0)
-        g_conservative = max_g0_closure(
+        g_site = max_g0_closure(
             K=3, sigma_hat_initial=1.0,
             mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D,
         )
-        assert g_conservative <= g_default + 1e-3, (
-            f"conservative μ_plaq should not enlarge the pilot window; "
-            f"default={g_default}, conservative={g_conservative}"
+        g_legacy = max_g0_closure(
+            K=3, sigma_hat_initial=1.0,
+            mu_plaq=SEILER_5D_MINUS_4_LEGACY,
+        )
+        assert g_default <= g_site + 1e-3, (
+            f"default (20e-majorant) window must not exceed the site-bound "
+            f"window; default={g_default}, site={g_site}"
+        )
+        assert g_default <= g_legacy + 1e-3, (
+            f"default (20e-majorant) window must not exceed the legacy-16 "
+            f"window; default={g_default}, legacy={g_legacy}"
         )
 
     def test_tighter_sf_grows_window(self):

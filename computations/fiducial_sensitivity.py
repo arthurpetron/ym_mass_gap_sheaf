@@ -11,10 +11,12 @@ HEURISTIC or LITERATURE-SHAPE-PENDING-VERIFICATION:
 
   1. ``BAŁABAN_SPECTRAL_GAP_COEFF = 1/2`` (small-field activity rate
      coefficient) — literature-shape, value not directly extracted.
-  2. ``MU_PLAQUETTE_4D = 16`` (large-field plaquette connectivity) —
-     widely cited as ``5d - 4`` but not verified verbatim; a
-     conservative rigorous fallback ``MU_PLAQUETTE_CONSERVATIVE_4D
-     = 8e`` is available.
+  2. ``MU_PLAQUETTE_4D`` (large-field plaquette connectivity) —
+     since 2026-07-25 a DERIVED bound: the exact-rational majorant
+     ``1359141/25000 ≥ 20e`` of the Brydges–Federbush bound ``e·Δ``
+     (Δ = 20 enumerated in `computations/plaquette_connectivity.py`).
+     The formerly-default Seiler-cited ``16`` is retained as
+     ``SEILER_5D_MINUS_4_LEGACY`` for comparison sweeps only.
   3. ``BALABAN_POLYMER_RESIDUAL = 2.0`` (σ̂-transport coupling) —
      heuristic, chosen to match the previous placeholder value.
 
@@ -46,6 +48,7 @@ from computations.large_field_kp import (
     MU_PLAQUETTE_4D,
     MU_PLAQUETTE_BF_CONSERVATIVE_4D,
     MU_PLAQUETTE_CONSERVATIVE_4D,
+    SEILER_5D_MINUS_4_LEGACY,
     convergence_threshold_g_lf,
 )
 from computations.overlap_measure import standard_su2_trajectory
@@ -160,9 +163,11 @@ def sweep_mu_plaq(
 ) -> FiducialSweepResult:
     """Sweep ``MU_PLAQUETTE_4D`` and report g_max_lf + pilot closure.
 
-    Default values include the literature-shape ``16``, the conservative
-    rigorous fallback ``8e ≈ 21.75``, and intermediates plus tighter
-    speculative bounds.  The ``mu_plaq`` override is threaded into
+    Default values include the legacy Seiler-cited ``16``
+    (``SEILER_5D_MINUS_4_LEGACY``, comparison only), the site-bound
+    ``8e ≈ 21.75``, the derived default ``MU_PLAQUETTE_4D =
+    1359141/25000 ≥ 20e`` (SL.1 2026-07-25), and intermediates.
+    The ``mu_plaq`` override is threaded into
     ``sigma_hat_trajectory`` (since 2026-05-24), so the swept ``Σ η_k``
     column reflects the actual large-field-induced movement in Δ_∩.
     """
@@ -170,10 +175,11 @@ def sweep_mu_plaq(
         values = [
             8.0,
             12.0,
-            MU_PLAQUETTE_4D,                  # 16, default literature-shape
+            SEILER_5D_MINUS_4_LEGACY,         # 16, legacy 5d-4 (comparison sweeps only)
             MU_PLAQUETTE_CONSERVATIVE_4D,     # 8e ≈ 21.75, site-bound (deprecated as conservative)
             32.0,
-            MU_PLAQUETTE_BF_CONSERVATIVE_4D,  # 20e ≈ 54.37, GENUINE plaquette BF-conservative
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,  # 20e ≈ 54.366 float, genuine plaquette BF bound
+            MU_PLAQUETTE_4D,                  # 1359141/25000 = 54.36564 ≥ 20e, DERIVED default
             64.0,
         ]
 

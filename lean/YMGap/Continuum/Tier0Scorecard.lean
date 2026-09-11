@@ -1,80 +1,38 @@
 /-
-The **Tier-0 scorecard** — the sharpened a→0 gap-survival frontier as a
-machine-checked **6-atom (functional-continuum)** enumeration.  Supersedes the
-3-atom `Tier0FrontierCorrected.Tier0FrontierC` by REFINING its single loopy atom
-`a1` into three geometry atoms (T′)+(D1)+(D2), keeping the closed-fusion 6j atom
-as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
-`b` into the pinned `SpectralMarginInput` (three Balaban-RG sub-atoms).
+The historical Tier-0 surrogate census.
 
-# The picture recorded (read first)
+This file preserves an earlier decomposition of a functional-continuum route
+into `SubWallA` and `SpectralMarginInput`.  It is useful dependency bookkeeping,
+but it is not an exact or exhaustive atomization of the Clay frontier.
 
-  Sub-wall A (loopy geometry) — 4 OPEN atoms
-    (T′)  `Ursell4DProgress.TreeGraphBound.tree_graph`  — spanning-tree inequality
-    (D1)  `Ursell4DProgress.BridgeDecomposition.decompose` — Mayer–Ursell expansion
-    (D2)  `Ursell4DProgress.SepLatticeZ4`  — the plaquette metric refining `z4Chain`
-    (A2)  `PentagonRelation.PentagonNumericCore` — the fractional-6j associator
-          (`SixJPentagon` was a channel-mismatch BUG, REFUTED; the genuine
-          Biedenharn–Elliott pentagon is LINEAR in the signed irrational `{6j}`,
-          not `Q'`-representable).  Carried alongside a Level-1 `RacahProb` coarse
-          surrogate used only for the frontierC coarsening.
+In `SubWallA`, `tTree` and `d1Mayer` carry substantive loopy-geometry estimates.
+By contrast, `d2Sep : SepLatticeZ4` is inhabited metric data, not an open
+mathematical theorem.  The Level-1 `a2Racah` surrogate is also inhabited, and
+`a2Pentagon : PentagonNumericCore` carries only the minimal numeric shape already
+inhabited by `numericShapeWitness`; it is not a formalization of the physical
+signed Biedenharn--Elliott associator.  The old `SixJPentagon` carrier is retained
+solely to document its channel-mismatch refutation.
 
-  Sub-wall B (Balaban RG) — 3 OPEN atoms, all inside ONE
-    `AsymptoticSpectralLoc.SpectralMarginInput b afr N₀`
-      · `sl.hlocalize` = Core B (the p≥2 SU(2)-fusion local-CLT)
-      · `hbridge`      = the pinned trajectory-shift control (`g_k ≠ 1`)
-      · `hadd`         = the located-2nd-eigenvalue ↔ physical-margin dictionary
+`SpectralMarginInput` packages a separate historical RG/localization route.  The
+projection theorems below are conditional on a supplied scorecard; they do not
+construct that input or identify its scalar `physGap` with the spectral edge of
+a canonical continuum Hamiltonian.  Likewise, `fixedSpacing_met` imports the
+legacy finite/scalar scorecard, not a physical fixed-spacing Yang--Mills theorem.
 
-  Continuum existence — FUNCTIONAL (`Continuum.FunctionalContinuumTarget`: OS0–OS4
-  on the Schwinger functional + GNS reconstruction, measure-free).  The σ-additive
-  `ContinuumScorecard.CitedMinlosLift` (= `ClayContinuumExistence`) is NO LONGER an
-  atom — an OPTIONAL classical corollary downstream of the functional target
-  (`FunctionalContinuumTarget.minlos_is_optional_corollary`).
+The ordinary-GNS `FunctionalContinuumTarget` associated with this older route is
+not the reflected positive-time OS reconstruction.  The current canonical path
+also requires a pinned global group/action, a genuine two-parameter Schwinger
+limit, reflected carrier, full continuous-time semigroup, generator, and
+physical spectral and interaction pins.  A sigma-additive Minlos lift is an
+optional downstream corollary, not a substitute for those data.
 
-# What is PROVED here (each `#print axioms`-gated, permitted `propext`/`Quot.sound`)
+No `Tier0Scorecard` term is constructed here.  This should be read only as the
+status of the fields encoded by this legacy bundle: its uninhabited status is
+not an exact proof that a fixed number of independent Clay obligations remains.
 
-  * `fixedSpacing_met` — the entire fixed-spacing rubric line, UNCONDITIONAL
-    (`ContinuumScorecard.fixed_spacing_met`).
-  * `subA_offCorr_decompose` / `subA_tree_graph` — the load-bearing (D1)/(T′)
-    projections of Sub-wall A.
-  * `subB_prodFloor_pos` / `subB_physGap_pos` — the assembled Stage-2 floor
-    (the three-floor collapse `Stage2ConvergesToMargin.stage2_*` fired from the
-    single `SpectralMarginInput`, `recursion` DISCHARGED not assumed).
-  * `a2_racah` / `a2_tetra_nonneg` — the Level-1 A2 surrogate is non-empty:
-    `RacahInhabit.racahRP` inhabits `RacahProb` (the coarse `SubWallA.a2Racah`
-    slot) and the tetrahedron amplitude is concretely nonnegative.
-  * `pentagon_to_racah` — a retained (NO-LONGER-USED) fact about the REFUTED buggy
-    `SixJPentagon`: dropping its pentagon field yields a `RacahProb`.
-  * `toFrontierC` — the supersession bridge: a `Tier0Scorecard` coarsens to a
-    `Tier0FrontierCorrected.Tier0FrontierC`, discharging its coarse a2 slot from
-    the scorecard's OWN Level-1 `SubWallA.a2Racah` surrogate (the genuine Level-2
-    content `SubWallA.a2Pentagon : PentagonNumericCore` is non-stochastic — constant
-    `1/4` — so it admits NO total map to `RacahProb`).  It consumes the coarse
-    `a1`/`b` as explicit inputs precisely BECAUSE Sub-wall A refines `a1` into
-    (T′)+(D1)+(D2) and Sub-wall B refines `b` into the pinned `SpectralMarginInput`
-    — the finer enumeration does not hand back the coarse atoms for free.  This
-    records the strict refinement mechanically.
-
-# DELIBERATELY UNINHABITED bundle
-
-`Tier0Scorecard` has NO inhabitant, by design (mirrors `Tier0FrontierC` /
-`ClayTarget` / `ContinuumScorecard.ContinuumTargetReduction`).  Only `fixedSpacing`
-is proved; supplying `subA` (four open atoms) and `subB` (three open atoms) —
-together with the open `a → 0` functional modulus of `FunctionalContinuumTarget` —
-WITHOUT `sorry`/`axiom` is the open continuum Clay problem.  (The σ-additive Minlos
-lift is NOT among these — it is an optional classical corollary, not an atom.)
-
-# Coupling note (Sub-wall A geometry atoms are coupled)
-
-`TreeGraphBound`'s first argument is a `SepLattice`, and `SepLatticeZ4` IS the open
-(D2) field; so `tTree` is phrased over `d2Sep.val` — the two A-geometry atoms
-(T′) and (D2) are genuinely coupled, as flagged.
-
-# Constructive contract (AGENTS.md Rules 1, 6, 8)
-
-Mathlib-free; pure `Q'` / `Nat`.  No `Classical.*`, no `Real`, no `native_decide`,
-no `by_contra`, no `sorry` / `admit` / new `axiom`.  Every open atom is a NAMED
-Type-level field, uninhabited, never faked.  Net new closed physics: zero — this
-is a sharper HONEST enumeration of the same OPEN frontier.  Clay YM mass gap OPEN.
+Mathlib-free; pure `Q'` / `Nat`; no `Classical.*`, `Real`, `native_decide`,
+`by_contra`, `sorry`, `admit`, or new axiom.  Clay Yang--Mills mass gap remains
+open.
 -/
 
 import YMGap.Continuum.Tier0FrontierCorrected
@@ -115,11 +73,11 @@ bug, not open physics); see `SixJPentagonRefutation.sixJPentagon_uninhabited`.
 Moreover the genuine Biedenharn–Elliott pentagon is LINEAR in the SIGNED
 (irrational) Wigner `{6j}` (e.g. `{1 1 1; ½ ½ ½} = −1/3`), so it is NOT
 `Q'`-representable and this cubic squared field can never be corrected in place.
-The A2 slot of `SubWallA` is therefore REPOINTED to the correctly-specified
-`PentagonRelation.PentagonNumericCore` (the fractional associator, non-empty as a
-spec via `numericShapeWitness`, physical associator OPEN, refuted for every
-permutation surrogate).  This structure is kept ONLY so the refutation module has
-a standalone target; it is no longer used by `SubWallA`. -/
+The A2 slot of `SubWallA` is therefore repointed to
+`PentagonRelation.PentagonNumericCore`, a minimal numeric-shape specification
+inhabited by `numericShapeWitness`.  That specification is not the physical
+signed associator.  This structure is kept only so the refutation module has a
+standalone target; it is no longer used by `SubWallA`. -/
 structure SixJPentagon : Type where
   /-- The rational dim-absorbed 6j-square kernel underlying the pentagon. -/
   P : SixJRecouplingProgress.RacahProb
@@ -131,7 +89,7 @@ structure SixJPentagon : Type where
         P.racahProb (mk6 a b c d e x) *
           (P.racahProb (mk6 a b c d x f) * P.racahProb (mk6 a b c d x e))) D)
 
-/-! ## 2. Sub-wall A — the loopy-geometry atoms (OPEN; (T′) coupled to (D2)). -/
+/-! ## 2. Sub-wall A — historical loopy-geometry fields -/
 
 /-- **`SubWallA` — the loopy-geometry sub-wall.**
 
@@ -143,15 +101,14 @@ structure SixJPentagon : Type where
                   GENUINELY OPEN;
   * `a2Racah`   — (A2, Level-1) the coarse doubly-stochastic Racah 6j² surrogate,
                   carried only to discharge the coarse `Tier0FrontierC` a2 slot;
-  * `a2Pentagon`— (A2, Level-2) the genuine fractional-6j associator
-                  `PentagonRelation.PentagonNumericCore` (physical associator OPEN).
+  * `a2Pentagon`— (A2, Level-2) the inhabited minimal numeric-shape structure
+                  `PentagonRelation.PentagonNumericCore`, not the physical
+                  fractional-6j associator.
 
-LEFT UNINHABITED.  The genuine open blockers are `tTree` and `d1Mayer` (and, at the
-scorecard level, `subB`); `d2Sep` is inhabited DATA and `a2Racah` is an inhabited
-Level-1 surrogate, while the `a2Pentagon` SPEC is inhabitable (`numericShapeWitness`
-/ `SixJKernel.racahKernelCore`) yet its PHYSICAL associator stays open.  Supplying
-every field as the genuine physical object WITHOUT `sorry`/`axiom` is the open
-A-half. -/
+No term is constructed here.  Within this structure, the substantive unsupplied
+estimates are `tTree` and `d1Mayer`; `d2Sep`, `a2Racah`, and the minimal
+`a2Pentagon` specification have inhabitants.  The physical associator remains a
+separate unformalized obligation rather than a field discharged by this bundle. -/
 structure SubWallA (p : z4Chain.toLattice.Plaquette) (w : Q') : Type 1 where
   /-- **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain`
   (inhabited DATA, carried only to type `tTree`). -/
@@ -167,26 +124,27 @@ structure SubWallA (p : z4Chain.toLattice.Plaquette) (w : Q') : Type 1 where
   discharge the coarse `Tier0FrontierC` a2 slot via `toFrontierC`.  It is NOT what
   keeps `SubWallA` open. -/
   a2Racah : SixJRecouplingProgress.RacahProb
-  /-- **(A2, Level-2 genuine)** — the fractional-6j associator numeric core
+  /-- **(A2, Level-2 numeric shape)** — a minimal fractional-6j numeric core
   `PentagonRelation.PentagonNumericCore`, pinned to `1/4` at the smallest
   tetrahedron and refuted for every permutation surrogate.  Its minimal SPEC is
   inhabitable (`numericShapeWitness` / `SixJKernel.racahKernelCore`); the PHYSICAL
-  associator (full nonlinear Biedenharn–Elliott pentagon + two-sided stochasticity)
-  is the genuine OPEN obligation.  REPOINTED here from the refuted buggy
+  associator (full signed Biedenharn–Elliott identity and its analytic role) is
+  not encoded by this field.  Repointed here from the refuted buggy
   `SixJPentagon`. -/
   a2Pentagon : PentagonRelation.PentagonNumericCore
 
-/-! ## 3. The scorecard bundle (DELIBERATELY UNINHABITED). -/
+/-! ## 3. The legacy scorecard bundle -/
 
-/-- **`Tier0Scorecard` — the 6-atom (functional-continuum) frontier.**  Bundles the
-PROVED fixed-spacing rubric line, Sub-wall A (four open loopy-geometry atoms), and
-Sub-wall B (the single `SpectralMarginInput` carrying the three Balaban-RG open
-atoms `sl.hlocalize`/`hbridge`/`hadd`).
+/-- **`Tier0Scorecard` — a historical functional-continuum census.**  Bundles the
+proved fixed-spacing surrogate line, `SubWallA`, and one `SpectralMarginInput`.
+The field grouping is useful for this reduction route but is neither an exact
+count of independent open obligations nor an exhaustive Clay frontier.
 
-**Minlos is NO LONGER a field (architectural deletion).**  Continuum existence is
-now the FUNCTIONAL target (`Continuum.FunctionalContinuumTarget`: OS0–OS4 on the
-Schwinger functional + GNS reconstruction, measure-free = the Jaffe–Witten
-requirement).  The σ-additive Bochner–Minlos lift
+**Minlos is NO LONGER a field (architectural deletion).**  This historical
+frontier uses `Continuum.FunctionalContinuumTarget`: its OS0--OS4 predicates on
+a Schwinger functional plus ordinary GNS data.  It is a legacy surrogate, not
+the standard reflected positive-time Jaffe--Wightman reconstruction.  The
+sigma-additive Bochner--Minlos lift
 `ContinuumScorecard.CitedMinlosLift` is thereby an OPTIONAL classical corollary
 DOWNSTREAM of the functional target, NOT a frontier atom
 (`FunctionalContinuumTarget.minlos_is_optional_corollary`): its dynamical content is
@@ -195,19 +153,20 @@ Sub-wall B's `DefectGapRecursion` and its correlator content is Sub-wall A's
 datum is the σ-additive `tightnessRate` — not an OS input.  It is dropped from this
 bundle.
 
-**No inhabitant, by design.**  Only `fixedSpacing` is proved. -/
+No inhabitant is constructed in this file.  That fact records the status of this
+particular bundle only. -/
 structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q')
     (b : Nat) (afr : AFRateModulus) (N₀ : Nat) : Type 1 where
-  /-- PROVED — the fixed-spacing rubric line (`ClayFixedSpacingMet`). -/
+  /-- PROVED — the legacy fixed-spacing surrogate conjunction. -/
   fixedSpacing : ClayScorecard.ClayFixedSpacingMet
-  /-- OPEN ×4 — Sub-wall A ((T′), (D1), (D2), pentagon). -/
+  /-- Historical Sub-wall A; `d2Sep` and both A2 shape slots are inhabitable. -/
   subA : SubWallA p w
-  /-- OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input. -/
+  /-- Historical Sub-wall B package (`hlocalize`, `hbridge`, `hadd`). -/
   subB : AsymptoticSpectralLoc.SpectralMarginInput b afr N₀
 
-/-! ## 4. The PROVED fixed-spacing line (unconditional). -/
+/-! ## 4. The proved fixed-spacing surrogate line -/
 
-/-- **The fixed-spacing rubric line is MET (PROVED, UNCONDITIONAL).** -/
+/-- **The legacy fixed-spacing surrogate conjunction is proved.** -/
 theorem fixedSpacing_met : ClayScorecard.ClayFixedSpacingMet :=
   ContinuumScorecard.fixed_spacing_met
 
@@ -243,9 +202,10 @@ theorem subB_prodFloor_pos {p : z4Chain.toLattice.Plaquette} {w : Q'}
     (0 : Q') < (Stage2ConvergesToMargin.toDefectGapRecursion F.subB).prodFloor :=
   Stage2ConvergesToMargin.stage2_prodFloor_pos F.subB
 
-/-- **Sub-wall B per-scale gap positivity (PROVED).**  The physical gap of the
-`SpectralMarginInput`-derived defect-gap recursion is strictly positive at every
-scale `k`. -/
+/-- **Sub-wall B per-scale scalar positivity (PROVED conditionally on `F`).**
+The field named `physGap` in the `SpectralMarginInput`-derived recursion is
+strictly positive at every scale.  This theorem does not identify that scalar
+with a canonical Hamiltonian spectral gap. -/
 theorem subB_physGap_pos {p : z4Chain.toLattice.Plaquette} {w : Q'}
     {b : Nat} {afr : AFRateModulus} {N₀ : Nat}
     (F : Tier0Scorecard p w b afr N₀) (k : Nat) :
@@ -256,10 +216,11 @@ theorem subB_physGap_pos {p : z4Chain.toLattice.Plaquette} {w : Q'}
 
 /-- **The Level-1 A2 surrogate is inhabited (PROVED inhabitation).**
 `RacahInhabit.racahRP` inhabits `RacahProb`, so the coarse Level-1 A2 surrogate
-(`SubWallA.a2Racah`, consumed by `toFrontierC`) is genuinely non-empty.  This is
-the permutation-satisfiable shadow; the genuine Level-2 content is the fractional
-`PentagonRelation.PentagonNumericCore` (`SubWallA.a2Pentagon`), refuted for every
-such permutation surrogate (`PentagonRelation.racahRP_fails_numeric`). -/
+(`SubWallA.a2Racah`, consumed by `toFrontierC`) is genuinely non-empty.  The
+separate Level-2 field `PentagonRelation.PentagonNumericCore` is only an inhabited
+numeric-shape specification; `PentagonRelation.racahRP_fails_numeric` shows that
+this particular permutation surrogate does not meet that shape.  Neither field
+is the physical signed associator. -/
 def a2_racah : SixJRecouplingProgress.RacahProb := RacahInhabit.racahRP
 
 /-- **A2 tetrahedron amplitude nonnegative (PROVED).**  With the `racahRP` witness,
@@ -277,9 +238,9 @@ non-stochastic, constant `1/4` — admits NO total map to `RacahProb`). -/
 def pentagon_to_racah (S : SixJPentagon) : SixJRecouplingProgress.RacahProb :=
   S.P
 
-/-! ## 8. The supersession bridge to the coarser `Tier0FrontierC`. -/
+/-! ## 8. Compatibility projection to the older `Tier0FrontierC` -/
 
-/-- **`toFrontierC` — the supersession coarsening (PROVED, TOTAL in `F`).**  A
+/-- **`toFrontierC` — a compatibility projection (PROVED, TOTAL in `F`).**  A
 `Tier0Scorecard` coarsens to a `Tier0FrontierCorrected.Tier0FrontierC`:
 
   * `fixedSpacing` transports verbatim (neither bundle carries a `minlos` field
@@ -293,8 +254,9 @@ def pentagon_to_racah (S : SixJPentagon) : SixJRecouplingProgress.RacahProb :=
     pinned `SpectralMarginInput` — the finer enumeration does not hand back the
     coarse loopy datum / cross-ratio atom for free.
 
-This records mechanically that `Tier0Scorecard` is the STRICTLY FINER enumeration
-dominating `Tier0FrontierC` at the atom level. -/
+This records a total map after the two older coarse inputs are supplied.  It does
+not establish that either bundle is an exact frontier, nor that the displayed
+fields are independent physical atoms. -/
 def toFrontierC {p : z4Chain.toLattice.Plaquette} {w : Q'}
     {b : Nat} {afr : AFRateModulus} {N₀ : Nat}
     (F : Tier0Scorecard p w b afr N₀)
@@ -307,22 +269,25 @@ def toFrontierC {p : z4Chain.toLattice.Plaquette} {w : Q'}
       a2 := F.subA.a2Racah
       b := bcr }
 
-/-- The fixed-spacing half of any scorecard is the PROVED line. -/
+/-- The fixed-spacing field of any supplied scorecard is the proved legacy
+surrogate conjunction. -/
 theorem scorecard_fixedSpacing_proved {p : z4Chain.toLattice.Plaquette} {w : Q'}
     {b : Nat} {afr : AFRateModulus} {N₀ : Nat}
     (F : Tier0Scorecard p w b afr N₀) : ClayScorecard.ClayFixedSpacingMet :=
   F.fixedSpacing
 
-/-! ## 9. Documentation: PROVED vs OPEN (AGENTS.md Rule 6)
+/-! ## 9. Documentation: proved projections and unsupplied legacy packages
 
 PROVED here (axiom-clean):
-  * `fixedSpacing_met` / `scorecard_fixedSpacing_proved` — the fixed-spacing line;
-  * `subA_offCorr_decompose` / `subA_tree_graph` — the (D1)/(T′) projections;
+  * `fixedSpacing_met` / `scorecard_fixedSpacing_proved` — the legacy
+    fixed-spacing surrogate conjunction;
+  * `subA_offCorr_decompose` / `subA_tree_graph` — projections from a supplied
+    (D1)/(T′) package;
   * `subB_prodFloor_pos` / `subB_physGap_pos` — the Stage-2 three-floor collapse
-    from ONE `SpectralMarginInput` (`recursion` DISCHARGED);
+    conditional on a supplied `SpectralMarginInput`;
   * `a2_racah` / `a2_tetra_nonneg` — the Level-1 A2 surrogate inhabited via `racahRP`;
   * `pentagon_to_racah` — a retained fact about the REFUTED buggy `SixJPentagon`;
-  * `toFrontierC` — the supersession coarsening onto `Tier0FrontierC` (coarse a2
+  * `toFrontierC` — a compatibility map onto `Tier0FrontierC` (coarse a2
     discharged from the Level-1 `a2Racah`).
 
 OPEN (NAMED, NO inhabitant — the sharpened frontier):
@@ -339,10 +304,11 @@ OPEN (NAMED, NO inhabitant — the sharpened frontier):
     GNS, measure-free) — the σ-additive `ContinuumScorecard.CitedMinlosLift` is an
     OPTIONAL classical corollary, NOT an atom.
 
-  ⟹ `Tier0Scorecard`  [DELIBERATELY UNINHABITED — the open continuum Clay problem].
+  ⟹ no `Tier0Scorecard` constructor is supplied here.  This is not equivalent to
+     an exact census of the open continuum Clay problem.
 
-This is a genuine REDUCTION (a finer honest enumeration), NOT a closure.  The Clay
-Yang–Mills mass gap remains OPEN. -/
+This module preserves a useful historical reduction interface, not a closure and
+not an exhaustive frontier.  The Clay Yang--Mills mass gap remains open. -/
 
 end YMGap.Continuum.Tier0Scorecard
 

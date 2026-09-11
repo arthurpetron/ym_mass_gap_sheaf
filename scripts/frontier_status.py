@@ -14,8 +14,9 @@ each, reports:
 
 It also emits two whole-library audits:
 
-  * an UNIMPORTED-FILE audit — every `YMGap/*.lean` NOT reachable (transitively)
-    from `YMGap.lean`, i.e. silently skipped by the default build;
+  * a SEMANTIC-ROOT audit — every `YMGap/*.lean` NOT reachable (transitively)
+    from `YMGap.lean`; the full Lake library glob still compiles these modules
+    independently, while the separate import guard enforces their review;
   * a NONCOMPUTABLE ledger — every `noncomputable` declaration.
 
 The result is written to `docs/frontier-status.md` (dated).
@@ -24,17 +25,17 @@ The result is written to `docs/frontier-status.md` (dated).
 
     python scripts/frontier_status.py                 # use AXIOM_AUDIT.md gates
     python scripts/frontier_status.py --from-file LOG  # gates from a build log
-    python scripts/frontier_status.py --lake           # run `lake build` fresh
+    python scripts/frontier_status.py --lake --allow-full-build  # approved full build
     python scripts/frontier_status.py --stdout         # print, don't write file
 
 # Design (mirrors scripts/lean_axiom_audit.py)
 
-The axiom-gate source of truth is the same recorded `#print axioms` data the
-audit script maintains: `lean/AXIOM_AUDIT.md`.  Each partial-close declaration is
-looked up there by fully-qualified name.  With `--from-file` / `--lake` the gates
-are instead parsed live from a `lake build` log via the audit script's own
-`THEOREM_PATTERN`, and layered OVER the baseline.  No file is edited; this script
-is read-only w.r.t. the Lean sources.
+The baseline records reviewed out-of-gate exceptions and compact namespace
+digests, not exact per-declaration within-gate subsets.  Baseline-only reports
+say exactly that.  With `--from-file` / `--lake`, exact gates are parsed from the
+same complete, successful, current-provenance-fingerprinted full-build evidence as
+the axiom auditor; every registered partial close must occur live.  No file is
+edited; this script is read-only w.r.t. the Lean sources.
 
 This script does NOT prove anything and does NOT change the honest status.  It
 distinguishes the frontier types protected by `YMGapGuard.lean` from unguarded
@@ -47,6 +48,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import os
 import re
 import subprocess
 import sys
@@ -54,6 +56,15 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import NotRequired, TypedDict
+
+from lean_axiom_audit import (
+    BaselineFormatError,
+    SourceInventoryError,
+    compare_reviewed_exceptions,
+    parse_baseline,
+    source_fingerprint_stamp,
+    validate_complete_axiom_log,
+)
 
 # --------------------------------------------------------------------------
 # Paths
@@ -159,18 +170,11 @@ def parse_axiom_baseline(path: Path) -> AxiomBaseline:
     return AxiomBaseline(exceptions, digests)
 
 
-def parse_lake_output(output: str) -> dict[str, set[str]]:
-    """Parse a `lake build` log into {name: axioms} (empty set = axiom-free)."""
-    result: dict[str, set[str]] = {}
-    # `#print axioms` output for long names may wrap inside the axiom list.
-    # Match over the whole log so `[propext,\n Quot.sound]` remains visible.
-    for m in THEOREM_PATTERN.finditer(output):
-        axioms_str = m.group("axioms")
-        result[m.group("name")] = (
-            set() if axioms_str is None
-            else {a.strip() for a in axioms_str.split(",") if a.strip()}
-        )
-    return result
+def checked_live_axioms(
+    output: str,
+    reviewed_exceptions: dict[str, set[str]],
+) -> tuple[dict[str, set[str]], tuple[str, ...]]:
+    """Validate full-build evidence, partial closes, and exception parity.
 
 
 def run_lake_build() -> tuple[int, str]:
@@ -186,17 +190,38 @@ def run_lake_build() -> tuple[int, str]:
     return proc.returncode, output
 
 
-def format_gate(name: str, gates: dict[str, set[str]]) -> str:
+def run_lake_build() -> tuple[int, str]:
+    try:
+        stamp = source_fingerprint_stamp()
+    except SourceInventoryError as exc:
+        return 3, f"ERROR: cannot fingerprint full-build provenance: {exc}\n"
+    env = os.environ.copy()
+    env["LEAN_NUM_THREADS"] = "1"
+    proc = subprocess.run(
+        [str(SESSION_LOCK_RUN), str(LEAN_DIR), "lake", "build"],
+        cwd=REPO_ROOT,
+        capture_output=True, text=True, check=False, env=env,
+    )
+    return proc.returncode, stamp + "\n" + proc.stdout + proc.stderr
+
+
+def format_gate(
+    name: str,
+    gates: dict[str, set[str]],
+    exact_live_names: frozenset[str],
+) -> str:
     """Human-readable axiom gate for a fully-qualified decl name."""
+    if name in exact_live_names:
+        axset = gates[name]
+        if not axset:
+            return "live exact: axiom-free"
+        return "live exact: " + ", ".join(sorted(axset))
     if name not in gates:
-        # Hashed baseline lists only out-of-gate EXCEPTIONS; an absent name is
-        # within the gate.  (With --from-file/--lake, `gates` is the full live
-        # map, so clean decls carry their exact axioms and never reach here.)
-        return "within gate {propext, Quot.sound}"
-    axset = gates[name]
-    if not axset:
-        return "axiom-free"
-    return ", ".join(sorted(axset))
+        return "baseline only: exact axiom subset not recorded; no listed exception"
+    return (
+        "baseline exception (outside gate only): "
+        + ", ".join(sorted(gates[name]))
+    )
 
 
 # --------------------------------------------------------------------------
@@ -739,7 +764,7 @@ def emit_report(
         for pc in e["partial_close"]:
             short = pc.rsplit(".", 1)[-1]
             mod = module_of(pc)
-            gate = format_gate(pc, gates)
+            gate = format_gate(pc, gates, exact_live_names)
             A(f"| `{short}` | `lean/{mod}` | {gate} |")
         A("")
 
@@ -769,11 +794,13 @@ def emit_report(
             A("</details>")
             A("")
 
-    # --- Unimported-file audit ---
-    A("## Unimported-file audit")
+    # --- Semantic-root audit ---
+    A("## Semantic-root exclusion audit")
     A("")
-    A("Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.")
-    A("silently skipped by the default `lake build` and therefore un-audited.")
+    A("Every `YMGap/*.lean` not reachable (transitively) from the selective")
+    A("`YMGap.lean` semantic/audit root.  The `YMGap.*` Lake glob still compiles")
+    A("each of these modules independently; `scripts/lean_import_guard.py`")
+    A("requires every exclusion component to have a reviewed manifest root.")
     A("")
     unimp = unimported_files()
     total = sum(1 for f in YMGAP_PKG.rglob("*.lean") if "/.lake/" not in str(f))
@@ -817,9 +844,11 @@ def emit_report(
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate docs/frontier-status.md.")
     ap.add_argument("--from-file", type=Path, default=None,
-                    help="Layer axiom gates from this `lake build` log over the baseline.")
+                    help="Use a complete provenance-bound `lake build` log for exact gates.")
     ap.add_argument("--lake", action="store_true",
-                    help="Run `lake build` and layer its axiom gates over the baseline.")
+                    help="Run a one-worker FULL `lake build` and layer its axiom gates; high-load.")
+    ap.add_argument("--allow-full-build", action="store_true",
+                    help="Required acknowledgement for --lake after host-safety approval.")
     ap.add_argument("--stdout", action="store_true",
                     help="Print the report to stdout instead of writing the file.")
     args = ap.parse_args()

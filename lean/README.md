@@ -12,10 +12,10 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-> **Read `AGENTS.md` before contributing.** It contains the
-> non-negotiable constructivity rules. They are easy to violate by
-> accident in Lean, because Lean and Mathlib are classical by
-> default.
+> **Read `AGENTS.md` before contributing.** It contains both the
+> non-negotiable constructivity rules and the host-safety contract. They are
+> easy to violate accidentally; in particular, do not start a bare or broad
+> Lean build on the development host.
 
 ---
 
@@ -70,21 +70,21 @@ manifest has zero packages. Everything builds from Lean core
 
 ---
 
-## Folder structure (as of 2026-07-03)
+## Folder structure
 
 ```
 lean/
 ├── README.md                  # This file.
 ├── AGENTS.md                  # Constructivity contract — read first.
-├── AXIOM_AUDIT.md             # Auto-maintained axiom-gate baseline (~3.8k tracked decls).
+├── AXIOM_AUDIT.md             # Auto-maintained axiom-gate baseline.
 ├── SORRY_LEDGER.md            # Every sorry, logged. Currently: library is sorry-free.
 ├── CLASSICAL_LEDGER.md        # Every quarantined classical input (Rule 4). Currently empty.
 ├── lakefile.toml              # Lake build configuration (no external packages).
 ├── lean-toolchain             # Pinned Lean version (v4.29.1).
-├── YMGap.lean                 # Root import aggregator (annotates load-bearing vs excluded).
+├── YMGap.lean                 # Selective semantic/reflection-audit root.
 ├── docs/                      # Lean-local design notes (KP limit, RG transport, ...).
 └── YMGap/
-    ├── Constructive/          # Group-independent constructive substrate (~70 modules):
+    ├── Constructive/          # Group-independent constructive substrate:
     │                          #   Q' exact rationals; CReal with explicit moduli
     │                          #   (arithmetic, exp/log, sqrt/cbrt, trig, π, completion);
     │                          #   geometric/finite-sum machinery; SU(3) character-tail
@@ -108,7 +108,7 @@ lean/
     │                          #   budget functors and closure transports.
     ├── Codynamic.lean         # Codynamic transfer template (EKF ↔ YM signature port).
     ├── HigherCategorical.lean # 2-categorical RG-flow packaging.
-    ├── Continuum/             # The continuum campaign (~470 modules): finite-volume
+    ├── Continuum/             # The large continuum campaign: finite-volume
     │                          #   functionals and partition positivity (S2–S6), KP
     │                          #   increment engine, reflection positivity (OS2 via
     │                          #   Osterwalder–Seiler), OS axioms + reconstruction
@@ -126,17 +126,34 @@ lean/
     │                          #   ClayScorecard (fixed-spacing line PROVED; ClayTarget
     │                          #   deliberately uninhabited), ContinuumScorecard,
     │                          #   Loop/Reconstruction scorecards.
-    ├── PolyAtlas.lean         # Expository/design scaffolding — NOT load-bearing,
-    ├── ModuliAlgebra.lean     #   excluded from the default aggregator (see YMGap.lean).
+    ├── PolyAtlas.lean         # Compile-only expository/design scaffolding.
+    ├── ModuliAlgebra.lean     # Compile-only expository/design scaffolding.
     └── ...
 ```
 
-The dependency direction runs upward from `Constructive/` (depends on
-nothing but Lean core) through `RepTheory/`, the lattice layers
-(`Sheaf/`, `RG/`, `MassGap/`), into `Continuum/` and finally the
-`Rubric/` scorecards. `YMGap.lean` is annotated: it states which
-modules are load-bearing and which are deliberately excluded from the
-default build to keep the axiom-audit surface honest.
+The dependency direction runs upward from `Constructive/` (depends on nothing
+but Lean core) through `RepTheory/`, the lattice layers (`Sheaf/`, `RG/`,
+`MassGap/`), into `Continuum/` and finally the `Rubric/` scorecards. Compile
+coverage and semantic aggregation are deliberately separate:
+
+- `lakefile.toml` explicitly sets `globs = ["YMGap.*"]`, so a full `YMGap`
+  library build compiles every `YMGap/**/*.lean` module independently.
+- `YMGap.lean` imports the single coherent semantic environment inspected by
+  the axiom, frontier, and statement guards.
+- The only modules outside that semantic closure are classified by the
+  reviewed roots in `SEMANTIC_ROOT_EXCLUSIONS.txt`. At present those roots are
+  `YMGap.ModuliAlgebra`, `YMGap.PolyAtlas`,
+  `YMGap.Continuum.ScratchGraphFour`,
+  `YMGap.Continuum.HarmonicLowerSixTailBaseSemanticFactors`, and the mutually
+  incompatible alternative certificate modules
+  `YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartA` and
+  `YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartAXPascal`.
+
+The compile-only modules are still kernel-checked by the full library target;
+they are kept out of the shared semantic environment because they are
+non-load-bearing, dormant scratch/factor data, or declaration-colliding
+alternative certificates. Any change to this set requires a reasoned manifest
+change and review.
 
 ---
 
@@ -166,7 +183,7 @@ the ones where a classical proof would be unacceptable. The
 
 ---
 
-## Building
+## Safe local consistency checks
 
 ```sh
 make lean-build  # from repository root; monitored full build
@@ -460,8 +477,10 @@ constructed.  Those Yang--Mills estimates are not yet inhabited.
 **Ledger state.** The `YMGap` library builds sorry-free (`make lean-build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis
-bookkeeping, not open holes). `AXIOM_AUDIT.md` tracks ~3,758
-declarations, axiom-gated to `∅` / `[propext]` /
+bookkeeping, not open holes). `AXIOM_AUDIT.md` currently records namespace
+digests for more than 18,000 canonical audited declarations; every full build
+separately verifies exact current source-gate coverage. Those declarations are
+axiom-gated to `∅` / `[propext]` /
 `[propext, Quot.sound]` — no `Classical.*`, no `sorryAx`, no
 `native_decide`. `CLASSICAL_LEDGER.md` has zero entries (see the
 Minlos caveat below).

@@ -21,11 +21,31 @@ open YMGap.Continuum.HarmonicMassCrossLowerSixTerminalPayment
 open YMGap.Continuum.HarmonicMassCrossLowerSixTwoSidedWindow
 open YMGap.Continuum.HarmonicMassCrossResidualSandwich
 
-/-- Exact fourth bootstrap tranche for the cumulative recovery payment. -/
-theorem lowerSixRecoveryPayment_bootstrap_348_447 : ∀ i : Fin 100,
+/-- First replay-sized half of the exact fourth bootstrap tranche. -/
+theorem lowerSixRecoveryPayment_bootstrap_348_397 : ∀ i : Fin 50,
     -lowerSixWindowPrefix (i.val + 348) ≤
       lowerSixRecoveryReserve (i.val + 348) := by
   decide
+
+/-- Second replay-sized half of the exact fourth bootstrap tranche. -/
+theorem lowerSixRecoveryPayment_bootstrap_398_447 : ∀ i : Fin 50,
+    -lowerSixWindowPrefix (i.val + 398) ≤
+      lowerSixRecoveryReserve (i.val + 398) := by
+  decide
+
+/-- Exact fourth bootstrap tranche, assembled without re-running one
+monolithic 100-case kernel reduction. -/
+theorem lowerSixRecoveryPayment_bootstrap_348_447 : ∀ i : Fin 100,
+    -lowerSixWindowPrefix (i.val + 348) ≤
+      lowerSixRecoveryReserve (i.val + 348) := by
+  intro i
+  by_cases hi : i.val < 50
+  · let j : Fin 50 := ⟨i.val, hi⟩
+    exact lowerSixRecoveryPayment_bootstrap_348_397 j
+  · let j : Fin 50 := ⟨i.val - 50, by omega⟩
+    have h := lowerSixRecoveryPayment_bootstrap_398_447 j
+    have hidx : i.val - 50 + 398 = i.val + 348 := by omega
+    simpa [j, hidx] using h
 
 theorem lowerSixRecoveryPayment_348_447
     {k : Nat} (hk0 : 348 ≤ k) (hk1 : k < 448) :
@@ -49,6 +69,8 @@ theorem growingResidualLowerSix_below_fourFortyEight
   · exact growingResidualLowerSix_348_447 hk348 hk1
   · exact growingResidualLowerSix_below_threeFortyEight hk0 (by omega)
 
+#print axioms lowerSixRecoveryPayment_bootstrap_348_397
+#print axioms lowerSixRecoveryPayment_bootstrap_398_447
 #print axioms lowerSixRecoveryPayment_bootstrap_348_447
 #print axioms lowerSixRecoveryPayment_348_447
 #print axioms growingResidualLowerSix_348_447

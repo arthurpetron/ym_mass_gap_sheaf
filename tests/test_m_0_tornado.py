@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from computations.heat_kernel import HeatKernelConvention
+from computations.large_field_kp import MU_PLAQUETTE_4D
 from computations.m_0_tornado import (
     FIDUCIAL_REGISTRY,
     TornadoBar,
@@ -32,7 +33,9 @@ def test_registry_has_four_fiducials() -> None:
 
 
 def test_registry_baselines_post_c_lambda_upgrade() -> None:
-    """Post-2026-05-26: c_λ baseline is 3/4 (Casimir-gap), μ_plaq is 16."""
+    """Post-2026-05-26: c_λ baseline is 3/4 (Casimir-gap).  Post-2026-07-25
+    (SL.1): μ_plaq baseline is the derived 20e-majorant 1359141/25000 =
+    54.36564 (was the unsupported Seiler 16)."""
     entries = {e.display_name: e.baseline for e in FIDUCIAL_REGISTRY}
     # Find by partial match.
     c_lambda_entry = next(e for n, e in entries.items() if "lambda" in n)
@@ -41,7 +44,8 @@ def test_registry_baselines_post_c_lambda_upgrade() -> None:
     A_min_entry = next(e for n, e in entries.items() if "min" in n)
 
     assert c_lambda_entry == pytest.approx(0.75)  # 3/4 post-Casimir-gap
-    assert mu_plaq_entry == pytest.approx(16.0)
+    assert mu_plaq_entry == pytest.approx(MU_PLAQUETTE_4D)
+    assert mu_plaq_entry == pytest.approx(54.36564)
     assert c_polymer_entry == pytest.approx(2.0)
     assert A_min_entry == pytest.approx(4.0)
 
@@ -90,25 +94,34 @@ def test_compute_tornado_bars_rejects_invalid_fraction() -> None:
 
 
 def test_m_0_robustness_envelope() -> None:
-    """The headline robustness claim: m_0 stays in (0.999, 1.000) across
-    all ±20% fiducial perturbations at the canonical pilot."""
+    """The headline robustness claim, re-pinned 2026-07-25 (μ_plaq → the
+    derived 20e-majorant): the baseline m_0 moves 0.99960 → 0.99880, so
+    the quotable rational floor drops 999/1000 → 998/1000.  m_0 stays in
+    (0.998, 1.000) across all ±20% fiducial perturbations at the
+    canonical pilot (measured range ≈ [0.99840, 0.99904])."""
     bars = compute_tornado_bars(perturbation_fraction=0.20)
     for bar in bars:
-        assert 0.999 < bar.low_m_0 < 1.0, (
-            f"low m_0 for {bar.display_name} = {bar.low_m_0} outside (0.999, 1)"
+        assert 0.998 < bar.low_m_0 < 1.0, (
+            f"low m_0 for {bar.display_name} = {bar.low_m_0} outside (0.998, 1)"
         )
-        assert 0.999 < bar.high_m_0 < 1.0, (
-            f"high m_0 for {bar.display_name} = {bar.high_m_0} outside (0.999, 1)"
+        assert 0.998 < bar.high_m_0 < 1.0, (
+            f"high m_0 for {bar.display_name} = {bar.high_m_0} outside (0.998, 1)"
         )
 
 
-def test_m_0_sensitivity_dominated_by_c_lambda() -> None:
-    """c_λ should be the most sensitive fiducial in the post-Casimir-gap
-    derivation: shifts in the spectral-gap coefficient flow through ρ_sf
-    → K_sf → K_∩ → η."""
+def test_m_0_sensitivity_ordering_post_mu_upgrade() -> None:
+    """Re-pinned 2026-07-25: with μ_plaq at the derived 20e-majorant,
+    K_lf at the pilot is ≈ 3.5× larger and the lf channel carries real
+    weight, so c_λ is no longer the top bar.  Measured ±20% sensitivity
+    ordering at the canonical pilot: A_min (6.4e-4) > μ_plaq (4.9e-4) >
+    c_polymer (4.8e-4) > c_λ (4.2e-4) — all within a factor ≈ 1.5, i.e.
+    no fiducial dominates."""
     bars = compute_tornado_bars()
-    most_sensitive = bars[0]
-    assert "lambda" in most_sensitive.display_name
+    names_sorted = [b.display_name for b in bars]
+    assert "min" in names_sorted[0]          # A_min now most sensitive
+    assert "lambda" in names_sorted[-1]      # c_λ now least sensitive
+    # No fiducial dominates: max/min sensitivity ratio stays modest.
+    assert bars[0].sensitivity < 2.0 * bars[-1].sensitivity
 
 
 # --------------------------------------------------------------------------

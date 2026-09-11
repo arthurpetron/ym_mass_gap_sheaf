@@ -183,7 +183,10 @@ class TestUnionBoundLooseness:
         allowed factor of 2."""
         from computations.overlap_kp import union_bound_looseness_estimate
         r = union_bound_looseness_estimate(0.30)
-        assert r.looseness_upper_bound < 1.05  # < 5% loss
+        # Re-pinned 2026-07-25 (μ_plaq → 20e-majorant): K_lf(0.30) grew
+        # 0.0156 → 0.0552, so the looseness at the wire-in is ≈ 1.0549
+        # (was ≈ 1.016).  Still far below the conjecture's factor 2.
+        assert r.looseness_upper_bound < 1.06
         assert r.dominant_regime == "sf"
         assert r.K_sf > r.K_lf
 
@@ -209,9 +212,10 @@ class TestUnionBoundLooseness:
             union_bound_looseness_trajectory_max,
         )
         # Scan the canonical JOINT convergent regime in fine steps.
-        # Post-c_λ-upgrade: sf-regime widens to ≈ 0.49 but lf-regime
-        # (g_max_lf ≈ 0.42) is the binding constraint.
-        g_grid = [i / 100.0 for i in range(5, 42)]
+        # Post-c_λ-upgrade: sf-regime widens to ≈ 0.49; post-μ_plaq
+        # upgrade (2026-07-25, 20e-majorant) the lf-regime shrinks to
+        # g_max_lf ≈ 0.3733 and is the binding constraint.
+        g_grid = [i / 100.0 for i in range(5, 37)]
         max_loose, g_at, regime = union_bound_looseness_trajectory_max(g_grid)
         assert max_loose < 2.0, (
             f"max looseness {max_loose:.4f} at g={g_at:.4f} should be "
@@ -231,7 +235,9 @@ class TestUnionBoundLooseness:
         from computations.overlap_kp import (
             union_bound_looseness_trajectory_max,
         )
-        g_grid = [i / 100.0 for i in range(10, 85)]
+        # Wilson joint convergent regime: lf-binding at ≈ 0.7466
+        # (2 × canonical) post-μ_plaq upgrade (2026-07-25).
+        g_grid = [i / 100.0 for i in range(10, 74)]
         max_loose, _, _ = union_bound_looseness_trajectory_max(
             g_grid, t_choice=HeatKernelConvention.WILSON,
         )
