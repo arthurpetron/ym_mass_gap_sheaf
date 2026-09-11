@@ -280,14 +280,17 @@ field, constructs the fixed-target removal witnesses, proves the exact
 adaptive-code cardinality ceiling, and applies the checked `(8/25)^n`
 contraction to every representative fiber.  Exact Fubini across the
 representatives and contraction of their distinct lowered-target sum against
-the pure mate product are next.
+the pure mate product are next.  Exact representative Fubini and termwise
+summation are now proved, so the entire enumerated first-stretched weight is
+bounded by the strict-rate-weighted realized-target sum.  Only the target-side
+congestion/injection into the pure mate carrier remains on this edge.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. use the proved representative fibers and their
-   `(8/25)^peelSize` bounds in the exact finite Fubini identity, then sum the
-   resulting distinct lowered targets, roots, and positive sizes into a
-   cutoff-independent bound by the pure mate product;
+1. prove a target-side congestion or injective recovery theorem that sums the
+   distinct realized lowered targets, roots, and positive sizes into a
+   cutoff-independent bound by the pure mate product, using the now-proved
+   exact representative Fubini inequality;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

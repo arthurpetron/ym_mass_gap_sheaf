@@ -31197,6 +31197,45 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Sum all realized complete-source fibers exactly (2026-09-11)
+
+- **milestone**: exact representative Fubini and aggregate strict-rate target
+  bound
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetFubini.lean`
+- **proved declarations**:
+  `cubeInwardMateFullSourceEntryWeight`,
+  `cubeInwardMateFullPeelRepresentativeTargetWeight`,
+  `cubeInwardMateFullPeelRepresentativeFibers_weight_total`, and
+  `cubeInwardMateFullSources_weight_sum_le_representativeTargets`
+- **closed obligation**: instantiate the constructive realized-key
+  representative partition on the exact complete-source target key; prove
+  that summing the literal target fibers recovers the entire enumerated
+  first-stretched source weight; apply the checked `(8/25)^peelSize` bound
+  termwise; and obtain one aggregate inequality by the sum of distinct
+  realized lowered-target weights with their strict rates.
+- **remaining named obligation**: prove target-side congestion/injectivity for
+  that realized lowered-target sum and bound it by a cutoff-independent
+  multiple of the pure inward-mate product.  Then combine with the six-face
+  heat payment to obtain a genuine physical transition floor.
+  Posterior-variance/Poincare control, the completed physical gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: exact Fubini uses actual finite
+  representatives and Boolean filters; the aggregate inequality is finite
+  termwise monotonicity and rational equivalence only.
+
+Monitored verification:
+
+```text
+complete-source representative Fubini focused olean       PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Contract every realized complete-source target fiber (2026-09-11)
 
 - **milestone**: exact dependent removal witnesses and strict weight bound on

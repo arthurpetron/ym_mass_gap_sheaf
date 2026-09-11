@@ -123,7 +123,11 @@ well: each realized fiber is duplicate-free, has size at most
 `10240000^n`, and its complete anchor weight is at most `(8/25)^n` times
 the representative's lowered-target weight.  The live edge is the exact
 representative-fiber Fubini sum followed by contraction of the resulting
-distinct lowered-target weights against the pure mate product.
+distinct lowered-target weights against the pure mate product.  The exact
+Fubini step is now checked and the full first-stretched source weight is
+bounded by the strict-rate-weighted sum of its realized lowered targets.  The
+live mathematical edge is the target-side congestion/injection that contracts
+this distinct target sum against the pure mate product.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 
