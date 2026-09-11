@@ -31201,6 +31201,46 @@ Every printed new load-bearing declaration uses only `[propext, Quot.sound]`;
 there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
 declaration, enlarged heartbeat budget, or trusted external computation.
 
+#### Cancel normalization in the physical new-tail self-return trace (2026-09-11)
+
+- **milestone**: exact raw SU(2) diagonal/row-ratio certificate boundary
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorNewTailSelfReturnRawRatio.lean`
+  and `computations/bf4_cutoff_two_65_sector_spectrum_scout.py`
+- **proved declarations**:
+  `centralPhysicalFiniteVacuumSectorSelfReturnProbability_eqv_rawRatio`,
+  `centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace_eqv_rawRatioTrace`,
+  and
+  `centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace_le_of_rawRatioTrace`
+- **closed obligation**: cancel the common slab-partition reciprocal from each
+  normalized physical self-return probability and identify the complete new
+  trace exactly with the finite unnormalized SU(2) ratio sum
+  `sum_new K_raw(x,x) / row_raw(x)`.  The tail input of the same-object gap
+  compiler can therefore be certified without approximating normalized
+  partition functions.
+- **remaining named obligation**: prove a cutoff-uniform raw ratio-trace bound
+  below `1/50`, using a load-bearing SU(2) high-spin shell estimate, and persist
+  the cutoff-two centered head rate `49/50` in the later-cutoff centered Gram.
+  Completed thermodynamic and continuum passage, continuum QFT axioms,
+  isolated vacuum, and the Clay theorem remain open.
+- **constructive or propositional**: exact positive `Q'` division and finite
+  sums only.  The Python shell diagnostic is untrusted exploratory evidence:
+  at cutoff three and `w = 1/2` it reports the genuinely new max-label-three
+  return trace approximately `6.208782747053917e-05`; no reported floating
+  value enters a theorem.  Rust remains permitted only as an untrusted
+  generator of exact certificate data independently checked by Lean.
+
+Monitored verification:
+
+```text
+raw self-return-ratio focused source check                PASS
+raw self-return-ratio dependency target                  PASS (5,033 jobs)
+```
+
+Every printed load-bearing declaration uses only `[propext, Quot.sound]`;
+there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.
+
 #### Contract the connected production rows through the vacuum packet (2026-09-10)
 
 - **milestone**: explicit strict finite-volume connected production fraction

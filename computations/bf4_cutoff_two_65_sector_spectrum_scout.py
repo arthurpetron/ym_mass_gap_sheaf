@@ -616,6 +616,30 @@ def compute(
         (row_sums[index] for index in newest_indices), Fraction(0)
     ) / total_mass
     newest_centered_trace = newest_trace - newest_stationary_mass
+    diagonal_ratios = tuple(
+        kernel[index][index] / row_sums[index]
+        for index in range(size)
+    )
+    ratio_shells: dict[int, dict[str, object]] = {}
+    for shell in sorted({max(state) for state in states}):
+        shell_indices = tuple(
+            index for index, state in enumerate(states) if max(state) == shell
+        )
+        shell_ratios = tuple(diagonal_ratios[index] for index in shell_indices)
+        ratio_shells[shell] = {
+            "states": len(shell_indices),
+            "sum": str(sum(shell_ratios, Fraction(0))),
+            "sum_float": float(sum(shell_ratios, Fraction(0))),
+            "minimum_float": float(min(shell_ratios)),
+            "maximum_float": float(max(shell_ratios)),
+        }
+    largest_diagonal_ratios = sorted(
+        (
+            (diagonal_ratios[index], states[index])
+            for index in range(size)
+        ),
+        reverse=True,
+    )[:16]
     if spectrum_only:
         return {
             "states": len(states),
@@ -629,6 +653,11 @@ def compute(
             "newest_trace_float": float(newest_trace),
             "newest_stationary_mass_float": float(newest_stationary_mass),
             "newest_centered_trace_float": float(newest_centered_trace),
+            "diagonal_ratio_shells": ratio_shells,
+            "largest_diagonal_ratios": [
+                {"ratio_float": float(ratio), "state": state}
+                for ratio, state in largest_diagonal_ratios
+            ],
             "largest_eigenvalues": descending[:12],
             "smallest_eigenvalue": descending[-1],
             "second_eigenvalue": second,
