@@ -31026,3 +31026,42 @@ All printed declarations remain within `[propext, Quot.sound]`; there is no
 enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
+
+#### Put normalized excitation activity on the global connected carrier (2026-09-10)
+
+- **milestone**: observable-connected source-weighted excitation fraction
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalConnectedKernelExcitationBound.lean`
+- **proved declarations**:
+  `finePacketOrientedPhysicalKernelPairWeight_mul_normalization_eqv_localized`,
+  `finePacketOrientedNormalizedJointPairWeight_eqv_source_mul_kernel`,
+  `finePacketOrientedNormalizedJointPairWeight_le_source_mul_excitation`,
+  `finePacketGlobalConnectedEntryNormalizedWeight_le_kernelExcitation`,
+  `finePacketGlobalNormalizedConnectedJointMass_le_kernelExcitationMass`, and
+  `finePacketGlobalNormalizedConnectedJointFraction_le_kernelExcitationFraction`
+- **closed obligation**: identify the older normalized joint summand exactly
+  as fine-source Gibbs pair weight times the actual oriented production-row
+  pair; inject `q(w)^K` pointwise into every nonzero oriented connected entry,
+  handle zero orientations as exact zero, and sum the result on the literal
+  dependent global connected carrier before normalizing by the fine partition
+  square.
+- **remaining named obligation**: split the retained fine-source pair weight
+  into source activity and unit-coupling residue, combine it with target
+  excitation into joint connected activity, and prove the resulting
+  observable-anchored entropy fraction is uniform in volume.
+- **constructive or propositional**: exact rational cancellation against two
+  proved-positive row masses and finite-list monotonicity; no `sorry` or new
+  named hypothesis was introduced.
+
+Monitored verification:
+
+```text
+global connected kernel-excitation focused source check    PASS
+global connected kernel-excitation dependency target       PASS (5,580 jobs)
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.

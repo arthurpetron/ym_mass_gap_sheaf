@@ -199,6 +199,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   `-- actual tilted summand <= literal ground summand * `q(w)^K` .............. [PROVED exact bridge]
 |   |   |   |   +-- actual production kernel <= `q(w)^K` after row normalization ............... [PROVED]
 |   |   |   |   `-- oriented two-row kernel product <= `q(w)^(K1+K2)` ........................... [PROVED]
+|   |   |   |   +-- normalized joint entry = fine-source weight * actual row-pair kernel ........ [PROVED exact]
+|   |   |   |   `-- global connected fraction <= source-weighted excitation entropy fraction ... [PROVED]
 |   |   |   |   +-- observable-anchored connected target entropy sum ........................ [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
@@ -1065,6 +1067,52 @@ Still open: inject this normalized row-pair bound into the
 observable-anchored connected target carrier, sum its entropy uniformly in
 volume, and use that local contraction in the centered production/refresh
 cross; thereafter the dense/completed OS gap and controlled limits remain.
+
+#### Put normalized excitation activity on the global connected carrier (2026-09-10)
+
+`Z4DyadicBinaryGlobalConnectedKernelExcitationBound` proves the exact
+probabilistic identification hidden by the earlier raw-row presentation:
+
+```text
+normalizedJointPairWeight
+  = fineSourceRawPairWeight * orientedPhysicalKernelPairWeight.
+```
+
+Consequently every supported entry is at most its literal fine-source Gibbs
+pair weight times `q(w)^K`.  Entries whose chosen orientation has zero raw
+weight are discharged as zero before a lowering witness is extracted.  This
+gives a pointwise bound on every entry of the literal dependent connected
+carrier and, by finite-list monotonicity, the global normalized connected
+mass and fraction bounds
+
+```text
+global connected fraction
+  <= [sum_connected sourceWeight * q(w)^targetExcitation] / finePartition^2.
+```
+
+This is the first direct injection of the new complete SU(2) excitation rate
+into the observable-connected global carrier.  The right-hand side is now
+the explicitly named entropy target; no volume-independent estimate of it is
+claimed yet.
+
+Monitored verification:
+
+```text
+global connected kernel-excitation focused source check    PASS
+global connected kernel-excitation dependency target       PASS (5,580 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed by these checks.
+
+Still open: factor the retained fine-source weight into source activity and
+unit-coupling residue, combine source and target powers into the connected
+joint activity, and sum the observable-anchored entropy uniformly in volume.
+The centered production/refresh contraction, dense/completed OS gap, and
+controlled limits remain downstream.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
