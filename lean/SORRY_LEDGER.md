@@ -30833,3 +30833,47 @@ contraction on a dense vacuum complement, extend the rate along the physical
 beta/spacing trajectory with all parameters named, construct the linked
 cutoff tower, and complete the thermodynamic, continuum, and Clay-facing
 steps.
+
+#### Decompose the enriched reflected form by total covariance (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeTotalCovariance`
+proves the exact law of total covariance for the enriched lower-face
+observable:
+
+```text
+enriched centered reflected form
+  = centered reflected form of the source-side kernel pullbacks
+    + fine-source average of the covariance inside one kernel row.
+```
+
+The first term is identified exactly with the same source pullback evaluated
+against its reflected-source copy.  The second term is localized without an
+absolute-value loss: every positive incoherent row retains one fixed physical
+state and therefore has conditional covariance exactly zero, while every
+Gibbs-null row vanishes after multiplication by its normalized mass.  The
+entire conditional correction is consequently the signed sum over positive
+coherent whole-slab recoupling rows.
+
+This replaces the broad reflection-positivity box by two causally separate
+mathematical debts: prove that the lower-face pullback is a positive-time
+source observable, and prove nonnegative conditional covariance for the
+coherent recoupling rows.  A checked theorem compiles those two nonnegative
+summands to nonnegativity of the enriched centered form, but neither premise
+is assumed or inhabited here.
+
+Monitored verification:
+
+```text
+total-covariance focused source check    PASS
+```
+
+Every printed new load-bearing declaration uses only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: positive-time locality of the enriched pullback, coherent-row
+reflection positivity, a norm-relative same-object form contraction, an
+all-vector/dense vacuum-complement gap, beta/cutoff/volume/spacing-uniform
+control, the linked cutoff tower, and the thermodynamic, continuum, and
+Clay-facing constructions.
