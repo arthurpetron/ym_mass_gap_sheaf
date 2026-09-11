@@ -31027,6 +31027,42 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Sum global roots and physical targets to 384/425 (2026-09-11)
+
+- **milestone**: nested all-physical target congestion bound
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetRootSum.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelTargetRootsStrictRateWeight`,
+  `globalCubeInwardMateFullPeelTargetRootsStrictRateWeight_le`,
+  `globalCubeInwardMateFullPeelAllTargetsRootsStrictRateWeight`, and
+  `globalCubeInwardMateFullPeelAllTargetsRootsStrictRateWeight_le_partition`
+- **closed obligation**: sum the exact `64/425` global size tail over the six
+  literal cube roots to obtain `384/425` for one target, then sum over every
+  bounded physical target and apply exact SU(2) fixed-order normalization to
+  bound the nested target/root/size total by `384/425` of the physical
+  partition.
+- **remaining named obligation**: reconcile this nested sum with the flat
+  coarse-block Fubini, then contract the complete global first-stretched
+  source mass.  Exact total-source normalization and the complementary
+  all-target event remain open; no conditional/posterior/operator/continuum
+  bridge has yet been proved.
+- **constructive or propositional**: root and target sums are explicit finite
+  lists and the rational factors are exact; every inequality and normalization
+  transport is kernel checked.
+
+Monitored verification:
+
+```text
+global root/target sum focused source check                PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Sum the global peel-size tail from two (2026-09-11)
 
 - **milestone**: cutoff-independent global target/root size tail
