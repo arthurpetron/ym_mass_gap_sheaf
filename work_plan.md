@@ -201,6 +201,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   `-- oriented two-row kernel product <= `q(w)^(K1+K2)` ........................... [PROVED]
 |   |   |   |   +-- normalized joint entry = fine-source weight * actual row-pair kernel ........ [PROVED exact]
 |   |   |   |   `-- global connected fraction <= source-weighted excitation entropy fraction ... [PROVED]
+|   |   |   |   +-- complete target rate `q(w)` <= common anchor `1/400` on corridor ............. [PROVED]
+|   |   |   |   `-- source heat + target excitation -> one connected joint-activity power ........ [PROVED]
 |   |   |   |   +-- observable-anchored connected target entropy sum ........................ [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
@@ -1113,6 +1115,57 @@ unit-coupling residue, combine source and target powers into the connected
 joint activity, and sum the observable-anchored entropy uniformly in volume.
 The centered production/refresh contraction, dense/completed OS gap, and
 controlled limits remain downstream.
+
+#### Contract source heat and target excitation to one joint activity (2026-09-10)
+
+`Z4DyadicBinaryGlobalConnectedJointActivityBound` proves that the complete
+cutoff-four target rate remains below the same `1/400` anchor used for the
+fine cutoff-one source law throughout the named coupling corridor:
+
+```text
+q(coarse coupling) <= 1/400.
+```
+
+The fine-source pair weight factors exactly into
+`fineCoupling^(3*occupiedFaces)` times its unit-coupling source weight.  Since
+the oriented packet source activity is at most the occupied-face count, that
+source heat and `q^targetExcitation` are both bounded by one common rate.  The
+two exponents then combine using the already-proved exact identity
+
+```text
+jointActivity = sourceActivity + targetExcitationActivity.
+```
+
+Summing on the literal connected carrier and normalizing by the fine
+partition square yields the anchor-corridor bound
+
+```text
+actual global connected fraction
+  <= [sum_connected (1/400)^jointActivity * unitSourceWeight]
+       / finePartition^2.
+```
+
+All target-row fusion, dimension, heat, and shared-link costs have therefore
+been contracted into the common activity power.  Only the cutoff-one
+unit-coupling source weight and the connected-carrier entropy remain.
+
+Monitored verification:
+
+```text
+global connected joint-activity focused source check       PASS
+global connected joint-activity dependency target          PASS (5,581 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports
+the module.  No aggregate or full-root audit is claimed by these checks.
+
+Still open: the volume-independent observable-anchored entropy bound for the
+last joint-activity/unit-source sum and its use in the centered
+production/refresh contraction.  The dense/completed OS gap and controlled
+thermodynamic/continuum limits remain downstream.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 

@@ -31027,6 +31027,44 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Contract source heat and target excitation to one joint activity (2026-09-10)
+
+- **milestone**: common-rate connected joint-activity fraction
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalConnectedJointActivityBound.lean`
+- **proved declarations**:
+  `spinFourParityExcitationFullActivityRate_le_anchorCoupling`,
+  `finePacketSourceWeight_mul_excitation_le_jointActivity`,
+  `finePacketGlobalConnectedKernelExcitationMass_le_jointActivityMass`,
+  `finePacketGlobalConnectedKernelExcitationFraction_le_jointActivityFraction`,
+  and
+  `finePacketGlobalNormalizedConnectedJointFraction_le_anchorJointActivityFraction`
+- **closed obligation**: prove `q(w) <= 1/400` on the explicit strong-coupling
+  corridor; split the retained fine-source pair weight into its exact
+  cutoff-one heat power and unit-coupling source factor; combine source and
+  target powers into the carrier's exact joint activity; and sum and normalize
+  the comparison on the literal global connected carrier.
+- **remaining named obligation**: prove a volume-independent
+  observable-anchored entropy bound for
+  `sum (1/400)^jointActivity * unitSourceWeight` divided by the fine partition
+  square, then feed it to the centered production/refresh cross.
+- **constructive or propositional**: explicit rational monotonicity, natural
+  activity inequalities, and finite-list sums; no `sorry` or new named
+  hypothesis was introduced.
+
+Monitored verification:
+
+```text
+global connected joint-activity focused source check       PASS
+global connected joint-activity dependency target          PASS (5,581 jobs)
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Put normalized excitation activity on the global connected carrier (2026-09-10)
 
 - **milestone**: observable-connected source-weighted excitation fraction
