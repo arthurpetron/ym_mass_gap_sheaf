@@ -31027,6 +31027,54 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Assemble heterogeneous presented global strand edges (2026-09-11)
+
+- **milestone**: dependent link-by-link presentation compiler and exact root
+  insertion
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFusionGlobalFaceStrandEdges.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean`
+- **proved declarations**:
+  `orderedSlabLinkPhysicalStrandTerminals`,
+  `OrderedSlabLinkPhysicalStrandTerminal.mem_all`,
+  `orderedSlabLinkFaceStrandEdges`,
+  `orderedSlabLinkFaceStrandEdgeOfTerminal_mem`,
+  `PresentedSlabLinkFusionWitness`,
+  `PresentedSlabFusionWitnessAssignment`,
+  `presentedSlabFusionWitnessAssignmentReplace_at`,
+  `presentedSlabFusionWitnessAssignmentFaceStrandEdges`,
+  `presentedSlabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem_of_eq`,
+  `rootPresentedSlabLinkFusionWitness`,
+  `rootInsertedPresentedSlabFusionWitnessAssignment_at_root`,
+  `rootLeftFirstChannelEdge_mem_inserted_global`, and
+  `rootRightFirstChannelEdge_mem_inserted_global`
+- **closed obligation**: allow each displayed link to retain its own certified
+  face order and accepted auxiliary witness while all terminal-pair endpoints
+  land in the same presentation-independent global carrier; concatenate the
+  local lists; replace one dependent assignment entry; and prove that both
+  actual root-first edges occur after replacing the root presentation
+- **remaining named obligation**: construct a complete presented background
+  assignment from the actual mixed inward-mate debt carrier, then build and
+  reroute the shared-copy component in that heterogeneous global graph.  No
+  pointwise permutation between different fusion bases is asserted.
+- **constructive or propositional**: all orders, accepted auxiliaries,
+  assignments, terminals, edges, and replacement data are Type-level; list
+  membership and transport are proof certificates
+
+Monitored verification:
+
+```text
+heterogeneous presented-edge explicit olean emission      PASS
+active-root insertion explicit olean emission             PASS
+```
+
+All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports both modules.  No aggregate or
+full-root audit is claimed by these checks.
+
 #### Isolate the exact stretched-channel debt of the inward mate (2026-09-11)
 
 - **milestone**: local SU(2) fusion and production-link multiplicity

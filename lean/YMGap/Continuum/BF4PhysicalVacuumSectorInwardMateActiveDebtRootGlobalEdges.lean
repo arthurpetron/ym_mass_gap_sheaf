@@ -17,6 +17,7 @@ noncomputable declaration, or trusted external computation is used.
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch
 import YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
+import YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
 
@@ -33,6 +34,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabGlobalFaceStrandEdges
 open YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
 open YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
+open YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 
@@ -289,6 +291,102 @@ theorem rootRightFirstChannelEdge_target_faceId_ne_root
   exact (congrArg SlabFaceStrandCopy.faceId
     (rootRightFirstChannelEdge_source carrier)).trans htarget.symm
 
+/-! ## 3. Insert the root presentation into a global presented assignment -/
+
+/-- The root-first face order and its lifted source auxiliary are an actual
+presented-link fusion witness on the recorded root link. -/
+def rootPresentedSlabLinkFusionWitness
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded) :
+    PresentedSlabLinkFusionWitness K 1 physical
+      (cubeDebtRootIncidence carrier.word).1.link where
+  order := rootSlabLinkFaceOrder carrier
+  auxiliary := rootSourceAuxiliary carrier
+  auxiliary_mem :=
+    rootSourceAuxiliary_mem_orderedSlabLinkFusionWitnesses carrier
+
+/-- Replace the root entry of any complete presented background while leaving
+every other attached link presentation untouched. -/
+def rootInsertedPresentedSlabFusionWitnessAssignment
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded)
+    (links : List SlabLink)
+    (background : PresentedSlabFusionWitnessAssignment K 1 physical links)
+    (hroot : (cubeDebtRootIncidence carrier.word).1.link ∈ links) :
+    PresentedSlabFusionWitnessAssignment K 1 physical links :=
+  presentedSlabFusionWitnessAssignmentReplace background
+    ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩
+    (rootPresentedSlabLinkFusionWitness carrier)
+
+@[simp] theorem rootInsertedPresentedSlabFusionWitnessAssignment_at_root
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded)
+    (links : List SlabLink)
+    (background : PresentedSlabFusionWitnessAssignment K 1 physical links)
+    (hroot : (cubeDebtRootIncidence carrier.word).1.link ∈ links) :
+    rootInsertedPresentedSlabFusionWitnessAssignment
+        carrier links background hroot
+        ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩ =
+      rootPresentedSlabLinkFusionWitness carrier := by
+  exact presentedSlabFusionWitnessAssignmentReplace_at background
+    ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩
+    (rootPresentedSlabLinkFusionWitness carrier)
+
+/-- After the certified root replacement, the left root edge is literally in
+the complete heterogeneous global edge list. -/
+theorem rootLeftFirstChannelEdge_mem_inserted_global
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded)
+    (links : List SlabLink)
+    (background : PresentedSlabFusionWitnessAssignment K 1 physical links)
+    (hroot : (cubeDebtRootIncidence carrier.word).1.link ∈ links) :
+    rootLeftFirstChannelEdge carrier ∈
+      presentedSlabFusionWitnessAssignmentFaceStrandEdges K 1 physical links
+        (rootInsertedPresentedSlabFusionWitnessAssignment
+          carrier links background hroot) := by
+  exact
+    (presentedSlabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem_of_eq
+      K 1 physical links
+      (rootInsertedPresentedSlabFusionWitnessAssignment
+        carrier links background hroot)
+      ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩
+      (rootPresentedSlabLinkFusionWitness carrier)
+      (rootInsertedPresentedSlabFusionWitnessAssignment_at_root
+        carrier links background hroot)
+      (rootLeftOrderedTerminal carrier))
+
+/-- The right root edge belongs to the same inserted global edge list. -/
+theorem rootRightFirstChannelEdge_mem_inserted_global
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded)
+    (links : List SlabLink)
+    (background : PresentedSlabFusionWitnessAssignment K 1 physical links)
+    (hroot : (cubeDebtRootIncidence carrier.word).1.link ∈ links) :
+    rootRightFirstChannelEdge carrier ∈
+      presentedSlabFusionWitnessAssignmentFaceStrandEdges K 1 physical links
+        (rootInsertedPresentedSlabFusionWitnessAssignment
+          carrier links background hroot) := by
+  exact
+    (presentedSlabFusionWitnessAssignmentFaceStrandEdgeOfTerminal_mem_of_eq
+      K 1 physical links
+      (rootInsertedPresentedSlabFusionWitnessAssignment
+        carrier links background hroot)
+      ⟨(cubeDebtRootIncidence carrier.word).1.link, hroot⟩
+      (rootPresentedSlabLinkFusionWitness carrier)
+      (rootInsertedPresentedSlabFusionWitnessAssignment_at_root
+        carrier links background hroot)
+      (rootRightOrderedTerminal carrier))
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
 
 /-! ## Axiom-dependency gates -/
@@ -307,3 +405,11 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootFirstChannelPartnerCopies_ne
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootLeftFirstChannelEdge_target_faceId_ne_root
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootPresentedSlabLinkFusionWitness
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootInsertedPresentedSlabFusionWitnessAssignment_at_root
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootLeftFirstChannelEdge_mem_inserted_global
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.rootRightFirstChannelEdge_mem_inserted_global

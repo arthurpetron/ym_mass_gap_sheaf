@@ -187,12 +187,20 @@ distinct as literal global copies.  See
 [`CompactDualSlabOrderedLinkGlobalFaceStrandEdge.lean`](lean/YMGap/Continuum/CompactDualSlabOrderedLinkGlobalFaceStrandEdge.lean)
 and
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean).
+The global edge compiler now also accepts a different certified face order and
+fusion witness at each link.  It enumerates every local physical terminal,
+forgets every endpoint to the common global carrier, and concatenates the
+result into one heterogeneous edge list.  Replacing the root entry of any
+explicit complete background assignment by the actual root-first witness puts
+both retained root edges literally in that list.  See
+[`CompactDualSlabPresentedFusionGlobalFaceStrandEdges.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFusionGlobalFaceStrandEdges.lean).
 
-The next causal step is to assemble the certified reordered link witnesses
-into one heterogeneous global edge list, glue shared face copies across its
-neighboring link occurrences, and reroute the resulting complete strand
-component.  The carrier sum must then be bounded by a cutoff-independent
-multiple of the pure mate product.
+The next causal step is to construct the complete presented background from
+the mixed inward-mate debt carrier itself, rather than assume it as input.
+Then the shared face copies can be glued across neighboring link occurrences
+and the resulting complete strand component rerouted.  The carrier sum must
+ultimately be bounded by a cutoff-independent multiple of the pure mate
+product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

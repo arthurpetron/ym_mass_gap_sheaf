@@ -125,16 +125,22 @@ reindexing now lands in the same presentation-independent
 `SlabFaceStrandCopy` carrier used by the global component graph.  It is proved
 injective; the two retained path endpoints remain distinct global copies; and
 the original left and right root copies are the exact sources of two global
-strand edges on the recorded root link.
+strand edges on the recorded root link.  A heterogeneous global compiler now
+retains an independently certified face order and accepted auxiliary witness
+at each link, enumerates all local terminal-pair edges, and concatenates them
+on that common carrier.  Given any complete presented background, replacing
+its root entry by the actual root-first witness is constructive and puts both
+root edges literally in the resulting global list.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. assemble the reordered accepted link witnesses into one heterogeneous
-   global edge list, glue its shared face copies across neighboring link
-   occurrences, construct the SU(2)-specific closed-component rerouting, and
-   sum those routes into a cutoff-independent bound by the pure mate product;
-   this compares the complete fixed-boundary intertwiner contraction of a
-   state with its inward mate;
+1. construct the complete presented background assignment from the actual
+   mixed inward-mate debt carrier, then glue the already-assembled
+   heterogeneous global list across neighboring link occurrences, construct
+   the SU(2)-specific closed-component rerouting, and sum those routes into a
+   cutoff-independent bound by the pure mate product; this compares the
+   complete fixed-boundary intertwiner contraction of a state with its inward
+   mate;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

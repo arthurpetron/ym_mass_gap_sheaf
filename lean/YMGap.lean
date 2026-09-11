@@ -3628,6 +3628,7 @@ import YMGap.Continuum.CanonicalLinkFirstVertexPorts
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootFirstVertex
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch
 import YMGap.Continuum.CompactDualSlabOrderedLinkGlobalFaceStrandEdge
+import YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
