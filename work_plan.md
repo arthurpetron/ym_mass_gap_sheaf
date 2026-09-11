@@ -307,8 +307,10 @@ The next load-bearing producers are, in causal order:
    explicit rather than treating the constructed pair relation as a joint
    probability law.  The geometric half of this splice is now proved: source
    and mate assemble from distinct lower states against one common boundary
-   and one common reflected-upper state.  Proving both resulting raw OS
-   entries positive is the active sub-edge;
+   and one common reflected-upper state.  Both displayed boundary summands
+   are now strictly positive, and hence give a genuine two-edge path in the
+   retained row-conditional physical kernel.  Transporting source mass and
+   target congestion to the normalized edge loads is the active sub-edge;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -367,8 +369,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- compiled target fibers have capacity <= 64 ...... [PROVED]
 |   |   |   +-- weighted production target congestion ........... [PROVED]
 |   |   |   +-- common-channel two-edge OS path geometry ......... [PROVED]
-|   |   |   +-- both raw OS edges are strictly positive .......... [ACTIVE]
-|   |   |   +-- transport weights -> normalized OS edge loads ..... [OPEN]
+|   |   |   +-- raw, normalized, conditional OS path support ...... [PROVED]
+|   |   |   +-- transport weights -> normalized OS edge loads ..... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

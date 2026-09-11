@@ -31072,6 +31072,61 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Prove every common-channel inward-mate OS path is supported (2026-09-11)
+
+- **milestone**: positive two-edge physical OS conditional-kernel path
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSPathSupport.lean`
+- **proved declarations**:
+  `sourcePhysicalTerm_pos`, `targetPhysicalTerm_pos`,
+  `sourceLower_commonRight_rawKernel_pos`,
+  `targetLower_commonRight_rawKernel_pos`,
+  `sourceLower_commonRight_normalizedKernel_pos`,
+  `commonRight_targetLower_normalizedKernel_pos`,
+  `sourceLower_rowMarginal_pos`, `targetLower_rowMarginal_pos`,
+  `commonRight_rowMarginal_pos`, `sourceLower_mem_positiveHalfStates`,
+  `targetLower_mem_positiveHalfStates`,
+  `commonRight_mem_positiveHalfStates`,
+  `sourceLower_commonRight_conditionalKernel_pos`,
+  `commonRight_targetLower_conditionalKernel_pos`,
+  `GlobalInwardMateAllSourceSupportedOSPathCertificate`, and
+  `globalInwardMateAllSourceSupportedOSPathCertificate`
+- **closed obligation**: use each endpoint's accepted global production
+  assignment to prove its complete slab term strictly positive; identify that
+  term with the displayed common-boundary summand in the raw OS kernel; lift
+  both edges through partition normalization and row conditioning; and place
+  source, middle, and target in the literal retained positive-row carrier.
+- **scope boundary**: the two actual conditional transitions are positive but
+  no quantitative floor for them is asserted.  The production transport
+  source weights and congestion estimates have not yet been compared with
+  conditional-kernel edge capacities.  No posterior variance, completed gap,
+  beta/lattice-spacing uniformity, continuum passage, or Clay theorem is
+  asserted.
+- **remaining named obligation**: derive explicit lower bounds for the two
+  normalized conditional transitions, or an equivalent path-resistance bound,
+  in terms of the existing production source and target weights; sum those
+  bounds using the proved `41/425` mass and target congestion certificates;
+  then feed the result into the mass-normalized canonical-flow/posterior
+  compiler.
+- **constructive or propositional**: the supported path and its three retained
+  vertices are Type-level data; strict positivity of the full terms, raw
+  entries, normalized entries, row marginals, and conditional transitions is
+  kernel-checked.  No `sorry`, new named hypothesis, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+all-source supported OS-path focused source check         PASS
+all-source supported OS-path narrow dependency target     PASS (1664 jobs)
+```
+
+Every printed declaration uses only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Transfer exact target congestion to production coordinates (2026-09-11)
 
 - **milestone**: all-success-source compiled-target fiber capacity and weighted
