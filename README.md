@@ -62,13 +62,18 @@ These are
 `sixHeatProduct_oddInwardMate_le_oneOver4096` in
 [`BF4PhysicalVacuumSectorInwardMateHeatBound.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateHeatBound.lean).
 
-The next causal step is SU(2)-specific: compare the complete fixed-boundary
-intertwiner contraction before and after the inward mate. Locally, lowering
-two positive incident labels preserves their Clebsch--Gordan ladder except
-for its stretched top channel. The active proof therefore seeks a global
-strand rerouting for precisely those stretched-channel components. A genuine
-physical mate-transition floor would then feed a rooted-subtree
-Hardy--Poincare or posterior conditional-variance estimate.
+The local SU(2) fusion debt is now also exact and kernel-checked. Lowering two
+positive incident labels preserves their Clebsch--Gordan ladder except for
+its stretched top channel. At the production link-multiplicity level, every
+source path is bounded by the inward-mate path count plus one explicit
+stretched-channel continuation. See
+[`BF4PhysicalVacuumSectorInwardMateFusionSupport.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionSupport.lean).
+
+The next causal step is global: reroute precisely those stretched-channel
+strand components and thereby compare the complete fixed-boundary
+intertwiner contraction before and after the inward mate. A genuine physical
+mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
+posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

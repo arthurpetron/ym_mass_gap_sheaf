@@ -31027,6 +31027,49 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Isolate the exact stretched-channel debt of the inward mate (2026-09-11)
+
+- **milestone**: local SU(2) fusion and production-link multiplicity
+  decomposition for the physical inward mate
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionSupport.lean`
+- **proved declarations**:
+  `fusionOK_positivePred_or_stretched`,
+  `fusionOK_positivePred_stretched_eq_false`,
+  `fusionOK_positivePred_eq_false_iff_stretched`,
+  `fusionOK_evenInwardMate_or_positive_stretched`,
+  `fusionOK_evenInwardMate_eq_false_iff`,
+  `fusionOK_oddInwardMate_eq_false_iff`,
+  `fusionPathMultiplicity_evenInwardMate_le_add_stretched`,
+  `fusionPathMultiplicity_oddInwardMate_le_add_stretched`, and
+  `explicitValenceMultiplicity_physical_inwardMate_le_add_stretched`
+- **closed obligation**: prove by an explicit SU(2) ladder-depth witness that
+  simultaneous predecessor lowering preserves every supported channel except
+  the stretched channel, handle the even zero-to-one compensation, and sum
+  the pointwise classification into the actual finite production-link
+  multiplicity inequality
+- **remaining named obligation**: lift the one-link stretched-continuation
+  debt through physical link orderings and the global slab strand-component
+  geometry; combine the resulting complete intertwiner-contraction comparison
+  with the proved heat payment to obtain a genuine physical transition floor;
+  then prove the cutoff-uniform Hardy/Poincare or posterior-variance estimate,
+  the completed gap, thermodynamic and continuum passage, continuum QFT
+  axioms, isolated vacuum, and the Clay theorem
+- **constructive or propositional**: explicit natural-number ladder witnesses
+  and finite-list sums; no external certificate or trusted computation is used
+
+Monitored verification:
+
+```text
+inward-mate fusion-support focused source check             PASS
+inward-mate fusion-support dependency target                NOT YET RUN
+```
+
+All nine printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, or trusted external computation.  No
+aggregate or full-root audit is claimed here.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

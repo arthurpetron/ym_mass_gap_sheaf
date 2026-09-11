@@ -38,10 +38,20 @@ The exact cutoff-two diagnostic ratio `48` is therefore explained by the
 one-positive-spin-two bottleneck, with `64` as the first uniform analytic
 envelope.
 
+Lean also proves the exact local fusion debt: simultaneous predecessor
+lowering preserves every SU(2) Clebsch--Gordan channel except the stretched
+channel, while the even zero-to-one compensation preserves the old channel.
+At a production valence-at-most-six link this contracts to
+
+```text
+source multiplicity <= mate multiplicity + stretched-continuation multiplicity.
+```
+
 The next load-bearing analytic producers are, in causal order:
 
-1. construct the SU(2)-specific strand rerouting that compares the complete
-   fixed-boundary intertwiner contraction of a state with its inward mate;
+1. lift the exact one-link stretched-continuation debt to an SU(2)-specific
+   global strand rerouting that compares the complete fixed-boundary
+   intertwiner contraction of a state with its inward mate;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
