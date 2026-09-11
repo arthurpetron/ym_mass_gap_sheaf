@@ -112,7 +112,13 @@ duplicate-free: every entry retains its upstream source as an injective key,
 projects the existing flat inverse record, and has peel size at least two.
 Reapplying the older defensive cube override is also proved to leave the raw
 complete source unchanged.  The live edge is the actual dependent target/root/
-size partition and its fixed-fiber witness compiler.
+size partition and its fixed-fiber witness compiler.  The lossless decidable
+partition key is now proved: it records the root, size, lowered physical word,
+every local face-order word, and every local lowered-auxiliary word.  Equal
+keys reconstruct literal equality of the lowered physical function and
+heterogeneous equality of the dependent presented assignment.  The live edge
+is therefore the realized representative fibers and their
+`PresentedAdaptiveRemovalWitness` compiler.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

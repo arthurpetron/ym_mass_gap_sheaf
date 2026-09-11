@@ -31197,6 +31197,52 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Reconstruct exact lowered targets from a decidable key (2026-09-11)
+
+- **milestone**: lossless finite key for the dependent fixed-target partition
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetKey.lean`
+- **proved declarations**:
+  `presentedSlabFusionWitnessAssignmentOrderWords`,
+  `presentedSlabFusionWitnessAssignmentAuxiliaryWords`,
+  `presentedSlabFusionWitnessAssignment_heq_of_words_eq`,
+  `CubeInwardMateFullPeelTargetKey`,
+  `presentedAdaptiveInverseTargetKey`,
+  `PresentedAdaptiveInverseData.target_eq_of_key_eq`,
+  `EnumeratedCubeInwardMateFullSource.lowerPhysical_eq_physical_of_not_mem`,
+  `EnumeratedCubeInwardMateFullSource.targetKey`, and
+  `EnumeratedCubeInwardMateFullSource.target_eq_of_key_eq`
+- **closed obligation**: serialize the root, peel size, lowered physical
+  values on the complete face carrier, every displayed link's literal face
+  order, and every lowered auxiliary on its canonical finite support; prove
+  that equal local words reconstruct the dependent presented assignment;
+  use physical support of the certified peel to prove that equal physical
+  words reconstruct the whole lowered physical functions; and conclude that
+  equal keys provide exactly the root, size, physical equality, and `HEq`
+  target equality required by the fixed-fiber theorem.
+- **remaining named obligation**: construct the exact realized-key
+  representative fibers; compile every fiber member to a
+  `PresentedAdaptiveRemovalWitness` over its representative's dependent
+  target; apply the `(8/25)^peelSize` contraction; then sum roots and positive
+  sizes against the pure mate product.  Physical transition minorization,
+  posterior-variance/Poincare control, the completed physical gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the key has derived decidable equality;
+  all words are finite lists, and target reconstruction uses finite support,
+  function extensionality, proof irrelevance, and `HEq` only.
+
+Monitored verification:
+
+```text
+complete-source exact target key focused olean             PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Enumerate the root-first cube source product exactly (2026-09-11)
 
 - **milestone**: multiplicity-faithful finite input to the certified

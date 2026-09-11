@@ -270,13 +270,17 @@ adaptive inverse record as a projection; both distinct certified root faces
 prove every attached peel size is at least two.  The older defensive cube
 override is raw-idempotent on these already-complete sources.  Constructing
 the dependent fixed-target/root/size subfamilies and their removal witnesses
-is the next open edge.
+is the next open edge.  Their exact decidable key is now available: equal
+root/size/physical/order/auxiliary words reconstruct the complete lowered
+physical function and the dependent presented target.  The next compiler can
+therefore select actual realized-key representatives and filter their exact
+fixed fibers without deciding equality of function-valued data.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. partition the now-attached deterministic two-root peel/inverse data by
-   common lowered target, root, and peel size and compile the corresponding
-   fixed-fiber removal witnesses,
+1. use the proved lossless target key to partition the now-attached
+   deterministic two-root peel/inverse data by common lowered target, root,
+   and peel size and compile the corresponding fixed-fiber removal witnesses,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
    pure mate product;
