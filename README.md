@@ -109,8 +109,15 @@ twelve-link incidence list, returns the corresponding geometric incidence as
 data, and proves the root bit is `true`.  See
 [`BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot.lean).
 
+The natural-number remainder is no longer opaque cardinality either.  Each
+stretched local factor is the length of a literal accepted SU(2) auxiliary
+fiber; Boolean words choose target or stretched fibers link by link; and the
+flattened finite carrier has length exactly
+`cubeInwardMateNonemptyStretchedRemainder`.  See
+[`BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber.lean).
+
 The next causal step is now a single precise theorem: reroute the terms in
-that named remainder from their computed roots through complete strand
+that concrete finite carrier from their computed roots through complete strand
 components and bound their sum
 by a cutoff-independent multiple of the pure mate product.  That would compare
 the complete fixed-boundary intertwiner contraction. A genuine physical

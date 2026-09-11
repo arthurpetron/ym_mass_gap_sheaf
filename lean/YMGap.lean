@@ -3613,6 +3613,7 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtExpansion
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtRoot
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
 -- Keeping these in the semantic root makes their declarations visible to the

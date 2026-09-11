@@ -66,10 +66,16 @@ a canonical computed root: its first stretched bit gives a bounded index into
 the attached twelve-link production-incidence list, and the selected bit is
 proved `true`.  This is Type-level input for the strand tracer, not an
 existential choice.
+The exact natural-number remainder is now also realized as one literal finite
+carrier.  At each link the Boolean word chooses either the ordinary mate
+auxiliary fiber or a newly exposed stretched-spin auxiliary fiber; a Cartesian
+compiler assembles these choices, and Lean proves that the flattened carrier's
+length is exactly `cubeInwardMateNonemptyStretchedRemainder`.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. start at the computed first-stretched incidence of every term in
+1. start at the computed first-stretched incidence of every concrete carrier
+   member in
    `cubeInwardMateNonemptyStretchedRemainder`, construct its SU(2)-specific
    closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the

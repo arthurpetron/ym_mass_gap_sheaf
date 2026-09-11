@@ -31317,6 +31317,51 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Expose the full nonempty debt remainder as a finite witness carrier (2026-09-11)
+
+- **milestone**: cardinality-faithful local fusion fibers and Cartesian debt
+  assignments for every rooted Boolean word
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtFiber.lean`
+- **proved declarations**:
+  `fusionWitnessesForSpins`,
+  `fusionWitnessesForSpins_length_eq_explicit`,
+  `cubeInwardMateStretchedSpins`,
+  `cubeInwardMateStretchedSpins_length_le_six`,
+  `cubeInwardMateStretchedFusionWitnesses`,
+  `cubeInwardMateStretchedFusionWitnesses_length`,
+  `choiceFiberAssignments`, `choiceFiberAssignments_length`,
+  `cubeDebtWordFusionAssignments`,
+  `cubeDebtWordFusionAssignments_length`,
+  `cubeInwardMateNonemptyDebtFusionCarriers`, and
+  `cubeInwardMateNonemptyDebtFusionCarriers_length`
+- **closed obligation**: replace every local stretched multiplicity by the
+  literal filtered list of accepted canonical auxiliary labellings; assemble
+  target/stretched choices by finite Cartesian recursion; attach every
+  nonempty word; and prove that the resulting single carrier has cardinality
+  exactly equal to the named global remainder
+- **remaining named obligation**: define and prove a closed SU(2)
+  strand-component rerouting map from each rooted carrier member into a
+  bounded-fiber family over pure mate assignments; then obtain the complete
+  intertwiner comparison, physical transition floor, posterior
+  variance/Hardy--Poincare estimate, completed gap, thermodynamic and continuum
+  passage, QFT axioms, isolated vacuum, and the Clay theorem
+- **constructive or propositional**: every fusion fiber, Boolean selection,
+  Cartesian assignment, word attachment, and root is explicit finite data;
+  the arithmetic remainder is identified with its list length
+
+Monitored verification:
+
+```text
+inward-mate stretched-fiber explicit olean emission         PASS
+```
+
+The five printed exports use only `[propext, Quot.sound]` (or fewer axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, `sorry`, Rust computation, or trusted
+external computation.  The root aggregator imports the module.  No aggregate
+or full-root audit is claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual
