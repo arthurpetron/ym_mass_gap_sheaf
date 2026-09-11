@@ -198,12 +198,22 @@ target preserves every certified face order, reconstruction needs only the
 physical peel word and one internal-drop word per link.  Every such word has
 width at most three, and the target plus this code reconstructs the complete
 source `(physical, raw auxiliary)` payload exactly.
+Zero internal-drop rows are now erased by an exact sparse decoder.  Every
+retained row is charged injectively to a selected physical copy and one of its
+four incident boundary links, giving at most `4 * peelSize` nonzero rows.
+The sharper volume-indexed adaptive encoding bounds each row entry by its
+link's selected physical mass, proves the total link mass exactly
+`4 * peelSize`, and places the full row table in a carrier of size at most
+`4096^peelSize`.  These bounds are independent of slab volume and spin cutoff;
+they cover the certified two-root union without assuming its two rooted
+components are equal or disjoint.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. sparsify the exact inverse code, bound its carrier per unit of physical peel
-   mass, and sum the certified routes into a cutoff-independent bound by the
-   pure mate product;
+1. encode the two-root union's physical geometry and selected-copy
+   multiplicities without double-counting overlap, combine that structural
+   carrier with the exact auxiliary inverse, and sum the certified routes into
+   a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

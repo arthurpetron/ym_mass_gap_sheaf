@@ -295,9 +295,25 @@ width at most three independently of cutoff.  See
 and
 [`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedDropCode.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedDropCode.lean).
 
-The next causal step is to sparsify this exact inverse code and bound its
-carrier per unit of physical peel mass, then sum the certified first-stretched
-routes into a cutoff-independent multiple of the pure mate product.  The older
+Zero internal-drop rows can now be erased and recovered exactly.  Every
+retained row is charged injectively to a selected physical strand copy and one
+of its four boundary links, so there are at most `4 * peelSize` nonzero rows.
+More sharply, the complete volume-indexed row table inhabits a link-adaptive
+Cartesian carrier: local conservation bounds every entry by the selected
+physical mass incident on that link, all widths are at most three, and the
+total incident mass is exactly `4 * peelSize`.  Consequently the auxiliary
+carrier has size at most `4096^peelSize`, uniformly in slab volume and spin
+cutoff.  See
+[`CompactDualSlabPresentedFaceStrandComponentSparseDropCode.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentSparseDropCode.lean),
+[`CompactDualSlabPresentedFaceStrandComponentAuxiliaryRowBound.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentAuxiliaryRowBound.lean),
+and
+[`CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction.lean).
+
+The next causal step is to encode the two-root union's physical geometry and
+selected-copy multiplicities without double-counting component overlap, join
+that structural code to the exact auxiliary inverse, and sum the certified
+first-stretched routes into a cutoff-independent multiple of the pure mate
+product.  The older
 coarse mixed target/debt Cartesian carrier still does not itself provide a
 common accepted source presentation and is not used as one.
 This avoids mistaking a change of fusion basis for a pointwise permutation of

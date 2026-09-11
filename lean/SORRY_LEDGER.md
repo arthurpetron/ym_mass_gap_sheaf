@@ -31181,6 +31181,62 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Bound the complete presented auxiliary code by `4096^peelSize` (2026-09-11)
+
+- **milestone**: exact sparse decoding, physical row charging, and a
+  cutoff-/volume-independent auxiliary entropy carrier
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentSparseDropCode.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentAuxiliaryRowBound.lean`,
+  and
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction.lean`
+- **proved declarations**:
+  `presentedSlabSupportedSelectionSparseDropCode`,
+  `presentedSlabSupportedSelection_decodePresentedAuxiliaryDrop_sparseDropCode`,
+  `presentedSlabSupportedSelectionSparseDropCode_reconstructPresentedEntry`,
+  `presentedSlabSupportedSelectionSparseDropCode_auxiliaryWords_length_le`,
+  `presentedSlabSupportedSelectionSparseDropCode_row_nonzero`,
+  `orderedSlabLinkSelectedPhysicalTerminalOfDropPos`,
+  `presentedSparseAuxiliaryRowPhysicalWitness`,
+  `presentedSelectedPhysicalFaceStrandCopies_length_eq_peelFaces`,
+  `presentedSparseDropCodeRowCharges_nodup`,
+  `presentedSlabSupportedSelectionSparseDropCode_auxiliaryWords_length_le_four_mul_peelFaces`,
+  `orderedPresentedSelectionAuxiliaryDrop_le_orderedPhysicalDrop_l1`,
+  `presentedSlabSupportedSelectionAuxiliaryDropWordAt_entry_le_incidentFace_l1`,
+  `presentedSelectionAdaptiveAuxiliaryRows_fit`,
+  `presentedSelectionAdaptiveAuxiliaryMass_eq_four_mul_peelFaces`, and
+  `presentedSelectionAdaptiveAuxiliaryCarrier_length_le`
+- **closed obligation**: remove all zero rows with an exact decoder; charge
+  every retained row injectively to a selected physical copy and one of its
+  four incident links; transport canonical trivalent conservation through the
+  retained face order; prove the complete link mass is exactly four times the
+  physical peel size; and place the literal full auxiliary row table in a
+  carrier of length at most `4096^peelSize`, uniformly in volume and cutoff
+- **remaining named obligation**: encode the certified two-root union's
+  physical geometry and selected-copy multiplicities without double-counting
+  overlap, combine that structural code with the exact auxiliary inverse, and
+  sum all certified first-stretched routes against the pure mate product.  The
+  physical transition floor, posterior-variance/Poincare estimate, completed
+  gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: sparse codes, physical row charges,
+  adaptive specifications, full row tables, and their finite carriers are
+  executable Type-level data; reconstruction and cardinality bounds are
+  kernel-checked equalities or inequalities
+
+Monitored verification:
+
+```text
+presented sparse drop-code focused check                  PASS
+presented auxiliary row-charge focused check              PASS
+presented adaptive auxiliary production explicit olean    PASS
+```
+
+Every printed load-bearing export uses only `[propext, Quot.sound]`.  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat or recursion-depth budget, `sorry`, Rust computation, or
+trusted external computation.  The root aggregator imports all three modules.
+No aggregate or full-root audit is claimed by these checks.
+
 #### Reconstruct the certified source from a finite presented drop code (2026-09-11)
 
 - **milestone**: exact finite left inverse for the complete physical and raw
