@@ -231,10 +231,18 @@ packages every surviving target as a presented mated-link witness.  Exact
 recovery still returns the original auxiliary.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeSourceWitnessPartition.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceWitnessPartition.lean).
 
-The next causal step is to take the dependent product of these twelve literal
-link classifiers, retain the original source tuple as one common accepted
-presented background, and serialize each nonempty stretched branch's exact
-two-root drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
+The dependent twelve-link product is now constructed too.  A complete source
+is a function whose coordinate type is the accepted root-first fiber of that
+literal incidence.  Lean classifies all coordinates, recovers all original
+auxiliaries pointwise, proves the complete classifier injective, and packages
+the original tuple as one accepted presented cube family.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeSourceAssignmentPartition.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceAssignmentPartition.lean).
+
+The next causal step is to split that classified dependent product into its
+all-target and first-stretched branches, extend the cube family with accepted
+off-cube witnesses into one complete slab presentation, and serialize each
+nonempty stretched branch's exact two-root drop into a multiplicity-faithful
+peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must
 ultimately be bounded by a cutoff-independent multiple of the pure mate

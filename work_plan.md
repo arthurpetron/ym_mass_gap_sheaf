@@ -156,12 +156,18 @@ source to the exact source word and the global six-face mate to the exact mated
 word with a common residual list.  The specialized classifier is injective,
 its decoder recovers the source auxiliary exactly, and its surviving branch is
 an accepted presented witness on the actual mated link.
+The dependent product over all twelve incidences is now explicit.  It applies
+the local classifier coordinatewise, is injective by the twelve exact local
+decoders, and packages every original source tuple as a common accepted
+presented cube family.  This closes the anonymous-product-to-dependent-witness
+step, but does not yet supply off-cube entries of a complete slab assignment.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. take the dependent product of the twelve literal cube-link classifiers;
-   retain every original source tuple as one common accepted presented
-   background; serialize every nonempty branch's exact two-root drop into a
+1. split the classified dependent product into its all-target and
+   first-stretched branches; extend each presented cube source with accepted
+   off-cube entries to a complete slab background; serialize every nonempty
+   branch's exact two-root drop into a
    multiplicity-faithful peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain

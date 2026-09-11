@@ -31181,6 +31181,47 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Take the dependent product of the twelve literal source classifiers (2026-09-11)
+
+- **milestone**: injective source-assignment partition with a common presented
+  cube family
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceAssignmentPartition.lean`
+- **proved declarations**:
+  `cubeInwardMateSourceAssignmentPartition`,
+  `recoverCubeInwardMateSourceAssignmentPartitionAt_apply`,
+  `cubeInwardMateSourceAssignmentPartition_injective`, and
+  `cubeInwardMatePresentedSourceAssignment`
+- **closed obligation**: form the genuine dependent product of the twelve
+  literal root-first source fibers; apply the local classifier at every typed
+  coordinate; recover every original auxiliary pointwise; prove equality of
+  complete outputs forces equality of complete source assignments; and retain
+  the complete source tuple as accepted presented link witnesses indexed by
+  the actual cube incidences
+- **remaining named obligation**: split the dependent output into the
+  all-target and first-stretched cases; extend the presented cube family with
+  accepted off-cube link witnesses into a complete slab assignment; and map
+  every first-stretched case into the exact two-root peel with an injective
+  history and weight payment.  The cutoff-independent pure-mate comparison,
+  physical transition floor, posterior-variance/Poincare estimate, completed
+  gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: both assignment spaces are dependent
+  function types; source, classified, recovered, and presented link witnesses
+  are Type-level data; coordinate recovery and global injectivity are proof
+  certificates
+
+Monitored verification:
+
+```text
+twelve-link source assignment partition explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Specialize the injective source partition to every literal cube link (2026-09-11)
 
 - **milestone**: observable-connected physical-link inward-mate classifier
