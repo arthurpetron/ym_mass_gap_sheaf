@@ -30951,3 +30951,43 @@ All printed declarations remain within `[propext, Quot.sound]`; there is no
 `Classical`, `native_decide`, custom axiom, noncomputable declaration,
 enlarged heartbeat budget, Rust computation, or trusted external computation.
 No aggregate or full-root audit is claimed by this focused check.
+
+#### Contract the complete cutoff-four tilted summand to one excitation activity (2026-09-10)
+
+- **milestone**: actual positive-row ground-relative summand bound
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinarySourceParityExcitationFullActivityBound.lean`
+- **proved declarations**:
+  `spinFourParityExcitationFullActivityRate_anchor_eqv`,
+  `spinFourParityExcitationFullActivityRate_lt_one`,
+  `spinFourLoweringWholeSlabRawWeight_eqv_groundHeat_mul_relative`,
+  `positivePhysicalSourceTiltedGibbsFullRawWeight_eqv_groundHeat_mul_relative`,
+  `positivePhysicalSourceRelativeExcitationWeight_le_ground_mul_activity`,
+  `positivePhysicalSourceTiltedGibbsFullRawWeight_le_parityGroundMass_mul_activity`,
+  and
+  `spinFourLoweringMultiplicityProduct_mul_physicalTerm_le_parityGroundMass_mul_activity`
+- **closed obligation**: the full target face coefficient, target heat weight,
+  and target shared-link product are bounded on the actual tilted Gibbs row by
+  the literal parity-ground summand times `q(w)^K`, where
+  `q(w)=15625^4*(5*w^8)` and `q(1/400)=5^9/2^32<1`.
+- **remaining named obligation**: sum only the observable-anchored connected
+  target components against this activity.  A volume-uniform posterior mass
+  for the single global parity-ground configuration is not claimed and is not
+  the intended consumer because translated small excitations are extensive.
+- **constructive or propositional**: exact finite SU(2) products and rational
+  inequalities; no `sorry` or new named hypothesis was introduced.
+
+Monitored verification:
+
+```text
+complete parity-excitation activity focused source check    PASS
+complete parity-excitation dependency target                PASS (5,567 jobs)
+aggregate YMGap target                                      SAFE-STOPPED at 3,249/7,986
+                                                            (12 GiB memory reserve)
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+The root aggregator imports the module.  The interrupted aggregate run is not
+claimed as a pass or full-root audit.

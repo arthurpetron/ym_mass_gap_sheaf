@@ -189,13 +189,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- parity pushforward = minimal lowering target with positive ground mass ..... [PROVED exact]
 |   |   |   |   +-- split every tilted row into ground plus relative excitations ............... [PROVED exact]
 |   |   |   |   +-- every excitation has a facewise positive two-spin level .................... [PROVED exact]
-|   |   |   |   +-- compare excitation activities with the certified ground term ............... [PARTIAL]
+|   |   |   |   +-- compare excitation activities with the certified ground term ............... [PROVED pointwise at fine cutoff 1]
 |   |   |   |   |   +-- exact fusion tilt <= 2^K times parity ground ............................. [PROVED at fine cutoff 1]
 |   |   |   |   |   +-- fusion tilt * SU(2) dimension <= 5^K times parity ground ................ [PROVED at fine cutoff 1]
 |   |   |   |   |   +-- Casimir excess >= 8K contracts the full face factor to `(5*w^8)^K` ...... [PROVED]
 |   |   |   |   |   +-- at most four changed links per excited face .............................. [PROVED exact]
 |   |   |   |   |   +-- target link product <= `15625^(4K)` times parity ground .................. [PROVED at fine cutoff 1]
-|   |   |   |   |   `-- contract face and link bounds into one complete summand activity ......... [ACTIVE analytic producer]
+|   |   |   |   |   +-- full rate `q(w)=15625^4*(5*w^8)`; `q(1/400)=5^9/2^32<1` ............... [PROVED]
+|   |   |   |   |   `-- actual tilted summand <= literal ground summand * `q(w)^K` .............. [PROVED exact bridge]
+|   |   |   |   +-- observable-anchored connected target entropy sum ........................ [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -963,6 +965,60 @@ Still open: the complete ground-relative summand activity, its target sum,
 the posterior fraction and centered production/refresh contraction, the
 dense and completed OS gap, beta/cutoff/volume/spacing-uniform control, the
 linked same-object tower, thermodynamic and continuum construction, and the
+Clay-facing theorem.
+
+#### Contract face and link losses into the actual tilted Gibbs summand (2026-09-10)
+
+`Z4DyadicBinarySourceParityExcitationFullActivityBound` combines the two
+independent pointwise branches without changing the object being estimated.
+For excitation mass `K`, the face branch contributes `(5*w^8)^K` and the
+shared-link branch contributes `15625^(4*K)`.  Their exact common base is
+
+```text
+q(w) = 15625^4 * (5*w^8),
+q(1/400) = 1953125 / 4294967296 = 5^9 / 2^32 < 1.
+```
+
+The module then proves the missing exact factorization of the complete
+lower-triangular row weight.  Every supported target's actual integer-tilted
+coarse Gibbs summand is its source-row parity-ground heat factor times a
+relative excitation weight containing the full face coefficient and the
+complete shared-link multiplicity.  Specializing the same equality to the
+geometric parity ground identifies the common heat factor times the ground
+relative coefficient with the already-certified literal positive ground
+summand.  Monotonic multiplication therefore yields
+
+```text
+ofNat(lowering multiplicity product) * coarse physicalTerm(target)
+  <= positivePhysicalSourceParityGroundMass * q(w)^K.
+```
+
+This closes the complete pointwise summand comparison.  It does not imply a
+volume-independent posterior probability for the single global ground state:
+there are extensively many spatially translated small excitations.  The next
+causal frontier is an observable-anchored connected target sum, so only
+components capable of contributing to the centered production/refresh cross
+pay entropy.
+
+Monitored verification:
+
+```text
+complete parity-excitation activity focused source check    PASS
+complete parity-excitation dependency target                PASS (5,567 jobs)
+aggregate YMGap target                                      SAFE-STOPPED at 3,249/7,986
+                                                            (12 GiB memory reserve)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+other trusted external computation is introduced.  The interrupted aggregate
+run is not claimed as a pass or full-root audit.
+
+Still open: the observable-anchored connected entropy sum, a local
+conditional/posterior fraction usable by the centered cross, the dense and
+completed OS gap, beta/cutoff/volume/spacing-uniform control, the linked
+same-object tower, thermodynamic and continuum construction, and the
 Clay-facing theorem.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
