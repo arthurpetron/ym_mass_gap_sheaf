@@ -327,9 +327,15 @@ The next load-bearing producers are, in causal order:
    fine-intertwiner summands.  Every second-edge load is therefore at most
    `globalInwardMateTransportCost` times its actual normalized OS joint
    capacity, while the edge loads sum exactly to the selected traffic.  The
-   active sub-edge is now the genuine mathematical question: identify a
-   variance demand controlled by this selected transport, or prove the
-   additional statewise demand coverage needed by the all-vector
+   selected transport now has a concrete observable demand as well.  The
+   parity of central lower face zero is reversed at every source--target pair;
+   since the middle parity is also Boolean, exactly one path edge flips it.
+   Lean therefore proves the lossless identity that the total selected traffic
+   equals its two parity-gradient edge energies and in particular that their
+   sum is at least `41/425`.  The active sub-edge is to embed those two
+   collision-grouped energies into the complete physical OS Dirichlet form.
+   This will give a real one-observable coercivity estimate; additional
+   statewise demand coverage is still required for the all-vector
    posterior/Poincare compiler;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
@@ -394,7 +400,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- normalized source mass + target-fiber edge load ... [PROVED]
 |   |   |   +-- aggregate first OS-edge traffic without collisions . [PROVED]
 |   |   |   +-- aggregate second OS-edge traffic + exact partition . [PROVED]
-|   |   |   +-- selected demand -> controlled variance identity .... [ACTIVE]
+|   |   |   +-- selected central-face parity demand >= `41/425` ..... [PROVED]
+|   |   |   +-- selected parity energy -> full OS Dirichlet form .... [ACTIVE]
+|   |   |   +-- selected demand -> all-vector variance identity ..... [OPEN]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

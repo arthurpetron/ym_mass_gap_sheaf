@@ -67,10 +67,21 @@ a useful variance—and, ultimately, the full vacuum-complement pairwise
 variance.  These results do not yet prove a Poincare inequality or spectral
 gap.
 
+For one concrete observable the answer is now positive.  The parity of
+central lower face zero is reversed by every selected inward mate, and because
+the intermediate parity is also Boolean, exactly one of the two path edges
+changes it.  Lean proves without a triangle-inequality loss that the two
+selected parity-gradient energies sum to the selected traffic and are
+therefore at least `41/425`.  The active step is to embed these grouped edge
+energies into the full OS Dirichlet form; extending one observable to every
+vacuum-complement vector remains a separate open step.
+
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
 The two-level second-edge partition is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean).
+The exact Boolean observable identity is in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

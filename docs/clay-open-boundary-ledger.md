@@ -60,9 +60,16 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   at most `globalInwardMateTransportCost` times the actual normalized OS joint
   capacity.
 - **OPEN next edge:** determine and prove the exact variance demand controlled
-  by this complete selected-flow partition.  The present positive sub-demand
-  does not by itself imply an all-vector variance bound, finite-volume spectral
-  gap, continuum limit, or Clay theorem.
+  by this complete selected-flow partition.  One concrete answer is now
+  proved by
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand`: the parity
+  of central lower face zero changes between every source and target, and its
+  Boolean value changes on exactly one of the two path edges.  Hence the two
+  selected parity-gradient energies sum exactly to the selected traffic and
+  are at least `41/425`.  Embedding those selected energies into the full OS
+  Dirichlet form is the next edge.  This positive one-observable demand does
+  not by itself imply an all-vector variance bound, finite-volume spectral gap,
+  continuum limit, or Clay theorem.
 
 ---
 
