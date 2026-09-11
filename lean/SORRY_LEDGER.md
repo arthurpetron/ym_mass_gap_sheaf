@@ -31410,6 +31410,53 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Retain the actual positive root witness in every active carrier (2026-09-11)
+
+- **milestone**: dependent first-active-position data for the finite debt
+  carrier
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootWitness.lean`
+- **proved declarations**:
+  `choiceFiberAssignment_member_length`,
+  `choiceFiberAssignment_firstTrue_get_mem_debt`,
+  `choiceFiberAssignmentPosition`,
+  `choiceFiberAssignmentPosition_get_mem_debt`,
+  `RootedChoiceFiberAssignment`, `rootedChoiceFiberAssignments`,
+  `rootedChoiceFiberAssignments_length`,
+  `CubeRootedActiveDebtFusionCarrier`,
+  `cubeRootedActiveDebtFusionCarriers`,
+  `cubeRootedActiveDebtFusionCarriers_length`,
+  `CubeRootedActiveDebtFusionCarrier.rootAuxiliary_mem`, and
+  `CubeRootedActiveDebtFusionCarrier.root_faces_positive`
+- **closed obligation**: enrich every active Boolean-word assignment with its
+  computed first-debt position and the actual auxiliary labelling stored
+  there; prove that the stored value lies in the selected active stretched
+  fiber; preserve exact active-remainder cardinality; and derive positivity of
+  both incident physical face labels without eliminating an existential
+  proposition into data
+- **remaining named obligation**: construct the two bounded physical strand
+  copies at the stored root, unfold the collapsed auxiliary into an accepted
+  source trivalent network, and trace/reroute its closed component into a
+  bounded-fiber family over pure mate assignments; then obtain the physical
+  transition floor, posterior variance/Hardy--Poincare estimate, completed
+  gap, thermodynamic and continuum passage, QFT axioms, isolated vacuum, and
+  the Clay theorem
+- **constructive or propositional**: the root position, assignment, and
+  auxiliary are stored as Type-level data; propositions only certify list
+  membership, position alignment, and positive root faces
+
+Monitored verification:
+
+```text
+inward-mate active-root explicit olean emission             PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

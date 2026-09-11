@@ -77,14 +77,17 @@ local additive term is definitionally zero.  The active twelve-link product,
 nonempty remainder, and finite witness carrier retain only positive-positive
 stretched fibers.  This removes spurious zero-face summands and guarantees
 that every genuine root can supply physical strand copies on both incident
-faces.
+faces.  Every active carrier member now additionally stores its complete
+assignment-membership proof, the first active assignment position, the actual
+auxiliary labelling read there, and kernel-checked positivity of both root
+faces.  No existential proposition is eliminated to manufacture this data.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. start at the computed first-stretched incidence of every concrete carrier
-   member in
-   `cubeInwardMateNonemptyActiveStretchedRemainder`, construct its SU(2)-specific
-   closed-component rerouting, and sum those routes into a
+1. construct the two literal physical face-strand copies at every stored
+   positive root, unfold the stored collapsed stretched auxiliary into an
+   accepted source trivalent network, construct its SU(2)-specific closed-
+   component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;

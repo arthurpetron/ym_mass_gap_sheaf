@@ -124,9 +124,17 @@ faces are positive; it again has an exact finite-carrier cardinality theorem.
 See
 [`BF4PhysicalVacuumSectorInwardMateActiveStretchedDebt.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveStretchedDebt.lean).
 
-The next causal step is now a single precise theorem: reroute the terms in
-that positivity-gated finite carrier from their computed roots through complete strand
-components and bound their sum
+Every member of that active carrier now retains its assignment-membership
+certificate, its first active position, the actual auxiliary labelling stored
+there, and proofs that both incident physical face labels are positive.  Thus
+the root required by the strand compiler is Type-level data rather than a
+propositionally extracted witness.  See
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootWitness.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootWitness.lean).
+
+The next causal step is now a single precise theorem: construct the two literal
+physical strand copies at each positive root, unfold the root's collapsed
+stretched witness to an accepted source trivalent network, then reroute the
+resulting complete strand component and bound the carrier sum
 by a cutoff-independent multiple of the pure mate product.  That would compare
 the complete fixed-boundary intertwiner contraction. A genuine physical
 mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
