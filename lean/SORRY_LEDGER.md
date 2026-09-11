@@ -31027,6 +31027,55 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Package the positive retained-target fraction (2026-09-11)
+
+- **milestone**: witness-bearing cutoff-uniform retained-target rate at the
+  fixed SU2 anchor
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetFraction.lean`
+- **proved declarations**:
+  `globalInwardMateTransportCost`,
+  `globalInwardMateTransportCost_positive`,
+  `globalInwardMateRetainedTargetFraction`,
+  `globalInwardMateRetainedTargetFraction_positive`,
+  `globalInwardMateRetainedTargetFraction_partition_le_targets`,
+  `GlobalInwardMateRetainedTargetFractionCertificate`, and
+  `globalInwardMateRetainedTargetFractionCertificate`
+- **closed obligation**: define the explicit positive transport cost
+  `64 * 32,000,000^6`; divide `41/425` by that cost constructively; commute
+  the rational division through the physical partition factor; and return a
+  Type-level certificate proving that the resulting positive rate times
+  `Z_K` is bounded by the distinct realized target-atom mass for every
+  cutoff `K >= 1`.
+- **scope boundary**: the rate is independent of representation cutoff but
+  belongs to the fixed coupling `1/400`.  Its target mass is a global retained
+  submeasure, not yet a same-object conditional posterior or variance.  No
+  beta/lattice-spacing uniformity, OS form bound, spectral gap, or continuum
+  theorem is asserted.
+- **remaining named obligation**: construct the literal two-copy joint law in
+  which source and parity-flipped target are marginals of one same-object
+  conditional update; identify this retained submeasure inside its off-diagonal
+  response; and convert the positive rate into a posterior-variance lower
+  estimate suitable for the centered production/refresh and OS transfer-form
+  compilers.
+- **constructive or propositional**: positive rational division with an
+  explicit denominator and a Type-level witnessing certificate only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+global all-target fraction focused source check           PASS
+global all-target fraction dependency target              PASS (1,310 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Normalize all distinct global all-target atoms (2026-09-11)
 
 - **milestone**: weighted all-target transport through the physical partition
