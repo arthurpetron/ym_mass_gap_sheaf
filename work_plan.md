@@ -24,7 +24,9 @@ identified with a duplicate-free coordinate expansion, and its exact sum of
 normalized centered coordinate diagonals bounds its complete quadratic form.
 Thus a single scalar trace inequality supplies the tail rate `tau`; scaled
 positivity then absorbs the mixed old/new block and proves the full physical
-rate `q + tau`.
+rate `q + tau`.  On a zero-mean coefficient the centered Gram is now proved
+equal to the same-object reflected matrix form, so `q + tau < 1` compiles
+directly to the finite physical strict gap statement.
 
 The next load-bearing analytic producers are now sharply isolated:
 

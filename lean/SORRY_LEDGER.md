@@ -31117,6 +31117,43 @@ Every printed load-bearing declaration uses only `[propext, Quot.sound]`;
 there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
 declaration, enlarged heartbeat budget, or trusted external computation.
 
+#### Compile centered head and exact tail trace to the physical form (2026-09-11)
+
+- **milestone**: same-object centered head--tail trace contraction
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredHeadTailTraceGap.lean`
+- **proved declarations**:
+  `centralPhysicalFiniteVacuumSectorCenteredGram_self_eqv_matrix_of_meanZero`,
+  `centralPhysicalFiniteVacuumSectorCenteredGram_le_of_head_trace`,
+  `centralPhysicalFiniteVacuumSectorMatrix_le_of_centeredHead_trace`, and
+  `centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_trace`
+- **closed obligation**: identify the component-centered weighted Gram with
+  the original physical reflected matrix on the literal vacuum complement;
+  combine an embedded-head centered estimate with the exact new-tail trace
+  estimate; absorb their mixed block by positivity; and contract the result
+  to the actual same-object finite form at the additive rate `q + tau`.
+- **remaining named obligation**: construct the two analytic inputs with a
+  common cutoff-uniform strict budget: persistence of a sharp centered head
+  rate (the existing fixed-base Poincare rate is strict but base-dependent),
+  and a uniform upper bound on the explicit new-tail trace.  Only after these
+  inputs produce `q + tau < 1` does the present compiler yield a uniform
+  finite-cutoff gap.  Completed thermodynamic and continuum passage,
+  continuum QFT axioms, isolated vacuum, and the Clay theorem remain open.
+- **constructive or propositional**: exact physical boundary transforms,
+  finite weighted Gram sums, stationary diagonal identities, and scaled
+  positivity.  No analytic hypothesis is hidden or renamed as a theorem.
+
+Monitored verification:
+
+```text
+centered head--tail trace compiler focused source check   PASS
+centered head--tail trace compiler dependency target      PASS (1,495 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no
+`sorry`, new axiom, `Classical`, `native_decide`, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.
+
 #### Contract the connected production rows through the vacuum packet (2026-09-10)
 
 - **milestone**: explicit strict finite-volume connected production fraction

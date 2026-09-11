@@ -3493,6 +3493,7 @@ import YMGap.Continuum.FinitePositiveFormTraceGluing
 import YMGap.Continuum.FiniteWeightedGramGNSData
 import YMGap.Continuum.BF4PhysicalVacuumSectorHeadTailGramGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace
+import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.
