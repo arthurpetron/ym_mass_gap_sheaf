@@ -31277,6 +31277,47 @@ All printed declarations use only `[propext, Quot.sound]`.  There is no
 enlarged heartbeat budget, or trusted external computation.  No aggregate or
 full-root audit is claimed here.
 
+#### Prove strict posterior variance for the full connected response (2026-09-11)
+
+- **milestone**: strict full connected-observable posterior variance
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservablePosteriorVarianceFraction.lean`
+- **proved declarations**:
+  `finePacketGlobalTiltedGibbsConnectedResponsePairwiseVarianceMass_eqv_twice_centered`,
+  `finePacketGlobalTiltedGibbsConnectedResponsePosteriorVarianceFraction_eqv_centered`,
+  `finePacketGlobalTiltedGibbsConnectedResponsePairwiseVarianceMass_le_oscillationMass`,
+  `finePacketGlobalTiltedGibbsConnectedResponsePosteriorVarianceFraction_le_half_oscillation`,
+  `finePacketGlobalTiltedGibbsConnectedResponsePosteriorVarianceFraction_le_half_faceEnvelopes`,
+  `finePacketGlobalTiltedGibbsConnectedResponsePosteriorVarianceFraction_le_anchorRate`,
+  and
+  `finePacketGlobalTiltedGibbsConnectedResponsePosteriorVarianceFraction_lt_one_at_anchor`
+- **closed obligation**: identify the normalized half-pairwise square of the
+  full actual connected response with its centered second moment; use the
+  sharp diameter-one theorem to dominate its square by absolute oscillation;
+  and cancel the exact variance half against the root-plus-target face bounds
+  to obtain the explicit SU(2)-anchor rate `1449/1700 < 1`.
+- **remaining named obligation**: identify this centered posterior variance
+  with the centered physical production/refresh form for the same observable,
+  and lift the resulting strict one-observable statement to the dense vacuum
+  complement.  Completed extension and controlled thermodynamic/continuum
+  passage remain open.
+- **constructive or propositional**: exact finite weighted variance algebra,
+  rational absolute-value order, explicit positive normalization, and the
+  previously proved SU(2)-specific anchor bounds.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected posterior-variance focused check                PASS
+connected posterior-variance dependency                   PASS (5,622 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  No aggregate or
+full-root audit is claimed here.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric

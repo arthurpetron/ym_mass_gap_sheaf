@@ -1456,6 +1456,53 @@ the two face contributions, and then identify the resulting strict quantity
 with the centered production/refresh form.  The dense/completed gap and
 controlled thermodynamic/continuum passage remain downstream.
 
+#### Prove strict posterior variance for the full connected response (2026-09-11)
+
+`Z4DyadicBinaryConnectedObservablePosteriorVarianceFraction` forms the
+fine-source weighted pairwise square of the same normalized connected
+response and proves the exact identity
+
+```text
+posteriorVariance(connectedResponse)
+  = centeredSecondMoment(connectedResponse)
+  = (1/2) * E[(R(first) - R(second))^2].
+```
+
+The sharp pairwise diameter bound gives `(R(first)-R(second))^2 <=
+abs(R(first)-R(second))`.  Combining this with the two causal face envelopes
+and their SU(2)-specific anchor bounds contracts exactly as
+
+```text
+posterior variance
+  <= (1/2) * (root envelope + target envelope)
+  <= (1/2) * (1449/1700 + 1449/1700)
+   = 1449/1700
+   < 1.
+```
+
+This is a strict, finite-volume, volume-independent posterior-variance bound
+for the full connected remainder observable.  It is not yet the physical
+centered production/refresh form or an operator spectral gap.
+
+Monitored verification:
+
+```text
+connected posterior-variance focused check                PASS
+connected posterior-variance dependency                   PASS (5,622 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No aggregate or full-root audit is claimed here.
+
+Still open: prove the exact bridge from this centered posterior variance to
+the centered physical production/refresh form for the same connected
+observable, then lift the one-observable strictness to the required dense
+vacuum-complement form bound.  Completed extension and controlled
+thermodynamic/continuum passage remain downstream.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableGradientEnvelope` proves that a localized
