@@ -30303,3 +30303,27 @@ Still open: prove pushed-law reflection by finite source reindexing, establish
 reflection positivity on the retained sector, identify a same-object enriched
 observable/transfer system, build the linked cutoff tower, prove the physical
 completed gap, and construct the continuum theory and Clay closure.
+
+#### Reindex the enriched pushed law under reflection (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPushedReflection` proves that
+reflection permutes both the proof-bearing physical source carrier and the
+disjoint enriched target carrier.  Combining the source permutation with
+normalized-mass reflection and full enriched-kernel covariance gives exact
+pointwise reflection invariance of the pushed blocked law.
+
+Monitored verification:
+
+```text
+enriched pushed-law reflection focused source check       PASS
+```
+
+All four printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: establish reflection positivity on the retained sector, identify
+a same-object enriched observable/transfer system, build the linked cutoff
+tower, prove the physical completed gap, and construct the continuum theory
+and Clay closure.
