@@ -30991,3 +30991,38 @@ All printed declarations remain within `[propext, Quot.sound]`; there is no
 enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  The interrupted aggregate run is not
 claimed as a pass or full-root audit.
+
+#### Normalize excitation activity into the production kernel (2026-09-10)
+
+- **milestone**: actual normalized one-row and oriented two-row activity bounds
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinarySourceParityExcitationKernelBound.lean`
+- **proved declarations**:
+  `physicalKernel_positivePhysicalSource_le_excitationActivity`,
+  `physicalKernel_positivePhysicalSource_pair_le_excitationActivity`, and
+  `finePacketOrientedPhysicalKernelPairWeight_le_excitationActivity`
+- **closed obligation**: divide the literal ground-relative tilted summand
+  estimate by the positive complete row partition to prove the actual
+  production transition bound `kernel(source,target) <= q(w)^K`; multiply two
+  rows and identify their summed exponent with the connected carrier's
+  oriented target-excitation activity.
+- **remaining named obligation**: inject this pointwise normalized pair bound
+  into the observable-anchored connected target carrier and prove its
+  volume-independent entropy sum.  No global posterior probability for the
+  unique parity-ground configuration is claimed.
+- **constructive or propositional**: exact rational division by a proved
+  positive row mass plus a finite-list sum identity; no `sorry` or new named
+  hypothesis was introduced.
+
+Monitored verification:
+
+```text
+production-kernel excitation focused source check          PASS
+production-kernel excitation dependency target             PASS (5,568 jobs)
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.

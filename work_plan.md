@@ -197,6 +197,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- target link product <= `15625^(4K)` times parity ground .................. [PROVED at fine cutoff 1]
 |   |   |   |   |   +-- full rate `q(w)=15625^4*(5*w^8)`; `q(1/400)=5^9/2^32<1` ............... [PROVED]
 |   |   |   |   |   `-- actual tilted summand <= literal ground summand * `q(w)^K` .............. [PROVED exact bridge]
+|   |   |   |   +-- actual production kernel <= `q(w)^K` after row normalization ............... [PROVED]
+|   |   |   |   `-- oriented two-row kernel product <= `q(w)^(K1+K2)` ........................... [PROVED]
 |   |   |   |   +-- observable-anchored connected target entropy sum ........................ [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
@@ -1020,6 +1022,49 @@ conditional/posterior fraction usable by the centered cross, the dense and
 completed OS gap, beta/cutoff/volume/spacing-uniform control, the linked
 same-object tower, thermodynamic and continuum construction, and the
 Clay-facing theorem.
+
+#### Normalize the excitation estimate into the actual production kernel (2026-09-10)
+
+`Z4DyadicBinarySourceParityExcitationKernelBound` divides the complete
+ground-relative summand estimate by the positive tilted row mass.  The
+literal parity-ground summand is itself bounded by that same row mass, so a
+supported production transition satisfies
+
+```text
+physicalKernel(source,target) <= q(w)^K.
+```
+
+The module also packages the product of two actual production rows with the
+forward/reverse orientation used by the connected carrier and proves
+
+```text
+orientedKernelPairWeight <= q(w)^(total oriented target excitation activity).
+```
+
+The equality between the exponent on the two normalized rows and the
+carrier's pointwise-summed excitation coordinate is proved by a finite-list
+identity; it is not a change of activity.  This removes the source-dependent
+ground prefactor at the exact probabilistic interface needed by the contour
+sum.  It remains pointwise and makes no global posterior-ground or connected
+entropy claim.
+
+Monitored verification:
+
+```text
+production-kernel excitation focused source check          PASS
+production-kernel excitation dependency target             PASS (5,568 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed by these checks.
+
+Still open: inject this normalized row-pair bound into the
+observable-anchored connected target carrier, sum its entropy uniformly in
+volume, and use that local contraction in the centered production/refresh
+cross; thereafter the dense/completed OS gap and controlled limits remain.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
