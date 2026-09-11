@@ -97,11 +97,18 @@ the boundary products obey
 [`BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile.lean).
 This deliberately does not absorb the debts independently.
 
-The next causal step is to expand that finite product and reroute precisely
-its stretched-channel terms through complete strand components, thereby
-comparing the complete fixed-boundary intertwiner contraction. A genuine
-physical mate-transition floor would then feed a rooted-subtree
-Hardy--Poincare or posterior conditional-variance estimate.
+That finite product is now expanded exactly over Boolean words aligned with
+the twelve attached links.  The all-target word is the pure mate product; all
+nonempty stretched words sum to the named
+`cubeInwardMateNonemptyStretchedRemainder`.  See
+[`BF4PhysicalVacuumSectorInwardMateStretchedDebtExpansion.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateStretchedDebtExpansion.lean).
+
+The next causal step is now a single precise theorem: reroute the terms in
+that named remainder through complete strand components and bound their sum
+by a cutoff-independent multiple of the pure mate product.  That would compare
+the complete fixed-boundary intertwiner contraction. A genuine physical
+mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
+posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

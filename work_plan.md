@@ -58,14 +58,18 @@ bound with exactly one explicit stretched continuation.  These twelve
 certificates are now assembled into an observable attached-list debt profile:
 the global mate is unchanged off the cube boundary, and the full boundary
 source product is bounded by the product of the twelve explicit
-`mate + stretchedDebt` factors.
+`mate + stretchedDebt` factors.  Exact finite distributivity now enumerates
+that product by Boolean words on the attached link list, separates the
+all-target word, and names the sum of every nonempty stretched word as
+`cubeInwardMateNonemptyStretchedRemainder`.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. expand the twelve-factor debt product and construct an SU(2)-specific
-   closed-component rerouting for every nonempty stretched-debt term, thereby
-   comparing the complete fixed-boundary intertwiner contraction of a state
-   with its inward mate;
+1. construct an SU(2)-specific closed-component rerouting for every term in
+   `cubeInwardMateNonemptyStretchedRemainder`, and sum those routes into a
+   cutoff-independent bound by the pure mate product; this compares the
+   complete fixed-boundary intertwiner contraction of a state with its inward
+   mate;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
