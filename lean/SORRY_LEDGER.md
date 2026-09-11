@@ -31110,6 +31110,47 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed by these checks.
 
+#### Convert response oscillation into posterior variance (2026-09-10)
+
+- **milestone**: explicit strict one-face posterior-variance fraction
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalPosteriorVarianceFraction.lean`
+- **proved declarations**:
+  `finePacketTiltedGibbsFaceResponse_unitInterval`,
+  `finePacketGlobalTiltedGibbsFaceResponsePairwiseVarianceMass_eqv_twice_centered`,
+  `finePacketGlobalTiltedGibbsFaceResponsePosteriorVarianceFraction_eqv_centered`,
+  `finePacketGlobalTiltedGibbsFaceResponsePairwiseVarianceMass_le_oscillationMass`,
+  `finePacketGlobalTiltedGibbsFaceResponsePosteriorVarianceFraction_le_half_oscillation`,
+  `finePacketGlobalTiltedGibbsFaceResponsePosteriorVarianceFraction_le_anchorRate`,
+  and
+  `finePacketGlobalTiltedGibbsFaceResponsePosteriorVarianceFraction_lt_one_at_anchor`
+- **closed obligation**: identify the normalized half-pairwise square of the
+  actual conditional one-face response with its centered second moment; use
+  the response unit interval to prove `difference^2 <= |difference|`; and
+  combine this with the SU(2)-specific global response estimate to obtain the
+  explicit volume-independent anchor rate `1449/3400 < 1`.
+- **remaining named obligation**: extend the connected response estimate to
+  the joint two-face cylinder while retaining the signed three-term vacuum
+  cancellation, identify it with the centered production/refresh form, and
+  prove the strict dense two-step form bound.  Completed OS extension and
+  controlled thermodynamic/continuum passage remain open.
+- **constructive or propositional**: exact finite weighted pairwise variance,
+  positive rational division, and rational absolute-value order; no `sorry`
+  or new named hypothesis was introduced.  The strict input is the
+  SU(2)-specific anchor packet estimate and is not group-agnostic.
+
+Monitored verification:
+
+```text
+global posterior-variance focused source check             PASS
+global posterior-variance dependency target                PASS (5,614 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  No aggregate or full-root audit is claimed here.
+
 #### Contract source heat and target excitation to one joint activity (2026-09-10)
 
 - **milestone**: common-rate connected joint-activity fraction
