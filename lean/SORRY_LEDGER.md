@@ -31027,6 +31027,47 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Realize the global SU(2) all-target event as a parity-flipped physical state (2026-09-11)
+
+- **milestone**: literal observable-relevant physical target
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetPhysical.lean`
+- **proved declarations**:
+  `evenInwardMateLabel_mod_two_ne`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPhysical`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPhysical_bounded`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPhysical_mem`, and
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPhysical_parity_ne`
+- **closed obligation**: attach every successful global source to its literal
+  central-cube inward-mate physical state; prove the state remains in the
+  bounded extent-one BF4 physical carrier; and prove that it reverses parity
+  on each of the six selected lower cube faces.
+- **scope boundary**: this realizes the physical component of the all-target
+  event only.  It does not construct a complete target intertwiner assignment,
+  bound target-column congestion, transport an observable through a posterior
+  row, or prove conditional variance, an OS form bound, or a spectral gap.
+- **remaining named obligation**: complete the target physical state by an
+  accepted whole-slab presented intertwiner assignment, compare source and
+  target weights with explicit target-column capacity, and only then compile
+  the parity reversal into a same-object posterior-variance inequality.
+- **constructive or propositional**: explicit natural-number parity,
+  representation-cutoff bounds, and finite carrier membership only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+global all-target physical focused source check           PASS
+global all-target physical dependency target              PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Extract the positive global SU(2) all-target fraction (2026-09-11)
 
 - **milestone**: explicit complementary global success-event mass
