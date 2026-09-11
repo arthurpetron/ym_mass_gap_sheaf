@@ -36,6 +36,7 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeig
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation
 open YMGap.Continuum.CayleyPruferInjection
+open YMGap.Continuum.ClusterCount4DProgress
 open YMGap.Continuum.CompactDualSlabDecodedPhysicalMultiplicityCode
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryCarrier
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentAdaptiveEntropyCarrier
@@ -175,6 +176,52 @@ theorem certifiedStretchedComponentUnionAdaptiveSpecificationsDecode
 
 /-! ## 2. The actual three-word code and common-carrier membership -/
 
+/-- A shallow name for the complete presented auxiliary row word.  Keeping
+this projection boundary opaque prevents downstream equality proofs from
+normalizing the complete certified strand graph. -/
+def certifiedStretchedComponentUnionAdaptiveAuxiliaryRows
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 <= K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (stretched : CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded)
+    (background : PresentedSlabFusionWitnessAssignment
+      K 1 physical (boundaryCompleteSlabLinks 1)) : List (List Nat) :=
+  presentedSelectionAdaptiveAuxiliaryRows
+    (certifiedStretchedComponentUnionSupportedSelection
+      stretched background)
+
+/-- The complete adaptive code emitted by the certified two-root source. -/
+def componentAdaptiveEntropyCodeOfWords
+    (shape : List (Fin (z4Chain.D + 1)))
+    (physicalMultiplicity : List Nat)
+    (auxiliaryRows : List (List Nat)) : ComponentAdaptiveEntropyCode where
+  shape := shape
+  physicalMultiplicity := physicalMultiplicity
+  auxiliaryRows := auxiliaryRows
+
+@[simp] theorem componentAdaptiveEntropyCodeOfWords_shape
+    (shape : List (Fin (z4Chain.D + 1)))
+    (physicalMultiplicity : List Nat)
+    (auxiliaryRows : List (List Nat)) :
+    (componentAdaptiveEntropyCodeOfWords
+      shape physicalMultiplicity auxiliaryRows).shape = shape := rfl
+
+@[simp] theorem componentAdaptiveEntropyCodeOfWords_physicalMultiplicity
+    (shape : List (Fin (z4Chain.D + 1)))
+    (physicalMultiplicity : List Nat)
+    (auxiliaryRows : List (List Nat)) :
+    (componentAdaptiveEntropyCodeOfWords
+      shape physicalMultiplicity auxiliaryRows).physicalMultiplicity =
+        physicalMultiplicity := rfl
+
+@[simp] theorem componentAdaptiveEntropyCodeOfWords_auxiliaryRows
+    (shape : List (Fin (z4Chain.D + 1)))
+    (physicalMultiplicity : List Nat)
+    (auxiliaryRows : List (List Nat)) :
+    (componentAdaptiveEntropyCodeOfWords
+      shape physicalMultiplicity auxiliaryRows).auxiliaryRows =
+        auxiliaryRows := rfl
+
 /-- The complete adaptive code emitted by the certified two-root source. -/
 def certifiedStretchedComponentUnionAdaptiveEntropyCode
     {K : Nat} {physical : EdgeLabelling}
@@ -183,14 +230,13 @@ def certifiedStretchedComponentUnionAdaptiveEntropyCode
       K physical hK hbounded)
     (background : PresentedSlabFusionWitnessAssignment
       K 1 physical (boundaryCompleteSlabLinks 1)) :
-    ComponentAdaptiveEntropyCode where
-  shape := certifiedStretchedComponentUnionConnectedShapeCode
-    stretched background
-  physicalMultiplicity :=
-    certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode
-      stretched background
-  auxiliaryRows := presentedSelectionAdaptiveAuxiliaryRows
-    (certifiedStretchedComponentUnionSupportedSelection
+    ComponentAdaptiveEntropyCode :=
+  componentAdaptiveEntropyCodeOfWords
+    (certifiedStretchedComponentUnionConnectedShapeCode
+      stretched background)
+    (certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode
+      stretched background)
+    (certifiedStretchedComponentUnionAdaptiveAuxiliaryRows
       stretched background)
 
 /-- The actual certified code lies in one common carrier indexed only by the
@@ -210,6 +256,8 @@ theorem certifiedStretchedComponentUnionAdaptiveEntropyCode_mem_carrier
           stretched background).budget := by
   unfold componentAdaptiveEntropyCarrier
     certifiedStretchedComponentUnionAdaptiveEntropyCode
+    componentAdaptiveEntropyCodeOfWords
+    certifiedStretchedComponentUnionAdaptiveAuxiliaryRows
   apply List.mem_flatMap.mpr
   refine ⟨certifiedStretchedComponentUnionConnectedShapeCode
     stretched background, ?_, ?_⟩
@@ -265,6 +313,11 @@ theorem certifiedStretchedComponentUnionAdaptiveEntropyAnchorRatio_lt_one :
 #print axioms certifiedStretchedComponentUnionAdaptiveMultiplicityAdmissible
 #print axioms certifiedStretchedComponentUnionAdaptiveSpecificationsDecode
 #print axioms certifiedStretchedComponentUnionAdaptiveEntropyCode
+#print axioms certifiedStretchedComponentUnionAdaptiveAuxiliaryRows
+#print axioms componentAdaptiveEntropyCodeOfWords
+#print axioms componentAdaptiveEntropyCodeOfWords_shape
+#print axioms componentAdaptiveEntropyCodeOfWords_physicalMultiplicity
+#print axioms componentAdaptiveEntropyCodeOfWords_auxiliaryRows
 #print axioms certifiedStretchedComponentUnionAdaptiveEntropyCode_mem_carrier
 #print axioms certifiedStretchedComponentUnionAdaptiveEntropyCarrier_length_le
 #print axioms certifiedStretchedComponentUnionAdaptiveEntropyAnchorRatio_lt_one
