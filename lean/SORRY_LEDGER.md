@@ -31027,6 +31027,40 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Convert global target-block capacity into weight (2026-09-11)
+
+- **milestone**: weighted all-physical coarse-block contraction
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetBlockWeightBound.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelRepresentativeTargetWeight_eqv_blockAtom` and
+  `globalCubeInwardMateFullPeelTargetBlockWeight_le_physicalBlock`
+- **closed obligation**: prove that every representative in one global
+  target/root/size block has the same `(8/25)^peelSize` rate and the same exact
+  SU(2) target atom, then combine the residual-code cardinality bound with
+  nonnegativity to majorize the complete block by that rate times the genuine
+  physical target-block weight.
+- **remaining named obligation**: sum the weighted block estimate over peel
+  sizes, the six cube roots, and all bounded physical targets to recover the
+  global `384/425` first-stretched bad-mass bound.  Exact source normalization,
+  the complementary all-target event, and the conditional/posterior/operator/
+  continuum bridges remain open.
+- **constructive or propositional**: the common block atom and finite
+  cardinality scaling remain exact `Q'` expressions; all nonnegativity and
+  inequalities are kernel checked.
+
+Monitored verification:
+
+```text
+global weighted-block focused source check                 PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Exact global target/root/size block Fubini (2026-09-11)
 
 - **milestone**: lossless global coarse-target partition
