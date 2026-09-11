@@ -151,7 +151,8 @@ def cubeInwardMateCertifiedOutcomeFullSourceCode
     (K : Nat) (physical : EdgeLabelling)
     (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical)
     (source : CubeInwardMateCertifiedOutcomeFullSource
-      K physical hK hbounded) : List (List Nat) :=
+      K physical hK hbounded) :
+    List (List Nat) × List (List Nat) :=
   (List.map (fun linked =>
       finiteEdgeLabellingWord
         (canonicalUsedAuxiliaryCoordinates
@@ -160,15 +161,15 @@ def cubeInwardMateCertifiedOutcomeFullSourceCode
           K physical hK hbounded linked
           (unsplitCubeInwardMateCertifiedSource
             K physical hK hbounded source.1 linked)))
-      cubeProductionIncidences.attach) ++
-    slabFusionWitnessAssignmentWords 1 source.2.1
+      cubeProductionIncidences.attach,
+    slabFusionWitnessAssignmentWords 1 source.2.1)
 
 /-- The complete written source-code family, preserving the exact enumeration
 length while avoiding equality on function-valued proof packages. -/
 def cubeInwardMateCertifiedOutcomeFullSourceCodes
     (K : Nat) (physical : EdgeLabelling)
     (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical) :
-    List (List (List Nat)) :=
+    List (List (List Nat) × List (List Nat)) :=
   (cubeInwardMateCertifiedOutcomeFullSources
     K physical hK hbounded).map
       (cubeInwardMateCertifiedOutcomeFullSourceCode
@@ -202,7 +203,8 @@ assignment at the same written rank. -/
 def globalInwardMateSourceProductionRawAt
     (K : Nat) (physical : EdgeLabelling)
     (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical)
-    (sourceCode : List (List Nat)) : SlabFusionWitnessAssignment :=
+    (sourceCode : List (List Nat) × List (List Nat)) :
+    SlabFusionWitnessAssignment :=
   equalRankReindex []
     (slabFineFusionWitnesses (globalInwardMateAnchorSlabData K) physical)
     (cubeInwardMateCertifiedOutcomeFullSourceCodes
@@ -212,7 +214,7 @@ def globalInwardMateSourceProductionRawAt
 theorem globalInwardMateSourceProductionRawAt_mem
     (K : Nat) (physical : EdgeLabelling)
     (hK : 1 ≤ K) (hbounded : SlabFaceLabellingBounded K 1 physical)
-    (sourceCode : List (List Nat))
+    (sourceCode : List (List Nat) × List (List Nat))
     (hsource : sourceCode ∈ cubeInwardMateCertifiedOutcomeFullSourceCodes
       K physical hK hbounded) :
     globalInwardMateSourceProductionRawAt
@@ -292,7 +294,7 @@ theorem GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcome_mem
 def GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcomeCode
     {K : Nat} {hK : 1 ≤ K}
     (source : GlobalCubeInwardMateCertifiedTargetFullSource K hK) :
-    List (List Nat) :=
+    List (List Nat) × List (List Nat) :=
   cubeInwardMateCertifiedOutcomeFullSourceCode
     K source.physical hK
       (cubeInwardMatePhysicalBoundedOfMem

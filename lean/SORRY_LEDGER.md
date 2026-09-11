@@ -31027,6 +31027,53 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Prove the complete production source compiler multiplicity-faithful (2026-09-11)
+
+- **milestone**: injective finite-word source serialization and equal-rank
+  production recoding
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetProductionSourceInjection.lean`
+- **proved declarations**:
+  `cubeInwardMateCertifiedOutcomeSourceWords`,
+  `cubeInwardMateCertifiedOutcomeFullSourceCode_injective`,
+  `cubeInwardMateCertifiedOutcomeFullSourceCodes_nodup`, and
+  `globalInwardMateSourceProductionRawAt_injective`
+- **closed obligation**: recover every root-first cube source witness from
+  equality of the twelve serialized natural-number rows; use the certified
+  classifier's exact inverse to recover its target-or-first-stretched branch;
+  independently reconstruct the literal off-cube production assignment from
+  its complete-link word; prove the paired complete-source code injective;
+  and combine duplicate-free source codes with duplicate-free production
+  positional lookup to make the equal-rank source compiler injective.
+- **scope boundary**: multiplicity is now preserved at every fixed physical
+  source field.  The global all-target source marginal and its exact weight
+  identity have not yet been packaged, and the constructed pair relation has
+  not been identified with the actual BF4 conditional/OS joint.  No posterior
+  variance, OS form bound, spectral gap, beta/lattice-spacing uniformity, or
+  continuum theorem is asserted.
+- **remaining named obligation**: prove global source production atoms are
+  collision-free across physical blocks, identify their total production
+  weight with the all-target source mass, and package the source marginal;
+  then locate the resulting pair carrier inside the actual conditional/OS
+  joint.
+- **constructive or propositional**: finite support reconstruction,
+  classifier left inverses, duplicate-free Cartesian enumeration, and
+  structural positional lookup only.  No `sorry`, new named hypothesis, Rust
+  result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+production source-injection focused source check          PASS
+production source-injection dependency target             PASS (1,315 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Place both all-target endpoints in the production BF4 carrier (2026-09-11)
 
 - **milestone**: literal off-diagonal same-carrier production pair relation
@@ -31067,15 +31114,13 @@ claimed by these checks.
   faces, hence is off diagonal.
 - **scope boundary**: the pair list is a constructed same-carrier transport
   relation, not the actual BF4 conditional two-copy law.  Its target marginal
-  is exactly the positive retained target submeasure.  Collision-freeness of
-  the complete source-code list and a source marginal identity have not yet
-  been proved.  No minorization, posterior variance, OS form bound, spectral
+  is exactly the positive retained target submeasure.  A source marginal
+  identity has not yet been proved.  No minorization, posterior variance, OS form bound, spectral
   gap, beta/lattice-spacing uniformity, or continuum theorem is asserted.
-- **remaining named obligation**: prove the finite source serialization is
-  injective on the complete classified carrier and hence that equal-rank
-  compilation preserves the source marginal; then locate this off-diagonal
-  relation inside the actual conditional/OS joint before deriving a
-  posterior-variance fraction.
+- **remaining named obligation**: use the now-proved injective source
+  serialization to package the global source marginal and its exact weight;
+  then locate this off-diagonal relation inside the actual conditional/OS
+  joint before deriving a posterior-variance fraction.
 - **constructive or propositional**: finite dependent Cartesian products,
   explicit natural-word serialization, structural ranks, and six-face
   parity separation only.  No `sorry`, new named hypothesis, Rust result, or
