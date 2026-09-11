@@ -286,11 +286,20 @@ the actual completed source entry is bounded by one
 and
 [`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight.lean).
 
-The next causal step is to serialize the auxiliary drops and retained face
-orders into a multiplicity-faithful inverse code, then sum the certified
-first-stretched routes into a cutoff-independent multiple of the pure mate
-product.  The older coarse mixed target/debt Cartesian carrier still does not
-itself provide a common accepted source presentation and is not used as one.
+The auxiliary drop is now serialized as well.  The lowered target retains each
+certified face order, so the finite code pays no extra order coordinate.  Its
+physical word plus link-local internal-drop words reconstruct the complete
+source `(physical, raw auxiliary)` entry exactly, and every local word has
+width at most three independently of cutoff.  See
+[`CompactDualSlabPresentedFaceStrandComponentDropCode.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDropCode.lean)
+and
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedDropCode.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedDropCode.lean).
+
+The next causal step is to sparsify this exact inverse code and bound its
+carrier per unit of physical peel mass, then sum the certified first-stretched
+routes into a cutoff-independent multiple of the pure mate product.  The older
+coarse mixed target/debt Cartesian carrier still does not itself provide a
+common accepted source presentation and is not used as one.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

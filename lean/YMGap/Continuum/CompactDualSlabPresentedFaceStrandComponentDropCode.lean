@@ -140,6 +140,24 @@ def presentedSlabSupportedSelectionAuxiliaryDropWordAt
           (selection.closed.atLink ⟨link, hlink⟩).drop := by
   simp [presentedSlabSupportedSelectionAuxiliaryDropWordAt, hlink]
 
+/-- Every displayed presented-link word has width at most three, regardless
+of the spin cutoff and of the retained physical-face order. -/
+theorem presentedSlabSupportedSelectionAuxiliaryDropWordAt_length_le_three
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabSupportedPartnerClosedFaceSelection
+      K extent physical links assignment)
+    (link : SlabLink) :
+    (presentedSlabSupportedSelectionAuxiliaryDropWordAt
+      selection link).length <= 3 := by
+  by_cases hlink : link ∈ links
+  · rw [presentedSlabSupportedSelectionAuxiliaryDropWordAt_of_mem
+      selection link hlink, List.length_map]
+    exact canonicalUsedAuxiliaryCoordinates_length_le_three
+      (assignment ⟨link, hlink⟩).order.length_le_six
+  · simp [presentedSlabSupportedSelectionAuxiliaryDropWordAt, hlink]
+
 /-- The finite code contains no face-order payload: those orders are retained
 unchanged in the lowered presented target. -/
 def presentedSlabSupportedSelectionDropCode
@@ -152,6 +170,19 @@ def presentedSlabSupportedSelectionDropCode
   physicalFaces := selection.peelFaces
   auxiliaryWords := slabAuxiliaryDropWordsFrom links
     (presentedSlabSupportedSelectionAuxiliaryDropWordAt selection)
+
+/-- The full presented auxiliary table has exactly one row per displayed
+link. -/
+theorem presentedSlabSupportedSelectionDropCode_auxiliaryWords_length
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabSupportedPartnerClosedFaceSelection
+      K extent physical links assignment) :
+    (presentedSlabSupportedSelectionDropCode
+      selection).auxiliaryWords.length = links.length := by
+  unfold presentedSlabSupportedSelectionDropCode slabAuxiliaryDropWordsFrom
+  exact List.length_map _
 
 /-- Decode a link word using the certified order retained by its target
 presentation. -/
@@ -211,6 +242,28 @@ def reconstructPresentedAuxiliaryAt
   raiseEdgeLabellingBy target.auxiliary
     (decodePresentedAuxiliaryDrop code target.order)
 
+/-- Reconstruct the raw presented source payload in the literal displayed
+link order.  Each target witness supplies its already-retained face order. -/
+def reconstructPresentedAssignmentRaw
+    (code : SlabFaceStrandComponentDropCode)
+    {K extent : Nat} {targetPhysical : SlabLabelling}
+    (links : List SlabLink)
+    (target : PresentedSlabFusionWitnessAssignment
+      K extent targetPhysical links) : SlabFusionWitnessAssignment :=
+  links.attach.map fun linked =>
+    (linked.1, reconstructPresentedAuxiliaryAt code (target linked))
+
+/-- Reconstruct both source fields consumed by the expanded-fiber weight. -/
+def reconstructPresentedEntry
+    (code : SlabFaceStrandComponentDropCode)
+    {K extent : Nat} {targetPhysical : SlabLabelling}
+    (links : List SlabLink)
+    (target : PresentedSlabFusionWitnessAssignment
+      K extent targetPhysical links) :
+    SlabLabelling × SlabFusionWitnessAssignment :=
+  (code.reconstructPhysical targetPhysical,
+    reconstructPresentedAssignmentRaw code links target)
+
 /-- Decoding the physical word against the lowered target recovers the source
 physical field. -/
 theorem presentedSlabSupportedSelectionDropCode_reconstructPhysical
@@ -249,6 +302,47 @@ theorem presentedSlabSupportedSelectionDropCode_reconstructPresentedAuxiliaryAt
     OrderedSlabLinkPartnerClosedFaceSelection.reconstructAuxiliary_lower
       (selection.closed.atLink linked)
 
+/-- **Global raw left inverse.**  The finite code and lowered presented target
+reconstruct the literal source payload at every displayed link.  No separate
+face-order code is consumed. -/
+theorem presentedSlabSupportedSelectionDropCode_reconstructPresentedAssignmentRaw
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabSupportedPartnerClosedFaceSelection
+      K extent physical links assignment) :
+    reconstructPresentedAssignmentRaw
+        (presentedSlabSupportedSelectionDropCode selection) links
+        selection.closed.loweredAssignment =
+      presentedSlabFusionWitnessAssignmentRaw links assignment := by
+  unfold reconstructPresentedAssignmentRaw
+    presentedSlabFusionWitnessAssignmentRaw
+  apply List.map_congr_left
+  intro linked hlinked
+  congr 1
+  exact
+    presentedSlabSupportedSelectionDropCode_reconstructPresentedAuxiliaryAt
+      selection linked
+
+/-- The encoded supported peel is a left inverse on the complete source entry
+used by the expanded-fiber formula. -/
+theorem presentedSlabSupportedSelectionDropCode_reconstructPresentedEntry
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabSupportedPartnerClosedFaceSelection
+      K extent physical links assignment) :
+    reconstructPresentedEntry
+        (presentedSlabSupportedSelectionDropCode selection) links
+        selection.closed.loweredAssignment =
+      (physical, presentedSlabFusionWitnessAssignmentRaw links assignment) := by
+  apply Prod.ext
+  · exact presentedSlabSupportedSelectionDropCode_reconstructPhysical
+      selection
+  · exact
+      presentedSlabSupportedSelectionDropCode_reconstructPresentedAssignmentRaw
+        selection
+
 end YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode
 
 /-! ## Axiom-dependency gates -/
@@ -260,8 +354,14 @@ end YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionDropCode
 #print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionAuxiliaryDropWordAt_length_le_three
+#print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelection_decodePresentedAuxiliaryDrop_dropCode
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionDropCode_reconstructPhysical
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionDropCode_reconstructPresentedAuxiliaryAt
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionDropCode_reconstructPresentedAssignmentRaw
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode.presentedSlabSupportedSelectionDropCode_reconstructPresentedEntry

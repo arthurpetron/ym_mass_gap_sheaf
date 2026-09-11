@@ -31181,6 +31181,54 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Reconstruct the certified source from a finite presented drop code (2026-09-11)
+
+- **milestone**: exact finite left inverse for the complete physical and raw
+  auxiliary payload of the certified first-stretched source
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDropCode.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedDropCode.lean`
+- **proved declarations**:
+  `OrderedSlabLinkPartnerClosedFaceSelection.drop_le_auxiliary`,
+  `OrderedSlabLinkPartnerClosedFaceSelection.reconstructAuxiliary_lower`,
+  `presentedSlabSupportedSelectionDropCode`,
+  `presentedSlabSupportedSelectionAuxiliaryDropWordAt_length_le_three`,
+  `presentedSlabSupportedSelectionDropCode_reconstructPhysical`,
+  `presentedSlabSupportedSelectionDropCode_reconstructPresentedAssignmentRaw`,
+  `presentedSlabSupportedSelectionDropCode_reconstructPresentedEntry`,
+  `certifiedStretchedComponentUnionDropCode_two_le_physicalFaces_length`,
+  `certifiedStretchedComponentUnionAuxiliaryDropWord_length_le_three`, and
+  `certifiedStretchedComponentUnionDropCode_reconstructPresentedEntry`
+- **closed obligation**: retain each certified face order in the accepted
+  lowered target; encode only the physical peel word and internal-coordinate
+  drops; prove every local word has cutoff-independent width at most three;
+  and reconstruct exactly the source physical field and literal raw auxiliary
+  assignment consumed by the expanded-fiber formula
+- **remaining named obligation**: erase zero auxiliary rows, charge every
+  retained row and value to physical peel mass, and inject the resulting
+  sparse codes into a cutoff-independent exponential carrier.  Then sum all
+  first-stretched routes against the pure mate product.  The physical
+  transition floor, posterior-variance/Poincare estimate, completed gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the code and decoder are executable
+  finite data.  Orders are neither erased nor enumerated; they are preserved
+  in the target witness and read by the decoder.  Exact reconstruction is a
+  kernel-checked equality.
+
+Monitored verification:
+
+```text
+generic presented drop-code explicit olean emission       PASS
+certified presented drop-code explicit olean emission     PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat or recursion-depth budget, `sorry`, Rust computation, or
+trusted external computation.  The root aggregator imports both modules.  No
+aggregate or full-root audit is claimed by these checks.
+
 #### Serialize and pay the certified stretched-root component union (2026-09-11)
 
 - **milestone**: exact physical peel word, reconstruction, and pointwise

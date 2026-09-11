@@ -193,12 +193,17 @@ face peel whose finite word reconstructs the physical source from the lowered
 target.  The two certified root faces are numerically distinct, so the word has
 length at least two.  Applying the exact anchor peel theorem bounds the actual
 completed source entry by one `anchorFaceCoefficient` per removed copy.
+The inverse side is now finite and exact too.  Because the lowered presented
+target preserves every certified face order, reconstruction needs only the
+physical peel word and one internal-drop word per link.  Every such word has
+width at most three, and the target plus this code reconstructs the complete
+source `(physical, raw auxiliary)` payload exactly.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. serialize the auxiliary drops and retained face orders into a
-   multiplicity-faithful inverse code, and sum the certified routes into a
-   cutoff-independent bound by the pure mate product;
+1. sparsify the exact inverse code, bound its carrier per unit of physical peel
+   mass, and sum the certified routes into a cutoff-independent bound by the
+   pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
