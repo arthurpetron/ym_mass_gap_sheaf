@@ -93,7 +93,17 @@ laws prove that every coordinate comes from exactly its intended source.
 
 The remaining immediate bridge is to enumerate the Cartesian product of the
 first-stretched list and this off-cube list injectively, partition the result
-by common lowered target, root, and peel size, and sum those fibers.
+by common lowered target, root, and peel size, and sum those fibers.  The
+Cartesian family itself is now explicit, duplicate-free, and has exact length
+
+```text
+first-stretched cube count * off-cube production multiplicity.
+```
+
+Every member canonically compiles to a complete presented source and its raw
+auxiliary payload.  The active edge is proving that this compiler is injective
+on the enumerated family, after which the existing fixed-target contraction
+can be applied without a hidden multiplicity factor.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

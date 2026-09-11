@@ -31072,6 +31072,45 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by this focused check.
 
+#### Enumerate the complete first-stretched source family exactly (2026-09-11)
+
+- **milestone**: exact nonredundant first-stretched/off-cube Cartesian family
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullEnumeration.lean`
+- **proved declarations**:
+  `cubeInwardMateCertifiedFirstStretchedFullSources_length`,
+  `cubeInwardMateCertifiedFirstStretchedFullSources_nodup`,
+  `mem_cubeInwardMateCertifiedFirstStretchedFullSources_iff`,
+  `CubeInwardMateCertifiedFirstStretchedFullSource.toPresented`, and
+  `CubeInwardMateCertifiedFirstStretchedFullSource.toRaw`
+- **closed obligation**: take the literal Cartesian product of the
+  duplicate-free certified first-stretched cube family and the attached
+  duplicate-free off-cube production assignments; prove its length is exactly
+  the product of the two factor cardinalities; retain membership in both
+  factors as Type-level evidence; and compile every member to the complete
+  presented and raw source interfaces used by the existing two-root peel.
+- **remaining named obligation**: prove the presented/raw compiler injective
+  on this enumerated family, then partition by common lowered target, root,
+  and peel size and sum the proved fixed-target contraction against the pure
+  mate product.  Physical transition minorization, posterior-variance/Poincare
+  control, the completed physical gap, and thermodynamic/continuum passage
+  remain open.
+- **constructive or propositional**: the complete finite family and both
+  compiler outputs are explicit Type-level data; product length,
+  duplicate-freeness, and factor membership are kernel-checked.
+
+Monitored verification:
+
+```text
+full first-stretched source enumeration focused olean     PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Enumerate the root-first cube source product exactly (2026-09-11)
 
 - **milestone**: multiplicity-faithful finite input to the certified

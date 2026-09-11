@@ -244,16 +244,21 @@ cube links, and only those production fusion fibers are enumerated.  A
 piecewise compiler uses certified root-first data at every cube link and the
 complement assignment everywhere else.  Exact lookup laws prove both sides,
 so the construction contains no cube-background coordinate that is later
-discarded.  The first-stretched/off-cube Cartesian product has not yet been
-packaged as one duplicate-free finite family, partitioned by common lowered
-target, root, and peel size, or summed over roots and sizes.
+discarded.
+
+The first-stretched/off-cube Cartesian product is now packaged as one
+duplicate-free finite family.  Its length is exactly the first-stretched cube
+count times the off-cube production multiplicity, and every member compiles
+to both the complete presented source and the raw auxiliary payload consumed
+downstream.  Injectivity of that presented/raw compiler, partitioning by
+common lowered target/root/peel size, and summation over roots and sizes remain
+open.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. enumerate the Cartesian product of the extracted certified first-stretched
-   cube-boundary list and the now-explicit off-cube production fibers,
-   prove its full presented/raw source map injective, partition it by common
-   lowered target, root, and peel size,
+1. prove the full presented/raw source map injective on the now-explicit
+   duplicate-free first-stretched/off-cube Cartesian family, partition it by
+   common lowered target, root, and peel size,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
    pure mate product;
