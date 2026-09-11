@@ -31151,6 +31151,46 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed here.
 
+#### Factor the connected cylinder through two symmetric face gradients (2026-09-10)
+
+- **milestone**: exact cancellation-preserving two-face discrete gradient
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableSymmetricGradient.lean`
+- **proved declarations**:
+  `connectedRemainderRootDoubledSymmetricGradient_abs_le_two`,
+  `connectedRemainderTargetDoubledSymmetricGradient_abs_le_two`,
+  `two_mul_connectedRemainderObservable_sub_eqv_symmetricFaceGradients`,
+  and
+  `connectedRemainderObservable_sub_eqv_zero_of_faceBits_eq`
+- **closed obligation**: rewrite the literal signed three-cylinder connected
+  observable as two symmetric Boolean gradients without applying a triangle
+  inequality to its joint and marginal cylinders; prove both doubled gradient
+  coefficients have absolute value at most `2`; and prove exact two-face
+  support.  The denominator-cleared polynomial identity is decided by the
+  existing kernel-proved reflective `Q'` normalizer.
+- **remaining named obligation**: lift the two symmetric gradient terms
+  through the existing root- and target-face component-swap cancellations,
+  bound the surviving carriers by their one-face connected envelopes, and
+  derive a strict posterior variance for the actual connected response.
+  Centered production/refresh identification, the dense/completed spectral
+  gap, and controlled thermodynamic/continuum passage remain open.
+- **constructive or propositional**: explicit Boolean indicators, rational
+  order, and a sound Type-level polynomial normalization certificate.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+connected symmetric-gradient focused source check         PASS
+connected symmetric-gradient dependency target            PASS (5,615 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.
+No aggregate or full-root audit is claimed here.
+
 #### Contract source heat and target excitation to one joint activity (2026-09-10)
 
 - **milestone**: common-rate connected joint-activity fraction

@@ -1322,6 +1322,52 @@ result with the centered production/refresh form, and prove the strict dense
 two-step form bound.  Completed OS extension and controlled thermodynamic/
 continuum passage remain downstream.
 
+#### Factor the connected cylinder through two symmetric face gradients (2026-09-10)
+
+`Z4DyadicBinaryConnectedObservableSymmetricGradient` removes the apparent
+three-observable loss at the exact pointwise level.  Writing the connected
+observable as
+
+```text
+F(a,b) = -a*b + beta*a + gamma*b,
+```
+
+the module proves the denominator-cleared identity
+
+```text
+2 * (F(a,b) - F(a',b'))
+  = (a-a') * (2*beta - b-b')
+  + (b-b') * (2*gamma - a-a').
+```
+
+The two symmetric gradient coefficients are each proved to have absolute
+value at most `2`, since the relevant physical moments and Boolean sums lie
+in `[0,2]`.  It also proves that the connected-observable difference is
+exactly zero whenever both selected face bits agree.  Thus the joint and
+marginal cylinder terms retain their vacuum cancellation and expose only two
+one-face response directions.  The polynomial identity is checked by the
+existing sound reflective `Q'` normalizer; no external computation is trusted.
+
+Monitored verification:
+
+```text
+connected symmetric-gradient focused source check         PASS
+connected symmetric-gradient dependency target            PASS (5,615 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed here.
+
+Still open: lift the two symmetric gradient terms through the existing
+root- and target-face component-swap cancellations, dominate the surviving
+connected carriers by their one-face envelopes, and obtain a strict posterior
+variance for the actual connected response.  Identification with the centered
+production/refresh form, the dense/completed spectral gap, and controlled
+thermodynamic/continuum passage remain downstream.
+
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
 `BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` proves that the specific
