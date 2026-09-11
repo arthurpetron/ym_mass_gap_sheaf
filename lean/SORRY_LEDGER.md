@@ -30496,3 +30496,34 @@ load-bearing SU(2) data with explicit coupling, cutoff, volume, and
 lattice-spacing dependence, assemble retained-sector OS positivity and the
 linked same-object cutoff tower, prove the physical completed gap, and
 construct the continuum theory and Clay closure.
+
+#### Identify the occupation terms with canonical finite laws (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimePushedOccupation`
+puts both terms of the coherent occupation envelope on already constructed
+probability laws.  The fine coherent source occupation is a literal submass
+of `normalizedSlabEventMass`.  The coarse output occupation is exactly the
+coarse-only Boolean event mass under
+`allCutoffRetainedFineIntertwinerBlockedMass`; the proof uses finite Fubini
+and the coherent/incoherent/Gibbs-null source trichotomy.  The three actual
+enriched positive-time defects are consequently bounded by named fine-Gibbs
+plus enriched-pushed event probabilities.
+
+Monitored verification:
+
+```text
+positive-time pushed occupation focused source check PASS
+positive-time pushed occupation dependency target     PASS (1577 jobs)
+```
+
+All seven printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: exploit complement invariance to express positive-event mismatch
+through zero-event occupations, prove a load-bearing SU(2) rare-event estimate
+with explicit coupling, cutoff, volume, and lattice-spacing dependence,
+assemble retained-sector OS positivity and the linked same-object cutoff
+tower, prove the physical completed gap, and construct the continuum theory
+and Clay closure.
