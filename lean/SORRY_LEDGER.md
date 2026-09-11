@@ -31124,9 +31124,9 @@ audit is claimed by these checks.
 - **file**:
   `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean`
 - **proved declarations**:
-  `exists_two_head_perm_of_mem`, `two_head_perm_rest_excludes`,
-  `incidentPhysicalSpins_twoFace_permutations`, and
-  `incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched`
+  `twoHeadPermOfMem`, `two_head_perm_rest_excludes`,
+  `incidentPhysicalSpinsTwoFacePermutations`, and
+  `incidentPhysicalSpinsTwoFaceInwardMateLeAddStretched`
 - **closed obligation**: construct a common residual incident-spin word from
   duplicate-free `incidentPlaqIds`, prove both the source and exact two-face
   mate words are permutations of their exposed two-slot presentations, and
@@ -31164,8 +31164,8 @@ claimed by these checks.
 - **proved declarations**:
   `centralLowerCubeFaceId`, `slabPlaquetteAt_one_centralLowerCubeFaceId`,
   `cubeProductionIncidence_numeric_exact`,
-  `slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations`, and
-  `slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_le_add_stretched`
+  `slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations`, and
+  `slabExplicitLinkMultiplicityCentralCubeEvenInwardMateLeAddStretched`
 - **closed obligation**: identify each geometric cube face with its
   extent-one corrected-slab ID; prove at each of the twelve recorded boundary
   links that the two named selected IDs occur, are distinct, and exclude the

@@ -65,36 +65,43 @@ theorem twoFaceEvenInwardMatePhysical_of_ne
       physical faceId := by
   simp [twoFaceEvenInwardMatePhysical, hleft, hright]
 
+/-- Constructive first-occurrence erasure.  This proof is kept local because
+the generic library permutation theorem carries a choice dependency. -/
+private theorem erase_perm_cons
+    {A : Type} [DecidableEq A] (target : A) :
+    ∀ {items : List A}, target ∈ items →
+      items.Perm (target :: items.erase target)
+  | [], hmem => False.elim (List.not_mem_nil hmem)
+  | head :: tail, hmem => by
+      by_cases heq : head = target
+      · subst head
+        rw [List.erase_cons_head]
+      · rw [List.erase_cons_tail (a := target) (b := head) (by simp [heq])]
+        have htail : target ∈ tail :=
+          (List.mem_cons.mp hmem).resolve_left (fun h => heq h.symm)
+        exact (List.Perm.cons head (erase_perm_cons target htail)).trans
+          (List.Perm.swap target head (tail.erase target))
+
 /-- Constructively move two distinct members of a list to its first two
-slots.  The residual list is an explicit witness, not a choice-extracted
-permutation representative. -/
-theorem exists_two_head_perm_of_mem
-    {A : Type} {left right : A} {items : List A}
+slots.  The residual list is computed by two first-occurrence erasures; no
+elimination from propositional membership into data is used. -/
+def twoHeadPermOfMem
+    {A : Type} [DecidableEq A]
+    {left right : A} {items : List A}
     (hleft : left ∈ items) (hright : right ∈ items)
     (hne : left ≠ right) :
-    ∃ rest : List A, items.Perm (left :: right :: rest) := by
-  obtain ⟨beforeLeft, afterLeft, hsplitLeft⟩ :=
-    List.append_of_mem hleft
-  subst items
-  have hrightRest : right ∈ beforeLeft ++ afterLeft := by
-    rcases List.mem_append.mp hright with hbefore | hafter
-    · exact List.mem_append_left _ hbefore
-    · rcases List.mem_cons.mp hafter with heq | htail
-      · exact False.elim (hne heq.symm)
-      · exact List.mem_append_right _ htail
-  obtain ⟨beforeRight, afterRight, hsplitRight⟩ :=
-    List.append_of_mem hrightRest
-  refine ⟨beforeRight ++ afterRight, ?_⟩
-  have hleftFront :
-      (beforeLeft ++ left :: afterLeft).Perm
-        (left :: beforeLeft ++ afterLeft) :=
-    List.perm_middle
-  have hrightFront :
-      (beforeLeft ++ afterLeft).Perm
-        (right :: beforeRight ++ afterRight) := by
-    rw [hsplitRight]
-    exact List.perm_middle
-  exact hleftFront.trans (List.Perm.cons left hrightFront)
+    Σ' rest : List A, items.Perm (left :: right :: rest) := by
+  let afterLeft := items.erase left
+  have hleftFront : items.Perm (left :: afterLeft) :=
+    erase_perm_cons left hleft
+  have hrightAfterLeft : right ∈ afterLeft := by
+    have hfront : right ∈ left :: afterLeft :=
+      hleftFront.mem_iff.mp hright
+    exact (List.mem_cons.mp hfront).resolve_left (fun heq => hne heq.symm)
+  let rest := afterLeft.erase right
+  have hrightFront : afterLeft.Perm (right :: rest) :=
+    erase_perm_cons right hrightAfterLeft
+  exact ⟨rest, hleftFront.trans (List.Perm.cons left hrightFront)⟩
 
 /-- Duplicate freeness turns a two-head permutation into the two exclusion
 facts needed to prove that the residual spin word is unchanged by the mate. -/
@@ -113,7 +120,7 @@ plaquette IDs incident on the same finite-box link determine one common
 residual spin word.  The source incident word exposes the two source spins;
 the exact two-face mate incident word exposes their mates and retains that
 same residual word. -/
-theorem incidentPhysicalSpins_twoFace_permutations
+def incidentPhysicalSpinsTwoFacePermutations
     (n : Nat)
     (link : YMGap.Continuum.ClusterCount4DProgress.Z4Link)
     (leftId rightId : Nat)
@@ -121,7 +128,7 @@ theorem incidentPhysicalSpins_twoFace_permutations
     (hleft : leftId ∈ incidentPlaqIds n link)
     (hright : rightId ∈ incidentPlaqIds n link)
     (hne : leftId ≠ rightId) :
-    ∃ rest : List Nat,
+    Σ' rest : List Nat,
       (incidentPhysicalSpins n link physical).Perm
         (physical leftId :: physical rightId :: rest) ∧
       (incidentPhysicalSpins n link
@@ -129,7 +136,7 @@ theorem incidentPhysicalSpins_twoFace_permutations
         (evenInwardMateLabel (physical leftId) ::
           evenInwardMateLabel (physical rightId) :: rest) := by
   obtain ⟨restIds, hids⟩ :=
-    exists_two_head_perm_of_mem hleft hright hne
+    twoHeadPermOfMem hleft hright hne
   have hexcludes := two_head_perm_rest_excludes
     (incidentPlaqIds_nodup n link) hids
   have hrestMate :
@@ -157,7 +164,7 @@ theorem incidentPhysicalSpins_twoFace_permutations
 witnesses now supply every list-ordering input required by the local inward
 mate theorem.  The output retains the one explicit stretched continuation;
 no global strand rerouting is asserted here. -/
-theorem incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched
+def incidentPhysicalSpinsTwoFaceInwardMateLeAddStretched
     (K n : Nat)
     (link : YMGap.Continuum.ClusterCount4DProgress.Z4Link)
     (leftId rightId : Nat)
@@ -167,7 +174,7 @@ theorem incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched
     (hright : rightId ∈ incidentPlaqIds n link)
     (hne : leftId ≠ rightId)
     (hbounded : SpinsBounded K (incidentPhysicalSpins n link physical)) :
-    ∃ rest : List Nat,
+    Σ' rest : List Nat,
       (incidentPhysicalSpins n link physical).Perm
         (physical leftId :: physical rightId :: rest) ∧
       (incidentPhysicalSpins n link
@@ -190,7 +197,7 @@ theorem incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched
             (externalSpinsOfList
               ((physical leftId + physical rightId) :: rest)) := by
   obtain ⟨rest, hsource, hmate⟩ :=
-    incidentPhysicalSpins_twoFace_permutations
+    incidentPhysicalSpinsTwoFacePermutations
       n link leftId rightId physical hleft hright hne
   have hlengthSource :
       (incidentPhysicalSpins n link physical).length ≤ 6 := by
@@ -216,8 +223,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder
 /-! ## Axiom-dependency gates -/
 
 #print axioms
-  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.exists_two_head_perm_of_mem
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.twoHeadPermOfMem
 #print axioms
-  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.incidentPhysicalSpins_twoFace_permutations
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.incidentPhysicalSpinsTwoFacePermutations
 #print axioms
-  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder.incidentPhysicalSpinsTwoFaceInwardMateLeAddStretched

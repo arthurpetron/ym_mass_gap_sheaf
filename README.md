@@ -75,10 +75,10 @@ This is
 `explicitValenceMultiplicity_physical_inwardMate_of_permutations` in
 [`BF4PhysicalVacuumSectorInwardMateFusionReordering.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionReordering.lean).
 The generic finite-box incidence step is now closed as well:
-`incidentPhysicalSpins_twoFace_permutations` constructively moves any two
+`incidentPhysicalSpinsTwoFacePermutations` constructively moves any two
 distinct incident plaquette IDs to the front of the source and mate words with
 one shared residual word, and
-`incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched` immediately feeds
+`incidentPhysicalSpinsTwoFaceInwardMateLeAddStretched` immediately feeds
 those witnesses into the production multiplicity inequality. See
 [`BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean).
 

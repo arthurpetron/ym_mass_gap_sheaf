@@ -125,11 +125,11 @@ theorem centralLowerCubeEvenInwardMatePhysical_off_cube
 /-- At a recorded cube-boundary link, the source incident word and the global
 six-face mate word admit the same explicit residual word after exposing the
 two incident cube spins. -/
-theorem slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations
+def slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
     (incidence : CubeProductionIncidence)
     (hincidence : incidence ∈ cubeProductionIncidences)
     (physical : EdgeLabelling) :
-    ∃ rest : List Nat,
+    Σ' rest : List Nat,
       ((slabIncidentPlaqIds 1 incidence.link).map physical).Perm
         (physical (centralLowerCubeFaceId incidence.left) ::
           physical (centralLowerCubeFaceId incidence.right) :: rest) ∧
@@ -140,7 +140,7 @@ theorem slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations
           evenInwardMateLabel
             (physical (centralLowerCubeFaceId incidence.right)) :: rest) := by
   have hgeometry := cubeProductionIncidence_numeric_exact hincidence
-  obtain ⟨restIds, hids⟩ := exists_two_head_perm_of_mem
+  obtain ⟨restIds, hids⟩ := twoHeadPermOfMem
     hgeometry.1 hgeometry.2.1 hgeometry.2.2.1
   have hexcludes := two_head_perm_rest_excludes
     (slabIncidentPlaqIds_nodup 1 incidence.link) hids
@@ -174,13 +174,13 @@ theorem slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations
 /-- **Twelve-link cube compiler.**  At every recorded cube-boundary link, the
 actual corrected-slab source multiplicity is bounded by the global six-face
 mate multiplicity plus one explicit stretched continuation. -/
-theorem slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_le_add_stretched
+def slabExplicitLinkMultiplicityCentralCubeEvenInwardMateLeAddStretched
     (K : Nat) (incidence : CubeProductionIncidence)
     (hincidence : incidence ∈ cubeProductionIncidences)
     (physical : EdgeLabelling)
     (hK : 1 ≤ K)
     (hbounded : SlabFaceLabellingBounded K 1 physical) :
-    ∃ rest : List Nat,
+    Σ' rest : List Nat,
       ((slabIncidentPlaqIds 1 incidence.link).map physical).Perm
         (physical (centralLowerCubeFaceId incidence.left) ::
           physical (centralLowerCubeFaceId incidence.right) :: rest) ∧
@@ -202,7 +202,7 @@ theorem slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_le_add_stretched
                 physical (centralLowerCubeFaceId incidence.right)) ::
                 rest)) := by
   obtain ⟨rest, hsource, hmate⟩ :=
-    slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations
+    slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
       incidence hincidence physical
   have hlength :
       (physical (centralLowerCubeFaceId incidence.left) ::
@@ -235,6 +235,6 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence.cubeProductionIncidence_numeric_exact
 #print axioms
-  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence.slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence.slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
 #print axioms
-  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence.slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_le_add_stretched
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence.slabExplicitLinkMultiplicityCentralCubeEvenInwardMateLeAddStretched
