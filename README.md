@@ -101,9 +101,13 @@ first-stretched cube count * off-cube production multiplicity.
 ```
 
 Every member canonically compiles to a complete presented source and its raw
-auxiliary payload.  The active edge is proving that this compiler is injective
-on the enumerated family, after which the existing fixed-target contraction
-can be applied without a hidden multiplicity factor.
+auxiliary payload.  That compiler is now proved injective on the enumerated
+family: equality on cube coordinates recovers the certified classifier input,
+while equality off the cube reconstructs the complement assignment.  The
+resulting physical/raw source list remains duplicate-free.  The active edge is
+now to attach each member's deterministic lowered target, root, and peel size,
+then partition this list into the fixed fibers consumed by the existing
+`(8/25)^n` contraction theorem.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

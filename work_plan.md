@@ -254,11 +254,20 @@ downstream.  Injectivity of that presented/raw compiler, partitioning by
 common lowered target/root/peel size, and summation over roots and sizes remain
 open.
 
+The full source compiler is now injective on that enumerated family.  Equality
+of raw complete assignments gives coordinatewise presented-auxiliary equality;
+the twelve cube coordinates recover the original certified classifier input,
+and the off-cube coordinates reconstruct the complete complement assignment.
+Consequently the physical/raw image has the same length and remains
+duplicate-free.  The next step is to attach deterministic peel data to every
+member and partition the resulting list by its common lowered presented target,
+root, and peel size.
+
 The next load-bearing analytic producers are, in causal order:
 
-1. prove the full presented/raw source map injective on the now-explicit
-   duplicate-free first-stretched/off-cube Cartesian family, partition it by
-   common lowered target, root, and peel size,
+1. attach the existing deterministic two-root peel/inverse data to every
+   member of the duplicate-free full-source family, partition it by common
+   lowered target, root, and peel size,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
    pure mate product;

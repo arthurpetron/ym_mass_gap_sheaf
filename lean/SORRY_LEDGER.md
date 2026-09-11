@@ -31111,6 +31111,47 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by this focused check.
 
+#### Prove complete-source raw injectivity (2026-09-11)
+
+- **milestone**: lossless no-overcount full-source compiler
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullInjectivity.lean`
+- **proved declarations**:
+  `presentedSlabFusionWitnessAssignmentRaw_auxiliary_eq_of_eq`,
+  `CubeInwardMateCertifiedFirstStretchedFullSource.toPresented_at_cube`,
+  `CubeInwardMateCertifiedFirstStretchedFullSource.toPresented_at_not_cube`,
+  `CubeInwardMateCertifiedFirstStretchedFullSource.toRaw_injOn`,
+  `cubeInwardMateCertifiedFirstStretchedRawSourcePairs_length`, and
+  `cubeInwardMateCertifiedFirstStretchedRawSourcePairs_nodup`
+- **closed obligation**: prove that equality of raw complete assignments gives
+  equality of every presented auxiliary coordinate; use the cube-coordinate
+  laws and first-stretched enumeration membership to recover the original
+  certified classifier input; use the complement-coordinate laws and the
+  existing assignment-from-lookups reconstruction theorem to recover the full
+  off-cube production assignment; and conclude that the physical/raw image of
+  the complete source family remains duplicate-free.
+- **remaining named obligation**: attach the deterministic two-root peel and
+  flat inverse data to every complete source, partition by common lowered
+  presented target/root/peel size, and sum the proved fixed-target contraction
+  against the pure mate product.  Physical transition minorization,
+  posterior-variance/Poincare control, the completed physical gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: recovery uses only finite map lookup,
+  certified local decoders, and exact Cartesian-assignment reconstruction;
+  no representative choice or discarded coordinate is introduced.
+
+Monitored verification:
+
+```text
+complete-source raw injectivity focused olean emission    PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Enumerate the root-first cube source product exactly (2026-09-11)
 
 - **milestone**: multiplicity-faithful finite input to the certified
