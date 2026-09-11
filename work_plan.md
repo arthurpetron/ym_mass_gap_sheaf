@@ -332,11 +332,15 @@ The next load-bearing producers are, in causal order:
    since the middle parity is also Boolean, exactly one path edge flips it.
    Lean therefore proves the lossless identity that the total selected traffic
    equals its two parity-gradient edge energies and in particular that their
-   sum is at least `41/425`.  The active sub-edge is to embed those two
-   collision-grouped energies into the complete physical OS Dirichlet form.
-   This will give a real one-observable coercivity estimate; additional
-   statewise demand coverage is still required for the all-vector
-   posterior/Poincare compiler;
+   sum is at least `41/425`.  The first collision-grouped energy is now
+   embedded in the complete physical OS Dirichlet form: each exact first-edge
+   fiber has one constant parity gradient, its aggregate traffic is bounded
+   by that edge's capacity, and the distinct realized edge representatives
+   inject into the full Cartesian half-state square.  The active sub-edge is
+   the analogous second-edge embedding with its explicit
+   `globalInwardMateTransportCost` factor.  Combining both sides will give a
+   real one-observable coercivity estimate; additional statewise demand
+   coverage is still required for the all-vector posterior/Poincare compiler;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -401,7 +405,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- aggregate first OS-edge traffic without collisions . [PROVED]
 |   |   |   +-- aggregate second OS-edge traffic + exact partition . [PROVED]
 |   |   |   +-- selected central-face parity demand >= `41/425` ..... [PROVED]
-|   |   |   +-- selected parity energy -> full OS Dirichlet form .... [ACTIVE]
+|   |   |   +-- selected first parity energy -> full OS Dirichlet ... [PROVED]
+|   |   |   +-- selected second parity energy -> cost * Dirichlet ... [ACTIVE]
 |   |   |   +-- selected demand -> all-vector variance identity ..... [OPEN]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route

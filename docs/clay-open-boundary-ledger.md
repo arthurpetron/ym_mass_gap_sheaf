@@ -59,17 +59,23 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   one edge inject into its literal boundary--intertwiner summands, giving load
   at most `globalInwardMateTransportCost` times the actual normalized OS joint
   capacity.
-- **OPEN next edge:** determine and prove the exact variance demand controlled
-  by this complete selected-flow partition.  One concrete answer is now
-  proved by
+- **PROVED one-observable demand and first-edge Dirichlet embedding:** one
+  concrete demand is proved by
   `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand`: the parity
   of central lower face zero changes between every source and target, and its
   Boolean value changes on exactly one of the two path edges.  Hence the two
   selected parity-gradient energies sum exactly to the selected traffic and
-  are at least `41/425`.  Embedding those selected energies into the full OS
-  Dirichlet form is the next edge.  This positive one-observable demand does
-  not by itself imply an all-vector variance bound, finite-volume spectral gap,
-  continuum limit, or Clay theorem.
+  are at least `41/425`.
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFirstEdgeEnergy`
+  partitions the first energy by literal OS edge, applies the proved aggregate
+  capacity bound, and injects distinct realized edges into the complete
+  Cartesian half-state square.  Thus the selected first-edge parity energy is
+  bounded by the full physical OS Dirichlet form, without a cardinality loss.
+- **OPEN next edge:** prove the analogous second-edge energy embedding with
+  the explicit `globalInwardMateTransportCost` factor, then combine it with
+  the lossless parity-demand identity.  This positive one-observable estimate
+  does not by itself imply an all-vector variance bound, finite-volume spectral
+  gap, continuum limit, or Clay theorem.
 
 ---
 

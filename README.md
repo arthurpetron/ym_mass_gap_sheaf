@@ -72,9 +72,14 @@ central lower face zero is reversed by every selected inward mate, and because
 the intermediate parity is also Boolean, exactly one of the two path edges
 changes it.  Lean proves without a triangle-inequality loss that the two
 selected parity-gradient energies sum to the selected traffic and are
-therefore at least `41/425`.  The active step is to embed these grouped edge
-energies into the full OS Dirichlet form; extending one observable to every
-vacuum-complement vector remains a separate open step.
+therefore at least `41/425`.  The complete first-edge energy is now embedded
+in the full physical OS Dirichlet form: exact first-edge fibers make the
+parity gradient constant, their aggregate traffic is bounded by the matching
+OS capacity, and distinct realized edges inject into the Cartesian half-state
+square.  The active step is the analogous second-edge embedding, including
+its explicit `globalInwardMateTransportCost` factor.  Extending this one
+observable estimate to every vacuum-complement vector remains a separate
+open step.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -82,6 +87,8 @@ The two-level second-edge partition is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSSecondEdgeLoad.lean).
 The exact Boolean observable identity is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityDemand.lean).
+The checked first-edge Dirichlet embedding is in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFirstEdgeEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFirstEdgeEnergy.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
