@@ -31027,6 +31027,51 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Complete cube sources from only the off-cube production fibers (2026-09-11)
+
+- **milestone**: no-overcount full presented source completion
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceOffCubeCompletion.lean`
+- **proved declarations**:
+  `mem_cubeInwardMateOffCubeSlabLinks_iff`,
+  `cubeProductionIncidenceForLink?_eq_none_iff`,
+  `cubeInwardMateOffCubeFusionWitnessAssignments_length`,
+  `cubeInwardMateOffCubeFusionWitnessAssignments_nodup`,
+  `completePresentedSlabSourceOfCertifiedCubeAndOffAssignment`,
+  `completePresentedSlabSourceOfCertifiedCubeAndOffAssignment_at_cube`,
+  `completePresentedSlabSourceOfCertifiedCubeAndOffAssignment_at_not_cube`,
+  and `completePresentedSlabSourceOfFirstStretchedAndOffAssignment`
+- **closed obligation**: filter the complete extent-one slab links to the
+  literal complement of the twelve cube-boundary links; prove that the
+  computable incidence lookup returns `none` exactly on that complement;
+  enumerate only the surviving production fusion fibers with exact length
+  and duplicate-freeness; and compile certified cube data plus an accepted
+  off-cube assignment into one complete presented source whose cube and
+  off-cube lookup laws are exact.  Unlike the older full-background override,
+  this domain carries no discarded cube-coordinate choice.
+- **remaining named obligation**: enumerate the Cartesian product of the
+  duplicate-free first-stretched cube list and duplicate-free off-cube list;
+  prove the resulting full presented/raw source map injective; partition by
+  lowered target, root, and peel size; and sum the fixed-fiber contraction
+  against the pure mate product.  Physical transition minorization,
+  posterior-variance/Poincare control, the completed physical gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: all link complements, assignments, and
+  completed presentations are executable Type-level data; Boolean filtering,
+  finite Cartesian enumeration, and exact lookup proofs are kernel-checked.
+
+Monitored verification:
+
+```text
+off-cube no-overcount completion focused olean emission   PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Enumerate the root-first cube source product exactly (2026-09-11)
 
 - **milestone**: multiplicity-faithful finite input to the certified

@@ -236,15 +236,23 @@ certified target-or-first-stretched classifier preserves its exact cardinality
 The two outcome branches are now extracted constructively into separate
 duplicate-free target and first-stretched lists.  Their lengths add exactly
 to the production cube-boundary source multiplicity.  This is still a
-cube-boundary enumeration plus a fixed-fiber theorem: the first-stretched
-list has not yet been joined to the off-cube production fibers without
-overcounting, partitioned by common lowered target, root, and peel size, or
-summed over roots and sizes.
+cube-boundary enumeration plus a fixed-fiber theorem.
+
+The no-overcount off-cube completion is now explicit as well.  The complete
+extent-one slab-link list is filtered to the literal complement of the twelve
+cube links, and only those production fusion fibers are enumerated.  A
+piecewise compiler uses certified root-first data at every cube link and the
+complement assignment everywhere else.  Exact lookup laws prove both sides,
+so the construction contains no cube-background coordinate that is later
+discarded.  The first-stretched/off-cube Cartesian product has not yet been
+packaged as one duplicate-free finite family, partitioned by common lowered
+target, root, and peel size, or summed over roots and sizes.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. join the extracted certified first-stretched cube-boundary list to the
-   off-cube production fibers without overcounting, partition it by common
+1. enumerate the Cartesian product of the extracted certified first-stretched
+   cube-boundary list and the now-explicit off-cube production fibers,
+   prove its full presented/raw source map injective, partition it by common
    lowered target, root, and peel size,
    apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
    resulting roots and positive sizes into a cutoff-independent bound by the
