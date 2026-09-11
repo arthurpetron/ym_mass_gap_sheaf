@@ -79,9 +79,17 @@ OS capacity, and distinct realized edges inject into the Cartesian half-state
 square.  The second-edge energy is now embedded as well.  Its exact
 production-target and OS-edge partitions contribute no loss; only the already
 proved `globalInwardMateTransportCost` congestion factor remains.  The active
-step is to combine both embeddings with the `41/425` demand floor into one
-explicit observable coercivity bound.  Extending that estimate to every
-vacuum-complement vector remains a separate open step.
+contraction is now complete: the explicit cutoff-independent positive floor
+
+```text
+(41/425) / (1 + globalInwardMateTransportCost)
+```
+
+is bounded by the full physical OS Dirichlet energy of central-face parity at
+every cutoff `K >= 1`.  The active step is to center this same observable and
+convert the floor through the exact Dirichlet/transfer identity into a strict
+one-observable form bound.  Extending that estimate to every vacuum-complement
+vector remains a separate open step.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -93,6 +101,8 @@ The checked first-edge Dirichlet embedding is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFirstEdgeEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFirstEdgeEnergy.lean).
 The checked two-level second-edge embedding is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParitySecondEdgeEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParitySecondEdgeEnergy.lean).
+The resulting explicit positive Dirichlet floor is in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCoercivity.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCoercivity.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

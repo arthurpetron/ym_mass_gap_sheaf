@@ -78,9 +78,15 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   estimate and injects distinct realized second edges into the Cartesian
   half-state square.  Thus the selected second-edge energy is bounded by
   `globalInwardMateTransportCost` times the full physical OS Dirichlet form.
-- **OPEN next edge:** combine both edge embeddings with the lossless
-  `41/425` parity-demand identity into an explicit one-observable coercivity
-  bound.  That result still would not imply an all-vector variance bound,
+- **PROVED explicit one-observable Dirichlet floor:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCoercivity`
+  combines both edge embeddings with the lossless `41/425` demand identity.
+  At every cutoff `K >= 1`, the full physical OS Dirichlet energy of
+  central-face parity is at least the explicit positive rational
+  `(41/425) / (1 + globalInwardMateTransportCost)`.
+- **OPEN next edge:** center the same parity observable and contract the floor
+  through the exact Dirichlet/transfer identity into a strict one-observable
+  form bound.  That still will not imply an all-vector variance bound,
   finite-volume spectral gap, continuum limit, or Clay theorem.
 
 ---

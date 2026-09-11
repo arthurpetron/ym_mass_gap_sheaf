@@ -340,10 +340,14 @@ The next load-bearing producers are, in causal order:
    energy is now embedded too: production-target equality preserves the
    physical target endpoint, both target-class and edge-class partitions are
    exact, and the only loss is the already proved
-   `globalInwardMateTransportCost` congestion factor.  The active sub-edge is
-   to combine both sides with the `41/425` demand floor into one real
-   observable coercivity estimate; additional statewise demand coverage is
-   still required for the all-vector posterior/Poincare compiler;
+   `globalInwardMateTransportCost` congestion factor.  Combining both sides
+   with the `41/425` demand floor now proves that the full physical OS
+   Dirichlet energy of central-face parity is at least the explicit positive
+   cutoff-independent rational
+   `(41/425) / (1 + globalInwardMateTransportCost)`.  The active sub-edge is
+   to center that same observable and use the exact Dirichlet/transfer identity
+   to obtain a strict one-observable form bound; additional statewise demand
+   coverage is still required for the all-vector posterior/Poincare compiler;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -410,7 +414,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- selected central-face parity demand >= `41/425` ..... [PROVED]
 |   |   |   +-- selected first parity energy -> full OS Dirichlet ... [PROVED]
 |   |   |   +-- selected second parity energy -> cost * Dirichlet ... [PROVED]
-|   |   |   +-- combine demand + both energies -> coercivity ......... [ACTIVE]
+|   |   |   +-- combine demand + both energies -> coercivity ......... [PROVED]
+|   |   |   +-- center parity + strict one-observable form bound ..... [ACTIVE]
 |   |   |   +-- selected demand -> all-vector variance identity ..... [OPEN]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
