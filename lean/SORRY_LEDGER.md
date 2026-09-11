@@ -30683,3 +30683,51 @@ form statement, extend the anchor estimate along the physical beta/spacing
 trajectory with explicit parameters, build the linked same-object cutoff
 tower, prove the completed physical gap, and construct the continuum theory
 and Clay closure.
+
+#### Compile the packet bound into the actual positive-time defects (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeDyadicSupport` now
+exposes monotonicity of the normalized positive-coherent source average.
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeSelectedFaceDyadicIncidence`
+then packages the two exact incidence witnesses needed by the enriched
+positive-time geometry: the selected fine root lies in the dyadic packet of
+the coarse root, and its reflected fine face lies in the packet of the
+reflected coarse face.
+
+The module proves a general causal-support compiler.  If a fine Boolean event
+implies occupation of one dyadic packet and a coarse Boolean event implies
+positivity of that packet's coarse face, then the exact coherent raw mismatch
+average is bounded by the genuine normalized fine-law packet probability.
+This applies to the actual root and reflected face events.  It also applies to
+the actual lower/reflected joint event using only the root packet, so no
+eight-face union bound and no extra constant are introduced.
+
+At fine cutoff one and the named SU(2) anchor, all three actual enriched
+positive-time defect averages are therefore at most
+
+```text
+256/425 < 1,
+```
+
+provided by the explicit `DyadicEnrichedLowerFaceGeometry` incidence bundle.
+This is a finite-volume, anchor-coupling statement.  It is not a completed OS
+form contraction and is not beta-, lattice-spacing-, or continuum-uniform.
+
+Monitored verification:
+
+```text
+positive-coherent monotonicity dependency target       PASS (5592 jobs)
+selected-face dyadic-incidence focused source check    PASS
+```
+
+Every printed new load-bearing declaration uses only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+
+Still open: construct the canonical reflected incidence bundle from the
+coordinate geometry, pass the strict three-defect estimates through an exact
+retained-sector OS form statement, extend the anchor estimate along the
+physical beta/spacing trajectory with explicit parameters, build the linked
+same-object cutoff tower, prove the completed physical gap, and construct the
+continuum theory and Clay closure.

@@ -351,7 +351,10 @@ theorem coherentDyadicFaceRawMismatchRatio_le_packetIndicator
       (dyadicFinePacketPositiveB S coarseFaceId)
       (slabPhysicalFacePositiveB coarseFaceId)
 
-private theorem positiveCoherentWeightedDefectAux_mono_local
+/-- A rowwise upper bound passes through the normalized positive-coherent
+source sum.  This generic monotonicity compiler is exposed for later
+same-object event refinements. -/
+theorem positiveCoherentWeightedDefectAux_mono
     (S : SlabScalePair)
     (value bound :
       (source : SlabPhysicalSourceEntry S.fine) →
@@ -374,16 +377,31 @@ private theorem positiveCoherentWeightedDefectAux_mono_local
               (S.fine.normalizedMass source.1)
               (hrow source hpartition)
               (S.fine.normalizedMass_nonnegative source.1))
-            (positiveCoherentWeightedDefectAux_mono_local
+            (positiveCoherentWeightedDefectAux_mono
               S value bound hrow tail)
         · simp only [positiveCoherentWeightedDefectAux,
             dif_pos hpositive, dif_neg hpartition]
-          exact positiveCoherentWeightedDefectAux_mono_local
+          exact positiveCoherentWeightedDefectAux_mono
             S value bound hrow tail
       · simp only [positiveCoherentWeightedDefectAux,
           dif_neg hpositive]
-        exact positiveCoherentWeightedDefectAux_mono_local
+        exact positiveCoherentWeightedDefectAux_mono
           S value bound hrow tail
+
+/-- Public wrapper for monotonicity of the complete positive-coherent
+source average. -/
+theorem positiveCoherentWeightedDefect_mono
+    (S : SlabScalePair)
+    (value bound :
+      (source : SlabPhysicalSourceEntry S.fine) →
+        (0 : Q') < wholeSlabRawRowPartition S source.1 → Q')
+    (hrow : ∀ source hpartition,
+      value source hpartition ≤ bound source hpartition) :
+    positiveCoherentWeightedDefect S value ≤
+      positiveCoherentWeightedDefect S bound := by
+  unfold positiveCoherentWeightedDefect
+  exact positiveCoherentWeightedDefectAux_mono
+    S value bound hrow (slabPhysicalSourceEntries S.fine)
 
 /-- The normalized coherent raw mismatch average for a causally matched
 dyadic packet/coarse face is bounded by the coherent packet-source mass. -/
@@ -399,7 +417,7 @@ theorem coherentDyadicFaceRawMismatchAverage_le_packetSourceMass
         (dyadicFinePacketPositiveB S coarseFaceId) := by
   unfold coherentEventRawMismatchAverage coherentFineEventSourceMass
     positiveCoherentWeightedDefect
-  apply positiveCoherentWeightedDefectAux_mono_local
+  apply positiveCoherentWeightedDefectAux_mono
   intro source hpartition
   exact coherentDyadicFaceRawMismatchRatio_le_packetIndicator
     S hfineCutoff source hpartition coarseFaceId hcoarseFaceId
@@ -429,6 +447,7 @@ theorem coherentDyadicFaceRawMismatchAverage_le_normalizedPacketMass
 #print axioms wholeSlabRecouplingRawWeight_eqv_zero_of_emptyPacket_positiveTarget
 #print axioms coherentConditionalKernel_eqv_zero_of_emptyPacket_positiveTarget
 #print axioms coherentCoarseFacePositiveMoment_eqv_zero_of_emptyPacket
+#print axioms positiveCoherentWeightedDefect_mono
 #print axioms coherentDyadicFaceRawMismatchRatio_le_packetIndicator
 #print axioms coherentDyadicFaceRawMismatchAverage_le_packetSourceMass
 #print axioms coherentDyadicFaceRawMismatchAverage_le_normalizedPacketMass
