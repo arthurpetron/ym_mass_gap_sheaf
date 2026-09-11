@@ -30877,3 +30877,42 @@ reflection positivity, a norm-relative same-object form contraction, an
 all-vector/dense vacuum-complement gap, beta/cutoff/volume/spacing-uniform
 control, the linked cutoff tower, and the thermodynamic, continuum, and
 Clay-facing constructions.
+
+#### Contract cutoff-four SU(2) face excitations to one explicit activity (2026-09-10)
+
+- **milestone**: current positive-row analytic producer (`work_plan.md`,
+  cutoff-four parity-excitation activity)
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinarySourceParityExcitationTiltBound.lean`
+- **proved declarations**:
+  `spinFourLoweringMultiplicity_le_twoPow_mul_parityGround`,
+  `spinFourLoweringMultiplicity_mul_targetDimension_le_fivePow_mul_ground`,
+  `eight_mul_spinFourParityExcitationMassOn_le_casimirExcessOn`,
+  `spinFourLoweringFaceCoefficientProductOn_le_fivePow_mul_ground`,
+  `spinFourLoweringFaceCoefficientProductOn_mul_excitationHeat_le_ground_mul_activity`,
+  and
+  `positivePhysicalSourceLoweringFaceCoefficient_mul_excitationHeat_le_ground_mul_activity`
+- **closed obligation**: the complete cutoff-four lowering face coefficient,
+  including exact fusion-path multiplicity and the SU(2) representation
+  dimension, is bounded relative to its source-parity ground by the explicit
+  activity `(5*w^8)^K`, using the proved Casimir excess `8K`.
+- **remaining named obligation**: compare the target shared-link multiplicity
+  product with the parity-ground shared-link multiplicity product using only
+  links touched by excited faces; this is required before the face theorem
+  bounds a complete physical Gibbs summand or posterior fraction.
+- **constructive or propositional**: constructive finite arithmetic and
+  explicit rational rate; no `sorry` or new named hypothesis was introduced.
+
+Monitored verification:
+
+```text
+parity-excitation face-activity focused source check    PASS
+aggregate YMGap target                                  SAFE-STOPPED at 3249/7984
+                                                        (12 GiB memory reserve)
+```
+
+All printed declarations remain within
+`[propext, Quot.sound]`; there is no `Classical`, `native_decide`, custom
+axiom, noncomputable declaration, enlarged heartbeat budget, Rust
+computation, or trusted external computation.  The interrupted aggregate run
+is not claimed as a pass or full-root audit.

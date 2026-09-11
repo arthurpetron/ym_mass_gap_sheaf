@@ -189,7 +189,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- parity pushforward = minimal lowering target with positive ground mass ..... [PROVED exact]
 |   |   |   |   +-- split every tilted row into ground plus relative excitations ............... [PROVED exact]
 |   |   |   |   +-- every excitation has a facewise positive two-spin level .................... [PROVED exact]
-|   |   |   |   +-- compare excitation activities with the certified ground term ............... [ACTIVE analytic producer]
+|   |   |   |   +-- compare excitation activities with the certified ground term ............... [PARTIAL]
+|   |   |   |   |   +-- exact fusion tilt <= 2^K times parity ground ............................. [PROVED at fine cutoff 1]
+|   |   |   |   |   +-- fusion tilt * SU(2) dimension <= 5^K times parity ground ................ [PROVED at fine cutoff 1]
+|   |   |   |   |   +-- Casimir excess >= 8K contracts the full face factor to `(5*w^8)^K` ...... [PROVED]
+|   |   |   |   |   `-- compare target/ground shared-link multiplicities on touched links ....... [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -857,6 +861,59 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
     +-- compact-simple-group extension ......................... [OPEN]
     `-- guarded frontier/Clay target inhabitant ................ [OPEN]
 ```
+
+#### Contract cutoff-four SU(2) face excitations to one explicit activity (2026-09-10)
+
+`Z4DyadicBinarySourceParityExcitationTiltBound` replaces the opaque
+target-excitation estimate by a direct five-by-five SU(2) calculation.  For a
+cutoff-one fine packet, every supported coarse target spin is in `0..4` and is
+its source-parity ground plus `K` two-spin raises.  The exact lowering table
+gives two separate bounds:
+
+```text
+lowering multiplicity <= 2^K * parity-ground multiplicity,
+
+lowering multiplicity * (target spin + 1)
+  <= 5^K * (parity-ground multiplicity * parity-ground dimension).
+```
+
+The second line includes the physical SU(2) representation dimension; its
+largest local rational ratio is `9/2`, so the integral base `5` is sufficient.
+The already-proved SU(2) Casimir excess pays at least `8K`.  For every
+explicit heat parameter `0 <= w <= 1`, finite-product multiplication and
+power antitonicity therefore contract the complete face carrier to
+
+```text
+full lowering face coefficient * w^(total Casimir excess)
+  <= parity-ground face coefficient * (5*w^8)^K.
+```
+
+This theorem is source-relative and volume-free, and it applies directly to
+every target in the actual positive physical source's lowering row.  It does
+not compare the target and ground shared-link multiplicity products.  That
+touched-link comparison is now the next analytic producer; only after it is
+proved can this face estimate become a bound on the complete physical Gibbs
+summand or a posterior/conditional transition fraction.
+
+Monitored verification:
+
+```text
+parity-excitation face-activity focused source check    PASS
+aggregate YMGap target                                  SAFE-STOPPED at 3249/7984
+                                                        (12 GiB memory reserve)
+```
+
+Every printed load-bearing
+declaration uses only `[propext, Quot.sound]` (or `[propext]`/no axioms where
+stronger).  No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+other trusted external computation is introduced.  The interrupted aggregate
+run is not claimed as a pass or full-root audit.
+
+Still open: the touched-link multiplicity ratio, the summed ground-relative
+row activity, a conditional/posterior contraction, dense and completed OS
+gap, beta/cutoff/volume/spacing-uniform control, the linked same-object tower,
+thermodynamic and continuum construction, and the Clay-facing theorem.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
