@@ -86,11 +86,16 @@ Those two positive faces now produce distinct literal slot-zero
 At the SU(2) stretched trivalent vertex, the canonical port mate is also
 explicit: right input slots map to the initial summed-leg segment and left
 input slots to the disjoint shifted segment, with no input-to-input strands.
+The active cube specialization now joins these facts: both geometric root
+copies enter those input ports, their mates are distinct summed-channel ports,
+and the stored root auxiliary is accepted on the exact collapsed word headed
+by their spin sum.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. unfold the stored collapsed stretched auxiliary at its two literal root
-   strand copies into an accepted source trivalent network, construct its SU(2)-specific closed-
+1. transplant the stored collapsed auxiliary coordinates behind the inserted
+   stretched root vertex to obtain an accepted source trivalent network,
+   construct its SU(2)-specific closed-
    component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward

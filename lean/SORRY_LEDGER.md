@@ -31525,6 +31525,41 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Join the active cube root to its stretched SU(2) continuation (2026-09-11)
+
+- **milestone**: same-object geometric-root to collapsed-network bridge
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandContinuation.lean`
+- **proved declarations**: `rootLeftInputPort`, `rootRightInputPort`,
+  `rootLeftSummedPort`, `rootRightSummedPort`,
+  `rootLeftInputPort_mate`, `rootRightInputPort_mate`,
+  `rootSummedPorts_ne`, `rootAuxiliary_mem_stretchedFusionWitnesses`,
+  `rootAuxiliary_mem_collapsedSpins`, and `rootCollapsedSpins_eq`
+- **closed obligation**: specialize the canonical stretched port maps to the
+  two literal positive cube-root copies; prove their continuations are
+  distinct; remove the active positivity gate from the stored auxiliary; and
+  identify its accepted external word with the root spin sum followed by the
+  certified residual word
+- **remaining named obligation**: transplant the collapsed auxiliary's
+  internal coordinates behind the inserted stretched vertex, prove the
+  resulting source auxiliary accepted, and then enter the complete global
+  strand component
+- **constructive or propositional**: the ports, mates, and stored auxiliary
+  are all same-carrier Type-level data; propositions certify their accepted
+  fibers and exact equations
+
+Monitored verification:
+
+```text
+active-root strand-continuation explicit olean emission    PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

@@ -137,9 +137,14 @@ For the stretched SU(2) vertex itself, the canonical resolution is now exact:
 no strand joins the two input legs, while their strands occupy two disjoint
 segments of the summed internal leg.  See
 [`SU2StretchedTrivalentStrandContinuation.lean`](lean/YMGap/Continuum/SU2StretchedTrivalentStrandContinuation.lean).
+The cube-root specialization now sends both literal face copies through those
+canonical mates to distinct summed-channel ports and certifies the stored
+auxiliary on the exact collapsed word; see
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandContinuation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootStrandContinuation.lean).
 
-The next causal step is now a single precise theorem: unfold the root's
-collapsed stretched witness to an accepted source trivalent network, then reroute the
+The next causal step is now a single precise theorem: transplant the collapsed
+root auxiliary coordinates behind the inserted stretched vertex to obtain an
+accepted source trivalent network, then reroute the
 resulting complete strand component and bound the carrier sum
 by a cutoff-independent multiple of the pure mate product.  That would compare
 the complete fixed-boundary intertwiner contraction. A genuine physical
