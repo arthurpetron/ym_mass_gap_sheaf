@@ -25,10 +25,13 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetCarrier
 open YMGap.Continuum.FiniteBistochasticCarrierBalance
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
+open YMGap.Continuum.Z4HalfTimeReflectionPartition
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -38,17 +41,24 @@ def cubeInwardMateFixedOrderTargetBlockEntryWeight
     (coupling : Q') (K : Nat) (target : EdgeLabelling) : Q' :=
   slabParametricKPhysicalFaceFactor coupling K 1 target * 1
 
+/-- The exact total weight of the fixed-order tuple fiber above one physical
+target. -/
+def cubeInwardMateFixedOrderTargetBlockWeight
+    (coupling : Q') (K : Nat) (target : EdgeLabelling) : Q' :=
+  listQSum
+    (Function.const (CubeInwardMateFixedOrderTargetTuple K target)
+      (cubeInwardMateFixedOrderTargetBlockEntryWeight coupling K target))
+    (cubeInwardMateFixedOrderTargetTuples K target)
+
 /-- **Exact target-block normalization.**  The complete fixed-order tuple
 carrier over one bounded target has exactly its genuine BF4 physical term. -/
 theorem cubeInwardMateFixedOrderTargetTuples_weight_total
     (coupling : Q') (K : Nat) (target : EdgeLabelling)
     (hbounded : SlabFaceLabellingBounded K 1 target) :
-    listQSum
-        (Function.const (CubeInwardMateFixedOrderTargetTuple K target)
-          (cubeInwardMateFixedOrderTargetBlockEntryWeight coupling K target))
-        (cubeInwardMateFixedOrderTargetTuples K target) ≈
+    cubeInwardMateFixedOrderTargetBlockWeight coupling K target ≈
       slabParametricKPhysicalTerm coupling K 1 target := by
-  unfold cubeInwardMateFixedOrderTargetBlockEntryWeight
+  unfold cubeInwardMateFixedOrderTargetBlockWeight
+    cubeInwardMateFixedOrderTargetBlockEntryWeight
   let factor := slabParametricKPhysicalFaceFactor coupling K 1 target
   let tuples := cubeInwardMateFixedOrderTargetTuples K target
   refine Q'.eqv_trans _ (factor * listQSum (fun _ => (1 : Q')) tuples)
@@ -61,7 +71,39 @@ theorem cubeInwardMateFixedOrderTargetTuples_weight_total
     rw [cubeInwardMateFixedOrderTargetTuples_length K target hbounded]
     exact Q'.eqv_refl _
 
+private theorem listQSum_congr_mem_local
+    {A : Type} {left right : A → Q'} :
+    ∀ items : List A,
+      (∀ item, item ∈ items → left item ≈ right item) →
+      listQSum left items ≈ listQSum right items
+  | [], _ => Q'.eqv_refl 0
+  | head :: tail, hagree =>
+      Q'.add_eqv_congr'
+        (hagree head List.mem_cons_self)
+        (listQSum_congr_mem_local tail
+          (fun item hitem =>
+            hagree item (List.mem_cons_of_mem head hitem)))
+
+/-- **Whole physical target normalization.**  Summing all fixed-order target
+blocks gives exactly the complete extent-one BF4 physical partition. -/
+theorem cubeInwardMateFixedOrderPhysicalTargets_weight_total
+    (coupling : Q') (K : Nat) :
+    listQSum
+        (cubeInwardMateFixedOrderTargetBlockWeight coupling K)
+        (boundedEdgeLabellings K (slabPhysicalFaceEdges 1)) ≈
+      slabParametricKPhysicalPartition coupling K 1 := by
+  unfold slabParametricKPhysicalPartition
+  apply listQSum_congr_mem_local
+  intro target htarget
+  apply cubeInwardMateFixedOrderTargetTuples_weight_total
+  intro faceId hface
+  exact Nat.lt_succ_iff.mp
+    ((boundedEdgeLabellings_sound K (slabPhysicalFaceEdges 1)
+      target htarget).1 faceId hface)
+
 #print axioms cubeInwardMateFixedOrderTargetBlockEntryWeight
+#print axioms cubeInwardMateFixedOrderTargetBlockWeight
 #print axioms cubeInwardMateFixedOrderTargetTuples_weight_total
+#print axioms cubeInwardMateFixedOrderPhysicalTargets_weight_total
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetWeight
