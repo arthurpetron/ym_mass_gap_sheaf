@@ -31421,6 +31421,47 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by this focused check.
 
+#### Close complete-source SU(2) target congestion at `384/425` (2026-09-11)
+
+- **milestone**: witness-bearing strict finite physical-partition contraction
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetCongestion.lean`
+- **proved declarations**:
+  `cubeInwardMateFullPeelTargetBlocksStrictRateWeight_eqv_nested`,
+  `cubeInwardMateFullPeelRepresentativesStrictRateWeight_le_partition`,
+  `cubeInwardMateFullSources_weight_sum_le_physicalPartition`, and
+  `cubeInwardMateFullPeelPhysicalContractionCertificate`
+- **closed obligation**: prove exact finite Cartesian Fubini between the flat
+  duplicate-free coarse-key block carrier and the nested physical-target,
+  root, and size sum; transport the nested `384/425` bound back to the exact
+  realized-representative total; compose with the complete-source target-fiber
+  contraction; and return a Type-level certificate carrying rate `384/425`,
+  its nonnegativity, its strict inequality below one, and the complete-source
+  physical-partition bound.
+- **remaining named obligation**: identify the certified complete
+  first-stretched source mass with the relevant failure/event mass of a
+  concrete normalized physical transition, so the exact slack `41/425`
+  becomes a conditional transition lower bound; then derive an explicit
+  posterior-variance/Poincare fraction on the same physical object.  The
+  completed physical gap, thermodynamic/continuum passage, continuum QFT
+  axioms, isolated vacuum, and Clay theorem remain open.
+- **constructive or propositional**: the strict rate is stored as data and all
+  equalities are finite exact-rational Fubini or previously checked physical
+  carrier identities.  No continuum, beta-uniform, or operator-gap claim is
+  made by this finite anchor certificate.
+
+Monitored verification:
+
+```text
+flat/nested reconciliation and complete contraction olean  PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target
