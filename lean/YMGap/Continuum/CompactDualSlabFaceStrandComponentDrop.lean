@@ -122,6 +122,20 @@ private theorem boolCountFrom_pos_of_true
       omega
 
 /-- Selecting one actual face copy makes the globally lowered label at that
+face's selected-copy count strictly positive. -/
+theorem slabFaceStrandSelectionCount_pos_of_selected
+    {physical : SlabLabelling}
+    (selected : SlabFaceStrandCopy physical → Bool)
+    (copy : SlabFaceStrandCopy physical)
+    (hselected : selected copy = true) :
+    0 < slabFaceStrandSelectionCount selected copy.faceId := by
+  apply boolCountFrom_pos_of_true
+    (slabFaceStrandSelectionAt selected copy.faceId)
+    0 (physical copy.faceId) copy.slot.val copy.slot.isLt
+  rw [Nat.zero_add, slabFaceStrandSelectionAt_fin]
+  exact hselected
+
+/-- Selecting one actual face copy makes the globally lowered label at that
 face strictly smaller. -/
 theorem lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
     {physical : SlabLabelling}
@@ -130,12 +144,8 @@ theorem lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
     (hselected : selected copy = true) :
     lowerSlabPhysicalByFaceStrandSelection selected copy.faceId <
       physical copy.faceId := by
-  have hdrop : 0 < slabFaceStrandSelectionCount selected copy.faceId := by
-    apply boolCountFrom_pos_of_true
-      (slabFaceStrandSelectionAt selected copy.faceId)
-      0 (physical copy.faceId) copy.slot.val copy.slot.isLt
-    rw [Nat.zero_add, slabFaceStrandSelectionAt_fin]
-    exact hselected
+  have hdrop := slabFaceStrandSelectionCount_pos_of_selected
+    selected copy hselected
   have hpositive : 0 < physical copy.faceId := by
     exact Nat.zero_lt_of_lt copy.slot.isLt
   unfold lowerSlabPhysicalByFaceStrandSelection lowerEdgeLabellingBy
@@ -509,6 +519,7 @@ theorem SlabFusionWitnessFaceStrandSeed.lower_auxiliary_mem_atLink
 #print axioms slabFaceStrandSelectionCount
 #print axioms slabFaceStrandSelectionCount_le
 #print axioms lowerSlabPhysicalByFaceStrandSelection
+#print axioms slabFaceStrandSelectionCount_pos_of_selected
 #print axioms lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
 #print axioms canonicalPhysicalHalfEdgeAt
 #print axioms canonicalPhysicalHalfEdgeAt_edgeId
