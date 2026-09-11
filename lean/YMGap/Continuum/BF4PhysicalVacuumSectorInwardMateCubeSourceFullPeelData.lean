@@ -27,6 +27,9 @@ namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullPeelDat
 set_option autoImplicit false
 
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveEntropyCode
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPhysicalMultiplicityCode
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation
@@ -35,6 +38,8 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullInjectivity
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceOffCubeCompletion
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalDebtProfile
 open YMGap.Continuum.CayleyPruferInjection
+open YMGap.Continuum.ClusterCount4DProgress
+open YMGap.Continuum.CompactDualSlabFaceStrandComponentDrop
 open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight
 open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode
@@ -132,6 +137,59 @@ theorem completePresentedSlabSourceOfCertifiedCube_on_fullSource_raw
 
 /-! ## 2. Attach the deterministic peel without normalizing its large record -/
 
+/-- Compile one already-complete source directly into the flat inverse
+interface.  Unlike the older defensive compiler, the `sourceRaw` field is the
+retained no-overcount raw source itself; reconstruction composes the generic
+presented-selection theorem with the raw-idempotence theorem above. -/
+def completeFullSourceAdaptiveInverseData
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (source : CubeInwardMateCertifiedFirstStretchedFullSource
+      K physical hK hbounded)
+    (raw : SlabFusionWitnessAssignment)
+    (hraw : raw = source.toRaw) : PresentedAdaptiveInverseData K 1 where
+  rootFaceId := (certifiedStretchedComponentUnionShapePhysicalData
+    source.1 source.toPresented).rootFaceId
+  peelSize := (certifiedStretchedComponentUnionShapePhysicalData
+    source.1 source.toPresented).budget
+  shapeCode := certifiedStretchedComponentUnionConnectedShapeCode
+    source.1 source.toPresented
+  physicalMultiplicityCode :=
+    certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode
+      source.1 source.toPresented
+  auxiliaryRows := certifiedStretchedComponentUnionAdaptiveAuxiliaryRows
+    source.1 source.toPresented
+  sourcePhysical := physical
+  lowerPhysical := CertifiedStretchedComponentUnionLowerPhysical
+    source.1 source.toPresented
+  lowerAssignment := certifiedStretchedComponentUnionLoweredAssignment
+    source.1 source.toPresented
+  sourceRaw := raw
+  physicalDrop := slabFaceStrandSelectionCount
+    (certifiedStretchedComponentUnionSupportedSelection
+      source.1 source.toPresented).closed.selected
+  peelCount := fun faceId =>
+    (certifiedStretchedComponentUnionSupportedSelection
+      source.1 source.toPresented).peelFaces.count faceId
+  physicalDrop_decode :=
+    certifiedStretchedComponentUnionPhysicalDropDecode
+      source.1 source.toPresented
+  peelCount_eq_physicalDrop :=
+    (certifiedStretchedComponentUnionSupportedSelection
+      source.1 source.toPresented).peelFaces_count
+  code_mem_carrier :=
+    certifiedStretchedComponentUnionAdaptiveEntropyCode_mem_carrier
+      source.1 source.toPresented
+  reconstructPhysical :=
+    certifiedStretchedComponentUnion_reconstructPhysical
+      source.1 source.toPresented
+  reconstructRaw :=
+    (presentedSelectionAdaptiveAuxiliaryRows_reconstructRaw
+      (certifiedStretchedComponentUnionSupportedSelection
+        source.1 source.toPresented)).trans
+      ((completePresentedSlabSourceOfCertifiedCube_on_fullSource_raw
+        source).trans hraw.symm)
+
 /-- One literal member of the nonredundant full-source family.  Its adaptive
 inverse data are defined as a projection below, so the finite enumeration
 retains the source itself as the injective key. -/
@@ -142,6 +200,8 @@ structure EnumeratedCubeInwardMateFullSource
     K physical hK hbounded
   source_mem : source ∈ cubeInwardMateCertifiedFirstStretchedFullSources
     K physical hK hbounded
+  raw : SlabFusionWitnessAssignment
+  raw_eq : raw = source.toRaw
 
 /-- Run the already-proved deterministic two-root peel on the retained source
 and its own complete presented assignment. -/
@@ -150,8 +210,20 @@ def EnumeratedCubeInwardMateFullSource.adaptiveInverseData
     {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
     (entry : EnumeratedCubeInwardMateFullSource
       K physical hK hbounded) : PresentedAdaptiveInverseData K 1 :=
-  certifiedStretchedComponentUnionAdaptiveInverseData
-    entry.source.1 entry.source.toPresented
+  completeFullSourceAdaptiveInverseData
+    entry.source entry.raw entry.raw_eq
+
+@[simp] theorem EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourcePhysical
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
+    entry.adaptiveInverseData.sourcePhysical = physical := rfl
+
+@[simp] theorem EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourceRaw
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
+    entry.adaptiveInverseData.sourceRaw = entry.raw := rfl
 
 /-- Both distinct stretched root faces occur in the deterministic peel, so
 every attached flat record has positive size, in fact size at least two. -/
@@ -162,6 +234,7 @@ theorem EnumeratedCubeInwardMateFullSource.two_le_adaptiveInverseData_peelSize
       K physical hK hbounded) :
     2 ≤ entry.adaptiveInverseData.peelSize := by
   unfold EnumeratedCubeInwardMateFullSource.adaptiveInverseData
+    completeFullSourceAdaptiveInverseData
   exact certifiedStretchedComponentUnion_two_le_peelFaces_length
     entry.source.1 entry.source.toPresented
 
@@ -177,7 +250,9 @@ def enumeratedCubeInwardMateFullSources
   (cubeInwardMateCertifiedFirstStretchedFullSources
     K physical hK hbounded).attach.map fun source =>
       { source := source.1
-        source_mem := source.2 }
+        source_mem := source.2
+        raw := source.1.toRaw
+        raw_eq := rfl }
 
 theorem enumeratedCubeInwardMateFullSources_length
     (K : Nat) (physical : EdgeLabelling)
@@ -207,7 +282,10 @@ theorem enumeratedCubeInwardMateFullSources_nodup
 
 #print axioms completePresentedSlabSourceOfCertifiedCube_on_fullSource_auxiliary
 #print axioms completePresentedSlabSourceOfCertifiedCube_on_fullSource_raw
+#print axioms completeFullSourceAdaptiveInverseData
 #print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData
+#print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourcePhysical
+#print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourceRaw
 #print axioms EnumeratedCubeInwardMateFullSource.two_le_adaptiveInverseData_peelSize
 #print axioms enumeratedCubeInwardMateFullSources_length
 #print axioms enumeratedCubeInwardMateFullSources_nodup

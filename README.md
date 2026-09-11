@@ -117,8 +117,13 @@ partition key is now proved: it records the root, size, lowered physical word,
 every local face-order word, and every local lowered-auxiliary word.  Equal
 keys reconstruct literal equality of the lowered physical function and
 heterogeneous equality of the dependent presented assignment.  The live edge
-is therefore the realized representative fibers and their
-`PresentedAdaptiveRemovalWitness` compiler.
+was therefore the realized representative fibers and their
+`PresentedAdaptiveRemovalWitness` compiler.  That compiler is now checked as
+well: each realized fiber is duplicate-free, has size at most
+`10240000^n`, and its complete anchor weight is at most `(8/25)^n` times
+the representative's lowered-target weight.  The live edge is the exact
+representative-fiber Fubini sum followed by contraction of the resulting
+distinct lowered-target weights against the pure mate product.
 The theorem does **not** yet give a physical transfer minorization, a
 posterior-variance fraction, an OS transfer gap, or a continuum result.
 

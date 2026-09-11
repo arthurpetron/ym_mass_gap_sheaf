@@ -31197,6 +31197,63 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Contract every realized complete-source target fiber (2026-09-11)
+
+- **milestone**: exact dependent removal witnesses and strict weight bound on
+  every realized complete-source fiber
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullPeelData.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetFiber.lean`
+- **proved declarations**:
+  `completeFullSourceAdaptiveInverseData`,
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourcePhysical`,
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourceRaw`,
+  `EnumeratedCubeInwardMateFullSource.adaptiveInverseData_source_eq`,
+  `EnumeratedCubeInwardMateFullSource.rawSource`,
+  `EnumeratedCubeInwardMateFullSource.eq_of_rawSource_eq`,
+  `cubeInwardMateFullPeelTargetRepresentatives`,
+  `cubeInwardMateFullPeelTargetFiber`,
+  `cubeInwardMateFullPeelTargetRawSources_nodup`,
+  `enumeratedCubeInwardMateFullSourceRemovalWitness`,
+  `enumeratedCubeInwardMateFullSourceAnchorRemovalWitness`,
+  `cubeInwardMateFullPeelTargetFiber_nodup`,
+  `cubeInwardMateFullPeelTargetFiber_length_le`, and
+  `cubeInwardMateFullPeelTargetFiber_weight_sum_le`
+- **closed obligation**: retain the already-proved complete raw source behind
+  a shallow field and compile its reconstruction directly into the flat
+  inverse record without increasing recursion limits; select one actual
+  representative of every realized exact target key; filter the attached
+  source family into literal target/root/size fibers; reconstruct each
+  member's dependent removal witness over the representative target; prove
+  adaptive-code injectivity and the `10240000^peelSize` cardinality bound; and
+  combine this with pointwise anchor payment to prove
+  `fiber weight <= (8/25)^peelSize * target weight`.
+- **remaining named obligation**: apply the exact representative-fiber Fubini
+  identity and bound the sum of distinct lowered presented targets across
+  roots and positive peel sizes by the pure mate product.  Then combine with
+  the six-face heat payment to obtain a genuine physical transition floor.
+  Posterior-variance/Poincare control, the completed physical gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: realized representatives and filters are
+  explicit finite lists; the raw field carries its defining equality; all
+  dependent target transports use proved equality/`HEq`; no large-record
+  normalization or increased resource limit is trusted.
+
+Monitored verification:
+
+```text
+complete-source direct flat inverse data focused olean     PASS
+complete-source exact target key dependency re-emission    PASS
+realized fixed-target fiber contraction focused olean      PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Reconstruct exact lowered targets from a decidable key (2026-09-11)
 
 - **milestone**: lossless finite key for the dependent fixed-target partition

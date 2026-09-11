@@ -274,16 +274,20 @@ is the next open edge.  Their exact decidable key is now available: equal
 root/size/physical/order/auxiliary words reconstruct the complete lowered
 physical function and the dependent presented target.  The next compiler can
 therefore select actual realized-key representatives and filter their exact
-fixed fibers without deciding equality of function-valued data.
+fixed fibers without deciding equality of function-valued data.  This
+realized-fiber compiler is now complete: it retains a shallow explicit raw
+field, constructs the fixed-target removal witnesses, proves the exact
+adaptive-code cardinality ceiling, and applies the checked `(8/25)^n`
+contraction to every representative fiber.  Exact Fubini across the
+representatives and contraction of their distinct lowered-target sum against
+the pure mate product are next.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. use the proved lossless target key to partition the now-attached
-   deterministic two-root peel/inverse data by common lowered target, root,
-   and peel size and compile the corresponding fixed-fiber removal witnesses,
-   apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
-   resulting roots and positive sizes into a cutoff-independent bound by the
-   pure mate product;
+1. use the proved representative fibers and their
+   `(8/25)^peelSize` bounds in the exact finite Fubini identity, then sum the
+   resulting distinct lowered targets, roots, and positive sizes into a
+   cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
