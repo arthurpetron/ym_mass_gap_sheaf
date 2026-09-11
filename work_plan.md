@@ -1371,6 +1371,54 @@ variance and identify that variance with the centered production/refresh
 form.  The dense/completed gap and controlled thermodynamic/continuum passage
 remain downstream.
 
+#### Normalize the actual connected-observable response (2026-09-11)
+
+`Z4DyadicBinaryConnectedObservableResponseOscillation` divides the exact
+two-row cross by the two proved-positive tilted-Gibbs row masses.  The
+connected remainder is first reduced to the four values
+
+```text
+0, beta, gamma, beta + gamma - 1,
+```
+
+where `beta` and `gamma` lie in `[0,1]`; every pairwise difference therefore
+has absolute value at most one.  A generic finite weighted-diameter lemma then
+proves the sharp normalized estimate
+
+```text
+abs(connectedResponse(first) - connectedResponse(second)) <= 1.
+```
+
+The lossless two-row envelope also gives the more structural bound
+
+```text
+abs(connectedResponse(first) - connectedResponse(second))
+  <= rootConnectedEnvelopeFraction + targetConnectedEnvelopeFraction.
+```
+
+All finite slab, cutoff-one, coarse-coupling, source, kernel, and observable
+arguments remain explicit; no opaque uniform constant is introduced.
+
+Monitored verification:
+
+```text
+connected-response oscillation focused source check       PASS
+connected-response oscillation dependency target          PASS (5,620 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or no axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed here.
+
+Still open: average this actual connected-response bound over the fine
+source-pair law, identify the exact half-pairwise square with its centered
+posterior variance, and combine the two face-envelope fractions with the
+strict SU(2)-specific anchor input.  Then identify that variance with the
+centered production/refresh form.  The dense/completed gap and controlled
+thermodynamic/continuum passage remain downstream.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableGradientEnvelope` proves that a localized

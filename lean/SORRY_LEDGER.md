@@ -31197,6 +31197,46 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, or trusted external computation.  No
 aggregate or full-root audit is claimed here.
 
+#### Normalize the actual connected-observable response (2026-09-11)
+
+- **milestone**: sharp normalized actual connected-response oscillation
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableResponseOscillation.lean`
+- **proved declarations**:
+  `connectedBinaryValue_pairDifference_abs_le_one`,
+  `connectedRemainderObservable_pairDifference_abs_le_one`,
+  `positivePhysicalTiltedGibbsConnectedResponseDifference_mul_masses_eqv_rawCross`,
+  `positivePhysicalTiltedGibbsConnectedRawCross_abs_le_rowMassProduct`,
+  `positivePhysicalTiltedGibbsConnectedResponseDifference_abs_le_one`, and
+  `positivePhysicalTiltedGibbsConnectedResponseDifference_abs_le_envelopeFractions`
+- **closed obligation**: prove directly that the four possible values of the
+  actual connected remainder have diameter one; divide the exact two-row
+  cross by the two explicit positive row masses; preserve the lossless
+  root-plus-target connected-envelope estimate; and obtain both the sharp
+  unit oscillation and the explicit envelope-fraction domination.
+- **remaining named obligation**: form the fine-source weighted pairwise
+  square for this actual connected response, identify its half-normalization
+  with centered posterior variance, and use the two one-face SU(2)-specific
+  envelope bounds to obtain a strict rate before connecting the result to the
+  centered production/refresh form.  The dense/completed gap and controlled
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: Boolean case analysis, finite rational
+  sums, exact positive-denominator cancellation, and previously proved
+  SU(2)-specific connected envelopes.  No `sorry`, new named hypothesis,
+  Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected-response oscillation focused source check       PASS
+connected-response oscillation dependency target          PASS (5,620 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or no axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.  No
+aggregate or full-root audit is claimed here.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric
