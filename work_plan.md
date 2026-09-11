@@ -173,13 +173,16 @@ accepted in that coordinate's literal source order.  Its dependent product
 therefore reconstructs a common presented cube source after classification.
 The strengthened first-stretched output retains this certified family and
 identifies its returned root with the actual stored debt constructor.
+Given an explicit accepted complete-slab background for the same source
+physical field, the certified cube family now extends to a complete presented
+assignment.  A computable lookup in the duplicate-free twelve-incidence table
+overwrites exactly the cube links and retains the background everywhere else;
+each cube lookup is proved to return its intended dependent incidence.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. adapt each certified first-stretched root to the existing exact
-   two-root component peel; extend each presented cube source with accepted
-   off-cube entries to a complete slab background; serialize the resulting
-   drop into a
+1. adapt each certified first-stretched root and its complete presented source
+   to the existing exact two-root component peel; serialize the resulting drop into a
    multiplicity-faithful peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain

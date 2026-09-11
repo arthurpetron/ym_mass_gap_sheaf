@@ -31181,6 +31181,47 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Complete a certified cube source with explicit off-cube data (2026-09-11)
+
+- **milestone**: common complete presented slab source for the classified cube
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation.lean`
+- **proved declarations**:
+  `cubeProductionIncidence_eq_of_link_eq`,
+  `cubeProductionIncidenceForLink?_eq_some`,
+  `cubeProductionIncidence_link_mem_boundaryCompleteSlabLinks`,
+  `completePresentedSlabSourceOfCertifiedCube`, and
+  `completePresentedSlabSourceOfCertifiedCube_at_cube`
+- **closed obligation**: compute the unique recorded cube incidence associated
+  with a slab link; prove uniqueness from duplicate-freeness of the mapped
+  twelve-link list; prove every recorded cube link lies in the complete
+  extent-one slab link list; use the lookup to replace exactly the twelve cube
+  entries of an explicit accepted full-slab background by the certified
+  root-first source witnesses; and prove every cube entry of the resulting
+  assignment is exactly the intended dependent presentation
+- **remaining named obligation**: feed the certified first-stretched root and
+  completed presentation to the exact two-root component peel, then construct
+  an injective peel history with exact weight payment.  The background remains
+  an explicit input; no arbitrary bounded physical labelling is claimed to
+  have a nonempty global intertwiner fiber.  The cutoff-independent pure-mate
+  comparison, physical transition floor, posterior-variance/Poincare estimate,
+  completed gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: incidence lookup and the completed
+  assignment are executable Type-level data; uniqueness, slab membership, and
+  exact replacement are proof certificates
+
+Monitored verification:
+
+```text
+complete certified cube source presentation explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Retain source acceptance through the classified cube product (2026-09-11)
 
 - **milestone**: certified source-image classification and rooted global split

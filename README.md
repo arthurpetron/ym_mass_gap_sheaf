@@ -253,9 +253,15 @@ entire certified product and proves that its root output is exactly the stored
 debt witness.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification.lean).
 
-The next causal step is to adapt that certified root to the exact two-root
-component peel, extend the cube family with accepted off-cube
-witnesses into one complete slab presentation, and serialize the resulting
+The certified cube family now extends to a complete slab presentation whenever
+an explicit accepted full-slab background for the same physical field is
+supplied.  A constructive finite lookup finds the unique recorded incidence
+of each cube link, overwrites exactly those twelve entries with the certified
+source witnesses, and leaves all off-cube entries unchanged.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation.lean).
+
+The next causal step is to adapt the certified positive root and this complete
+source presentation to the exact two-root component peel, then serialize the resulting
 drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must
