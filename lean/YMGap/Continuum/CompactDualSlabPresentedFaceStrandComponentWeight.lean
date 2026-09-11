@@ -235,6 +235,53 @@ theorem PresentedSlabSupportedPartnerClosedFaceSelection.peelFaces_count
     exact (selection.selectionCount_eq_zero_of_not_physical
       faceId hface).symm
 
+private theorem two_le_length_of_two_distinct_members
+    {A : Type} [DecidableEq A] (items : List A) (left right : A)
+    (hleft : left ∈ items) (hright : right ∈ items) (hne : left ≠ right) :
+    2 <= items.length := by
+  cases items with
+  | nil => cases hleft
+  | cons head tail =>
+      cases tail with
+      | nil =>
+          simp only [List.mem_cons, List.not_mem_nil, or_false] at hleft hright
+          exact False.elim (hne (hleft.trans hright.symm))
+      | cons next rest =>
+          simp only [List.length_cons]
+          omega
+
+/-- Two selected copies on distinct physical faces force at least two letters
+in the exact serialized peel word. -/
+theorem PresentedSlabSupportedPartnerClosedFaceSelection.two_le_peelFaces_length_of_selected_faceId_ne
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabSupportedPartnerClosedFaceSelection
+      K extent physical links assignment)
+    (left right : SlabFaceStrandCopy physical)
+    (hleft : selection.closed.selected left = true)
+    (hright : selection.closed.selected right = true)
+    (hne : left.faceId ≠ right.faceId) :
+    2 <= selection.peelFaces.length := by
+  have hleftPos := slabFaceStrandSelectionCount_pos_of_selected
+    selection.closed.selected left hleft
+  have hrightPos := slabFaceStrandSelectionCount_pos_of_selected
+    selection.closed.selected right hright
+  have hleftMem : left.faceId ∈ selection.peelFaces := by
+    by_cases hmem : left.faceId ∈ selection.peelFaces
+    · exact hmem
+    · have hzero := List.count_eq_zero.mpr hmem
+      rw [selection.peelFaces_count left.faceId] at hzero
+      omega
+  have hrightMem : right.faceId ∈ selection.peelFaces := by
+    by_cases hmem : right.faceId ∈ selection.peelFaces
+    · exact hmem
+    · have hzero := List.count_eq_zero.mpr hmem
+      rw [selection.peelFaces_count right.faceId] at hzero
+      omega
+  exact two_le_length_of_two_distinct_members
+    selection.peelFaces left.faceId right.faceId hleftMem hrightMem hne
+
 theorem PresentedSlabSupportedPartnerClosedFaceSelection.lowerSlabFacesByList_peelFaces
     {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
     {assignment : PresentedSlabFusionWitnessAssignment
@@ -362,6 +409,8 @@ end YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight.PresentedSlabSupportedPartnerClosedFaceSelection.ofSeedUnion
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight.PresentedSlabSupportedPartnerClosedFaceSelection.peelFaces_count
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight.PresentedSlabSupportedPartnerClosedFaceSelection.two_le_peelFaces_length_of_selected_faceId_ne
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight.PresentedSlabSupportedPartnerClosedFaceSelection.peelPath
 #print axioms

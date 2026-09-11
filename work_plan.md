@@ -187,12 +187,18 @@ either equality or disjointness.  A reusable global partner-closed-selection
 compiler pulls this union back to every independently presented link and
 produces one common lowered physical field with a complete accepted presented
 assignment.  Slot-zero membership proves strict descent at both root faces.
+Every endpoint in that heterogeneous graph is now proved physically supported.
+The union's exact selected-copy multiplicities serialize as a legal repeated
+face peel whose finite word reconstructs the physical source from the lowered
+target.  The two certified root faces are numerically distinct, so the word has
+length at least two.  Applying the exact anchor peel theorem bounds the actual
+completed source entry by one `anchorFaceCoefficient` per removed copy.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. serialize the certified-root accepted drop into a multiplicity-faithful
-   peel and weight certificate; and sum the resulting
-   routes into a cutoff-independent bound by the pure mate product;
+1. serialize the auxiliary drops and retained face orders into a
+   multiplicity-faithful inverse code, and sum the certified routes into a
+   cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

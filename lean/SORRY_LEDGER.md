@@ -31181,6 +31181,58 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Serialize and pay the certified stretched-root component union (2026-09-11)
+
+- **milestone**: exact physical peel word, reconstruction, and pointwise
+  expanded-fiber anchor payment for the certified first-stretched branch
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentDrop.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentWeight.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight.lean`
+- **proved declarations**:
+  `slabFaceStrandSelectionCount_pos_of_selected`,
+  `PresentedSlabFusionWitnessFaceStrandSeed.component_faceId_physical`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.ofSeedUnion`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.peelFaces_count`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.two_le_peelFaces_length_of_selected_faceId_ne`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.peelPath`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.reconstructPhysical`,
+  `PresentedSlabSupportedPartnerClosedFaceSelection.expandedFiberWeight_le`,
+  `certifiedStretchedComponentUnion_two_le_peelFaces_length`,
+  `certifiedStretchedComponentUnion_reconstructPhysical`, and
+  `certifiedStretchedComponentUnion_expandedFiberWeight_le`
+- **closed obligation**: prove physical support for every endpoint of an
+  independently presented global graph; serialize the exact selected-copy
+  profile into a legal repeated-face peel; recover the source physical field
+  from the lowered target and word; prove the certified word contains at
+  least its two distinct root faces; and apply the actual expanded-fiber
+  anchor payment to the completed certified source entry
+- **remaining named obligation**: serialize the auxiliary drops and retained
+  face orders into a multiplicity-faithful inverse code, then bound the sum of
+  all certified first-stretched source routes by a cutoff-independent multiple
+  of the pure mate product.  The physical transition floor,
+  Poincare/posterior-variance estimate, completed gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: physical support, the closed selection,
+  peel word, legal path, lowered accepted assignment, and reconstructed source
+  are explicit data or kernel-checked equalities.  No production-order
+  membership is claimed for the raw presented payload merely by forgetting
+  its heterogeneous face orders.
+
+Monitored verification:
+
+```text
+generic presented component serialization explicit olean emission PASS
+certified stretched-root pointwise weight explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat or recursion-depth budget, `sorry`, Rust computation, or
+trusted external computation.  The root aggregator imports both modules.  No
+aggregate or full-root audit is claimed by these checks.
+
 #### Peel the two certified stretched-root components (2026-09-11)
 
 - **milestone**: direct accepted component peel from the actual source branch

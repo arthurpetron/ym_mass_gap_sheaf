@@ -275,12 +275,22 @@ assignment.  Both root-face labels decrease strictly; no connectivity claim
 between the two roots is assumed.  See
 [`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.lean).
 
-The next causal step is to serialize this accepted drop into a
-multiplicity-faithful peel/weight certificate.  The older coarse mixed
-target/debt Cartesian carrier still does not itself provide that source
-background and is not used as one.  The resulting source-partition sum must
-ultimately be bounded by a cutoff-independent multiple of the pure mate
-product.
+That accepted drop now has an exact physical serialization and pointwise
+weight payment.  Every endpoint of the heterogeneous presented graph is
+proved to lie on a displayed physical face; the selected-copy multiplicities
+form a legal repeated-face peel with an exact physical left inverse; and the
+certified two-root word has length at least two.  At the production anchor,
+the actual completed source entry is bounded by one
+`anchorFaceCoefficient` factor for every word letter.  See
+[`CompactDualSlabPresentedFaceStrandComponentWeight.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentWeight.lean)
+and
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight.lean).
+
+The next causal step is to serialize the auxiliary drops and retained face
+orders into a multiplicity-faithful inverse code, then sum the certified
+first-stretched routes into a cutoff-independent multiple of the pure mate
+product.  The older coarse mixed target/debt Cartesian carrier still does not
+itself provide a common accepted source presentation and is not used as one.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree
