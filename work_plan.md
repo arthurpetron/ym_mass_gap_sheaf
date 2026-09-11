@@ -50,25 +50,24 @@ source multiplicity <= mate multiplicity + stretched-continuation multiplicity.
 That local inequality now transports across arbitrary physical incident-spin
 orderings.  Given two distinct incident plaquette IDs, Lean constructively
 produces a common residual word and both source/mate `List.Perm` witnesses,
-then feeds them through the production multiplicity compiler.  The remaining
-ordering obligation is now cube-specific: identify the two selected face IDs
-incident at each cube-boundary link and exclude the other four selected faces.
+then feeds them through the production multiplicity compiler.  The
+cube-specific instantiation is also proved: on each of the twelve recorded
+boundary links, the two named face IDs occur and exhaust the selected
+six-face support, so the global mate gives the corrected-slab multiplicity
+bound with exactly one explicit stretched continuation.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. prove the cube-boundary incidence classification (two selected face IDs
-   present at each boundary link, the other four absent) and instantiate the
-   proved incident-order compiler;
-2. lift the resulting exact one-link stretched-continuation debts to an
+1. lift the resulting exact one-link stretched-continuation debts to an
    SU(2)-specific global strand rerouting that compares the complete
    fixed-boundary intertwiner contraction of a state with its inward mate;
-3. combine that comparison with the proved six-face heat payment to obtain
+2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
-4. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
+3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
    conditional-variance estimate, so those local transitions control the
    full vacuum-sector variance without paying the obstructed root-resistance
    load or the false tail trace;
-5. contract the resulting cutoff-uniform finite gap through the existing
+4. contract the resulting cutoff-uniform finite gap through the existing
    same-object dense/completed machinery.
 
 Rust may generate exact orbit, contraction, or rerouting certificates for

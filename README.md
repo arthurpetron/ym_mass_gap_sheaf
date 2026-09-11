@@ -82,13 +82,19 @@ one shared residual word, and
 those witnesses into the production multiplicity inequality. See
 [`BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean).
 
-The next causal step is cube-specific geometry: identify the two selected face
-IDs incident on each cube-boundary link and prove that the other four selected
-cube faces are absent there. Then reroute precisely the resulting
-stretched-channel strand components to compare the complete fixed-boundary
-intertwiner contraction. A genuine physical mate-transition floor would then
-feed a rooted-subtree Hardy--Poincare or posterior conditional-variance
-estimate.
+The cube-specific geometry is now closed too.  The twelve-entry production
+table is compiled into exact corrected-slab numerical incidence: at every
+cube-boundary link the two recorded selected face IDs occur, are distinct, and
+exhaust the selected six-face support.  Thus the global six-face mate restricts
+to the proved local two-face mate, yielding the actual corrected-slab
+multiplicity bound with one explicit stretched continuation.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean).
+
+The next causal step is now genuinely global: reroute precisely those twelve
+stretched-channel continuations through complete strand components and compare
+the complete fixed-boundary intertwiner contraction. A genuine physical
+mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
+posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

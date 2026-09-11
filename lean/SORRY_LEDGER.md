@@ -31155,6 +31155,45 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Instantiate the inward mate on all twelve cube-boundary links (2026-09-11)
+
+- **milestone**: exact corrected-slab numerical incidence and local
+  multiplicity comparison for the global six-face even inward mate
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean`
+- **proved declarations**:
+  `centralLowerCubeFaceId`, `slabPlaquetteAt_one_centralLowerCubeFaceId`,
+  `cubeProductionIncidence_numeric_exact`,
+  `slabIncidentPhysicalSpins_centralCubeEvenInwardMate_permutations`, and
+  `slabExplicitLinkMultiplicity_centralCubeEvenInwardMate_le_add_stretched`
+- **closed obligation**: identify each geometric cube face with its
+  extent-one corrected-slab ID; prove at each of the twelve recorded boundary
+  links that the two named selected IDs occur, are distinct, and exclude the
+  other four cube IDs; restrict the global six-face mate to that local pair;
+  and instantiate the arbitrary-order production multiplicity compiler
+- **remaining named obligation**: reroute the twelve explicit stretched
+  continuations on complete strand components to compare the complete
+  fixed-boundary intertwiner contraction; combine that result with the heat
+  payment to obtain the transition floor; then prove posterior variance or
+  Hardy/Poincare, the completed gap, thermodynamic and continuum passage,
+  continuum QFT axioms, isolated vacuum, and the Clay theorem
+- **constructive or propositional**: the twelve finite incidence cases are
+  reduced by kernel evaluation with `decide`; all permutation residuals remain
+  explicit, and no external certificate is trusted
+
+Monitored verification:
+
+```text
+inward-mate cube-incidence focused source check             PASS
+inward-mate cube-incidence explicit olean emission          PASS
+```
+
+The three printed load-bearing exports use only `[propext, Quot.sound]`.
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, `sorry`, Rust computation, or trusted
+external computation.  The root aggregator imports the module.  No aggregate
+or full-root audit is claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual
