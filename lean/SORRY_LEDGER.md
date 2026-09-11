@@ -31027,6 +31027,46 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Contract exact all-physical lowered-target fibers (2026-09-11)
+
+- **milestone**: global fixed-target adaptive contraction
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetFiber.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelTargetRepresentatives`,
+  `globalCubeInwardMateFullPeelTargetRawSources_nodup`,
+  `globalEnumeratedCubeInwardMateFullSourceRemovalWitness`,
+  `globalEnumeratedCubeInwardMateFullSourceAnchorRemovalWitness`,
+  `globalCubeInwardMateFullPeelTargetFiber_length_le`, and
+  `globalCubeInwardMateFullPeelTargetFiber_weight_sum_le`
+- **closed obligation**: partition the all-physical first-stretched source
+  carrier by the exact lowered presented target; reconstruct physical/raw
+  source pairs injectively from the adaptive code within each global fiber;
+  and transport the pointwise SU(2) anchor payment across distinct source
+  physical fields to prove the exact `(8/25)^peelSize` fiber contraction.
+- **remaining named obligation**: partition the distinct global target
+  representatives into root/size/physical target blocks, prove their residual
+  target capacity, and sum the geometric rate to a global bad-mass bound.
+  Exact total-mass normalization and the all-target complement remain required
+  before a global success-event fraction exists.  A pointwise conditional
+  transition, posterior-variance/Poincare fraction, completed uniform gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: realized representatives, dependent
+  fibers, physical/raw sources, and both inverse/payment witnesses are retained
+  in `Type`; duplicate-freeness and all finite inequalities are kernel checked.
+
+Monitored verification:
+
+```text
+global exact-target fiber focused source check             PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Globalize the complete first-stretched carrier before normalization (2026-09-11)
 
 - **milestone**: exact all-physical dependent source carrier
