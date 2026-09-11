@@ -89,20 +89,25 @@ def certifiedStretchedComponentUnionBoundedRootedAnimalData
       K 1 physical (boundaryCompleteSlabLinks 1)) :
     BoundedRootedZ4AnimalData where
   root := slabPlaquetteAt 1
-    (certifiedStretchedLeftRootCopy stretched).faceId
-  support := certifiedStretchedComponentUnionPlaquetteSupport
-    stretched background
-  root_mem := certifiedStretchedLeftRootPlaquette_mem_unionSupport
-    stretched background
-  support_nodup := certifiedStretchedComponentUnionPlaquetteSupport_nodup
-    stretched background
-  connected := certifiedStretchedComponentUnionPlaquetteSupport_connected
-    stretched background
+    (certifiedStretchedLeftRootSeed stretched background).root.faceId
+  support := presentedSeedUnionPlaquetteSupport
+    (certifiedStretchedLeftRootSeed stretched background)
+    (certifiedStretchedRightRootSeed stretched background)
+  root_mem := presentedLeftRootPlaquette_mem_seedUnionSupport
+    (certifiedStretchedLeftRootSeed stretched background)
+    (certifiedStretchedRightRootSeed stretched background)
+  support_nodup := presentedSeedUnionPlaquetteSupport_nodup
+    (certifiedStretchedLeftRootSeed stretched background)
+    (certifiedStretchedRightRootSeed stretched background)
+  connected := presentedSeedUnionPlaquetteSupport_connected
+    (certifiedStretchedLeftRootSeed stretched background)
+    (certifiedStretchedRightRootSeed stretched background)
+    (certifiedStretchedSeedRootPlaquettesAdjacent stretched background)
   budget := (certifiedStretchedComponentUnionSupportedSelection
     stretched background).peelFaces.length
-  support_length_le_budget :=
-    certifiedStretchedComponentUnionPlaquetteSupport_length_le_peelFaces
-      stretched background
+  support_length_le_budget := presentedSeedUnionPlaquetteSupport_length_le_peelFaces
+    (certifiedStretchedLeftRootSeed stretched background)
+    (certifiedStretchedRightRootSeed stretched background)
 
 /-! ## 2. Compile and pad at the exact physical peel budget -/
 
