@@ -31027,6 +31027,42 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Exact Fubini over all-physical lowered-target fibers (2026-09-11)
+
+- **milestone**: lossless global target-fiber summation
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetFubini.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelRepresentativeTargetWeight`,
+  `globalCubeInwardMateFullPeelRepresentativeFibers_weight_total`, and
+  `globalCubeInwardMateFullSources_weight_sum_le_representativeTargets`
+- **closed obligation**: prove that exact representative fibers recover the
+  complete all-physical first-stretched source mass without loss, then sum the
+  verified fiberwise `(8/25)^peelSize` contractions to one finite expression
+  over distinct realized lowered targets.
+- **remaining named obligation**: prove global target congestion by splitting
+  the distinct representatives into exact root/size/physical target blocks and
+  injecting each block into its residual target carrier.  Then sum the common
+  geometric rate against the physical partition.  Exact total-mass
+  normalization and the all-target complement remain required before a global
+  success-event fraction exists; no conditional, posterior, completed-gap, or
+  continuum conclusion follows yet.
+- **constructive or propositional**: the representative list, every literal
+  fiber, and the target-payment sum are explicit finite data; exact Fubini and
+  the aggregate inequality are kernel checked.
+
+Monitored verification:
+
+```text
+global target-Fubini focused source check                  PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Contract exact all-physical lowered-target fibers (2026-09-11)
 
 - **milestone**: global fixed-target adaptive contraction
