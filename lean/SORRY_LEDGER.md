@@ -31027,6 +31027,46 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Complete the global SU(2) parity-flipped target presentation (2026-09-11)
+
+- **milestone**: accepted whole-slab target intertwiner assignment
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetPresentation.lean`
+- **proved declarations**:
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPresented`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPresented_at_cube`, and
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPresented_at_not_cube`
+- **closed obligation**: join the twelve classified inward-mate cube-link
+  witnesses with the complete accepted off-cube production assignment over
+  the parity-flipped target physical field.  Off-cube acceptance is transported
+  through the proved equality of the entire incident spin word, and the local
+  lookup equations identify both pieces exactly.
+- **scope boundary**: this is an accepted target presentation, not yet a
+  weighted transport.  No source/target heat comparison, target-column
+  capacity, posterior-variance estimate, OS form bound, or spectral gap is
+  asserted.
+- **remaining named obligation**: forget the presentation to the actual BF4
+  target atom, compare its weight with the source atom, bound the fibers of the
+  resulting target map uniformly, and compile the parity reversal into a
+  same-object posterior-variance inequality.
+- **constructive or propositional**: dependent finite lookup, certified local
+  SU(2) fusion witnesses, and exact off-cube incident-word transport only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+global all-target presentation focused source check       PASS
+global all-target presentation dependency target          PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Realize the global SU(2) all-target event as a parity-flipped physical state (2026-09-11)
 
 - **milestone**: literal observable-relevant physical target
