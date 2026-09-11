@@ -31027,6 +31027,61 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Package the exact global production source marginal (2026-09-11)
+
+- **milestone**: collision-free same-carrier source marginal with exact BF4
+  weights
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetProductionSourceMarginal.lean`
+- **proved declarations**:
+  `globalInwardMateSourceProductionAtom_injective`,
+  `globalInwardMateProductionSourceAtoms`,
+  `globalInwardMateProductionSourceAtoms_nodup`,
+  `globalInwardMateProductionSourceAtoms_mem_expanded`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionWeight`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionWeight_eqv_weight`,
+  `globalInwardMateProductionSourceAtoms_weight_eqv`,
+  `globalInwardMateProductionPairs_sourceMarginal`,
+  `GlobalInwardMateProductionPairMarginalCertificate`, and
+  `globalInwardMateProductionPairMarginalCertificate`
+- **closed obligation**: combine fixed-physical source-code injectivity with
+  the physical coordinate to recover each retained global representative;
+  prove the recoded source atoms collision-free and literal members of
+  `slabExpandedFineSources`; identify their production weights term by term
+  with the original all-target source weights; prove the pair carrier's first
+  projection is exactly this source list; and package both duplicate-free
+  production marginals together with off-diagonality.
+- **scope boundary**: the certificate is an exact finite transport relation
+  with two explicit same-object marginals, but it is not the actual BF4
+  conditional/OS joint.  The source weights and target weights of a paired
+  representative are generally different, and no joint edge weight or
+  stationarity identity is asserted.  No posterior variance, OS form bound,
+  spectral gap, beta/lattice-spacing uniformity, or continuum theorem is
+  asserted.
+- **remaining named obligation**: identify the mathematically correct edge
+  weights and prove this pair carrier is contained in, or controlled by, the
+  actual conditional/OS two-copy energy.  Because the repository already
+  rules out global sparse-support Doeblin minorization, the intended bridge
+  must be support-aware (for example a canonical-path/congestion comparison),
+  not a false all-pairs lower bound.
+- **constructive or propositional**: dependent-structure recovery, finite
+  injectivity, unit-Haar atom weights, and explicit list marginals only.  No
+  `sorry`, new named hypothesis, Rust result, or trusted external computation
+  is introduced.
+
+Monitored verification:
+
+```text
+production source-marginal focused source check           PASS
+production source-marginal dependency target              PASS (1,316 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Prove the complete production source compiler multiplicity-faithful (2026-09-11)
 
 - **milestone**: injective finite-word source serialization and equal-rank
