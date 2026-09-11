@@ -28,6 +28,8 @@ from collections import defaultdict
 
 import numpy as np
 
+import computations.bf4_cutoff_two_vacuum_column as vacuum_column
+
 from computations.bf4_cutoff_two_cube_boundary_row import (
     CUBE_FACE_IDS,
     EXPECTED_FIXED_FACE_IDS,
@@ -49,22 +51,30 @@ from computations.bf4_cutoff_two_vacuum_column import (
 from computations.exact_haar_network import invariant_multiplicity
 
 
-def sector_states() -> tuple[tuple[int, ...], ...]:
-    cube = tuple(
-        1 if face_id in CUBE_FACE_IDS else 0
-        for face_id in EXPECTED_LOWER_FACE_IDS
-    )
-    doubled = tuple(
+def _set_cutoff_domain(cutoff: int) -> None:
+    """Set the finite label domain used by the imported factor operations."""
+    global DOMAIN
+    DOMAIN = tuple(range(cutoff + 1))
+    vacuum_column.DOMAIN = DOMAIN
+
+
+def sector_states(cutoff: int = 2) -> tuple[tuple[int, ...], ...]:
+    """Enumerate the central-cube vacuum component in parity-block order."""
+    states = tuple(
         tuple(
-            2 * bits[CUBE_FACE_IDS.index(face_id)]
+            labels[CUBE_FACE_IDS.index(face_id)]
             if face_id in CUBE_FACE_IDS else 0
             for face_id in EXPECTED_LOWER_FACE_IDS
         )
-        for bits in product((0, 1), repeat=len(CUBE_FACE_IDS))
+        for parity in (1, 0)
+        for labels in product(
+            tuple(range(parity, cutoff + 1, 2)),
+            repeat=len(CUBE_FACE_IDS),
+        )
     )
-    states = (cube,) + doubled
-    if len(states) != 65 or len(set(states)) != 65:
-        raise AssertionError("sector enumeration is not 65 distinct states")
+    expected = ((cutoff + 1) // 2) ** 6 + (cutoff // 2 + 1) ** 6
+    if len(states) != expected or len(set(states)) != expected:
+        raise AssertionError("sector enumeration has the wrong cardinality")
     return states
 
 
@@ -129,8 +139,11 @@ def _common_factors(coupling: Fraction) -> tuple[Factor, ...]:
     return _boundary_heat_factors(coupling) + _fixed_link_factors()
 
 
-def _elimination_order(coupling: Fraction) -> tuple[tuple[int, ...], int]:
-    states = sector_states()
+def _elimination_order(
+    coupling: Fraction, cutoff: int = 2
+) -> tuple[tuple[int, ...], int]:
+    _set_cutoff_domain(cutoff)
+    states = sector_states(cutoff)
     factors = (
         _common_factors(coupling)
         + _source_link_factors(states[0])
@@ -170,11 +183,12 @@ def _kernel_entry(
 
 
 def _entry_task(
-    task: tuple[str, int, int, tuple[int, ...]],
+    task: tuple[str, int, int, int, tuple[int, ...]],
 ) -> tuple[int, int, int, Fraction]:
-    coupling_text, left_index, right_index, order = task
+    coupling_text, cutoff, left_index, right_index, order = task
+    _set_cutoff_domain(cutoff)
     coupling = Fraction(coupling_text)
-    states = sector_states()
+    states = sector_states(cutoff)
     value = _kernel_entry(
         coupling, states[left_index], states[right_index], order
     )
@@ -536,13 +550,17 @@ def _exact_ldl_summary(matrix: list[list[Fraction]]) -> dict[str, object]:
     }
 
 
-def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
+def compute(
+    *, coupling: Fraction, cutoff: int = 2, jobs: int,
+    spectrum_only: bool = False
+) -> dict[str, object]:
     if not 1 <= jobs <= 16:
         raise ValueError("jobs must lie in 1..16")
-    states = sector_states()
-    order, width = _elimination_order(coupling)
+    _set_cutoff_domain(cutoff)
+    states = sector_states(cutoff)
+    order, width = _elimination_order(coupling, cutoff)
     pairs = tuple(
-        (str(coupling), left, right, order)
+        (str(coupling), cutoff, left, right, order)
         for left in range(len(states))
         for right in range(left, len(states))
     )
@@ -557,22 +575,68 @@ def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
     for _pid, left, right, value in results:
         kernel[left][right] = value
         kernel[right][left] = value
+    size = len(states)
     if any(kernel[i][j] != kernel[j][i]
-           for i in range(65) for j in range(65)):
+           for i in range(size) for j in range(size)):
         raise AssertionError("raw kernel lost exact symmetry")
     row_sums = tuple(sum(row, Fraction(0)) for row in kernel)
     if any(row_sum <= 0 for row_sum in row_sums):
         raise AssertionError("a sector row has nonpositive mass")
 
+    if any(value < 0 for row in kernel for value in row):
+        raise AssertionError("raw physical kernel has a negative entry")
+    # Form the dimensionless ratio before converting to float.  At the
+    # strong-coupling anchor the individual rational masses are much smaller
+    # than the float range even though every normalized entry is in [0, 1].
     symmetric_similarity = np.array([
-        [float(kernel[i][j]) / np.sqrt(float(row_sums[i] * row_sums[j]))
-         for j in range(65)]
-        for i in range(65)
+        [np.sqrt(float(
+            (kernel[i][j] * kernel[i][j]) /
+            (row_sums[i] * row_sums[j])
+        ))
+         for j in range(size)]
+        for i in range(size)
     ], dtype=np.float64)
     eigenvalues = np.linalg.eigvalsh(symmetric_similarity)
     eigenvalues.sort()
     descending = tuple(float(value) for value in eigenvalues[::-1])
     second = descending[1]
+    trace = sum(
+        (kernel[index][index] / row_sums[index] for index in range(size)),
+        Fraction(0),
+    )
+    newest_indices = tuple(
+        index for index, state in enumerate(states) if max(state) == cutoff
+    )
+    newest_trace = sum(
+        (kernel[index][index] / row_sums[index] for index in newest_indices),
+        Fraction(0),
+    )
+    total_mass = sum(row_sums, Fraction(0))
+    newest_stationary_mass = sum(
+        (row_sums[index] for index in newest_indices), Fraction(0)
+    ) / total_mass
+    newest_centered_trace = newest_trace - newest_stationary_mass
+    if spectrum_only:
+        return {
+            "states": len(states),
+            "cutoff": cutoff,
+            "unordered_entries": len(results),
+            "workers_observed": len({pid for pid, _i, _j, _value in results}),
+            "exact_trace": str(trace),
+            "trace_float": float(trace),
+            "trace_excess_float": float(trace - 1),
+            "newest_states": len(newest_indices),
+            "newest_trace_float": float(newest_trace),
+            "newest_stationary_mass_float": float(newest_stationary_mass),
+            "newest_centered_trace_float": float(newest_centered_trace),
+            "largest_eigenvalues": descending[:12],
+            "smallest_eigenvalue": descending[-1],
+            "second_eigenvalue": second,
+            "spectral_gap": 1.0 - second,
+            "top_eigenvalue_error": abs(descending[0] - 1.0),
+        }
+    if cutoff != 2:
+        raise ValueError("exact cutoff-two certificate summaries require --cutoff 2")
     upper_sixteenth = _mean_zero_signed_restriction(
         kernel, row_sums, Fraction(1, 16), kernel_sign=Fraction(-1)
     )
@@ -602,6 +666,9 @@ def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
         "min_row_sum": str(min(row_sums)),
         "max_row_sum": str(max(row_sums)),
         "numerical_rank": int(np.linalg.matrix_rank(symmetric_similarity)),
+        "exact_trace": str(trace),
+        "trace_float": float(trace),
+        "trace_excess_float": float(trace - 1),
         "largest_eigenvalues": descending[:12],
         "smallest_eigenvalue": descending[-1],
         "second_eigenvalue": second,
@@ -638,10 +705,17 @@ def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--coupling", default="1/2")
+    parser.add_argument("--cutoff", type=int, default=2)
     parser.add_argument("--jobs", type=int, default=min(16, os.cpu_count() or 1))
+    parser.add_argument("--spectrum-only", action="store_true")
     arguments = parser.parse_args()
     print(json.dumps(
-        compute(coupling=Fraction(arguments.coupling), jobs=arguments.jobs),
+        compute(
+            coupling=Fraction(arguments.coupling),
+            cutoff=arguments.cutoff,
+            jobs=arguments.jobs,
+            spectrum_only=arguments.spectrum_only,
+        ),
         sort_keys=True,
     ))
 

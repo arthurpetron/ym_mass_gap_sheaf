@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
+
+- **milestone**: constructive additive head--tail contraction for the actual
+  finite SU(2) vacuum-sector reflected matrix
+- **files**:
+  `lean/YMGap/Continuum/FinitePositiveFormHeadTailGluing.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorHeadTailGramGap.lean`
+- **proved declarations**:
+  `two_cross_le_tail_head_budget_of_nonnegQuad`,
+  `centralPhysicalFiniteVacuumSectorMatrixBilinear_nonnegQuad`,
+  `centralPhysicalFiniteVacuumSectorMatrixQuadratic_eqv_head_cross_tail`,
+  `centralPhysicalFiniteVacuumSectorMatrix_two_cross_le`, and
+  `centralPhysicalFiniteVacuumSectorMatrix_le_of_head_tail`
+- **closed obligation**: split every later-cutoff coefficient into its literal
+  embedded-head and new-tail parts; prove the stationary diagonal splits
+  exactly; and use positivity at `tau * head - q * tail` to absorb the full
+  physical mixed block.  Separate rates `q` and `tau` now yield the full rate
+  `q + tau`, without square roots, division, or a cross-congestion estimate.
+- **remaining named obligation**: prove a component-centered normalized Gram
+  tail trace below `1/50` and persist the cutoff-two `49/50` head estimate in
+  the same later-cutoff centered form.  Only their sum below one yields the
+  desired uniform physical finite-cutoff gap.  Completed thermodynamic and
+  continuum passage, continuum QFT axioms, isolated vacuum, and the Clay
+  theorem remain open.
+- **constructive or propositional**: exact `Q'` bilinear algebra, the existing
+  SU(2) boundary-channel Gram factorization, Boolean old/new masks, and finite
+  list sums.  No `sorry`, new axiom, `Classical`, `native_decide`,
+  noncomputable declaration, enlarged heartbeat budget, or trusted external
+  computation is introduced.  Rust remains permitted only as an untrusted
+  certificate generator whose output must be checked in Lean.
+
+Monitored verification:
+
+```text
+generic head--tail focused source check                   PASS
+generic head--tail dependency target                      PASS (61 jobs)
+physical BF4 head--tail focused source check              PASS
+physical BF4 head--tail dependency target                 PASS (1,489 jobs)
+```
+
+All printed load-bearing declarations use only `[propext, Quot.sound]`.
+
 #### Contract the connected production rows through the vacuum packet (2026-09-10)
 
 - **milestone**: explicit strict finite-volume connected production fraction

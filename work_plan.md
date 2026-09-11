@@ -16,6 +16,29 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
+### Current physical BF4 gap frontier (2026-09-11)
+
+The actual finite SU(2) vacuum-sector boundary Gram now has a verified
+head--tail contraction theorem.  For an embedded low-spin head with rate `q`
+and a new-state tail with rate `tau`, scaled positivity at
+`tau * head - q * tail` absorbs the entire mixed old/new block and proves the
+full physical rate `q + tau`.  Consequently no separate absolute cross-row or
+old/new congestion estimate is needed.
+
+The next load-bearing analytic producers are now sharply isolated:
+
+1. express the component-centered new-state Gram tail through an explicit
+   normalized diagonal trace and prove the general trace-to-form inequality;
+2. provide a Lean-checkable finite/high-spin trace certificate with
+   `tau < 1/50` (external Rust may generate data but is not trusted);
+3. persist the physical cutoff-two head rate `49/50` in the same centered
+   later-cutoff Gram;
+4. contract these to a uniform all-cutoff rate below one, then pass through
+   the existing dense/completed machinery.
+
+Thermodynamic and continuum control, continuum QFT construction, isolated
+vacuum, and the Clay theorem remain open.
+
 Status symbols used in this live map are:
 
 ```text
