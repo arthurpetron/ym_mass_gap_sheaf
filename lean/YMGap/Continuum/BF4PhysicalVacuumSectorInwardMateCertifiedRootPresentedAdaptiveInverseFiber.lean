@@ -18,6 +18,7 @@ computation is used.
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveEntropyCode
 import YMGap.Continuum.CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryDecoder
 import YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode
+import YMGap.Continuum.FiniteWeightedCartesianInjection
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber
 
@@ -29,6 +30,7 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPhys
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation
+open YMGap.Continuum.CayleyPruferInjection
 open YMGap.Continuum.ClusterCount4DProgress
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentAdaptiveAuxiliaryDecoder
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentAdaptiveEntropyCarrier
@@ -42,6 +44,7 @@ open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDropCode
 open YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentWeight
 open YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 open YMGap.Continuum.FiniteBoundedEdgeLabellingVariableElimination
+open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4DyadicSlabCubeCoupledConditionalKernel
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
@@ -148,6 +151,7 @@ large strand construction is compiled into this record once; downstream
 injectivity never unfolds it. -/
 structure PresentedAdaptiveInverseData (K extent : Nat) : Type where
   rootFaceId : Nat
+  peelSize : Nat
   shapeCode : List (Fin (z4Chain.D + 1))
   physicalMultiplicityCode : List Nat
   auxiliaryRows : List (List Nat)
@@ -163,6 +167,10 @@ structure PresentedAdaptiveInverseData (K extent : Nat) : Type where
       physicalMultiplicityCode faceId = physicalDrop faceId
   peelCount_eq_physicalDrop : forall faceId,
     peelCount faceId = physicalDrop faceId
+  code_mem_carrier :
+    componentAdaptiveEntropyCodeOfWords shapeCode
+        physicalMultiplicityCode auxiliaryRows ∈
+      componentAdaptiveEntropyCarrier extent rootFaceId peelSize
   reconstructPhysical :
     raiseEdgeLabellingBy lowerPhysical peelCount = sourcePhysical
   reconstructRaw :
@@ -252,6 +260,8 @@ def certifiedStretchedComponentUnionAdaptiveInverseData
     PresentedAdaptiveInverseData K 1 where
   rootFaceId := (certifiedStretchedComponentUnionShapePhysicalData
     stretched background).rootFaceId
+  peelSize := (certifiedStretchedComponentUnionShapePhysicalData
+    stretched background).budget
   shapeCode := certifiedStretchedComponentUnionConnectedShapeCode
     stretched background
   physicalMultiplicityCode :=
@@ -279,11 +289,125 @@ def certifiedStretchedComponentUnionAdaptiveInverseData
   peelCount_eq_physicalDrop :=
     (certifiedStretchedComponentUnionSupportedSelection
       stretched background).peelFaces_count
+  code_mem_carrier :=
+    certifiedStretchedComponentUnionAdaptiveEntropyCode_mem_carrier
+      stretched background
   reconstructPhysical :=
     certifiedStretchedComponentUnion_reconstructPhysical stretched background
   reconstructRaw :=
     presentedSelectionAdaptiveAuxiliaryRows_reconstructRaw
       (certifiedStretchedComponentUnionSupportedSelection stretched background)
+
+/-! ## 4. Fixed-target witnesses and finite inverse-fiber cardinality -/
+
+/-- Evidence that a raw source pair is represented by flat adaptive inverse
+data with the displayed root, peel size, and common dependent lowered target. -/
+structure PresentedAdaptiveRemovalWitness
+    (K extent rootFaceId peelSize : Nat)
+    (targetPhysical : SlabLabelling)
+    (targetAssignment : PresentedSlabFusionWitnessAssignment K extent
+      targetPhysical (boundaryCompleteSlabLinks extent))
+    (source : SlabLabelling × SlabFusionWitnessAssignment) : Type where
+  data : PresentedAdaptiveInverseData K extent
+  source_eq : (data.sourcePhysical, data.sourceRaw) = source
+  rootFaceId_eq : data.rootFaceId = rootFaceId
+  peelSize_eq : data.peelSize = peelSize
+  lowerPhysical_eq : data.lowerPhysical = targetPhysical
+  lowerAssignment_heq : HEq data.lowerAssignment targetAssignment
+
+/-- The three-word code attached to a fixed-target witness. -/
+def PresentedAdaptiveRemovalWitness.code
+    {K extent rootFaceId peelSize : Nat}
+    {targetPhysical : SlabLabelling}
+    {targetAssignment : PresentedSlabFusionWitnessAssignment K extent
+      targetPhysical (boundaryCompleteSlabLinks extent)}
+    {source : SlabLabelling × SlabFusionWitnessAssignment}
+    (witness : PresentedAdaptiveRemovalWitness K extent rootFaceId peelSize
+      targetPhysical targetAssignment source) : ComponentAdaptiveEntropyCode :=
+  witness.data.code
+
+/-- Every fixed-target witness code lies in the common root/size carrier. -/
+theorem PresentedAdaptiveRemovalWitness.code_mem_carrier
+    {K extent rootFaceId peelSize : Nat}
+    {targetPhysical : SlabLabelling}
+    {targetAssignment : PresentedSlabFusionWitnessAssignment K extent
+      targetPhysical (boundaryCompleteSlabLinks extent)}
+    {source : SlabLabelling × SlabFusionWitnessAssignment}
+    (witness : PresentedAdaptiveRemovalWitness K extent rootFaceId peelSize
+      targetPhysical targetAssignment source) :
+    witness.code ∈
+      componentAdaptiveEntropyCarrier extent rootFaceId peelSize := by
+  have hmem := witness.data.code_mem_carrier
+  rw [witness.rootFaceId_eq, witness.peelSize_eq] at hmem
+  exact hmem
+
+/-- Equal codes on a fixed lowered presented fiber imply equal raw source
+pairs. -/
+theorem PresentedAdaptiveRemovalWitness.source_eq_of_code_eq
+    {K extent rootFaceId peelSize : Nat}
+    {targetPhysical : SlabLabelling}
+    {targetAssignment : PresentedSlabFusionWitnessAssignment K extent
+      targetPhysical (boundaryCompleteSlabLinks extent)}
+    {leftSource rightSource : SlabLabelling × SlabFusionWitnessAssignment}
+    (left : PresentedAdaptiveRemovalWitness K extent rootFaceId peelSize
+      targetPhysical targetAssignment leftSource)
+    (right : PresentedAdaptiveRemovalWitness K extent rootFaceId peelSize
+      targetPhysical targetAssignment rightSource)
+    (hcode : left.code = right.code) : leftSource = rightSource := by
+  have hsource := PresentedAdaptiveInverseData.sourceData_eq_of_code_eq
+    left.data right.data
+    (left.rootFaceId_eq.trans right.rootFaceId_eq.symm)
+    (left.lowerPhysical_eq.trans right.lowerPhysical_eq.symm)
+    (HEq.trans left.lowerAssignment_heq right.lowerAssignment_heq.symm)
+    hcode
+  calc
+    leftSource = (left.data.sourcePhysical, left.data.sourceRaw) :=
+      left.source_eq.symm
+    _ = (right.data.sourcePhysical, right.data.sourceRaw) :=
+      Prod.ext hsource.1 hsource.2
+    _ = rightSource := right.source_eq
+
+/-- Any explicit duplicate-free family over one lowered presented target has
+at most `10240000 ^ peelSize` raw sources. -/
+theorem presentedAdaptiveRemovalSources_length_le
+    (K extent rootFaceId peelSize : Nat)
+    (targetPhysical : SlabLabelling)
+    (targetAssignment : PresentedSlabFusionWitnessAssignment K extent
+      targetPhysical (boundaryCompleteSlabLinks extent))
+    (sources : List (SlabLabelling × SlabFusionWitnessAssignment))
+    (hsources : sources.Nodup)
+    (witness : forall source, source ∈ sources ->
+      PresentedAdaptiveRemovalWitness K extent rootFaceId peelSize
+        targetPhysical targetAssignment source) :
+    sources.length <= componentAdaptiveEntropyBase ^ peelSize := by
+  let encode : {source // source ∈ sources} -> ComponentAdaptiveEntropyCode :=
+    fun source => (witness source.1 source.2).code
+  have hattachedNodup : sources.attach.Nodup :=
+    attach_nodup_of_nodup sources hsources
+  have hencodedNodup : (sources.attach.map encode).Nodup := by
+    apply nodup_map_of_injOn encode sources.attach hattachedNodup
+    intro left hleft right hright hcode
+    apply Subtype.ext
+    exact PresentedAdaptiveRemovalWitness.source_eq_of_code_eq
+      (witness left.1 left.2) (witness right.1 right.2) hcode
+  have hsubset : forall code, code ∈ sources.attach.map encode ->
+      code ∈ componentAdaptiveEntropyCarrier extent rootFaceId peelSize := by
+    intro code hcode
+    obtain ⟨source, hsource, rfl⟩ := List.mem_map.mp hcode
+    exact (witness source.1 source.2).code_mem_carrier
+  have hbound := nodup_subset_length_le
+    (sources.attach.map encode)
+    (componentAdaptiveEntropyCarrier extent rootFaceId peelSize)
+    hencodedNodup hsubset
+  have hattachLength : sources.attach.length = sources.length := by
+    rw [← List.length_map Subtype.val, List.attach_map_subtype_val]
+  calc
+    sources.length = sources.attach.length := hattachLength.symm
+    _ = (sources.attach.map encode).length := (List.length_map _).symm
+    _ <= (componentAdaptiveEntropyCarrier extent rootFaceId peelSize).length :=
+      hbound
+    _ <= componentAdaptiveEntropyBase ^ peelSize :=
+      componentAdaptiveEntropyCarrier_length_le extent rootFaceId peelSize
 
 #print axioms reconstructPresentedAssignmentRaw_eq_of_auxiliaryWords_eq
 #print axioms slabAuxiliaryDropWordsFrom_eq_of_map_eq
@@ -295,5 +419,10 @@ def certifiedStretchedComponentUnionAdaptiveInverseData
 #print axioms PresentedAdaptiveInverseData.code
 #print axioms PresentedAdaptiveInverseData.sourceData_eq_of_code_eq
 #print axioms certifiedStretchedComponentUnionAdaptiveInverseData
+#print axioms PresentedAdaptiveRemovalWitness
+#print axioms PresentedAdaptiveRemovalWitness.code
+#print axioms PresentedAdaptiveRemovalWitness.code_mem_carrier
+#print axioms PresentedAdaptiveRemovalWitness.source_eq_of_code_eq
+#print axioms presentedAdaptiveRemovalSources_length_le
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber
