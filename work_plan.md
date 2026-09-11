@@ -313,9 +313,12 @@ The next load-bearing producers are, in causal order:
    is now proved bounded by its exact physical term, then by the displayed raw
    OS-kernel entry.  Dividing by the common physical partition gives literal
    quantitative lower bounds on both normalized symmetric-joint edge
-   capacities.  Summing the normalized source traffic and transferring the
-   existing target-fiber congestion through this normalization is the active
-   sub-edge;
+   capacities.  The normalized source demands now sum to at least `41/425`,
+   and every compiled-target fiber has total incoming demand at most
+   `globalInwardMateTransportCost` times its actual second OS edge capacity.
+   The normalization introduces no hidden cutoff factor.  Matching this
+   selected-demand flow to the exact demand identity of an all-vector
+   posterior/Poincare compiler is the active sub-edge;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -376,7 +379,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- common-channel two-edge OS path geometry ......... [PROVED]
 |   |   |   +-- raw, normalized, conditional OS path support ...... [PROVED]
 |   |   |   +-- production weights -> normalized OS edge capacity . [PROVED]
-|   |   |   +-- normalized source mass + target-fiber edge load ... [ACTIVE]
+|   |   |   +-- normalized source mass + target-fiber edge load ... [PROVED]
+|   |   |   +-- selected demand -> all-vector variance identity ... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

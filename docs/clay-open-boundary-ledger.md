@@ -40,11 +40,15 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   bounded by the second edge `commonRight -> targetLower`.  The proof uses the
   exact fine-intertwiner physical disintegration and the literal common
   boundary summand; the resulting certificate is axiom-clean.
-- **OPEN next edge:** sum those normalized source traffics, transport the
-  existing at-most-64 target-fiber weighted congestion to normalized OS edge
-  load, and verify that the resulting demand identity meets an existing
-  all-vector posterior/Poincare compiler.  No finite-volume spectral gap,
-  continuum limit, or Clay theorem follows from the pointwise capacities
+- **PROVED next normalization:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSNormalizedFlow` proves
+  that the selected normalized source traffic has total mass at least
+  `41/425`, and that every compiled-target fiber's incoming traffic is at most
+  `globalInwardMateTransportCost` times the actual second OS joint edge.
+- **OPEN next edge:** verify that this selected-demand flow supplies the exact
+  demand identity required by an existing all-vector posterior/Poincare
+  compiler.  No all-vector variance bound, finite-volume spectral gap,
+  continuum limit, or Clay theorem follows from the selected-flow inequalities
   alone.
 
 ---
