@@ -31027,6 +31027,43 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Extract the positive global SU(2) all-target fraction (2026-09-11)
+
+- **milestone**: explicit complementary global success-event mass
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetSuccessFraction.lean`
+- **proved declarations**:
+  `globalCubeInwardMateCertifiedTargetFullSources_weight_ge_partition`,
+  `GlobalCubeInwardMateTargetSuccessCertificate`, and
+  `globalCubeInwardMateTargetSuccessCertificate`
+- **closed obligation**: combine the exact global identity `G + B ≈ Z` with
+  the proved `B <= (384/425) Z`; verify `41/425 + 384/425 ≈ 1` inside the
+  kernel; cancel the common bad mass constructively; and return the positive
+  rate and lower bound as Type-level certificate data.
+- **scope boundary**: `G` is the global all-target recoupling-event mass.  The
+  theorem is not a pointwise conditional-row minorization and does not by
+  itself imply a Markov-chain, Osterwalder--Schrader, or Hamiltonian gap.
+- **remaining named obligation**: connect this global event to a support-aware
+  same-object posterior variance or Poincare inequality for the literal dense
+  two-step observable; then transport that inequality to the OS form and its
+  completion.  Thermodynamic and continuum passage remain open.
+- **constructive or propositional**: exact rational order, additive
+  cancellation, and the existing finite global carriers only.  No `sorry`, new
+  named hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target fraction focused source check           PASS
+global all-target fraction dependency target              PASS (1,122 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Normalize the two SU(2) source branches globally (2026-09-11)
 
 - **milestone**: exact all-physical source-event normalization
