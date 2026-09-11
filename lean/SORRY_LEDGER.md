@@ -31027,6 +31027,45 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Sum the six-face comparison inside one exact target fiber (2026-09-11)
+
+- **milestone**: weighted exact target-column capacity
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetFiberWeight.lean`
+- **proved declarations**:
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight_nonnegative`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight_eqv_of_key_eq`,
+  and `globalInwardMateTargetFiber_weight_le_sixtyFour_mateCost`
+- **closed obligation**: show exact-key equality makes the realized target
+  weight constant on a fiber; sum the pointwise six-face heat comparison over
+  that fiber; and use its proved length bound to obtain
+  `fiber source mass <= 64 * (32,000,000^6 * target atom weight)`.
+- **scope boundary**: this is one exact target column.  The distinct realized
+  target atoms have not yet been Fubini-summed or injected into the genuine
+  fixed-order target-tuple carrier, so no global transported fraction,
+  posterior variance, OS form bound, or spectral gap is asserted.
+- **remaining named obligation**: partition the complete successful source
+  mass by exact target-key representatives; sum the fiberwise inequality; and
+  bound the distinct representative target-weight sum by the complete BF4
+  physical partition through the fixed-order target-tuple normalization.
+- **constructive or propositional**: rational nonnegativity, exact finite-list
+  summation, and the already kernel-checked key and capacity certificates only.
+  No `sorry`, new named hypothesis, Rust result, or trusted external
+  computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target fiber-weight focused source check      PASS
+global all-target fiber-weight dependency target         PASS (1,306 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Bound every exact global inward-mate target fiber by sixty-four (2026-09-11)
 
 - **milestone**: cutoff-independent exact target-column capacity `64`
