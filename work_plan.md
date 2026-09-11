@@ -285,20 +285,37 @@ summation are now proved, so the entire enumerated first-stretched weight is
 bounded by the strict-rate-weighted realized-target sum.  Only the target-side
 congestion/injection into the pure mate carrier remains on this edge.
 
-The next load-bearing analytic producers are, in causal order:
+The all-target route has now crossed the literal production-carrier boundary
+without thinning away its probability mass.  Every successful source is
+compiled injectively to a production expanded atom; its all-target mate is
+compiled to another accepted atom of the same carrier; every pair is off
+diagonal; and the duplicate-free source marginal preserves the full theorem
 
-1. prove a target-side congestion or injective recovery theorem that sums the
-   distinct realized lowered targets, roots, and positive sizes into a
-   cutoff-independent bound by the pure mate product, using the now-proved
-   exact representative Fubini inequality;
-2. combine that comparison with the proved six-face heat payment to obtain
-   an explicit lower bound on a genuine physical mate transition;
-3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
-   conditional-variance estimate, so those local transitions control the
-   full vacuum-sector variance without paying the obstructed root-resistance
-   load or the false tail trace;
-4. contract the resulting cutoff-uniform finite gap through the existing
-   same-object dense/completed machinery.
+```text
+(41/425) * Z_K <= sum productionSourceWeight.
+```
+
+This is the correct many-to-one geometry: target collisions remain present
+instead of being hidden by representative selection.  They can therefore be
+charged to the already proved exact-key capacity `<= 64` and weighted target
+congestion.
+
+The next load-bearing producers are, in causal order:
+
+1. prove that equality of compiled production target atoms implies equality
+   of the existing exact target key, and transfer the key-fiber capacity
+   `<= 64` plus its weighted congestion estimate to the all-source production
+   transport;
+2. disintegrate or splice the full-slab source--mate transport into supported
+   paths of the actual lower/boundary-indexed OS kernel, with the edge loads
+   explicit rather than treating the constructed pair relation as a joint
+   probability law;
+3. feed those supported paths into the existing mass-normalized
+   canonical-flow or posterior conditional-variance compiler and prove one
+   cutoff/volume-uniform strict finite vacuum-complement rate;
+4. contract that rate through the already proved same-object
+   dense/completed-gap machinery, then construct the thermodynamic and
+   continuum limit maps.
 
 Rust may generate exact orbit, contraction, or rerouting certificates for
 these producers, but Lean must parse and kernel-check every certificate and
@@ -343,6 +360,15 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   `-- datum-wise positive aggregate retained fraction [PROVED]
 |   |   +-- marked face covariance / same-object moment < 1 ... [PROVED]
 |   |   |       at each finite positive-coupling datum only
+|   |   +-- SU(2) inward-mate posterior/path route ............. [ACTIVE preferred]
+|   |   |   +-- full successful source mass >= `(41/425) Z_K` .. [PROVED]
+|   |   |   +-- source/target endpoints in production carrier .. [PROVED]
+|   |   |   +-- full source compiler and pair list injective .... [PROVED]
+|   |   |   +-- source marginal preserves full successful mass .. [PROVED]
+|   |   |   +-- compiled target fibers have capacity <= 64 ...... [ACTIVE]
+|   |   |   +-- weighted production target congestion ........... [OPEN next]
+|   |   |   +-- full-slab transport -> supported OS-kernel paths  [OPEN]
+|   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
 |   |   |   +-- paired-union component geometry/mass floor ..... [PROVED]

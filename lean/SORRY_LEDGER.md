@@ -31027,6 +31027,63 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Preserve the full all-target success mass in production coordinates (2026-09-11)
+
+- **milestone**: multiplicity-faithful all-success-source production transport
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceProductionTransport.lean`
+- **proved declarations**:
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcome_mem_allSources`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcomeCode_mem_allSources`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionAtom_mem_allSources`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetResidualCode_mem_allSources`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetProductionAtom_mem_allSources`,
+  `globalInwardMateAllSourceProductionAtom_injective`,
+  `globalInwardMateAllSourceProductionSourceAtoms_nodup`,
+  `globalInwardMateAllSourceProductionSourceAtoms_weight_eqv`,
+  `globalInwardMateAllSourceFraction_partition_le_productionSources`,
+  `globalInwardMateAllSourceProductionPairs`,
+  `globalInwardMateAllSourceProductionPairs_nodup`,
+  `GlobalInwardMateAllSourceProductionTransportCertificate`, and
+  `globalInwardMateAllSourceProductionTransportCertificate`
+- **closed obligation**: replace target-key representative thinning by one
+  production pair for every member of the complete global all-target success
+  carrier; prove both endpoints are accepted atoms of the same literal BF4
+  expanded carrier; prove the source compiler and hence the pair list
+  collision-free; preserve the source weight term by term; and retain the
+  complete proved success mass
+  `(41/425) * Z_K <= sum productionSourceWeight`.
+- **scope boundary**: target collisions are deliberately retained rather than
+  erased.  This is a finite weighted many-to-one full-slab transport, not the
+  conditional/OS joint, and its pair list carries no asserted joint edge
+  weights or stationarity law.  No posterior variance, OS form bound,
+  beta/lattice-spacing uniformity, completed gap, or continuum theorem is
+  asserted.
+- **remaining named obligation**: transfer the existing exact target-key
+  fiber capacity `<= 64` and weighted congestion estimate to the production
+  target atoms, then construct supported paths or a disintegration comparison
+  from this full-slab transport into the actual lower/boundary-indexed OS
+  kernel.  Only that same-object comparison can feed the existing
+  canonical-flow/posterior gap compilers.
+- **constructive or propositional**: all carrier elements, source and target
+  compilers, pair lists, and the success-rate certificate are Type-level finite
+  data; membership, injectivity, rational weight equality, and the lower bound
+  are kernel-checked propositions.  No `sorry`, new named hypothesis, Rust
+  result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+all-source production-transport focused source check     PASS
+all-source production-transport dependency target        PASS (1,317 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Package the exact global production source marginal (2026-09-11)
 
 - **milestone**: collision-free same-carrier source marginal with exact BF4
