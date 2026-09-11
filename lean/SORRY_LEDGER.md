@@ -31237,6 +31237,46 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, or trusted external computation.  No
 aggregate or full-root audit is claimed here.
 
+#### Average the actual connected-response oscillation globally (2026-09-11)
+
+- **milestone**: global two-face actual connected-response oscillation
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalConnectedObservableResponseOscillation.lean`
+- **proved declarations**:
+  `finePacketGlobalTiltedGibbsConnectedResponseOscillationMass_le_envelopeMass`,
+  `finePacketGlobalConnectedObservableResponseEnvelopeMass_eqv_faceSum`,
+  `finePacketGlobalConnectedObservableResponseEnvelopeFraction_eqv_faceSum`,
+  `finePacketGlobalTiltedGibbsConnectedResponseOscillationFraction_le_faceEnvelopes`,
+  `finePacketGlobalConnectedResponseEnvelopeFraction_le_anchorVacuumPacketRate`,
+  and
+  `finePacketGlobalTiltedGibbsConnectedResponseOscillationFraction_le_two_anchorRates`
+- **closed obligation**: average the normalized actual connected-response
+  difference over the physical fine-source pair law; split the resulting
+  global envelope exactly into its root and target faces; and bound each face
+  at the explicit SU(2) anchor rate `1449/1700`.
+- **remaining named obligation**: use the exact half-pairwise variance identity
+  to cancel the two face contributions and obtain `1449/1700 < 1`, then
+  identify this centered posterior variance with the physical centered
+  production/refresh form.  The dense/completed gap and controlled
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: finite rational sums, explicit positive
+  normalization, and the previously proved SU(2)-specific anchor estimate.
+  The intermediate `q + q` oscillation is not claimed strict.  No `sorry`,
+  new named hypothesis, Rust result, or trusted external computation is
+  introduced.
+
+Monitored verification:
+
+```text
+global connected-observable oscillation focused check     PASS
+global connected-observable oscillation dependency        PASS (5,621 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  No aggregate or
+full-root audit is claimed here.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric

@@ -1419,6 +1419,43 @@ strict SU(2)-specific anchor input.  Then identify that variance with the
 centered production/refresh form.  The dense/completed gap and controlled
 thermodynamic/continuum passage remain downstream.
 
+#### Average the actual connected-response oscillation globally (2026-09-11)
+
+`Z4DyadicBinaryGlobalConnectedObservableResponseOscillation` averages the
+pointwise actual connected-response estimate over the physical fine-source
+pair law.  It proves the causal two-face decomposition
+
+```text
+global abs connected-response oscillation
+  <= global root connected-envelope fraction
+     + global target connected-envelope fraction.
+```
+
+Each face envelope is separately bounded at the named SU(2) anchor by
+`q = 1449/1700`.  The module deliberately records only the honest unhalved
+bound `oscillation <= q + q`; this intermediate sum is not below one.  The
+next posterior-variance step has an exact factor `1/2`, so its expected bound
+is `q < 1`.
+
+Monitored verification:
+
+```text
+global connected-observable oscillation focused check     PASS
+global connected-observable oscillation dependency        PASS (5,621 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No aggregate or full-root audit is claimed here.
+
+Still open: construct the exact half-pairwise connected-response variance,
+identify it with the centered second moment, cancel its factor two against
+the two face contributions, and then identify the resulting strict quantity
+with the centered production/refresh form.  The dense/completed gap and
+controlled thermodynamic/continuum passage remain downstream.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableGradientEnvelope` proves that a localized
