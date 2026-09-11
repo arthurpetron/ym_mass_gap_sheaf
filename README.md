@@ -238,11 +238,17 @@ auxiliaries pointwise, proves the complete classifier injective, and packages
 the original tuple as one accepted presented cube family.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeSourceAssignmentPartition.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceAssignmentPartition.lean).
 
-The next causal step is to split that classified dependent product into its
-all-target and first-stretched branches, extend the cube family with accepted
-off-cube witnesses into one complete slab presentation, and serialize each
-nonempty stretched branch's exact two-root drop into a multiplicity-faithful
-peel/weight certificate.  The older coarse mixed
+That product now has a constructive global dichotomy.  A structural scan either
+returns all twelve accepted mated witnesses or the first stretched incidence
+with its actual positive two-face debt witness.  Forgetting the branch
+reconstructs the complete classified assignment, so the source-to-branch map
+remains injective.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean).
+
+The next causal step is to connect the new first-stretched branch to the exact
+two-root component peel, extend the cube family with accepted off-cube
+witnesses into one complete slab presentation, and serialize the resulting
+drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must
 ultimately be bounded by a cutoff-independent multiple of the pure mate

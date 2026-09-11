@@ -31181,6 +31181,50 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Split the dependent source product at its first stretched link (2026-09-11)
+
+- **milestone**: lossless all-target/first-stretched global source dichotomy
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFirstStretched.lean`
+- **proved declarations**:
+  `firstCubeInwardMateStretched?`,
+  `firstCubeInwardMateStretched_ne_none_of_mem_inr`,
+  `cubeInwardMateTargetAssignmentOfFirstStretchedEqNone`,
+  `classifiedAssignmentOfTarget_of_firstStretchedEqNone`,
+  `splitCubeInwardMateClassifiedAssignment`,
+  `unsplitCubeInwardMateClassifiedAssignment`,
+  `unsplit_splitCubeInwardMateClassifiedAssignment`,
+  `cubeInwardMateSourceAssignmentTargetOrFirstStretched`, and
+  `cubeInwardMateSourceAssignmentTargetOrFirstStretched_injective`
+- **closed obligation**: structurally scan the attached incidence list; when
+  no stretched coordinate occurs, construct the complete dependent target
+  assignment; otherwise return the first literal incidence together with its
+  actual collapsed accepted witness and two positivity proofs; define an
+  unsplit map recovering every classified coordinate; and retain injectivity
+  after composing this dichotomy with the twelve-link source classifier
+- **remaining named obligation**: connect the returned first-stretched root
+  to the existing exact two-root component peel; complete the presented source
+  on every off-cube slab link; and build an injective peel history carrying the
+  exact heat/intertwiner weight payment.  The cutoff-independent pure-mate
+  comparison, physical transition floor, posterior-variance/Poincare estimate,
+  completed gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the structural scan, complete target
+  assignment, first stretched sigma witness, classified branch, split, and
+  unsplit are Type-level data; no existential witness is extracted from a
+  proposition
+
+Monitored verification:
+
+```text
+cube source first-stretched split explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Take the dependent product of the twelve literal source classifiers (2026-09-11)
 
 - **milestone**: injective source-assignment partition with a common presented

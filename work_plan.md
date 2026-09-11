@@ -161,13 +161,19 @@ the local classifier coordinatewise, is injective by the twelve exact local
 decoders, and packages every original source tuple as a common accepted
 presented cube family.  This closes the anonymous-product-to-dependent-witness
 step, but does not yet supply off-cube entries of a complete slab assignment.
+The classified product is now split constructively as well.  A left-to-right
+scan either projects all twelve coordinates to accepted mated witnesses or
+returns the first stretched incidence with its actual collapsed witness and
+both positive-face certificates.  An explicit unsplit map recovers the whole
+classified family, so composing the split with the twelve-link classifier is
+still injective on complete source assignments.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. split the classified dependent product into its all-target and
-   first-stretched branches; extend each presented cube source with accepted
-   off-cube entries to a complete slab background; serialize every nonempty
-   branch's exact two-root drop into a
+1. connect each first-stretched classified branch to the existing exact
+   two-root component peel; extend each presented cube source with accepted
+   off-cube entries to a complete slab background; serialize the resulting
+   drop into a
    multiplicity-faithful peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
