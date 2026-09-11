@@ -1224,6 +1224,52 @@ vacuum cancellation there, and obtain the uniform strict dense form bound.
 The completed OS gap and controlled thermodynamic/continuum limits remain
 downstream.
 
+#### Contract the strict carrier into an observable response (2026-09-10)
+
+`Z4DyadicBinaryGlobalConnectedResponseOscillation` defines the actual
+fine-source-law average of the absolute difference between two normalized
+tilted Gibbs one-face responses.  The already-proved pointwise response
+domination bounds it by the symmetrized connected envelope.  Exact rational
+normalization then proves the load-bearing identity
+
+```text
+global connected response envelope
+  = (1/2) * (forward global connected production fraction
+           + reverse global connected production fraction).
+```
+
+The factor `1/2` prevents any loss when the two orientations are combined.
+Applying the SU(2)-specific vacuum-packet estimate to both orientations gives
+
+```text
+normalized global face-response oscillation
+  <= 1449/1700
+   < 1.
+```
+
+This is a finite-volume posterior-response estimate at the named anchor, with
+no dependence on the finite slab extent in the displayed rate.  It is not yet
+a posterior variance identity or a strict centered refresh form bound.
+
+Monitored verification:
+
+```text
+global response-oscillation focused source check           PASS
+global response-oscillation dependency target              PASS (5,613 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+trusted external computation is introduced.  The root aggregator imports the
+module.  No aggregate or full-root audit is claimed by these checks.
+
+Still open: identify this one-face source-pair oscillation with the positive
+contribution in the centered production/refresh form (or prove the requisite
+posterior-variance inequality), retain vacuum cancellation, and obtain the
+strict dense two-step form bound.  Completed OS extension and controlled
+thermodynamic/continuum passage remain downstream.
+
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
 `BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` proves that the specific

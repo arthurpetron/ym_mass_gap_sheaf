@@ -31069,6 +31069,47 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Contract the strict carrier into an observable response (2026-09-10)
+
+- **milestone**: strict finite-volume global face-response oscillation
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryGlobalConnectedResponseOscillation.lean`
+- **proved declarations**:
+  `finePacketGlobalTiltedGibbsFaceResponseOscillationMass_le_envelopeMass`,
+  `finePacketConnectedEnvelopeFraction_eqv_orientedAverage`,
+  `finePacketGlobalConnectedResponseEnvelopeMass_eqv_orientedAverage`,
+  `finePacketGlobalConnectedResponseEnvelopeFraction_eqv_orientedAverage`,
+  `finePacketGlobalTiltedGibbsFaceResponseOscillationFraction_le_anchorVacuumPacketRate`,
+  and
+  `finePacketGlobalTiltedGibbsFaceResponseOscillationFraction_lt_one_at_anchor`
+- **closed obligation**: average the actual absolute difference of two
+  normalized tilted Gibbs one-face responses over the exact fine source-pair
+  law; identify its connected envelope with one half of the forward-plus-
+  reverse global connected production fractions; preserve the strict
+  SU(2)-specific anchor rate `1449/1700 < 1` with no factor-of-two loss.
+- **remaining named obligation**: connect this response oscillation to the
+  positive posterior-variance/centered production-refresh form contribution,
+  preserve vacuum cancellation, and prove the strict dense two-step form
+  bound.  Completed OS extension and controlled thermodynamic/continuum
+  passage remain open.
+- **constructive or propositional**: constructive exact rational division,
+  finite source-pair sums, and the previously proved normalized response
+  domination; no `sorry` or new named hypothesis was introduced.  The strict
+  input is the SU(2)-specific anchor packet estimate and is not a
+  group-agnostic U(1) claim.
+
+Monitored verification:
+
+```text
+global response-oscillation focused source check           PASS
+global response-oscillation dependency target              PASS (5,613 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]` (or fewer axioms).
+There is no `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  No aggregate or full-root audit is claimed by these checks.
+
 #### Contract source heat and target excitation to one joint activity (2026-09-10)
 
 - **milestone**: common-rate connected joint-activity fraction
