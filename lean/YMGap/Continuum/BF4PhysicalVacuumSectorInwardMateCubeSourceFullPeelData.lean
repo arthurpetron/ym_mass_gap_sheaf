@@ -225,6 +225,17 @@ def EnumeratedCubeInwardMateFullSource.adaptiveInverseData
     (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
     entry.adaptiveInverseData.sourceRaw = entry.raw := rfl
 
+/-- The attached flat record exposes its rooted-shape face without
+normalizing the rest of the adaptive inverse payload. -/
+@[simp] theorem EnumeratedCubeInwardMateFullSource.adaptiveInverseData_rootFaceId
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
+    entry.adaptiveInverseData.rootFaceId =
+      (certifiedStretchedComponentUnionShapePhysicalData
+        entry.source.1 entry.source.toPresented).rootFaceId :=
+  rfl
+
 /-- Both distinct stretched root faces occur in the deterministic peel, so
 every attached flat record has positive size, in fact size at least two. -/
 theorem EnumeratedCubeInwardMateFullSource.two_le_adaptiveInverseData_peelSize
@@ -286,6 +297,7 @@ theorem enumeratedCubeInwardMateFullSources_nodup
 #print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData
 #print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourcePhysical
 #print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData_sourceRaw
+#print axioms EnumeratedCubeInwardMateFullSource.adaptiveInverseData_rootFaceId
 #print axioms EnumeratedCubeInwardMateFullSource.two_le_adaptiveInverseData_peelSize
 #print axioms enumeratedCubeInwardMateFullSources_length
 #print axioms enumeratedCubeInwardMateFullSources_nodup

@@ -28,6 +28,7 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAnimalTourCode
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedWeight
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation
 open YMGap.Continuum.CayleyPruferInjection
@@ -154,13 +155,15 @@ def certifiedStretchedComponentUnionShapePhysicalData
       K 1 physical (boundaryCompleteSlabLinks 1)) :
     SlabRootedAnimalMultiplicityData 1 where
   rootFaceId :=
-    (certifiedStretchedLeftRootSeed stretched background).root.faceId
+    centralLowerCubeFaceId stretched.root.1.1.left
   support := presentedSeedUnionPlaquetteSupport
     (certifiedStretchedLeftRootSeed stretched background)
     (certifiedStretchedRightRootSeed stretched background)
-  root_mem := presentedLeftRootPlaquette_mem_seedUnionSupport
-    (certifiedStretchedLeftRootSeed stretched background)
-    (certifiedStretchedRightRootSeed stretched background)
+  root_mem := by
+    simpa only [certifiedStretchedLeftRootSeed_root_faceId] using
+      (presentedLeftRootPlaquette_mem_seedUnionSupport
+        (certifiedStretchedLeftRootSeed stretched background)
+        (certifiedStretchedRightRootSeed stretched background))
   support_nodup := presentedSeedUnionPlaquetteSupport_nodup
     (certifiedStretchedLeftRootSeed stretched background)
     (certifiedStretchedRightRootSeed stretched background)
@@ -196,6 +199,20 @@ def certifiedStretchedComponentUnionShapePhysicalData
     (presentedSelection_peelFaces_length_eq_physicalDrop_l1
       (certifiedStretchedComponentUnionSupportedSelection
         stretched background)).symm
+
+/-- The rooted-shape record exposes the literal left cube face without
+unfolding its support, connectedness, or multiplicity certificates. -/
+@[simp] theorem certifiedStretchedComponentUnionShapePhysicalData_rootFaceId
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 <= K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (stretched : CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded)
+    (background : PresentedSlabFusionWitnessAssignment
+      K 1 physical (boundaryCompleteSlabLinks 1)) :
+    (certifiedStretchedComponentUnionShapePhysicalData
+      stretched background).rootFaceId =
+      centralLowerCubeFaceId stretched.root.1.1.left := by
+  rfl
 
 /-! ## 2. The connected shape and physical words -/
 
@@ -312,6 +329,7 @@ theorem certifiedStretchedComponentUnionPhysicalMultiplicityCarrier_length
   slabDecodedPhysicalMultiplicityCarrier_length _
 
 #print axioms certifiedStretchedComponentUnionShapePhysicalData
+#print axioms certifiedStretchedComponentUnionShapePhysicalData_rootFaceId
 #print axioms certifiedStretchedComponentUnionSelectionCount_eq_zero_of_not_support
 #print axioms certifiedStretchedComponentUnionConnectedShapeCode
 #print axioms certifiedStretchedComponentUnionPhysicalMultiplicityBinaryCode

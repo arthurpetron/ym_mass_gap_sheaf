@@ -85,6 +85,27 @@ theorem EnumeratedCubeInwardMateFullSource.lowerPhysical_mem
 
 /-! ## 2. Presented target weight equals the carrier atom -/
 
+/-- The flat inverse record retains the literal left cube-face root selected
+by the certified first-stretched source. -/
+theorem EnumeratedCubeInwardMateFullSource.rootFaceId_eq_sourceLeft
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
+    entry.adaptiveInverseData.rootFaceId =
+      centralLowerCubeFaceId entry.source.1.root.1.1.left := by
+  rfl
+
+/-- Consequently every deterministic peel root is one of the literal six
+central cube faces. -/
+theorem EnumeratedCubeInwardMateFullSource.rootFaceId_mem_cube
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (entry : EnumeratedCubeInwardMateFullSource K physical hK hbounded) :
+    entry.adaptiveInverseData.rootFaceId ∈ centralLowerCubeFaceIds := by
+  rw [YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetPhysical.EnumeratedCubeInwardMateFullSource.rootFaceId_eq_sourceLeft
+    entry]
+  exact centralLowerCubeFaceId_mem entry.source.1.root.1.1.left
+
 /-- The representative's presented target and its fixed-order carrier atom
 have the same exact BF4 weight. -/
 theorem EnumeratedCubeInwardMateFullSource.presentedTargetWeight_eqv_fixedOrderAtom
@@ -117,6 +138,8 @@ theorem EnumeratedCubeInwardMateFullSource.presentedTargetWeight_eqv_fixedOrderA
 
 #print axioms EnumeratedCubeInwardMateFullSource.lowerPhysical_bounded
 #print axioms EnumeratedCubeInwardMateFullSource.lowerPhysical_mem
+#print axioms EnumeratedCubeInwardMateFullSource.rootFaceId_eq_sourceLeft
+#print axioms EnumeratedCubeInwardMateFullSource.rootFaceId_mem_cube
 #print axioms EnumeratedCubeInwardMateFullSource.presentedTargetWeight_eqv_fixedOrderAtom
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetPhysical

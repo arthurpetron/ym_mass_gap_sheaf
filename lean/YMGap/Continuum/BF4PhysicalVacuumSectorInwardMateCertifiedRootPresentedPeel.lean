@@ -26,6 +26,7 @@ namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresente
 set_option autoImplicit false
 
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges
+open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeIncidence
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCertifiedClassification
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation
 open YMGap.Continuum.CompactDualSlabFaceStrandComponentDrop
@@ -78,6 +79,20 @@ def certifiedStretchedRightRootSeed
     (certifiedStretchedLeftRootSeed stretched background).root =
       certifiedStretchedLeftRootCopy stretched :=
   certifiedStretchedLeftRootEdge_source stretched
+
+/-- The left seed's face identifier is the literal left face of the
+certified stretched cube incidence. -/
+@[simp] theorem certifiedStretchedLeftRootSeed_root_faceId
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (stretched : CubeInwardMateCertifiedFirstStretchedSource
+      K physical hK hbounded)
+    (background : PresentedSlabFusionWitnessAssignment
+      K 1 physical (boundaryCompleteSlabLinks 1)) :
+    (certifiedStretchedLeftRootSeed stretched background).root.faceId =
+      centralLowerCubeFaceId stretched.root.1.1.left := by
+  rw [certifiedStretchedLeftRootSeed_root]
+  rfl
 
 @[simp] theorem certifiedStretchedRightRootSeed_root
     {K : Nat} {physical : EdgeLabelling}
@@ -263,6 +278,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel
 
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.certifiedStretchedComponentUnionSelected_eq_of_edge_mem
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.certifiedStretchedLeftRootSeed_root_faceId
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.certifiedStretchedComponentUnionAtLinkSelection
 #print axioms
