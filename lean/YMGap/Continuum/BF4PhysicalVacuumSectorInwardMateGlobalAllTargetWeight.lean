@@ -6,9 +6,11 @@ payload and evaluated by the actual BF4 retained-fiber weight.  Since Haar
 counting gives every accepted auxiliary atom weight one, this target weight
 is exactly the heat-kernel face factor of the parity-flipped physical state.
 
-The analytic input for the next transport step is also made parity-free:
-at the physical nome `w = 1/2`, every source label—not just an even one—has
-heat coefficient at most four times its `evenInwardMateLabel` target.
+Two parity-free coefficient comparisons are kept distinct.  At `w = 1/2`
+the coarse factor is four.  At the actual global-event anchor `w = 1/400`,
+the load-bearing factor is the explicit vacuum-to-fundamental reciprocal
+`32,000,000`; this larger constant is necessary because the mate sends
+vacuum label zero to the fundamental label one.
 
 No target-fiber capacity, summed retained-mass transport, posterior variance,
 Osterwalder--Schrader form bound, or spectral gap is asserted here.
@@ -39,6 +41,7 @@ open YMGap.Continuum.CompactDualSlabFineIntertwinerWitness
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.CompactDualSlabPresentedFusionGlobalFaceStrandEdges
 open YMGap.Continuum.PlaquetteActivity
+open YMGap.Continuum.RGTransport
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
@@ -67,6 +70,34 @@ theorem coeffW_half_le_four_evenInwardMate (spin : Nat) :
     have hfour := Q'.le_trans' _ _ _ hquarter hscaled
     simpa [oddInwardMateLabel, evenInwardMateLabel,
       Nat.ne_of_gt hpositive] using hfour
+
+/-- The exact worst-case source-to-mate cost at the actual `1/400` anchor.
+It is attained by the vacuum-to-fundamental move `0 -> 1`. -/
+def anchorInwardMateCost : Q' := Q'.ofNat 32000000
+
+/-- At the actual anchor, every label is bounded by the explicit universal
+source-to-mate cost.  Positive labels use the sharp successor decay; label
+zero uses the exact reciprocal fundamental coefficient. -/
+theorem coeffW_anchor_le_cost_evenInwardMate (spin : Nat) :
+    coeffW anchorCoupling spin ≤
+      anchorInwardMateCost *
+        coeffW anchorCoupling (evenInwardMateLabel spin) := by
+  by_cases hzero : spin = 0
+  · subst spin
+    unfold anchorInwardMateCost anchorCoupling evenInwardMateLabel
+      coeffW dimQ c4 qpow
+    decide
+  · have hpositive : 0 < spin := Nat.pos_of_ne_zero hzero
+    have hsplit : spin = (spin - 1) + 1 := by omega
+    have hsharp := anchorCoeffW_succ_le (spin - 1)
+    have hrate : anchorFaceCoefficient ≤ anchorInwardMateCost := by
+      unfold anchorFaceCoefficient anchorInwardMateCost
+      decide
+    have hscaled := Q'.mul_le_mul_of_nonneg_right _ _ _ hrate
+      (coeffW_nonneg (w := anchorCoupling) (by decide) (spin - 1))
+    rw [hsplit]
+    simpa [evenInwardMateLabel, hzero] using
+      (Q'.le_trans' _ _ _ hsharp hscaled)
 
 /-! ## 2. The actual raw target atom and its weight -/
 
@@ -122,6 +153,8 @@ theorem GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight_eqv_faceFacto
       (GlobalCubeInwardMateCertifiedTargetFullSource.targetRaw source)
 
 #print axioms coeffW_half_le_four_evenInwardMate
+#print axioms anchorInwardMateCost
+#print axioms coeffW_anchor_le_cost_evenInwardMate
 #print axioms GlobalCubeInwardMateCertifiedTargetFullSource.targetRaw
 #print axioms GlobalCubeInwardMateCertifiedTargetFullSource.targetAtom
 #print axioms GlobalCubeInwardMateCertifiedTargetFullSource.targetWeight
