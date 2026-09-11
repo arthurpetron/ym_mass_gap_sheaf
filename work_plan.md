@@ -143,14 +143,21 @@ selected-copy count on the literal ordered face.  Thus every link sees one
 common lowered physical field, every lowered auxiliary remains accepted in
 its retained order, the complete lowered presented assignment is Type-level
 data, and both distinct root-face labels decrease strictly.
+The missing source-side local partition is now constructive as well.  On a
+root-first word through valence six, the actual first SU(2) channel of every
+accepted source witness either survives the even inward mate or is the unique
+stretched channel.  In the second branch an explicit coordinate drop produces
+an accepted collapsed witness, retains positivity of both changed labels, and
+is exactly inverted by the existing stretched-witness lift.  Hence the local
+`mate + stretched` classifier is injective and loses no source multiplicity.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. serialize the exact two-root drop into a multiplicity-faithful peel and
-   weight certificate; replace the coarse mixed target/debt Cartesian
-   overcount by a valid source-presentation decomposition (or an equivalent
-   checked recoupling certificate); and sum the resulting routes into a
-   cutoff-independent bound by the pure mate product;
+1. lift the injective local source classifier over the twelve cube-boundary
+   links; assemble every classified all-source tuple as one common accepted
+   presented background; serialize the exact two-root drop into a
+   multiplicity-faithful peel and weight certificate; and sum the resulting
+   routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

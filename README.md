@@ -212,13 +212,24 @@ lowered physical field and a complete accepted heterogeneous auxiliary
 assignment over it; both distinct root-face labels decrease strictly.  See
 [`CompactDualSlabPresentedFaceStrandComponentDrop.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDrop.lean).
 
-The next causal step is to serialize the exact two-root drop into a
-multiplicity-faithful peel/weight certificate and relate that source-side map
-to the stretched remainder.  The coarse mixed target/debt Cartesian carrier
-still does not itself provide one common accepted source background; the
-counting argument must supply a valid source-presentation decomposition or an
-equivalent recoupling certificate.  The resulting carrier sum must ultimately
-be bounded by a cutoff-independent multiple of the pure mate product.
+The source-side local decomposition is now witness-faithful rather than only
+an inequality of natural-number dimensions.  For any root-first ordered word
+through valence six, Lean reads the actual first SU(2) channel of an accepted
+source witness.  If it survives the inward mate, the same auxiliary is
+accepted in the mate fiber.  Otherwise Lean deletes the unique stretched
+first vertex, retains the resulting accepted collapsed witness and both
+positive-spin proofs, and proves that reinsertion recovers the source exactly.
+The resulting `inwardMateFusionWitnessPartition` is injective.  See
+[`SU2InwardMateFusionWitnessPartition.lean`](lean/YMGap/Continuum/SU2InwardMateFusionWitnessPartition.lean).
+
+The next causal step is to lift this injective local classifier over all twelve
+cube-boundary links, assemble each all-source branch as one common accepted
+presented background, and serialize its exact two-root drop into a
+multiplicity-faithful peel/weight certificate.  The older coarse mixed
+target/debt Cartesian carrier still does not itself provide that source
+background and is not used as one.  The resulting source-partition sum must
+ultimately be bounded by a cutoff-independent multiple of the pure mate
+product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree

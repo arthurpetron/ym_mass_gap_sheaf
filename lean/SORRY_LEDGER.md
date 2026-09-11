@@ -31181,6 +31181,48 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Partition each ordered source witness into mate or stretched debt (2026-09-11)
+
+- **milestone**: injective witness-level SU(2) inward-mate decomposition
+- **file**:
+  `lean/YMGap/Continuum/SU2InwardMateFusionWitnessPartition.lean`
+- **proved declarations**:
+  `sourceFirstFusionChannel_fusionOK`,
+  `fusionWitnessForSpins_mem_evenInwardMate_of_first`,
+  `stretchedFusionWitnessDrop_mem`,
+  `stretchedFusionWitnessLift_drop`,
+  `inwardMateFusionWitnessPartition`,
+  `recoverInwardMateFusionWitnessPartitionAt_apply`, and
+  `inwardMateFusionWitnessPartition_injective`
+- **closed obligation**: read the actual first channel from every accepted
+  root-first source witness; retain the same auxiliary when that channel
+  survives the even inward mate; otherwise delete the uniquely stretched
+  first vertex, retain both positive-spin proofs and an accepted collapsed
+  witness, prove reinsertion recovers the complete source auxiliary, and
+  conclude that the two-branch classifier is injective
+- **remaining named obligation**: take the dependent product of this local
+  classifier over all twelve cube-boundary links, assemble the original
+  source witnesses into one common accepted presented background, and connect
+  every nonempty stretched branch to the exact two-root peel and its weight.
+  The cutoff-independent comparison with the pure mate product, physical
+  transition floor, posterior-variance/Poincare estimate, completed gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the target witness, collapsed witness,
+  positive-spin certificates, classifier, and inverse decoder are explicit
+  Type-level data; acceptance and injectivity are proof certificates
+
+Monitored verification:
+
+```text
+ordered source witness partition focused source check     PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Isolate the exact stretched-channel debt of the inward mate (2026-09-11)
 
 - **milestone**: local SU(2) fusion and production-link multiplicity
