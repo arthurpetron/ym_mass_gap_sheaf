@@ -31154,6 +31154,53 @@ All printed declarations use only `[propext, Quot.sound]`; there is no
 `sorry`, new axiom, `Classical`, `native_decide`, noncomputable declaration,
 enlarged heartbeat budget, or trusted external computation.
 
+#### Identify the centered BF4 tail trace with physical self-return (2026-09-11)
+
+- **milestone**: exact diagonal probability identity and self-return compiler
+- **files**:
+  `lean/YMGap/Continuum/FiniteWeightedGramGNSData.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredTailTrace.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredHeadTailTraceGap.lean`
+- **proved declarations**:
+  `channelLinear_finiteCoordinate_eqv`,
+  `weightedGramBilinear_finiteCoordinate_self_eqv_weightedGram`,
+  `centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_joint_sub_equilibrium`,
+  `centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate_eqv_selfReturn_sub_stationaryMass`,
+  `centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_eqv_selfReturnTrace_sub_stationaryMass`,
+  `centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_le_selfReturnTrace`, and
+  `centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_selfReturnTrace`
+- **closed obligation**: extract a centered Gram coordinate as its literal
+  matrix diagonal, divide by the positive physical stationary row, cancel that
+  row exactly, and identify the resulting normalized rate with
+  `P(x,x) - pi(x | vacuum component)`.  Summing over the genuine new block
+  proves that the exact centered trace is the physical self-return trace minus
+  the new-block conditioned stationary mass.  Its nonnegativity yields the
+  direct self-return-trace majorant and compiles a self-return bound together
+  with the centered-head bound into the same-object strict physical gap.
+- **remaining named obligation**: prove a cutoff-uniform bound below `1/50` on
+  `centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace`, and persist
+  the cutoff-two centered head rate `49/50` in the later-cutoff centered Gram.
+  Thermodynamic and continuum passage, continuum QFT axioms, isolated vacuum,
+  and the Clay theorem remain open.
+- **constructive or propositional**: duplicate-free finite coordinate
+  extraction, exact `Q'` positive division, the SU(2) physical joint and
+  stationary weights, and finite sums.  Rust remains permitted only as an
+  untrusted generator of exact certificate data checked by Lean.
+
+Monitored verification:
+
+```text
+finite weighted Gram focused source check                  PASS
+finite weighted Gram dependency target                     PASS (216 jobs)
+physical centered-tail focused source check                PASS
+physical centered-tail dependency target                   PASS (1,493 jobs)
+centered head--tail self-return compiler focused check     PASS
+```
+
+Every printed new load-bearing declaration uses only `[propext, Quot.sound]`;
+there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.
+
 #### Contract the connected production rows through the vacuum packet (2026-09-10)
 
 - **milestone**: explicit strict finite-volume connected production fraction

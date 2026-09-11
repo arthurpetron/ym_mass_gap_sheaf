@@ -31,19 +31,54 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorBlockDecomposition
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorGramPositivity
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPoincareGap
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPairwiseVariance
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorStationaryLaws
 open YMGap.Continuum.BF4PhysicalVacuumSectorCenteredGram
 open YMGap.Continuum.BF4PhysicalVacuumSectorHeadTailGramGap
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedRowGap
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteBoundedEdgeLabellingVariableElimination
 open YMGap.Continuum.FinitePositiveFormTraceGluing
 open YMGap.Continuum.FiniteWeightedGramGNSData
+open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem divPos_eqv_of_eqv_mul_local
+    {numerator denominator quotient : Q'}
+    (hdenominator : (0 : Q') < denominator)
+    (hfactor : numerator ≈ quotient * denominator) :
+    Q'.divPos numerator denominator hdenominator ≈ quotient := by
+  unfold Q'.divPos
+  refine Q'.eqv_trans _
+    ((quotient * denominator) * Q'.recipPos denominator hdenominator) _
+    (Q'.mul_eqv_congr_right _ _ _ hfactor) ?_
+  refine Q'.eqv_trans _
+    (quotient * (denominator * Q'.recipPos denominator hdenominator)) _
+    (Q'.mul_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _ (quotient * 1) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (Q'.mul_recipPos_eqv denominator hdenominator)) ?_
+  exact Q'.mul_one_eqv quotient
+
+private theorem listQSum_neg_local {Item : Type} (value : Item → Q') :
+    ∀ items : List Item,
+      listQSum (fun item => -value item) items ≈
+        -listQSum value items
+  | [] => Q'.eqv_refl 0
+  | head :: tail => by
+      simp only [listQSum]
+      refine Q'.eqv_trans _
+        ((-value head) + (-listQSum value tail)) _
+        (Q'.add_eqv_congr_left _ _ _ (listQSum_neg_local value tail)) ?_
+      exact Q'.eqv_symm
+        (Q'.neg_add_eqv (value head) (listQSum value tail))
 
 /-! ## 1. The actual centered physical Gram form -/
 
@@ -214,6 +249,92 @@ def centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal
     (centralPhysicalFiniteVacuumSectorCoordinate index)
     (centralPhysicalFiniteVacuumSectorCoordinate index)
 
+/-- A centered coordinate diagonal is literally the corresponding diagonal
+entry of the component-centered boundary Gram matrix. -/
+theorem centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_centeredGram
+    {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half index : Nat}
+    (hindex : index ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw cutoff half) :
+    centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal
+        w hw cutoff half index ≈
+      weightedGram
+        (centralBoundaryChannels cutoff half)
+        (centralPhysicalFiniteVacuumSectorGramWeight w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCenteredGramAmplitude
+          w hw cutoff half)
+        index index := by
+  unfold centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal
+    centralPhysicalFiniteVacuumSectorCenteredGramGNSData
+    finiteWeightedGramGNSData
+  simpa only [centralPhysicalFiniteVacuumSectorCoordinate, finiteCoordinate]
+    using
+      (weightedGramBilinear_finiteCoordinate_self_eqv_weightedGram
+        (centralPhysicalFiniteVacuumSectorIndices w hw cutoff half)
+        (centralBoundaryChannels cutoff half)
+        (centralPhysicalFiniteVacuumSectorGramWeight w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorCenteredGramAmplitude
+          w hw cutoff half)
+        index
+        (centralPhysicalFiniteVacuumSectorIndices_nodup
+          w hw cutoff half)
+        hindex)
+
+/-- The coordinate diagonal exposes its probabilistic content: physical joint
+self-mass minus the component-conditioned stationary self-mass. -/
+theorem centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_joint_sub_equilibrium
+    {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half index : Nat}
+    (hindex : index ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw cutoff half) :
+    centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal
+        w hw cutoff half index ≈
+      centralPhysicalFiniteKernel w hw cutoff half index index +
+        (-finiteCarrierMassNormalizedStationaryProductJoint
+          (centralPhysicalFiniteVacuumSectorMass w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorWeightSum_pos
+            w hw cutoff half)
+          (centralPhysicalFiniteWeight w hw cutoff half)
+          index index) :=
+  Q'.eqv_trans _ _ _
+    (centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_centeredGram
+      hindex)
+    (centralPhysicalFiniteVacuumSector_centeredGram_eqv_joint_sub_equilibrium
+      hindex hindex)
+
+/-- Physical self-return probability, totalized by zero away from the canonical
+vacuum component. -/
+def centralPhysicalFiniteVacuumSectorSelfReturnProbability
+    (w : Q') (hw : (0 : Q') ≤ w) (cutoff half index : Nat) : Q' :=
+  if hindex : index ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw cutoff half then
+    Q'.divPos
+      (centralPhysicalFiniteKernel w hw cutoff half index index)
+      (centralPhysicalFiniteWeight w hw cutoff half index)
+      (centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex hindex)
+  else 0
+
+/-- Multiplying a component-conditioned stationary weight by the original
+weight gives the conditioned stationary-product diagonal. -/
+theorem finiteCarrierMassNormalizedWeight_mul_weight_eqv_stationaryProductDiagonal
+    {State : Type} (mass : Q') (mass_pos : (0 : Q') < mass)
+    (weight : State → Q') (state : State) :
+    finiteCarrierMassNormalizedWeight mass mass_pos weight state *
+        weight state ≈
+      finiteCarrierMassNormalizedStationaryProductJoint
+        mass mass_pos weight state state := by
+  unfold finiteCarrierMassNormalizedWeight Q'.divPos
+    finiteCarrierMassNormalizedStationaryProductJoint
+    finiteStationaryProductJoint
+  refine Q'.eqv_trans _
+    (weight state * (Q'.recipPos mass mass_pos * weight state)) _
+    (Q'.mul_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _
+    (weight state * (weight state * Q'.recipPos mass mass_pos)) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (Q'.mul_comm_eqv (Q'.recipPos mass mass_pos) (weight state))) ?_
+  exact Q'.eqv_symm
+    (Q'.mul_assoc_eqv
+      (weight state) (weight state) (Q'.recipPos mass mass_pos))
+
 /-- The centered coordinate diagonal divided by the physical stationary
 weight on the sector, and zero away from the sector. -/
 def centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate
@@ -226,6 +347,59 @@ def centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate
       (centralPhysicalFiniteWeight w hw cutoff half index)
       (centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex hindex)
   else 0
+
+/-- **Exact diagonal probability identity.**  On the physical component, the
+normalized centered coordinate rate is the Markov self-return probability
+minus the component-conditioned stationary mass of that state. -/
+theorem centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate_eqv_selfReturn_sub_stationaryMass
+    {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half index : Nat}
+    (hindex : index ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw cutoff half) :
+    centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate
+        w hw cutoff half index ≈
+      centralPhysicalFiniteVacuumSectorSelfReturnProbability
+          w hw cutoff half index +
+        (-finiteCarrierMassNormalizedWeight
+          (centralPhysicalFiniteVacuumSectorMass w hw cutoff half)
+          (centralPhysicalFiniteVacuumSectorWeightSum_pos
+            w hw cutoff half)
+          (centralPhysicalFiniteWeight w hw cutoff half)
+          index) := by
+  let weight := centralPhysicalFiniteWeight w hw cutoff half index
+  let hweight := centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex hindex
+  let joint := centralPhysicalFiniteKernel w hw cutoff half index index
+  let mass := centralPhysicalFiniteVacuumSectorMass w hw cutoff half
+  let hmass := centralPhysicalFiniteVacuumSectorWeightSum_pos w hw cutoff half
+  let stationary := finiteCarrierMassNormalizedWeight mass hmass
+    (centralPhysicalFiniteWeight w hw cutoff half) index
+  let equilibrium := finiteCarrierMassNormalizedStationaryProductJoint
+    mass hmass (centralPhysicalFiniteWeight w hw cutoff half) index index
+  unfold centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate
+    centralPhysicalFiniteVacuumSectorSelfReturnProbability
+  rw [dif_pos hindex, dif_pos hindex]
+  apply divPos_eqv_of_eqv_mul_local hweight
+  have hdiagonal :
+      centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal
+          w hw cutoff half index ≈ joint + (-equilibrium) :=
+    centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_joint_sub_equilibrium
+      hindex
+  have hreturn : Q'.divPos joint weight hweight * weight ≈ joint :=
+    Q'.divPos_mul_eqv joint weight hweight
+  have hstationary : stationary * weight ≈ equilibrium :=
+    finiteCarrierMassNormalizedWeight_mul_weight_eqv_stationaryProductDiagonal
+      mass hmass (centralPhysicalFiniteWeight w hw cutoff half) index
+  have hnegative : (-stationary) * weight ≈ -equilibrium :=
+    Q'.eqv_trans _ _ _
+      (Q'.neg_mul_eqv stationary weight)
+      (Q'.neg_eqv_congr _ _ hstationary)
+  have hproduct :
+      (Q'.divPos joint weight hweight + (-stationary)) * weight ≈
+        joint + (-equilibrium) :=
+    Q'.eqv_trans _ _ _
+      (Q'.add_mul_eqv
+        (Q'.divPos joint weight hweight) (-stationary) weight)
+      (Q'.add_eqv_congr' hreturn hnegative)
+  exact Q'.eqv_trans _ _ _ hdiagonal (Q'.eqv_symm hproduct)
 
 theorem centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate_nonnegative
     (w : Q') (hw : (0 : Q') ≤ w) (cutoff half index : Nat) :
@@ -277,6 +451,128 @@ def centralPhysicalFiniteVacuumSectorExactNewTailTraceRate
       w hw later half)
     (centralPhysicalFiniteVacuumSectorNewBlockIndices
       w hw base later half)
+
+/-- Sum of physical Markov self-return probabilities on the genuinely new
+block.  This is the positive analytic quantity that majorizes the exact
+centered tail trace. -/
+def centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) : Q' :=
+  listQSum
+    (centralPhysicalFiniteVacuumSectorSelfReturnProbability
+      w hw later half)
+    (centralPhysicalFiniteVacuumSectorNewBlockIndices
+      w hw base later half)
+
+/-- Component-conditioned stationary mass carried by the genuinely new
+block. -/
+def centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) : Q' :=
+  listQSum
+    (finiteCarrierMassNormalizedWeight
+      (centralPhysicalFiniteVacuumSectorMass w hw later half)
+      (centralPhysicalFiniteVacuumSectorWeightSum_pos w hw later half)
+      (centralPhysicalFiniteWeight w hw later half))
+    (centralPhysicalFiniteVacuumSectorNewBlockIndices
+      w hw base later half)
+
+/-- The new block has nonnegative component-conditioned stationary mass. -/
+theorem centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass_nonnegative
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) :
+    (0 : Q') ≤
+      centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+        w hw base later half := by
+  unfold centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+  apply listQSum_nonnegative_on
+  intro index hindex
+  have hsector :=
+    (mem_centralPhysicalFiniteVacuumSectorNewBlockIndices_iff.mp hindex).1
+  unfold finiteCarrierMassNormalizedWeight Q'.divPos
+  exact Q'.mul_nonneg _ _
+    (Q'.le_of_lt
+      (centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex hsector))
+    (Q'.le_of_lt
+      (Q'.recipPos_pos _
+        (centralPhysicalFiniteVacuumSectorWeightSum_pos
+          w hw later half)))
+
+/-- **Exact tail trace identity.**  The centered trace is the physical
+self-return trace minus the conditioned stationary mass of the new block. -/
+theorem centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_eqv_selfReturnTrace_sub_stationaryMass
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) :
+    centralPhysicalFiniteVacuumSectorExactNewTailTraceRate
+        w hw base later half ≈
+      centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+          w hw base later half +
+        (-centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+          w hw base later half) := by
+  let indices := centralPhysicalFiniteVacuumSectorNewBlockIndices
+    w hw base later half
+  let normalizedWeight := finiteCarrierMassNormalizedWeight
+    (centralPhysicalFiniteVacuumSectorMass w hw later half)
+    (centralPhysicalFiniteVacuumSectorWeightSum_pos w hw later half)
+    (centralPhysicalFiniteWeight w hw later half)
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun index =>
+        centralPhysicalFiniteVacuumSectorSelfReturnProbability
+            w hw later half index +
+          (-normalizedWeight index))
+      indices) _ ?_ ?_
+  · unfold centralPhysicalFiniteVacuumSectorExactNewTailTraceRate
+    apply listQSum_congr_on
+    intro index hindex
+    exact
+      centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate_eqv_selfReturn_sub_stationaryMass
+        (mem_centralPhysicalFiniteVacuumSectorNewBlockIndices_iff.mp
+          hindex).1
+  refine Q'.eqv_trans _
+    (listQSum
+        (centralPhysicalFiniteVacuumSectorSelfReturnProbability
+          w hw later half)
+        indices +
+      listQSum (fun index => -normalizedWeight index) indices) _ ?_ ?_
+  · exact listQSum_add
+      (centralPhysicalFiniteVacuumSectorSelfReturnProbability
+        w hw later half)
+      (fun index => -normalizedWeight index)
+      indices
+  unfold centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+    centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+  exact Q'.add_eqv_congr_left _ _ _
+    (listQSum_neg_local normalizedWeight indices)
+
+/-- Dropping the nonnegative conditioned stationary subtraction gives a
+direct positive majorant by the new-state self-return trace. -/
+theorem centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_le_selfReturnTrace
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) :
+    centralPhysicalFiniteVacuumSectorExactNewTailTraceRate
+        w hw base later half ≤
+      centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+        w hw base later half := by
+  let selfReturn :=
+    centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+      w hw base later half
+  let stationaryMass :=
+    centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass
+      w hw base later half
+  have hidentity :=
+    centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_eqv_selfReturnTrace_sub_stationaryMass
+      w hw base later half
+  have hmass : (0 : Q') ≤ stationaryMass :=
+    centralPhysicalFiniteVacuumSectorExactNewTailStationaryMass_nonnegative
+      w hw base later half
+  have hdrop : selfReturn + (-stationaryMass) ≤ selfReturn + 0 :=
+    Q'.add_le_add_left selfReturn (-stationaryMass) 0
+      (Q'.nonpos_neg_of_nonneg hmass)
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv hidentity)
+    (Q'.le_trans' _ _ _ hdrop
+      (Q'.le_of_eqv (Q'.eqv_of_eq (Q'.add_zero' selfReturn))))
 
 /-- Stationary diagonal norm restricted to the genuinely new block. -/
 def centralPhysicalFiniteVacuumSectorNewTailDiagonalBudget
@@ -503,6 +799,14 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace
 
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorCenteredGramGNSData
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_eqv_joint_sub_equilibrium
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorNormalizedCenteredCoordinateRate_eqv_selfReturn_sub_stationaryMass
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_eqv_selfReturnTrace_sub_stationaryMass
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_le_selfReturnTrace
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace.centralPhysicalFiniteVacuumSectorCenteredCoordinateDiagonal_le_rate_mul_weight
 #print axioms

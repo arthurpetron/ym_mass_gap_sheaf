@@ -227,6 +227,44 @@ theorem centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_trace
       hcenter hhead htrace,
     hrate⟩
 
+/-- The probabilistic tail frontier in its directly consumable form: a
+centered embedded-head estimate plus a bound on the new-state self-return
+trace gives the same physical strict matrix gap.  The favorable conditioned
+stationary subtraction is discharged internally by the exact trace identity. -/
+theorem centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_selfReturnTrace
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) (coefficient : Nat → Q')
+    (q tau : Q')
+    (hq0 : (0 : Q') ≤ q) (htau0 : (0 : Q') ≤ tau)
+    (hrate : q + tau < (1 : Q'))
+    (hcenter :
+      centralPhysicalFiniteVacuumSectorWeightedMean
+        w hw later half coefficient ≈ 0)
+    (hhead :
+      let D := centralPhysicalFiniteVacuumSectorCenteredGramGNSData
+        w hw later half
+      let head := centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient
+        w hw base later half coefficient
+      D.B head head ≤
+        q * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+          w hw later half head)
+    (hselfReturn :
+      centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+        w hw base later half ≤ tau) :
+    centralPhysicalFiniteVacuumSectorMatrixQuadratic
+          w hw later half coefficient ≤
+        (q + tau) *
+          centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+            w hw later half coefficient ∧
+      q + tau < (1 : Q') := by
+  apply centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_trace
+    w hw base later half coefficient q tau hq0 htau0 hrate
+    hcenter hhead
+  exact Q'.le_trans' _ _ _
+    (centralPhysicalFiniteVacuumSectorExactNewTailTraceRate_le_selfReturnTrace
+      w hw base later half)
+    hselfReturn
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
 
 /-! ## Axiom audit -/
@@ -239,3 +277,5 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
   YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap.centralPhysicalFiniteVacuumSectorMatrix_le_of_centeredHead_trace
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap.centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_trace
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap.centralPhysicalFiniteVacuumSectorStrictMatrixGap_of_centeredHead_selfReturnTrace

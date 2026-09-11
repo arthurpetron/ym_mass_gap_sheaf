@@ -58,6 +58,75 @@ theorem channelLinear_congr_on
   intro state hstate
   exact Q'.mul_eqv_congr_right _ _ _ (hcoefficient state hstate)
 
+/-- The coordinate delta at one state.  It is deliberately defined over an
+arbitrary decidable state type so finite Gram arguments do not need to rebuild
+one-hot vectors for each concrete carrier. -/
+def finiteCoordinate {State : Type} [DecidableEq State]
+    (selected state : State) : Q' :=
+  if state = selected then 1 else 0
+
+private theorem listQSum_finiteCoordinate_mul_eqv
+    {State : Type} [DecidableEq State] (selected : State)
+    (value : State → Q') :
+    ∀ states : List State, states.Nodup → selected ∈ states →
+      listQSum
+          (fun state => finiteCoordinate selected state * value state)
+          states ≈
+        value selected
+  | [], _hnodup, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: tail, hnodup, hmem => by
+      have hparts := List.nodup_cons.mp hnodup
+      rcases List.mem_cons.mp hmem with hhead | htail
+      · subst head
+        simp only [listQSum]
+        unfold finiteCoordinate
+        rw [if_pos rfl]
+        have htailZero :
+            listQSum
+                (fun state =>
+                  (if state = selected then 1 else 0) * value state)
+                tail ≈ 0 := by
+          refine Q'.eqv_trans _
+            (listQSum (fun _state => (0 : Q')) tail) _ ?_ ?_
+          · apply listQSum_congr_on
+            intro state hstate
+            rw [if_neg]
+            · exact Q'.zero_mul_eqv _
+            intro heq
+            exact hparts.1 (heq ▸ hstate)
+          · exact listQSum_zero tail
+        refine Q'.eqv_trans _ (value selected + 0) _ ?_ ?_
+        · exact Q'.add_eqv_congr'
+            (Q'.one_mul_eqv (value selected)) htailZero
+        · exact Q'.eqv_of_eq (Q'.add_zero' _)
+      · have hne : head ≠ selected := by
+          intro heq
+          subst head
+          exact hparts.1 htail
+        simp only [listQSum]
+        unfold finiteCoordinate
+        rw [if_neg hne]
+        refine Q'.eqv_trans _ (0 + value selected) _ ?_ ?_
+        · exact Q'.add_eqv_congr'
+            (Q'.zero_mul_eqv _)
+            (listQSum_finiteCoordinate_mul_eqv
+              selected value tail hparts.2 htail)
+        · exact Q'.eqv_of_eq (Q'.zero_add' _)
+
+/-- On a duplicate-free displayed carrier, the channel transform of a
+coordinate delta extracts exactly that state's amplitude. -/
+theorem channelLinear_finiteCoordinate_eqv
+    {State Channel : Type} [DecidableEq State]
+    (states : List State) (amplitude : State → Channel → Q')
+    (selected : State) (hstates : states.Nodup)
+    (hselected : selected ∈ states) (channel : Channel) :
+    channelLinear states amplitude (finiteCoordinate selected) channel ≈
+      amplitude selected channel := by
+  unfold channelLinear
+  exact listQSum_finiteCoordinate_mul_eqv
+    selected (fun state => amplitude state channel)
+    states hstates hselected
+
 theorem channelLinear_add
     {State Channel : Type} (states : List State)
     (amplitude : State → Channel → Q')
@@ -112,6 +181,30 @@ def weightedGramBilinear
         (channelLinear states amplitude left channel *
           channelLinear states amplitude right channel))
     channels
+
+/-- The bilinear Gram form of a coordinate delta is the corresponding Gram
+matrix diagonal entry. -/
+theorem weightedGramBilinear_finiteCoordinate_self_eqv_weightedGram
+    {State Channel : Type} [DecidableEq State]
+    (states : List State) (channels : List Channel)
+    (channelWeight : Channel → Q')
+    (amplitude : State → Channel → Q')
+    (selected : State) (hstates : states.Nodup)
+    (hselected : selected ∈ states) :
+    weightedGramBilinear states channels channelWeight amplitude
+        (finiteCoordinate selected) (finiteCoordinate selected) ≈
+      weightedGram channels channelWeight amplitude selected selected := by
+  unfold weightedGramBilinear weightedGram
+  apply listQSum_congr
+  intro channel
+  have hlinear := channelLinear_finiteCoordinate_eqv
+    states amplitude selected hstates hselected channel
+  exact Q'.mul_eqv_congr_left (channelWeight channel) _ _
+    (Q'.eqv_trans _
+      (amplitude selected channel *
+        channelLinear states amplitude (finiteCoordinate selected) channel) _
+      (Q'.mul_eqv_congr_right _ _ _ hlinear)
+      (Q'.mul_eqv_congr_left _ _ _ hlinear))
 
 /-- A finite weighted Gram only inspects both coefficient functions on its
 displayed state list. -/
@@ -342,7 +435,11 @@ end YMGap.Continuum.FiniteWeightedGramGNSData
 #print axioms
   YMGap.Continuum.FiniteWeightedGramGNSData.channelLinear_add
 #print axioms
+  YMGap.Continuum.FiniteWeightedGramGNSData.channelLinear_finiteCoordinate_eqv
+#print axioms
   YMGap.Continuum.FiniteWeightedGramGNSData.weightedGramBilinear_congr_on
+#print axioms
+  YMGap.Continuum.FiniteWeightedGramGNSData.weightedGramBilinear_finiteCoordinate_self_eqv_weightedGram
 #print axioms
   YMGap.Continuum.FiniteWeightedGramGNSData.weightedGramBilinear_self_eq_sos
 #print axioms
