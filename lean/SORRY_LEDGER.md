@@ -31201,6 +31201,57 @@ Every printed new load-bearing declaration uses only `[propext, Quot.sound]`;
 there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
 declaration, enlarged heartbeat budget, or trusted external computation.
 
+#### Pay the six-face Casimir cost of the parity inward mate (2026-09-11)
+
+- **milestone**: cutoff-uniform SU(2) heat payment for the replacement
+  inward-mate gap route
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateHeatBound.lean`
+  and `computations/bf4_cutoff_two_65_sector_spectrum_scout.py`
+- **proved declarations**:
+  `coeffW_half_succ_le_sixteenth`,
+  `coeffW_half_positive_le_quarter_pred`,
+  `coeffW_half_positive_even_le_sixteenth_mate`,
+  `coeffW_half_even_le_four_mate`,
+  `coeffW_half_odd_le_quarter_mate`,
+  `sixHeatProduct_evenInwardMate_le_sixtyFour`, and
+  `sixHeatProduct_oddInwardMate_le_oneOver4096`
+- **closed obligation**: at the physical nome `w = 1/2`, prove directly from
+  the SU(2) Casimir coefficient that each positive excited step pays at least
+  `1/16`; amortize the one required positive even face against at most five
+  zero-to-fundamental costs to obtain `4^5 / 16 = 64`; and prove the stronger
+  all-odd predecessor payment `(1/4)^6 = 1/4096`.
+- **route correction**: the raw self-return trace reduction remains valid,
+  but its proposed cutoff-uniform `< 1/50` producer is abandoned.  The exact
+  untrusted scout finds at cutoff four the state with cube labels
+  `(4,0,0,0,0,0)` has self-return approximately `0.7142812803`; its six cube-
+  symmetric placements already make the positive new-shell trace exceed
+  four.  This diagnostic does not enter a theorem.
+- **remaining named obligation**: construct a non-abelian SU(2) strand
+  rerouting/injection that bounds the complete fixed-boundary intertwiner
+  contraction under the inward mate; combine it with the proved heat payment
+  to lower-bound a physical mate transition; then prove a rooted-subtree
+  Hardy/Poincare or equivalent posterior conditional-variance estimate.  The
+  uniform finite/completed gap, thermodynamic and continuum passage,
+  continuum QFT axioms, isolated vacuum, and Clay theorem remain open.
+- **constructive or propositional**: symbolic natural-number parity and exact
+  rational Casimir inequalities only.  The Python results are untrusted route
+  diagnostics.  Rust may generate future exact certificates, but Lean must
+  independently check their finite data and semantic inequalities.
+
+Monitored verification:
+
+```text
+inward-mate heat-payment focused source check             PASS
+inward-mate heat-payment dependency target                PASS (1,143 jobs)
+full `YMGap` root integration build                        STOPPED SAFELY
+  (available memory reached the monitored 12 GiB reserve; not counted as pass)
+```
+
+Every printed load-bearing declaration uses only `[propext, Quot.sound]`;
+there is no `sorry`, new axiom, `Classical`, `native_decide`, noncomputable
+declaration, enlarged heartbeat budget, or trusted external computation.
+
 #### Cancel normalization in the physical new-tail self-return trace (2026-09-11)
 
 - **milestone**: exact raw SU(2) diagonal/row-ratio certificate boundary
@@ -31218,17 +31269,20 @@ declaration, enlarged heartbeat budget, or trusted external computation.
   `sum_new K_raw(x,x) / row_raw(x)`.  The tail input of the same-object gap
   compiler can therefore be certified without approximating normalized
   partition functions.
-- **remaining named obligation**: prove a cutoff-uniform raw ratio-trace bound
-  below `1/50`, using a load-bearing SU(2) high-spin shell estimate, and persist
-  the cutoff-two centered head rate `49/50` in the later-cutoff centered Gram.
+- **remaining named obligation**: the proposed cutoff-uniform raw ratio-trace
+  bound below `1/50` is now computationally refuted and is not pursued.  The
+  replacement obligation is the inward-mate intertwiner comparison followed
+  by a rooted-subtree Poincare or posterior conditional-variance estimate.
   Completed thermodynamic and continuum passage, continuum QFT axioms,
   isolated vacuum, and the Clay theorem remain open.
 - **constructive or propositional**: exact positive `Q'` division and finite
   sums only.  The Python shell diagnostic is untrusted exploratory evidence:
   at cutoff three and `w = 1/2` it reports the genuinely new max-label-three
-  return trace approximately `6.208782747053917e-05`; no reported floating
-  value enters a theorem.  Rust remains permitted only as an untrusted
-  generator of exact certificate data independently checked by Lean.
+  return trace approximately `6.208782747053917e-05`, but at cutoff four the
+  six placements of cube labels `(4,0,0,0,0,0)` already contribute more than
+  four.  No reported value enters a theorem.  Rust remains permitted only as
+  an untrusted generator of exact certificate data independently checked by
+  Lean.
 
 Monitored verification:
 

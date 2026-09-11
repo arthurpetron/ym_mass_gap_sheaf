@@ -3495,6 +3495,7 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorHeadTailGramGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorNewTailSelfReturnRawRatio
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

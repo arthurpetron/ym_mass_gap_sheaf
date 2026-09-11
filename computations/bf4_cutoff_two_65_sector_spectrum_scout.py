@@ -640,6 +640,52 @@ def compute(
         ),
         reverse=True,
     )[:16]
+    largest_newest_diagonal_ratios = sorted(
+        (
+            (diagonal_ratios[index], states[index])
+            for index in newest_indices
+        ),
+        reverse=True,
+    )[:16]
+    state_index = {state: index for index, state in enumerate(states)}
+    newest_lowering_bounds: list[
+        tuple[Fraction | None, tuple[int, ...], tuple[int, ...]]
+    ] = []
+    for index in newest_indices:
+        state = states[index]
+        lowered = tuple(label - 2 if label == cutoff else label
+                        for label in state)
+        lowered_index = state_index[lowered]
+        selected_mass = kernel[index][lowered_index]
+        bound = (kernel[index][index] / selected_mass
+                 if selected_mass > 0 else None)
+        newest_lowering_bounds.append((bound, state, lowered))
+    newest_ratio_by_max_count: dict[int, dict[str, object]] = {}
+    for count in sorted({state.count(cutoff) for state in states
+                         if max(state) == cutoff}):
+        count_indices = tuple(
+            index for index in newest_indices
+            if states[index].count(cutoff) == count
+        )
+        count_ratios = tuple(diagonal_ratios[index]
+                             for index in count_indices)
+        newest_ratio_by_max_count[count] = {
+            "states": len(count_indices),
+            "sum": str(sum(count_ratios, Fraction(0))),
+            "sum_float": float(sum(count_ratios, Fraction(0))),
+            "minimum_float": float(min(count_ratios)),
+            "maximum_float": float(max(count_ratios)),
+            "maximum_selected_lowering_bound_float": max(
+                float(bound)
+                for bound, state, _lowered in newest_lowering_bounds
+                if state.count(cutoff) == count and bound is not None
+            ),
+            "zero_selected_lowering_edges": sum(
+                bound is None
+                for bound, state, _lowered in newest_lowering_bounds
+                if state.count(cutoff) == count
+            ),
+        }
     if spectrum_only:
         return {
             "states": len(states),
@@ -657,6 +703,23 @@ def compute(
             "largest_diagonal_ratios": [
                 {"ratio_float": float(ratio), "state": state}
                 for ratio, state in largest_diagonal_ratios
+            ],
+            "largest_newest_diagonal_ratios": [
+                {"ratio_float": float(ratio), "state": state}
+                for ratio, state in largest_newest_diagonal_ratios
+            ],
+            "newest_ratio_by_max_count": newest_ratio_by_max_count,
+            "largest_selected_lowering_bounds": [
+                {
+                    "bound_float": float(bound),
+                    "state": state,
+                    "lowered": lowered,
+                }
+                for bound, state, lowered in sorted(
+                    (item for item in newest_lowering_bounds
+                     if item[0] is not None),
+                    reverse=True,
+                )[:16]
             ],
             "largest_eigenvalues": descending[:12],
             "smallest_eigenvalue": descending[-1],
@@ -731,13 +794,128 @@ def compute(
     }
 
 
+def compute_selected_row(
+    *, coupling: Fraction, cutoff: int, jobs: int,
+    cube_labels: tuple[int, ...],
+) -> dict[str, object]:
+    """Contract one exact row selected by its six central-cube labels."""
+    if len(cube_labels) != len(CUBE_FACE_IDS):
+        raise ValueError("--row-cube-labels requires exactly six labels")
+    _set_cutoff_domain(cutoff)
+    states = sector_states(cutoff)
+    selected = tuple(
+        cube_labels[CUBE_FACE_IDS.index(face_id)]
+        if face_id in CUBE_FACE_IDS else 0
+        for face_id in EXPECTED_LOWER_FACE_IDS
+    )
+    try:
+        left = states.index(selected)
+    except ValueError as error:
+        raise ValueError("selected labels are not in the vacuum sector") from error
+    order, width = _elimination_order(coupling, cutoff)
+    tasks = tuple(
+        (str(coupling), cutoff, left, right, order)
+        for right in range(len(states))
+    )
+    if jobs == 1:
+        results = tuple(_entry_task(task) for task in tasks)
+    else:
+        context = multiprocessing.get_context("spawn")
+        with ProcessPoolExecutor(max_workers=jobs, mp_context=context) as pool:
+            results = tuple(pool.map(_entry_task, tasks, chunksize=1))
+    row = [Fraction(0) for _ in states]
+    for _pid, _left, right, value in results:
+        row[right] = value
+    row_mass = sum(row, Fraction(0))
+    diagonal = row[left]
+    transitions = sorted(
+        ((value / row_mass, states[index])
+         for index, value in enumerate(row) if value > 0),
+        reverse=True,
+    )
+    lowered_cube = tuple(label - 2 if label == cutoff else label
+                         for label in cube_labels)
+    lowered = tuple(
+        lowered_cube[CUBE_FACE_IDS.index(face_id)]
+        if face_id in CUBE_FACE_IDS else 0
+        for face_id in EXPECTED_LOWER_FACE_IDS
+    )
+    lowered_index = states.index(lowered)
+    lowered_entry = row[lowered_index]
+    if all(label % 2 == 0 for label in cube_labels):
+        mate_cube = tuple(label - 1 if label > 0 else 1
+                          for label in cube_labels)
+    elif all(label % 2 == 1 for label in cube_labels):
+        mate_cube = tuple(label - 1 for label in cube_labels)
+    else:
+        raise ValueError("selected labels do not have uniform parity")
+    mate = tuple(
+        mate_cube[CUBE_FACE_IDS.index(face_id)]
+        if face_id in CUBE_FACE_IDS else 0
+        for face_id in EXPECTED_LOWER_FACE_IDS
+    )
+    mate_index = states.index(mate)
+    mate_entry = row[mate_index]
+    return {
+        "cutoff": cutoff,
+        "states": len(states),
+        "elimination_width": width,
+        "workers_observed": len({pid for pid, _i, _j, _value in results}),
+        "cube_labels": cube_labels,
+        "row_index": left,
+        "positive_entries": sum(value > 0 for value in row),
+        "self_return": str(diagonal / row_mass),
+        "self_return_float": float(diagonal / row_mass),
+        "lowered_cube_labels": lowered_cube,
+        "lowering_edge_positive": lowered_entry > 0,
+        "diagonal_over_lowering": (
+            str(diagonal / lowered_entry) if lowered_entry > 0 else None
+        ),
+        "diagonal_over_lowering_float": (
+            float(diagonal / lowered_entry) if lowered_entry > 0 else None
+        ),
+        "mate_cube_labels": mate_cube,
+        "mate_edge_positive": mate_entry > 0,
+        "mate_probability": (
+            str(mate_entry / row_mass) if mate_entry > 0 else None
+        ),
+        "mate_probability_float": (
+            float(mate_entry / row_mass) if mate_entry > 0 else None
+        ),
+        "diagonal_over_mate": (
+            str(diagonal / mate_entry) if mate_entry > 0 else None
+        ),
+        "diagonal_over_mate_float": (
+            float(diagonal / mate_entry) if mate_entry > 0 else None
+        ),
+        "largest_transitions": [
+            {"probability_float": float(probability), "state": state}
+            for probability, state in transitions[:16]
+        ],
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--coupling", default="1/2")
     parser.add_argument("--cutoff", type=int, default=2)
     parser.add_argument("--jobs", type=int, default=min(16, os.cpu_count() or 1))
     parser.add_argument("--spectrum-only", action="store_true")
+    parser.add_argument("--row-cube-labels")
     arguments = parser.parse_args()
+    if arguments.row_cube_labels is not None:
+        labels = tuple(int(label) for label in
+                       arguments.row_cube_labels.split(","))
+        print(json.dumps(
+            compute_selected_row(
+                coupling=Fraction(arguments.coupling),
+                cutoff=arguments.cutoff,
+                jobs=arguments.jobs,
+                cube_labels=labels,
+            ),
+            sort_keys=True,
+        ))
+        return
     print(json.dumps(
         compute(
             coupling=Fraction(arguments.coupling),
