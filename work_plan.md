@@ -150,12 +150,18 @@ stretched channel.  In the second branch an explicit coordinate drop produces
 an accepted collapsed witness, retains positivity of both changed labels, and
 is exactly inverted by the existing stretched-witness lift.  Hence the local
 `mate + stretched` classifier is injective and loses no source multiplicity.
+That classifier is now connected to the literal corrected-slab geometry at
+every recorded cube link.  A certified root-first face order maps the physical
+source to the exact source word and the global six-face mate to the exact mated
+word with a common residual list.  The specialized classifier is injective,
+its decoder recovers the source auxiliary exactly, and its surviving branch is
+an accepted presented witness on the actual mated link.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. lift the injective local source classifier over the twelve cube-boundary
-   links; assemble every classified all-source tuple as one common accepted
-   presented background; serialize the exact two-root drop into a
+1. take the dependent product of the twelve literal cube-link classifiers;
+   retain every original source tuple as one common accepted presented
+   background; serialize every nonempty branch's exact two-root drop into a
    multiplicity-faithful peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain

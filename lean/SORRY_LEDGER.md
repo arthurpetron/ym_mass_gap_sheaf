@@ -31181,6 +31181,52 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Specialize the injective source partition to every literal cube link (2026-09-11)
+
+- **milestone**: observable-connected physical-link inward-mate classifier
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceWitnessPartition.lean`
+- **proved declarations**:
+  `cubeInwardMateSourceFaceOrder`,
+  `cubeInwardMateLinkRestFaceIds_map_mate_eq_source`,
+  `cubeInwardMateSourceFaceOrder_map_source`,
+  `cubeInwardMateSourceFaceOrder_map_mate`,
+  `cubeInwardMateOrderedSourceSpins_length_le_six`,
+  `exactCubeInwardMateSourceWitness`,
+  `cubeInwardMateSourceWitnessPartition`,
+  `presentedMatedLinkWitnessOfCubeInwardMateTarget`,
+  `recoverCubeInwardMateSourceWitnessPartitionAt_apply`, and
+  `cubeInwardMateSourceWitnessPartition_injective`
+- **closed obligation**: retain a root-first order of literal face identifiers
+  at any recorded cube incidence; prove the global six-face mate fixes every
+  residual literal face and changes exactly the first two spins; transport an
+  actual ordered source witness into the abstract SU(2) partition; package its
+  surviving branch in the actual ordered mated fiber; and prove exact source
+  recovery and injectivity after this physical specialization
+- **remaining named obligation**: take the dependent product over the twelve
+  attached incidences, retain the original source tuple as one common accepted
+  presented assignment, and connect every nonempty stretched output to the
+  exact two-root peel with a multiplicity-faithful inverse and weight payment.
+  The cutoff-independent pure-mate comparison, physical transition floor,
+  posterior-variance/Poincare estimate, completed gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the face order, accepted source/target and
+  collapsed witnesses, classified output, presented target, and decoder are
+  Type-level data; residual-face locality, acceptance, recovery, and
+  injectivity are proof certificates
+
+Monitored verification:
+
+```text
+cube-link source witness partition explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Partition each ordered source witness into mate or stretched debt (2026-09-11)
 
 - **milestone**: injective witness-level SU(2) inward-mate decomposition

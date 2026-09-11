@@ -222,10 +222,19 @@ positive-spin proofs, and proves that reinsertion recovers the source exactly.
 The resulting `inwardMateFusionWitnessPartition` is injective.  See
 [`SU2InwardMateFusionWitnessPartition.lean`](lean/YMGap/Continuum/SU2InwardMateFusionWitnessPartition.lean).
 
-The next causal step is to lift this injective local classifier over all twelve
-cube-boundary links, assemble each all-source branch as one common accepted
-presented background, and serialize its exact two-root drop into a
-multiplicity-faithful peel/weight certificate.  The older coarse mixed
+That abstract partition is now specialized to every literal cube-boundary
+link.  One certified face order exposes the two incident cube faces first; its
+residual literal faces are proved unchanged by the global six-face mate.  Lean
+therefore maps the actual ordered source fiber injectively into either the
+actual ordered mated fiber or an accepted collapsed stretched witness, and it
+packages every surviving target as a presented mated-link witness.  Exact
+recovery still returns the original auxiliary.  See
+[`BF4PhysicalVacuumSectorInwardMateCubeSourceWitnessPartition.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceWitnessPartition.lean).
+
+The next causal step is to take the dependent product of these twelve literal
+link classifiers, retain the original source tuple as one common accepted
+presented background, and serialize each nonempty stretched branch's exact
+two-root drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must
 ultimately be bounded by a cutoff-independent multiple of the pure mate
