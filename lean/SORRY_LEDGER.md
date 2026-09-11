@@ -31027,6 +31027,53 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Inject distinct all-target atoms into genuine SU2 tuple fibers (2026-09-11)
+
+- **milestone**: physical-block target-carrier injection
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetCarrier.lean`
+- **proved declarations**:
+  `GlobalCubeInwardMateCertifiedTargetFullSource.targetPresented_order`,
+  `globalInwardMateTargetPhysicalBlockRepresentatives`,
+  `globalInwardMateTargetPhysicalBlockRepresentative_targetPhysical_eq`,
+  `globalInwardMateTargetRepresentativeResidualCode`,
+  `globalInwardMateTargetPhysicalBlock_residualCode_injective`,
+  `globalInwardMateTargetPhysicalBlock_residualCodes_nodup`,
+  `globalInwardMateTargetPhysicalBlock_residualCode_mem_targetCodes`, and
+  `globalInwardMateTargetPhysicalBlock_length_le_targetTuples`
+- **closed obligation**: prove every global all-target presentation uses the
+  common fixed cube-source order; partition exact target representatives by
+  physical target; serialize their accepted auxiliary witnesses; prove the
+  serialization remains injective within a physical block; place every code
+  in the exact flat target carrier; and bound block cardinality by the genuine
+  heterogeneous SU2 target-tuple multiplicity.
+- **scope boundary**: the exact carrier comparison is cardinality-level.  Its
+  common target atom weight has not yet been multiplied through the block,
+  nor have physical blocks been Fubini-summed to the partition.  No normalized
+  transported fraction, posterior variance, OS form bound, or spectral gap is
+  asserted.
+- **remaining named obligation**: turn the block cardinality bound into a
+  weighted block bound; partition the distinct representative target sum by
+  every bounded physical target; and contract the block sum through
+  `cubeInwardMateFixedOrderPhysicalTargets_weight_total`.
+- **constructive or propositional**: literal order case analysis, finite
+  support reconstruction, decidable exact-key representatives, finite code
+  injection, and exact SU2 tuple cardinality only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target carrier focused source check            PASS
+global all-target carrier dependency target               PASS (1,308 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Fubini-sum the weighted exact target columns (2026-09-11)
 
 - **milestone**: exact successful-source transport to distinct target atoms
