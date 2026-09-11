@@ -31305,6 +31305,43 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports both modules.  No aggregate or
 full-root audit is claimed by these focused checks.
 
+#### Bound each peel block by its genuine SU(2) target weight (2026-09-11)
+
+- **milestone**: weighted fixed-target/root/size capacity
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetBlockWeightBound.lean`
+- **proved declarations**:
+  `cubeInwardMateFixedOrderTargetBlockEntryWeight_nonnegative`,
+  `cubeInwardMateFullPeelRepresentativeTargetWeight_eqv_blockAtom`, and
+  `cubeInwardMateFullPeelTargetBlockWeight_le_physicalBlock`
+- **closed obligation**: prove nonnegativity of the exact anchor target atom;
+  identify every representative in a fixed coarse block with the common
+  `(8/25)^peelSize`-weighted atom; combine termwise equality with the proved
+  block-cardinality bound; and reassociate the resulting exact finite sum into
+  the genuine heterogeneous SU(2) target-block weight.
+- **remaining named obligation**: sum the block inequality over sizes from two
+  by the exact `64/425` geometric tail, then over the six literal roots and all
+  bounded physical targets, obtaining the strict cutoff-independent factor
+  `384/425` against the physical BF4 partition.  Posterior-variance/Poincare
+  control, the completed physical gap, thermodynamic/continuum passage,
+  continuum QFT axioms, isolated vacuum, and Clay theorem remain open.
+- **constructive or propositional**: the proof is finite exact-rational
+  arithmetic, a Type-level physical carrier, and the previously checked
+  residual-code injection.  No cardinality oracle or external computation is
+  trusted.
+
+Monitored verification:
+
+```text
+weighted fixed peel-block capacity focused olean          PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target
