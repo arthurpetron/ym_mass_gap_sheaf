@@ -215,7 +215,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- average root + target envelopes over the fine-source law ........... [PROVED exact]
 |   |   |   |   +-- full connected posterior variance <= `1449/1700 < 1` ........ [PROVED finite volume]
 |   |   |   |   +-- identify posterior with centered production/refresh form ............ [PROVED exact]
-|   |   |   |   +-- span dense vacuum complement with one common strict form rate ............ [OPEN]
+|   |   |   |   +-- uncentered RG-row form = centered form + exact bias square .... [PROVED exact]
+|   |   |   |   +-- normalized RG-row bias = centered cylinder remainder .......... [PROVED exact]
+|   |   |   |   +-- matched-AF `O(g^2)` control of that literal bias ............... [OPEN named producer]
+|   |   |   |   +-- relative all-observable RG contraction ........................ [OPEN; not implied by spanning]
+|   |   |   |   +-- completed weak-to-strong OS transfer intertwiner ............... [OPEN named realization]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1545,10 +1549,71 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted
 external computation is introduced.  The root aggregator imports the module.
 No aggregate or full-root audit is claimed here.
 
-Still open: establish a basis/spanning theorem that carries this common
-strict estimate from the selected connected cylinders to the dense physical
-vacuum complement, then extend it to the completed OS/reflection carrier.
-Uniform thermodynamic and controlled continuum passage remain downstream.
+The bound here is absolute and applies to one selected RG blocking-row
+observable.  Linear or basis spanning alone cannot turn it into a relative
+all-vector inequality, and this `physicalKernel` is not the OS time-transfer
+operator.  The completed strong-coupling OS gap at rate `1/16` is already
+proved on its separate branch.  Still open here: identify the exact
+uncentered-row bias, control it on the matched AF trajectory, construct a
+relative all-observable RG contraction, and inhabit the completed
+weak-to-strong OS transfer intertwiner.  Uniform thermodynamic and controlled
+continuum passage remain downstream.
+
+#### Split the selected RG row into fluctuation and exact bias (2026-09-11)
+
+`Z4DyadicBinaryConnectedObservableProductionRefreshBiasVariance` proves the
+finite weighted Pythagorean identity for the actual production-minus-refresh
+row `A`:
+
+```text
+normalized E[A^2]
+  = normalized E[(A - E[A])^2] + E[A]^2.
+```
+
+Zero physical source weights are constructively deleted, and the normalized
+positive-source mean is identified with the existing full signed Gibbs
+average.  The earlier row-action theorem then gives the exact same-object
+identity
+
+```text
+E[A] = centeredCylinderRemainder.
+```
+
+Consequently the uncentered selected-row form at the named SU(2) anchor obeys
+
+```text
+uncentered production/refresh form
+  <= 1449/1700 + centeredCylinderRemainder^2.
+```
+
+This closes the normalization audit without inventing a spectral theorem:
+the strict `1449/1700` term is the fluctuation, while the literal squared
+observable-matching remainder is the only missing term for this selected
+uncentered row.  It is still an absolute one-observable RG blocking-row
+statement, not a relative vacuum-complement inequality and not an OS
+time-transfer estimate.
+
+Monitored verification:
+
+```text
+production/refresh bias-variance focused check            PASS
+production/refresh bias-variance dependency               PASS (5,624 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No full-root audit is claimed in this entry.
+
+The coupling audit also separates the two parameter regimes.  In
+`CubicMarginLaw`, the matched-AF coordinate is `g` and the fine heat nome
+satisfies `1-w = g^2`, so `w -> 1` as `g -> 0`.  The new strict posterior
+bound instead assumes the fine slab itself is the strong anchor
+`w = 1/400`.  Therefore it cannot directly inhabit the matched-AF bias
+producer.  The next causal analytic target is `O(g^2)` control of the exact
+`centeredCylinderRemainder` on the weak matched-AF schedule, followed by the
+completed weak-to-strong OS operator realization.
 
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 

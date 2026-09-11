@@ -31340,11 +31340,15 @@ full-root audit is claimed here.
   row so the source-independent coarse refresh term cancels exactly; and
   prove equality of the resulting normalized quadratic form with the strict
   connected posterior variance.
-- **remaining named obligation**: prove a dense physical cylinder
-  basis/spanning theorem on the vacuum complement that preserves one common
-  strict form rate, then extend the estimate to the completed OS/reflection
-  carrier.  Uniform thermodynamic and controlled continuum passage remain
-  open.
+- **remaining named obligation**: this is an absolute estimate for one RG
+  blocking-row observable, not a relative form estimate, and the kernel is
+  not the OS time-transfer operator.  Basis spanning alone therefore cannot
+  yield a dense/completed spectral gap.  Identify the uncentered-row bias,
+  control it on the matched AF trajectory, construct a relative
+  all-observable RG contraction, and inhabit the already named completed
+  weak-to-strong OS operator realization.  Uniform thermodynamic and
+  controlled continuum passage remain open.  The separate completed
+  strong-coupling OS gap at rate `1/16` is already proved.
 - **constructive or propositional**: exact finite rational expectation and
   variance algebra, explicit positive normalization, and the actual
   cutoff-one SU(2) production kernel.  The uncentered action is not conflated
@@ -31362,6 +31366,53 @@ All printed declarations use only `[propext, Quot.sound]`.  There is no
 `Classical`, `native_decide`, custom axiom, noncomputable declaration,
 enlarged heartbeat budget, or trusted external computation.  No aggregate or
 full-root audit is claimed here.
+
+#### Split the selected physical RG row into fluctuation and exact bias (2026-09-11)
+
+- **milestone**: exact production/refresh bias--variance decomposition
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableProductionRefreshBiasVariance.lean`
+- **proved declarations**:
+  `finePacketPhysicalConnectedProductionRefreshMeanMass_eqv_partition_mul_mean`,
+  `finePacketPhysicalConnectedProductionRefreshMean_eqv_centeredRemainder`,
+  `finePacketPhysicalConnectedProductionRefreshPairwiseVarianceMass_eqv_response`,
+  `finePacketPhysicalConnectedProductionRefreshHalfPairwise_eqv_posterior`,
+  `finePacketPhysicalConnectedProductionRefreshHalfPairwise_eqv_form_sub_bias`,
+  `finePacketGlobalPhysicalConnectedProductionRefreshForm_eqv_centered_add_bias`,
+  `finePacketGlobalPhysicalConnectedProductionRefreshBiasFraction_eqv_mean_square`,
+  `finePacketGlobalPhysicalConnectedProductionRefreshBiasFraction_eqv_remainder_square`,
+  and
+  `finePacketGlobalPhysicalConnectedProductionRefreshForm_le_anchorRate_add_remainderSquare`
+- **closed obligation**: prove the exact finite weighted Pythagorean identity
+  for the uncentered production-minus-refresh row; constructively delete
+  zero-weight physical sources; identify its normalized fine-source mean with
+  the existing full signed Gibbs average and hence with
+  `centeredCylinderRemainder`; and isolate the only missing uncentered-row
+  term as that remainder's literal square.
+- **remaining named obligation**: the matched-AF coordinate `g` satisfies
+  `1-w = g^2`, whereas this strict fluctuation theorem fixes the strong heat
+  nome `w=1/400`.  Prove `O(g^2)` control of the exact bias on the weak
+  matched-AF schedule, then construct a relative all-observable RG
+  contraction and inhabit `CompletedBF4RGOperatorRealization`.  The completed
+  strong-coupling OS gap is a separate proved branch; the weak-to-strong
+  completed intertwiner, thermodynamic/continuum passage, continuum theory,
+  and Clay mass gap remain open.
+- **constructive or propositional**: exact finite rational weighted sums,
+  pairwise variance algebra, zero-weight deletion, and positive-denominator
+  normalization only.  No `sorry`, new named hypothesis, Rust result, or
+  trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+production/refresh bias-variance focused check            PASS
+production/refresh bias-variance dependency               PASS (5,624 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  The root
+aggregator imports the module.  No full-root audit is claimed in this entry.
 
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
