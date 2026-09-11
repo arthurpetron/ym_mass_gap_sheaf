@@ -140,8 +140,10 @@ def slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
           evenInwardMateLabel
             (physical (centralLowerCubeFaceId incidence.right)) :: rest) := by
   have hgeometry := cubeProductionIncidence_numeric_exact hincidence
-  obtain ⟨restIds, hids⟩ := twoHeadPermOfMem
+  let order := twoHeadPermOfMem
     hgeometry.1 hgeometry.2.1 hgeometry.2.2.1
+  let restIds := order.1
+  have hids := order.2
   have hexcludes := two_head_perm_rest_excludes
     (slabIncidentPlaqIds_nodup 1 incidence.link) hids
   have hrestMate :
@@ -162,6 +164,7 @@ def slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
   · simpa only [List.map_cons] using hids.map physical
   · have hmate := hids.map
       (centralLowerCubeEvenInwardMatePhysical physical)
+    dsimp [restIds] at hrestMate ⊢
     simpa only [List.map_cons,
       centralLowerCubeEvenInwardMatePhysical_on_cube physical
         (centralLowerCubeFaceId_mem incidence.left),
@@ -201,9 +204,12 @@ def slabExplicitLinkMultiplicityCentralCubeEvenInwardMateLeAddStretched
               ((physical (centralLowerCubeFaceId incidence.left) +
                 physical (centralLowerCubeFaceId incidence.right)) ::
                 rest)) := by
-  obtain ⟨rest, hsource, hmate⟩ :=
+  let certificate :=
     slabIncidentPhysicalSpinsCentralCubeEvenInwardMatePermutations
       incidence hincidence physical
+  let rest := certificate.1
+  have hsource := certificate.2.1
+  have hmate := certificate.2.2
   have hlength :
       (physical (centralLowerCubeFaceId incidence.left) ::
         physical (centralLowerCubeFaceId incidence.right) :: rest).length ≤ 6 := by

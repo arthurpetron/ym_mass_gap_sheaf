@@ -96,13 +96,17 @@ proves acceptance on the ordered source word through valence six.  The
 specialization to every active cube-root carrier is also closed: the lifted
 auxiliary is accepted on its literal ordered source word, that word has length
 at most six and bounded spins, and the physical production incident-spin word
-is retained with an exact permutation to it.
+is retained with an exact permutation to it.  The matching root-first order of
+literal plaquette IDs is now also Type-level data: it is duplicate-free,
+permutes the production incidence list, and maps exactly to that ordered source
+spin word.  A small upstream refactor makes the residual ID and spin words
+compute transparently rather than through proof recursors.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. transport the accepted ordered root witness itself back to production
-   incident order, construct its SU(2)-specific closed-component rerouting,
-   and sum those routes into a
+1. generalize the accepted-link strand presentation from the production face
+   order to the certified root-first face order, construct its SU(2)-specific
+   closed-component rerouting, and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;

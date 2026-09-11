@@ -31626,6 +31626,44 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Retain the root-first order of literal incident faces (2026-09-11)
+
+- **milestone**: observable-preserving local presentation bridge
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeIncidence.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFaceOrder.lean`
+- **proved declarations**: `cubeInwardMateLinkFaceOrderCertificate`,
+  `cubeInwardMateLinkRestFaceIds`, `rootOrderedFaceIds`,
+  `rootProductionFaceIds_perm_orderedFaceIds`,
+  `rootOrderedFaceIds_nodup`,
+  `cubeInwardMateLinkRest_eq_map_restFaceIds`, and
+  `rootOrderedFaceIds_map_eq_orderedSourceSpins`
+- **closed obligation**: retain a root-first order of actual plaquette IDs,
+  prove it is a duplicate-free permutation of the production incidence list,
+  and prove its physical labels are exactly the ordered spin word carrying the
+  lifted source auxiliary; refactor the older residual-word definitions so
+  their data compute without elimination through proof-bearing sigmas
+- **remaining named obligation**: instantiate the canonical accepted-link
+  strand pairing on an arbitrary certified face order, then glue the resulting
+  root-first local edges into the global component tracer
+- **constructive or propositional**: residual face IDs and their mapped spin
+  word are computable list data; permutation, duplicate-freeness, and exact
+  label agreement are proof certificates
+
+Monitored verification:
+
+```text
+cube-incidence transparent-data explicit olean emission    PASS
+active-root face-order explicit olean emission              PASS
+```
+
+All printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

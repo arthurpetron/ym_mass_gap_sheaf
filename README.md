@@ -152,13 +152,19 @@ That compiler is now specialized to every active cube-root carrier:
 source auxiliary, and `rootProductionSpins_perm_orderedSourceSpins` retains
 the exact permutation from the physical production order; see
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootSourceWitness.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootSourceWitness.lean).
+The corresponding root-first order of literal plaquette IDs is now retained
+as data as well.  It is duplicate-free, permutes the production incidence
+list, and maps exactly to the accepted ordered spin word; see
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootFaceOrder.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootFaceOrder.lean).
 
-The next causal step is to transport the ordered source witness itself back to
-the production incident-spin order, then reroute the resulting complete strand
-component and bound the carrier sum by a cutoff-independent multiple of the
-pure mate product.  That would compare the complete fixed-boundary intertwiner
-contraction. A genuine physical mate-transition floor would then feed a
-rooted-subtree Hardy--Poincare or posterior conditional-variance estimate.
+The next causal step is to generalize the accepted-link strand presentation to
+this certified root-first face order, then reroute the resulting complete
+strand component and bound the carrier sum by a cutoff-independent multiple of
+the pure mate product.  That avoids mistaking a change of fusion basis for a
+pointwise permutation of basis witnesses.  The resulting fixed-boundary
+intertwiner comparison would feed a genuine physical mate-transition floor and
+then a rooted-subtree Hardy--Poincare or posterior conditional-variance
+estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already
