@@ -31027,6 +31027,50 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Fubini-sum the weighted exact target columns (2026-09-11)
+
+- **milestone**: exact successful-source transport to distinct target atoms
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetFubini.lean`
+- **proved declarations**:
+  `globalInwardMateTargetRepresentatives`,
+  `globalInwardMateTargetRepresentatives_mem_source`,
+  `globalInwardMateRepresentativeFiber_eq_targetFiber`,
+  `globalInwardMateTargetRepresentativeFibers_weight_total`, and
+  `globalInwardMateSuccessfulSourceWeight_le_representativeTargets`
+- **closed obligation**: choose one actual successful representative for
+  every realized exact target key; identify the generic and literal fibers;
+  prove those fibers exactly recover total successful-source mass; sum their
+  weighted capacity bounds; and factor out the explicit common constant to
+  obtain
+  `successful mass <= 64 * (32,000,000^6 * distinct target mass)`.
+- **scope boundary**: the right side is the sum of one realized target atom
+  per exact key.  It has not yet been bounded by the genuine fixed-order BF4
+  target-tuple partition.  Thus no normalized transported fraction,
+  posterior variance, OS form bound, or spectral gap is asserted.
+- **remaining named obligation**: prove every realized all-target presentation
+  has the common fixed cube-source face order; realize it in the exact target
+  tuple carrier; inject distinct exact target keys within each physical target
+  block; and sum those blocks using the proved BF4 physical-partition
+  normalization.
+- **constructive or propositional**: decidable representative selection,
+  exact finite deterministic-kernel Fubini, finite-list monotonicity, and
+  rational factorization only.  No `sorry`, new named hypothesis, Rust result,
+  or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target Fubini focused source check             PASS
+global all-target Fubini dependency target                PASS (1,307 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Sum the six-face comparison inside one exact target fiber (2026-09-11)
 
 - **milestone**: weighted exact target-column capacity
