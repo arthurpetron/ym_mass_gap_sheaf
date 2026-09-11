@@ -211,8 +211,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- connected observable = two exact symmetric face gradients ............... [PROVED exact]
 |   |   |   |   +-- disconnected gradient carriers cancel by finite involutions ............. [PROVED exact]
 |   |   |   |   +-- rational-observable two-row cross <= root + target envelopes ............ [PROVED raw]
-|   |   |   |   +-- normalize and prove connected-response unit oscillation ................. [ACTIVE]
-|   |   |   |   +-- feed strict production fraction into centered production/refresh cross .. [ACTIVE consumer]
+|   |   |   |   +-- normalize and prove connected-response unit oscillation ............ [PROVED sharp]
+|   |   |   |   +-- average root + target envelopes over the fine-source law ........... [PROVED exact]
+|   |   |   |   +-- full connected posterior variance <= `1449/1700 < 1` ........ [PROVED finite volume]
+|   |   |   |   +-- identify posterior with centered production/refresh form ............ [PROVED exact]
+|   |   |   |   +-- span dense vacuum complement with one common strict form rate ............ [OPEN]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
 |   |   |   |   +-- volume-uniform balanced-blocking bound ............................... [ACTIVE analytic producer]
@@ -1502,6 +1505,50 @@ the centered physical production/refresh form for the same connected
 observable, then lift the one-observable strictness to the required dense
 vacuum-complement form bound.  Completed extension and controlled
 thermodynamic/continuum passage remain downstream.
+
+#### Identify posterior variance with the physical centered row form (2026-09-11)
+
+`Z4DyadicBinaryConnectedObservableCenteredProductionRefreshForm` specializes
+the connected response to the actual cutoff-one `physicalKernel` and proves
+that it is exactly that kernel's connected-observable expectation.  On every
+positive source, the existing Gibbs-refresh row action is therefore
+
+```text
+production connected response - coarse Gibbs connected expectation.
+```
+
+Subtracting its fine-source mean cancels the source-independent coarse term
+exactly.  The resulting vacuum-centered row is pointwise equal to the
+centered connected response.  Finite weighted variance algebra then proves
+the same-object identity
+
+```text
+connected posterior variance
+  = normalized square of the vacuum-centered
+      physical production-minus-refresh row action.
+```
+
+Consequently the concrete physical centered form satisfies
+`<= 1449/1700 < 1` at the named SU(2) anchor.  The uncentered row action is
+not identified with variance: it also contains the squared global bias.
+
+Monitored verification:
+
+```text
+centered production-refresh form focused check             PASS
+centered production-refresh form dependency                PASS (5,623 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No aggregate or full-root audit is claimed here.
+
+Still open: establish a basis/spanning theorem that carries this common
+strict estimate from the selected connected cylinders to the dense physical
+vacuum complement, then extend it to the completed OS/reflection carrier.
+Uniform thermodynamic and controlled continuum passage remain downstream.
 
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 

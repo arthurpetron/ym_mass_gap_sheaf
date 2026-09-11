@@ -31318,6 +31318,51 @@ All printed declarations use only `[propext, Quot.sound]`.  There is no
 enlarged heartbeat budget, or trusted external computation.  No aggregate or
 full-root audit is claimed here.
 
+#### Identify posterior variance with the physical centered row form (2026-09-11)
+
+- **milestone**: strict selected-observable centered production/refresh form
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableCenteredProductionRefreshForm.lean`
+- **proved declarations**:
+  `positivePhysicalSourceTiltedGibbsConnectedResponse_eqv_physicalKernelExpectation`,
+  `coarseGibbsRefreshConnectedRowAction_positive_eqv_response_sub_refresh`,
+  `positivePhysicalCenteredConnectedResponse_weightedMean_eqv_zero`,
+  `finePacketGlobalPhysicalConnectedPosteriorVariance_eqv_centeredSourceSquare`,
+  `positivePhysicalCenteredGibbsRefreshConnectedRowAction_eqv_centeredResponse`,
+  `positivePhysicalCenteredGibbsRefreshConnectedRowAction_weightedMean_eqv_zero`,
+  `finePacketGlobalPhysicalConnectedPosteriorVariance_eqv_centeredProductionRefreshForm`,
+  `finePacketGlobalPhysicalConnectedCenteredProductionRefreshForm_le_anchorRate`,
+  and
+  `finePacketGlobalPhysicalConnectedCenteredProductionRefreshForm_lt_one_at_anchor`
+- **closed obligation**: specialize the posterior response to the actual
+  production kernel; identify it with the production-row expectation;
+  subtract the fine-source mean from the existing production-minus-refresh
+  row so the source-independent coarse refresh term cancels exactly; and
+  prove equality of the resulting normalized quadratic form with the strict
+  connected posterior variance.
+- **remaining named obligation**: prove a dense physical cylinder
+  basis/spanning theorem on the vacuum complement that preserves one common
+  strict form rate, then extend the estimate to the completed OS/reflection
+  carrier.  Uniform thermodynamic and controlled continuum passage remain
+  open.
+- **constructive or propositional**: exact finite rational expectation and
+  variance algebra, explicit positive normalization, and the actual
+  cutoff-one SU(2) production kernel.  The uncentered action is not conflated
+  with variance.  No `sorry`, new named hypothesis, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+centered production-refresh form focused check             PASS
+centered production-refresh form dependency                PASS (5,623 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  No aggregate or
+full-root audit is claimed here.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric
