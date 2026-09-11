@@ -31181,6 +31181,53 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Inject and contract the certified fixed-target adaptive fiber (2026-09-11)
+
+- **milestone**: three-word source reconstruction, fixed-target cardinality,
+  and strict anchor-weight contraction
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveEntropyCode.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveFiberWeight.lean`
+- **proved declarations**:
+  `certifiedStretchedComponentUnionAdaptiveEntropyCode_mem_carrier`,
+  `PresentedAdaptiveInverseData.sourceData_eq_of_code_eq`,
+  `certifiedStretchedComponentUnionAdaptiveInverseData`,
+  `PresentedAdaptiveRemovalWitness.source_eq_of_code_eq`,
+  `presentedAdaptiveRemovalSources_length_le`, and
+  `presentedAdaptiveAnchorRemovalSources_weight_sum_le`
+- **closed obligation**: compile the connected shape, exact physical
+  multiplicities, and complete auxiliary rows into one carrier bounded by
+  `10240000^peelSize`; reconstruct the physical and raw auxiliary source from
+  equal codes over one lowered presented target; inject any explicit
+  duplicate-free fixed-target family into that carrier; and combine its
+  cardinality with explicit pointwise anchor-payment certificates to obtain
+  the strict `(8/25)^peelSize` target-relative weight sum
+- **remaining named obligation**: construct the actual finite enumeration of
+  every certified first-stretched route, partition it by common lowered
+  target, root, and peel size, and sum the fixed fibers over roots and positive
+  sizes against the pure mate product.  A physical transition floor,
+  posterior-variance/Poincare theorem, completed OS transfer gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the flat inverse data, fixed-target
+  removal witnesses, three finite words, and finite source families are
+  Type-level data; reconstruction, injectivity, cardinality, and rational
+  weighted summation are kernel-checked
+
+Monitored verification:
+
+```text
+certified adaptive inverse-fiber focused check             PASS
+certified adaptive fixed-fiber weight focused check        PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]` (or no axioms).  There
+is no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat or recursion-depth budget, `sorry`, Rust computation, or
+trusted external computation.  The root aggregator imports both new modules.
+No aggregate or full-root audit is claimed by these checks.
+
 #### Bound the complete presented auxiliary code by `4096^peelSize` (2026-09-11)
 
 - **milestone**: exact sparse decoding, physical row charging, and a

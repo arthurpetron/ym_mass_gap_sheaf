@@ -326,6 +326,20 @@ def PresentedAdaptiveRemovalWitness.code
       targetPhysical targetAssignment source) : ComponentAdaptiveEntropyCode :=
   witness.data.code
 
+/-- Every flat inverse certificate canonically witnesses removal to its own
+decoded lowered target. -/
+def PresentedAdaptiveInverseData.toRemovalWitness
+    {K extent : Nat} (data : PresentedAdaptiveInverseData K extent) :
+    PresentedAdaptiveRemovalWitness K extent data.rootFaceId data.peelSize
+      data.lowerPhysical data.lowerAssignment
+      (data.sourcePhysical, data.sourceRaw) where
+  data := data
+  source_eq := rfl
+  rootFaceId_eq := rfl
+  peelSize_eq := rfl
+  lowerPhysical_eq := rfl
+  lowerAssignment_heq := HEq.rfl
+
 /-- Every fixed-target witness code lies in the common root/size carrier. -/
 theorem PresentedAdaptiveRemovalWitness.code_mem_carrier
     {K extent rootFaceId peelSize : Nat}
@@ -421,6 +435,7 @@ theorem presentedAdaptiveRemovalSources_length_le
 #print axioms certifiedStretchedComponentUnionAdaptiveInverseData
 #print axioms PresentedAdaptiveRemovalWitness
 #print axioms PresentedAdaptiveRemovalWitness.code
+#print axioms PresentedAdaptiveInverseData.toRemovalWitness
 #print axioms PresentedAdaptiveRemovalWitness.code_mem_carrier
 #print axioms PresentedAdaptiveRemovalWitness.source_eq_of_code_eq
 #print axioms presentedAdaptiveRemovalSources_length_le

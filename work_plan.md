@@ -207,13 +207,35 @@ link's selected physical mass, proves the total link mass exactly
 `4096^peelSize`.  These bounds are independent of slab volume and spin cutoff;
 they cover the certified two-root union without assuming its two rooted
 components are equal or disjoint.
+The remaining structural factors are now closed as well.  The deduplicated
+two-root support is one connected rooted `Z^4` animal, encoded by a padded
+tour in a carrier of size exactly `625^peelSize`; its support-ordered physical
+multiplicities are encoded in a carrier of size exactly `4^peelSize` and
+decode the selected-copy count at every ambient face.  Together with the
+adaptive auxiliary rows, the actual certified source inhabits one common
+carrier bounded by `10240000^peelSize`.  A flat inverse certificate now avoids
+normalizing the full dependent strand graph: at fixed root and lowered
+presented target, equal three-word codes reconstruct equal source physical
+fields and equal raw auxiliary assignments.  Consequently every explicit
+duplicate-free fixed-target source family has at most
+`10240000^peelSize` members.  Combining that cardinality with an explicit
+per-source anchor-payment witness gives the checked fixed-target sum
+
+```text
+source fiber weight <= (8/25)^peelSize * target weight.
+```
+
+This is a fixed-fiber theorem.  The actual finite first-stretched source
+enumeration has not yet been partitioned by common lowered target, root, and
+peel size, and the roots/sizes have not yet been summed.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. encode the two-root union's physical geometry and selected-copy
-   multiplicities without double-counting overlap, combine that structural
-   carrier with the exact auxiliary inverse, and sum the certified routes into
-   a cutoff-independent bound by the pure mate product;
+1. construct the actual finite enumeration of certified first-stretched
+   source routes, partition it by common lowered target, root, and peel size,
+   apply the proved `(8/25)^peelSize` fixed-fiber contraction, and sum the
+   resulting roots and positive sizes into a cutoff-independent bound by the
+   pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

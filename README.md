@@ -49,13 +49,40 @@ useful theorems exist but a required bridge is missing.
 The present bottleneck is a cutoff-uniform gap for the **actual physical SU(2)
 BF4 vacuum-sector transfer**, not an abstract spectral theorem.
 
-The most recent proved step is the Casimir/heat payment for an inward mate at
-the physical nome `w = 1/2`. For a parity-uniform six-face cube, Lean proves:
+The current verified frontier is a fixed-target contraction for the actual
+certified first-stretched SU(2) strand source.  Lean now compiles the complete
+two-root component union into three finite words:
 
-- a non-vacuum even source heat product is at most `64` times its inward
-  mate's heat product;
-- an odd source heat product is at most `1/4096` times its inward mate's heat
-  product.
+- one connected rooted `Z^4` animal word in a carrier of size `625^n`;
+- one exact physical strand-multiplicity word in a carrier of size `4^n`;
+- one complete auxiliary-drop row word in a carrier of size at most `4096^n`.
+
+At fixed root, peel size `n`, and lowered presented target, those words
+reconstruct the source physical field and raw auxiliary assignment.  Thus any
+explicit duplicate-free fixed-target source family has at most
+`10240000^n` members.  Combining that injectivity with the exact per-source
+anchor payment `anchorFaceCoefficient^n = (1/32000000)^n` gives the checked
+finite-fiber estimate
+
+```text
+source fiber weight <= (8/25)^n * target weight.
+```
+
+See
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveEntropyCode.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveEntropyCode.lean),
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveInverseFiber.lean),
+and
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveFiberWeight.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedAdaptiveFiberWeight.lean).
+
+The remaining immediate bridge is to enumerate the actual first-stretched
+source family into these common lowered-target fibers and sum over roots and
+peel sizes.  The theorem does **not** yet give a physical transfer minorization,
+a posterior-variance fraction, an OS transfer gap, or a continuum result.
+
+Earlier in the same causal chain, the Casimir/heat payment for an inward mate
+at the physical nome `w = 1/2` established that a parity-uniform six-face cube
+has a non-vacuum even source heat product at most `64` times its inward mate's
+heat product, while an odd source is at most `1/4096` times its inward mate.
 
 These are
 `sixHeatProduct_evenInwardMate_le_sixtyFour` and
@@ -309,17 +336,17 @@ cutoff.  See
 and
 [`CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction.lean`](lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentAdaptiveAuxiliaryProduction.lean).
 
-The next causal step is to encode the two-root union's physical geometry and
-selected-copy multiplicities without double-counting component overlap, join
-that structural code to the exact auxiliary inverse, and sum the certified
-first-stretched routes into a cutoff-independent multiple of the pure mate
-product.  The older
-coarse mixed target/debt Cartesian carrier still does not itself provide a
-common accepted source presentation and is not used as one.
-This avoids mistaking a change of fusion basis for a pointwise permutation of
-basis witnesses.  The resulting fixed-boundary intertwiner comparison would
-feed a genuine physical mate-transition floor and then a rooted-subtree
-Hardy--Poincare or posterior conditional-variance estimate.
+The physical geometry, multiplicity, and auxiliary inverse are now joined in
+one adaptive code.  Its fixed-target injectivity and weighted fiber contraction
+are checked, including component overlap without double counting.  What is
+still open is the global regrouping: construct the actual finite enumeration
+of certified first-stretched routes, partition it by the common lowered target,
+root, and peel size, and sum those fibers into a cutoff-independent multiple
+of the pure mate product.  The older coarse mixed target/debt Cartesian carrier
+still does not itself provide a common accepted source presentation and is not
+used as one.  Closing this regrouping would feed a genuine physical
+mate-transition floor and then a rooted-subtree Hardy--Poincare or posterior
+conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already
