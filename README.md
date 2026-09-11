@@ -267,9 +267,16 @@ copies as sources, and both edges are proved members of the single completed
 presented slab graph.  See
 [`BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges.lean).
 
-The next causal step is to close the union of the two rooted components and
-compile it to the exact accepted physical peel, then serialize the resulting
-drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
+Those two edges now seed a complete accepted peel.  Lean takes the Boolean
+union of their constructive rooted components, proves it closed under the
+actual partner at every independently presented link, and compiles the common
+selection to a lowered physical field plus a complete accepted presented
+assignment.  Both root-face labels decrease strictly; no connectivity claim
+between the two roots is assumed.  See
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.lean).
+
+The next causal step is to serialize this accepted drop into a
+multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must
 ultimately be bounded by a cutoff-independent multiple of the pure mate

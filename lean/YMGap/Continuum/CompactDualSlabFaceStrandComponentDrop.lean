@@ -99,6 +99,48 @@ def lowerSlabPhysicalByFaceStrandSelection
     (selected : SlabFaceStrandCopy physical -> Bool) : SlabLabelling :=
   lowerEdgeLabellingBy physical (slabFaceStrandSelectionCount selected)
 
+private theorem boolCountFrom_pos_of_true
+    (selected : Nat → Bool) : ∀ start length offset : Nat,
+    offset < length → selected (start + offset) = true →
+      0 < boolCountFrom selected start length
+  | _, 0, offset, hoffset, _ => by omega
+  | start, length + 1, 0, _, htrue => by
+      rw [boolCountFrom]
+      simp only [Nat.add_zero] at htrue
+      rw [htrue]
+      simp only [boolIndicator]
+      omega
+  | start, length + 1, offset + 1, hoffset, htrue => by
+      rw [boolCountFrom]
+      have htail : 0 < boolCountFrom selected (start + 1) length :=
+        boolCountFrom_pos_of_true selected (start + 1) length offset
+          (by omega) (by
+            have hindex : start + 1 + offset = start + (offset + 1) := by
+              omega
+            rw [hindex]
+            exact htrue)
+      omega
+
+/-- Selecting one actual face copy makes the globally lowered label at that
+face strictly smaller. -/
+theorem lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
+    {physical : SlabLabelling}
+    (selected : SlabFaceStrandCopy physical → Bool)
+    (copy : SlabFaceStrandCopy physical)
+    (hselected : selected copy = true) :
+    lowerSlabPhysicalByFaceStrandSelection selected copy.faceId <
+      physical copy.faceId := by
+  have hdrop : 0 < slabFaceStrandSelectionCount selected copy.faceId := by
+    apply boolCountFrom_pos_of_true
+      (slabFaceStrandSelectionAt selected copy.faceId)
+      0 (physical copy.faceId) copy.slot.val copy.slot.isLt
+    rw [Nat.zero_add, slabFaceStrandSelectionAt_fin]
+    exact hselected
+  have hpositive : 0 < physical copy.faceId := by
+    exact Nat.zero_lt_of_lt copy.slot.isLt
+  unfold lowerSlabPhysicalByFaceStrandSelection lowerEdgeLabellingBy
+  exact Nat.sub_lt hpositive hdrop
+
 /-! ## 2. Observe a physical canonical edge at an arbitrary bounded slot -/
 
 /-- The unique displayed half-edge over one physical canonical identifier.
@@ -467,6 +509,7 @@ theorem SlabFusionWitnessFaceStrandSeed.lower_auxiliary_mem_atLink
 #print axioms slabFaceStrandSelectionCount
 #print axioms slabFaceStrandSelectionCount_le
 #print axioms lowerSlabPhysicalByFaceStrandSelection
+#print axioms lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
 #print axioms canonicalPhysicalHalfEdgeAt
 #print axioms canonicalPhysicalHalfEdgeAt_edgeId
 #print axioms CanonicalPhysicalSlotObservation

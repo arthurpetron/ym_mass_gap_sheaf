@@ -31181,6 +31181,54 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Peel the two certified stretched-root components (2026-09-11)
+
+- **milestone**: direct accepted component peel from the actual source branch
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabFaceStrandComponentDrop.lean`,
+  `lean/YMGap/Continuum/CompactDualSlabPresentedFaceStrandComponentDrop.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootPresentedPeel.lean`
+- **proved declarations**:
+  `lowerSlabPhysicalByFaceStrandSelection_lt_of_selected`,
+  `PresentedSlabPartnerClosedFaceSelection`,
+  `PresentedSlabPartnerClosedFaceSelection.ofSeedUnion`,
+  `PresentedSlabPartnerClosedFaceSelection.loweredAssignment`,
+  `certifiedStretchedComponentUnionSelection`,
+  `certifiedStretchedComponentUnionLoweredAssignment`,
+  `certifiedStretchedComponentUnionLowerPhysical_leftRoot_lt`, and
+  `certifiedStretchedComponentUnionLowerPhysical_rightRoot_lt`
+- **closed obligation**: union the two certified-root components without a
+  connectivity assumption; package one global selection whose restriction is
+  closed under the actual partner at every independently presented link;
+  compile every local coherent removal into a complete accepted assignment
+  over one common lowered physical field; and prove strict label descent at
+  both positive root faces
+- **remaining named obligation**: serialize the selected physical and
+  auxiliary drops into a multiplicity-faithful peel history, prove the exact
+  heat/intertwiner weight payment, and sum all first-stretched routes into a
+  cutoff-independent comparison with the pure mate product.  The physical
+  transition floor, Poincare/posterior-variance estimate, completed gap, and
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: the common closed selection, every local
+  coherent removal, lowered physical field, and complete lowered presented
+  assignment are Type-level data; closure, acceptance, and strict descent are
+  proof certificates
+
+Monitored verification:
+
+```text
+generic selected-copy strict descent explicit olean emission PASS
+generic presented closed-selection compiler explicit olean emission PASS
+certified stretched-root accepted peel explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat or recursion-depth budget, `sorry`, Rust computation, or
+trusted external computation.  The root aggregator imports the specialization.
+No aggregate or full-root audit is claimed by these checks.
+
 #### Put both certified stretched-root edges in one global graph (2026-09-11)
 
 - **milestone**: direct certified-root terminal and edge compiler
@@ -31197,10 +31245,10 @@ full-root audit is claimed by these checks.
   global edge sources with the literal left and right cube-face copies; and
   prove both terminal-pair edges occur in the single completed presented slab
   graph supplied by the certified source and explicit off-cube background
-- **remaining named obligation**: take the Boolean union of the two rooted
-  components, prove partner closure at every presented link, and compile it to
-  an accepted common physical drop with strict decrease at both root faces.
-  Multiplicity-faithful peel history and weight payment, the cutoff-independent
+- **remaining named obligation**: feed the two global edges into the
+  constructive component union and accepted common physical drop.  This is
+  closed by the next ledger entry above.  Multiplicity-faithful peel history
+  and weight payment, the cutoff-independent
   pure-mate comparison, physical transition floor, Poincare/posterior-variance
   estimate, completed gap, and thermodynamic/continuum passage remain open.
 - **constructive or propositional**: root copies, ordered positions and slots,

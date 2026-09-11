@@ -273,6 +273,145 @@ theorem OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem_global
     (OrderedSlabLinkPartnerClosedFaceSelection.externalSpins_lowerPhysical
       selection)
 
+/-! ## 4. A common closed selection over a presented assignment -/
+
+/-- One global face-copy selection together with its local partner-closure
+certificate at every independently presented link. -/
+structure PresentedSlabPartnerClosedFaceSelection
+    (K extent : Nat) (physical : SlabLabelling) (links : List SlabLink)
+    (assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links) : Type where
+  selected : SlabFaceStrandCopy physical → Bool
+  partner_closed :
+    ∀ (linked : {link // link ∈ links})
+      (terminal : OrderedSlabLinkPhysicalStrandTerminal K physical
+        (assignment linked).order (assignment linked).auxiliary
+        (assignment linked).auxiliary_mem),
+      selected
+          (orderedSlabLinkPhysicalTerminalFaceStrandCopy K physical
+            (assignment linked).order (assignment linked).auxiliary
+            (assignment linked).auxiliary_mem
+            (orderedSlabLinkPhysicalStrandPartner K physical
+              (assignment linked).order (assignment linked).auxiliary
+              (assignment linked).auxiliary_mem terminal)) =
+        selected
+          (orderedSlabLinkPhysicalTerminalFaceStrandCopy K physical
+            (assignment linked).order (assignment linked).auxiliary
+            (assignment linked).auxiliary_mem terminal)
+
+/-- Restrict a common closed selection to one presented link. -/
+def PresentedSlabPartnerClosedFaceSelection.atLink
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment)
+    (linked : {link // link ∈ links}) :
+    OrderedSlabLinkPartnerClosedFaceSelection K (assignment linked) where
+  selected := selection.selected
+  partner_closed := selection.partner_closed linked
+
+/-- The Boolean union of two constructive rooted components is one common
+selection closed under every local partner.  No connectivity relation between
+the two roots is required. -/
+def PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (left right : PresentedSlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment) :
+    PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment where
+  selected := fun copy => left.selected copy || right.selected copy
+  partner_closed := by
+    intro linked terminal
+    have hleft := (left.atLinkSelection linked).partner_closed terminal
+    have hright := (right.atLinkSelection linked).partner_closed terminal
+    change (left.selected _ || right.selected _) =
+      (left.selected _ || right.selected _)
+    change left.selected _ = left.selected _ at hleft
+    change right.selected _ = right.selected _ at hright
+    rw [hleft, hright]
+
+@[simp] theorem PresentedSlabPartnerClosedFaceSelection.ofSeedUnion_selected_leftRoot
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (left right : PresentedSlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment) :
+    (PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+      left right).selected left.root = true := by
+  unfold PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+  dsimp only
+  rw [CompactDualSlabFaceStrandSeedComponent.SlabFaceStrandSeed.selected_root]
+  rfl
+
+@[simp] theorem PresentedSlabPartnerClosedFaceSelection.ofSeedUnion_selected_rightRoot
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (left right : PresentedSlabFusionWitnessFaceStrandSeed
+      K extent physical links assignment) :
+    (PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+      left right).selected right.root = true := by
+  unfold PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+  dsimp only
+  rw [CompactDualSlabFaceStrandSeedComponent.SlabFaceStrandSeed.selected_root]
+  cases left.selected right.root <;> rfl
+
+/-- The common physical field obtained by removing a global closed
+selection. -/
+def PresentedSlabPartnerClosedFaceSelection.lowerPhysical
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment) : SlabLabelling :=
+  lowerSlabPhysicalByFaceStrandSelection selection.selected
+
+/-- Any selected physical copy witnesses strict descent of the common lowered
+field at its face. -/
+theorem PresentedSlabPartnerClosedFaceSelection.lowerPhysical_lt_of_selected
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment)
+    (copy : SlabFaceStrandCopy physical)
+    (hselected : selection.selected copy = true) :
+    selection.lowerPhysical copy.faceId < physical copy.faceId :=
+  lowerSlabPhysicalByFaceStrandSelection_lt_of_selected
+    selection.selected copy hselected
+
+/-- Coherent removal at one link of a common closed selection produces an
+accepted witness over the common lowered physical field. -/
+def PresentedSlabPartnerClosedFaceSelection.loweredWitnessAt
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment)
+    (linked : {link // link ∈ links}) :
+    PresentedSlabLinkFusionWitness K extent selection.lowerPhysical linked.1 :=
+  let sourceWitness := assignment linked
+  let localSelection := selection.atLink linked
+  { order := sourceWitness.order
+    auxiliary := lowerEdgeLabellingBy sourceWitness.auxiliary localSelection.drop
+    auxiliary_mem :=
+      OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem_global
+        localSelection }
+
+/-- A common globally closed selection compiles to a complete accepted
+presented assignment over its lowered physical field. -/
+def PresentedSlabPartnerClosedFaceSelection.loweredAssignment
+    {K extent : Nat} {physical : SlabLabelling} {links : List SlabLink}
+    {assignment : PresentedSlabFusionWitnessAssignment
+      K extent physical links}
+    (selection : PresentedSlabPartnerClosedFaceSelection
+      K extent physical links assignment) :
+    PresentedSlabFusionWitnessAssignment K extent selection.lowerPhysical links :=
+  fun linked => selection.loweredWitnessAt linked
+
 end YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop
 
 /-! ## Axiom-dependency gates -/
@@ -287,3 +426,15 @@ end YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.OrderedSlabLinkPartnerClosedFaceSelection.externalSpins_lowerPhysical
 #print axioms
   YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.OrderedSlabLinkPartnerClosedFaceSelection.lower_auxiliary_mem_global
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.atLink
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.ofSeedUnion
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.ofSeedUnion_selected_leftRoot
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.ofSeedUnion_selected_rightRoot
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.lowerPhysical_lt_of_selected
+#print axioms
+  YMGap.Continuum.CompactDualSlabPresentedFaceStrandComponentDrop.PresentedSlabPartnerClosedFaceSelection.loweredAssignment

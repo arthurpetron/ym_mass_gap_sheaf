@@ -182,12 +182,16 @@ At the first certified stretched incidence, its positive left and right labels
 now construct the two literal slot-zero terminals in the retained root-first
 witness.  The corresponding terminal-pair edges have the intended cube-face
 copies as sources and both occur in the one completed presented global graph.
+Their two constructive rooted components are now unioned without assuming
+either equality or disjointness.  A reusable global partner-closed-selection
+compiler pulls this union back to every independently presented link and
+produces one common lowered physical field with a complete accepted presented
+assignment.  Slot-zero membership proves strict descent at both root faces.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. close the union of the two certified-root components and compile it to the
-   existing exact accepted physical peel; serialize the resulting drop into a
-   multiplicity-faithful peel and weight certificate; and sum the resulting
+1. serialize the certified-root accepted drop into a multiplicity-faithful
+   peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
