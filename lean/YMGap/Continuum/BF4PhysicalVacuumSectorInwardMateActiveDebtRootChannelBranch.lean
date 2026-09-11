@@ -324,6 +324,30 @@ def rootRightFirstChannelPartner
       (rootSourceAuxiliary_mem_orderedSlabLinkFusionWitnesses carrier))
     (rootRightOrderedTerminal carrier)
 
+theorem rootLeftFirstChannelPartner_eq_ordered
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded) :
+    rootLeftFirstChannelPartner carrier =
+      orderedSlabLinkPhysicalStrandPartner K physical
+        (rootSlabLinkFaceOrder carrier) (rootSourceAuxiliary carrier)
+        (rootSourceAuxiliary_mem_orderedSlabLinkFusionWitnesses carrier)
+        (rootLeftOrderedTerminal carrier) :=
+  rfl
+
+theorem rootRightFirstChannelPartner_eq_ordered
+    {K : Nat} {physical : EdgeLabelling}
+    {hK : 1 ≤ K} {hbounded : SlabFaceLabellingBounded K 1 physical}
+    (carrier : CubeRootedActiveDebtFusionCarrier
+      K physical hK hbounded) :
+    rootRightFirstChannelPartner carrier =
+      orderedSlabLinkPhysicalStrandPartner K physical
+        (rootSlabLinkFaceOrder carrier) (rootSourceAuxiliary carrier)
+        (rootSourceAuxiliary_mem_orderedSlabLinkFusionWitnesses carrier)
+        (rootRightOrderedTerminal carrier) :=
+  rfl
+
 /-- The left endpoint is accompanied by its complete internal-advance path. -/
 def rootLeftFirstChannelPartnerPath
     {K : Nat} {physical : EdgeLabelling}

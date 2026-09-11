@@ -31839,6 +31839,50 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Reindex active-root paths to global physical-copy edges (2026-09-11)
+
+- **milestone**: presentation-independent root endpoint gluing interface
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabOrderedLinkGlobalFaceStrandEdge.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean`
+- **proved declarations**:
+  `slabFaceStrandCopy_eq_of_faceId_eq_of_slot_val_eq`,
+  `orderedSlabLinkPhysicalTerminalAtFaceStrandCopy`,
+  `orderedSlabLinkPhysicalTerminalFaceStrandCopy_injective`,
+  `orderedSlabLinkFaceStrandEdgeOfTerminal`,
+  `rootLeftOrderedTerminalCopy_eq_leftRootCopy`,
+  `rootRightOrderedTerminalCopy_eq_rightRootCopy`,
+  `rootLeftFirstChannelEdge`, `rootRightFirstChannelEdge`,
+  `rootLeftFirstChannelEdge_target`,
+  `rootRightFirstChannelEdge_target`, and
+  `rootFirstChannelPartnerCopies_ne`
+- **closed obligation**: forget the root-first fusion-tree presentation to the
+  common literal `(faceId, slot)` carrier, prove that this forgetting is
+  injective on physical terminals, identify both geometric root copies as
+  global edge sources, and identify both edge targets with the retained path
+  endpoints
+- **remaining named obligation**: assemble all required reordered link
+  witnesses into a heterogeneous global edge list, prove both root edges are
+  members, and construct the shared-copy component rerouting used by the
+  inward-mate comparison
+- **constructive or propositional**: global copies and edges are explicit
+  Type-level data; face/slot recovery, source/target identities, and endpoint
+  separation are proof certificates
+
+Monitored verification:
+
+```text
+ordered-link global-copy bridge explicit olean emission   PASS
+active-root global edges explicit olean emission           PASS
+```
+
+All printed exports use only `[propext, Quot.sound]` (or no axioms).  There is
+no `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports both modules.  No aggregate or
+full-root audit is claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

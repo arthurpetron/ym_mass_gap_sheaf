@@ -120,16 +120,21 @@ edge two at valence three and the first genuine internal fusion edge at
 valence four through six.  Both alternatives feed the existing exact
 stop-or-same-slot-advance compiler.  Complete paths from the two local mates
 to physical terminals are retained as Type-level data, and involutivity proves
-that their endpoint terminals are distinct.
+that their endpoint terminals are distinct.  The ordered terminal-to-face
+reindexing now lands in the same presentation-independent
+`SlabFaceStrandCopy` carrier used by the global component graph.  It is proved
+injective; the two retained path endpoints remain distinct global copies; and
+the original left and right root copies are the exact sources of two global
+strand edges on the recorded root link.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. reindex the two now-terminated, distinct physical endpoints to literal face
-   copies, glue them across neighboring link occurrences, construct the
-   SU(2)-specific closed-component rerouting, and sum those routes into a
-   cutoff-independent bound by the pure mate product; this compares the
-   complete fixed-boundary intertwiner contraction of a state with its inward
-   mate;
+1. assemble the reordered accepted link witnesses into one heterogeneous
+   global edge list, glue its shared face copies across neighboring link
+   occurrences, construct the SU(2)-specific closed-component rerouting, and
+   sum those routes into a cutoff-independent bound by the pure mate product;
+   this compares the complete fixed-boundary intertwiner contraction of a
+   state with its inward mate;
 2. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
 3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior

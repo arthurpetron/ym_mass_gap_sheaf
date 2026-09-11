@@ -180,11 +180,19 @@ are fed to the exact stop-or-same-slot-advance compiler; their complete paths
 to physical endpoints are retained as data, and those endpoints are proved
 distinct.  See
 [`BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootChannelBranch.lean).
+Those endpoint terminals are now reindexed to the presentation-independent
+global `(faceId, slot)` carrier.  Each root copy is proved to be the exact
+source of a global strand edge, and the two retained path endpoints remain
+distinct as literal global copies.  See
+[`CompactDualSlabOrderedLinkGlobalFaceStrandEdge.lean`](lean/YMGap/Continuum/CompactDualSlabOrderedLinkGlobalFaceStrandEdge.lean)
+and
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootGlobalEdges.lean).
 
-The next causal step is to reindex those two distinct physical endpoints to
-their literal face copies, glue them across neighboring link occurrences, and
-reroute the resulting complete strand component.  The carrier sum must then
-be bounded by a cutoff-independent multiple of the pure mate product.
+The next causal step is to assemble the certified reordered link witnesses
+into one heterogeneous global edge list, glue shared face copies across its
+neighboring link occurrences, and reroute the resulting complete strand
+component.  The carrier sum must then be bounded by a cutoff-independent
+multiple of the pure mate product.
 This avoids mistaking a change of fusion basis for a pointwise permutation of
 basis witnesses.  The resulting fixed-boundary intertwiner comparison would
 feed a genuine physical mate-transition floor and then a rooted-subtree
