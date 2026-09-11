@@ -305,7 +305,10 @@ The next load-bearing producers are, in causal order:
 1. disintegrate or splice the full-slab source--mate transport into supported
    paths of the actual lower/boundary-indexed OS kernel, with the edge loads
    explicit rather than treating the constructed pair relation as a joint
-   probability law;
+   probability law.  The geometric half of this splice is now proved: source
+   and mate assemble from distinct lower states against one common boundary
+   and one common reflected-upper state.  Proving both resulting raw OS
+   entries positive is the active sub-edge;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -363,7 +366,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- source marginal preserves full successful mass .. [PROVED]
 |   |   |   +-- compiled target fibers have capacity <= 64 ...... [PROVED]
 |   |   |   +-- weighted production target congestion ........... [PROVED]
-|   |   |   +-- full-slab transport -> supported OS-kernel paths  [ACTIVE]
+|   |   |   +-- common-channel two-edge OS path geometry ......... [PROVED]
+|   |   |   +-- both raw OS edges are strictly positive .......... [ACTIVE]
+|   |   |   +-- transport weights -> normalized OS edge loads ..... [OPEN]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

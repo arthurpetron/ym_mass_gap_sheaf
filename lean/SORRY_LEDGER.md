@@ -31027,6 +31027,51 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Splice every all-source inward mate into common-channel OS geometry (2026-09-11)
+
+- **milestone**: literal two-edge Osterwalder--Schrader path geometry
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSPathGeometry.lean`
+- **proved declarations**:
+  `targetBoundary_eq_common`, `targetRight_eq_common`, `sourceLower_mem`,
+  `targetLower_mem`, `commonBoundary_mem`, `commonRight_mem`,
+  `assemble_source_path`, `assemble_target_path`,
+  `sourceLower_ne_targetLower`,
+  `GlobalInwardMateAllSourceOSPathGeometryCertificate`, and
+  `globalInwardMateAllSourceOSPathGeometryCertificate`
+- **closed obligation**: restrict each complete successful source and its
+  six-face inward mate to the actual extent-one reflection split; prove that
+  the mate fixes every fixed-plane coordinate and every reflected upper-half
+  coordinate; prove both lower endpoints and the shared channel data belong
+  to their literal bounded carriers; reassemble the two full slabs exactly;
+  and prove the lower endpoints differ at central-cube face zero.
+- **scope boundary**: this is the exact geometry of a two-edge OS path, not
+  yet its support theorem.  Strict positivity of the two physical summands,
+  their raw and normalized OS-kernel entries, an edge-load comparison,
+  posterior variance, a completed gap, and continuum passage are not asserted.
+- **remaining named obligation**: use the accepted production assignments at
+  both endpoints to prove the two assembled physical terms and hence the two
+  common-channel OS-kernel entries strictly positive.  Then transfer the
+  all-source mass and target congestion estimates into normalized OS edge
+  loads.
+- **constructive or propositional**: all four restrictions and the certificate
+  are Type-level data; carrier membership, exact assembly, preservation, and
+  endpoint inequality are kernel-checked propositions.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+all-source OS-path geometry focused source check          PASS
+all-source OS-path geometry dependency target              PASS (1,319 jobs)
+```
+
+Every printed declaration uses only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Transfer exact target congestion to production coordinates (2026-09-11)
 
 - **milestone**: all-success-source compiled-target fiber capacity and weighted
