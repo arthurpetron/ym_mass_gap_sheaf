@@ -31027,6 +31027,47 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Lift the exact SU(2) source split to the physical weight (2026-09-11)
+
+- **milestone**: exact fixed-physical weighted branch normalization
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalSourceBranchWeight.lean`
+- **proved declarations**:
+  `cubeInwardMateCertifiedTargetFullSources_weight_total`,
+  `cubeInwardMateFullSourceEntryWeight_eqv_faceFactor`,
+  `cubeInwardMateEnumeratedFirstStretched_weight_total`, and
+  `cubeInwardMateFullSourceBranches_weight_total`
+- **closed obligation**: assign the all-target pushforward carrier the common
+  unnormalized source atom; identify every existing first-stretched entry's
+  actual retained-intertwiner weight with that same face factor; sum both
+  carriers by their exact cardinalities; and prove their sum is the genuine
+  fixed-physical BF4 term.
+- **scope boundary**: the equality is fixed physical.  It has not yet been
+  summed over the bounded physical carrier, combined with the global
+  `384/425` congestion inequality, or converted into a conditional row,
+  posterior-variance, Poincare, transfer-operator, or spectral statement.
+- **remaining named obligation**: construct the dependent global all-target
+  carrier, prove outer finite Fubini for both branch masses, derive exact
+  partition normalization and the complementary `41/425` global all-target
+  mass fraction.  The same-object posterior/Poincare, OS form-bound,
+  completed-gap, thermodynamic, and continuum bridges remain open.
+- **constructive or propositional**: exact `Q'` setoid algebra, finite sums,
+  and the already literal retained-intertwiner weight only.  No `sorry`, new
+  named hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+fixed-physical branch weight focused source check         PASS
+fixed-physical branch weight dependency target            PASS (1,120 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Complete the two SU(2) classifier branches to the full slab (2026-09-11)
 
 - **milestone**: exact full-source branch cardinality conservation
