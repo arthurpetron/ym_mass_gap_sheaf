@@ -31342,6 +31342,48 @@ declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  The root aggregator imports the module.  No aggregate or
 full-root audit is claimed by this focused check.
 
+#### Sum each physical-target/root block from peel size two (2026-09-11)
+
+- **milestone**: exact `64/425` size-tail contraction
+- **files**:
+  `lean/YMGap/Continuum/CompactDualSlabObservableRemovalTwoFaceGeometric.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceFullTargetSizeTail.lean`
+- **proved declarations**:
+  `listQSum_range_succ_le_componentAdaptiveEntropyAnchor_twoTail`,
+  `cubeInwardMateFullPeelTargetBlockRepresentatives_eq_nil_of_lt_two`,
+  `cubeInwardMateFixedOrderTargetBlockWeight_nonnegative`, and
+  `cubeInwardMateFullPeelTargetRootSizesStrictRateWeight_le`
+- **closed obligation**: expose the previously proved generic size-two
+  adaptive-anchor tail through a public finite-sequence interface; prove that
+  the deterministic complete-source block at size zero or one is empty; prove
+  the genuine SU(2) target-block weight nonnegative; and sum the weighted
+  fixed-block capacity over every allowed peel size with exact factor
+  `64/425`, independent of cutoff.
+- **remaining named obligation**: sum this bound over the six literal roots
+  and all bounded physical targets, reconcile that nested order with the exact
+  coarse-block Fubini carrier, and prove the strict factor
+  `6 * (64/425) = 384/425 < 1` against the physical BF4 partition.  Then turn
+  the physical transition comparison into a positive posterior-variance/
+  Poincare fraction.  The completed physical gap, thermodynamic/continuum
+  passage, continuum QFT axioms, isolated vacuum, and Clay theorem remain open.
+- **constructive or propositional**: zero-fiber proofs inspect explicit lists;
+  the tail is finite exact-rational induction with the rate and scalar retained
+  in the type.  No limiting oracle or external computation is used.
+
+Monitored verification:
+
+```text
+public generic size-two tail interface focused olean       PASS
+fixed target/root strict-rate size sum focused olean       PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the size-tail module.  No aggregate
+or full-root audit is claimed by these focused checks.
+
 #### Sum all realized complete-source fibers exactly (2026-09-11)
 
 - **milestone**: exact representative Fubini and aggregate strict-rate target

@@ -168,11 +168,11 @@ theorem componentAdaptiveEntropyAnchorRatio_twoTail_le
         count))
     hfinite
 
-/-- Removing the first two zero terms from an arbitrary finite sequence and
-then applying the size-two anchor tail is independent of the surrounding slab
-data.  Keeping this case split at the generic sequence level also keeps Lean's
-dependent elaboration small. -/
-private theorem listQSum_range_succ_le_anchor_twoTail
+/-- A finite nonnegative scalar-valued sequence whose first two terms vanish
+and whose remaining terms are bounded by the adaptive anchor powers has total
+mass at most the exact size-two tail `64/425` times that scalar.  The statement
+is independent of the surrounding slab data. -/
+theorem listQSum_range_succ_le_componentAdaptiveEntropyAnchor_twoTail
     (value : Nat -> Q') (scalar : Q')
     (hzero : value 0 ≈ 0) (hone : value 1 ≈ 0)
     (hscalar : (0 : Q') <= scalar)
@@ -268,7 +268,7 @@ theorem slabObservablePositiveRemovalFiber_sizes_sum_le_sixtyFourFourTwentyFive
     unfold D slabExpandedFineSourceWeight
     exact retainedFineIntertwinerPhysicalFiberWeight_anchor_nonnegative
       cutoff half target.1 target.2
-  apply listQSum_range_succ_le_anchor_twoTail
+  apply listQSum_range_succ_le_componentAdaptiveEntropyAnchor_twoTail
     fiberWeight (slabExpandedFineSourceWeight D target)
     hzero hone htargetNonnegative
   intro index
@@ -355,6 +355,7 @@ theorem slabObservablePositiveExpandedMass_le_sixtyFourFourTwentyFive
 
 #print axioms slabObservablePositiveRemovalFiber_one
 #print axioms componentAdaptiveEntropyAnchorRatio_twoTail_le
+#print axioms listQSum_range_succ_le_componentAdaptiveEntropyAnchor_twoTail
 #print axioms slabObservablePositiveRemovalFiber_sizes_sum_le_sixtyFourFourTwentyFive
 #print axioms slabObservablePositiveExpandedSources_weight_le_partition_sixtyFourFourTwentyFive
 #print axioms slabObservablePositiveExpandedMass_le_sixtyFourFourTwentyFive
