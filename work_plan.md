@@ -1322,6 +1322,43 @@ result with the centered production/refresh form, and prove the strict dense
 two-step form bound.  Completed OS extension and controlled thermodynamic/
 continuum passage remain downstream.
 
+#### Make both connected gradients antisymmetric under component swap (2026-09-10)
+
+`Z4DyadicBinaryConnectedObservableSymmetricGradientSwap` proves that the
+exact symmetric-gradient factorization respects the existing
+observable-rooted component involution.  At every face, the swap either fixes
+the two replica bits or exchanges them, so their indicator sum is invariant.
+Hence the root-gradient coefficient is invariant under the root swap and the
+target-gradient coefficient is invariant under the target swap.
+
+On the disconnected active carrier, the corresponding one-face localized
+determinant changes sign while its symmetric gradient is fixed.  Each complete
+gradient-weighted term therefore maps pointwise to its exact negative.  The
+module also packages the denominator-cleared identity from the actual
+connected-observable determinant to the sum of these two terms.  This is an
+exact cancellation statement before absolute values; it spends no factor on
+the three-cylinder presentation.
+
+Monitored verification:
+
+```text
+connected symmetric-gradient swap focused source check    PASS
+connected symmetric-gradient swap dependency target       PASS (5,616 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation
+is introduced.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed here.
+
+Still open: reindex each finite disconnected carrier by this involution and
+cancel it exactly, bound the surviving connected root and target carriers by
+their already strict one-face envelopes, and contract the result to a strict
+posterior variance for the actual connected response.  Centered
+production/refresh identification, the dense/completed spectral gap, and
+controlled thermodynamic/continuum passage remain downstream.
+
 #### Factor the connected cylinder through two symmetric face gradients (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableSymmetricGradient` removes the apparent

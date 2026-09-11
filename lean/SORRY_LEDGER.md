@@ -31151,6 +31151,46 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed here.
 
+#### Make both connected gradients antisymmetric under component swap (2026-09-10)
+
+- **milestone**: pointwise disconnected antisymmetry for both symmetric
+  connected gradients
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableSymmetricGradientSwap.lean`
+- **proved declarations**:
+  `two_mul_localizedConnectedObservablePairTerm_eqv_gradients`,
+  `facePositiveIndicatorSum_componentSwap_eqv`,
+  `connectedRootDoubledGradient_rootSwap_eqv`,
+  `connectedTargetDoubledGradient_targetSwap_eqv`,
+  `localizedConnectedRootGradientPairTerm_componentSwap`, and
+  `localizedConnectedTargetGradientPairTerm_componentSwap`
+- **closed obligation**: prove that an arbitrary face's two-replica indicator
+  sum is invariant under an observable-rooted component swap; specialize this
+  to each symmetric gradient coefficient; combine it with the existing
+  disconnected sign reversal of the localized one-face determinant; and retain
+  the exact denominator-cleared decomposition of the actual connected term.
+- **remaining named obligation**: use the existing finite disconnected-carrier
+  permutation to cancel both gradient sums, dominate the surviving connected
+  carriers by the strict root and target one-face envelopes, and derive the
+  actual connected posterior-variance fraction.  Centered production/refresh
+  identification, the dense/completed spectral gap, and controlled
+  thermodynamic/continuum passage remain open.
+- **constructive or propositional**: Boolean case splitting, exact rational
+  equivalence, and finite component-swap data only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected symmetric-gradient swap focused source check    PASS
+connected symmetric-gradient swap dependency target       PASS (5,616 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, or trusted external computation.  No aggregate or full-root
+audit is claimed here.
+
 #### Factor the connected cylinder through two symmetric face gradients (2026-09-10)
 
 - **milestone**: exact cancellation-preserving two-face discrete gradient
