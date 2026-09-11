@@ -31027,6 +31027,49 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Complete the global first-stretched 384/425 contraction (2026-09-11)
+
+- **milestone**: partition-relative all-physical SU(2) bad-mass bound
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalTargetCongestion.lean`
+- **proved declarations**:
+  `globalCubeInwardMateFullPeelTargetBlocksStrictRateWeight_eqv_nested`,
+  `globalCubeInwardMateFullPeelRepresentativesStrictRateWeight_le_partition`,
+  `globalCubeInwardMateFullSources_weight_sum_le_physicalPartition`,
+  `GlobalCubeInwardMateFullPeelPhysicalContractionCertificate`, and
+  `globalCubeInwardMateFullPeelPhysicalContractionCertificate`
+- **closed obligation**: reconcile the flat exact coarse-block Fubini with the
+  nested physical-target/root/size sum, compose it with exact global target-
+  fiber Fubini, and prove that the complete first-stretched source mass over
+  every bounded source physical field is at most `384/425` of the genuine
+  extent-one BF4 physical partition.
+- **scope boundary**: this is the first valid partition-relative global bad-
+  event estimate.  It is not a pointwise conditional row estimate or a
+  Doeblin minorization.  The unused rational slack cannot be called a success
+  probability until the complete recoded source mass is proved equal to the
+  physical partition and split exactly into all-target plus first-stretched
+  branches.
+- **remaining named obligation**: prove exact global source normalization and
+  the complementary all-target mass identity, then derive the global
+  `41/425` success-event fraction.  A support-aware same-object posterior/
+  Poincare bridge, dense OS form bound, completed gap, thermodynamic limit, and
+  continuum construction remain open.
+- **constructive or propositional**: the global certificate retains its rate
+  and inequality in `Type`; all finite Fubini, code, cardinality, geometric,
+  and normalization steps are kernel checked.
+
+Monitored verification:
+
+```text
+global 384/425 congestion focused source check             PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this focused check.
+
 #### Sum global roots and physical targets to 384/425 (2026-09-11)
 
 - **milestone**: nested all-physical target congestion bound
