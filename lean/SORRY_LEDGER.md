@@ -31027,6 +31027,57 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Prove the production all-target subcarrier collision-free (2026-09-11)
+
+- **milestone**: duplicate-free literal production target submeasure
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetProductionInjection.lean`
+- **proved declarations**:
+  `globalInwardMateProductionRawAt_injective`,
+  `globalInwardMateTargetPhysicalBlock_targetProductionRaw_injective`,
+  `globalInwardMateTargetProductionAtom_injective`,
+  `globalInwardMateProductionTargetAtoms`,
+  `globalInwardMateProductionTargetAtoms_nodup`,
+  `globalInwardMateProductionTargetAtoms_mem_expanded`,
+  `globalInwardMateProductionTargetAtoms_weight_eqv`,
+  `globalInwardMateRetainedTargetFraction_partition_le_productionAtoms`,
+  `GlobalInwardMateProductionTargetSubcarrierCertificate`, and
+  `globalInwardMateProductionTargetSubcarrierCertificate`
+- **closed obligation**: prove positional lookup is injective below the
+  length of a duplicate-free production list without assuming decidable
+  equality on function-valued assignments; recover equal fixed-order codes
+  from equal production assignments; combine the existing per-physical-block
+  code injection with the physical atom coordinate; and package the recoded
+  targets as a duplicate-free literal subcarrier of
+  `slabExpandedFineSources` carrying the explicit positive retained fraction.
+- **scope boundary**: the certified targets are actual same-carrier BF4 atoms,
+  but no source-target pair law or conditional transition kernel has yet been
+  constructed.  Consequently this is not a minorization, posterior variance,
+  OS form bound, spectral gap, beta/lattice-spacing uniformity, or continuum
+  theorem.
+- **remaining named obligation**: construct a literal off-diagonal joint on
+  production expanded atoms whose target marginal contains this subcarrier;
+  prove the appropriate source/target normalization and observable parity
+  response; then derive a posterior-variance fraction for the actual finite
+  law.
+- **constructive or propositional**: structural rank recursion, duplicate-free
+  list arguments, exact SU2 residual-code recovery, and rational weights only.
+  No `sorry`, new named hypothesis, Rust result, or trusted external
+  computation is introduced.
+
+Monitored verification:
+
+```text
+all-target production-injection focused source check      PASS
+all-target production-injection dependency target         PASS (1,313 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Recode all-target representatives into the production BF4 carrier (2026-09-11)
 
 - **milestone**: constructive fixed-order-to-production-order target compiler
