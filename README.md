@@ -260,8 +260,15 @@ of each cube link, overwrites exactly those twelve entries with the certified
 source witnesses, and leaves all off-cube entries unchanged.  See
 [`BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCubeSourceCompletePresentation.lean).
 
-The next causal step is to adapt the certified positive root and this complete
-source presentation to the exact two-root component peel, then serialize the resulting
+At the certified first-stretched incidence, the retained positivity data now
+constructs slot-zero terminals on the first two faces of that same root-first
+witness.  Their terminal-pair edges have exactly the two literal cube-face
+copies as sources, and both edges are proved members of the single completed
+presented slab graph.  See
+[`BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges.lean).
+
+The next causal step is to close the union of the two rooted components and
+compile it to the exact accepted physical peel, then serialize the resulting
 drop into a multiplicity-faithful peel/weight certificate.  The older coarse mixed
 target/debt Cartesian carrier still does not itself provide that source
 background and is not used as one.  The resulting source-partition sum must

@@ -31181,6 +31181,45 @@ enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
 computation.  The root aggregator imports the new module.  No aggregate or
 full-root audit is claimed by these checks.
 
+#### Put both certified stretched-root edges in one global graph (2026-09-11)
+
+- **milestone**: direct certified-root terminal and edge compiler
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateCertifiedRootGlobalEdges.lean`
+- **proved declarations**:
+  `certifiedStretchedLeftRootEdge_source`,
+  `certifiedStretchedRightRootEdge_source`,
+  `certifiedStretchedLeftRootEdge_mem_complete`, and
+  `certifiedStretchedRightRootEdge_mem_complete`
+- **closed obligation**: use the positivity carried by the actual first
+  stretched source branch to construct slot-zero physical terminals at the
+  first two positions of its retained root-first witness; identify their
+  global edge sources with the literal left and right cube-face copies; and
+  prove both terminal-pair edges occur in the single completed presented slab
+  graph supplied by the certified source and explicit off-cube background
+- **remaining named obligation**: take the Boolean union of the two rooted
+  components, prove partner closure at every presented link, and compile it to
+  an accepted common physical drop with strict decrease at both root faces.
+  Multiplicity-faithful peel history and weight payment, the cutoff-independent
+  pure-mate comparison, physical transition floor, Poincare/posterior-variance
+  estimate, completed gap, and thermodynamic/continuum passage remain open.
+- **constructive or propositional**: root copies, ordered positions and slots,
+  physical terminals, global edges, and their common completed edge carrier
+  are Type-level data; exact source and membership statements are proof
+  certificates
+
+Monitored verification:
+
+```text
+certified stretched-root global edges explicit olean emission PASS
+```
+
+Every printed export uses only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, `sorry`, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by this check.
+
 #### Complete a certified cube source with explicit off-cube data (2026-09-11)
 
 - **milestone**: common complete presented slab source for the classified cube

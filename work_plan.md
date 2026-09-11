@@ -178,11 +178,15 @@ physical field, the certified cube family now extends to a complete presented
 assignment.  A computable lookup in the duplicate-free twelve-incidence table
 overwrites exactly the cube links and retains the background everywhere else;
 each cube lookup is proved to return its intended dependent incidence.
+At the first certified stretched incidence, its positive left and right labels
+now construct the two literal slot-zero terminals in the retained root-first
+witness.  The corresponding terminal-pair edges have the intended cube-face
+copies as sources and both occur in the one completed presented global graph.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. adapt each certified first-stretched root and its complete presented source
-   to the existing exact two-root component peel; serialize the resulting drop into a
+1. close the union of the two certified-root components and compile it to the
+   existing exact accepted physical peel; serialize the resulting drop into a
    multiplicity-faithful peel and weight certificate; and sum the resulting
    routes into a cutoff-independent bound by the pure mate product;
 2. combine that comparison with the proved six-face heat payment to obtain
