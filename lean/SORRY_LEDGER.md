@@ -31027,6 +31027,47 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Normalize the two SU(2) source branches globally (2026-09-11)
+
+- **milestone**: exact all-physical source-event normalization
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalSourceNormalization.lean`
+- **proved declarations**:
+  `globalCubeInwardMateCertifiedTargetFullSources_weight_eqv_nested`,
+  `globalCubeInwardMateFirstStretchedFullSources_weight_eqv_nested`, and
+  `globalCubeInwardMateFullSourceBranches_weight_total`
+- **closed obligation**: construct the dependent global all-target carrier;
+  identify its flat mass and the existing flat first-stretched mass with their
+  nested fixed-physical block sums; combine the exact fixed-physical branch
+  theorem pointwise; and prove that the two global masses reconstruct the
+  genuine extent-one BF4 physical partition exactly.
+- **scope boundary**: this is a global event decomposition.  It is not a
+  pointwise conditional transition minorization.  The complementary positive
+  all-target fraction has not yet been extracted from the `384/425` bad-mass
+  inequality, and no posterior, Poincare, OS form, spectral, thermodynamic, or
+  continuum statement is asserted.
+- **remaining named obligation**: use exact rational order cancellation to
+  derive the global all-target lower bound `41/425 * Z_K`; then construct the
+  support-aware same-object posterior/Poincare bridge needed by the physical
+  dense two-step autocorrelation.  Completed-gap, thermodynamic, and continuum
+  passage remain open.
+- **constructive or propositional**: explicit dependent carriers, finite
+  flatMap/map Fubini, and exact `Q'` setoid algebra only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+global source normalization focused source check          PASS
+global source normalization dependency target             PASS (1,121 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Lift the exact SU(2) source split to the physical weight (2026-09-11)
 
 - **milestone**: exact fixed-physical weighted branch normalization
