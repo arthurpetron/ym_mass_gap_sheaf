@@ -344,10 +344,17 @@ The next load-bearing producers are, in causal order:
    with the `41/425` demand floor now proves that the full physical OS
    Dirichlet energy of central-face parity is at least the explicit positive
    cutoff-independent rational
-   `(41/425) / (1 + globalInwardMateTransportCost)`.  The active sub-edge is
-   to center that same observable and use the exact Dirichlet/transfer identity
-   to obtain a strict one-observable form bound; additional statewise demand
-   coverage is still required for the all-vector posterior/Poincare compiler;
+   `(41/425) / (1 + globalInwardMateTransportCost)`.  That observable is now
+   centered by its exact stationary mean.  Constant-shift invariance, exact
+   deletion of zero-marginal rows and columns, and the physical
+   Dirichlet/transfer identity yield the strict rate
+   `q = 1 - (1/2) * (41/425) /
+   (1 + globalInwardMateTransportCost)`, with `0 <= q < 1`.  The same proof
+   gives a cutoff-independent positive lower bound on the centered physical
+   norm, so the channel is non-vacuous.  The active sub-edge is now to enlarge
+   this detected parity channel to a separating observable family or prove a
+   direct all-vector variance inequality; one-observable strictness alone is
+   not a finite-volume spectral gap;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -415,8 +422,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- selected first parity energy -> full OS Dirichlet ... [PROVED]
 |   |   |   +-- selected second parity energy -> cost * Dirichlet ... [PROVED]
 |   |   |   +-- combine demand + both energies -> coercivity ......... [PROVED]
-|   |   |   +-- center parity + strict one-observable form bound ..... [ACTIVE]
-|   |   |   +-- selected demand -> all-vector variance identity ..... [OPEN]
+|   |   |   +-- center parity + strict one-observable form bound ..... [PROVED]
+|   |   |   +-- selected demand -> separating/all-vector coverage ... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

@@ -84,10 +84,20 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   At every cutoff `K >= 1`, the full physical OS Dirichlet energy of
   central-face parity is at least the explicit positive rational
   `(41/425) / (1 + globalInwardMateTransportCost)`.
-- **OPEN next edge:** center the same parity observable and contract the floor
-  through the exact Dirichlet/transfer identity into a strict one-observable
-  form bound.  That still will not imply an all-vector variance bound,
-  finite-volume spectral gap, continuum limit, or Clay theorem.
+- **PROVED non-vacuous strict form channel:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap` centers the
+  same Boolean parity by its exact stationary mean, preserves the Dirichlet
+  floor through constant shifting and deletion of zero-marginal rows, and
+  converts it by the exact physical Dirichlet/transfer identity into
+  `|<f,Tf>| <= q <f,f>` with
+  `q = 1 - (1/2) * (41/425) /
+  (1 + globalInwardMateTransportCost)` and `0 <= q < 1`.  Its certificate also
+  proves the centered physical norm is bounded below by the positive margin.
+- **OPEN next edge:** enlarge this single detected parity channel into a
+  separating family, or prove direct variance coverage for every centered
+  physical vector.  The one-observable estimate does not imply an all-vector
+  Poincare inequality, finite-volume spectral gap, continuum limit, or Clay
+  theorem.
 
 ---
 

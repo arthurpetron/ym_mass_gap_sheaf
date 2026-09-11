@@ -27,8 +27,8 @@ Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
                                   v
 finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> reflection positivity and finite OS Gram                       [PROVED]
-  -> concrete finite physical vacuum-sector transfer                [PARTIAL]
-  -> cutoff-uniform non-abelian transition / Poincare estimate       [ACTIVE]
+  -> concrete finite physical transfer + one strict parity channel   [PROVED]
+  -> cutoff-uniform all-vector non-abelian Poincare estimate          [ACTIVE]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
   -> continuum limit and OS/Wightman reconstruction                  [OPEN]
@@ -61,11 +61,7 @@ loss.  The second edge is now complete too: exact production-target classes
 partition all selected source traffic, those classes partition again by their
 actual second OS edge, and the resulting loads sum exactly to the original
 traffic.  Each second-edge load is bounded by
-`globalInwardMateTransportCost` times its OS capacity.  The immediate frontier
-is the still-open mathematical question whether this selected demand controls
-a useful variance—and, ultimately, the full vacuum-complement pairwise
-variance.  These results do not yet prove a Poincare inequality or spectral
-gap.
+`globalInwardMateTransportCost` times its OS capacity.
 
 For one concrete observable the answer is now positive.  The parity of
 central lower face zero is reversed by every selected inward mate, and because
@@ -86,10 +82,24 @@ contraction is now complete: the explicit cutoff-independent positive floor
 ```
 
 is bounded by the full physical OS Dirichlet energy of central-face parity at
-every cutoff `K >= 1`.  The active step is to center this same observable and
-convert the floor through the exact Dirichlet/transfer identity into a strict
-one-observable form bound.  Extending that estimate to every vacuum-complement
-vector remains a separate open step.
+every cutoff `K >= 1`.  Lean now centers that same Boolean observable with its
+exact stationary mean, proves that deleting zero-marginal rows and columns
+does not change its Dirichlet energy, and applies the exact
+Dirichlet/transfer identity.  The centered vector has a strictly positive
+physical norm and obeys the explicit one-observable form estimate
+
+```text
+|<f,Tf>| <= q <f,f>,
+q = 1 - (1/2) * (41/425) / (1 + globalInwardMateTransportCost),
+0 <= q < 1.
+```
+
+This is a real cutoff-uniform strict channel of the actual finite physical
+transfer, but it is not an all-vector Poincare inequality.  The active
+frontier is to determine whether the path demand can be enlarged to a
+separating family of vacuum-complement observables or strengthened directly
+to all-vector variance control.  Until that is proved, no finite-volume
+spectral gap follows.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -103,6 +113,9 @@ The checked two-level second-edge embedding is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParitySecondEdgeEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParitySecondEdgeEnergy.lean).
 The resulting explicit positive Dirichlet floor is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCoercivity.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCoercivity.lean).
+The stationary centering, positive-norm certificate, exact transfer identity,
+and strict one-observable form rate are in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
