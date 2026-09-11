@@ -30916,3 +30916,38 @@ All printed declarations remain within
 axiom, noncomputable declaration, enlarged heartbeat budget, Rust
 computation, or trusted external computation.  The interrupted aggregate run
 is not claimed as a pass or full-root audit.
+
+#### Localize cutoff-four link multiplicities to parity excitations (2026-09-10)
+
+- **milestone**: positive-row target/ground shared-link comparison
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinarySourceParityExcitationLinkBound.lean`
+- **proved declarations**:
+  `slabGroundTouchedLinks_length_le`,
+  `slabGroundExcitedFaces_length_le_excitationMassOn`,
+  `slabExplicitLinkMultiplicity_eq_ground_of_not_touched`,
+  `slabExplicitLinkMultiplicityProduct_le_touchedPow_mul_ground`,
+  `positivePhysicalSourceTouchedLinks_length_le_four_mul_activity`, and
+  `positivePhysicalSourceLoweringLinkProduct_le_ground_mul_activityPow`
+- **closed obligation**: target and parity-ground local multiplicities agree
+  off the excited-face incidence set; at most four links are touched per
+  excited face; at cutoff four the full target link product is at most
+  `15625^(4*K)` times the positive parity-ground link product.
+- **remaining named obligation**: combine the natural link-product comparison
+  with the rational face activity `(5*w^8)^K` into a complete physical
+  ground-relative summand bound, then sum the target downset with a
+  volume-independent activity/entropy estimate.
+- **constructive or propositional**: constructive finite list incidence,
+  natural products, and exact SU(2) multiplicity cardinalities; no `sorry` or
+  new named hypothesis was introduced.
+
+Monitored verification:
+
+```text
+parity-excitation link-localization focused source check    PASS
+```
+
+All printed declarations remain within `[propext, Quot.sound]`; there is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation.
+No aggregate or full-root audit is claimed by this focused check.

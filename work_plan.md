@@ -193,7 +193,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   |   +-- exact fusion tilt <= 2^K times parity ground ............................. [PROVED at fine cutoff 1]
 |   |   |   |   |   +-- fusion tilt * SU(2) dimension <= 5^K times parity ground ................ [PROVED at fine cutoff 1]
 |   |   |   |   |   +-- Casimir excess >= 8K contracts the full face factor to `(5*w^8)^K` ...... [PROVED]
-|   |   |   |   |   `-- compare target/ground shared-link multiplicities on touched links ....... [ACTIVE analytic producer]
+|   |   |   |   |   +-- at most four changed links per excited face .............................. [PROVED exact]
+|   |   |   |   |   +-- target link product <= `15625^(4K)` times parity ground .................. [PROVED at fine cutoff 1]
+|   |   |   |   |   `-- contract face and link bounds into one complete summand activity ......... [ACTIVE analytic producer]
 |   |   |   |   +-- control downset mass in the centered production/refresh cross ............ [OPEN analytic consumer]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -890,10 +892,9 @@ full lowering face coefficient * w^(total Casimir excess)
 
 This theorem is source-relative and volume-free, and it applies directly to
 every target in the actual positive physical source's lowering row.  It does
-not compare the target and ground shared-link multiplicity products.  That
-touched-link comparison is now the next analytic producer; only after it is
-proved can this face estimate become a bound on the complete physical Gibbs
-summand or a posterior/conditional transition fraction.
+not itself compare the target and ground shared-link multiplicity products;
+that comparison is supplied by the immediately following milestone before
+the two estimates are contracted into a complete physical Gibbs summand.
 
 Monitored verification:
 
@@ -910,10 +911,59 @@ noncomputable declaration, enlarged heartbeat budget, Rust computation, or
 other trusted external computation is introduced.  The interrupted aggregate
 run is not claimed as a pass or full-root audit.
 
-Still open: the touched-link multiplicity ratio, the summed ground-relative
-row activity, a conditional/posterior contraction, dense and completed OS
-gap, beta/cutoff/volume/spacing-uniform control, the linked same-object tower,
-thermodynamic and continuum construction, and the Clay-facing theorem.
+Still open at the current frontier: the complete ground-relative summand
+activity and its target sum, a conditional/posterior contraction, dense and
+completed OS gap, beta/cutoff/volume/spacing-uniform control, the linked
+same-object tower, thermodynamic and continuum construction, and the
+Clay-facing theorem.
+
+#### Localize cutoff-four link multiplicities to excited faces (2026-09-10)
+
+`Z4DyadicBinarySourceParityExcitationLinkBound` closes the shared-link half
+of the positive-row comparison.  Given a target and the geometric parity
+ground, it filters the actual corrected-slab link list by the exact Boolean
+condition that an incident physical face differs from ground.  The resulting
+touched-link list is duplicate-free and injects into the flattened four-edge
+boundaries of the excited faces, proving
+
+```text
+changed links <= 4 * excited faces <= 4 * parity-excitation mass K.
+```
+
+At cutoff four, the exact production multiplicity at one link is bounded by
+the six-valent auxiliary-window envelope
+`(6*4 + 1)^3 = 15625`.  Positivity of the already-constructed parity-ground
+link product supplies a factor of at least one at every ground link.  Finite
+product comparison therefore gives the volume-independent statement
+
+```text
+target shared-link product
+  <= 15625^(4*K) * parity-ground shared-link product.
+```
+
+The current contraction frontier is now algebraic but still substantive:
+combine this natural-valued link estimate with the proved complete face
+activity `(5*w^8)^K` to obtain a bound on the full ground-relative Gibbs
+summand, and then sum the lowering targets without reintroducing a
+volume-dependent prefactor.
+
+Monitored verification:
+
+```text
+parity-excitation link-localization focused source check    PASS
+```
+
+Every printed declaration uses only `[propext, Quot.sound]` (or fewer
+axioms).  No `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, Rust computation, or
+other trusted external computation is introduced.  No aggregate or full-root
+audit is claimed by this focused check.
+
+Still open: the complete ground-relative summand activity, its target sum,
+the posterior fraction and centered production/refresh contraction, the
+dense and completed OS gap, beta/cutoff/volume/spacing-uniform control, the
+linked same-object tower, thermodynamic and continuum construction, and the
+Clay-facing theorem.
 
 #### Rule out the global constructed-Poincare rate and repoint locally (2026-09-10)
 
