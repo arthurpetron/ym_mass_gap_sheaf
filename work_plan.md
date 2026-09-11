@@ -1322,6 +1322,45 @@ result with the centered production/refresh form, and prove the strict dense
 two-step form bound.  Completed OS extension and controlled thermodynamic/
 continuum passage remain downstream.
 
+#### Bound both surviving gradients without losing their common factor two (2026-09-10)
+
+`Z4DyadicBinaryConnectedObservableGradientEnvelope` proves that a localized
+root or target gradient term has absolute value at most twice the existing
+positive one-face determinant envelope.  Finite triangle inequalities then
+give the same bound on each connected-carrier sum.  Combining the two sums
+retains the exact form
+
+```text
+abs(rootGradientSum + targetGradientSum)
+  <= 2 * (rootEnvelopeSum + targetEnvelopeSum).
+```
+
+The complete active-sum version follows through the exact disconnected
+cancellations, so no absolute value is applied to a disconnected branch.
+The factor `2` is intentional and sharp for this route: it matches the factor
+`2` in the symmetric-gradient identity and can therefore be cancelled after
+the rational-observable two-row determinant is identified.
+
+Monitored verification:
+
+```text
+connected-observable gradient-envelope focused check      PASS
+connected-observable gradient-envelope dependency         PASS (5,618 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, Rust computation, or trusted external computation
+is introduced.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed here.
+
+Still open: prove the generic rational-observable two-row determinant and
+localized factorization, identify four times the actual connected raw cross
+with the two active gradient sums, cancel the common factor two, and derive a
+strict posterior variance for the actual connected response.  Centered
+production/refresh identification, the dense/completed spectral gap, and
+controlled thermodynamic/continuum passage remain downstream.
+
 #### Cancel both disconnected connected-gradient carriers exactly (2026-09-10)
 
 `Z4DyadicBinaryConnectedObservableGradientDisconnectedCancellation` turns the

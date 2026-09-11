@@ -31151,6 +31151,46 @@ There is no `Classical`, `native_decide`, custom axiom, noncomputable
 declaration, enlarged heartbeat budget, Rust computation, or trusted external
 computation.  No aggregate or full-root audit is claimed here.
 
+#### Bound both surviving gradients without losing their common factor two (2026-09-10)
+
+- **milestone**: sharp connected-carrier envelopes for both symmetric
+  gradients
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicBinaryConnectedObservableGradientEnvelope.lean`
+- **proved declarations**:
+  `localizedConnectedRootGradientPairTerm_abs_le_two_envelope`,
+  `localizedConnectedTargetGradientPairTerm_abs_le_two_envelope`,
+  `connectedRootGradientConnectedPairSum_abs_le_two_envelopeSum`,
+  `connectedTargetGradientConnectedPairSum_abs_le_two_envelopeSum`,
+  `connectedGradientConnectedPairSums_abs_le_two_envelopeSums`, and
+  `connectedGradientActivePairSums_abs_le_two_envelopeSums`
+- **closed obligation**: combine each one-face determinant envelope with the
+  proved absolute bound `2` on its doubled symmetric gradient, sum on the
+  connected carriers, add the root and target inequalities, and transport the
+  result back to the complete active sums through exact disconnected
+  cancellation.
+- **remaining named obligation**: identify the rational connected-observable
+  two-row raw cross with the antisymmetric localized sum, then with the two
+  gradient active sums, so the common factor `2` can be cancelled before the
+  root and target envelopes are globally averaged.  The actual connected
+  posterior variance, centered production/refresh form, dense/completed gap,
+  and controlled thermodynamic/continuum passage remain open.
+- **constructive or propositional**: rational absolute-value inequalities and
+  finite-list sums only.  No `sorry`, new named hypothesis, Rust result, or
+  trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+connected-observable gradient-envelope focused check      PASS
+connected-observable gradient-envelope dependency         PASS (5,618 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, or trusted external computation.  No aggregate or full-root
+audit is claimed here.
+
 #### Cancel both disconnected connected-gradient carriers exactly (2026-09-10)
 
 - **milestone**: finite exact cancellation of both disconnected gradient sums
