@@ -30327,3 +30327,31 @@ Still open: establish reflection positivity on the retained sector, identify
 a same-object enriched observable/transfer system, build the linked cutoff
 tower, prove the physical completed gap, and construct the continuum theory
 and Clay closure.
+
+#### Compile enriched observables back to the physical source (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerObservablePullback` defines the
+literal conditional-expectation pullback of every rational enriched target
+observable.  Finite Fubini identifies its source expectation with expectation
+under the pushed law; exact reflection covariance gives the observable-side
+intertwining identity; finite Jensen gives a cross-carrier weighted `L2`
+contraction.
+
+This is deliberately recorded as a spatial block compiler, not the OS
+time-transfer operator.
+
+Monitored verification:
+
+```text
+enriched observable-pullback focused source check          PASS
+```
+
+All four printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed.
+
+Still open: identify the positive-time half-amplitudes and reflected joint law
+on the enriched carrier, use that identification to establish retained-sector
+OS positivity, build the linked same-object cutoff tower, prove the physical
+completed gap, and construct the continuum theory and Clay closure.

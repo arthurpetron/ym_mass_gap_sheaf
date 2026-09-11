@@ -801,7 +801,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- retained intertwiner equal-rank reflection ........... [PROVED exact]
 |       +-- enriched kernel reflection identity ................. [PROVED exact]
 |       +-- enriched pushed-law reflection identity .............. [PROVED exact]
-|       +-- reflection positivity on the retained sector ......... [NEXT]
+|       +-- enriched observable pullback / expectation compiler .. [PROVED exact]
+|       +-- cross-carrier block `L2` contraction ................. [PROVED exact]
+|       +-- positive-time half-amplitude identification .......... [NEXT]
+|       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
 +-- B. Uniform physical scaling
