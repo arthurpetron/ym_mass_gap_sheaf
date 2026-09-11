@@ -71,11 +71,17 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   capacity bound, and injects distinct realized edges into the complete
   Cartesian half-state square.  Thus the selected first-edge parity energy is
   bounded by the full physical OS Dirichlet form, without a cardinality loss.
-- **OPEN next edge:** prove the analogous second-edge energy embedding with
-  the explicit `globalInwardMateTransportCost` factor, then combine it with
-  the lossless parity-demand identity.  This positive one-observable estimate
-  does not by itself imply an all-vector variance bound, finite-volume spectral
-  gap, continuum limit, or Clay theorem.
+- **PROVED second-edge Dirichlet embedding:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParitySecondEdgeEnergy`
+  first factors the parity gradient through exact production-target classes,
+  then through exact second-edge classes.  It applies the proved congestion
+  estimate and injects distinct realized second edges into the Cartesian
+  half-state square.  Thus the selected second-edge energy is bounded by
+  `globalInwardMateTransportCost` times the full physical OS Dirichlet form.
+- **OPEN next edge:** combine both edge embeddings with the lossless
+  `41/425` parity-demand identity into an explicit one-observable coercivity
+  bound.  That result still would not imply an all-vector variance bound,
+  finite-volume spectral gap, continuum limit, or Clay theorem.
 
 ---
 
