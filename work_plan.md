@@ -221,6 +221,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   |   +-- relative all-observable RG contraction ........................ [OPEN; not implied by spanning]
 |   |   |   |   +-- symmetric SU(2) reference + physical row-relative error ........ [OPEN analytic producer]
 |   |   |   |   +-- arbitrary-rate finite form gap -> completed physical gap ....... [PROVED exact compiler]
+|   |   |   |   +-- each fixed dense sector cylinder -> actual strict completed form [PROVED; base-indexed rate]
+|   |   |   |   +-- one common rate on the dense sector closure .................... [OPEN; path-ceiling rate has proved no-go]
 |   |   |   |   +-- exact RG endpoint intertwiner ........................ [BYPASSED on symmetric-reference route]
 |   |   |   |   +-- componentwise telescope retaining heat payment on target-reaching pieces .... [OPEN consumer]
 |   |   |   |   +-- signed/background residual aggregation or raw-cross component bound ....... [OPEN consumer]
@@ -1648,6 +1650,44 @@ Monitored verification:
 ```text
 symmetric-reference completed-gap focused check           PASS
 symmetric-reference completed-gap dependency              PASS (1,232 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,
+`admit`, `Classical`, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted
+external computation is introduced.  The root aggregator imports the module.
+No full-root audit is claimed in this entry.
+
+#### Put the inhabited fixed-base Poincare rate on the actual dense sector (2026-09-11)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDensePointwisePoincareGap` composes the
+constructed persistent positive-edge Poincare estimate with the exact dense
+form identifications on the canonical vacuum-sector cylinder completion.  For
+every finite presentation orthogonal to the global vacuum it now proves, on
+the actual completed carrier,
+
+```text
+0 <= <T v,v> <= q_base <v,v>,       q_base < 1.
+```
+
+The rate is the explicit constructed Poincare rate belonging to
+`presentation.base`; it is uniform over all later representation cutoffs for
+that base.  This is the correct contraction of the finite theorem.  It does
+not apply the selected-component estimate to the reducible global positive-
+row carrier, and it does not hide the already-proved failure of the crude
+path-ceiling rates to admit one common `q < 1` as the base grows.
+
+The new theorem is therefore a genuine dense-domain strictness result but not
+a spectral gap on the completed closure.  The next mathematical frontier is
+a new SU(2)-specific common-rate mechanism (localized posterior/tensorization,
+multiscale flow, or a symmetric-reference comparison), not further transport
+of the known global-path bound.
+
+Monitored verification:
+
+```text
+dense pointwise Poincare focused check                    PASS
+dense pointwise Poincare dependency                       PASS (4,873 jobs)
 ```
 
 All printed declarations use only `[propext, Quot.sound]`.  No `sorry`,

@@ -31461,6 +31461,51 @@ All printed declarations use only `[propext, Quot.sound]`.  There is no
 enlarged heartbeat budget, or trusted external computation.  The root
 aggregator imports the module.  No full-root audit is claimed in this entry.
 
+#### Put the inhabited fixed-base Poincare rate on the actual dense sector (2026-09-11)
+
+- **milestone**: unconditional base-indexed strict form interval on the actual
+  dense completed vacuum sector
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDensePointwisePoincareGap.lean`
+- **proved declarations**:
+  `centralPhysicalVacuumSectorCylinderDensePoincareRate`,
+  `centralPhysicalVacuumSectorCylinderDensePoincareRate_nonnegative`,
+  `centralPhysicalVacuumSectorCylinderDensePoincareRate_lt_one`,
+  `centralPhysicalVacuumSectorCylinder_denseCompletedFormGap`, and
+  `centralPhysicalVacuumSectorCylinder_denseCompletedStrictFormInterval`
+- **closed obligation**: compose the inhabited persistent fixed-base positive
+  edge floor and Poincare estimate with the exact moving-centered-limit-to-GNS
+  identifications.  Every embedded finite cylinder orthogonal to the vacuum
+  now satisfies `0 <= <T v,v> <= q_base <v,v>` on the actual completed sector,
+  with an explicit rational `q_base < 1` uniform over later cutoffs.
+- **scope correction**: the finite Poincare theorem is on the canonical root
+  component, not on the reducible global positive-row carrier.  No theorem
+  silently promotes component centering to global centering.
+- **remaining named obligation**: construct one common rate on the completed
+  sector closure by a mechanism stronger than the existing all-pairs path
+  ceiling.  `BF4PhysicalCutoffVacuumSectorConstructedRateNoGo` already proves
+  that those canonical path rates approach one along the spin-cube ray.  The
+  viable open routes are the physical SU(2) symmetric-reference/all-row error
+  estimate or a localized posterior/multiscale Poincare estimate.  Uniform
+  half-volume and spacing control, continuum QFT, isolated vacuum, and the
+  Clay mass gap remain open.
+- **constructive or propositional**: finite rational Poincare data, explicit
+  Cauchy limits, quotient-level completed pairings, and exact carrier
+  restriction only.  No new hypothesis, `sorry`, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+dense pointwise Poincare focused check                    PASS
+dense pointwise Poincare dependency                       PASS (4,873 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation.  The root
+aggregator imports the module.  No full-root audit is claimed in this entry.
+
 #### Bound both surviving gradients without losing their common factor two (2026-09-10)
 
 - **milestone**: sharp connected-carrier envelopes for both symmetric
