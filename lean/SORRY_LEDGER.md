@@ -31027,6 +31027,48 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Complete the two SU(2) classifier branches to the full slab (2026-09-11)
+
+- **milestone**: exact full-source branch cardinality conservation
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalSourceBranchCardinality.lean`
+- **proved declarations**:
+  `cubeInwardMateCertifiedTargetFullSources_length`,
+  `cubeInwardMateCertifiedTargetFullSources_nodup`,
+  `cubeInwardMateCertifiedFullSourceBranches_length`, and
+  `cubeInwardMateCertifiedTarget_add_enumeratedFirstStretched_length`
+- **closed obligation**: construct the missing all-target Cartesian carrier by
+  restoring every accepted off-cube production assignment; prove its exact
+  size and duplicate-freeness; distribute the common off-cube multiplicity
+  across the already exact target/first-stretched cube dichotomy; and recover
+  the complete extent-one slab multiplicity, including after the stretched
+  branch is attached to its downstream peel record.
+- **scope boundary**: this is an exact finite cardinality partition.  The
+  carrier has not yet been assigned the common physical Gibbs weight, so no
+  all-target success mass, `41/425` fraction, conditional row minorization,
+  posterior variance, or spectral bound is asserted.
+- **remaining named obligation**: identify both branch atoms with the common
+  physical face factor, sum the resulting fixed-physical equality over all
+  bounded physical fields, and combine it with the proved global `384/425`
+  first-stretched congestion bound.  The same-object posterior/Poincare, OS
+  form-bound, completed-gap, thermodynamic, and continuum bridges remain open.
+- **constructive or propositional**: explicit Cartesian lists, duplicate-
+  freeness, and natural-number arithmetic only.  No `sorry`, new named
+  hypothesis, Rust result, or trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+full-source branch cardinality focused source check       PASS
+full-source branch cardinality dependency target          PASS (1,119 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Split the complete SU(2) slab-link source multiplicity exactly (2026-09-11)
 
 - **milestone**: exact cube/off-cube source multiplicity conservation
