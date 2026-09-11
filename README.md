@@ -147,14 +147,18 @@ the stretched vertex.  For every source word of length at most six,
 remaining internal coordinates, and proves that the resulting auxiliary is
 accepted on the ordered source word; see
 [`SU2StretchedFusionWitnessLift.lean`](lean/YMGap/Continuum/SU2StretchedFusionWitnessLift.lean).
+That compiler is now specialized to every active cube-root carrier:
+`rootSourceAuxiliary_mem_orderedSourceSpins` provides the literal accepted
+source auxiliary, and `rootProductionSpins_perm_orderedSourceSpins` retains
+the exact permutation from the physical production order; see
+[`BF4PhysicalVacuumSectorInwardMateActiveDebtRootSourceWitness.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootSourceWitness.lean).
 
-The next causal step is to specialize that lift to the active cube root,
-transport the ordered source witness back to the production incident-spin
-order, then reroute the resulting complete strand component and bound the
-carrier sum by a cutoff-independent multiple of the pure mate product.  That
-would compare the complete fixed-boundary intertwiner contraction. A genuine
-physical mate-transition floor would then feed a rooted-subtree
-Hardy--Poincare or posterior conditional-variance estimate.
+The next causal step is to transport the ordered source witness itself back to
+the production incident-spin order, then reroute the resulting complete strand
+component and bound the carrier sum by a cutoff-independent multiple of the
+pure mate product.  That would compare the complete fixed-boundary intertwiner
+contraction. A genuine physical mate-transition floor would then feed a
+rooted-subtree Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

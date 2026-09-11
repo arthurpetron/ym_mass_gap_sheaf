@@ -31592,6 +31592,40 @@ heartbeat budget, `sorry`, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by this check.
 
+#### Specialize the accepted source witness to the active cube root (2026-09-11)
+
+- **milestone**: same-object rooted ordered-source witness
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateActiveDebtRootSourceWitness.lean`
+- **proved declarations**: `rootOrderedSourceSpins`,
+  `rootProductionSpins_perm_orderedSourceSpins`,
+  `rootOrderedSourceSpins_length_le_six`,
+  `rootOrderedSourceSpins_bounded`,
+  `rootStretchedSpin_le_linkAuxiliaryCutoff`, `rootSourceAuxiliary`, and
+  `rootSourceAuxiliary_mem_orderedSourceSpins`
+- **closed obligation**: specialize the finite-valence coordinate transplant
+  to the stored auxiliary at every active cube root, prove the stretched spin
+  fits the auxiliary cutoff, retain the accepted ordered source witness as
+  data, and retain its exact permutation from physical production order
+- **remaining named obligation**: turn that spin-word permutation into a
+  proof-carrying auxiliary-witness transport, then trace and reroute the
+  complete production-order strand component
+- **constructive or propositional**: the source spin word and auxiliary are
+  computable data; boundedness, acceptance, and the production permutation are
+  proof fields used without witness erasure
+
+Monitored verification:
+
+```text
+active-root source-witness explicit olean emission         PASS
+```
+
+The four printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by this check.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual

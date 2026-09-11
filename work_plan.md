@@ -92,13 +92,17 @@ and the stored root auxiliary is accepted on the exact collapsed word headed
 by their spin sum.  A new finite-valence coordinate compiler now lifts any
 such collapsed accepted auxiliary back across the stretched vertex: it inserts
 the forced spin-sum channel, shifts every surviving internal coordinate, and
-proves acceptance on the ordered source word through valence six.
+proves acceptance on the ordered source word through valence six.  The
+specialization to every active cube-root carrier is also closed: the lifted
+auxiliary is accepted on its literal ordered source word, that word has length
+at most six and bounded spins, and the physical production incident-spin word
+is retained with an exact permutation to it.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. specialize the proved collapsed-witness lift to the active cube root,
-   transport the resulting ordered source witness back to production incident
-   order, construct its SU(2)-specific closed-component rerouting, and sum those routes into a
+1. transport the accepted ordered root witness itself back to production
+   incident order, construct its SU(2)-specific closed-component rerouting,
+   and sum those routes into a
    cutoff-independent bound by the pure mate product; this compares the
    complete fixed-boundary intertwiner contraction of a state with its inward
    mate;
