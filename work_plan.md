@@ -799,7 +799,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |       +-- total target contribution inherits corridor rate ...... [PROVED on 0<w<=1/400]
 |       +-- enriched target observable ........................... [PROVED]
 |       +-- retained intertwiner equal-rank reflection ........... [PROVED exact]
-|       +-- enriched kernel/law reflection identity .............. [NEXT]
+|       +-- enriched kernel reflection identity ................. [PROVED exact]
+|       +-- enriched pushed-law reflection identity .............. [NEXT]
 |       +-- reflection positivity on the retained sector ......... [OPEN]
 |       `-- linked same-object enriched cutoff tower ............. [OPEN]
 |
@@ -1607,6 +1608,32 @@ covariance of the enriched stochastic kernel and its pushed probability law.
 Reflection positivity is a later, strictly stronger obligation.  The linked
 cutoff tower, physical scaling, completed gap, continuum construction, and
 Clay closure remain open.
+
+#### Prove reflection covariance of the lossless enriched kernel (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerReflection` combines geometric
+reflection on the coarse summand with equal-rank assignment reflection on the
+retained fine summand.  The resulting target map preserves the literal finite
+carrier and is involutive there.
+
+The complete stochastic row is then proved reflection covariant by an
+explicit exhaustive branch proof.  Positive coherent rows use whole-slab
+recoupling reflection; positive incoherent rows use the reflected unit-
+counting Haar fibre; Gibbs-null rows use the reflected null completion.  The
+proof also establishes reflection invariance of the exact retained partition
+and its zero-extended physical-state row.
+
+The focused monitored source check passes.  All six printed load-bearing
+declarations use only `[propext, Quot.sound]`; no `sorry`, `admit`,
+`Classical`, `native_decide`, custom axiom, noncomputable declaration,
+enlarged heartbeat budget, or trusted external computation is introduced.
+
+The next contraction is finite reindexing of the source sum to prove that the
+normalized enriched pushed law itself is reflection invariant.  This remains
+weaker than reflection positivity; an OS quadratic on the retained sector and
+its same-object interpretation are still open, followed by the linked cutoff
+tower, physical scaling, completed gap, continuum construction, and Clay
+closure.
 
 #### Repoint the matched completed gap to cancellation-preserving rates (2026-09-10; subsequently obstructed)
 

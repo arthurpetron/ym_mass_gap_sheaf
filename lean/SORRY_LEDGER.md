@@ -30278,3 +30278,28 @@ Still open: lift the map to the disjoint enriched target, prove enriched
 kernel and pushed-law reflection covariance, establish reflection positivity
 on the retained sector, build the linked same-object cutoff tower, prove the
 physical completed gap, and construct the continuum theory and Clay closure.
+
+#### Prove reflection covariance of the enriched all-cutoff kernel (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerReflection` defines reflection on
+the disjoint coarse-or-retained target, proves carrier preservation and
+involutivity, and proves exact covariance of the complete stochastic kernel.
+The proof separately checks coherent recoupling, incoherent retained-Haar, and
+Gibbs-null completion branches.  It also proves reflection invariance of the
+retained partition and conditional row.
+
+Monitored verification:
+
+```text
+enriched all-cutoff kernel reflection focused source check PASS
+```
+
+All six printed load-bearing declarations use only `[propext, Quot.sound]`;
+no `sorry`, `admit`, `Classical`, `native_decide`, custom axiom,
+noncomputable declaration, enlarged heartbeat budget, or trusted external
+computation is introduced.  No full-root audit is claimed.
+
+Still open: prove pushed-law reflection by finite source reindexing, establish
+reflection positivity on the retained sector, identify a same-object enriched
+observable/transfer system, build the linked cutoff tower, prove the physical
+completed gap, and construct the continuum theory and Clay closure.
