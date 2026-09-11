@@ -31027,6 +31027,73 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Place both all-target endpoints in the production BF4 carrier (2026-09-11)
+
+- **milestone**: literal off-diagonal same-carrier production pair relation
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetProductionPair.lean`
+- **proved declarations**:
+  `cubeInwardMateCertifiedOutcomeFullSources_length`,
+  `cubeInwardMateCertifiedOutcomeFullSources_nodup`,
+  `cubeInwardMateCertifiedOutcomeFullSourceCode`,
+  `cubeInwardMateCertifiedOutcomeFullSourceCodes`,
+  `globalInwardMateProductionFiber_length_eq_sourceOutcomes`,
+  `globalInwardMateSourceProductionRawAt`,
+  `globalInwardMateSourceProductionRawAt_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcome`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcome_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcomeCode`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceOutcomeCode_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionRaw`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionRaw_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionAtom`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.sourceProductionAtom_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.productionPair`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.productionPair_mem`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.productionPair_parity_ne`,
+  `GlobalCubeInwardMateCertifiedTargetFullSource.productionPair_ne`,
+  `globalInwardMateProductionPairs`,
+  `globalInwardMateProductionPairs_targetMarginal`,
+  `globalInwardMateProductionPairs_nodup`, and
+  `globalInwardMateProductionPairs_spec`
+- **closed obligation**: restore the complete target-or-first-stretched
+  classified source family with all off-cube production coordinates; prove
+  its exact production-fiber cardinality and duplicate-freeness; serialize
+  its source data into decidable finite natural words; place every retained
+  representative's original-physical source endpoint in the literal
+  `slabExpandedFineSources` carrier; and pair it with the already certified
+  production target.  The resulting edge list is duplicate-free through its
+  target marginal, and every edge reverses parity on all six central-cube
+  faces, hence is off diagonal.
+- **scope boundary**: the pair list is a constructed same-carrier transport
+  relation, not the actual BF4 conditional two-copy law.  Its target marginal
+  is exactly the positive retained target submeasure.  Collision-freeness of
+  the complete source-code list and a source marginal identity have not yet
+  been proved.  No minorization, posterior variance, OS form bound, spectral
+  gap, beta/lattice-spacing uniformity, or continuum theorem is asserted.
+- **remaining named obligation**: prove the finite source serialization is
+  injective on the complete classified carrier and hence that equal-rank
+  compilation preserves the source marginal; then locate this off-diagonal
+  relation inside the actual conditional/OS joint before deriving a
+  posterior-variance fraction.
+- **constructive or propositional**: finite dependent Cartesian products,
+  explicit natural-word serialization, structural ranks, and six-face
+  parity separation only.  No `sorry`, new named hypothesis, Rust result, or
+  trusted external computation is introduced.
+
+Monitored verification:
+
+```text
+all-target production-pair focused source check           PASS
+all-target production-pair dependency target              PASS (1,314 jobs)
+```
+
+All printed declarations use only `[propext, Quot.sound]`.  There is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by the focused check.
+
 #### Prove the production all-target subcarrier collision-free (2026-09-11)
 
 - **milestone**: duplicate-free literal production target submeasure
