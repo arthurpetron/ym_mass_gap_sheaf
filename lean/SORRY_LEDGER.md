@@ -31048,8 +31048,9 @@ claimed by these checks.
   the stretched channel, handle the even zero-to-one compensation, and sum
   the pointwise classification into the actual finite production-link
   multiplicity inequality
-- **remaining named obligation**: lift the one-link stretched-continuation
-  debt through physical link orderings and the global slab strand-component
+- **remaining named obligation**: construct the concrete cube-boundary
+  incident-list permutation witnesses, then lift the one-link
+  stretched-continuation debt through the global slab strand-component
   geometry; combine the resulting complete intertwiner-contraction comparison
   with the proved heat payment to obtain a genuine physical transition floor;
   then prove the cutoff-uniform Hardy/Poincare or posterior-variance estimate,
@@ -31062,13 +31063,59 @@ Monitored verification:
 
 ```text
 inward-mate fusion-support focused source check             PASS
-inward-mate fusion-support dependency target                NOT YET RUN
+inward-mate fusion-support explicit olean emission           PASS
+inward-mate fusion-support dependency target                INTERRUPTED; no pass claimed
 ```
 
 All nine printed declarations use only `[propext, Quot.sound]`.  There is no
 `Classical`, `native_decide`, custom axiom, noncomputable declaration,
 enlarged heartbeat budget, `sorry`, or trusted external computation.  No
 aggregate or full-root audit is claimed here.
+
+#### Transport the inward-mate fusion debt across physical link order (2026-09-11)
+
+- **milestone**: arbitrary-order production-link compiler for the exact
+  inward-mate multiplicity debt
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateLabels.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionSupport.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionReordering.lean`
+- **proved declarations**:
+  `evenInwardMateLabel`, `oddInwardMateLabel`,
+  `evenInwardMateLabel_le_cutoff`, and
+  `explicitValenceMultiplicity_physical_inwardMate_of_permutations`
+- **closed obligation**: isolate the elementary mate maps from the expensive
+  heat compiler, prove that the even mate remains inside every positive
+  physical cutoff, and transport the exact local SU(2) multiplicity inequality
+  from the two-front-slot presentation to arbitrary source and mate incident
+  words using explicit `List.Perm` witnesses
+- **remaining named obligation**: construct those source and mate permutation
+  witnesses from the actual cube-boundary incidence lists; reroute the one
+  stretched continuation on complete strand components; then obtain the
+  physical transition floor, posterior-variance/Poincare estimate, completed
+  gap, thermodynamic and continuum passage, continuum QFT axioms, isolated
+  vacuum, and the Clay theorem
+- **constructive or propositional**: elementary natural-number label maps,
+  bounded finite lists, and explicit permutation equalities; no external
+  certificate or trusted computation is used
+
+Monitored verification:
+
+```text
+inward-mate label-map explicit olean emission               PASS
+inward-mate heat-payment focused source check               PASS
+inward-mate fusion-support explicit olean emission          PASS
+inward-mate arbitrary-order focused source check            PASS
+safe launcher unit tests                                    PASS (6 tests)
+```
+
+The label maps are axiom-free.  The heat, fusion-support, and arbitrary-order
+exports use only `[propext, Quot.sound]`.  There is no `Classical`,
+`native_decide`, custom axiom, noncomputable declaration, enlarged heartbeat
+budget, `sorry`, Rust computation, or trusted external computation.  The root
+aggregator imports all three compiler modules.  No aggregate or full-root
+audit is claimed by these checks.
 
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 

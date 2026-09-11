@@ -69,11 +69,16 @@ source path is bounded by the inward-mate path count plus one explicit
 stretched-channel continuation. See
 [`BF4PhysicalVacuumSectorInwardMateFusionSupport.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionSupport.lean).
 
-The next causal step is global: reroute precisely those stretched-channel
-strand components and thereby compare the complete fixed-boundary
-intertwiner contraction before and after the inward mate. A genuine physical
-mate-transition floor would then feed a rooted-subtree Hardy--Poincare or
-posterior conditional-variance estimate.
+The local comparison now also transports across arbitrary physical incident
+spin orderings, provided the two geometric permutation witnesses are supplied.
+This is
+`explicitValenceMultiplicity_physical_inwardMate_of_permutations` in
+[`BF4PhysicalVacuumSectorInwardMateFusionReordering.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionReordering.lean).
+The next causal step is therefore geometric: construct those witnesses for
+each cube-boundary link, then reroute precisely the resulting stretched-channel
+strand components to compare the complete fixed-boundary intertwiner
+contraction. A genuine physical mate-transition floor would then feed a
+rooted-subtree Hardy--Poincare or posterior conditional-variance estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already
@@ -138,7 +143,11 @@ repository's crash safeguards.
 make lean-build
 
 # Narrow target (preferred while developing)
-python3 scripts/safe_lean_build.py --jobs 1 -- YMGap.Continuum.ModuleName
+python3 scripts/safe_lean_build.py --jobs 1 -- +YMGap.Continuum.ModuleName:olean
+
+# Check one source and emit only its importable olean (parent directory exists)
+python3 scripts/safe_lean_build.py --check lean/YMGap/Continuum/ModuleName.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/Continuum/ModuleName.olean
 
 # Monitored axiom audit
 make lean-audit

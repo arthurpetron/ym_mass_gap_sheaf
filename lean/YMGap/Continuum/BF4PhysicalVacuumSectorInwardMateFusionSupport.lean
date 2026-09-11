@@ -18,7 +18,7 @@ No `Classical`, choice, `native_decide`, `sorry`, custom axiom, noncomputable
 declaration, or trusted external computation is used.
 -/
 
-import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateLabels
 import YMGap.Continuum.FusionBratteli
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.Z4FusionPathZeroInsertion

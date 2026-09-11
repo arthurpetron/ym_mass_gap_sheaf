@@ -49,13 +49,17 @@ and swap reserves.
 make lean-build
 
 # Narrow target
-python3 scripts/safe_lean_build.py -- YMGap.Continuum.ModuleName
+python3 scripts/safe_lean_build.py -- +YMGap.Continuum.ModuleName:olean
 
 # Monitored single-file elaboration
 python3 scripts/safe_lean_build.py --check lean/YMGap/Continuum/ModuleName.lean
 
 # Resume a pressure-stopped or known-heavy build sequentially
-python3 scripts/safe_lean_build.py --jobs 1 -- YMGap.Continuum.ModuleName
+python3 scripts/safe_lean_build.py --jobs 1 -- +YMGap.Continuum.ModuleName:olean
+
+# Check one source and emit only its importable olean
+python3 scripts/safe_lean_build.py --check lean/YMGap/Continuum/ModuleName.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/Continuum/ModuleName.olean
 
 # Inspect the resolved policy without starting Lean
 python3 scripts/safe_lean_build.py --dry-run -- YMGap

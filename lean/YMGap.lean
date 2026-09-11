@@ -3604,8 +3604,10 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorHeadTailGramGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredTailTrace
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredHeadTailTraceGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorNewTailSelfReturnRawRatio
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateLabels
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFusionSupport
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFusionReordering
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
 -- Keeping these in the semantic root makes their declarations visible to the

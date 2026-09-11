@@ -47,18 +47,26 @@ At a production valence-at-most-six link this contracts to
 source multiplicity <= mate multiplicity + stretched-continuation multiplicity.
 ```
 
+That local inequality now transports across arbitrary physical incident-spin
+orderings once explicit source and mate `List.Perm` witnesses move the two
+changed cube faces to the first two slots.  The remaining ordering obligation
+is therefore the concrete geometry of `incidentPhysicalSpins`, not another
+fusion estimate.
+
 The next load-bearing analytic producers are, in causal order:
 
-1. lift the exact one-link stretched-continuation debt to an SU(2)-specific
-   global strand rerouting that compares the complete fixed-boundary
-   intertwiner contraction of a state with its inward mate;
-2. combine that comparison with the proved six-face heat payment to obtain
+1. construct the two permutation witnesses at every cube-boundary link and
+   feed them through the proved arbitrary-order compiler;
+2. lift the resulting exact one-link stretched-continuation debts to an
+   SU(2)-specific global strand rerouting that compares the complete
+   fixed-boundary intertwiner contraction of a state with its inward mate;
+3. combine that comparison with the proved six-face heat payment to obtain
    an explicit lower bound on a genuine physical mate transition;
-3. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
+4. prove a rooted-subtree Hardy/Poincare estimate, or an equivalent posterior
    conditional-variance estimate, so those local transitions control the
    full vacuum-sector variance without paying the obstructed root-resistance
    load or the false tail trace;
-4. contract the resulting cutoff-uniform finite gap through the existing
+5. contract the resulting cutoff-uniform finite gap through the existing
    same-object dense/completed machinery.
 
 Rust may generate exact orbit, contraction, or rerouting certificates for

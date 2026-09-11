@@ -21,6 +21,7 @@ declaration, or trusted external computation is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateLabels
 import YMGap.Continuum.PlaquetteActivity
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
@@ -38,14 +39,6 @@ def oneQuarter : Q' := Q'.mkPos 1 4 (by decide)
 def four : Q' := Q'.ofNat 4
 def sixtyFour : Q' := Q'.ofNat 64
 def oneOver4096 : Q' := Q'.mkPos 1 4096 (by decide)
-
-/-- The parity-changing inward mate of an even label: `0 -> 1`, while every
-positive label loses one unit. -/
-def evenInwardMateLabel (spin : Nat) : Nat :=
-  if spin = 0 then 1 else spin - 1
-
-/-- The inward mate of a positive odd label is its predecessor. -/
-def oddInwardMateLabel (spin : Nat) : Nat := spin - 1
 
 private theorem neg_num_cast_local (a : Q') :
     (-a).num = -(a.num) := rfl

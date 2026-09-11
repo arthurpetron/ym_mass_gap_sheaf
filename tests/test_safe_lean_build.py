@@ -9,6 +9,8 @@ from scripts.safe_lean_build import (
     lakefile_text_with_worker_limit,
     parallelism_error,
     pressure_reasons,
+    _build_command,
+    _parse_arguments,
 )
 
 
@@ -84,3 +86,26 @@ name = "Example"
     assert '# weakLeanArgs = ["-M", "999"]' in rewritten
     assert 'weakLeanArgs = ["-s", "65536", "-M", "3072"]' in rewritten
     assert "32768" not in rewritten
+
+
+def test_check_output_emits_one_explicit_olean(tmp_path) -> None:
+    source = tmp_path / "Example.lean"
+    output = tmp_path / "build" / "Example.olean"
+    arguments = _parse_arguments(
+        ["--check", str(source), "--check-output", str(output)]
+    )
+
+    command = _build_command(arguments, worker_limit_mib=4096, stack_limit_kib=65536)
+
+    assert command == [
+        "lake",
+        "env",
+        "lean",
+        "-s",
+        "65536",
+        "-M",
+        "4096",
+        "-o",
+        str(output.resolve()),
+        str(source.resolve()),
+    ]

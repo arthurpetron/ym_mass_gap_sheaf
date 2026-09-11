@@ -74,7 +74,10 @@ Consequently:
    checks, or process-group shutdown.
 4. Build the narrowest relevant target before considering a full library
    build. Full axiom audits are integration gates, not routine substitutes for
-   targeted checking.
+   targeted checking. Prefix module targets with `+` and normally request the
+   `:olean` facet, for example
+   `python3 scripts/safe_lean_build.py --jobs 1 -- +YMGap.Continuum.ModuleName:olean`;
+   without `+`, Lake may resolve `YMGap...` as the globbed library target.
 5. If safety telemetry stops a run, allow recovery and resume with `--jobs 1`.
    Do not weaken the thresholds or immediately repeat the parallel run.
 6. High memory utilization is acceptable. Compressor/swap escalation that can

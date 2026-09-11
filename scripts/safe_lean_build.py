@@ -15,7 +15,8 @@ It provides four independent protections:
 * periodic RAM, memory-pressure, swap, and build-tree RSS checks; and
 * process-group shutdown before the operating system becomes unresponsive.
 
-Use ``python3 scripts/safe_lean_build.py -- TARGET`` for a Lake target, or
+Use ``python3 scripts/safe_lean_build.py -- +MODULE:olean`` for a narrow Lake
+module target (the leading ``+`` prevents library-target resolution), or
 ``python3 scripts/safe_lean_build.py --check lean/path/File.lean`` for a
 single-file elaboration check.  Do not bypass this launcher with bare
 ``lake build`` or ``lake env lean`` commands.
@@ -438,6 +439,14 @@ def _parse_arguments(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--log-file", type=Path)
     parser.add_argument("--check", type=Path, help="run one monitored `lake env lean` check")
     parser.add_argument(
+        "--check-output",
+        type=Path,
+        help=(
+            "with --check, emit the checked module's .olean at this explicit "
+            "path without traversing Lake's library target graph"
+        ),
+    )
+    parser.add_argument(
         "--check-worker-limit-gib",
         type=_positive_float,
         help=(
@@ -477,7 +486,7 @@ def _build_command(
         if lake_args:
             raise ValueError("Lake build targets cannot be combined with --check")
         source = arguments.check.resolve()
-        return [
+        command = [
             "lake",
             "env",
             "lean",
@@ -485,8 +494,11 @@ def _build_command(
             str(stack_limit_kib),
             "-M",
             str(worker_limit_mib),
-            str(source),
         ]
+        if arguments.check_output is not None:
+            command.extend(["-o", str(arguments.check_output.resolve())])
+        command.append(str(source))
+        return command
     if arguments.lake_worker_limit_gib is not None:
         if lakefile_override is None:
             raise ValueError("Lake worker override requires a temporary package config")
@@ -529,6 +541,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             return 64
         worker_limit_mib = int(arguments.check_worker_limit_gib * 1024)
+    if arguments.check_output is not None and arguments.check is None:
+        print(
+            "safe-lean: --check-output requires --check",
+            file=sys.stderr,
+        )
+        return 64
     if arguments.lake_worker_limit_gib is not None:
         if arguments.check is not None:
             print(
