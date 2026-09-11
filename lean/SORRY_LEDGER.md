@@ -30388,6 +30388,45 @@ rare-event modulus over the required scaling corridor, assemble retained-
 sector OS positivity and the linked same-object cutoff tower, prove the
 physical completed gap, and construct the continuum theory and Clay closure.
 
+#### Replace the arbitrary fine face by its exact dyadic packet (2026-09-10)
+
+`CompactDualAllCutoffRetainedFineIntertwinerPositiveTimeDyadicSupport`
+defines the same-object fine antecedent of one coarse face as occupation of
+its complete four-face dyadic preimage packet.  It proves that this Boolean
+event is exactly the existence of an occupied injected fine face.  At fine
+cutoff one, the explicit SU(2) spin-zero-through-four lowering matrix then
+proves that an empty packet assigns zero raw and normalized coherent-kernel
+weight to every target with positive coarse-face spin.
+
+The resulting raw mismatch is one-sided: it is bounded rowwise by the packet
+source indicator.  Dependent normalized-source summation gives the canonical
+finite-law endpoint
+
+```text
+coherent packet/coarse-face mismatch
+  <= normalized fine Gibbs mass of the four-face packet event.
+```
+
+Monitored verification:
+
+```text
+positive-time dyadic support focused source check PASS
+positive-time dyadic support dependency target     PASS (5591 jobs)
+```
+
+All seven printed load-bearing declarations use only
+`[propext, Quot.sound]`; no `sorry`, `admit`, `Classical`, `native_decide`,
+custom axiom, noncomputable declaration, enlarged heartbeat budget, or trusted
+external computation is introduced.  No full-root audit is claimed here.
+The load-bearing non-abelian input is the explicit SU(2) lowering support, and
+the cutoff-one hypothesis is visible in every kernel-support conclusion.
+
+Still open: bound the four-face packet-occupation probability with explicit
+coupling, cutoff, volume, and lattice-spacing dependence; compile the dyadic
+packet observable through reflection and the joint moment; assemble retained-
+sector OS positivity and the linked same-object cutoff tower; prove the
+physical completed gap; and construct the continuum theory and Clay closure.
+
 #### Compile enriched observables back to the physical source (2026-09-10)
 
 `CompactDualAllCutoffRetainedFineIntertwinerObservablePullback` defines the
