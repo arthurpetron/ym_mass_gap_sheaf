@@ -3608,6 +3608,7 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateLabels
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateHeatBound
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFusionSupport
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFusionReordering
+import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateIncidentOrder
 
 -- Production leaves promoted by the import-coverage audit of 2026-07-17.
 -- Keeping these in the semantic root makes their declarations visible to the

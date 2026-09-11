@@ -48,15 +48,17 @@ source multiplicity <= mate multiplicity + stretched-continuation multiplicity.
 ```
 
 That local inequality now transports across arbitrary physical incident-spin
-orderings once explicit source and mate `List.Perm` witnesses move the two
-changed cube faces to the first two slots.  The remaining ordering obligation
-is therefore the concrete geometry of `incidentPhysicalSpins`, not another
-fusion estimate.
+orderings.  Given two distinct incident plaquette IDs, Lean constructively
+produces a common residual word and both source/mate `List.Perm` witnesses,
+then feeds them through the production multiplicity compiler.  The remaining
+ordering obligation is now cube-specific: identify the two selected face IDs
+incident at each cube-boundary link and exclude the other four selected faces.
 
 The next load-bearing analytic producers are, in causal order:
 
-1. construct the two permutation witnesses at every cube-boundary link and
-   feed them through the proved arbitrary-order compiler;
+1. prove the cube-boundary incidence classification (two selected face IDs
+   present at each boundary link, the other four absent) and instantiate the
+   proved incident-order compiler;
 2. lift the resulting exact one-link stretched-continuation debts to an
    SU(2)-specific global strand rerouting that compares the complete
    fixed-boundary intertwiner contraction of a state with its inward mate;

@@ -74,11 +74,21 @@ spin orderings, provided the two geometric permutation witnesses are supplied.
 This is
 `explicitValenceMultiplicity_physical_inwardMate_of_permutations` in
 [`BF4PhysicalVacuumSectorInwardMateFusionReordering.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFusionReordering.lean).
-The next causal step is therefore geometric: construct those witnesses for
-each cube-boundary link, then reroute precisely the resulting stretched-channel
-strand components to compare the complete fixed-boundary intertwiner
-contraction. A genuine physical mate-transition floor would then feed a
-rooted-subtree Hardy--Poincare or posterior conditional-variance estimate.
+The generic finite-box incidence step is now closed as well:
+`incidentPhysicalSpins_twoFace_permutations` constructively moves any two
+distinct incident plaquette IDs to the front of the source and mate words with
+one shared residual word, and
+`incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched` immediately feeds
+those witnesses into the production multiplicity inequality. See
+[`BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean).
+
+The next causal step is cube-specific geometry: identify the two selected face
+IDs incident on each cube-boundary link and prove that the other four selected
+cube faces are absent there. Then reroute precisely the resulting
+stretched-channel strand components to compare the complete fixed-boundary
+intertwiner contraction. A genuine physical mate-transition floor would then
+feed a rooted-subtree Hardy--Poincare or posterior conditional-variance
+estimate.
 
 An earlier plan tried to bound the whole new-cutoff self-return trace by a
 small constant. Exact exploratory computation found that plan false already

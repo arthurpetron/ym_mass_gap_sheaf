@@ -31117,6 +31117,44 @@ budget, `sorry`, Rust computation, or trusted external computation.  The root
 aggregator imports all three compiler modules.  No aggregate or full-root
 audit is claimed by these checks.
 
+#### Construct the actual incident-word order witnesses (2026-09-11)
+
+- **milestone**: constructive source/mate permutation witnesses for two
+  distinct plaquette IDs on an actual finite-box physical link
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateIncidentOrder.lean`
+- **proved declarations**:
+  `exists_two_head_perm_of_mem`, `two_head_perm_rest_excludes`,
+  `incidentPhysicalSpins_twoFace_permutations`, and
+  `incidentPhysicalSpins_twoFace_inwardMate_le_add_stretched`
+- **closed obligation**: construct a common residual incident-spin word from
+  duplicate-free `incidentPlaqIds`, prove both the source and exact two-face
+  mate words are permutations of their exposed two-slot presentations, and
+  feed those witnesses into the arbitrary-order SU(2) production-link
+  multiplicity compiler
+- **remaining named obligation**: identify at each selected cube-boundary link
+  the two incident selected face IDs and exclude the other four selected face
+  IDs; instantiate the compiler there; reroute the remaining stretched
+  continuations on complete strand components; then obtain the transition
+  floor, posterior-variance/Poincare estimate, completed gap, thermodynamic and
+  continuum passage, continuum QFT axioms, isolated vacuum, and Clay theorem
+- **constructive or propositional**: the residual list is returned explicitly;
+  only finite-list membership, duplicate freeness, maps, and `List.Perm` are
+  used, with no choice or external certificate
+
+Monitored verification:
+
+```text
+inward-mate incident-order focused source check             PASS
+inward-mate incident-order explicit olean emission          PASS
+```
+
+The printed exports use only `[propext, Quot.sound]`.  There is no
+`Classical`, `native_decide`, custom axiom, noncomputable declaration, enlarged
+heartbeat budget, `sorry`, Rust computation, or trusted external computation.
+The root aggregator imports the module.  No aggregate or full-root audit is
+claimed by these checks.
+
 #### Absorb the physical BF4 old/new cross block by Gram positivity (2026-09-11)
 
 - **milestone**: constructive additive head--tail contraction for the actual
