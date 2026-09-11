@@ -31027,6 +31027,53 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Pay the exact six-face anchor cost from source atom to target atom (2026-09-11)
+
+- **milestone**: complete source-to-target BF4 weight comparison
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllTargetWeightComparison.lean`
+- **proved declarations**:
+  `slabPhysicalFaceEdges_one_perm_cube_append_complement`,
+  `slabAnchorPhysicalFaceFactor_eqv_cube_mul_complement`,
+  `target_complement_heat_eqv_source`,
+  `source_cube_heat_le_six_mate_cost`,
+  `source_faceFactor_le_six_mate_cost_mul_target`, and
+  `GlobalCubeInwardMateCertifiedTargetFullSource.weight_le_six_mate_cost_mul_targetWeight`
+- **closed obligation**: factor the actual extent-one anchor face product
+  into the six central cube faces and their literal complement; prove the
+  complement is unchanged by the mate; multiply the explicit
+  `32,000,000` anchor cost exactly six times; and lift the result to the
+  genuine source and target retained-fiber atoms.
+- **parameter scope**: the theorem is explicitly at
+  `anchorCoupling = 1/400`; it is cutoff-independent but does not claim
+  uniformity in beta or lattice spacing.  The coarser `w=1/2` factor is not
+  used in this load-bearing comparison.
+- **scope boundary**: source-to-target weight control is pointwise, but the
+  number of successful sources mapping to one target atom is not yet bounded.
+  Hence no summed retained-mass transport, posterior variance, OS form bound,
+  or spectral gap is asserted.
+- **remaining named obligation**: serialize realized target atoms, prove the
+  target fibers have uniform capacity (starting from the at-most-two scalar
+  preimages on each of six faces), and combine that capacity with the global
+  `41/425` source mass and the pointwise anchor comparison.
+- **constructive or propositional**: exact finite product factorization,
+  rational order, bounded packet lookup, and a decidable concrete list
+  permutation only.  No `sorry`, new named hypothesis, Rust result, or trusted
+  external computation is introduced.
+
+Monitored verification:
+
+```text
+global all-target weight comparison focused source check  PASS
+global all-target weight comparison dependency target     PASS
+```
+
+All printed declarations use only `[propext, Quot.sound]`; there is no new
+`sorry`, `Classical`, choice, `native_decide`, custom axiom, noncomputable
+declaration, enlarged heartbeat budget, Rust computation, or trusted external
+computation.  The root aggregator imports the module.  No aggregate or
+full-root audit is claimed by these focused checks.
+
 #### Put the global SU(2) target on an actual weighted BF4 atom (2026-09-11)
 
 - **milestone**: raw target atom and exact retained-fiber weight
