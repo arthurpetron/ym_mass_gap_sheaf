@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact harmonic degree selection and one-insertion cutoff saturation (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadDegreeDifferential.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionHarmonicDegreeSelection.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionExposedHeatCutoffSelection.lean`.
+- **discharged**: `activeDerivative_coeff` and `activeLaplacian_coeff`
+  preserve the original operators while `activeLaplacian_degree` supplies
+  their computable degree-lowering representative.
+  `partialGaussianHead_harmonic_lower_degree` proves lower-degree harmonic
+  annihilation by Euler/IBP and degree induction.
+  `partialHaarHead_harmonic_degree_bound` applies it to arbitrary lower-degree
+  polynomial multipliers under the ORIGINAL partial Haar integral, with
+  all tail coefficients retained. `exposedCharacter_haar_zero` specializes
+  to the actual all-spin four-link character on the same 116-link carrier.
+  `exposedHeatPairing_stable` gives exact heat-packet cutoff saturation at
+  the explicit `headDegreeBound` of a FIXED multiplier, every rational w
+  and all sixteen orientations. `exposedHeatPairingLimit` and
+  `exposedHeatPairingLimit_exact` give its computed rational CReal limit.
+- **OPEN residue**: fixed finite boundary recoding and joint interface
+  stabilization. Other face factors and the state list change with K in
+  the full slab; the one-insertion result alone does not prove that family's
+  stabilization or provide a cutoff-compatible reflected carrier.
+  Arbitrary-volume positivity, physical time/transfer, strict completed
+  gap, thermodynamic/continuum/QFT and all-group Clay remain open. No
+  canonical atom/type changed; the exact/positive identity remains refuted.
+  No new sorry or analytic premise. Cutoff uniformity here is a finite
+  polynomial selection identity, NOT a coupling-uniform spectral bound.
+- **verification**: three focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 10 + 5 + 10 = 25 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-head-degree-differential.log`,
+  `/tmp/ym-harmonic-degree-selection.log`, `/tmp/ym-exposed-heat-cutoff-selection.log`.
+  No raised proof limit, numerical oracle, rate or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Original signed reflection positivity and finite-cutoff completion (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionBlockLocality.lean`,

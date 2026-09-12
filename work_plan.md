@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest exact-law progress (reflection positivity and finite-cutoff completion):**
+**Latest exact-law progress (harmonic degree selection and one-insertion cutoff saturation):**
+`SU2QuaternionHeadDegreeDifferential.activeDerivative` deletes only terms
+with zero differentiation exponent. `activeDerivative_coeff` and
+`activeLaplacian_coeff` preserve the ORIGINAL differential operators
+coefficientwise; `activeLaplacian_degree` gives a syntactic degree-lowering
+representative without zero-coefficient pollution.
+
+`SU2QuaternionHarmonicDegreeSelection.partialGaussianHead_harmonic_lower_degree`
+uses the existing coefficient-retaining Euler/IBP identity and strong degree
+induction. `partialHaarHead_harmonic_degree_bound` passes to the ORIGINAL
+partial Haar integral via the explicit radial factor and odd parity, and
+allows arbitrary nonhomogeneous lower-degree multipliers. All unintegrated
+tail coefficients remain available; no independent-tail premise is used.
+
+`SU2QuaternionExposedHeatCutoffSelection.exposedCharacter_haar_zero` applies
+the theorem to the ACTUAL all-spin four-link character on the same 116-link
+Haar carrier. `headDegreeBound` is computable from the multiplier polynomial.
+`exposedHeatPairing_stable` proves the actual heat-packet pairing constant
+for every K >= that bound, at every rational w and orientation.
+`exposedHeatPairingLimit` computes the rational limit in CReal;
+`exposedHeatPairingLimit_exact` pins every sufficiently large cutoff to it.
+This is exact algebraic saturation, not a numerical tail estimate or gap.
+
+Next residue: fixed finite boundary-observable recoding across cutoffs,
+then joint interface stabilization on the literal slab. The single-insertion
+theorem fixes its multiplier; it does NOT yet handle the full family's
+changing heat factors and growing boundary state list. Cutoff-compatible
+exact-law carrier, arbitrary-volume positivity, geometric time/transfer,
+strict completed gap, volume/spacing/QFT and all-group Clay remain OPEN.
+No canonical atom/type changed; the refuted exact/positive identity is unused.
+
+Verification: three focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 10 + 5 + 10 = 25 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-head-degree-differential.log`,
+`/tmp/ym-harmonic-degree-selection.log`, `/tmp/ym-exposed-heat-cutoff-selection.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle, rate
+or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding exact-law progress (reflection positivity and finite-cutoff completion):**
 `SU2QuaternionBlockLocality` proves the syntactic lower-block support algebra.
 `SU2QuaternionDisjointBlockHaarFactorization.haar_product` derives product
 Haar factorization from explicit monomial moments for disjoint supported

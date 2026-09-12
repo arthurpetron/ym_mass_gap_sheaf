@@ -72,6 +72,9 @@ REQUIRED PHYSICAL ROUTE
     -> Q(c) = sum_j a_j (Haar P_j)^2 >= 0                           [PROVED]****
     -> original-form GNSData, null quotient and finite-K completion [PROVED]*****
     -> dense pairing pin AND norm-one, non-null vacuum-code vector [PROVED]*****
+    + original-character high-spin Haar annihilation               [PROVED]
+    -> single heat insertion stabilizes at explicit degree cutoff  [PROVED]******
+    + fixed boundary recoding AND joint interface stabilization     [OPEN]
     + cutoff-compatible exact-law carrier and physical-time pin    [OPEN]
     + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -103,6 +106,10 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 ***** Fixed but arbitrary K, extent one, w >= 0. Completion uses explicit
       Cauchy representative families and moduli. Not cutoff removal,
       arbitrary-volume positivity, physical vacuum stationarity or a gap.
+****** One actual four-link heat insertion, fixed polynomial multiplier P,
+       K >= headDegreeBound P, every rational w and orientation. The other
+       slab factors and boundary carrier also change with K; their joint
+       stabilization is NOT supplied by this single-insertion theorem.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -120,7 +127,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: reflection positivity and a completed carrier for the ORIGINAL signed form.**
+**Latest result: exact degree selection removes the tail of a single original heat insertion.**
+[`SU2QuaternionHarmonicDegreeSelection.lean`](lean/YMGap/Continuum/SU2QuaternionHarmonicDegreeSelection.lean)
+proves that a head-homogeneous harmonic of degree n has zero partial Haar
+pairing with every lower-degree polynomial, retaining all tail coefficients.
+The proof combines the existing Gaussian integration-by-parts/Euler identity,
+induction on the multiplier's degree and the explicit sphere radial factor.
+[`SU2QuaternionHeadDegreeDifferential.lean`](lean/YMGap/Continuum/SU2QuaternionHeadDegreeDifferential.lean)
+provides computable degree-lowering derivative representatives, proved
+coefficientwise equal to the original derivatives.
+
+[`SU2QuaternionExposedHeatCutoffSelection.lean`](lean/YMGap/Continuum/SU2QuaternionExposedHeatCutoffSelection.lean)
+applies this to the ACTUAL all-spin four-link character on the original
+116-link Haar carrier. `exposedCharacter_haar_zero` kills every spin above
+the explicit `headDegreeBound P`. `exposedHeatPairing_stable` proves the
+actual heat-packet pairing is exactly unchanged for every larger K, with
+P fixed, at every rational w and all sixteen orientations.
+`exposedHeatPairingLimit` is its explicitly evaluated rational value in CReal;
+`exposedHeatPairingLimit_exact` supplies the stabilization pin.
+
+**Next:** keep a finite boundary observable fixed across representation
+cutoffs, then establish joint interface stabilization on the literal slab.
+The other heat factors and the boundary state list also change with K, so
+the single-insertion theorem alone is not a cutoff-compatible slab carrier.
+Physical time/transfer, its strict completed gap and continuum/Clay remain open.
+Three focused monitored checks passed: 25 axiom gates within
+`{propext, Quot.sound}`, no new sorry or analytic premise. No full-tree audit.
+
+**Preceding result: reflection positivity and a completed carrier for the ORIGINAL signed form.**
 [`BF4ExactSlabAllCutoffReflectionPositivity.lean`](lean/YMGap/Continuum/BF4ExactSlabAllCutoffReflectionPositivity.lean)
 proves `exact_quadratic_eq_squareSum` and `exact_quadratic_nonnegative`:
 `Q(c) = sum_j a_j (Haar P_j)^2 >= 0`, at extent one, every cutoff K,

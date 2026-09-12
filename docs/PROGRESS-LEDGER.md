@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original signed reflection positivity and finite-K completion (2026-09-12)
+## Current increment: exact harmonic selection and one-insertion cutoff saturation (2026-09-12)
+
+PROGRESS: `SU2QuaternionHarmonicDegreeSelection.partialHaarHead_harmonic_degree_bound`
+proves a degree-n homogeneous harmonic has zero ORIGINAL partial Haar
+pairing with every lower-degree polynomial, retaining all tail coefficients.
+The proof uses Gaussian Euler/IBP, degree induction and the explicit radial
+factor. `SU2QuaternionHeadDegreeDifferential.activeLaplacian_coeff` and
+`activeLaplacian_degree` supply a computable degree-lowering representative
+of the unchanged differential operator.
+
+`SU2QuaternionExposedHeatCutoffSelection.exposedCharacter_haar_zero` applies
+this to the ACTUAL four-link character on the original 116-link carrier,
+all spins and sixteen orientations. `exposedHeatPairing_stable` proves the
+heat-packet pairing exactly constant for K >= `headDegreeBound P`, with
+P fixed, at every rational w. `exposedHeatPairingLimit` and
+`exposedHeatPairingLimit_exact` provide its rational CReal limit and explicit
+stabilization pin. No numerical convergence estimate is assumed.
+
+Next: fixed finite boundary-observable recoding and joint interface
+stabilization. The full slab changes other factors and its boundary state
+list with K; this single-insertion theorem does not yet stabilize that family.
+Cutoff-compatible exact carrier, arbitrary-volume positivity, physical time,
+strict completed gap, thermodynamic/continuum/QFT and all-group Clay remain
+open. No canonical atom closed or field changed; no use of the refuted identity.
+
+Three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 10 + 5 + 10 = 25 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-head-degree-differential.log`,
+`/tmp/ym-harmonic-degree-selection.log`, `/tmp/ym-exposed-heat-cutoff-selection.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: original signed reflection positivity and finite-K completion (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllCutoffReflectionPositivity.exact_quadratic_eq_squareSum`
 proves `Q(c) = sum_j a_j (Haar P_j)^2` for the ORIGINAL signed extent-one
