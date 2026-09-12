@@ -18,7 +18,43 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct-route progress (literal path channels in the original quadratic):**
+**Latest gluing-route progress (all-degree Gaussian translation recursion):**
+`SU2QuaternionHeadGaussianIBP.partialGaussianHead` retains every tail
+coefficient of the ORIGINAL multivariate polynomial carrier.
+`partialGaussianHead_ibp` proves `E[u_i P] = E[partial_i P]` at arbitrary
+degree, from the existing exact Gaussian coordinate recurrences.
+`partialGaussianHead_euler_product` proves
+`E[(Euler L) P] = E[(Delta L) P + grad L . grad P]`.
+`partialGaussianHead_linear_stein` specializes it to explicit coefficient
+identities for head-linear harmonic L; no moment equality is assumed.
+
+`SU2QuaternionTranslationGaussianStein.translatedCoordinate_euler`,
+`translatedCoordinate_harmonic` and `translatedCoordinate_gradient` prove
+those identities for the ORIGINAL left/right Hamilton products. The gradient
+matrix is the actual tail radius times the identity, without assuming that
+radius is one. `translatedCoordinate_stein` applies to EVERY polynomial.
+`translatedWord_gradient` and `translatedWord_gaussian_recursion` derive
+the explicit equal-label Wick contractions at EVERY word length, retaining
+all tail coefficients. `translatedHeadMonomial_eq_word` pins the new
+recursion to the existing four-exponent translation-moment polynomial.
+
+**Next on the selected-translation route:** derive the closed moments from
+this recursion, transport them through the sphere/radial factor, and remove
+the polynomial `hcheck` hypotheses from the selected translations. The
+all-degree Gaussian recursion is proved; full Haar invariance is not.
+Shared-link gluing into reflected squares, slab positivity, physical time,
+completed exact-law gap, volume/spacing/QFT passage and all-group Clay remain
+open. No canonical atom/type change or revival of the refuted law identity.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` outputs; 9 + 13 = 22 printed gates within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-head-gaussian-ibp.log` and `/tmp/ym-translation-gaussian-stein.log`.
+No new sorry, analytic premise, numerical oracle, rate, pilot constant or
+raised proof limit. The small coordinate certificates do not bound the
+degree of the induction. No full build/audit/guard/progress run.
+
+**Retained direct-route progress (literal path channels in the original quadratic):**
 `BF4ExactSlabPlaquettePathGram.slabPlaquette_eq_pathProduct` proves the
 ordered word identity `a b c^-1 d^-1 = (a b)(d c)^-1` coefficientwise.
 `pathAB_haar_unit` and `pathDC_haar_unit` discharge both literal path-radius

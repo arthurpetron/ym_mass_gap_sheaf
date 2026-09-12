@@ -97,7 +97,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the original slab quadratic now uses its literal path channels.**
+**Latest result: an all-degree moment recurrence for the actual quaternion translations.**
+[`SU2QuaternionHeadGaussianIBP.lean`](lean/YMGap/Continuum/SU2QuaternionHeadGaussianIBP.lean)
+proves polynomial-valued Gaussian integration by parts while retaining
+every tail coefficient: `E[u_i P] = E[partial_i P]`, for arbitrary degree.
+Its Euler/gradient identity yields the corresponding directional-derivative
+formula for head-linear harmonic polynomials.
+
+[`SU2QuaternionTranslationGaussianStein.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationGaussianStein.lean)
+applies that theorem to the ORIGINAL products `a*u` and `u*a`. Their
+gradient Gram matrix is the retained radius `|a|^2` times the identity.
+`translatedWord_gaussian_recursion` therefore gives the exact Wick
+contraction recurrence at every word length. `translatedHeadMonomial_eq_word`
+pins it coefficientwise to the existing four-exponent translation API.
+The induction is unbounded; only the small four-coordinate algebra uses
+finite kernel certificates. No larger table of moment checks is required
+by this recurrence.
+
+**Next on this gluing route:** derive the closed moments from the recurrence,
+perform the sphere/radial conversion, and discharge the selected translation
+checks. Full Haar invariance and shared-link reflected-square gluing are
+still open. This is not slab reflection positivity or a mass-gap estimate.
+
+Both new modules passed focused monitored one-worker 20 GiB checks: 22
+printed axiom gates within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
+
+**Retained result: the original slab quadratic uses its literal path channels.**
 [`BF4ExactSlabPlaquettePathGram.lean`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePathGram.lean)
 proves the ordered plaquette identity `a b c^-1 d^-1 = (a b)(d c)^-1`
 coefficientwise. Both actual paths have Haar-unit radius, so the all-spin
@@ -116,7 +142,8 @@ rational heat parameter and cutoff. No independent-link model is substituted.
 decomposition. This equality does not yet prove slab reflection positivity.
 The selected Haar-translation lemmas still require an explicit polynomial
 check; their cached moment certificate covers degree five, not all spins.
-An all-degree discharge is open on that possible gluing route. Physical
+The all-degree Gaussian recurrence above is now proved, but its conversion
+to an unconditional Haar-translation theorem remains open. Physical
 time/transfer, the completed physical gap, continuum QFT and all-group Clay
 remain open; no canonical frontier atom was closed.
 

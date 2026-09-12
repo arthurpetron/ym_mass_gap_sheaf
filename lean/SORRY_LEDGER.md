@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All-degree Gaussian recursion for actual quaternion translations (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadGaussianIBP.lean` and
+  `lean/YMGap/Continuum/SU2QuaternionTranslationGaussianStein.lean`.
+- **coefficient-retaining calculus discharged**: `partialGaussianHead`
+  integrates the four head coordinates while preserving every tail
+  coefficient. `partialGaussianHead_ibp` gives the exact all-degree
+  coordinate integration-by-parts identity; `partialGaussianHead_euler_product`
+  gives the Euler/gradient identity. `partialGaussianHead_linear_stein`
+  consumes explicit Euler/harmonic coefficient identities, not a moment
+  premise. These identities are discharged for the actual translation
+  coordinates in the second module.
+- **actual translation recurrence discharged**: `translatedCoordinate_euler`,
+  `translatedCoordinate_harmonic` and `translatedCoordinate_gradient` prove
+  the head-linear harmonic frame and gradient Gram matrix `|a|^2 I` of
+  the ORIGINAL Hamilton products `a*u` and `u*a`. The tail radius is not
+  replaced by one. `translatedCoordinate_stein` handles every polynomial;
+  `translatedWord_gradient` and `translatedWord_gaussian_recursion` give
+  equal-label Wick contractions at EVERY word length. The small coordinate
+  certificates place no cutoff on this induction.
+  `translatedHeadMonomial_eq_word` pins the result coefficientwise to the
+  existing four-exponent translation-moment API.
+- **OPEN residue on this candidate gluing route**: derive the closed
+  moment formula from the recurrence, transport it through the sphere/radial
+  factor, and remove the selected polynomial translation `hcheck`s. The
+  new Gaussian recurrence is not yet full Haar invariance. Shared-link
+  reflected-square gluing, slab positivity, physical time/transfer, completed
+  exact-law gap, volume/spacing/QFT passage and all-group Clay remain open.
+  No canonical atom/type change; the refuted positive-law identity is not used.
+- **verification**: both focused monitored one-worker 20 GiB checks passed
+  with `.olean` output; 9 + 13 = 22 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs: `/tmp/ym-head-gaussian-ibp.log` and
+  `/tmp/ym-translation-gaussian-stein.log`. No new sorry, analytic premise,
+  numerical oracle, rate, pilot constant or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## Literal path channels and the original heat quadratic (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquettePathGram.lean` and

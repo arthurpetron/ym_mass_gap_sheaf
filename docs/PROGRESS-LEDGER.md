@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: literal plaquette path channels in the original heat quadratic (2026-09-12)
+## Current increment: all-degree Gaussian recursion for actual quaternion translations (2026-09-12)
+
+PROGRESS: the selected-translation gluing route now has a proved all-degree
+moment recurrence, not an expanded finite-degree table. The ORIGINAL
+translation polynomials are pinned to the recurrence. The closed moment
+formula and conversion to unconditional Haar invariance remain open.
+
+`SU2QuaternionHeadGaussianIBP.partialGaussianHead_ibp` proves Gaussian
+integration by parts in each of the four head coordinates, with arbitrary
+polynomial tail probes retained. `partialGaussianHead_euler_product` gives
+the Euler/gradient identity, and `partialGaussianHead_linear_stein` gives
+the directional derivative formula from explicit coefficient identities.
+
+`SU2QuaternionTranslationGaussianStein.translatedCoordinate_euler`,
+`translatedCoordinate_harmonic` and `translatedCoordinate_gradient` prove
+those identities for the ORIGINAL `a*u` and `u*a` coordinates. The gradient
+Gram matrix is `|a|^2 I`, retaining the actual tail radius. Only these small
+coordinate identities use finite kernel certificates; their size is
+independent of the word length. `translatedCoordinate_stein` handles every
+polynomial. `translatedWord_gaussian_recursion` is the exact equal-label
+Wick recurrence at EVERY word length with all tail coefficients retained.
+`translatedHeadMonomial_eq_word` proves the coefficientwise bridge to the
+existing four-exponent moment API.
+
+Next: derive closed moments, convert through the sphere/radial factor and
+discharge selected translation checks, then glue shared-link integrations
+into reflected squares. No slab positivity, physical-time pin, completed
+exact-law gap, volume/spacing/QFT passage or all-group Clay atom closed.
+The literal exact/positive-law identity remains refuted.
+
+Both modules passed focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 9 + 13 = 22 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs: `/tmp/ym-head-gaussian-ibp.log` and
+`/tmp/ym-translation-gaussian-stein.log`. No new sorry, analytic premise,
+numerical oracle, rate, pilot constant or proof-limit increase. No full
+build/audit/guard/progress run.
+
+## Previous increment: literal plaquette path channels in the original heat quadratic (2026-09-12)
 
 PROGRESS: the all-spin local Gram channels now use the literal physical
 paths and feed the ORIGINAL signed reflected quadratic with its original
