@@ -49,7 +49,7 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                  direct-mate probability floor alone: REFUTED
                  (explicit source family, each fixed 0<w<=1/2)
-                 direct tail branch, same extent-one sector:
+                 alternative direct tail branch, extent-one sector:
                    balanced Casimir drop + full boundary sum [PROVED]
                    -> Gaussian conditional self-return       [PROVED]
                    + injective six-label shell count          [PROVED]
@@ -59,9 +59,11 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                    -> raw tail rate 1/4, FIXED head B=1404    [PROVED]
                    -> centered norm <= original energy
                       + 3 * root-zero head norm               [PROVED]
-                   AND fixed-head rooted energy control        [OPEN]
+                   AND fixed-head rooted energy control       [PROVED]
+                   -> full centered N <= (1+3*C(w))*energy    [PROVED]
                                   v
-  cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
+  common strict centered form rate q(w)<1 for EVERY K>=K0(w)        [PROVED]
+  (fixed extent one; explicit w-dependent rate/onset, 0<w<=1/2)
                                   | required together with:
   raw-entry saturation -> all-spin raw OS form -> completion         [PROVED]
     -> common physical normalization + signed-form cutoff identity [PROVED]
@@ -98,7 +100,7 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
        (rate from each supplied Cauchy representative; no choice)
     + same transfer contracts approximation errors + pairing limits [PROVED]
       -> common dense form bound IFF full complement bound, same q [PROVED]
-         AND construct one common dense q < 1                       [OPEN]
+         AND pass the finite q to the SAME dense reflected form     [OPEN]
     + two positive physical edges AND zero direct root/probe entry [PROVED]
       -> positive pairing through both original completion limits [PROVED]
       -> SAME completed transfer moves root; T is not identity     [PROVED]
@@ -129,11 +131,41 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
-The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
-component of the actual physical SU(2) BF4 transfer**, not the reducible full
-positive-row carrier and not an abstract spectral theorem.
+The next bottleneck is transporting the newly proved cofinal-cutoff strict
+form bound to the **same completed reflected vacuum complement**. The finite
+estimate uses the exact SU(2) BF4 vacuum component, not the reducible full
+positive-row carrier. Physical action/time and continuum identifications
+remain separate open requirements.
 
-**Latest result: a fixed-head, root-anchored energy inequality.**
+**Latest result: a constructed cutoff-uniform strict centered form bound.**
+At extent one, for every fixed `0<w<=1/2`, Lean constructs a rational
+`q(w)` and an explicit onset `K0(w)` such that
+
+```text
+0 < q(w) < 1
+|P_K(f)| <= q(w) * N_K(f)
+    for EVERY K >= K0(w) and EVERY stationary-mean-zero f.
+```
+
+`P_K` is the original physical matrix quadratic and `N_K` its original
+stationary squared norm. For the fixed head B=1404, the existing persistent
+edge floor F(w) and loop-free path scale S(w) give the computed constant
+`C(w)=S(w)/F(w)`. The new proof controls the head by the original full
+energy; summing costs only the stationary mass <=1. The previous tail
+absorption then gives `N_K(f)<=(1+3*C(w))*E_K(f)`, and exact rational
+algebra produces `q(w)=(1+6*C(w))/(2+6*C(w))`.
+
+The rate and onset **depend on w**. This is not a coupling-, volume-, or
+lattice-spacing-uniform physical gap, and it is not yet the completed
+reflected-form bound. Exact action/geometric time, vacuum uniqueness in
+the completed theory, thermodynamic/continuum passage and Clay remain open.
+See [`BF4PhysicalCubeAnchoredHeadBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean)
+and [`BF4PhysicalCubeCutoffUniformGap.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean).
+Both focused monitored checks passed all 20 printed axiom gates. The exact
+untrusted path/algebra pilot passed 1,089 rooted bounds and four rate identities;
+no numerical BF4 spectral oracle was used.
+
+**Input: a fixed-head, root-anchored energy inequality.**
 At extent one, for every `0<w<=1/2`, every spin cutoff `K>=1404`, and
 every coefficient `f` of zero stationary mean, Lean proves
 
@@ -148,10 +180,8 @@ mixed block by Gram positivity, and subtracts the root value without
 changing the energy. Neither unit sector mass nor a strict head rate is
 assumed. The head cutoff stays fixed while K grows.
 
-**Next:** construct a finite constant controlling this root-zero head
-norm by the same energy, uniformly in K at the chosen coupling. No such
-constant, all-vector strict gap, exact-action/geometric-time identification,
-or thermodynamic/continuum passage is claimed yet. See
+The previously missing fixed-head constant is now supplied by the result
+above. This absorption theorem alone does not supply it. See
 [`BF4PhysicalCubeTailAbsorption.lean`](lean/YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean).
 The focused monitored Lean check passed all 12 printed axiom gates;
 the exact untrusted algebra pilot passed 29,141 positive-block checks.
@@ -175,8 +205,8 @@ trace. Its centered stationary subtraction only decreases that trace.
 
 This discharges the trace input of the existing head--tail compiler.
 That earlier compiler still gives rate `q+epsilon` from a sufficient
-centered head rate q. The newer anchored route above avoids needing
-that comparison; **no full rate below one is claimed yet**.
+centered head rate q. The newer anchored route above now proves a strict
+full rate without needing that comparison.
 Exact action/geometric time, vacuum uniqueness and
 volume/spacing/continuum passage also remain open. See
 [`BF4PhysicalCubeHighLabelTrace.lean`](lean/YMGap/Continuum/BF4PhysicalCubeHighLabelTrace.lean)

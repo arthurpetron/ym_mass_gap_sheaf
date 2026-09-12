@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Constructed fixed-head bound and cofinal-cutoff strict finite form gap (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean`.
+- **head obligation discharged**: `pulled_energy_le_full` restricts the
+  original later energy to old-old pairs for an arbitrary later coefficient.
+  `floor_mul_rooted_coordinate_le_energy` uses the existing persistent floor
+  on fixed-base positive edges and the loop-free carrier-square scale.
+  `floor_mul_anchored_head_norm_le_energy` sums with original stationary
+  weights and uses sector mass <=1. It assumes neither unit mass nor a
+  transition floor on all later states.
+- **concrete data**: `headBoundStart` is the existing explicit row-tail
+  anchor for base=1404, half=0. `headEnergyConstant` is the finite quotient
+  S/F; S and F are existing constructed fixed-head quantities.
+  `anchored_head_bound` proves the previous OPEN head estimate for all
+  later K>=that onset, 0<w<1, and every coefficient. No head hypothesis
+  is supplied. `coercivityConstant=1+3*C(w)` and
+  `centered_norm_le_coercivity_mul_energy` give full centered coercivity
+  for 0<w<=1/2, in the SAME original directed physical energy.
+- **strict rate produced**: `gapNumerator=1+6*C(w)`,
+  `gapDenominator=1+gapNumerator`, and `cutoffUniformRate` is their quotient.
+  `cutoffUniformRate_pos` / `cutoffUniformRate_lt_one` prove 0<q(w)<1.
+  `matrix_le_cutoffUniformRate` proves the original matrix bound for EVERY
+  stationary-mean-zero coefficient and EVERY K>=headBoundStart(w).
+  `abs_matrix_le_cutoffUniformRate` uses original Gram positivity to give
+  the absolute bound at the same rate.
+- **scope / OPEN residue**: this is a cofinal representation-cutoff-uniform
+  finite-sector form gap at extent one, not a coupling-uniform gap. The
+  rate and onset depend explicitly on w. Transfer of this same bound to
+  the completed reflected vacuum complement is not yet supplied. Exact
+  action/geometric time, completed vacuum uniqueness, volume/spacing/QFT
+  passage and all-group Clay remain open. No canonical frontier atom was
+  closed and no frontier type was weakened.
+- **verification**: exact untrusted pilot
+  `computations/bf4_cube_anchored_head_bound.py` passed 1,089 finite
+  path-head bounds and four rate identities, not numerical BF4 spectral
+  evidence. Both modules passed focused monitored one-worker 20 GiB Lean
+  checks, `.olean` emitted, all 20 printed gates inside
+  `{propext, Quot.sound}`. Final logs error/warning free. No new sorry,
+  analytic premise, raised proof limit, numerical oracle, or full
+  build/audit/guard/progress run.
+
 ## Raw tail and fixed-head root-anchored energy absorption (2026-09-12)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean`.

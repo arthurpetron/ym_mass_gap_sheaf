@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest analytic producer (raw tail and fixed-head root anchoring):**
+**Latest analytic producer (constructed head and common strict finite rate):**
+`BF4PhysicalCubeAnchoredHeadBound.pulled_energy_le_full` embeds the old-old
+Dirichlet sub-sum of an ARBITRARY later coefficient into its SAME original
+full energy, not the energy of a zero extension. The existing persistent
+fixed-base positive edge floor and loop-erased carrier-square path estimate
+therefore prove `floor_mul_rooted_coordinate_le_energy`.
+`floor_mul_anchored_head_norm_le_energy` sums with original stationary
+weights; their mass <=1 removes any extra head-cardinality cost.
+
+The actual producer `anchored_head_bound` instantiates the existing
+formula-carrying persistent-floor construction. The computed data are
+`headBoundStart(w)=fixedBasePulledEdgeFloorAnchor(w,1404,0)` and
+`headEnergyConstant(w)=S(w)/F(w)`, with positive F and S on the FIXED head.
+It proves `N_K(head_1404(rootShift(f)))<=C(w)*E_K(f)` for every coefficient
+and every K>=the explicit onset, for 0<w<1. No analytic head premise remains.
+`centered_norm_le_coercivity_mul_energy` combines this with raw tail
+absorption for 0<w<=1/2: every centered N_K is at most
+`coercivityConstant(w)=1+3*C(w)` times its original directed energy E_K.
+
+`BF4PhysicalCubeCutoffUniformGap` computes the rate
+`cutoffUniformRate(w)=(1+6*C(w))/(2+6*C(w))`, proves positivity and strict
+inequality below one, and uses the exact E_K=2*(N_K-P_K) identity to prove
+`matrix_le_cutoffUniformRate` and `abs_matrix_le_cutoffUniformRate` for
+EVERY centered coefficient, EVERY K>=headBoundStart(w). All constants
+and onset explicitly depend on w, not K. Scope: SU(2), extent one,
+0<w<=1/2. This is a genuine cofinal-cutoff strict finite-sector form bound,
+not a claim about the completed reflected form or geometric time.
+
+**Next causal frontier:** transport this same rate through the existing
+cutoff-removed marginal/conditional and reflected pairings, obtaining the
+bound on the SAME dense reflected vacuum-complement vectors, then use
+the existing dense-form closure. The original-action/geometric-time pins,
+completed vacuum uniqueness, volume/spacing/QFT passage and all-group Clay
+remain open. No canonical scorecard atom or frontier type was changed.
+
+Verification: exact untrusted pilot `computations/bf4_cube_anchored_head_bound.py`
+passed 1,089 rational path-head inequalities and four rate identities;
+these are not numerical BF4 kernel certificates. Both new modules passed
+focused monitored one-worker 20 GiB checks with `.olean` output. All 20
+printed gates are within `{propext, Quot.sound}`; final logs
+`/tmp/ym-cube-anchored-head-bound.log` and `/tmp/ym-cube-cutoff-uniform-gap.log`
+are error/warning free. No new sorry, analytic premise, numerical oracle,
+raised proof limits, or full build/audit/guard/progress run.
+
+**Previous producer (raw tail and fixed-head root anchoring):**
 `BF4PhysicalCubeTailAbsorption.newTailSelfReturnTrace_small` proves the
 existing RAW self-return trace <=epsilon before stationary subtraction.
 `matrix_newTail_le` applies positive-form trace gluing to the original
@@ -39,12 +83,12 @@ preserves the same original energy exactly. The capstone
 `centered_norm_le_energy_add_anchored_head` gives
 `N(f)<=E(f)+3*N(head_1404(rootShift(f)))` for every centered coefficient.
 
-**Next causal frontier:** construct the cutoff-uniform finite constant C
+The former next frontier was to construct the cutoff-uniform finite constant C
 for `N_K(head_1404(rootShift(f)))<=C*E_K(f)` at the chosen coupling, using
 rooted paths on the FIXED head and the original later-cutoff kernel.
 No strict head spectral rate, comparison against a shrinking tail error,
 or state-uniform direct-mate transition floor is required by this route.
-The estimate is not yet proved. Exact action/geometric time, the completed
+The new head producer above now proves this estimate. Exact action/geometric time, the completed
 strict gap, vacuum uniqueness, volume/spacing/QFT and Clay remain open.
 No canonical scorecard atom or frontier type changed.
 

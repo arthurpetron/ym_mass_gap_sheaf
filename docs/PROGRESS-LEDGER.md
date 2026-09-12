@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: raw tail and fixed-head root-anchored energy (2026-09-12)
+## Current increment: constructed head control and strict common finite rate (2026-09-12)
+
+This is PROGRESS: the fixed-head analytic obligation is now discharged, and
+the actual centered finite-sector form has a computed common strict rate
+for all sufficiently late representation cutoffs.
+
+`BF4PhysicalCubeAnchoredHeadBound.pulled_energy_le_full` embeds the pulled
+old-old energy of an ARBITRARY later coefficient into its original full
+energy; it does not replace the coefficient by a zero extension.
+The existing constructed persistent edge floor and loop-erased path scale
+then give `floor_mul_rooted_coordinate_le_energy`. Summing its squares
+with the original stationary weights costs at most their mass <=1, giving
+`floor_mul_anchored_head_norm_le_energy`. Instantiation by the existing
+formula-carrying floor proves `anchored_head_bound` with the concrete
+`headEnergyConstant(w)=S(w)/F(w)` and onset `headBoundStart(w)`, both
+fixed-head data. No head bound is re-assumed.
+
+The proved raw tail absorbs the complement. Thus
+`centered_norm_le_coercivity_mul_energy` proves
+`N_K(f)<=(1+3*C(w))*E_K(f)` for every centered coefficient, all
+K>=headBoundStart(w), 0<w<=1/2, extent one. E_K is twice the original
+stationary-minus-matrix deficit.
+
+`BF4PhysicalCubeCutoffUniformGap.cutoffUniformRate` computes
+`q(w)=(1+6*C(w))/(2+6*C(w))` with 0<q(w)<1 proved.
+`matrix_le_cutoffUniformRate` and `abs_matrix_le_cutoffUniformRate` establish
+the SAME physical finite-sector form bound, for EVERY centered vector and
+EVERY cutoff beyond the displayed onset. Rate and onset depend on w, not K.
+
+Next: transport the actual finite q through the existing cutoff-removed
+pairings to the SAME dense reflected vacuum-complement form, then apply
+the existing density/completion theorem. No completed strict bound,
+geometric-time identification, completed vacuum uniqueness, volume/spacing
+limit, continuum QFT or Clay atom is claimed closed by this increment.
+
+The exact untrusted path/algebra pilot passed 1,089 rooted bounds and four
+rate identities; it is not a numerical BF4 spectral oracle. Both focused
+monitored one-worker 20 GiB Lean checks passed with `.olean` output and
+all 20 gates inside propext/Quot.sound. Final logs are error/warning free.
+No new sorry, analytic premise, proof-budget increase, full build, audit,
+guard, or progress-script run.
+
+## Previous increment: raw tail and fixed-head root-anchored energy (2026-09-12)
 
 This is PROGRESS: `BF4PhysicalCubeTailAbsorption` proves an unconditional
 all-vector energy estimate with a FIXED finite-head remainder, then anchors
