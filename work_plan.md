@@ -16,9 +16,56 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current physical BF4 gap frontier (2026-09-12)
+### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest consequences (same-operator decay and vacuum isolation):**
+**Route correction and new persistent obstruction:** the preceding live
+map incorrectly presented `ExactHaarPhysicalPerronSameActionAt` as an open
+identity to construct. The existing
+`BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`
+already refutes it at cutoff one for every positive coupling; the canonical
+`[BF4-exact-physical-Perron]` entry correctly says REFUTED. Do not attempt
+to inhabit it for the current positive multiplicity-product law.
+
+`BF4ExactPhysicalCutoffLimitSeparation.vacuumSeparation` now gives the
+explicit positive floor a(w)/(1+a(w)), a(w)=(coeffW w 1)^6. The original
+cube-row bound implies `vacuum_diagonal_le_upper` and
+`finite_vacuum_defect_ge`: the exact vacuum-delta value is one, whereas the
+positive normalized value is <=1-delta(w), for EVERY K>=1. The floor
+depends explicitly on w, not K. `same_action_uninhabited` and
+`cofinal_same_action_uninhabited` rule out identity at every nonzero
+cutoff and along any cofinal schedule. `cutoff_limit_separation` and
+`normalized_vacuum_limit_ne_one` preserve the obstruction in the ORIGINAL
+normalized Bishop-real limit for 0<w<1, with its original modulus.
+
+`BF4PhysicalCubeExactActionFence.root_pairing_eq_normalizedLimit` connects
+that limit to the literal root observable in the existing reflected
+completion. `root_pairing_separation` and `root_pairing_ne_exact_one`
+therefore prove the obstruction on the SAME completed carrier used by the
+conditional gap, at w=1/400. `anchorSeparation_eqv` kernel-checks the exact
+positive rational floor. The root cylinder is not stationaryOmega, and
+the conditional decay/isolation results below remain valid.
+
+**Next causal frontier:** an exact signed-Haar physical construction, or
+a genuinely proved nonidentity observable/norm comparison, with geometric
+time tied to the same Yang--Mills law. Inspect the existing direct signed
+`BF4ExactSlabAllCutoffAFComparison` / `BF4ExactSlabGroupedAFComparison`
+interfaces and the canonical direct-local-gluing residue before adding
+machinery. Positive-law gluing alone is not a signed-Haar identification.
+This checkpoint supplies no replacement bridge, volume/spacing/QFT
+passage, or all-group Clay theorem. No canonical frontier atom or type
+has changed.
+
+Verification: the exact untrusted pilot
+`computations/bf4_exact_physical_vacuum_separation.py` passed 404 rational
+separation implications, not a numerical Haar/kernel oracle. Both new
+modules passed focused monitored one-worker 20 GiB checks with `.olean`
+output; all 17 printed gates are within `{propext, Quot.sound}`. Final
+logs `/tmp/ym-exact-physical-cutoff-limit-separation.log` and
+`/tmp/ym-cube-exact-action-fence.log` are error/warning free. No new sorry,
+analytic premise, numerical oracle, or raised proof limit. No full
+build/audit/guard/progress run.
+
+**Retained consequences (same-operator decay and vacuum isolation):**
 `BF4PhysicalCubeCompletedReflectedDecay.sector_image_norm_bound` uses
 M(Px,P^2x)<=q*M(Px,Px)<=q^2*M(Px,x), with the original marginal gap and
 sharp square-form inequality. `raw_action_norm_converges` reuses the
@@ -39,14 +86,12 @@ positive rational margin, never a possibly vanishing real norm.
 unique at its own vacuum pairing. No unit normalization or arbitrary-real
 scalar decomposition of the full space is asserted.
 
-**Next causal frontier:** test and construct the exact-action/geometric-time
-identification for these literal operators and laws. The existing
-`BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt`
-requires the signed exact Haar quadratic to equal the normalized physical
-reflection quadratic for every observable at a given w,K. The present
-conditional-gap proof supplies no such identity. Volume/spacing/QFT
-passage and the all-group Clay target remain open. No canonical frontier
-atom or type has changed.
+**Corrected boundary of that checkpoint:** the literal exact/positive
+same-action identity is already refuted, as recorded above. The missing
+physical-law/time connection needs a different proved construction; it
+is not supplied by these conditional decay/isolation consequences.
+Volume/spacing/QFT passage and the all-group Clay target remain open.
+No canonical frontier atom or type has changed.
 
 Verification: both new modules passed focused monitored one-worker 20 GiB
 checks with `.olean` output. All 15 printed gates are within

@@ -4,7 +4,56 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: reflected norm/correlation decay and vacuum isolation (2026-09-12)
+## Current increment: persistent exact/positive separation and route correction (2026-09-12)
+
+This is PROGRESS: the existing finite same-action refutation is strengthened
+to an explicit cutoff-independent discrepancy, its original `CReal` limit,
+and the literal root observable in the current reflected completion.
+It also corrects a roadmap regression: the preceding increment called
+`ExactHaarPhysicalPerronSameActionAt` open even though
+`BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`
+already refutes it and the canonical ledger correctly marks it REFUTED.
+The old cutoff-one refutation is not claimed as a new result.
+
+`BF4ExactPhysicalCutoffLimitSeparation.vacuumSeparation` computes
+delta(w)=a(w)/(1+a(w)), a(w)=(coeffW w 1)^6, positive for every w>0.
+`vacuum_diagonal_le_upper` uses the existing actual cube-row bound and
+nonnegative member-to-row domination. `finite_vacuum_defect_ge` then
+separates the signed-Haar vacuum-delta value one from the normalized
+positive value by at least delta(w), for EVERY K>=1. This is uniform in
+representation cutoff, not coupling. `same_action_uninhabited` and
+`cofinal_same_action_uninhabited` exclude identity on all such cutoffs
+and any cofinal schedule. `cutoff_limit_separation` passes the bound
+directly to the already constructed normalized limit, with its existing
+regularity modulus. `normalized_vacuum_limit_ne_one` excludes equality
+in the quotient of Bishop reals, for 0<w<1.
+
+`BF4PhysicalCubeExactActionFence.root_pairing_eq_normalizedLimit`
+identifies that limit with the literal root norm in the SAME reflected
+completion used by the conditional gap. `root_pairing_separation` and
+`root_pairing_ne_exact_one` give the persistent obstruction there, at
+w=1/400. `anchorSeparation_eqv` kernel-checks the exact pilot fraction.
+The root cylinder is not the stationary sector vacuum; no conditional
+decay or vacuum-isolation theorem is invalidated.
+
+Next: inspect the existing direct signed-Haar comparison/OS interfaces
+and canonical physical-local-gluing residue for a same-law, same-time
+construction. A nonidentity comparison or a direct exact-law route must
+have its own proved content; none follows from this obstruction.
+Positive-law gluing alone is not signed-Haar identification. No replacement
+bridge, volume/spacing/QFT passage, all-group theorem, or canonical
+scorecard atom is closed here. No new frontier enumeration is introduced.
+
+The untrusted exact-rational pilot passed 404 algebra implications, not
+physical kernel evaluation. Both new modules passed focused monitored
+one-worker 20 GiB checks with `.olean` output; all 17 printed gates are
+within `{propext, Quot.sound}`. Final logs
+`/tmp/ym-exact-physical-cutoff-limit-separation.log` and
+`/tmp/ym-cube-exact-action-fence.log` are error/warning free. No new sorry,
+analytic premise, numerical oracle, or raised proof limit. No full
+build/audit/guard/progress run.
+
+## Previous increment: reflected norm/correlation decay and vacuum isolation (2026-09-12)
 
 This is PROGRESS: the actual completed reflected transfer now has sharp
 norm decay, same-object correlation bounds, and quantitative isolation of
@@ -30,13 +79,13 @@ margin. `transfer_sub` and `fixed_vectors_eq_of_vacuum_pairing` then give
 norm is already bounded positively; no unit normalization or full real
 scalar decomposition is invented.
 
-Next: the exact-action/geometric-time identification for these literal
-objects. `BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt`
-still requires equality of the signed exact Haar and normalized physical
-quadratics for every observable, at the displayed w,K. No witness follows
-from a conditional gap. Volume/spacing limits, continuum QFT and all-group
-Clay remain open. The new results are fixed w=1/400 and extent one; no
-canonical frontier atom is closed.
+Corrected boundary: the literal exact-action identity in
+`BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt` is
+already refuted, not an open identity to prove. See the current increment
+above. A different physical-law/geometric-time construction is required;
+it does not follow from this conditional gap. Volume/spacing limits,
+continuum QFT and all-group Clay remain open. These results are fixed
+w=1/400 and extent one; no canonical frontier atom is closed.
 
 Both new modules passed focused monitored one-worker 20 GiB checks with
 `.olean` output. All 15 printed gates are within `{propext, Quot.sound}`;

@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact/positive identity remains refuted after cutoff removal (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactPhysicalCutoffLimitSeparation.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean`.
+- **roadmap correction**: the previous live entry called
+  `ExactHaarPhysicalPerronSameActionAt` open. The existing
+  `BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`
+  and the canonical `[BF4-exact-physical-Perron]` entry already refute
+  this identity for the present positive law. That status is retained,
+  not reopened or replaced by a new frontier bundle.
+- **strengthening proved**: `vacuumSeparation` is the explicit
+  a(w)/(1+a(w)), a(w)=(coeffW w 1)^6; `vacuumSeparation_pos` holds for
+  every w>0. `vacuum_diagonal_le_upper` and `finite_vacuum_defect_ge`
+  give the SAME positive discrepancy floor at EVERY K>=1.
+  `same_action_uninhabited` / `cofinal_same_action_uninhabited` rule out
+  identity at every such cutoff and every cofinal schedule.
+- **original limit and completion**: `cutoff_limit_separation` and
+  `normalized_vacuum_limit_ne_one` preserve the discrepancy in the
+  original normalized `CReal` limit for 0<w<1, using its existing modulus.
+  `root_pairing_eq_normalizedLimit`, `root_pairing_separation`, and
+  `root_pairing_ne_exact_one` pin it to the literal root of the SAME
+  reflected completion at w=1/400. `anchorSeparation_eqv` checks the exact
+  rational floor. This root is NOT the stationary vacuum Omega.
+- **scope / OPEN residue**: no literal-identity route from the proved
+  positive multiplicity-product conditional gap to signed exact-Haar YM.
+  A different physical construction/comparison and a same-law time pin
+  remain required. Direct positive-law gluing alone does not identify
+  signed Haar. Volume/spacing/QFT and all-group Clay remain open.
+  No conditional gap theorem invalidated, canonical atom closed, new
+  analytic premise supplied, or frontier type weakened.
+- **verification**: 404 untrusted exact-rational algebra implications
+  passed. Both focused monitored one-worker 20 GiB Lean checks passed,
+  `.olean` emitted, all 17 printed gates within `{propext, Quot.sound}`.
+  Final logs `/tmp/ym-exact-physical-cutoff-limit-separation.log` and
+  `/tmp/ym-cube-exact-action-fence.log` are error/warning free. No new
+  sorry, numerical oracle, or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## Completed reflected norm decay and stationary vacuum isolation (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedDecay.lean`
@@ -38,7 +76,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **scope / OPEN residue**: actual SU(2) BF4 conditional operator and
   reflected completion, w=1/400, extent one, all spin labels. Exact
   signed-Haar YM action and geometric-time identification are NOT supplied;
-  the existing `ExactHaarPhysicalPerronSameActionAt` input is still open.
+  the literal `ExactHaarPhysicalPerronSameActionAt` identity is REFUTED,
+  not open (the preceding live label was incorrect; see correction above).
   Volume/spacing/QFT passage and all-group Clay remain open. No canonical
   frontier atom closed or frontier type weakened.
 - **verification**: both focused monitored one-worker 20 GiB checks passed,
@@ -3016,6 +3055,8 @@ reported below are the current verification evidence.
   `lean/YMGap/Continuum/BF4ExactPhysicalPerronReroute.lean`,
   `lean/YMGap/Continuum/BF4ExactPhysicalPerronSameActionFence.lean`,
   `lean/YMGap/Continuum/BF4ExactPhysicalPerronCenteredSameActionFence.lean`,
+  `lean/YMGap/Continuum/BF4ExactPhysicalCutoffLimitSeparation.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean`,
   `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFCertificate.lean`,
   `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFAdapter.lean`
 - **decls**: `ExactHaarPhysicalPerronSameActionAt`,
@@ -3033,7 +3074,11 @@ reported below are the current verification evidence.
   producer interface.
 - **status**: both same-action routes are constructively fenced.  The raw
   vacuum delta refutes full same action at cutoff one and positive coupling.
-  The unconditional Haar-five formulas, combined with the physical vacuum
+  The cutoff-independent positive floor now persists at every K>=1,
+  in the original normalized cutoff limit, and in the literal root
+  observable of the completed reflected conditional carrier; see the
+  2026-09-12 separation entry above. The unconditional Haar-five formulas,
+  combined with the physical vacuum
   marginal bound at `w=8/9`, put the centered exact moment above `5/8` and the
   centered physical moment below `1/8`.  The surviving consumer is direct:
   the global positive slice certificate proves the physical joint quadratic

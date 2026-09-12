@@ -7,8 +7,10 @@
 
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
-The active physical model is SU(2) BF4 lattice data. Existence statements are
-required to carry witnesses and explicit moduli; numerical exploration is not
+The active concrete data are SU(2) BF4 lattice data. The positive
+multiplicity-product conditional model and the signed exact-Haar model are
+distinct; the former's gap is not a gap theorem for the latter. Existence
+statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
 ## Whole-project goal
@@ -21,122 +23,47 @@ all-group lift remains separate work.
 
 ```text
 WHOLE-PROJECT GOAL / CLAY TARGET
-Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
+Continuum 4D Yang--Mills + QFT axioms + isolated vacuum + Delta > 0
+for every compact simple gauge group, in constructive Lean
                                   |
-                    EXPAND into causal obligations
+              EXPAND: separate laws, operators, and limits
                                   v
-finite 4D SU(2) lattice measure and exact representation data       [PROVED]
-  |                   FIX w=1/400 AND slab extent=1
-  +-> OS Gram -> physical transfer -> exact vacuum component -----+
-  |   and sector event contains the weight-one vacuum    [PROVED] |
-  +-> complete-source conservation + target-weighted contraction -+
-  |   internal bad mass <= (384/425) * sector mass       [PROVED] |
-  `-> degree-13 Casimir majorant -> exact finite Fubini -----------+
-      full partition <= 65/64, for every spin cutoff     [PROVED] |
-                                                                 v
-                     AND: all three inputs on the same ensemble
-                                                                 |
-       outside physical mass <= 1/64                             |
-         -> escaping bad mass <= (6/425) * sector mass   [PROVED] <+
-         -> successful mass >= (7/85) * sector mass      [PROVED]
-         -> same normalized OS traffic >= 448/5525       [PROVED]
+CURRENT CONDITIONAL BRANCH: positive SU(2) multiplicity-product law
+  fixed-head energy bound AND small tail trace                     [PROVED]
+    -> strict finite-sector rate q(w)<1, all K>=K0(w)               [PROVED]
+    -> same-object cutoff limit and marginal completion            [PROVED]
+    + reflected pairing identity AND centered-image density        [PROVED]
+    -> completed reflected gap, decay, and vacuum isolation        [PROVED]*
                                   |
-                 + zero extension -> exact sector energy [PROVED]
-                 + restricted move energy <= C * energy [PROVED]
-                 -> positive sector-parity energy floor [PROVED]
-                 original coverage route (not used below):
-                 centered norm <= move energy / kappa     [OPEN]
-                 (all-K exact cube/parity sector + positive
-                  OS vacuum orbits: PROVED; weighted coverage: OPEN)
-                 direct-mate probability floor alone: REFUTED
-                 (explicit source family, each fixed 0<w<=1/2)
-                 alternative direct tail branch, extent-one sector:
-                   balanced Casimir drop + full boundary sum [PROVED]
-                   -> Gaussian conditional self-return       [PROVED]
-                   + injective six-label shell count          [PROVED]
-                   -> actual high-label trace <= epsilon     [PROVED]
-                   -> EVERY raw/centered tail form <= epsilon
-                      times its own stationary norm          [PROVED]
-                   -> raw tail rate 1/4, FIXED head B=1404    [PROVED]
-                   -> centered norm <= original energy
-                      + 3 * root-zero head norm               [PROVED]
-                   AND fixed-head rooted energy control       [PROVED]
-                   -> full centered N <= (1+3*C(w))*energy    [PROVED]
-                                  v
-  common strict centered form rate q(w)<1 for EVERY K>=K0(w)        [PROVED]
-  (fixed extent one; explicit w-dependent rate/onset, 0<w<=1/2)
-    -> cofinal sector-only certificate + same-object limit         [PROVED]
-    -> completed marginal form gap and norm decay, SAME q(w)       [PROVED]
-                                  | required together with:
-  raw-entry saturation -> all-spin raw OS form -> completion         [PROVED]
-    -> common physical normalization + signed-form cutoff identity [PROVED]
-    -> raw/normalized reflected norm comparison, fixed w=1/400      [PROVED]
-  finite marginal form D + actual conditional P, 0 <= P <= I
-    -> E(a,b) = D(a,Pb) -> same P on E-completion + fixed unit vacuum [PROVED]
-    -> exact centered macro moments via the comparison map          [PROVED]
-                                  | required together with:
-  source tails -> cutoff-removed marginal-norm conditional transfer  [PROVED]
-    -> self-adjoint, 0 <= <Px,x> <= <x,x> on the completion          [PROVED]
-    -> same P contracts E(x,y)=<x,Py>; unit vacuum and moments       [PROVED]
-  complete E's root-sector image <-> normalized raw cube completion [PROVED]
-    + marginal-sector completion -- E<=B --> this E completion      [PROVED]
-    + every finite cube vector has a computed sector preimage      [PROVED]
-    -> same physical pairing for EVERY completed sector vector     [PROVED]
-    -> mapped sector action: positive, self-adjoint, E-contractive  [PROVED]
-    + actual dense output Cauchy data + sharp difference contraction [PROVED]
-    -> explicit map on ENTIRE raw/E completions, actual dense pin   [PROVED]
-    + joint pairing limits -> full positive, rational-linear,
-      self-adjoint contraction on BOTH entire completions          [PROVED]
-    -> dense testing -> whole marginal-sector intertwining         [PROVED]
-    -> same conditional-power moments, exact one-insertion shift   [PROVED]
-    + exact sector indicator + unit-envelope prefixes + tail modulus [PROVED]
-    -> completed stationary sector Omega, ||Omega||^2 >= 64/65      [PROVED]
-    -> Omega-perp invariant under the SAME positive contraction    [PROVED]
-    -> sector vacuum pairing = original stationary mean            [PROVED]
-    + moving rational centering -> vectors in this complement      [PROVED]
-    -> same-object connected conditional covariance, exact shift   [PROVED]
-    + root-annihilating channel -> positive centered reflected norm [PROVED]
-    + exact root correction + common denominator floor
-      -> reflected centering error controlled by stationary mean   [PROVED]
-    + Cauchy--Schwarz + fixed vacuum/root bounds + explicit tolerance [PROVED]
-    -> centered-image density in the whole reflected complement     [PROVED]
-       (rate from each supplied Cauchy representative; no choice)
-    + same transfer contracts approximation errors + pairing limits [PROVED]
-      -> common dense form bound IFF full complement bound, same q [PROVED]
-         AND completed marginal positive-form Cauchy--Schwarz       [PROVED]
-         -> ||P x||_M^2 <= q <P x,x>_M                              [PROVED]
-         + exact pairing E(Rx,Ry)=<x,P y>_M + intertwining          [PROVED]
-         -> SAME q bounds the dense reflected form                 [PROVED]
-         -> <T x,x>_E <= q <x,x>_E on ENTIRE Omega-perp             [PROVED]
-            (w=1/400, extent one, actual conditional operator)
-         + marginal gap at P x + SAME joint pairing limits
-         -> ||T x||_E^2 <= q^2 ||x||_E^2 on ENTIRE Omega-perp      [PROVED]
-         -> all-iterate norm decay and same-object correlation decay [PROVED]
-         + positive margin delta=1-q in the original deficit
-         -> fixed vector in Omega-perp is zero                    [PROVED]
-         -> fixed vectors with same vacuum pairing coincide       [PROVED]
-    + two positive physical edges AND zero direct root/probe entry [PROVED]
-      -> positive pairing through both original completion limits [PROVED]
-      -> SAME completed transfer moves root; T is not identity     [PROVED]
-      + stationarity AND completed-norm dissipation control
-      -> d = T root - root lies in Omega-perp, with positive norm  [PROVED]
-      -> <T d,d> + explicit positive floor <= <d,d>               [PROVED one vector]
-    + original marginal Cauchy--Schwarz AND same-object pairing limits
-      -> <x,test>_E^2 <= <T x,x>_E * ||test||_marginal^2           [PROVED all x]
-      -> zero transfer response forces x=0                      [PROVED]
-      + positive d/probe pairing AND d's strict deficit
-      -> l*||d||^2 <= <T d,d> <= q*||d||^2, l>0, q<1             [PROVED one vector]
-  identify that same action with geometric Euclidean time            [OPEN]
-                                  v
-                     same-object completed physical gap             [OPEN]
-                                  | required together with:
-  volume control + spacing control + QFT reconstruction              [OPEN]
-  extension from SU(2) to every compact simple gauge group            [OPEN]
+      literal identity with the signed exact-Haar quadratic
+                                  X                               [REFUTED]
+      exact vacuum-delta value = 1; positive value <= 1-delta(w)
+      delta(w)>0 for each w>0, EVERY K>=1                           [PROVED]
+      separation survives original cutoff limit and completed root [PROVED]
+      NO causal arrow from this identity to a Yang--Mills gap
+
+REQUIRED PHYSICAL ROUTE
+  literal signed-Haar slab data                                    [PROVED]
+    + exact-law OS/transfer realization and physical-time pin       [OPEN]
+    + strict gap on THAT operator's completed vacuum complement    [OPEN]
+      (a direct construction or a proved nonidentity comparison;
+       the conditional result above does not supply this bridge)
                                   |
-                 CONTRACT only through checked bridges
                                   v
-Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
+                    same-object physical lattice gap               [OPEN]
+                                  | required together with:
+  volume estimates AND spacing-dependent physical mass control     [OPEN]
+    -> controlled thermodynamic and continuum passage              [OPEN]
+    + same-theory QFT axioms and isolated continuum vacuum         [OPEN]
+    + extension from SU(2) to every compact simple gauge group      [OPEN]
+                                  |
+               CONTRACT only through proved same-object bridges
+                                  v
+Continuum 4D Yang--Mills + QFT axioms + isolated vacuum + Delta > 0
 WHOLE-PROJECT GOAL / CLAY TARGET
+
+* Conditional reflected result: w=1/400, extent one, all spin labels.
+  Its finite/marginal rate is explicit in w (0<w<=1/2), not uniform in w.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -145,16 +72,44 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
-The **same completed reflected operator now has strict norm contraction,
-correlation decay, and vacuum isolation** at `w=1/400`, extent one.
-The next substantive frontier is identifying this conditional law with
-the exact signed-Haar YM action and its iterations with geometric time.
-The existing `ExactHaarPhysicalPerronSameActionAt` states the first required
-finite quadratic identity; it is not supplied by the gap proof. Volume,
-spacing and continuum reconstruction also remain open. A gap for
-conditional dynamics is not by itself a Yang--Mills mass gap.
+**Route correction: the literal exact-Haar/positive-law identity is
+refuted, not an open identity to prove.** The preceding roadmap mislabeled
+`ExactHaarPhysicalPerronSameActionAt` as an available next bridge. The
+repository already refutes it at cutoff one and every positive coupling:
+[`exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`](lean/YMGap/Continuum/BF4ExactPhysicalPerronSameActionFence.lean#L565).
+The canonical `[BF4-exact-physical-Perron]` ledger entry already records
+this obstruction. The completed conditional gap remains valid for its
+own operator; it cannot cross that refuted identity.
 
-**Latest result: decay and uniqueness for the same operator.**
+**Latest result: the discrepancy survives cutoff removal and completion.**
+The literal six-face cube row supplies the explicit floor
+`delta(w) = (coeffW w 1)^6 / (1 + (coeffW w 1)^6) > 0` for every `w>0`.
+The signed-Haar vacuum-delta quadratic is exactly `1`, while the positive
+normalized value is at most `1-delta(w)` for EVERY representation cutoff
+`K>=1`. The new
+[`BF4ExactPhysicalCutoffLimitSeparation.lean`](lean/YMGap/Continuum/BF4ExactPhysicalCutoffLimitSeparation.lean)
+passes this bound to the original normalized `CReal` limit for `0<w<1`;
+[`BF4PhysicalCubeExactActionFence.lean`](lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean)
+pins it to the literal root's squared norm in the existing reflected
+completion at `w=1/400`. That root cylinder is not the stationary vacuum.
+The floor is cutoff-independent but explicitly coupling-dependent.
+
+The physical frontier requires an exact-law construction or a separately
+proved nonidentity observable/norm comparison, with physical time pinned
+to that same law. No such replacement follows from the conditional gap or
+from this obstruction. Volume, spacing, continuum QFT and all-group
+passage remain open. Neither cutoff removal nor completion repairs the
+literal identity.
+
+Both new modules passed focused monitored one-worker 20 GiB checks, with
+all 17 printed axiom gates within `{propext, Quot.sound}`. The untrusted
+exact-rational pilot checked 404 algebraic implications; Lean separately
+proves the physical bound and the displayed anchor constant. No new proof
+hole, analytic premise, or raised proof limit; no full build/audit/guard run.
+
+**Retained conditional result: decay and uniqueness for the same operator.**
+At `w=1/400`, extent one, the completed reflected conditional operator
+has strict norm contraction, correlation decay, and vacuum isolation.
 For every completed `x` orthogonal to the constructed stationary vacuum,
 Lean now proves
 
