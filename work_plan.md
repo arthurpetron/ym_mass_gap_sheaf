@@ -361,10 +361,14 @@ The next load-bearing producers are, in causal order:
    has strictly positive norm already at cutoff one.  Thus its selected
    endpoint energy is zero and no positive coverage floor can exist.  This
    agrees with the independently proved reducibility of the full positive-row
-   kernel at cutoff two.  The active sub-edge is therefore to restrict the
-   construction to `centralPhysicalFiniteVacuumSectorIndices` and build a
-   translated or component-adapted move family that separates that exact
-   connected sector with cutoff-uniform weighted congestion.  Everything
+   kernel at cutoff two.  Positive raw OS edges are now proved unable to leave
+   `centralPhysicalFiniteVacuumSectorIndices`; in particular, if a certified
+   inward-mate source endpoint is in the exact vacuum component, its common
+   state and mate endpoint remain there.  The active sub-edge is therefore to
+   construct the Type-level sector-local source/flow carrier and observable
+   norm, then build a translated or component-adapted move family that
+   separates that exact connected sector with cutoff-uniform weighted
+   congestion.  Everything
    after a correctly sector-local coverage input is compiled: a floor
    `kappa > 0` yields the cutoff-independent strict rate
    `4(1 + globalInwardMateTransportCost) /
@@ -440,7 +444,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- center parity + strict one-observable form bound ..... [PROVED]
 |   |   |   +-- arbitrary-observable endpoint -> OS energy bound ..... [PROVED]
 |   |   |   +-- fixed-root full-carrier all-vector coverage .......... [OBSTRUCTED exact]
-|   |   |   +-- restrict flow/observables to exact vacuum component .. [ACTIVE]
+|   |   |   +-- positive OS paths stay in exact vacuum component ..... [PROVED]
+|   |   |   +-- sector-local source/flow and observable norm .......... [ACTIVE]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

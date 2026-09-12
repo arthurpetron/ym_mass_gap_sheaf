@@ -116,9 +116,15 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   is strictly positive at cutoff one.  Therefore
   `no_globalInwardMateUniformEndpointCoverage` proves that the proposed
   full-positive-carrier coverage structure is uninhabited.
-- **OPEN next edge:** restrict the flow and observable norm to the existing
-  exact finite vacuum connected component, then construct a translated or
-  component-adapted move family which separates that sector with a
+- **PROVED vacuum-component path closure:**
+  `BF4PhysicalVacuumSectorInwardMateVacuumSectorRestriction` proves generally
+  that a positive raw OS-kernel edge from the exact finite vacuum component to
+  a retained positive-row state remains in that component, in either kernel
+  orientation.  Consequently, whenever a certified inward-mate path starts in
+  the component, both its common state and its target endpoint remain there.
+- **OPEN next edge:** construct the Type-level sector-local source/flow carrier
+  and observable-norm restriction, then a translated or component-adapted move
+  family which separates the exact vacuum component with a
   cutoff-uniform weighted congestion bound.  The one-observable estimate and
   the conditional algebra do not imply an all-vector Poincare inequality,
   finite-volume spectral gap, continuum limit, or Clay theorem.

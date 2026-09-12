@@ -28,8 +28,8 @@ Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
 finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> reflection positivity and finite OS Gram                       [PROVED]
   -> concrete finite physical transfer + one strict parity channel   [PROVED]
-  -> restrict to the exact finite vacuum component                    [PROVED]
-  -> separating sector-local move family with uniform congestion      [ACTIVE]
+  -> exact finite vacuum component + positive-edge path closure       [PROVED]
+  -> sector-local source/flow + separating moves with congestion       [ACTIVE]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
@@ -110,8 +110,11 @@ endpoint energy is exactly zero.  Hence
 `GlobalInwardMateUniformEndpointCoverage` has no inhabitant.
 
 This obstruction cleanly repoints the proof.  The full positive-row carrier
-is already known to be reducible at cutoff two, so the next causal object is
-the existing exact vacuum connected component, together with a translated or
+is already known to be reducible at cutoff two.  Lean now proves the first
+sector bridge: a positive raw OS edge cannot leave the exact finite vacuum
+component, so whenever an inward-mate source endpoint is in that component,
+its common hub and mate endpoint are there too.  The next causal object is a
+Type-level sector-local source/flow carrier, followed by a translated or
 component-adapted move family whose endpoint graph separates that sector and
 whose weighted congestion is uniform.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
@@ -147,6 +150,9 @@ The conditional coverage-to-uniform-Poincare contraction is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean).
 The exact XOR counterexample refuting its full-carrier coverage input is in
 [`BF4PhysicalVacuumSectorInwardMateEndpointCoverageObstruction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateEndpointCoverageObstruction.lean).
+Positive raw-edge closure of the exact vacuum component and its application to
+both inward-mate path edges are in
+[`BF4PhysicalVacuumSectorInwardMateVacuumSectorRestriction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateVacuumSectorRestriction.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
