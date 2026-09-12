@@ -5,9 +5,10 @@ The legacy `GNSCompletionSpace` uses a null relation of the form
 
   `forall epsilon, exists N, ...`
 
-in `Prop`.  This is sufficient when both source and target quotients use the
-same relation, but it cannot construct the Type-valued modulus required by a
-different explicit-modulus completion without a choice principle.
+in `Prop`. This module instead retains an explicit Type-valued null modulus.
+The propositional witness alone cannot be selected into Type. However, both
+representatives ALSO carry Cauchy moduli, and those additional data suffice
+to compute a null modulus; see `GNSNullModulusRecovery.recoverNullModulus`.
 
 This module retains the null modulus as data.  `CauchyNullModulus` is a
 structure in `Type`; the quotient relation is `Nonempty` such a structure.
@@ -15,8 +16,11 @@ Reflexivity, symmetry, and transitivity construct their moduli explicitly.
 The resulting completion has the same representative inner-product limit and
 maps canonically to the legacy completion by forgetting the modulus.
 
-No inverse from the legacy completion is claimed: constructing one would be
-exactly the forbidden Prop-to-Type selection discussed above.
+The inverse is constructed downstream in `GNSNullModulusRecovery`, with rate
+max(X.modulus(epsilon/10),Y.modulus(epsilon/10)) and a two-triangle proof.
+Its `fromLegacyCompletion` and `to_from_legacy` / `from_to_legacy` show that
+the two completions are canonically equivalent without choice. This corrects
+the earlier, overly strong assertion that such an inverse was forbidden.
 -/
 
 import YMGap.Continuum.GNSHilbertSpace
@@ -207,8 +211,8 @@ theorem toLegacyCompletion_embed (D : GNSData) (a : D.V) :
 
 /-! ## 4. The completed inner form -/
 
-/-- The same representative CReal limit descends through the stronger
-Type-modulated null relation. -/
+/-- The same representative CReal limit descends through the Type-modulated
+null relation (proved equivalent to the legacy relation downstream). -/
 def modulatedCinnerCompl (D : GNSData) :
     ModulatedGNSCompletionSpace D →
       ModulatedGNSCompletionSpace D → CReal.RC :=

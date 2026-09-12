@@ -9,8 +9,10 @@ the same completed objects. At the fixed anchor this yields the two-sided
 64/65-to-1 comparison with the raw reflected squared norm on every finite
 signed span, not a marginal-norm comparison or a strict spectral gap.
 
-Completing the image in E, descending/intertwining its transfer on the raw
-cube completion, geometric time, uniform strict gap and continuum remain open.
+The image's E completion and its inverse raw comparison are subsequently
+constructed at the fixed anchor in `BF4PhysicalCubeReflectedCompletion`.
+Descending/intertwining the actual transfer on that completion, geometric
+time, uniform strict gap and continuum remain open.
 -/
 
 import YMGap.Continuum.BF4PhysicalCubeObservableRealization

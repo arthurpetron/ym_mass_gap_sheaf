@@ -12,8 +12,9 @@ These laws make E(x,y)=B(x,Py) a genuine positive reflected candidate form on
 this carrier. The constructive-real cubic identity proves that the SAME P
 is positive, self-adjoint and contractive for E, with the SAME unit vacuum,
 vacuum pairing and exact one-insertion-shifted moments. E may have a radical;
-no equivalence to B or completeness for E is claimed. Identifying the E
-completion's root-sector part with the all-spin raw cube completion,
+no equivalence to B or completeness for E is claimed here. The root-sector
+image's E completion and its raw-cube comparison are subsequently constructed
+at the fixed anchor in `BF4PhysicalCubeReflectedCompletion`; intertwining P,
 geometric time and a strict gap remain open. The full marginal carrier can
 have other sectors; no whole-carrier identification with the cube sector is
 asserted.

@@ -519,10 +519,24 @@ The next load-bearing producers are, in causal order:
    anchor, `_anchor_reflected_norm_bounds` gives the 64/65-to-1 squared-norm
    comparison on this image, and `_anchor_reflected_null_iff` proves that
    its E-zero-norm vectors are exactly the raw-form zero-norm vectors.
-   E need not be complete in the marginal carrier. Completing this
-   ROOT-SECTOR image and intertwining its action with the raw-cube
-   completion remain. The full reducible carrier is not the cube sector,
-   and the root cylinder is not the constant stationary vacuum.
+   `GNSNullModulusRecovery` removes a false obstruction: two modulated
+   Cauchy sequences have the canonical null rate
+   max(X.modulus(epsilon/10),Y.modulus(epsilon/10)), proved by two quadratic
+   triangles without selecting a propositional witness. `ScaledGNSCompletion`
+   then constructs mutually inverse raw/scaled Cauchy-quotient maps, retaining
+   the same sequences and explicit moduli. `BF4PhysicalCubeReflectedCompletion`
+   supplies the actual anchor normalization and completes this ROOT-SECTOR
+   image in E. Its distance and dense pairings are physically pinned; its
+   full inner form is the limit of those same dense reflected forms.
+   `raw_reflected_inverse` and `reflected_raw_inverse` identify the completed
+   carriers, not merely the dense null relations. This has the existing
+   representative-family completeness scope, not arbitrary representative
+   selection from quotient sequences. Intertwining the actual conditional
+   action remains. Next map the existing marginal root-sector cylinder
+   completion into this E completion using E<=B, and extend/intertwine its
+   already constructed conditional action using E-contractivity.
+   The full reducible carrier is not the cube sector, and the root cylinder
+   is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -648,7 +662,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- literal signed cube cylinders -> exact finite E form .. [PROVED computed admission]
 |   |   |   +-- source-tail cross limit -> E(Ju,Jv)=normalized raw form [PROVED spin cutoff removed]
 |   |   |   +-- realized E/raw norms comparable, same null vectors ..... [PROVED dense, fixed anchor/extent]
-|   |   |   +-- complete this E image -> raw cube completion .......... [OPEN completion equivalence]
+|   |   |   +-- two Cauchy moduli -> canonical null modulus ........... [PROVED no choice]
+|   |   |   +-- complete this E image <-> raw cube completion ......... [PROVED fixed anchor/extent]
+|   |   |   +-- full pairing = limit of same dense reflected forms .... [PROVED representative Cauchy data]
 |   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

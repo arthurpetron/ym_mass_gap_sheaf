@@ -3759,6 +3759,10 @@ import YMGap.Continuum.BF4PhysicalCutoffReflectedFormLaws
 -- Literal cube observables realize the same completed E form and its dense radical.
 import YMGap.Continuum.BF4PhysicalCubeObservableRealization
 import YMGap.Continuum.BF4PhysicalCubeCompletedReflectedRealization
+-- Canonical null moduli and the actual reflected-image completion at the anchor.
+import YMGap.Continuum.GNSNullModulusRecovery
+import YMGap.Continuum.ScaledGNSCompletion
+import YMGap.Continuum.BF4PhysicalCubeReflectedCompletion
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

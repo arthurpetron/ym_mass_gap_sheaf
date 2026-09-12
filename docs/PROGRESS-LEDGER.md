@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: realize the raw cube form on actual completed observables (2026-09-11)
+## Current increment: complete the physical E image and invert the raw comparison (2026-09-11)
+
+This is PROGRESS after the dense reflected pairing milestone. The actual
+root-sector image now has a reflected Cauchy-quotient completion, with two
+proved inverse maps to the existing raw cube completion, at the fixed
+anchor w=1/400 and extent one. The full completed form is proved to be the
+limit of the same physically pinned dense pairings.
+
+The key simplification is mathematical: `GNSNullModulusRecovery.nullRate_close`
+uses two quadratic triangles and the two GIVEN Cauchy moduli to compute
+max(X.modulus(epsilon/10),Y.modulus(epsilon/10)). No modulus is selected
+from a Prop witness. The older assertion that an inverse to the modulated
+completion required choice was too strong and is corrected. The inverse
+maps and their inner-product agreement are now kernel-checked.
+
+`ScaledGNSCompletion` builds the scaled squared seminorm and both completion
+maps for 0<c<=lambda<=1. Forward Cauchy moduli are unchanged; inverse moduli
+use c*epsilon. `BF4PhysicalCubeReflectedCompletion` supplies the ACTUAL
+normalization and c=64/65, proves physical difference/dense pairing pins,
+constructs the inverse raw comparison and identifies the full same-form
+pairing limit. Its root remains nonzero, not an isolated stationary vacuum.
+
+Next: compare the existing marginal root-sector cylinder completion to this
+E completion using E<=B, then extend/intertwine its existing conditional
+action using E-contractivity. Do not recreate the source-tail producer or
+assume the entire reducible carrier is this sector. Representative-family
+completeness is retained; no arbitrary quotient-sequence representative
+selection is asserted. Geometric time, strict gap, volume/spacing/QFT and
+all-group Clay remain open.
+
+All three new proof modules passed focused monitored one-worker 20 GiB
+checks. Their 49 printed gates are empty or contain only propext/Quot.sound;
+final logs have no errors or warnings. Default proof resource limits were
+retained. Other Lean edits are documentation/imports only. No full
+build/audit/guard, progress script or numerical oracle was used. The landing
+page, root imports, work plan and sorry ledger are updated; CI stays off.
+
+## Previous increment: realize the raw cube form on actual completed observables (2026-09-11)
 
 This is PROGRESS after the completed one-step form laws: the two previously
 separate constructions now have an exact dense physical pairing pin.
@@ -23,8 +60,10 @@ certificate is assumed. At the fixed anchor w=1/400 and extent one,
 comparison to this actual image. `_anchor_reflected_null_iff` proves that
 the two dense reflected forms have exactly the same zero-norm vectors.
 
-Next: complete this E image and construct the comparison/intertwining with
-the raw cube completion. The map is not claimed to be injective in the
+Next at that checkpoint: complete this E image and construct the
+comparison/intertwining with the raw cube completion. The completion and
+inverse comparison are now proved above; action intertwining remains.
+The dense map is not claimed to be injective in the
 marginal norm; marginal completeness does not supply E-completeness. Nor
 does the root cylinder become the constant stationary vacuum. Geometric
 time, uniform strict gap, volume/spacing/QFT/all-group Clay remain open.
@@ -1394,13 +1433,13 @@ their output moduli explicitly.  Quotienting by `Nonempty` such data gives
 descends to it without new analytic assumptions.
 
 There is a canonical inner-preserving map from the modulated completion to the
-legacy `GNSCompletionSpace`, obtained by forgetting the null modulus.  No
-inverse is asserted: the legacy relation contains only the proposition
-`forall epsilon, exists N`, and recovering a modulus function from it is the
-choice-like Prop-to-Type step forbidden by the project gate.  This makes the
-direction of future physical refactoring precise: construct the physical
-transfer and endpoint lift on the modulated carrier, rather than postulating a
-selector for the legacy quotient.
+legacy `GNSCompletionSpace`, obtained by forgetting the null modulus. No
+inverse was constructed at this checkpoint. **Correction (2026-09-11):**
+the claim that every inverse would require forbidden Prop-to-Type selection
+was too strong. The representatives already carry Cauchy moduli;
+`GNSNullModulusRecovery.recoverNullModulus` computes a null modulus from
+those data using two quadratic triangles. Its `fromLegacyCompletion` is
+proved inverse and preserves the same inner form, without a selector.
 
 This foundational construction does not supply the analytic BF4-to-strong
 dense stage map, so it does not yet inhabit the endpoint comparison or prove a

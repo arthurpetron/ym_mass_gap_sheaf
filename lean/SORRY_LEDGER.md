@@ -13,6 +13,57 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Complete the physical reflected cube image with inverse raw comparison (2026-09-11)
+
+- **files**: `lean/YMGap/Continuum/GNSNullModulusRecovery.lean`,
+  `lean/YMGap/Continuum/ScaledGNSCompletion.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalCubeReflectedCompletion.lean`.
+- **removed false obstruction**: `nullRate` is the computed maximum of the
+  two supplied Cauchy moduli at epsilon/10. `nullRate_close` uses the legacy
+  null witness ONLY inside a proof and spends 2+4+4=10 units of tolerance.
+  `recoverNullModulus` therefore constructs Type-level closeness data with
+  no choice. `fromLegacyCompletion`, `to_from_legacy`, `from_to_legacy` and
+  `_inner` prove that the legacy and modulated GNS completions are inverse
+  with identical representatives and inner products. The old impossibility
+  claim in `GNSModulusCompletion` and the historical progress note is corrected.
+- **general normalization construction**: `scaledSeminorm` proves all laws
+  of the CReal-valued scaled squared distance from explicit 0<c<=lambda<=1.
+  `scaledDistRegularity` retains the normalization's Type-level modulus.
+  `toScaledCauchy` keeps the original rate; `toRawCauchy` uses the rate at
+  c*epsilon. `toScaledClose` and `toRawClose` transport closeness data.
+  `raw_scaled_inverse` / `scaled_raw_inverse` prove inverse quotient maps.
+  `scaledCompletedInner_embed`, `_comparison`, `_mk` and
+  `scaledPairingRep_converges` prove the full form's dense extension and
+  actual same-form limit, not merely a transported definition.
+- **physical construction**: `anchorNormalization` uses the original
+  inverse-partition CReal, its proved regularity and the 64/65-to-1 bounds.
+  `cubeReflectedSeminorm` and `CubeReflectedCompletion` construct the
+  reflected-norm Cauchy quotient of the literal signed cube-cylinder image.
+  `cubeObservable_sub_value` pins differences pointwise, and
+  `cubeReflectedSeminorm_physical_distance` pins their squared norm to the
+  actual completed E form. `rawToReflected` / `reflectedToRaw` are inverse
+  maps to the existing raw cube completion; their rates are stated in
+  `forward_modulus` / `inverse_modulus`. `cubeReflectedInner_embed`,
+  `_comparison`, `_mk` and `cubeReflectedPairingLimit_converges` identify
+  the full pairing and its same-physical-dense-form limit.
+  `reflectedRoot_ne_zero` proves nontriviality, not stationarity or isolation.
+- **scope / OPEN residue**: fixed anchor w=1/400, extent one, arbitrary spin
+  labels and signed finite spans, explicit representative Cauchy quotients
+  and the existing raw representative-family completeness scope. No
+  representatives are selected from arbitrary quotient-valued sequences.
+  Next map the existing marginal root-sector cylinder completion to this
+  E completion using E<=B, and use E-contractivity to extend/intertwine its
+  actual conditional action. The root cylinder is not the constant vacuum;
+  the full reducible carrier is not this root sector. Geometric time,
+  uniform strict gap, thermodynamic/spacing/QFT/all-group Clay remain open.
+  No sorry, named analytic input or scorecard atom is added or discharged.
+- **verification**: the three new modules passed focused monitored
+  one-worker 20 GiB checks with `.olean` output. All 49 printed gates are
+  empty or subsets of `{propext, Quot.sound}`, with no errors or warnings in
+  their final logs. Default proof limits were retained. Other Lean edits
+  are documentation/imports only. No full build/audit/guard or progress
+  script was run; CI remains disabled.
+
 ## Dense all-spin cube realization in the actual completed E form (2026-09-11)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeObservableRealization.lean`
@@ -38,9 +89,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `_anchor_reflected_null_iff` consequence proves E(Ju,Ju)=0 iff the raw
   squared form of u is zero. This is NOT injectivity into the marginal
   completion and not a completed-space equivalence or strict gap.
-- **OPEN residue**: complete the root-sector image in E and construct the
-  corresponding comparison/intertwining on the raw cube completion.
-  Marginal completeness alone cannot supply this. The entire reducible
+- **OPEN residue** (refined above): the root-sector E image completion and
+  inverse raw comparison are now constructed at the fixed anchor;
+  intertwining the actual conditional action remains. The entire reducible
   carrier is not the cube sector, and the root cylinder is not the constant
   stationary vacuum. Geometric Euclidean time, the uniform all-vector
   strict gap, thermodynamic/spacing/QFT/all-group Clay obligations remain
@@ -83,7 +134,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   radical, and completeness in the marginal norm does not establish
   E-completeness. The dense pairing and same-null-vector pin are now proved;
   the completion equivalence for its ROOT-SECTOR image with the normalized
-  stable RAW cube carrier remains open. The full reducible carrier is not asserted to
+  stable RAW cube carrier is now constructed at the fixed anchor above.
+  Intertwining the actual conditional action remains. The full reducible carrier is not asserted to
   be the cube sector.
   Geometric Euclidean time, an isolated vacuum and a uniform strict gap,
   thermodynamic/spacing limits, continuum QFT and all-group Clay remain open.

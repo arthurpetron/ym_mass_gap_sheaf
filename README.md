@@ -84,7 +84,21 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the all-spin cube form is now identified with the actual
+**Latest result:** the literal cube-cylinder image now has its reflected-norm
+completion at the fixed anchor `w=1/400` and extent one. Two constructed maps
+are inverses between this completion and the existing raw cube completion.
+They keep the same finite-span sequences; the forward Cauchy modulus is
+unchanged and the inverse uses the supplied modulus at `(64/65)*epsilon`.
+The full completed pairing is proved to be the limit of the same dense
+physical reflected pairings. See
+[`BF4PhysicalCubeReflectedCompletion.lean`](lean/YMGap/Continuum/BF4PhysicalCubeReflectedCompletion.lean).
+
+An elementary two-triangle argument also removes an unnecessary obstruction:
+the two existing Cauchy moduli compute a null modulus directly, without choice.
+The older claim that the legacy completion could not support this inverse
+has been corrected.
+
+**Connected dense realization:** the all-spin cube form is identified with the actual
 completed physical pairing on its literal observable image. For arbitrary
 finite signed lists `u,v`, the map `J` uses the existing exact state cylinders,
 and the kernel-checked equality is
@@ -106,10 +120,11 @@ moments, are preserved. These are unconditional fixed-nome, finite-volume
 results for `0<w<1`, using the constructed source-tail moduli. See
 [`BF4PhysicalCutoffReflectedFormLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffReflectedFormLaws.lean).
 
-The dense pairing and zero-norm identification do not yet give a completed
-space equivalence. Marginal completeness does not imply E-completeness.
-Completing this root-sector image and transporting the same operator to the
-raw cube completion remain open, as do geometric time and a strict gap.
+Transporting the same conditional operator to this completed root-sector
+image remains open, as do geometric time and a strict gap. The construction
+does not assume marginal completeness implies E-completeness; its scope is
+the explicit-representative Cauchy quotient and the existing raw completion's
+representative-family completeness.
 No identification of the entire reducible carrier with the cube sector is
 asserted; the vacuum-labelled root cylinder is not the constant stationary vacuum.
 
