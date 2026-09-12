@@ -24,124 +24,68 @@ all-group lift remains separate work.
 ```text
 WHOLE-PROJECT GOAL / CLAY TARGET
 Continuum 4D Yang--Mills + QFT axioms + isolated vacuum + Delta > 0
-for every compact simple gauge group, in constructive Lean
+for every compact simple gauge group, in Lean within the MLTT/HoTT gate
                                   |
-              EXPAND: separate laws, operators, and limits
+                   EXPAND into necessary inputs
                                   v
-CURRENT CONDITIONAL BRANCH: positive SU(2) multiplicity-product law
-  fixed-head energy bound AND small tail trace                     [PROVED]
-    -> strict finite-sector rate q(w)<1, all K>=K0(w)               [PROVED]
-    -> same-object cutoff limit and marginal completion            [PROVED]
-    + reflected pairing identity AND centered-image density        [PROVED]
-    -> completed reflected gap, decay, and vacuum isolation        [PROVED]*
+CURRENT CONDITIONAL BRANCH: positive multiplicity-product law
+  finite contraction, 0<w<=1/2 and K>=K0(w); rate depends on w      [PROVED]
+    + cutoff limit + reflected marginal completion                 [PROVED]
+    -> completed gap / decay / vacuum isolation at w=1/400, extent 1 [PROVED]
                                   |
-      literal identity with the signed exact-Haar quadratic
+        identity with the ORIGINAL signed exact-Haar law
                                   X                               [REFUTED]
-      exact vacuum-delta value = 1; positive value <= 1-delta(w)
-      delta(w)>0 for each w>0, EVERY K>=1                           [PROVED]
-      separation survives original cutoff limit and completed root [PROVED]
-      NO causal arrow from this identity to a Yang--Mills gap
+        The original vacuum-delta quadratic is 1; the positive-law
+        value is strictly smaller, every w>0 and K>=1.
+        NO causal arrow from this identity to a Yang--Mills gap.
 
-REQUIRED PHYSICAL ROUTE
-  literal signed-Haar slab data                                    [PROVED]
-    -> heat-weighted lower / interface / upper factorization        [PROVED]
-    -> ALL boundary bilinear forms as the SAME Haar integral        [PROVED]
-    -> interface sum = product of 24 actual face heat polynomials    [PROVED]
-    + upper observable = literal link reflection of lower          [PROVED]
-    -> original Q(c) = Haar(F_c * H * theta(F_c))                    [PROVED]
-    + actual symmetric powers on n+1 coefficients, rational units  [PROVED]
-    -> actual trace = literal character, on rational unit inputs    [PROVED]
-    + coefficient trace = solid-zonal polynomial, all degrees       [PROVED]
-    + ordered slab word has Haar-unit radius, all extents            [PROVED]
-    -> trace = ORIGINAL character under every Haar insertion        [PROVED]
-    + actual local character Gram channels, all spins              [PROVED]**
-    + channels pinned to literal crossing-face path pairs           [PROVED]
-    -> H = heat-weighted path-channel product under Haar            [PROVED]
-    + all-degree Haar shears and their finite chains, no scans      [PROVED]
-    + all four shear coordinate images, coefficient-sensitive       [PROVED]
-    + literal all-extent temporal ledger preserves original Haar    [PROVED]
-    + common upper temporal assignment: all three face classes     [PROVED]
-    + full ledger agrees with assignment on ALL physical links      [PROVED]
-    -> ORIGINAL plaquette words have the common temporal image      [PROVED]
-    + full signed observable image AND original Haar invariance     [PROVED]
-    -> SAME Q(c) = Haar(F_c * H_spatialGram * theta(F_c))            [PROVED]***
-    + actual spatial-column reflection, every extent and degree    [PROVED]
-    + explicit square-tree product expansion, shared links kept    [PROVED]
-    -> SAME Q(c) = Haar(sum_j a_j theta(P_j) P_j)                   [PROVED]****
-    + every P_j uses only lower links AND Haar half-factorization  [PROVED]
-    -> Q(c) = sum_j a_j (Haar P_j)^2 >= 0                           [PROVED]****
-    -> original-form GNSData, null quotient and finite-K completion [PROVED]*****
-    -> dense pairing pin AND norm-one, non-null vacuum-code vector [PROVED]*****
-    + original-character high-spin Haar annihilation               [PROVED]
-    -> single heat insertion stabilizes at explicit degree cutoff  [PROVED]******
-    + fixed boundary recoding, both original heat-dressed sides    [PROVED]
-    + exposed-link geometry: other 23 faces have selected degree 0 [PROVED]
-    -> above-bound labels vanish in the FULL weighted interface    [PROVED]
-    + exact enumeration filter AND retained heat coefficients      [PROVED]
-    -> joint interface pairing stabilizes at explicit degree bound [PROVED]*******
-    -> SAME fixed-observable bilinear has an explicit CReal limit  [PROVED]*******
-    + quadratic limit >= 0 for w >= 0                             [PROVED]*******
-    + common carrier: coefficients with explicit cutoff witnesses [PROVED]
-    + common-stage bilinearity, symmetry and witness independence [PROVED]
-    -> ONE original cutoff-limit GNSData for every finite anchor  [PROVED]********
-    -> common completion, original pairing pins, norm-one code    [PROVED]********
-    + all-odd-extent temporal-gauge crossing interface positivity  [PROVED]*********
-    + SAME original B(L,R) = Haar(L * H_Gram * U), every odd extent [PROVED]**********
-    + U = literal link reflection of L AND lower-half locality      [OPEN]
-    -> original-law reflection positivity at every odd extent       [OPEN]
-    + larger-slab compatibility AND cutoff-limit control            [OPEN]
-    -> physical positive-time realization on one carrier            [OPEN]
-    + geometric time/transfer on that same carrier                  [OPEN]
-    + strict gap on THAT operator's completed vacuum complement    [OPEN]
-      (a direct construction or a proved nonidentity comparison;
-       the conditional result above does not supply this bridge)
-                                  |
+REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
+  original weights, signed boundary sums, same Haar carrier        [PROVED]
+       |
+       +--> heat factorization + literal temporal Haar invariance
+       |      -> B(left,right) = Haar(L * H_Gram * U)              [PROVED]
+       |
+       +--> oriented link/face reflection, every spin
+       |      -> SAME signed U = theta(L)                         [PROVED]
+       |
+       +--> actual lower-half observable locality                 [PROVED]
+       |
+       +--> actual interface reflected-square channels            [PROVED]
+                                  | ALL FOUR inputs, every odd extent
                                   v
-                    same-object physical lattice gap               [OPEN]
-                                  | required together with:
-  volume estimates AND spacing-dependent physical mass control     [OPEN]
-    -> controlled thermodynamic and continuum passage              [OPEN]
-    + same-theory QFT axioms and isolated continuum vacuum         [OPEN]
-    + extension from SU(2) to every compact simple gauge group      [OPEN]
+  ORIGINAL quadratic = explicit weighted sum of rational squares   [PROVED]
+  ORIGINAL reflection positivity: all odd extents, K, w>=0         [PROVED]
                                   |
-               CONTRACT only through proved same-object bridges
+                                  +<-- cutoff removal on larger slabs [OPEN]
+                                  |     Existing extent-one branch:
+                                  |     fixed boundary recoding
+                                  |       + joint degree selection
+                                  |       -> exact cutoff stabilization
+                                  |       -> ONE common GNS completion
+                                  |     [PROVED, extent one only]
+                                  |
+                                  +<-- larger-slab compatibility      [OPEN]
                                   v
+  One physical positive-time completed carrier                     [OPEN]
+                                  |
+                                  +<-- geometric time / transfer      [OPEN]
+                                  +<-- stationary physical vacuum     [OPEN]
+                                  +<-- strict bound on ITS completed
+                                  |    vacuum complement              [OPEN]
+                                  v
+  Physical spectral gap on the SAME objects                         [OPEN]
+                                  |
+                                  +<-- volume + spacing mass control  [OPEN]
+                                  +<-- constructive limits + QFT      [OPEN]
+                                  +<-- remaining compact simple groups[OPEN]
+                                  v
+                 CONTRACT through proved same-object bridges
 Continuum 4D Yang--Mills + QFT axioms + isolated vacuum + Delta > 0
 WHOLE-PROJECT GOAL / CLAY TARGET
 
-* Conditional reflected result: w=1/400, extent one, all spin labels.
-  Its finite/marginal rate is explicit in w (0<w<=1/2), not uniform in w.
-** Local kernel scope: Haar-unit input-word radii and supported column
-   syntheses on the same finite Haar carrier. Not slab reflection positivity.
-*** Extent-one original signed form, every cutoff K, rational w, and signed
-    coefficient function. H_spatialGram has no fixed-time link in its arguments.
-**** The finite tree stores all channels and rational weights explicitly;
-     a_j >= 0 for w >= 0. Actual lower-half support and original-Haar
-     factorization now prove extent-one positivity for every K and signed c.
-***** Fixed but arbitrary K, extent one, w >= 0. Completion uses explicit
-      Cauchy representative families and moduli. Not cutoff removal,
-      arbitrary-volume positivity, physical vacuum stationarity or a gap.
-****** One actual four-link heat insertion, fixed polynomial multiplier P,
-       K >= headDegreeBound P, every rational w and orientation. The full
-       interface theorem below additionally handles all other face labels.
-******* Extent one, fixed finite boundary observables, every rational w.
-        The exact stabilization index is computed from the anchor and the
-        24 exposed-link degrees. Quadratic positivity requires w >= 0.
-        The common completed carrier is now constructed in the next step.
-******** All finite anchor observables in one extent-one carrier, w >= 0.
-         Completion retains explicit Cauchy representatives and moduli.
-         Not vacuum stationarity, the canonical positive-time root, a
-         physical time operator, arbitrary-volume positivity, or a gap.
-********* Every odd extent and finite K, w >= 0; arbitrary supported
-          lower-half polynomial, including overlapping spatial factors.
-          Original temporal-assigned crossing characters = actual Gram
-          product under every Haar insertion = explicit weighted squares.
-          The next step pins the complete original signed bilinear to
-          L * H_Gram * U; U = theta(L) still needs an all-extent proof.
-********** Every odd extent, finite K, rational w and signed L/R data.
-           Full original heat weights and boundary sums are retained.
-           All support and temporal change-of-variables pins are proved.
-           Not yet arbitrary-volume original-law positivity or a gap.
+Scope: arbitrary signed boundary coefficients; original overlapping links.
+Finite-slab positivity is not a strict gap, compatibility or continuum limit.
+The extent-one norm-one vacuum CODE is not yet a stationary physical vacuum.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -159,7 +103,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the COMPLETE original signed bilinear has its spatial-Gram Haar form at every odd extent.**
+**Latest result: ORIGINAL signed-law reflection positivity at every odd slab extent.**
+[`BF4ExactSlabAllExtentPlaquetteReflection.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentPlaquetteReflection.lean)
+proves literal time-link conjugation and the oriented plaquette-reflection
+identity for every extent and spin. A general four-quaternion cyclic-inverse
+scalar identity replaces the old extent-one face scan; no quaternion factors
+are commuted and no unit-norm assumption is needed for this identity.
+[`BF4ExactSlabAllExtentObservableReflection.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentObservableReflection.lean)
+then proves `lowerObservable_reflection`: the original upper observable is
+the literal reflection of the original lower observable, retaining every
+heat weight and signed coefficient on the same padded carrier.
+
+[`BF4ExactSlabAllExtentReflectionPositivity.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentReflectionPositivity.lean)
+proves the assembled lower observable is lower-local and joins these facts
+with the original spatial-Gram Haar identity. `originalQuadraticExpansion`
+constructs the actual finite square channels; `exact_quadratic_eq_squareValue`
+identifies the ORIGINAL `exactCorrectedSlabReflectedKernel` quadratic with
+their weighted sum of rational squares. `exact_quadratic_nonnegative` proves
+it nonnegative for every odd extent, every finite K, every w >= 0 and
+arbitrary signed boundary coefficients. Shared link variables are retained.
+This is reflection positivity, not a strict spectral estimate.
+
+Next: larger-slab cutoff control and compatibility, then the physical
+positive-time carrier and geometric transfer. The existing common
+cutoff-limit completion remains extent-one only; physical vacuum stationarity,
+a strict completed gap, volume/spacing limits, QFT and all-group Clay remain open.
+Four focused monitored checks passed: 10 + 11 + 4 + 7 = 32 axiom gates
+within `{propext, Quot.sound}`, final error/warning free. These include the
+locality module's existing gates and its new all-extent character consumer.
+No full-tree audit was run; no new sorry, analytic premise or proof-limit increase.
+
+**Preceding result: the COMPLETE original signed bilinear has its spatial-Gram Haar form at every odd extent.**
 [`BF4ExactSlabAllExtentWeightedFactorization.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentWeightedFactorization.lean)
 keeps the existing signed dual term and factors its complete heat-weighted
 network into lower, fixed and upper pieces. Face indexing and partition
@@ -178,10 +152,9 @@ rational w and signed boundary coefficients,
 `exactCorrectedSlabReflectedKernel` bilinear and both boundary polynomials
 are unchanged. No replacement law or positivity premise is used.
 
-The next positivity edge is `U_right = theta(L_right)` and the assembled
-lower-half locality theorem at arbitrary extent. The existing inserted
-plaquette-reflection theorem is extent-one only. Thus all-extent original-law
-reflection positivity is still OPEN, as are slab compatibility and physical time.
+The subsequent result above proves `U_right = theta(L_right)` and assembled
+lower-half locality at arbitrary extent, closing original-law reflection
+positivity for every odd slab. Slab compatibility and physical time remain open.
 Four focused monitored checks passed: 16 + 12 + 13 + 11 = 52 gates within
 `{propext, Quot.sound}`, no errors or warnings. No full-tree audit was run.
 
@@ -202,9 +175,9 @@ every insertion. `temporalInterface_eq_squareValue` and
 without discarding its spatial interactions. `original_quadratic_pin`
 recovers the previously proved ORIGINAL signed quadratic at extent one.
 
-The COMPLETE original-law/observable change-of-variables pin is now proved
-above. Literal upper/lower reflection and locality at arbitrary extent,
-compatibility, geometric time, stationarity and a gap remain separate.
+The COMPLETE original-law/observable change-of-variables pin, literal
+upper/lower reflection and locality at arbitrary extent are now proved above.
+Compatibility, geometric time, stationarity and a gap remain separate.
 Two focused monitored checks passed: 12 + 15 = 27 axiom gates within
 `{propext, Quot.sound}`, no errors or warnings. No full-tree audit was run.
 
@@ -229,12 +202,12 @@ quotient representatives. The single vacuum-code vector agrees with the
 original vacuum delta on every finite carrier, has norm one, and is non-null
 in the common completion. Physical stationarity is not asserted.
 
-**Next:** literal upper/lower reflection and lower-observable locality at
-arbitrary extent, then positive-time realization and larger-slab compatibility,
-then a physical transfer and a strict gap on its own completed vacuum
-complement. Current scope is the extent-one boundary-coefficient observable
-family, not the canonical continuum positive-time root. Arbitrary-volume
-positivity, volume/spacing limits, QFT axioms and all-group Clay remain open.
+**Next:** extend cutoff-limit control beyond extent one and prove larger-slab
+compatibility, then positive-time realization, a physical transfer and a
+strict gap on its own completed vacuum complement. This completion's scope
+is the extent-one boundary-coefficient observable family, not the canonical
+continuum positive-time root. Finite-cutoff positivity now holds on every
+odd slab; volume/spacing limits, QFT axioms and all-group Clay remain open.
 Three focused monitored checks passed: 36 axiom gates within
 `{propext, Quot.sound}`, no new sorry, analytic premise or proof-limit increase.
 No full-tree audit was run.
@@ -261,7 +234,7 @@ for w >= 0. Scope: extent one and each fixed finite boundary observable.
 
 The common completed cutoff-limit carrier is now constructed above.
 Geometric physical time/transfer and a strict gap on its own vacuum
-complement remain open. Arbitrary-volume positivity,
+complement remain open. Finite-cutoff positivity now holds on every odd slab;
 volume/spacing limits, QFT axioms and the all-group Clay target remain open.
 The four modules have 50 clean axiom gates within `{propext, Quot.sound}`
 from focused monitored checks; no new sorry, analytic premise or proof-limit

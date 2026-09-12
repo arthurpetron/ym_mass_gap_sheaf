@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## ORIGINAL signed-law reflection positivity at every odd extent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentPlaquetteReflection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentObservableReflection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentReflectionPositivity.lean`,
+  plus the new `lower_plaquette_character_local` consumer in
+  `lean/YMGap/Continuum/BF4ExactSlabLowerChannelLocality.lean`.
+- **discharged**: orientation-correct time-link reflection; all-extent
+  plaquette scalar and character reflection via a general cyclic-inverse
+  four-quaternion identity; reflected lower/upper face permutation;
+  `lowerObservable_reflection` for the full original heat-weighted signed
+  observable; assembled lower-half locality; full original bilinear reflected
+  Haar pin. `originalQuadraticExpansion` constructs actual finite square
+  channels; `exact_quadratic_eq_squareValue` gives their rational value;
+  `exact_quadratic_nonnegative` proves ORIGINAL signed-law reflection
+  positivity at every odd extent, finite K, w >= 0 and signed coefficient
+  function. No quaternion factors are commuted or shared links discarded.
+- **OPEN residue**: larger-slab cutoff control and compatibility, physical
+  positive-time realization/transfer, physical vacuum stationarity, strict
+  completed gap, volume/spacing/QFT and all-group Clay. The common cutoff-limit
+  completion remains extent-one only. No canonical atom/type changed; no use
+  of the refuted exact/positive identity. This is nonnegativity, not a uniform
+  strict gap bound. No new sorry or analytic premise.
+- **verification**: four focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 10 + 11 + 4 + 7 = 32 gates within `{propext, Quot.sound}`,
+  final error/warning free. The locality check includes ten existing gates
+  plus its new character gate. Logs `/tmp/ym-all-extent-plaquette-reflection.log`,
+  `/tmp/ym-all-extent-locality-export.log`, `/tmp/ym-all-extent-observable-reflection.log`,
+  `/tmp/ym-all-extent-reflection-positivity.log`. Generic algebra and literal
+  four-link geometry were separated before concrete substitution to resolve
+  symbolic-reduction timeouts; no proof limit was raised. No numerical oracle,
+  rate or pilot constant. No full build/audit/guard/progress run.
+
 ## Full original signed bilinear / spatial-Gram Haar pin at every odd extent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentWeightedFactorization.lean`,
@@ -28,12 +61,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   ledger; both boundary observables return unchanged under Haar;
   `exact_bilinear_eq_spatialGramHaar` pins the SAME full bilinear to
   `Haar(L_left * H_Gram * U_right)`, every finite K and rational w.
-- **OPEN residue**: U = literal link reflection of L and assembled
-  lower-observable locality at arbitrary extent. The existing inserted
-  plaquette-reflection theorem is extent-one only. The complete original-law
-  change-of-variables pin is now proved, but full original-law positivity at
-  every odd extent still needs these reflection/locality consumers and the
-  positive interface. Larger-slab compatibility, physical positive-time
+- **subsequent discharge**: literal U = theta(L), assembled lower-observable
+  locality and ORIGINAL-law positivity at every odd extent are proved above.
+  **OPEN residue**: larger-slab cutoff control, compatibility, physical positive-time
   realization/transfer, stationarity, strict completed gap, volume/spacing/QFT
   and all-group Clay remain open. No canonical atom/type changed; no use of
   the refuted exact/positive identity. No new sorry or analytic premise.

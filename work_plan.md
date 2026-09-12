@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (full original signed bilinear / spatial-Gram Haar pin):**
+**Latest larger-slab progress (ORIGINAL-law reflection positivity, every odd extent):**
+`BF4ExactSlabAllExtentPlaquetteReflection.time_link_reflection` supplies
+the missing orientation-correct time-link conjugation. A sixteen-formal-variable
+`temporal_word_scalar` identity and literal four-link geometry prove
+`plaquette_scalar_reflection` and `plaquette_character_reflection` at every
+extent, without the old extent-one face scan or any norm-one assumption.
+Generic algebra is separated from physical lookup; no proof limit was raised.
+
+`BF4ExactSlabAllExtentObservableReflection.lowerObservable_reflection`
+retains every original heat weight, signed coefficient and bounded label
+carrier while proving U = theta(L) coefficientwise after common padding.
+`BF4ExactSlabLowerChannelLocality.lower_plaquette_character_local` exposes
+the existing all-extent geometric fact without changing its old consumers.
+`BF4ExactSlabAllExtentReflectionPositivity.lowerObservable_local` assembles
+the locality proof for the full original observable.
+
+`originalQuadraticExpansion` constructs actual finite square channels.
+`exact_quadratic_eq_squareValue` pins their explicit rational weighted-square
+value to the ORIGINAL `exactCorrectedSlabReflectedKernel` quadratic;
+`exact_quadratic_nonnegative` proves reflection positivity at EVERY odd
+extent and finite K, for w >= 0 and arbitrary signed boundary coefficients.
+All original overlapping link variables remain. This is not a strict bound
+and does not transfer a gap from the distinct positive multiplicity law.
+
+Next residue: larger-slab cutoff control and compatibility, feeding a single
+physical positive-time carrier; then geometric time/transfer, physical vacuum
+stationarity and a strict gap on its own completed vacuum complement.
+The common cutoff-limit completion remains extent-one only. Volume/spacing,
+QFT, all-group Clay and canonical frontier atoms remain open and unchanged.
+
+Verification: four focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 10 + 11 + 4 + 7 = 32 gates within `{propext, Quot.sound}`, final
+error/warning free. Eleven are the locality module's existing gates plus its
+new character consumer. Logs `/tmp/ym-all-extent-plaquette-reflection.log`,
+`/tmp/ym-all-extent-locality-export.log`, `/tmp/ym-all-extent-observable-reflection.log`,
+`/tmp/ym-all-extent-reflection-positivity.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run. The refuted exact/positive identity is unused.
+
+**Preceding larger-slab progress (full original signed bilinear / spatial-Gram Haar pin):**
 `BF4ExactSlabAllExtentWeightedFactorization` proves structural face-index
 recovery and the complete weighted lower/fixed/upper factorization of the
 existing signed dual summand at every odd extent. `central_product_factorization`
@@ -41,13 +80,11 @@ return both boundary polynomials unchanged. The final
 `Haar(L_left * H_Gram * U_right)` at every odd extent, finite K and rational w.
 No positivity assumption or replacement measure enters this identity.
 
-Next residue: prove U is the literal link reflection of L and assemble
-lower-observable locality at arbitrary extent, then combine with the already
-proved positive interface. The available inserted plaquette-reflection
-consumer is extent-one only. Full original-law positivity at every odd
-extent therefore remains OPEN; so do larger-slab compatibility, physical
-positive-time realization/transfer, stationarity, strict completed gap,
-volume/spacing/QFT and all-group Clay. No canonical atom/type changed.
+Subsequent discharge above: literal U = theta(L), lower-observable locality
+and ORIGINAL-law positivity at every odd extent. Larger-slab cutoff control,
+compatibility, physical positive-time realization/transfer, stationarity,
+strict completed gap, volume/spacing/QFT and all-group Clay remain open.
+No canonical atom/type changed.
 
 Verification: four focused monitored one-worker 20 GiB checks with `.olean`
 outputs; 16 + 12 + 13 + 11 = 52 gates within `{propext, Quot.sound}`, final
@@ -77,12 +114,12 @@ temporal assignment to the Gram product under every Haar insertion.
 the explicit square value and positivity for w >= 0. `original_quadratic_pin`
 identifies the general form with the ORIGINAL signed quadratic at extent one.
 
-The COMPLETE original-law/observable change-of-variables pin is now proved
-above. Literal reflection/locality at arbitrary extent, larger-slab
-compatibility and geometric time remain open. The interface result is not yet arbitrary-volume
-original-law positivity, a canonical positive-time root, stationarity, a
-time semigroup or a gap. The extent-one common cutoff-limit completion below
-remains at its stated scope. Volume/spacing/QFT and all-group Clay stay OPEN;
+The COMPLETE original-law/observable pin, literal reflection/locality and
+original-law positivity at every odd extent are now proved above. Larger-slab
+cutoff control, compatibility and geometric time remain open. The interface
+alone is not a canonical positive-time root, stationarity, a time semigroup
+or a gap. The extent-one common cutoff-limit completion below remains at its
+stated scope. Volume/spacing/QFT and all-group Clay stay OPEN;
 no canonical atom/type changed and the refuted exact/positive identity is unused.
 
 Verification: two focused monitored one-worker 20 GiB checks with `.olean`

@@ -96,6 +96,15 @@ private theorem lower_plaquette {half : Nat} {face : Z4Plaq}
       (hl (faceLinkC face) (by simp [faceLinkC, edgesOf])).conj).mul
         (hl (faceLinkD face) (by simp [faceLinkD, edgesOf])).conj)
 
+/-- Every character of a literal lower plaquette is lower-local at any odd
+extent. This exposes the existing geometric proof independently of the old
+extent-one observable presentation. -/
+theorem lower_plaquette_character_local {half : Nat} {face : Z4Plaq}
+    (hp : face ∈ boundaryCompleteSlabPlaquettes (centralExtent half))
+    (hf : plaquetteHalfSide half face = .lower) (spin : Nat) :
+    LowerLocal half (characterPolynomial (correctedSlabPlaquettePolynomial (centralExtent half) face).scalar spin) :=
+  (lower_plaquette hp hf).scalar.character spin
+
 theorem lowerObservable_local (w : Q') (K : Nat) (c : EdgeLabelling → Q') :
     LowerLocal 0 (lowerObservable w K c) := by
   apply BlockLocal.finiteSum
@@ -243,6 +252,7 @@ theorem observableSquares_lower (w : Q') (K : Nat) (c : EdgeLabelling → Q') :
 end YMGap.Continuum.BF4ExactSlabLowerChannelLocality
 
 #print axioms YMGap.Continuum.BF4ExactSlabLowerChannelLocality.lower_face_link
+#print axioms YMGap.Continuum.BF4ExactSlabLowerChannelLocality.lower_plaquette_character_local
 #print axioms YMGap.Continuum.BF4ExactSlabLowerChannelLocality.lowerObservable_local
 #print axioms YMGap.Continuum.BF4ExactSlabLowerChannelLocality.LowerTensor
 #print axioms YMGap.Continuum.BF4ExactSlabLowerChannelLocality.lower_column

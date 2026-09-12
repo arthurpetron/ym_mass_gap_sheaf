@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full original signed bilinear / spatial-Gram Haar pin, every odd extent (2026-09-12)
+## Current increment: ORIGINAL signed-law reflection positivity at every odd extent (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentPlaquetteReflection` proves time-link
+conjugation and all-spin oriented plaquette reflection at arbitrary extent.
+The general cyclic-inverse scalar identity uses sixteen formal coordinates,
+not a scan of the concrete slab. Four-link geometry is proved before applying
+the polynomial word, avoiding symbolic-reduction blowup without raised limits.
+
+`BF4ExactSlabAllExtentObservableReflection.lowerObservable_reflection`
+lifts this identity through the SAME heat-weighted products, reflected face
+permutation and signed boundary sums. The original lower/upper observables
+are now pinned by literal link reflection, coefficientwise after common padding.
+`BF4ExactSlabLowerChannelLocality.lower_plaquette_character_local` exposes
+the all-extent locality fact; the full observable's locality is then proved.
+
+`BF4ExactSlabAllExtentReflectionPositivity.originalQuadraticExpansion`
+constructs actual finite weighted-square channels. Its
+`exact_quadratic_eq_squareValue` identifies their explicit rational value
+with the ORIGINAL signed quadratic, and `exact_quadratic_nonnegative`
+proves it nonnegative for all odd extents, finite K, w >= 0 and signed
+boundary coefficient functions. Shared links are retained throughout.
+
+Next: larger-slab cutoff control and compatibility. The existing common
+cutoff-limit completion is still extent-one only; the physical positive-time
+carrier/transfer, stationary physical vacuum, strict completed gap,
+volume/spacing/QFT and all-group Clay remain open. No gap is imported from
+the refuted signed/positive-law identity. No canonical atom/type changed.
+
+Four focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs: 10 + 11 + 4 + 7 = 32 clean gates within `{propext, Quot.sound}`.
+The locality check includes ten existing gates and its new character gate.
+Logs `/tmp/ym-all-extent-plaquette-reflection.log`,
+`/tmp/ym-all-extent-locality-export.log`, `/tmp/ym-all-extent-observable-reflection.log`,
+`/tmp/ym-all-extent-reflection-positivity.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: full original signed bilinear / spatial-Gram Haar pin, every odd extent (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentWeightedFactorization.dualTerm_eq_threeFactorHaar`
 factors the EXISTING signed dual term into lower/fixed/upper polynomials,
@@ -23,11 +60,9 @@ Both transformed boundary observables return to their original polynomials.
 as `Haar(L_left * H_Gram * U_right)` for every odd extent, finite K, rational
 w and signed boundary coefficients. No positivity premise or replacement law.
 
-Next: U = literal link reflection of L, and assembled lower-half locality
-at arbitrary extent. The existing inserted plaquette-reflection consumer
-is extent-one only. These are still needed to combine the new original-law
-pin with the proved all-extent positive interface; full original-law
-positivity is not yet obtained at arbitrary extent. Compatibility, physical
+Subsequent discharge above: U = literal link reflection of L, assembled
+lower-half locality and full original-law positivity at every odd extent.
+Larger-slab cutoff control, compatibility, physical
 positive-time carrier/transfer, stationarity, strict completed gap,
 volume/spacing/QFT and all-group Clay remain open. No canonical atom/type changed.
 
