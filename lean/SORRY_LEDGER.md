@@ -13,7 +13,58 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact physical cube sector and positive OS mate weights (2026-09-11)
+
+- **milestone**: current physical BF4 frontier; close the converse sector
+  classification and physical-support obligations left by the previous entry.
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeDifferenceBoundary.lean`,
+  `BF4PhysicalCubeDifferenceBoundaryMultiplicity.lean`,
+  `BF4PhysicalCubeDifferenceBoundaryKernel.lean`, and
+  `BF4PhysicalVacuumSectorCubeClassification.lean` in the same directory.
+- **constructed boundary**: `cubeDifferenceBoundary` puts the natural-number
+  distance `|a-b|` on each of twelve vertical cube-edge faces. The source,
+  inward-mate and corner-distance triangle identities are proved for arbitrary
+  labels, without a common-parity hypothesis. The boundary fits the source
+  cutoff and is an actual member of `centralBoundaryChannels K 0`.
+- **exact local reduction**: `lower_active_catalog` and `fixed_active_catalog`
+  check all 48 lower and 20 fixed production incidence lists. Deleting only
+  zero spins reduces each to an admissible triple or the empty word.
+  `difference_source_multiplicity_one`, `difference_mate_multiplicity_one`
+  and `difference_fixed_multiplicity_one` give the original production
+  counts, with the production auxiliary cutoff, exactly one.
+- **same-object weight**: `differencePhysicalTerm_eq_weight` identifies one
+  complete reflected-slab production summand with `differencePhysicalWeight`,
+  an explicit heat-coefficient product. `differencePhysicalWeight_pos` and
+  `differencePhysicalWeight_le_kernel` prove a strictly positive lower bound
+  for the original raw OS kernel at `w > 0`, `K >= 1`, slab extent one.
+  The product depends on the source labels and `w`; it is independent of K
+  only once both endpoints fit that cutoff. It is NOT a uniform minorization.
+- **classification and consequences**:
+  `vacuumSector_iff_cubeSupportedCommonParity` proves that the actual canonical
+  sector is exactly the bounded cube-supported common-parity family.
+  `vacuumSector_orbit_mem` and `vacuumSector_orbit_edge_pos` turn the explicit
+  root time `2*(K/2) + state 0 % 2 <= K+1` into positive internal OS moves.
+  `vacuumSector_mateInvariant_constant` establishes all-cutoff qualitative
+  separation. `vacuumSector_cutoff_mono` and `vacuumSector_mem_coupling_iff`
+  describe the sector state sets, not operator/norm compatibility or uniform
+  spectral constants.
+- **OPEN residue**: successful-source traffic coverage or a direct weighted
+  OS-path estimate controlling every centered norm uniformly in cutoff.
+  Completed gap, volume/spacing control, continuum QFT, and the all-group
+  Clay target remain open. No new analytic field, sorry, axiom, noncomputable
+  declaration, classical dependency, or weakened frontier statement is added.
+
+Verification: all four new modules pass focused monitored single-worker,
+20 GiB checks with `.olean` output; their 43 printed gates contain only
+`propext` and `Quot.sound`. No heartbeat or recursion limit is raised.
+The distance and production-geometry pilot passes independently; its finite
+samples are not used as proof of arbitrary-label claims. The full-tree
+build/audit and frontier guard were not run. GitHub CI remains disabled.
+
 ## All-cutoff physical vacuum-sector cube containment (2026-09-11)
+
+The converse and positive physical support left open by this historical
+increment are now supplied by the entry above for `w > 0`, `K >= 1`.
 
 - **milestone**: current physical BF4 frontier; prove the all-cutoff support
   implication required to apply the literal mate orbit to canonical states.
@@ -38,7 +89,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   vanishes on this canonical sector. `vacuumSector_inwardOrbit_reaches_zero`
   applies the already-proved time `2*(K/2) + state 0 % 2 <= K+1` to every
   canonical state, not just the cutoff-two table or a hypothesized family.
-- **OPEN residue**: converse admission of the whole cube/common-parity
+- **OPEN residue at this increment**: converse admission of the whole cube/common-parity
   family, positive physical support and successful-source traffic along the
   required potential orbits, and uniform weighted norm-to-move coverage.
   No positivity or congestion bound follows from an orbit length. No
@@ -59,9 +110,10 @@ updated. CI remains disabled.
 
 ## Exact mate orbits and finite potential-move separation (2026-09-11)
 
-The following increment now supplies the orbit theorem consumed by the
-all-cutoff canonical containment result above. Its remaining classification
-obligation has been reduced to the converse inclusion, not assumed solved.
+The following increment supplies the orbit theorem consumed by the
+all-cutoff canonical containment and subsequent exact classification above.
+The classification and positive physical-support obligations were later
+closed by proof; uniform weighted coverage remains open.
 
 - **milestone**: current physical BF4 gap frontier; distinguish geometric
   separation from the outstanding weighted all-vector coverage problem.

@@ -10,8 +10,9 @@ every representation cutoff and every nonnegative coupling, at half extent
 zero. No finite spin table is extrapolated.
 
 Combining this containment with the literal inward-mate orbit theorem sends
-each canonical-sector state to zero within K+1 potential moves. This is NOT
-the converse sector classification, positivity of every potential mate,
+each canonical-sector state to zero within K+1 potential moves. The successor
+`BF4PhysicalVacuumSectorCubeClassification` proves the converse and positive
+OS support of the moves for w > 0 and K >= 1. Neither module supplies
 selected-source coverage, a uniform form bound, or a continuum theorem.
 -/
 
@@ -175,7 +176,8 @@ theorem vacuumSector_cubePairParity_zero
   omega
 
 /-- The literal mate orbit reaches vacuum from every canonical sector state.
-Intermediate positive kernel support and selected-source traffic remain open. -/
+Positive intermediate support for w > 0, K >= 1 is proved in the successor
+classification module; selected-source traffic coverage remains open. -/
 theorem vacuumSector_inwardOrbit_reaches_zero
     (w : Q') (hw : (0 : Q') ≤ w) (K : Nat)
     {state : EdgeLabelling}

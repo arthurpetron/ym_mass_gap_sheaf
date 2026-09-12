@@ -45,8 +45,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  + restricted move energy <= C * energy [PROVED]
                  -> positive sector-parity energy floor [PROVED]
                  AND centered norm <= move energy / kappa [OPEN]
-                 (all-K cube/parity containment + potential
-                  vacuum orbits: PROVED; weighted coverage: OPEN)
+                 (all-K exact cube/parity sector + positive
+                  OS vacuum orbits: PROVED; weighted coverage: OPEN)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
@@ -70,18 +70,24 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** every canonical vacuum-sector state is now proved to be
-supported on the six central cube faces, with common face parity, at every
-spin cutoff and every nonnegative weight parameter `w` at slab extent one.
-The proof uses 18 singleton-link constraints and five shared-boundary parity
-equations, then follows the actual OS support paths from vacuum.
-The explicit inward-mate orbit therefore reaches vacuum from each such state
-within `K + 1` potential moves. The full-carrier pair-parity XOR obstruction
-vanishes on this sector at every cutoff.
+**Latest result:** at slab extent one, every positive rational weight parameter
+`w` and every spin cutoff `K >= 1`, the canonical vacuum sector is **exactly**
+the bounded six-face cube labellings with common parity. The constructive
+inward-mate orbit stays in that sector and reaches vacuum within `K + 1`
+genuine positive OS moves.
 
-This is **containment**, not the converse classification. Positive OS support
-and successful-source traffic along every required potential move, and a
-cutoff-independent norm-to-move estimate, remain open.
+The key construction puts `|a-b|` on the boundary face between cube labels
+`a` and `b`. All source, mate and fixed-link multiplicities are exactly one;
+the complete production summand becomes an explicit positive heat-coefficient
+product below the original OS kernel. Together with the earlier singleton
+pins and parity constraints, this proves both directions of the classification.
+The sector sets are nested in `K` and unchanged by positive `w`; their weights
+are not. Every mate-invariant observable on the sector is constant.
+
+The edge weights depend explicitly on the state and `w`. Successful-source
+traffic coverage and a cutoff-independent norm-to-move estimate remain open;
+positive connectivity does not establish either. Sector-set nesting alone
+also does not establish norm or operator compatibility across cutoffs.
 
 The preceding quantitative result remains: the normalized sector OS flow carries at
 least `448/5525` total traffic. Exact source-block Fubini connects it to the

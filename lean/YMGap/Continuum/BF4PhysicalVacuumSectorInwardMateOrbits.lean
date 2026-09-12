@@ -13,11 +13,12 @@ of the existing successful full-slab sources. On the independently certified
 maps to the fundamental cube and that cube maps to zero. Consequently every
 observable invariant under ALL these potential mates is constant there.
 
-OPEN: the all-cutoff canonical sector has not been identified with the
-cube-supported common-parity family. Nor is every potential mate proved to
-occur with positive successful-source traffic. These geometric statements
-do not prove separation of the weighted selected-source graph, a uniform
-norm-to-move estimate, a completed gap, or any continuum/Clay conclusion.
+The successor `BF4PhysicalVacuumSectorCubeClassification` identifies the
+all-cutoff canonical sector with this bounded common-parity family and proves
+positive physical OS support for every mate, for w > 0, K >= 1, extent one.
+OPEN: positive successful-source traffic for every required move and uniform
+weighted norm control. The orbit formulas alone give neither a completed gap
+nor any continuum/Clay conclusion.
 
 No new analytic field, axiom, sorry, classical choice, noncomputable code,
 native_decide, or enlarged elaboration limit is used.

@@ -441,11 +441,26 @@ The next load-bearing producers are, in causal order:
    and cutoff at half extent zero; `vacuumSector_inwardOrbit_reaches_zero`
    gives the potential vacuum orbit for every canonical state. Pair-parity
    XOR is identically zero on this sector at every cutoff
-   (`vacuumSector_cubePairParity_zero`). The converse family inclusion,
-   positive physical support and successful traffic along each required
-   potential move, and uniform weighted coverage remain open. Next prove
-   those support/traffic estimates and their quantitative norm control;
-   enlarge the family only if needed. The algebraic rate shape
+   (`vacuumSector_cubePairParity_zero`). The converse and physical support
+   are now proved for every `w > 0`, `K >= 1` at extent one:
+   `BF4PhysicalCubeDifferenceBoundary` assigns `|a-b|` to each vertical
+   cube-edge face. Its source/mate triangles and corner distance triangles
+   are admissible. `BF4PhysicalCubeDifferenceBoundaryMultiplicity` reduces
+   all 48 lower and 20 fixed production scopes to admissible triples or
+   zero words and proves each multiplicity is exactly one.
+   `BF4PhysicalCubeDifferenceBoundaryKernel.differencePhysicalTerm_eq_weight`
+   identifies the complete summand with an explicit heat-only product;
+   `differencePhysicalWeight_le_kernel` and `difference_kernel_pos` put
+   that state-dependent positive weight in the original OS kernel.
+   `BF4PhysicalVacuumSectorCubeClassification` proves the exact bounded
+   cube/common-parity characterization, positive internal mate orbits,
+   and constancy of every mate-invariant sector observable. The sector
+   sets are nested with cutoff and invariant under changing positive `w`;
+   no norm or operator compatibility is inferred from set nesting.
+   Next establish successful-source traffic coverage or a direct weighted
+   OS-path estimate, with cutoff-independent norm control. No uniform
+   transition probability follows from the positive edge product.
+   The algebraic rate shape
    after a correctly sector-local coverage input is compiled: a floor
    `kappa > 0` yields the cutoff-independent strict rate
    `4(1 + globalInwardMateTransportCost) /
@@ -544,7 +559,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- actual canonical sector contained in cube/parity class [PROVED all w>=0, extent=1]
 |   |   |   +-- every sector state has a potential vacuum orbit ...... [PROVED <= K+1 moves]
 |   |   |   +-- pair-parity XOR vanishes on the canonical sector ...... [PROVED all cutoffs]
-|   |   |   +-- sector move separation + uniform norm coverage ........ [OPEN]
+|   |   |   +-- difference boundary -> all production factors = 1 .... [PROVED arbitrary labels]
+|   |   |   +-- explicit positive heat product <= actual OS kernel ... [PROVED state-dependent]
+|   |   |   +-- exact cube/parity sector + positive internal orbits ... [PROVED w>0, K>=1, extent=1]
+|   |   |   +-- cutoff-nested sector sets; mate invariants constant ... [PROVED not norm compatibility]
+|   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

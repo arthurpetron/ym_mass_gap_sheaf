@@ -3732,6 +3732,12 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateOrbits
 import YMGap.Continuum.BF4PhysicalHalfCubeSupport
 -- Canonical sector containment, not the converse or weighted move coverage.
 import YMGap.Continuum.BF4PhysicalVacuumSectorCubeContainment
+-- Difference boundary: exact multiplicity one and explicit positive OS edge weight.
+import YMGap.Continuum.BF4PhysicalCubeDifferenceBoundary
+import YMGap.Continuum.BF4PhysicalCubeDifferenceBoundaryMultiplicity
+import YMGap.Continuum.BF4PhysicalCubeDifferenceBoundaryKernel
+-- Exact all-cutoff sector and positive mate orbits; no uniform weighted gap.
+import YMGap.Continuum.BF4PhysicalVacuumSectorCubeClassification
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

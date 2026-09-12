@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: constrain the actual sector at every cutoff (2026-09-11)
+## Current increment: construct physical mate weights and classify the sector (2026-09-11)
+
+This is PROGRESS: the converse sector classification and positive support of
+every required mate move are now proved, not carried as new hypotheses.
+The construction is simple: assign `|a-b|` to each vertical face between two
+cube labels. Source and mate triangles remain admissible; each fixed corner
+sees the three distances between three labels. Zero insertion transports
+these triangles to all 48 lower and 20 fixed production incidence words,
+whose multiplicities are exactly one at arbitrary cutoff.
+
+`BF4PhysicalCubeDifferenceBoundaryKernel.differencePhysicalTerm_eq_weight`
+identifies the chosen complete physical summand with an explicit heat-only
+product. The product is positive and bounded above by the original OS kernel
+entry, not a surrogate dynamics. It depends explicitly on w and the source
+labels; no cutoff-independent transition floor is inferred.
+
+`BF4PhysicalVacuumSectorCubeClassification` combines those edges with the
+prior orbit formula and support containment. For every w > 0 and K >= 1,
+at slab extent one, the canonical vacuum sector is exactly the bounded
+cube-supported common-parity family. Its inward orbits are internal positive
+OS paths reaching vacuum in at most K+1 moves. Every mate-invariant observable
+is constant on the sector. The state sets are nested with K and invariant
+under positive changes in w, without claiming norm/operator compatibility.
+
+The next mathematical obligation is weighted all-vector control: either
+connect sufficient successful-source traffic to these moves or prove a direct
+OS-path bound with cutoff-uniform congestion and norm control. Qualitative
+separation and total sector traffic do not establish that estimate. No
+completed gap, continuum limit or Clay atom is closed.
+
+Four new modules passed monitored one-worker, 20 GiB checks with `.olean`
+emission. Their 43 printed gates use only propext/Quot.sound. The final logs
+have no errors or warnings; no elaboration limit is raised. The untrusted
+distance/triangle/production-scope pilot passed. Prior orbit/containment
+docstrings point to the stronger successor. Root imports, README, work plan
+and sorry ledger are updated. No full-tree build/audit, progress-script guard
+build or frontier guard was run. CI remains off.
+
+## Previous increment: constrain the actual sector at every cutoff (2026-09-11)
 
 `BF4PhysicalHalfCubeSupport` proves that a nonzero production half amplitude
 has zero labels outside the central cube. Its 18 unary pins are literal
