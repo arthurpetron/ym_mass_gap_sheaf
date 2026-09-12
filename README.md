@@ -50,7 +50,8 @@ REQUIRED PHYSICAL ROUTE
     + upper observable = literal link reflection of lower          [PROVED]
     -> original Q(c) = Haar(F_c * H * theta(F_c))                    [PROVED]
     + actual symmetric powers on n+1 coefficients, rational units  [PROVED]
-    + trace = literal character AND coefficient/Haar transport     [OPEN]
+    -> actual trace = literal character, on rational unit inputs    [PROVED]
+    + coefficient-probe / sphere-ideal transport through Haar       [OPEN]
     + positive reflected channels of H AND link-local gluing        [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -89,7 +90,32 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest algebraic component: actual symmetric-power representations.**
+**Latest result: the actual all-degree trace is the original character.**
+[`SU2QuaternionSymmetricPowerTrace.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerTrace.lean)
+proves `trace(Sym^n D(q)) = U_n(q.r)` for every degree and every rational
+unit quaternion, with zero imaginary part. The trace is the sum of the
+actual action's diagonal entries. A two-row coefficient identity, summed
+along the diagonal, gives the trace recurrence; the actual quaternion norm
+supplies its determinant-one relation. No eigenvalue choice or
+diagonalization is needed.
+
+[`SU2QuaternionSymmetricPowerPolynomial.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerPolynomial.lean)
+constructs every literal polynomial matrix entry and proves that evaluation
+recovers the same action. Its diagonal sum evaluates to the ORIGINAL BF4
+`characterPolynomial` whenever the evaluated quaternion has unit norm.
+All raw spectator coefficients remain in the constructed polynomials.
+
+**Important boundary:** these are evaluation identities, not yet identities
+under Haar. The next proof must establish coefficient-probe identities and
+the appropriate sphere-ideal descent before the trace can be used inside
+the original reflected integral. Positive kernel channels, link-local gluing,
+the physical operator gap and continuum passage remain open.
+
+Both new modules passed focused monitored one-worker 20 GiB checks: 33 printed
+axiom gates, all within `{propext, Quot.sound}`, no errors/warnings. No new
+sorry, analytic premise, numerical oracle, or raised proof limit; no full audit.
+
+**Retained algebraic component: actual symmetric-power representations.**
 [`SU2QuaternionTensorPowerAction.lean`](lean/YMGap/Continuum/SU2QuaternionTensorPowerAction.lean)
 lifts the existing Hamilton-quaternion fundamental matrix to every finite
 tensor degree. Composition, identity, inverse and the adjoint identity are
@@ -103,9 +129,9 @@ such tensor from its `n+1` explicit complex coefficients. The resulting
 and preserves its inherited Hermitian form. These are structural proofs for
 every degree, with no large assignment enumeration or binomial square roots.
 
-**Next:** identify the trace of this concrete action with the original
-all-spin character, prove coefficient-retaining polynomial identities usable
-under Haar, then resolve and glue the literal interface kernels. The new
+The trace identification is now proved at the evaluation level above.
+Coefficient-probe identities usable under Haar, followed by resolution and
+gluing of the literal interface kernels, remain open. The
 representation is over rational unit quaternions; it does not itself supply
 the compact-group/Haar bridge. Neither slab reflection positivity nor a
 physical spectral gap is claimed. The original signed-Haar law is unchanged.

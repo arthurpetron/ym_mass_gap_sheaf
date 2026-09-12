@@ -13,6 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual all-degree character trace and literal polynomial matrix (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionSymmetricPowerTrace.lean` and
+  `lean/YMGap/Continuum/SU2QuaternionSymmetricPowerPolynomial.lean`.
+- **discharged**: `coefficient_matrixAction` pins the two-row readout to the
+  actual tensor action. `diagonal_mixed` and the two endpoint recurrences imply
+  `trace_recurrence` for every complex 2x2 matrix. The actual quaternion norm
+  gives `unit_diagonal_product`; `trace_eq_cheb` and its direct coefficient
+  consumer `symmetricAction_trace_eq_cheb` identify the concrete trace with
+  `(Cheb.U n q.r, 0)` at EVERY degree for rational unit quaternions.
+- **literal polynomial realization**: `polynomialMatrixCoefficient` retains
+  the original fundamental polynomial entries and all spectator coefficients.
+  `eval_polynomialMatrixCoefficient` recovers every entry of the same action.
+  `eval_polynomialTrace_eq_characterPolynomial` proves equality to the ORIGINAL
+  BF4 character at evaluation environments where the polynomial quaternion
+  has unit norm. This is not a coefficient-probe or Haar congruence theorem.
+- **OPEN residue**: coefficient-probe trace identities, the trace/solid-zonal
+  identification and sphere-ideal descent under arbitrary supported Haar
+  insertions, followed by positive reflected channels and literal slab gluing.
+  No compact-group completion, physical-time pin, completed exact-law gap,
+  volume/spacing/QFT passage or Clay closure follows from the value identity.
+  No canonical frontier atom/type changed and no new analytic premise.
+- **verification**: both focused monitored one-worker 20 GiB checks passed
+  with `.olean` output, 33 gates (21 + 12), all within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-symmetric-power-trace.log`, `/tmp/ym-symmetric-power-polynomial.log`.
+  No new sorry, numerical oracle, rate or raised proof limit. Exact symbolic
+  algebra uses no new pilot constants. No full build/audit/guard/progress run.
+
 ## Actual quaternion symmetric powers on explicit finite coefficients (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionTensorPowerAction.lean` and
@@ -33,7 +62,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `symmetricAction_one`, `symmetricInner_self_nonneg` and
   `symmetricAction_unitary` prove the all-degree representation and positivity
   laws. No scalar rank replacement or square-root normalization is used.
-- **OPEN residue**: trace identification with the literal all-spin character,
+- **Residue at that checkpoint**: trace identification with the literal all-spin character
+  (now proved at evaluation level above),
   coefficient-retaining polynomial/Haar transport, and positive reflected
   channels composed on the original slab geometry. The rational unit group
   is not asserted compact; pointwise representation identities are not being

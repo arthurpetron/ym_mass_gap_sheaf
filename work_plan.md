@@ -18,7 +18,44 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest representation-theoretic progress (actual symmetric powers):**
+**Latest direct-route progress (actual trace and literal polynomial entries):**
+`SU2QuaternionSymmetricPowerTrace.trace_eq_cheb` proves at every degree that
+the trace of the ACTUAL symmetric coefficient action is `(Cheb.U n q.r, 0)`
+for a rational unit quaternion. `coefficient_matrixAction` first identifies
+a two-row recursion with the original tensor action on arbitrary coefficients.
+`diagonal_mixed`, with its endpoint laws, sums to `trace_recurrence` for any
+complex 2x2 matrix. `unit_diagonal_product` uses the actual quaternion norm;
+`trace_unit_recurrence` and the two base cases complete the all-degree proof.
+No diagonalization, eigenvalue choice, or character hypothesis is used.
+
+`SU2QuaternionSymmetricPowerPolynomial.polynomialMatrixCoefficient` constructs
+the literal polynomial entries. `eval_polynomialMatrixCoefficient` recovers
+the original `symmetricAction` on every basis vector, and
+`eval_polynomialTrace_eq_characterPolynomial` pins the evaluated trace to the
+ORIGINAL BF4 character polynomial whenever the evaluated word has unit norm.
+The constructed polynomials retain every spectator coefficient. Their proved
+comparison is only at evaluation level, not coefficient-probe/Haar level.
+
+**Next mathematical frontier:** prove the polynomial trace recurrence with
+coefficient probes retained, then descend the actual norm/radius relation
+through the existing sphere ideal under arbitrary supported insertions.
+The existing `SU2QuaternionSolidZonalCharacter` supplies a solid-zonal versus
+ordinary-character Haar theorem; the NEW polynomial trace is not yet proved
+to equal that solid-zonal polynomial. Do not apply pointwise equivalence under
+Haar. Positive reflected channels and their link-local gluing remain open,
+as do physical time, the exact-law completed gap, volume/spacing/QFT passage
+and all-group Clay. No canonical atom closed or frontier type changed.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` output, 21 + 12 printed gates within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-symmetric-power-trace.log` and
+`/tmp/ym-symmetric-power-polynomial.log`. No new sorry, analytic premise,
+numerical oracle, rate or proof-limit increase. Exact algebra, no new pilot
+constants. No full build/audit/guard/progress run. The explicit 20 GiB
+override remains mandatory for future checks and Lake targets.
+
+**Retained representation-theoretic progress (actual symmetric powers):**
 `SU2QuaternionTensorPowerAction` constructs the n-fold tensor action of the
 existing Hamilton-quaternion fundamental matrix. `matrixAction_mul` and
 `quaternionAction_mul` prove composition at every degree; identity and inverse
@@ -36,9 +73,8 @@ restriction of the original matrix action, not a dimension-labelled model.
 `symmetricAction_one`, and `symmetricAction_unitary` prove its complex-linear
 representation and positive Hermitian isometry laws for every degree.
 
-**Next mathematical frontier:** the trace of that action equals the original
-all-spin character, plus coefficient-retaining polynomial identities that
-can be consumed under the literal Haar integral. The rational unit-quaternion
+The trace/character evaluation identity is now proved above. Coefficient-probe
+identities consumable under the literal Haar integral remain open. The rational unit-quaternion
 group is not being asserted compact or identified with the Haar completion.
 Positive reflected channels and link-local gluing remain open, as do physical
 time, exact-law completed gap, volume/spacing/QFT passage and all-group Clay.

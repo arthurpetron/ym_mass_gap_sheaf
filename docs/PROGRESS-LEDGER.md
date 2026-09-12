@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual all-degree symmetric-power representations (2026-09-12)
+## Current increment: actual all-degree character trace and polynomial realization (2026-09-12)
+
+PROGRESS: the trace/character evaluation identity is no longer an input.
+`SU2QuaternionSymmetricPowerTrace.trace_eq_cheb` proves it for every degree
+and rational unit quaternion. The proof reads the ACTUAL action's diagonal
+entries, proves a two-row coefficient recurrence, sums it, and uses the
+actual quaternion unit-norm relation. No eigenvalue choice, diagonalization,
+or surrogate character is introduced.
+
+`SU2QuaternionSymmetricPowerPolynomial` constructs literal polynomial matrix
+entries; `eval_polynomialMatrixCoefficient` recovers the previously proved
+coefficient action entry by entry. The evaluated diagonal sum is pinned to
+the ORIGINAL BF4 `characterPolynomial` by
+`eval_polynomialTrace_eq_characterPolynomial`. All constructed raw polynomial
+data retain the spectator variables.
+
+The proven equality is at evaluation level. Next: coefficient-probe trace
+recurrence, trace/solid-zonal identification and sphere-ideal descent under
+arbitrary supported insertions. Pointwise equality is not silently used
+under Haar. Positive reflected channels and their literal slab gluing,
+physical time, the completed exact-law gap, volume/spacing/QFT passage and
+all-group Clay remain open. No canonical atom or frontier type changed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks and
+emitted `.olean` files. All 33 gates (21 + 12) are within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-symmetric-power-trace.log` and `/tmp/ym-symmetric-power-polynomial.log`.
+No new sorry, analytic premise, numerical oracle, rate or raised proof limit;
+exact algebra requires no new pilot constants. No full build/audit/guard/
+progress run. The refuted exact/positive-law identity remains refuted.
+
+## Previous increment: actual all-degree symmetric-power representations (2026-09-12)
 
 PROGRESS on a necessary algebraic input to the direct heat-kernel channel
 route. This does not close positivity of the literal slab form. The actual
