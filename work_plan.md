@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-11)
+## Whole-project goal and live completion map (updated 2026-09-12)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -16,7 +16,7 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current physical BF4 gap frontier (2026-09-11)
+### Current physical BF4 gap frontier (2026-09-12)
 
 The actual finite SU(2) vacuum-sector boundary Gram has a verified head--tail
 contraction theorem, and its new-tail trace has been reduced exactly to
@@ -568,10 +568,26 @@ The next load-bearing producers are, in causal order:
    The two maps are conjugate, and their dense outputs agree exactly with
    the physical sector action and pairings. Output diagonal rate `gMod`
    is not physical decay: its representative indices still depend on the
-   input/output moduli. Next prove full-domain operator laws and intertwining
-   with the existing completed marginal sector, using representative limits
-   and the already proved full pairing pin. No arbitrary quotient selection,
-   new transfer producer or analytic hypothesis is needed for this extension.
+   input/output moduli. `GNSJointPairingContinuity` now proves joint pairing
+   and squared-difference continuity: fixed-slot terms converge and
+   Cauchy--Schwarz kills the error--error term. `GNSDenseCompletionLaws`
+   passes the sharp distance bound to all completion vectors and constructs
+   the input outer family with its original modulus. It also proves dense
+   testing separates completion vectors. `BF4PhysicalCubeCompletedTransferLaws`
+   pins the mixed dense pairing and proves positivity, self-adjointness,
+   rational linearity, zero preservation, and exact norm/difference
+   contraction on BOTH entire completions. Reflected add/sub/scalar operations
+   agree with the finite signed-span operations. `cubeTransfer_sector` proves
+   whole-marginal-sector intertwining by dense testing and self-adjointness,
+   not a second recoding construction. `cubeTransferPower_sector_moments`
+   pins every conditional iteration to the original global physical moment
+   with the exact one-insertion shift. These three modules passed 49 axiom
+   gates in focused monitored one-worker 20 GiB checks (2026-09-12); no full
+   build/audit/guard was run. No arbitrary quotient selection, new transfer
+   producer or analytic hypothesis is introduced. The next completed-carrier
+   frontier is a stationary sector vacuum with a proved positive norm,
+   followed by its same-object centered correlations. Conditional powers
+   still have no geometric-time identification; the strict gap is open.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted

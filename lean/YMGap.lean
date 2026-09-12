@@ -3771,6 +3771,9 @@ import YMGap.Continuum.RCBilinearDifference
 import YMGap.Continuum.BF4PhysicalCubeDenseTransfer
 import YMGap.Continuum.GNSDenseCompletionExtension
 import YMGap.Continuum.BF4PhysicalCubeCompletedTransfer
+import YMGap.Continuum.GNSJointPairingContinuity
+import YMGap.Continuum.GNSDenseCompletionLaws
+import YMGap.Continuum.BF4PhysicalCubeCompletedTransferLaws
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

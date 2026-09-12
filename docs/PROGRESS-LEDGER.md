@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: maps on the entire raw/E completions with actual dense agreement (2026-09-12)
+## Current increment: full transfer laws and entire-sector intertwining (2026-09-12)
+
+This is PROGRESS after constructing the entire-completion endomorphisms.
+The SAME maps are now positive, self-adjoint, rational-linear contractions
+on all raw/reflected vectors; the sharp squared-distance constant is one.
+The entire marginal-sector comparison intertwines this action, and every
+natural-power moment on its image is the original physical conditional
+moment with the exact one-insertion shift.
+
+The mathematical simplification is joint continuity plus dense testing.
+`GNSJointPairingContinuity` expands a pairing into fixed-slot terms and an
+error--error term; Cauchy--Schwarz makes the latter null with an explicit
+outer rate. `GNSDenseCompletionLaws` passes the dense distance estimate
+without loss and proves separation by dense pairings. The physical module
+`BF4PhysicalCubeCompletedTransferLaws` proves its mixed dense pairing pin,
+then symmetry and positivity by cancellation of the actual normalization.
+Self-adjointness and nondegeneracy give vector additivity and rational
+homogeneity. Testing against a finite cube vector moves the transfer onto
+that test, so the original sector identity proves `cubeTransfer_sector`
+without constructing a second output recoding. This is a proved identity
+of the existing maps, not a replacement operator or a new hypothesis.
+
+Next: the stationary sector vacuum with positive norm, and its centered
+same-object correlations. Fixed w=1/400 and extent one remain essential.
+The raw root cylinder is not a stationary vacuum; conditional iterations
+are not yet geometric Euclidean time. Strict gap, volume/spacing/QFT and
+all-group Clay remain open. No scorecard atom is claimed closed.
+
+All three new modules passed focused monitored one-worker 20 GiB checks;
+all 49 printed gates are empty or use only propext/Quot.sound. Final logs
+have no errors or warnings; default proof limits are unchanged. Root
+imports, landing page, work plan and sorry ledger are updated. No full
+build/audit/guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: maps on the entire raw/E completions with actual dense agreement (2026-09-12)
 
 This is PROGRESS after the full completed-sector pairing identity. The
 actual conditional action now has Cauchy-representative outputs on every
@@ -24,10 +58,11 @@ endomaps. Their explicit output modulus gMod measures a reparametrized
 Cauchy sequence, NOT physical decay; sample indices depend on input and
 dense-output moduli. No quotient representative is selected.
 
-Next: prove the new maps' full-domain operator laws and intertwining with
-the entire existing completed marginal sector. Those are not discharged
-by the older laws for mappedTransfer, whose domain remains the marginal
-sector. Fixed w=1/400 and extent one remain essential scope restrictions.
+The new maps' full-domain rational-linear operator laws and intertwining
+with the entire existing completed marginal sector are now proved in the
+current increment above. Those required their own proofs, not just the
+older laws for mappedTransfer, whose domain remains the marginal sector.
+Fixed w=1/400 and extent one remain essential scope restrictions.
 Stationary sector vacuum, geometric time, strict gap, volume/spacing/QFT
 and all-group Clay remain open. No new analytic premise is assumed.
 
@@ -61,8 +96,9 @@ anchor w=1/400 and extent one. The map's domain is still the marginal
 sector; it is not yet an endomorphism of the entire reflected completion.
 
 The representative-level dense action, sharp difference bound and entire-
-completion extension are now constructed above. Full operator laws and
-whole-source intertwining remain. No arbitrary quotient
+completion extension are now constructed above. Full rational-linear
+operator laws and whole-source intertwining are proved in the latest
+increment. No arbitrary quotient
 representatives should be selected. Stationary sector vacuum, geometric
 time, strict gap, volume/spacing/QFT and all-group Clay remain open.
 

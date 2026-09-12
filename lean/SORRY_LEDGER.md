@@ -13,6 +13,55 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full cube transfer laws, whole-sector intertwining and same-object moments (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/GNSJointPairingContinuity.lean`,
+  `lean/YMGap/Continuum/GNSDenseCompletionLaws.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean`.
+- **analytic extension**: `limitRate` exposes the existing completion's
+  outer rate X.mod(epsilon/4); `pairedErrorRate` takes the two rates' maximum.
+  `pairedError_converges` bounds the error--error pairing at the SAME inner
+  rational index by Cauchy--Schwarz. `pairing_converges` adds the existing
+  fixed-slot continuity terms; `difference_converges` uses the four-pairing
+  identity. `inputOuter` retains the input modulus, and its limit is proved
+  equal to the original completion class. No square root, representative
+  choice or new analytic input is used.
+- **full-space consequences**: `completionMap_nonexpansive` passes the
+  dense bound with constant exactly one. Mixed pairing limits pass symmetry
+  and positivity to that SAME extension. `eq_of_distance_le_zero`,
+  `eq_of_pairings_equal` and `eq_of_dense_pairings` establish separation
+  from original representative distances and dense tests.
+- **actual physical operator**: `rawAction_mixed_pairing` pins the dense
+  input/output pairing to the existing physical sector action. Cancelling
+  the actual positive normalization proves `rawAction_selfAdjoint` and
+  `rawAction_positive`. `cubeRawTransfer_nonexpansive`, `_selfAdjoint`,
+  `_positive`, `_add`, `_zero`, `_smul` and `_contraction` hold on ALL raw
+  completion vectors. `cubeScalarData` constructs the missing rational
+  scalar-distributivity datum for this same physical GNSData. Reflected
+  add/sub/scalar operations agree with the dense signed-span operations,
+  and the corresponding `cubeTransfer_*` laws hold on ALL reflected vectors.
+- **whole-source pin**: `cubeReflected_ext_dense` separates the reflected
+  completion. `cubeTransfer_sector` moves the transfer across each dense
+  test and uses the existing sector self-adjointness identity: the ENTIRE
+  marginal-sector comparison now intertwines the full-space endomorphism.
+  `cubeTransferPower_sector` and `_sector_moments` identify every conditional
+  power and its original global physical moment, with the exact extra
+  insertion in the reflected form. No second recoding producer is assumed.
+- **scope / OPEN residue**: fixed w=1/400 and extent one. The new laws close
+  the entire-completion transfer/intertwining bridge, not a Clay scorecard
+  atom. Rational linearity is proved; no additional CReal-scalar action is
+  claimed. A stationary sector vacuum with positive norm is the next
+  carrier frontier; the nonzero root cylinder is not such a witness.
+  Geometric-time identification, strict vacuum-complement gap, controlled
+  thermodynamic/spacing/QFT passage and all-group Clay remain open.
+  No sorry, axiom, classical extraction or new frontier premise is added.
+- **verification**: all three new modules passed focused monitored
+  one-worker 20 GiB checks with `.olean` output. All 49 printed gates are
+  empty or subsets of `{propext, Quot.sound}`; final logs have no errors
+  or warnings. Default proof resource limits are unchanged. The root Lean
+  edit is imports only. No full build/audit/guard, progress script or
+  numerical oracle was run. GitHub Actions remains disabled.
+
 ## Construct transfer maps on the entire raw and reflected cube completions (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/RCBilinearDifference.lean`,
@@ -47,9 +96,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `_dense_pairing` pins the actual two-insertion physical output pairings.
 - **scope / OPEN residue**: fixed w=1/400, extent one. This closes construction
   of the entire-completion maps with exact actual dense agreement. Full-
-  domain positivity, self-adjointness, contraction/linearity and intertwining
-  with the ENTIRE existing marginal sector still require proofs about these
-  new maps; the older mapped-sector laws are not substituted for them.
+  domain positivity, self-adjointness, contraction/rational linearity and
+  intertwining with the ENTIRE existing marginal sector are now proved in
+  the successor entry above, for these new maps themselves.
   Stationary sector vacuum, geometric time, strict gap, thermodynamic/
   spacing/QFT and all-group Clay remain open. The general DenseMap interface
   is concretely inhabited here, not a new unresolved analytic premise.
@@ -92,7 +141,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   is closed, but `mappedTransfer` is NOT an endomorphism of the entire
   reflected completion. The actual dense action data, sharp difference
   bound and entire-completion extension are now constructed in the entry
-  above. Full-domain operator laws and whole-source intertwining remain.
+  above. Full-domain rational-linear operator laws and whole-source
+  intertwining are now proved in the latest entry.
   A stationary sector vacuum, geometric time, strict gap,
   thermodynamic/spacing/QFT and all-group Clay remain open. No sorry,
   new analytic premise or scorecard atom is added or discharged.
