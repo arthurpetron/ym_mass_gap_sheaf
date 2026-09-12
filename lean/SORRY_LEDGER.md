@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Original fixed-observable cutoff limit and joint interface selection (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBoundaryCutoffRecoding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSelectedFaceDegreeSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabInterfaceCutoffSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAnchoredCutoffLimit.lean`.
+- **discharged**: actual finite boundary recoding, with both heat-dressed
+  boundary polynomials preserved coefficientwise; inserted selected-face
+  annihilation with all other twenty-three face labels unrestricted;
+  explicit maximum of all exposed-link degree bounds; exact selection of
+  weighted interface terms and filtering of the original enumeration;
+  joint stabilization `interfacePairing_stable` of the entire original
+  interface. `exactCutoffPairing_stable`, `exactCutoffPairingModulus`,
+  `exactCutoffPairingLimit` and `exactCutoffPairingLimit_exact` give the
+  ORIGINAL signed bilinear's computed rational CReal limit and exact modulus
+  for each fixed finite boundary observable. `exactCutoffPairingValue_nonnegative`
+  proves the quadratic limit nonnegative for w >= 0, via finite positivity
+  and the exact stabilized identity, not an assumed limit-order principle.
+- **OPEN residue**: a common cutoff-limit observable carrier and completed
+  same-form GNS realization, arbitrary-volume positivity, geometric physical
+  time/transfer, strict completed vacuum-complement gap, volume/spacing/QFT
+  and all-group Clay. Current scope is extent one and fixed finite boundary
+  observables; representation-cutoff removal is not a continuum limit.
+  No canonical atom/type changed; the exact/positive identity remains refuted.
+  No new sorry or analytic premise. The degree cutoff is an algebraic
+  selection bound, NOT a coupling-uniform spectral bound.
+- **verification**: existing focused boundary-recoding check plus three new
+  focused monitored one-worker 20 GiB checks with `.olean` outputs;
+  15 + 10 + 7 + 18 = 50 gates within `{propext, Quot.sound}`, final error/warning
+  free. Logs `/tmp/ym-boundary-cutoff-recoding.log`,
+  `/tmp/ym-slab-selected-degree-selection.log`, `/tmp/ym-interface-cutoff-selection.log`,
+  `/tmp/ym-slab-anchored-cutoff-limit.log`. No raised proof limit, numerical
+  oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
 ## Exact harmonic degree selection and one-insertion cutoff saturation (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadDegreeDifferential.lean`,
@@ -31,8 +65,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the explicit `headDegreeBound` of a FIXED multiplier, every rational w
   and all sixteen orientations. `exposedHeatPairingLimit` and
   `exposedHeatPairingLimit_exact` give its computed rational CReal limit.
-- **OPEN residue**: fixed finite boundary recoding and joint interface
-  stabilization. Other face factors and the state list change with K in
+- **subsequent discharge**: fixed finite boundary recoding and joint interface
+  stabilization are now proved in the entry above. Other face factors and the state list change with K in
   the full slab; the one-insertion result alone does not prove that family's
   stabilization or provide a cutoff-compatible reflected carrier.
   Arbitrary-volume positivity, physical time/transfer, strict completed

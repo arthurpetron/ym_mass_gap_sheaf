@@ -74,7 +74,13 @@ REQUIRED PHYSICAL ROUTE
     -> dense pairing pin AND norm-one, non-null vacuum-code vector [PROVED]*****
     + original-character high-spin Haar annihilation               [PROVED]
     -> single heat insertion stabilizes at explicit degree cutoff  [PROVED]******
-    + fixed boundary recoding AND joint interface stabilization     [OPEN]
+    + fixed boundary recoding, both original heat-dressed sides    [PROVED]
+    + exposed-link geometry: other 23 faces have selected degree 0 [PROVED]
+    -> above-bound labels vanish in the FULL weighted interface    [PROVED]
+    + exact enumeration filter AND retained heat coefficients      [PROVED]
+    -> joint interface pairing stabilizes at explicit degree bound [PROVED]*******
+    -> SAME fixed-observable bilinear has an explicit CReal limit  [PROVED]*******
+    + quadratic limit >= 0 for w >= 0                             [PROVED]*******
     + cutoff-compatible exact-law carrier and physical-time pin    [OPEN]
     + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -107,9 +113,12 @@ WHOLE-PROJECT GOAL / CLAY TARGET
       Cauchy representative families and moduli. Not cutoff removal,
       arbitrary-volume positivity, physical vacuum stationarity or a gap.
 ****** One actual four-link heat insertion, fixed polynomial multiplier P,
-       K >= headDegreeBound P, every rational w and orientation. The other
-       slab factors and boundary carrier also change with K; their joint
-       stabilization is NOT supplied by this single-insertion theorem.
+       K >= headDegreeBound P, every rational w and orientation. The full
+       interface theorem below additionally handles all other face labels.
+******* Extent one, fixed finite boundary observables, every rational w.
+        The exact stabilization index is computed from the anchor and the
+        24 exposed-link degrees. Quadratic positivity requires w >= 0.
+        A common completed cutoff-limit carrier and physical time remain open.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -127,7 +136,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: exact degree selection removes the tail of a single original heat insertion.**
+**Latest result: the ORIGINAL fixed-observable slab bilinear has an exact cutoff limit.**
+[`BF4ExactSlabBoundaryCutoffRecoding.lean`](lean/YMGap/Continuum/BF4ExactSlabBoundaryCutoffRecoding.lean)
+keeps both heat-dressed boundary polynomials unchanged at every larger
+cutoff, using a finite Boolean label test. Only the original interface varies.
+[`BF4ExactSlabSelectedFaceDegreeSelection.lean`](lean/YMGap/Continuum/BF4ExactSlabSelectedFaceDegreeSelection.lean)
+proves selected-face annihilation with the other twenty-three characters
+retained at arbitrary spins. Their degree in the selected exposed link is
+zero, so only the fixed observable determines the selection bound.
+
+[`BF4ExactSlabInterfaceCutoffSelection.lean`](lean/YMGap/Continuum/BF4ExactSlabInterfaceCutoffSelection.lean)
+takes the explicit maximum of the twenty-four degree bounds and kills every
+above-bound term, retaining all original heat coefficients.
+[`BF4ExactSlabAnchoredCutoffLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAnchoredCutoffLimit.lean)
+then proves `interfacePairing_stable` by exact filtering of the original
+enumeration. `exactCutoffPairing_stable` and `exactCutoffPairingLimit_exact`
+pin the ORIGINAL signed bilinear to its computed rational CReal limit at
+every cutoff beyond `exactCutoffPairingModulus`.
+`exactCutoffPairingValue_nonnegative` proves the quadratic limit nonnegative
+for w >= 0. Scope: extent one and each fixed finite boundary observable.
+
+**Next:** assemble these compatible observables into a common completed
+cutoff-limit carrier, then construct geometric physical time/transfer and
+a strict gap on its own vacuum complement. Arbitrary-volume positivity,
+volume/spacing limits, QFT axioms and the all-group Clay target remain open.
+The four modules have 50 clean axiom gates within `{propext, Quot.sound}`
+from focused monitored checks; no new sorry, analytic premise or proof-limit
+increase. No full-tree audit was run.
+
+**Preceding result: exact degree selection for a single original heat insertion.**
 [`SU2QuaternionHarmonicDegreeSelection.lean`](lean/YMGap/Continuum/SU2QuaternionHarmonicDegreeSelection.lean)
 proves that a head-homogeneous harmonic of degree n has zero partial Haar
 pairing with every lower-degree polynomial, retaining all tail coefficients.
@@ -146,11 +183,9 @@ P fixed, at every rational w and all sixteen orientations.
 `exposedHeatPairingLimit` is its explicitly evaluated rational value in CReal;
 `exposedHeatPairingLimit_exact` supplies the stabilization pin.
 
-**Next:** keep a finite boundary observable fixed across representation
-cutoffs, then establish joint interface stabilization on the literal slab.
-The other heat factors and the boundary state list also change with K, so
-the single-insertion theorem alone is not a cutoff-compatible slab carrier.
-Physical time/transfer, its strict completed gap and continuum/Clay remain open.
+At that checkpoint, boundary recoding and joint interface stabilization
+remained open. They are now proved above. A common completed limit carrier,
+physical time/transfer, its strict completed gap and continuum/Clay remain open.
 Three focused monitored checks passed: 25 axiom gates within
 `{propext, Quot.sound}`, no new sorry or analytic premise. No full-tree audit.
 

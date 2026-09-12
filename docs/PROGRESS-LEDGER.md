@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact harmonic selection and one-insertion cutoff saturation (2026-09-12)
+## Current increment: original fixed-observable cutoff limit by joint interface selection (2026-09-12)
+
+PROGRESS: `BF4ExactSlabBoundaryCutoffRecoding.exact_bilinear_anchored` fixes
+both original boundary polynomials across cutoffs, retaining their heat
+dressing. `BF4ExactSlabSelectedFaceDegreeSelection.interior_insert_haar_zero`
+proves selected-face annihilation under a supported insertion, with all
+other face labels unrestricted. The existing exposed-link incidence and
+harmonic degree theorem meet at the SAME original 116-link Haar integral.
+
+`BF4ExactSlabInterfaceCutoffSelection.interfaceDegreeBound` computes a
+maximum over all twenty-four actual faces. `interfacePolynomial_insert_zero`
+kills every above-bound weighted term. The actual larger enumeration filters
+exactly to the bound and retained heat weights agree, giving
+`BF4ExactSlabAnchoredCutoffLimit.interfacePairing_stable` for the ENTIRE
+interface, not just one heat insertion.
+
+`exactCutoffPairing_stable` and `exactCutoffPairingLimit_exact` pin the ORIGINAL
+signed bilinear to an explicitly computed rational CReal limit, with the
+exact modulus `exactCutoffPairingModulus`. `exactCutoffPairingValue_nonnegative`
+proves the quadratic value nonnegative for w >= 0. Scope: extent one and
+each fixed finite boundary observable, recoded by the actual finite label test.
+
+Next: assemble a common completed cutoff-limit carrier and construct geometric
+physical time/transfer, then a strict gap on its own vacuum complement.
+Arbitrary-volume positivity, thermodynamic/continuum/QFT and all-group Clay
+remain open. No canonical atom/type changed; no refuted identity is used.
+The degree cutoff is algebraic selection, not a coupling-uniform gap rate.
+
+Verification: existing focused boundary-recoding check plus three new focused
+monitored one-worker 20 GiB checks, `.olean` outputs, 15 + 10 + 7 + 18 = 50
+gates within `{propext, Quot.sound}`, final error/warning free. Logs
+`/tmp/ym-boundary-cutoff-recoding.log`, `/tmp/ym-slab-selected-degree-selection.log`,
+`/tmp/ym-interface-cutoff-selection.log`, `/tmp/ym-slab-anchored-cutoff-limit.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle, rate
+or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: exact harmonic selection and one-insertion cutoff saturation (2026-09-12)
 
 PROGRESS: `SU2QuaternionHarmonicDegreeSelection.partialHaarHead_harmonic_degree_bound`
 proves a degree-n homogeneous harmonic has zero ORIGINAL partial Haar
@@ -22,8 +58,8 @@ P fixed, at every rational w. `exposedHeatPairingLimit` and
 `exposedHeatPairingLimit_exact` provide its rational CReal limit and explicit
 stabilization pin. No numerical convergence estimate is assumed.
 
-Next: fixed finite boundary-observable recoding and joint interface
-stabilization. The full slab changes other factors and its boundary state
+At that checkpoint, boundary recoding and joint interface stabilization were
+next; both are now proved above. The full slab changes other factors and its boundary state
 list with K; this single-insertion theorem does not yet stabilize that family.
 Cutoff-compatible exact carrier, arbitrary-volume positivity, physical time,
 strict completed gap, thermodynamic/continuum/QFT and all-group Clay remain

@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest exact-law progress (harmonic degree selection and one-insertion cutoff saturation):**
+**Latest exact-law progress (joint interface stabilization and original fixed-observable cutoff limit):**
+`BF4ExactSlabBoundaryCutoffRecoding.boundaryExtension` uses the actual finite
+face-label test. `centralHalfStates_filter`, `lowerObservable_extension`
+and `upperObservable_extension` preserve both original heat-dressed boundary
+polynomials; `exact_bilinear_anchored` isolates the remaining interface.
+
+`BF4ExactSlabSelectedFaceDegreeSelection.interior_insert_haar_zero` applies
+the proved harmonic degree selection to an actual selected face, with the
+other twenty-three character factors at arbitrary labels. Their exposed-link
+degree is zero. Both physical block reindexings preserve the ORIGINAL Haar
+value under the fixed supported insertion; full support is checked before
+using the canonical-word prefix identity.
+
+`BF4ExactSlabInterfaceCutoffSelection.interfaceDegreeBound` computes the
+maximum of the twenty-four selected degrees. `interfacePolynomial_insert_zero`
+kills every above-bound label, retaining the original full heat weight.
+`BF4ExactSlabAnchoredCutoffLimit.interfacePairing_stable` filters the actual
+boundary-channel enumeration to that degree bound. Every retained heat
+coefficient agrees, so ALL twenty-four changing interface factors stabilize
+together under the fixed supported insertion.
+
+`exactCutoffPairing_stable` pins the ORIGINAL signed bilinear on explicitly
+recoded finite boundary observables to `exactCutoffPairingValue`.
+`exactCutoffPairingModulus` is a computed exact saturation index;
+`exactCutoffPairingLimit` and `exactCutoffPairingLimit_exact` give the rational
+CReal limit and its exact pin at every precision. The quadratic limit is
+nonnegative for w >= 0 by `exactCutoffPairingValue_nonnegative`.
+
+Next residue: a common cutoff-limit observable carrier and its completed
+same-form GNS realization, arbitrary-volume positivity, geometric physical
+time/transfer, and a strict gap on that operator's completed vacuum complement.
+Volume/spacing/QFT and all-group Clay remain OPEN. This is extent-one
+representation-cutoff removal for each fixed finite observable, not a
+thermodynamic/continuum limit or a coupling-uniform spectral estimate.
+No canonical atom/type changed; the refuted exact/positive identity is unused.
+
+Verification: the already-checked boundary recoding and three new focused
+monitored one-worker 20 GiB checks, all with `.olean` outputs;
+15 + 10 + 7 + 18 = 50 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-boundary-cutoff-recoding.log`,
+`/tmp/ym-slab-selected-degree-selection.log`, `/tmp/ym-interface-cutoff-selection.log`,
+`/tmp/ym-slab-anchored-cutoff-limit.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+**Preceding exact-law progress (harmonic degree selection and one-insertion cutoff saturation):**
 `SU2QuaternionHeadDegreeDifferential.activeDerivative` deletes only terms
 with zero differentiation exponent. `activeDerivative_coeff` and
 `activeLaplacian_coeff` preserve the ORIGINAL differential operators
@@ -41,8 +86,8 @@ for every K >= that bound, at every rational w and orientation.
 `exposedHeatPairingLimit_exact` pins every sufficiently large cutoff to it.
 This is exact algebraic saturation, not a numerical tail estimate or gap.
 
-Next residue: fixed finite boundary-observable recoding across cutoffs,
-then joint interface stabilization on the literal slab. The single-insertion
+At that checkpoint, the residue was fixed finite boundary-observable recoding
+and joint interface stabilization; both are now proved above. The single-insertion
 theorem fixes its multiplier; it does NOT yet handle the full family's
 changing heat factors and growing boundary state list. Cutoff-compatible
 exact-law carrier, arbitrary-volume positivity, geometric time/transfer,
