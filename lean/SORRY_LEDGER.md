@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Complete temporal upper-link and original plaquette images (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionTranslationWordComposition.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeUpperCoordinates.lean`.
+- **discharged**: `linkSteps_upper_image` composes the actual endpoint shears
+  to `g_start^-1 U g_end`, including missing-endpoint identity fallbacks.
+  `subchain_fixes_vertexGauge` fixes every gauge under every ledger subchain.
+  `physical_batches_upper_image` proves all other duplicate-free physical
+  batches preserve that ordered word. `temporalLedger_upper_assignment`
+  closes the WHOLE chain's upper-link image at every extent/half-plane;
+  `temporalLedger_assignment` includes ALL actual physical links.
+  `temporalLedger_plaquette_word` identifies the image of every ORIGINAL
+  oriented plaquette holonomy with the common temporal face word.
+  The composition module preserves all coefficient probes after common
+  carrier padding under the original chain, ordered products and conjugation;
+  constants and empty chains are included.
+- **OPEN residue**: extend the link/plaquette-word identities to the SAME
+  full reflected observable's polynomial substitution, then global
+  reflected-square gluing. The ledger's Haar invariance and full coordinate
+  image are proved; full common-assignment observable identity, slab
+  positivity, physical time/transfer, completed exact-law gap,
+  volume/spacing/QFT and all-group Clay remain open. No canonical field
+  changed or atom closed; the refuted exact/positive-law identity is unused.
+- **verification**: two targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 19 + 10 = 29 gates within `{propext, Quot.sound}`, final
+  error/warning free. Logs `/tmp/ym-translation-word-composition.log` and
+  `/tmp/ym-temporal-gauge-upper-coordinates.log`. No new sorry, analytic
+  premise, raised proof limit, numerical oracle or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Literal all-extent temporal ledger and fixed frame (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean`
@@ -30,8 +60,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `temporalLedger_nonupper_assignment` identifies the WHOLE chain with
   `upperTemporalLink` on all actual lower/fixed links; its coefficient
   version uses common explicit padding and covers empty ledgers.
-- **OPEN residue**: full upper-link coordinate image `g_start^-1 U g_end`,
-  same-observable polynomial substitution identification, and
+- **subsequent discharge**: the complete upper-link and original plaquette
+  images are now proved in the entry above.
+- **OPEN residue**: same-observable polynomial substitution identification, and
   reflected-square gluing on the SAME signed slab form. The ledger's Haar
   invariance is proved, but Haar invariance of the independently defined
   common assignment is not yet proved. Slab positivity, physical

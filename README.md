@@ -60,9 +60,10 @@ REQUIRED PHYSICAL ROUTE
     + all-degree Haar shears and their finite chains, no scans      [PROVED]
     + all four shear coordinate images, coefficient-sensitive       [PROVED]
     + literal all-extent temporal ledger preserves original Haar    [PROVED]
-    + full ledger agrees with assignment on lower/fixed links       [PROVED]
     + common upper temporal assignment: all three face classes     [PROVED]
-    + identify that assignment with Haar-preserving shears          [OPEN]
+    + full ledger agrees with assignment on ALL physical links      [PROVED]
+    -> ORIGINAL plaquette words have the common temporal image      [PROVED]
+    + extend substitution to the full reflected observable          [OPEN]
     + link-local gluing preserving the reflected observable         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -103,7 +104,26 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: literal temporal ledger and its full fixed-coordinate frame.**
+**Latest result: the full upper-link image and original plaquette words.**
+[`BF4ExactSlabTemporalGaugeUpperCoordinates.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeUpperCoordinates.lean)
+proves that the WHOLE original chain sends every upper link to
+`g_start^-1 U g_end`. The target link's two endpoint shears produce that word;
+every other link batch preserves it because its selected coordinate is
+different and all endpoint gauges are fixed. Absent endpoints remain the
+existing identity fallback. Together with the lower/fixed theorem, this
+identifies the common assignment on EVERY actual physical link, at arbitrary
+extent and half-plane. `temporalLedger_plaquette_word` then identifies the
+image of every ORIGINAL oriented plaquette holonomy with the previously
+defined common temporal face word.
+
+[`SU2QuaternionTranslationWordComposition.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationWordComposition.lean)
+supplies coefficient-sensitive chain composition, ordered multiplication,
+conjugation and constant preservation. Explicit common padding covers empty
+chains; no Haar integration or sphere relation is used to erase a discrepancy.
+Extending the substitution identity to the full reflected observable and
+gluing its channels into squares remain open.
+
+**Preceding result: literal temporal ledger and its full fixed-coordinate frame.**
 [`BF4ExactSlabTemporalGaugeLedger.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean)
 generates the actual upper-link shear chain at every slab extent: left-inverse
 by the starting fixed-time link, then right-direct by the ending fixed-time
@@ -116,7 +136,8 @@ every supported polynomial, with no degree bound or scan hypothesis.
 identifies the WHOLE chain with the common assignment on every actual lower
 or fixed link. Every emitted multiplier is a fixed-time link, and the chain
 leaves these coordinates unchanged. The coefficient version uses explicit
-common padding and covers empty ledgers. The upper-link image remains open.
+common padding and covers empty ledgers. The new theorem above completes the
+upper-link image.
 
 **Preceding result: all four shear images, with full coefficient equality.**
 [`SU2QuaternionCoordinateConjugation.lean`](lean/YMGap/Continuum/SU2QuaternionCoordinateConjugation.lean)
@@ -132,8 +153,8 @@ multiplier, is unchanged.
 upgrades those prefix identities to full coefficient-probe equality against
 the correctly padded original quaternion product. This is the equality
 consumed by the existing word/product composition theorems, without finite
-coordinate scans. It does not yet identify the full temporal assignment
-with a shear chain.
+coordinate scans. The full-chain link and plaquette-word identification is
+now supplied by the latest result above.
 
 **Preceding result: structural direct selected-link substitution.**
 [`SU2QuaternionHeadSubstitutionPrefix.lean`](lean/YMGap/Continuum/SU2QuaternionHeadSubstitutionPrefix.lean)
@@ -160,14 +181,14 @@ preserved at every spin, and crossing faces reduce to their actual reflected
 spatial-link Gram kernel at every odd slab extent. All spectator insertions
 remain available, including overlapping face factors.
 
-**Next:** prove the full ledger's upper-link image `g_start^-1 U g_end`,
-transport the same observable through that identified substitution, then
+**Next:** extend the proved link/plaquette-word images to the full reflected
+observable under the same substitution, then
 combine the reflected channels into the SAME
 slab form's square decomposition. The face algebra is proved; the global
 change-of-variables identity and slab positivity are not. Physical time,
 the completed physical gap and continuum/Clay construction remain open.
 
-Both new modules passed focused monitored one-worker 20 GiB checks: 24
+Both new modules passed focused monitored one-worker 20 GiB checks: 29
 printed gates within `{propext, Quot.sound}`, no final errors/warnings.
 No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
 

@@ -18,7 +18,41 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (literal all-extent ledger and fixed frame):**
+**Latest gluing-route progress (full upper-link and original plaquette images):**
+`BF4ExactSlabTemporalGaugeUpperCoordinates.linkSteps_upper_image` composes
+the actual endpoint shears to `g_start^-1 U g_end`, including missing endpoints.
+`subchain_fixes_vertexGauge` fixes every vertex gauge under every subchain
+of the literal ledger, including identity fallbacks. `physical_batches_upper_image`
+uses duplicate-free physical link batches: the target batch supplies its
+image, and all other batches preserve that ordered word. Hence
+`temporalLedger_upper_assignment` closes the full upper-link image at every
+extent/half-plane, and `temporalLedger_assignment` identifies the WHOLE
+original chain with the ONE common assignment on ALL actual physical links.
+`temporalLedger_plaquette_word` propagates this to every ORIGINAL oriented
+plaquette holonomy, with coefficient equality before Haar integration.
+
+`SU2QuaternionTranslationWordComposition` supplies common-padding coefficient
+composition under the original chain, ordered products, conjugation and
+constant preservation. The padding is explicit even for empty chains.
+No coordinate scan, sphere relation, assumed semantic certificate, dummy
+variable or new analytic premise is used.
+
+Next smaller residue: extend these link/plaquette-word identities to the
+full reflected observable's polynomial substitution, then prove global
+reflected-square gluing. The ledger's Haar invariance and coordinate images
+are proved; the full common-assignment observable identity and slab positivity
+are not yet proved. Physical time/transfer, the completed exact-law gap,
+volume/spacing/QFT and all-group Clay remain OPEN. No canonical atom/type
+change or revival of the refuted exact/positive-law identity.
+
+Verification: two focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 19 + 10 = 29 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-translation-word-composition.log` and
+`/tmp/ym-temporal-gauge-upper-coordinates.log`. No new sorry, analytic input,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (literal all-extent ledger and fixed frame):**
 `BF4ExactSlabTemporalGaugeLedger.temporalTranslationSteps` constructs the
 actual carrier's upper-link shear chain for every extent and half-plane.
 Each present starting fixed-time link gives a left-inverse step; each
@@ -39,7 +73,7 @@ identifies the WHOLE chain with `upperTemporalLink` on every actual lower
 or fixed link; the coefficient version uses explicit common padding and
 covers empty ledgers. This is no longer just an elementary-step assertion.
 
-Next smaller residue: full upper-link image `g_start^-1 U g_end`, then the
+At that checkpoint the residue was: full upper-link image `g_start^-1 U g_end`, then the
 same-observable polynomial substitution identification and global
 reflected-square gluing. The ledger's Haar invariance is proved; Haar
 invariance of the independently defined common assignment is still OPEN

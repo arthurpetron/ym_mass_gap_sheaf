@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: literal temporal ledger and fixed frame (2026-09-12)
+## Current increment: complete upper-link and plaquette-word images (2026-09-12)
+
+PROGRESS: `BF4ExactSlabTemporalGaugeUpperCoordinates.temporalLedger_upper_assignment`
+proves the WHOLE actual ledger sends every upper physical link to
+`g_start^-1 U g_end`, for arbitrary extent/half-plane. The target batch's two
+endpoint shears compose in order; every other batch preserves the resulting
+word because the coordinate is different and the endpoint gauges remain
+fixed. Missing-endpoint identities are included. `temporalLedger_assignment`
+combines this with the lower/fixed result on ALL actual physical links.
+`temporalLedger_plaquette_word` identifies the image of every ORIGINAL
+oriented plaquette holonomy with its common temporal face word, before Haar.
+
+`SU2QuaternionTranslationWordComposition` proves original-chain congruence,
+ordered product/star and constant laws with explicit common padding. Empty
+chains are covered. No finite scan or Haar-only equality substitutes for
+coefficient equality.
+
+Next: same-observable polynomial substitution for the full reflected form,
+then global reflected-square gluing. The full physical coordinate image is
+now proved, not merely its fixed-coordinate frame. No slab positivity,
+physical time, completed exact-law gap, volume/spacing/QFT or all-group Clay
+atom closed. The exact/positive-law identity remains refuted.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+19 + 10 = 29 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-translation-word-composition.log` and
+`/tmp/ym-temporal-gauge-upper-coordinates.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: literal temporal ledger and fixed frame (2026-09-12)
 
 PROGRESS: `BF4ExactSlabTemporalGaugeLedger.temporalTranslationSteps`
 generates the actual upper-link chain at arbitrary extent/half-plane.
