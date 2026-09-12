@@ -27,10 +27,13 @@ def main() -> None:
     assert Fraction(10021, 10000) ** 6 <= partition_ceiling
     assert escape == Fraction(6, 425)
     assert demand == Fraction(7, 85) > 0
+    traffic_floor = demand / partition_ceiling
+    assert traffic_floor == Fraction(448, 5525) > 0
     print(f"anchor={coupling}; degree={degree}; ambient faces={face_count}")
     print(f"successive ratio={ratio}; one-face ceiling={ceiling}")
     print(f"tensor ceiling <= {partition_ceiling}: PASS (exact rational)")
     print(f"relative escape <= {escape}; successful demand >= {demand}")
+    print(f"partition-normalized sector traffic >= {traffic_floor}")
     print("Scope: fixed anchor and extent one; not a volume or continuum bound.")
 
 

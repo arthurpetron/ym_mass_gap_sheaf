@@ -13,7 +13,58 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Normalize sector demand and obtain a physical parity consequence (2026-09-11)
+
+- **milestone**: current physical BF4 gap frontier; close the exact
+  raw-demand-to-normalized-traffic handoff left by `cda1ca1`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand.lean`.
+- **proved declarations**: `sectorSourceWeights_eqv_rawSuccessfulMass`,
+  `sectorProductionWeights_eqv_rawSuccessfulMass`,
+  `sectorTotalTraffic_eqv_rawMass_div_partition`,
+  `sectorSuccessFraction_mul_normalizedMass_le_traffic`,
+  `sectorTrafficFloor_pos`, `sectorTrafficFloor_le_totalTraffic`,
+  `sectorTotalTraffic_pos`, `sectorTraffic_eqv_parityEdgeEnergies`,
+  `sectorTrafficFloor_le_cost_mul_parityDirichlet`,
+  `sectorParityDirichletFloor_pos`, and `sectorParityDirichletFloor_le`.
+- **closed sub-obligation**: the original sector-local OS traffic is exactly
+  successful raw sector mass divided by the original positive physical
+  partition. Sector filtering is constant in each physical source block,
+  and the complete block Fubini and termwise production-weight identities
+  preserve all multiplicities. No replacement path, weight, carrier, or
+  normalization is introduced.
+- **quantitative consequences**: normalized traffic is at least `7/85`
+  times the partition-normalized physical sector-event mass, and at least
+  `448/5525` absolutely at every cutoff `K >= 1`. The exact Boolean parity
+  path identity then yields the positive canonical sector Dirichlet floor
+  `(448/5525)/(1+globalInwardMateTransportCost)`. This is explicitly a
+  one-observable energy bound, not a uniform all-vector spectral gap.
+- **scope**: fixed anchor coupling `1/400`, slab extent one; only the spin
+  cutoff is uniform. `sectorTrafficFloor` and `sectorParityDirichletFloor`
+  are explicit rational data. The exact arithmetic pilot was extended to
+  check `(7/85)/(65/64) = 448/5525`; Lean independently proves the bounds.
+- **remaining obligations**: determine whether the restricted moves
+  separate every observable on the exact vacuum component and prove a
+  positive cutoff-uniform norm-to-move coverage estimate; enlarge the family
+  and prove its congestion if needed. No sector obstruction follows solely
+  from the full-carrier XOR counterexample. Completed all-vector gap,
+  volume/spacing control, continuum construction and the Clay target remain
+  open. No new analytic assumption, `sorry`, custom axiom, noncomputable
+  definition, enlarged proof budget or weakened frontier field is used.
+
+Verification: the new module passed a focused monitored source check with
+explicit `.olean` output, one worker and 20 GiB. All 11 printed axiom checks
+stay inside `{propext, Quot.sound}`; `sectorTrafficFloor_pos` is axiom-free.
+The existing sector-local OS-flow dependency was also checked and emitted
+under the same limits (four printed checks, all `[propext, Quot.sound]`).
+The exact arithmetic pilot passed. Final logs contain no errors or warnings.
+No full-tree build/audit or frontier guard was run. Root imports, README,
+work plan and progress ledger are updated. CI remains disabled.
+
 ## Exact sector Dirichlet embedding by zero extension (2026-09-11)
+
+The raw-to-normalized demand handoff listed below is now closed by the
+increment above. The all-vector coverage and continuum obligations remain.
 
 - **milestone**: current physical BF4 gap frontier; close the restricted
   observable-energy embedding left open after `b39fb0e`.

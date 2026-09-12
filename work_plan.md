@@ -409,9 +409,20 @@ The next load-bearing producers are, in causal order:
    first-edge, second-edge, and endpoint bounds for every rational observable
    with the same factors `1`, `globalInwardMateTransportCost`, and
    `2(1 + globalInwardMateTransportCost)`. No new analytic field or loss is
-   introduced. Next identify the raw successful-mass sum with normalized
-   restricted traffic, determine sector-wide move separation (enlarging the
-   family if needed), and prove a positive cutoff-uniform norm-to-move
+   introduced. The exact raw-to-normalized handoff is now closed by
+   `BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand`:
+   `sectorTotalTraffic_eqv_rawMass_div_partition` identifies the original
+   restricted traffic with successful sector mass divided by the same
+   physical partition. `sectorSuccessFraction_mul_normalizedMass_le_traffic`
+   retains the `7/85` fraction; `sectorTrafficFloor_le_totalTraffic` proves
+   the absolute cutoff-independent traffic floor `448/5525`.
+   `sectorParityDirichletFloor_le` combines that exact demand with the
+   Boolean two-edge identity and sector embedding to prove a positive
+   central-face-parity energy floor `(448/5525)/(1+transportCost)` on the
+   canonical indexed vacuum component. This is a one-observable consequence,
+   not an all-vector coverage estimate. Next determine sector-wide move
+   separation (enlarging the family if needed), and prove a positive
+   cutoff-uniform norm-to-move
    coverage estimate. The full-carrier XOR obstruction is not automatically
    an obstruction on the exact sector. The algebraic rate shape
    after a correctly sector-local coverage input is compiled: a floor
@@ -502,7 +513,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- absorb leakage -> successful sector demand >= 7/85 P . [PROVED]
 |   |   |   +-- zero extension -> exact indexed sector Dirichlet ..... [PROVED]
 |   |   |   +-- restricted first/second/endpoint -> sector energy ..... [PROVED same constants]
-|   |   |   +-- raw demand -> normalized restricted traffic ........... [OPEN exact handoff]
+|   |   |   +-- exact raw demand / Z = original restricted traffic .... [PROVED]
+|   |   |   +-- normalized sector traffic >= 448/5525 ................ [PROVED]
+|   |   |   +-- exact Boolean edges -> positive sector parity energy .. [PROVED]
 |   |   |   +-- sector move separation + uniform norm coverage ........ [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

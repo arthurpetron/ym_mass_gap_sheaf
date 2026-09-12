@@ -39,9 +39,11 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
        outside physical mass <= 1/64                             |
          -> escaping bad mass <= (6/425) * sector mass   [PROVED] <+
          -> successful mass >= (7/85) * sector mass      [PROVED]
+         -> same normalized OS traffic >= 448/5525       [PROVED]
                                   |
                  + zero extension -> exact sector energy [PROVED]
                  + restricted move energy <= C * energy [PROVED]
+                 -> positive sector-parity energy floor [PROVED]
                  AND centered norm <= move energy / kappa [OPEN]
                  (requires sector separation + uniform coverage)
                                   v
@@ -67,11 +69,13 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** every rational observable's restricted inward-mate energy
-now embeds in the exact indexed vacuum-sector OS Dirichlet form, retaining
-the original factor `2(1 + globalInwardMateTransportCost)`. This complements
-the proved `7/85` successful sector-mass fraction. Both estimates are uniform
-in spin cutoff `K >= 1` at fixed coupling `1/400` and slab extent one.
+**Latest result:** the original normalized sector OS flow now carries at
+least `448/5525` total traffic. Exact source-block Fubini connects it to the
+proved `7/85` raw sector-demand fraction. Together with the same-object sector
+energy embedding, this gives the positive central-face-parity Dirichlet floor
+`(448/5525)/(1 + globalInwardMateTransportCost)` on the exact vacuum component.
+These estimates are uniform in spin cutoff `K >= 1` at fixed coupling `1/400`
+and slab extent one.
 The missing reverse estimate must control every centered sector norm by move
 energy with a positive cutoff-independent floor.
 
@@ -187,9 +191,21 @@ edge, second edge, and endpoint estimates restrict with their original
 factors `1`, `globalInwardMateTransportCost`, and
 `2(1 + globalInwardMateTransportCost)`.
 
-Next: identify the raw successful-mass bound with the normalized restricted
-traffic, and prove sector-wide separation and a quantitative norm-to-move
-coverage estimate. Enlarge the move family if the exact sector requires it.
+The exact normalization handoff is now proved as well. The sector test is
+constant within each fixed-physical source block, so filtering commutes with
+the complete-source Fubini sum. The existing production source weights agree
+termwise with the raw source weights, yielding
+`sector total traffic = successful sector mass / Z`. Thus the traffic is at
+least `7/85` times the partition-normalized sector-event mass and, using
+`sector mass >= 1` and `Z <= 65/64`, at least `448/5525` absolutely.
+The Boolean parity identity says its two path-edge energies sum exactly to
+this traffic, giving the sector Dirichlet floor
+`(448/5525)/(1 + globalInwardMateTransportCost) > 0`, without a factor-two
+triangle-inequality loss. No source list, physical kernel, or normalization
+has been changed.
+
+Next: prove sector-wide separation and a quantitative norm-to-move coverage
+estimate. Enlarge the move family if the exact sector requires it.
 The full-carrier XOR refutation alone does not establish a sector obstruction.
 The Poincare compiler's algebra remains useful: a correctly formulated
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
@@ -254,6 +270,9 @@ The exact zero-extension identity for the canonical indexed sector is in
 [`BF4PhysicalVacuumSectorZeroExtensionDirichlet.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorZeroExtensionDirichlet.lean).
 The three unconditional restricted observable-energy comparisons are in
 [`BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy.lean).
+The exact raw-to-normalized traffic identity, positive traffic floor, and
+sector-parity Dirichlet consequence are in
+[`BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

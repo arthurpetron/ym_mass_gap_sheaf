@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: restrict observable energy without new congestion (2026-09-11)
+## Current increment: connect sector demand to actual OS traffic (2026-09-11)
+
+`BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand` closes the exact
+handoff left by `cda1ca1`. The source-sector test is constant within every
+fixed-physical block. Commuting that filter with the complete block Fubini
+and using the existing termwise production-weight identity proves
+`sectorTotalTraffic = successfulRawSectorMass / physicalPartition` for the
+original OS flow. No weights, source list, paths, or normalization change.
+
+The proved `7/85` raw sector-demand estimate therefore gives the same
+fraction of partition-normalized sector-event mass. Vacuum mass >= 1 and
+the sharp partition ceiling <= 65/64 give the absolute cutoff-independent
+traffic floor `448/5525`. The exact Boolean parity identity and the previous
+sector energy embedding further prove central-face parity has canonical
+indexed sector Dirichlet energy at least
+`(448/5525)/(1+globalInwardMateTransportCost) > 0`.
+
+This is PROGRESS: raw mass, normalized traffic, and an actual observable's
+energy are now causally connected by checked equalities and estimates.
+The analytic frontier remains sector-wide norm-to-move coverage, not another
+scalar total-demand statement. Test separation on the exact component and
+enlarge the moves only if needed. One-observable positivity is not an
+all-vector gap; no `singleStep`, completed gap, or Clay atom is discharged.
+
+The exact rational pilot passed. The new module passed a focused monitored
+check and `.olean` emission: 11 gates within `{propext, Quot.sound}`, one
+axiom-free. The existing OS-flow dependency was also checked (four clean
+gates). One worker, 20 GiB, no enlarged elaborator settings, no full-tree
+audit or frontier-guard build. Root imports, README, work plan and sorry
+ledger are updated. Coupling and extent remain fixed, and CI is disabled.
+
+## Previous increment: restrict observable energy without new congestion (2026-09-11)
 
 `BF4PhysicalVacuumSectorZeroExtensionDirichlet` constructs zero extension by
 the exact finite sector classifier. It proves that physical OS entries
