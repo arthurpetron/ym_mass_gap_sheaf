@@ -1,7 +1,8 @@
 # Lean axiom-gate audit — CI enforcement of AGENTS.md Rule 1.
 #
-# Runs on every Lean-relevant push to trusted `main`, plus explicit manual
-# dispatches.  The full job is deliberately not a pull-request job: it is
+# Automatic CI is disabled to avoid expensive runs and notification floods.
+# This workflow is retained for explicit manual dispatches only.  The full job
+# is deliberately not a pull-request job: it is
 # routed to a foreground JIT listener on a reused personal machine, where
 # untrusted PR code must not execute. Fails if an observed tracked theorem in
 # the YMGap Lean library has
@@ -25,25 +26,6 @@
 
 name: lean-axiom-audit
 
-on:
-  push:
-    branches: ["**"]
-    paths:
-      - "lean/**"
-      - "scripts/lean_axiom_audit.py"
-      - "scripts/safe_lean_build.py"
-      - "scripts/frontier_dag_check.py"
-      - "Makefile"
-      - ".github/workflows/lean-audit.yml"
-  pull_request:
-    paths:
-      - "lean/**"
-      - "scripts/lean_axiom_audit.py"
-      - "scripts/safe_lean_build.py"
-      - "scripts/frontier_dag_check.py"
-      - "Makefile"
-      - ".github/workflows/lean-audit.yml"
-
 # Keep at most one expensive all-module job running.  Never cancel a running
 # cold build merely because a newer trusted-main checkpoint was pushed: that
 # wastes hours of local work and can interrupt Lake while it writes artifacts.
@@ -61,22 +43,6 @@ on:
         required: true
         type: boolean
         default: false
-  push:
-    branches: ["main"]
-    paths:
-      - "lean/**"
-      - "scripts/lean_axiom_audit.py"
-      - "scripts/lean_import_guard.py"
-      - "scripts/host_load_guard.py"
-      - "scripts/host_load_patterns.sh"
-      - "scripts/setup_macos_ci_runner.sh"
-      - "scripts/run_macos_ci_runner.sh"
-      - "scripts/test_macos_ci_runner_remote_state.sh"
-      - "scripts/with_lean_session_lock.sh"
-      - "scripts/frontier_dag_check.py"
-      - "reference/leanmillennium-pinned/**"
-      - "Makefile"
-      - ".github/workflows/lean-audit.yml"
 jobs:
   axiom-audit:
     # A manual dispatcher may select an arbitrary ref in GitHub's UI.  Never
