@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: dense form closure over the entire reflected complement (2026-09-12)
+## Current increment: mixed physical test bound and two-sided excitation response (2026-09-12)
+
+This is PROGRESS after same-rate dense closure: an unconditional norm
+comparison on the ENTIRE reflected carrier now yields nondegeneracy of its
+transfer response and a positive response floor for the already constructed
+strict excitation. No common gap hypothesis is introduced or discharged.
+
+`BF4PhysicalCubeMixedTestBound.dense_transfer_norm_pin` identifies the
+reflected transfer quadratic with the original marginal squared norm of the
+physical conditional image. Marginal Cauchy--Schwarz proves the dense test
+estimate. The existing represented pairing limits, with the SAME physical
+normalization throughout, give `mixed_test_bound` for every completed x:
+`<x,j(test)>_E^2 <= <T x,x>_E * ||J(test)||_marginal^2`.
+Dense tests separate the whole completion; constructive square-zero
+cancellation therefore proves `eq_zero_of_response_zero` and
+`transfer_kernel_trivial`. This excludes a zero-response vector, not a
+second stationary vector or near-vacuum modes.
+
+The marginal test ceiling is computed from a supplied constant Cauchy
+representative. `response_floor_of_test` gives delta^2/C from an actual
+positive test pairing. In `BF4PhysicalCubeExcitationResponse`, this applies
+to the previously constructed `d=T root-root`: `responseFloor=delta^2/C > 0`.
+The existing norm ceiling U and strict deficit eta then give
+`lowerRate=responseFloor/U > 0`, `upperRate=1-eta/U < 1`, and
+`lowerRate*||d||^2 <= <T d,d> <= upperRate*||d||^2`.
+No division by the constructive-real norm or unit normalization is used.
+
+Scope: fixed w=1/400, extent one. The relative interval is for ONE vector,
+not a common rate on the complement. Weighted norm coverage/Poincare remains
+the open all-vector analytic producer. A full reflected-to-marginal smoothing
+map, normalized canonical geometric-time probe, vacuum uniqueness,
+volume/spacing/QFT passage and all-group Clay are not constructed by this
+increment. No canonical scorecard atom or existing sorry is closed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output; all 25 printed axiom gates are within propext/Quot.sound.
+Final logs have no errors or warnings and default limits are unchanged.
+No full build/audit/guard, progress script, new analytic premise or numerical
+oracle was used. Root imports, landing page, work plan and sorry ledger are
+updated. GitHub CI remains disabled.
+
+## Previous increment: dense form closure over the entire reflected complement (2026-09-12)
 
 This is PROGRESS on the completion-extension edge, not a new analytic gap:
 `BF4PhysicalCubeDenseFormClosure.dense_form_bound_iff_completed` proves that

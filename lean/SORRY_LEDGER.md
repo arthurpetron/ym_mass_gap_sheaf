@@ -13,6 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full-space mixed test bound and two-sided excitation response (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeMixedTestBound.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCubeExcitationResponse.lean`.
+- **same-object comparison**: `dense_transfer_norm_pin` proves
+  `<T j(a),j(a)>_E = <P J(a),P J(a)>_marginal` for the actual two
+  completions and physical action. `dense_mixed_test_bound` is marginal
+  Cauchy--Schwarz with the exact reflected pairing. The existing supplied
+  outer representatives and moduli pass both sides to
+  `represented_mixed_test_bound` and `mixed_test_bound`:
+  `<x,j(test)>_E^2 <= <T x,x>_E * ||J(test)||_marginal^2` for EVERY x
+  in the full reflected completion. No marginal preimage of x is assumed.
+- **nondegeneracy**: `eq_zero_of_response_zero` combines the mixed estimate,
+  constructive scalar square-zero cancellation and the existing dense-test
+  separation theorem. `transfer_kernel_trivial` proves T x=0 implies x=0.
+  This is NOT vacuum uniqueness: it concerns eigenvalue zero, not one.
+- **quantitative physical witness**: `marginalCeiling` is computed from the
+  supplied constant marginal representative. `response_floor_of_test` returns
+  the rational floor `delta^2/marginalCeiling test`. Applying it to the
+  existing excitation and its original positive probe pairing gives
+  `responseFloor > 0` and `excitation_response_floor`. With the existing
+  norm ceiling U and deficit eta, `lowerRate = responseFloor/U > 0` and
+  `upperRate = 1-eta/U < 1`. `excitation_relative_lower`,
+  `excitation_relative_upper` and `excitation_two_sided_response` bound
+  the SAME vector's response between these multiples of its squared norm.
+  `excitation_transfer_ne_zero` is also unconditional.
+- **OPEN residue / scope**: fixed w=1/400, extent one. The relative rates
+  concern ONE constructed excitation; no all-vector gap is supplied. No
+  unit normalization or geometric-time realization of the canonical OS probe,
+  vacuum uniqueness, thermodynamic/continuum control or all-group Clay closure
+  is inferred. No smoothing map from the entire reflected completion into
+  the marginal completion is constructed here. The common dense strict
+  inequality remains open; no canonical scorecard atom or sorry is closed.
+- **verification**: both modules passed focused monitored one-worker 20 GiB
+  checks with `.olean` output and all 25 printed axiom gates within
+  `{propext, Quot.sound}`. Final logs are error/warning free and default
+  proof limits are unchanged. No new sorry, axiom, classical extraction,
+  numerical oracle, full build/audit/guard or progress script was used.
+  Root edits are imports only; GitHub CI remains disabled.
+
 ## Same-rate dense form closure on the entire reflected complement (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/GNSRepresentedApproximation.lean` and

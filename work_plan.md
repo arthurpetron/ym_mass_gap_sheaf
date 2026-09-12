@@ -710,6 +710,27 @@ The next load-bearing producers are, in causal order:
    17 printed gates within `{propext, Quot.sound}`. Final logs are error/warning
    free, default limits unchanged; no full build/audit/guard or canonical
    scorecard closure is claimed. Scope remains fixed w=1/400, extent one.
+   `BF4PhysicalCubeMixedTestBound` now proves an unconditional mixed norm
+   comparison: `<x,j(test)>_E^2 <= <T x,x>_E * ||J(test)||_marginal^2`
+   for EVERY reflected-completion x and every finite cube test. The dense
+   identity `<T j(a),j(a)>_E = ||P J(a)||_marginal^2` and original marginal
+   Cauchy--Schwarz supply the proof; both pairing limits retain the physical
+   normalization. Dense testing and constructive square-zero cancellation
+   give `eq_zero_of_response_zero` and `transfer_kernel_trivial`. This is
+   nondegeneracy at eigenvalue ZERO, not uniqueness at eigenvalue ONE.
+   `marginalCeiling` computes the test norm ceiling C from supplied Cauchy
+   data. `BF4PhysicalCubeExcitationResponse` uses the existing positive
+   d/probe pairing delta to construct `responseFloor=delta^2/C > 0`.
+   With d's known norm ceiling U and deficit eta, the actual SAME excitation
+   satisfies `l*||d||^2 <= <T d,d> <= q*||d||^2` for explicit
+   `l=responseFloor/U > 0` and `q=1-eta/U < 1`. The rates concern this ONE
+   vector, not the full complement. Both modules passed focused monitored
+   one-worker 20 GiB checks with all 25 gates within `{propext, Quot.sound}`;
+   final logs are error/warning free, default limits unchanged. No full audit,
+   new analytic premise or canonical scorecard closure is claimed. The
+   common dense strict estimate, unit-normalized geometric-time probe and
+   continuum passage remain open. No full reflected-to-marginal smoothing
+   map is asserted by this mixed inequality.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.

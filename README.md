@@ -92,6 +92,11 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
       + stationarity AND completed-norm dissipation control
       -> d = T root - root lies in Omega-perp, with positive norm  [PROVED]
       -> <T d,d> + explicit positive floor <= <d,d>               [PROVED one vector]
+    + original marginal Cauchy--Schwarz AND same-object pairing limits
+      -> <x,test>_E^2 <= <T x,x>_E * ||test||_marginal^2           [PROVED all x]
+      -> zero transfer response forces x=0                      [PROVED]
+      + positive d/probe pairing AND d's strict deficit
+      -> l*||d||^2 <= <T d,d> <= q*||d||^2, l>0, q<1             [PROVED one vector]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -115,7 +120,36 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the **common dense form bound and the bound on the entire
+**Latest result:** the constructed excitation now has a **two-sided strict
+relative response** for the SAME completed physical transfer:
+
+```text
+l * ||d||_E^2 <= <T d,d>_E <= q * ||d||_E^2,  l > 0, q < 1
+```
+
+The new full-space estimate is
+`<x,test>_E^2 <= <T x,x>_E * ||test||_marginal^2` for every completed
+reflected vector x and every finite cube test. It uses the original marginal
+norm on the right, not the weaker reflected norm. Dense physical
+Cauchy--Schwarz and the same-object pairing limits prove it without a gap
+assumption. Dense tests then show that zero response forces x=0, so the
+completed transfer kills no nonzero vector. These are not bounds away from
+zero uniformly over vectors, nor bounds away from the vacuum eigenvalue one.
+
+For `d = T root - root`, let delta be the existing positive probe-pairing
+floor, C the computed marginal squared-norm ceiling of that probe, U the
+existing squared-norm ceiling for d, and eta its proved positive deficit.
+The displayed rates are explicit rational data:
+`l = delta^2/(C*U)` and `q = 1 - eta/U`. They are proved for **this one
+excitation**, not for every centered vector. See
+[`BF4PhysicalCubeMixedTestBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeMixedTestBound.lean)
+and [`BF4PhysicalCubeExcitationResponse.lean`](lean/YMGap/Continuum/BF4PhysicalCubeExcitationResponse.lean).
+All 25 printed axiom gates passed in targeted monitored checks; no full-tree
+audit was run. Scope is fixed `w=1/400`, extent one. A common dense q<1,
+a unit-normalized canonical geometric-time probe, vacuum uniqueness, and
+volume/spacing/continuum control remain open.
+
+**Completion bridge:** the **common dense form bound and the bound on the entire
 completed reflected vacuum complement are equivalent, with exactly the same
 rate `q`**. The dense side uses the original centered physical presentations;
 the completed side is not restricted to the older marginal-sector image.
