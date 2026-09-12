@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Original signed reflection positivity and finite-cutoff completion (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionBlockLocality.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionDisjointBlockHaarFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLowerHaarFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLowerChannelLocality.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllCutoffReflectionPositivity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFiniteCutoffGNS.lean`.
+- **discharged**: syntactic block locality; `haar_product` from the actual
+  monomial moments for disjoint supported blocks; original-reflection
+  `lower_reflected_haar_square` at every odd extent; lower locality of all
+  actual global extent-one channels in `observableSquares_lower`.
+  `exact_quadratic_eq_squareSum` gives the original signed quadratic as
+  `sum_j a_j (Haar P_j)^2`; `exact_quadratic_nonnegative` proves positivity
+  for every K, w >= 0 and signed boundary coefficients. `exactGNSData` has
+  the ORIGINAL bilinear as its definitional B field; `exactCompletion` and
+  `exactEmbed_pairing` give its finite-K completion and same-form dense pin.
+  `limitRepresentative` retains the existing explicit-modulus representative
+  API. The vacuum-code norm-one/non-null statements hold before and after
+  completion, without asserting physical stationarity.
+- **OPEN residue**: cutoff-compatible exact-law carrier, arbitrary-volume
+  positivity, geometric physical time/transfer, strict completed exact-law
+  vacuum-complement gap, volume/spacing/QFT, continuum and all-group Clay.
+  Current scope is extent one and fixed but arbitrary K; it is not cutoff
+  removal or the canonical positive-time root. No canonical atom/type
+  changed; no use of the refuted exact/positive-law identity. No new sorry
+  or analytic premise; no choice of arbitrary quotient representatives.
+- **verification**: six focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 14 + 5 + 8 + 10 + 7 + 13 = 57 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-block-locality.log`, `/tmp/ym-disjoint-block-haar.log`,
+  `/tmp/ym-lower-haar-factorization.log`, `/tmp/ym-lower-channel-locality.log`,
+  `/tmp/ym-exact-slab-reflection-positivity.log`, `/tmp/ym-exact-slab-finite-gns.log`.
+  No raised proof limit, numerical oracle, rate or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Global reflected-square expansion on the original Haar law (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSpatialLinkReflection.lean`,
@@ -31,9 +67,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `exact_quadratic_eq_squareTreeHaar` proves the SAME original extent-one
   quadratic equals the Haar integral of this explicit global tree, every K
   and rational w, using proved full-carrier support before erasing padding.
-- **OPEN residue**: prove every channel is supported only on the LOWER
-  half and prove its reflected Haar pairing factors into a square.
-  Full 116-link support is not half-carrier support. Slab positivity,
+- **subsequent discharge**: lower-half channel locality, reflected Haar
+  factorization, extent-one slab positivity and finite-K completion are now
+  proved in the entry above. Full support alone did not prove these.
+- **OPEN residue**: cutoff-compatible carrier, arbitrary-volume positivity,
   physical time/transfer, completed exact-law gap, volume/spacing/QFT and
   all-group Clay remain open. No canonical atom/type changed; the refuted
   exact/positive-law identity is unused. No new analytic premise or sorry.
@@ -64,10 +101,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   interface or its literal reflected SPATIAL-link Gram interface. Scope:
   extent one, every K, rational w and signed observable coefficient function.
   The matching bilinear identities retain independent left/right coefficients.
-- **subsequent discharge**: the algebraic global square expansion and its
-  original-Haar identity are now proved in the entry above.
-- **OPEN residue**: LOWER-half channel support, reflected Haar factorization
-  and slab reflection positivity.
+- **subsequent discharge**: global square expansion, original-Haar identity,
+  lower-half channel locality, reflected Haar factorization, extent-one slab
+  positivity and finite-K completion are now proved in the entries above.
+- **OPEN residue**: cutoff-compatible carrier and arbitrary-volume positivity.
   The full observable temporal change of variables is now proved, not just
   its coordinate image. Physical time/transfer, completed exact-law gap,
   volume/spacing/QFT and all-group Clay remain open. No canonical field
@@ -95,11 +132,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The composition module preserves all coefficient probes after common
   carrier padding under the original chain, ordered products and conjugation;
   constants and empty chains are included.
-- **subsequent discharge**: the full original observable image and its
-  same-form Haar change of variables are now proved in the entry above.
-- **OPEN residue**: global reflected-square gluing. The ledger's Haar
-  invariance, full coordinate image and full common-assignment observable
-  identity are proved; slab positivity, physical time/transfer, completed exact-law gap,
+- **subsequent discharge**: the full original observable image, same-form
+  Haar change of variables, global reflected-square gluing, lower-half
+  factorization, extent-one positivity and finite-K completion are now proved above.
+- **OPEN residue**: cutoff-compatible carrier, arbitrary-volume positivity,
+  physical time/transfer, completed exact-law gap,
   volume/spacing/QFT and all-group Clay remain open. No canonical field
   changed or atom closed; the refuted exact/positive-law identity is unused.
 - **verification**: two targeted monitored one-worker 20 GiB checks with
@@ -3707,6 +3744,13 @@ reported below are the current verification evidence.
   centered physical moment below `1/8`.  The surviving consumer is direct:
   the global positive slice certificate proves the physical joint quadratic
   `1/16` estimate without a signed-Haar comparison.
+- **direct signed-law progress (2026-09-12)**:
+  `BF4ExactSlabAllCutoffReflectionPositivity.exact_quadratic_nonnegative`
+  proves ORIGINAL extent-one reflection positivity at every K and w >= 0.
+  `BF4ExactSlabFiniteCutoffGNS.exactCompletion` completes that precise
+  finite-K form; `exactEmbed_pairing` preserves its dense pairing. Neither
+  declaration supplies physical time/transfer, cutoff removal or a strict
+  gap. This progress does not repair either refuted same-action identity.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; the global slice,
   gluing identity, and AF-uniform local-rate witnesses must remain explicit.
 

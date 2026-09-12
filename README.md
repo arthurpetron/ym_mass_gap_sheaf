@@ -68,9 +68,12 @@ REQUIRED PHYSICAL ROUTE
     + actual spatial-column reflection, every extent and degree    [PROVED]
     + explicit square-tree product expansion, shared links kept    [PROVED]
     -> SAME Q(c) = Haar(sum_j a_j theta(P_j) P_j)                   [PROVED]****
-    + every P_j uses only lower links AND Haar half-factorization  [OPEN]
-    -> positivity of the ORIGINAL reflected slab quadratic         [OPEN]
-    + exact-law OS/transfer realization and physical-time pin       [OPEN]
+    + every P_j uses only lower links AND Haar half-factorization  [PROVED]
+    -> Q(c) = sum_j a_j (Haar P_j)^2 >= 0                           [PROVED]****
+    -> original-form GNSData, null quotient and finite-K completion [PROVED]*****
+    -> dense pairing pin AND norm-one, non-null vacuum-code vector [PROVED]*****
+    + cutoff-compatible exact-law carrier and physical-time pin    [OPEN]
+    + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
        the conditional result above does not supply this bridge)
@@ -95,8 +98,11 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 *** Extent-one original signed form, every cutoff K, rational w, and signed
     coefficient function. H_spatialGram has no fixed-time link in its arguments.
 **** The finite tree stores all channels and rational weights explicitly;
-     a_j >= 0 for w >= 0. Full 116-link support is proved. Lower-half support
-     and Haar factorization are not yet proved, so this is not slab positivity.
+     a_j >= 0 for w >= 0. Actual lower-half support and original-Haar
+     factorization now prove extent-one positivity for every K and signed c.
+***** Fixed but arbitrary K, extent one, w >= 0. Completion uses explicit
+      Cauchy representative families and moduli. Not cutoff removal,
+      arbitrary-volume positivity, physical vacuum stationarity or a gap.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -114,7 +120,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the SAME signed quadratic has an explicit global reflected-square expansion.**
+**Latest result: reflection positivity and a completed carrier for the ORIGINAL signed form.**
+[`BF4ExactSlabAllCutoffReflectionPositivity.lean`](lean/YMGap/Continuum/BF4ExactSlabAllCutoffReflectionPositivity.lean)
+proves `exact_quadratic_eq_squareSum` and `exact_quadratic_nonnegative`:
+`Q(c) = sum_j a_j (Haar P_j)^2 >= 0`, at extent one, every cutoff K,
+`w >= 0`, and arbitrary signed boundary coefficients. The actual channels
+are lower-local; product Haar factors across disjoint quaternion blocks by
+its explicit monomial moments, without an independence axiom. This closes
+the finite-slab positivity step for the same signed law.
+
+[`BF4ExactSlabFiniteCutoffGNS.lean`](lean/YMGap/Continuum/BF4ExactSlabFiniteCutoffGNS.lean)
+then constructs `exactGNSData` with its bilinear field definitionally equal
+to the original reflected kernel form, and `exactCompletion` for each K.
+`exactEmbed_pairing` pins the completed dense inner product to that form.
+The vacuum-code vector has norm one and is non-null, including after
+completion. Limits use the existing explicit-modulus representative-family
+API; no representatives of arbitrary quotient-valued sequences are selected
+by choice. This does not assert vacuum stationarity or a transfer operator.
+
+**Next:** a cutoff-compatible carrier and geometric physical time/transfer
+for this exact law, followed by a strict bound on that same completed vacuum
+complement. Arbitrary-volume positivity, thermodynamic/continuum control,
+QFT axioms and the all-group Clay target remain open.
+
+Six focused monitored checks passed: 57 axiom gates within
+`{propext, Quot.sound}`, no new sorry or analytic premise. This is not a
+full-tree build or audit.
+
+**Preceding result: the SAME signed quadratic has an explicit global reflected-square expansion.**
 [`BF4ExactSlabReflectedSquareHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabReflectedSquareHaarForm.lean)
 proves `Q(c) = Haar(sum_j a_j theta(P_j) P_j)` for the ORIGINAL extent-one
 signed slab form, every cutoff K, rational heat parameter w and signed
@@ -128,10 +161,10 @@ retains shared links, original heat coefficients and the full signed
 observable. Explicit 116-link support licenses the final Haar identity.
 No independent-face assumption, numerical oracle or positivity premise is used.
 
-**Next:** prove that every channel uses only lower-half links, then factor
-its reflected Haar pairing. Full-carrier support is not lower-half support;
-the square expansion alone does not prove slab reflection positivity.
-Physical time/transfer, the exact-law completed gap and continuum/Clay remain open.
+The subsequent result above proves lower-half locality, reflected Haar
+factorization and extent-one slab positivity. The square expansion alone
+was not a positivity theorem. Physical time/transfer, the exact-law
+completed gap and continuum/Clay remain open.
 
 **Preceding result: the SAME signed quadratic has a spatial reflected-Gram interface.**
 [`BF4ExactSlabTemporalGaugeHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeHaarForm.lean)
@@ -151,8 +184,8 @@ physical face IDs and reflected labels are retained.
 provides the coefficient-sensitive algebra and supported Haar bridge.
 
 This closed the same-observable temporal change of variables. The algebraic
-global square expansion and its original-Haar identity are now proved above;
-lower-half support, Haar factorization and slab reflection positivity remain open.
+global square expansion, lower-half locality, Haar factorization and
+extent-one slab reflection positivity are now proved above.
 
 **Preceding result: the full upper-link image and original plaquette words.**
 [`BF4ExactSlabTemporalGaugeUpperCoordinates.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeUpperCoordinates.lean)
@@ -170,8 +203,8 @@ defined common temporal face word.
 supplies coefficient-sensitive chain composition, ordered multiplication,
 conjugation and constant preservation. Explicit common padding covers empty
 chains; no Haar integration or sphere relation is used to erase a discrepancy.
-The full observable identity is now proved above; gluing its channels into
-global reflected squares remains open.
+The full observable identity and global reflected-square gluing are now
+proved above, as are lower-half factorization and extent-one positivity.
 
 **Preceding result: literal temporal ledger and its full fixed-coordinate frame.**
 [`BF4ExactSlabTemporalGaugeLedger.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean)

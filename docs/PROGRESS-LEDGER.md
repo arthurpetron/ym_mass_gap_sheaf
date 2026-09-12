@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: global reflected-square expansion of the original Haar form (2026-09-12)
+## Current increment: original signed reflection positivity and finite-K completion (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllCutoffReflectionPositivity.exact_quadratic_eq_squareSum`
+proves `Q(c) = sum_j a_j (Haar P_j)^2` for the ORIGINAL signed extent-one
+slab quadratic. `exact_quadratic_nonnegative` gives positivity for every
+cutoff K, w >= 0 and arbitrary signed boundary coefficients. Actual lower
+channel locality and original product-Haar factorization discharge the
+previously open support/factorization edge. No replacement law is used.
+
+`BF4ExactSlabFiniteCutoffGNS.exactGNSData` has the original bilinear as its
+definitional B field; `exactCompletion` supplies its finite-K completed
+carrier. `exactEmbed_pairing` pins the dense pairing to the same form.
+`limitRepresentative` preserves the existing explicit-modulus Cauchy
+representative-family boundary. The vacuum-code vector is norm one and
+non-null both before and after completion; stationarity is not asserted.
+
+Next: cutoff-compatible exact-law carrier, arbitrary-volume positivity,
+geometric physical time/transfer and a strict gap on THAT completed vacuum
+complement. Volume/spacing/QFT, continuum and all-group Clay remain open.
+No canonical atom closed or field changed; no use of the refuted
+exact/positive-law identity. Finite-K completion is not cutoff removal.
+
+Six focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+14 + 5 + 8 + 10 + 7 + 13 = 57 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-block-locality.log`,
+`/tmp/ym-disjoint-block-haar.log`, `/tmp/ym-lower-haar-factorization.log`,
+`/tmp/ym-lower-channel-locality.log`, `/tmp/ym-exact-slab-reflection-positivity.log`,
+`/tmp/ym-exact-slab-finite-gns.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: global reflected-square expansion of the original Haar form (2026-09-12)
 
 PROGRESS: the original signed quadratic now equals the Haar integral of a
 computable finite tree of weighted reflected squares, at extent one and
@@ -22,9 +53,9 @@ entire signed boundary observable in the global expansion.
 w >= 0. Full-carrier support is proved before removing common padding
 under the original Haar integral.
 
-Next: LOWER-half support of every channel and reflected Haar factorization.
-The algebraic sum is not yet a positivity theorem. Slab positivity,
-physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+At this checkpoint, LOWER-half support and reflected Haar factorization
+remained open. The increment above proves both, extent-one positivity and
+finite-K completion. Physical time/transfer, completed exact-law gap, volume/spacing/QFT and
 all-group Clay remain open. No canonical atom closed or field changed;
 the exact/positive-law identity remains refuted.
 

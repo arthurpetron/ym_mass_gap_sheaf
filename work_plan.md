@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (global reflected-square tree on the original Haar law):**
+**Latest exact-law progress (reflection positivity and finite-cutoff completion):**
+`SU2QuaternionBlockLocality` proves the syntactic lower-block support algebra.
+`SU2QuaternionDisjointBlockHaarFactorization.haar_product` derives product
+Haar factorization from explicit monomial moments for disjoint supported
+polynomials. `BF4ExactSlabLowerHaarFactorization.lower_reflected_haar_square`
+uses the ORIGINAL reflection and Haar law, at every odd slab extent.
+`BF4ExactSlabLowerChannelLocality.observableSquares_lower` proves that every
+actual global extent-one channel is lower-local, including arbitrary signed
+boundary coefficients and shared links.
+
+`BF4ExactSlabAllCutoffReflectionPositivity.exact_quadratic_eq_squareSum`
+therefore gives the explicit same-object identity
+`Q(c) = sum_j a_j (Haar P_j)^2`. `exact_quadratic_nonnegative` proves
+positivity for every K and w >= 0. This discharges extent-one slab positivity,
+not merely an algebraic square-tree identity or an assumed positive form.
+
+`BF4ExactSlabFiniteCutoffGNS.exactGNSData` has B definitionally equal to the
+original signed reflected bilinear. `exactCompletion` supplies its null
+quotient/completed carrier; `exactEmbed_pairing` pins the dense completed
+inner product to that SAME form. `limitRepresentative` retains Cauchy data
+and moduli via the existing representative-family API. `vacuumCode_norm`,
+`vacuumCode_not_null`, `vacuumCode_completed_norm` and
+`vacuumCode_completed_ne_zero` certify a norm-one non-null vacuum-code vector.
+They do not assert physical vacuum stationarity.
+
+Next residue: cutoff-compatible exact-law carrier, arbitrary-volume
+positivity and geometric physical time/transfer, then a strict gap on the
+SAME completed vacuum complement. Volume/spacing/QFT, continuum and
+all-group Clay remain OPEN. Completion here is at fixed but arbitrary K,
+extent one, and does not select representatives of arbitrary quotient-valued
+sequences by choice. No canonical atom/type changed; the exact/positive-law
+identity remains refuted and unused.
+
+Verification: six focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 14 + 5 + 8 + 10 + 7 + 13 = 57 gates within
+`{propext, Quot.sound}`, final error/warning free. Logs
+`/tmp/ym-block-locality.log`, `/tmp/ym-disjoint-block-haar.log`,
+`/tmp/ym-lower-haar-factorization.log`, `/tmp/ym-lower-channel-locality.log`,
+`/tmp/ym-exact-slab-reflection-positivity.log`, `/tmp/ym-exact-slab-finite-gns.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (global reflected-square tree on the original Haar law):**
 `BF4ExactSlabSpatialLinkReflection.spatial_link_reflection` identifies
 the original polynomial reflection of every actual spatial link, at every
 extent. `BF4ExactSlabSpatialChannelReflection.spatial_column_image`
@@ -40,10 +82,9 @@ sides. Thus the SAME original extent-one quadratic is
 `Q(c) = Haar(sum_j a_j theta(P_j) P_j)`, every cutoff K and rational w.
 The tree is constructive data, not an assumed square decomposition.
 
-Next smaller residue: prove each channel uses only LOWER-half links and
-prove its reflected Haar pairing factors into a square. Full-carrier support
-is proved; half-carrier support and factorization are not. Slab positivity,
-physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+At that checkpoint the residue was lower-half locality and reflected Haar
+factorization. Both, extent-one positivity and the finite-K completion are
+now proved above. Physical time/transfer, completed exact-law gap, volume/spacing/QFT and
 all-group Clay remain OPEN. No canonical atom/type change; no use of the
 refuted exact/positive-law identity.
 
