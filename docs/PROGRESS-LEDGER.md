@@ -4,7 +4,50 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original form uses the literal reflected observable (2026-09-12)
+## Current increment: actual all-degree symmetric-power representations (2026-09-12)
+
+PROGRESS on a necessary algebraic input to the direct heat-kernel channel
+route. This does not close positivity of the literal slab form. The actual
+Hamilton-quaternion matrix now acts on all tensor degrees, and its symmetric
+restriction has a proved explicit n+1-coefficient realization with positive
+Hermitian isometry. No surrogate character or measure is inserted.
+
+`SU2QuaternionTensorPowerAction.matrixAction_mul` is a structural tensor
+functoriality proof; `quaternionAction_mul`, `quaternionAction_one` and
+`quaternionAction_inverse` consume the existing quaternion matrix semantics.
+`tensorInner_matrixAction` proves the actual adjoint identity. The Hermitian
+form is a recursive sum of coordinate squares, and `quaternionAction_unitary`
+proves its preservation for the existing rational unit-quaternion group.
+
+`SU2QuaternionSymmetricPowerAction.matrixAction_symmetric` proves preservation
+of adjacent-exchange symmetry. Explicit coefficient extraction and embedding
+are mutually inverse on the 0..n window and symmetric tensors, by
+`coefficient_fromCoefficients` and `fromCoefficients_coefficient`.
+`fromCoefficients_symmetricAction` pins the coefficient action to that same
+tensor action. Complex linearity, composition, identity and Hermitian isometry
+are proved for `symmetricAction` at every degree. These proofs do not enumerate
+large Boolean assignment carriers or assume binomial square roots.
+
+Next: identify the trace with the original all-spin character and prove the
+coefficient-retaining polynomial identities required for Haar use, then resolve
+and glue the literal interface heat kernels. Rational unit quaternions are
+not asserted compact; a pointwise representation identity is not a Haar
+congruence theorem. Physical time, completed exact-law gap, volume/spacing/QFT
+passage and all-group Clay remain open. No canonical frontier atom or type
+changes; the exact/positive literal identity remains refuted.
+
+Both new modules passed focused monitored one-worker 20 GiB checks, with
+`.olean` output and 42 printed gates (24 + 18), final error/warning free and
+within `{propext, Quot.sound}`. Logs: `/tmp/ym-quaternion-tensor-power-action.log`
+and `/tmp/ym-quaternion-symmetric-power-action.log`. The narrow complex-algebra
+dependency target also completed (402 jobs/replays, existing warnings). The
+initial dependency invocation inherited the stale 32 GiB package default;
+after it finished, the same target passed with `--lake-worker-limit-gib 20`.
+New-file checks used 20 GiB throughout. No source safety configuration changed,
+no new sorry, analytic premise, numerical oracle, rate or raised proof limit.
+No full build/audit/guard/progress run.
+
+## Previous increment: original form uses the literal reflected observable (2026-09-12)
 
 PROGRESS on the direct exact-law branch: the complete upper observable is
 now proved to be the actual link-variable time reflection of the lower

@@ -49,6 +49,8 @@ REQUIRED PHYSICAL ROUTE
     -> interface sum = product of 24 actual face heat polynomials    [PROVED]
     + upper observable = literal link reflection of lower          [PROVED]
     -> original Q(c) = Haar(F_c * H * theta(F_c))                    [PROVED]
+    + actual symmetric powers on n+1 coefficients, rational units  [PROVED]
+    + trace = literal character AND coefficient/Haar transport     [OPEN]
     + positive reflected channels of H AND link-local gluing        [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -87,7 +89,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest direct-route result: the original form uses the literal reflected
+**Latest algebraic component: actual symmetric-power representations.**
+[`SU2QuaternionTensorPowerAction.lean`](lean/YMGap/Continuum/SU2QuaternionTensorPowerAction.lean)
+lifts the existing Hamilton-quaternion fundamental matrix to every finite
+tensor degree. Composition, identity, inverse and the adjoint identity are
+proved; rational unit quaternions preserve the explicitly positive Hermitian
+form. The full tensor power is not presented as an irreducible character.
+
+[`SU2QuaternionSymmetricPowerAction.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerAction.lean)
+proves that this action preserves symmetric tensors and reconstructs every
+such tensor from its `n+1` explicit complex coefficients. The resulting
+`symmetricAction` is complex-linear, obeys actual quaternion multiplication,
+and preserves its inherited Hermitian form. These are structural proofs for
+every degree, with no large assignment enumeration or binomial square roots.
+
+**Next:** identify the trace of this concrete action with the original
+all-spin character, prove coefficient-retaining polynomial identities usable
+under Haar, then resolve and glue the literal interface kernels. The new
+representation is over rational unit quaternions; it does not itself supply
+the compact-group/Haar bridge. Neither slab reflection positivity nor a
+physical spectral gap is claimed. The original signed-Haar law is unchanged.
+
+Both new modules passed focused monitored one-worker 20 GiB checks: 42 printed
+axiom gates, all within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full audit.
+The dependency target also completed. Its first invocation inherited an old
+32 GiB repository default; the target was then repeated with an explicit
+20 GiB override. The new-module checks used 20 GiB throughout.
+
+**Retained direct-route result: the original form uses the literal reflected
 observable.**
 [`BF4ExactSlabReflectedObservableHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabReflectedObservableHaarForm.lean)
 proves `Q(c) = Haar(F_c * (H * theta(F_c)))` for the ORIGINAL signed slab

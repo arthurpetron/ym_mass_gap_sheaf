@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct signed-Haar progress (literal reflected observable):**
+**Latest representation-theoretic progress (actual symmetric powers):**
+`SU2QuaternionTensorPowerAction` constructs the n-fold tensor action of the
+existing Hamilton-quaternion fundamental matrix. `matrixAction_mul` and
+`quaternionAction_mul` prove composition at every degree; identity and inverse
+are also proved. `tensorInner_matrixAction` identifies the actual adjoint.
+`tensorInner_self_nonneg` and `quaternionAction_unitary` prove positivity of
+the Hermitian form and its preservation for rational unit quaternions.
+
+`SU2QuaternionSymmetricPowerAction.matrixAction_symmetric` proves preservation
+of the adjacent-exchange symmetric sector. `fromCoefficients` and `coefficient`
+are explicit maps; `coefficient_fromCoefficients` and
+`fromCoefficients_coefficient` prove their inverse laws on the n+1 coefficient
+window and symmetric tensors. `symmetricAction` is therefore a concrete
+restriction of the original matrix action, not a dimension-labelled model.
+`symmetricAction_add`, `symmetricAction_scale`, `symmetricAction_mul`,
+`symmetricAction_one`, and `symmetricAction_unitary` prove its complex-linear
+representation and positive Hermitian isometry laws for every degree.
+
+**Next mathematical frontier:** the trace of that action equals the original
+all-spin character, plus coefficient-retaining polynomial identities that
+can be consumed under the literal Haar integral. The rational unit-quaternion
+group is not being asserted compact or identified with the Haar completion.
+Positive reflected channels and link-local gluing remain open, as do physical
+time, exact-law completed gap, volume/spacing/QFT passage and all-group Clay.
+No canonical atom closed, frontier type changed, or new analytic premise.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` output; 24 and 18 printed gates respectively, all within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-quaternion-tensor-power-action.log` and
+`/tmp/ym-quaternion-symmetric-power-action.log`. The narrow dependency target
+`+YMGap.Continuum.SU2QuaternionComplexBoolSumAlgebra:olean` completed (402 jobs,
+including replays and existing warnings). Its first invocation inherited the
+stale 32 GiB lakefile default; it was terminal before being repeated with
+`--lake-worker-limit-gib 20`, which passed. No safety threshold or repository
+configuration was edited; future Lake targets must use that explicit override.
+Single-file checks used `--check-worker-limit-gib 20`. No new sorry, numerical
+oracle, rate or proof-limit increase; exact symbolic algebra needs no new pilot
+constants. No full build/audit/guard/progress run.
+
+**Retained direct signed-Haar progress (literal reflected observable):**
 `BF4ExactSlabReflectedObservableHaarForm.exact_bilinear_eq_reflectedHaar`
 and `exact_quadratic_eq_reflectedHaar` prove the original signed forms are
 `Haar(F_left * (H * theta(F_right)))`, with the actual link-variable time

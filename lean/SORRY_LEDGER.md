@@ -13,6 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual quaternion symmetric powers on explicit finite coefficients (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionTensorPowerAction.lean` and
+  `lean/YMGap/Continuum/SU2QuaternionSymmetricPowerAction.lean`.
+- **representation algebra discharged**: `matrixAction_mul` lifts the actual
+  fundamental matrix product to every tensor degree. `quaternionAction_mul`,
+  `quaternionAction_one` and `quaternionAction_inverse` retain the existing
+  Hamilton group laws. `tensorInner_matrixAction` proves the actual adjoint;
+  `tensorInner_self_nonneg` and `quaternionAction_unitary` give the positive
+  Hermitian isometry for rational unit quaternions, not a supplied Gram law.
+- **explicit symmetric restriction discharged**: `matrixAction_symmetric`
+  preserves the concrete adjacent-exchange predicate. `fromCoefficients` and
+  `coefficient` have proved inverse laws (`coefficient_fromCoefficients`,
+  `fromCoefficients_coefficient`), reconstructing the symmetric tensor from
+  exactly its 0..n coefficient window. `fromCoefficients_symmetricAction`
+  pins the resulting coefficient action to the original tensor action.
+  `symmetricAction_add`, `symmetricAction_scale`, `symmetricAction_mul`,
+  `symmetricAction_one`, `symmetricInner_self_nonneg` and
+  `symmetricAction_unitary` prove the all-degree representation and positivity
+  laws. No scalar rank replacement or square-root normalization is used.
+- **OPEN residue**: trace identification with the literal all-spin character,
+  coefficient-retaining polynomial/Haar transport, and positive reflected
+  channels composed on the original slab geometry. The rational unit group
+  is not asserted compact; pointwise representation identities are not being
+  transported through Haar without proof. Slab OS positivity, physical time,
+  exact-law completed gap, volume/spacing/QFT passage and all-group Clay remain
+  open. The refuted positive-law identity stays refuted. No canonical atom or
+  frontier type changes, and no new analytic premise.
+- **verification**: focused monitored one-worker 20 GiB checks of both new
+  modules passed with `.olean` output and 42 gates (24 + 18), all within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-quaternion-tensor-power-action.log` and
+  `/tmp/ym-quaternion-symmetric-power-action.log`. The targeted complex-algebra
+  dependency build completed with 402 jobs/replays and existing warnings;
+  its initial invocation inherited the stale 32 GiB default, then the target
+  passed with an explicit `--lake-worker-limit-gib 20` override. New-file
+  checks used 20 GiB throughout. No new sorry, numerical oracle, rate, or raised
+  proof limit; no full build/audit/guard/progress run.
+
 ## Original signed-Haar form uses the literal reflected observable (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabReflectedObservableHaarForm.lean`,
