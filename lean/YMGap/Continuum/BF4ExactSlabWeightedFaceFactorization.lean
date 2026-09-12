@@ -136,6 +136,13 @@ private theorem product_eq_fold (factor : Nat → RatPoly) (ids : List Nat) :
   | nil => rfl
   | cons id ids ih => simp only [faceProduct, List.foldr, ih]
 
+/-- Expose the literal fixed-face fold for the independent-label resummation. -/
+theorem interfacePolynomial_eq_fold (w : Q') (K : Nat) (boundary : EdgeLabelling) :
+    interfacePolynomial w K boundary =
+      (centralFixedFaceIds 0).foldr
+        (fun id p => polyMul (weightedFacePolynomial w K boundary id) p) polyOne :=
+  product_eq_fold _ _
+
 /-- The product of weighted face polynomials is the original signed-network
 integrand with its original full heat coefficient, not a rank product. -/
 theorem weighted_integrand_eq_faceProduct (w : Q') (K : Nat) (state : EdgeLabelling) :
@@ -226,6 +233,7 @@ end YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.weightedFacePolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.lowerPolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.interfacePolynomial
+#print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.interfacePolynomial_eq_fold
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.upperPolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.weighted_integrand_eq_faceProduct
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.weighted_integrand_factorization

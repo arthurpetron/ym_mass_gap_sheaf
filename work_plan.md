@@ -18,7 +18,41 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct signed-Haar progress:**
+**Latest direct signed-Haar progress (local interface heat product):**
+`BF4ExactSlabInterfaceHeatProduct.bounded_label_sum_product` proves exact
+Cartesian polynomial distributivity over the existing `boundedEdgeLabellings`.
+Its only combinatorial condition is distinct face IDs; the literal fixed
+carrier satisfies it by kernel computation. `faceHeatPolynomial_eq_heat_sum`
+identifies each local factor with its original `coeffW w spin` character
+sum on the actual plaquette holonomy. `interfaceHeatInsertion_eq_product`
+therefore replaces the original global fixed-interface sum by its 24-face
+product, at coefficient-probe equality before integration.
+
+`observableIntegrand_eq_product` retains arbitrary signed coefficients.
+`exact_bilinear_eq_productHaar` / `exact_quadratic_eq_productHaar` consume
+the equality in the ORIGINAL signed 116-link forms. All results hold for
+every rational w and cutoff K, extent one. The proof never enumerates the
+global `(K+1)^24` label carrier. It makes no uniform analytic estimate.
+
+**Next direct frontier:** positive reflected-channel resolution of each
+literal face heat kernel and its composition on the same slab geometry,
+retaining the actual lower/upper observables. The global interface label
+sum is now factored by proof. Positive coefficients do not themselves prove
+positivity of the reflected integral. Physical time, completed exact-law
+gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom closed, new frontier bundle introduced, or frontier type weakened.
+
+Verification: the new module passed 10 printed gates; the factorization
+dependency, with the added `interfacePolynomial_eq_fold`, passed 9 gates.
+Both focused monitored one-worker 20 GiB checks emitted `.olean` output,
+with all gates within `{propext, Quot.sound}` and no final errors/warnings.
+Logs: `/tmp/ym-exact-interface-heat-product.log` and
+`/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, analytic
+premise, numerical oracle, rate constant, or raised proof limit. This is
+exact symbolic algebra with existing heat coefficients, not a numerical
+estimate needing new pilot constants. No full build/audit/guard/progress run.
+
+**Retained direct signed-Haar progress (all-observable Haar formula):**
 `BF4ExactSlabWeightedFaceFactorization.weighted_integrand_factorization`
 proves coefficient-probe equality between the original weighted integrand
 and `lowerPolynomial * (interfacePolynomial * upperPolynomial)`.
@@ -39,10 +73,10 @@ literal Haar integral for every w,K, at extent one. This strictly extends
 the older vacuum/constant-only Haar resummations to all coefficients and
 separates the three polynomial factors before integration.
 
-**Next direct algebraic frontier:** reflection-positive channel resolution
+**Boundary of that checkpoint:** reflection-positive channel resolution
 of the literal `interfaceHeatInsertion`, retaining the above lower/upper
 observable and link-coordinate identities. Its independent face-label sum
-is an available finite product-expansion step; positivity must then be
+was the finite product-expansion step now proved above; positivity must then be
 proved for the actual reflected integral, not borrowed from ranks or a
 Haar-diagonal norm. Physical time, completed exact-law gap, volume/spacing,
 QFT reconstruction and all-group Clay remain open. No canonical atom or

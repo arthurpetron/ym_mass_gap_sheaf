@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Original signed-Haar interface equals its local heat product (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabInterfaceHeatProduct.lean`
+  and the small `interfacePolynomial_eq_fold` API in
+  `lean/YMGap/Continuum/BF4ExactSlabWeightedFaceFactorization.lean`.
+- **finite algebra discharged**: `bounded_label_sum_product` is exact
+  Cartesian distributivity over the ORIGINAL bounded labelling enumerator,
+  for every cutoff and every nodup coordinate list. The polynomial product
+  and finite sums retain arbitrary coefficients and signs.
+  `faceHeatPolynomial_eq_heat_sum` pins the local character polynomial to
+  the original `coeffW` heat weights and literal face holonomy.
+- **same-action consumers proved**: `interfaceHeatInsertion_eq_product`
+  identifies the original global fixed-plane insertion with its 24 local
+  heat factors before integration. `observableIntegrand_eq_product`
+  preserves all signed lower/upper observables. The original exact slab
+  bilinear and quadratic forms are the SAME product-Haar integral by
+  `exact_bilinear_eq_productHaar` and `exact_quadratic_eq_productHaar`.
+  Scope: every rational w,K, extent one; symbolic proof with no enumeration
+  of the global `(K+1)^24` carrier and no uniform analytic estimate.
+- **OPEN residue**: local positive reflected-channel resolution and its
+  composition with the actual slab geometry and observable pins. A product
+  of heat character polynomials is not itself a positivity certificate.
+  Physical time, completed exact-law gap, volume/spacing/QFT passage and
+  all-group Clay remain open. The refuted exact/positive identity stays
+  refuted. No new analytic premise, frontier enumeration, weakened type,
+  or closed canonical atom.
+- **verification**: new module 10 printed axiom gates; changed factorization
+  module 9 gates, including the one new fold lemma. Both focused monitored
+  one-worker 20 GiB checks passed with `.olean` output, all dependencies
+  within `{propext, Quot.sound}`, no final errors/warnings. Logs
+  `/tmp/ym-exact-interface-heat-product.log` and
+  `/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, numerical
+  oracle, rate constant, or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## Direct exact-Haar factorization for every boundary observable (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabWeightedFaceFactorization.lean`

@@ -46,6 +46,7 @@ REQUIRED PHYSICAL ROUTE
   literal signed-Haar slab data                                    [PROVED]
     -> heat-weighted lower / interface / upper factorization        [PROVED]
     -> ALL boundary bilinear forms as the SAME Haar integral        [PROVED]
+    -> interface sum = product of 24 actual face heat polynomials    [PROVED]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -83,7 +84,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest direct-route result: every signed boundary form is a literal
+**Latest direct-route result: the interface sum is an exact local heat
+product.**
+[`BF4ExactSlabInterfaceHeatProduct.lean`](lean/YMGap/Continuum/BF4ExactSlabInterfaceHeatProduct.lean)
+proves finite distributivity over the existing bounded label enumeration.
+`interfaceHeatInsertion_eq_product` identifies the original global
+interface insertion with the product of its 24 face heat polynomials,
+each retaining the actual plaquette holonomy and `coeffW w spin` weights.
+The proof works symbolically at every cutoff; it does not enumerate the
+`(K+1)^24` global boundary states.
+
+`observableIntegrand_eq_product` retains arbitrary signed lower and upper
+observables before integration. `exact_bilinear_eq_productHaar` and
+`exact_quadratic_eq_productHaar` then give the ORIGINAL signed forms with
+this exact local heat product. Scope: every rational w, every spin cutoff,
+extent one. There is no new rate or positivity claim.
+
+The next substantive step is a positive reflected-channel resolution of
+these local face kernels and its composition on the actual slab geometry.
+Neither positive heat coefficients alone nor the finite product identity
+asserts reflection positivity. Physical time, the completed exact-law gap,
+volume/spacing control, continuum QFT and the all-group target remain open.
+
+The new module passed all 10 printed axiom gates; the small fold API addition
+in its factorization dependency was also checked (9 gates in that module).
+Both focused monitored one-worker 20 GiB checks passed without errors or
+warnings, within `{propext, Quot.sound}`. No new proof hole, analytic premise,
+rate constant, numerical oracle or raised proof limit; no full build/audit.
+
+**Retained direct-route result: every signed boundary form is a literal
 action-side Haar integral.**
 [`BF4ExactSlabWeightedFaceFactorization.lean`](lean/YMGap/Continuum/BF4ExactSlabWeightedFaceFactorization.lean)
 proves coefficient-probe equality between the original heat-weighted

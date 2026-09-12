@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: direct signed-Haar realization for all boundary forms (2026-09-12)
+## Current increment: original interface sum equals the local heat product (2026-09-12)
+
+This is PROGRESS on the direct exact-law branch: its global interface label
+sum has been replaced, by a proved coefficient-level identity, with the
+product of the 24 actual face heat polynomials. The original all-observable
+signed bilinear and quadratic forms retain that identity.
+
+`BF4ExactSlabInterfaceHeatProduct.bounded_label_sum_product` proves
+Cartesian distributivity over the library's ORIGINAL bounded labelling
+enumerator. Distinct coordinate IDs ensure that inserting the head label
+does not change any tail factor. Finite polynomial sums, scalar-independent
+distributivity and induction then produce the product of local spin sums.
+This works symbolically for every K, without expanding `(K+1)^24` global
+states. `labelProduct` and `facewiseProduct` are axiom-free data.
+
+`faceHeatPolynomial_eq_heat_sum` identifies each local polynomial with
+the original `coeffW w spin` character expansion on its literal
+noncommutative plaquette holonomy. `interfaceHeatInsertion_eq_product`
+applies the general theorem to the actual fixed-face list, whose nodup
+property is kernel-checked. `observableIntegrand_eq_product` retains
+arbitrary signed boundary coefficients. `exact_bilinear_eq_productHaar`
+and `exact_quadratic_eq_productHaar` connect the product to the ORIGINAL
+signed 116-link integrals, not a new comparison measure or norm.
+
+Scope: every rational w and every cutoff, extent one; no uniform analytic
+bound. Next is the positive reflected-channel resolution of the local face
+kernels and its composition with the actual slab geometry and observable
+pins. The product identity does not itself establish reflection positivity.
+Physical time, completed exact-law gap, volume/spacing/QFT passage and
+all-group Clay remain open. The refuted exact/positive identity remains
+refuted, and no canonical frontier atom or type changes here.
+
+The new module passed 10 axiom gates. Its factorization dependency was
+rechecked with the added fold API (9 printed gates, one new). Both focused
+monitored one-worker 20 GiB checks emitted `.olean` files and are final
+error/warning free, within `{propext, Quot.sound}`. Logs:
+`/tmp/ym-exact-interface-heat-product.log` and
+`/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, analytic
+premise, numerical oracle, rate constant or raised proof limit. No full
+build/audit/guard/progress run.
+
+## Previous increment: direct signed-Haar realization for all boundary forms (2026-09-12)
 
 This is PROGRESS on the exact-law branch, not another consequence for the
 positive multiplicity-product conditional model. The literal signed slab
