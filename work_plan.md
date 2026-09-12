@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (ORIGINAL-law reflection positivity, every odd extent):**
+**Latest larger-slab progress (exact ORIGINAL interface cutoff limit, every odd extent):**
+`BF4ExactSlabAllExtentExposedLinkDegree` proves exposed-link uniqueness and
+zero selected-link degree for the full product of other crossing characters.
+The proof uses lower/fixed/upper incidence and actual physical index recovery,
+not a finite slab scan. `SU2QuaternionAllCarrierExposedSelection` removes the
+116-block specialization of original-character harmonic cancellation.
+
+`SU2QuaternionFourBlockExposure.fourBlockExposure` constructs four swaps with
+exact source pins. `SU2QuaternionFourBlockSelection.selected_product_zero`
+retains every supported multiplier and all other factors under the same Haar
+integral. `BF4ExactSlabAllExtentSelectedFaceSelection.faceExposure` instantiates
+it on the four actual distinct links; `crossing_faces_product_zero` discharges
+the independence premise for other crossing faces at every odd extent.
+
+`BF4ExactSlabAllExtentInterfaceSelection.interfaceBound` computes the finite
+maximum over the actual fixed-face list. Its `interfaceCharacters_above_bound_zero`
+annihilates any above-bound label in the full original interface.
+`BF4ExactSlabAllExtentInterfaceCutoffLimit.interfaceLabel_eq_weightedCharacters`
+retains the exact heat coefficient product; bounded-label filtering and
+coefficient retention prove `interfacePairing_stable` at every odd extent and
+rational w. `interfacePairingLimit` returns its rational CReal limit and
+`interfacePairingLimit_exact` gives an exact modulus, for a FIXED supported P.
+
+Next residue: transport fixed boundary observables through this all-extent
+result and construct their common cutoff-limit form/completion; then slab
+compatibility, physical time/transfer, stationary vacuum and a strict bound on
+its own completed vacuum complement. The existing common completion remains
+extent-one only. No slab-uniform modulus or beta/spacing-uniform spectral rate
+is asserted; the degree bound can inherit parameter dependence through P.
+Volume/spacing, QFT, all-group Clay and canonical frontier atoms stay open.
+
+Verification: seven focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 9 + 3 + 8 + 9 + 10 + 8 + 10 = 57 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-all-extent-exposed-degree.log`,
+`/tmp/ym-all-carrier-exposed-selection.log`, `/tmp/ym-four-block-exposure.log`,
+`/tmp/ym-four-block-selection.log`, `/tmp/ym-all-extent-face-selection.log`,
+`/tmp/ym-all-extent-interface-selection.log`, `/tmp/ym-all-extent-interface-cutoff.log`.
+A classical dependency from broad simplification of link inequalities was
+removed using direct direction contradictions and natural-coordinate arithmetic.
+No new sorry, analytic premise, proof-limit increase, numerical oracle, rate or
+pilot constant. No full build/audit/guard/progress run. Refuted law identity unused.
+
+**Preceding larger-slab progress (ORIGINAL-law reflection positivity, every odd extent):**
 `BF4ExactSlabAllExtentPlaquetteReflection.time_link_reflection` supplies
 the missing orientation-correct time-link conjugation. A sixteen-formal-variable
 `temporal_word_scalar` identity and literal four-link geometry prove
@@ -42,7 +84,8 @@ extent and finite K, for w >= 0 and arbitrary signed boundary coefficients.
 All original overlapping link variables remain. This is not a strict bound
 and does not transfer a gap from the distinct positive multiplicity law.
 
-Next residue: larger-slab cutoff control and compatibility, feeding a single
+Subsequent discharge above: original interface cutoff removal against fixed P.
+Next residue: larger-slab boundary recoding/common form and compatibility, feeding a single
 physical positive-time carrier; then geometric time/transfer, physical vacuum
 stationarity and a strict gap on its own completed vacuum complement.
 The common cutoff-limit completion remains extent-one only. Volume/spacing,

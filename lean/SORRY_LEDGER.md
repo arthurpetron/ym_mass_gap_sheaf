@@ -13,6 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact ORIGINAL interface cutoff limit at every odd extent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentExposedLinkDegree.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionAllCarrierExposedSelection.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFourBlockExposure.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFourBlockSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentSelectedFaceSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentInterfaceSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentInterfaceCutoffLimit.lean`.
+- **discharged**: structural exposed-link uniqueness and zero degree for the
+  full product of other crossing characters at every odd extent; harmonic
+  cancellation of the original character on arbitrary full Haar carriers;
+  four computed coordinate swaps with exact pins; actual physical-face
+  instance; complete interface selection above computed `interfaceBound half P`;
+  exact original heat-weight separation and cutoff label filtering.
+  `interfacePairing_stable` proves joint cutoff stabilization for a FIXED
+  supported P, every odd extent and rational w. `interfacePairingLimit` returns
+  its rational CReal value; `interfacePairingLimit_exact` supplies the exact
+  cutoff modulus. Every original crossing factor and shared link is retained.
+- **OPEN residue**: larger-slab fixed-boundary recoding and common cutoff-limit
+  form/completion, compatibility, physical positive-time realization/transfer,
+  stationary vacuum, strict completed gap, volume/spacing/QFT and all-group
+  Clay. The existing common completion remains extent-one only. The computed
+  degree bound depends on the slab and P, and can inherit parameter dependence
+  through P; no beta/spacing-uniform spectral estimate is claimed. No canonical
+  atom/type changed. The refuted law identity is unused; no new sorry or analytic premise.
+- **verification**: seven focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 9 + 3 + 8 + 9 + 10 + 8 + 10 = 57 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-all-extent-exposed-degree.log`, `/tmp/ym-all-carrier-exposed-selection.log`,
+  `/tmp/ym-four-block-exposure.log`, `/tmp/ym-four-block-selection.log`,
+  `/tmp/ym-all-extent-face-selection.log`, `/tmp/ym-all-extent-interface-selection.log`,
+  `/tmp/ym-all-extent-interface-cutoff.log`. Broad simplification initially
+  introduced classical choice into a link-inequality proof; direct direction
+  and natural-coordinate contradictions removed that dependency. No proof-limit
+  increase, numerical oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
 ## ORIGINAL signed-law reflection positivity at every odd extent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentPlaquetteReflection.lean`,
@@ -30,7 +67,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `exact_quadratic_nonnegative` proves ORIGINAL signed-law reflection
   positivity at every odd extent, finite K, w >= 0 and signed coefficient
   function. No quaternion factors are commuted or shared links discarded.
-- **OPEN residue**: larger-slab cutoff control and compatibility, physical
+- **subsequent discharge**: fixed-insertion original interface cutoff limit
+  at every odd extent is proved above.
+- **OPEN residue**: larger-slab boundary recoding/common form and compatibility, physical
   positive-time realization/transfer, physical vacuum stationarity, strict
   completed gap, volume/spacing/QFT and all-group Clay. The common cutoff-limit
   completion remains extent-one only. No canonical atom/type changed; no use

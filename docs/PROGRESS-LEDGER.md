@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL signed-law reflection positivity at every odd extent (2026-09-12)
+## Current increment: exact ORIGINAL interface cutoff limit at every odd extent (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentExposedLinkDegree` replaces extent-one geometry
+scans with exposed-link uniqueness and full other-character degree-zero proofs.
+`SU2QuaternionAllCarrierExposedSelection` proves original-character harmonic
+cancellation on arbitrary carriers with at least four blocks. The four explicit
+swaps of `SU2QuaternionFourBlockExposure.fourBlockExposure` supply coordinate
+pins consumed by `SU2QuaternionFourBlockSelection.selected_product_zero`.
+
+`BF4ExactSlabAllExtentSelectedFaceSelection.faceExposure` constructs the witness
+for the actual physical plaquette. `crossing_faces_product_zero` retains every
+other crossing face at unrestricted spins. The complete original interface is
+then covered by `BF4ExactSlabAllExtentInterfaceSelection.interfaceCharacters_above_bound_zero`,
+with computed `interfaceBound half P` on the actual fixed-face list.
+
+`BF4ExactSlabAllExtentInterfaceCutoffLimit.interfacePairing_stable` retains all
+heat weights and filters the actual bounded label carrier to that bound. All
+crossing heat factors vary together. For fixed supported P, the original
+pairing is exactly constant above the bound, at every odd extent and rational w.
+`interfacePairingLimit` and `interfacePairingLimit_exact` provide the computed
+rational CReal value and exact cutoff modulus.
+
+Next: larger-slab fixed-boundary recoding and common cutoff-limit form/completion,
+then slab compatibility and physical positive-time realization. The current
+common completion is extent-one only; physical time/transfer, stationary vacuum,
+strict completed gap, volume/spacing/QFT and all-group Clay remain open.
+No slab-uniform modulus or beta/spacing-uniform spectral rate follows from this
+insertion-dependent degree bound. Canonical atoms/types unchanged.
+
+Seven focused monitored one-worker 20 GiB checks passed with `.olean` outputs:
+9 + 3 + 8 + 9 + 10 + 8 + 10 = 57 clean gates within `{propext, Quot.sound}`.
+Logs `/tmp/ym-all-extent-exposed-degree.log`, `/tmp/ym-all-carrier-exposed-selection.log`,
+`/tmp/ym-four-block-exposure.log`, `/tmp/ym-four-block-selection.log`,
+`/tmp/ym-all-extent-face-selection.log`, `/tmp/ym-all-extent-interface-selection.log`,
+`/tmp/ym-all-extent-interface-cutoff.log`. A failed broad-simp attempt imported
+classical choice into link inequalities; direct coordinate contradictions removed
+it before acceptance. No new sorry, analytic premise, proof-limit increase,
+numerical oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: ORIGINAL signed-law reflection positivity at every odd extent (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentPlaquetteReflection` proves time-link
 conjugation and all-spin oriented plaquette reflection at arbitrary extent.
@@ -26,7 +65,8 @@ with the ORIGINAL signed quadratic, and `exact_quadratic_nonnegative`
 proves it nonnegative for all odd extents, finite K, w >= 0 and signed
 boundary coefficient functions. Shared links are retained throughout.
 
-Next: larger-slab cutoff control and compatibility. The existing common
+Subsequent discharge above: original interface cutoff limit for fixed P.
+Next: larger-slab boundary recoding/common form and compatibility. The existing common
 cutoff-limit completion is still extent-one only; the physical positive-time
 carrier/transfer, stationary physical vacuum, strict completed gap,
 volume/spacing/QFT and all-group Clay remain open. No gap is imported from

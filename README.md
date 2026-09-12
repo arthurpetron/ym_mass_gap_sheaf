@@ -56,7 +56,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
   ORIGINAL quadratic = explicit weighted sum of rational squares   [PROVED]
   ORIGINAL reflection positivity: all odd extents, K, w>=0         [PROVED]
                                   |
-                                  +<-- cutoff removal on larger slabs [OPEN]
+                                  +<-- exposed links + four swaps
+                                  |      + harmonic degree selection [PROVED]
+                                  |      -> joint ORIGINAL interface
+                                  |         cutoff limit, fixed P,
+                                  |         every odd extent         [PROVED]
+                                  +<-- fixed boundary recoding and
+                                  |    common cutoff-limit form on
+                                  |    larger slabs                   [OPEN]
                                   |     Existing extent-one branch:
                                   |     fixed boundary recoding
                                   |       + joint degree selection
@@ -103,7 +110,36 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: ORIGINAL signed-law reflection positivity at every odd slab extent.**
+**Latest result: exact cutoff removal for the ORIGINAL interface at every odd extent.**
+[`BF4ExactSlabAllExtentExposedLinkDegree.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentExposedLinkDegree.lean)
+proves structurally that each crossing face has an exposed lower spatial link
+absent from every other crossing face. Their full character product has
+degree zero in that link, regardless of its other spins.
+[`SU2QuaternionFourBlockExposure.lean`](lean/YMGap/Continuum/SU2QuaternionFourBlockExposure.lean)
+constructs four explicit coordinate swaps; the original ordered character,
+every insertion and the full Haar carrier are retained by
+[`BF4ExactSlabAllExtentSelectedFaceSelection.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentSelectedFaceSelection.lean).
+No slab-size scan or independent replacement kernel is used.
+
+[`BF4ExactSlabAllExtentInterfaceCutoffLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentInterfaceCutoffLimit.lean)
+proves `interfacePairing_stable`: with a fixed supported polynomial P, all
+original crossing-face heat factors can vary together and the pairing is
+EXACTLY unchanged above the computed `interfaceBound half P`.
+`interfacePairingLimit` returns the rational `CReal` limit;
+`interfacePairingLimit_exact` supplies its exact cutoff modulus.
+The statement holds at every finite odd extent and every rational w.
+The bound depends on P and the slab, and can inherit parameter dependence
+through P. This is not a beta/spacing-uniform spectral estimate.
+
+Next: larger-slab fixed-boundary recoding and the common cutoff-limit form,
+then compatibility and physical positive-time realization. The existing
+common GNS completion is still extent-one only. Physical time/transfer,
+stationary vacuum, strict completed gap, volume/spacing/QFT and all-group
+Clay remain open. Seven focused monitored checks passed: 57 axiom gates
+within `{propext, Quot.sound}`, final error/warning free. No new sorry,
+analytic premise, proof-limit increase or numerical oracle; no full-tree audit.
+
+**Preceding result: ORIGINAL signed-law reflection positivity at every odd slab extent.**
 [`BF4ExactSlabAllExtentPlaquetteReflection.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentPlaquetteReflection.lean)
 proves literal time-link conjugation and the oriented plaquette-reflection
 identity for every extent and spin. A general four-quaternion cyclic-inverse
@@ -124,8 +160,9 @@ it nonnegative for every odd extent, every finite K, every w >= 0 and
 arbitrary signed boundary coefficients. Shared link variables are retained.
 This is reflection positivity, not a strict spectral estimate.
 
-Next: larger-slab cutoff control and compatibility, then the physical
-positive-time carrier and geometric transfer. The existing common
+Subsequent progress above supplies the fixed-insertion interface cutoff
+limit. Larger-slab boundary recoding/common form and compatibility still
+precede the physical positive-time carrier and geometric transfer. The existing common
 cutoff-limit completion remains extent-one only; physical vacuum stationarity,
 a strict completed gap, volume/spacing limits, QFT and all-group Clay remain open.
 Four focused monitored checks passed: 10 + 11 + 4 + 7 = 32 axiom gates
