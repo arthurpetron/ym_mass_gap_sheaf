@@ -457,6 +457,22 @@ The next load-bearing producers are, in causal order:
    and constancy of every mate-invariant sector observable. The sector
    sets are nested with cutoff and invariant under changing positive `w`;
    no norm or operator compatibility is inferred from set nesting.
+   The full kernel is now reduced, not merely a chosen edge:
+   `BF4PhysicalCubeBoundaryMask.lower_product_eq_mask` gives twelve edge
+   triangles and twelve zero tests for every half amplitude, and
+   `fixed_product_eq_mask` gives the eight fixed corner tests once the zero
+   pins hold. `BF4PhysicalCubeKernelFactorization.cubePhysicalKernel_eq_heat_overlap`
+   is the exact heat-times-boundary-overlap identity for arbitrary cube
+   endpoints at every cutoff. The original enumeration and weights remain.
+   `BF4PhysicalCubeKernelSaturation.cubePhysicalKernel_cutoff_stable` proves
+   fixed raw entries stop changing once both states fit and twice the left
+   label bound fits. `cubeStableRawKernel_eventual` supplies the explicit
+   saturation cutoff and rational stable entry. For every finite family,
+   `BF4PhysicalCubeStableGram.cubeStableQuadratic_eq_physicalGram` computes
+   a common physical cutoff and identifies the full form with that OS Gram;
+   `cubeStableQuadratic_nonnegative` proves positivity of the single stable
+   kernel for nonnegative w. Normalized row sums, completion norms, bounded
+   transfers, and gap constants are NOT inferred from entrywise stability.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -563,6 +579,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- explicit positive heat product <= actual OS kernel ... [PROVED state-dependent]
 |   |   |   +-- exact cube/parity sector + positive internal orbits ... [PROVED w>0, K>=1, extent=1]
 |   |   |   +-- cutoff-nested sector sets; mate invariants constant ... [PROVED not norm compatibility]
+|   |   |   +-- full half/fixed products -> exact Boolean masks ....... [PROVED all bounded boundaries]
+|   |   |   +-- full OS kernel = endpoint heat * boundary overlap ..... [PROVED exact]
+|   |   |   +-- fusion upper bounds -> exact raw-entry saturation ...... [PROVED explicit cutoff]
+|   |   |   +-- one stable raw kernel -> common-cutoff positive form .. [PROVED finite span]
+|   |   |   +-- normalized row/norm/completed-transfer compatibility .. [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

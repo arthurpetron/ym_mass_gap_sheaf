@@ -49,7 +49,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
-  + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
+  + exact raw-entry saturation + stable positive Gram               [PROVED]
+  + normalized norm/transfer compatibility -> completed gap         [OPEN]
   + volume-uniform estimates -> controlled thermodynamic limit       [OPEN]
   + spacing control -> continuum limit and OS/Wightman reconstruction [OPEN]
   -> extension from SU(2) to every compact simple gauge group        [OPEN]
@@ -70,7 +71,23 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** at slab extent one, every positive rational weight parameter
+**Latest result:** at slab extent one, the full raw OS kernel on cube-supported
+states now has an exact heat-weight/Boolean-overlap formula. For each half, its 48 production
+links reduce to twelve SU(2) triangle tests and twelve boundary-zero tests;
+the fixed part contributes eight corner triangles. The original weights and
+boundary enumeration are retained, with no auxiliary multiplicity left.
+
+If both endpoint label bounds are `R`, the raw kernel entry stops changing
+exactly at every cutoff `K >= 2R`. A computed cutoff gives each pair an explicit
+stable rational entry. Every finite quadratic form of this single stable
+kernel is realized by the original physical OS Gram at a computed common
+cutoff and is nonnegative for `w >= 0`.
+
+This is raw-entry compatibility and a positive algebraic finite-span form,
+not convergence of normalized rows, Hilbert norms, or completed transfer
+operators. Those constructions and a cutoff-uniform gap remain open.
+
+**Exact sector:** at slab extent one, every positive rational weight parameter
 `w` and every spin cutoff `K >= 1`, the canonical vacuum sector is **exactly**
 the bounded six-face cube labellings with common parity. The constructive
 inward-mate orbit stays in that sector and reaches vacuum within `K + 1`
@@ -87,7 +104,8 @@ are not. Every mate-invariant observable on the sector is constant.
 The edge weights depend explicitly on the state and `w`. Successful-source
 traffic coverage and a cutoff-independent norm-to-move estimate remain open;
 positive connectivity does not establish either. Sector-set nesting alone
-also does not establish norm or operator compatibility across cutoffs.
+also does not establish norm or operator compatibility across cutoffs; the
+new raw-entry saturation theorem supplies a separate, strictly weaker result.
 
 The preceding quantitative result remains: the normalized sector OS flow carries at
 least `448/5525` total traffic. Exact source-block Fubini connects it to the

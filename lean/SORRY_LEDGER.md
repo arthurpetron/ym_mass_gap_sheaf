@@ -13,6 +13,55 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact cube kernel reduction, saturation and stable positive form (2026-09-11)
+
+- **milestone**: current physical BF4/OS frontier; replace the selected-edge
+  witness by the full kernel formula and construct one stable raw positive
+  kernel on the algebraic cube-state carrier.
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeBoundaryMask.lean`,
+  `BF4PhysicalCubeKernelFactorization.lean`, `BF4PhysicalCubeKernelSaturation.lean`,
+  and `BF4PhysicalCubeStableGram.lean` in the same directory.
+- **complete production reduction**: `lower_product_eq_mask` identifies
+  all 48 lower-link factors with twelve edge-triangle and twelve boundary-zero
+  tests, for every bounded cube state and every bounded boundary.
+  `fixed_product_eq_mask` gives the eight corner tests when the zero pins hold.
+  The word profiles are checked by a constructive word-removal certificate;
+  no classical permutation decision or enlarged proof limit is used.
+- **full same-object kernel**: `halfAmplitude_eq_heat_mask` and
+  `boundaryWeight_eq_heat_mask` are equalities, including inadmissible cases.
+  `cubePhysicalTerm_eq_mask` and `cubePhysicalKernel_eq_heat_overlap` eliminate
+  the production auxiliary multiplicities without changing the action or
+  original boundary enumeration. Twelve of its 24 coordinates are forced zero.
+- **finite support, not just a tail bound**:
+  `cubeKernelAllowedB_boundary_bound` uses the SU(2) fusion upper inequalities
+  to bound every contributing interface spin by twice a left-endpoint bound.
+  `cubeBoundaryOverlap_cutoff_stable` and `cubePhysicalKernel_cutoff_stable`
+  prove exact eventual raw-entry equality. `cubeKernelSaturationCutoff` is
+  twice the sum of the twelve endpoint cube labels; `cubeStableRawKernel`
+  evaluates the original raw kernel there. `cubeStableRawKernel_eventual`
+  gives zero error past that explicit cutoff.
+- **one positive algebraic form**: `cubeListGramCutoff` is four times the sum
+  of cube labels over a finite state list. `cubeStableRawKernel_common_gram`
+  and `cubeStableQuadratic_eq_physicalGram` identify all entries and the whole
+  quadratic form with one original OS Gram at this computed common cutoff.
+  `cubeStableQuadratic_nonnegative` proves positivity for every rational
+  coefficient function and nonnegative w on any finite cube-supported list.
+  In particular it applies to the canonical common-parity sector.
+- **OPEN residue**: normalized row/partition limits, norm-compatible carrier
+  completion and bounded transfer realization, the all-vector cutoff-uniform
+  weighted estimate, thermodynamic/spacing limits, and continuum/Clay closure.
+  Raw-entry saturation does not establish any of these. No analytic field,
+  sorry, axiom, noncomputable term, weakened scorecard or frontier atom is added.
+
+Verification: four narrow monitored single-worker checks with 20 GiB ceilings
+and `.olean` emission passed; all 31 printed gates are axiom-free or contained
+in `{propext, Quot.sound}`, with no final errors or warnings. The untrusted
+`computations/bf4_cube_boundary_mask.py` pilot checks both full geometric
+profiles, 800 source/mate masks on arbitrary boundaries, and exact rational
+saturation for three pairs; it also detects a change below the saturation
+threshold. No full-tree build, axiom audit, or frontier guard was run. Root
+imports, README, work plan and progress ledger are updated. CI remains off.
+
 ## Exact physical cube sector and positive OS mate weights (2026-09-11)
 
 - **milestone**: current physical BF4 frontier; close the converse sector

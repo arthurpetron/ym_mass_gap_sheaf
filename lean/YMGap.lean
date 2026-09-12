@@ -3738,6 +3738,11 @@ import YMGap.Continuum.BF4PhysicalCubeDifferenceBoundaryMultiplicity
 import YMGap.Continuum.BF4PhysicalCubeDifferenceBoundaryKernel
 -- Exact all-cutoff sector and positive mate orbits; no uniform weighted gap.
 import YMGap.Continuum.BF4PhysicalVacuumSectorCubeClassification
+-- Full Boolean cube kernel, exact entry saturation, and one stable positive Gram.
+import YMGap.Continuum.BF4PhysicalCubeBoundaryMask
+import YMGap.Continuum.BF4PhysicalCubeKernelFactorization
+import YMGap.Continuum.BF4PhysicalCubeKernelSaturation
+import YMGap.Continuum.BF4PhysicalCubeStableGram
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

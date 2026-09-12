@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: construct physical mate weights and classify the sector (2026-09-11)
+## Current increment: construct the stable raw physical cube Gram (2026-09-11)
+
+This is PROGRESS: the full production kernel, not only one chosen positive
+edge, now has an exact reduced formula and a cutoff-independent raw positive
+form. No new open-input wrapper is introduced.
+
+`BF4PhysicalCubeBoundaryMask` reduces the 48 lower-link words to twelve edge
+triangles, twelve boundary-zero pins and twenty-four empty words. The fixed
+part reduces to eight corner triangles and twelve empty words. Its Boolean
+formulas hold at arbitrary cutoff and arbitrary bounded boundary; they are
+not extrapolated from a finite spin table.
+
+`BF4PhysicalCubeKernelFactorization` factors each complete physical summand
+and the entire original OS kernel into endpoint heat weights and a Boolean
+boundary overlap. The 24-coordinate enumeration remains original, with twelve
+coordinates forced zero and no auxiliary fusion multiplicity left.
+
+The fusion upper inequalities then prove more than convergence of a fixed
+entry: if both endpoint labels are bounded by R, it is exactly stable for
+all cutoffs at least 2R. `BF4PhysicalCubeKernelSaturation` computes a conservative
+cutoff directly from the endpoint labels and supplies the stable rational
+entry with zero eventual error. `BF4PhysicalCubeStableGram` computes one
+common cutoff for any finite cube-state family; its complete stable quadratic
+form equals the actual physical OS Gram there and is nonnegative for w >= 0.
+
+This does not close normalized row convergence, operator/norm compatibility,
+the completed transfer or cutoff-uniform gap. Those remain the next tasks:
+use the exact reduced kernel for weighted all-vector control and connect this
+single raw positive form to the normalized physical completion. Volume,
+spacing, continuum and all-group Clay obligations remain open.
+
+All four modules passed focused monitored one-worker, 20 GiB checks with
+`.olean` output. The 31 printed axiom reports are empty or use only
+propext/Quot.sound; final logs contain no errors or warnings. No heartbeat or
+recursion ceiling was raised. The independent pilot passed full word profiles,
+800 masks and exact saturation for three pairs, including detection of a
+below-threshold change. No full-tree build/audit, progress-script guard build
+or frontier guard was run. README, root imports, work plan and sorry ledger
+are updated; GitHub CI remains disabled.
+
+## Previous increment: construct physical mate weights and classify the sector (2026-09-11)
 
 This is PROGRESS: the converse sector classification and positive support of
 every required mate move are now proved, not carried as new hypotheses.
