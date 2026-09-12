@@ -54,7 +54,9 @@ REQUIRED PHYSICAL ROUTE
     + coefficient trace = solid-zonal polynomial, all degrees       [PROVED]
     + ordered slab word has Haar-unit radius, all extents            [PROVED]
     -> trace = ORIGINAL character under every Haar insertion        [PROVED]
-    + positive reflected channels of H AND link-local gluing        [OPEN]
+    + actual local character Gram channels, all spins              [PROVED]**
+    + those channels pinned to H's crossing-face/link geometry       [OPEN]
+    + link-local gluing preserving the reflected observable         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -75,6 +77,8 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 
 * Conditional reflected result: w=1/400, extent one, all spin labels.
   Its finite/marginal rate is explicit in w (0<w<=1/2), not uniform in w.
+** Local kernel scope: Haar-unit input-word radii and supported column
+   syntheses on the same finite Haar carrier. Not slab reflection positivity.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -92,7 +96,38 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the actual trace is the original character under Haar.**
+**Latest result: actual all-spin character kernels have explicit Gram channels.**
+[`SU2QuaternionSymmetricPowerKernelGram.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerKernelGram.lean)
+proves that the ORIGINAL polynomial trace of `Sym^n D(conj(p)*q)` is a sum
+of Hermitian pairings of the actual representation columns. The weights are
+the explicit positive rationals `1 / C(n,k)`. The proof retains every
+coefficient, so it is valid before evaluation or Haar integration; it needs
+no diagonalization, eigenvector choice or square-root normalization.
+
+[`SU2QuaternionPolynomialGramPositivity.lean`](lean/YMGap/Continuum/SU2QuaternionPolynomialGramPositivity.lean)
+proves the finite quadratic is the corresponding weighted sum of Hermitian
+squares for arbitrary complex polynomial coefficients. The existing Haar
+square-positivity theorem then gives `characterKernelQuadratic_haar_nonneg`
+for the ORIGINAL BF4 character kernel. Its explicit conditions are Haar-unit
+radii for the input words and finite-coordinate support for their column
+syntheses, all on the same Haar carrier. Pairwise product radii are derived,
+not supplied as another premise.
+
+**Next physical bridge:** identify these channels on the actual crossing
+plaquettes, retain the original heat coefficients, and glue the shared-link
+integrations with the actual lower/reflected-upper observables. The fixed
+faces are time-oriented crossing faces, as defined by
+`Z4HalfTimeReflectionCrossPlaneGeometry.plaquetteHalfSide`; this local Gram
+theorem has not yet been assembled on that geometry. Slab reflection
+positivity, physical time/transfer, the completed physical gap, continuum QFT
+and the all-group Clay target remain open.
+
+Four new modules passed focused monitored one-worker 20 GiB checks: 70
+printed axiom gates, all within `{propext, Quot.sound}`, no errors/warnings.
+No new sorry, analytic premise, rate estimate or raised proof limit; no
+full build/audit. These combinatorial basis weights are not a mass-gap bound.
+
+**Retained result: the actual trace is the original character under Haar.**
 [`BF4ExactSlabSymmetricPowerHaarTrace.lean`](lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean)
 proves `slabPlaquette_trace_haar_character` for every slab extent and spin.
 The real trace component equals the ORIGINAL plaquette character under
@@ -137,8 +172,9 @@ All raw spectator coefficients remain in the constructed polynomials.
 
 These two modules establish evaluation identities. The new modules above
 supply the separate coefficient-probe and sphere-ideal proofs needed for
-Haar use. Positive kernel channels, link-local gluing, the physical operator
-gap and continuum passage remain open.
+Haar use. Local character Gram channels are now proved above. Their physical
+interface realization, link-local gluing, the physical operator gap and
+continuum passage remain open.
 
 Both new modules passed focused monitored one-worker 20 GiB checks: 33 printed
 axiom gates, all within `{propext, Quot.sound}`, no errors/warnings. No new

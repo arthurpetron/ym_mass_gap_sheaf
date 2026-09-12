@@ -13,6 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual all-spin character Gram channels and supported Haar positivity (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionPolynomialTensorHermitian.lean`,
+  `SU2QuaternionSymmetricPowerPolynomialBasis.lean`,
+  `SU2QuaternionSymmetricPowerKernelGram.lean`, and
+  `SU2QuaternionPolynomialGramPositivity.lean` in the same directory.
+- **representation algebra discharged**: `polyMatrixAction_mul` and
+  `polyTensorInner_matrixAction` are coefficient-sensitive tensor composition
+  and adjoint proofs. `polyMatrixAction_embed` reconstructs the ORIGINAL
+  polynomial coefficient action. `polyTensorInner_basis` computes binomial
+  basis norms, with explicit positive reciprocals and the proved dual-basis
+  extraction `polyTensorInner_basis_extract`. No square-root normalization.
+- **kernel decomposition discharged**: `fundamental_coeff_mul`,
+  `fundamental_coeff_conj`, `diagonal_eq_column_pair` and
+  `polynomialTrace_conj_mul_eq_gram` identify the ORIGINAL trace kernel with
+  positive-weighted pairings of actual representation columns, at all degrees
+  and all coefficient probes. `haarRadius_conj_mul` proves the product-radius
+  condition from individual word radii; `character_haar_gram_of_unit_radii`
+  gives the ORIGINAL character-kernel identity under arbitrary Haar insertions.
+- **finite quadratic positivity discharged at explicit scope**:
+  `traceKernelQuadratic_eq_squares` is the finite complex-polynomial Gram
+  expansion. `traceKernelQuadratic_haar_nonneg` and
+  `characterKernelQuadratic_haar_nonneg` use the existing Haar square theorem.
+  The character result requires individual Haar-unit word radii and the
+  syntactic finite-coordinate support of the actual column syntheses, all on
+  the SAME carrier. These are explicit domain/algebra conditions, not a
+  hidden positivity or gap premise. No mass estimate is made.
+- **OPEN residue**: physical crossing-face/half-word realization of these
+  channels with the original heat coefficients AND shared-link gluing with
+  the literal reflected observable. The inspected `plaquetteHalfSide` and
+  `centralFixedFaceIds` definitions retain the crossing time-link geometry.
+  Slab reflection positivity, physical time, completed exact-law gap,
+  volume/spacing/QFT passage and all-group Clay remain open. No canonical
+  atom or frontier type changed; the refuted positive-law identity stays refuted.
+- **verification**: all four focused monitored one-worker 20 GiB checks
+  passed with `.olean` output; 70 gates (27 + 17 + 12 + 14), all within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-polynomial-tensor-hermitian.log`,
+  `/tmp/ym-polynomial-symmetric-basis.log`,
+  `/tmp/ym-symmetric-power-kernel-gram.log`,
+  `/tmp/ym-polynomial-gram-positivity.log`.
+  No new sorry, analytic premise, numerical oracle, rate, pilot constant or
+  raised proof limit. No full build/audit/guard/progress run.
+
 ## Actual all-degree trace in the original slab Haar carrier (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionComplexCoefficientAlgebra.lean`,

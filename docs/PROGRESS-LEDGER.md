@@ -4,7 +4,55 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-degree trace in the ORIGINAL slab Haar carrier (2026-09-12)
+## Current increment: actual all-spin character Gram channels and supported Haar positivity (2026-09-12)
+
+PROGRESS: the local character-kernel positivity mechanism is now proved
+from actual representation columns. It is not merely a supplied positive
+Gram model. The physical crossing-face realization and shared-link gluing
+remain separate open work; no slab positivity or mass gap is inferred.
+
+`SU2QuaternionPolynomialTensorHermitian` proves actual polynomial tensor
+composition and the Hermitian adjoint law with arbitrary coefficient probes.
+`SU2QuaternionSymmetricPowerPolynomialBasis.polyMatrixAction_embed` pins its
+symmetric output to the ORIGINAL polynomial matrix entries.
+`polyTensorInner_basis` computes the explicit binomial norms; strictly
+positive rational reciprocals give `polyTensorInner_basis_extract`.
+
+`SU2QuaternionSymmetricPowerKernelGram.polynomialTrace_conj_mul_eq_gram`
+identifies the ORIGINAL trace of `Sym^n D(conj(p)*q)` with the weighted
+column-pairing sum at every degree, coefficientwise. Quaternion matrix
+product, adjoint and norm identities are proved rather than assumed.
+`character_haar_gram_of_unit_radii` supplies the corresponding ORIGINAL
+character-kernel identity on the same arbitrary-insertion Haar carrier.
+
+`SU2QuaternionPolynomialGramPositivity.traceKernelQuadratic_eq_squares`
+handles arbitrary finite families and complex polynomial coefficients.
+`characterKernelQuadratic_haar_nonneg` then proves nonnegativity of the
+original character quadratic under Haar, with explicit individual word
+radius relations and finite-coordinate support of the actual column
+syntheses. The existing all-polynomial Haar positivity theorem supplies the
+square step. No diagonalization, square-root basis or positivity premise.
+
+Next: instantiate the local channels on the literal crossing-face words,
+retain original heat coefficients, and glue their shared link integrations
+with the original reflected observable. Source inspection confirms the fixed
+interface consists of time-oriented crossing faces (`plaquetteHalfSide` /
+`centralFixedFaceIds`), not arbitrary independent class coordinates.
+Slab reflection positivity, physical time, completed exact-law gap,
+volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom/type change; the exact/positive-law identity stays refuted.
+
+All four new modules passed focused monitored one-worker 20 GiB checks
+with `.olean` outputs. All 70 gates (27 + 17 + 12 + 14) are within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-polynomial-tensor-hermitian.log`,
+`/tmp/ym-polynomial-symmetric-basis.log`,
+`/tmp/ym-symmetric-power-kernel-gram.log`,
+`/tmp/ym-polynomial-gram-positivity.log`.
+No new sorry, analytic premise, numerical oracle, rate, pilot constant or
+proof-limit increase. No full build/audit/guard/progress run.
+
+## Previous increment: all-degree trace in the ORIGINAL slab Haar carrier (2026-09-12)
 
 PROGRESS: the trace-to-Haar step is no longer open. The same polynomial
 matrix trace constructed previously is now identified coefficientwise with

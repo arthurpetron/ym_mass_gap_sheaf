@@ -18,7 +18,56 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct-route progress (actual trace inside the original slab Haar):**
+**Latest direct-route progress (actual all-spin character Gram channels):**
+`SU2QuaternionPolynomialTensorHermitian.polyMatrixAction_mul` and
+`polyTensorInner_matrixAction` prove tensor functoriality and the actual
+adjoint law at coefficient-probe strength. No pointwise identity is passed
+through integration. `SU2QuaternionSymmetricPowerPolynomialBasis.polyMatrixAction_embed`
+reconstructs the acted tensor from the ORIGINAL polynomial row formula.
+`polyTensorInner_basis` computes its basis norm as `binom n k`, while
+`basisWeight_pos`, `basisInverseWeight` and `polyTensorInner_basis_extract`
+provide the explicit positive rational dual weights, without square roots.
+
+`SU2QuaternionSymmetricPowerKernelGram.fundamental_coeff_mul` and
+`fundamental_coeff_conj` prove the original Hamilton matrix product/adjoint
+coefficientwise. `diagonal_eq_column_pair` and
+`polynomialTrace_conj_mul_eq_gram` give the actual all-degree trace kernel as
+weighted pairings of actual representation columns. `haarRadius_conj_mul`
+derives the product-radius relation from individual Haar-unit word radii;
+`character_haar_gram_of_unit_radii` identifies the ORIGINAL character kernel
+with that Gram kernel under every Haar insertion.
+
+`SU2QuaternionPolynomialGramPositivity.traceKernelQuadratic_eq_squares`
+proves every finite complex-polynomial quadratic is the weighted Hermitian
+square of explicit column syntheses. `traceKernelQuadratic_haar_nonneg`
+uses the existing all-polynomial Haar square theorem. The final
+`characterKernelQuadratic_haar_nonneg` has only the explicit individual
+Haar-unit radius and syntactic synthesis-support conditions on the SAME
+finite carrier. Positivity of the character kernel is proved, not assumed.
+
+**Next physical frontier:** realize these channels on the actual fixed
+crossing plaquettes, retaining `coeffW` and shared time-link endpoints,
+then compose the integrations with the existing literal reflected observable.
+The geometry was inspected: `plaquetteHalfSide` in
+`Z4HalfTimeReflectionCrossPlaneGeometry` classifies time-oriented faces based
+at the central lower slice as fixed/crossing; `centralFixedFaceIds` selects
+those faces. The local kernel theorem does not yet supply this physical
+gluing. Slab reflection positivity, physical time, the completed exact-law
+gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom closed, frontier type changed, or refuted positive-law identity revived.
+
+Verification: all four new modules passed focused monitored one-worker
+20 GiB checks with `.olean` outputs; 27 + 17 + 12 + 14 = 70 printed gates
+within `{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-polynomial-tensor-hermitian.log`,
+`/tmp/ym-polynomial-symmetric-basis.log`,
+`/tmp/ym-symmetric-power-kernel-gram.log`,
+`/tmp/ym-polynomial-gram-positivity.log`.
+No new sorry, analytic premise, numerical oracle, rate, pilot constant or
+raised proof limit. The positive weights are exact basis multiplicities,
+not a new uniform mass estimate. No full build/audit/guard/progress run.
+
+**Retained direct-route progress (actual trace inside the original slab Haar):**
 `SU2QuaternionComplexCoefficientAlgebra` proves the small complex polynomial
 identities at coefficient-probe strength using the existing reflective
 normalizer. `SU2QuaternionSymmetricPowerCoefficientTrace.polynomialTrace_recurrence`
