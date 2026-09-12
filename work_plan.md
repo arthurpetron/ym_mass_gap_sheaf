@@ -387,8 +387,19 @@ The next load-bearing producers are, in causal order:
    split then gives `sectorSuccessfulMass_add_escape_ge`:
    `(41/425) * sectorMass <= successfulMass + escapingBadMass`.
    Every escaping source is two-sided, but two-sided targets that stay in the
-   sector are already paid by the internal contraction.  The remaining demand
-   input is a strict sector-relative estimate on this exact escaping mass.
+   sector are already paid by the internal contraction. The exact escaping
+   mass is now controlled without a new support hypothesis:
+   `BF4PhysicalAnchorPartitionCeiling.anchorSlabPartition_one_le_ceiling`
+   proves the genuine fixed-anchor, extent-one partition is at most `65/64`
+   at every cutoff. The proof uses the degree-thirteen Casimir majorant,
+   ratio `2/15625`, one-face ceiling `15625/15623`, and the exact 96-face
+   ambient embedding. The sector contains the weight-one vacuum, so outside
+   physical mass is at most `1/64`. The complementary target-weighted
+   contraction gives `sectorEscapingMass_le` with fraction `6/425`.
+   `BF4PhysicalVacuumSectorInwardMateSectorDemand.sectorSuccessfulMass_ge`
+   absorbs it to prove successful mass at least `7/85` of sector mass;
+   `sectorSuccessfulMass_pos` verifies nonvacuity. This closes scalar demand
+   at the fixed coupling and volume, not a beta/spacing/volume-uniform bound.
    Positive filtered demand alone is not an all-vector coverage theorem.
    After embedding the
    restricted edge energies in the existing sector Dirichlet form, build a
@@ -478,8 +489,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- exact successful + one-sided + two-sided mass split ... [PROVED]
 |   |   |   +-- nonnegative target-weighted 384/425 contraction ....... [PROVED]
 |   |   |   +-- exact sector demand bound with escaping-mass error .... [PROVED]
-|   |   |   +-- strict sector-relative escaping-mass estimate ........ [ACTIVE]
-|   |   |   +-- sector demand + sector Dirichlet embedding ............ [OPEN]
+|   |   |   +-- degree-13 tensor -> physical partition <= 65/64 ...... [PROVED fixed anchor/extent]
+|   |   |   +-- complementary target event -> escape <= 6/425 P ...... [PROVED]
+|   |   |   +-- absorb leakage -> successful sector demand >= 7/85 P . [PROVED]
+|   |   |   +-- restricted energies -> sector Dirichlet embedding .... [OPEN]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

@@ -26,22 +26,28 @@ Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
                     EXPAND into causal obligations
                                   v
 finite 4D SU(2) lattice measure and exact representation data       [PROVED]
-  -> reflection positivity and finite OS Gram                       [PROVED]
-  -> concrete finite physical transfer + one strict parity channel   [PROVED]
-  -> exact finite vacuum component + positive-edge path closure       [PROVED]
-  -> exact sector-local inward-mate source carrier                    [PROVED]
-  -> restricted OS flow retains both edge-capacity bounds            [PROVED]
-  -> exact good+bad conservation on sector physical fields           [PROVED]
-  -> one-sided bad targets stay in the exact component                [PROVED]
-  -> exact successful + one-sided + two-sided mass split              [PROVED]
-  -> target-weighted 384/425 contraction, including sector event      [PROVED]
-  -> sector demand lower bound with exact escaping-mass error        [PROVED]
-  -> strict sector-relative bound on escaping bad mass               [OPEN]
-  -> sector demand + separating moves, uniform congestion             [OPEN]
+  |                   FIX w=1/400 AND slab extent=1
+  +-> OS Gram -> physical transfer -> exact vacuum component -----+
+  |   and sector event contains the weight-one vacuum    [PROVED] |
+  +-> complete-source conservation + target-weighted contraction -+
+  |   internal bad mass <= (384/425) * sector mass       [PROVED] |
+  `-> degree-13 Casimir majorant -> exact finite Fubini -----------+
+      full partition <= 65/64, for every spin cutoff     [PROVED] |
+                                                                 v
+                     AND: all three inputs on the same ensemble
+                                                                 |
+       outside physical mass <= 1/64                             |
+         -> escaping bad mass <= (6/425) * sector mass   [PROVED] <+
+         -> successful mass >= (7/85) * sector mass      [PROVED]
+                                  |
+                 AND with sector-separating moves [OPEN]
+                 and uniform sector energy comparison [OPEN]
+                 (existing two-edge capacities are PROVED)
+                                  v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
-  -> completed physical vacuum-complement gap                        [OPEN]
-  -> thermodynamic limit with uniform estimates                      [OPEN]
-  -> continuum limit and OS/Wightman reconstruction                  [OPEN]
+  + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
+  + volume-uniform estimates -> controlled thermodynamic limit       [OPEN]
+  + spacing control -> continuum limit and OS/Wightman reconstruction [OPEN]
   -> extension from SU(2) to every compact simple gauge group        [OPEN]
                                   |
                  CONTRACT only through checked bridges
@@ -59,6 +65,11 @@ useful theorems exist but a required bridge is missing.
 The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
+
+**Latest result:** positive successful sector demand is now proved, with
+fraction `7/85`, uniformly in spin cutoff `K >= 1` at fixed coupling `1/400`
+and slab extent one. The next missing ingredient is a sector-separating move
+family with a cutoff-uniform comparison to the actual OS Dirichlet energy.
 
 The latest checked path is already on that actual OS object.  Every successful
 six-face inward-mate source gives a supported two-edge path in the normalized
@@ -126,8 +137,9 @@ classifier now filters the global source enumeration exactly to those paths;
 the resulting Type-level list is duplicate-free and its membership theorem is
 an iff, not an assumed selector.  Restricting the partition-normalized traffic
 to this list preserves nonnegativity and both proved OS edge-capacity bounds,
-including the second-edge congestion factor.  It does **not** yet preserve the
-global `41/425` demand floor.  The branch decomposition has now been localized
+including the second-edge congestion factor. The global `41/425` demand floor
+does not follow merely by restriction; the new sector bound is `7/85`.
+The branch decomposition has now been localized
 at the right level: over the exact finite list of full physical fields whose
 lower restriction is in the vacuum component, all-target mass plus
 first-stretched mass equals the genuine BF4 physical mass exactly.  The
@@ -147,9 +159,19 @@ branch conservation then proves
 `(41/425) * sector mass <= successful mass + escaping bad mass`.
 The escaping mass counts only sources in the sector whose lowered targets
 leave it.  Every such source is proved two-sided; two-sided targets that
-remain inside the sector are already covered by the contraction.  A strict
-sector-relative escape estimate is still needed for positive successful
-demand alone.  A translated or component-adapted move family must subsequently
+remain inside the sector are already covered by the contraction.
+That escaping mass is now absorbed. The physical degree-thirteen face
+majorant has successive ratio at most `2/15625` at the anchor, hence its
+all-cutoff one-face sum is at most `15625/15623`. Exact finite Fubini and
+the corrected slab's embedding in the 96-face ambient corner box give
+`Z <= (15625/15623)^96 <= 65/64`. Since the weight-one vacuum lies in the
+sector, outside physical mass is at most `1/64`. Applying the same weighted
+contraction to the complementary target event gives
+`escaping bad mass <= (6/425) * sector mass`. Subtracting this from the
+previous demand bound proves
+`successful mass >= (7/85) * sector mass > 0`.
+This is a fixed-volume, fixed-coupling result, not uniformity in beta or
+lattice spacing. A translated or component-adapted move family must subsequently
 separate the sector with uniform congestion.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
@@ -205,6 +227,11 @@ The contraction against any nonnegative physical target function is in
 [`BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction.lean).
 Its sector specialization and exact escaping-mass demand bound are in
 [`BF4PhysicalVacuumSectorInwardMateSectorDemandResidual.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemandResidual.lean).
+The sharp physical partition ceiling is in
+[`BF4PhysicalAnchorPartitionCeiling.lean`](lean/YMGap/Continuum/BF4PhysicalAnchorPartitionCeiling.lean).
+The complementary-event comparison, leakage absorption, and positive `7/85`
+sector demand are in
+[`BF4PhysicalVacuumSectorInwardMateSectorDemand.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemand.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

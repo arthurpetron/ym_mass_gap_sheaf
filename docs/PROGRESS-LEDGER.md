@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: localize the weight bound with exact leakage (2026-09-11)
+## Current increment: absorb leakage and close positive sector demand (2026-09-11)
+
+`BF4PhysicalAnchorPartitionCeiling` proves a sharp ceiling for the actual
+physical partition. The degree-thirteen SU(2) majorant has all-spin ratio
+at most `2/15625`, so its one-face sum is at most `15625/15623`, independent
+of cutoff. Exact finite Fubini and the corrected slab's ambient embedding
+give `Z <= (15625/15623)^96 <= 65/64` at anchor `1/400`, extent one.
+
+`BF4PhysicalVacuumSectorInwardMateSectorDemand` proves that the weight-one
+vacuum is inside the exact sector event, leaving outside physical mass at
+most `1/64`. The existing target-weighted contraction bounds actual escaping
+bad sources by `384/425` times that outside mass. Since sector mass is at
+least one, `sectorEscapingMass_le` gives escape at most `6/425` of sector
+mass. Absorbing it in the previous exact residual inequality yields
+`sectorSuccessfulMass_ge`: successful mass is at least `7/85` of sector
+physical mass for every cutoff `K >= 1`. `sectorSuccessfulMass_pos` makes
+nonvacuity explicit.
+
+This is PROGRESS: a previously open scalar-demand estimate is now proved,
+without another input certificate. Next: sector Dirichlet embedding and a
+move family that separates all sector observables with uniform congestion.
+Positive total traffic is not all-vector coverage. No completed gap,
+`singleStep`, continuum, or Clay atom is discharged; fixed coupling/extent
+must not be mistaken for beta/spacing/volume uniformity.
+
+The exact arithmetic pilot passed. Both new Lean modules passed focused
+monitored source checks and `.olean` emission with one worker and 20 GiB.
+All 17 printed axiom gates are within `{propext, Quot.sound}` (one is empty).
+Root imports, README, work plan, and sorry ledger are updated. No full-tree
+build/audit or guard was run. The historical `progress_metric.sh` invokes a
+guard build, so it was not run without the specific approval required by
+`lean/AGENTS.md`. Its older singleStep counters are not evidence for this
+physical-sector sub-obligation. GitHub CI remains disabled.
+
+## Previous increment: localize the weight bound with exact leakage (2026-09-11)
 
 `BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction` proves the
 first-stretched contraction against every nonnegative function of the actual

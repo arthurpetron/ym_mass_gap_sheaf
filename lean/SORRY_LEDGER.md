@@ -13,7 +13,60 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Absorb sector leakage and prove positive successful demand (2026-09-11)
+
+- **milestone**: current physical BF4 sector gap frontier in `work_plan.md`;
+  close the scalar sector-demand sub-obligation left by `72f7bee`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalAnchorPartitionCeiling.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemand.lean`.
+- **proved declarations**: `anchorFaceRatio_bound`,
+  `anchorPhysicalLabelPartial_le`, `anchorPhysicalTensorMass_le`,
+  `anchorPhysicalPartition_le`, `ambientTwo_plaquetteCount`,
+  `anchorFaceCeiling_pow_96_le`, `anchorSlabPartition_one_le_ceiling`,
+  `physicalVacuumSectorComplementMass_add_sectorMass`,
+  `sectorPhysicalMass_one_le`, `physicalVacuumSectorComplementMass_le`,
+  `sectorEscapingMass_le_targetComplementMass`,
+  `sectorEscapingMass_le_failure_mul_complement`, `sectorEscapingMass_le`,
+  `sectorSuccessFraction_pos`, `sectorSuccessfulMass_ge`,
+  and `sectorSuccessfulMass_pos`.
+- **closed sub-obligation**: actual escaping bad mass is at most `6/425`
+  of sector physical mass. The existing residual inequality therefore gives
+  successful mass at least `7/85` of sector mass, strictly positive at every
+  spin cutoff `K >= 1`. The fraction is explicit Type-level rational data
+  (`sectorSuccessFraction`), not an erased existence claim.
+- **mathematical inputs**: the proved physical degree-thirteen SU(2) incidence
+  bound; all-spin Casimir ratio `2/15625` at coupling `1/400`; exact finite
+  Fubini; corrected-slab zero extension into the 96-face ambient corner box;
+  weight-one vacuum membership; and the proved target-weighted `384/425`
+  contraction applied to the complementary physical-field event. The sharp
+  partition ceiling is `65/64`, so outside physical mass is at most `1/64`.
+  No group-agnostic beta-uniform estimate is asserted.
+- **remaining obligations**: embed restricted observable energies in the
+  actual sector Dirichlet form and construct moves separating every sector
+  observable with cutoff-uniform congestion. Positive scalar traffic does
+  not imply this all-vector coverage. Completed physical gap, uniform volume
+  and spacing control, thermodynamic/continuum construction, QFT
+  reconstruction, and all-group lift remain open. No `singleStep` or
+  Clay-facing frontier atom is closed.
+- **constructive status**: no new `sorry`, analytic hypothesis, custom axiom,
+  noncomputable declaration, enlarged proof budget, or frontier weakening.
+  `computations/bf4_anchor_sector_escape_budget.py` checks the rational pilot;
+  Lean independently certifies all inequalities. Six blocks of sixteen
+  powers keep the numeric certificate within the existing evaluator limits.
+
+Verification: both new modules passed focused monitored source checks with
+explicit `.olean` emission, one worker, and a 20 GiB ceiling. All 17 printed
+declaration checks stay inside `{propext, Quot.sound}`; the positive fraction
+is axiom-free. An initial standard-library `List.nodup_range` dependency on
+`Classical.choice` was replaced by an explicit constructive list induction.
+Final logs contain no errors or disallowed axioms. No full-tree build, root
+audit, or frontier-guard run was performed. GitHub CI remains disabled.
+
 ## Target-weighted contraction and exact sector escape residual (2026-09-11)
+
+The scalar escaping-mass obligation below is now closed by the increment
+above; the all-vector and continuum obligations remain open.
 
 - **milestone**: current physical BF4 gap frontier in `work_plan.md`;
   weighted localization of the first-stretched contraction.
