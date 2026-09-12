@@ -54,9 +54,12 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                    -> Gaussian conditional self-return       [PROVED]
                    + injective six-label shell count          [PROVED]
                    -> actual high-label trace <= epsilon     [PROVED]
-                   -> EVERY centered new-tail form <= epsilon
+                   -> EVERY raw/centered tail form <= epsilon
                       times its own stationary norm          [PROVED]
-                   AND sufficient head control                 [OPEN]
+                   -> raw tail rate 1/4, FIXED head B=1404    [PROVED]
+                   -> centered norm <= original energy
+                      + 3 * root-zero head norm               [PROVED]
+                   AND fixed-head rooted energy control        [OPEN]
                                   v
   cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
                                   | required together with:
@@ -130,7 +133,30 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result: the actual centered new-tail form is uniformly small.**
+**Latest result: a fixed-head, root-anchored energy inequality.**
+At extent one, for every `0<w<=1/2`, every spin cutoff `K>=1404`, and
+every coefficient `f` of zero stationary mean, Lean proves
+
+```text
+N_K(f) <= E_K(f) + 3 * N_K(head_1404(f - f(vacuum)))
+```
+
+Here `N_K` is the original stationary squared norm and `E_K` is the
+original directed physical Dirichlet energy, exactly twice `N_K-P_K`.
+The proof establishes an **uncentered** tail rate `1/4`, absorbs the
+mixed block by Gram positivity, and subtracts the root value without
+changing the energy. Neither unit sector mass nor a strict head rate is
+assumed. The head cutoff stays fixed while K grows.
+
+**Next:** construct a finite constant controlling this root-zero head
+norm by the same energy, uniformly in K at the chosen coupling. No such
+constant, all-vector strict gap, exact-action/geometric-time identification,
+or thermodynamic/continuum passage is claimed yet. See
+[`BF4PhysicalCubeTailAbsorption.lean`](lean/YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean).
+The focused monitored Lean check passed all 12 printed axiom gates;
+the exact untrusted algebra pilot passed 29,141 positive-block checks.
+
+**Input: the actual centered new-tail form is uniformly small.**
 For any positive rational epsilon, take the explicit old cutoff
 `B=1400+epsilon.den`. At extent one, for every `0<w<=1/2` and every later
 cutoff K>=B, Lean proves
@@ -148,9 +174,10 @@ so the Gaussian radial estimate below bounds the existing old/new-block
 trace. Its centered stationary subtraction only decreases that trace.
 
 This discharges the trace input of the existing head--tail compiler.
-The remaining sufficient centered head estimate is explicit: supplying
-head rate q gives full centered rate `q+epsilon`; **no rate below one is
-claimed yet**. Exact action/geometric time, vacuum uniqueness and
+That earlier compiler still gives rate `q+epsilon` from a sufficient
+centered head rate q. The newer anchored route above avoids needing
+that comparison; **no full rate below one is claimed yet**.
+Exact action/geometric time, vacuum uniqueness and
 volume/spacing/continuum passage also remain open. See
 [`BF4PhysicalCubeHighLabelTrace.lean`](lean/YMGap/Continuum/BF4PhysicalCubeHighLabelTrace.lean)
 and [`BF4PhysicalCubeNewTailTraceBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeNewTailTraceBound.lean).

@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual trace and full centered new-tail control (2026-09-12)
+## Current increment: raw tail and fixed-head root-anchored energy (2026-09-12)
+
+This is PROGRESS: `BF4PhysicalCubeTailAbsorption` proves an unconditional
+all-vector energy estimate with a FIXED finite-head remainder, then anchors
+that remainder at the actual vacuum index. The raw tail premise is proved,
+not supplied. `newTailSelfReturnTrace_small` bounds the existing uncentered
+self-return trace, and `matrix_newTail_le` applies the finite positive-form
+trace theorem to the actual raw boundary transform, with exact original
+kernel and literal coefficient identifications.
+
+The computed choice `absorptionTailRate=1/4` fixes base=1404. Positivity and
+ordinary head contractivity give `matrix_le_two_head_quarter_tail`.
+The exact physical energy identity then yields `norm_le_energy_add_head`:
+`N_K(f)<=E_K(f)+3*N_K(head_1404(f))`. E_K is the ORIGINAL directed edge
+energy, twice the difference between N_K and the physical matrix form.
+Every coefficient is allowed, every later K>=1404, explicitly `0<w<=1/2`,
+extent one.
+
+`rootShift_at_root` proves the shifted coefficient vanishes at index zero;
+`centered_norm_le_rootShift_norm` uses exact pairwise variance and positive
+sector mass, not a unit-mass assumption. `energy_rootShift_eqv` preserves
+the original energy. Therefore
+`centered_norm_le_energy_add_anchored_head` bounds EVERY centered norm by
+the same energy plus three times the fixed-head norm of its root shift.
+
+Next: a uniform-in-K finite constant controlling that root-zero head norm
+by the original energy, at the chosen coupling. No head spectral-rate vs
+tail-error comparison is needed. No such constant or full strict gap is
+yet proved. Exact action/geometric time, completed strict gap, vacuum
+uniqueness, volume/spacing/QFT and Clay remain open. No atom closure.
+
+The exact untrusted algebra pilot passed 29,141 positive-block checks. The
+focused monitored single-worker 20 GiB Lean check passed all 12 gates,
+within propext/Quot.sound; four computed declarations are axiom-free.
+Final log `/tmp/ym-cube-tail-absorption.log` error/warning free, `.olean`
+emitted. No new sorry, analytic premise, raised proof budgets, numerical
+oracle, or full build/audit/guard/progress run. A compact kernel-checked
+ring certificate replaced an over-expanding scalar proof during checking.
+
+## Previous increment: actual trace and full centered new-tail control (2026-09-12)
 
 This is PROGRESS by discharging the analytic trace premise of the existing
 head--tail compiler. `BF4PhysicalCubeHighLabelTrace` proves injectivity of

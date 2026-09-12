@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest analytic producer (actual trace and full centered new-tail bound):**
+**Latest analytic producer (raw tail and fixed-head root anchoring):**
+`BF4PhysicalCubeTailAbsorption.newTailSelfReturnTrace_small` proves the
+existing RAW self-return trace <=epsilon before stationary subtraction.
+`matrix_newTail_le` applies positive-form trace gluing to the original
+uncentered boundary transform, with proved identification to the original
+physical matrix and literal new-tail coefficients. It controls every tail
+vector in its own stationary norm, for `0<w<=1/2`, extent one, and every
+later cutoff>=`1400+epsilon.den`.
+
+`absorptionTailRate=1/4` and `absorption_base_eq` fix the head at 1404.
+`matrix_le_two_head_quarter_tail` uses only non-strict head contractivity
+and positive Gram gluing. `norm_le_energy_add_head` proves the unconditional
+defective Poincare inequality `N(f)<=E(f)+3*N(head(f))`, where E is the
+ORIGINAL directed physical edge energy, twice the conventional deficit.
+`rootShift` subtracts the coefficient at index zero; `rootShift_at_root`
+proves its value is zero, `centered_norm_le_rootShift_norm` proves centered
+norm domination without assuming unit sector mass, and `energy_rootShift_eqv`
+preserves the same original energy exactly. The capstone
+`centered_norm_le_energy_add_anchored_head` gives
+`N(f)<=E(f)+3*N(head_1404(rootShift(f)))` for every centered coefficient.
+
+**Next causal frontier:** construct the cutoff-uniform finite constant C
+for `N_K(head_1404(rootShift(f)))<=C*E_K(f)` at the chosen coupling, using
+rooted paths on the FIXED head and the original later-cutoff kernel.
+No strict head spectral rate, comparison against a shrinking tail error,
+or state-uniform direct-mate transition floor is required by this route.
+The estimate is not yet proved. Exact action/geometric time, the completed
+strict gap, vacuum uniqueness, volume/spacing/QFT and Clay remain open.
+No canonical scorecard atom or frontier type changed.
+
+Verification: `computations/bf4_cube_tail_absorption.py` passed 29,141
+exact rational positive-block checks for the absorption constants (not
+a BF4 spectral computation). The focused monitored one-worker 20 GiB
+check passed the entire new module with `.olean` output and all 12 gates
+within `{propext, Quot.sound}`; four computed declarations are axiom-free.
+Final log `/tmp/ym-cube-tail-absorption.log` is error/warning free. A small
+kernel-checked polynomial certificate replaced an over-expanding rational
+rearrangement; no proof budget was raised. No new sorry, analytic premise,
+numerical oracle, or full build/audit/guard/progress run.
+
+**Previous producer (actual trace and full centered new-tail bound):**
 `BF4PhysicalCubeHighLabelTrace.cubeLabels_injective` identifies supported
 states by their literal six-label lists without decidable equality on
 functions. `cubeSupported_list_length_le` and `radiusShell_length_le` put
@@ -45,8 +85,8 @@ epsilon times its own later-cutoff stationary diagonal norm.
 
 `matrix_le_of_head` now needs only the sufficient centered HEAD estimate,
 not a separately supplied trace bound, and returns the full centered rate
-q+epsilon. **Next:** prove sufficient head control/coercivity and an actual
-strict full rate. Do not infer q+epsilon<1 from the small trace alone, and
+q+epsilon. The newer anchored route above now targets fixed-head energy
+control instead. Do not infer q+epsilon<1 from the small trace alone, and
 do not assume that an arbitrarily coarse finite-head floor beats the tail.
 The exact-action/geometric-time pins, vacuum uniqueness and volume/spacing/
 QFT passage remain open. No canonical scorecard atom or frontier type changed.

@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Raw tail and fixed-head root-anchored energy absorption (2026-09-12)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean`.
+- **raw tail input discharged**: `newTailSelfReturnTrace_small` bounds the
+  existing raw self-return trace; `matrix_newTail_le` proves the full
+  UNCENTERED physical tail-form bound with original stationary norm,
+  explicit base `1400+epsilon.den`, every later admitting cutoff,
+  `0<w<=1/2`, extent one. The proof reuses the actual uncentered Gram
+  transform and identifies it with the original kernel, not another dynamics.
+- **fixed-head absorption**: `absorptionTailRate=1/4`,
+  `absorption_base_eq` gives base=1404, and
+  `matrix_le_two_head_quarter_tail` uses positivity and ordinary head
+  contractivity. `norm_le_energy_add_head` proves
+  `N(f)<=E(f)+3*N(head_1404(f))` for all coefficients. E is the original
+  directed physical energy, exactly twice the usual deficit.
+- **root anchoring proved**: `rootShift`, `rootShift_at_root`,
+  `centered_norm_le_rootShift_norm`, and `energy_rootShift_eqv` subtract
+  the coefficient's vacuum-root value, dominate its centered norm, and
+  preserve its original energy, without unit-mass normalization.
+  `centered_norm_le_energy_add_anchored_head` is the all-centered-vector
+  consequence `N(f)<=E(f)+3*N(head_1404(rootShift(f)))`.
+- **OPEN residue**: construct C, uniform in outer cutoff K at the chosen
+  coupling, such that `N_K(head_1404(rootShift(f)))<=C*E_K(f)` for the same
+  physical kernel. This is a fixed-head rooted path/energy estimate, not a
+  new assumption in the proved capstone. It remains unproduced. The actual
+  completed strict gap, exact action/geometric time, vacuum uniqueness,
+  volume/spacing/QFT passage and Clay closure remain open. No frontier type
+  was weakened and no canonical scorecard atom was closed.
+- **verification**: exact untrusted pilot
+  `computations/bf4_cube_tail_absorption.py` passed 29,141 positive-block
+  algebra checks; it is not a BF4 spectral oracle. Focused monitored
+  one-worker 20 GiB Lean check passed all 12 printed gates within
+  `{propext, Quot.sound}`, with four computed declarations axiom-free.
+  Final log error/warning free, `.olean` emitted. No new sorry, analytic
+  premise, raised proof limits, or full build/audit/guard/progress run.
+
 ## Actual sector trace and uniform centered new-tail form (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeHighLabelTrace.lean` and
