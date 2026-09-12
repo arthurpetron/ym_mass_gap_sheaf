@@ -34,7 +34,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> exact good+bad conservation on sector physical fields           [PROVED]
   -> one-sided bad targets stay in the exact component                [PROVED]
   -> exact successful + one-sided + two-sided mass split              [PROVED]
-  -> two-sided support control + sector weighted-fiber estimate       [OPEN]
+  -> target-weighted 384/425 contraction, including sector event      [PROVED]
+  -> sector demand lower bound with exact escaping-mass error        [PROVED]
+  -> strict sector-relative bound on escaping bad mass               [OPEN]
   -> sector demand + separating moves, uniform congestion             [OPEN]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
@@ -137,9 +139,17 @@ lower state stays in the sector directly.  The resulting exact decomposition is
 `sector physical mass = successful mass + one-sided bad mass + two-sided bad mass`.
 The two-sided residual changes both half-states and is contained in the older
 boundary-or-upper crossing list; no strict positive mass reduction is claimed.
-Controlling those remaining targets and restricting the weighted target-fiber
-estimate to the sector are still needed to obtain a sector-relative `384/425`
-bound and then positive demand.  A translated or component-adapted move family must subsequently
+The weighted localization is now proved too: every nonnegative function of the
+actual lowered target passes through the inverse-fiber and target/root/size
+sums, preserving the factor `384/425`.  Taking the exact sector indicator
+bounds all internal bad mass by `384/425` of sector physical mass.  Exact
+branch conservation then proves
+`(41/425) * sector mass <= successful mass + escaping bad mass`.
+The escaping mass counts only sources in the sector whose lowered targets
+leave it.  Every such source is proved two-sided; two-sided targets that
+remain inside the sector are already covered by the contraction.  A strict
+sector-relative escape estimate is still needed for positive successful
+demand alone.  A translated or component-adapted move family must subsequently
 separate the sector with uniform congestion.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
@@ -191,6 +201,10 @@ either half-state is preserved, is in
 [`BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.lean).
 The exact three-way mass identity and residual containment are in
 [`BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.lean).
+The contraction against any nonnegative physical target function is in
+[`BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction.lean).
+Its sector specialization and exact escaping-mass demand bound are in
+[`BF4PhysicalVacuumSectorInwardMateSectorDemandResidual.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemandResidual.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

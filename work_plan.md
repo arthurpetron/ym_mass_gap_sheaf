@@ -379,10 +379,18 @@ The next load-bearing producers are, in causal order:
    into one-sided targets proved to stay in the sector and a two-sided
    remainder changing both half-states.  That remainder is contained in the
    older boundary-or-upper crossing list; no strict positive mass saving is
-   asserted.  The active hinge is to control the two-sided targets and carry
-   the weighted target-fiber argument through the sector restriction, then
-   contract bad mass by `384/425` relative to sector mass and subtract to
-   obtain positive filtered demand.  After embedding the
+   asserted.  The weighted target-fiber localization is now proved:
+   `targetWeightedFirstStretchedMass_le_physicalMass` retains the factor
+   `384/425` against any nonnegative function of the actual lowered physical
+   target.  Its exact sector-indicator specialization bounds internal bad
+   mass by `384/425` of sector physical mass.  The actual source/target event
+   split then gives `sectorSuccessfulMass_add_escape_ge`:
+   `(41/425) * sectorMass <= successfulMass + escapingBadMass`.
+   Every escaping source is two-sided, but two-sided targets that stay in the
+   sector are already paid by the internal contraction.  The remaining demand
+   input is a strict sector-relative estimate on this exact escaping mass.
+   Positive filtered demand alone is not an all-vector coverage theorem.
+   After embedding the
    restricted edge energies in the existing sector Dirichlet form, build a
    translated or component-adapted family that
    separates that exact connected sector with cutoff-uniform weighted
@@ -468,7 +476,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- sector-event good+bad branch conservation ............. [PROVED]
 |   |   |   +-- one-sided bad targets preserve vacuum component ....... [PROVED]
 |   |   |   +-- exact successful + one-sided + two-sided mass split ... [PROVED]
-|   |   |   +-- two-sided support + sector weighted-fiber estimate .... [ACTIVE]
+|   |   |   +-- nonnegative target-weighted 384/425 contraction ....... [PROVED]
+|   |   |   +-- exact sector demand bound with escaping-mass error .... [PROVED]
+|   |   |   +-- strict sector-relative escaping-mass estimate ........ [ACTIVE]
 |   |   |   +-- sector demand + sector Dirichlet embedding ............ [OPEN]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

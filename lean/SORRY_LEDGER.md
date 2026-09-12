@@ -13,6 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Target-weighted contraction and exact sector escape residual (2026-09-11)
+
+- **milestone**: current physical BF4 gap frontier in `work_plan.md`;
+  weighted localization of the first-stretched contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemandResidual.lean`.
+- **proved declarations**:
+  `targetWeightedSourceMass_le_representatives`,
+  `representativeWeightedBlocks_total`,
+  `targetWeightedRepresentatives_eqv_physicalTargetSum`,
+  `targetWeightedFirstStretchedMass_le_physicalMass`,
+  `physicalVacuumSectorIndicator_mass_eqv`,
+  `firstStretchedTargetSectorMass_le_sectorPhysicalMass`,
+  `oneSidedSectorMass_le_failureRate_mul_sectorPhysicalMass`,
+  `sectorInternalFirstStretchedMass_le`,
+  `sectorFirstStretched_internal_escape_split`,
+  `sectorSuccessfulMass_add_escape_ge`,
+  `sectorSuccessfulMass_add_twoSided_ge`, and
+  `sectorEscapingSource_is_twoSided`.
+- **closed sub-obligation**: the weighted target-fiber contraction can be
+  restricted to the exact sector without loss in its `384/425` factor.
+  Nonnegative functions of the physical target pass through the two finite
+  Fubini identities.  The sector indicator bounds internal bad mass;
+  conservation gives `(41/425) * sectorMass <= goodMass + escapingBadMass`.
+  This closes the weighted localization left open by `9d2c34e`.
+- **remaining obligations**: bound the exact escaping bad mass strictly
+  below the available sector-relative slack, or prove a stronger target
+  support theorem.  Construct sector-separating moves and the all-vector
+  energy comparison.  The cutoff-uniform completed physical gap, parameter
+  scaling, thermodynamic/continuum limits, QFT reconstruction, and all-group
+  lift remain open.  No bound uniform in beta, volume, or lattice spacing is
+  asserted: these results fix `anchorCoupling` and extent one.
+- **constructive or propositional**: explicit finite source/target tests,
+  rational observables and weights, with exact identities and order proofs.
+  No new `sorry`, analytic field, axiom, or frontier weakening.  The general
+  selector lemma is a finite comparison theorem; its sector and one-sided
+  applications discharge the selection condition using existing support.
+
+Verification: both new modules passed focused monitored checks with explicit
+`.olean` emission, one worker, and a 20 GiB ceiling.  All 17 printed declaration
+checks use only `[propext, Quot.sound]`.  Initial namespace-resolution errors
+were corrected; final checks have no errors or disallowed axioms.  No
+full-tree build, root check, or full axiom audit was run.
+
 ## One-sided first-stretched support and exact mass refinement (2026-09-11)
 
 - **milestone**: current physical BF4 gap frontier in `work_plan.md`; localize

@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: remove an unnecessary boundary condition (2026-09-11)
+## Current increment: localize the weight bound with exact leakage (2026-09-11)
+
+`BF4PhysicalVacuumSectorInwardMateTargetWeightedContraction` proves the
+first-stretched contraction against every nonnegative function of the actual
+lowered physical target.  Equal target keys and physical target/root/size
+blocks make that function constant through both exact finite Fubini steps;
+the established `384/425` factor is unchanged.  This is physical target-mass
+domination, and includes the exact vacuum-sector indicator.
+
+`BF4PhysicalVacuumSectorInwardMateSectorDemandResidual` applies this bound to
+that indicator.  All sector-internal bad mass is at most `384/425` of sector
+physical mass.  Exact conservation proves
+`(41/425) * sectorMass <= successfulMass + escapingBadMass`.
+Escaping mass is defined on the actual complete source carrier: its source
+lower state is in the exact vacuum sector, and its lowered target is outside.
+Every escaping source is proved to fail the one-sided test.  The coarser
+demand inequality with two-sided mass is also proved.
+
+This discharges the weighted sector-localization sub-obligation recorded in
+the previous increment.  What remains for positive successful demand is a
+strict relative estimate on actual escaping mass, followed by a separating
+move family and uniform energy comparison for all vectors.  No continuum,
+Clay, or `singleStep` atom is closed.  The anchor coupling and extent are
+fixed; only the spin cutoff is arbitrary in these estimates.
+
+Both new modules passed focused monitored checks and explicit `.olean`
+emission with one worker and a 20 GiB ceiling.  All 17 printed declaration
+checks report only `[propext, Quot.sound]`.  No full build or root audit was
+run.  Root imports, the landing page, work plan, and sorry ledger were updated.
+
+## Previous increment: remove an unnecessary boundary condition (2026-09-11)
 
 The first-stretched bad-target support theorem now permits arbitrary changes
 of the reflection-boundary labels.  The raw OS kernel sums over those labels;
