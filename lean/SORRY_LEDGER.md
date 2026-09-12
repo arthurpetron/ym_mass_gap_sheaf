@@ -13,6 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Closed all-degree Gaussian translation moments (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadGaussianConditionalProduct.lean`,
+  `SU2QuaternionTranslationGaussianCountRecursion.lean`, and
+  `SU2QuaternionTranslationGaussianMoments.lean` in the same directory.
+- **conditional product discharged**: `partialGaussianHead_mul_independent`
+  pulls any head-degree-zero factor through partial integration, retaining
+  every tail coefficient. `partialGaussianHead_radius_mul` uses the actual
+  radius and the correct block shift, without a unit-radius premise.
+- **count descent discharged**: `translatedWord_erase` and
+  `contractedWord_eq_count` identify the equal-label real coordinate products.
+  `translatedWord_gaussian_count` gives an exact two-factor descent with the
+  original label count and retained radius. No division or pairing enumeration.
+- **closed original moments discharged**: `gaussianWordMoment_cons`
+  proves the existing Gaussian moment satisfies the same recurrence;
+  `translatedWord_gaussian_closed` proves the exact integral equals this
+  coefficient times radius to half the word length. The final
+  `translatedHeadMonomial_gaussian_closed` applies to BOTH original Hamilton
+  multiplication orders and EVERY exponent quadruple, coefficientwise.
+- **OPEN residue**: sphere/radial conversion and removal of the selected
+  polynomial translation `hcheck`s. The closed Gaussian formula is not full
+  Haar invariance. Shared-link reflected-square gluing, slab positivity,
+  physical time/transfer, completed exact-law gap, volume/spacing/QFT passage
+  and all-group Clay remain open. No canonical atom/type change; the refuted
+  exact/positive-law identity is not used.
+- **verification**: all three focused monitored one-worker 20 GiB checks
+  passed with `.olean` outputs; 7 + 3 + 7 = 17 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-head-gaussian-conditional-product.log`,
+  `/tmp/ym-translation-gaussian-count.log`, and
+  `/tmp/ym-translation-gaussian-moments.log`.
+  Diagnostics found that generic `List.count_erase` and
+  `List.length_erase_of_mem`, as well as selected Fin order-law instances,
+  depend on classical choice. `labelCount_erase` and `labelErase_length`
+  use constructive recursion and explicit decidable equality instead; the
+  FINAL closed theorem is within the gate. No new sorry, analytic premise,
+  numerical oracle, rate, pilot constant or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## All-degree Gaussian recursion for actual quaternion translations (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadGaussianIBP.lean` and

@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-degree Gaussian recursion for actual quaternion translations (2026-09-12)
+## Current increment: closed all-degree Gaussian translation moments (2026-09-12)
+
+PROGRESS: the closed moment formula is now proved, not merely its recurrence.
+It is pinned to the ORIGINAL four-exponent translation polynomials for both
+Hamilton multiplication orders, with all tail coefficients retained.
+
+`SU2QuaternionHeadGaussianConditionalProduct.partialGaussianHead_mul_independent`
+proves the coefficient-retaining product law; `partialGaussianHead_radius_mul`
+pulls out the actual retained radius with the correct block shift.
+`SU2QuaternionTranslationGaussianCountRecursion.contractedWord_eq_count`
+compresses the equal-label contractions to one erased word times the exact
+count. `translatedWord_gaussian_count` removes two head-coordinate factors
+per nonzero step, without division or enumerating pairings.
+
+`SU2QuaternionTranslationGaussianMoments.gaussianWordMoment_cons` proves
+the existing four-coordinate Gaussian moment obeys the same recurrence.
+`translatedWord_gaussian_closed` identifies the original integral by strict
+length induction, with explicit radius power. The final consumer
+`translatedHeadMonomial_gaussian_closed` covers EVERY exponent quadruple
+of the original translation API. No moment equality or unit radius is a premise.
+
+Next: sphere/radial conversion and unconditional selected Haar translation,
+then shared-link gluing into reflected squares. No slab positivity, physical
+time, completed exact-law gap, volume/spacing/QFT or all-group Clay atom closed.
+The exact/positive-law identity remains refuted.
+
+All three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 7 + 3 + 7 = 17 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs: `/tmp/ym-head-gaussian-conditional-product.log`,
+`/tmp/ym-translation-gaussian-count.log`, and
+`/tmp/ym-translation-gaussian-moments.log`.
+Initial diagnostics exposed classical dependencies in generic count/length
+erase lemmas and Fin order-law simplification. Constructive `labelCount_erase`
+and `labelErase_length` with explicit decidable equality remove them from
+the FINAL theorem. No new sorry, analytic premise, numerical oracle, rate,
+pilot constant or proof-limit increase. No full build/audit/guard/progress run.
+
+## Previous increment: all-degree Gaussian recursion for actual quaternion translations (2026-09-12)
 
 PROGRESS: the selected-translation gluing route now has a proved all-degree
 moment recurrence, not an expanded finite-degree table. The ORIGINAL

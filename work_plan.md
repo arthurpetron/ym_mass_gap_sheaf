@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (all-degree Gaussian translation recursion):**
+**Latest gluing-route progress (closed all-degree Gaussian translation moments):**
+`SU2QuaternionHeadGaussianConditionalProduct.partialGaussianHead_mul_independent`
+pulls any syntactically head-independent factor through the partial integral,
+coefficientwise. `partialGaussianHead_radius_mul` retains the actual tail
+radius, shifted to block zero after head integration.
+
+`SU2QuaternionTranslationGaussianCountRecursion.translatedWord_erase` and
+`contractedWord_eq_count` show that every matching contraction leaves the
+same real coordinate product. `translatedWord_gaussian_count` therefore
+gives the exact count times radius times the moment of a word two factors
+shorter. All word lengths and tail coefficient probes remain unrestricted.
+
+`SU2QuaternionTranslationGaussianMoments.gaussianWordMoment_cons` proves
+that the EXISTING Gaussian moment satisfies that same count recurrence.
+`translatedWord_gaussian_closed` identifies the original translated-word
+integral with this coefficient times the actual radius to half the word
+length, by strict length descent. `translatedHeadMonomial_gaussian_closed`
+pins the closed formula to the ORIGINAL four-exponent translation API for
+both multiplication orders and every exponent quadruple.
+
+**Next:** sphere/radial conversion, then removal of the selected polynomial
+translation `hcheck`s. The Gaussian closed formula is proved, not full Haar
+invariance. Shared-link reflected-square gluing, slab positivity, physical
+time, completed exact-law gap, volume/spacing/QFT passage and all-group Clay
+remain open. No canonical atom/type change or revival of the refuted law identity.
+
+Verification: three new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` outputs; 7 + 3 + 7 = 17 gates within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-head-gaussian-conditional-product.log`,
+`/tmp/ym-translation-gaussian-count.log`, and
+`/tmp/ym-translation-gaussian-moments.log`.
+The initial count/length proof revealed classical dependencies in generic
+erase lemmas and Fin order-law simplification. `labelCount_erase` and
+`labelErase_length`, with explicit decidable equality, replace them; the
+FINAL closed theorem passes the gate. No new sorry, analytic premise,
+numerical oracle, rate, pilot constant or raised proof limit. No full
+build/audit/guard/progress run.
+
+**Retained gluing-route progress (all-degree Gaussian translation recursion):**
 `SU2QuaternionHeadGaussianIBP.partialGaussianHead` retains every tail
 coefficient of the ORIGINAL multivariate polynomial carrier.
 `partialGaussianHead_ibp` proves `E[u_i P] = E[partial_i P]` at arbitrary
@@ -38,10 +77,9 @@ the explicit equal-label Wick contractions at EVERY word length, retaining
 all tail coefficients. `translatedHeadMonomial_eq_word` pins the new
 recursion to the existing four-exponent translation-moment polynomial.
 
-**Next on the selected-translation route:** derive the closed moments from
-this recursion, transport them through the sphere/radial factor, and remove
-the polynomial `hcheck` hypotheses from the selected translations. The
-all-degree Gaussian recursion is proved; full Haar invariance is not.
+The closed Gaussian moments are now proved above. Next on the selected-
+translation route: sphere/radial conversion and removal of the polynomial
+`hcheck` hypotheses. Full Haar invariance is not yet proved.
 Shared-link gluing into reflected squares, slab positivity, physical time,
 completed exact-law gap, volume/spacing/QFT passage and all-group Clay remain
 open. No canonical atom/type change or revival of the refuted law identity.

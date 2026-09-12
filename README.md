@@ -97,7 +97,30 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: an all-degree moment recurrence for the actual quaternion translations.**
+**Latest result: closed all-degree Gaussian moments for the actual translations.**
+[`SU2QuaternionTranslationGaussianMoments.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationGaussianMoments.lean)
+proves `translatedHeadMonomial_gaussian_closed` for the ORIGINAL left/right
+quaternion translation polynomials, at every exponent quadruple. Their
+partial Gaussian integral is the existing exact `gaussianMoment4` coefficient
+times the retained radius to half the total degree. Equality retains every
+tail coefficient; no unit-radius or moment-equality premise is assumed.
+
+The proof pulls head-independent factors through the partial integral,
+compresses equal-label contractions to their exact count, and inducts by
+removing two coordinate factors. Unmatched labels vanish without division.
+Constructive count/length lemmas replace generic erase lemmas whose axiom
+dependencies fail this project's gate.
+
+**Next:** sphere/radial conversion and unconditional selected Haar translation,
+then shared-link reflected-square gluing. The Gaussian formula is proved;
+Haar invariance, slab positivity, physical time, the completed physical gap
+and continuum/Clay construction remain open.
+
+Three new modules passed focused monitored one-worker 20 GiB checks: 17
+printed gates within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
+
+**Retained result: an all-degree recurrence for the actual quaternion translations.**
 [`SU2QuaternionHeadGaussianIBP.lean`](lean/YMGap/Continuum/SU2QuaternionHeadGaussianIBP.lean)
 proves polynomial-valued Gaussian integration by parts while retaining
 every tail coefficient: `E[u_i P] = E[partial_i P]`, for arbitrary degree.
@@ -114,10 +137,9 @@ The induction is unbounded; only the small four-coordinate algebra uses
 finite kernel certificates. No larger table of moment checks is required
 by this recurrence.
 
-**Next on this gluing route:** derive the closed moments from the recurrence,
-perform the sphere/radial conversion, and discharge the selected translation
-checks. Full Haar invariance and shared-link reflected-square gluing are
-still open. This is not slab reflection positivity or a mass-gap estimate.
+The closed Gaussian moments are now proved above. Sphere/radial conversion,
+unconditional selected translation and shared-link reflected-square gluing
+remain open. This is not slab reflection positivity or a mass-gap estimate.
 
 Both new modules passed focused monitored one-worker 20 GiB checks: 22
 printed axiom gates within `{propext, Quot.sound}`, no final errors/warnings.
