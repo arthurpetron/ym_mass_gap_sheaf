@@ -13,6 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All-state balanced physical descent and quadratic Casimir payment (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeBalancedDescent.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCubeBalancedCasimir.lean`.
+- **computed physical move**: `radius` is the maximum of the literal six
+  cube labels. `balancedLabel M s = 2*(floor(2*floor(s/2)/3)+ceil(M/12))`;
+  `balancedState` retains the six-face support. `balancedLabel_fusion`
+  preserves source difference channels for common-parity labels.
+  `balancedState_common_parity`, `balancedState_bounded` and
+  `balancedState_in_sector` prove all-even parity, admission at every
+  original K>=2, and actual vacuum-component membership. The excess radius
+  above 11 contracts by 5/6 (`balancedState_excess_contraction`).
+- **original kernel pin**: `difference_balanced_mask` proves the complete
+  mask at the actual difference boundary. `balancedPhysicalTerm_eq_weight`
+  identifies the original full production summand with `balancedPhysicalWeight`.
+  `balancedPhysicalWeight_pos`, `balancedPhysicalWeight_le_kernel` and
+  `balanced_kernel_pos` give an explicit positive original-kernel entry for
+  every bounded cube-supported common-parity source, at any w>0.
+- **all-state quantitative payment**: `maximal_square_reserve` uses a
+  maximal list member to sharpen Young's inequality by `9*M^2`. The rounding
+  bound gives `cube_casimir_payment`:
+  `36*C(target)+M^2 <= 36*C(source)+648*M+1728`. At M>=1400,
+  `cube_casimir_quadratic_drop` gives `72*C(target)+M^2<=72*C(source)`;
+  `cube_casimir_relative_contraction` gives the label-energy rate 863/864.
+  No parity hypothesis is needed for these energy inequalities alone.
+- **OPEN residue / scope**: this is a physical supported move and a
+  total-Casimir decrease, NOT a conditional transition floor, an operator
+  contraction rate, a head--tail trace bound or a completed gap. The entire
+  boundary-sum/row comparison and weighted norm coverage remain open,
+  as do the common dense q<1, geometric-time pin, vacuum uniqueness and
+  volume/spacing/continuum passage. No canonical frontier type was changed
+  and no sorry or canonical atom was closed.
+- **verification**: the untrusted exact pilot
+  `computations/bf4_cube_balanced_descent.py` passed 35,268 cube samples;
+  Lean proves the all-state statements independently. Both modules passed
+  focused monitored one-worker 20 GiB checks with `.olean` output; all 46
+  printed gates are within `{propext, Quot.sound}`. Final logs are
+  error/warning free, default proof limits unchanged. No full build,
+  audit, guard, progress script, numerical oracle or new analytic premise.
+
 ## Direct inward-mate uniform floor refuted on the physical vacuum sector (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeInwardMateCompetitor.lean`

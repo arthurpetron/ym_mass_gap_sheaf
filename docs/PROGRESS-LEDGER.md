@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: uniform direct-mate floor is refuted (2026-09-12)
+## Current increment: all-state balanced physical descent (2026-09-12)
+
+This is PROGRESS on the replacement analytic producer after the direct-mate
+floor obstruction. The new map is defined for ALL cube states, not a selected
+probe family: with M the largest label, it replaces s by
+`2*(floor(2*floor(s/2)/3)+ceil(M/12))` on each of the six cube faces.
+
+`BF4PhysicalCubeBalancedDescent.balancedLabel_fusion` proves the same minimal
+source difference channel is admissible after balancing whenever source labels
+have common parity. The full Boolean boundary mask is proved true. The target
+is in the actual vacuum component and fits every original cutoff K>=2.
+`balancedPhysicalTerm_eq_weight` identifies the complete selected production
+summand, `balancedPhysicalWeight_le_kernel` places it below the original raw
+kernel, and `balanced_kernel_pos` gives strict positivity for w>0. The excess
+radius above 11 contracts by 5/6, rather than merely decreasing by one.
+
+`BF4PhysicalCubeBalancedCasimir` supplies the all-state quadratic payment.
+The key finite identity is Young's inequality with an extra `9*M^2` reserve
+from a maximal coordinate. That pays the rounded common offset and yields
+`36*C(target)+M^2<=36*C(source)+648*M+1728`. For M>=1400, the remainder is
+absorbed into half the quadratic reserve:
+`72*C(target)+M^2<=72*C(source)` and `864*C(target)<=863*C(source)`.
+C is the sum of `c4(s)=s*(s+2)` over the six labels, NOT a Hilbert norm
+or transfer response.
+
+Next: compare the full boundary overlap and row mass with this selected
+physical summand; establish the needed weighted norm or centered head--tail
+estimate. Neither an eventual small-tail trace nor a head estimate is proved
+here. The earlier cutoff-four diagnostic against a small fixed head does not
+decide that new large-head question. No all-vector strict rate, geometric-time
+identification, vacuum uniqueness, volume/spacing/QFT passage or Clay closure
+is inferred from positive edges and label-energy descent.
+
+The exact untrusted pilot passed 35,268 samples. The two Lean modules passed
+focused monitored one-worker 20 GiB checks with `.olean` output and all 46
+printed gates within propext/Quot.sound. Final logs are error/warning free;
+default proof limits unchanged. No new sorry, analytic premise, numerical
+oracle, full build/audit/guard or progress script was used. Root imports,
+landing page, work plan and sorry ledger updated.
+
+## Previous increment: uniform direct-mate floor is refuted (2026-09-12)
 
 This is PROGRESS by eliminating a false analytic shortcut, not by closing
 the all-vector gap. The explicit cube source s_k=(2k+14,0,0,0,0,0), its

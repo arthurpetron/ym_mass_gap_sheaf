@@ -18,6 +18,40 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
+**Current positive producer (all-state balanced descent):**
+`BF4PhysicalCubeBalancedDescent.balancedState` replaces each cube label s
+by `2*(floor(2*floor(s/2)/3)+ceil(M/12))`, with the computed largest cube
+label M. `balancedLabel_fusion` proves preservation of every source minimal
+difference channel under the explicit common-parity hypothesis.
+`difference_balanced_mask` is the full physical Boolean mask, and
+`balancedPhysicalTerm_eq_weight`, `balancedPhysicalWeight_le_kernel` and
+`balanced_kernel_pos` pin the selected positive summand to the original
+kernel. The target belongs to the actual vacuum component, fits every
+original cutoff K>=2, and its radius excess above 11 contracts by 5/6.
+No uniform direct-mate probability is assumed.
+
+`BF4PhysicalCubeBalancedCasimir.maximal_square_reserve` pays for the common
+offset using the maximal coordinate: `8*M*sum(s)+9*M^2 <= 16*sum(s^2)+6*M^2`.
+The scalar rounded-label estimate and this reserve give
+`36*C(target)+M^2 <= 36*C(source)+648*M+1728` for EVERY cube state.
+For M>=1400, `cube_casimir_quadratic_drop` gives
+`72*C(target)+M^2 <= 72*C(source)`; `cube_casimir_relative_contraction`
+gives `864*C(target)<=863*C(source)`. C is the sum of all six c4 labels,
+not a Hilbert norm or a spectral rate. The energy inequality itself needs
+no parity; the positive physical move explicitly does.
+
+The next producer is now concrete: control the ENTIRE boundary overlap and
+row mass using this selected summand and its quadratic heat advantage, then
+prove sufficient weighted norm coverage or centered head--tail control.
+The old cutoff-four small-trace diagnostic below does not establish or
+refute such an eventual large-head estimate. Neither that estimate nor an
+all-vector gap is supplied by these modules. Exact arithmetic pilot:
+`computations/bf4_cube_balanced_descent.py` (35,268 samples, untrusted).
+Both new modules passed focused monitored one-worker 20 GiB checks; all 46
+printed gates stay within propext/Quot.sound, final logs error/warning free,
+default proof limits unchanged. No new analytic hypothesis, sorry or
+canonical frontier closure, and no full build/audit/guard/progress run.
+
 **Latest route correction (kernel-checked):** the direct inward-mate
 conditional probability does NOT have a positive cutoff/state-uniform floor.
 `BF4PhysicalCubeInwardMateCompetitor` uses the explicit profiles

@@ -122,7 +122,31 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest route correction:** a **cutoff-uniform direct inward-mate transition
+**Latest result: an all-state balanced physical move with quadratic Casimir
+descent.** For a cube-supported common-parity state, let M be its largest
+label. On each cube face replace s by
+`2*(floor(2*floor(s/2)/3)+ceil(M/12))`. This computed target preserves every
+minimal source difference-boundary channel, belongs to the actual vacuum
+component, fits every original cutoff `K>=2`, and has a proved positive
+entry in the original physical kernel. Its excess radius above 11 contracts
+by `5/6`. Writing C for the sum of the six `c4(s)=s*(s+2)` values
+(four times the SU(2) Casimir), Lean proves
+
+```text
+72*C(target) + M^2 <= 72*C(source)                 when M >= 1400
+864*C(target) <= 863*C(source)                    when M >= 1400
+```
+
+The proof uses a sum-of-squares reserve at a maximal label to pay the
+rounding and common offset. These are **label-energy rates, not operator
+or mass-gap rates**. The full boundary-sum/row comparison and the resulting
+weighted norm or centered head--tail estimates remain open. See
+[`BF4PhysicalCubeBalancedDescent.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBalancedDescent.lean)
+and [`BF4PhysicalCubeBalancedCasimir.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBalancedCasimir.lean).
+Both modules passed focused monitored checks; all 46 printed axiom gates
+are within `{propext, Quot.sound}`. No full-tree audit was run.
+
+**Retained route correction:** a **cutoff-uniform direct inward-mate transition
 floor is impossible** at each fixed `0 < w <= 1/2`, including `w=1/400`.
 In six-face coordinates, take
 
