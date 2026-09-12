@@ -18,7 +18,39 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (literal temporal-gauge face cancellation):**
+**Latest gluing-route progress (structural selected-link coordinates):**
+`SU2QuaternionHeadSubstitutionPrefix.translatedHeadPolynomial_prefix`
+transports finite-coordinate prefix equivalence through the ORIGINAL head
+substitution, including different trailing-zero padding. Its
+`translatedHeadPolynomial_head_coordinate` and
+`translatedHeadPolynomial_tail_coordinate` identify all head/tail variables.
+`SU2QuaternionSelectedTranslationCoordinates.applySelectedTranslationStep_direct_coordinate`
+then proves the literal ordered left/right product image at arbitrary valid
+selected/multiplier indices and arbitrary carrier size; all other coordinates
+are fixed. `exposedSubstituteRestore_selected` and
+`exposedSubstituteRestore_other` prove this structurally through the original
+expose/restore permutations, without an enumerated coordinate certificate.
+`applySelectedTranslationStepsQuaternion_prefix` transports these pins through
+arbitrary later direct/inverse shear chains. This is prefix equivalence, not
+an assertion that differently padded raw monomial lists are equal.
+
+The next smaller residue is the inverse-multiplier coordinate IMAGE, followed
+by the temporal ledger's global coordinate composition, the same-observable
+polynomial substitution pin, and the reflected-square gluing. Congruence for
+inverse shears does not itself prove their coordinate image. The full common
+temporal assignment's Haar invariance and slab positivity remain OPEN.
+Physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+all-group Clay remain OPEN. No canonical atom/type change or revival of the
+refuted exact/positive-law identity.
+
+Verification: two focused monitored one-worker checks, 20 GiB ceiling,
+`.olean` outputs, 8 + 13 = 21 gates within `{propext, Quot.sound}`;
+final error/warning free. Logs `/tmp/ym-head-substitution-prefix.log` and
+`/tmp/ym-selected-translation-coordinates.log`. No new sorry, analytic input,
+proof-limit increase, numerical oracle, rate, or pilot constant. No full
+build/audit/guard/progress run.
+
+**Preceding gluing-route progress (literal temporal-gauge face cancellation):**
 `SU2QuaternionHaarGaugeCancellation.gaugeLink_compose` telescopes adjacent
 vertex gauges under the original arbitrary-insertion Haar ideal.
 `plaquette_gauge_character` preserves every spin of the ORIGINAL oriented

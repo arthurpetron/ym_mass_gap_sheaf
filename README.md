@@ -100,7 +100,18 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: temporal gauge cancellation on the literal slab faces.**
+**Latest result: structural selected-link substitution, without coordinate scans.**
+[`SU2QuaternionHeadSubstitutionPrefix.lean`](lean/YMGap/Continuum/SU2QuaternionHeadSubstitutionPrefix.lean)
+proves that the actual head substitution replaces its four variables by the
+supplied quaternion and fixes every tail variable, respecting finite-coordinate
+prefix equivalence even across different trailing-zero padding.
+[`SU2QuaternionSelectedTranslationCoordinates.lean`](lean/YMGap/Continuum/SU2QuaternionSelectedTranslationCoordinates.lean)
+then proves the actual direct left/right shear's ordered product image for
+arbitrary carrier size and selected/multiplier indices. Every other coordinate
+is unchanged. Arbitrary subsequent direct/inverse shear chains preserve these
+prefix identities. No enumerated coordinate certificate is assumed.
+
+**Preceding result: temporal gauge cancellation on the literal slab faces.**
 [`SU2QuaternionHaarGaugeCancellation.lean`](lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean)
 proves ordered vertex-gauge cancellation under every polynomial Haar
 insertion. Hamilton factors are not commuted. In a crossing word
@@ -114,7 +125,8 @@ preserved at every spin, and crossing faces reduce to their actual reflected
 spatial-link Gram kernel at every odd slab extent. All spectator insertions
 remain available, including overlapping face factors.
 
-**Next:** identify this common link assignment with the proved
+**Next:** prove the inverse-multiplier coordinate image, compose the
+coordinate identities into this common link assignment using the proved
 Haar-preserving shears, then combine the reflected channels into the SAME
 slab form's square decomposition. The face algebra is proved; the global
 change-of-variables identity and slab positivity are not. Physical time,

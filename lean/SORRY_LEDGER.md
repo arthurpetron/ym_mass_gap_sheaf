@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Structural selected-link coordinate semantics (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadSubstitutionPrefix.lean`
+  and `lean/YMGap/Continuum/SU2QuaternionSelectedTranslationCoordinates.lean`.
+- **discharged**: `translatedHeadPolynomial_prefix` preserves the existing
+  finite-coordinate prefix relation, including different zero padding;
+  `translatedHeadPolynomial_head_coordinate` identifies all four substituted
+  head variables; `translatedHeadPolynomial_tail_coordinate` fixes every
+  tail variable exactly. `exposedSubstituteRestore_selected` and
+  `exposedSubstituteRestore_other` compose the original block permutations.
+  `applySelectedTranslationStep_direct_coordinate` proves the ordered
+  product image of the actual direct left/right shear at arbitrary carrier
+  size and valid selected/multiplier indices, with no coordinate scan.
+  `applySelectedTranslationStepsQuaternion_prefix` preserves established
+  prefix pins through arbitrary later direct/inverse shear chains.
+- **OPEN residue**: inverse-multiplier coordinate image (not supplied by
+  inverse prefix congruence); global temporal-ledger coordinate composition;
+  identification of its polynomial image with the common temporal
+  assignment on the same observable; reflected-square gluing on the SAME
+  signed slab form. The full temporal-assignment Haar identity, slab
+  positivity, physical time/transfer, completed exact-law gap,
+  volume/spacing/QFT and all-group Clay remain open. No canonical field
+  changed or atom closed; the refuted exact/positive-law identity is unused.
+- **verification**: two targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 8 + 13 = 21 gates within `{propext, Quot.sound}`;
+  final error/warning free. Logs `/tmp/ym-head-substitution-prefix.log` and
+  `/tmp/ym-selected-translation-coordinates.log`. No new sorry, analytic
+  premise, proof-limit increase, numerical oracle or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Common temporal-gauge face cancellation (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean`

@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: common temporal-gauge face cancellation (2026-09-12)
+## Current increment: scan-free selected-link coordinate semantics (2026-09-12)
+
+PROGRESS: the original direct left/right selected shear now has its literal
+ordered quaternion-product image for EVERY carrier size and valid pair of
+indices. Every other coordinate is fixed. No finite coordinate scan is a
+premise, and different trailing-zero padding is handled by the existing
+finite-coordinate prefix relation.
+
+`SU2QuaternionHeadSubstitutionPrefix.translatedHeadPolynomial_prefix`,
+`translatedHeadPolynomial_head_coordinate` and
+`translatedHeadPolynomial_tail_coordinate` supply the substitution algebra.
+`SU2QuaternionSelectedTranslationCoordinates.exposedSubstituteRestore_selected`
+and `exposedSubstituteRestore_other` compose the actual exposing/restoring
+permutations. `applySelectedTranslationStep_direct_coordinate` pins the
+original direct shear. `applySelectedTranslationStepsQuaternion_prefix`
+preserves established pins through arbitrary later direct/inverse steps.
+
+Next: inverse-multiplier coordinate image, temporal-ledger coordinate
+composition, same-observable substitution identification, then global
+reflected-square gluing. Inverse congruence is not an inverse IMAGE theorem.
+No full temporal-assignment Haar identity, slab positivity, physical time,
+completed exact-law gap, volume/spacing/QFT or all-group Clay atom closed.
+The exact/positive-law identity remains refuted.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+8 + 13 = 21 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-head-substitution-prefix.log` and
+`/tmp/ym-selected-translation-coordinates.log`. No new sorry, analytic
+premise, proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: common temporal-gauge face cancellation (2026-09-12)
 
 PROGRESS: the common upper-link temporal assignment now has proved effects
 on ALL three face classes. Lower faces are unchanged; upper all-spin
