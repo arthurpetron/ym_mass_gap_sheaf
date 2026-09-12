@@ -18,7 +18,39 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest analytic producer (constructed head and common strict finite rate):**
+**Latest contraction (same rate on the entire reflected complement):**
+`BF4PhysicalCubeCompletedMarginalGap.cofinalSectorGap` inhabits the existing
+sector-only finite-gap interface with schedule `max(request,headBoundStart(w))`.
+It does not assert a gap on the reducible full positive-row carrier.
+`completedSectorFormGap`, `completedSectorContraction`, and
+`completedSector_power_decay` use the existing cutoff-limit and completed
+positive-form Cauchy--Schwarz at the SAME constructed q(w), for each
+0<w<=1/2 and extent one. No additional analytic input is supplied.
+
+`BF4PhysicalCubeCompletedReflectedGap.reflected_pairing_eq_sector` pins
+E(Rx,Ry)=M(x,P y) on all completed marginal-sector inputs.
+`sector_image_form_bound` applies the already proved sharp inequality
+M(Px,Px)<=q*M(Px,x), so the right-hand norm is E(Rx,Rx), not M(x,x).
+`dense_reflected_form_bound` uses the existing moving-centered sources;
+`completed_reflected_form_bound` then applies explicit dense-form closure.
+The same rational `reflectedGapRate`, proved 0<q<1, bounds EVERY vector
+of the actual reflected vacuum complement at w=1/400, extent one.
+
+**Next causal frontier:** fixed-space isolation and decay consequences on
+this same reflected carrier. Exact signed-Haar YM action/geometric-time
+identification, volume/spacing/QFT passage, and the all-group Clay target
+remain open. This is a completed conditional-operator form gap, not a
+physical time-translation gap. No canonical frontier atom or type changed.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` output. All 13 printed axiom gates are within
+`{propext, Quot.sound}`; final logs `/tmp/ym-cube-completed-marginal-gap.log`
+and `/tmp/ym-cube-completed-reflected-gap.log` are error/warning free.
+No new constants beyond the previous exact head/rate producer, no new
+analytic premise, sorry, numerical oracle, or raised proof limit. No full
+build/audit/guard/progress run.
+
+**Analytic input (constructed head and common strict finite rate):**
 `BF4PhysicalCubeAnchoredHeadBound.pulled_energy_le_full` embeds the old-old
 Dirichlet sub-sum of an ARBITRARY later coefficient into its SAME original
 full energy, not the energy of a zero extension. The existing persistent
@@ -46,12 +78,11 @@ and onset explicitly depend on w, not K. Scope: SU(2), extent one,
 0<w<=1/2. This is a genuine cofinal-cutoff strict finite-sector form bound,
 not a claim about the completed reflected form or geometric time.
 
-**Next causal frontier:** transport this same rate through the existing
-cutoff-removed marginal/conditional and reflected pairings, obtaining the
-bound on the SAME dense reflected vacuum-complement vectors, then use
-the existing dense-form closure. The original-action/geometric-time pins,
-completed vacuum uniqueness, volume/spacing/QFT passage and all-group Clay
-remain open. No canonical scorecard atom or frontier type was changed.
+**Frontier at that checkpoint (now discharged above):** pass this same rate
+through the cutoff-removed marginal/conditional and reflected pairings,
+then use the existing dense-form closure. Original-action/geometric-time
+pins, completed vacuum uniqueness, volume/spacing/QFT passage and all-group
+Clay remain open. No canonical scorecard atom or frontier type was changed.
 
 Verification: exact untrusted pilot `computations/bf4_cube_anchored_head_bound.py`
 passed 1,089 rational path-head inequalities and four rate identities;

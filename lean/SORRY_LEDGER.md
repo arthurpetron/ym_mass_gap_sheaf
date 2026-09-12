@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Constructed strict rate on the entire reflected vacuum complement (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCompletedMarginalGap.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedGap.lean`.
+- **input discharged at this scope**: `cofinalSectorGap` supplies the existing
+  `FixedNomeCofinalVacuumSectorFiniteStrictGap` from the proved finite
+  head/tail rate at `max(request,headBoundStart(w))`. This is sector-only,
+  not the false strict-gap assertion on the reducible full carrier.
+- **completed marginal results**: `completedSectorFormGap` and
+  `completedSectorContraction` retain the exact computed rate;
+  `completedSector_power_decay` gives all conditional-iterate squared-norm
+  bounds, for each 0<w<=1/2, extent one, without a supplied gap.
+- **same reflected form**: `reflected_pairing_eq_sector` identifies
+  E(Rx,Ry)=M(x,P y) on all completed marginal-sector inputs.
+  `sector_image_form_bound` uses the existing positive-form square bound
+  M(Px,Px)<=q*M(Px,x). `dense_reflected_form_bound` applies it to the
+  constructed centered observable sources; `completed_reflected_form_bound`
+  uses the existing explicit density theorem to bound EVERY x in the
+  completed reflected vacuum complement by the SAME `reflectedGapRate`.
+  Its positivity and strict inequality below one are proved, not assumed.
+- **scope / OPEN residue**: reflected result at w=1/400, extent one,
+  SU(2), the original BF4 conditional operator and original reflected norm.
+  It does not identify conditional iterations with geometric Euclidean time
+  or the exact signed-Haar YM action. Reflected fixed-space isolation/decay
+  consequences, volume/spacing/QFT passage, and all-group Clay remain open.
+  No canonical frontier atom closed; no frontier type weakened.
+- **verification**: both focused monitored one-worker 20 GiB checks passed,
+  `.olean` files emitted, all 13 printed gates within `{propext, Quot.sound}`.
+  Final logs `/tmp/ym-cube-completed-marginal-gap.log` and
+  `/tmp/ym-cube-completed-reflected-gap.log` are error/warning free.
+  No new sorry, analytic premise, raised proof limit, or numerical oracle.
+  No full build/audit/guard/progress run.
+
 ## Constructed fixed-head bound and cofinal-cutoff strict finite form gap (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean`

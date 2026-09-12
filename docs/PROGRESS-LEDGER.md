@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: constructed head control and strict common finite rate (2026-09-12)
+## Current increment: same strict rate on the whole reflected complement (2026-09-12)
+
+This is PROGRESS: the previously supplied cofinal-sector gap is now
+constructed at extent one, and its actual q reaches the entire reflected
+vacuum complement with no new analytic input or rate loss.
+
+`BF4PhysicalCubeCompletedMarginalGap.cofinalSectorGap` uses
+`max(request,headBoundStart(w))`, the original finite matrix inequality,
+and the original q(w). It only instantiates the root-sector interface,
+not a gap on the reducible full carrier. `completedSectorFormGap` and
+`completedSectorContraction` consume the existing same-object limit and
+positive-form Cauchy--Schwarz; `completedSector_power_decay` gives every
+conditional-iterate norm bound on the completed marginal sector.
+
+`BF4PhysicalCubeCompletedReflectedGap.reflected_pairing_eq_sector` pins
+E(Rx,Ry)=M(x,P y). Thus the already proved sharp square-form estimate
+M(Px,Px)<=q*M(Px,x) becomes E(T Rx,Rx)<=q*E(Rx,Rx), not a weaker estimate
+with a marginal-norm prefactor. `sector_image_form_bound` proves this
+identity-based contraction. `dense_reflected_form_bound` uses the existing
+moving-centered sources. `completed_reflected_form_bound` then extends the
+SAME strict q to EVERY vector of the whole reflected vacuum complement,
+at w=1/400 and extent one. `reflectedGapRate_pos` and
+`reflectedGapRate_lt_one` certify the computed constant.
+
+Next: fixed-space isolation and decay consequences for this same reflected
+operator. Exact signed-Haar YM action and geometric-time identification,
+volume/spacing limits, continuum QFT and all-group Clay are still open.
+No canonical frontier atom is closed by this conditional-dynamics result.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output. All 13 printed axiom gates are within `{propext, Quot.sound}`;
+final logs `/tmp/ym-cube-completed-marginal-gap.log` and
+`/tmp/ym-cube-completed-reflected-gap.log` are error/warning free.
+No new sorry, analytic premise, numerical oracle, or raised proof limit.
+Full build/audit/guard/progress scripts were not run.
+
+## Previous increment: constructed head control and strict common finite rate (2026-09-12)
 
 This is PROGRESS: the fixed-head analytic obligation is now discharged, and
 the actual centered finite-sector form has a computed common strict rate

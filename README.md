@@ -44,7 +44,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  + zero extension -> exact sector energy [PROVED]
                  + restricted move energy <= C * energy [PROVED]
                  -> positive sector-parity energy floor [PROVED]
-                 AND centered norm <= move energy / kappa [OPEN]
+                 original coverage route (not used below):
+                 centered norm <= move energy / kappa     [OPEN]
                  (all-K exact cube/parity sector + positive
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                  direct-mate probability floor alone: REFUTED
@@ -64,6 +65,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                                   v
   common strict centered form rate q(w)<1 for EVERY K>=K0(w)        [PROVED]
   (fixed extent one; explicit w-dependent rate/onset, 0<w<=1/2)
+    -> cofinal sector-only certificate + same-object limit         [PROVED]
+    -> completed marginal form gap and norm decay, SAME q(w)       [PROVED]
                                   | required together with:
   raw-entry saturation -> all-spin raw OS form -> completion         [PROVED]
     -> common physical normalization + signed-form cutoff identity [PROVED]
@@ -100,7 +103,12 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
        (rate from each supplied Cauchy representative; no choice)
     + same transfer contracts approximation errors + pairing limits [PROVED]
       -> common dense form bound IFF full complement bound, same q [PROVED]
-         AND pass the finite q to the SAME dense reflected form     [OPEN]
+         AND completed marginal positive-form Cauchy--Schwarz       [PROVED]
+         -> ||P x||_M^2 <= q <P x,x>_M                              [PROVED]
+         + exact pairing E(Rx,Ry)=<x,P y>_M + intertwining          [PROVED]
+         -> SAME q bounds the dense reflected form                 [PROVED]
+         -> <T x,x>_E <= q <x,x>_E on ENTIRE Omega-perp             [PROVED]
+            (w=1/400, extent one, actual conditional operator)
     + two positive physical edges AND zero direct root/probe entry [PROVED]
       -> positive pairing through both original completion limits [PROVED]
       -> SAME completed transfer moves root; T is not identity     [PROVED]
@@ -131,13 +139,40 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
-The next bottleneck is transporting the newly proved cofinal-cutoff strict
-form bound to the **same completed reflected vacuum complement**. The finite
-estimate uses the exact SU(2) BF4 vacuum component, not the reducible full
-positive-row carrier. Physical action/time and continuum identifications
-remain separate open requirements.
+The strict bound now reaches the **same completed reflected vacuum
+complement**. Next: derive its fixed-space isolation and decay consequences
+for that operator. The larger project still requires identification with
+the exact YM action and geometric time, plus volume/spacing control and
+continuum reconstruction. A gap for conditional dynamics is not by itself
+a Yang--Mills mass gap.
 
-**Latest result: a constructed cutoff-uniform strict centered form bound.**
+**Latest result: the constructed rate survives both completions.**
+`BF4PhysicalCubeCompletedMarginalGap.cofinalSectorGap` supplies the existing
+sector-only limit interface on the explicit schedule `max(request,K0(w))`.
+For every fixed `0<w<=1/2`, the resulting completed marginal form gap and
+conditional-iterate norm decay use the original `q(w)`.
+
+At `w=1/400`, extent one, positivity gives
+`||P x||_M^2 <= q(w) <P x,x>_M`. The exact comparison identities identify
+these quantities with the reflected transfer form and reflected norm.
+`BF4PhysicalCubeCompletedReflectedGap.completed_reflected_form_bound`
+therefore proves
+
+```text
+<T x,x>_E <= q <x,x>_E,   0 < q < 1,
+for EVERY x in the completed reflected vacuum complement.
+```
+
+There is no supplied gap, vector-dependent prefactor, or rate loss. The
+argument uses the actual vacuum sector, never the reducible full carrier;
+it does not pretend the marginal and reflected norms are equal.
+See [`BF4PhysicalCubeCompletedMarginalGap.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedMarginalGap.lean)
+and [`BF4PhysicalCubeCompletedReflectedGap.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedGap.lean).
+Both focused monitored checks passed all 13 printed axiom gates within
+`{propext, Quot.sound}`. No new analytic premise or proof hole was added;
+the full build/audit/guard was not run.
+
+**Input: a constructed cutoff-uniform strict centered form bound.**
 At extent one, for every fixed `0<w<=1/2`, Lean constructs a rational
 `q(w)` and an explicit onset `K0(w)` such that
 
@@ -156,9 +191,9 @@ absorption then gives `N_K(f)<=(1+3*C(w))*E_K(f)`, and exact rational
 algebra produces `q(w)=(1+6*C(w))/(2+6*C(w))`.
 
 The rate and onset **depend on w**. This is not a coupling-, volume-, or
-lattice-spacing-uniform physical gap, and it is not yet the completed
-reflected-form bound. Exact action/geometric time, vacuum uniqueness in
-the completed theory, thermodynamic/continuum passage and Clay remain open.
+lattice-spacing-uniform physical gap. It supplies the completed result
+above. Exact action/geometric time, vacuum uniqueness in the completed
+theory, thermodynamic/continuum passage and Clay remain open.
 See [`BF4PhysicalCubeAnchoredHeadBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean)
 and [`BF4PhysicalCubeCutoffUniformGap.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean).
 Both focused monitored checks passed all 20 printed axiom gates. The exact
@@ -511,15 +546,14 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** prove a cutoff-independent weighted coverage/Poincare
-estimate for the same physical sector; the dense strict bound is still
-missing. The new density witness supplies the approximation side, not this
-analytic input. The nonzero root cylinder is not the stationary sector event;
-its movement under the transfer is now proved above. Identifying conditional
-iterations with geometric Euclidean time, proving a strict vacuum-complement
-bound, and controlling volume and spacing limits remain open. Constant `1`
-is nonexpansiveness, not a mass gap. The explicit Cauchy diagonal modulus
-is also not a physical decay rate.
+**Boundary of this earlier transfer construction:** constant `1` gives
+nonexpansiveness, not a strict gap. The head/tail estimate and same-rate
+completion theorem reported above now supply strictness on the reflected
+vacuum complement. The nonzero root cylinder is not the stationary sector
+event; its movement under the transfer is proved above. Identifying
+conditional iterations with geometric Euclidean time and controlling
+volume and spacing limits remain open. A Cauchy diagonal modulus is not
+a physical decay rate.
 
 **Connected completed-pairing result:** the comparison preserves the actual physical pairing
 for **every vector in the completed marginal sector**, not only finite
