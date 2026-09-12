@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual all-degree character trace and polynomial realization (2026-09-12)
+## Current increment: all-degree trace in the ORIGINAL slab Haar carrier (2026-09-12)
+
+PROGRESS: the trace-to-Haar step is no longer open. The same polynomial
+matrix trace constructed previously is now identified coefficientwise with
+the solid-zonal polynomial of its actual quaternion radius. The radius
+condition is then proved, not assumed, for every literal slab plaquette
+at every extent. The result holds under every polynomial spectator insertion.
+
+`SU2QuaternionComplexCoefficientAlgebra` supplies coefficient-sensitive complex
+ring identities. `SU2QuaternionSymmetricPowerCoefficientTrace.polynomialTrace_recurrence`
+proves the recurrence for the original raw diagonal sum.
+`SU2QuaternionSymmetricPowerHaarTrace.polynomialTrace_eq_solid` combines it
+with the actual determinant/radius identity at every degree.
+`polynomialTrace_haar_character` consumes the existing sphere-ideal theorem
+at arbitrary-insertion strength, not pointwise evaluation equivalence.
+
+`BF4ExactSlabSymmetricPowerHaarTrace.polyQuaternionNorm_mul` and
+`polyQuaternionNorm_conj` establish the norm identities coefficientwise.
+The original link-coordinate sphere relations compose along the ordered
+plaquette fold, giving `haarNorm_slabPlaquette`. The final consumer
+`slabPlaquette_trace_haar_character` identifies real trace and ORIGINAL
+character, with zero imaginary part, on that SAME slab Haar carrier for
+all spins and extents. Factors need not use disjoint links.
+
+Next: positive reflected channels AND their literal link-local gluing.
+Neither this signed-Haar identity nor positive heat coefficients alone prove
+positivity of the reflected slab form. Physical time, the completed exact-law
+gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom or frontier type changed; the refuted positive-law identity stays refuted.
+
+All four new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` outputs. All 52 gates (23 + 12 + 7 + 10) are within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-complex-coefficient-algebra.log`,
+`/tmp/ym-symmetric-power-coefficient-trace.log`,
+`/tmp/ym-symmetric-power-haar-trace.log`,
+`/tmp/ym-exact-slab-symmetric-power-haar-trace.log`.
+No new sorry, analytic premise, numerical oracle, rate or proof-limit
+increase; exact symbolic algebra uses no new pilot constants.
+No full build/audit/guard/progress run.
+
+## Previous increment: actual all-degree character trace and polynomial realization (2026-09-12)
 
 PROGRESS: the trace/character evaluation identity is no longer an input.
 `SU2QuaternionSymmetricPowerTrace.trace_eq_cheb` proves it for every degree

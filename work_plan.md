@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct-route progress (actual trace and literal polynomial entries):**
+**Latest direct-route progress (actual trace inside the original slab Haar):**
+`SU2QuaternionComplexCoefficientAlgebra` proves the small complex polynomial
+identities at coefficient-probe strength using the existing reflective
+normalizer. `SU2QuaternionSymmetricPowerCoefficientTrace.polynomialTrace_recurrence`
+then lifts the two-row recurrence to the ORIGINAL polynomial matrix trace,
+retaining every coefficient and spectator variable.
+
+`SU2QuaternionSymmetricPowerHaarTrace.diagonal_product_radius` supplies the
+actual determinant/norm identity. `polynomialTrace_eq_solid` identifies the
+trace with the solid-zonal polynomial coefficientwise at EVERY degree.
+`polynomialTrace_haar_character` descends through the existing sphere-ideal
+theorem given a proved arbitrary-insertion Haar-unit radius.
+
+`BF4ExactSlabSymmetricPowerHaarTrace` DISCHARGES that radius condition for
+every physical slab plaquette at every extent. `polyQuaternionNorm_mul`
+and `polyQuaternionNorm_conj` are coefficient identities. `haarNorm_fold`
+composes Haar-unit norms even when factors share links; coordinate sphere
+relations and physical link membership give `haarNorm_slabPlaquette`.
+`slabPlaquette_trace_haar_character` therefore pins the actual symmetric-power
+trace to the ORIGINAL plaquette character under EVERY polynomial insertion.
+No pointwise unit-norm premise is assumed under Haar, no word order or
+signed measure is replaced, and no new analytic hypothesis is introduced.
+
+**Next mathematical frontier:** positive reflected-channel resolution of
+the actual interface heat kernels AND link-local composition on the same
+slab geometry. The all-degree trace-to-Haar step is now proved, but slab
+positivity, physical time, the exact-law completed gap, volume/spacing/QFT
+passage and all-group Clay remain open. No canonical atom or frontier type
+changed; the exact/positive-law identity remains refuted.
+
+Verification: all four new modules passed focused monitored one-worker
+20 GiB checks with `.olean` output; 23 + 12 + 7 + 10 = 52 printed gates
+within `{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-complex-coefficient-algebra.log`,
+`/tmp/ym-symmetric-power-coefficient-trace.log`,
+`/tmp/ym-symmetric-power-haar-trace.log`, and
+`/tmp/ym-exact-slab-symmetric-power-haar-trace.log`.
+No new sorry, numerical oracle, rate, pilot constant or raised proof limit.
+No full build/audit/guard/progress run. The explicit 20 GiB override remains
+mandatory for future checks and Lake targets.
+
+**Retained direct-route progress (actual trace and literal polynomial entries):**
 `SU2QuaternionSymmetricPowerTrace.trace_eq_cheb` proves at every degree that
 the trace of the ACTUAL symmetric coefficient action is `(Cheb.U n q.r, 0)`
 for a rational unit quaternion. `coefficient_matrixAction` first identifies
@@ -33,16 +74,14 @@ the literal polynomial entries. `eval_polynomialMatrixCoefficient` recovers
 the original `symmetricAction` on every basis vector, and
 `eval_polynomialTrace_eq_characterPolynomial` pins the evaluated trace to the
 ORIGINAL BF4 character polynomial whenever the evaluated word has unit norm.
-The constructed polynomials retain every spectator coefficient. Their proved
-comparison is only at evaluation level, not coefficient-probe/Haar level.
+The constructed polynomials retain every spectator coefficient. These two
+modules prove the evaluation comparison; the new modules above separately
+prove coefficient-probe and Haar identities for those same polynomials.
 
-**Next mathematical frontier:** prove the polynomial trace recurrence with
-coefficient probes retained, then descend the actual norm/radius relation
-through the existing sphere ideal under arbitrary supported insertions.
-The existing `SU2QuaternionSolidZonalCharacter` supplies a solid-zonal versus
-ordinary-character Haar theorem; the NEW polynomial trace is not yet proved
-to equal that solid-zonal polynomial. Do not apply pointwise equivalence under
-Haar. Positive reflected channels and their link-local gluing remain open,
+**Residue at that checkpoint:** coefficient-probe trace recurrence,
+trace/solid-zonal identification and sphere-ideal descent (now proved above).
+Do not apply pointwise equivalence under Haar. Positive reflected channels
+and their link-local gluing remain open,
 as do physical time, the exact-law completed gap, volume/spacing/QFT passage
 and all-group Clay. No canonical atom closed or frontier type changed.
 
@@ -73,8 +112,8 @@ restriction of the original matrix action, not a dimension-labelled model.
 `symmetricAction_one`, and `symmetricAction_unitary` prove its complex-linear
 representation and positive Hermitian isometry laws for every degree.
 
-The trace/character evaluation identity is now proved above. Coefficient-probe
-identities consumable under the literal Haar integral remain open. The rational unit-quaternion
+The trace/character evaluation identity and its coefficient-retaining Haar
+descent are now proved above. The rational unit-quaternion
 group is not being asserted compact or identified with the Haar completion.
 Positive reflected channels and link-local gluing remain open, as do physical
 time, exact-law completed gap, volume/spacing/QFT passage and all-group Clay.

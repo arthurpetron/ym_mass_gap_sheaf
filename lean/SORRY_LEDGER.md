@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual all-degree trace in the original slab Haar carrier (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionComplexCoefficientAlgebra.lean`,
+  `SU2QuaternionSymmetricPowerCoefficientTrace.lean`,
+  `SU2QuaternionSymmetricPowerHaarTrace.lean`, and
+  `BF4ExactSlabSymmetricPowerHaarTrace.lean` in the same directory.
+- **coefficient step discharged**: `polynomialTrace_recurrence` retains the
+  original raw trace and all coefficient probes. `diagonal_product_radius`
+  supplies its actual determinant/radius relation; `polynomialTrace_eq_solid`
+  proves equality to the solid-zonal polynomial at EVERY degree without a
+  unit-norm evaluation premise. The small complex ring identities use the
+  existing coefficient-sensitive reflective normalizer, not a new quotient.
+- **Haar step discharged**: `polynomialTrace_haar_character` applies the
+  existing sphere-ideal character theorem to a proved Haar-unit radius.
+  `polyQuaternionNorm_mul`, `polyQuaternionNorm_conj`, coordinate sphere
+  relations and `haarNorm_fold` prove `haarNorm_slabPlaquette` at every
+  extent. Thus `slabPlaquette_trace_haar_character` identifies the trace
+  with the ORIGINAL slab plaquette character under EVERY polynomial insertion,
+  with vanishing imaginary component. No assumption of disjoint links,
+  replacement measure or pointwise-to-Haar shortcut is used.
+- **OPEN residue**: positive reflected-channel resolution of the actual
+  interface kernels AND link-local gluing on the original slab geometry.
+  Slab reflection positivity, physical time, the completed exact-law gap,
+  volume/spacing/QFT passage and all-group Clay remain open. No canonical
+  atom/type changed, new analytic premise, or revived exact/positive identity.
+- **verification**: all four focused monitored one-worker 20 GiB checks
+  passed with `.olean` output, 52 gates (23 + 12 + 7 + 10), all within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-complex-coefficient-algebra.log`,
+  `/tmp/ym-symmetric-power-coefficient-trace.log`,
+  `/tmp/ym-symmetric-power-haar-trace.log`,
+  `/tmp/ym-exact-slab-symmetric-power-haar-trace.log`.
+  No new sorry, numerical oracle, rate, pilot constant or raised proof limit;
+  no full build/audit/guard/progress run.
+
 ## Actual all-degree character trace and literal polynomial matrix (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionSymmetricPowerTrace.lean` and
@@ -29,9 +64,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `eval_polynomialTrace_eq_characterPolynomial` proves equality to the ORIGINAL
   BF4 character at evaluation environments where the polynomial quaternion
   has unit norm. This is not a coefficient-probe or Haar congruence theorem.
-- **OPEN residue**: coefficient-probe trace identities, the trace/solid-zonal
-  identification and sphere-ideal descent under arbitrary supported Haar
-  insertions, followed by positive reflected channels and literal slab gluing.
+- **Residue at that checkpoint**: coefficient-probe trace identities,
+  trace/solid-zonal identification and sphere-ideal descent (now proved above),
+  followed by positive reflected channels and literal slab gluing (still open).
   No compact-group completion, physical-time pin, completed exact-law gap,
   volume/spacing/QFT passage or Clay closure follows from the value identity.
   No canonical frontier atom/type changed and no new analytic premise.

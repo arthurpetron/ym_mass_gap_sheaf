@@ -51,7 +51,9 @@ REQUIRED PHYSICAL ROUTE
     -> original Q(c) = Haar(F_c * H * theta(F_c))                    [PROVED]
     + actual symmetric powers on n+1 coefficients, rational units  [PROVED]
     -> actual trace = literal character, on rational unit inputs    [PROVED]
-    + coefficient-probe / sphere-ideal transport through Haar       [OPEN]
+    + coefficient trace = solid-zonal polynomial, all degrees       [PROVED]
+    + ordered slab word has Haar-unit radius, all extents            [PROVED]
+    -> trace = ORIGINAL character under every Haar insertion        [PROVED]
     + positive reflected channels of H AND link-local gluing        [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -90,7 +92,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the actual all-degree trace is the original character.**
+**Latest result: the actual trace is the original character under Haar.**
+[`BF4ExactSlabSymmetricPowerHaarTrace.lean`](lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean)
+proves `slabPlaquette_trace_haar_character` for every slab extent and spin.
+The real trace component equals the ORIGINAL plaquette character under
+every polynomial insertion in the same product-Haar integral; the imaginary
+component vanishes there. The ordered link word and its signs are unchanged.
+
+The proof has two inputs. First,
+[`SU2QuaternionSymmetricPowerHaarTrace.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerHaarTrace.lean)
+identifies the literal matrix trace coefficientwise with the solid-zonal
+polynomial of its actual radius, at every degree. Second, quaternion norm
+multiplicativity and the existing Haar sphere relation prove that the
+ORIGINAL slab plaquette has Haar-unit radius. These inputs discharge the
+radius premise and permit the existing solid-zonal character theorem to
+apply under arbitrary spectator insertions. Pointwise equality is never
+silently passed through integration.
+
+**Next:** positive reflected channels of the literal interface heat kernels
+AND their link-local gluing. The new identity is not positivity of the
+reflected slab form. The physical time/transfer pin, completed physical gap,
+volume/spacing control, continuum QFT and all-group Clay target remain open.
+
+All four new modules passed focused monitored one-worker 20 GiB checks:
+52 printed axiom gates, all within `{propext, Quot.sound}`, no errors/warnings.
+No new sorry, analytic premise, numerical oracle, rate or raised proof limit;
+no full build/audit. The original signed-Haar law remains distinct from the
+positive multiplicity-product model.
+
+**Retained result: the actual all-degree trace is the original character.**
 [`SU2QuaternionSymmetricPowerTrace.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerTrace.lean)
 proves `trace(Sym^n D(q)) = U_n(q.r)` for every degree and every rational
 unit quaternion, with zero imaginary part. The trace is the sum of the
@@ -105,11 +135,10 @@ recovers the same action. Its diagonal sum evaluates to the ORIGINAL BF4
 `characterPolynomial` whenever the evaluated quaternion has unit norm.
 All raw spectator coefficients remain in the constructed polynomials.
 
-**Important boundary:** these are evaluation identities, not yet identities
-under Haar. The next proof must establish coefficient-probe identities and
-the appropriate sphere-ideal descent before the trace can be used inside
-the original reflected integral. Positive kernel channels, link-local gluing,
-the physical operator gap and continuum passage remain open.
+These two modules establish evaluation identities. The new modules above
+supply the separate coefficient-probe and sphere-ideal proofs needed for
+Haar use. Positive kernel channels, link-local gluing, the physical operator
+gap and continuum passage remain open.
 
 Both new modules passed focused monitored one-worker 20 GiB checks: 33 printed
 axiom gates, all within `{propext, Quot.sound}`, no errors/warnings. No new
@@ -129,12 +158,11 @@ such tensor from its `n+1` explicit complex coefficients. The resulting
 and preserves its inherited Hermitian form. These are structural proofs for
 every degree, with no large assignment enumeration or binomial square roots.
 
-The trace identification is now proved at the evaluation level above.
-Coefficient-probe identities usable under Haar, followed by resolution and
-gluing of the literal interface kernels, remain open. The
-representation is over rational unit quaternions; it does not itself supply
-the compact-group/Haar bridge. Neither slab reflection positivity nor a
-physical spectral gap is claimed. The original signed-Haar law is unchanged.
+The trace identification is now proved at evaluation and arbitrary-insertion
+Haar levels above. Resolution and gluing of the literal interface kernels
+remain open. The representation is over rational unit quaternions; it does
+not itself supply compact-group completion. Neither slab reflection positivity
+nor a physical spectral gap is claimed. The original signed-Haar law is unchanged.
 
 Both new modules passed focused monitored one-worker 20 GiB checks: 42 printed
 axiom gates, all within `{propext, Quot.sound}`, no final errors/warnings.
