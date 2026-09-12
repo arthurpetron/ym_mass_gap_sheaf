@@ -18,6 +18,32 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
+**Latest route correction (kernel-checked):** the direct inward-mate
+conditional probability does NOT have a positive cutoff/state-uniform floor.
+`BF4PhysicalCubeInwardMateCompetitor` uses the explicit profiles
+`s_k=(2k+14,0,0,0,0,0)`, `m_k=(2k+13,1,1,1,1,1)` and
+`b_k=(2k+12,2,2,2,2,2)`. `source_mate` pins the literal physical mate;
+`mate_competitor_mask` proves identical full boundary masks against s_k.
+The heat dimensions obey `32(2k+14) <= 243(2k+13)`, while the mate Casimir
+sum exceeds the competitor sum by exactly `4k+2`. `kernel_comparison`
+therefore bounds the ORIGINAL raw mate entry by `w^(4k+2)` times the
+competitor entry. In `BF4PhysicalCubeInwardMateNoUniformFloor`, the sources
+are proved members of the actual vacuum component, the competitor is retained,
+and common partition cancellation gives `probability_upper` for every
+`K >= 2k+14`. `smallIndex(epsilon,start)=epsilon.den+start` and
+`smallCutoff=2*smallIndex+14` are explicit cofinal data. For each fixed
+`0<w<=1/2`, `probability_small` and `no_cofinal_uniform_direct_mate_floor`
+exclude a common positive floor even after any initial cutoff range.
+This includes w=1/400. It does not refute a full spectral gap, weighted
+norm coverage, averaged successful-source traffic, or the existing
+conditional compilers. Do not attempt to prove the refuted pointwise floor;
+the remaining producer must establish sufficient weighted coverage or a
+different direct operator estimate without that premise. Both new modules
+passed focused monitored one-worker 20 GiB checks; all 28 printed gates are
+within propext/Quot.sound, with no errors/warnings or raised proof limits.
+The exact Python pilot is untrusted; no canonical scorecard atom or sorry
+was closed, and no full build/audit/guard or progress script was run.
+
 The actual finite SU(2) vacuum-sector boundary Gram has a verified head--tail
 contraction theorem, and its new-tail trace has been reduced exactly to
 `sum_new K_raw(x,x) / row_raw(x)`.  That reduction remains correct, but the
@@ -738,7 +764,11 @@ The next load-bearing producers are, in causal order:
    is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
-   transition probability follows from the positive edge product.
+   transition probability follows from the positive edge product. In fact,
+   `BF4PhysicalCubeInwardMateNoUniformFloor.no_cofinal_uniform_direct_mate_floor`
+   now refutes such a direct-mate floor for an explicit vacuum-sector family
+   at every fixed `0<w<=1/2`. The weighted coverage objective is unchanged;
+   it must not be replaced by this stronger false pointwise input.
    The algebraic rate shape
    after a correctly sector-local coverage input is compiled: a floor
    `kappa > 0` yields the cutoff-independent strict rate

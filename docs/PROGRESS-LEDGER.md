@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: mixed physical test bound and two-sided excitation response (2026-09-12)
+## Current increment: uniform direct-mate floor is refuted (2026-09-12)
+
+This is PROGRESS by eliminating a false analytic shortcut, not by closing
+the all-vector gap. The explicit cube source s_k=(2k+14,0,0,0,0,0), its
+physical inward mate m_k=(2k+13,1,1,1,1,1), and competitor
+b_k=(2k+12,2,2,2,2,2) give a short exact comparison.
+
+`BF4PhysicalCubeInwardMateCompetitor.source_mate` pins the actual move.
+`split_admissible`, `mate_competitor_mask` and `mate_competitor_overlap`
+prove both targets have the same full boundary mask against s_k, including
+all forbidden boundaries. Their dimensions obey `32(2k+14)<=243(2k+13)`;
+their Casimir sums differ by `4k+2`. `heat_comparison` and
+`kernel_comparison` yield `K_raw(s_k,m_k)<=w^(4k+2)*K_raw(s_k,b_k)`.
+This is the original physical kernel, not a replacement dynamics.
+
+`BF4PhysicalCubeInwardMateNoUniformFloor.source_in_vacuum_sector` puts
+the family in the actual root component. The competing entry is part of the
+positive row; common partition cancellation gives `probability_upper`:
+`P_K(s_k,m_k)<=w^(4k+2)` for every K>=2k+14. The axiom-free data
+`smallIndex(epsilon,start)=epsilon.den+start` and
+`smallCutoff=2*smallIndex+14` supply a cofinal modulus. `probability_small`
+and `no_cofinal_uniform_direct_mate_floor` rule out a common positive floor
+at each FIXED 0<w<=1/2, hence at w=1/400, even after any initial cutoffs.
+
+Route consequence: do not try to turn pointwise mate-edge positivity into
+a uniform direct-mate probability. The weighted-coverage/Poincare producer
+remains open; the proved averaged traffic and conditional compilers are
+not refuted. No completed all-vector gap, geometric-time identification,
+vacuum uniqueness, volume/spacing/QFT passage or Clay result is supplied.
+
+The exact untrusted pilot passed 101 dimension/Casimir/fusion cases.
+The two all-index Lean modules passed focused monitored one-worker 20 GiB
+checks with `.olean` output; all 28 printed gates use only propext/Quot.sound.
+Final logs are error/warning free, default proof limits unchanged. No new
+sorry, analytic assumption, numerical oracle, full build/audit/guard or
+progress script was used. Root imports, landing page and work plan updated.
+
+## Previous increment: mixed physical test bound and two-sided excitation response (2026-09-12)
 
 This is PROGRESS after same-rate dense closure: an unconditional norm
 comparison on the ENTIRE reflected carrier now yields nondegeneracy of its

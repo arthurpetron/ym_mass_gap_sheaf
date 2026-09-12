@@ -47,6 +47,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  AND centered norm <= move energy / kappa [OPEN]
                  (all-K exact cube/parity sector + positive
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
+                 direct-mate probability floor alone: REFUTED
+                 (explicit source family, each fixed 0<w<=1/2)
                                   v
   cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
                                   | required together with:
@@ -120,7 +122,30 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the constructed excitation now has a **two-sided strict
+**Latest route correction:** a **cutoff-uniform direct inward-mate transition
+floor is impossible** at each fixed `0 < w <= 1/2`, including `w=1/400`.
+In six-face coordinates, take
+
+```text
+source       (2k+14, 0, 0, 0, 0, 0)
+inward mate  (2k+13, 1, 1, 1, 1, 1)
+competitor   (2k+12, 2, 2, 2, 2, 2)
+```
+
+Both targets have the same complete boundary mask against the source.
+Their SU(2) dimension/Casimir comparison gives, for every `K >= 2k+14`,
+`P_K(source,mate) <= w^(4k+2)` for the **original normalized physical
+conditional kernel**. The sources belong to the actual vacuum component;
+an explicit cofinal tolerance modulus proves the no-floor theorem. See
+[`BF4PhysicalCubeInwardMateCompetitor.lean`](lean/YMGap/Continuum/BF4PhysicalCubeInwardMateCompetitor.lean)
+and [`BF4PhysicalCubeInwardMateNoUniformFloor.lean`](lean/YMGap/Continuum/BF4PhysicalCubeInwardMateNoUniformFloor.lean).
+This does **not** refute a full-operator gap or the proved averaged traffic
+bounds. The analytic frontier remains weighted norm coverage/Poincare,
+without assuming a uniform probability for the single selected mate edge.
+Both modules passed targeted monitored checks; all 28 printed axiom gates
+are within `{propext, Quot.sound}`. No full-tree audit was run.
+
+**Previous positive result:** the constructed excitation has a **two-sided strict
 relative response** for the SAME completed physical transfer:
 
 ```text

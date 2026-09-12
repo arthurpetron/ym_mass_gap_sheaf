@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Direct inward-mate uniform floor refuted on the physical vacuum sector (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeInwardMateCompetitor.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeInwardMateNoUniformFloor.lean`.
+- **explicit obstruction**: source `(2k+14,0,0,0,0,0)`, literal inward mate
+  `(2k+13,1,1,1,1,1)`, competitor `(2k+12,2,2,2,2,2)`.
+  `source_mate` pins the physical move; `mate_competitor_mask` and
+  `mate_competitor_overlap` identify the full original boundary factors.
+  `dimension_comparison` and `casimir_payment` give the exact dimension
+  inequality and excess exponent `4k+2`. `heat_comparison` and
+  `kernel_comparison` prove the corresponding actual raw-entry inequality.
+- **normalization and cofinality**: `source_in_vacuum_sector` proves actual
+  root-component membership. `competitor_retained` places the competing
+  entry in the actual row sum. `mateProbability` uses the original normalized
+  joint and its own positive marginal. `probability_upper` gives
+  `P_K(s_k,m_k) <= w^(4k+2)` at every admitted cutoff, without a row-count
+  bound. `smallIndex` and `smallCutoff` are axiom-free Type-level cofinal
+  tolerance data. `probability_small` and `no_cofinal_uniform_direct_mate_floor`
+  refute a positive uniform direct-mate floor at every fixed `0<w<=1/2`,
+  including w=1/400, even after an arbitrary initial cutoff range.
+- **OPEN residue / scope**: this refutes the single-edge probability-floor
+  shortcut, NOT the full-operator gap, averaged traffic estimate, weighted
+  norm-coverage route or any existing conditional compiler. The common
+  dense q<1, geometric-time identification, vacuum uniqueness and
+  volume/spacing/continuum passage remain open. No canonical frontier
+  statement was weakened and no sorry or canonical atom was closed.
+- **verification**: exact arithmetic pilot
+  `computations/bf4_cube_inward_mate_competitor.py` passed 101 cases; the
+  all-index statements are proved in Lean, with no numerical oracle.
+  Both modules passed focused monitored one-worker 20 GiB checks with
+  `.olean` output and all 28 printed axiom gates within
+  `{propext, Quot.sound}`. Final logs are error/warning free, default proof
+  limits unchanged. No full build/audit/guard/progress script was run.
+
 ## Full-space mixed test bound and two-sided excitation response (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeMixedTestBound.lean` and
