@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: marginal-sector comparison with explicit dense preimages (2026-09-11)
+## Current increment: full completed physical pairing and mapped transfer laws (2026-09-12)
+
+This is PROGRESS after the marginal-sector comparison and dense preimages.
+The comparison now preserves the SAME physical reflected pairing for every
+completed marginal-sector vector in both arguments, not just on the dense
+source. It uses the already inhabited conditional transfer, not a new
+operator or a new pairing hypothesis.
+
+`BF4PhysicalAdmissibleSampleSlowdown.slowSample` proves that additional
+finite obligations can be paid by slowing an admissible sampler without
+changing its completed action. `BF4PhysicalCubeSectorCompletedPairing`
+uses this for cube admission and the normalized form's inner modulus.
+Both aligned finite forms converge to the desired constructed pairings;
+their eventual equality gives `physicalCrossLimit_eq_reflected`. The
+existing admissible-sampler uniqueness identifies the original transfer,
+and `sectorToReflected_pairing` descends the identity to the whole source.
+
+The consequences are actual same-object laws: `mappedTransfer_contraction`,
+`_selfAdjoint` and `_positive`, plus `sectorToReflected_moments` for every
+natural iteration with the exact one-insertion shift. All are at the fixed
+anchor w=1/400 and extent one. The map's domain is still the marginal
+sector; it is not yet an endomorphism of the entire reflected completion.
+
+Next: construct representative-level dense action data using the existing
+sector recoding Cauchy producer and explicit cube preimages, prove the
+reflected difference bound, and perform the representative-family
+completion extension with explicit outer moduli. No arbitrary quotient
+representatives should be selected. Stationary sector vacuum, geometric
+time, strict gap, volume/spacing/QFT and all-group Clay remain open.
+
+Both new modules passed focused monitored one-worker 20 GiB checks; all
+30 gates are empty or use only propext/Quot.sound. Final logs contain no
+errors or warnings. Default proof limits were retained. Root imports,
+landing page, work plan and sorry ledger are updated. No full
+build/audit/guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: marginal-sector comparison with explicit dense preimages (2026-09-11)
 
 This is PROGRESS after the completed raw/reflected comparison. The existing
 marginal root-sector completion now maps to the reflected cube completion;
@@ -23,8 +59,8 @@ and sums signed coefficients at that index. Finite Fubini proves equality
 on every state, including repeated and negative terms. The `_global`,
 `_reflected` and `_raw` theorems identify its exact completed images.
 
-Next: extend the comparison's physical pairing identity from dense
-presentations to ALL completed marginal-sector vectors. Then its existing
+The comparison's full completed physical pairing identity is now proved
+above. Its existing
 conditional transfer, E-contractivity and the explicit dense preimages
 provide the inputs for constructing the same action on the reflected
 completion. No global inverse between marginal and E completions, no

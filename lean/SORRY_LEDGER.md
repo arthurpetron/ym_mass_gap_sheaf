@@ -13,6 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full completed-sector physical pairing and mapped transfer laws (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalAdmissibleSampleSlowdown.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeSectorCompletedPairing.lean`.
+- **same operator under extra requirements**: `slowSample` composes an
+  existing admissible selector with an executable slow diagonal. The rate
+  is slowThreshold(required, oldRate(n)); the old payments hold at the
+  smaller intermediate stage and therefore at the actual action cutoff.
+  `slow_regularized_rate_paid` pays an additional provided inner modulus.
+  `diagonal_converges` passes an already convergent CReal sequence through
+  these paid rational approximation stages, without extracting data from
+  a propositional convergence witness.
+- **same physical pairing**: `extraRequirement` pays BOTH cube admission
+  and normalized-form regularity for the same two selected presentations.
+  `stageIndex_cofinal`, `physicalCross_converges` and
+  `normalizedCross_converges` retain explicit rates for all samplers and
+  approximation obligations. `physicalCross_eq_normalized_approx` proves
+  eventual equality of the actual finite forms; `physicalCrossLimit_eq_reflected`
+  identifies their limits. `physicalCrossLimit_class` uses existing
+  admissible-sampler uniqueness to pin the ORIGINAL completed conditional
+  operator. `sectorToReflected_pairing` therefore preserves the physical
+  E pairing for EVERY completed marginal-sector vector on both sides.
+- **consequences on the mapped source**: `mappedTransfer` has domain the
+  existing marginal-sector completion and codomain the reflected cube
+  completion. `_contraction`, `_selfAdjoint` and `_positive` follow from
+  the full pairing pin and the already inhabited sector lift, with no new
+  gap hypothesis. `sectorToReflected_moments` identifies every sector macro
+  moment with the original physical moment with one extra P insertion.
+- **scope / OPEN residue**: fixed w=1/400, extent one. The pairing bridge
+  is closed, but `mappedTransfer` is NOT an endomorphism of the entire
+  reflected completion. Next use explicit cube preimages and the existing
+  sector recoding Cauchy producer to construct representative-level dense
+  action data, prove its reflected difference bound, and extend via the
+  raw/reflected representative-family completion with explicit outer
+  moduli. A stationary sector vacuum, geometric time, strict gap,
+  thermodynamic/spacing/QFT and all-group Clay remain open. No sorry,
+  new analytic premise or scorecard atom is added or discharged.
+- **verification**: both new modules passed focused monitored one-worker
+  20 GiB checks with `.olean` output; all 30 printed gates are empty or
+  subsets of `{propext, Quot.sound}`. Final logs have no errors/warnings.
+  Default proof resource limits were retained; the root Lean change is
+  imports only. No full build/audit/guard, progress script or numerical
+  oracle was run. CI remains disabled.
+
 ## Compare the existing marginal sector and construct dense cube preimages (2026-09-11)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorComparison.lean`
@@ -42,8 +86,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **scope / OPEN residue**: fixed w=1/400, extent one, all finite signed
   cube spans and all existing marginal-sector Cauchy representatives.
   No injectivity or surjectivity between the completed marginal and E
-  spaces is claimed. Next extend the physical pairing pin from the dense
-  source to ALL completed marginal-sector vectors; combine that pin,
+  spaces is claimed. The physical pairing pin on ALL completed marginal-
+  sector vectors is now proved in the entry above. Next combine that pin,
   E-contractivity and the explicit dense preimages to extend/intertwine
   the already constructed conditional transfer. Stationary sector vacuum,
   geometric time, uniform strict gap, thermodynamic/spacing/QFT and

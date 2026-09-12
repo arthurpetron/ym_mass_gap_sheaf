@@ -543,10 +543,22 @@ The next load-bearing producers are, in causal order:
    pointwise observable equality on EVERY state; `spanPresentation_global`,
    `_reflected` and `_raw` pin all three images exactly. No global inverse
    marginal/reflected map or marginal Cauchy property of arbitrary reflected
-   sequences is asserted. Next prove the comparison's physical pairing pin
-   for ALL completed marginal-sector vectors, then extend/intertwine its
-   already constructed conditional action using E-contractivity and these
-   explicit dense preimages. The transfer producer itself is already inhabited.
+   sequences is asserted. `BF4PhysicalAdmissibleSampleSlowdown.slowSample`
+   now proves that extra finite requirements can be paid without changing
+   the completed action. `BF4PhysicalCubeSectorCompletedPairing` pays cube
+   admission and normalized-form inner regularity on the same shared pair.
+   `physicalCrossLimit_eq_reflected` identifies their constructed limits;
+   `sectorToReflected_pairing` proves the physical pairing pin for ALL
+   completed marginal-sector vectors. The mapped sector action is positive,
+   self-adjoint and E-contractive, and `sectorToReflected_moments` gives
+   exact one-insertion-shifted physical macro moments. Its domain is still
+   the marginal sector, not the entire E completion. Next construct the
+   representative-level dense action from the inhabited sector recoding
+   producer and explicit cube preimages, prove the reflected difference
+   bound, and use the representative-family completion with its outer
+   modulus to extend/intertwine this SAME action. No arbitrary quotient
+   representative selection is needed or authorized. The transfer producer
+   itself is already inhabited.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
@@ -680,7 +692,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- existing marginal sector -> E completion via E<=B .... [PROVED same Cauchy modulus]
 |   |   |   +-- every signed cube span has literal sector preimage ... [PROVED computed cutoff/code/sums]
 |   |   |   +-- comparison preserves E pairing on dense source ....... [PROVED same physical form]
-|   |   |   +-- comparison preserves E pairing on whole source ....... [OPEN completed pairing pin]
+|   |   |   +-- slow shared sampler pays cube admission + inner rate .. [PROVED same actual transfer]
+|   |   |   +-- comparison preserves E pairing on whole source ....... [PROVED all completed sector vectors]
+|   |   |   +-- mapped sector action positive, self-adjoint, contractive [PROVED E norm, no strict rate]
+|   |   |   +-- mapped sector macro moments = physical shifted moments [PROVED same conditional iterations]
 |   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

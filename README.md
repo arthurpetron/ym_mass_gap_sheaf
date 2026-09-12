@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-11): this repository does not prove the Clay
+> **Research status (2026-09-12): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -63,7 +63,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   complete E's root-sector image <-> normalized raw cube completion [PROVED]
     + marginal-sector completion -- E<=B --> this E completion      [PROVED]
     + every finite cube vector has a computed sector preimage      [PROVED]
-    -> full completed pairing pin + same transfer on E completion    [OPEN]
+    -> same physical pairing for EVERY completed sector vector     [PROVED]
+    -> mapped sector action: positive, self-adjoint, E-contractive  [PROVED]
+    -> extend this SAME action to the entire E completion            [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -87,7 +89,24 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the existing completed marginal root sector now maps to
+**Latest result:** the comparison now preserves the actual physical pairing
+for **every vector in the completed marginal sector**, not only finite
+presentations. The proof slows the existing shared sampler to pay the finite
+cube admission cutoff and normalization modulus. Its admissibility is
+preserved, so it still constructs the same physical conditional operator.
+The two aligned finite forms are eventually equal and have the constructed
+completed pairings as limits.
+
+Consequently the mapped sector action is positive, self-adjoint and
+E-contractive; its iteration moments equal the original physical moments
+with exactly one extra operator insertion. See
+[`BF4PhysicalCubeSectorCompletedPairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCompletedPairing.lean).
+Its domain is still the completed marginal sector. Extending this action to
+the **entire reflected completion** remains open, as do a stationary sector
+vacuum, geometric time and a strict gap. The result is at fixed `w=1/400`
+and extent one; no continuum or coupling-uniform claim follows.
+
+**Connected comparison result:** the existing completed marginal root sector maps to
 the reflected cube completion at `w=1/400`, extent one. The map preserves
 each finite presentation's literal observable and contracts squared distance
 by the proved `E <= B` estimate; its representative Cauchy modulus is unchanged.
@@ -99,11 +118,10 @@ exactly the original cube vector. See
 [`BF4PhysicalCubeSectorComparison.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorComparison.lean)
 and [`BF4PhysicalCubeSectorDensePreimage.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorDensePreimage.lean).
 
-The comparison's physical pairing is currently pinned on the dense source.
-Extending that identity to all completed marginal-sector vectors, then
-extending/intertwining their actual conditional transfer on the reflected
-completion, remains open. A dense preimage is not an inverse between these
-two completed spaces.
+The physical pairing pin now holds on the whole completed source as described
+above. Extending/intertwining its actual conditional transfer on the entire
+reflected completion remains open. A dense preimage is not an inverse between
+these two completed spaces.
 
 **Connected completion result:** the literal cube-cylinder image has its reflected-norm
 completion at the fixed anchor `w=1/400` and extent one. Two constructed maps
