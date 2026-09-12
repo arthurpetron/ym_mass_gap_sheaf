@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Global reflected-square expansion on the original Haar law (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSpatialLinkReflection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpatialChannelReflection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabReflectedSquareAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabReflectedSquareGluing.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabReflectedSquareHaarForm.lean`.
+- **discharged**: `spatial_link_reflection` and `spatial_column_image` pin
+  the actual spatial reflection at every extent and degree. `SquareTree`
+  stores all rational weights and polynomial channels; `eval_product`
+  expands actual products without a disjointness assumption and preserves
+  nonnegative weights. `spatial_gram_reflected_squares` identifies each
+  literal Gram kernel. `observableSquares_image` glues all crossing heat
+  factors and absorbs the unchanged signed boundary observable.
+  `observableSquares_nonnegative` proves all weights nonnegative for w >= 0.
+  `exact_quadratic_eq_squareTreeHaar` proves the SAME original extent-one
+  quadratic equals the Haar integral of this explicit global tree, every K
+  and rational w, using proved full-carrier support before erasing padding.
+- **OPEN residue**: prove every channel is supported only on the LOWER
+  half and prove its reflected Haar pairing factors into a square.
+  Full 116-link support is not half-carrier support. Slab positivity,
+  physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+  all-group Clay remain open. No canonical atom/type changed; the refuted
+  exact/positive-law identity is unused. No new analytic premise or sorry.
+- **verification**: five targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 8 + 22 + 24 + 11 + 11 = 76 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-spatial-link-reflection.log`, `/tmp/ym-spatial-channel-reflection.log`,
+  `/tmp/ym-reflected-square-algebra.log`, `/tmp/ym-reflected-square-gluing.log`,
+  `/tmp/ym-reflected-square-haar-form.log`. No raised proof limit, numerical
+  oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
 ## Same signed quadratic with spatial reflected-Gram interface (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionTranslationPolynomialImages.lean`,
@@ -32,8 +64,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   interface or its literal reflected SPATIAL-link Gram interface. Scope:
   extent one, every K, rational w and signed observable coefficient function.
   The matching bilinear identities retain independent left/right coefficients.
-- **OPEN residue**: global reflected-square gluing of these spatial-link
-  channels on the SAME half-carrier and slab reflection positivity.
+- **subsequent discharge**: the algebraic global square expansion and its
+  original-Haar identity are now proved in the entry above.
+- **OPEN residue**: LOWER-half channel support, reflected Haar factorization
+  and slab reflection positivity.
   The full observable temporal change of variables is now proved, not just
   its coordinate image. Physical time/transfer, completed exact-law gap,
   volume/spacing/QFT and all-group Clay remain open. No canonical field

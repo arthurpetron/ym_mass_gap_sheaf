@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: same signed quadratic with spatial reflected-Gram interface (2026-09-12)
+## Current increment: global reflected-square expansion of the original Haar form (2026-09-12)
+
+PROGRESS: the original signed quadratic now equals the Haar integral of a
+computable finite tree of weighted reflected squares, at extent one and
+every cutoff K, rational w and signed boundary coefficient function.
+`BF4ExactSlabReflectedSquareHaarForm.exact_quadratic_eq_squareTreeHaar`
+is the same-object endpoint; no Haar law or observable is replaced.
+
+`spatial_link_reflection` and `spatial_column_image` identify the literal
+spatial reflection at every extent and degree. `SquareTree.eval_product`
+expands all cross-terms, including shared link variables.
+`spatial_gram_reflected_squares` supplies each actual Gram factor;
+`observableSquares_image` retains the original heat coefficients and the
+entire signed boundary observable in the global expansion.
+`observableSquares_nonnegative` proves all stored weights nonnegative for
+w >= 0. Full-carrier support is proved before removing common padding
+under the original Haar integral.
+
+Next: LOWER-half support of every channel and reflected Haar factorization.
+The algebraic sum is not yet a positivity theorem. Slab positivity,
+physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+all-group Clay remain open. No canonical atom closed or field changed;
+the exact/positive-law identity remains refuted.
+
+Five focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 8 + 22 + 24 + 11 + 11 = 76 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-spatial-link-reflection.log`,
+`/tmp/ym-spatial-channel-reflection.log`, `/tmp/ym-reflected-square-algebra.log`,
+`/tmp/ym-reflected-square-gluing.log`, `/tmp/ym-reflected-square-haar-form.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: same signed quadratic with spatial reflected-Gram interface (2026-09-12)
 
 PROGRESS: `BF4ExactSlabTemporalGaugeObservableImages.observableIntegrand_image`
 and `observableProduct_image` identify the FULL original signed observable

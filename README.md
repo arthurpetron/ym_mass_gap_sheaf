@@ -65,7 +65,11 @@ REQUIRED PHYSICAL ROUTE
     -> ORIGINAL plaquette words have the common temporal image      [PROVED]
     + full signed observable image AND original Haar invariance     [PROVED]
     -> SAME Q(c) = Haar(F_c * H_spatialGram * theta(F_c))            [PROVED]***
-    + global reflected-square gluing on the literal half-carrier    [OPEN]
+    + actual spatial-column reflection, every extent and degree    [PROVED]
+    + explicit square-tree product expansion, shared links kept    [PROVED]
+    -> SAME Q(c) = Haar(sum_j a_j theta(P_j) P_j)                   [PROVED]****
+    + every P_j uses only lower links AND Haar half-factorization  [OPEN]
+    -> positivity of the ORIGINAL reflected slab quadratic         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -90,6 +94,9 @@ WHOLE-PROJECT GOAL / CLAY TARGET
    syntheses on the same finite Haar carrier. Not slab reflection positivity.
 *** Extent-one original signed form, every cutoff K, rational w, and signed
     coefficient function. H_spatialGram has no fixed-time link in its arguments.
+**** The finite tree stores all channels and rational weights explicitly;
+     a_j >= 0 for w >= 0. Full 116-link support is proved. Lower-half support
+     and Haar factorization are not yet proved, so this is not slab positivity.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -107,7 +114,26 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the SAME signed quadratic has a spatial reflected-Gram interface.**
+**Latest result: the SAME signed quadratic has an explicit global reflected-square expansion.**
+[`BF4ExactSlabReflectedSquareHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabReflectedSquareHaarForm.lean)
+proves `Q(c) = Haar(sum_j a_j theta(P_j) P_j)` for the ORIGINAL extent-one
+signed slab form, every cutoff K, rational heat parameter w and signed
+boundary coefficient function c. The finite tree stores all weights and
+channels as computable data; its weights are nonnegative when `w >= 0`.
+
+The proof uses literal spatial-link reflection of the actual representation
+columns, then expands products into all cross-terms on the SAME carrier.
+[`BF4ExactSlabReflectedSquareGluing.lean`](lean/YMGap/Continuum/BF4ExactSlabReflectedSquareGluing.lean)
+retains shared links, original heat coefficients and the full signed
+observable. Explicit 116-link support licenses the final Haar identity.
+No independent-face assumption, numerical oracle or positivity premise is used.
+
+**Next:** prove that every channel uses only lower-half links, then factor
+its reflected Haar pairing. Full-carrier support is not lower-half support;
+the square expansion alone does not prove slab reflection positivity.
+Physical time/transfer, the exact-law completed gap and continuum/Clay remain open.
+
+**Preceding result: the SAME signed quadratic has a spatial reflected-Gram interface.**
 [`BF4ExactSlabTemporalGaugeHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeHaarForm.lean)
 proves `Q(c) = Haar(F_c * H_spatialGram * theta(F_c))` for the ORIGINAL
 extent-one signed slab form, at every spin cutoff, rational heat parameter
@@ -124,8 +150,9 @@ physical face IDs and reflected labels are retained.
 [`SU2QuaternionTranslationPolynomialImages.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationPolynomialImages.lean)
 provides the coefficient-sensitive algebra and supported Haar bridge.
 
-This closes the same-observable temporal change of variables. Global
-reflected-square gluing and slab reflection positivity remain open.
+This closed the same-observable temporal change of variables. The algebraic
+global square expansion and its original-Haar identity are now proved above;
+lower-half support, Haar factorization and slab reflection positivity remain open.
 
 **Preceding result: the full upper-link image and original plaquette words.**
 [`BF4ExactSlabTemporalGaugeUpperCoordinates.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeUpperCoordinates.lean)

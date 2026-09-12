@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (same signed quadratic, spatial reflected-Gram interface):**
+**Latest gluing-route progress (global reflected-square tree on the original Haar law):**
+`BF4ExactSlabSpatialLinkReflection.spatial_link_reflection` identifies
+the original polynomial reflection of every actual spatial link, at every
+extent. `BF4ExactSlabSpatialChannelReflection.spatial_column_image`
+lifts that pin through the ACTUAL tensor action and basis at every degree.
+
+`BF4ExactSlabReflectedSquareAlgebra` constructs finite `SquareTree` data
+with explicit rational weights and polynomial channels. `eval_product`
+expands all cross-terms without assuming disjoint links; nonnegative weights
+remain nonnegative. `spatial_gram_reflected_squares` identifies the literal
+spatial Gram kernel with that tree, at arbitrary extent and degree.
+`BF4ExactSlabReflectedSquareGluing.observableSquares_image` glues every
+crossing heat factor and the unchanged signed boundary observable, retaining
+all original coefficients. `observableSquares_nonnegative` proves the
+stored weights nonnegative for w >= 0, for every K and signed c.
+
+`BF4ExactSlabReflectedSquareHaarForm.exact_quadratic_eq_squareTreeHaar`
+removes common padding only after proving full 116-link support for both
+sides. Thus the SAME original extent-one quadratic is
+`Q(c) = Haar(sum_j a_j theta(P_j) P_j)`, every cutoff K and rational w.
+The tree is constructive data, not an assumed square decomposition.
+
+Next smaller residue: prove each channel uses only LOWER-half links and
+prove its reflected Haar pairing factors into a square. Full-carrier support
+is proved; half-carrier support and factorization are not. Slab positivity,
+physical time/transfer, completed exact-law gap, volume/spacing/QFT and
+all-group Clay remain OPEN. No canonical atom/type change; no use of the
+refuted exact/positive-law identity.
+
+Verification: five focused monitored one-worker 20 GiB checks, with
+`.olean` outputs; 8 + 22 + 24 + 11 + 11 = 76 gates within
+`{propext, Quot.sound}`, final error/warning free. Logs
+`/tmp/ym-spatial-link-reflection.log`, `/tmp/ym-spatial-channel-reflection.log`,
+`/tmp/ym-reflected-square-algebra.log`, `/tmp/ym-reflected-square-gluing.log`,
+`/tmp/ym-reflected-square-haar-form.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (same signed quadratic, spatial reflected-Gram interface):**
 `SU2QuaternionTranslationPolynomialImages` extends coefficient-sensitive
 chain images to all-spin characters, finite signed sums and products. Its
 Haar bridge requires explicit support on the stated carrier before removing
@@ -43,7 +81,7 @@ with no fixed-time links in their arguments. The bilinear version retains
 independent signed left/right coefficients. Scope: extent one, every K and
 rational w; no positivity hypothesis or rate is introduced.
 
-Next smaller residue: global reflected-square gluing of these literal
+At that checkpoint the residue was: global reflected-square gluing of these literal
 spatial-link channels on the SAME half-carrier, then slab reflection
 positivity. The common-assignment observable change of variables is now
 proved, not merely a coordinate pin. Physical time/transfer, completed
