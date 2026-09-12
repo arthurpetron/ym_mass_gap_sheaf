@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive reflected norm after physical centering (2026-09-12)
+## Current increment: exact reflected centering error controlled by the mean (2026-09-12)
+
+This is PROGRESS after the positive reflected-norm probe. The previously
+unidentified centering residual is now controlled on the actual reflected
+completion, with no coefficient-count or growing-base factor.
+
+`BF4PhysicalCubeCenteringPairing.centered_pairing` proves the exact rank-one
+effect of the EXISTING head correction against every completed test vector.
+It passes the literal finite root shift through the original two pairing
+limits and the existing constructive product-continuity theorem.
+`centeringResidual_norm` gives its exact reflected squared error:
+correction squared times the fixed root norm. No alternative centering or
+representative-selection mechanism is introduced.
+
+`BF4PhysicalCubeCenteringControl.pulledRoot_eq` proves that all presentation
+bases have the SAME physical denominator, even before their admission cutoff.
+The actual root-row floor 64/65 and exact signed division give a squared
+correction bound at every original cutoff. `meanLimit_physical` and
+`centeringResidual_mean_bound` identify the completed estimate:
+`(64/65)^2 ||centered(p)-p||_E^2 <= <Omega,p>_E^2 ||root||_E^2`.
+The root cylinder and stationary sector vacuum remain distinct objects.
+
+Next: combine this estimate with dense Cauchy approximations and continuity
+of the vacuum pairing, preserving an explicit modulus. The centered-image
+density theorem is still unconstructed. Fixed w=1/400 and extent one remain
+essential; nonidentity/geometric time, strict gap, volume/spacing/QFT and
+all-group Clay remain open. No scorecard closure is claimed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks, with
+all 23 printed gates empty or within propext/Quot.sound. Final logs have no
+errors or warnings. Default proof limits are unchanged. Root imports,
+landing page, work plan and sorry ledger are updated. No full build/audit/
+guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: positive reflected norm after physical centering (2026-09-12)
 
 This is PROGRESS after the whole-sector mean and connected-covariance pin.
 The explicitly centered single-face spin-two probe is now proved nonzero

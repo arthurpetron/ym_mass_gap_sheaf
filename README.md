@@ -78,6 +78,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + moving rational centering -> vectors in this complement      [PROVED]
     -> same-object connected conditional covariance, exact shift   [PROVED]
     + root-annihilating channel -> positive centered reflected norm [PROVED]
+    + exact root correction + common denominator floor
+      -> reflected centering error controlled by stationary mean   [PROVED]
     + centered-image density in the whole reflected complement       [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
@@ -102,7 +104,27 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** an explicitly centered single-face spin-two observable
+**Latest result:** centering has a proved, base-independent error bound in
+the **actual reflected norm**. For any finite sector presentation `p`, let
+`r` be the root cylinder, `C(p)` its existing limiting correction, and `Omega`
+the constructed stationary sector vacuum. The new full-space pairing identity
+gives
+
+```text
+<centered(p), y> = <p, y> - C(p) <r, y>     for every completed y
+||centered(p) - p||^2 = C(p)^2 ||r||^2
+(64/65)^2 ||centered(p) - p||^2 <= <Omega,p>^2 ||r||^2
+```
+
+The denominator is the same physical root weight for every presentation
+base. Thus this estimate has no coefficient-count or growing-cutoff factor.
+It remains at fixed `w=1/400` and extent one. See
+[`BF4PhysicalCubeCenteringPairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCenteringPairing.lean)
+and [`BF4PhysicalCubeCenteringControl.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCenteringControl.lean).
+Constructing the explicit centered approximation to every vector in the
+reflected vacuum complement is the next step; density is not yet asserted.
+
+**Connected nonzero-vector result:** an explicitly centered single-face spin-two observable
 has positive norm in the **actual reflected completion**. Its difference
 boundary has zero root amplitude but positive probe amplitude, so one term
 of the physical Gram sum-of-squares supplies a lower bound unchanged by
@@ -159,8 +181,10 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** establish centered-image density in the reflected complement
-and determine nonidentity of the same completed action. The nonzero root
+**Next frontier:** combine the reflected centering-error bound with dense
+Cauchy approximations and vacuum-pairing continuity, retaining an explicit
+modulus, to establish centered-image density in the reflected complement.
+Nonidentity of the same completed action is also open. The nonzero root
 cylinder is not the stationary sector event. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`

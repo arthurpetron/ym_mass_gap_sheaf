@@ -626,8 +626,24 @@ The next load-bearing producers are, in causal order:
    focused monitored one-worker 20 GiB checks, with all 30 printed gates
    within `{propext, Quot.sound}`. Default proof limits are retained; no
    full build/audit/guard was run. The norm floor is fixed-anchor/extent,
-   not coupling-uniform. The next frontier is centered-image density in
-   the entire reflected complement and nonidentity of the same action.
+   not coupling-uniform. `BF4PhysicalCubeCenteringPairing` now passes the
+   literal rational root shift through both original pairing limits and
+   proves its exact rank-one effect against EVERY completed test vector.
+   `centeringResidual_norm` identifies the actual reflected squared error
+   as correction squared times the fixed root norm. `BF4PhysicalCubeCenteringControl`
+   proves that every pulled root denominator is exactly the same physical
+   row marginal, for ALL bases and original cutoffs. The 64/65 floor and
+   signed rational division identity give `correction_square_bound`;
+   `meanLimit_physical` identifies the original mean in the reflected form.
+   Consequently `centeringResidual_mean_bound` gives
+   `(64/65)^2 ||centered(p)-p||_E^2 <= <Omega,p>_E^2 ||root||_E^2`
+   for every presentation p. No l1 or growing-cutoff factor is introduced.
+   These two modules passed all 23 printed gates in focused monitored
+   one-worker 20 GiB checks, with default proof limits and no full audit.
+   Next combine this bound with dense Cauchy approximation and continuity
+   of the vacuum pairing, preserving a Type-level rate, to construct
+   centered-image density in the entire reflected complement. Nonidentity
+   of the same action is also open.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.
@@ -781,6 +797,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- moving centered cylinders -> reflected complement .... [PROVED existing Cauchy data]
 |   |   |   +-- same-object connected conditional covariance ......... [PROVED exact one-insertion shift]
 |   |   |   +-- root-annihilating channel -> positive centered E norm . [PROVED explicit heat-product floor]
+|   |   |   +-- exact root correction -> full reflected error formula [PROVED all completed test vectors]
+|   |   |   +-- common denominator floor -> mean-relative error bound [PROVED all bases, fixed anchor]
 |   |   |   +-- centered-image density in the reflected complement .... [OPEN]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

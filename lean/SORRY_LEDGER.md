@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact reflected centering error and base-independent mean control (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCenteringPairing.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCenteringControl.lean`.
+- **same-object pairing**: `correctionLimit` and `centeredCauchy` reuse the
+  existing head-correction sequence and its original cutoff/Cauchy rates.
+  `rootShiftSpan_observable` and `centered_stage_recode` identify every
+  stage with the original presentation plus its rational root term.
+  `rootShiftSpan_form` and `_pairing` preserve all signed cross terms.
+  `centered_pairingRep` uses the existing pairing limits and constructive
+  product continuity; `centered_pairing` is the exact rank-one correction
+  formula against EVERY vector of the actual reflected completion.
+- **actual error norm**: `centeringResidual` is the completed reflected
+  difference between the existing centered vector and its original input.
+  `centeringResidual_pairing` and `_norm` identify its squared norm with
+  `correctionLimit(p)^2 * <root,root>`. This is not a marginal-norm bound
+  transported in the wrong direction, nor projection along the sector vacuum.
+- **base-independent control**: `pulledRoot_eq` identifies every pulled root
+  denominator with the original root row marginal, for ALL bases and cutoffs.
+  `denominatorFloor = 64/65` and `pulledRoot_floor` reuse the actual vacuum-row
+  floor. The exact signed division identity `correction_times_root` gives
+  `correction_square_bound` without l1 or presentation-size costs.
+  `meanLimit_physical` pins the numerator to the sector vacuum pairing.
+  `centeringResidual_mean_bound` proves
+  `(64/65)^2 ||centered(p)-p||_E^2 <= <Omega,p>_E^2 ||root||_E^2`
+  for every presentation p, on the SAME completed reflected objects.
+- **scope / OPEN residue**: fixed w=1/400 and extent one, not coupling-uniform.
+  Explicit-modulus assembly of centered approximations to every vector in
+  the reflected vacuum complement remains open. Nonidentity/geometric time,
+  strict gap, volume/spacing/QFT passage and all-group Clay remain open.
+  No new analytic premise, sorry, axiom, classical extraction, numerical oracle
+  or scorecard closure is introduced.
+- **verification**: two focused monitored one-worker 20 GiB checks passed with
+  `.olean` output; all 23 printed gates are empty or within `{propext, Quot.sound}`.
+  Final logs have no errors or warnings; default proof limits are retained.
+  Root edits are imports only. No full build/audit/guard or progress script
+  was run. GitHub CI remains disabled.
+
 ## Positive reflected norm of the same centered physical probe (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSeparatedChannel.lean`
