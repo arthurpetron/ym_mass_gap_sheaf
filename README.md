@@ -85,7 +85,9 @@ REQUIRED PHYSICAL ROUTE
     + common-stage bilinearity, symmetry and witness independence [PROVED]
     -> ONE original cutoff-limit GNSData for every finite anchor  [PROVED]********
     -> common completion, original pairing pins, norm-one code    [PROVED]********
-    + physical positive-time realization / larger-slab compatibility [OPEN]
+    + all-odd-extent temporal-gauge crossing interface positivity  [PROVED]*********
+    + COMPLETE original-law/observable pin on larger slabs          [OPEN]
+    -> physical positive-time realization / larger-slab compatibility [OPEN]
     + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -127,6 +129,12 @@ WHOLE-PROJECT GOAL / CLAY TARGET
          Completion retains explicit Cauchy representatives and moduli.
          Not vacuum stationarity, the canonical positive-time root, a
          physical time operator, arbitrary-volume positivity, or a gap.
+********* Every odd extent and finite K, w >= 0; arbitrary supported
+          lower-half polynomial, including overlapping spatial factors.
+          Original temporal-assigned crossing characters = actual Gram
+          product under every Haar insertion = explicit weighted squares.
+          COMPLETE original-law identification is still only extent one;
+          this is not yet arbitrary-volume original-law positivity.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -144,7 +152,30 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: ONE completed original cutoff-limit carrier for all finite anchor observables.**
+**Latest result: positive temporal-gauge crossing interfaces on every odd slab.**
+[`BF4ExactSlabLocalSquareExpansion.lean`](lean/YMGap/Continuum/BF4ExactSlabLocalSquareExpansion.lean)
+stores actual finite reflected-square channels, their polynomial equality,
+carrier support, lower-half locality and nonnegative weights. Products keep
+shared variables. `haar_eq_squareValue` identifies the original Haar value
+with the explicitly computed sum of squared channel integrals.
+
+[`BF4ExactSlabAllExtentSpatialGramPositivity.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentSpatialGramPositivity.lean)
+constructs these expansions from the actual central crossing-face list,
+spatial-link representation columns and heat coefficients at every odd
+extent and finite cutoff. `temporalInterface_haar_gram` identifies the
+complete temporal-assigned crossing interface with its Gram product under
+every insertion. `temporalInterface_eq_squareValue` and
+`temporalInterface_nonnegative` apply to any supported lower-half polynomial,
+without discarding its spatial interactions. `original_quadratic_pin`
+recovers the previously proved ORIGINAL signed quadratic at extent one.
+
+The missing larger-slab step is the COMPLETE original-law/observable
+change-of-variables pin, followed by compatibility and geometric time.
+The interface theorem alone does not supply that pin, stationarity or a gap.
+Two focused monitored checks passed: 12 + 15 = 27 axiom gates within
+`{propext, Quot.sound}`, no errors or warnings. No full-tree audit was run.
+
+**Preceding result: ONE completed original cutoff-limit carrier for all finite anchor observables.**
 [`BF4ExactSlabFiniteBoundaryObservable.lean`](lean/YMGap/Continuum/BF4ExactSlabFiniteBoundaryObservable.lean)
 stores each coefficient function with an explicit finite cutoff witness.
 Addition takes the maximum of two witnesses. Every original finite-anchor
@@ -165,7 +196,8 @@ quotient representatives. The single vacuum-code vector agrees with the
 original vacuum delta on every finite carrier, has norm one, and is non-null
 in the common completion. Physical stationarity is not asserted.
 
-**Next:** geometric positive-time realization and larger-slab compatibility,
+**Next:** the full original-law/observable pin at larger extents, geometric
+positive-time realization and larger-slab compatibility,
 then a physical transfer and a strict gap on its own completed vacuum
 complement. Current scope is the extent-one boundary-coefficient observable
 family, not the canonical continuum positive-time root. Arbitrary-volume

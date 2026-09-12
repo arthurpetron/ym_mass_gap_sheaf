@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: one completed original cutoff-limit carrier for all finite anchors (2026-09-12)
+## Current increment: all-odd-extent temporal-gauge crossing interface positivity (2026-09-12)
+
+PROGRESS: `BF4ExactSlabLocalSquareExpansion.LocalSquareExpansion` carries
+literal finite square channels with polynomial pin, support, lower locality
+and nonnegative weights. Product and finite-sum constructors preserve shared
+variables and original rational weights. `haar_eq_squareValue` proves their
+Haar value is the explicitly stored weighted sum of squares.
+
+`BF4ExactSlabAllExtentSpatialGramPositivity.interfaceExpansion` constructs
+this witness on EVERY odd slab's actual central crossing-face enumeration.
+The all-degree spatial-link columns and heat coefficients are unchanged.
+`reflectedInterfaceExpansion` retains arbitrary supported lower-half
+polynomials; spatial interactions need not be separated or discarded.
+`temporalInterface_haar_gram` identifies all temporal-assigned crossing
+characters with the same Gram product under every Haar insertion.
+`temporalInterface_eq_squareValue` and `temporalInterface_nonnegative`
+prove the exact square value and positivity, every K and w >= 0.
+`original_quadratic_pin` recovers the ORIGINAL signed extent-one quadratic.
+
+Next: COMPLETE original-law/observable change-of-variables pin at larger
+extents, then larger-slab compatibility and physical time. The new result
+is not yet arbitrary-volume ORIGINAL-law positivity; it concerns the
+temporal-assigned crossing interface. It does not extend the common
+extent-one completion to the canonical positive-time root, prove vacuum
+stationarity or a strict gap. Volume/spacing/QFT and all-group Clay remain
+open. No canonical atom/type changed; the refuted identity is unused.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs, 12 + 15 = 27 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-local-square-expansion.log`,
+`/tmp/ym-all-extent-spatial-gram.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: one completed original cutoff-limit carrier for all finite anchors (2026-09-12)
 
 PROGRESS: `BF4ExactSlabFiniteBoundaryObservable.BoundaryObservable` combines
 all finite anchor observables in one carrier, with explicit cutoff data and

@@ -13,6 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All-odd-extent temporal-gauge crossing interface positivity (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalSquareExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentSpatialGramPositivity.lean`.
+- **discharged**: explicit local square-expansion constructors preserving
+  literal polynomial pins, carrier support, lower-half locality and original
+  nonnegative weights; `haar_eq_squareValue` gives their exact rational
+  weighted-square Haar value. `spatialLinkExpansion`, `faceExpansion` and
+  `interfaceExpansion` construct these witnesses for actual central crossing
+  faces at every odd extent and finite K. `reflectedInterfaceExpansion`
+  retains arbitrary supported lower-half polynomials and shared spatial links.
+  `temporalInterface_haar_gram` pins the temporal-assigned original crossing
+  characters to this Gram product under every insertion.
+  `temporalInterface_eq_squareValue` and `temporalInterface_nonnegative`
+  give the square value and positivity for w >= 0. `original_quadratic_pin`
+  recovers the SAME original signed quadratic at extent one.
+- **OPEN residue**: COMPLETE original-law/observable change-of-variables
+  pin at larger extents, larger-slab compatibility, canonical positive-time
+  realization and physical time/transfer. This is not yet arbitrary-volume
+  ORIGINAL-law positivity or an extension of the common extent-one completion.
+  Physical vacuum stationarity, strict completed gap, volume/spacing/QFT
+  and all-group Clay remain open. No canonical atom/type changed; no use
+  of the refuted exact/positive identity. No new sorry or analytic premise.
+- **verification**: two focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 12 + 15 = 27 gates within `{propext, Quot.sound}`, final
+  error/warning free. Logs `/tmp/ym-local-square-expansion.log`,
+  `/tmp/ym-all-extent-spatial-gram.log`. No raised proof limit, numerical
+  oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
 ## Common original cutoff-limit completion and norm-one vacuum code (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFiniteBoundaryObservable.lean`,

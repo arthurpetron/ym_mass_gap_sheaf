@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest exact-law progress (common cutoff-limit GNS carrier and original vacuum-code pin):**
+**Latest larger-slab progress (all-odd-extent temporal-gauge interface positivity):**
+`BF4ExactSlabLocalSquareExpansion.LocalSquareExpansion` stores an actual
+finite square tree, its polynomial pin, syntactic support, lower-half
+locality and nonnegative weights. Its product constructor retains shared
+link variables; `haar_eq_squareValue` contracts the tree into its explicit
+weighted sum of squared Haar integrals. No expansion is assumed for an
+unidentified physical law.
+
+`BF4ExactSlabAllExtentSpatialGramPositivity.spatialLinkExpansion`,
+`faceExpansion` and `interfaceExpansion` construct those witnesses from
+actual lower spatial-link columns, original heat coefficients, and the
+central crossing-face enumeration at EVERY odd extent and finite cutoff.
+`reflectedInterfaceExpansion` retains any supported signed lower-half
+polynomial, including all its overlapping spatial factors.
+`temporalInterface_haar_gram` pins the original characters after the existing
+temporal assignment to the Gram product under every Haar insertion.
+`temporalInterface_eq_squareValue` and `temporalInterface_nonnegative` give
+the explicit square value and positivity for w >= 0. `original_quadratic_pin`
+identifies the general form with the ORIGINAL signed quadratic at extent one.
+
+Next residue: extend the COMPLETE original-law/observable change-of-variables
+pin to larger slabs, then prove larger-slab compatibility and geometric time
+on the physical carrier. The new interface result is not yet arbitrary-volume
+original-law positivity, a canonical positive-time root, stationarity, a
+time semigroup or a gap. The extent-one common cutoff-limit completion below
+remains at its stated scope. Volume/spacing/QFT and all-group Clay stay OPEN;
+no canonical atom/type changed and the refuted exact/positive identity is unused.
+
+Verification: two focused monitored one-worker 20 GiB checks with `.olean`
+outputs, 12 + 15 = 27 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-local-square-expansion.log`,
+`/tmp/ym-all-extent-spatial-gram.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+**Preceding exact-law progress (common cutoff-limit GNS carrier and original vacuum-code pin):**
 `BF4ExactSlabFiniteBoundaryObservable.BoundaryObservable` stores a coefficient
 function and an explicit finite label cutoff with its proved outside-zero
 invariant. `ofCoefficients` embeds every original finite anchor; `add` uses
