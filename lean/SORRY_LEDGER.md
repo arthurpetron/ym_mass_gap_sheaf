@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Completed reflected norm decay and stationary vacuum isolation (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedDecay.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeVacuumIsolation.lean`.
+- **norm/decay consequence discharged**: `sector_image_norm_bound` uses
+  the same marginal form gap at Px and square-form bound at x.
+  `raw_action_norm_converges` reuses the existing represented output
+  approximation rate. `completed_reflected_norm_bound` bounds the
+  original reflected squared norm by q^2 on EVERY completed
+  vacuum-orthogonal vector. `power_preserves_complement`,
+  `completed_reflected_power_norm_decay`, and
+  `completed_reflected_correlation_sq_decay` give all iterates and their
+  same-object correlations. `centeredCubeCorrelator_sq_decay` directly
+  bounds the existing connected conditional correlator.
+- **vacuum-isolation consequence discharged**: `vacuumMargin=1-q` and
+  `vacuumMargin_pos` give an explicit positive dimensionless margin.
+  `margin_times_norm_le_dissipation` proves its original deficit bound.
+  `fixed_complement_eq_zero` excludes nonzero centered fixed vectors.
+  `transfer_sub` and `fixed_vectors_eq_of_vacuum_pairing` imply
+  `stationary_vacuum_unique`, uniqueness of the existing positive-norm
+  stationary vacuum at its own pairing. There is no unit-normalization
+  assumption or arbitrary-real scalar decomposition claim.
+- **scope / OPEN residue**: actual SU(2) BF4 conditional operator and
+  reflected completion, w=1/400, extent one, all spin labels. Exact
+  signed-Haar YM action and geometric-time identification are NOT supplied;
+  the existing `ExactHaarPhysicalPerronSameActionAt` input is still open.
+  Volume/spacing/QFT passage and all-group Clay remain open. No canonical
+  frontier atom closed or frontier type weakened.
+- **verification**: both focused monitored one-worker 20 GiB checks passed,
+  `.olean` files emitted, all 15 printed gates within `{propext, Quot.sound}`.
+  Final logs `/tmp/ym-cube-completed-reflected-decay.log` and
+  `/tmp/ym-cube-vacuum-isolation.log` are error/warning free. No new sorry,
+  analytic premise, numerical oracle, or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## Constructed strict rate on the entire reflected vacuum complement (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCompletedMarginalGap.lean`

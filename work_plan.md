@@ -18,7 +18,44 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest contraction (same rate on the entire reflected complement):**
+**Latest consequences (same-operator decay and vacuum isolation):**
+`BF4PhysicalCubeCompletedReflectedDecay.sector_image_norm_bound` uses
+M(Px,P^2x)<=q*M(Px,Px)<=q^2*M(Px,x), with the original marginal gap and
+sharp square-form inequality. `raw_action_norm_converges` reuses the
+existing explicit action approximation rate on both pairing arguments.
+`completed_reflected_norm_bound` therefore gives squared-norm contraction
+by q^2 for EVERY vector of the completed reflected vacuum complement.
+`completed_reflected_power_norm_decay` iterates it; the original inner
+Cauchy--Schwarz proves `completed_reflected_correlation_sq_decay` and
+the direct `centeredCubeCorrelator_sq_decay`. Rate, operator, norm, and
+conditional-moment realization remain unchanged.
+
+`BF4PhysicalCubeVacuumIsolation.vacuumMargin=1-reflectedGapRate` is
+explicitly positive. `margin_times_norm_le_dissipation` proves the
+quantitative deficit floor. `fixed_complement_eq_zero` cancels only this
+positive rational margin, never a possibly vanishing real norm.
+`transfer_sub` and `fixed_vectors_eq_of_vacuum_pairing` then prove
+`stationary_vacuum_unique`: the constructed nonzero stationary vacuum is
+unique at its own vacuum pairing. No unit normalization or arbitrary-real
+scalar decomposition of the full space is asserted.
+
+**Next causal frontier:** test and construct the exact-action/geometric-time
+identification for these literal operators and laws. The existing
+`BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt`
+requires the signed exact Haar quadratic to equal the normalized physical
+reflection quadratic for every observable at a given w,K. The present
+conditional-gap proof supplies no such identity. Volume/spacing/QFT
+passage and the all-group Clay target remain open. No canonical frontier
+atom or type has changed.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` output. All 15 printed gates are within
+`{propext, Quot.sound}`. Logs `/tmp/ym-cube-completed-reflected-decay.log`
+and `/tmp/ym-cube-vacuum-isolation.log` are error/warning free. No new
+sorry, analytic premise, numerical oracle, or raised proof limit. No full
+build/audit/guard/progress run.
+
+**Input contraction (same rate on the entire reflected complement):**
 `BF4PhysicalCubeCompletedMarginalGap.cofinalSectorGap` inhabits the existing
 sector-only finite-gap interface with schedule `max(request,headBoundStart(w))`.
 It does not assert a gap on the reducible full positive-row carrier.
@@ -36,11 +73,11 @@ M(Px,Px)<=q*M(Px,x), so the right-hand norm is E(Rx,Rx), not M(x,x).
 The same rational `reflectedGapRate`, proved 0<q<1, bounds EVERY vector
 of the actual reflected vacuum complement at w=1/400, extent one.
 
-**Next causal frontier:** fixed-space isolation and decay consequences on
-this same reflected carrier. Exact signed-Haar YM action/geometric-time
-identification, volume/spacing/QFT passage, and the all-group Clay target
-remain open. This is a completed conditional-operator form gap, not a
-physical time-translation gap. No canonical frontier atom or type changed.
+**Frontier at that checkpoint (now supplied above):** fixed-space isolation
+and decay consequences on this same reflected carrier. Exact signed-Haar
+YM action/geometric-time identification, volume/spacing/QFT passage and
+all-group Clay remain open. The result concerns a conditional operator,
+not an identified physical time-translation operator.
 
 Verification: both new modules passed focused monitored one-worker 20 GiB
 checks with `.olean` output. All 13 printed axiom gates are within

@@ -109,6 +109,12 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
          -> SAME q bounds the dense reflected form                 [PROVED]
          -> <T x,x>_E <= q <x,x>_E on ENTIRE Omega-perp             [PROVED]
             (w=1/400, extent one, actual conditional operator)
+         + marginal gap at P x + SAME joint pairing limits
+         -> ||T x||_E^2 <= q^2 ||x||_E^2 on ENTIRE Omega-perp      [PROVED]
+         -> all-iterate norm decay and same-object correlation decay [PROVED]
+         + positive margin delta=1-q in the original deficit
+         -> fixed vector in Omega-perp is zero                    [PROVED]
+         -> fixed vectors with same vacuum pairing coincide       [PROVED]
     + two positive physical edges AND zero direct root/probe entry [PROVED]
       -> positive pairing through both original completion limits [PROVED]
       -> SAME completed transfer moves root; T is not identity     [PROVED]
@@ -139,14 +145,43 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
-The strict bound now reaches the **same completed reflected vacuum
-complement**. Next: derive its fixed-space isolation and decay consequences
-for that operator. The larger project still requires identification with
-the exact YM action and geometric time, plus volume/spacing control and
-continuum reconstruction. A gap for conditional dynamics is not by itself
-a Yang--Mills mass gap.
+The **same completed reflected operator now has strict norm contraction,
+correlation decay, and vacuum isolation** at `w=1/400`, extent one.
+The next substantive frontier is identifying this conditional law with
+the exact signed-Haar YM action and its iterations with geometric time.
+The existing `ExactHaarPhysicalPerronSameActionAt` states the first required
+finite quadratic identity; it is not supplied by the gap proof. Volume,
+spacing and continuum reconstruction also remain open. A gap for
+conditional dynamics is not by itself a Yang--Mills mass gap.
 
-**Latest result: the constructed rate survives both completions.**
+**Latest result: decay and uniqueness for the same operator.**
+For every completed `x` orthogonal to the constructed stationary vacuum,
+Lean now proves
+
+```text
+||T^n x||_E^2 <= (q*q)^n ||x||_E^2
+(1-q) ||x||_E^2 <= ||x||_E^2 - <T x,x>_E,   1-q > 0.
+```
+
+Completed Cauchy--Schwarz gives squared-correlation decay, including a
+direct bound on the existing `centeredCubeCorrelator` with its exact
+conditional-moment identity. A fixed vector in the vacuum complement must
+be zero; two fixed vectors with the same vacuum pairing coincide. Thus the
+constructed positive-norm vacuum is uniquely stationary at its own vacuum
+pairing. This does not assume a unit vacuum or construct an arbitrary-real
+scalar decomposition of every vector.
+
+The proof applies the marginal gap at `P x`, obtaining
+`M(Px,P^2 x) <= q M(Px,Px) <= q^2 M(Px,x)`, then uses the original reflected
+pairing and the already explicit approximation rates. No operator or norm
+is replaced. See
+[`BF4PhysicalCubeCompletedReflectedDecay.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedDecay.lean)
+and [`BF4PhysicalCubeVacuumIsolation.lean`](lean/YMGap/Continuum/BF4PhysicalCubeVacuumIsolation.lean).
+Both focused monitored checks passed all 15 printed axiom gates within
+`{propext, Quot.sound}`. No new proof hole or analytic premise; no full
+build/audit/guard run.
+
+**Input: the constructed rate survives both completions.**
 `BF4PhysicalCubeCompletedMarginalGap.cofinalSectorGap` supplies the existing
 sector-only limit interface on the explicit schedule `max(request,K0(w))`.
 For every fixed `0<w<=1/2`, the resulting completed marginal form gap and
@@ -192,8 +227,8 @@ algebra produces `q(w)=(1+6*C(w))/(2+6*C(w))`.
 
 The rate and onset **depend on w**. This is not a coupling-, volume-, or
 lattice-spacing-uniform physical gap. It supplies the completed result
-above. Exact action/geometric time, vacuum uniqueness in the completed
-theory, thermodynamic/continuum passage and Clay remain open.
+above. Exact action/geometric time, the continuum vacuum and QFT,
+thermodynamic/continuum passage and Clay remain open.
 See [`BF4PhysicalCubeAnchoredHeadBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean)
 and [`BF4PhysicalCubeCutoffUniformGap.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean).
 Both focused monitored checks passed all 20 printed axiom gates. The exact

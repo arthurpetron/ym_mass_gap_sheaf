@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: same strict rate on the whole reflected complement (2026-09-12)
+## Current increment: reflected norm/correlation decay and vacuum isolation (2026-09-12)
+
+This is PROGRESS: the actual completed reflected transfer now has sharp
+norm decay, same-object correlation bounds, and quantitative isolation of
+its constructed stationary vacuum. No new analytic premise is used.
+
+`BF4PhysicalCubeCompletedReflectedDecay.sector_image_norm_bound` applies
+the existing marginal gap at Px, then its sharp square-form bound at x:
+M(Px,P^2x)<=q*M(Px,Px)<=q^2*M(Px,x). These are exactly the original
+reflected squared norms before and after transfer. The same represented
+approximants and action-error rate give `raw_action_norm_converges`;
+`completed_reflected_norm_bound` passes q^2 to EVERY point of the reflected
+vacuum complement. Induction gives `completed_reflected_power_norm_decay`.
+The original reflected Cauchy--Schwarz gives
+`completed_reflected_correlation_sq_decay`, including the direct
+`centeredCubeCorrelator_sq_decay` for the already pinned connected
+conditional observable. The exact one-insertion moment shift is retained.
+
+`BF4PhysicalCubeVacuumIsolation.vacuumMargin` is the positive rational
+1-q. `margin_times_norm_le_dissipation` provides a quantitative original
+deficit floor. `fixed_complement_eq_zero` cancels only that explicit
+margin. `transfer_sub` and `fixed_vectors_eq_of_vacuum_pairing` then give
+`stationary_vacuum_unique` at the constructed vacuum's own pairing. Its
+norm is already bounded positively; no unit normalization or full real
+scalar decomposition is invented.
+
+Next: the exact-action/geometric-time identification for these literal
+objects. `BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt`
+still requires equality of the signed exact Haar and normalized physical
+quadratics for every observable, at the displayed w,K. No witness follows
+from a conditional gap. Volume/spacing limits, continuum QFT and all-group
+Clay remain open. The new results are fixed w=1/400 and extent one; no
+canonical frontier atom is closed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output. All 15 printed gates are within `{propext, Quot.sound}`;
+final logs `/tmp/ym-cube-completed-reflected-decay.log` and
+`/tmp/ym-cube-vacuum-isolation.log` are error/warning free. No new sorry,
+analytic premise, numerical oracle, or raised proof limit. Full
+build/audit/guard/progress scripts were not run.
+
+## Previous increment: same strict rate on the whole reflected complement (2026-09-12)
 
 This is PROGRESS: the previously supplied cofinal-sector gap is now
 constructed at extent one, and its actual q reaches the entire reflected
