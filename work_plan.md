@@ -509,9 +509,20 @@ The next load-bearing producers are, in causal order:
    constructive real quotient. Its concrete application proves the SAME P
    positive, self-adjoint and contractive in E(x,y)=<x,Py>, with the same
    unit vacuum, vacuum pairing and shifted macro moments. No cofinal strict
-   estimate is assumed. E may have a radical and need not be complete in
-   the marginal carrier; its completion and ROOT-SECTOR raw-cube
-   identification remain. The full reducible carrier is not the cube sector.
+   estimate is assumed. `BF4PhysicalCubeObservableRealization` now maps
+   arbitrary finite signed cube spans to literal exact state cylinders and
+   proves their full finite conditional form equals the original normalized
+   raw form once K >= 2*(left spin sum + right spin sum)+1. The existing
+   source-tail cross-pairing convergence then proves
+   `BF4PhysicalCubeCompletedReflectedRealization.cubeToCompleted_reflected_pairing`:
+   E(Ju,Jv) is exactly the constructed normalized raw form. At the fixed
+   anchor, `_anchor_reflected_norm_bounds` gives the 64/65-to-1 squared-norm
+   comparison on this image, and `_anchor_reflected_null_iff` proves that
+   its E-zero-norm vectors are exactly the raw-form zero-norm vectors.
+   E need not be complete in the marginal carrier. Completing this
+   ROOT-SECTOR image and intertwining its action with the raw-cube
+   completion remain. The full reducible carrier is not the cube sector,
+   and the root cylinder is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -634,7 +645,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- joint diagonal -> completed P self-adjoint, 0 <= P <= I [PROVED no strict-gap input]
 |   |   |   +-- RC cubic identity -> same P contracts E(x,y)=<x,Py> .... [PROVED spin cutoff removed]
 |   |   |   +-- E keeps unit vacuum, pairings and shifted moments ...... [PROVED same action]
-|   |   |   +-- E root-sector completion identified with raw cube form [OPEN]
+|   |   |   +-- literal signed cube cylinders -> exact finite E form .. [PROVED computed admission]
+|   |   |   +-- source-tail cross limit -> E(Ju,Jv)=normalized raw form [PROVED spin cutoff removed]
+|   |   |   +-- realized E/raw norms comparable, same null vectors ..... [PROVED dense, fixed anchor/extent]
+|   |   |   +-- complete this E image -> raw cube completion .......... [OPEN completion equivalence]
 |   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

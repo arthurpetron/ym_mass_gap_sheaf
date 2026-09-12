@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Dense all-spin cube realization in the actual completed E form (2026-09-11)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeObservableRealization.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedRealization.lean`.
+- **literal map and finite pin**: `cubeObservable` retains every signed term
+  and repetition, using the EXISTING state cylinder that tests ALL lower
+  faces. `state_mem_positive` proves admission to the actual retained rows.
+  `cylinder_form_eq_kernel` selects the original normalized entry from the
+  physical joint law. `cubeObservable_finite_form` extends this exact
+  equality to the whole signed form. `realizationCutoff` computes
+  2*(left spin sum + right spin sum)+1; it pays both state admission and
+  raw-entry saturation in `cubeObservable_form_eq_normalized_approx`.
+- **same completed objects**: `cubeToCompleted` embeds those observables in
+  the existing marginal completion. `cubeTransferPairingLimit` uses the
+  already inhabited source-tail producer. Its `_eq_normalized` theorem
+  passes the finite identity through the existing cross-form convergence,
+  reindexed only to pay the explicit admission cutoff.
+  `cubeToCompleted_reflected_pairing` identifies E(Ju,Jv) with the constructed
+  normalized raw form for arbitrary signed finite u,v, fixed 0<w<1 and
+  extent one, where E uses the SAME actual completed conditional P.
+- **dense radical**: `cubeToCompleted_anchor_reflected_norm_bounds` transfers
+  the 64/65-to-1 comparison to the actual E image at w=1/400. Its
+  `_anchor_reflected_null_iff` consequence proves E(Ju,Ju)=0 iff the raw
+  squared form of u is zero. This is NOT injectivity into the marginal
+  completion and not a completed-space equivalence or strict gap.
+- **OPEN residue**: complete the root-sector image in E and construct the
+  corresponding comparison/intertwining on the raw cube completion.
+  Marginal completeness alone cannot supply this. The entire reducible
+  carrier is not the cube sector, and the root cylinder is not the constant
+  stationary vacuum. Geometric Euclidean time, the uniform all-vector
+  strict gap, thermodynamic/spacing/QFT/all-group Clay obligations remain
+  open. No sorry, analytic input or scorecard atom is added or discharged.
+- **verification**: both focused monitored one-worker 20 GiB checks emitted
+  `.olean` output. All 12 printed gates are empty or subsets of
+  `{propext, Quot.sound}`; final logs contain no errors or warnings. The
+  default proof resource limits were retained. No full build/audit/guard or
+  progress-script build was run; GitHub CI remains disabled.
+
 ## Cutoff-removed conditional action on its one-step form (2026-09-11)
 
 - **files**: `lean/YMGap/Continuum/RCPositiveContractionOneStep.lean` and
@@ -41,10 +79,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   for E. `_vacuum_pairing` and `_vacuum_norm_one` retain the actual constant
   stationary vacuum; `_moments` is the exact one-insertion shift for all
   natural macro iterates, not a geometric-time assertion.
-- **OPEN residue**: E may have a radical, and completeness in the marginal
-  norm does not establish E-completeness. Its radical/completion and the
-  identification of its ROOT-SECTOR part with the normalized stable RAW
-  cube carrier remain open. The full reducible carrier is not asserted to
+- **OPEN residue** (refined by the dense realization above): E may have a
+  radical, and completeness in the marginal norm does not establish
+  E-completeness. The dense pairing and same-null-vector pin are now proved;
+  the completion equivalence for its ROOT-SECTOR image with the normalized
+  stable RAW cube carrier remains open. The full reducible carrier is not asserted to
   be the cube sector.
   Geometric Euclidean time, an isolated vacuum and a uniform strict gap,
   thermodynamic/spacing limits, continuum QFT and all-group Clay remain open.

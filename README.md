@@ -84,7 +84,17 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** after the spin cutoff is removed, the actual conditional
+**Latest result:** the all-spin cube form is now identified with the actual
+completed physical pairing on its literal observable image. For arbitrary
+finite signed lists `u,v`, the map `J` uses the existing exact state cylinders,
+and the kernel-checked equality is
+`E(Ju,Jv) = lambda * rawCubeForm(u,v)`.
+At the fixed anchor `w=1/400`, its squared norm lies between `64/65` and `1`
+times the raw reflected squared norm. The map neither creates nor removes
+zero-norm vectors for these two reflected forms. See
+[`BF4PhysicalCubeCompletedReflectedRealization.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedReflectedRealization.lean).
+
+**Connected operator result:** after the spin cutoff is removed, the actual conditional
 operator `P` is self-adjoint and satisfies `0 <= <Px,x> <= <x,x>` on every
 vector of the existing marginal-norm completion. The proof aligns both
 insertions at the same finite cutoff using the existing adaptive sampler.
@@ -96,11 +106,12 @@ moments, are preserved. These are unconditional fixed-nome, finite-volume
 results for `0<w<1`, using the constructed source-tail moduli. See
 [`BF4PhysicalCutoffReflectedFormLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffReflectedFormLaws.lean).
 
-E may have a radical, and marginal completeness does not imply completeness
-in the E-norm. Completing its root-sector part and identifying that sector
-with the normalized raw cube carrier remain open, as do geometric time and a
-strict gap. No identification of the entire reducible carrier with the cube
-sector is asserted.
+The dense pairing and zero-norm identification do not yet give a completed
+space equivalence. Marginal completeness does not imply E-completeness.
+Completing this root-sector image and transporting the same operator to the
+raw cube completion remain open, as do geometric time and a strict gap.
+No identification of the entire reducible carrier with the cube sector is
+asserted; the vacuum-labelled root cylinder is not the constant stationary vacuum.
 
 **Connected normalization result:** the all-spin raw cube form has its actual physical
 cutoff-limit normalization. A single constructed `CReal` factor `lambda`

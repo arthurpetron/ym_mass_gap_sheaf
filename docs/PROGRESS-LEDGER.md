@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: the cutoff-removed operator contracts its one-step form (2026-09-11)
+## Current increment: realize the raw cube form on actual completed observables (2026-09-11)
+
+This is PROGRESS after the completed one-step form laws: the two previously
+separate constructions now have an exact dense physical pairing pin.
+`BF4PhysicalCubeObservableRealization.cubeObservable` uses the existing
+all-lower-face state cylinders, retaining signed coefficients and repeated
+states. Finite Boolean selection identifies the physical joint entries;
+bilinearity gives the whole form. The computed threshold
+2*(left spin sum + right spin sum)+1 pays admission and saturation together.
+
+`BF4PhysicalCubeCompletedReflectedRealization.cubeToCompleted_reflected_pairing`
+proves E(Ju,Jv)=normalizedRawForm(u,v), using the ACTUAL cutoff-removed P in
+E(x,y)=B(x,Py). Its proof combines the finite pin with existing source-tail
+cross-form convergence and explicit cofinal reindexing. No new analytic
+certificate is assumed. At the fixed anchor w=1/400 and extent one,
+`cubeToCompleted_anchor_reflected_norm_bounds` transfers the 64/65-to-1
+comparison to this actual image. `_anchor_reflected_null_iff` proves that
+the two dense reflected forms have exactly the same zero-norm vectors.
+
+Next: complete this E image and construct the comparison/intertwining with
+the raw cube completion. The map is not claimed to be injective in the
+marginal norm; marginal completeness does not supply E-completeness. Nor
+does the root cylinder become the constant stationary vacuum. Geometric
+time, uniform strict gap, volume/spacing/QFT/all-group Clay remain open.
+
+Both focused monitored one-worker 20 GiB checks passed with `.olean`
+output. All 12 printed gates are empty or use only propext/Quot.sound; final
+logs have no errors or warnings. Default heartbeat/recursion limits are
+unchanged. No full build/audit/guard, progress script or numerical oracle
+was used. Root imports, README, work plan and sorry ledger are updated;
+GitHub CI stays off.
+
+## Previous increment: the cutoff-removed operator contracts its one-step form (2026-09-11)
 
 This is PROGRESS after the previous normalized-kernel milestone: two new
 proof modules close the positive/self-adjoint form laws for the actual
@@ -28,8 +60,10 @@ E-norm one; E-vacuum pairings agree with marginal-vacuum pairings, and every
 E macro moment is exactly the corresponding marginal moment with one more P
 insertion. No finite or completed strict-gap premise enters these results.
 
-Next: handle the E radical/completion and identify its ROOT-SECTOR part with
-the normalized all-spin raw cube carrier, then identify geometric time.
+Next at that checkpoint: handle the E radical/completion and identify its
+ROOT-SECTOR part with the normalized all-spin raw cube carrier, then
+identify geometric time. The dense pairing/radical pin is now proved above;
+the completed identification remains open.
 The entire reducible marginal carrier is not asserted to be the cube sector.
 Marginal completeness is not E-completeness; the new form laws alone do not
 construct that identification. Uniform all-vector strict control and the

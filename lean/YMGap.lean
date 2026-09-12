@@ -3756,6 +3756,9 @@ import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 -- Same cutoff-removed conditional P contracts its positive one-step RC form.
 import YMGap.Continuum.RCPositiveContractionOneStep
 import YMGap.Continuum.BF4PhysicalCutoffReflectedFormLaws
+-- Literal cube observables realize the same completed E form and its dense radical.
+import YMGap.Continuum.BF4PhysicalCubeObservableRealization
+import YMGap.Continuum.BF4PhysicalCubeCompletedReflectedRealization
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts
