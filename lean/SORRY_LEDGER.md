@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full original signed bilinear / spatial-Gram Haar pin at every odd extent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentWeightedFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentObservableHaarForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentTemporalImages.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentTemporalHaarForm.lean`.
+- **discharged**: structural physical face-index recovery; full original
+  weighted dual-summand factorization; `exact_bilinear_eq_productHaar` for
+  the existing signed kernel at every odd extent, preserving all boundary
+  coefficients and heat weights; exact resummation of the central label
+  carrier; complete temporal observable image and support;
+  `exact_bilinear_eq_temporalHaar` using the original full Haar-preserving
+  ledger; both boundary observables return unchanged under Haar;
+  `exact_bilinear_eq_spatialGramHaar` pins the SAME full bilinear to
+  `Haar(L_left * H_Gram * U_right)`, every finite K and rational w.
+- **OPEN residue**: U = literal link reflection of L and assembled
+  lower-observable locality at arbitrary extent. The existing inserted
+  plaquette-reflection theorem is extent-one only. The complete original-law
+  change-of-variables pin is now proved, but full original-law positivity at
+  every odd extent still needs these reflection/locality consumers and the
+  positive interface. Larger-slab compatibility, physical positive-time
+  realization/transfer, stationarity, strict completed gap, volume/spacing/QFT
+  and all-group Clay remain open. No canonical atom/type changed; no use of
+  the refuted exact/positive identity. No new sorry or analytic premise.
+- **verification**: four focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 16 + 12 + 13 + 11 = 52 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-all-extent-weighted-factorization.log`,
+  `/tmp/ym-all-extent-observable-form.log`, `/tmp/ym-all-extent-temporal-images.log`,
+  `/tmp/ym-all-extent-temporal-haar.log`. Explicit list reassociation resolved
+  the symbolic-extent definitional-equality timeout; no proof limit was raised.
+  No numerical oracle, rate or pilot constant. No full build/audit/guard/progress run.
+
 ## All-odd-extent temporal-gauge crossing interface positivity (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalSquareExpansion.lean`,
@@ -29,8 +61,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `temporalInterface_eq_squareValue` and `temporalInterface_nonnegative`
   give the square value and positivity for w >= 0. `original_quadratic_pin`
   recovers the SAME original signed quadratic at extent one.
-- **OPEN residue**: COMPLETE original-law/observable change-of-variables
-  pin at larger extents, larger-slab compatibility, canonical positive-time
+- **subsequent discharge**: the COMPLETE original-law/observable
+  change-of-variables pin at larger extents is now proved above.
+  **OPEN residue**: literal reflection/locality, larger-slab compatibility, canonical positive-time
   realization and physical time/transfer. This is not yet arbitrary-volume
   ORIGINAL-law positivity or an extension of the common extent-one completion.
   Physical vacuum stationarity, strict completed gap, volume/spacing/QFT

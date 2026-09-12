@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (all-odd-extent temporal-gauge interface positivity):**
+**Latest larger-slab progress (full original signed bilinear / spatial-Gram Haar pin):**
+`BF4ExactSlabAllExtentWeightedFactorization` proves structural face-index
+recovery and the complete weighted lower/fixed/upper factorization of the
+existing signed dual summand at every odd extent. `central_product_factorization`
+uses explicit list associativity, avoiding the extent-one proof's computed
+definitional equality. `dualTerm_eq_threeFactorHaar` keeps the original
+Haar-network coefficient and every heat weight.
+
+`BF4ExactSlabAllExtentObservableHaarForm.exact_bilinear_eq_productHaar`
+pins the full original kernel bilinear to its heat-dressed boundary
+observables and actual interface heat product. All three original label
+sums are retained and the fixed-face resummation uses the existing nodup
+carrier theorem. `BF4ExactSlabAllExtentTemporalImages.observableProduct_image`
+identifies the complete temporal image before integration.
+
+`BF4ExactSlabAllExtentTemporalHaarForm.exact_bilinear_eq_temporalHaar`
+combines the complete support proof with the same full ledger's Haar
+invariance. `temporalLower_haar_original` and `temporalUpper_haar_original`
+return both boundary polynomials unchanged. The final
+`exact_bilinear_eq_spatialGramHaar` pins the ORIGINAL signed bilinear to
+`Haar(L_left * H_Gram * U_right)` at every odd extent, finite K and rational w.
+No positivity assumption or replacement measure enters this identity.
+
+Next residue: prove U is the literal link reflection of L and assemble
+lower-observable locality at arbitrary extent, then combine with the already
+proved positive interface. The available inserted plaquette-reflection
+consumer is extent-one only. Full original-law positivity at every odd
+extent therefore remains OPEN; so do larger-slab compatibility, physical
+positive-time realization/transfer, stationarity, strict completed gap,
+volume/spacing/QFT and all-group Clay. No canonical atom/type changed.
+
+Verification: four focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 16 + 12 + 13 + 11 = 52 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-weighted-factorization.log`,
+`/tmp/ym-all-extent-observable-form.log`, `/tmp/ym-all-extent-temporal-images.log`,
+`/tmp/ym-all-extent-temporal-haar.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run. The refuted exact/positive identity is unused.
+
+**Preceding larger-slab progress (all-odd-extent temporal-gauge interface positivity):**
 `BF4ExactSlabLocalSquareExpansion.LocalSquareExpansion` stores an actual
 finite square tree, its polynomial pin, syntactic support, lower-half
 locality and nonnegative weights. Its product constructor retains shared
@@ -38,9 +77,9 @@ temporal assignment to the Gram product under every Haar insertion.
 the explicit square value and positivity for w >= 0. `original_quadratic_pin`
 identifies the general form with the ORIGINAL signed quadratic at extent one.
 
-Next residue: extend the COMPLETE original-law/observable change-of-variables
-pin to larger slabs, then prove larger-slab compatibility and geometric time
-on the physical carrier. The new interface result is not yet arbitrary-volume
+The COMPLETE original-law/observable change-of-variables pin is now proved
+above. Literal reflection/locality at arbitrary extent, larger-slab
+compatibility and geometric time remain open. The interface result is not yet arbitrary-volume
 original-law positivity, a canonical positive-time root, stationarity, a
 time semigroup or a gap. The extent-one common cutoff-limit completion below
 remains at its stated scope. Volume/spacing/QFT and all-group Clay stay OPEN;

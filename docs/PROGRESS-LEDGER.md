@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-odd-extent temporal-gauge crossing interface positivity (2026-09-12)
+## Current increment: full original signed bilinear / spatial-Gram Haar pin, every odd extent (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentWeightedFactorization.dualTerm_eq_threeFactorHaar`
+factors the EXISTING signed dual term into lower/fixed/upper polynomials,
+retaining its complete heat weight and Haar-network coefficient. Face
+indexing and partition reassociation are structural, not extent-specific scans.
+`BF4ExactSlabAllExtentObservableHaarForm.exact_bilinear_eq_productHaar`
+assembles all original signed boundary sums under the same product-Haar
+integral and resums the actual central label carrier into face heat factors.
+
+`BF4ExactSlabAllExtentTemporalImages.observableProduct_image` pins the
+whole original observable to its independently specified temporal image.
+`BF4ExactSlabAllExtentTemporalHaarForm.exact_bilinear_eq_temporalHaar`
+checks all support before using the original ledger's Haar invariance.
+Both transformed boundary observables return to their original polynomials.
+`exact_bilinear_eq_spatialGramHaar` gives the SAME original kernel bilinear
+as `Haar(L_left * H_Gram * U_right)` for every odd extent, finite K, rational
+w and signed boundary coefficients. No positivity premise or replacement law.
+
+Next: U = literal link reflection of L, and assembled lower-half locality
+at arbitrary extent. The existing inserted plaquette-reflection consumer
+is extent-one only. These are still needed to combine the new original-law
+pin with the proved all-extent positive interface; full original-law
+positivity is not yet obtained at arbitrary extent. Compatibility, physical
+positive-time carrier/transfer, stationarity, strict completed gap,
+volume/spacing/QFT and all-group Clay remain open. No canonical atom/type changed.
+
+Four focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 16 + 12 + 13 + 11 = 52 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-weighted-factorization.log`,
+`/tmp/ym-all-extent-observable-form.log`, `/tmp/ym-all-extent-temporal-images.log`,
+`/tmp/ym-all-extent-temporal-haar.log`. No new sorry, analytic premise,
+proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run; the refuted identity is unused.
+
+## Previous increment: all-odd-extent temporal-gauge crossing interface positivity (2026-09-12)
 
 PROGRESS: `BF4ExactSlabLocalSquareExpansion.LocalSquareExpansion` carries
 literal finite square channels with polynomial pin, support, lower locality
@@ -23,8 +58,9 @@ characters with the same Gram product under every Haar insertion.
 prove the exact square value and positivity, every K and w >= 0.
 `original_quadratic_pin` recovers the ORIGINAL signed extent-one quadratic.
 
-Next: COMPLETE original-law/observable change-of-variables pin at larger
-extents, then larger-slab compatibility and physical time. The new result
+The COMPLETE original-law/observable change-of-variables pin at larger
+extents is now proved above. Reflection/locality, compatibility and time
+remain open. The interface result
 is not yet arbitrary-volume ORIGINAL-law positivity; it concerns the
 temporal-assigned crossing interface. It does not extend the common
 extent-one completion to the canonical positive-time root, prove vacuum

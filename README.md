@@ -86,8 +86,11 @@ REQUIRED PHYSICAL ROUTE
     -> ONE original cutoff-limit GNSData for every finite anchor  [PROVED]********
     -> common completion, original pairing pins, norm-one code    [PROVED]********
     + all-odd-extent temporal-gauge crossing interface positivity  [PROVED]*********
-    + COMPLETE original-law/observable pin on larger slabs          [OPEN]
-    -> physical positive-time realization / larger-slab compatibility [OPEN]
+    + SAME original B(L,R) = Haar(L * H_Gram * U), every odd extent [PROVED]**********
+    + U = literal link reflection of L AND lower-half locality      [OPEN]
+    -> original-law reflection positivity at every odd extent       [OPEN]
+    + larger-slab compatibility AND cutoff-limit control            [OPEN]
+    -> physical positive-time realization on one carrier            [OPEN]
     + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -133,8 +136,12 @@ WHOLE-PROJECT GOAL / CLAY TARGET
           lower-half polynomial, including overlapping spatial factors.
           Original temporal-assigned crossing characters = actual Gram
           product under every Haar insertion = explicit weighted squares.
-          COMPLETE original-law identification is still only extent one;
-          this is not yet arbitrary-volume original-law positivity.
+          The next step pins the complete original signed bilinear to
+          L * H_Gram * U; U = theta(L) still needs an all-extent proof.
+********** Every odd extent, finite K, rational w and signed L/R data.
+           Full original heat weights and boundary sums are retained.
+           All support and temporal change-of-variables pins are proved.
+           Not yet arbitrary-volume original-law positivity or a gap.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -152,7 +159,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: positive temporal-gauge crossing interfaces on every odd slab.**
+**Latest result: the COMPLETE original signed bilinear has its spatial-Gram Haar form at every odd extent.**
+[`BF4ExactSlabAllExtentWeightedFactorization.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentWeightedFactorization.lean)
+keeps the existing signed dual term and factors its complete heat-weighted
+network into lower, fixed and upper pieces. Face indexing and partition
+associativity are proved structurally, without an extent-specific scan.
+[`BF4ExactSlabAllExtentObservableHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentObservableHaarForm.lean)
+moves all signed boundary sums under the same Haar integral and resums the
+actual central label carrier into the product of face heat polynomials.
+
+[`BF4ExactSlabAllExtentTemporalImages.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentTemporalImages.lean)
+pins the complete observable's image to the independent temporal assignment.
+[`BF4ExactSlabAllExtentTemporalHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentTemporalHaarForm.lean)
+checks all polynomial support before using Haar invariance.
+`exact_bilinear_eq_spatialGramHaar` proves, for every odd extent, finite K,
+rational w and signed boundary coefficients,
+`B(left,right) = Haar(L_left * H_Gram * U_right)`, where B is the ORIGINAL
+`exactCorrectedSlabReflectedKernel` bilinear and both boundary polynomials
+are unchanged. No replacement law or positivity premise is used.
+
+The next positivity edge is `U_right = theta(L_right)` and the assembled
+lower-half locality theorem at arbitrary extent. The existing inserted
+plaquette-reflection theorem is extent-one only. Thus all-extent original-law
+reflection positivity is still OPEN, as are slab compatibility and physical time.
+Four focused monitored checks passed: 16 + 12 + 13 + 11 = 52 gates within
+`{propext, Quot.sound}`, no errors or warnings. No full-tree audit was run.
+
+**Preceding result: positive temporal-gauge crossing interfaces on every odd slab.**
 [`BF4ExactSlabLocalSquareExpansion.lean`](lean/YMGap/Continuum/BF4ExactSlabLocalSquareExpansion.lean)
 stores actual finite reflected-square channels, their polynomial equality,
 carrier support, lower-half locality and nonnegative weights. Products keep
@@ -169,9 +202,9 @@ every insertion. `temporalInterface_eq_squareValue` and
 without discarding its spatial interactions. `original_quadratic_pin`
 recovers the previously proved ORIGINAL signed quadratic at extent one.
 
-The missing larger-slab step is the COMPLETE original-law/observable
-change-of-variables pin, followed by compatibility and geometric time.
-The interface theorem alone does not supply that pin, stationarity or a gap.
+The COMPLETE original-law/observable change-of-variables pin is now proved
+above. Literal upper/lower reflection and locality at arbitrary extent,
+compatibility, geometric time, stationarity and a gap remain separate.
 Two focused monitored checks passed: 12 + 15 = 27 axiom gates within
 `{propext, Quot.sound}`, no errors or warnings. No full-tree audit was run.
 
@@ -196,8 +229,8 @@ quotient representatives. The single vacuum-code vector agrees with the
 original vacuum delta on every finite carrier, has norm one, and is non-null
 in the common completion. Physical stationarity is not asserted.
 
-**Next:** the full original-law/observable pin at larger extents, geometric
-positive-time realization and larger-slab compatibility,
+**Next:** literal upper/lower reflection and lower-observable locality at
+arbitrary extent, then positive-time realization and larger-slab compatibility,
 then a physical transfer and a strict gap on its own completed vacuum
 complement. Current scope is the extent-one boundary-coefficient observable
 family, not the canonical continuum positive-time root. Arbitrary-volume
