@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Gaussian actual-sector return and radial modulus (2026-09-12)
+## Current increment: actual trace and full centered new-tail control (2026-09-12)
+
+This is PROGRESS by discharging the analytic trace premise of the existing
+head--tail compiler. `BF4PhysicalCubeHighLabelTrace` proves injectivity of
+the six-label code on supported states, bounds each canonical radius-M
+shell by `(M+1)^6`, and partitions the ORIGINAL conditional diagonal trace
+exactly by radius. The proved Gaussian envelope now bounds an ACTUAL trace,
+not merely a scalar series. `highLabelTrace_small` gives its explicit
+threshold `1401+epsilon.den` for every outer cutoff and `0<w<=1/2`, extent one.
+
+`BF4PhysicalCubeNewTailTraceBound` connects this to the established old/new
+block, not a parallel trace definition. A new index represents a state of
+radius greater than the base cutoff, because otherwise the exact sector
+classification and cutoff embedding put it in the old image. Indexed
+self-return is exactly the existing conditional diagonal; a constructive
+weighted injection bounds the entire new-block sum. The nonnegative
+stationary subtraction only reduces the centered trace.
+
+For `newTailBase(epsilon)=1400+epsilon.den`, the EXISTING centered trace is
+at most epsilon at every later cutoff. `centered_newTail_le` then bounds
+the centered Gram form of EVERY literal new-tail coefficient by epsilon
+times its own stationary diagonal norm. `matrix_le_of_head` removes the
+trace premise from the old compiler: a sufficient centered head bound q
+now gives full centered rate q+epsilon with no re-assumed tail input.
+
+Next: sufficient head control/coercivity and a proven rate below one.
+A small tail trace alone is not a gap, and no comparison between a crude
+finite-head floor and the tail is presumed. Exact action/geometric time,
+vacuum uniqueness, volume/spacing/QFT passage and Clay closure remain open.
+
+The exact untrusted pilot passed 35,185 six-label states and 63 weighted
+radius partitions. Both focused monitored one-worker 20 GiB Lean checks
+passed all 18 gates within propext/Quot.sound. An initially selected
+classical-dependent range helper was replaced by finite induction before
+the accepted checks. Final logs error/warning free; no new sorry, analytic
+premise, numerical oracle, raised limits or full build/audit/guard/progress
+run. Landing page, work plan, ledger and root imports updated.
+
+## Previous increment: Gaussian actual-sector return and radial modulus (2026-09-12)
 
 This is PROGRESS from energy decrease to quantitative decay of an existing
 operator entry. `BF4PhysicalCubeGaussianReturn` factors the original half

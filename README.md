@@ -49,6 +49,14 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                  direct-mate probability floor alone: REFUTED
                  (explicit source family, each fixed 0<w<=1/2)
+                 direct tail branch, same extent-one sector:
+                   balanced Casimir drop + full boundary sum [PROVED]
+                   -> Gaussian conditional self-return       [PROVED]
+                   + injective six-label shell count          [PROVED]
+                   -> actual high-label trace <= epsilon     [PROVED]
+                   -> EVERY centered new-tail form <= epsilon
+                      times its own stationary norm          [PROVED]
+                   AND sufficient head control                 [OPEN]
                                   v
   cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
                                   | required together with:
@@ -122,7 +130,34 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result: Gaussian suppression of actual high-label self-return.**
+**Latest result: the actual centered new-tail form is uniformly small.**
+For any positive rational epsilon, take the explicit old cutoff
+`B=1400+epsilon.den`. At extent one, for every `0<w<=1/2` and every later
+cutoff K>=B, Lean proves
+
+```text
+exactCenteredNewTailTrace(B,K) <= epsilon
+centeredGram_K(tail,tail) <= epsilon * stationaryNormSquared_K(tail)
+```
+
+The second bound holds for **every** literal new-tail coefficient vector,
+not just a probe. The proof injects each radius-M shell into `(M+1)^6`
+six-label codes and partitions the original conditional diagonal sum
+exactly by radius. Genuinely new indices have radius greater than B,
+so the Gaussian radial estimate below bounds the existing old/new-block
+trace. Its centered stationary subtraction only decreases that trace.
+
+This discharges the trace input of the existing head--tail compiler.
+The remaining sufficient centered head estimate is explicit: supplying
+head rate q gives full centered rate `q+epsilon`; **no rate below one is
+claimed yet**. Exact action/geometric time, vacuum uniqueness and
+volume/spacing/continuum passage also remain open. See
+[`BF4PhysicalCubeHighLabelTrace.lean`](lean/YMGap/Continuum/BF4PhysicalCubeHighLabelTrace.lean)
+and [`BF4PhysicalCubeNewTailTraceBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeNewTailTraceBound.lean).
+Both focused monitored checks passed, all 18 gates within
+`{propext, Quot.sound}`; no new sorry or full-tree audit.
+
+**Input: Gaussian suppression of actual high-label self-return.**
 At extent one, every member of the original vacuum sector whose largest
 cube label is M>=1400 satisfies, for every admitting cutoff and `0<w<=1/2`,
 
@@ -140,9 +175,9 @@ The degree-12 radial envelope
 most 1/2 beyond 1400. Every finite tail starting at N>=1400 is at most
 `2*R_w(N)`. The explicit threshold `N(epsilon)=1401+epsilon.den` makes
 every such tail at most epsilon, uniformly for `0<=w<=1/2`.
-The six-label counting/trace connection and sufficient centered head
-control remain separate, open steps; scalar summability alone is not an
-all-vector spectral gap. See
+The six-label counting/trace connection is now proved above. Sufficient
+head control remains open; scalar summability or a small tail alone is not
+an all-vector spectral gap. See
 [`BF4PhysicalCubeGaussianReturn.lean`](lean/YMGap/Continuum/BF4PhysicalCubeGaussianReturn.lean).
 All 21 gates passed in its focused monitored check; the reused heat-product
 module was also checked. No new sorry or full-tree audit.

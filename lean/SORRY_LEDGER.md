@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual sector trace and uniform centered new-tail form (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeHighLabelTrace.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCubeNewTailTraceBound.lean`.
+- **actual shell count and trace**: `cubeLabels_injective` proves finite
+  code injectivity on the physical support; `cubeSupported_list_length_le`
+  and `radiusShell_length_le` bound each actual shell by `(M+1)^6`.
+  `radiusShell_selfReturn_le` uses the physical Gaussian diagonal bound.
+  `highLabelTrace_eq_shells` is exact radius pushforward on the original
+  canonical sector, preserving multiplicity one. `highLabelTrace_le_radial`
+  and `highLabelTrace_small` supply the actual positive high-label trace
+  bound with threshold `1401+epsilon.den`, at every outer cutoff, explicitly
+  `0<w<=1/2`, extent one.
+- **existing old/new trace input discharged**: `newBlock_radius_gt` proves
+  new indices cannot fit the old cutoff, using exact sector classification
+  and the original index embedding. `selfReturnProbability_eq_conditional`
+  pins the indexed return to the actual conditional diagonal.
+  `newTailSelfReturnTrace_le_highLabel` bounds the entire existing new-block
+  self-return trace, and the already proved stationary subtraction bounds
+  its centered trace. `newTailTraceRate_le_gaussian` gives the explicit
+  bound `2*radialEnvelope(w,base+1)` for base>=1399 and later>=base.
+  `newTailBase(epsilon)=1400+epsilon.den` is axiom-free data, and
+  `newTailTraceRate_small` gives the old named centered trace <=epsilon.
+- **full-tail consequence**: `centered_newTail_le` bounds the centered Gram
+  form of EVERY literal new-tail coefficient by epsilon times its own
+  later-cutoff stationary norm. `matrix_le_of_head` consumes only the
+  existing sufficient centered head bound and returns full rate q+epsilon;
+  no trace estimate is re-assumed.
+- **OPEN residue / scope**: sufficient head control/coercivity and an
+  all-vector rate below one remain open. Tiny tail trace alone supplies
+  neither; no coarse-head margin comparison is presumed. Exact action,
+  geometric time, vacuum uniqueness, volume/spacing/QFT passage and Clay
+  closure remain open. No canonical atom was closed or frontier weakened.
+- **verification**: exact untrusted pilot
+  `computations/bf4_cube_high_label_trace.py` passed 35,185 six-label states
+  and 63 weighted radius partitions. Focused monitored one-worker 20 GiB
+  checks passed both modules' 18 gates within `{propext, Quot.sound}`.
+  A classical-dependent range helper was rejected by the axiom check and
+  replaced by explicit finite induction. Final logs error/warning free;
+  no new sorry, analytic premise, numerical oracle, raised proof limits
+  or full build/audit/guard/progress run.
+
 ## Gaussian actual-sector return and explicit radial tail modulus (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeGaussianReturn.lean`;
@@ -40,7 +82,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `radialTailCutoff(epsilon)=1401+epsilon.den`, uniform over the displayed
   coupling interval `0<=w<=1/2` and every outer radial cutoff.
 - **OPEN residue / scope**: the actual sector shell-count/trace comparison
-  is not yet supplied here. Sufficient centered head control or weighted
+  and full centered new-tail bound are now proved in the entry above.
+  Sufficient centered head control or weighted
   norm coverage, the all-vector q<1, geometric-time/exact-action pins,
   vacuum uniqueness, volume/spacing/QFT passage and Clay closure remain
   open. No frontier type was weakened or inhabited. A pointwise diagonal

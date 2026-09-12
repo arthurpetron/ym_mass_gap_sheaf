@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest analytic producer (Gaussian return and explicit radial summability):**
+**Latest analytic producer (actual trace and full centered new-tail bound):**
+`BF4PhysicalCubeHighLabelTrace.cubeLabels_injective` identifies supported
+states by their literal six-label lists without decidable equality on
+functions. `cubeSupported_list_length_le` and `radiusShell_length_le` put
+each actual radius-M shell below `(M+1)^6`. `radiusShell_selfReturn_le`
+applies the proved physical Gaussian bound. `highLabelTrace_eq_shells`
+is exact deterministic pushforward of the ORIGINAL sector diagonal by
+radius; `highLabelTrace_le_radial` bounds the complete high-label trace
+by `2*radialEnvelope(w,N)`, and `highLabelTrace_small` supplies the
+threshold `N=1401+epsilon.den`, all outer cutoffs, `0<w<=1/2`, extent one.
+
+`BF4PhysicalCubeNewTailTraceBound.newBlock_radius_gt` uses the exact
+cube-sector classification and old index embedding: a genuinely new state
+must have radius > base. `selfReturnProbability_eq_conditional` identifies
+the existing indexed return with the original conditional diagonal.
+`newTailSelfReturnTrace_le_highLabel` is a constructive weighted injection,
+not a new dynamics or a replacement trace. The existing centered trace is
+smaller by the nonnegative stationary subtraction. Thus
+`newTailTraceRate_le_gaussian` gives the explicit majorant at every
+base>=1399; `newTailBase(epsilon)=1400+epsilon.den` and
+`newTailTraceRate_small` give the actual old/new centered trace <=epsilon
+for EVERY later cutoff>=base. `centered_newTail_le` discharges the old
+trace input and bounds the centered form of EVERY new-tail coefficient by
+epsilon times its own later-cutoff stationary diagonal norm.
+
+`matrix_le_of_head` now needs only the sufficient centered HEAD estimate,
+not a separately supplied trace bound, and returns the full centered rate
+q+epsilon. **Next:** prove sufficient head control/coercivity and an actual
+strict full rate. Do not infer q+epsilon<1 from the small trace alone, and
+do not assume that an arbitrarily coarse finite-head floor beats the tail.
+The exact-action/geometric-time pins, vacuum uniqueness and volume/spacing/
+QFT passage remain open. No canonical scorecard atom or frontier type changed.
+
+The exact untrusted pilot `computations/bf4_cube_high_label_trace.py`
+passed 35,185 six-label states and 63 weighted radius partitions. Both
+Lean modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output, all 18 printed gates within propext/Quot.sound, final
+logs error/warning free. The gate caught the library range-Nodup helper's
+classical dependency; explicit finite induction replaced it before these
+accepted checks. No new sorry, analytic premise, raised proof limits or
+full build/audit/guard/progress run.
+
+**Previous producer (Gaussian return and explicit radial summability):**
 `BF4PhysicalCubeGaussianReturn.halfHeat_eq_dimension_casimir` factors the
 actual 24-face half heat into the six cube dimensions and total c4, removing
 the eighteen coefficient-one factors by the proved support condition.
@@ -46,10 +88,10 @@ most one; `radialEnvelope_geometric` and the Type-level
 `radialTailCutoff(epsilon)=1401+epsilon.den` supply a uniform-in-w-and-outer-
 cutoff tolerance bound on `0<=w<=1/2`, without an opaque modulus.
 
-**Next:** connect the actual sector's six-label shell counts and conditional
-diagonal trace to this radial envelope, then establish sufficient centered
-head--tail control or weighted norm coverage. Neither the actual trace
-bound nor all-vector strict rate is proved by radial summability alone.
+The actual sector shell-count/trace connection and centered new-tail form
+bound are now proved above. Sufficient head control or weighted norm
+coverage and the all-vector strict rate remain open; neither follows from
+radial summability alone.
 Geometric time, exact YM action pins, vacuum uniqueness, volume/spacing/QFT
 passage and the Clay target remain open. Exact untrusted pilot:
 `computations/bf4_cube_gaussian_return.py`, 3,303 cube arithmetic checks
