@@ -4,7 +4,53 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: persistent exact/positive separation and route correction (2026-09-12)
+## Current increment: direct signed-Haar realization for all boundary forms (2026-09-12)
+
+This is PROGRESS on the exact-law branch, not another consequence for the
+positive multiplicity-product conditional model. The literal signed slab
+now has a factorized action-side Haar formula for EVERY boundary coefficient
+function, with no analytic premise or diagonal-norm replacement.
+
+`BF4ExactSlabWeightedFaceFactorization.weighted_integrand_factorization`
+separates the original 72-face weighted network into its actual 24 lower,
+24 fixed, and 24 upper face products. The upper labels use the existing
+face-reflection map; each face keeps its original heat coefficient and
+noncommutative plaquette word on the same 116 link coordinates. The proof
+is coefficient-probe equality, stronger than equality of one integral.
+`weighted_integrand_factorization_insert` therefore retains every spectator
+polynomial, while `dualTerm_eq_threeFactorHaar` identifies the original
+signed dual term with the three-factor integral.
+
+`BF4ExactSlabObservableHaarForm` combines finite polynomial distributivity
+with exact Haar Fubini. `lowerObservable` and `upperObservable` sum arbitrary
+signed coefficients into their original weighted face polynomials;
+`interfaceHeatInsertion` uses precisely the original fixed-face carrier.
+`observableIntegrand_haar_expansion` and `exact_bilinear_eq_haar` prove
+that the original exact form is
+Haar(lowerObservable * (interfaceHeatInsertion * upperObservable)).
+`exact_quadratic_eq_haar` specializes to equal coefficients. The previous
+vacuum/constant-only resummation is thus extended to every observable,
+with the three independent label sums separated before integration.
+
+Scope: every rational w and every spin cutoff K, at extent one. This is an
+algebraic identity, not a coupling-uniform estimate. The literal interface
+heat insertion still needs a positive reflected-channel resolution with
+these same observable and coordinate pins. Its independent face-label
+sum gives a concrete next finite product-expansion step. No reflected
+positivity theorem for the full exact law, physical time operator, completed
+exact-law gap, volume/spacing/QFT passage, or all-group Clay theorem is
+supplied. The old exact/positive identity remains REFUTED; no canonical
+frontier atom or type is changed and no parallel frontier bundle is added.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output; all 15 printed axiom gates lie within
+`{propext, Quot.sound}`. Final logs `/tmp/ym-exact-weighted-face-factorization.log`
+and `/tmp/ym-exact-observable-haar-form.log` are error/warning free. No new
+sorry, analytic premise, numerical oracle, rate constant, or raised proof
+limit. The proof is symbolic algebra on the existing geometry; no new
+numerical pilot is required. No full build/audit/guard/progress run.
+
+## Previous increment: persistent exact/positive separation and route correction (2026-09-12)
 
 This is PROGRESS: the existing finite same-action refutation is strengthened
 to an explicit cutoff-independent discrepancy, its original `CReal` limit,

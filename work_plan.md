@@ -18,6 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
+**Latest direct signed-Haar progress:**
+`BF4ExactSlabWeightedFaceFactorization.weighted_integrand_factorization`
+proves coefficient-probe equality between the original weighted integrand
+and `lowerPolynomial * (interfacePolynomial * upperPolynomial)`.
+Each factor uses its literal 24-face list and the original heat coefficient;
+the upper state uses the actual face-reflection pullback. All 116 physical
+link coordinates and signed contractions are retained.
+`weighted_integrand_factorization_insert` preserves every polynomial
+insertion, and `dualTerm_eq_threeFactorHaar` supplies the original signed
+dual-term consumer. No positivity or comparison norm enters the proof.
+
+`BF4ExactSlabObservableHaarForm` performs finite distributivity on these
+same factors. `lowerObservable` / `upperObservable` carry arbitrary signed
+boundary coefficients; `interfaceHeatInsertion` sums precisely the original
+fixed-face carrier. `observableIntegrand_haar_expansion` proves the exact
+three-sum Fubini identity, and `exact_bilinear_eq_haar` /
+`exact_quadratic_eq_haar` identify the ORIGINAL signed forms with that
+literal Haar integral for every w,K, at extent one. This strictly extends
+the older vacuum/constant-only Haar resummations to all coefficients and
+separates the three polynomial factors before integration.
+
+**Next direct algebraic frontier:** reflection-positive channel resolution
+of the literal `interfaceHeatInsertion`, retaining the above lower/upper
+observable and link-coordinate identities. Its independent face-label sum
+is an available finite product-expansion step; positivity must then be
+proved for the actual reflected integral, not borrowed from ranks or a
+Haar-diagonal norm. Physical time, completed exact-law gap, volume/spacing,
+QFT reconstruction and all-group Clay remain open. No canonical atom or
+frontier type has changed; the refuted positive-law identity stays refuted.
+
+Verification: both focused monitored one-worker 20 GiB checks passed and
+emitted `.olean` files. All 15 printed gates are within
+`{propext, Quot.sound}`; final logs `/tmp/ym-exact-weighted-face-factorization.log`
+and `/tmp/ym-exact-observable-haar-form.log` are error/warning free.
+No new sorry, analytic premise, numerical oracle, rate constant, or raised
+proof limit. This is exact symbolic algebra with existing geometry and
+heat coefficients; no new numerical pilot is needed. No full
+build/audit/guard/progress run.
+
 **Route correction and new persistent obstruction:** the preceding live
 map incorrectly presented `ExactHaarPhysicalPerronSameActionAt` as an open
 identity to construct. The existing
@@ -45,7 +84,7 @@ conditional gap, at w=1/400. `anchorSeparation_eqv` kernel-checks the exact
 positive rational floor. The root cylinder is not stationaryOmega, and
 the conditional decay/isolation results below remain valid.
 
-**Next causal frontier:** an exact signed-Haar physical construction, or
+**Boundary after the obstruction checkpoint:** an exact signed-Haar physical construction, or
 a genuinely proved nonidentity observable/norm comparison, with geometric
 time tied to the same Yang--Mills law. Inspect the existing direct signed
 `BF4ExactSlabAllCutoffAFComparison` / `BF4ExactSlabGroupedAFComparison`

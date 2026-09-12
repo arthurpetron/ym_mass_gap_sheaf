@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Direct exact-Haar factorization for every boundary observable (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabWeightedFaceFactorization.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabObservableHaarForm.lean`.
+- **direct action algebra proved**: `weighted_integrand_factorization`
+  separates the literal 72-face heat-weighted network into its actual
+  lower, fixed-interface, and reflected-upper products, as coefficient-probe
+  polynomial equality. `weighted_integrand_factorization_insert` keeps any
+  spectator polynomial; `dualTerm_eq_threeFactorHaar` retains the original
+  signed dual term. There is no replacement by link multiplicity ranks.
+- **all-observable realization proved**: `lowerObservable`,
+  `upperObservable`, `interfaceHeatInsertion`, and `observableIntegrand`
+  are explicit polynomials on the SAME 116 link coordinates.
+  `observableIntegrand_haar_expansion` proves the three-sum Fubini identity.
+  `exact_bilinear_eq_haar` and `exact_quadratic_eq_haar` identify the
+  original exact signed forms for ALL coefficient functions, every
+  rational w and every cutoff K, at extent one. This is algebraic scope,
+  not a uniform analytic bound.
+- **OPEN residue**: reflection positivity of this literal integral,
+  including positive reflected-channel resolution of the actual interface
+  heat insertion and the corresponding observable/geometry pins. Physical
+  time, completed exact-law gap, volume/spacing/QFT and all-group Clay
+  remain open. The canonical exact/positive identity stays REFUTED;
+  these declarations do not attempt to inhabit it. No new frontier bundle,
+  weakened type, new analytic premise, or closed canonical atom.
+- **verification**: both focused monitored one-worker 20 GiB checks passed,
+  `.olean` emitted, all 15 printed gates within `{propext, Quot.sound}`.
+  Final logs `/tmp/ym-exact-weighted-face-factorization.log` and
+  `/tmp/ym-exact-observable-haar-form.log` are error/warning free. No new
+  sorry, numerical oracle, rate constant, or raised proof limit. No full
+  build/audit/guard/progress run.
+
 ## Exact/positive identity remains refuted after cutoff removal (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactPhysicalCutoffLimitSeparation.lean`

@@ -44,6 +44,8 @@ CURRENT CONDITIONAL BRANCH: positive SU(2) multiplicity-product law
 
 REQUIRED PHYSICAL ROUTE
   literal signed-Haar slab data                                    [PROVED]
+    -> heat-weighted lower / interface / upper factorization        [PROVED]
+    -> ALL boundary bilinear forms as the SAME Haar integral        [PROVED]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -81,7 +83,36 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the discrepancy survives cutoff removal and completion.**
+**Latest direct-route result: every signed boundary form is a literal
+action-side Haar integral.**
+[`BF4ExactSlabWeightedFaceFactorization.lean`](lean/YMGap/Continuum/BF4ExactSlabWeightedFaceFactorization.lean)
+proves coefficient-probe equality between the original heat-weighted
+72-face network and its lower/interface/reflected-upper polynomial
+product, retaining all 116 link coordinates. The equality survives every
+additional polynomial insertion. All original heat coefficients and
+signed Haar contractions are retained.
+
+[`BF4ExactSlabObservableHaarForm.exact_bilinear_eq_haar`](lean/YMGap/Continuum/BF4ExactSlabObservableHaarForm.lean)
+then sums arbitrary signed boundary coefficients into the lower and upper
+polynomials. The ORIGINAL exact slab bilinear form is precisely
+`Haar(lowerObservable * (interfaceHeatInsertion * upperObservable))`.
+`exact_quadratic_eq_haar` specializes to the same observable on both sides.
+This holds for every representation cutoff and every rational heat
+coordinate, at extent one. It is algebraic, not a coupling-uniform estimate.
+
+This is a proved connection within the signed-Haar law, not an identity
+with the positive conditional model. Reflection positivity of the displayed
+integral, a physical time operator and its completed gap still require
+proof. The next algebraic step is to resolve the literal interface heat
+insertion into reflection-positive channels while keeping these observable
+and link-coordinate identifications.
+
+Both new modules passed focused monitored one-worker 20 GiB checks, with
+all 15 printed axiom gates within `{propext, Quot.sound}` and no final
+errors or warnings. No new proof hole, analytic premise, rate constant,
+or raised proof limit; no full build/audit/guard run.
+
+**Retained obstruction: the discrepancy survives cutoff removal and completion.**
 The literal six-face cube row supplies the explicit floor
 `delta(w) = (coeffW w 1)^6 / (1 + (coeffW w 1)^6) > 0` for every `w>0`.
 The signed-Haar vacuum-delta quadratic is exactly `1`, while the positive
