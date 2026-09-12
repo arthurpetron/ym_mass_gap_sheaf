@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Common temporal-gauge face cancellation (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeFaces.lean`.
+- **ordered cancellation discharged**: `gaugeLink_compose` and
+  `plaquette_gauge_character` telescope vertex gauges and preserve all-spin
+  characters of the ORIGINAL inverse-oriented plaquette word.
+  `crossing_temporal_shear` cancels both fixed factors in
+  A B (D^-1 C B)^-1 D^-1, leaving A C^-1. The existing Haar unit-radius
+  ideal is used under every insertion; no link independence is assumed.
+- **common physical assignment discharged**: `temporalVertexGauge` uses
+  actual fixed-time link coordinates (existing identity fallback off the
+  carrier). `upperTemporalLink` acts only on upper links. The literal
+  `lower_face_unchanged`, `upper_face_character`, `crossing_face_word` and
+  `crossing_face_character` prove the assignment's effects on every face
+  class. `crossing_face_reflected_link` pins the remaining pair to actual
+  time reflection; `crossing_face_reflected_gram` identifies its original
+  all-spin Gram kernel at every odd slab extent.
+- **OPEN residue**: identification of this common link assignment with a
+  composition of the proved Haar-preserving shears; global reflected-square
+  gluing on the SAME signed slab form and observable. The local face
+  identities do not assert the full assignment's Haar invariance or slab
+  positivity. Physical time/transfer, completed exact-law gap,
+  volume/spacing/QFT passage and all-group Clay remain open. No canonical
+  atom/type change; the refuted exact/positive-law identity is not used.
+- **verification**: both focused monitored one-worker 20 GiB checks passed
+  with `.olean` outputs; 11 + 13 = 24 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs: `/tmp/ym-haar-gauge-cancellation.log`,
+  `/tmp/ym-slab-temporal-gauge-faces.log`. An initial upper-face elaboration
+  timeout was resolved by explicit far-corner transport, at default proof
+  limits. No new sorry, analytic premise, numerical oracle, rate, pilot
+  constant or raised proof limit. No full build/audit/guard/progress run.
+
 ## Scan-free all-degree Haar translations and the literal BF4 ledger (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionPartialSphereGaussian.lean`,

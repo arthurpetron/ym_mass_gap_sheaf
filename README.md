@@ -58,6 +58,8 @@ REQUIRED PHYSICAL ROUTE
     + channels pinned to literal crossing-face path pairs           [PROVED]
     -> H = heat-weighted path-channel product under Haar            [PROVED]
     + all-degree Haar shears and their finite chains, no scans      [PROVED]
+    + common upper temporal assignment: all three face classes     [PROVED]
+    + identify that assignment with Haar-preserving shears          [OPEN]
     + link-local gluing preserving the reflected observable         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -98,7 +100,31 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: all-degree Haar translation, without polynomial scans.**
+**Latest result: temporal gauge cancellation on the literal slab faces.**
+[`SU2QuaternionHaarGaugeCancellation.lean`](lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean)
+proves ordered vertex-gauge cancellation under every polynomial Haar
+insertion. Hamilton factors are not commuted. In a crossing word
+`A B C^-1 D^-1`, substituting `C := D^-1 C B` cancels both fixed-time links
+and leaves `A C^-1`.
+
+[`BF4ExactSlabTemporalGaugeFaces.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeFaces.lean)
+uses ONE vertex field from the actual fixed-time link coordinates, acting
+only on upper links. Lower faces are unchanged, upper characters are
+preserved at every spin, and crossing faces reduce to their actual reflected
+spatial-link Gram kernel at every odd slab extent. All spectator insertions
+remain available, including overlapping face factors.
+
+**Next:** identify this common link assignment with the proved
+Haar-preserving shears, then combine the reflected channels into the SAME
+slab form's square decomposition. The face algebra is proved; the global
+change-of-variables identity and slab positivity are not. Physical time,
+the completed physical gap and continuum/Clay construction remain open.
+
+Both new modules passed focused monitored one-worker 20 GiB checks: 24
+printed gates within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
+
+**Retained result: all-degree Haar translation, without polynomial scans.**
 [`SU2QuaternionTranslationHaarMoments.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationHaarMoments.lean)
 converts the closed Gaussian formula to the ORIGINAL exact sphere moments,
 retaining every tail coefficient. Even degrees use an explicit positive
@@ -113,10 +139,10 @@ includes inverse multipliers and arbitrary finite chains. Its concrete
 consumer proves Haar preservation for the existing 139-step BF4 tree-gauge
 ledger at every polynomial degree.
 
-**Next:** apply these changes of variables to the shared fixed-plane links
-and prove the SAME slab form is a sum of reflected squares. Translation
-invariance is proved; shared-link gluing, slab positivity, physical time,
-the completed physical gap and continuum/Clay construction remain open.
+The common temporal assignment's face algebra is now proved above. Its
+identification with these Haar-preserving shears and the SAME slab form's
+reflected-square gluing remain open, as do slab positivity, physical time,
+the completed physical gap and continuum/Clay construction.
 
 Four new modules passed focused monitored one-worker 20 GiB checks: 22
 printed gates within `{propext, Quot.sound}`, no final errors/warnings.

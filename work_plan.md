@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (unconditional all-degree Haar translations):**
+**Latest gluing-route progress (literal temporal-gauge face cancellation):**
+`SU2QuaternionHaarGaugeCancellation.gaugeLink_compose` telescopes adjacent
+vertex gauges under the original arbitrary-insertion Haar ideal.
+`plaquette_gauge_character` preserves every spin of the ORIGINAL oriented
+boundary; `crossing_temporal_shear` proves that replacing C by D^-1 C B
+in A B C^-1 D^-1 cancels BOTH fixed links and leaves A C^-1. No commuting
+Hamilton factors or independence assumption is used.
+
+`BF4ExactSlabTemporalGaugeFaces.temporalVertexGauge` is ONE common field
+from the actual fixed-time link at each spatial location, with the existing
+identity fallback off the carrier. `upperTemporalLink` transforms only
+upper links. `lower_face_unchanged` and `upper_face_character` preserve the
+two open-half face classes. `crossing_face_word` and
+`crossing_face_character` cancel the actual fixed links under every
+spectator insertion. `crossing_face_reflected_link` identifies the remaining
+spatial pair by literal time reflection; `crossing_face_reflected_gram`
+gives its actual all-spin Gram kernel at every odd slab extent.
+
+**Next:** realize this common link assignment by the scan-free
+Haar-preserving selected shears, then prove the global reflected-square
+decomposition for the SAME slab form and observable. The face algebra does
+not itself prove the assignment's Haar invariance or slab positivity.
+Physical time/transfer, completed exact-law gap, volume/spacing/QFT passage
+and all-group Clay remain open. No canonical atom/type change or revival
+of the refuted exact/positive-law identity.
+
+Verification: two focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 11 + 13 = 24 printed gates within `{propext, Quot.sound}`; final
+logs error/warning free: `/tmp/ym-haar-gauge-cancellation.log` and
+`/tmp/ym-slab-temporal-gauge-faces.log`. The initial upper-face composition
+hit the default elaboration limit; explicit far-corner transport replaces
+the broad simplification, and the final theorem passes at default limits.
+No new sorry, analytic premise, numerical oracle, rate, pilot constant or
+raised proof limit. No full build/audit/guard/progress run.
+
+**Retained gluing-route progress (unconditional all-degree Haar translations):**
 `SU2QuaternionPartialSphereGaussian.partialHaarHead_mul_radial` lifts the
 existing common sphere/Gaussian factor to EVERY tail coefficient probe.
 The explicit `radialDenominator_positive` permits constructive cancellation;
@@ -42,11 +77,11 @@ arbitrary finite chains. `applyBF4TreeGaugeTranslationLedger_haar` applies
 to the ORIGINAL 139-step BF4 ledger on every supported 48-block polynomial,
 without a degree restriction or successive checks.
 
-**Next:** shared fixed-plane-link changes of variables and a reflected-square
-decomposition of the SAME signed slab form and observable. Haar translation
-is now proved, not slab positivity. Physical time/transfer, completed exact-law
-gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
-atom/type change or revival of the refuted exact/positive-law identity.
+The common temporal assignment's face algebra is now proved above. Its
+identification with the Haar-preserving shears and the reflected-square
+decomposition of the SAME signed slab form remain open. Physical
+time/transfer, completed exact-law gap, volume/spacing/QFT passage and all-group
+Clay remain open. No canonical atom/type change or revival of the refuted law identity.
 
 Verification: four focused monitored one-worker 20 GiB checks, `.olean`
 outputs, 7 + 5 + 5 + 5 = 22 printed gates within `{propext, Quot.sound}`;

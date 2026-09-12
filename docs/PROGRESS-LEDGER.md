@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: scan-free all-degree Haar translations and BF4 ledger (2026-09-12)
+## Current increment: common temporal-gauge face cancellation (2026-09-12)
+
+PROGRESS: the common upper-link temporal assignment now has proved effects
+on ALL three face classes. Lower faces are unchanged; upper all-spin
+characters are preserved; crossing words lose both actual fixed-time links.
+The remaining spatial pair is pinned to literal time reflection, and its
+all-spin character is the original reflected spatial-link Gram kernel.
+
+`SU2QuaternionHaarGaugeCancellation.gaugeLink_compose`,
+`plaquette_gauge_character` and `crossing_temporal_shear` perform the
+ordered cancellations under EVERY Haar insertion, without link independence.
+`BF4ExactSlabTemporalGaugeFaces.upperTemporalLink` uses one vertex field,
+not per-face choices. Its `lower_face_unchanged`, `upper_face_character`,
+`crossing_face_word` and `crossing_face_reflected_gram` apply to the literal
+slab coordinates; the reflected Gram theorem covers every odd extent/spin.
+
+Next: identify this assignment with the proved scan-free Haar-preserving
+shears, then combine reflected channels into the SAME slab's global square
+decomposition. No global change-of-variables equality, slab positivity,
+physical time, completed exact-law gap, volume/spacing/QFT or all-group Clay
+atom closed. The exact/positive-law identity remains refuted.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+11 + 13 = 24 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs: `/tmp/ym-haar-gauge-cancellation.log`,
+`/tmp/ym-slab-temporal-gauge-faces.log`. Explicit far-corner transport removed
+an initial elaboration timeout without raising proof limits. No new sorry,
+analytic premise, numerical oracle, rate or pilot constant. No full
+build/audit/guard/progress run.
+
+## Previous increment: scan-free all-degree Haar translations and BF4 ledger (2026-09-12)
 
 PROGRESS: the actual selected left/right quaternion substitutions now preserve
 the full product-Haar functional for every supported polynomial, without an
