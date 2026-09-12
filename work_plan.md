@@ -531,10 +531,22 @@ The next load-bearing producers are, in causal order:
    `raw_reflected_inverse` and `reflected_raw_inverse` identify the completed
    carriers, not merely the dense null relations. This has the existing
    representative-family completeness scope, not arbitrary representative
-   selection from quotient sequences. Intertwining the actual conditional
-   action remains. Next map the existing marginal root-sector cylinder
-   completion into this E completion using E<=B, and extend/intertwine its
-   already constructed conditional action using E-contractivity.
+   selection from quotient sequences. `BF4PhysicalCubeSectorComparison`
+   now constructs the map from the EXISTING marginal root-sector cylinder
+   completion into this E completion using E<=B, with unchanged Cauchy and
+   closeness moduli. Its finite translation preserves literal observable
+   syntax, and its dense completed pairing is the actual E form. The raw
+   comparison uses the explicit (64/65)*epsilon tolerance conversion.
+   `BF4PhysicalCubeSectorDensePreimage` computes a marginal-sector preimage
+   of every signed finite cube span: a common admission cutoff, faithful
+   state locator and signed coefficient aggregation. Finite Fubini proves
+   pointwise observable equality on EVERY state; `spanPresentation_global`,
+   `_reflected` and `_raw` pin all three images exactly. No global inverse
+   marginal/reflected map or marginal Cauchy property of arbitrary reflected
+   sequences is asserted. Next prove the comparison's physical pairing pin
+   for ALL completed marginal-sector vectors, then extend/intertwine its
+   already constructed conditional action using E-contractivity and these
+   explicit dense preimages. The transfer producer itself is already inhabited.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
@@ -665,6 +677,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- two Cauchy moduli -> canonical null modulus ........... [PROVED no choice]
 |   |   |   +-- complete this E image <-> raw cube completion ......... [PROVED fixed anchor/extent]
 |   |   |   +-- full pairing = limit of same dense reflected forms .... [PROVED representative Cauchy data]
+|   |   |   +-- existing marginal sector -> E completion via E<=B .... [PROVED same Cauchy modulus]
+|   |   |   +-- every signed cube span has literal sector preimage ... [PROVED computed cutoff/code/sums]
+|   |   |   +-- comparison preserves E pairing on dense source ....... [PROVED same physical form]
+|   |   |   +-- comparison preserves E pairing on whole source ....... [OPEN completed pairing pin]
 |   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

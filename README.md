@@ -60,7 +60,10 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   source tails -> cutoff-removed marginal-norm conditional transfer  [PROVED]
     -> self-adjoint, 0 <= <Px,x> <= <x,x> on the completion          [PROVED]
     -> same P contracts E(x,y)=<x,Py>; unit vacuum and moments       [PROVED]
-  complete E's root-sector part + identify normalized raw cube form  [OPEN]
+  complete E's root-sector image <-> normalized raw cube completion [PROVED]
+    + marginal-sector completion -- E<=B --> this E completion      [PROVED]
+    + every finite cube vector has a computed sector preimage      [PROVED]
+    -> full completed pairing pin + same transfer on E completion    [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -84,7 +87,25 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the literal cube-cylinder image now has its reflected-norm
+**Latest result:** the existing completed marginal root sector now maps to
+the reflected cube completion at `w=1/400`, extent one. The map preserves
+each finite presentation's literal observable and contracts squared distance
+by the proved `E <= B` estimate; its representative Cauchy modulus is unchanged.
+Conversely, every finite signed cube vector has a computed marginal-sector
+preimage. A common spin cutoff, faithful state-code lookup and finite summation
+produce it, including negative coefficients and repeated states. The preimage
+has the same observable values on every state, and its reflected image is
+exactly the original cube vector. See
+[`BF4PhysicalCubeSectorComparison.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorComparison.lean)
+and [`BF4PhysicalCubeSectorDensePreimage.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorDensePreimage.lean).
+
+The comparison's physical pairing is currently pinned on the dense source.
+Extending that identity to all completed marginal-sector vectors, then
+extending/intertwining their actual conditional transfer on the reflected
+completion, remains open. A dense preimage is not an inverse between these
+two completed spaces.
+
+**Connected completion result:** the literal cube-cylinder image has its reflected-norm
 completion at the fixed anchor `w=1/400` and extent one. Two constructed maps
 are inverses between this completion and the existing raw cube completion.
 They keep the same finite-span sequences; the forward Cauchy modulus is

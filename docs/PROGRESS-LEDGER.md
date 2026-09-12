@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: complete the physical E image and invert the raw comparison (2026-09-11)
+## Current increment: marginal-sector comparison with explicit dense preimages (2026-09-11)
+
+This is PROGRESS after the completed raw/reflected comparison. The existing
+marginal root-sector completion now maps to the reflected cube completion;
+every finite signed cube vector has a computed preimage in that SAME
+marginal sector. The completed-sector comparison keeps the representative
+Cauchy modulus using the proved E<=B bound. Its dense physical pairing
+is pinned exactly, not supplied as a new hypothesis.
+
+`BF4PhysicalCubeSectorComparison.presentationToCube_observable` preserves
+literal syntax. `sectorToReflected` descends the norm-decreasing map with
+unchanged Cauchy/closeness moduli. `sectorToRaw` composes the proved inverse
+raw comparison, with modulus evaluated at (64/65)*epsilon.
+`BF4PhysicalCubeSectorDensePreimage.spanPresentation` computes a common
+admission cutoff, locates each literal state by its faithful finite code,
+and sums signed coefficients at that index. Finite Fubini proves equality
+on every state, including repeated and negative terms. The `_global`,
+`_reflected` and `_raw` theorems identify its exact completed images.
+
+Next: extend the comparison's physical pairing identity from dense
+presentations to ALL completed marginal-sector vectors. Then its existing
+conditional transfer, E-contractivity and the explicit dense preimages
+provide the inputs for constructing the same action on the reflected
+completion. No global inverse between marginal and E completions, no
+arbitrary quotient-representative selection, and no stationary sector
+vacuum is claimed. Geometric time, strict gap, volume/spacing/QFT and
+all-group Clay remain open.
+
+Both modules passed focused monitored one-worker 20 GiB checks. All 29
+printed gates are empty or use only propext/Quot.sound; final logs have no
+errors or warnings. Separating finite-sum algebra from concrete physical
+enumeration kept the default heartbeat/recursion limits. Root imports,
+README (including its stale E-completion box), work plan and sorry ledger
+are updated. No full build/audit/guard, progress script or numerical oracle
+was run. GitHub CI remains disabled.
+
+## Previous increment: complete the physical E image and invert the raw comparison (2026-09-11)
 
 This is PROGRESS after the dense reflected pairing milestone. The actual
 root-sector image now has a reflected Cauchy-quotient completion, with two
@@ -26,9 +62,10 @@ normalization and c=64/65, proves physical difference/dense pairing pins,
 constructs the inverse raw comparison and identifies the full same-form
 pairing limit. Its root remains nonzero, not an isolated stationary vacuum.
 
-Next: compare the existing marginal root-sector cylinder completion to this
-E completion using E<=B, then extend/intertwine its existing conditional
-action using E-contractivity. Do not recreate the source-tail producer or
+The marginal root-sector comparison and explicit dense preimages are now
+constructed above. The full completed pairing pin and E-contractive
+extension/intertwining of its existing conditional action remain.
+Do not recreate the source-tail producer or
 assume the entire reducible carrier is this sector. Representative-family
 completeness is retained; no arbitrary quotient-sequence representative
 selection is asserted. Geometric time, strict gap, volume/spacing/QFT and

@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Compare the existing marginal sector and construct dense cube preimages (2026-09-11)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorComparison.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeSectorDensePreimage.lean`.
+- **same source, same observables**: `presentationState` uses the original
+  finite sector indices; `presentationToCube_observable` is literal syntax
+  equality. `cubeObservable_distance_le` proves E-distance <= marginal
+  distance for arbitrary signed cube pairs. `cubeObservable_null_of_equivalent`
+  and `presentationToCube_distance_le` give null descent and the exact
+  source distance bound, without a new analytic comparison premise.
+- **completed comparison**: `sectorCauchyToReflected` and
+  `sectorCloseToReflected` keep the given moduli. `sectorToReflected`
+  descends to the existing marginal-sector completion. Its `_embed` and
+  `_dense_pairing` theorems pin the dense map and SAME actual physical E
+  form. `sectorCauchyToRaw_modulus` computes the rate at (64/65)*epsilon;
+  `sectorToRaw_mk`, `_embed` and `rawToReflected_sectorToRaw` pin the
+  comparison with the already constructed raw cube completion.
+- **explicit dense preimages**: `spanBase` is termSpinBound+1.
+  `spanIndex` uses the existing finite state-code locator; `_state` and
+  `_mem` prove literal recovery and membership in the same canonical
+  component. `spanPresentation` sums signed coefficients at each computed
+  index, allowing repetitions. `spanPresentation_observable` proves
+  pointwise equality on EVERY state by finite Fubini and single-index
+  selection. `_global`, `_reflected` and `_raw` prove exact images in the
+  existing marginal, reflected and raw completions. No choice of quotient
+  representatives is made.
+- **scope / OPEN residue**: fixed w=1/400, extent one, all finite signed
+  cube spans and all existing marginal-sector Cauchy representatives.
+  No injectivity or surjectivity between the completed marginal and E
+  spaces is claimed. Next extend the physical pairing pin from the dense
+  source to ALL completed marginal-sector vectors; combine that pin,
+  E-contractivity and the explicit dense preimages to extend/intertwine
+  the already constructed conditional transfer. Stationary sector vacuum,
+  geometric time, uniform strict gap, thermodynamic/spacing/QFT and
+  all-group Clay remain open. No sorry, named analytic input or scorecard
+  atom is added or discharged.
+- **verification**: both new modules passed focused monitored one-worker
+  20 GiB checks with `.olean` output. All 29 printed gates are empty or
+  subsets of `{propext, Quot.sound}`; final logs contain no errors or
+  warnings. The finite-sum proof was factored to retain the DEFAULT proof
+  limits. The root Lean edit is imports only. No full build/audit/guard,
+  progress script or numerical oracle was run. GitHub CI stays disabled.
+
 ## Complete the physical reflected cube image with inverse raw comparison (2026-09-11)
 
 - **files**: `lean/YMGap/Continuum/GNSNullModulusRecovery.lean`,
@@ -51,9 +94,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   labels and signed finite spans, explicit representative Cauchy quotients
   and the existing raw representative-family completeness scope. No
   representatives are selected from arbitrary quotient-valued sequences.
-  Next map the existing marginal root-sector cylinder completion to this
-  E completion using E<=B, and use E-contractivity to extend/intertwine its
-  actual conditional action. The root cylinder is not the constant vacuum;
+  The marginal root-sector comparison and explicit dense preimages are
+  now constructed in the entry above. The full completed pairing pin and
+  E-contractive extension/intertwining of the actual conditional action
+  remain. The root cylinder is not the constant vacuum;
   the full reducible carrier is not this root sector. Geometric time,
   uniform strict gap, thermodynamic/spacing/QFT/all-group Clay remain open.
   No sorry, named analytic input or scorecard atom is added or discharged.
