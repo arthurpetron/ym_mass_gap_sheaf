@@ -138,9 +138,16 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   and each filtered target fiber retains the same
   `globalInwardMateTransportCost` second-edge congestion bound.  Its witness
   deliberately has no positive total-demand field.
-- **OPEN next edge:** prove a positive demand lower bound relative to the exact
-  vacuum-sector mass and embed the restricted energies in the sector Dirichlet
-  form, then construct a
+- **PROVED sector-event branch conservation:**
+  `BF4PhysicalVacuumSectorInwardMateSectorLocalBranchConservation` constructs
+  the duplicate-free finite list of full bounded physical fields whose lower
+  restriction belongs to the exact vacuum component.  Summing over precisely
+  those blocks, the all-target and first-stretched auxiliary masses reconstruct
+  the genuine restricted BF4 physical mass exactly.
+- **OPEN next edge:** prove that the first-stretched target rerouting preserves
+  this exact component, localize its `384/425` bad-mass contraction, and hence
+  obtain a positive sector-relative demand lower bound.  Then embed the
+  restricted energies in the sector Dirichlet form and construct a
   translated or component-adapted move
   family which separates the exact vacuum component with a
   cutoff-uniform weighted congestion bound.  The one-observable estimate and

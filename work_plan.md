@@ -369,11 +369,15 @@ The next load-bearing producers are, in causal order:
    membership condition `global source + source endpoint in the vacuum
    component`; all three path vertices are proved internal.  Restricting the
    partition-normalized traffic and production-target fibers to that list
-   preserves both actual OS edge-capacity estimates.  The active sub-edge is
-   therefore to prove a positive filtered-demand lower bound relative to the
-   vacuum-sector mass and embed the restricted edge energies in the existing
-   sector Dirichlet form, then build a translated or component-adapted family
-   that
+   preserves both actual OS edge-capacity estimates.  The physical-field event
+   is now restricted separately, and over it the all-target plus
+   first-stretched branch masses exactly reconstruct the genuine BF4 physical
+   mass.  The active sub-edge is therefore the mathematical localization
+   hinge: prove that the first-stretched target rerouting preserves the exact
+   component, then contract its bad mass by `384/425` relative to sector mass
+   and subtract to obtain the positive filtered demand.  After embedding the
+   restricted edge energies in the existing sector Dirichlet form, build a
+   translated or component-adapted family that
    separates that exact connected sector with cutoff-uniform weighted
    congestion.  Everything
    after a correctly sector-local coverage input is compiled: a floor
@@ -454,7 +458,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- positive OS paths stay in exact vacuum component ..... [PROVED]
 |   |   |   +-- exact finite sector-local source carrier .............. [PROVED]
 |   |   |   +-- restricted flow retains OS edge capacities ............ [PROVED]
-|   |   |   +-- sector-relative demand + sector Dirichlet embedding ... [ACTIVE]
+|   |   |   +-- sector-event good+bad branch conservation ............. [PROVED]
+|   |   |   +-- bad-target rerouting preserves vacuum component ....... [ACTIVE]
+|   |   |   +-- sector demand + sector Dirichlet embedding ............ [OPEN]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

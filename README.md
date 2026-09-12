@@ -31,7 +31,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> exact finite vacuum component + positive-edge path closure       [PROVED]
   -> exact sector-local inward-mate source carrier                    [PROVED]
   -> restricted OS flow retains both edge-capacity bounds            [PROVED]
-  -> sector-relative demand + separating moves, uniform congestion    [ACTIVE]
+  -> exact good+bad conservation on sector physical fields           [PROVED]
+  -> bad-branch target map preserves the exact component              [ACTIVE]
+  -> sector demand + separating moves, uniform congestion             [OPEN]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
@@ -121,10 +123,15 @@ the resulting Type-level list is duplicate-free and its membership theorem is
 an iff, not an assumed selector.  Restricting the partition-normalized traffic
 to this list preserves nonnegativity and both proved OS edge-capacity bounds,
 including the second-edge congestion factor.  It does **not** yet preserve the
-global `41/425` demand floor: the next mathematical object is a positive lower
-bound relative to the vacuum-sector mass, followed by a translated or
-component-adapted move family whose endpoint graph separates that sector and
-whose weighted congestion is uniform.  Only then can the all-vector Poincare
+global `41/425` demand floor.  The branch decomposition has now been localized
+at the right level: over the exact finite list of full physical fields whose
+lower restriction is in the vacuum component, all-target mass plus
+first-stretched mass equals the genuine BF4 physical mass exactly.  The next
+mathematical hinge is to prove that the existing first-stretched target
+rerouting preserves that component; its `384/425` contraction can then be
+subtracted inside the localized identity to give a positive sector-relative
+demand.  A translated or component-adapted move family must subsequently
+separate the sector with uniform congestion.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
 
@@ -167,6 +174,9 @@ are in
 The restricted partition-normalized traffic and its inherited first- and
 second-edge capacity bounds are in
 [`BF4PhysicalVacuumSectorInwardMateSectorLocalOSFlow.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalOSFlow.lean).
+The exact physical-field sector event and its localized good-plus-bad branch
+conservation identity are in
+[`BF4PhysicalVacuumSectorInwardMateSectorLocalBranchConservation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalBranchConservation.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
