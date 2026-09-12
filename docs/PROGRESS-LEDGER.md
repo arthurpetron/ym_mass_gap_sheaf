@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: connect sector demand to actual OS traffic (2026-09-11)
+## Current increment: solve the potential-mate orbit geometry (2026-09-11)
+
+`BF4PhysicalVacuumSectorInwardMateOrbits` proves a closed-form end phase for
+the literal inward-mate map. Two moves subtract two from a label above one
+and fix zero and one. Consequently every bounded cube-supported common-parity
+state reaches vacuum at the explicit time `2*(K/2) + state 0 % 2 <= K+1`.
+The source endpoint identification is an equality with the existing
+`targetLower`, not a replacement dynamics.
+
+On the canonical cutoff-two vacuum component at coupling `1/2`, all 64
+doubled subsets map to the fundamental cube and that cube maps to vacuum.
+The potential map is internal to the 65-state set, and every rational
+potential-mate invariant is constant there. Thus the full-positive-carrier
+XOR obstruction is not a geometric obstruction on this exact finite sector.
+
+This is PROGRESS: the orbit question now has an all-cutoff label formula
+and an exact finite-component application, rather than another scalar-demand
+wrapper. It separates the two remaining tasks: determine the actual sector
+at arbitrary cutoff and establish weighted coverage of its observables by
+successful-source moves. Potential-mate connectivity neither proves every
+move has positive traffic nor bounds congestion. No uniform gap, completed
+gap, `singleStep`, or Clay atom is discharged.
+
+The final module passed the monitored one-worker, 20 GiB check and `.olean`
+emission; all 11 printed gates are `[propext, Quot.sound]`, with no errors or
+warnings. The initially missing `BF4ExactSlabVacuumReflectionCheck1Face7`
+artifact was rebuilt unchanged under the same limits. The small independent
+orbit pilot passed through cutoff five and checked the 65-state potential
+graph. No full-tree build/audit or frontier-guard run was performed; the
+historical progress script's guard build was not run. README, root imports,
+work plan and sorry ledger are updated. CI remains disabled.
+
+## Previous increment: connect sector demand to actual OS traffic (2026-09-11)
 
 `BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand` closes the exact
 handoff left by `cda1ca1`. The source-sector test is constant within every

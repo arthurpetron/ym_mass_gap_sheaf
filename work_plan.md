@@ -420,10 +420,21 @@ The next load-bearing producers are, in causal order:
    Boolean two-edge identity and sector embedding to prove a positive
    central-face-parity energy floor `(448/5525)/(1+transportCost)` on the
    canonical indexed vacuum component. This is a one-observable consequence,
-   not an all-vector coverage estimate. Next determine sector-wide move
-   separation (enlarging the family if needed), and prove a positive
-   cutoff-uniform norm-to-move
-   coverage estimate. The full-carrier XOR obstruction is not automatically
+   not an all-vector coverage estimate.
+   `BF4PhysicalVacuumSectorInwardMateOrbits` now determines the exact
+   potential-mate geometry: two moves lower labels by two down to parity;
+   `cubeInwardOrbit_rootTime_eq_zero` sends every bounded cube-supported
+   common-parity state to vacuum at time `2*(K/2) + state 0 % 2 <= K+1`.
+   `targetLower_eq_mate_sourceLower` ties this map to the existing successful
+   source endpoints. The canonical cutoff-two vacuum sector at coupling
+   `1/2` has no nonconstant potential-mate invariant
+   (`canonicalCutoffTwo_mate_invariant_constant`): all doubled subsets map
+   to the fundamental cube, then to zero. The potential mate stays in that
+   exact 65-state set. This is not positivity or coverage of the selected
+   source graph. Next prove weighted coverage at arbitrary cutoff, including
+   the actual sector's support and the traffic on the required moves;
+   enlarge the family only if needed. No all-cutoff sector classification
+   is inferred from the finite test. The full-carrier XOR obstruction is not automatically
    an obstruction on the exact sector. The algebraic rate shape
    after a correctly sector-local coverage input is compiled: a floor
    `kappa > 0` yields the cutoff-independent strict rate
@@ -516,6 +527,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- exact raw demand / Z = original restricted traffic .... [PROVED]
 |   |   |   +-- normalized sector traffic >= 448/5525 ................ [PROVED]
 |   |   |   +-- exact Boolean edges -> positive sector parity energy .. [PROVED]
+|   |   |   +-- literal mate -> even-time parity core ................. [PROVED all labels/cutoffs]
+|   |   |   +-- common-parity cube -> explicit vacuum orbit .......... [PROVED label geometry]
+|   |   |   +-- potential-mate invariants constant on exact K=2 sector [PROVED at w=1/2]
 |   |   |   +-- sector move separation + uniform norm coverage ........ [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

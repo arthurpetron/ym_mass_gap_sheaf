@@ -45,7 +45,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  + restricted move energy <= C * energy [PROVED]
                  -> positive sector-parity energy floor [PROVED]
                  AND centered norm <= move energy / kappa [OPEN]
-                 (requires sector separation + uniform coverage)
+                 (potential-mate separation at K=2: PROVED;
+                  weighted separation / all-K coverage: OPEN)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
@@ -69,7 +70,16 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the original normalized sector OS flow now carries at
+**Latest result:** the inward-mate geometry now has an explicit orbit formula.
+Two moves lower labels by two, stopping at their parity. Every cube-supported
+state of common face parity reaches vacuum within `K + 1` moves. On the
+certified 65-state vacuum sector at cutoff two and coupling `1/2`, every
+doubled-spin subset maps to the fundamental cube, which maps to vacuum.
+Thus no nonconstant observable is invariant under all these potential mates.
+This does **not** yet show that every such move has positive successful-source
+traffic, or classify the canonical sector at every cutoff.
+
+The preceding quantitative result remains: the normalized sector OS flow carries at
 least `448/5525` total traffic. Exact source-block Fubini connects it to the
 proved `7/85` raw sector-demand fraction. Together with the same-object sector
 energy embedding, this gives the positive central-face-parity Dirichlet floor
@@ -204,9 +214,22 @@ this traffic, giving the sector Dirichlet floor
 triangle-inequality loss. No source list, physical kernel, or normalization
 has been changed.
 
-Next: prove sector-wide separation and a quantitative norm-to-move coverage
-estimate. Enlarge the move family if the exact sector requires it.
-The full-carrier XOR refutation alone does not establish a sector obstruction.
+The geometric test now has a checked answer at cutoff two. In
+[`BF4PhysicalVacuumSectorInwardMateOrbits.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateOrbits.lean),
+`targetLower_eq_mate_sourceLower` identifies the literal source endpoint map;
+`cubeInwardOrbit_even_eq_parityCore` proves its all-cutoff parity reduction;
+`cubeInwardOrbit_rootTime_eq_zero` gives an explicit vacuum-hitting time for
+cube-supported common-parity states. On the canonical cutoff-two sector at
+coupling `1/2`, `canonicalCutoffTwo_mate_invariant_constant` proves every
+potential-mate invariant is constant. This is a geometric statement, not a
+new weighted OS estimate at the anchor coupling.
+
+Next: establish which potential mates carry successful-source traffic and
+prove a quantitative norm-to-move coverage estimate on the actual sector at
+arbitrary cutoff. Its identification with the common-parity cube family is
+not proved here. Enlarge the move family if that exact sector requires it.
+The full-carrier XOR refutation alone does not establish a sector obstruction;
+the finite potential-mate connectivity does not establish uniform coverage.
 The Poincare compiler's algebra remains useful: a correctly formulated
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
 

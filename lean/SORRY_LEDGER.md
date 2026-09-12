@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact mate orbits and finite potential-move separation (2026-09-11)
+
+- **milestone**: current physical BF4 gap frontier; distinguish geometric
+  separation from the outstanding weighted all-vector coverage problem.
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateOrbits.lean`.
+- **proved**: `evenInwardMateLabel_twice`, `inwardLabelOrbit_even`,
+  `cubeInwardOrbit_even_eq_parityCore`, `cubeInwardRootTime_le`,
+  `cubeInwardOrbit_rootTime_eq_zero`, `targetLower_eq_mate_sourceLower`,
+  `inwardMate_fundamental_eq_zero`, `inwardMate_doubledSubset_eq_fundamental`,
+  `cutoffTwo_mate_mem`, `cutoffTwo_mate_invariant_constant`, and
+  `canonicalCutoffTwo_mate_invariant_constant`.
+- **closed geometric sub-obligation**: the literal mate map of the existing
+  successful source endpoints has an explicit orbit formula. Two moves
+  fix zero and one and lower every larger label by two. After `2*n` moves,
+  cube labels bounded by `2*n+1` are exactly their parities; exterior labels
+  are unchanged. The time `2*(K/2) + state 0 % 2 <= K+1`, carried as a
+  natural-number definition, sends a bounded cube-supported common-parity
+  state to zero. No new rate or analytic certificate is assumed.
+- **exact finite consequence**: at cutoff two, all 64 doubled subsets map
+  to the fundamental cube, and the cube maps to zero. The map stays in the
+  65-state list. Every rational observable invariant under all these
+  potential mates is constant. The existing exact sector classification
+  transports that conclusion to the canonical vacuum component at `w=1/2`.
+- **OPEN boundary**: no classification of the all-cutoff canonical sector
+  as cube-supported common-parity states; no proof that every required
+  potential mate carries positive successful-source traffic; no uniform
+  weighted norm-to-move estimate. The orbit length bound is not a congestion
+  or spectral bound. Completed all-vector gap, volume/spacing limits,
+  continuum QFT, and Clay remain open. No frontier field is weakened,
+  no new analytic field or `sorry` is introduced.
+
+Verification: the final module passed the monitored source check and `.olean`
+emission with one worker and a 20 GiB ceiling. All 11 printed gates are
+exactly `[propext, Quot.sound]`; the log has no errors or warnings. A missing
+compiled dependency, `BF4ExactSlabVacuumReflectionCheck1Face7`, was rebuilt
+unchanged under the same limits before the successful check. The untrusted
+`computations/bf4_inward_mate_orbit.py` pilot checked the formula through
+cutoff five and the exact 65-state potential graph; Lean proves the general
+formula independently. No full-tree build/audit or frontier guard was run.
+README, root imports, work plan and progress ledger are updated. CI is off.
+
 ## Normalize sector demand and obtain a physical parity consequence (2026-09-11)
 
 - **milestone**: current physical BF4 gap frontier; close the exact
