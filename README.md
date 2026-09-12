@@ -122,7 +122,35 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result: an all-state balanced physical move with quadratic Casimir
+**Latest result: full boundary summation and an actual diagonal/row
+comparison.** At extent one, for every representation cutoff and explicitly
+for `0 <= w <= 1/2`, Lean proves
+
+```text
+boundaryOverlap(source,target) <= 4096 * boundaryHeat(difference(source))
+```
+
+The proof factors an upper estimate over the original 24-coordinate
+enumeration: twelve active heat tails each cost at most 2, and twelve
+inactive labels are forced zero. Combining this with the balanced physical
+move below gives, for every bounded common-parity cube source and K>=2,
+
+```text
+H(balanced(source)) * P_K(source,source) <= 4096 * H(source)
+```
+
+Here H is the actual half-state heat product, and P_K is the original
+normalized reflected joint divided by its own stationary marginal; the
+common partition cancels exactly. This is not a replacement dynamics or a
+state-uniform transition floor. The next step is to turn the quadratic
+Casimir decrease into a summable self-return tail, then establish sufficient
+centered head--tail control or weighted norm coverage. Neither an all-vector
+strict rate nor a geometric-time identification follows yet. See
+[`BF4PhysicalCubeBoundarySumBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBoundarySumBound.lean).
+The focused monitored check passed all 13 axiom gates within
+`{propext, Quot.sound}`. No full-tree audit was run.
+
+**Input: an all-state balanced physical move with quadratic Casimir
 descent.** For a cube-supported common-parity state, let M be its largest
 label. On each cube face replace s by
 `2*(floor(2*floor(s/2)/3)+ceil(M/12))`. This computed target preserves every
@@ -139,8 +167,9 @@ by `5/6`. Writing C for the sum of the six `c4(s)=s*(s+2)` values
 
 The proof uses a sum-of-squares reserve at a maximal label to pay the
 rounding and common offset. These are **label-energy rates, not operator
-or mass-gap rates**. The full boundary-sum/row comparison and the resulting
-weighted norm or centered head--tail estimates remain open. See
+or mass-gap rates**. The boundary-sum and diagonal/row comparison is now
+proved above; the resulting weighted norm or centered head--tail estimates
+remain open. See
 [`BF4PhysicalCubeBalancedDescent.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBalancedDescent.lean)
 and [`BF4PhysicalCubeBalancedCasimir.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBalancedCasimir.lean).
 Both modules passed focused monitored checks; all 46 printed axiom gates

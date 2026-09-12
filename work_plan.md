@@ -18,6 +18,39 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
+**Latest analytic producer (full boundary sum and diagonal/raw-row control):**
+`BF4PhysicalCubeBoundarySumBound.coeffW_tail_le_twice` bounds each heat tail
+relative to its first coefficient, for every truncation, on the explicit
+interval `0<=w<=1/2`. `bounded_product_sum` proves exact Cartesian Fubini
+for coordinate products. `admissible_boundary_ge_difference` extracts the
+necessary lower labels from the actual SU(2) fusion mask; inactive faces
+are forced zero. Dropping the remaining restrictions only for an upper
+estimate yields `cubeBoundaryOverlap_le_difference`, with the literal
+constant `4096=2^12`, for the complete original boundary enumeration.
+
+`cubePhysicalKernel_diagonal_le` pins the estimate to the original raw
+diagonal. `cube_diagonal_balanced_comparison` combines it with the actual
+positive balanced summand. `cube_diagonal_rawRow_comparison` retains that
+target in the original positive carrier, and `cube_selfReturn_scaled_le`
+cancels the original common partition to obtain
+`H(balanced(s))*P_K(s,s) <= 4096*H(s)` for every bounded common-parity cube
+source, K>=2, and `0<w<=1/2`. H is the actual half-state heat product;
+P_K uses the original normalized reflected joint and its own marginal.
+This controls the diagonal relative to the row; it is not an upper bound
+on the whole row or a common lower transition probability.
+
+**Next:** combine the proved Casimir decrease with the six dimension
+factors to get a summable high-label self-return tail, then prove sufficient
+centered head--tail control or weighted norm coverage. A tail estimate
+alone does not prove the all-vector gap. The geometric-time pin, vacuum
+uniqueness, volume/spacing passage and continuum QFT remain open.
+The exact untrusted pilot `computations/bf4_cube_boundary_sum_bound.py`
+passed 1,768 scalar tails and 63 complete boundary sums. The Lean module
+passed a focused monitored one-worker 20 GiB check with `.olean` output;
+all 13 printed gates are within propext/Quot.sound, final log error/warning
+free, default proof limits unchanged. No new analytic hypothesis, sorry,
+canonical frontier closure or full build/audit/guard/progress run.
+
 **Current positive producer (all-state balanced descent):**
 `BF4PhysicalCubeBalancedDescent.balancedState` replaces each cube label s
 by `2*(floor(2*floor(s/2)/3)+ceil(M/12))`, with the computed largest cube
@@ -40,9 +73,10 @@ gives `864*C(target)<=863*C(source)`. C is the sum of all six c4 labels,
 not a Hilbert norm or a spectral rate. The energy inequality itself needs
 no parity; the positive physical move explicitly does.
 
-The next producer is now concrete: control the ENTIRE boundary overlap and
-row mass using this selected summand and its quadratic heat advantage, then
-prove sufficient weighted norm coverage or centered head--tail control.
+The ENTIRE boundary-overlap upper bound and its diagonal/raw-row comparison
+are now proved above. The next producer must use the quadratic heat
+advantage to prove sufficient weighted norm coverage or centered head--tail
+control.
 The old cutoff-four small-trace diagnostic below does not establish or
 refute such an eventual large-head estimate. Neither that estimate nor an
 all-vector gap is supplied by these modules. Exact arithmetic pilot:

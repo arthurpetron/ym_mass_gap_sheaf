@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full boundary-sum and original conditional self-return bound (2026-09-12)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalCubeBoundarySumBound.lean`.
+- **analytic estimate**: `coeffW_succ_le_half` includes the vacuum step;
+  `coeffW_tail_le_twice` bounds every truncated tail relative to its first
+  coefficient on the explicit interval `0<=w<=1/2`. `bounded_product_sum`
+  is exact Cartesian Fubini for independent weights on distinct coordinates.
+  `admissible_boundary_ge_difference` extracts source difference lower
+  bounds from the SU(2) tests. `boundary_integrand_le_product` drops only
+  restrictions, giving an upper bound. `cubeBoundaryOverlap_le_difference`
+  sums the COMPLETE original boundary enumeration with constant 4096:
+  twelve active tails each cost 2 and twelve inactive coordinates cost 1.
+- **same-object pin**: `cubePhysicalKernel_diagonal_le` bounds the original
+  raw diagonal. `cube_diagonal_balanced_comparison` uses the previously
+  proved positive physical balanced summand; `cube_diagonal_rawRow_comparison`
+  retains its target in the original row. `cube_selfReturn_scaled_le`
+  uses the original normalized joint and its own marginal and cancels the
+  common partition, proving `H(balanced(s))*P_K(s,s)<=4096*H(s)` for all
+  admitted common-parity cube sources, K>=2, and `0<w<=1/2`, at extent one.
+- **OPEN residue / scope**: the dimension/Casimir heat-ratio estimate and
+  summable high-label diagonal tail are not yet constructed here. Sufficient
+  centered head--tail control or weighted norm coverage, one common dense
+  q<1, geometric time, vacuum uniqueness and volume/spacing/QFT passage
+  remain open. This is not an arbitrary-coupling uniform bound, a full-row
+  upper bound, a transition floor, an all-vector gap or a canonical atom
+  closure. No frontier type or analytic hypothesis was weakened.
+- **verification**: the exact untrusted pilot
+  `computations/bf4_cube_boundary_sum_bound.py` passed 1,768 scalar tails
+  and 63 complete boundary sums. Focused monitored one-worker 20 GiB Lean
+  check passed with `.olean` output; all 13 printed gates are within
+  `{propext, Quot.sound}`, final log error/warning free. No new sorry,
+  analytic premise, numerical oracle or raised proof limits. No full
+  build/audit/guard/progress run.
+
 ## All-state balanced physical descent and quadratic Casimir payment (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeBalancedDescent.lean` and
@@ -41,7 +75,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **OPEN residue / scope**: this is a physical supported move and a
   total-Casimir decrease, NOT a conditional transition floor, an operator
   contraction rate, a head--tail trace bound or a completed gap. The entire
-  boundary-sum/row comparison and weighted norm coverage remain open,
+  boundary-sum and diagonal/raw-row comparison is now proved in the entry
+  above; the required weighted norm coverage remains open,
   as do the common dense q<1, geometric-time pin, vacuum uniqueness and
   volume/spacing/continuum passage. No canonical frontier type was changed
   and no sorry or canonical atom was closed.

@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-state balanced physical descent (2026-09-12)
+## Current increment: full boundary sum and diagonal/raw-row comparison (2026-09-12)
+
+This is PROGRESS on the actual analytic producer, not a new conditional
+compiler. `BF4PhysicalCubeBoundarySumBound` proves a bound on the COMPLETE
+original 24-coordinate boundary enumeration. Source admissibility forces
+each active coordinate above its difference label; the twelve inactive
+coordinates are zero. An exact finite Fubini theorem and a relative heat-tail
+bound yield `overlap(s,t)<=4096*boundaryHeat(difference(s))`, uniformly in
+the representation cutoff, with `0<=w<=1/2` explicit in the statement.
+
+The original-kernel factorization and the already proved balanced summand
+give `H(balanced(s))*K_raw(s,s)<=4096*H(s)*K_raw(s,balanced(s))`.
+Retaining the actual balanced target in the original positive row and
+cancelling the common partition then prove
+`H(balanced(s))*P_K(s,s)<=4096*H(s)` for every admitted common-parity cube
+source, K>=2 and `0<w<=1/2`. The endpoint is the original conditional
+self-return, not a separate dynamics. The row is bounded BELOW by the
+retained transition, not above by a claimed common minorization.
+
+Next: turn the quadratic Casimir decrease and six dimension factors into
+a summable self-return tail; establish sufficient centered head--tail
+control or weighted norm coverage. A positive physical move or small
+diagonal tail alone is not an all-vector gap. The geometric-time pin,
+vacuum uniqueness, thermodynamic/continuum passage and Clay target are open.
+
+The untrusted exact pilot passed 1,768 scalar tails and 63 complete boundary
+sums. The focused monitored one-worker 20 GiB Lean check passed all 13
+printed gates within propext/Quot.sound. Final log error/warning free,
+default proof limits unchanged. No new sorry, analytic premise, numerical
+oracle or full build/audit/guard/progress run. Root import, landing page,
+work plan and sorry ledger updated.
+
+## Previous increment: all-state balanced physical descent (2026-09-12)
 
 This is PROGRESS on the replacement analytic producer after the direct-mate
 floor obstruction. The new map is defined for ALL cube states, not a selected
