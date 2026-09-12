@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current physical BF4 gap frontier (2026-09-12)
 
-**Latest analytic producer (full boundary sum and diagonal/raw-row control):**
+**Latest analytic producer (Gaussian return and explicit radial summability):**
+`BF4PhysicalCubeGaussianReturn.halfHeat_eq_dimension_casimir` factors the
+actual 24-face half heat into the six cube dimensions and total c4, removing
+the eighteen coefficient-one factors by the proved support condition.
+`dimensionProduct_le` and `cubeDimension_le` bound the source dimensions
+by `(M+1)^6`; target dimensions are at least one. The earlier generic
+`BF4PhysicalCubeInwardMateCompetitor.heat_product` is now public and gated,
+with its proof body unchanged, for this reuse.
+
+`balanced_casimir_exponent` converts the quadratic reserve into
+`floor(M^2/72)+C(target)<=C(source)` for M>=1400. `balanced_heat_ratio`
+pays the six dimensions explicitly. Combining this with the full
+diagonal/raw-row comparison proves `cube_selfReturn_le_gaussian`:
+`P_K(s,s)<=4096*(M+1)^6*w^floor(M^2/72)`. The directly usable
+`vacuumSector_selfReturn_le_gaussian` states the result for the existing
+`centralPhysicalConditionalKernel` and EVERY high-label canonical-sector
+member; support and common parity are derived, not supplied analytically.
+Its nome interval is explicitly `0<w<=1/2`, at extent one, all cutoffs.
+
+`radialEnvelope w M = 4096*(M+1)^12*w^floor(M^2/72)` budgets an additional
+six-label counting factor. `gaussianExponent_succ_gain` pays at least 13
+heat powers per radius step beyond 1400; the polynomial costs at most
+4096, giving `radialEnvelope_succ_le_half`. `radialEnvelope_tail_le`
+bounds every finite radial tail by twice its first term. The seed is at
+most one; `radialEnvelope_geometric` and the Type-level
+`radialTailCutoff(epsilon)=1401+epsilon.den` supply a uniform-in-w-and-outer-
+cutoff tolerance bound on `0<=w<=1/2`, without an opaque modulus.
+
+**Next:** connect the actual sector's six-label shell counts and conditional
+diagonal trace to this radial envelope, then establish sufficient centered
+head--tail control or weighted norm coverage. Neither the actual trace
+bound nor all-vector strict rate is proved by radial summability alone.
+Geometric time, exact YM action pins, vacuum uniqueness, volume/spacing/QFT
+passage and the Clay target remain open. Exact untrusted pilot:
+`computations/bf4_cube_gaussian_return.py`, 3,303 cube arithmetic checks
+and 48 radial tails. Focused monitored one-worker 20 GiB checks passed
+the new module's 21 gates and the reused module's 18 gates, all within
+propext/Quot.sound, final logs error/warning free. No new sorry, analytic
+premise, raised proof limit or full build/audit/guard/progress run.
+
+**Previous producer (full boundary sum and diagonal/raw-row control):**
 `BF4PhysicalCubeBoundarySumBound.coeffW_tail_le_twice` bounds each heat tail
 relative to its first coefficient, for every truncation, on the explicit
 interval `0<=w<=1/2`. `bounded_product_sum` proves exact Cartesian Fubini
@@ -39,9 +79,9 @@ P_K uses the original normalized reflected joint and its own marginal.
 This controls the diagonal relative to the row; it is not an upper bound
 on the whole row or a common lower transition probability.
 
-**Next:** combine the proved Casimir decrease with the six dimension
-factors to get a summable high-label self-return tail, then prove sufficient
-centered head--tail control or weighted norm coverage. A tail estimate
+The dimension/Casimir heat ratio and radial summability are now proved
+above. Connecting the actual trace and proving sufficient centered
+head--tail control or weighted norm coverage remain open. A tail estimate
 alone does not prove the all-vector gap. The geometric-time pin, vacuum
 uniqueness, volume/spacing passage and continuum QFT remain open.
 The exact untrusted pilot `computations/bf4_cube_boundary_sum_bound.py`

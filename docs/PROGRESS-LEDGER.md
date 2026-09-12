@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full boundary sum and diagonal/raw-row comparison (2026-09-12)
+## Current increment: Gaussian actual-sector return and radial modulus (2026-09-12)
+
+This is PROGRESS from energy decrease to quantitative decay of an existing
+operator entry. `BF4PhysicalCubeGaussianReturn` factors the original half
+heat exactly into six dimension factors and total c4. The dimensions cost
+at most `(M+1)^6`; the balanced Casimir reserve pays `floor(M^2/72)` heat
+powers for M>=1400. The full boundary/diagonal-row comparison then gives
+`P_K(s,s)<=4096*(M+1)^6*w^floor(M^2/72)`. The theorem
+`vacuumSector_selfReturn_le_gaussian` uses the actual canonical sector and
+existing conditional kernel; cube support/parity are derived from sector
+membership. This holds at every admitting cutoff, explicitly `0<w<=1/2`,
+at extent one, not for arbitrary coupling or a different dynamics.
+
+The degree-12 `radialEnvelope` allows a six-label counting factor as well
+as the six heat dimensions. Beyond 1400 its successor ratio is at most
+1/2: exponent growth pays at least thirteen powers, while the polynomial
+costs at most 4096. Every finite radial tail is at most twice its head;
+the explicit cutoff `1401+epsilon.den` makes it <=epsilon, uniformly for
+`0<=w<=1/2`. This modulus is data, not propositional existence.
+
+Next: connect the actual sector's shell count and diagonal trace to the
+radial envelope, then prove sufficient centered head--tail control or
+weighted norm coverage. A scalar summability theorem is not yet a trace
+estimate, and a small diagonal tail alone is not the all-vector gap.
+Exact action/geometric time, vacuum uniqueness, volume/spacing/QFT passage
+and the Clay theorem remain open.
+
+The existing generic `heat_product` was exported and gated for reuse,
+without altering its proof body. The exact untrusted pilot passed 3,303
+cube arithmetic checks and 48 radial tails. Focused monitored one-worker
+20 GiB checks passed 21 new-module gates plus 18 reused-module gates,
+all within propext/Quot.sound. Final logs error/warning free; no new sorry,
+analytic premise, numerical oracle, raised proof limits or full-tree
+build/audit/guard/progress run. Landing page, work plan, ledger and root
+import updated.
+
+## Previous increment: full boundary sum and diagonal/raw-row comparison (2026-09-12)
 
 This is PROGRESS on the actual analytic producer, not a new conditional
 compiler. `BF4PhysicalCubeBoundarySumBound` proves a bound on the COMPLETE

@@ -147,7 +147,7 @@ private theorem dim_product (a b : Nat) (x y : Q') :
   ac_rfl
 
 /-- Finite products expose their dimension and Casimir sums, without division. -/
-private theorem heat_product (w : Q') (state : EdgeLabelling) : ∀ ids : List Nat,
+theorem heat_product (w : Q') (state : EdgeLabelling) : ∀ ids : List Nat,
     eliminateLinks (fun face => coeffW w (state face)) ids ≈
       Q'.ofNat ((ids.map (fun face => state face + 1)).foldr (· * ·) 1) *
         qpow w ((ids.map (fun face => c4 (state face))).foldr (· + ·) 0)
@@ -240,6 +240,8 @@ theorem kernel_comparison {w : Q'} (hw : (0 : Q') ≤ w) (K k : Nat) (hK : 2 * k
     (Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm ec))
 
 end YMGap.Continuum.BF4PhysicalCubeInwardMateCompetitor
+
+#print axioms YMGap.Continuum.BF4PhysicalCubeInwardMateCompetitor.heat_product
 
 #print axioms YMGap.Continuum.BF4PhysicalCubeInwardMateCompetitor.profile
 #print axioms YMGap.Continuum.BF4PhysicalCubeInwardMateCompetitor.profile_zero_off

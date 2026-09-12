@@ -122,7 +122,32 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result: full boundary summation and an actual diagonal/row
+**Latest result: Gaussian suppression of actual high-label self-return.**
+At extent one, every member of the original vacuum sector whose largest
+cube label is M>=1400 satisfies, for every admitting cutoff and `0<w<=1/2`,
+
+```text
+P_K(source,source) <= 4096*(M+1)^6*w^floor(M^2/72)
+```
+
+The theorem concerns the existing `centralPhysicalConditionalKernel`;
+cube support and parity are derived from canonical sector membership.
+The proof combines the complete boundary comparison below with an exact
+six-dimensional heat factorization and the quadratic Casimir decrease.
+
+The degree-12 radial envelope
+`R_w(M)=4096*(M+1)^12*w^floor(M^2/72)` also has a proved successor ratio at
+most 1/2 beyond 1400. Every finite tail starting at N>=1400 is at most
+`2*R_w(N)`. The explicit threshold `N(epsilon)=1401+epsilon.den` makes
+every such tail at most epsilon, uniformly for `0<=w<=1/2`.
+The six-label counting/trace connection and sufficient centered head
+control remain separate, open steps; scalar summability alone is not an
+all-vector spectral gap. See
+[`BF4PhysicalCubeGaussianReturn.lean`](lean/YMGap/Continuum/BF4PhysicalCubeGaussianReturn.lean).
+All 21 gates passed in its focused monitored check; the reused heat-product
+module was also checked. No new sorry or full-tree audit.
+
+**Input: full boundary summation and an actual diagonal/row
 comparison.** At extent one, for every representation cutoff and explicitly
 for `0 <= w <= 1/2`, Lean proves
 
@@ -142,9 +167,9 @@ H(balanced(source)) * P_K(source,source) <= 4096 * H(source)
 Here H is the actual half-state heat product, and P_K is the original
 normalized reflected joint divided by its own stationary marginal; the
 common partition cancels exactly. This is not a replacement dynamics or a
-state-uniform transition floor. The next step is to turn the quadratic
-Casimir decrease into a summable self-return tail, then establish sufficient
-centered head--tail control or weighted norm coverage. Neither an all-vector
+state-uniform transition floor. The Gaussian return bound and radial
+summability are now proved above; the actual trace connection and sufficient
+centered head--tail control or weighted norm coverage remain open. Neither an all-vector
 strict rate nor a geometric-time identification follows yet. See
 [`BF4PhysicalCubeBoundarySumBound.lean`](lean/YMGap/Continuum/BF4PhysicalCubeBoundarySumBound.lean).
 The focused monitored check passed all 13 axiom gates within

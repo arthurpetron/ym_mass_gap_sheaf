@@ -13,6 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Gaussian actual-sector return and explicit radial tail modulus (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeGaussianReturn.lean`;
+  the existing generic `heat_product` in
+  `lean/YMGap/Continuum/BF4PhysicalCubeInwardMateCompetitor.lean` is exported
+  and gated for reuse, with no change to its proof body.
+- **exact heat ratio**: `halfHeat_eq_dimension_casimir` removes eighteen
+  coefficient-one factors and exposes the six dimensions and c4 sum.
+  `cubeDimension_le` gives `(M+1)^6`; `balanced_casimir_exponent` gives
+  `floor(M^2/72)+C(target)<=C(source)` for M>=1400. `balanced_heat_ratio`
+  has every polynomial factor and exponent explicit in the type.
+- **original conditional kernel**: `cube_selfReturn_le_gaussian` combines
+  that ratio with the complete boundary/row comparison.
+  `vacuumSector_selfReturn_le_gaussian` derives cube support and parity
+  from membership in the ORIGINAL canonical vacuum sector, bounding the
+  existing `centralPhysicalConditionalKernel` diagonal by
+  `4096*(M+1)^6*w^floor(M^2/72)` for M>=1400 and `0<w<=1/2`, at extent one,
+  independently of the admitting representation cutoff.
+- **radial summability with data**: `radialEnvelope` has degree 12.
+  `gaussianExponent_succ_gain` pays at least 13 powers; the polynomial
+  successor factor is at most 4096. `radialEnvelope_succ_le_half` and
+  `radialEnvelope_tail_le` prove every finite tail <= twice its head.
+  `radialEnvelope_seed_le_one`, `radialEnvelope_geometric` and
+  `radialTailCutoff_bound` give the explicit Type-level threshold
+  `radialTailCutoff(epsilon)=1401+epsilon.den`, uniform over the displayed
+  coupling interval `0<=w<=1/2` and every outer radial cutoff.
+- **OPEN residue / scope**: the actual sector shell-count/trace comparison
+  is not yet supplied here. Sufficient centered head control or weighted
+  norm coverage, the all-vector q<1, geometric-time/exact-action pins,
+  vacuum uniqueness, volume/spacing/QFT passage and Clay closure remain
+  open. No frontier type was weakened or inhabited. A pointwise diagonal
+  bound and a scalar radial envelope do not alone establish a spectral gap.
+- **verification**: the untrusted exact pilot
+  `computations/bf4_cube_gaussian_return.py` passed 3,303 cube arithmetic
+  checks and 48 radial tails. Focused monitored one-worker 20 GiB checks
+  passed all 21 new-module gates and all 18 gates in the reused module,
+  within `{propext, Quot.sound}`. Final logs error/warning free; default
+  proof limits unchanged. No new sorry, analytic premise, numerical oracle
+  or full build/audit/guard/progress run.
+
 ## Full boundary-sum and original conditional self-return bound (2026-09-12)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalCubeBoundarySumBound.lean`.
@@ -32,8 +72,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   uses the original normalized joint and its own marginal and cancels the
   common partition, proving `H(balanced(s))*P_K(s,s)<=4096*H(s)` for all
   admitted common-parity cube sources, K>=2, and `0<w<=1/2`, at extent one.
-- **OPEN residue / scope**: the dimension/Casimir heat-ratio estimate and
-  summable high-label diagonal tail are not yet constructed here. Sufficient
+- **OPEN residue / scope**: the dimension/Casimir heat ratio and scalar radial
+  summability are now proved in the entry above; the actual shell-count/trace
+  comparison remains open. Sufficient
   centered head--tail control or weighted norm coverage, one common dense
   q<1, geometric time, vacuum uniqueness and volume/spacing/QFT passage
   remain open. This is not an arbitrary-coupling uniform bound, a full-row
