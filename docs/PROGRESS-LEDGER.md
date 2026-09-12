@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: identify the all-spin physical normalization (2026-09-11)
+## Current increment: the cutoff-removed operator contracts its one-step form (2026-09-11)
+
+This is PROGRESS after the previous normalized-kernel milestone: two new
+proof modules close the positive/self-adjoint form laws for the actual
+cutoff-removed conditional P and prove its contraction in E(x,y)=<x,Py>.
+The proofs use the existing inhabited source-tail producer, without a new
+analytic or strict-gap certificate.
+
+`BF4PhysicalCutoffReflectedFormLaws.right_action_rate` combines the existing
+left/both insertion invariances. Consequently the SAME shared adaptive
+diagonal controls the missing right cross form. Finite self-adjointness
+passes through both aligned limits. The positive form interval passes
+through the joint self/input limits. Quotient descent gives these laws on
+every vector of the actual marginal-norm completion, for fixed 0<w<1 and
+fixed finite half-extent.
+
+`RCPositiveContractionOneStep` proves the cubic identity consequence in the
+constructive real quotient. The concrete application proves that E is a
+symmetric positive rational-bilinear form and the SAME P is E-positive,
+E-self-adjoint and E-contractive. The actual constant stationary vacuum has
+E-norm one; E-vacuum pairings agree with marginal-vacuum pairings, and every
+E macro moment is exactly the corresponding marginal moment with one more P
+insertion. No finite or completed strict-gap premise enters these results.
+
+Next: handle the E radical/completion and identify its ROOT-SECTOR part with
+the normalized all-spin raw cube carrier, then identify geometric time.
+The entire reducible marginal carrier is not asserted to be the cube sector.
+Marginal completeness is not E-completeness; the new form laws alone do not
+construct that identification. Uniform all-vector strict control and the
+volume/spacing/QFT/all-group Clay obligations remain open.
+
+Both final focused monitored single-worker 20 GiB checks passed with `.olean`
+output. The 22 printed gates contain only propext/Quot.sound, with no errors
+or warnings. No heartbeat/recursion ceiling was raised, no numerical oracle
+was needed and no full build/audit/guard or progress script was run. Root
+imports, README, work plan and sorry ledger are updated; GitHub CI stays off.
+
+## Previous increment: identify the all-spin physical normalization (2026-09-11)
 
 This is PROGRESS: the actual cutoff-removed normalized pair-cylinder kernel
 is proved to be ONE constructed scalar times the stable raw cube kernel.

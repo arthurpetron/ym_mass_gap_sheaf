@@ -3753,6 +3753,9 @@ import YMGap.Continuum.PositiveContractionOneStepCompletion
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
+-- Same cutoff-removed conditional P contracts its positive one-step RC form.
+import YMGap.Continuum.RCPositiveContractionOneStep
+import YMGap.Continuum.BF4PhysicalCutoffReflectedFormLaws
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

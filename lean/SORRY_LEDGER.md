@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Cutoff-removed conditional action on its one-step form (2026-09-11)
+
+- **files**: `lean/YMGap/Continuum/RCPositiveContractionOneStep.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffReflectedFormLaws.lean`.
+- **completed laws**: `right_action_rate` follows from existing one-sided
+  and both-sided structural rate invariance. `jointRightCross_converges`
+  uses the SAME joint adaptive sampler as the left insertion. Exact finite
+  physical self-adjointness passes through the aligned limits in
+  `joint_selfAdjoint` and `completed_selfAdjoint`; `joint_form_interval`
+  and `completed_form_interval` give 0 <= <Px,x> <= <x,x> for every completed
+  vector. `concrete_selfAdjoint` and `concrete_form_interval` use the
+  existing inhabited `centralPhysicalDenseMarkovCauchyData`, not an open
+  completion or strict-gap certificate.
+- **constructive-real cubic argument**:
+  `RCPositiveContractionOneStep.three_moment` combines two nonnegative forms
+  using ordered addition on RC; `oneStep_contraction` gives
+  B(Px,P²x) <= B(x,Px). Scalar quotient induction proves identities only;
+  no choice of vector representatives, spectral theorem, square root,
+  division by a vector norm or numerical oracle is involved.
+- **same action/form/vacuum**: `completedReflectedForm` is E(x,y)=B(x,Py)
+  with P the actual concrete cutoff-removed conditional operator.
+  `completedReflectedForm_symm`, `_add_left`, `_smul_left` and `_interval`
+  prove its symmetric positive rational-bilinear laws and norm upper bound.
+  `completedReflectedForm_contraction`, `_transfer_selfAdjoint` and
+  `_transfer_positive` show that SAME P acts contractively and positively
+  for E. `_vacuum_pairing` and `_vacuum_norm_one` retain the actual constant
+  stationary vacuum; `_moments` is the exact one-insertion shift for all
+  natural macro iterates, not a geometric-time assertion.
+- **OPEN residue**: E may have a radical, and completeness in the marginal
+  norm does not establish E-completeness. Its radical/completion and the
+  identification of its ROOT-SECTOR part with the normalized stable RAW
+  cube carrier remain open. The full reducible carrier is not asserted to
+  be the cube sector.
+  Geometric Euclidean time, an isolated vacuum and a uniform strict gap,
+  thermodynamic/spacing limits, continuum QFT and all-group Clay remain open.
+  No scorecard atom, sorry or named analytic field is discharged or added.
+- **verification**: both focused monitored one-worker 20 GiB checks emitted
+  `.olean` output. All 22 gates use only `{propext, Quot.sound}`; final logs
+  have no errors or warnings. No proof resource limit was raised. No full
+  build/audit/guard or progress-script build was run. CI remains disabled
+  repository-wide. This advances the operator-form bridge after the previous
+  normalized-kernel milestone; it does not recreate the source-tail producer.
+
 ## Same all-spin raw/normalized cube form (2026-09-11)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalCubeNormalizedKernelLimit.lean`.

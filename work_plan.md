@@ -501,6 +501,17 @@ The next load-bearing producers are, in causal order:
    the cutoff-removed marginal-norm conditional transfer. Transporting that
    SAME action to this reflected cube completion, identifying geometric time,
    and proving a strict gap remain OPEN; do not recreate the existing producer.
+   `BF4PhysicalCutoffReflectedFormLaws` now proves self-adjointness and the
+   form interval 0 <= <Px,x> <= <x,x> for EVERY vector of the cutoff-removed
+   marginal completion. Right-insertion rate invariance follows from the
+   existing left/both invariance, so the original shared adaptive sampler
+   suffices. `RCPositiveContractionOneStep` lifts the cubic identity to the
+   constructive real quotient. Its concrete application proves the SAME P
+   positive, self-adjoint and contractive in E(x,y)=<x,Py>, with the same
+   unit vacuum, vacuum pairing and shifted macro moments. No cofinal strict
+   estimate is assumed. E may have a radical and need not be complete in
+   the marginal carrier; its completion and ROOT-SECTOR raw-cube
+   identification remain. The full reducible carrier is not the cube sector.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -620,6 +631,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- whole signed form = actual normalized cutoff form ..... [PROVED computed cutoff]
 |   |   |   +-- 64/65 <= normalization <= 1 ............................ [PROVED fixed anchor/extent]
 |   |   |   +-- source tails -> marginal-norm cutoff-removed transfer .. [PROVED existing adaptive stack]
+|   |   |   +-- joint diagonal -> completed P self-adjoint, 0 <= P <= I [PROVED no strict-gap input]
+|   |   |   +-- RC cubic identity -> same P contracts E(x,y)=<x,Py> .... [PROVED spin cutoff removed]
+|   |   |   +-- E keeps unit vacuum, pairings and shifted moments ...... [PROVED same action]
+|   |   |   +-- E root-sector completion identified with raw cube form [OPEN]
 |   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

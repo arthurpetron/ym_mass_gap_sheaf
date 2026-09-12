@@ -58,7 +58,10 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     -> exact centered macro moments via the comparison map          [PROVED]
                                   | required together with:
   source tails -> cutoff-removed marginal-norm conditional transfer  [PROVED]
-  transport that action to the reflected completion + geometric time [OPEN]
+    -> self-adjoint, 0 <= <Px,x> <= <x,x> on the completion          [PROVED]
+    -> same P contracts E(x,y)=<x,Py>; unit vacuum and moments       [PROVED]
+  complete E's root-sector part + identify normalized raw cube form  [OPEN]
+  identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
                                   | required together with:
@@ -81,7 +84,25 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the all-spin raw cube form now has its actual physical
+**Latest result:** after the spin cutoff is removed, the actual conditional
+operator `P` is self-adjoint and satisfies `0 <= <Px,x> <= <x,x>` on every
+vector of the existing marginal-norm completion. The proof aligns both
+insertions at the same finite cutoff using the existing adaptive sampler.
+
+The constructive-real cubic identity now proves that this **same `P`** is
+positive, self-adjoint and contractive for `E(x,y)=<x,Py>`. The same stationary
+vacuum has E-norm one; its pairings, and the exact one-insertion-shifted
+moments, are preserved. These are unconditional fixed-nome, finite-volume
+results for `0<w<1`, using the constructed source-tail moduli. See
+[`BF4PhysicalCutoffReflectedFormLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffReflectedFormLaws.lean).
+
+E may have a radical, and marginal completeness does not imply completeness
+in the E-norm. Completing its root-sector part and identifying that sector
+with the normalized raw cube carrier remain open, as do geometric time and a
+strict gap. No identification of the entire reducible carrier with the cube
+sector is asserted.
+
+**Connected normalization result:** the all-spin raw cube form has its actual physical
 cutoff-limit normalization. A single constructed `CReal` factor `lambda`
 satisfies `normalized kernel = lambda * raw kernel`; its approximations are
 exactly the reciprocals of the original finite partitions. The same identity
@@ -143,9 +164,11 @@ see
 [`BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer.lean).
 It fixes that completion's stationary vacuum and preserves vacuum orthogonality.
 The remaining operator bridge is to the **reflected cube completion** above,
-not a missing conditional-transfer construction everywhere. The new common
-normalization identifies forms, not that operator action or geometric time.
-A transfer-fixed vacuum on this reflected completion, a uniform strict gap,
+not a missing conditional-transfer construction everywhere. The common
+normalization identifies forms, and the new one-step laws control the existing
+conditional action in E. They do not yet identify the two reflected carriers
+or geometric time. A transfer-fixed vacuum on the raw cube completion,
+a uniform strict gap,
 thermodynamic/spacing limits and continuum reconstruction remain open. The
 nonzero raw vacuum-labelled root alone does not prove vacuum isolation.
 
