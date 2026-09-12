@@ -657,7 +657,23 @@ The next load-bearing producers are, in causal order:
    39 printed gates within `{propext, Quot.sound}`. No full build/audit/guard
    was run, no proof limits raised, and no scorecard atom claimed closed.
    The dense strict bound remains open; the new density witness supplies
-   its approximation side only. Nonidentity of the same action is also open.
+   its approximation side only. Nonidentity of the same action is now proved:
+   `BF4PhysicalCubeThreeStatePath` uses the existing difference-boundary
+   summands for probe -> fundamental cube -> root, with explicit positive
+   raw weights at every K>=2 and positive normalized floors at the anchor.
+   The direct probe/root entry is zero because their shared face-(0,1)
+   boundary triangle would require its label to equal both two and zero.
+   `BF4PhysicalCubeTwoStepPositivePairing` retains the fundamental-cube
+   source in the marginal pairing of the two conditional images. Action
+   and pairing cutoffs are independent; the positive product floor passes
+   through both original completion limits. `BF4PhysicalCubeTransferNonidentity`
+   pins that result to `<T root,probe>_E`, whereas `<root,probe>_E = 0`.
+   Its `root_is_moved` and `cubeTransfer_ne_identity` concern the ACTUAL
+   full completed map. All three modules passed focused monitored one-worker
+   20 GiB checks and all 42 printed gates within `{propext, Quot.sound}`.
+   No new analytic premise, proof-budget increase, numerical oracle or
+   full-tree verification was used. Nonidentity does not give the missing
+   strict vacuum-complement rate or uniqueness of the stationary vacuum.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.
@@ -816,6 +832,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- Cauchy--Schwarz + fixed norm ceilings + tolerance ...... [PROVED computed factor K]
 |   |   |   +-- centered-image density in the full reflected complement [PROVED rate X.modulus(epsilon/K)]
 |   |   |   |   (supplied Cauchy representative; no quotient choice)
+|   |   |   +-- positive probe/cube/root edges AND zero direct edge .. [PROVED exact SU(2), all K>=2]
+|   |   |   +-- independent cutoff bounds -> completed two-image floor [PROVED explicit heat-product floor]
+|   |   |   +-- same-object pairing pin -> T moves root; T != identity [PROVED actual full completion]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

@@ -13,6 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Nonidentity of the actual completed physical cube transfer (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeThreeStatePath.lean`,
+  `BF4PhysicalCubeTwoStepPositivePairing.lean`, and
+  `BF4PhysicalCubeTransferNonidentity.lean`.
+- **exact physical geometry**: `probe_mate` and `middle_mate` identify the
+  original single-face twice-spin-two probe -> fundamental cube -> root
+  path. `probeRawFloor` and `rootRawFloor` reuse the existing explicit
+  difference-boundary heat weights, positive at every w>0.
+  `probe_middle_floor` and `middle_root_floor` retain these weights at all
+  later cutoffs. `probe_root_mask_zero` proves incompatibility of the two
+  literal SU(2) triangles at boundary face 2; `probe_root_raw_zero` gives
+  the exactly missing direct physical edge. `normalized_floor` uses the
+  actual partition reciprocal floor 64/65 at w=1/400, extent one, to
+  produce positive `probeJointFloor` and `rootJointFloor`.
+- **both original limits**: `cylinder_image_floor` retains a joint floor
+  under conditioning by a probability marginal. `middle_row_floor` pays
+  the source weight. `cutoff_pairing_floor` retains that source in the
+  marginal pairing of the two actual unit-observable images, with action
+  cutoff K>=2 and INDEPENDENT pairing cutoff L>=1. `innerLimit_floor`
+  passes the latter limit; `actionCauchy` and `_realizes` expose the
+  original action representatives. `completed_images_pairing_floor`
+  passes their existing outer limit. Its named rational witness is
+  `twoStepFloor = rootJointFloor * (rootJointFloor * probeJointFloor) > 0`.
+- **same completed operator**: `global_basis` identifies the original cube
+  basis with its literal physical unit cylinder. The already proved
+  same-object power moments and self-adjointness give
+  `transferred_root_probe_pairing`. `transferred_root_probe_floor` proves
+  `<T root,probe>_E >= twoStepFloor`, while `root_probe_pairing_zero` proves
+  `<root,probe>_E = 0`. Therefore `root_is_moved` and
+  `cubeTransfer_ne_identity` close the nonidentity obligation in the
+  previous entries on the ACTUAL entire reflected completion.
+- **scope / OPEN residue**: fixed w=1/400 and extent one for the completed
+  result; the floors are not beta/volume/spacing-uniform claims. This does
+  not establish a strict vacuum-complement norm rate, uniqueness of the
+  stationary sector vacuum, geometric Euclidean time or continuum QFT.
+  Cutoff-independent weighted coverage/Poincare, the strict completed gap,
+  volume/spacing passage and all-group Clay remain open. No sorry, new
+  axiom, classical extraction, analytic premise, numerical oracle or
+  canonical scorecard closure is introduced.
+- **verification**: three focused monitored one-worker 20 GiB checks passed
+  with `.olean` output; all 42 printed gates are empty or within
+  `{propext, Quot.sound}`. Final logs have no errors or warnings; default
+  proof limits are unchanged. Root edits are imports only. No full
+  build/audit/guard or progress script was run. GitHub CI remains off.
+
 ## Explicit centered-density witness in the full reflected complement (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/ScaledGNSCompletionEstimates.lean`

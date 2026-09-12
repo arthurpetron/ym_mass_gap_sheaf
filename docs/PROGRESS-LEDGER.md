@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: explicit density in the full reflected vacuum complement (2026-09-12)
+## Current increment: actual completed transfer moves a concrete vector (2026-09-12)
+
+This is PROGRESS after explicit centered density: nonidentity of the actual
+completed cube transfer is no longer open. The root cylinder is a concrete
+moved vector, detected by its pairing with the single-face twice-spin-two
+probe. The proof uses physical SU(2) triangles and positive heat products,
+not a replacement operator or a supplied spectral estimate.
+
+`BF4PhysicalCubeThreeStatePath` proves the probe -> fundamental cube -> root
+path with cutoff-independent raw weights, and normalized positive floors at
+w=1/400, extent one. The direct probe/root entry vanishes exactly: one
+boundary face would have to carry labels both two and zero. In
+`BF4PhysicalCubeTwoStepPositivePairing`, conditioning preserves each joint
+floor because the retained source marginal is at most one. The middle
+source has its own positive marginal floor. Retaining its single term
+gives `twoStepFloor = rootJointFloor^2 * probeJointFloor > 0`, with action
+and pairing cutoffs independent. Both existing constructive limits retain it.
+
+`BF4PhysicalCubeTransferNonidentity.transferred_root_probe_pairing` uses the
+same-object conditional-power identity and self-adjointness to pin this
+positive marginal pairing to `<T root,probe>_E`. The original reflected
+pairing is zero, so `root_is_moved` and `cubeTransfer_ne_identity` follow.
+The root is not the stationary sector vacuum. No strict complement bound,
+unique vacuum, geometric time or continuum consequence is inferred.
+
+Next: cutoff-independent weighted coverage/Poincare for the same physical
+sector. The completed carrier, stationary vector, nonzero centered probe,
+explicit centered density and nonidentity are available, but a common
+strict rate is still missing. Volume/spacing/QFT and all-group Clay remain
+open. No canonical scorecard closure is claimed.
+
+All three new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output; all 42 printed gates are empty or within propext/Quot.sound.
+Final logs have no errors or warnings. Default proof limits are retained;
+no full build/audit/guard, progress script or external numerical oracle was
+run. Root imports, landing page, work plan and sorry ledger are updated.
+GitHub CI remains disabled.
+
+## Previous increment: explicit density in the full reflected vacuum complement (2026-09-12)
 
 This is PROGRESS after the exact centering-error bound: its approximation
 assembly is now constructed. The target ranges over the entire reflected

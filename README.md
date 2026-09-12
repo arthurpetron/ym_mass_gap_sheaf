@@ -83,6 +83,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + Cauchy--Schwarz + fixed vacuum/root bounds + explicit tolerance [PROVED]
     -> centered-image density in the whole reflected complement     [PROVED]
        (rate from each supplied Cauchy representative; no choice)
+    + two positive physical edges AND zero direct root/probe entry [PROVED]
+      -> positive pairing through both original completion limits [PROVED]
+      -> SAME completed transfer moves root; T is not identity     [PROVED]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -106,7 +109,34 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the actual centered physical images now approximate every
+**Latest result:** the **actual completed physical transfer is not the
+identity**. A three-state argument witnesses the movement:
+
+```text
+single-face twice-spin-two probe -> fundamental cube -> root
+           positive edge floors at every cutoff K >= 2
+direct probe--root entry = 0, by incompatible SU(2) triangles
+
+<root, probe>_E = 0
+<T root, probe>_E >= twoStepFloor > 0
+therefore T root != root
+```
+
+The positive floor is an explicit product of heat weights and the actual
+normalization floor, at fixed `w=1/400` and extent one. The proof retains
+one source term in the marginal pairing of the two conditional images,
+with independent action and pairing cutoffs, and passes through both
+existing completion limits. The exact same-object moment identity then
+gives the displayed reflected pairing. No new dynamics is introduced.
+See [`BF4PhysicalCubeTransferNonidentity.lean`](lean/YMGap/Continuum/BF4PhysicalCubeTransferNonidentity.lean),
+with its physical inputs in
+[`BF4PhysicalCubeThreeStatePath.lean`](lean/YMGap/Continuum/BF4PhysicalCubeThreeStatePath.lean)
+and [`BF4PhysicalCubeTwoStepPositivePairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeTwoStepPositivePairing.lean).
+All 42 printed axiom gates passed in targeted checks; no full-tree audit
+was run. Nonidentity is not a strict vacuum-complement bound, uniqueness
+of the stationary vacuum, or geometric-time identification.
+
+**Connected density result:** the actual centered physical images now approximate every
 represented vector in the **whole completed reflected vacuum complement**,
 with an explicit rate. This is at fixed `w=1/400` and extent one. The target
 need not come from the old marginal-sector image: its only vector property
@@ -210,8 +240,8 @@ reflected form. See
 **Next frontier:** prove a cutoff-independent weighted coverage/Poincare
 estimate for the same physical sector; the dense strict bound is still
 missing. The new density witness supplies the approximation side, not this
-analytic input. Nonidentity of the same completed action is also open. The
-nonzero root cylinder is not the stationary sector event. Identifying conditional
+analytic input. The nonzero root cylinder is not the stationary sector event;
+its movement under the transfer is now proved above. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`
 is nonexpansiveness, not a mass gap. The explicit Cauchy diagonal modulus
