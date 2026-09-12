@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Positive reflected norm of the same centered physical probe (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSeparatedChannel.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCenteredPositiveNorm.lean`.
+- **finite mathematics**: `probeState` uses the existing single-face
+  twice-spin-two state. `probe_halfAmplitude` and `probe_boundaryWeight`
+  identify its difference-boundary contribution with explicit heat products;
+  `root_halfAmplitude_zero` annihilates the root on that boundary.
+  `corrected_channel` is therefore independent of every rational root
+  coefficient. `rootCorrectedSpan_floor` retains this one nonnegative term
+  of the actual physical Gram sum-of-squares. `channelFloor w` is executable
+  rational data and `channelFloor_pos` proves positivity for every w > 0.
+- **same completed vector**: `probeSourceCauchy` and `probeReflectedCauchy`
+  reuse the original moving head correction and its explicit modulus.
+  `probe_stage_observable` proves literal observable equivalence and
+  `probe_stage_recode` gives equality in the reflected quotient.
+  `rootCorrected_reflected_floor` includes the actual normalization floor.
+  `probeNormLimit_floor` passes the stagewise bound through the existing
+  pairing convergence. `centeredProbe_norm_floor`, `_norm_positive` and
+  `_ne_zero` prove that this SAME vector in `CubeSectorVacuumComplement`
+  survives completion with squared norm at least the named rational
+  `reflectedProbeFloor = (64/65) * channelFloor anchorCoupling > 0`.
+  `centeredProbe_connected_one_positive` pins positivity to the original
+  connected conditional covariance at shifted index one (reflected index
+  zero), not a physical-time decay estimate.
+- **scope / OPEN residue**: the completed norm floor uses w=1/400 and
+  extent one, not coupling-uniformity. This is neither a strict contraction
+  nor nonidentity of the transfer. Centered-image density in the entire
+  reflected complement, geometric time, the strict gap, volume/spacing/QFT
+  and all-group Clay remain open. No sorry, new axiom, classical extraction,
+  numerical oracle, analytic premise or scorecard closure is introduced.
+- **verification**: both modules passed targeted monitored one-worker
+  20 GiB checks with `.olean` output; all 30 printed gates use only
+  `{propext, Quot.sound}`. Final logs have no errors or warnings. An earlier
+  observable-identification check timed out; abstracting the presentation
+  resolved it without raising default proof limits. Root edits are imports
+  only. No full build/audit/guard or progress script was run. CI stays off.
+
 ## Sector vacuum pairing and same-object centered realization (2026-09-12)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorCenteredRealization.lean`.

@@ -77,7 +77,7 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     -> sector vacuum pairing = original stationary mean            [PROVED]
     + moving rational centering -> vectors in this complement      [PROVED]
     -> same-object connected conditional covariance, exact shift   [PROVED]
-    + positive reflected norm of a centered probe                    [OPEN]
+    + root-annihilating channel -> positive centered reflected norm [PROVED]
     + centered-image density in the whole reflected complement       [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
@@ -102,7 +102,21 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the constructed sector vacuum's pairing equals the
+**Latest result:** an explicitly centered single-face spin-two observable
+has positive norm in the **actual reflected completion**. Its difference
+boundary has zero root amplitude but positive probe amplitude, so one term
+of the physical Gram sum-of-squares supplies a lower bound unchanged by
+every rational root correction. The existing centered Cauchy sequence
+passes that bound to the same completed vector. The witnessing rational is
+`(64/65) * channelFloor(1/400) > 0`, where `channelFloor(w)` is an explicit
+heat-weight product, not a coupling-uniform constant. This also proves
+positivity of its connected conditional covariance at shifted index one
+(reflected index zero). See
+[`BF4PhysicalCubeSeparatedChannel.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSeparatedChannel.lean)
+and [`BF4PhysicalCubeCenteredPositiveNorm.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCenteredPositiveNorm.lean).
+A positive norm is not a strict transfer bound or a nonidentity theorem.
+
+**Connected centering result:** the constructed sector vacuum's pairing equals the
 original physical stationary mean on the **entire completed marginal
 sector**. This identifies the existing moving rationally centered cylinders
 with vectors in the new reflected vacuum complement. Their correlators are
@@ -111,9 +125,9 @@ law, using the same observable and conditional action, with the exact
 one-insertion shift. See
 [`BF4PhysicalCubeSectorCenteredRealization.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCenteredRealization.lean).
 This uses a rational head correction, not orthogonal projection along the
-sector vacuum. The earlier positive **marginal** norm of a centered probe
-does not yet prove positive **reflected** norm or density in the entire
-reflected complement.
+sector vacuum. Density of these centered images in the entire reflected
+complement remains open; the positive reflected norm above is a separate
+physical-channel argument, not an inference from a marginal lower bound.
 
 **Connected vacuum result:** a stationary vector in the actual completed cube sector
 is now constructed, with squared norm at least `64/65`. This is at fixed
@@ -145,8 +159,8 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** prove a positive reflected norm for a constructed centered
-probe and establish centered-image density in the reflected complement. The nonzero root
+**Next frontier:** establish centered-image density in the reflected complement
+and determine nonidentity of the same completed action. The nonzero root
 cylinder is not the stationary sector event. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`

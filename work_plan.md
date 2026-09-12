@@ -612,9 +612,24 @@ The next load-bearing producers are, in causal order:
    connected covariance, with the exact extra insertion. This module passed
    11 printed axiom gates in a focused monitored one-worker 20 GiB check.
    The head correction is not orthogonal projection along the sector vacuum.
-   The next frontier is a positive REFLECTED norm for a constructed centered
-   probe and centered-image density in the entire reflected complement;
-   the old positive marginal-norm theorem cannot supply either. Conditional powers
+   `BF4PhysicalCubeSeparatedChannel` now isolates a physical difference-boundary
+   channel: the single-face spin-two probe has its exact positive heat
+   amplitude, while the vacuum root has zero amplitude. One term of the
+   actual Gram sum-of-squares gives `rootCorrectedSpan_floor` for EVERY
+   rational root correction, with explicit w-dependent `channelFloor w`.
+   `BF4PhysicalCubeCenteredPositiveNorm` identifies each existing moving
+   centered stage with this two-term observable, then passes the bound
+   through its original reflected pairing limit. The SAME `centeredProbe`
+   lies in the vacuum complement and has squared norm at least
+   `(64/65) * channelFloor anchorCoupling > 0`; its connected conditional
+   covariance at shifted index one is positive. Both modules passed
+   focused monitored one-worker 20 GiB checks, with all 30 printed gates
+   within `{propext, Quot.sound}`. Default proof limits are retained; no
+   full build/audit/guard was run. The norm floor is fixed-anchor/extent,
+   not coupling-uniform. The next frontier is centered-image density in
+   the entire reflected complement and nonidentity of the same action.
+   The old positive marginal-norm theorem was not used as a reflected
+   lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
@@ -765,7 +780,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- sector vacuum pairing = original stationary mean ..... [PROVED whole marginal source]
 |   |   |   +-- moving centered cylinders -> reflected complement .... [PROVED existing Cauchy data]
 |   |   |   +-- same-object connected conditional covariance ......... [PROVED exact one-insertion shift]
-|   |   |   +-- positive reflected norm of a centered probe ........... [OPEN marginal positivity insufficient]
+|   |   |   +-- root-annihilating channel -> positive centered E norm . [PROVED explicit heat-product floor]
 |   |   |   +-- centered-image density in the reflected complement .... [OPEN]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]

@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: whole-sector mean pin and centered physical correlations (2026-09-12)
+## Current increment: positive reflected norm after physical centering (2026-09-12)
+
+This is PROGRESS after the whole-sector mean and connected-covariance pin.
+The explicitly centered single-face spin-two probe is now proved nonzero
+in the ACTUAL reflected completion, with a named positive rational norm
+floor. A positive marginal norm was not transported through E<=B as a lower
+bound: the proof instead uses a physical boundary channel which detects
+the probe and annihilates the vacuum-root correction exactly.
+
+`BF4PhysicalCubeSeparatedChannel` supplies the exact heat-product floor for
+every rational root coefficient. `BF4PhysicalCubeCenteredPositiveNorm`
+identifies each original centered Cauchy stage with that two-term observable
+and passes the floor through the existing reflected pairing limit. The
+result concerns the SAME vector already placed in the sector vacuum
+complement and the SAME connected conditional covariance. Its positive
+shifted-index-one covariance is reflected index zero, not geometric-time
+decay. The lower bound is `(64/65) * channelFloor(1/400)`, at extent one;
+`channelFloor(w)` depends explicitly on the coupling.
+
+Next: centered-image density in the whole reflected complement and
+nonidentity of the same completed action. Positive norm alone proves
+neither. Geometric time, strict gap, volume/spacing/QFT and all-group Clay
+remain open. No new analytic premise or scorecard closure is claimed.
+
+Both modules passed focused monitored one-worker 20 GiB checks; all 30
+printed gates use only propext/Quot.sound. Final logs have no errors or
+warnings. An earlier timeout was resolved by proving the stage identity
+over an abstract presentation, keeping default proof limits. Root imports,
+landing page, work plan and sorry ledger are updated. No full build/audit/
+guard, progress script or numerical oracle was run. CI remains disabled.
+
+## Previous increment: whole-sector mean pin and centered physical correlations (2026-09-12)
 
 This is PROGRESS after constructing the positive-norm stationary vector.
 `BF4PhysicalCubeSectorCenteredRealization` proves that its reflected pairing
