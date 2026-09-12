@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: solve the potential-mate orbit geometry (2026-09-11)
+## Current increment: constrain the actual sector at every cutoff (2026-09-11)
+
+`BF4PhysicalHalfCubeSupport` proves that a nonzero production half amplitude
+has zero labels outside the central cube. Its 18 unary pins are literal
+singleton full-incidence links with no fixed-interface contribution. Five
+additional full-incidence equations give a spanning tree of relative cube
+parities, preserved by two nonzero half amplitudes sharing a boundary.
+The SU(2) odd-sum annihilation input is already arbitrary-cutoff.
+
+`BF4PhysicalVacuumSectorCubeContainment.sharedBoundaryOfKernelNeZero`
+returns a nonzero shared boundary from the actual Gram kernel as data.
+Following the canonical positive support paths proves every vacuum-sector
+state is cube-supported with common face parity, for every representation
+cutoff and nonnegative `w` at half extent zero. This is a structural proof,
+not an extrapolation of the cutoff-two enumeration.
+
+The previous literal orbit formula now applies to every canonical state:
+it reaches zero within `K+1` potential moves. The full-carrier pair-parity
+XOR is identically zero on this sector at every cutoff. This is PROGRESS:
+the formerly open domain-containment input is proved on the actual physical
+component. Remaining are the converse family inclusion if needed, physical
+support and successful-source traffic on required potential moves, and
+quantitative uniform weighted coverage. No all-vector gap or Clay atom is
+closed, and no new analytic field is added.
+
+Both modules passed focused monitored checks and `.olean` emission, one
+worker and 20 GiB. All 13 printed gates are `[propext, Quot.sound]`; final
+logs have no errors or warnings. Closed geometry uses kernel decision
+proofs (`decide +kernel`), never native evaluation or raised proof limits.
+The small 18-pin/five-edge geometry pilot passed. No full-tree build/audit
+or frontier guard was run; the historical progress script's build remains
+outside this check scope. Root imports, README, work plan and sorry ledger
+are updated. CI remains off.
+
+## Previous increment: solve the potential-mate orbit geometry (2026-09-11)
 
 `BF4PhysicalVacuumSectorInwardMateOrbits` proves a closed-form end phase for
 the literal inward-mate map. Two moves subtract two from a label above one

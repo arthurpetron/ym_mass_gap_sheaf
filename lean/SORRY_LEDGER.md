@@ -13,7 +13,55 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All-cutoff physical vacuum-sector cube containment (2026-09-11)
+
+- **milestone**: current physical BF4 frontier; prove the all-cutoff support
+  implication required to apply the literal mate orbit to canonical states.
+- **files**: `lean/YMGap/Continuum/BF4PhysicalHalfCubeSupport.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCubeContainment.lean`.
+- **local support proof**: `exteriorPin_geometry` checks that each of the
+  18 lower faces outside the cube has a full singleton incident link, not
+  merely a singleton after setting boundary labels to zero.
+  `halfAmplitude_link_pos` and `halfAmplitude_zero_off_cube` force those
+  labels to vanish for every nonzero physical half amplitude. The five
+  `cubeParityEdge_spinSum` equations, using the existing arbitrary-cutoff
+  SU(2) odd-sum annihilation theorem, give
+  `sharedBoundary_cubeEdgeParity_eq`.
+- **canonical same-object proof**: `sharedBoundaryOfKernelNeZero` searches
+  the original Gram sum and returns a bounded shared nonzero half-amplitude
+  boundary as Type-level data. `kernel_preserves_cubeSupportedCommonParity`
+  and the existing actual support paths prove
+  `vacuumSector_cubeSupportedCommonParity` for every cutoff and every
+  nonnegative rational `w` at half extent zero (slab extent one).
+- **consequences**: `vacuumSector_cubePairParity_zero` proves every cube
+  pair-parity XOR, including the full-carrier counterexample's `0/39` pair,
+  vanishes on this canonical sector. `vacuumSector_inwardOrbit_reaches_zero`
+  applies the already-proved time `2*(K/2) + state 0 % 2 <= K+1` to every
+  canonical state, not just the cutoff-two table or a hypothesized family.
+- **OPEN residue**: converse admission of the whole cube/common-parity
+  family, positive physical support and successful-source traffic along the
+  required potential orbits, and uniform weighted norm-to-move coverage.
+  No positivity or congestion bound follows from an orbit length. No
+  completed all-vector gap, volume/spacing control, continuum QFT or Clay
+  theorem is claimed. No new analytic field, `sorry`, axiom, noncomputable
+  definition, or weakened frontier statement is introduced.
+
+Verification: both modules passed focused monitored checks and `.olean`
+emission with one worker and a 20 GiB ceiling. The seven local and six
+canonical printed axiom gates are exactly `[propext, Quot.sound]`; final
+logs have no errors or warnings. Closed incidence certificates use
+`decide +kernel`, which checks proof terms in Lean's kernel, not native
+evaluation; no heartbeat or recursion limit was raised. The untrusted
+`computations/bf4_half_cube_support_geometry.py` pilot passed the 18 pins
+and five spanning-tree edge checks. No full-tree build/audit or frontier
+guard was run. Root imports, README, work plan and progress ledger are
+updated. CI remains disabled.
+
 ## Exact mate orbits and finite potential-move separation (2026-09-11)
+
+The following increment now supplies the orbit theorem consumed by the
+all-cutoff canonical containment result above. Its remaining classification
+obligation has been reduced to the converse inclusion, not assumed solved.
 
 - **milestone**: current physical BF4 gap frontier; distinguish geometric
   separation from the outstanding weighted all-vector coverage problem.

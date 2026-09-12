@@ -45,8 +45,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  + restricted move energy <= C * energy [PROVED]
                  -> positive sector-parity energy floor [PROVED]
                  AND centered norm <= move energy / kappa [OPEN]
-                 (potential-mate separation at K=2: PROVED;
-                  weighted separation / all-K coverage: OPEN)
+                 (all-K cube/parity containment + potential
+                  vacuum orbits: PROVED; weighted coverage: OPEN)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
@@ -70,14 +70,18 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the inward-mate geometry now has an explicit orbit formula.
-Two moves lower labels by two, stopping at their parity. Every cube-supported
-state of common face parity reaches vacuum within `K + 1` moves. On the
-certified 65-state vacuum sector at cutoff two and coupling `1/2`, every
-doubled-spin subset maps to the fundamental cube, which maps to vacuum.
-Thus no nonconstant observable is invariant under all these potential mates.
-This does **not** yet show that every such move has positive successful-source
-traffic, or classify the canonical sector at every cutoff.
+**Latest result:** every canonical vacuum-sector state is now proved to be
+supported on the six central cube faces, with common face parity, at every
+spin cutoff and every nonnegative weight parameter `w` at slab extent one.
+The proof uses 18 singleton-link constraints and five shared-boundary parity
+equations, then follows the actual OS support paths from vacuum.
+The explicit inward-mate orbit therefore reaches vacuum from each such state
+within `K + 1` potential moves. The full-carrier pair-parity XOR obstruction
+vanishes on this sector at every cutoff.
+
+This is **containment**, not the converse classification. Positive OS support
+and successful-source traffic along every required potential move, and a
+cutoff-independent norm-to-move estimate, remain open.
 
 The preceding quantitative result remains: the normalized sector OS flow carries at
 least `448/5525` total traffic. Exact source-block Fubini connects it to the
@@ -224,12 +228,23 @@ coupling `1/2`, `canonicalCutoffTwo_mate_invariant_constant` proves every
 potential-mate invariant is constant. This is a geometric statement, not a
 new weighted OS estimate at the anchor coupling.
 
-Next: establish which potential mates carry successful-source traffic and
-prove a quantitative norm-to-move coverage estimate on the actual sector at
-arbitrary cutoff. Its identification with the common-parity cube family is
-not proved here. Enlarge the move family if that exact sector requires it.
-The full-carrier XOR refutation alone does not establish a sector obstruction;
-the finite potential-mate connectivity does not establish uniform coverage.
+The all-cutoff physical support implication is now proved in
+[`BF4PhysicalHalfCubeSupport.lean`](lean/YMGap/Continuum/BF4PhysicalHalfCubeSupport.lean)
+and
+[`BF4PhysicalVacuumSectorCubeContainment.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorCubeContainment.lean).
+`sharedBoundaryOfKernelNeZero` returns a witnessing nonzero boundary as data.
+`vacuumSector_cubeSupportedCommonParity` propagates the singleton pins and
+relative parities along the actual canonical component.
+`vacuumSector_inwardOrbit_reaches_zero` applies the existing orbit formula to
+every sector state; `vacuumSector_cubePairParity_zero` eliminates the
+pair-parity obstruction there for every cutoff. These are fixed-geometry
+support statements for arbitrary nonnegative `w`, not uniform spectral bounds.
+
+Next: establish physical support and successful-source traffic on the required
+potential moves, then prove quantitative norm-to-move coverage at arbitrary
+cutoff. The converse inclusion of the entire common-parity cube family in
+the canonical sector is not proved here. The orbit formula alone does not
+establish weighted coverage or congestion bounds.
 The Poincare compiler's algebra remains useful: a correctly formulated
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
 

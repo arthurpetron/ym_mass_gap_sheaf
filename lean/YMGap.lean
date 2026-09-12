@@ -3728,6 +3728,10 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorNormalizedDemand
 -- Exact mate orbits; finite potential-move separation, not weighted coverage.
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateOrbits
+-- Cutoff-independent unary pins and shared-boundary relative parity laws.
+import YMGap.Continuum.BF4PhysicalHalfCubeSupport
+-- Canonical sector containment, not the converse or weighted move coverage.
+import YMGap.Continuum.BF4PhysicalVacuumSectorCubeContainment
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts
