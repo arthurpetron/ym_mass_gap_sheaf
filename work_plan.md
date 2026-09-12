@@ -401,11 +401,19 @@ The next load-bearing producers are, in causal order:
    `sectorSuccessfulMass_pos` verifies nonvacuity. This closes scalar demand
    at the fixed coupling and volume, not a beta/spacing/volume-uniform bound.
    Positive filtered demand alone is not an all-vector coverage theorem.
-   After embedding the
-   restricted edge energies in the existing sector Dirichlet form, build a
-   translated or component-adapted family that
-   separates that exact connected sector with cutoff-uniform weighted
-   congestion.  Everything
+   The restricted energy embedding is now proved too:
+   `BF4PhysicalVacuumSectorZeroExtensionDirichlet.vacuumSectorZeroExtension_Dirichlet_eq_indexed`
+   identifies the full half-state energy of zero extension exactly with the
+   canonical indexed sector energy. No crossing component entries survive.
+   `BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy` then proves the
+   first-edge, second-edge, and endpoint bounds for every rational observable
+   with the same factors `1`, `globalInwardMateTransportCost`, and
+   `2(1 + globalInwardMateTransportCost)`. No new analytic field or loss is
+   introduced. Next identify the raw successful-mass sum with normalized
+   restricted traffic, determine sector-wide move separation (enlarging the
+   family if needed), and prove a positive cutoff-uniform norm-to-move
+   coverage estimate. The full-carrier XOR obstruction is not automatically
+   an obstruction on the exact sector. The algebraic rate shape
    after a correctly sector-local coverage input is compiled: a floor
    `kappa > 0` yields the cutoff-independent strict rate
    `4(1 + globalInwardMateTransportCost) /
@@ -492,8 +500,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- degree-13 tensor -> physical partition <= 65/64 ...... [PROVED fixed anchor/extent]
 |   |   |   +-- complementary target event -> escape <= 6/425 P ...... [PROVED]
 |   |   |   +-- absorb leakage -> successful sector demand >= 7/85 P . [PROVED]
-|   |   |   +-- restricted energies -> sector Dirichlet embedding .... [OPEN]
-|   |   |   +-- translated/component move separation + congestion .... [OPEN]
+|   |   |   +-- zero extension -> exact indexed sector Dirichlet ..... [PROVED]
+|   |   |   +-- restricted first/second/endpoint -> sector energy ..... [PROVED same constants]
+|   |   |   +-- raw demand -> normalized restricted traffic ........... [OPEN exact handoff]
+|   |   |   +-- sector move separation + uniform norm coverage ........ [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]

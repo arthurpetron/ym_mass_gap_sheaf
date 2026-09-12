@@ -40,9 +40,10 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
          -> escaping bad mass <= (6/425) * sector mass   [PROVED] <+
          -> successful mass >= (7/85) * sector mass      [PROVED]
                                   |
-                 AND with sector-separating moves [OPEN]
-                 and uniform sector energy comparison [OPEN]
-                 (existing two-edge capacities are PROVED)
+                 + zero extension -> exact sector energy [PROVED]
+                 + restricted move energy <= C * energy [PROVED]
+                 AND centered norm <= move energy / kappa [OPEN]
+                 (requires sector separation + uniform coverage)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   + cutoff-limit carrier/transfer compatibility -> completed gap     [OPEN]
@@ -66,10 +67,13 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** positive successful sector demand is now proved, with
-fraction `7/85`, uniformly in spin cutoff `K >= 1` at fixed coupling `1/400`
-and slab extent one. The next missing ingredient is a sector-separating move
-family with a cutoff-uniform comparison to the actual OS Dirichlet energy.
+**Latest result:** every rational observable's restricted inward-mate energy
+now embeds in the exact indexed vacuum-sector OS Dirichlet form, retaining
+the original factor `2(1 + globalInwardMateTransportCost)`. This complements
+the proved `7/85` successful sector-mass fraction. Both estimates are uniform
+in spin cutoff `K >= 1` at fixed coupling `1/400` and slab extent one.
+The missing reverse estimate must control every centered sector norm by move
+energy with a positive cutoff-independent floor.
 
 The latest checked path is already on that actual OS object.  Every successful
 six-face inward-mate source gives a supported two-edge path in the normalized
@@ -171,9 +175,23 @@ contraction to the complementary target event gives
 previous demand bound proves
 `successful mass >= (7/85) * sector mass > 0`.
 This is a fixed-volume, fixed-coupling result, not uniformity in beta or
-lattice spacing. A translated or component-adapted move family must subsequently
-separate the sector with uniform congestion.  Only then can the all-vector Poincare
-compiler be instantiated.  Its algebra remains useful: any corrected
+lattice spacing.
+
+The sector Dirichlet embedding is now proved without recounting any fibers.
+Zero extension of a sector observable adds no physical energy: the exact
+component has no crossing OS kernel entries, and zero-marginal rows vanish.
+The full half-state energy of this extension equals the already-defined
+canonical indexed sector energy. On every restricted path, the extension
+agrees with the original observable at all three vertices. Thus the first
+edge, second edge, and endpoint estimates restrict with their original
+factors `1`, `globalInwardMateTransportCost`, and
+`2(1 + globalInwardMateTransportCost)`.
+
+Next: identify the raw successful-mass bound with the normalized restricted
+traffic, and prove sector-wide separation and a quantitative norm-to-move
+coverage estimate. Enlarge the move family if the exact sector requires it.
+The full-carrier XOR refutation alone does not establish a sector obstruction.
+The Poincare compiler's algebra remains useful: a correctly formulated
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
 
 ```text
@@ -232,6 +250,10 @@ The sharp physical partition ceiling is in
 The complementary-event comparison, leakage absorption, and positive `7/85`
 sector demand are in
 [`BF4PhysicalVacuumSectorInwardMateSectorDemand.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorDemand.lean).
+The exact zero-extension identity for the canonical indexed sector is in
+[`BF4PhysicalVacuumSectorZeroExtensionDirichlet.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorZeroExtensionDirichlet.lean).
+The three unconditional restricted observable-energy comparisons are in
+[`BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

@@ -13,7 +13,57 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact sector Dirichlet embedding by zero extension (2026-09-11)
+
+- **milestone**: current physical BF4 gap frontier; close the restricted
+  observable-energy embedding left open after `b39fb0e`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorZeroExtensionDirichlet.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy.lean`.
+- **proved declarations**: `vacuumSectorZeroExtension_on_sector`,
+  `normalizedKernel_eqv_zero_of_sector_outside`,
+  `finiteDirichlet_zeroExtension_eq_filter`, `vacuumSectorStates_nodup`,
+  `vacuumSectorZeroExtension_Dirichlet_eq_indexed`,
+  `sectorGradientEnergy_le_globalZeroExtension`,
+  `sectorSelectedFirstEnergy_le_Dirichlet`,
+  `sectorSelectedSecondEnergy_le_cost_mul_Dirichlet`, and
+  `sectorSelectedEndpointEnergy_le_scale_mul_Dirichlet`.
+- **closed sub-obligation**: all three restricted observable energies are
+  bounded by the genuine canonical indexed vacuum-sector Dirichlet form,
+  with the same factors `1`, `globalInwardMateTransportCost`, and
+  `2(1 + globalInwardMateTransportCost)`. The proof extends coefficients by
+  zero, uses exact vanishing of cross-component physical OS entries, and
+  contracts the duplicate-free filtered state list to the canonical index
+  carrier. It introduces no second enumeration of source fibers and no
+  additional congestion factor. Kernel and normalization are unchanged.
+- **scope**: the zero-extension identity is coupling-parametric for every
+  nonnegative `w`, finite cutoff and half extent. It is an exact algebraic
+  identity, not a beta-uniform strict bound. The inward-mate estimates fix
+  `anchorCoupling` and extent one and range over `K >= 1` and every rational
+  observable. No new numerical constants or untrusted computation are used.
+- **remaining obligations**: exact handoff from raw `7/85` successful demand
+  to normalized restricted traffic; sector-wide separation and a positive
+  cutoff-uniform norm-to-move coverage estimate. The full-carrier XOR
+  counterexample does not by itself prove that the restricted family fails
+  on the sector. An enlarged move family, if required, needs its own
+  coverage/congestion proof. Completed all-vector gap, volume/spacing
+  control, continuum construction and the Clay target remain open.
+- **constructive status**: no new `sorry`, named analytic field, custom
+  axiom, classical dependency, noncomputable declaration, enlarged proof
+  budget, or weakened frontier type. `vacuumSectorZeroExtension` is explicit
+  coefficient data using the existing executable sector classifier.
+
+Verification: both modules passed focused monitored source checks with
+explicit `.olean` output, one worker and a 20 GiB ceiling. All nine printed
+axiom checks report only `[propext, Quot.sound]`. Final logs contain no errors
+or warnings. No full-tree build/audit or frontier guard was run. Root
+imports, landing page, work plan, and progress ledger are updated; CI remains
+disabled. No `singleStep` or Clay-facing atom is discharged.
+
 ## Absorb sector leakage and prove positive successful demand (2026-09-11)
+
+The restricted Dirichlet embedding listed below is now proved by the
+increment above. The all-vector coverage and continuum obligations remain.
 
 - **milestone**: current physical BF4 sector gap frontier in `work_plan.md`;
   close the scalar sector-demand sub-obligation left by `72f7bee`.

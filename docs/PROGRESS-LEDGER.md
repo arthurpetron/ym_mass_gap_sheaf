@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: absorb leakage and close positive sector demand (2026-09-11)
+## Current increment: restrict observable energy without new congestion (2026-09-11)
+
+`BF4PhysicalVacuumSectorZeroExtensionDirichlet` constructs zero extension by
+the exact finite sector classifier. It proves that physical OS entries
+crossing the component boundary vanish (including zero-marginal targets),
+then identifies the full half-state Dirichlet energy of that extension with
+the already-defined canonical indexed vacuum-sector energy. The list
+recoding is multiplicity-exact, not an assumed enumeration equality.
+
+`BF4PhysicalVacuumSectorInwardMateSectorObservableEnergy` applies the existing
+global arbitrary-observable estimates to that extension. Every restricted
+path lies in the sector, so all evaluated coefficients agree with their
+extensions. Nonnegative source filtering preserves the original bounds:
+first energy <= sector energy; second energy <= transportCost * sector
+energy; endpoint energy <= 2*(1+transportCost) * sector energy. These hold
+for every rational observable and every cutoff `K >= 1`, at fixed anchor
+and extent one. The general zero-extension identity itself permits any
+nonnegative coupling and finite half extent; it asserts no strict gap.
+
+This is PROGRESS: the previously open restricted Dirichlet embedding is
+proved with no new analytic hypothesis or congestion loss. The next exact
+bridge is raw successful mass to normalized restricted traffic; the next
+analytic task is a sector-wide norm-to-move coverage floor. The full-carrier
+XOR obstruction must not be silently promoted to an exact-sector
+obstruction. Determine separation on that component and enlarge the family
+only as needed. No completed gap, `singleStep`, or Clay atom is closed.
+
+Both modules passed focused monitored checks and `.olean` emission with one
+worker and a 20 GiB ceiling. All nine printed axiom checks are exactly
+`[propext, Quot.sound]`; final logs have no errors or warnings. No full-tree
+build/audit or frontier-guard run was performed. The historical progress
+script's guard build remains outside this run's authorized check scope.
+Root imports, README, work plan, and sorry ledger are updated. CI is disabled.
+
+## Previous increment: absorb leakage and close positive sector demand (2026-09-11)
 
 `BF4PhysicalAnchorPartitionCeiling` proves a sharp ceiling for the actual
 physical partition. The degree-thirteen SU(2) majorant has all-spin ratio
