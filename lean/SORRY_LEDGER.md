@@ -13,6 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## One-sided first-stretched support and exact mass refinement (2026-09-11)
+
+- **milestone**: current physical BF4 gap frontier in `work_plan.md`; localize
+  the first-stretched bad-target argument to the exact finite vacuum sector.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.lean`.
+- **proved declarations**:
+  `firstStretchedTarget_commonRight_rawKernel_pos_of_right_eq`,
+  `firstStretchedTargetLower_mem_vacuumSector_of_right_eq`,
+  `firstStretchedTargetOneSidedB_eq_true_iff`,
+  `firstStretchedTargetOneSidedB_eq_false_iff`,
+  `firstStretchedTargetLower_mem_vacuumSector_of_oneSided`,
+  `globalInwardMateVacuumSectorFirstStretched_oneSided_split`,
+  `globalInwardMateVacuumSectorBranches_oneSided_total`,
+  `globalInwardMateOneSidedFirstStretchedSource_endpoints_internal`, and
+  `globalInwardMateTwoSidedFirstStretchedSource_mem_crossing`.
+- **closed sub-obligation**: boundary equality is unnecessary for the summed
+  OS support argument.  Using the target's own boundary term proves support
+  whenever its reflected upper state is unchanged.  An unchanged lower state
+  preserves membership directly.  The exact physical bad mass partitions by
+  this finite test; the residual changes both half-states and is contained in
+  the old crossing list.  The original stronger-hypothesis statements and
+  original local/crossing split remain available at their original types.
+- **previous milestones now recorded here**: the boundary-and-upper locality
+  criterion and exact local/crossing split introduced in `2b920ca` and
+  `dbfeeba` are retained and included in these current focused checks.
+- **remaining obligations**: control targets changing both half-states and
+  restrict the weighted target-fiber contraction to sector physical mass;
+  derive sector-relative demand; construct a separating move family with
+  uniform congestion; prove the all-vector gap and complete the physical
+  thermodynamic/continuum passages.  No `384/425` sector estimate, strict
+  positive mass saving, beta-uniform bound, continuum generator, or Clay
+  result is established by this increment.
+- **constructive or propositional**: explicit finite Boolean tests and
+  rational mass sums, with propositional support/identity proofs.  No new
+  `sorry`, named analytic input, axiom, or frontier weakening.
+
+Verification: both changed modules passed monitored focused checks and
+explicit `.olean` emission with one worker and a 20 GiB ceiling.  All 19
+printed declaration checks use only `[propext, Quot.sound]`.  The initial
+target check hit the default elaboration budget; explicit typed intermediate
+arguments resolved it without increasing heartbeats.  The final checks pass.
+No full-tree build, root check, or full axiom audit is claimed.
+
 ## Current status (2026-05-28; updated 2026-08-31)
 
 **The entire `YMGap` library is now sorry-free (`lake build` reports 0

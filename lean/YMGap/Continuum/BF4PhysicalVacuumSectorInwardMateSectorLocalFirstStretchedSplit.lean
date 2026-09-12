@@ -9,9 +9,11 @@ which of those bad sources already reroute inside that component.
 This module filters each dependent physical block by that finite Boolean test
 and by its Boolean complement.  Their two masses reconstruct the entire
 sector first-stretched mass exactly.  Every entry in the local branch has its
-lowered target in the vacuum component.  The complementary crossing mass is
-therefore the only part of the `384/425` argument still requiring a new
-topological estimate or a different rerouting.
+lowered target in the vacuum component.  The stronger one-sided support
+theorem below further splits off all targets preserving either half-state,
+without requiring boundary equality.  Only the two-sided remainder is left
+outside that support argument.  A sector-restricted `384/425` estimate still
+requires the weighted target-fiber argument as well as control of that remainder.
 
 No estimate on the crossing mass is claimed here, and no sector demand,
 Poincare, spectral-gap, continuum, or Clay conclusion is asserted.
@@ -252,6 +254,131 @@ theorem globalInwardMateOSLocalFirstStretchedSource_endpoints_internal
     firstStretchedTargetLower_mem_vacuumSector_of_source_mem
       source hparts.2 hsourceSector⟩
 
+/-! ## 4. Refine the residual to changes of both half-states -/
+
+/-- The exact sector bad mass selected by a finite predicate on the complete
+first-stretched source.  The original physical and auxiliary weights remain. -/
+def globalInwardMateVacuumSectorFilteredFirstStretchedMass
+    (K : Nat) (hK : 1 ≤ K)
+    (test : GlobalEnumeratedCubeInwardMateFullSource K hK → Bool) : Q' :=
+  listQSum
+    (fun physicalSource =>
+      listQSum GlobalEnumeratedCubeInwardMateFullSource.weight
+        ((globalEnumeratedCubeInwardMateFullSourceBlock
+          K hK physicalSource).filter test))
+    (globalInwardMateVacuumSectorPhysicalSources K)
+
+/-- Finite filtering partitions the same physical bad mass for any displayed
+test; no normalization or change of physical object occurs. -/
+theorem globalInwardMateVacuumSectorFilteredFirstStretchedMass_partition
+    (K : Nat) (hK : 1 ≤ K)
+    (test : GlobalEnumeratedCubeInwardMateFullSource K hK → Bool) :
+    globalInwardMateVacuumSectorFilteredFirstStretchedMass K hK test +
+        globalInwardMateVacuumSectorFilteredFirstStretchedMass K hK
+          (fun source => !(test source)) ≈
+      globalInwardMateVacuumSectorFirstStretchedMass K hK := by
+  unfold globalInwardMateVacuumSectorFilteredFirstStretchedMass
+    globalInwardMateVacuumSectorFirstStretchedMass
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (listQSum_add _ _ _)) ?_
+  apply listQSum_congr_on
+  intro physicalSource _
+  exact Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (listQSum_filter_partition
+      GlobalEnumeratedCubeInwardMateFullSource.weight test
+      (globalEnumeratedCubeInwardMateFullSourceBlock K hK physicalSource)))
+    (globalFirstStretchedBlock_weight_eqv_physicalMass K hK physicalSource)
+
+/-- Bad mass whose targets preserve at least one half-state. -/
+def globalInwardMateVacuumSectorOneSidedFirstStretchedMass
+    (K : Nat) (hK : 1 ≤ K) : Q' :=
+  globalInwardMateVacuumSectorFilteredFirstStretchedMass K hK
+    firstStretchedTargetOneSidedB
+
+/-- Exact residual bad mass: both lower and reflected upper states change.
+This definition makes no assertion that those targets leave the sector. -/
+def globalInwardMateVacuumSectorTwoSidedFirstStretchedMass
+    (K : Nat) (hK : 1 ≤ K) : Q' :=
+  globalInwardMateVacuumSectorFilteredFirstStretchedMass K hK
+    (fun source => !(firstStretchedTargetOneSidedB source))
+
+/-- The larger support-controlled branch and two-sided residual still
+reconstruct exactly the original bad mass. -/
+theorem globalInwardMateVacuumSectorFirstStretched_oneSided_split
+    (K : Nat) (hK : 1 ≤ K) :
+    globalInwardMateVacuumSectorOneSidedFirstStretchedMass K hK +
+        globalInwardMateVacuumSectorTwoSidedFirstStretchedMass K hK ≈
+      globalInwardMateVacuumSectorFirstStretchedMass K hK :=
+  globalInwardMateVacuumSectorFilteredFirstStretchedMass_partition
+    K hK firstStretchedTargetOneSidedB
+
+/-- **Three-way physical conservation:** successful mass, one-sided bad
+mass, and two-sided bad mass exhaust the exact physical sector event. -/
+theorem globalInwardMateVacuumSectorBranches_oneSided_total
+    (K : Nat) (hK : 1 ≤ K) :
+    globalInwardMateVacuumSectorAllTargetMass K hK +
+        (globalInwardMateVacuumSectorOneSidedFirstStretchedMass K hK +
+          globalInwardMateVacuumSectorTwoSidedFirstStretchedMass K hK) ≈
+      globalInwardMateVacuumSectorPhysicalMass K :=
+  Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' (Q'.eqv_refl _)
+      (globalInwardMateVacuumSectorFirstStretched_oneSided_split K hK))
+    (globalInwardMateVacuumSectorBranches_weight_total K hK)
+
+/-- Every selected one-sided bad target remains in the exact vacuum sector,
+including cases that failed the older boundary-and-upper locality test. -/
+theorem globalInwardMateOneSidedFirstStretchedSource_endpoints_internal
+    {K : Nat} {hK : 1 ≤ K}
+    {physicalSource : CubeInwardMatePhysicalSource K}
+    {source : GlobalEnumeratedCubeInwardMateFullSource K hK}
+    (hphysicalSector : physicalSource ∈
+      globalInwardMateVacuumSectorPhysicalSources K)
+    (hsource : source ∈
+      (globalEnumeratedCubeInwardMateFullSourceBlock
+        K hK physicalSource).filter firstStretchedTargetOneSidedB) :
+    firstStretchedSourceLower source ∈
+        centralPhysicalFiniteVacuumSectorStates
+          anchorCoupling (by decide) K 0 ∧
+      firstStretchedTargetLower source ∈
+        centralPhysicalFiniteVacuumSectorStates
+          anchorCoupling (by decide) K 0 := by
+  have hparts := List.mem_filter.mp hsource
+  have hphysical := sourcePhysicalSource_eq_of_mem_globalBlock hparts.1
+  have hsourcePhysical : source.physical = physicalSource.1 :=
+    congrArg Subtype.val hphysical
+  have hsourceSector : firstStretchedSourceLower source ∈
+      centralPhysicalFiniteVacuumSectorStates
+        anchorCoupling (by decide) K 0 := by
+    unfold firstStretchedSourceLower
+    rw [hsourcePhysical]
+    exact mem_globalInwardMateVacuumSectorPhysicalSources_iff.mp hphysicalSector
+  exact ⟨hsourceSector,
+    firstStretchedTargetLower_mem_vacuumSector_of_oneSided source
+      ((firstStretchedTargetOneSidedB_eq_true_iff source).mp hparts.2)
+      hsourceSector⟩
+
+/-- The new unresolved source list is a subset of the old crossing list.
+This is containment, not a claim of strict positive mass improvement. -/
+theorem globalInwardMateTwoSidedFirstStretchedSource_mem_crossing
+    {K : Nat} {hK : 1 ≤ K}
+    {physicalSource : CubeInwardMatePhysicalSource K}
+    {source : GlobalEnumeratedCubeInwardMateFullSource K hK}
+    (hsource : source ∈
+      (globalEnumeratedCubeInwardMateFullSourceBlock
+        K hK physicalSource).filter
+          (fun source => !(firstStretchedTargetOneSidedB source))) :
+    source ∈ globalInwardMateCrossingFirstStretchedSourceBlock
+      K hK physicalSource := by
+  have hparts := List.mem_filter.mp hsource
+  apply mem_globalInwardMateCrossingFirstStretchedSourceBlock_iff.mpr
+  refine ⟨hparts.1, ?_⟩
+  cases hlocal : firstStretchedTargetOSLocalB source with
+  | false => rfl
+  | true =>
+    have hone := firstStretchedTargetOneSided_of_osLocal source
+      ((firstStretchedTargetOSLocalB_eq_true_iff source).mp hlocal)
+    have htest := (firstStretchedTargetOneSidedB_eq_true_iff source).mpr hone
+    simp [htest] at hparts
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit
 
 /-! ## Dependency gates -/
@@ -259,3 +386,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSp
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.mem_globalInwardMateOSLocalFirstStretchedSourceBlock_iff
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateVacuumSectorFirstStretched_split
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateOSLocalFirstStretchedSource_endpoints_internal
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateVacuumSectorFilteredFirstStretchedMass_partition
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateVacuumSectorFirstStretched_oneSided_split
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateVacuumSectorBranches_oneSided_total
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateOneSidedFirstStretchedSource_endpoints_internal
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.globalInwardMateTwoSidedFirstStretchedSource_mem_crossing

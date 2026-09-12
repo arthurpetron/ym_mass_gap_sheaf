@@ -4,16 +4,18 @@
 The entropy injection for the first-stretched branch lowers two complete
 strand components.  Unlike the successful six-face inward mate, this global
 peel need not definitionally fix the reflection boundary and upper half.
-Those two equalities are exactly the condition under which the source and
-lowered target are two lower endpoints over one common OS channel.
+Those two equalities put both lower endpoints over one common boundary
+summand.  Boundary equality is unnecessary for support in the summed OS
+kernel: equal reflected upper states suffice, using each field's own boundary.
 
 This module makes that condition finite and decidable.  It then proves that
 every OS-local first-stretched target has positive raw OS support through the
 source's reflected upper state and therefore remains in the canonical finite
 vacuum component whenever its source lower state does.
 
-The theorem is conditional on the checked OS-locality predicate.  No claim is
-made that every first-stretched source is OS-local, and no sector demand,
+The strengthened theorem also covers every target with unchanged lower state.
+Thus only changes to both half-states remain outside this support argument.
+No claim is made that every first-stretched source is one-sided, and no sector demand,
 Poincare, spectral-gap, continuum, or Clay conclusion is asserted.
 
 No `Classical`, choice, `native_decide`, `sorry`, custom axiom,
@@ -364,10 +366,52 @@ theorem firstStretchedTarget_commonRight_rawKernel_pos
     simpa [centralExtent] using
       firstStretchedTargetPhysicalTerm_pos source
 
+/-- The boundary is summed out in the raw OS kernel.  The target's own
+boundary gives positive support whenever its reflected upper state agrees
+with the source's, even if the two boundary labellings differ. -/
+theorem firstStretchedTarget_commonRight_rawKernel_pos_of_right_eq
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
+    (hright : centralReflectedUpperRestriction 0
+        (firstStretchedTargetPhysical source) =
+      firstStretchedCommonRight source) :
+    (0 : Q') < centralPhysicalReflectedKernel anchorCoupling K 0
+      (firstStretchedTargetLower source)
+      (firstStretchedCommonRight source) := by
+  have htargetMem : firstStretchedTargetPhysical source ∈
+      boundedEdgeLabellings K (slabPhysicalFaceEdges 1) :=
+    source.lowerPhysical_mem
+  have htargetAssemble : assembleReflectedSlabLabelling 0
+      (centralLowerRestriction 0 (firstStretchedTargetPhysical source))
+      (centralBoundaryRestriction 0 (firstStretchedTargetPhysical source))
+      (centralReflectedUpperRestriction 0 (firstStretchedTargetPhysical source)) =
+        firstStretchedTargetPhysical source :=
+    assembleReflectedSlabLabelling_restrictions htargetMem
+  unfold centralPhysicalReflectedKernel
+  apply listQSum_pos_of_mem
+  · intro boundary
+    exact slabParametricKPhysicalTerm_nonnegative
+      (by decide) K (centralExtent 0)
+        (assembleReflectedSlabLabelling 0
+          (firstStretchedTargetLower source) boundary
+          (firstStretchedCommonRight source))
+  · exact centralBoundaryRestriction_mem (half := 0) htargetMem
+  · rw [← hright]
+    change (0 : Q') < slabParametricKPhysicalTerm anchorCoupling K
+      (centralExtent 0)
+      (assembleReflectedSlabLabelling 0
+        (centralLowerRestriction 0 (firstStretchedTargetPhysical source))
+        (centralBoundaryRestriction 0 (firstStretchedTargetPhysical source))
+        (centralReflectedUpperRestriction 0 (firstStretchedTargetPhysical source)))
+    rw [htargetAssemble]
+    simpa [centralExtent] using firstStretchedTargetPhysicalTerm_pos source
+
 private theorem firstStretchedRawKernelTarget_mem_positive
     {K : Nat} {hK : 1 ≤ K}
     (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
-    (hlocal : FirstStretchedTargetOSLocal source) :
+    (hright : centralReflectedUpperRestriction 0
+        (firstStretchedTargetPhysical source) =
+      firstStretchedCommonRight source) :
     firstStretchedTargetLower source ∈
       centralPositiveHalfStates anchorCoupling (by decide) K 0 := by
   apply mem_centralPositiveHalfStates_iff.mpr
@@ -382,7 +426,7 @@ private theorem firstStretchedRawKernelTarget_mem_positive
     exact Q'.divPos_pos _ _
       (slabParametricKPhysicalPartition_pos
         (by decide) K (centralExtent 0))
-      (firstStretchedTarget_commonRight_rawKernel_pos source hlocal)
+      (firstStretchedTarget_commonRight_rawKernel_pos_of_right_eq source hright)
 
 private theorem firstStretchedRawKernelCommon_mem_positive
     {K : Nat} {hK : 1 ≤ K}
@@ -414,13 +458,14 @@ private theorem firstStretchedRawKernelCommon_mem_positive
 
 /-! ## 4. Vacuum-component preservation -/
 
-/-- **OS-local bad-target bridge.**  A first-stretched entropy target whose
-boundary and upper restrictions are unchanged remains in the exact finite
-vacuum component whenever the original lower endpoint lies there. -/
-theorem firstStretchedTargetLower_mem_vacuumSector_of_source_mem
+/-- A first-stretched target with unchanged reflected upper state remains
+in the exact vacuum component.  No equality of boundary labels is required. -/
+theorem firstStretchedTargetLower_mem_vacuumSector_of_right_eq
     {K : Nat} {hK : 1 ≤ K}
     (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
-    (hlocal : FirstStretchedTargetOSLocal source)
+    (hright : centralReflectedUpperRestriction 0
+        (firstStretchedTargetPhysical source) =
+      firstStretchedCommonRight source)
     (hsourceSector : firstStretchedSourceLower source ∈
       centralPhysicalFiniteVacuumSectorStates
         anchorCoupling (by decide) K 0) :
@@ -436,8 +481,113 @@ theorem firstStretchedTargetLower_mem_vacuumSector_of_source_mem
       (firstStretchedSource_commonRight_rawKernel_pos source)
   exact centralPhysicalFiniteVacuumSectorState_mem_of_reverse_rawKernel_pos
     anchorCoupling (by decide) K 0 hcommonSector
-      (firstStretchedRawKernelTarget_mem_positive source hlocal)
-      (firstStretchedTarget_commonRight_rawKernel_pos source hlocal)
+      (firstStretchedRawKernelTarget_mem_positive source hright)
+      (firstStretchedTarget_commonRight_rawKernel_pos_of_right_eq source hright)
+
+/-- The original boundary-and-upper locality bridge is retained at its
+original type as a consequence of the stronger upper-only theorem. -/
+theorem firstStretchedTargetLower_mem_vacuumSector_of_source_mem
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
+    (hlocal : FirstStretchedTargetOSLocal source)
+    (hsourceSector : firstStretchedSourceLower source ∈
+      centralPhysicalFiniteVacuumSectorStates
+        anchorCoupling (by decide) K 0) :
+    firstStretchedTargetLower source ∈
+      centralPhysicalFiniteVacuumSectorStates
+        anchorCoupling (by decide) K 0 :=
+  firstStretchedTargetLower_mem_vacuumSector_of_right_eq
+    source hlocal.right_eq hsourceSector
+
+/-! ## 5. One-sided changes suffice; only two-sided changes remain -/
+
+/-- A peel is one-sided when it preserves at least one half-state.
+The boundary labels are unrestricted in both cases. -/
+def FirstStretchedTargetOneSided
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK) : Prop :=
+  firstStretchedTargetLower source = firstStretchedSourceLower source ∨
+    centralReflectedUpperRestriction 0 (firstStretchedTargetPhysical source) =
+      firstStretchedCommonRight source
+
+/-- A finite test of equality of at least one half-state. -/
+def firstStretchedTargetOneSidedB
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK) : Bool :=
+  supportedLabellingEqB (centralLowerFaceIds 0)
+      (firstStretchedTargetLower source) (firstStretchedSourceLower source) ||
+    supportedLabellingEqB (centralLowerFaceIds 0)
+      (centralReflectedUpperRestriction 0 (firstStretchedTargetPhysical source))
+      (firstStretchedCommonRight source)
+
+theorem firstStretchedTargetOneSidedB_eq_true_iff
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK) :
+    firstStretchedTargetOneSidedB source = true ↔
+      FirstStretchedTargetOneSided source := by
+  have htargetMem : firstStretchedTargetPhysical source ∈
+      boundedEdgeLabellings K (slabPhysicalFaceEdges 1) :=
+    source.lowerPhysical_mem
+  have htargetRight := centralReflectedUpperRestriction_mem
+    (half := 0) htargetMem
+  unfold firstStretchedTargetOneSidedB FirstStretchedTargetOneSided
+  rw [Bool.or_eq_true,
+    supportedLabellingEqB_true_iff
+      (firstStretchedTargetLower_mem source)
+      (firstStretchedSourceLower_mem source),
+    supportedLabellingEqB_true_iff
+      htargetRight
+      (firstStretchedCommonRight_mem source)]
+
+/-- Every case covered by the former locality test is still covered. -/
+theorem firstStretchedTargetOneSided_of_osLocal
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
+    (hlocal : FirstStretchedTargetOSLocal source) :
+    FirstStretchedTargetOneSided source :=
+  Or.inr hlocal.right_eq
+
+/-- **One-sided bad-target bridge.**  A target that preserves either
+half-state stays in the source's vacuum component, regardless of its boundary. -/
+theorem firstStretchedTargetLower_mem_vacuumSector_of_oneSided
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK)
+    (honeSided : FirstStretchedTargetOneSided source)
+    (hsourceSector : firstStretchedSourceLower source ∈
+      centralPhysicalFiniteVacuumSectorStates
+        anchorCoupling (by decide) K 0) :
+    firstStretchedTargetLower source ∈
+      centralPhysicalFiniteVacuumSectorStates
+        anchorCoupling (by decide) K 0 := by
+  rcases honeSided with hlower | hright
+  · rw [hlower]
+    exact hsourceSector
+  · exact firstStretchedTargetLower_mem_vacuumSector_of_right_eq
+      source hright hsourceSector
+
+/-- The remaining finite test fails exactly when both half-states change.
+This statement asserts no estimate on the mass of those cases. -/
+theorem firstStretchedTargetOneSidedB_eq_false_iff
+    {K : Nat} {hK : 1 ≤ K}
+    (source : GlobalEnumeratedCubeInwardMateFullSource K hK) :
+    firstStretchedTargetOneSidedB source = false ↔
+      firstStretchedTargetLower source ≠ firstStretchedSourceLower source ∧
+        centralReflectedUpperRestriction 0 (firstStretchedTargetPhysical source) ≠
+          firstStretchedCommonRight source := by
+  constructor
+  · intro hfalse
+    have hnot : ¬ FirstStretchedTargetOneSided source := by
+      intro hone
+      have htrue := (firstStretchedTargetOneSidedB_eq_true_iff source).mpr hone
+      rw [hfalse] at htrue
+      cases htrue
+    exact ⟨fun heq => hnot (Or.inl heq), fun heq => hnot (Or.inr heq)⟩
+  · intro hboth
+    cases htest : firstStretchedTargetOneSidedB source with
+    | false => rfl
+    | true =>
+      have hone := (firstStretchedTargetOneSidedB_eq_true_iff source).mp htest
+      exact False.elim (hone.elim hboth.1 hboth.2)
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget
 
@@ -448,3 +598,9 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedSource_commonRight_rawKernel_pos
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTarget_commonRight_rawKernel_pos
 #print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetLower_mem_vacuumSector_of_source_mem
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTarget_commonRight_rawKernel_pos_of_right_eq
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetLower_mem_vacuumSector_of_right_eq
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetOneSidedB_eq_true_iff
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetOneSided_of_osLocal
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetLower_mem_vacuumSector_of_oneSided
+#print axioms YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.firstStretchedTargetOneSidedB_eq_false_iff

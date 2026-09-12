@@ -372,10 +372,17 @@ The next load-bearing producers are, in causal order:
    preserves both actual OS edge-capacity estimates.  The physical-field event
    is now restricted separately, and over it the all-target plus
    first-stretched branch masses exactly reconstruct the genuine BF4 physical
-   mass.  The active sub-edge is therefore the mathematical localization
-   hinge: prove that the first-stretched target rerouting preserves the exact
-   component, then contract its bad mass by `384/425` relative to sector mass
-   and subtract to obtain the positive filtered demand.  After embedding the
+   mass.  The support argument now allows arbitrary boundary changes: since
+   the OS kernel sums over boundary labels, preserving the reflected upper
+   state gives the required two-edge path.  Preserving the lower state also
+   suffices directly.  The first-stretched mass is therefore split exactly
+   into one-sided targets proved to stay in the sector and a two-sided
+   remainder changing both half-states.  That remainder is contained in the
+   older boundary-or-upper crossing list; no strict positive mass saving is
+   asserted.  The active hinge is to control the two-sided targets and carry
+   the weighted target-fiber argument through the sector restriction, then
+   contract bad mass by `384/425` relative to sector mass and subtract to
+   obtain positive filtered demand.  After embedding the
    restricted edge energies in the existing sector Dirichlet form, build a
    translated or component-adapted family that
    separates that exact connected sector with cutoff-uniform weighted
@@ -459,7 +466,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- exact finite sector-local source carrier .............. [PROVED]
 |   |   |   +-- restricted flow retains OS edge capacities ............ [PROVED]
 |   |   |   +-- sector-event good+bad branch conservation ............. [PROVED]
-|   |   |   +-- bad-target rerouting preserves vacuum component ....... [ACTIVE]
+|   |   |   +-- one-sided bad targets preserve vacuum component ....... [PROVED]
+|   |   |   +-- exact successful + one-sided + two-sided mass split ... [PROVED]
+|   |   |   +-- two-sided support + sector weighted-fiber estimate .... [ACTIVE]
 |   |   |   +-- sector demand + sector Dirichlet embedding ............ [OPEN]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

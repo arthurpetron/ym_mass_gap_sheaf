@@ -4,6 +4,36 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: remove an unnecessary boundary condition (2026-09-11)
+
+The first-stretched bad-target support theorem now permits arbitrary changes
+of the reflection-boundary labels.  The raw OS kernel sums over those labels;
+the source and target can each contribute their own positive boundary
+summand.  Consequently equal reflected upper states give a supported two-edge
+path, while equal lower states preserve sector membership directly.
+
+`BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget` proves this
+stronger theorem and an exact Boolean test for preserving either half-state.
+`BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit` proves
+`globalInwardMateVacuumSectorBranches_oneSided_total`: the genuine physical
+sector-event mass is exactly successful mass plus one-sided bad mass plus
+two-sided bad mass.  Every one-sided target stays in the exact vacuum sector.
+The two-sided source list is contained in the previous crossing list.  No
+strict positive reduction of the residual's mass has been proved.
+
+Both changed modules passed focused monitored checks with one worker, a
+20 GiB ceiling, and explicit `.olean` emission.  Their 19 printed declaration
+checks report only `[propext, Quot.sound]`.  No full build/audit was run.
+The root import list, landing page, work plan, and sorry ledger were updated.
+
+Remaining: two-sided target control, the sector-restricted weighted fiber
+estimate, sector-relative demand and separating moves, and an all-vector
+uniform gap.  Completed physical gap and thermodynamic/continuum passages
+remain open.  This is a support refinement, not a discharge of `singleStep`
+or any Clay-facing atom.  The older counters and claims below are historical;
+the source audit in `audits/AUDIT-GROUP-DEPENDENCE.md` remains the context for
+their interpretation.
+
 ## The metric (three counters + a status ladder)
 
 | Symbol | Meaning | Moves how |

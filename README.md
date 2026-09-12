@@ -32,7 +32,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> exact sector-local inward-mate source carrier                    [PROVED]
   -> restricted OS flow retains both edge-capacity bounds            [PROVED]
   -> exact good+bad conservation on sector physical fields           [PROVED]
-  -> bad-branch target map preserves the exact component              [ACTIVE]
+  -> one-sided bad targets stay in the exact component                [PROVED]
+  -> exact successful + one-sided + two-sided mass split              [PROVED]
+  -> two-sided support control + sector weighted-fiber estimate       [OPEN]
   -> sector demand + separating moves, uniform congestion             [OPEN]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
@@ -126,11 +128,18 @@ including the second-edge congestion factor.  It does **not** yet preserve the
 global `41/425` demand floor.  The branch decomposition has now been localized
 at the right level: over the exact finite list of full physical fields whose
 lower restriction is in the vacuum component, all-target mass plus
-first-stretched mass equals the genuine BF4 physical mass exactly.  The next
-mathematical hinge is to prove that the existing first-stretched target
-rerouting preserves that component; its `384/425` contraction can then be
-subtracted inside the localized identity to give a positive sector-relative
-demand.  A translated or component-adapted move family must subsequently
+first-stretched mass equals the genuine BF4 physical mass exactly.  The
+bad-target support argument now needs no equality of boundary labels: the raw
+OS kernel sums over those labels, so each field supplies its own positive
+boundary summand.  A target preserving the reflected upper state therefore
+has a two-edge path from the source lower state.  A target preserving the
+lower state stays in the sector directly.  The resulting exact decomposition is
+`sector physical mass = successful mass + one-sided bad mass + two-sided bad mass`.
+The two-sided residual changes both half-states and is contained in the older
+boundary-or-upper crossing list; no strict positive mass reduction is claimed.
+Controlling those remaining targets and restricting the weighted target-fiber
+estimate to the sector are still needed to obtain a sector-relative `384/425`
+bound and then positive demand.  A translated or component-adapted move family must subsequently
 separate the sector with uniform congestion.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
 sector-local coverage theorem with floor `kappa > 0` produces the rate shape
@@ -177,6 +186,11 @@ second-edge capacity bounds are in
 The exact physical-field sector event and its localized good-plus-bad branch
 conservation identity are in
 [`BF4PhysicalVacuumSectorInwardMateSectorLocalBranchConservation.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalBranchConservation.lean).
+The stronger support theorem, allowing arbitrary boundary changes whenever
+either half-state is preserved, is in
+[`BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateFirstStretchedOSLocalTarget.lean).
+The exact three-way mass identity and residual containment are in
+[`BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalFirstStretchedSplit.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
