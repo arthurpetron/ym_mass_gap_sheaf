@@ -83,6 +83,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + Cauchy--Schwarz + fixed vacuum/root bounds + explicit tolerance [PROVED]
     -> centered-image density in the whole reflected complement     [PROVED]
        (rate from each supplied Cauchy representative; no choice)
+    + same transfer contracts approximation errors + pairing limits [PROVED]
+      -> common dense form bound IFF full complement bound, same q [PROVED]
+         AND construct one common dense q < 1                       [OPEN]
     + two positive physical edges AND zero direct root/probe entry [PROVED]
       -> positive pairing through both original completion limits [PROVED]
       -> SAME completed transfer moves root; T is not identity     [PROVED]
@@ -112,7 +115,22 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** a **strict, quantitatively nonzero excitation in the actual
+**Latest result:** the **common dense form bound and the bound on the entire
+completed reflected vacuum complement are equivalent, with exactly the same
+rate `q`**. The dense side uses the original centered physical presentations;
+the completed side is not restricted to the older marginal-sector image.
+The proof passes both the norm and transfer pairings through the constructed
+approximants, using explicit moduli and no choice of quotient representatives.
+See `dense_form_bound_iff_completed` in
+[`BF4PhysicalCubeDenseFormClosure.lean`](lean/YMGap/Continuum/BF4PhysicalCubeDenseFormClosure.lean),
+with represented pairing continuity in
+[`GNSRepresentedApproximation.lean`](lean/YMGap/Continuum/GNSRepresentedApproximation.lean).
+All 17 printed axiom gates passed in targeted monitored checks; no full-tree
+audit was run. Scope is fixed `w=1/400`, extent one. **No common `q < 1` is
+constructed:** that dense analytic estimate, geometric-time identification,
+and the volume/spacing/continuum passage remain open.
+
+**Previous result:** a **strict, quantitatively nonzero excitation in the actual
 completed vacuum complement**. Define `d = T root - root`; stationarity gives
 `<Omega,d>_E = 0` exactly. If `delta = twoStepFloor` is the physical positive
 pairing floor below, and `P,R` are computed squared-norm ceilings for the

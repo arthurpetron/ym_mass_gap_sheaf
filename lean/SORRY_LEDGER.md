@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Same-rate dense form closure on the entire reflected complement (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/GNSRepresentedApproximation.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCubeDenseFormClosure.lean`.
+- **represented continuity**: `outer` constructs an outer Cauchy family
+  from supplied representatives with squared-error rate M, using M(epsilon/8).
+  `outer_lim_null` and `outer_lim_class` identify its limit with the specified
+  target. `pairing_converges_to` therefore passes the pairing to the two
+  actual target representatives, without an extra limit-identification input
+  or any representative choice.
+- **physical approximation**: `rawApproximant` reuses the existing centered
+  physical Cauchy data. `rawApproximationRate` is the input modulus at
+  `(64/65)*epsilon/approximationFactor`, paying the exact normalization
+  floor. `raw_approximation_bound` and `raw_action_approximation_bound`
+  control the target and its SAME physical transfer image with this rate.
+  `raw_norm_converges` and `raw_transfer_pairing_converges` pin both limits.
+- **closed proof edge**: `represented_form_bound` passes a common rational
+  dense bound through these limits, cancelling and restoring the same
+  positive physical normalization. `completed_form_bound_of_dense` uses
+  quotient induction only for the resulting proposition, giving the bound
+  for EVERY vector of `CubeSectorVacuumComplement`, not just the older
+  marginal-sector image. `dense_form_bound_iff_completed` proves equivalence
+  with the original centered-presentation bound at EXACTLY the same q.
+- **OPEN residue / scope**: q is an explicit input and the common dense
+  inequality is a hypothesis, NOT a constructed strict-gap certificate.
+  The physical objects remain at w=1/400, extent one; no beta/volume/spacing
+  uniformity is asserted. A common q<1, geometric time, vacuum uniqueness,
+  thermodynamic/continuum control and all-group Clay remain open. No existing
+  sorry, canonical scorecard atom or analytic input has been discharged.
+- **verification**: both modules passed focused monitored one-worker 20 GiB
+  checks with `.olean` output; all 17 printed axiom gates are within
+  `{propext, Quot.sound}`. Final logs have no errors or warnings; default proof
+  limits are unchanged. No new sorry, axiom, classical extraction, numerical
+  oracle, full build/audit/guard or progress script was introduced or run.
+  Root edits are imports only; GitHub CI remains disabled.
+
 ## Quantitative strict excitation in the actual completed complement (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeDissipation.lean` and

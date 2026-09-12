@@ -692,6 +692,24 @@ The next load-bearing producers are, in causal order:
    norm-relative floor still required for all centered vectors; it also does
    not supply the canonical geometric-time root's normalized positive-response
    probe.
+   `GNSRepresentedApproximation` now constructs the outer approximation from
+   supplied representative data and rate M(epsilon/8), identifies its limit
+   with the actual specified target, and proves joint pairing convergence.
+   `BF4PhysicalCubeDenseFormClosure` applies this to the original centered
+   physical presentations and their actual transfer images. The raw error
+   rate is `X.modulus((64/65)*epsilon/approximationFactor)`; nonexpansiveness
+   preserves it for the transfer images. Positive normalization cancellation,
+   both pairing limits, and closed order prove `represented_form_bound`.
+   Quotient induction for the resulting proposition gives
+   `completed_form_bound_of_dense` for EVERY vector in the reflected vacuum
+   complement. `dense_form_bound_iff_completed` proves the exact equivalence
+   at the SAME q, without restricting to the older marginal-sector image or
+   choosing quotient representatives. This closes the completion-extension
+   edge, NOT its dense analytic input: no common q<1 is constructed.
+   Both modules passed focused monitored one-worker 20 GiB checks with all
+   17 printed gates within `{propext, Quot.sound}`. Final logs are error/warning
+   free, default limits unchanged; no full build/audit/guard or canonical
+   scorecard closure is claimed. Scope remains fixed w=1/400, extent one.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.

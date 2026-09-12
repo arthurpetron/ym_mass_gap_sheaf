@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: quantitative strict excitation in the actual complement (2026-09-12)
+## Current increment: dense form closure over the entire reflected complement (2026-09-12)
+
+This is PROGRESS on the completion-extension edge, not a new analytic gap:
+`BF4PhysicalCubeDenseFormClosure.dense_form_bound_iff_completed` proves that
+a common rational form bound on the original centered physical presentations
+is equivalent to the SAME bound on EVERY vector of the actual reflected
+vacuum complement, with exactly the same q. The completed side is not confined
+to the image of the older marginal-sector completion.
+
+`GNSRepresentedApproximation.outer` uses supplied Cauchy representatives and
+an explicit squared-error rate M to construct an outer family with rate
+M(epsilon/8). Its limit is proved equal to the specified target;
+`pairing_converges_to` pins the joint pairing limit without an additional
+identification premise. On the physical carrier, `rawApproximationRate`
+uses the existing centered-density modulus at `(64/65)*epsilon`.
+The actual transfer is nonexpansive, so the same rate controls its images.
+`raw_norm_converges` and `raw_transfer_pairing_converges` supply the two
+limits; positive normalization cancellation and closed order pass the bound.
+`completed_form_bound_of_dense` eliminates the target-representative input
+by quotient induction for a proposition, without choosing representative data.
+
+Scope: fixed w=1/400, extent one. No common q<1 is supplied by this
+equivalence. The next analytic producer remains a cutoff-independent weighted
+coverage/Poincare estimate or a direct relative dissipation floor for EVERY
+original centered presentation. A strict completed gap, geometric time,
+vacuum uniqueness, volume/spacing/QFT passage and all-group Clay remain open.
+No canonical scorecard atom or existing sorry is closed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output; all 17 printed axiom gates are within propext/Quot.sound.
+Final logs have no errors or warnings; default proof limits are unchanged.
+No full build/audit/guard, progress script, new analytic premise or numerical
+oracle was used. Root imports, landing page, work plan and sorry ledger are
+updated. GitHub CI remains disabled.
+
+## Previous increment: quantitative strict excitation in the actual complement (2026-09-12)
 
 This is PROGRESS after completed-transfer nonidentity: the concrete
 displacement `d=T root-root` is now an exactly vacuum-orthogonal vector
