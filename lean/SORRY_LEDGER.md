@@ -13,6 +13,53 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Construct transfer maps on the entire raw and reflected cube completions (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/RCBilinearDifference.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCubeDenseTransfer.lean`,
+  `lean/YMGap/Continuum/GNSDenseCompletionExtension.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransfer.lean`.
+- **exact difference bound**: `difference_diagonal` expresses a squared
+  difference through its four cross pairings; `mul_sub` distributes the
+  common normalization. `cancel_positive_factor` uses the supplied positive
+  rational floor to cancel that SAME CReal factor in eventual order, with
+  no inverse and no loss in the estimate. `rawActionRep` uses the existing
+  inhabited recoding producer on the constant explicit cube preimage.
+  `rawAction_class`, `_reflected`, `_pairing` and `_difference_pin` identify
+  the actual physical action and its forms. `rawAction_contraction` is the
+  sharp completed-output/raw-input difference bound for arbitrary signed
+  finite spans, not a strict-gap estimate.
+- **constructed completion extension**: `distance_eventually_le` converts
+  completed distance order to a bound at ORIGINAL representative indices
+  using the supplied QCauchy modulus. `DenseMap.mapOuter` carries the actual
+  output representatives with outer rate X.modulus(epsilon/2); `mapRep`
+  is the existing explicit cofinal double diagonal. `mapRep_null` proves
+  quotient descent by the three-hop/tenth-tolerance estimate.
+  `completionMap_embed` proves exact dense agreement. No data is selected
+  from a proposition or a quotient point.
+- **physical endomaps**: `denseTransferData` inhabits BOTH extension fields
+  by the actual cube action. `cubeRawTransfer` and `cubeTransfer` act on the
+  ENTIRE respective completions. Their `_mk` laws exhibit representatives;
+  `cubeTransferRep_modulus` is gMod, with input/output-dependent diagonal
+  indices, NOT a physical decay rate. `cubeTransfer_rawComparison` and
+  `cubeRawTransfer_reflectedComparison` prove conjugacy. `cubeTransfer_embed`
+  agrees with the original mapped sector action on every finite cube input;
+  `_dense_pairing` pins the actual two-insertion physical output pairings.
+- **scope / OPEN residue**: fixed w=1/400, extent one. This closes construction
+  of the entire-completion maps with exact actual dense agreement. Full-
+  domain positivity, self-adjointness, contraction/linearity and intertwining
+  with the ENTIRE existing marginal sector still require proofs about these
+  new maps; the older mapped-sector laws are not substituted for them.
+  Stationary sector vacuum, geometric time, strict gap, thermodynamic/
+  spacing/QFT and all-group Clay remain open. The general DenseMap interface
+  is concretely inhabited here, not a new unresolved analytic premise.
+  No sorry or scorecard atom is added or discharged.
+- **verification**: all four modules passed focused monitored one-worker
+  20 GiB checks with `.olean` output. Their 31 printed gates contain only
+  permitted axioms; final logs have no errors/warnings. Default proof
+  limits were retained. Root Lean edits are imports only. No full build/
+  audit/guard, progress script or numerical oracle was run; CI stays off.
+
 ## Full completed-sector physical pairing and mapped transfer laws (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalAdmissibleSampleSlowdown.lean`
@@ -43,11 +90,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   moment with the original physical moment with one extra P insertion.
 - **scope / OPEN residue**: fixed w=1/400, extent one. The pairing bridge
   is closed, but `mappedTransfer` is NOT an endomorphism of the entire
-  reflected completion. Next use explicit cube preimages and the existing
-  sector recoding Cauchy producer to construct representative-level dense
-  action data, prove its reflected difference bound, and extend via the
-  raw/reflected representative-family completion with explicit outer
-  moduli. A stationary sector vacuum, geometric time, strict gap,
+  reflected completion. The actual dense action data, sharp difference
+  bound and entire-completion extension are now constructed in the entry
+  above. Full-domain operator laws and whole-source intertwining remain.
+  A stationary sector vacuum, geometric time, strict gap,
   thermodynamic/spacing/QFT and all-group Clay remain open. No sorry,
   new analytic premise or scorecard atom is added or discharged.
 - **verification**: both new modules passed focused monitored one-worker

@@ -552,13 +552,26 @@ The next load-bearing producers are, in causal order:
    completed marginal-sector vectors. The mapped sector action is positive,
    self-adjoint and E-contractive, and `sectorToReflected_moments` gives
    exact one-insertion-shifted physical macro moments. Its domain is still
-   the marginal sector, not the entire E completion. Next construct the
-   representative-level dense action from the inhabited sector recoding
-   producer and explicit cube preimages, prove the reflected difference
-   bound, and use the representative-family completion with its outer
-   modulus to extend/intertwine this SAME action. No arbitrary quotient
-   representative selection is needed or authorized. The transfer producer
-   itself is already inhabited.
+   the marginal sector, not the entire E completion. `RCBilinearDifference`
+   now proves the four-pairing difference identity and exact cancellation
+   of the same positive normalization, with no inverse or constant loss.
+   `BF4PhysicalCubeDenseTransfer.rawActionRep` applies the already inhabited
+   sector recoding producer to the explicit cube preimage. Its cross
+   pairings and difference norm are pinned to the actual P; cancellation
+   yields the sharp raw `rawAction_contraction` bound. The outputs are
+   Cauchy representatives as data, not selected quotient representatives.
+   `GNSDenseCompletionExtension` then constructs the double-Cauchy extension:
+   outer modulus X.modulus(epsilon/2), existing cofinal diagonal, null
+   descent by three comparison hops, and exact dense agreement.
+   `BF4PhysicalCubeCompletedTransfer` inhabits that interface and constructs
+   `cubeRawTransfer` and `cubeTransfer` on the ENTIRE raw/E completions.
+   The two maps are conjugate, and their dense outputs agree exactly with
+   the physical sector action and pairings. Output diagonal rate `gMod`
+   is not physical decay: its representative indices still depend on the
+   input/output moduli. Next prove full-domain operator laws and intertwining
+   with the existing completed marginal sector, using representative limits
+   and the already proved full pairing pin. No arbitrary quotient selection,
+   new transfer producer or analytic hypothesis is needed for this extension.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
    Next establish successful-source traffic coverage or a direct weighted
@@ -696,7 +709,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- comparison preserves E pairing on whole source ....... [PROVED all completed sector vectors]
 |   |   |   +-- mapped sector action positive, self-adjoint, contractive [PROVED E norm, no strict rate]
 |   |   |   +-- mapped sector macro moments = physical shifted moments [PROVED same conditional iterations]
-|   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
+|   |   |   +-- physical dense output Cauchy data + difference pin .... [PROVED same P]
+|   |   |   +-- cancel positive normalization -> sharp contraction .... [PROVED all finite signed differences]
+|   |   |   +-- double-Cauchy extension + null descent + dense agreement [PROVED explicit moduli]
+|   |   |   +-- endomaps on ENTIRE raw/E completions, conjugate ....... [PROVED actual dense action]
+|   |   |   +-- full operator laws + whole marginal-sector intertwining [OPEN completed identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

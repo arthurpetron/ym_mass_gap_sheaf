@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full completed physical pairing and mapped transfer laws (2026-09-12)
+## Current increment: maps on the entire raw/E completions with actual dense agreement (2026-09-12)
+
+This is PROGRESS after the full completed-sector pairing identity. The
+actual conditional action now has Cauchy-representative outputs on every
+finite cube input and a sharp difference-contraction bound. A double-Cauchy
+diagonal and null-descent proof construct maps on the ENTIRE raw and
+reflected cube completions, with exact actual dense agreement and conjugacy.
+
+`RCBilinearDifference` cancels the same positive normalization without an
+inverse or a 65/64 loss. `BF4PhysicalCubeDenseTransfer.rawActionRep` uses
+the existing sector recoding producer and the explicit dense preimages.
+The full pairing pin gives its cross/difference identities and sharp bound.
+`GNSDenseCompletionExtension` carries these output representatives into a
+GeneralCompletionCauchy family with outer rate X.modulus(epsilon/2), forms
+the existing cofinal diagonal, proves null descent and exact dense agreement.
+`BF4PhysicalCubeCompletedTransfer` inhabits the data and constructs both
+endomaps. Their explicit output modulus gMod measures a reparametrized
+Cauchy sequence, NOT physical decay; sample indices depend on input and
+dense-output moduli. No quotient representative is selected.
+
+Next: prove the new maps' full-domain operator laws and intertwining with
+the entire existing completed marginal sector. Those are not discharged
+by the older laws for mappedTransfer, whose domain remains the marginal
+sector. Fixed w=1/400 and extent one remain essential scope restrictions.
+Stationary sector vacuum, geometric time, strict gap, volume/spacing/QFT
+and all-group Clay remain open. No new analytic premise is assumed.
+
+All four new modules passed focused monitored one-worker 20 GiB checks;
+all 31 printed gates use only permitted axioms, and final logs have no
+errors or warnings. Default proof limits were retained. Root imports,
+landing page, work plan and sorry ledger are updated. No full
+build/audit/guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: full completed physical pairing and mapped transfer laws (2026-09-12)
 
 This is PROGRESS after the marginal-sector comparison and dense preimages.
 The comparison now preserves the SAME physical reflected pairing for every
@@ -27,10 +60,9 @@ natural iteration with the exact one-insertion shift. All are at the fixed
 anchor w=1/400 and extent one. The map's domain is still the marginal
 sector; it is not yet an endomorphism of the entire reflected completion.
 
-Next: construct representative-level dense action data using the existing
-sector recoding Cauchy producer and explicit cube preimages, prove the
-reflected difference bound, and perform the representative-family
-completion extension with explicit outer moduli. No arbitrary quotient
+The representative-level dense action, sharp difference bound and entire-
+completion extension are now constructed above. Full operator laws and
+whole-source intertwining remain. No arbitrary quotient
 representatives should be selected. Stationary sector vacuum, geometric
 time, strict gap, volume/spacing/QFT and all-group Clay remain open.
 

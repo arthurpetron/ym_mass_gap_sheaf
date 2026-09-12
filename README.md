@@ -65,7 +65,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + every finite cube vector has a computed sector preimage      [PROVED]
     -> same physical pairing for EVERY completed sector vector     [PROVED]
     -> mapped sector action: positive, self-adjoint, E-contractive  [PROVED]
-    -> extend this SAME action to the entire E completion            [OPEN]
+    + actual dense output Cauchy data + sharp difference contraction [PROVED]
+    -> explicit map on ENTIRE raw/E completions, actual dense pin   [PROVED]
+    -> full operator laws + whole marginal-sector intertwining       [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -89,7 +91,28 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the comparison now preserves the actual physical pairing
+**Latest result:** transfer maps are now constructed on the **entire raw and
+reflected cube completions**, at fixed `w=1/400` and extent one. Each dense
+output uses the existing physical sector-recoding Cauchy representative.
+The full physical pairing identity and cancellation of the common positive
+normalization prove a sharp difference-contraction bound, with no `65/64`
+loss. An explicit double-Cauchy diagonal then constructs the completed map
+and proves independence of input representatives.
+
+The raw/reflected maps are conjugate through the proved inverse comparison.
+On every finite signed cube input they agree exactly with the original
+physical conditional action, including its output pairings. See
+[`BF4PhysicalCubeCompletedTransfer.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransfer.lean).
+The output's diagonal Cauchy modulus is explicit; its sample indices depend
+on the input and dense-output moduli. This is not a physical decay rate.
+
+**Still open at this bridge:** prove the operator laws on the entire new
+completion and intertwining with the entire marginal sector. The existing
+mapped-sector laws do not themselves discharge those statements. A
+stationary sector vacuum, geometric time, strict gap and continuum theory
+remain separate open work.
+
+**Connected completed-pairing result:** the comparison preserves the actual physical pairing
 for **every vector in the completed marginal sector**, not only finite
 presentations. The proof slows the existing shared sampler to pay the finite
 cube admission cutoff and normalization modulus. Its admissibility is
@@ -101,9 +124,10 @@ Consequently the mapped sector action is positive, self-adjoint and
 E-contractive; its iteration moments equal the original physical moments
 with exactly one extra operator insertion. See
 [`BF4PhysicalCubeSectorCompletedPairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCompletedPairing.lean).
-Its domain is still the completed marginal sector. Extending this action to
-the **entire reflected completion** remains open, as do a stationary sector
-vacuum, geometric time and a strict gap. The result is at fixed `w=1/400`
+That earlier `mappedTransfer` has the completed marginal sector as its domain;
+the new `cubeTransfer` above acts on the whole reflected completion. Its full
+operator laws and marginal-sector intertwining remain open, as do a stationary
+sector vacuum, geometric time and a strict gap. The result is at fixed `w=1/400`
 and extent one; no continuum or coupling-uniform claim follows.
 
 **Connected comparison result:** the existing completed marginal root sector maps to
@@ -119,8 +143,8 @@ exactly the original cube vector. See
 and [`BF4PhysicalCubeSectorDensePreimage.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorDensePreimage.lean).
 
 The physical pairing pin now holds on the whole completed source as described
-above. Extending/intertwining its actual conditional transfer on the entire
-reflected completion remains open. A dense preimage is not an inverse between
+above. The completed transfer map with actual dense agreement is now constructed;
+its whole-source intertwining remains open. A dense preimage is not an inverse between
 these two completed spaces.
 
 **Connected completion result:** the literal cube-cylinder image has its reflected-norm
@@ -159,8 +183,8 @@ moments, are preserved. These are unconditional fixed-nome, finite-volume
 results for `0<w<1`, using the constructed source-tail moduli. See
 [`BF4PhysicalCutoffReflectedFormLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffReflectedFormLaws.lean).
 
-Transporting the same conditional operator to this completed root-sector
-image remains open, as do geometric time and a strict gap. The construction
+The new completed root-sector map agrees with the conditional operator on
+dense inputs; full intertwining remains open, as do geometric time and a strict gap. The construction
 does not assume marginal completeness implies E-completeness; its scope is
 the explicit-representative Cauchy quotient and the existing raw completion's
 representative-family completeness.
