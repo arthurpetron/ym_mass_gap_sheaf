@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Finite physical joint-form transfer and canonical comparison (2026-09-11)
+
+- **milestone**: construct the SAME finite conditional operator on the actual
+  reflected form, without assuming norm equivalence or a strict gap.
+- **files**: `lean/YMGap/Continuum/PositiveContractionOneStepForm.lean`,
+  `PositiveContractionOneStepCompletion.lean`, and
+  `BF4PhysicalJointFormTransfer.lean` in the same directory.
+- **algebra**: `oneStep_contraction` proves B(Pa,P²a) <= B(a,Pa) from
+  self-adjointness and 0 <= B(a,Pa) <= B(a,a), by the identity
+  P-P³ = (I-P)P(I-P) + 2P(I-P)P. `oneStepSymbol` retains the same rational
+  action on E(a,b)=B(a,Pb); no spectral theorem or square root is used.
+- **completion**: `comparisonCauchy` retains the representative sequence and
+  its supplied modulus. `comparison_intertwines`, `comparison_contraction`
+  and `comparison_moments` give J P_D = P_E J, norm decrease, and the exact
+  identity <Jx,P_E^n Jy>_E = <x,P_D^(n+1)y>_D. No inverse is claimed.
+- **physical identification**: `physicalJoint_B_eq_joint` is the full
+  bilinear identity with the original partition-normalized OS entries.
+  `physicalJoint_norm_eq_full` includes the discarded zero-marginal rows.
+  `physicalJoint_full_contraction` and `physicalRaw_full_contraction` bound
+  the full normalized/raw physical quadratic under the actual conditional
+  action; the same positive partition cancels exactly.
+- **vacuum and action**: `physicalJointLinearTransfer` is positive,
+  self-adjoint and contractive on this finite joint-form completion.
+  `physicalJointVacuum_fixed` and `physicalJointVacuum_norm_one` transport
+  the actual stationary constant vacuum. `physicalJointComparison_moments`,
+  `physicalJointComparison_vacuumOrthogonal_iff` and
+  `physicalJointVacuumOrthogonal_preserved` pin its moments and centering.
+- **OPEN residue**: all assertions are at each finite cutoff. Neither
+  cutoff-coherent operators on `BF4PhysicalCubeCompletion` nor identification
+  of the macro action with geometric time is constructed. Normalized row
+  limits, the all-spin stationary vacuum, all-vector uniform strict gap,
+  thermodynamic/spacing control and continuum/Clay construction remain open.
+  The raw all-spin vacuum-labelled root is not identified with this finite
+  stationary vacuum. No scorecard atom, sorry or named analytic input is
+  discharged; no new analytic field, axiom or weakened frontier is introduced.
+- **verification**: three focused monitored one-worker, 20 GiB checks emitted
+  `.olean` files; all 33 printed gates stay within `{propext, Quot.sound}`.
+  The physical specialization was rechecked after resumption. Final logs have
+  no errors or warnings. No proof limit was raised and no full-tree
+  build/audit/guard was run. GitHub Actions is now disabled repository-wide.
+
 ## All-spin physical cube GNS datum and raw-form completion (2026-09-11)
 
 - **milestone**: construct the same raw physical OS form beyond every finite

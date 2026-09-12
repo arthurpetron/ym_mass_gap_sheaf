@@ -480,8 +480,17 @@ The next load-bearing producers are, in causal order:
    approximation data and the cofinal diagonal limit with its modulus.
    Completeness has the existing representative-family/outer-modulus scope;
    no representatives are selected from arbitrary quotient-valued sequences.
-   Normalized row sums, marginal-norm compatibility, bounded physical time
-   transfer and gap constants are NOT inferred from raw-form completion.
+   `PositiveContractionOneStepForm` now proves the elementary cubic identity
+   consequence: the same positive contraction P contracts E(a,b)=D(a,Pb).
+   `PositiveContractionOneStepCompletion` constructs the norm-decreasing
+   same-representative comparison, intertwining and exact shifted moments.
+   `BF4PhysicalJointFormTransfer` identifies E with the original finite
+   normalized OS joint form, proves raw OS contraction by partition
+   cancellation, and constructs the same completed conditional action with
+   its unit fixed stationary vacuum and invariant orthogonal complement.
+   This holds separately at each finite cutoff. Normalized row limits,
+   cutoff-coherent norm/operator control on the all-spin raw completion,
+   geometric time identification and strict gap constants remain OPEN.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -594,7 +603,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- one stable raw kernel -> common-cutoff positive form .. [PROVED finite span]
 |   |   |   +-- exact sector union -> signed all-spin GNSData ......... [PROVED no spin ceiling]
 |   |   |   +-- same raw form -> CReal completion + nonzero root ...... [PROVED explicit representatives/moduli]
-|   |   |   +-- normalized row/norm/completed-transfer compatibility .. [OPEN]
+|   |   |   +-- positive P on D -> same P contracts E(a,b)=D(a,Pb) .... [PROVED cubic identity]
+|   |   |   +-- actual finite joint/raw OS form -> completed P ........ [PROVED finite cutoff]
+|   |   |   +-- comparison -> fixed unit vacuum + centered moments .... [PROVED same P, no inverse]
+|   |   |   +-- normalized rows + cofinal norm/operator compatibility . [OPEN all-spin carrier]
+|   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

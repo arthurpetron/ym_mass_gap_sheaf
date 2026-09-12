@@ -3747,6 +3747,10 @@ import YMGap.Continuum.BF4PhysicalCubeStableGram
 import YMGap.Continuum.RationalKernelSpan
 import YMGap.Continuum.BF4PhysicalCubeGNSData
 import YMGap.Continuum.BF4PhysicalCubeCompletion
+-- Same conditional action on the finite reflected form; cofinal/time pins remain open.
+import YMGap.Continuum.PositiveContractionOneStepForm
+import YMGap.Continuum.PositiveContractionOneStepCompletion
+import YMGap.Continuum.BF4PhysicalJointFormTransfer
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

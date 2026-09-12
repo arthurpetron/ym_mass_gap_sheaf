@@ -48,12 +48,19 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                  (all-K exact cube/parity sector + positive
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                                   v
-  -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
-  + raw-entry saturation -> all-spin raw OS form -> completion       [PROVED]
-  + normalized norm/transfer compatibility -> completed gap         [OPEN]
-  + volume-uniform estimates -> controlled thermodynamic limit       [OPEN]
-  + spacing control -> continuum limit and OS/Wightman reconstruction [OPEN]
-  -> extension from SU(2) to every compact simple gauge group        [OPEN]
+  cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
+                                  | required together with:
+  raw-entry saturation -> all-spin raw OS form -> completion         [PROVED]
+  finite marginal form D + actual conditional P, 0 <= P <= I
+    -> E(a,b) = D(a,Pb) -> same P on E-completion + fixed unit vacuum [PROVED]
+    -> exact centered macro moments via the comparison map          [PROVED]
+                                  | required together with:
+  cutoff-coherent operator/norm limits + geometric time identification [OPEN]
+                                  v
+                     same-object completed physical gap             [OPEN]
+                                  | required together with:
+  volume control + spacing control + QFT reconstruction              [OPEN]
+  extension from SU(2) to every compact simple gauge group            [OPEN]
                                   |
                  CONTRACT only through checked bridges
                                   v
@@ -71,7 +78,23 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the all-spin cube-sector raw reflected form now has a
+**Latest result:** the actual finite BF4 conditional operator now acts on the
+completion of its own reflected joint form, with a unit fixed stationary
+vacuum. The proof uses the elementary identity
+`P - P^3 = (I-P)P(I-P) + 2 P(I-P)P`: a positive contraction for the marginal
+form `D` also contracts `E(a,b) = D(a,Pb)`. The latter is exactly the original
+partition-normalized OS joint form; cancellation of the positive partition
+also proves contraction of the full raw OS quadratic.
+
+The canonical comparison `J` keeps the same Cauchy representatives and moduli,
+decreases norms, intertwines the two completed actions, and preserves vacuum
+orthogonality. Its exact moment identity is
+`<Jx, P_E^n Jy>_E = <x, P_D^(n+1) y>_D`. This holds at each finite cutoff;
+it neither asserts an inverse for `J` nor identifies macro iterations with
+geometric time. See
+[`BF4PhysicalJointFormTransfer.lean`](lean/YMGap/Continuum/BF4PhysicalJointFormTransfer.lean).
+
+**Connected all-spin result:** the cube-sector raw reflected form has a
 constructive GNS completion. Its states are exactly the union of the finite
 canonical vacuum components for positive `w`; each state has a computed
 admission cutoff. Explicit finite lists retain arbitrary signed rational
@@ -98,11 +121,13 @@ stable rational entry. Every finite quadratic form of this single stable
 kernel is realized by the original physical OS Gram at a computed common
 cutoff and is nonnegative for `w >= 0`.
 
-This completes the **raw reflected form**, not the normalized physical transfer.
-Normalized row limits, compatibility with the physical marginal-weighted norm,
-a bounded completed time operator, a transfer-fixed vacuum and its uniform
-gap remain open. A nonzero vacuum-labelled root alone does not prove vacuum
-isolation. No continuum or Clay conclusion follows from this milestone.
+The all-spin construction completes the **raw reflected form**. The new
+finite-cutoff comparison does not yet make its conditional operators coherent
+on that all-spin completion. Normalized row limits, cofinal norm/operator
+control, geometric time identification, an all-spin transfer-fixed vacuum and
+a uniform strict gap remain open. The raw vacuum-labelled root is not the
+finite stationary constant vacuum, and its nonzero norm does not prove vacuum
+isolation. No continuum or Clay conclusion follows from these milestones.
 
 **Exact sector:** at slab extent one, every positive rational weight parameter
 `w` and every spin cutoff `K >= 1`, the canonical vacuum sector is **exactly**

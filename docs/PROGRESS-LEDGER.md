@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: complete the all-spin raw physical cube form (2026-09-11)
+## Current increment: the same finite transfer on the reflected form (2026-09-11)
+
+This is PROGRESS: an elementary positive-contraction identity closes the
+finite marginal-to-reflected-form operator bridge, rather than introducing
+another analytic input. The previous goal work produced and checked the
+three modules; this resumption rechecks the physical specialization, records
+the result and checkpoints it. The CI interruption also changed authoritative
+GitHub state: Actions is disabled repository-wide, with no active/queued runs.
+
+For the actual conditional BF4 action P and its marginal form D, the form
+E(a,b)=D(a,Pb) is exactly the original partition-normalized OS joint law.
+The identity P-P³=(I-P)P(I-P)+2P(I-P)P proves that P contracts E. The common
+positive partition cancels to give the same bound on the full RAW finite OS
+quadratic. These are non-strict bounds, not spectral-gap estimates.
+
+`PositiveContractionOneStepCompletion` constructs the canonical map J from
+the D-completion to the E-completion, using unchanged representative sequences
+and Cauchy moduli. It decreases norms and intertwines the same P. The exact
+moment identity is <Jx,P_E^n Jy>_E=<x,P_D^(n+1)y>_D. The physical specialization
+constructs a positive self-adjoint completed contraction, a unit fixed
+stationary vacuum, and an invariant vacuum-orthogonal complement. Comparison
+preserves vacuum pairings and orthogonality; neither an inverse for J nor
+equivalence of norms is asserted.
+
+The next causal seam is genuinely cross-cutoff: these finite conditional
+operators must be made coherent on the all-spin raw completion, and macro
+iterations must be identified with geometric Euclidean time. The all-spin
+raw basis root is not yet the stationary vacuum. Uniform all-vector weighted
+control remains a separate input to a strict physical gap. Volume/spacing
+limits, QFT reconstruction and the all-group Clay target remain open.
+
+All three new modules passed focused monitored one-worker, 20 GiB checks with
+`.olean` output; all 33 printed gates stay within propext/Quot.sound. A fresh
+physical-module check after resumption also passed. Final logs contain no
+errors or warnings. No full build, audit, progress script or frontier guard
+was run, and no proof-resource ceiling was raised. No numerical pilot is
+needed for this rational algebraic identity. Root imports, README, work plan
+and sorry ledger are updated. GitHub Actions remains off repository-wide.
+
+## Previous increment: complete the all-spin raw physical cube form (2026-09-11)
 
 This is PROGRESS: the existing stable kernel is now the inner form of a
 constructed unbounded-spin GNS carrier and its constructive CReal completion.
