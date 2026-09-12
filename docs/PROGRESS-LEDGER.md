@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full transfer laws and entire-sector intertwining (2026-09-12)
+## Current increment: actual stationary sector vector with positive norm (2026-09-12)
+
+This is PROGRESS after the completed transfer/intertwining laws. The sector
+vacuum is no longer an unconstructed carrier input: explicit unit-envelope
+prefixes converge with the existing physical tail modulus to the exact
+sector event. Finite stationarity passes to the original completed operator,
+and the norm of the reflected vector has the explicit floor 64/65.
+
+`BF4PhysicalCubeSectorIndicator` proves the event's finite classification and
+kernel invariance. `BF4PhysicalCubeSectorPrefix` eliminates coefficient-count
+growth by unique matching: every prefix is a zero/one observable everywhere.
+`BF4PhysicalCubeSectorVacuum.coreApproximation` pays only the physical shell
+tail, constructs the marginal-sector Cauchy witness, and identifies both its
+global image and its stationary action. `BF4PhysicalCubeSectorVacuumNorm`
+uses the positive root term and partition ceiling to bound the SAME physical
+reflected norm, with original-cutoff approximations and inner regularity.
+Self-adjointness then proves that this actual vector's complement is invariant;
+the restricted map is positive and contractive, with no new dynamics.
+
+Next: centered observable realization and same-object correlations on this
+complement. The stationary vector need not have norm one, and uniqueness of
+the fixed direction has not been proved. A norm floor is not a spectral gap.
+Fixed w=1/400 and extent one remain essential; conditional iterations are
+not geometric Euclidean time. Strict gap, volume/spacing/QFT passage and
+all-group Clay remain open. No scorecard atom is claimed closed.
+
+The four new modules passed focused monitored one-worker 20 GiB checks;
+all 43 printed gates are empty or use only propext/Quot.sound. Final logs have
+no errors or warnings. Default proof limits are unchanged. Root imports,
+landing page, work plan and sorry ledger are updated. No full build/audit/
+guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: full transfer laws and entire-sector intertwining (2026-09-12)
 
 This is PROGRESS after constructing the entire-completion endomorphisms.
 The SAME maps are now positive, self-adjoint, rational-linear contractions

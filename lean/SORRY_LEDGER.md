@@ -13,6 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Constructed stationary cube-sector vector and positive norm (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorIndicator.lean`,
+  `BF4PhysicalCubeSectorPrefix.lean`, `BF4PhysicalCubeSectorVacuum.lean`, and
+  `BF4PhysicalCubeSectorVacuumNorm.lean` in the same directory.
+- **finite mathematics**: `cubeSectorB` is the cutoff-independent supported
+  common-parity event. Its exact classification and kernel-class invariance
+  give `cubeSectorIndicator_markov_fixed` for every finite cutoff.
+  `sectorPrefix_value` uses unique matching of faithful state codes to prove
+  that the all-one component presentation is a zero/one observable globally,
+  despite its growing number of terms. `sectorPrefix_value_on_core` pins
+  these prefixes to the same event on every retained core.
+- **constructive limit**: `sectorTailRate` is the explicit original physical
+  schedule `max 1 (centralPhysicalTargetShellCutoff anchorCoupling 0 epsilon)`.
+  `coreApproximation` applies the existing core-shell bound with envelope one.
+  `sectorVacuumCauchy`, `sectorVacuumGlobalClose` and `sectorActionClose`
+  retain this rate as data. `sectorVacuum_global` identifies the actual
+  completed marginal-sector vector with the global event observable.
+  `globalSectorVacuum_fixed`, `sectorVacuum_fixed` and
+  `reflectedSectorVacuum_fixed` prove stationarity for the existing maps,
+  using their injectivity/intertwining rather than assuming an eigenvector.
+- **positive norm and restriction**: `vacuumRow_floor` uses the zero-labelled
+  diagonal contribution and original partition ceiling. `sectorVacuumNorm`
+  retains the original cutoff approximations and has
+  `sectorVacuumNormRegularity` as Type-level data; `sectorVacuumNorm_floor`
+  proves 64/65 <= every approximation. `reflectedSectorVacuum_norm` pins
+  this scalar to the SAME completed reflected pairing, giving its RC floor
+  and `reflectedSectorVacuum_ne_zero`. `CubeSectorVacuumComplement` is
+  orthogonality to this actual vector. `cubeTransfer_preserves_vacuumComplement`
+  follows from self-adjointness and stationarity. `sectorComplementTransfer`
+  is the literal restriction and inherits positivity, symmetry and norm
+  contraction with constant one, not a strict spectral rate.
+- **scope / OPEN residue**: w=1/400 and extent one; the norm floor is NOT
+  coupling-uniform. The stationary vector is not asserted to be unit-normalized
+  or the unique fixed direction. Centered observable realization and its
+  same-object correlations on this complement are next. A strict gap,
+  geometric Euclidean time, thermodynamic/spacing/QFT passage and the
+  all-group Clay result remain open. No sorry, axiom, classical extraction,
+  new analytic hypothesis or scorecard closure is introduced.
+- **verification**: all four new modules passed focused monitored one-worker
+  20 GiB checks with `.olean` output; all 43 printed gates are empty or use
+  only `{propext, Quot.sound}`. Final logs have no errors or warnings, and
+  default proof limits are unchanged. Root edits are imports only. No full
+  build/audit/guard, progress script or numerical oracle was run. CI stays off.
+
 ## Full cube transfer laws, whole-sector intertwining and same-object moments (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/GNSJointPairingContinuity.lean`,

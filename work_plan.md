@@ -584,9 +584,24 @@ The next load-bearing producers are, in causal order:
    with the exact one-insertion shift. These three modules passed 49 axiom
    gates in focused monitored one-worker 20 GiB checks (2026-09-12); no full
    build/audit/guard was run. No arbitrary quotient selection, new transfer
-   producer or analytic hypothesis is introduced. The next completed-carrier
-   frontier is a stationary sector vacuum with a proved positive norm,
-   followed by its same-object centered correlations. Conditional powers
+   producer or analytic hypothesis is introduced. `BF4PhysicalCubeSectorIndicator`
+   now proves exact finite stationarity of the cutoff-independent sector event.
+   `BF4PhysicalCubeSectorPrefix` proves its finite presentations are globally
+   zero/one observables: injectivity eliminates any growing coefficient-sum
+   loss. `BF4PhysicalCubeSectorVacuum` uses the existing physical tail schedule
+   `max 1 (centralPhysicalTargetShellCutoff anchorCoupling 0 epsilon)` to
+   construct the sector Cauchy witness and pin its global image to that event.
+   Exact core stationarity and the unit envelope prove that the SAME completed
+   transfer fixes this vector. `BF4PhysicalCubeSectorVacuumNorm` pins its actual
+   reflected squared norm to a CReal with explicit inner regularity and the
+   original-cutoff floor 64/65. The zero-labelled term and partition ceiling
+   pay the floor, only at this fixed coupling and extent. It also proves the
+   vector is nonzero and its orthogonal complement is invariant, with the
+   restricted positive, self-adjoint contraction. These four modules passed
+   43 printed axiom gates in focused monitored one-worker 20 GiB checks;
+   no full build/audit/guard was run. No new analytic premise or scorecard
+   closure is claimed. The next frontier is centered observable realization
+   and same-object correlations on this complement. Conditional powers
    still have no geometric-time identification; the strict gap is open.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
@@ -729,7 +744,12 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- cancel positive normalization -> sharp contraction .... [PROVED all finite signed differences]
 |   |   |   +-- double-Cauchy extension + null descent + dense agreement [PROVED explicit moduli]
 |   |   |   +-- endomaps on ENTIRE raw/E completions, conjugate ....... [PROVED actual dense action]
-|   |   |   +-- full operator laws + whole marginal-sector intertwining [OPEN completed identification]
+|   |   |   +-- full operator laws + whole marginal-sector intertwining [PROVED same completed action]
+|   |   |   +-- unit sector prefixes + physical tail -> Cauchy Omega . [PROVED explicit modulus]
+|   |   |   +-- finite stationarity -> T Omega = Omega ............... [PROVED same actual operator]
+|   |   |   +-- root weight + partition ceiling -> norm^2 >= 64/65 ... [PROVED fixed anchor/extent]
+|   |   |   +-- self-adjointness -> invariant Omega complement ....... [PROVED non-strict contraction]
+|   |   |   +-- centered observable realization on this complement ... [OPEN]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

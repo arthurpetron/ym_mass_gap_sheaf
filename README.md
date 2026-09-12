@@ -71,7 +71,10 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
       self-adjoint contraction on BOTH entire completions          [PROVED]
     -> dense testing -> whole marginal-sector intertwining         [PROVED]
     -> same conditional-power moments, exact one-insertion shift   [PROVED]
-    + stationary sector vacuum with positive norm                    [OPEN]
+    + exact sector indicator + unit-envelope prefixes + tail modulus [PROVED]
+    -> completed stationary sector Omega, ||Omega||^2 >= 64/65      [PROVED]
+    -> Omega-perp invariant under the SAME positive contraction    [PROVED]
+    + centered observable realization on this complement             [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -95,7 +98,22 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the actual transfer is now proved positive, self-adjoint,
+**Latest result:** a stationary vector in the actual completed cube sector
+is now constructed, with squared norm at least `64/65`. This is at fixed
+`w=1/400` and extent one, not uniformly in the coupling. Finite component
+indicators are zero/one observables with a common envelope; the original
+physical tail modulus makes their prefixes Cauchy. Their global image is
+exactly the cutoff-independent sector event, and finite stationarity passes
+to the same completed transfer. The positive zero-labelled contribution and
+partition ceiling supply the explicit norm floor. Self-adjointness then
+makes this vector's orthogonal complement invariant, with the same positive
+contractive operator. See
+[`BF4PhysicalCubeSectorVacuum.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorVacuum.lean)
+and [`BF4PhysicalCubeSectorVacuumNorm.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorVacuumNorm.lean).
+This stationary vector is neither asserted to have unit norm nor proved to
+be the unique fixed direction; a norm floor is not a spectral gap.
+
+**Connected transfer result:** the actual transfer is proved positive, self-adjoint,
 rational-linear and contractive on the **entire raw and reflected cube
 completions**, at fixed `w=1/400` and extent one. Joint continuity of the
 pairing passes the dense squared-distance bound to all vectors with constant
@@ -110,8 +128,9 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** construct a stationary sector vacuum with positive norm.
-The nonzero root cylinder is not that vacuum. Identifying conditional
+**Next frontier:** realize centered observables and their same-object
+correlations on this stationary vector's complement. The nonzero root
+cylinder is not the stationary sector event. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`
 is nonexpansiveness, not a mass gap. The explicit Cauchy diagonal modulus
@@ -131,8 +150,9 @@ with exactly one extra operator insertion. See
 [`BF4PhysicalCubeSectorCompletedPairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCompletedPairing.lean).
 That earlier `mappedTransfer` has the completed marginal sector as its domain;
 the new `cubeTransfer` above acts on the whole reflected completion. Its full
-rational-linear operator laws and marginal-sector intertwining are now proved;
-a stationary sector vacuum, geometric time and a strict gap remain open. The result is at fixed `w=1/400`
+rational-linear operator laws and marginal-sector intertwining are now proved,
+as is the positive-norm stationary sector vector above. Geometric time and
+a strict gap remain open. The result is at fixed `w=1/400`
 and extent one; no continuum or coupling-uniform claim follows.
 
 **Connected comparison result:** the existing completed marginal root sector maps to
