@@ -3751,6 +3751,8 @@ import YMGap.Continuum.BF4PhysicalCubeCompletion
 import YMGap.Continuum.PositiveContractionOneStepForm
 import YMGap.Continuum.PositiveContractionOneStepCompletion
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
+-- Actual cutoff-removed normalization of the raw all-spin reflected form.
+import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts

@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Same all-spin raw/normalized cube form (2026-09-11)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalCubeNormalizedKernelLimit.lean`.
+- **construction**: `normalizedKernelLimit` is the actual fixed-nome,
+  extent-one pair-cylinder cutoff limit for any two unbounded cube-sector
+  states. `normalizedKernelRegularity` retains the degree-thirteen modulus.
+  `inversePartitionLimit` divides the actual vacuum-pair limit by its positive
+  stable RAW entry, using a rational reciprocal, not a limiting inverse.
+  `inversePartitionRegularity` retains the computed scaling modulus.
+- **same-object pin**: `inversePartitionLimit_approx` identifies every
+  approximation with the reciprocal of `slabParametricKPhysicalPartition`.
+  `normalizedKernelLimit_approx_scaled` is exact past the computed pair
+  saturation cutoff, and `normalizedKernelLimit_eq_scaled` passes that exact
+  identity to the actual pair-cylinder limit.
+- **whole signed form**: `normalizedFormLimit` and `normalizedFormRegularity`
+  allow arbitrary signed term lists and repetitions.
+  `normalizedFormLimit_approx_finite` identifies the actual normalized OS
+  finite form once K >= 2*(termSpinBound left + termSpinBound right).
+  `inversePartitionLimit_anchor_floor` and `inversePartitionLimit_upper`
+  yield `normalizedFormLimit_anchor_norm_bounds`: at w=1/400 and extent one,
+  (64/65)*raw squared norm <= normalized squared norm <= raw squared norm.
+  The lower constant is the reciprocal of the already proved 65/64 partition
+  ceiling; no exploratory numerical assumption is added.
+- **frontier correction from source**: the existing
+  `BF4PhysicalCutoffStationarySourceTail.centralPhysicalDenseMarkovCauchyData`
+  already produces dense conditional-action moduli, and
+  `BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer.centralPhysicalConcreteAdaptiveCompletedMarkovTransfer`
+  already constructs the marginal-norm cutoff-removed transfer with a fixed
+  stationary vacuum and invariant orthogonal complement. Earlier entries'
+  statements that normalized rows/transfer were simply open were too broad.
+  Their remaining application here is identification with this REFLECTED
+  cube completion; no existing producer is re-assumed or replaced.
+- **OPEN**: completed comparison/action on the reflected cube carrier,
+  geometric Euclidean-time identification, its stationary vacuum and uniform
+  strict gap, volume/spacing limits, continuum QFT and all-group Clay target.
+  A norm-normalization floor is not a spectral-gap floor. No scorecard atom,
+  named analytic hypothesis or sorry is discharged or introduced.
+- **verification**: the final focused monitored single-worker 20 GiB check
+  emitted `.olean`; all 13 gates use only propext/Quot.sound, with no errors
+  or warnings. No heartbeat/recursion limit was raised. No full-tree build,
+  audit or guard was run. The existing adaptive stack was source-inspected,
+  not rebuilt in this increment. GitHub Actions remains off repository-wide.
+
 ## Finite physical joint-form transfer and canonical comparison (2026-09-11)
 
 - **milestone**: construct the SAME finite conditional operator on the actual

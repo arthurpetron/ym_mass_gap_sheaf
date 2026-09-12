@@ -51,11 +51,14 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   cutoff-uniform all-vector non-abelian Poincare estimate             [OPEN]
                                   | required together with:
   raw-entry saturation -> all-spin raw OS form -> completion         [PROVED]
+    -> common physical normalization + signed-form cutoff identity [PROVED]
+    -> raw/normalized reflected norm comparison, fixed w=1/400      [PROVED]
   finite marginal form D + actual conditional P, 0 <= P <= I
     -> E(a,b) = D(a,Pb) -> same P on E-completion + fixed unit vacuum [PROVED]
     -> exact centered macro moments via the comparison map          [PROVED]
                                   | required together with:
-  cutoff-coherent operator/norm limits + geometric time identification [OPEN]
+  source tails -> cutoff-removed marginal-norm conditional transfer  [PROVED]
+  transport that action to the reflected completion + geometric time [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
                                   | required together with:
@@ -78,7 +81,20 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the actual finite BF4 conditional operator now acts on the
+**Latest result:** the all-spin raw cube form now has its actual physical
+cutoff-limit normalization. A single constructed `CReal` factor `lambda`
+satisfies `normalized kernel = lambda * raw kernel`; its approximations are
+exactly the reciprocals of the original finite partitions. The same identity
+holds for every finite signed term list, including repeated states, after a
+computed common cutoff. All limit constructions carry explicit moduli.
+
+At the fixed anchor `w=1/400` and extent one, the checked partition ceiling
+gives `64/65 <= lambda <= 1`, hence the corresponding two-sided comparison
+of raw and normalized reflected squared norms. This is not a strict transfer
+bound and is not a comparison with the marginal norm. See
+[`BF4PhysicalCubeNormalizedKernelLimit.lean`](lean/YMGap/Continuum/BF4PhysicalCubeNormalizedKernelLimit.lean).
+
+**Connected finite-transfer result:** the actual finite BF4 conditional operator acts on the
 completion of its own reflected joint form, with a unit fixed stationary
 vacuum. The proof uses the elementary identity
 `P - P^3 = (I-P)P(I-P) + 2 P(I-P)P`: a positive contraction for the marginal
@@ -121,13 +137,17 @@ stable rational entry. Every finite quadratic form of this single stable
 kernel is realized by the original physical OS Gram at a computed common
 cutoff and is nonnegative for `w >= 0`.
 
-The all-spin construction completes the **raw reflected form**. The new
-finite-cutoff comparison does not yet make its conditional operators coherent
-on that all-spin completion. Normalized row limits, cofinal norm/operator
-control, geometric time identification, an all-spin transfer-fixed vacuum and
-a uniform strict gap remain open. The raw vacuum-labelled root is not the
-finite stationary constant vacuum, and its nonzero norm does not prove vacuum
-isolation. No continuum or Clay conclusion follows from these milestones.
+The repository already constructs a cutoff-removed conditional transfer on
+the **marginal-norm completion**, using explicit stationary-source-tail data;
+see
+[`BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer.lean`](lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer.lean).
+It fixes that completion's stationary vacuum and preserves vacuum orthogonality.
+The remaining operator bridge is to the **reflected cube completion** above,
+not a missing conditional-transfer construction everywhere. The new common
+normalization identifies forms, not that operator action or geometric time.
+A transfer-fixed vacuum on this reflected completion, a uniform strict gap,
+thermodynamic/spacing limits and continuum reconstruction remain open. The
+nonzero raw vacuum-labelled root alone does not prove vacuum isolation.
 
 **Exact sector:** at slab extent one, every positive rational weight parameter
 `w` and every spin cutoff `K >= 1`, the canonical vacuum sector is **exactly**

@@ -488,9 +488,19 @@ The next load-bearing producers are, in causal order:
    normalized OS joint form, proves raw OS contraction by partition
    cancellation, and constructs the same completed conditional action with
    its unit fixed stationary vacuum and invariant orthogonal complement.
-   This holds separately at each finite cutoff. Normalized row limits,
-   cutoff-coherent norm/operator control on the all-spin raw completion,
-   geometric time identification and strict gap constants remain OPEN.
+   This holds separately at each finite cutoff.
+   `BF4PhysicalCubeNormalizedKernelLimit` now constructs the shared inverse
+   partition CReal from the actual vacuum-pair cylinder limit, retains its
+   Type-level modulus, and identifies every normalized cube kernel entry
+   with that scalar times the stable raw entry. The full signed finite form
+   has exact physical approximations once K >= 2*(left spin sum + right spin
+   sum). At w=1/400, raw and normalized reflected squared norms differ by a
+   factor between 64/65 and 1. This is normalization control, not a gap.
+   Existing `BF4PhysicalCutoffStationarySourceTail.centralPhysicalDenseMarkovCauchyData`
+   and `BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer` already construct
+   the cutoff-removed marginal-norm conditional transfer. Transporting that
+   SAME action to this reflected cube completion, identifying geometric time,
+   and proving a strict gap remain OPEN; do not recreate the existing producer.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -606,7 +616,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- positive P on D -> same P contracts E(a,b)=D(a,Pb) .... [PROVED cubic identity]
 |   |   |   +-- actual finite joint/raw OS form -> completed P ........ [PROVED finite cutoff]
 |   |   |   +-- comparison -> fixed unit vacuum + centered moments .... [PROVED same P, no inverse]
-|   |   |   +-- normalized rows + cofinal norm/operator compatibility . [OPEN all-spin carrier]
+|   |   |   +-- one physical inverse partition -> normalized raw kernel [PROVED explicit modulus]
+|   |   |   +-- whole signed form = actual normalized cutoff form ..... [PROVED computed cutoff]
+|   |   |   +-- 64/65 <= normalization <= 1 ............................ [PROVED fixed anchor/extent]
+|   |   |   +-- source tails -> marginal-norm cutoff-removed transfer .. [PROVED existing adaptive stack]
+|   |   |   +-- same action on reflected cube completion .............. [OPEN operator identification]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

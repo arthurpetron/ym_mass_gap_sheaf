@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: the same finite transfer on the reflected form (2026-09-11)
+## Current increment: identify the all-spin physical normalization (2026-09-11)
+
+This is PROGRESS: the actual cutoff-removed normalized pair-cylinder kernel
+is proved to be ONE constructed scalar times the stable raw cube kernel.
+The identity also covers the whole finite signed form, not merely entries.
+
+`BF4PhysicalCubeNormalizedKernelLimit.inversePartitionLimit` uses the actual
+vacuum-pair limit divided by its positive stable raw entry. Its approximation
+at K equals the reciprocal of the ORIGINAL partition at K. Every pair has
+its explicit eventual equality threshold; every signed term list has the
+computed common cutoff 2*(left spin sum + right spin sum). `InnerRegularity`
+records retain the nome-dependent cylinder modulus and computable rational
+scaling of tolerances. No modulus is extracted from a propositional witness.
+
+The already checked anchor partition ceiling 65/64 gives the inverse factor
+64/65 <= lambda <= 1 at w=1/400 and extent one. Therefore every raw squared
+norm and its normalized reflected counterpart satisfy those same two-sided
+bounds. This is common normalization control, NOT a strict contraction and
+NOT equivalence to the marginal norm.
+
+Source inspection also corrected the roadmap: `centralPhysicalDenseMarkovCauchyData`
+in `BF4PhysicalCutoffStationarySourceTail` and the concrete adaptive transfer
+in `BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer` already construct
+the cutoff-removed marginal-norm action, fixed vacuum, and invariant complement.
+Thus the next work is to transport that existing action to the reflected cube
+completion and pin its geometric time interpretation, not recreate an entire
+conditional-row limit stack. Those modules were inspected, not rebuilt here.
+Uniform all-vector gap, volume/spacing passage and continuum/Clay remain open.
+
+The final targeted monitored single-worker 20 GiB check passed with `.olean`
+output; all 13 printed gates use only propext/Quot.sound, with no errors or
+warnings. No proof resource limit, analytic field, sorry or scorecard status
+was changed. No full build/audit/guard was run. Root imports, README, work
+plan and sorry ledger are updated; Actions stays disabled repository-wide.
+
+## Previous increment: the same finite transfer on the reflected form (2026-09-11)
 
 This is PROGRESS: an elementary positive-contraction identity closes the
 finite marginal-to-reflected-form operator bridge, rather than introducing
