@@ -130,8 +130,17 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   membership condition is global-source membership plus vacuum-sector source
   endpoint membership; every listed three-vertex path is internal to the
   component.
-- **OPEN next edge:** normalize the sector-local flow on this exact source
-  carrier and embed its energies in the sector Dirichlet form, then construct a
+- **PROVED restricted OS flow and capacity inheritance:**
+  `BF4PhysicalVacuumSectorInwardMateSectorLocalOSFlow` restricts the
+  partition-normalized source traffic and each production-target fiber by the
+  exact component classifier.  The restricted traffic is nonnegative, every
+  path is internal, each first edge retains its pointwise OS capacity bound,
+  and each filtered target fiber retains the same
+  `globalInwardMateTransportCost` second-edge congestion bound.  Its witness
+  deliberately has no positive total-demand field.
+- **OPEN next edge:** prove a positive demand lower bound relative to the exact
+  vacuum-sector mass and embed the restricted energies in the sector Dirichlet
+  form, then construct a
   translated or component-adapted move
   family which separates the exact vacuum component with a
   cutoff-uniform weighted congestion bound.  The one-observable estimate and

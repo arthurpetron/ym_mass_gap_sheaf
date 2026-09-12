@@ -367,10 +367,13 @@ The next load-bearing producers are, in causal order:
    state and mate endpoint remain there.  A finite-support Boolean classifier
    now constructs a duplicate-free Type-level source list with the exact iff
    membership condition `global source + source endpoint in the vacuum
-   component`; all three path vertices are proved internal.  The active
-   sub-edge is therefore to normalize the flow on this carrier and embed its
-   edge energies in the existing sector Dirichlet form, then build a translated
-   or component-adapted move family that
+   component`; all three path vertices are proved internal.  Restricting the
+   partition-normalized traffic and production-target fibers to that list
+   preserves both actual OS edge-capacity estimates.  The active sub-edge is
+   therefore to prove a positive filtered-demand lower bound relative to the
+   vacuum-sector mass and embed the restricted edge energies in the existing
+   sector Dirichlet form, then build a translated or component-adapted family
+   that
    separates that exact connected sector with cutoff-uniform weighted
    congestion.  Everything
    after a correctly sector-local coverage input is compiled: a floor
@@ -450,7 +453,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- fixed-root full-carrier all-vector coverage .......... [OBSTRUCTED exact]
 |   |   |   +-- positive OS paths stay in exact vacuum component ..... [PROVED]
 |   |   |   +-- exact finite sector-local source carrier .............. [PROVED]
-|   |   |   +-- normalize flow + embed in sector Dirichlet ............ [ACTIVE]
+|   |   |   +-- restricted flow retains OS edge capacities ............ [PROVED]
+|   |   |   +-- sector-relative demand + sector Dirichlet embedding ... [ACTIVE]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

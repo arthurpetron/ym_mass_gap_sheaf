@@ -30,7 +30,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> concrete finite physical transfer + one strict parity channel   [PROVED]
   -> exact finite vacuum component + positive-edge path closure       [PROVED]
   -> exact sector-local inward-mate source carrier                    [PROVED]
-  -> sector-local flow + separating moves with uniform congestion     [ACTIVE]
+  -> restricted OS flow retains both edge-capacity bounds            [PROVED]
+  -> sector-relative demand + separating moves, uniform congestion    [ACTIVE]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
@@ -117,8 +118,11 @@ component, so whenever an inward-mate source endpoint is in that component,
 its common hub and mate endpoint are there too.  A finite-support Boolean
 classifier now filters the global source enumeration exactly to those paths;
 the resulting Type-level list is duplicate-free and its membership theorem is
-an iff, not an assumed selector.  The next causal object is the normalized
-sector-local flow carried by this list, followed by a translated or
+an iff, not an assumed selector.  Restricting the partition-normalized traffic
+to this list preserves nonnegativity and both proved OS edge-capacity bounds,
+including the second-edge congestion factor.  It does **not** yet preserve the
+global `41/425` demand floor: the next mathematical object is a positive lower
+bound relative to the vacuum-sector mass, followed by a translated or
 component-adapted move family whose endpoint graph separates that sector and
 whose weighted congestion is uniform.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
@@ -160,6 +164,9 @@ both inward-mate path edges are in
 The exact finite-support classifier and duplicate-free sector-local source list
 are in
 [`BF4PhysicalVacuumSectorInwardMateSectorLocalSourceCarrier.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalSourceCarrier.lean).
+The restricted partition-normalized traffic and its inherited first- and
+second-edge capacity bounds are in
+[`BF4PhysicalVacuumSectorInwardMateSectorLocalOSFlow.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalOSFlow.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
