@@ -364,9 +364,13 @@ The next load-bearing producers are, in causal order:
    kernel at cutoff two.  Positive raw OS edges are now proved unable to leave
    `centralPhysicalFiniteVacuumSectorIndices`; in particular, if a certified
    inward-mate source endpoint is in the exact vacuum component, its common
-   state and mate endpoint remain there.  The active sub-edge is therefore to
-   construct the Type-level sector-local source/flow carrier and observable
-   norm, then build a translated or component-adapted move family that
+   state and mate endpoint remain there.  A finite-support Boolean classifier
+   now constructs a duplicate-free Type-level source list with the exact iff
+   membership condition `global source + source endpoint in the vacuum
+   component`; all three path vertices are proved internal.  The active
+   sub-edge is therefore to normalize the flow on this carrier and embed its
+   edge energies in the existing sector Dirichlet form, then build a translated
+   or component-adapted move family that
    separates that exact connected sector with cutoff-uniform weighted
    congestion.  Everything
    after a correctly sector-local coverage input is compiled: a floor
@@ -445,7 +449,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- arbitrary-observable endpoint -> OS energy bound ..... [PROVED]
 |   |   |   +-- fixed-root full-carrier all-vector coverage .......... [OBSTRUCTED exact]
 |   |   |   +-- positive OS paths stay in exact vacuum component ..... [PROVED]
-|   |   |   +-- sector-local source/flow and observable norm .......... [ACTIVE]
+|   |   |   +-- exact finite sector-local source carrier .............. [PROVED]
+|   |   |   +-- normalize flow + embed in sector Dirichlet ............ [ACTIVE]
 |   |   |   +-- translated/component move separation + congestion .... [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route

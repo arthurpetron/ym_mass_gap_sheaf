@@ -122,8 +122,17 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   a retained positive-row state remains in that component, in either kernel
   orientation.  Consequently, whenever a certified inward-mate path starts in
   the component, both its common state and its target endpoint remain there.
-- **OPEN next edge:** construct the Type-level sector-local source/flow carrier
-  and observable-norm restriction, then a translated or component-adapted move
+- **PROVED exact sector-local source carrier:**
+  `BF4PhysicalVacuumSectorInwardMateSectorLocalSourceCarrier` defines a
+  finite-support Boolean vacuum-component classifier and proves it equivalent
+  to literal state membership on the complete half-state carrier.  Filtering
+  the global sources by this test gives a duplicate-free list whose exact
+  membership condition is global-source membership plus vacuum-sector source
+  endpoint membership; every listed three-vertex path is internal to the
+  component.
+- **OPEN next edge:** normalize the sector-local flow on this exact source
+  carrier and embed its energies in the sector Dirichlet form, then construct a
+  translated or component-adapted move
   family which separates the exact vacuum component with a
   cutoff-uniform weighted congestion bound.  The one-observable estimate and
   the conditional algebra do not imply an all-vector Poincare inequality,

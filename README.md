@@ -29,7 +29,8 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> reflection positivity and finite OS Gram                       [PROVED]
   -> concrete finite physical transfer + one strict parity channel   [PROVED]
   -> exact finite vacuum component + positive-edge path closure       [PROVED]
-  -> sector-local source/flow + separating moves with congestion       [ACTIVE]
+  -> exact sector-local inward-mate source carrier                    [PROVED]
+  -> sector-local flow + separating moves with uniform congestion     [ACTIVE]
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
@@ -113,8 +114,11 @@ This obstruction cleanly repoints the proof.  The full positive-row carrier
 is already known to be reducible at cutoff two.  Lean now proves the first
 sector bridge: a positive raw OS edge cannot leave the exact finite vacuum
 component, so whenever an inward-mate source endpoint is in that component,
-its common hub and mate endpoint are there too.  The next causal object is a
-Type-level sector-local source/flow carrier, followed by a translated or
+its common hub and mate endpoint are there too.  A finite-support Boolean
+classifier now filters the global source enumeration exactly to those paths;
+the resulting Type-level list is duplicate-free and its membership theorem is
+an iff, not an assumed selector.  The next causal object is the normalized
+sector-local flow carried by this list, followed by a translated or
 component-adapted move family whose endpoint graph separates that sector and
 whose weighted congestion is uniform.  Only then can the all-vector Poincare
 compiler be instantiated.  Its algebra remains useful: any corrected
@@ -153,6 +157,9 @@ The exact XOR counterexample refuting its full-carrier coverage input is in
 Positive raw-edge closure of the exact vacuum component and its application to
 both inward-mate path edges are in
 [`BF4PhysicalVacuumSectorInwardMateVacuumSectorRestriction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateVacuumSectorRestriction.lean).
+The exact finite-support classifier and duplicate-free sector-local source list
+are in
+[`BF4PhysicalVacuumSectorInwardMateSectorLocalSourceCarrier.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateSectorLocalSourceCarrier.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
