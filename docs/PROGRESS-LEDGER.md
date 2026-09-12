@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all four shear images with coefficient pins (2026-09-12)
+## Current increment: literal temporal ledger and fixed frame (2026-09-12)
+
+PROGRESS: `BF4ExactSlabTemporalGaugeLedger.temporalTranslationSteps`
+generates the actual upper-link chain at arbitrary extent/half-plane.
+Present starting/ending fixed-time links supply left-inverse/right-direct
+steps; absent endpoints supply no step and retain the identity fallback.
+All index bounds and distinctness proofs are structural, including the
+two-block carrier-size guard. No added variables or finite coordinate scans.
+
+`applyTemporalTranslationLedger_haar` proves the chain preserves the SAME
+full product-Haar law for every supported polynomial, without a degree bound.
+Every selected link is upper and every multiplier is fixed-time.
+`BF4ExactSlabTemporalGaugeFixedCoordinates.temporalLedger_nonupper_assignment`
+identifies the WHOLE chain with the existing common assignment on every
+actual lower/fixed link. Its coefficient version retains explicit common
+padding and covers empty ledgers.
+
+Next: the full upper-link image, same-observable substitution identification,
+then global reflected-square gluing. Haar invariance of the ledger is proved;
+identification with the independently defined common assignment is partial.
+No slab positivity, physical time, completed exact-law gap,
+volume/spacing/QFT or all-group Clay atom closed. The exact/positive-law
+identity remains refuted.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+20 + 6 = 26 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-temporal-gauge-ledger.log` and
+`/tmp/ym-temporal-gauge-fixed-coordinates.log`. No new sorry, analytic
+premise, proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+## Previous increment: all four shear images with coefficient pins (2026-09-12)
 
 PROGRESS: `SU2QuaternionInverseTranslationCoordinates.applySelectedTranslationStep_coordinate`
 proves the original left/right direct/inverse shear's ordered coordinate

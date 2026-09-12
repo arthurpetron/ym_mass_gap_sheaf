@@ -18,7 +18,44 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (all four shear images, coefficient-sensitive):**
+**Latest gluing-route progress (literal all-extent ledger and fixed frame):**
+`BF4ExactSlabTemporalGaugeLedger.temporalTranslationSteps` constructs the
+actual carrier's upper-link shear chain for every extent and half-plane.
+Each present starting fixed-time link gives a left-inverse step; each
+present ending fixed-time link gives a right-direct step. Absent endpoints
+give no step, retaining the existing identity fallback. Index bounds and
+selected/multiplier distinctness are structural consequences of membership
+and upper/fixed side separation. `slabLinks_length_gt_one` provides the
+carrier-size guard even at extent zero from two distinct bottom-face edges.
+No new Haar variable, table of finite coordinate checks, or geometric
+certificate hypothesis is introduced.
+
+`applyTemporalTranslationLedger_haar` preserves the SAME full product-Haar
+law for every supported polynomial, at arbitrary extent/half-plane and
+degree. `temporalTranslationSteps_selected_upper` and
+`temporalTranslationSteps_multiplier_fixed` prove the complete ledger frame.
+`BF4ExactSlabTemporalGaugeFixedCoordinates.temporalLedger_nonupper_assignment`
+identifies the WHOLE chain with `upperTemporalLink` on every actual lower
+or fixed link; the coefficient version uses explicit common padding and
+covers empty ledgers. This is no longer just an elementary-step assertion.
+
+Next smaller residue: full upper-link image `g_start^-1 U g_end`, then the
+same-observable polynomial substitution identification and global
+reflected-square gluing. The ledger's Haar invariance is proved; Haar
+invariance of the independently defined common assignment is still OPEN
+until that image pin is complete. Slab positivity, physical time/transfer,
+completed exact-law gap, volume/spacing/QFT and all-group Clay remain OPEN.
+No canonical atom/type change or revival of the refuted exact/positive-law
+identity.
+
+Verification: two focused monitored one-worker checks, 20 GiB ceiling,
+`.olean` outputs, 20 + 6 = 26 gates within `{propext, Quot.sound}`;
+final error/warning free. Logs `/tmp/ym-temporal-gauge-ledger.log` and
+`/tmp/ym-temporal-gauge-fixed-coordinates.log`. No new sorry, analytic
+input, proof-limit increase, numerical oracle, rate or pilot constant.
+No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (all four shear images, coefficient-sensitive):**
 `SU2QuaternionCoordinateConjugation.conjugateBlockQuaternion_coordinate`
 identifies the original coordinate-sign substitution with precisely one
 block's quaternion conjugation. Its ordered multiplication and involution

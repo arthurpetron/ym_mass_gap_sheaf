@@ -59,6 +59,8 @@ REQUIRED PHYSICAL ROUTE
     -> H = heat-weighted path-channel product under Haar            [PROVED]
     + all-degree Haar shears and their finite chains, no scans      [PROVED]
     + all four shear coordinate images, coefficient-sensitive       [PROVED]
+    + literal all-extent temporal ledger preserves original Haar    [PROVED]
+    + full ledger agrees with assignment on lower/fixed links       [PROVED]
     + common upper temporal assignment: all three face classes     [PROVED]
     + identify that assignment with Haar-preserving shears          [OPEN]
     + link-local gluing preserving the reflected observable         [OPEN]
@@ -101,7 +103,22 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: all four shear images, with full coefficient equality.**
+**Latest result: literal temporal ledger and its full fixed-coordinate frame.**
+[`BF4ExactSlabTemporalGaugeLedger.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean)
+generates the actual upper-link shear chain at every slab extent: left-inverse
+by the starting fixed-time link, then right-direct by the ending fixed-time
+link. An absent endpoint contributes no step, matching the existing identity
+fallback without adding variables. Index bounds and distinctness are proved
+structurally. The chain preserves the SAME full product-Haar integral for
+every supported polynomial, with no degree bound or scan hypothesis.
+
+[`BF4ExactSlabTemporalGaugeFixedCoordinates.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeFixedCoordinates.lean)
+identifies the WHOLE chain with the common assignment on every actual lower
+or fixed link. Every emitted multiplier is a fixed-time link, and the chain
+leaves these coordinates unchanged. The coefficient version uses explicit
+common padding and covers empty ledgers. The upper-link image remains open.
+
+**Preceding result: all four shear images, with full coefficient equality.**
 [`SU2QuaternionCoordinateConjugation.lean`](lean/YMGap/Continuum/SU2QuaternionCoordinateConjugation.lean)
 identifies the original coordinate-sign substitution with quaternion
 conjugation on precisely its named block. It fixes all other blocks and
@@ -143,9 +160,9 @@ preserved at every spin, and crossing faces reduce to their actual reflected
 spatial-link Gram kernel at every odd slab extent. All spectator insertions
 remain available, including overlapping face factors.
 
-**Next:** compose the all-four-case coordinate identities into this common
-link assignment using the proved
-Haar-preserving shears, then combine the reflected channels into the SAME
+**Next:** prove the full ledger's upper-link image `g_start^-1 U g_end`,
+transport the same observable through that identified substitution, then
+combine the reflected channels into the SAME
 slab form's square decomposition. The face algebra is proved; the global
 change-of-variables identity and slab positivity are not. Physical time,
 the completed physical gap and continuum/Clay construction remain open.

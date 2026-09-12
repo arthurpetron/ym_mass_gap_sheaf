@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Literal all-extent temporal ledger and fixed frame (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeFixedCoordinates.lean`.
+- **discharged**: `temporalTranslationSteps` constructs the actual upper-link
+  shear chain at arbitrary extent/half-plane, using present starting
+  fixed-time links on the left with inverse orientation and present ending
+  fixed-time links on the right with direct orientation. Absent endpoints
+  give no step, matching the existing identity fallback. Index bounds,
+  distinctness and the carrier-size guard are proved structurally.
+  `applyTemporalTranslationLedger_haar` preserves the SAME full product-Haar
+  law for every supported polynomial, with no degree bound or scan premise.
+  `temporalTranslationSteps_selected_upper` and
+  `temporalTranslationSteps_multiplier_fixed` prove the complete ledger frame.
+  `temporalLedger_nonupper_assignment` identifies the WHOLE chain with
+  `upperTemporalLink` on all actual lower/fixed links; its coefficient
+  version uses common explicit padding and covers empty ledgers.
+- **OPEN residue**: full upper-link coordinate image `g_start^-1 U g_end`,
+  same-observable polynomial substitution identification, and
+  reflected-square gluing on the SAME signed slab form. The ledger's Haar
+  invariance is proved, but Haar invariance of the independently defined
+  common assignment is not yet proved. Slab positivity, physical
+  time/transfer, completed exact-law gap, volume/spacing/QFT and all-group
+  Clay remain open. No canonical field changed or atom closed; the refuted
+  exact/positive-law identity is unused.
+- **verification**: two targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 20 + 6 = 26 gates within `{propext, Quot.sound}`;
+  final error/warning free. Logs `/tmp/ym-temporal-gauge-ledger.log` and
+  `/tmp/ym-temporal-gauge-fixed-coordinates.log`. No new sorry, analytic
+  premise, raised proof limit, numerical oracle or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## All four shear coordinate images with coefficient pins (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionCoordinateConjugation.lean`,
