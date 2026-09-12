@@ -360,7 +360,11 @@ The next load-bearing producers are, in causal order:
    cutoff-independent floor from every centered physical norm to that selected
    endpoint energy.  If the present paths do not separate the physical
    carrier, they must be enlarged; one-observable strictness alone is not a
-   finite-volume spectral gap;
+   finite-volume spectral gap.  Everything after that input is now compiled:
+   a coverage floor `kappa > 0` yields the cutoff-independent strict rate
+   `4(1 + globalInwardMateTransportCost) /
+   (4(1 + globalInwardMateTransportCost) + kappa) < 1` for every centered
+   physical coefficient;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -431,7 +435,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- center parity + strict one-observable form bound ..... [PROVED]
 |   |   |   +-- arbitrary-observable endpoint -> OS energy bound ..... [PROVED]
 |   |   |   +-- selected demand -> separating/all-vector coverage ... [ACTIVE]
-|   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
+|   |   |   `-- coverage -> uniform all-vector strict form rate ...... [PROVED conditional]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
 |   |   |   +-- paired-union component geometry/mass floor ..... [PROVED]

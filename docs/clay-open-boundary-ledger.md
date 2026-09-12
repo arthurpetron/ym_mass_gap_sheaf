@@ -100,6 +100,13 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   most `2 * (1 + globalInwardMateTransportCost)` times the full physical OS
   Dirichlet energy.  `GlobalInwardMateUniformEndpointCoverage` names, but does
   not inhabit, the remaining cutoff-independent centered-norm comparison.
+- **PROVED conditional all-vector compiler:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler`
+  converts any inhabitant with floor `kappa > 0` into the explicit rate
+  `4(1 + globalInwardMateTransportCost) /
+  (4(1 + globalInwardMateTransportCost) + kappa) < 1`, valid for every
+  centered physical coefficient and every cutoff `K >= 1`.  No coverage
+  inhabitant is supplied.
 - **OPEN next edge:** enlarge this single detected parity channel into a
   separating family, or prove direct variance coverage for every centered
   physical vector.  The one-observable estimate does not imply an all-vector

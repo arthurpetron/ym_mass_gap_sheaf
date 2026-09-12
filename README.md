@@ -104,7 +104,15 @@ one positive cutoff-independent floor comparing every centered physical norm
 with that selected endpoint oscillation.  Constructing such coverage—or
 showing that this selected path family must be enlarged—is the active
 mathematical problem.  Until it is solved, no finite-volume spectral gap
-follows.
+follows.  All downstream finite algebra is already compiled: an inhabitant
+with floor `kappa > 0` produces the single all-vector rate
+
+```text
+q_all = 4(1 + globalInwardMateTransportCost)
+        / (4(1 + globalInwardMateTransportCost) + kappa) < 1
+```
+
+uniformly for every cutoff `K >= 1`.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -124,6 +132,8 @@ and strict one-observable form rate are in
 The arbitrary-observable two-edge estimate and exact all-vector coverage
 frontier are in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean).
+The conditional coverage-to-uniform-Poincare contraction is in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
