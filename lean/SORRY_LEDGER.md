@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Sector vacuum pairing and same-object centered realization (2026-09-12)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorCenteredRealization.lean`.
+- **whole-source identity**: `presentation_zero_off_sector` proves support
+  of every literal signed sector cylinder by faithful code matching and the
+  already proved all-cutoff component containment. No cutoff bound on the
+  later state is needed beyond physical lower support. The dense
+  `presentation_sector_pairing_eq_mean` identity passes through the existing
+  outer pairing limits in `completedSector_pairing_eq_mean`.
+  `reflectedSectorVacuum_pairing_eq_mean` uses the actual completed pairing
+  pin and stationarity to identify the NEW sector vacuum's pairing with
+  the ORIGINAL physical global stationary mean, for all source vectors.
+- **realization**: `centeredSectorSource` reuses the existing explicit-modulus
+  moving rational head-centering construction. Its proved mean-zero identity
+  places `centeredCubeVector` in `CubeSectorVacuumComplement` without a new
+  input field. `centeredCubeCorrelator_physical` pins every natural-power
+  moment to the same global conditional moment with one extra insertion.
+  `globalConditionalCovariance` subtracts the product of actual stationary
+  means using the original normalized global vacuum; `_connected` identifies
+  that literal covariance with this same centered reflected correlator.
+- **scope / OPEN residue**: fixed w=1/400, extent one. The global covariance
+  is not silently divided by the sector mass, and the sector vacuum is not
+  assumed unit-normalized. Head centering is not orthogonal projection along
+  that vacuum. The earlier nonzero/positive MARGINAL norm result for a centered
+  probe does not establish positive REFLECTED norm, nor density in the entire
+  reflected complement; these are the next concrete carrier obligations.
+  Geometric time, strict gap, thermodynamic/spacing/QFT and all-group Clay
+  remain open. No sorry, classical extraction, new axiom, analytic premise or
+  scorecard closure is introduced.
+- **verification**: targeted monitored one-worker 20 GiB check passed with
+  `.olean` output; all 11 printed gates use only `{propext, Quot.sound}`.
+  Final log has no errors or warnings; default proof limits are retained.
+  Root edit is one import. No full build/audit/guard, progress script or
+  numerical oracle was run. CI remains disabled.
+
 ## Constructed stationary cube-sector vector and positive norm (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeSectorIndicator.lean`,

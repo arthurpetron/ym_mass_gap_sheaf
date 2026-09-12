@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual stationary sector vector with positive norm (2026-09-12)
+## Current increment: whole-sector mean pin and centered physical correlations (2026-09-12)
+
+This is PROGRESS after constructing the positive-norm stationary vector.
+`BF4PhysicalCubeSectorCenteredRealization` proves that its reflected pairing
+on EVERY completed marginal-sector source equals the original physical
+stationary mean. Exact finite-cylinder support gives the dense identity;
+uniqueness of the two existing pairing limits gives the whole-source pin.
+
+The existing moving rational head-centering construction can therefore be
+reused as actual vectors in the new reflected vacuum complement. No new
+centering producer, representative choice or analytic premise is assumed.
+Their conditional-power correlators equal the literal covariance under the
+original normalized global law, with its two means subtracted and the exact
+one-insertion shift from the E form. The observable and action are the same
+on both sides. This is not orthogonal projection along the sector vacuum.
+
+Next: positive REFLECTED norm for a centered probe, and centered-image density
+in the entire reflected complement. The earlier positive MARGINAL norm cannot
+be transported through E<=B as a lower bound. Fixed w=1/400 and extent one
+remain essential. Conditional powers are not geometric time; strict gap,
+volume/spacing/QFT and all-group Clay remain open. No scorecard closure.
+
+The new module passed a focused monitored one-worker 20 GiB check; its 11
+printed gates use only propext/Quot.sound, with no errors or warnings in the
+final log. Default proof limits are unchanged. Root imports, landing page,
+work plan and sorry ledger are updated. No full build/audit/guard, progress
+script or numerical oracle was run. CI stays off.
+
+## Previous increment: actual stationary sector vector with positive norm (2026-09-12)
 
 This is PROGRESS after the completed transfer/intertwining laws. The sector
 vacuum is no longer an unconstructed carrier input: explicit unit-envelope

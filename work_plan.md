@@ -600,8 +600,21 @@ The next load-bearing producers are, in causal order:
    restricted positive, self-adjoint contraction. These four modules passed
    43 printed axiom gates in focused monitored one-worker 20 GiB checks;
    no full build/audit/guard was run. No new analytic premise or scorecard
-   closure is claimed. The next frontier is centered observable realization
-   and same-object correlations on this complement. Conditional powers
+   closure is claimed. `BF4PhysicalCubeSectorCenteredRealization` now proves
+   that the sector-vacuum pairing equals the original global stationary mean
+   for EVERY completed marginal-sector input. Literal cylinder support proves
+   the dense identity, and uniqueness of the existing pairing limits passes
+   it to the whole source. The already constructed moving rational head
+   corrections therefore realize `centeredCubeVector` in this reflected
+   vacuum complement without a new producer or hypothesis. Its
+   `centeredCubeCorrelator_physical` and `_connected` identities pin every
+   natural conditional-power coefficient to the SAME original physical
+   connected covariance, with the exact extra insertion. This module passed
+   11 printed axiom gates in a focused monitored one-worker 20 GiB check.
+   The head correction is not orthogonal projection along the sector vacuum.
+   The next frontier is a positive REFLECTED norm for a constructed centered
+   probe and centered-image density in the entire reflected complement;
+   the old positive marginal-norm theorem cannot supply either. Conditional powers
    still have no geometric-time identification; the strict gap is open.
    The full reducible carrier is not the cube sector, and the root cylinder
    is not the constant stationary vacuum.
@@ -749,7 +762,11 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- finite stationarity -> T Omega = Omega ............... [PROVED same actual operator]
 |   |   |   +-- root weight + partition ceiling -> norm^2 >= 64/65 ... [PROVED fixed anchor/extent]
 |   |   |   +-- self-adjointness -> invariant Omega complement ....... [PROVED non-strict contraction]
-|   |   |   +-- centered observable realization on this complement ... [OPEN]
+|   |   |   +-- sector vacuum pairing = original stationary mean ..... [PROVED whole marginal source]
+|   |   |   +-- moving centered cylinders -> reflected complement .... [PROVED existing Cauchy data]
+|   |   |   +-- same-object connected conditional covariance ......... [PROVED exact one-insertion shift]
+|   |   |   +-- positive reflected norm of a centered probe ........... [OPEN marginal positivity insufficient]
+|   |   |   +-- centered-image density in the reflected complement .... [OPEN]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

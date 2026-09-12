@@ -74,7 +74,11 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + exact sector indicator + unit-envelope prefixes + tail modulus [PROVED]
     -> completed stationary sector Omega, ||Omega||^2 >= 64/65      [PROVED]
     -> Omega-perp invariant under the SAME positive contraction    [PROVED]
-    + centered observable realization on this complement             [OPEN]
+    -> sector vacuum pairing = original stationary mean            [PROVED]
+    + moving rational centering -> vectors in this complement      [PROVED]
+    -> same-object connected conditional covariance, exact shift   [PROVED]
+    + positive reflected norm of a centered probe                    [OPEN]
+    + centered-image density in the whole reflected complement       [OPEN]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -98,7 +102,20 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** a stationary vector in the actual completed cube sector
+**Latest result:** the constructed sector vacuum's pairing equals the
+original physical stationary mean on the **entire completed marginal
+sector**. This identifies the existing moving rationally centered cylinders
+with vectors in the new reflected vacuum complement. Their correlators are
+proved equal to literal connected covariances under the original physical
+law, using the same observable and conditional action, with the exact
+one-insertion shift. See
+[`BF4PhysicalCubeSectorCenteredRealization.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCenteredRealization.lean).
+This uses a rational head correction, not orthogonal projection along the
+sector vacuum. The earlier positive **marginal** norm of a centered probe
+does not yet prove positive **reflected** norm or density in the entire
+reflected complement.
+
+**Connected vacuum result:** a stationary vector in the actual completed cube sector
 is now constructed, with squared norm at least `64/65`. This is at fixed
 `w=1/400` and extent one, not uniformly in the coupling. Finite component
 indicators are zero/one observables with a common envelope; the original
@@ -128,8 +145,8 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** realize centered observables and their same-object
-correlations on this stationary vector's complement. The nonzero root
+**Next frontier:** prove a positive reflected norm for a constructed centered
+probe and establish centered-image density in the reflected complement. The nonzero root
 cylinder is not the stationary sector event. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`
