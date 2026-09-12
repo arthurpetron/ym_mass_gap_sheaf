@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: construct the stable raw physical cube Gram (2026-09-11)
+## Current increment: complete the all-spin raw physical cube form (2026-09-11)
+
+This is PROGRESS: the existing stable kernel is now the inner form of a
+constructed unbounded-spin GNS carrier and its constructive CReal completion.
+The carrier and positivity fields are outputs, not fresh analytic obligations.
+
+`RationalKernelSpan` keeps finite signed state/coefficient lists, including
+repetitions, and constructs the additive and bilinear machinery up to equality
+of all kernel-section pairings. `BF4PhysicalCubeGNSData` instantiates it on
+the actual cube/common-parity subtype. Every state has a computed canonical
+finite-sector admission cutoff, and every finite canonical sector embeds with
+its labellings unchanged. Every signed quadratic form is the original OS
+boundary Gram at one computed common cutoff. There is no global spin ceiling.
+
+`BF4PhysicalCubeCompletion` preserves that same form on the dense finite-span
+image. Its basis inner products are exactly `centralPhysicalReflectedKernel`
+entries at every cutoff beyond the explicit saturation threshold. The
+vacuum-labelled root has raw squared norm at least one and remains nonzero.
+Finite approximations use each representative's supplied modulus; the general
+representative-family limit is an explicit cofinal diagonal with modulus
+`gMod`. The completeness scope does not include choosing representatives of
+an arbitrary quotient-valued sequence.
+
+The next causal seam is normalized physical transfer/norm compatibility on
+this unbounded carrier, alongside the separate all-vector weighted estimate.
+No transfer-fixed vacuum, completed physical time operator or spectral gap
+has been obtained merely by completing the raw form. Thermodynamic limits,
+spacing control, continuum QFT and the all-group Clay target remain open.
+
+Three focused monitored one-worker, 20 GiB checks passed with `.olean` output;
+all 35 new printed axiom reports are empty or within propext/Quot.sound and
+the final logs contain no errors or warnings. No full build, audit, progress
+script or frontier guard was run. No new numerical constant requires a pilot:
+the common-cutoff bound is the previously verified saturation bound. README,
+root imports, work plan and sorry ledger are updated. GitHub CI remains off.
+
+## Previous increment: construct the stable raw physical cube Gram (2026-09-11)
 
 This is PROGRESS: the full production kernel, not only one chosen positive
 edge, now has an exact reduced formula and a cutoff-independent raw positive

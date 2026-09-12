@@ -49,7 +49,7 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
                   OS vacuum orbits: PROVED; weighted coverage: OPEN)
                                   v
   -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
-  + exact raw-entry saturation + stable positive Gram               [PROVED]
+  + raw-entry saturation -> all-spin raw OS form -> completion       [PROVED]
   + normalized norm/transfer compatibility -> completed gap         [OPEN]
   + volume-uniform estimates -> controlled thermodynamic limit       [OPEN]
   + spacing control -> continuum limit and OS/Wightman reconstruction [OPEN]
@@ -71,8 +71,23 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** at slab extent one, the full raw OS kernel on cube-supported
-states now has an exact heat-weight/Boolean-overlap formula. For each half, its 48 production
+**Latest result:** the all-spin cube-sector raw reflected form now has a
+constructive GNS completion. Its states are exactly the union of the finite
+canonical vacuum components for positive `w`; each state has a computed
+admission cutoff. Explicit finite lists retain arbitrary signed rational
+coefficients and repeated states. Their complete form is the original physical
+boundary Gram at a computed common cutoff, not an assumed positive model.
+
+The completed basis inner products equal the same raw physical kernel entries
+at every cutoff beyond their saturation threshold. The vacuum-labelled root
+has squared norm at least one and remains nonzero after completion. Finite
+approximations and diagonal-limit representatives carry explicit moduli.
+Completeness uses representative families with a supplied outer Cauchy modulus;
+it does not select representatives from arbitrary quotient-valued sequences.
+See [`BF4PhysicalCubeCompletion.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletion.lean).
+
+The kernel underlying this construction, at slab extent one, has an exact
+heat-weight/Boolean-overlap formula. For each half, its 48 production
 links reduce to twelve SU(2) triangle tests and twelve boundary-zero tests;
 the fixed part contributes eight corner triangles. The original weights and
 boundary enumeration are retained, with no auxiliary multiplicity left.
@@ -83,9 +98,11 @@ stable rational entry. Every finite quadratic form of this single stable
 kernel is realized by the original physical OS Gram at a computed common
 cutoff and is nonnegative for `w >= 0`.
 
-This is raw-entry compatibility and a positive algebraic finite-span form,
-not convergence of normalized rows, Hilbert norms, or completed transfer
-operators. Those constructions and a cutoff-uniform gap remain open.
+This completes the **raw reflected form**, not the normalized physical transfer.
+Normalized row limits, compatibility with the physical marginal-weighted norm,
+a bounded completed time operator, a transfer-fixed vacuum and its uniform
+gap remain open. A nonzero vacuum-labelled root alone does not prove vacuum
+isolation. No continuum or Clay conclusion follows from this milestone.
 
 **Exact sector:** at slab extent one, every positive rational weight parameter
 `w` and every spin cutoff `K >= 1`, the canonical vacuum sector is **exactly**

@@ -471,8 +471,17 @@ The next load-bearing producers are, in causal order:
    `BF4PhysicalCubeStableGram.cubeStableQuadratic_eq_physicalGram` computes
    a common physical cutoff and identifies the full form with that OS Gram;
    `cubeStableQuadratic_nonnegative` proves positivity of the single stable
-   kernel for nonnegative w. Normalized row sums, completion norms, bounded
-   transfers, and gap constants are NOT inferred from entrywise stability.
+   kernel for nonnegative w. `BF4PhysicalCubeGNSData` now constructs the
+   unbounded-spin carrier as the cube/common-parity subtype, proves admission
+   of each state to an explicitly computed canonical sector, and builds its
+   signed finite-span GNS datum from the same physical boundary Gram.
+   `BF4PhysicalCubeCompletion` constructs the raw-form CReal completion,
+   exact embedded physical entries, a nonzero vacuum-labelled root, finite
+   approximation data and the cofinal diagonal limit with its modulus.
+   Completeness has the existing representative-family/outer-modulus scope;
+   no representatives are selected from arbitrary quotient-valued sequences.
+   Normalized row sums, marginal-norm compatibility, bounded physical time
+   transfer and gap constants are NOT inferred from raw-form completion.
    Next establish successful-source traffic coverage or a direct weighted
    OS-path estimate, with cutoff-independent norm control. No uniform
    transition probability follows from the positive edge product.
@@ -583,6 +592,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- full OS kernel = endpoint heat * boundary overlap ..... [PROVED exact]
 |   |   |   +-- fusion upper bounds -> exact raw-entry saturation ...... [PROVED explicit cutoff]
 |   |   |   +-- one stable raw kernel -> common-cutoff positive form .. [PROVED finite span]
+|   |   |   +-- exact sector union -> signed all-spin GNSData ......... [PROVED no spin ceiling]
+|   |   |   +-- same raw form -> CReal completion + nonzero root ...... [PROVED explicit representatives/moduli]
 |   |   |   +-- normalized row/norm/completed-transfer compatibility .. [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

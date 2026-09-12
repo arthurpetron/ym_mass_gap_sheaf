@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All-spin physical cube GNS datum and raw-form completion (2026-09-11)
+
+- **milestone**: construct the same raw physical OS form beyond every finite
+  spin ceiling, and apply the existing constructive completion to that datum.
+- **files**: `lean/YMGap/Continuum/RationalKernelSpan.lean`,
+  `BF4PhysicalCubeGNSData.lean`, and `BF4PhysicalCubeCompletion.lean` in the
+  same directory.
+- **algebra**: `RationalKernelSpan.toGNSData` retains explicit finite lists of
+  state/coefficient pairs. Carrier equivalence is equality of all kernel-section
+  pairings; no decidable state equality, finite state universe, coefficient
+  positivity or duplicate-free presentation is assumed. The generic positivity
+  argument is supplied concretely in the physical application below.
+- **physical carrier**: `CubeSectorState` is the actual cube/common-parity
+  subtype. `state_mem_finite_sector` computes admission at `cubeSpinSum + 1`
+  for positive w; `stateOfFiniteSector` includes every canonical finite sector.
+  `form_eq_physicalGram` handles every signed term list, including repeats, at
+  `termGramCutoff = 4 * termSpinBound`. `form_nonnegative` and `cubeGNSData`
+  construct every GNS field from the original physical channels and weights.
+- **completion**: `completedInner_embedSpan` preserves the entire rational
+  form; `completedBasis_inner_at_cutoff` identifies each embedded matrix entry
+  with `centralPhysicalReflectedKernel` at every sufficiently large cutoff.
+  `root_norm_lower_bound` gives squared root norm at least one, and
+  `completedRoot_ne_zero` proves it survives the quotient and completion.
+  `finiteApproximation` and `finiteApproximation_close` give finite rational
+  approximants at the supplied representative modulus. `cubeCauchyLimit`
+  retains the computed cofinal diagonal; its representative modulus is `gMod`.
+  `cubeCompleteHilbert` uses the existing `GeneralCompletionCauchy` scope:
+  supplied representatives and outer modulus, with propositional eventual
+  inter-family bounds. No choice of quotient representatives is asserted.
+- **OPEN residue**: this is the RAW extent-one reflected form, not the
+  normalized marginal-weighted physical transfer space. Their norm/operator
+  compatibility, normalized row limits, transfer-fixed vacuum, same-object
+  time correlators, all-vector uniform gap, thermodynamic/spacing limits and
+  continuum/Clay construction remain open. No scorecard atom is closed.
+  No new analytic hypothesis, sorry, axiom, noncomputable term or weakened
+  frontier is introduced.
+- **verification**: all three modules passed focused monitored one-worker,
+  20 GiB checks with `.olean` output. All 35 printed gates are empty or within
+  `{propext, Quot.sound}`. Final logs have no errors or warnings. No proof
+  resource limit was increased; no full-tree build/audit/guard was run.
+
 ## Exact cube kernel reduction, saturation and stable positive form (2026-09-11)
 
 - **milestone**: current physical BF4/OS frontier; replace the selected-edge

@@ -3743,6 +3743,10 @@ import YMGap.Continuum.BF4PhysicalCubeBoundaryMask
 import YMGap.Continuum.BF4PhysicalCubeKernelFactorization
 import YMGap.Continuum.BF4PhysicalCubeKernelSaturation
 import YMGap.Continuum.BF4PhysicalCubeStableGram
+-- All-spin raw physical form and its constructive completion; no transfer/gap claim.
+import YMGap.Continuum.RationalKernelSpan
+import YMGap.Continuum.BF4PhysicalCubeGNSData
+import YMGap.Continuum.BF4PhysicalCubeCompletion
 import YMGap.Continuum.CompactDualSlabOrderedLinkPhysicalStrandPairing
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateActiveDebtRootOrderedTerminals
 import YMGap.Continuum.CanonicalLinkFirstVertexPorts
