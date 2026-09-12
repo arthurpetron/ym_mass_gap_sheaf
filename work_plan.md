@@ -351,17 +351,22 @@ The next load-bearing producers are, in causal order:
    `q = 1 - (1/2) * (41/425) /
    (1 + globalInwardMateTransportCost)`, with `0 <= q < 1`.  The same proof
    gives a cutoff-independent positive lower bound on the centered physical
-   norm, so the channel is non-vacuous.  The active sub-edge is now to enlarge
-   this detected parity channel to all-vector coverage.  The edge side is no
-   longer specific to parity: for every rational observable, the selected
+   norm, so the channel is non-vacuous.  The edge side is no longer specific
+   to parity: for every rational observable, the selected
    endpoint oscillation is bounded by
    `2 * (1 + globalInwardMateTransportCost)` times its actual OS Dirichlet
-   energy.  The remaining Type-level obligation is one positive
-   cutoff-independent floor from every centered physical norm to that selected
-   endpoint energy.  If the present paths do not separate the physical
-   carrier, they must be enlarged; one-observable strictness alone is not a
-   finite-volume spectral gap.  Everything after that input is now compiled:
-   a coverage floor `kappa > 0` yields the cutoff-independent strict rate
+   energy.  The proposed full-positive-carrier coverage field is now proved
+   uninhabited: XOR parity on central faces `0` and `39` is invariant under
+   every simultaneous six-face mate, while its stationary-centered version
+   has strictly positive norm already at cutoff one.  Thus its selected
+   endpoint energy is zero and no positive coverage floor can exist.  This
+   agrees with the independently proved reducibility of the full positive-row
+   kernel at cutoff two.  The active sub-edge is therefore to restrict the
+   construction to `centralPhysicalFiniteVacuumSectorIndices` and build a
+   translated or component-adapted move family that separates that exact
+   connected sector with cutoff-uniform weighted congestion.  Everything
+   after a correctly sector-local coverage input is compiled: a floor
+   `kappa > 0` yields the cutoff-independent strict rate
    `4(1 + globalInwardMateTransportCost) /
    (4(1 + globalInwardMateTransportCost) + kappa) < 1` for every centered
    physical coefficient;
@@ -434,8 +439,10 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- combine demand + both energies -> coercivity ......... [PROVED]
 |   |   |   +-- center parity + strict one-observable form bound ..... [PROVED]
 |   |   |   +-- arbitrary-observable endpoint -> OS energy bound ..... [PROVED]
-|   |   |   +-- selected demand -> separating/all-vector coverage ... [ACTIVE]
-|   |   |   `-- coverage -> uniform all-vector strict form rate ...... [PROVED conditional]
+|   |   |   +-- fixed-root full-carrier all-vector coverage .......... [OBSTRUCTED exact]
+|   |   |   +-- restrict flow/observables to exact vacuum component .. [ACTIVE]
+|   |   |   +-- translated/component move separation + congestion .... [OPEN]
+|   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
 |   |   +-- support-aligned paired recoupling/activity route
 |   |   |   +-- literal right-tree realization + column capacity [PROVED]
 |   |   |   +-- paired-union component geometry/mass floor ..... [PROVED]

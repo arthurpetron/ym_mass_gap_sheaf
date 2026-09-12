@@ -28,7 +28,9 @@ Continuum 4D Yang--Mills exists + QFT axioms + isolated vacuum + Delta > 0
 finite 4D SU(2) lattice measure and exact representation data       [PROVED]
   -> reflection positivity and finite OS Gram                       [PROVED]
   -> concrete finite physical transfer + one strict parity channel   [PROVED]
-  -> cutoff-uniform all-vector non-abelian Poincare estimate          [ACTIVE]
+  -> restrict to the exact finite vacuum component                    [PROVED]
+  -> separating sector-local move family with uniform congestion      [ACTIVE]
+  -> cutoff-uniform all-vector non-abelian Poincare estimate           [OPEN]
   -> completed physical vacuum-complement gap                        [OPEN]
   -> thermodynamic limit with uniform estimates                      [OPEN]
   -> continuum limit and OS/Wightman reconstruction                  [OPEN]
@@ -46,8 +48,9 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
-The present bottleneck is a cutoff-uniform gap for the **actual physical SU(2)
-BF4 vacuum-sector transfer**, not an abstract spectral theorem.
+The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
+component of the actual physical SU(2) BF4 transfer**, not the reducible full
+positive-row carrier and not an abstract spectral theorem.
 
 The latest checked path is already on that actual OS object.  Every successful
 six-face inward-mate source gives a supported two-edge path in the normalized
@@ -95,24 +98,32 @@ q = 1 - (1/2) * (41/425) / (1 + globalInwardMateTransportCost),
 ```
 
 This is a real cutoff-uniform strict channel of the actual finite physical
-transfer, but it is not an all-vector Poincare inequality.  The active
-frontier has now been isolated for arbitrary observables: the selected
-source-to-target oscillation is at most
+transfer, but it is not an all-vector Poincare inequality.  For arbitrary
+observables, the selected source-to-target oscillation is at most
 `2 * (1 + globalInwardMateTransportCost)` times the actual physical OS
-Dirichlet energy.  A Type-level coverage interface names the remaining input:
-one positive cutoff-independent floor comparing every centered physical norm
-with that selected endpoint oscillation.  Constructing such coverage—or
-showing that this selected path family must be enlarged—is the active
-mathematical problem.  Until it is solved, no finite-volume spectral gap
-follows.  All downstream finite algebra is already compiled: an inhabitant
-with floor `kappa > 0` produces the single all-vector rate
+Dirichlet energy.  The proposed Type-level full-carrier coverage input is now
+proved impossible.  The XOR parity of central-cube faces `0` and `39` is
+unchanged by every simultaneous six-face inward mate, but after exact
+stationary centering it has strictly positive physical norm already at cutoff
+one (vacuum value zero, proved transverse-face value one).  Its selected
+endpoint energy is exactly zero.  Hence
+`GlobalInwardMateUniformEndpointCoverage` has no inhabitant.
+
+This obstruction cleanly repoints the proof.  The full positive-row carrier
+is already known to be reducible at cutoff two, so the next causal object is
+the existing exact vacuum connected component, together with a translated or
+component-adapted move family whose endpoint graph separates that sector and
+whose weighted congestion is uniform.  Only then can the all-vector Poincare
+compiler be instantiated.  Its algebra remains useful: any corrected
+sector-local coverage theorem with floor `kappa > 0` produces the rate shape
 
 ```text
 q_all = 4(1 + globalInwardMateTransportCost)
         / (4(1 + globalInwardMateTransportCost) + kappa) < 1
 ```
 
-uniformly for every cutoff `K >= 1`.
+uniformly for every cutoff `K >= 1`.  No such sector-local uniform coverage
+theorem is presently claimed.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -134,6 +145,8 @@ frontier are in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean).
 The conditional coverage-to-uniform-Poincare contraction is in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSUniformPoincareCompiler.lean).
+The exact XOR counterexample refuting its full-carrier coverage input is in
+[`BF4PhysicalVacuumSectorInwardMateEndpointCoverageObstruction.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateEndpointCoverageObstruction.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every

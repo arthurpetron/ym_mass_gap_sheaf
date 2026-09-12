@@ -107,11 +107,21 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   (4(1 + globalInwardMateTransportCost) + kappa) < 1`, valid for every
   centered physical coefficient and every cutoff `K >= 1`.  No coverage
   inhabitant is supplied.
-- **OPEN next edge:** enlarge this single detected parity channel into a
-  separating family, or prove direct variance coverage for every centered
-  physical vector.  The one-observable estimate does not imply an all-vector
-  Poincare inequality, finite-volume spectral gap, continuum limit, or Clay
-  theorem.
+- **PROVED full-carrier coverage obstruction:**
+  `BF4PhysicalVacuumSectorInwardMateEndpointCoverageObstruction` constructs
+  the XOR parity of central-cube faces `0` and `39`.  Every selected six-face
+  mate preserves it, so its stationary-centered selected endpoint energy is
+  exactly zero.  Vacuum and the independently proved positive transverse
+  single-face state give different raw values, and the centered physical norm
+  is strictly positive at cutoff one.  Therefore
+  `no_globalInwardMateUniformEndpointCoverage` proves that the proposed
+  full-positive-carrier coverage structure is uninhabited.
+- **OPEN next edge:** restrict the flow and observable norm to the existing
+  exact finite vacuum connected component, then construct a translated or
+  component-adapted move family which separates that sector with a
+  cutoff-uniform weighted congestion bound.  The one-observable estimate and
+  the conditional algebra do not imply an all-vector Poincare inequality,
+  finite-volume spectral gap, continuum limit, or Clay theorem.
 
 ---
 
