@@ -42,35 +42,26 @@ CURRENT CONDITIONAL BRANCH: positive multiplicity-product law
 REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
   original weights, signed boundary sums, same Haar carrier        [PROVED]
        |
-       +--> heat factorization + literal temporal Haar invariance
-       |      -> B(left,right) = Haar(L * H_Gram * U)              [PROVED]
-       |
-       +--> oriented link/face reflection, every spin
-       |      -> SAME signed U = theta(L)                         [PROVED]
-       |
-       +--> actual lower-half observable locality                 [PROVED]
-       |
-       +--> actual interface reflected-square channels            [PROVED]
-                                  | ALL FOUR inputs, every odd extent
+       +--> full Haar pin + literal U = theta(L)
+       |      + lower locality + actual square channels            [PROVED]
+       |      -> ORIGINAL mixed Gram identity
+       |      -> symmetry + positivity, all odd extents, w>=0      [PROVED]
+       |                       |
+       |                       +----------------------------------+
+       |                                                          |
+       +--> exposed links + four swaps + harmonic degree selection |
+              + SAME boundary zero extension                       |
+              -> ORIGINAL full bilinear cutoff limit              |
+                 + computed pair-dependent modulus                [PROVED]
+                                  |                               |
+                                  +<---- BOTH inputs --------------+
                                   v
-  ORIGINAL quadratic = explicit weighted sum of rational squares   [PROVED]
-  ORIGINAL reflection positivity: all odd extents, K, w>=0         [PROVED]
+  One common original GNS form per odd slab, w>=0                   [PROVED]
+    -> null quotient + constructive CReal Hilbert completion       [PROVED]
+    -> all cutoff anchors in that slab share ONE completed carrier [PROVED]
+       with exact original finite/limit inner-product pins         [PROVED]
                                   |
-                                  +<-- exposed links + four swaps
-                                  |      + harmonic degree selection [PROVED]
-                                  |      -> joint ORIGINAL interface
-                                  |         cutoff limit, fixed P,
-                                  |         every odd extent         [PROVED]
-                                  +<-- fixed boundary recoding and
-                                  |    common cutoff-limit form on
-                                  |    larger slabs                   [OPEN]
-                                  |     Existing extent-one branch:
-                                  |     fixed boundary recoding
-                                  |       + joint degree selection
-                                  |       -> exact cutoff stabilization
-                                  |       -> ONE common GNS completion
-                                  |     [PROVED, extent one only]
-                                  |
+                                  +<-- all-extent norm-one code      [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
                                   v
   One physical positive-time completed carrier                     [OPEN]
@@ -110,7 +101,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: exact cutoff removal for the ORIGINAL interface at every odd extent.**
+**Latest result: one original-law cutoff-limit completion at every odd slab extent.**
+[`BF4ExactSlabAllExtentAnchoredCutoffLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentAnchoredCutoffLimit.lean)
+proves exact stabilization of the FULL original signed bilinear on fixed
+finite boundary observables. The same zero extension retains both boundary
+polynomials, and the computed maximum of the anchor and interface degree
+bound supplies the cutoff modulus and rational `CReal` limit.
+
+[`BF4ExactSlabAllExtentBilinearGram.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentBilinearGram.lean)
+proves the full mixed channel-product identity and symmetry for w >= 0,
+retaining both observables and all original interactions. Combined with
+positivity and common finite cutoff stages, this constructs every form law in
+[`BF4ExactSlabAllExtentCutoffLimitForm.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentCutoffLimitForm.lean).
+[`BF4ExactSlabAllExtentCutoffLimitGNS.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentCutoffLimitGNS.lean)
+then constructs a completion for each slab: all its finite cutoff anchors
+embed into the same carrier, with inner products equal to the original
+finite/limit pairings. Specified Cauchy representatives and the outer
+convergence rate remain data; no quotient representatives are chosen.
+
+Next: all-extent vacuum-code normalization/non-nullness and compatibility
+between these slabs, then physical time/transfer and a stationary vacuum.
+A family of completed slab spaces is not yet one physical positive-time
+realization. Its strict gap, volume/spacing limits, QFT axioms and all-group
+Clay target remain open. No slab-uniform modulus or beta/spacing-uniform
+spectral rate is claimed. Seven focused monitored checks passed: 58 axiom
+gates within `{propext, Quot.sound}`, final error/warning free. No new sorry,
+analytic premise, raised proof limit or numerical oracle; no full-tree audit.
+
+**Preceding result: exact cutoff removal for the ORIGINAL interface at every odd extent.**
 [`BF4ExactSlabAllExtentExposedLinkDegree.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentExposedLinkDegree.lean)
 proves structurally that each crossing face has an exposed lower spatial link
 absent from every other crossing face. Their full character product has
@@ -131,9 +149,9 @@ The statement holds at every finite odd extent and every rational w.
 The bound depends on P and the slab, and can inherit parameter dependence
 through P. This is not a beta/spacing-uniform spectral estimate.
 
-Next: larger-slab fixed-boundary recoding and the common cutoff-limit form,
-then compatibility and physical positive-time realization. The existing
-common GNS completion is still extent-one only. Physical time/transfer,
+Subsequent discharge above: larger-slab fixed-boundary recoding and the
+common cutoff-limit form/completion. Compatibility and physical positive-time
+realization remain open. Physical time/transfer,
 stationary vacuum, strict completed gap, volume/spacing/QFT and all-group
 Clay remain open. Seven focused monitored checks passed: 57 axiom gates
 within `{propext, Quot.sound}`, final error/warning free. No new sorry,
@@ -160,10 +178,9 @@ it nonnegative for every odd extent, every finite K, every w >= 0 and
 arbitrary signed boundary coefficients. Shared link variables are retained.
 This is reflection positivity, not a strict spectral estimate.
 
-Subsequent progress above supplies the fixed-insertion interface cutoff
-limit. Larger-slab boundary recoding/common form and compatibility still
-precede the physical positive-time carrier and geometric transfer. The existing common
-cutoff-limit completion remains extent-one only; physical vacuum stationarity,
+Subsequent progress above supplies the interface cutoff limit, larger-slab
+boundary recoding and common cutoff-limit completion. Slab compatibility still
+precedes the physical positive-time carrier and geometric transfer; physical vacuum stationarity,
 a strict completed gap, volume/spacing limits, QFT and all-group Clay remain open.
 Four focused monitored checks passed: 10 + 11 + 4 + 7 = 32 axiom gates
 within `{propext, Quot.sound}`, final error/warning free. These include the

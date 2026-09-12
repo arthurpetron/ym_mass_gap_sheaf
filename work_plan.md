@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (exact ORIGINAL interface cutoff limit, every odd extent):**
+**Latest larger-slab progress (common ORIGINAL cutoff-limit completion at every odd extent):**
+`BF4ExactSlabAllExtentBoundaryCutoffRecoding.exact_bilinear_anchored`
+retains both original heat-dressed observables under the existing zero
+extension. `BF4ExactSlabAllExtentAnchoredCutoffLimit.exactCutoffPairing_stable`
+combines this with the all-extent interface theorem: the original signed
+bilinear is EXACTLY constant above the computed maximum of the anchor and
+interface degree bound. `exactCutoffPairingLimit` supplies its CReal value
+and `exactCutoffPairingLimit_exact` the explicit cutoff modulus.
+
+`BF4ExactSlabLocalBilinearChannels.expansion_mixed_pairing` proves the full
+two-observable channel identity, retaining shared lower-half variables.
+`BF4ExactSlabAllExtentBilinearGram.exact_bilinear_eq_channelProducts`
+instantiates it on the ORIGINAL signed kernel. `exact_bilinear_symmetric`
+commutes the rational channel values, not quaternion word factors; w >= 0
+is explicit. No symmetry law is assumed from diagonal positivity alone.
+
+`BF4ExactSlabAllExtentFiniteBoundaryObservable.BoundaryObservable half`
+carries each observable's cutoff as data. Addition and common pairing stages
+use explicit maxima. `BF4ExactSlabAllExtentCutoffLimitForm.cutoffLimitGNSData`
+constructs every form law from original finite bilinearity, mixed symmetry,
+positivity and stabilization. `BF4ExactSlabAllExtentCutoffLimitGNS.cutoffLimitCompletion`
+then supplies ONE completion per slab, containing all finite cutoff anchors.
+`cutoffLimitEmbed_finite_pairing` and `cutoffLimitEmbed_anchored_pairing`
+pin its inner products to the same original law. `limitRepresentative` and
+`completionRate` retain a specified Cauchy representative and outer modulus;
+`limitRepresentative_close_at` has the existing eventual inner-index reading.
+No arbitrary quotient-sequence representatives are chosen.
+
+Next residue: all-extent vacuum-code normalization/non-nullness and slab
+compatibility, then a single physical positive-time carrier, geometric
+time/transfer, stationary physical vacuum and a strict bound on its own
+completed vacuum complement. A family of slab completions is NOT yet that
+physical realization. No slab-uniform modulus or beta/spacing-uniform spectral
+rate is asserted. Volume/spacing, QFT, all-group Clay and canonical frontier
+atoms/types remain open and unchanged; the refuted law identity is unused.
+
+Verification: seven focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 9 + 10 + 6 + 3 + 9 + 12 + 9 = 58 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-all-extent-boundary-recoding.log`,
+`/tmp/ym-all-extent-anchored-cutoff.log`, `/tmp/ym-local-bilinear-channels.log`,
+`/tmp/ym-all-extent-bilinear-gram.log`, `/tmp/ym-all-extent-finite-observables.log`,
+`/tmp/ym-all-extent-cutoff-form.log`, `/tmp/ym-all-extent-cutoff-gns.log`.
+Explicit structure/inner-product projections avoided symbolic-reduction
+timeouts without raised proof limits. No new sorry, analytic premise, numerical
+oracle, spectral rate or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (exact ORIGINAL interface cutoff limit, every odd extent):**
 `BF4ExactSlabAllExtentExposedLinkDegree` proves exposed-link uniqueness and
 zero selected-link degree for the full product of other crossing characters.
 The proof uses lower/fixed/upper incidence and actual physical index recovery,
@@ -41,12 +87,12 @@ coefficient retention prove `interfacePairing_stable` at every odd extent and
 rational w. `interfacePairingLimit` returns its rational CReal limit and
 `interfacePairingLimit_exact` gives an exact modulus, for a FIXED supported P.
 
-Next residue: transport fixed boundary observables through this all-extent
-result and construct their common cutoff-limit form/completion; then slab
+Subsequent discharge above: fixed boundary recoding and the common cutoff-limit
+form/completion now hold at every odd extent. Next residue: slab
 compatibility, physical time/transfer, stationary vacuum and a strict bound on
-its own completed vacuum complement. The existing common completion remains
-extent-one only. No slab-uniform modulus or beta/spacing-uniform spectral rate
-is asserted; the degree bound can inherit parameter dependence through P.
+its own completed vacuum complement. No slab-uniform modulus or
+beta/spacing-uniform spectral rate is asserted; the degree bound can inherit
+parameter dependence through P.
 Volume/spacing, QFT, all-group Clay and canonical frontier atoms stay open.
 
 Verification: seven focused monitored one-worker 20 GiB checks with `.olean`
@@ -85,11 +131,11 @@ All original overlapping link variables remain. This is not a strict bound
 and does not transfer a gap from the distinct positive multiplicity law.
 
 Subsequent discharge above: original interface cutoff removal against fixed P.
-Next residue: larger-slab boundary recoding/common form and compatibility, feeding a single
+Subsequent discharge above: larger-slab boundary recoding/common completion.
+Next residue: slab compatibility, feeding a single
 physical positive-time carrier; then geometric time/transfer, physical vacuum
 stationarity and a strict gap on its own completed vacuum complement.
-The common cutoff-limit completion remains extent-one only. Volume/spacing,
-QFT, all-group Clay and canonical frontier atoms remain open and unchanged.
+Volume/spacing, QFT, all-group Clay and canonical frontier atoms remain open and unchanged.
 
 Verification: four focused monitored one-worker 20 GiB checks with `.olean`
 outputs; 10 + 11 + 4 + 7 = 32 gates within `{propext, Quot.sound}`, final

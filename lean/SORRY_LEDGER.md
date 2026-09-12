@@ -13,6 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Common ORIGINAL cutoff-limit completion at every odd extent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentBoundaryCutoffRecoding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentAnchoredCutoffLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLocalBilinearChannels.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentBilinearGram.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentFiniteBoundaryObservable.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentCutoffLimitForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentCutoffLimitGNS.lean`.
+- **discharged**: same zero-extension recoding of both original heat-dressed
+  observables; full original signed bilinear cutoff stabilization with the
+  computed anchor/interface maximum; rational CReal limit and explicit modulus;
+  mixed lower-channel Haar factorization, full original mixed Gram identity and
+  symmetry for w >= 0; one finite-observable carrier per slab carrying arbitrary
+  cutoff witnesses; original-law GNS form with all laws proved, then its
+  constructive null quotient/completion. `cutoffLimitEmbed_finite_pairing` and
+  `cutoffLimitEmbed_anchored_pairing` retain the SAME original finite/limit
+  pairings in the completion. `limitRepresentative` and `completionRate` are
+  data; `limitRepresentative_close_at` proves convergence at that outer rate
+  with the existing propositional eventual inner-index bound. No quotient
+  representatives are chosen and no GNS law is a new analytic premise.
+- **OPEN residue**: all-extent vacuum-code normalization/non-nullness, slab
+  compatibility and a single physical positive-time realization, geometric
+  transfer, stationary physical vacuum, strict bound on ITS completed vacuum
+  complement, volume/spacing/QFT and all-group Clay. Per-slab completions do
+  not discharge the canonical positive-time root. The cutoff stage depends on
+  the slab and observables (and can inherit their parameter dependence); no
+  slab-uniform modulus or beta/spacing-uniform spectral rate is asserted.
+  No canonical atom/type changed, no use of the refuted signed/positive-law
+  identity, no new sorry or analytic premise.
+- **verification**: seven focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 9 + 10 + 6 + 3 + 9 + 12 + 9 = 58 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-all-extent-boundary-recoding.log`, `/tmp/ym-all-extent-anchored-cutoff.log`,
+  `/tmp/ym-local-bilinear-channels.log`, `/tmp/ym-all-extent-bilinear-gram.log`,
+  `/tmp/ym-all-extent-finite-observables.log`, `/tmp/ym-all-extent-cutoff-form.log`,
+  `/tmp/ym-all-extent-cutoff-gns.log`. Explicit projection rewrites resolved
+  symbolic-reduction timeouts; no proof-limit increase, numerical oracle,
+  spectral rate or pilot constant. No full build/audit/guard/progress run.
+
 ## Exact ORIGINAL interface cutoff limit at every odd extent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentExposedLinkDegree.lean`,
@@ -32,10 +72,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   supported P, every odd extent and rational w. `interfacePairingLimit` returns
   its rational CReal value; `interfacePairingLimit_exact` supplies the exact
   cutoff modulus. Every original crossing factor and shared link is retained.
-- **OPEN residue**: larger-slab fixed-boundary recoding and common cutoff-limit
-  form/completion, compatibility, physical positive-time realization/transfer,
+- **subsequent discharge**: larger-slab fixed-boundary recoding and common
+  cutoff-limit form/completion are proved above.
+- **OPEN residue**: compatibility, physical positive-time realization/transfer,
   stationary vacuum, strict completed gap, volume/spacing/QFT and all-group
-  Clay. The existing common completion remains extent-one only. The computed
+  Clay. The computed
   degree bound depends on the slab and P, and can inherit parameter dependence
   through P; no beta/spacing-uniform spectral estimate is claimed. No canonical
   atom/type changed. The refuted law identity is unused; no new sorry or analytic premise.
@@ -69,10 +110,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   function. No quaternion factors are commuted or shared links discarded.
 - **subsequent discharge**: fixed-insertion original interface cutoff limit
   at every odd extent is proved above.
-- **OPEN residue**: larger-slab boundary recoding/common form and compatibility, physical
+- **subsequent discharge**: larger-slab boundary recoding/common completion
+  are also proved above.
+- **OPEN residue**: slab compatibility, physical
   positive-time realization/transfer, physical vacuum stationarity, strict
-  completed gap, volume/spacing/QFT and all-group Clay. The common cutoff-limit
-  completion remains extent-one only. No canonical atom/type changed; no use
+  completed gap, volume/spacing/QFT and all-group Clay. No canonical atom/type changed; no use
   of the refuted exact/positive identity. This is nonnegativity, not a uniform
   strict gap bound. No new sorry or analytic premise.
 - **verification**: four focused monitored one-worker 20 GiB checks with
