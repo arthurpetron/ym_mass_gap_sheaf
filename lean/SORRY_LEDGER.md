@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Same signed quadratic with spatial reflected-Gram interface (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionTranslationPolynomialImages.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeObservableImages.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeHaarForm.lean`.
+- **discharged**: coefficient-sensitive image laws for all-spin characters,
+  finite signed sums and products; `temporalLedger_character` at arbitrary
+  extent/half-plane; the FULL original extent-one observable image in
+  `observableIntegrand_image` and `observableProduct_image`, with the same
+  heat coefficients, face IDs, reflected labels and signed coefficients.
+  `exact_bilinear_eq_temporalHaar` combines the image with explicit physical
+  support and the original ledger's Haar invariance. Face cancellation
+  restores the original boundary observables and removes fixed-time factors
+  from the crossing characters. `exact_quadratic_eq_reducedReflectedHaar`
+  and `exact_quadratic_eq_spatialGramHaar` give the SAME original quadratic
+  as `Haar(F * H * theta(F))`, where H is respectively the reduced character
+  interface or its literal reflected SPATIAL-link Gram interface. Scope:
+  extent one, every K, rational w and signed observable coefficient function.
+  The matching bilinear identities retain independent left/right coefficients.
+- **OPEN residue**: global reflected-square gluing of these spatial-link
+  channels on the SAME half-carrier and slab reflection positivity.
+  The full observable temporal change of variables is now proved, not just
+  its coordinate image. Physical time/transfer, completed exact-law gap,
+  volume/spacing/QFT and all-group Clay remain open. No canonical field
+  changed or atom closed; the refuted exact/positive-law identity is unused.
+- **verification**: three targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 18 + 18 + 17 = 53 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-translation-polynomial-images.log`,
+  `/tmp/ym-temporal-gauge-observable-images.log`, `/tmp/ym-temporal-gauge-haar-form.log`.
+  No new sorry, analytic premise, raised proof limit, numerical oracle or
+  pilot constant. No full build/audit/guard/progress run.
+
 ## Complete temporal upper-link and original plaquette images (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionTranslationWordComposition.lean`
@@ -29,11 +61,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The composition module preserves all coefficient probes after common
   carrier padding under the original chain, ordered products and conjugation;
   constants and empty chains are included.
-- **OPEN residue**: extend the link/plaquette-word identities to the SAME
-  full reflected observable's polynomial substitution, then global
-  reflected-square gluing. The ledger's Haar invariance and full coordinate
-  image are proved; full common-assignment observable identity, slab
-  positivity, physical time/transfer, completed exact-law gap,
+- **subsequent discharge**: the full original observable image and its
+  same-form Haar change of variables are now proved in the entry above.
+- **OPEN residue**: global reflected-square gluing. The ledger's Haar
+  invariance, full coordinate image and full common-assignment observable
+  identity are proved; slab positivity, physical time/transfer, completed exact-law gap,
   volume/spacing/QFT and all-group Clay remain open. No canonical field
   changed or atom closed; the refuted exact/positive-law identity is unused.
 - **verification**: two targeted monitored one-worker 20 GiB checks with
@@ -62,10 +94,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   version uses common explicit padding and covers empty ledgers.
 - **subsequent discharge**: the complete upper-link and original plaquette
   images are now proved in the entry above.
-- **OPEN residue**: same-observable polynomial substitution identification, and
-  reflected-square gluing on the SAME signed slab form. The ledger's Haar
-  invariance is proved, but Haar invariance of the independently defined
-  common assignment is not yet proved. Slab positivity, physical
+- **OPEN residue**: reflected-square gluing on the SAME signed slab form.
+  The ledger's Haar invariance and the independently defined common
+  assignment's full observable image are now proved above. Slab positivity, physical
   time/transfer, completed exact-law gap, volume/spacing/QFT and all-group
   Clay remain open. No canonical field changed or atom closed; the refuted
   exact/positive-law identity is unused.

@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: complete upper-link and plaquette-word images (2026-09-12)
+## Current increment: same signed quadratic with spatial reflected-Gram interface (2026-09-12)
+
+PROGRESS: `BF4ExactSlabTemporalGaugeObservableImages.observableIntegrand_image`
+and `observableProduct_image` identify the FULL original signed observable
+under the concrete ledger with polynomials of the independently defined
+common temporal assignment. Character recurrences, heat products, physical
+face IDs, reflected labels and arbitrary signed coefficients are retained.
+
+`BF4ExactSlabTemporalGaugeHaarForm.exact_bilinear_eq_temporalHaar` uses the
+proved image, explicit support and the original Haar invariance. Local face
+cancellation restores both original boundary observables while removing the
+fixed-time factors from the crossing characters. The final
+`exact_quadratic_eq_spatialGramHaar` proves
+`Q(c) = Haar(F_c * H_spatialGram * theta(F_c))` for the SAME original signed
+extent-one quadratic, every cutoff K and rational w. H_spatialGram consists
+of the actual reflected SPATIAL-link Gram kernels with the original heat
+coefficients. No fixed-time links remain in those Gram arguments.
+
+The next edge is global reflected-square gluing on the same half-carrier.
+Slab positivity, physical time/transfer, completed exact-law gap,
+volume/spacing/QFT and all-group Clay remain open. No canonical atom closed;
+the exact/positive-law identity remains refuted.
+
+Three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 18 + 18 + 17 = 53 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-translation-polynomial-images.log`,
+`/tmp/ym-temporal-gauge-observable-images.log`, `/tmp/ym-temporal-gauge-haar-form.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: complete upper-link and plaquette-word images (2026-09-12)
 
 PROGRESS: `BF4ExactSlabTemporalGaugeUpperCoordinates.temporalLedger_upper_assignment`
 proves the WHOLE actual ledger sends every upper physical link to

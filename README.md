@@ -63,8 +63,9 @@ REQUIRED PHYSICAL ROUTE
     + common upper temporal assignment: all three face classes     [PROVED]
     + full ledger agrees with assignment on ALL physical links      [PROVED]
     -> ORIGINAL plaquette words have the common temporal image      [PROVED]
-    + extend substitution to the full reflected observable          [OPEN]
-    + link-local gluing preserving the reflected observable         [OPEN]
+    + full signed observable image AND original Haar invariance     [PROVED]
+    -> SAME Q(c) = Haar(F_c * H_spatialGram * theta(F_c))            [PROVED]***
+    + global reflected-square gluing on the literal half-carrier    [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -87,6 +88,8 @@ WHOLE-PROJECT GOAL / CLAY TARGET
   Its finite/marginal rate is explicit in w (0<w<=1/2), not uniform in w.
 ** Local kernel scope: Haar-unit input-word radii and supported column
    syntheses on the same finite Haar carrier. Not slab reflection positivity.
+*** Extent-one original signed form, every cutoff K, rational w, and signed
+    coefficient function. H_spatialGram has no fixed-time link in its arguments.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -104,7 +107,27 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the full upper-link image and original plaquette words.**
+**Latest result: the SAME signed quadratic has a spatial reflected-Gram interface.**
+[`BF4ExactSlabTemporalGaugeHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeHaarForm.lean)
+proves `Q(c) = Haar(F_c * H_spatialGram * theta(F_c))` for the ORIGINAL
+extent-one signed slab form, at every spin cutoff, rational heat parameter
+and signed boundary coefficient function. The lower observable and its
+literal reflection are unchanged. Each interface factor is now a heat sum
+of Gram kernels of an original spatial link and its actual reflected mate;
+the fixed-time links have been removed from those arguments.
+
+[`BF4ExactSlabTemporalGaugeObservableImages.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeObservableImages.lean)
+extends the full-chain link/word pin through the actual character recurrences,
+heat products and signed observable sums. Its target evaluates the independently
+defined common assignment, not the chain itself. All heat coefficients,
+physical face IDs and reflected labels are retained.
+[`SU2QuaternionTranslationPolynomialImages.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationPolynomialImages.lean)
+provides the coefficient-sensitive algebra and supported Haar bridge.
+
+This closes the same-observable temporal change of variables. Global
+reflected-square gluing and slab reflection positivity remain open.
+
+**Preceding result: the full upper-link image and original plaquette words.**
 [`BF4ExactSlabTemporalGaugeUpperCoordinates.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeUpperCoordinates.lean)
 proves that the WHOLE original chain sends every upper link to
 `g_start^-1 U g_end`. The target link's two endpoint shears produce that word;
@@ -120,8 +143,8 @@ defined common temporal face word.
 supplies coefficient-sensitive chain composition, ordered multiplication,
 conjugation and constant preservation. Explicit common padding covers empty
 chains; no Haar integration or sphere relation is used to erase a discrepancy.
-Extending the substitution identity to the full reflected observable and
-gluing its channels into squares remain open.
+The full observable identity is now proved above; gluing its channels into
+global reflected squares remains open.
 
 **Preceding result: literal temporal ledger and its full fixed-coordinate frame.**
 [`BF4ExactSlabTemporalGaugeLedger.lean`](lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean)
@@ -181,14 +204,12 @@ preserved at every spin, and crossing faces reduce to their actual reflected
 spatial-link Gram kernel at every odd slab extent. All spectator insertions
 remain available, including overlapping face factors.
 
-**Next:** extend the proved link/plaquette-word images to the full reflected
-observable under the same substitution, then
-combine the reflected channels into the SAME
-slab form's square decomposition. The face algebra is proved; the global
-change-of-variables identity and slab positivity are not. Physical time,
+**Next:** combine the literal spatial reflected-Gram channels into the SAME
+slab form's global square decomposition. The full observable change of
+variables is proved; slab positivity is not. Physical time,
 the completed physical gap and continuum/Clay construction remain open.
 
-Both new modules passed focused monitored one-worker 20 GiB checks: 29
+The three new modules passed focused monitored one-worker 20 GiB checks: 53
 printed gates within `{propext, Quot.sound}`, no final errors/warnings.
 No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
 

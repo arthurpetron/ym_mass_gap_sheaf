@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (full upper-link and original plaquette images):**
+**Latest gluing-route progress (same signed quadratic, spatial reflected-Gram interface):**
+`SU2QuaternionTranslationPolynomialImages` extends coefficient-sensitive
+chain images to all-spin characters, finite signed sums and products. Its
+Haar bridge requires explicit support on the stated carrier before removing
+common padding.
+`BF4ExactSlabTemporalGaugeObservableImages.temporalLedger_character` pins
+every physical face character at arbitrary extent/half-plane/spin.
+`observableIntegrand_image` and `observableProduct_image` identify the FULL
+original extent-one signed observable with independently defined temporal
+face-word polynomials. All heat coefficients, physical IDs, reflected labels
+and signed boundary coefficients remain unchanged.
+
+`BF4ExactSlabTemporalGaugeHaarForm.exact_bilinear_eq_temporalHaar` combines
+this image, explicit source/target support and the concrete ledger's Haar
+invariance. Face cancellation restores the original lower/upper observables
+and removes both fixed-time factors from each crossing character.
+`exact_quadratic_eq_reducedReflectedHaar` gives the same original quadratic
+as `Haar(F * H_reduced * theta(F))`.
+`reducedInterfaceHeatProduct_haar_spatialGram` and
+`exact_quadratic_eq_spatialGramHaar` identify that reduced interface with
+the actual heat-weighted Gram kernels of literal reflected SPATIAL links,
+with no fixed-time links in their arguments. The bilinear version retains
+independent signed left/right coefficients. Scope: extent one, every K and
+rational w; no positivity hypothesis or rate is introduced.
+
+Next smaller residue: global reflected-square gluing of these literal
+spatial-link channels on the SAME half-carrier, then slab reflection
+positivity. The common-assignment observable change of variables is now
+proved, not merely a coordinate pin. Physical time/transfer, completed
+exact-law gap, volume/spacing/QFT and all-group Clay remain OPEN. No
+canonical atom/type change or revival of the refuted exact/positive-law identity.
+
+Verification: three focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 18 + 18 + 17 = 53 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-translation-polynomial-images.log`,
+`/tmp/ym-temporal-gauge-observable-images.log`, `/tmp/ym-temporal-gauge-haar-form.log`.
+No new sorry, analytic input, proof-limit increase, numerical oracle, rate
+or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (full upper-link and original plaquette images):**
 `BF4ExactSlabTemporalGaugeUpperCoordinates.linkSteps_upper_image` composes
 the actual endpoint shears to `g_start^-1 U g_end`, including missing endpoints.
 `subchain_fixes_vertexGauge` fixes every vertex gauge under every subchain
@@ -37,7 +76,7 @@ constant preservation. The padding is explicit even for empty chains.
 No coordinate scan, sphere relation, assumed semantic certificate, dummy
 variable or new analytic premise is used.
 
-Next smaller residue: extend these link/plaquette-word identities to the
+At that checkpoint the residue was: extend these link/plaquette-word identities to the
 full reflected observable's polynomial substitution, then prove global
 reflected-square gluing. The ledger's Haar invariance and coordinate images
 are proved; the full common-assignment observable identity and slab positivity
