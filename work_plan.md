@@ -352,9 +352,15 @@ The next load-bearing producers are, in causal order:
    (1 + globalInwardMateTransportCost)`, with `0 <= q < 1`.  The same proof
    gives a cutoff-independent positive lower bound on the centered physical
    norm, so the channel is non-vacuous.  The active sub-edge is now to enlarge
-   this detected parity channel to a separating observable family or prove a
-   direct all-vector variance inequality; one-observable strictness alone is
-   not a finite-volume spectral gap;
+   this detected parity channel to all-vector coverage.  The edge side is no
+   longer specific to parity: for every rational observable, the selected
+   endpoint oscillation is bounded by
+   `2 * (1 + globalInwardMateTransportCost)` times its actual OS Dirichlet
+   energy.  The remaining Type-level obligation is one positive
+   cutoff-independent floor from every centered physical norm to that selected
+   endpoint energy.  If the present paths do not separate the physical
+   carrier, they must be enlarged; one-observable strictness alone is not a
+   finite-volume spectral gap;
 2. feed those supported paths into the existing mass-normalized
    canonical-flow or posterior conditional-variance compiler and prove one
    cutoff/volume-uniform strict finite vacuum-complement rate;
@@ -423,6 +429,7 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- selected second parity energy -> cost * Dirichlet ... [PROVED]
 |   |   |   +-- combine demand + both energies -> coercivity ......... [PROVED]
 |   |   |   +-- center parity + strict one-observable form bound ..... [PROVED]
+|   |   |   +-- arbitrary-observable endpoint -> OS energy bound ..... [PROVED]
 |   |   |   +-- selected demand -> separating/all-vector coverage ... [ACTIVE]
 |   |   |   `-- mass-normalized posterior/canonical-flow gap ..... [OPEN]
 |   |   +-- support-aligned paired recoupling/activity route

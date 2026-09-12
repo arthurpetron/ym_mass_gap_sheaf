@@ -93,6 +93,13 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   `q = 1 - (1/2) * (41/425) /
   (1 + globalInwardMateTransportCost)` and `0 <= q < 1`.  Its certificate also
   proves the centered physical norm is bounded below by the positive margin.
+- **PROVED arbitrary-observable edge compiler:**
+  `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy`
+  generalizes both aggregate edge embeddings beyond parity.  For every
+  rational observable its selected source-to-target squared oscillation is at
+  most `2 * (1 + globalInwardMateTransportCost)` times the full physical OS
+  Dirichlet energy.  `GlobalInwardMateUniformEndpointCoverage` names, but does
+  not inhabit, the remaining cutoff-independent centered-norm comparison.
 - **OPEN next edge:** enlarge this single detected parity channel into a
   separating family, or prove direct variance coverage for every centered
   physical vector.  The one-observable estimate does not imply an all-vector

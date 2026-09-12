@@ -96,10 +96,15 @@ q = 1 - (1/2) * (41/425) / (1 + globalInwardMateTransportCost),
 
 This is a real cutoff-uniform strict channel of the actual finite physical
 transfer, but it is not an all-vector Poincare inequality.  The active
-frontier is to determine whether the path demand can be enlarged to a
-separating family of vacuum-complement observables or strengthened directly
-to all-vector variance control.  Until that is proved, no finite-volume
-spectral gap follows.
+frontier has now been isolated for arbitrary observables: the selected
+source-to-target oscillation is at most
+`2 * (1 + globalInwardMateTransportCost)` times the actual physical OS
+Dirichlet energy.  A Type-level coverage interface names the remaining input:
+one positive cutoff-independent floor comparing every centered physical norm
+with that selected endpoint oscillation.  Constructing such coverage—or
+showing that this selected path family must be enlarged—is the active
+mathematical problem.  Until it is solved, no finite-volume spectral gap
+follows.
 
 See
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSFirstEdgeLoad.lean).
@@ -116,6 +121,9 @@ The resulting explicit positive Dirichlet floor is in
 The stationary centering, positive-norm certificate, exact transfer identity,
 and strict one-observable form rate are in
 [`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap.lean).
+The arbitrary-observable two-edge estimate and exact all-vector coverage
+frontier are in
+[`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean`](lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSObservableEnergy.lean).
 
 The current verified frontier joins a multiplicity-exact finite enumeration
 of the root-first SU(2) cube source to a fixed-target contraction for every
