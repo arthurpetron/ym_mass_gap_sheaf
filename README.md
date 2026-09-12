@@ -57,6 +57,7 @@ REQUIRED PHYSICAL ROUTE
     + actual local character Gram channels, all spins              [PROVED]**
     + channels pinned to literal crossing-face path pairs           [PROVED]
     -> H = heat-weighted path-channel product under Haar            [PROVED]
+    + all-degree Haar shears and their finite chains, no scans      [PROVED]
     + link-local gluing preserving the reflected observable         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -97,7 +98,31 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: closed all-degree Gaussian moments for the actual translations.**
+**Latest result: all-degree Haar translation, without polynomial scans.**
+[`SU2QuaternionTranslationHaarMoments.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationHaarMoments.lean)
+converts the closed Gaussian formula to the ORIGINAL exact sphere moments,
+retaining every tail coefficient. Even degrees use an explicit positive
+radial denominator; odd degrees vanish before tail integration.
+
+[`SU2QuaternionAllDegreeHaarTranslation.lean`](lean/YMGap/Continuum/SU2QuaternionAllDegreeHaarTranslation.lean)
+then proves that the original selected left/right substitutions preserve
+the full product-Haar value for every supported polynomial. The support and
+distinct-block guards remain; the executable scan premise is gone.
+[`SU2QuaternionAllDegreeHaarTranslationChain.lean`](lean/YMGap/Continuum/SU2QuaternionAllDegreeHaarTranslationChain.lean)
+includes inverse multipliers and arbitrary finite chains. Its concrete
+consumer proves Haar preservation for the existing 139-step BF4 tree-gauge
+ledger at every polynomial degree.
+
+**Next:** apply these changes of variables to the shared fixed-plane links
+and prove the SAME slab form is a sum of reflected squares. Translation
+invariance is proved; shared-link gluing, slab positivity, physical time,
+the completed physical gap and continuum/Clay construction remain open.
+
+Four new modules passed focused monitored one-worker 20 GiB checks: 22
+printed gates within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
+
+**Retained result: closed all-degree Gaussian moments for the actual translations.**
 [`SU2QuaternionTranslationGaussianMoments.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationGaussianMoments.lean)
 proves `translatedHeadMonomial_gaussian_closed` for the ORIGINAL left/right
 quaternion translation polynomials, at every exponent quadruple. Their
@@ -111,10 +136,9 @@ removing two coordinate factors. Unmatched labels vanish without division.
 Constructive count/length lemmas replace generic erase lemmas whose axiom
 dependencies fail this project's gate.
 
-**Next:** sphere/radial conversion and unconditional selected Haar translation,
-then shared-link reflected-square gluing. The Gaussian formula is proved;
-Haar invariance, slab positivity, physical time, the completed physical gap
-and continuum/Clay construction remain open.
+Sphere/radial conversion and unconditional selected Haar translation are now
+proved above. Shared-link reflected-square gluing, slab positivity, physical
+time, the completed physical gap and continuum/Clay construction remain open.
 
 Three new modules passed focused monitored one-worker 20 GiB checks: 17
 printed gates within `{propext, Quot.sound}`, no final errors/warnings.
@@ -137,9 +161,9 @@ The induction is unbounded; only the small four-coordinate algebra uses
 finite kernel certificates. No larger table of moment checks is required
 by this recurrence.
 
-The closed Gaussian moments are now proved above. Sphere/radial conversion,
-unconditional selected translation and shared-link reflected-square gluing
-remain open. This is not slab reflection positivity or a mass-gap estimate.
+The closed Gaussian and Haar moments and unconditional selected translation
+are now proved above. Shared-link reflected-square gluing remains open.
+This is not slab reflection positivity or a mass-gap estimate.
 
 Both new modules passed focused monitored one-worker 20 GiB checks: 22
 printed axiom gates within `{propext, Quot.sound}`, no final errors/warnings.

@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (closed all-degree Gaussian translation moments):**
+**Latest gluing-route progress (unconditional all-degree Haar translations):**
+`SU2QuaternionPartialSphereGaussian.partialHaarHead_mul_radial` lifts the
+existing common sphere/Gaussian factor to EVERY tail coefficient probe.
+The explicit `radialDenominator_positive` permits constructive cancellation;
+`partialHaarHead_eq_zero_of_odd` annihilates odd head degree before any tail
+specialization. No unit-radius premise is used in this coefficient identity.
+
+`SU2QuaternionTranslationHaarMoments.translatedHeadMonomial_head_degree`
+proves the original Hamilton products' syntactic homogeneity.
+`translatedHeadMonomial_haar_closed` converts the proved Gaussian formula,
+and `translatedHeadMonomial_haar_expected` pins it to the EXISTING moment
+API for both multiplication orders and every exponent quadruple.
+
+`SU2QuaternionAllDegreeHaarTranslation.translatedHeadPolynomial_haar`
+uses the existing sphere ideal to remove the multiplier radius under Haar.
+`selectedLeftTranslatedPolynomial_haar` and
+`selectedRightTranslatedPolynomial_haar` prove the original selected-pair
+substitutions preserve full product Haar, with unchanged support and distinct
+block guards but NO scan premise. The companion
+`SU2QuaternionAllDegreeHaarTranslationChain` covers inverse multipliers and
+arbitrary finite chains. `applyBF4TreeGaugeTranslationLedger_haar` applies
+to the ORIGINAL 139-step BF4 ledger on every supported 48-block polynomial,
+without a degree restriction or successive checks.
+
+**Next:** shared fixed-plane-link changes of variables and a reflected-square
+decomposition of the SAME signed slab form and observable. Haar translation
+is now proved, not slab positivity. Physical time/transfer, completed exact-law
+gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom/type change or revival of the refuted exact/positive-law identity.
+
+Verification: four focused monitored one-worker 20 GiB checks, `.olean`
+outputs, 7 + 5 + 5 + 5 = 22 printed gates within `{propext, Quot.sound}`;
+final logs error/warning free: `/tmp/ym-partial-sphere-gaussian.log`,
+`/tmp/ym-translation-haar-moments.log`, `/tmp/ym-all-degree-haar-translation.log`,
+`/tmp/ym-all-degree-haar-translation-chain.log`. No new sorry, analytic premise,
+numerical oracle, rate, pilot constant or raised proof limit. No full
+build/audit/guard/progress run.
+
+**Retained gluing-route progress (closed all-degree Gaussian translation moments):**
 `SU2QuaternionHeadGaussianConditionalProduct.partialGaussianHead_mul_independent`
 pulls any syntactically head-independent factor through the partial integral,
 coefficientwise. `partialGaussianHead_radius_mul` retains the actual tail
@@ -38,11 +76,10 @@ length, by strict length descent. `translatedHeadMonomial_gaussian_closed`
 pins the closed formula to the ORIGINAL four-exponent translation API for
 both multiplication orders and every exponent quadruple.
 
-**Next:** sphere/radial conversion, then removal of the selected polynomial
-translation `hcheck`s. The Gaussian closed formula is proved, not full Haar
-invariance. Shared-link reflected-square gluing, slab positivity, physical
-time, completed exact-law gap, volume/spacing/QFT passage and all-group Clay
-remain open. No canonical atom/type change or revival of the refuted law identity.
+Sphere/radial conversion and scan-free selected polynomial translations are
+now proved above. Shared-link reflected-square gluing, slab positivity,
+physical time, completed exact-law gap, volume/spacing/QFT passage and all-group
+Clay remain open. No canonical atom/type change or revival of the refuted law identity.
 
 Verification: three new modules passed focused monitored one-worker 20 GiB
 checks with `.olean` outputs; 7 + 3 + 7 = 17 gates within
@@ -77,9 +114,8 @@ the explicit equal-label Wick contractions at EVERY word length, retaining
 all tail coefficients. `translatedHeadMonomial_eq_word` pins the new
 recursion to the existing four-exponent translation-moment polynomial.
 
-The closed Gaussian moments are now proved above. Next on the selected-
-translation route: sphere/radial conversion and removal of the polynomial
-`hcheck` hypotheses. Full Haar invariance is not yet proved.
+The closed Gaussian and Haar moments and scan-free selected translations
+are now proved above, including inverse multipliers and finite chains.
 Shared-link gluing into reflected squares, slab positivity, physical time,
 completed exact-law gap, volume/spacing/QFT passage and all-group Clay remain
 open. No canonical atom/type change or revival of the refuted law identity.

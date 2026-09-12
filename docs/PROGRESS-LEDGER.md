@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: closed all-degree Gaussian translation moments (2026-09-12)
+## Current increment: scan-free all-degree Haar translations and BF4 ledger (2026-09-12)
+
+PROGRESS: the actual selected left/right quaternion substitutions now preserve
+the full product-Haar functional for every supported polynomial, without an
+executable moment-check hypothesis. Inverse multipliers and arbitrary finite
+chains are covered. The concrete original 139-step BF4 tree-gauge ledger
+preserves Haar_48 with no degree restriction or successive scans.
+
+The causal proof is `SU2QuaternionPartialSphereGaussian.partialHaarHead_mul_radial`
+and odd-degree annihilation, actual homogeneity in
+`SU2QuaternionTranslationHaarMoments.translatedHeadMonomial_head_degree`,
+the original expected-moment identity `translatedHeadMonomial_haar_expected`,
+then the existing sphere ideal and expose/restore maps in
+`SU2QuaternionAllDegreeHaarTranslation`. The literal chain application is
+`SU2QuaternionAllDegreeHaarTranslationChain.applyBF4TreeGaugeTranslationLedger_haar`.
+Every tail coefficient is retained during the sphere conversion; all original
+support, index and distinctness guards remain at the selected-pair consumer.
+
+Next: shared fixed-plane-link gluing into reflected squares on the SAME slab
+form and observable. No slab positivity, physical time, completed exact-law
+gap, volume/spacing/QFT or all-group Clay atom closed. The exact/positive-law
+identity remains refuted.
+
+Four focused monitored one-worker 20 GiB checks passed with `.olean` outputs;
+7 + 5 + 5 + 5 = 22 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs: `/tmp/ym-partial-sphere-gaussian.log`,
+`/tmp/ym-translation-haar-moments.log`, `/tmp/ym-all-degree-haar-translation.log`,
+`/tmp/ym-all-degree-haar-translation-chain.log`. No new sorry, analytic premise,
+numerical oracle, rate, pilot constant or proof-limit increase. No full
+build/audit/guard/progress run.
+
+## Previous increment: closed all-degree Gaussian translation moments (2026-09-12)
 
 PROGRESS: the closed moment formula is now proved, not merely its recurrence.
 It is pinned to the ORIGINAL four-exponent translation polynomials for both

@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Scan-free all-degree Haar translations and the literal BF4 ledger (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionPartialSphereGaussian.lean`,
+  `SU2QuaternionTranslationHaarMoments.lean`,
+  `SU2QuaternionAllDegreeHaarTranslation.lean`, and
+  `SU2QuaternionAllDegreeHaarTranslationChain.lean` in the same directory.
+- **sphere conversion discharged**: `partialHaarHead_mul_radial` retains
+  every tail coefficient with an explicit positive radial denominator;
+  `partialHaarHead_eq_zero_of_odd` handles odd head degree before tail
+  integration. `translatedHeadMonomial_head_degree` proves actual syntactic
+  homogeneity. `translatedHeadMonomial_haar_expected` proves the original
+  expected moment for BOTH Hamilton orders and EVERY exponent quadruple.
+- **scan premise removed by proof**: `translatedHeadPolynomial_haar`,
+  `selectedLeftTranslatedPolynomial_haar` and
+  `selectedRightTranslatedPolynomial_haar` identify the full Haar value of
+  the EXISTING substitutions. The selected-block support, index and
+  distinctness guards are unchanged. No moment equality is assumed.
+- **literal consumer discharged**: inverse-multiplier variants and
+  `applySelectedTranslationSteps_haar` cover arbitrary finite chains;
+  `applyBF4TreeGaugeTranslationLedger_haar` gives the ORIGINAL 139-step
+  BF4 ledger's Haar_48 preservation, with no degree bound or scan premise.
+  No claim about the Boolean checker's completeness is needed or made.
+- **OPEN residue**: shared fixed-plane-link reflected-square gluing,
+  positivity of the SAME signed slab form, physical time/transfer,
+  completed exact-law gap, volume/spacing/QFT passage and all-group Clay.
+  This does not assert a new word-semantic pin. No canonical atom/type
+  change; the refuted exact/positive-law identity is not used.
+- **verification**: four focused monitored one-worker 20 GiB checks passed
+  with `.olean` outputs; 7 + 5 + 5 + 5 = 22 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-partial-sphere-gaussian.log`, `/tmp/ym-translation-haar-moments.log`,
+  `/tmp/ym-all-degree-haar-translation.log`,
+  `/tmp/ym-all-degree-haar-translation-chain.log`. No new sorry, analytic
+  premise, numerical oracle, rate, pilot constant or raised proof limit.
+  No full build/audit/guard/progress run.
+
 ## Closed all-degree Gaussian translation moments (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadGaussianConditionalProduct.lean`,
