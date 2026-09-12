@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Quantitative strict excitation in the actual completed complement (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalCubeDissipation.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCubeStrictExcitation.lean`.
+- **full-space estimate**: `displacement_norm_le_twice_dissipation` bounds
+  `||T x-x||^2` by twice the SAME reflected Rayleigh deficit for every
+  completed vector. `displacement_test_bound`, `norm_floor_of_test`, and
+  `dissipation_floor_of_test` retain positive rational test floors using
+  completed Cauchy--Schwarz and rational cancellation. No gap is assumed.
+- **actual centered witness**: `centeredDisplacement` uses stationarity to
+  put `T x-x` exactly in the existing `CubeSectorVacuumComplement`.
+  `excitation` takes x to be the physical root cylinder. The previously
+  proved two-step physical floor delta and fixed representative squared-norm
+  ceilings P,R give `excitationNormFloor = delta^2/P > 0` and
+  `excitationDeficitFloor = excitationNormFloor^2/(2R) > 0`.
+  `excitation_norm_floor` and `excitation_norm_ceiling` give
+  `excitationNormFloor <= <d,d> <= 2R`. `excitation_displacement_root`
+  identifies `<T d-d,root>` with `<d,d>`; `excitation_deficit_floor` and
+  `excitation_strict_form` give `<T d,d> + excitationDeficitFloor <= <d,d>`.
+  `excitation_ne_zero` and `excitation_not_fixed` are unconditional for
+  this constructed vector of the actual completed operator.
+- **OPEN residue / scope**: fixed w=1/400, extent one, not beta/volume/spacing
+  uniform. The positive deficit is for ONE vector, not a common norm-relative
+  floor for all centered vectors. It does not give a normalized probe with
+  positive transfer response for `CanonicalOSRoot.PositiveTimeOSRoot`.
+  Uniform strict completed gap, vacuum uniqueness, geometric time,
+  thermodynamic/continuum control and all-group Clay remain open.
+  No canonical scorecard atom, existing sorry or analytic hypothesis is closed.
+- **verification**: both new modules passed focused monitored one-worker
+  20 GiB checks with `.olean` output and 31 printed axiom gates, all within
+  `{propext, Quot.sound}`. Final logs are error/warning free. A general
+  representative-positivity lemma avoided an initial concrete kernel timeout;
+  all default proof and memory limits were retained. No new sorry, axiom,
+  classical extraction, numerical oracle, full build/audit/guard or progress
+  script was introduced or run. Root edits are imports only; CI stays off.
+
 ## Nonidentity of the actual completed physical cube transfer (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeThreeStatePath.lean`,

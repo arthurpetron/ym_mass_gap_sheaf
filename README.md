@@ -86,6 +86,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + two positive physical edges AND zero direct root/probe entry [PROVED]
       -> positive pairing through both original completion limits [PROVED]
       -> SAME completed transfer moves root; T is not identity     [PROVED]
+      + stationarity AND completed-norm dissipation control
+      -> d = T root - root lies in Omega-perp, with positive norm  [PROVED]
+      -> <T d,d> + explicit positive floor <= <d,d>               [PROVED one vector]
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -109,7 +112,31 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** the **actual completed physical transfer is not the
+**Latest result:** a **strict, quantitatively nonzero excitation in the actual
+completed vacuum complement**. Define `d = T root - root`; stationarity gives
+`<Omega,d>_E = 0` exactly. If `delta = twoStepFloor` is the physical positive
+pairing floor below, and `P,R` are computed squared-norm ceilings for the
+fixed probe and root representatives, Lean proves
+
+```text
+alpha = delta^2 / P > 0
+eta   = alpha^2 / (2R) > 0
+alpha <= <d,d>_E <= 2R
+<T d,d>_E + eta <= <d,d>_E
+```
+
+The short argument is quantitative Cauchy--Schwarz, self-adjointness and
+`||T x - x||_E^2 <= 2 * (<x,x>_E - <T x,x>_E)` on the full completed
+carrier. See
+[`BF4PhysicalCubeDissipation.lean`](lean/YMGap/Continuum/BF4PhysicalCubeDissipation.lean)
+and [`BF4PhysicalCubeStrictExcitation.lean`](lean/YMGap/Continuum/BF4PhysicalCubeStrictExcitation.lean).
+All 31 printed axiom gates passed in targeted monitored checks; no full-tree
+audit was run. Scope is still fixed `w=1/400`, extent one. This is **one
+vector's strict deficit**, not a uniform relative bound for every vector,
+a normalized positive-response probe for the canonical geometric-time root,
+vacuum uniqueness, or a continuum gap.
+
+**Physical input:** the **actual completed physical transfer is not the
 identity**. A three-state argument witnesses the movement:
 
 ```text

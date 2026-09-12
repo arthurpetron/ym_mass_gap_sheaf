@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual completed transfer moves a concrete vector (2026-09-12)
+## Current increment: quantitative strict excitation in the actual complement (2026-09-12)
+
+This is PROGRESS after completed-transfer nonidentity: the concrete
+displacement `d=T root-root` is now an exactly vacuum-orthogonal vector
+with a positive rational norm floor AND a positive rational Rayleigh-deficit
+floor. This is not an all-vector spectral gap.
+
+`BF4PhysicalCubeDissipation.displacement_norm_le_twice_dissipation` proves
+`||T x-x||^2 <= 2*(<x,x>-<T x,x>)` for every vector in the actual completed
+reflected carrier, from the existing contraction. Cauchy--Schwarz gives
+`norm_floor_of_test` and `dissipation_floor_of_test`; stationarity gives
+`centeredDisplacement` without a projection or representative choice.
+
+In `BF4PhysicalCubeStrictExcitation`, let delta be the physical `twoStepFloor`,
+P the fixed probe representative's `probeCeiling`, and R the existing
+`rootCeiling`. The named positive rational witnesses are
+`excitationNormFloor = delta^2/P` and
+`excitationDeficitFloor = excitationNormFloor^2/(2R)`.
+`excitation_norm_floor`, `excitation_norm_ceiling`, and
+`excitation_strict_form` prove
+`delta^2/P <= <d,d> <= 2R` and `<T d,d> + excitationDeficitFloor <= <d,d>`.
+Self-adjointness supplies the key second test:
+`<T d-d,root> = <d,d>` (`excitation_displacement_root`).
+The same constructed vector is proved nonzero and not fixed.
+
+Scope: fixed w=1/400, extent one. No common relative rate on the whole
+complement, normalized positive-response canonical OS probe, geometric
+time, unique vacuum, volume/spacing passage or Clay closure is inferred.
+The next analytic producer is still cutoff-independent weighted coverage
+or a direct norm-relative dissipation floor, valid for EVERY centered vector.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` output; all 31 printed axiom gates are within propext/Quot.sound.
+Final logs have no errors or warnings. An initial concrete positivity
+proof hit the kernel's default timeout; proving the same representative
+fact generally avoided boundary-sum evaluation, without raising any limit.
+No full build/audit/guard, progress script, numerical oracle or new analytic
+premise was used. Root imports, landing page, work plan and sorry ledger are
+updated. GitHub CI remains disabled.
+
+## Previous increment: actual completed transfer moves a concrete vector (2026-09-12)
 
 This is PROGRESS after explicit centered density: nonidentity of the actual
 completed cube transfer is no longer open. The root cylinder is a concrete

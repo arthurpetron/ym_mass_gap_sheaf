@@ -674,6 +674,24 @@ The next load-bearing producers are, in causal order:
    No new analytic premise, proof-budget increase, numerical oracle or
    full-tree verification was used. Nonidentity does not give the missing
    strict vacuum-complement rate or uniqueness of the stationary vacuum.
+   `BF4PhysicalCubeDissipation` now proves, for EVERY vector of the same
+   completed reflected carrier, `||T x-x||^2 <= 2*(<x,x>-<T x,x>)` and
+   its quantitative test-pairing consequences. `BF4PhysicalCubeStrictExcitation`
+   applies this twice to `d=T root-root`. Stationarity gives exact vacuum
+   orthogonality; writing delta for the proved two-step pairing floor and
+   P,R for the fixed probe/root squared-norm ceilings, its explicit data are
+   `alpha=delta^2/P > 0` and `eta=alpha^2/(2R) > 0`. It proves
+   `alpha <= <d,d> <= 2R` and `<T d,d>+eta <= <d,d>`, so this centered
+   vector is nonzero and not fixed. Both modules passed focused monitored
+   one-worker 20 GiB checks, all 31 printed gates within `{propext, Quot.sound}`.
+   A concrete norm-ceiling positivity proof initially hit the default kernel
+   timeout; the general representative lemma fixes this without evaluating
+   the physical boundary sum or raising limits. Final logs are error/warning
+   free. No full build/audit/guard or canonical scorecard closure is claimed.
+   The result is a strict deficit for ONE constructed vector, not the common
+   norm-relative floor still required for all centered vectors; it also does
+   not supply the canonical geometric-time root's normalized positive-response
+   probe.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.
@@ -835,6 +853,8 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- positive probe/cube/root edges AND zero direct edge .. [PROVED exact SU(2), all K>=2]
 |   |   |   +-- independent cutoff bounds -> completed two-image floor [PROVED explicit heat-product floor]
 |   |   |   +-- same-object pairing pin -> T moves root; T != identity [PROVED actual full completion]
+|   |   |   +-- stationarity + displacement test bounds .............. [PROVED all completed vectors]
+|   |   |   +-- d=T root-root: positive norm and strict form deficit .. [PROVED one centered vector, explicit floors]
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]
