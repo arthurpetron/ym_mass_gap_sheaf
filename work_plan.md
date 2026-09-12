@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest exact-law progress (joint interface stabilization and original fixed-observable cutoff limit):**
+**Latest exact-law progress (common cutoff-limit GNS carrier and original vacuum-code pin):**
+`BF4ExactSlabFiniteBoundaryObservable.BoundaryObservable` stores a coefficient
+function and an explicit finite label cutoff with its proved outside-zero
+invariant. `ofCoefficients` embeds every original finite anchor; `add` uses
+the maximum cutoff and `extension_eqv` proves larger recodings unchanged.
+
+`BF4ExactSlabCutoffLimitForm.finiteForm_stable` pins the ORIGINAL finite
+pairing to one `limitForm` on this common carrier at its explicit `formModulus`.
+`limitForm_congr_left`, `limitForm_add_left`, `limitForm_smul_left` and
+`limitForm_symm` use common finite stages computed by maxima; no algebraic
+limit law is assumed. `limitForm_nonnegative` imports the proved quadratic
+limit positivity. `limitForm_ofCoefficients` identifies every original
+anchored limit. `cutoffLimitGNSData` is therefore one genuine form datum
+containing all finite anchor cutoffs, independent of stored cutoff witnesses.
+
+`BF4ExactSlabCutoffLimitGNS.cutoffLimitCompletion` constructs its common
+null-quotient/RC completion. `cutoffLimitEmbed_anchored_pairing` and
+`cutoffLimitEmbed_finite_pairing` pin the dense completed pairing to the
+ORIGINAL anchored limit and every sufficiently late original finite form.
+`limitRepresentative` retains the existing explicit-modulus representative
+family API. `vacuumCode_coefficient` identifies the same vector with the
+actual vacuum delta on every original finite carrier; `vacuumCode_limit_norm`,
+`vacuumCode_not_null`, `vacuumCode_completed_norm` and
+`vacuumCode_completed_ne_zero` give its norm-one/non-null properties.
+
+Next residue: geometric positive-time realization and larger-slab
+compatibility, physical time/transfer, and a strict gap on that operator's
+completed vacuum complement. Current scope is the extent-one original
+boundary-coefficient observable family, all finite anchor cutoffs and w >= 0.
+It is NOT the canonical positive-time root, arbitrary-volume positivity,
+vacuum stationarity, a physical time semigroup, or a continuum construction.
+Volume/spacing/QFT and all-group Clay remain OPEN. No canonical atom/type
+changed; the refuted exact/positive identity is unused.
+
+Verification: three focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 9 + 12 + 15 = 36 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-finite-boundary-observable.log`,
+`/tmp/ym-slab-cutoff-limit-form.log`, `/tmp/ym-slab-cutoff-limit-gns.log`.
+The non-null proof uses a generic norm-one implication and the explicit
+form rewrite, avoiding expansion of the concrete cutoff computation.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding exact-law progress (joint interface stabilization and original fixed-observable cutoff limit):**
 `BF4ExactSlabBoundaryCutoffRecoding.boundaryExtension` uses the actual finite
 face-label test. `centralHalfStates_filter`, `lowerObservable_extension`
 and `upperObservable_extension` preserve both original heat-dressed boundary
@@ -46,8 +89,8 @@ recoded finite boundary observables to `exactCutoffPairingValue`.
 CReal limit and its exact pin at every precision. The quadratic limit is
 nonnegative for w >= 0 by `exactCutoffPairingValue_nonnegative`.
 
-Next residue: a common cutoff-limit observable carrier and its completed
-same-form GNS realization, arbitrary-volume positivity, geometric physical
+The common cutoff-limit observable carrier and its completed same-form GNS
+realization are now constructed above. The residue is arbitrary-volume positivity, geometric physical
 time/transfer, and a strict gap on that operator's completed vacuum complement.
 Volume/spacing/QFT and all-group Clay remain OPEN. This is extent-one
 representation-cutoff removal for each fixed finite observable, not a

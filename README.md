@@ -81,7 +81,11 @@ REQUIRED PHYSICAL ROUTE
     -> joint interface pairing stabilizes at explicit degree bound [PROVED]*******
     -> SAME fixed-observable bilinear has an explicit CReal limit  [PROVED]*******
     + quadratic limit >= 0 for w >= 0                             [PROVED]*******
-    + cutoff-compatible exact-law carrier and physical-time pin    [OPEN]
+    + common carrier: coefficients with explicit cutoff witnesses [PROVED]
+    + common-stage bilinearity, symmetry and witness independence [PROVED]
+    -> ONE original cutoff-limit GNSData for every finite anchor  [PROVED]********
+    -> common completion, original pairing pins, norm-one code    [PROVED]********
+    + physical positive-time realization / larger-slab compatibility [OPEN]
     + geometric time/transfer on that same carrier                  [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -118,7 +122,11 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 ******* Extent one, fixed finite boundary observables, every rational w.
         The exact stabilization index is computed from the anchor and the
         24 exposed-link degrees. Quadratic positivity requires w >= 0.
-        A common completed cutoff-limit carrier and physical time remain open.
+        The common completed carrier is now constructed in the next step.
+******** All finite anchor observables in one extent-one carrier, w >= 0.
+         Completion retains explicit Cauchy representatives and moduli.
+         Not vacuum stationarity, the canonical positive-time root, a
+         physical time operator, arbitrary-volume positivity, or a gap.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -136,7 +144,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL fixed-observable slab bilinear has an exact cutoff limit.**
+**Latest result: ONE completed original cutoff-limit carrier for all finite anchor observables.**
+[`BF4ExactSlabFiniteBoundaryObservable.lean`](lean/YMGap/Continuum/BF4ExactSlabFiniteBoundaryObservable.lean)
+stores each coefficient function with an explicit finite cutoff witness.
+Addition takes the maximum of two witnesses. Every original finite-anchor
+coefficient function has a specified image in this common carrier.
+[`BF4ExactSlabCutoffLimitForm.lean`](lean/YMGap/Continuum/BF4ExactSlabCutoffLimitForm.lean)
+proves the pairing independent of cutoff witnesses and transports
+bilinearity, symmetry and positivity from the ORIGINAL finite forms at
+explicit common stages. `cutoffLimitGNSData` contains all finite anchors,
+with no fixed representation cutoff parameter.
+
+[`BF4ExactSlabCutoffLimitGNS.lean`](lean/YMGap/Continuum/BF4ExactSlabCutoffLimitGNS.lean)
+constructs its null-quotient completion. `cutoffLimitEmbed_anchored_pairing`
+pins every original finite observable's completed inner product to its
+previously proved anchored cutoff limit; `cutoffLimitEmbed_finite_pairing`
+pins it to every sufficiently late original finite form. Completeness uses
+explicit representative families and moduli, without choosing arbitrary
+quotient representatives. The single vacuum-code vector agrees with the
+original vacuum delta on every finite carrier, has norm one, and is non-null
+in the common completion. Physical stationarity is not asserted.
+
+**Next:** geometric positive-time realization and larger-slab compatibility,
+then a physical transfer and a strict gap on its own completed vacuum
+complement. Current scope is the extent-one boundary-coefficient observable
+family, not the canonical continuum positive-time root. Arbitrary-volume
+positivity, volume/spacing limits, QFT axioms and all-group Clay remain open.
+Three focused monitored checks passed: 36 axiom gates within
+`{propext, Quot.sound}`, no new sorry, analytic premise or proof-limit increase.
+No full-tree audit was run.
+
+**Preceding result: the ORIGINAL fixed-observable slab bilinear has an exact cutoff limit.**
 [`BF4ExactSlabBoundaryCutoffRecoding.lean`](lean/YMGap/Continuum/BF4ExactSlabBoundaryCutoffRecoding.lean)
 keeps both heat-dressed boundary polynomials unchanged at every larger
 cutoff, using a finite Boolean label test. Only the original interface varies.
@@ -156,9 +194,9 @@ every cutoff beyond `exactCutoffPairingModulus`.
 `exactCutoffPairingValue_nonnegative` proves the quadratic limit nonnegative
 for w >= 0. Scope: extent one and each fixed finite boundary observable.
 
-**Next:** assemble these compatible observables into a common completed
-cutoff-limit carrier, then construct geometric physical time/transfer and
-a strict gap on its own vacuum complement. Arbitrary-volume positivity,
+The common completed cutoff-limit carrier is now constructed above.
+Geometric physical time/transfer and a strict gap on its own vacuum
+complement remain open. Arbitrary-volume positivity,
 volume/spacing limits, QFT axioms and the all-group Clay target remain open.
 The four modules have 50 clean axiom gates within `{propext, Quot.sound}`
 from focused monitored checks; no new sorry, analytic premise or proof-limit

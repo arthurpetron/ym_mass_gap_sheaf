@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Common original cutoff-limit completion and norm-one vacuum code (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFiniteBoundaryObservable.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCutoffLimitForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCutoffLimitGNS.lean`.
+- **discharged**: common finite-observable carrier with explicit cutoff
+  witnesses and outside-zero invariants; same-original-form eventual pin
+  `finiteForm_stable`; cutoff-witness independence, biadditivity,
+  homogeneity, symmetry and positivity of `limitForm`; `limitForm_ofCoefficients`
+  pins every original anchored limit. `cutoffLimitGNSData` and
+  `cutoffLimitCompletion` give ONE common null-quotient/RC completion,
+  with no fixed representation cutoff parameter. Completed dense pairings
+  are pinned both to anchored limits and sufficiently late original finite
+  forms. `limitRepresentative` retains explicit Cauchy representative data.
+  `vacuumCode_coefficient` identifies the same vector with each finite vacuum
+  delta; its limit and completed norm are one and it is non-null.
+- **OPEN residue**: geometric positive-time realization and larger-slab
+  compatibility, physical time/transfer, strict completed vacuum-complement
+  gap, arbitrary-volume positivity, volume/spacing/QFT and all-group Clay.
+  This is the extent-one boundary-coefficient observable family at all finite
+  anchors, not the canonical continuum positive-time root. Norm-one vacuum
+  code does not imply stationarity. No canonical atom/type changed; no use
+  of the refuted exact/positive identity. No new sorry or analytic premise.
+  Completion does not choose representatives of arbitrary quotient sequences.
+- **verification**: three focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 9 + 12 + 15 = 36 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-finite-boundary-observable.log`,
+  `/tmp/ym-slab-cutoff-limit-form.log`, `/tmp/ym-slab-cutoff-limit-gns.log`.
+  No raised proof limit, numerical oracle, rate or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Original fixed-observable cutoff limit and joint interface selection (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBoundaryCutoffRecoding.lean`,
@@ -31,8 +62,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   for each fixed finite boundary observable. `exactCutoffPairingValue_nonnegative`
   proves the quadratic limit nonnegative for w >= 0, via finite positivity
   and the exact stabilized identity, not an assumed limit-order principle.
-- **OPEN residue**: a common cutoff-limit observable carrier and completed
-  same-form GNS realization, arbitrary-volume positivity, geometric physical
+- **subsequent discharge**: the common cutoff-limit observable carrier and
+  completed same-form GNS realization are now constructed above.
+  **OPEN residue**: arbitrary-volume positivity, geometric physical
   time/transfer, strict completed vacuum-complement gap, volume/spacing/QFT
   and all-group Clay. Current scope is extent one and fixed finite boundary
   observables; representation-cutoff removal is not a continuum limit.

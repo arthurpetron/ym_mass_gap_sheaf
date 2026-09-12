@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original fixed-observable cutoff limit by joint interface selection (2026-09-12)
+## Current increment: one completed original cutoff-limit carrier for all finite anchors (2026-09-12)
+
+PROGRESS: `BF4ExactSlabFiniteBoundaryObservable.BoundaryObservable` combines
+all finite anchor observables in one carrier, with explicit cutoff data and
+the proved outside-zero invariant. Addition uses the maximum witness.
+`BF4ExactSlabCutoffLimitForm.finiteForm_stable` connects the ORIGINAL finite
+pairings to one `limitForm`; all form laws and cutoff-witness independence
+are proved at common finite stages. `cutoffLimitGNSData` has no fixed K
+parameter and consumes no new limit-form assumption.
+
+`BF4ExactSlabCutoffLimitGNS.cutoffLimitCompletion` gives the common
+null-quotient/RC completion. `cutoffLimitEmbed_anchored_pairing` and
+`cutoffLimitEmbed_finite_pairing` identify its dense pairing with the original
+anchored cutoff limit and sufficiently late original finite forms.
+Explicit representative families and moduli are retained by `limitRepresentative`.
+The one vacuum-code vector equals the original vacuum delta on every finite
+carrier, has limit/completed norm one, and is non-null in the completion.
+
+Next: geometric positive-time realization and larger-slab compatibility,
+physical transfer and a strict gap on its own completed vacuum complement.
+Current scope: extent-one original boundary-coefficient observable family,
+all finite anchors and w >= 0. Not the canonical positive-time root or
+physical vacuum stationarity. Arbitrary-volume positivity, volume/spacing,
+continuum/QFT and all-group Clay remain open. No canonical atom/type changed;
+no use of the refuted exact/positive identity.
+
+Three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 9 + 12 + 15 = 36 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-finite-boundary-observable.log`,
+`/tmp/ym-slab-cutoff-limit-form.log`, `/tmp/ym-slab-cutoff-limit-gns.log`.
+No new sorry, analytic premise, proof-limit increase, numerical oracle,
+rate or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: original fixed-observable cutoff limit by joint interface selection (2026-09-12)
 
 PROGRESS: `BF4ExactSlabBoundaryCutoffRecoding.exact_bilinear_anchored` fixes
 both original boundary polynomials across cutoffs, retaining their heat
@@ -26,8 +59,8 @@ exact modulus `exactCutoffPairingModulus`. `exactCutoffPairingValue_nonnegative`
 proves the quadratic value nonnegative for w >= 0. Scope: extent one and
 each fixed finite boundary observable, recoded by the actual finite label test.
 
-Next: assemble a common completed cutoff-limit carrier and construct geometric
-physical time/transfer, then a strict gap on its own vacuum complement.
+The common completed cutoff-limit carrier is now constructed above. Geometric
+physical time/transfer and a strict gap on its own vacuum complement remain open.
 Arbitrary-volume positivity, thermodynamic/continuum/QFT and all-group Clay
 remain open. No canonical atom/type changed; no refuted identity is used.
 The degree cutoff is algebraic selection, not a coupling-uniform gap rate.
