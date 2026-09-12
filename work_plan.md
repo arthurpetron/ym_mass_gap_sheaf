@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct-route progress (actual all-spin character Gram channels):**
+**Latest direct-route progress (literal path channels in the original quadratic):**
+`BF4ExactSlabPlaquettePathGram.slabPlaquette_eq_pathProduct` proves the
+ordered word identity `a b c^-1 d^-1 = (a b)(d c)^-1` coefficientwise.
+`pathAB_haar_unit` and `pathDC_haar_unit` discharge both literal path-radius
+conditions on the same slab carrier. `slabPlaquette_character_haar_pathGram`
+therefore identifies the ORIGINAL character with its actual all-spin Gram
+kernel under every insertion, for every physical face and extent.
+`crossing_face_path_sides` proves the paths use lower/fixed and fixed/upper
+links; the fixed time links are not erased or replaced by independent ones.
+
+`BF4ExactSlabInterfacePathGram.faceHeatPolynomial_haar_pathGram` retains
+the original `coeffW` weights. `interfaceHeatProduct_haar_pathGram` composes
+the replacements across all 24 overlapping interface faces under every
+insertion. `exact_bilinear_eq_pathGramHaar` and
+`exact_quadratic_eq_pathGramHaar` consume the ORIGINAL signed bilinear and
+quadratic forms with the same lower observable and its literal reflection.
+This interface consumer is extent one, every rational w and every cutoff K.
+
+**Next:** integrate the shared time links into a global reflected square.
+The selected-translation approach has an explicit remaining algebraic input:
+`SU2QuaternionSelectedHaarTranslation.selectedLeftTranslatedPolynomial_haar_sound`
+and `selectedRightTranslatedPolynomial_haar_sound` require their polynomial
+`hcheck`; `SU2QuaternionTranslationMomentDegreeFive` certifies moments only
+through degree five. An unconditional all-degree discharge is not supplied
+by those declarations. This is an open input of that candidate gluing route,
+not an assertion that every route to the target must use translations.
+Slab reflection positivity, physical time, completed exact-law gap,
+volume/spacing/QFT passage and all-group Clay remain open. No canonical
+atom/type change or revival of the refuted positive-law identity.
+
+Verification: both new modules passed focused monitored one-worker 20 GiB
+checks with `.olean` outputs; 17 + 6 = 23 printed gates within
+`{propext, Quot.sound}`, final error/warning free. Logs:
+`/tmp/ym-exact-slab-plaquette-path-gram.log` and
+`/tmp/ym-exact-slab-interface-path-gram.log`.
+No new sorry, analytic premise, rate, pilot constant or raised proof limit.
+No full build/audit/guard/progress run. GitHub Actions remains disabled.
+
+**Retained direct-route progress (actual all-spin character Gram channels):**
 `SU2QuaternionPolynomialTensorHermitian.polyMatrixAction_mul` and
 `polyTensorInner_matrixAction` prove tensor functoriality and the actual
 adjoint law at coefficient-probe strength. No pointwise identity is passed
@@ -45,16 +83,9 @@ uses the existing all-polynomial Haar square theorem. The final
 Haar-unit radius and syntactic synthesis-support conditions on the SAME
 finite carrier. Positivity of the character kernel is proved, not assumed.
 
-**Next physical frontier:** realize these channels on the actual fixed
-crossing plaquettes, retaining `coeffW` and shared time-link endpoints,
-then compose the integrations with the existing literal reflected observable.
-The geometry was inspected: `plaquetteHalfSide` in
-`Z4HalfTimeReflectionCrossPlaneGeometry` classifies time-oriented faces based
-at the central lower slice as fixed/crossing; `centralFixedFaceIds` selects
-those faces. The local kernel theorem does not yet supply this physical
-gluing. Slab reflection positivity, physical time, the completed exact-law
-gap, volume/spacing/QFT passage and all-group Clay remain open. No canonical
-atom closed, frontier type changed, or refuted positive-law identity revived.
+The literal path realization and heat-product consumer above now supply
+the local geometry pin. Shared-link gluing into a reflected square is still
+open; the local kernel theorem does not supply that composition by itself.
 
 Verification: all four new modules passed focused monitored one-worker
 20 GiB checks with `.olean` outputs; 27 + 17 + 12 + 14 = 70 printed gates

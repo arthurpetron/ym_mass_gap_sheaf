@@ -55,7 +55,8 @@ REQUIRED PHYSICAL ROUTE
     + ordered slab word has Haar-unit radius, all extents            [PROVED]
     -> trace = ORIGINAL character under every Haar insertion        [PROVED]
     + actual local character Gram channels, all spins              [PROVED]**
-    + those channels pinned to H's crossing-face/link geometry       [OPEN]
+    + channels pinned to literal crossing-face path pairs           [PROVED]
+    -> H = heat-weighted path-channel product under Haar            [PROVED]
     + link-local gluing preserving the reflected observable         [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
@@ -96,7 +97,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: actual all-spin character kernels have explicit Gram channels.**
+**Latest result: the original slab quadratic now uses its literal path channels.**
+[`BF4ExactSlabPlaquettePathGram.lean`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePathGram.lean)
+proves the ordered plaquette identity `a b c^-1 d^-1 = (a b)(d c)^-1`
+coefficientwise. Both actual paths have Haar-unit radius, so the all-spin
+character Gram identity applies under every insertion on the original link
+carrier. This works at every slab extent and spin. On a crossing face, the
+paths are lower-then-fixed and fixed-then-upper: shared time links remain.
+
+[`BF4ExactSlabInterfacePathGram.lean`](lean/YMGap/Continuum/BF4ExactSlabInterfacePathGram.lean)
+retains the original `coeffW` heat weights and composes the local identities
+across all 24 interface faces. `exact_quadratic_eq_pathGramHaar` identifies
+the ORIGINAL signed quadratic with this path-channel product between the
+same lower observable and its literal reflection, at extent one for every
+rational heat parameter and cutoff. No independent-link model is substituted.
+
+**Next:** integrate the shared time links into a global reflected-square
+decomposition. This equality does not yet prove slab reflection positivity.
+The selected Haar-translation lemmas still require an explicit polynomial
+check; their cached moment certificate covers degree five, not all spins.
+An all-degree discharge is open on that possible gluing route. Physical
+time/transfer, the completed physical gap, continuum QFT and all-group Clay
+remain open; no canonical frontier atom was closed.
+
+Both new modules passed focused monitored one-worker 20 GiB checks: 23
+printed axiom gates within `{propext, Quot.sound}`, no final errors/warnings.
+No new sorry, analytic premise, rate or raised proof limit; no full build/audit.
+
+**Retained result: actual all-spin character kernels have explicit Gram channels.**
 [`SU2QuaternionSymmetricPowerKernelGram.lean`](lean/YMGap/Continuum/SU2QuaternionSymmetricPowerKernelGram.lean)
 proves that the ORIGINAL polynomial trace of `Sym^n D(conj(p)*q)` is a sum
 of Hermitian pairings of the actual representation columns. The weights are
@@ -113,14 +141,9 @@ radii for the input words and finite-coordinate support for their column
 syntheses, all on the same Haar carrier. Pairwise product radii are derived,
 not supplied as another premise.
 
-**Next physical bridge:** identify these channels on the actual crossing
-plaquettes, retain the original heat coefficients, and glue the shared-link
-integrations with the actual lower/reflected-upper observables. The fixed
-faces are time-oriented crossing faces, as defined by
-`Z4HalfTimeReflectionCrossPlaneGeometry.plaquetteHalfSide`; this local Gram
-theorem has not yet been assembled on that geometry. Slab reflection
-positivity, physical time/transfer, the completed physical gap, continuum QFT
-and the all-group Clay target remain open.
+The path-pair realization and same-law heat-product consumer above now pin
+these kernels to the crossing geometry. Shared-link reflected-square gluing
+is still open; the local positivity theorem alone does not supply it.
 
 Four new modules passed focused monitored one-worker 20 GiB checks: 70
 printed axiom gates, all within `{propext, Quot.sound}`, no errors/warnings.

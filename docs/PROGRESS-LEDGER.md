@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual all-spin character Gram channels and supported Haar positivity (2026-09-12)
+## Current increment: literal plaquette path channels in the original heat quadratic (2026-09-12)
+
+PROGRESS: the all-spin local Gram channels now use the literal physical
+paths and feed the ORIGINAL signed reflected quadratic with its original
+heat weights. This closes a concrete geometry/consumer step, not the global
+reflected-square decomposition or any canonical frontier atom.
+
+`BF4ExactSlabPlaquettePathGram.slabPlaquette_eq_pathProduct` proves the
+ordered word identity coefficientwise. `pathAB_haar_unit` and
+`pathDC_haar_unit` derive unit radii from physical link membership.
+`slabPlaquette_character_haar_pathGram` gives the original character as
+its actual path-pair Gram kernel under EVERY insertion, all spins/extents.
+`crossing_face_path_sides` identifies lower/fixed versus fixed/upper paths;
+their shared time links are retained.
+
+`BF4ExactSlabInterfacePathGram.faceHeatPolynomial_haar_pathGram` and
+`interfaceHeatProduct_haar_pathGram` retain `coeffW` across all 24 faces,
+even with overlapping link variables. `exact_bilinear_eq_pathGramHaar`
+and `exact_quadratic_eq_pathGramHaar` pin that product to the original
+signed forms, lower observable and literal reflection, at extent one and
+every rational heat parameter/cutoff. No positivity is asserted here.
+
+Next: shared-time-link integration into global reflected squares. On the
+selected-translation route, the soundness declarations in
+`SU2QuaternionSelectedHaarTranslation` still consume explicit `hcheck`s;
+the cached `SU2QuaternionTranslationMomentDegreeFive` proofs cover degree
+five only. An all-degree discharge is open on that route; no such result
+was assumed in these new proofs. Physical time, completed exact-law gap,
+volume/spacing/QFT passage and all-group Clay remain open. The old literal
+exact/positive-law identity remains refuted.
+
+Both new modules passed focused monitored one-worker 20 GiB checks with
+`.olean` outputs; 17 + 6 = 23 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs: `/tmp/ym-exact-slab-plaquette-path-gram.log` and
+`/tmp/ym-exact-slab-interface-path-gram.log`. No new sorry, analytic premise,
+rate, pilot constant or proof-limit increase. No full build/audit/guard/
+progress run. GitHub Actions remains disabled.
+
+## Previous increment: actual all-spin character Gram channels and supported Haar positivity (2026-09-12)
 
 PROGRESS: the local character-kernel positivity mechanism is now proved
 from actual representation columns. It is not merely a supplied positive

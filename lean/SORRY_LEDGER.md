@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Literal path channels and the original heat quadratic (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquettePathGram.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabInterfacePathGram.lean`.
+- **physical local geometry discharged**: `slabPlaquette_eq_pathProduct`
+  is the coefficientwise ordered identity `a b c^-1 d^-1 = (a b)(d c)^-1`.
+  `pathAB_haar_unit` and `pathDC_haar_unit` prove both actual path radii.
+  `slabPlaquette_character_haar_pathGram` identifies the original character
+  with the actual two-path kernel under every Haar insertion, all physical
+  faces, extents and spins. `crossing_face_path_sides` proves the two paths
+  contain lower/fixed and fixed/upper links; shared time links remain.
+- **same-law heat consumer discharged**: `faceHeatPolynomial_haar_pathGram`
+  retains `coeffW`; `interfaceHeatProduct_haar_pathGram` composes all 24
+  overlapping face factors on the original 116-link carrier.
+  `exact_bilinear_eq_pathGramHaar` and `exact_quadratic_eq_pathGramHaar`
+  keep the original signed forms, lower observable and literal reflection.
+  Scope: extent one, every rational w and spin cutoff K. These are identities,
+  not positivity claims or estimates uniform in a physical parameter.
+- **OPEN residue**: integrate shared time links into a global reflected
+  square. On the candidate selected-translation route,
+  `SU2QuaternionSelectedHaarTranslation.lean:636`
+  (`selectedLeftTranslatedPolynomial_haar_sound`) and `:680`
+  (`selectedRightTranslatedPolynomial_haar_sound`) require polynomial
+  `hcheck`s. `SU2QuaternionTranslationMomentDegreeFive.lean:24`
+  (`leftTranslationMomentChecksThrough_five`) and `:28`
+  (`rightTranslationMomentChecksThrough_five`) certify only degree five.
+  An all-degree discharge remains open for this route, not assumed here
+  and not declared necessary for every possible route to the goal.
+  Slab reflection positivity, physical time/transfer, completed exact-law
+  gap, volume/spacing/QFT passage and all-group Clay remain open. No
+  canonical atom/type change; the old positive-law identity stays refuted.
+- **verification**: both focused monitored one-worker 20 GiB checks passed
+  with `.olean` outputs; 17 + 6 = 23 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs: `/tmp/ym-exact-slab-plaquette-path-gram.log`
+  and `/tmp/ym-exact-slab-interface-path-gram.log`. No new sorry, analytic
+  premise, rate, pilot constant or raised proof limit. No full build/audit/
+  guard/progress run. GitHub Actions remains disabled.
+
 ## Actual all-spin character Gram channels and supported Haar positivity (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionPolynomialTensorHermitian.lean`,
