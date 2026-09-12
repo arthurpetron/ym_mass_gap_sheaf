@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: scan-free selected-link coordinate semantics (2026-09-12)
+## Current increment: all four shear images with coefficient pins (2026-09-12)
+
+PROGRESS: `SU2QuaternionInverseTranslationCoordinates.applySelectedTranslationStep_coordinate`
+proves the original left/right direct/inverse shear's ordered coordinate
+image for arbitrary valid indices. All non-selected links, including the
+multiplier, are fixed. Its inverse case composes the original
+conjugate--translate--conjugate definition with the coordinate, ordered
+product and involution theorems in `SU2QuaternionCoordinateConjugation`.
+
+`SU2QuaternionTranslationCoordinateCoefficients.applySelectedTranslationStep_coordinate_coeffEqv`
+upgrades the image to full coefficient-probe equality against its correctly
+padded original product. Every actual output monomial is proved to have the
+full carrier length. Input prefix equivalence also becomes output coefficient
+equivalence after any one original shear. The existing product/word algebra
+can therefore consume these pins without enumerated coordinate certificates.
+
+Next: temporal-ledger geometry and global coordinate composition,
+same-observable substitution identification, then global reflected-square
+gluing. No full temporal-assignment Haar identity, slab positivity, physical
+time, completed exact-law gap, volume/spacing/QFT or all-group Clay atom
+closed. The exact/positive-law identity remains refuted.
+
+Three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs; 9 + 7 + 5 = 21 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-coordinate-conjugation.log`,
+`/tmp/ym-inverse-translation-coordinates.log`, and
+`/tmp/ym-translation-coordinate-coefficients.log`. A targeted axiom trace
+identified choice behind `Nat.left_eq_add`; explicit arithmetic cases
+replaced that simplification. No new sorry, analytic premise, proof-limit
+increase, numerical oracle, rate or pilot constant. No full
+build/audit/guard/progress run.
+
+## Previous increment: scan-free selected-link coordinate semantics (2026-09-12)
 
 PROGRESS: the original direct left/right selected shear now has its literal
 ordered quaternion-product image for EVERY carrier size and valid pair of

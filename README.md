@@ -58,6 +58,7 @@ REQUIRED PHYSICAL ROUTE
     + channels pinned to literal crossing-face path pairs           [PROVED]
     -> H = heat-weighted path-channel product under Haar            [PROVED]
     + all-degree Haar shears and their finite chains, no scans      [PROVED]
+    + all four shear coordinate images, coefficient-sensitive       [PROVED]
     + common upper temporal assignment: all three face classes     [PROVED]
     + identify that assignment with Haar-preserving shears          [OPEN]
     + link-local gluing preserving the reflected observable         [OPEN]
@@ -100,7 +101,24 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: structural selected-link substitution, without coordinate scans.**
+**Latest result: all four shear images, with full coefficient equality.**
+[`SU2QuaternionCoordinateConjugation.lean`](lean/YMGap/Continuum/SU2QuaternionCoordinateConjugation.lean)
+identifies the original coordinate-sign substitution with quaternion
+conjugation on precisely its named block. It fixes all other blocks and
+preserves ordered products. The conjugate--translate--conjugate construction
+in [`SU2QuaternionInverseTranslationCoordinates.lean`](lean/YMGap/Continuum/SU2QuaternionInverseTranslationCoordinates.lean)
+then proves the actual coordinate image of every left/right, direct/inverse
+shear, at arbitrary valid indices. Every non-selected link, including the
+multiplier, is unchanged.
+
+[`SU2QuaternionTranslationCoordinateCoefficients.lean`](lean/YMGap/Continuum/SU2QuaternionTranslationCoordinateCoefficients.lean)
+upgrades those prefix identities to full coefficient-probe equality against
+the correctly padded original quaternion product. This is the equality
+consumed by the existing word/product composition theorems, without finite
+coordinate scans. It does not yet identify the full temporal assignment
+with a shear chain.
+
+**Preceding result: structural direct selected-link substitution.**
 [`SU2QuaternionHeadSubstitutionPrefix.lean`](lean/YMGap/Continuum/SU2QuaternionHeadSubstitutionPrefix.lean)
 proves that the actual head substitution replaces its four variables by the
 supplied quaternion and fixes every tail variable, respecting finite-coordinate
@@ -125,8 +143,8 @@ preserved at every spin, and crossing faces reduce to their actual reflected
 spatial-link Gram kernel at every odd slab extent. All spectator insertions
 remain available, including overlapping face factors.
 
-**Next:** prove the inverse-multiplier coordinate image, compose the
-coordinate identities into this common link assignment using the proved
+**Next:** compose the all-four-case coordinate identities into this common
+link assignment using the proved
 Haar-preserving shears, then combine the reflected channels into the SAME
 slab form's square decomposition. The face algebra is proved; the global
 change-of-variables identity and slab positivity are not. Physical time,

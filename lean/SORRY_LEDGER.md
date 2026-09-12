@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## All four shear coordinate images with coefficient pins (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionCoordinateConjugation.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionInverseTranslationCoordinates.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionTranslationCoordinateCoefficients.lean`.
+- **discharged**: `conjugateBlockQuaternion_coordinate` identifies the
+  original coordinate-sign substitution with conjugation on the named
+  quaternion and identity elsewhere. Ordered multiplicativity and
+  involution hold in the existing prefix relation.
+  `applySelectedTranslationStep_coordinate` composes the actual
+  conjugate--translate--conjugate definition and proves all four
+  left/right direct/inverse coordinate images at arbitrary valid indices;
+  every non-selected link, including the multiplier, is fixed.
+  `applySelectedTranslationStep_coordinate_coeffEqv` upgrades those images
+  to `PolyQuaternionCoeffEqv` against the correctly padded original product,
+  using the exact full length of every output monomial.
+  `applySelectedTranslationStep_prefix_coeffEqv` converts input padding
+  equivalence into full output coefficient equivalence after one shear.
+  No finite coordinate scan is assumed by these theorems.
+- **OPEN residue**: literal temporal-ledger geometry and global coordinate
+  composition; same-observable polynomial substitution identification;
+  reflected-square gluing on the SAME signed slab form. The full temporal
+  assignment's Haar invariance, slab positivity, physical time/transfer,
+  completed exact-law gap, volume/spacing/QFT and all-group Clay remain
+  open. No canonical field changed or atom closed; the refuted
+  exact/positive-law identity is unused.
+- **verification**: three targeted monitored one-worker 20 GiB checks with
+  `.olean` outputs; 9 + 7 + 5 = 21 gates within `{propext, Quot.sound}`;
+  final error/warning free. Logs `/tmp/ym-coordinate-conjugation.log`,
+  `/tmp/ym-inverse-translation-coordinates.log`, and
+  `/tmp/ym-translation-coordinate-coefficients.log`. An initial proof used
+  choice through automatic `Nat.left_eq_add` simplification; a targeted
+  dependency trace located it and explicit arithmetic cases removed it
+  before downstream use. No new sorry, analytic premise, raised proof
+  limit, numerical oracle or pilot constant. No full build/audit/guard run.
+
 ## Structural selected-link coordinate semantics (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadSubstitutionPrefix.lean`

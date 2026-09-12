@@ -18,7 +18,43 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest gluing-route progress (structural selected-link coordinates):**
+**Latest gluing-route progress (all four shear images, coefficient-sensitive):**
+`SU2QuaternionCoordinateConjugation.conjugateBlockQuaternion_coordinate`
+identifies the original coordinate-sign substitution with precisely one
+block's quaternion conjugation. Its ordered multiplication and involution
+laws retain the finite-coordinate prefix relation. No quaternion factors
+are commuted.
+`SU2QuaternionInverseTranslationCoordinates.applySelectedTranslationStep_coordinate`
+proves the actual left/right direct/inverse coordinate image at arbitrary
+valid selected/multiplier indices. Every non-selected link, including the
+multiplier, is unchanged. The inverse case is proved from the original
+conjugate--translate--conjugate definition, not from a replacement operator.
+`SU2QuaternionTranslationCoordinateCoefficients.applySelectedTranslationStep_coordinate_coeffEqv`
+then returns `PolyQuaternionCoeffEqv` against the identity-reindexed original
+ordered product, because every output monomial has the same full padding
+length. `applySelectedTranslationStep_prefix_coeffEqv` also proves that a
+single original shear converts input padding-prefix equivalence into full
+output coefficient equivalence. These are the relations consumed by the
+existing product/word composition API; no finite coordinate scan is assumed.
+
+Next: literal temporal-ledger geometry and global coordinate composition,
+same-observable substitution identification, then global reflected-square
+gluing. The full common temporal assignment's Haar invariance and slab
+positivity remain OPEN. Physical time/transfer, completed exact-law gap,
+volume/spacing/QFT and all-group Clay remain OPEN. No canonical atom/type
+change or revival of the refuted exact/positive-law identity.
+
+Verification: three focused monitored one-worker checks, 20 GiB ceiling,
+`.olean` outputs, 9 + 7 + 5 = 21 gates within `{propext, Quot.sound}`;
+final error/warning free. Logs `/tmp/ym-coordinate-conjugation.log`,
+`/tmp/ym-inverse-translation-coordinates.log`, and
+`/tmp/ym-translation-coordinate-coefficients.log`. A targeted proof-term
+trace found that automatic `Nat.left_eq_add` simplification imported choice;
+explicit arithmetic cases removed that dependency before any downstream use.
+No new sorry, analytic input, proof-limit increase, numerical oracle, rate,
+or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding gluing-route progress (structural selected-link coordinates):**
 `SU2QuaternionHeadSubstitutionPrefix.translatedHeadPolynomial_prefix`
 transports finite-coordinate prefix equivalence through the ORIGINAL head
 substitution, including different trailing-zero padding. Its
