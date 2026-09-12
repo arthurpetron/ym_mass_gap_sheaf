@@ -18,7 +18,37 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest direct signed-Haar progress (local interface heat product):**
+**Latest direct signed-Haar progress (literal reflected observable):**
+`BF4ExactSlabReflectedObservableHaarForm.exact_bilinear_eq_reflectedHaar`
+and `exact_quadratic_eq_reflectedHaar` prove the original signed forms are
+`Haar(F_left * (H * theta(F_right)))`, with the actual link-variable time
+reflection and the already-proved 24-face interface heat product.
+`weightedFacePolynomial_reflection_insert` retains every spin and original
+heat coefficient under any spectator supported on the 116 physical links.
+`lowerPolynomial_reflection_insert` transports the whole face product using
+the existing constructive reflection permutation; then
+`lowerObservable_reflection_insert` handles arbitrary signed coefficients.
+`lowerObservable_support` and `interfaceHeatProduct_support` supply the
+literal finite-carrier hypotheses consumed by the original-form theorem.
+
+This closes the all-observable geometric reflection pin, not positivity of
+the resulting integral. The next direct frontier is positive reflected
+channels of the literal face heat kernels AND their link-local composition.
+Physical time, completed exact-law gap, volume/spacing/QFT passage and
+all-group Clay remain open. No canonical frontier atom or type changes.
+
+Verification: seven new-module gates plus two new APIs in each dependency;
+all three focused monitored one-worker 20 GiB checks passed with `.olean`
+outputs. Printed gates: new module 7, reflection module 15, factorization
+module 11; all within `{propext, Quot.sound}`, final error/warning free.
+Logs: `/tmp/ym-exact-reflected-observable-haar.log`,
+`/tmp/ym-exact-slab-reflection-insert.log`, and
+`/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, analytic
+premise, rate, numerical oracle, or raised proof limit. Existing geometry
+and exact symbolic algebra only; no new numerical pilot constants. No full
+build/audit/guard/progress run.
+
+**Retained direct signed-Haar progress (local interface heat product):**
 `BF4ExactSlabInterfaceHeatProduct.bounded_label_sum_product` proves exact
 Cartesian polynomial distributivity over the existing `boundedEdgeLabellings`.
 Its only combinatorial condition is distinct face IDs; the literal fixed

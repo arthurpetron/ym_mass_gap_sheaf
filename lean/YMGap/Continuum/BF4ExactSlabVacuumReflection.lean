@@ -1718,6 +1718,39 @@ private theorem canonicalReflectedOrderedFold_supported
           faceLabel face)
         (canonicalReflectedOrderedFold_supported faceLabel rest)
 
+/-- The literal link reflection always returns a polynomial on the finite slab carrier. -/
+theorem reflectCorrectedSlabPolynomial_support (extent : Nat) (polynomial : RatPoly) :
+    SupportedQuaternionBlocks (boundaryCompleteSlabLinks extent).length
+      (reflectCorrectedSlabPolynomial extent polynomial) :=
+  reflectCorrectedSlabPolynomial_supported extent polynomial
+
+/-- All-spin geometric reflection with any spectator on the SAME physical link carrier.
+The cyclic-inverse word identity is retained under the Haar integral; no positivity is used. -/
+theorem correctedSlabPlaquetteSpinFactor_reflection_insert
+    (faceLabel : SlabFaceLabelling) {face : SlabFace}
+    (hface : face ∈ boundaryCompleteSlabPlaquettes 1)
+    (insertion : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (boundaryCompleteSlabLinks 1).length insertion) :
+    quaternionHaar (boundaryCompleteSlabLinks 1).length
+        (polyMul insertion (reflectCorrectedSlabPolynomial 1
+          (correctedSlabPlaquetteSpinFactor 1 faceLabel face))) ≈
+      quaternionHaar (boundaryCompleteSlabLinks 1).length
+        (polyMul insertion (correctedSlabPlaquetteSpinFactor 1
+          (reflectSlabFaceLabelling 1 faceLabel) (timeReflectPlaquette 1 face))) := by
+  refine Q'.eqv_trans _ _ _
+    (quaternionHaar_prefixPolynomialEqv _
+      (QuaternionPrefixPolynomialEqv.mul (QuaternionPrefixPolynomialEqv.refl _ insertion)
+        (correctedSlabPlaquetteSpinFactor_reflection_prefix faceLabel face))
+      (supported_polyMul hsupport (reflectCorrectedSlabPolynomial_supported 1 _))
+      (supported_polyMul hsupport (covariantPlaquetteSpinFactor_supported faceLabel face))) ?_
+  refine Q'.eqv_trans _ _ _
+    (correctedSlabCovariantPlaquetteSpinFactor_carrier faceLabel hface insertion) ?_
+  exact quaternionHaar_prefixPolynomialEqv _
+    (QuaternionPrefixPolynomialEqv.mul (QuaternionPrefixPolynomialEqv.refl _ insertion)
+      (correctedSlabCanonicalReflectedPlaquetteSpinFactor_prefix faceLabel face))
+    (supported_polyMul hsupport (canonicalReflectedPlaquetteSpinFactor_supported faceLabel face))
+    (supported_polyMul hsupport (correctedSlabPlaquetteSpinFactor_supported 1 _ _))
+
 private theorem exactCorrectedSlabCanonicalReflectedOrderedIntegrand_supported
     (faceLabel : SlabFaceLabelling) :
     SupportedQuaternionBlocks
@@ -2048,6 +2081,8 @@ end YMGap.Continuum.BF4ExactSlabVacuumReflection
 #print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.exactCorrectedSlabSpinNetworkIntegrand_supported
 #print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.correctedSlabPlaquetteScalar_normal_check
 #print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.correctedSlabPlaquetteSpinFactor_reflection_prefix
+#print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.reflectCorrectedSlabPolynomial_support
+#print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.correctedSlabPlaquetteSpinFactor_reflection_insert
 #print axioms YMGap.Continuum.BF4QuaternionHaarFactorFoldPerm.quaternionHaar_factorFold_perm
 #print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.exactCorrectedSlabHaarCoefficient_reflection
 #print axioms YMGap.Continuum.BF4ExactSlabVacuumReflection.exactCorrectedSlabReflectedKernel_symmetric

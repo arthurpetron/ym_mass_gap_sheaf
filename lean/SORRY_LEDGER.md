@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Original signed-Haar form uses the literal reflected observable (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabReflectedObservableHaarForm.lean`,
+  plus two small APIs in each of `BF4ExactSlabVacuumReflection.lean` and
+  `BF4ExactSlabWeightedFaceFactorization.lean` in the same directory.
+- **geometric pin discharged**: `weightedFacePolynomial_reflection_insert`
+  preserves the actual all-spin plaquette word, heat coefficient and
+  time-link inversion with a spectator supported on all 116 physical links.
+  `lowerPolynomial_reflection_insert` lifts this through the complete lower
+  face list using the existing constructive reflection permutation.
+  `lowerObservable_reflection_insert` retains arbitrary signed observable
+  coefficients. The two public support theorems certify the same carrier.
+- **original-form consumers proved**: `exact_bilinear_eq_reflectedHaar` and
+  `exact_quadratic_eq_reflectedHaar` identify the original signed forms with
+  `Haar(F_left * (H * theta(F_right)))`, where H is the literal local heat
+  product, not the positive multiplicity-product model. Scope: all rational
+  w and spin cutoffs K, extent one. No positivity or gap conclusion.
+- **OPEN residue**: positive reflected channels of the actual face heat
+  kernels AND their composition on the same link geometry. The observable
+  reflection pin is now proved; it is not an assumption for this formula.
+  Exact-law physical time, completed gap, volume/spacing/QFT passage and
+  all-group Clay remain open. The refuted exact/positive identity stays
+  refuted. No new frontier enumeration, analytic premise or weakened type.
+- **verification**: new module seven printed gates; changed reflection
+  module 15 and factorization module 11 gates, including two new APIs each.
+  All three focused monitored one-worker 20 GiB checks passed with `.olean`
+  output, within `{propext, Quot.sound}`, final error/warning free. Logs:
+  `/tmp/ym-exact-reflected-observable-haar.log`,
+  `/tmp/ym-exact-slab-reflection-insert.log`, and
+  `/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, numerical
+  oracle, rate constant or raised proof limit; no full build/audit/guard/
+  progress run. No canonical atom closed.
+
 ## Original signed-Haar interface equals its local heat product (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabInterfaceHeatProduct.lean`

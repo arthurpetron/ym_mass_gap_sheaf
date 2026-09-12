@@ -143,6 +143,21 @@ theorem interfacePolynomial_eq_fold (w : Q') (K : Nat) (boundary : EdgeLabelling
         (fun id p => polyMul (weightedFacePolynomial w K boundary id) p) polyOne :=
   product_eq_fold _ _
 
+/-- The lower observable keeps the literal lower face order. -/
+theorem lowerPolynomial_eq_fold (w : Q') (K : Nat) (state : EdgeLabelling) :
+    lowerPolynomial w K state =
+      (centralLowerFaceIds 0).foldr
+        (fun id p => polyMul (weightedFacePolynomial w K state id) p) polyOne :=
+  product_eq_fold _ _
+
+/-- The upper observable keeps the literal reflected labelling and upper face order. -/
+theorem upperPolynomial_eq_fold (w : Q') (K : Nat) (state : EdgeLabelling) :
+    upperPolynomial w K state =
+      (centralUpperFaceIds 0).foldr
+        (fun id p => polyMul
+          (weightedFacePolynomial w K (fun j => state (slabFaceReflectId 1 j)) id) p) polyOne :=
+  product_eq_fold _ _
+
 /-- The product of weighted face polynomials is the original signed-network
 integrand with its original full heat coefficient, not a rank product. -/
 theorem weighted_integrand_eq_faceProduct (w : Q') (K : Nat) (state : EdgeLabelling) :
@@ -234,6 +249,8 @@ end YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.lowerPolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.interfacePolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.interfacePolynomial_eq_fold
+#print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.lowerPolynomial_eq_fold
+#print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.upperPolynomial_eq_fold
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.upperPolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.weighted_integrand_eq_faceProduct
 #print axioms YMGap.Continuum.BF4ExactSlabWeightedFaceFactorization.weighted_integrand_factorization

@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original interface sum equals the local heat product (2026-09-12)
+## Current increment: original form uses the literal reflected observable (2026-09-12)
+
+PROGRESS on the direct exact-law branch: the complete upper observable is
+now proved to be the actual link-variable time reflection of the lower
+observable under every spectator supported on the same 116 links. This
+identity is consumed by the ORIGINAL signed bilinear and quadratic forms:
+
+`Q(c) = Haar(F_c * (H * theta(F_c)))`.
+
+`BF4ExactSlabReflectedObservableHaarForm.weightedFacePolynomial_reflection_insert`
+uses the existing checked cyclic-inverse plaquette-word identity at every
+spin, retaining each original heat coefficient. The full lower face product
+is transported using the constructive reflection permutation, then finite
+linearity transports all signed observable coefficients.
+`lowerObservable_reflection_insert` states the resulting supported-spectator
+identity. `lowerObservable_support` and `interfaceHeatProduct_support` certify
+the exact physical link carrier. `exact_bilinear_eq_reflectedHaar` and
+`exact_quadratic_eq_reflectedHaar` consume these facts without changing the
+measure, polynomial observable, heat product or reflection.
+
+Scope: every rational w and cutoff K, extent one. This closes the geometric
+observable pin; it does not prove positivity of the displayed integral.
+Next: positive reflected-channel resolution of the literal face heat kernels
+AND its link-local composition. Physical time, completed exact-law gap,
+volume/spacing/QFT passage and all-group Clay remain open. The refuted
+positive-law identity stays refuted; no canonical atom or type changes.
+
+Verification: all three focused monitored one-worker 20 GiB checks passed
+with `.olean` output. Seven new-module gates, 15 in the changed reflection
+module, 11 in the changed factorization module; the latter two include two
+new APIs each. All final gates are within `{propext, Quot.sound}` and logs
+are error/warning free: `/tmp/ym-exact-reflected-observable-haar.log`,
+`/tmp/ym-exact-slab-reflection-insert.log`,
+`/tmp/ym-exact-weighted-face-factorization.log`. No new sorry, analytic
+premise, numerical oracle, rate constant or raised proof limit. Existing
+exact algebra and geometry only. No full build/audit/guard/progress run.
+
+## Previous increment: original interface sum equals the local heat product (2026-09-12)
 
 This is PROGRESS on the direct exact-law branch: its global interface label
 sum has been replaced, by a proved coefficient-level identity, with the

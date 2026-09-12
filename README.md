@@ -47,6 +47,9 @@ REQUIRED PHYSICAL ROUTE
     -> heat-weighted lower / interface / upper factorization        [PROVED]
     -> ALL boundary bilinear forms as the SAME Haar integral        [PROVED]
     -> interface sum = product of 24 actual face heat polynomials    [PROVED]
+    + upper observable = literal link reflection of lower          [PROVED]
+    -> original Q(c) = Haar(F_c * H * theta(F_c))                    [PROVED]
+    + positive reflected channels of H AND link-local gluing        [OPEN]
     + exact-law OS/transfer realization and physical-time pin       [OPEN]
     + strict gap on THAT operator's completed vacuum complement    [OPEN]
       (a direct construction or a proved nonidentity comparison;
@@ -84,7 +87,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest direct-route result: the interface sum is an exact local heat
+**Latest direct-route result: the original form uses the literal reflected
+observable.**
+[`BF4ExactSlabReflectedObservableHaarForm.lean`](lean/YMGap/Continuum/BF4ExactSlabReflectedObservableHaarForm.lean)
+proves `Q(c) = Haar(F_c * (H * theta(F_c)))` for the ORIGINAL signed slab
+quadratic. Here `F_c` is the heat-dressed lower observable, `H` is the product
+of the 24 actual face heat polynomials, and `theta` permutes the physical
+link blocks and inverts the time links. The bilinear version also allows
+different arbitrary signed coefficients on the two sides.
+
+`lowerObservable_reflection_insert` proves the upper/lower reflection pin
+with every spectator polynomial supported on the same 116 links retained.
+The proof transports each all-spin plaquette word and its heat coefficient,
+then the whole lower face list, then the observable sum. Scope: every
+rational w and every cutoff K, extent one. It does not assume positivity.
+
+**Next:** a positive reflected-channel resolution of the actual interface
+heat kernels and its composition on the literal link geometry. The displayed
+Haar identity is not itself a positivity theorem. Exact-law physical time,
+the completed gap and volume/spacing/continuum control remain open.
+
+Verification: the new module passed seven axiom gates. The two small API
+additions in each dependency were checked too: 15 gates in the reflection
+module and 11 in the factorization module. All three focused monitored
+one-worker 20 GiB checks passed without final errors/warnings, within
+`{propext, Quot.sound}`. No new proof hole, analytic premise, numerical oracle
+or raised proof limit; no full build/audit.
+
+**Retained direct-route result: the interface sum is an exact local heat
 product.**
 [`BF4ExactSlabInterfaceHeatProduct.lean`](lean/YMGap/Continuum/BF4ExactSlabInterfaceHeatProduct.lean)
 proves finite distributivity over the existing bounded label enumeration.
