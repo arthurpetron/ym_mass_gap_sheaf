@@ -640,10 +640,24 @@ The next load-bearing producers are, in causal order:
    for every presentation p. No l1 or growing-cutoff factor is introduced.
    These two modules passed all 23 printed gates in focused monitored
    one-worker 20 GiB checks, with default proof limits and no full audit.
-   Next combine this bound with dense Cauchy approximation and continuity
-   of the vacuum pairing, preserving a Type-level rate, to construct
-   centered-image density in the entire reflected complement. Nonidentity
-   of the same action is also open.
+   `ScaledGNSCompletionEstimates` now preserves Cauchy--Schwarz, the quadratic
+   triangle inequality, computed representative norm ceilings and the original
+   squared-distance approximation modulus under the actual normalization.
+   `BF4PhysicalCubeCenteredDensity` combines those estimates with the exact
+   centering bound. Fixed vacuum/root ceilings U,R give
+   `K = 2*(1 + U*R/(64/65)^2)` and
+   `||centered(p)-x||_E^2 <= K*||p-x||_E^2` for EVERY target x in the full
+   reflected vacuum complement. `centeredDensity` returns presentations,
+   modulus and the error proof from a supplied Cauchy representative of x;
+   `approximationRepresentative` also gives each centered approximant's
+   original Cauchy data. The rate is `X.modulus(epsilon/K)`, with rational
+   tolerance and factor exposed as data. No choice of quotient representatives,
+   smaller mean-zero source subtype or new analytic premise is assumed.
+   Both modules passed focused monitored one-worker 20 GiB checks and all
+   39 printed gates within `{propext, Quot.sound}`. No full build/audit/guard
+   was run, no proof limits raised, and no scorecard atom claimed closed.
+   The dense strict bound remains open; the new density witness supplies
+   its approximation side only. Nonidentity of the same action is also open.
    The old positive marginal-norm theorem was not used as a reflected
    lower bound. Conditional powers
    still have no geometric-time identification; the strict gap is open.
@@ -799,7 +813,9 @@ Constructive 4D Yang--Mills existence + positive physical mass gap
 |   |   |   +-- root-annihilating channel -> positive centered E norm . [PROVED explicit heat-product floor]
 |   |   |   +-- exact root correction -> full reflected error formula [PROVED all completed test vectors]
 |   |   |   +-- common denominator floor -> mean-relative error bound [PROVED all bases, fixed anchor]
-|   |   |   +-- centered-image density in the reflected complement .... [OPEN]
+|   |   |   +-- Cauchy--Schwarz + fixed norm ceilings + tolerance ...... [PROVED computed factor K]
+|   |   |   +-- centered-image density in the full reflected complement [PROVED rate X.modulus(epsilon/K)]
+|   |   |   |   (supplied Cauchy representative; no quotient choice)
 |   |   |   +-- macro iterations = geometric Euclidean time .......... [OPEN]
 |   |   |   +-- successful-traffic or direct OS uniform norm coverage . [OPEN]
 |   |   |   `-- sector coverage -> uniform all-vector strict rate .... [PROVED algebraically]

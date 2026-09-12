@@ -80,7 +80,9 @@ finite 4D SU(2) lattice measure and exact representation data       [PROVED]
     + root-annihilating channel -> positive centered reflected norm [PROVED]
     + exact root correction + common denominator floor
       -> reflected centering error controlled by stationary mean   [PROVED]
-    + centered-image density in the whole reflected complement       [OPEN]
+    + Cauchy--Schwarz + fixed vacuum/root bounds + explicit tolerance [PROVED]
+    -> centered-image density in the whole reflected complement     [PROVED]
+       (rate from each supplied Cauchy representative; no choice)
   identify that same action with geometric Euclidean time            [OPEN]
                                   v
                      same-object completed physical gap             [OPEN]
@@ -104,7 +106,32 @@ The present bottleneck is a cutoff-uniform gap for the **exact finite vacuum
 component of the actual physical SU(2) BF4 transfer**, not the reducible full
 positive-row carrier and not an abstract spectral theorem.
 
-**Latest result:** centering has a proved, base-independent error bound in
+**Latest result:** the actual centered physical images now approximate every
+represented vector in the **whole completed reflected vacuum complement**,
+with an explicit rate. This is at fixed `w=1/400` and extent one. The target
+need not come from the old marginal-sector image: its only vector property
+is orthogonality to the constructed stationary sector vacuum.
+
+The proof combines the centering estimate below with Cauchy--Schwarz. Let
+`U` and `R` be computed norm ceilings for the fixed vacuum and root, and set
+`K = 2 * (1 + U*R/(64/65)^2)`. For any finite approximant `p` to `x`:
+
+```text
+||centered(p) - x||_E^2 <= K * ||p - x||_E^2
+input tolerance = epsilon / K
+output rate     = supplied Cauchy modulus(input tolerance)
+```
+
+[`BF4PhysicalCubeCenteredDensity.centeredDensity`](lean/YMGap/Continuum/BF4PhysicalCubeCenteredDensity.lean)
+returns the presentations, modulus and error proof as data. Each approximant
+also has its existing explicit centered Cauchy representative. There is no
+choice of representatives from arbitrary quotient points. The generic
+[`ScaledGNSCompletionEstimates.lean`](lean/YMGap/Continuum/ScaledGNSCompletionEstimates.lean)
+preserves the actual normalized pairing and squared-distance modulus.
+Both modules passed targeted checks and all 39 printed axiom gates; no full
+repository build/audit was run. This is density, not a strict spectral gap.
+
+**Connected centering estimate:** centering has a proved, base-independent error bound in
 the **actual reflected norm**. For any finite sector presentation `p`, let
 `r` be the root cylinder, `C(p)` its existing limiting correction, and `Omega`
 the constructed stationary sector vacuum. The new full-space pairing identity
@@ -121,8 +148,7 @@ base. Thus this estimate has no coefficient-count or growing-cutoff factor.
 It remains at fixed `w=1/400` and extent one. See
 [`BF4PhysicalCubeCenteringPairing.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCenteringPairing.lean)
 and [`BF4PhysicalCubeCenteringControl.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCenteringControl.lean).
-Constructing the explicit centered approximation to every vector in the
-reflected vacuum complement is the next step; density is not yet asserted.
+The new density witness above supplies the explicit approximation assembly.
 
 **Connected nonzero-vector result:** an explicitly centered single-face spin-two observable
 has positive norm in the **actual reflected completion**. Its difference
@@ -147,9 +173,9 @@ law, using the same observable and conditional action, with the exact
 one-insertion shift. See
 [`BF4PhysicalCubeSectorCenteredRealization.lean`](lean/YMGap/Continuum/BF4PhysicalCubeSectorCenteredRealization.lean).
 This uses a rational head correction, not orthogonal projection along the
-sector vacuum. Density of these centered images in the entire reflected
-complement remains open; the positive reflected norm above is a separate
-physical-channel argument, not an inference from a marginal lower bound.
+sector vacuum. Density now has the representative-supplied witness above;
+the positive reflected norm is a separate physical-channel argument, not an
+inference from a marginal lower bound.
 
 **Connected vacuum result:** a stationary vector in the actual completed cube sector
 is now constructed, with squared norm at least `64/65`. This is at fixed
@@ -181,11 +207,11 @@ physical conditional moments, with the exact extra insertion from the
 reflected form. See
 [`BF4PhysicalCubeCompletedTransferLaws.lean`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedTransferLaws.lean).
 
-**Next frontier:** combine the reflected centering-error bound with dense
-Cauchy approximations and vacuum-pairing continuity, retaining an explicit
-modulus, to establish centered-image density in the reflected complement.
-Nonidentity of the same completed action is also open. The nonzero root
-cylinder is not the stationary sector event. Identifying conditional
+**Next frontier:** prove a cutoff-independent weighted coverage/Poincare
+estimate for the same physical sector; the dense strict bound is still
+missing. The new density witness supplies the approximation side, not this
+analytic input. Nonidentity of the same completed action is also open. The
+nonzero root cylinder is not the stationary sector event. Identifying conditional
 iterations with geometric Euclidean time, proving a strict vacuum-complement
 bound, and controlling volume and spacing limits remain open. Constant `1`
 is nonexpansiveness, not a mass gap. The explicit Cauchy diagonal modulus

@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Explicit centered-density witness in the full reflected complement (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/ScaledGNSCompletionEstimates.lean`
+  and `lean/YMGap/Continuum/BF4PhysicalCubeCenteredDensity.lean`.
+- **same normalized completion**: `scaledInner_cauchySchwarz`,
+  `scaledInner_triangle`, `scaledInner_normCeil` and
+  `scaledInner_approximation` transfer the existing raw estimates without
+  changing the pairing or choosing quotient representatives. The input's
+  original squared-distance modulus suffices because the normalization is
+  at most one. Norm ceilings are computed from supplied representatives.
+- **mathematical contraction**: `vacuumRepresentative` is the existing
+  stationary sector Cauchy vector recoded into the raw completion.
+  `vacuumCeiling` and `rootCeiling` bound these two fixed reflected norms.
+  Cauchy--Schwarz controls the mean of an approximant by its error from any
+  target in `CubeSectorVacuumComplement`. `centeringResidual_error_bound`
+  pays the exact original head correction with the computed factor
+  `A = vacuumCeiling*rootCeiling/(64/65)^2`. The quadratic triangle estimate
+  gives `centered_error_bound`, with `approximationFactor = 2*(1+A)`.
+- **witness and rate**: `approximationPresentation` recodes the finite terms
+  of a supplied raw Cauchy representative; `approximationVector` uses the
+  SAME already constructed physical centering. `approximationRepresentative`
+  and `_realizes` expose its Cauchy data. `approximationTolerance` is
+  `epsilon/approximationFactor`; `approximationRate` applies the original
+  input modulus. `approximation_bound` proves the actual completed reflected
+  squared error is at most epsilon at every later index. `centeredDensity`
+  returns `CenteredApproximation` data for ANY vacuum-orthogonal target
+  supplied with a Cauchy representative and its realization equality.
+  There is no restriction to the old marginal image and no choice of
+  representatives from bare quotient points.
+- **scope / OPEN residue**: fixed w=1/400, extent one. This closes the
+  explicit centered approximation assembly recorded in the previous entry,
+  in the existing representative-supplied constructive scope. It does not
+  supply the still-missing uniform dense strict form/Poincare estimate.
+  Nonidentity/geometric time, strict gap, volume/spacing/QFT and all-group
+  Clay remain open. No sorry, axiom, classical extraction, numerical oracle,
+  new analytic premise or canonical scorecard closure is introduced.
+- **verification**: both modules passed focused monitored one-worker 20 GiB
+  checks with `.olean` output; all 39 printed gates use only
+  `{propext, Quot.sound}`. Final logs have no errors or warnings; default
+  proof limits are unchanged. Root edits are imports only. No full
+  build/audit/guard or progress script was run. GitHub CI stays disabled.
+
 ## Exact reflected centering error and base-independent mean control (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalCubeCenteringPairing.lean`

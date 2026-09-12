@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact reflected centering error controlled by the mean (2026-09-12)
+## Current increment: explicit density in the full reflected vacuum complement (2026-09-12)
+
+This is PROGRESS after the exact centering-error bound: its approximation
+assembly is now constructed. The target ranges over the entire reflected
+vacuum complement, not merely the image of a mean-zero marginal subtype.
+As in the existing constructive completion, its Cauchy representative is
+supplied as data, not chosen from a bare quotient point.
+
+`ScaledGNSCompletionEstimates` preserves Cauchy--Schwarz, the quadratic
+triangle inequality, computed norm ceilings and the dense approximation
+modulus under the same positive normalization. In
+`BF4PhysicalCubeCenteredDensity`, fixed vacuum/root norm ceilings U,R give
+`K = 2*(1 + U*R/(64/65)^2)`. The actual mean of an approximant to a
+vacuum-orthogonal vector is bounded by Cauchy--Schwarz; the already proved
+centering bound and triangle inequality then give
+`||centered(p)-x||_E^2 <= K*||p-x||_E^2`.
+
+`centeredDensity` returns presentations, a modulus, and the error proof.
+`approximationRepresentative` exposes each existing centered Cauchy vector.
+The rate is exactly the supplied raw Cauchy modulus evaluated at epsilon/K.
+The constants are independent of presentation and target at the fixed
+anchor/extent; they are NOT asserted uniform in coupling or volume.
+
+Next: the missing cutoff-independent weighted coverage/Poincare estimate
+for the same physical sector. The approximation side is now available;
+the dense strict inequality is not. Nonidentity/geometric time, the strict
+completed gap, volume/spacing/QFT and all-group Clay remain open. No new
+analytic premise or canonical scorecard closure is claimed.
+
+Both modules passed focused monitored one-worker 20 GiB checks with `.olean`
+output and all 39 printed gates within propext/Quot.sound. Final logs have no
+errors or warnings. Default proof limits are unchanged. Root imports,
+landing page, work plan and sorry ledger are updated. No full build/audit/
+guard, progress script or numerical oracle was run. CI stays off.
+
+## Previous increment: exact reflected centering error controlled by the mean (2026-09-12)
 
 This is PROGRESS after the positive reflected-norm probe. The previously
 unidentified centering residual is now controlled on the actual reflected
