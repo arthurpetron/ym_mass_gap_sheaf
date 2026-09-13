@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: bulk placement and ORIGINAL boundary-response limit (2026-09-13)
+## Current increment: ORIGINAL smaller-carrier pin and normalized inter-slab comparison (2026-09-13)
+
+PROGRESS: `SU2QuaternionHaarBlockEmbedding.BlockEmbedding.haar` proves
+injective finite product-Haar placement, with an explicit ordered image and
+unused blocks contributing one. `SU2QuaternionHaarBlockEmbeddingAlgebra`
+preserves literal polynomial operations, quaternion multiplication order,
+conjugation, coordinate variables and all-spin characters.
+`BF4ExactSlabBulkHaarEmbedding.slabEmbedding` constructs the map from actual
+source/target link lists, and `plaquette_pin` identifies the ORIGINAL word.
+
+`BF4ExactSlabBulkInteriorHaarPin.interiorMoment_small` identifies the actual
+embedded interior integral with the ORIGINAL smaller-slab numerator, moving
+the insertion and heat action together at one common cutoff.
+`interiorLimit_small` and `interiorPartition_small` identify their limits.
+`BF4ExactSlabBulkExpectationComparison.expectationDifference_formula` then
+proves E_large(embed p)-E_small(p)=D(embed p)/(Z_large Z_small), with both
+original normalization factors. `bulk_mean_comparison` pins the actual
+bulk-translated original plaquette expression; `expectationDifferenceCauchy`
+returns explicit representative-index modulus data for the difference.
+
+The previous smaller-carrier pin residue is CLOSED. This does not establish
+smallness of the normalized response, uniform reciprocal bounds, persistence
+of the nonzero seed, padding convergence, time homogeneity or a physical gap.
+Next is quantitative original boundary control retaining nome, volume,
+insertion and BOTH partitions. Full realization/completeness and
+volume/spacing/QFT/all-group Clay remain open; no canonical atom/type/flag
+changed and no analytic input assumed.
+
+Five modules, 23+14+12+9+7=65 exactly matched focused gates within
+{propext, Quot.sound}; final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks. No new holes/constants/oracle/raised
+limits or full build/audit/guard/progress run. Logs:
+`/tmp/ym-su2-quaternion-haar-block-embedding.log`,
+`/tmp/ym-su2-quaternion-haar-block-embedding-algebra.log`,
+`/tmp/ym-bf4-exact-slab-bulk-haar-embedding.log`,
+`/tmp/ym-bf4-exact-slab-bulk-interior-haar-pin.log`,
+`/tmp/ym-bf4-exact-slab-bulk-expectation-comparison.log`.
+
+## Previous increment: bulk placement and ORIGINAL boundary-response limit (2026-09-13)
 
 PROGRESS: `BF4ExactSlabBulkEmbeddingGeometry.paddingForMargin_bound` gives a
 literal spatial-and-temporal placement with any requested boundary margin;
@@ -24,8 +62,8 @@ constructs the cutoff-limit response, with explicit approximation thresholds.
 using the original full partition reciprocal and no interior normalization
 assumption. The constant insertion has zero response.
 
-This is an exact response formula, NOT a smallness estimate. I still uses
-the larger Haar carrier; its pin to the smaller slab is next, alongside
+This is an exact response formula, NOT a smallness estimate. The pin of I
+to the smaller slab is now proved in the increment above; what remains is
 quantitative response control for deep-interior observables. No padding
 limit, time homogeneity, transfer or gap. The physical vacuum, full
 realization/completeness and volume/spacing/QFT/all-group Clay remain open.

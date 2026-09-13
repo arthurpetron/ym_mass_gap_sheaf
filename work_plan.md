@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (bulk placement and ORIGINAL boundary response):**
+**Latest finite-slab increment (ORIGINAL smaller-carrier pin and normalized comparison):**
+`SU2QuaternionHaarBlockEmbedding.BlockEmbedding` carries an ordered,
+duplicate-free list of selected target blocks. Its polynomial map preserves
+the original supported Haar integral by integrating unused blocks to one.
+`SU2QuaternionHaarBlockEmbeddingAlgebra` proves polynomial operations,
+coordinate placement, ordered quaternion multiplication/conjugation and
+all-spin character naturality. `BF4ExactSlabBulkHaarEmbedding.slabEmbedding`
+constructs this data from the actual boundary-complete source link list;
+`plaquette_pin` retains the literal four-link word and `haar_embedding`
+preserves its actual carrier integral.
+
+`BF4ExactSlabBulkInteriorHaarPin.fullHeatProduct_pin` transports the insertion
+and ORIGINAL source action together. `interiorMoment_small` identifies the
+larger-carrier interior moment with the smaller-slab numerator at each common
+cutoff. `interiorLimit_small` and `interiorPartition_small` pass the identity
+through the existing explicit cutoff limits.
+`BF4ExactSlabBulkExpectationComparison.expectationDifference_formula` proves
+E_large(embed p)-E_small(p)=D(embed p)/(Z_large Z_small), with both original
+partition reciprocals. `lower_bulk_image` and `bulk_mean_comparison` pin the
+specialization to the actual original bulk-translated expression.
+`expectationDifferenceCauchy` returns a representative-index modulus at every
+fixed w, half, padding and insertion; it is NOT a padding-convergence modulus.
+
+Next: quantitative NORMALIZED boundary-response control for deep-interior
+observables, and persistence of the nonzero original seed. No bound is uniform
+in volume or nome by this identity. No padding limit, time homogeneity,
+inter-stage isometry, transfer-power pin, stationary physical vacuum or gap.
+Full realization/completeness and volume/spacing/QFT/all-group Clay remain open.
+No canonical atom/type/flag changed and no analytic premise was added.
+
+Verification: five modules, 23+14+12+9+7=65 exactly matched focused gates within
+{propext, Quot.sound}; final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks. Constructive list-index induction avoids
+the standard Nat idxOf proof's classical dependency; generic algebra keeps
+large original plaquette polynomials opaque without proof-limit increases.
+No new holes/constants/oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-su2-quaternion-haar-block-embedding.log`,
+`/tmp/ym-su2-quaternion-haar-block-embedding-algebra.log`,
+`/tmp/ym-bf4-exact-slab-bulk-haar-embedding.log`,
+`/tmp/ym-bf4-exact-slab-bulk-interior-haar-pin.log`,
+`/tmp/ym-bf4-exact-slab-bulk-expectation-comparison.log`.
+
+**Preceding finite-slab increment (bulk placement and ORIGINAL boundary response):**
 `BF4ExactSlabBulkEmbeddingGeometry` constructs spatial-and-temporal maps on
 actual faces and links. `paddingForMargin lag radius = lag+radius` is a
 returned witness; `paddingForMargin_bound` puts every translated edge
@@ -43,8 +85,8 @@ original moment limits. `normalized_boundary_response` proves
 E_full(p)I(1)-I(p)=D(p)/Z_full, using only the proved original reciprocal.
 `boundaryResponse_one` checks zero response for the constant insertion.
 
-Next: pin the interior moment on the larger Haar carrier to the actual
-smaller slab integral, and obtain quantitative boundary-response estimates
+The smaller-slab integral pin is now proved above. The remaining next step
+is quantitative boundary-response estimates
 for deep-interior observables. The exact determinant is not assumed small;
 its cutoff modulus depends on nome, slab, padding and insertion. No padding
 convergence, inter-stage isometry, time homogeneity, transfer-power identity,

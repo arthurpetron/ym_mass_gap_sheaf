@@ -245,9 +245,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           + limit comparison
                                   |             E_full(p) I(1)-I(p)
                                   |               = D(p)/Z_full     [PROVED]
-                                  |      + smaller-carrier Haar pin
-                                  |        + quantitative decay of
-                                  |          this boundary response [OPEN]
+                                  |      + injective actual link map
+                                  |        + Haar/ordered action pins
+                                  |        -> I(embed p) = N_small(p)
+                                  |           I(1) = Z_small        [PROVED]
+                                  |        + BOTH original reciprocals
+                                  |        -> E_large(embed p)-E_small(p)
+                                  |           = D/(Z_large Z_small) [PROVED]
+                                  |           for actual bulk means,
+                                  |           with Cauchy data      [PROVED]
+                                  |      + quantitative control of
+                                  |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
                                   |        time homogeneity         [OPEN]
                                   |      + full quotient-level
@@ -300,7 +308,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: bulk placement and an exact ORIGINAL boundary-response identity.**
+**Latest result: exact comparison of ORIGINAL expectations in two slabs.**
+An explicit injective map places each source link in the larger slab.
+[`haar_embedding`](lean/YMGap/Continuum/BF4ExactSlabBulkHaarEmbedding.lean#L145)
+proves that unused target variables integrate to one; the same map preserves
+the original ordered plaquette words, all-spin characters and heat action.
+[`interiorLimit_small`](lean/YMGap/Continuum/BF4ExactSlabBulkInteriorHaarPin.lean#L148)
+identifies the interior-weighted target integral with the original smaller
+slab integral, after cutoff removal.
+[`interiorPartition_small`](lean/YMGap/Continuum/BF4ExactSlabBulkInteriorHaarPin.lean#L157)
+identifies its normalization with the original smaller partition function.
+
+Combining those identities with the previous exact boundary response gives
+[`expectationDifference_formula`](lean/YMGap/Continuum/BF4ExactSlabBulkExpectationComparison.lean#L115):
+`E_large(embed p) - E_small(p) = D(embed p)/(Z_large Z_small)`.
+Both partition reciprocals are constructed, not assumed. The
+[`bulk_mean_comparison`](lean/YMGap/Continuum/BF4ExactSlabBulkExpectationComparison.lean#L136)
+specialization uses the actual bulk-translated original plaquette expressions.
+[`expectationDifferenceCauchy`](lean/YMGap/Continuum/BF4ExactSlabBulkExpectationComparison.lean#L132)
+retains explicit representative-index modulus data at each fixed pair of slabs.
+
+**Next:** quantitative control of this normalized response for deep-interior
+observables, retaining the nome, volume, insertion and partition factors.
+The identity does not assert smallness, volume-uniform reciprocal bounds,
+padding convergence, persistence of the nonzero seed, time homogeneity or
+a physical spectral gap. The continuum/Clay target remains open. Five new
+modules: 23+14+12+9+7=65 exact focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks; no new holes, analytic assumptions,
+numerical constants, oracle or raised limits. No full build/audit/guard/progress run.
+
+**Preceding result: bulk placement and an exact ORIGINAL boundary-response identity.**
 The new geometry shifts all three spatial coordinates as well as time.
 [`paddingForMargin_bound`](lean/YMGap/Continuum/BF4ExactSlabBulkEmbeddingGeometry.lean#L197)
 proves that padding `lag+radius` places every translated plaquette-edge
@@ -325,10 +363,9 @@ then proves `E_full(p) I(1) - I(p) = D(p)/Z_full` after cutoff removal,
 using the SAME original full partition reciprocal. No reciprocal of `I(1)`
 or independence of overlapping plaquettes is assumed.
 
-**Scope and next step:** this exposes the boundary response; it does not
-bound its size as the boundary recedes. The interior moment is still on the
-larger Haar carrier, not yet identified with the smaller slab integral.
-That identification and quantitative response control are next, before
+**Scope at that checkpoint:** this exposed the boundary response but did not
+bound its size as the boundary recedes. The smaller-carrier identification
+is now proved in the latest result above. Quantitative response control remains, before
 padding convergence, time homogeneity, physical transfer and a spectral gap.
 The continuum/Clay target remains open. Four new modules: 79 focused axiom
 gates within `{propext, Quot.sound}`, final error/warning free. No new holes,

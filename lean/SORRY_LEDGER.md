@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL smaller-carrier pin and normalized inter-slab comparison; OPEN response smallness (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbedding.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkHaarEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkInteriorHaarPin.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkExpectationComparison.lean`.
+- **constructed carrier and algebra**: `BlockEmbedding` returns an ordered
+  distinct target-block image. `haar` integrates unused variables to one.
+  Polynomial operations, coordinates, ordered quaternion multiplication,
+  conjugation and all-spin character naturality are proved. `slabEmbedding`
+  constructs the image from actual slab links; `plaquette_pin` retains the
+  original ordered holonomy, not a surrogate or independent face variable.
+- **constructed comparison**: `fullHeatProduct_pin` moves the original
+  action with the same insertion. `interiorMoment_small` identifies the
+  actual interior-weighted target Haar moment with the smaller numerator
+  at each common cutoff. `interiorLimit_small` and `interiorPartition_small`
+  pass these identities to the original cutoff limits.
+  `expectationDifference_formula` proves the exact normalized difference
+  D(embed p)/(Z_large Z_small). Both reciprocals are already proved original
+  objects. `lower_bulk_image` and `bulk_mean_comparison` use the actual
+  bulk-translated original expression. `expectationDifferenceCauchy`
+  returns representative-index modulus data, NOT a modulus in padding.
+- **remaining obligation**: quantify this normalized response for
+  deep-interior observables, retaining nome, volume, insertion and both
+  original partitions. No response smallness, uniform reciprocal bound,
+  nontriviality persistence, padding convergence, time homogeneity,
+  inter-stage isometry, physical transfer, stationary vacuum or gap is
+  supplied. Full realization/completeness and volume/spacing/QFT/all-group
+  Clay remain open. This closes the previous smaller-carrier identification
+  residue only; no canonical atom/type/flag changed or analytic input assumed.
+- **verification**: 23+14+12+9+7=65 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free and artifacts current.
+  One-worker monitored 20 GiB checks. No new holes, numerical constants,
+  oracle, raised limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-su2-quaternion-haar-block-embedding.log`,
+  `/tmp/ym-su2-quaternion-haar-block-embedding-algebra.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-haar-embedding.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-interior-haar-pin.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-expectation-comparison.log`.
+
 ## CLOSED bulk placement and exact ORIGINAL boundary response; OPEN quantitative boundary control (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkEmbeddingGeometry.lean`,
@@ -36,7 +77,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `normalized_boundary_response` proves E_full(p)I(1)-I(p)=D(p)/Z_full,
   with the already proved full original reciprocal. No interior reciprocal
   or truncated-character positivity is assumed. Constant response is zero.
-- **remaining obligation**: identify I on the larger Haar carrier with
+- **superseding increment**: the smaller-carrier identification and exact
+  normalized inter-slab comparison are now proved in the entry above.
+- **remaining obligation at that checkpoint**: identify I on the larger Haar carrier with
   the actual smaller slab integral, then quantify the boundary response
   for deep-interior observables. The new cutoff modulus is NOT a padding
   modulus or a uniform-in-nome estimate. No smallness, padding convergence,
