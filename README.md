@@ -579,6 +579,12 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           detached reference
                                   |           determinant -Zref^2/128
                                   |                                 [PROVED]
+                                  |        + full spectator interface Isp
+                                  |        -> actual test Haar formulas
+                                  |           + positive OS background
+                                  |           Zsp=H(theta Lfar*Lfar*Isp)
+                                  |           (volume-dependent floor)
+                                  |                                 [PROVED]
                                   |        + local positive minor and
                                   |          SAME partition-relative
                                   |          volume-uniform estimate [OPEN]
@@ -664,14 +670,27 @@ family. Its detached squared-background reference determinant is exactly
 `-Zref^2/128`, where `Zref = Haar(Lfar^2)`. This reference is **not** the
 full spectator OS partition or the interacting whole-forest minor.
 
-**Open next:** compare the interacting tests to their local reference,
-retain the full spectator interface through normalization, and prove a
-positive lower estimate uniform in volume/cutoff at the fixed nome.
-Neither the reference identity nor the finite test-floor compiler proves
-a nonzero thermodynamic excitation or continuum scaling.
+[Exact interface factorization](lean/YMGap/Continuum/BF4ExactSlabBulkProbeInterfaceFactorization.lean)
+now identifies the retained unit interface as the full spectator heat
+product `Isp`, and the scalar interface as
+`(2*w^3)^4 * theta(scalarLoop) * scalarLoop * Isp`.
+[Interacting amplitude formulas](lean/YMGap/Continuum/BF4ExactSlabBulkProbeInteractingAmplitudes.lean)
+keep the full original lower action in both tests. The unit reference
+energy is exactly `Zsp=Haar(theta(Lfar)*Lfar*Isp)`. It is strictly positive
+at the existing nome `w=1/1024`, for every cutoff and half-size, with the
+explicit floor `((1-128*w^3)^N)^2`, `N=lowerSpectators.length`.
+This floor is cutoff-independent but **volume-dependent**; `Zsp` has not
+been equated to the earlier bare reference `Zref`.
 
-Latest three modules: 17+21+15=53 exactly matched focused gates within
-`{propext, Quot.sound}`; one geometric gate is axiom-free. Final logs
+**Open next:** factor local reference moments against this same full
+spectator background, control the signed local-collar insertion, and retain
+partition/reference-energy factors through normalization. The needed
+positive normalized floor must be uniform in volume/cutoff at the fixed
+nome. Background positivity alone does not prove a nonzero thermodynamic
+excitation or continuum scaling.
+
+Latest three modules: 13+14+18=45 exactly matched focused gates within
+`{propext, Quot.sound}`; one pruning gate is axiom-free. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.

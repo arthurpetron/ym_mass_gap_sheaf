@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (translated local tests and exact detached reference):**
+**Latest original-action increment (actual test amplitudes and positive full spectator OS background):**
+`BF4ExactSlabPartialInterfaceHaarForm.retainedExpansion` pins the existing
+retained tree to a canonical polynomial: full original spatial Gram heat
+factors on unselected faces, and the actual weighted reflected square on
+selected faces. `testAmplitude_haar` and `referenceEnergy_haar` identify
+the actual whole-forest tests, preserving the complete lower action.
+
+`BF4ExactSlabBulkProbeInterfaceFactorization.crossing_spectator_partition`
+constructs the exact four-face/spectator partition. `retained_unit_pin`
+gives Isp; `retained_scalar_pin` gives lambda*theta(S)*S*Isp with
+lambda=(2*w^3)^4 and S the same translated scalar loop. No spectator
+tree is replaced by its unit leaf in these identities.
+
+`BF4ExactSlabBulkProbeInteractingAmplitudes.unitAmplitude_pin`,
+`scalarAmplitude_pin`, `unitEnergy_pin` and `scalarEnergy_pin` give the
+concrete interacting integrals. The unit energy equals
+Zsp=Haar(theta(Lfar)*Lfar*Isp). `spectatorUnit` constructs a retained path
+used only for a lower bound; `background_lower_square` gives
+Haar(Lfar)^2 <= Zsp. `background_floor` supplies
+((1-128*w^3)^N)^2 <= Zsp, N=lowerSpectators.length, under the explicit
+small-nome guards; `existingNome_background_positive` discharges them
+at w=1/1024 for every K,half. This positive floor depends on volume,
+not cutoff. Zsp is not identified with the earlier bare Haar(Lfar^2).
+
+Next: local moment factorization against the full spectator background,
+signed collar perturbation, and homogeneous SAME-partition/reference-energy
+cancellation yielding a positive normalized floor uniform in volume/cutoff.
+Nonzero thermodynamic excitation, full observables/completeness and
+continuum/Clay remain open. No canonical atom/type/flag, analytic premise
+or hole changed.
+
+Verification: three modules, 13+14+18=45 exactly matched focused gates
+within {propext, Quot.sound}; one pruning gate axiom-free. Final logs
+error/warning free and own/direct-import artifacts fresh. One monitored
+worker, mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-partial-interface-haar-form.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interface-factorization.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interacting-amplitudes.log`.
+
+**Preceding original-action increment (translated local tests and exact detached reference):**
 `BF4ExactSlabBulkProbeInterface.crossingIds_links` pins four distinct
 translated original crossing faces to the probe's four links.
 `crossingIds_iff_exposed` excludes every spectator exposed link;

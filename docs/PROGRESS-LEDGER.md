@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL translated probe tests and detached reference (2026-09-13)
+## Current increment: ORIGINAL interacting amplitudes and full spectator OS background (2026-09-13)
+
+The preceding goal turn was PROGRESS: e45a530 proved and pushed translated
+local tests and the detached reference. This turn is PROGRESS: the actual
+interacting test amplitudes and energies now have canonical full-spectator
+Haar formulas, and the actual spectator OS background has a witnessed
+positive lower bound at the fixed nome for every cutoff and volume.
+
+- `BF4ExactSlabPartialInterfaceHaarForm.retainedExpansion` retains the
+  existing tree and its original heat factors. `testAmplitude_haar` and
+  `referenceEnergy_haar` identify the actual full-forest integrals.
+- `BF4ExactSlabBulkProbeInterfaceFactorization.retained_unit_pin` gives
+  the full spectator interface Isp; `retained_scalar_pin` gives
+  (2*w^3)^4 * theta(S)*S*Isp, on the actual four-face partition.
+- `BF4ExactSlabBulkProbeInteractingAmplitudes.unitAmplitude_pin` and
+  `scalarAmplitude_pin` preserve the full original lower action.
+  `unitEnergy_pin` identifies Zsp=Haar(theta(Lfar)*Lfar*Isp).
+  `background_floor` proves ((1-128*w^3)^N)^2 <= Zsp with explicit
+  small-nome guards and N=lowerSpectators.length;
+  `existingNome_background_positive` discharges positivity at w=1/1024.
+
+The floor is cutoff-independent, NOT volume-uniform. Zsp is distinct from
+the earlier bare reference Zref=Haar(Lfar^2). Next: local reference moments
+against Isp, signed collar comparison, and homogeneous partition/energy
+cancellation. The normalized positive thermodynamic excitation remains
+open, as do full observables/completeness and continuum/Clay. No canonical
+atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 13+14+18=45 exactly matched focused gates
+within {propext, Quot.sound}; one pruning gate axiom-free. Final logs
+error/warning free and own/direct-import artifacts fresh. One worker,
+mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-partial-interface-haar-form.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interface-factorization.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interacting-amplitudes.log`.
+
+## Previous increment: ORIGINAL translated probe tests and detached reference (2026-09-13)
 
 The preceding goal turn was PROGRESS: fd06412 proved and pushed partial
 interface retention and whole-forest tests. This turn is PROGRESS: the

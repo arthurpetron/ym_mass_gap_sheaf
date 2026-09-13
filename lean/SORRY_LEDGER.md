@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original interacting-amplitude pins and positive full spectator OS background; OPEN uniform normalized excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceHaarForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeInterfaceFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeInteractingAmplitudes.lean`.
+- **closed same-object integral pins**: `retainedExpansion` preserves the
+  existing retained tree, support, lower locality and nonnegative weights.
+  `testAmplitude_haar` and `referenceEnergy_haar` identify its actual Haar
+  integrands without changing the full original lower action.
+- **closed interface factorization**: `crossing_spectator_partition`
+  partitions the actual crossing-face list. `retained_unit_pin` gives
+  Isp, the full spectator heat product. `retained_scalar_pin` gives
+  (2*w^3)^4 * theta(S)*S*Isp for the original translated scalar loop S.
+- **closed concrete formulas**: `unitAmplitude_pin`, `scalarAmplitude_pin`,
+  `unitEnergy_pin` and `scalarEnergy_pin` retain every unselected channel;
+  the unit energy equals Zsp=Haar(theta(Lfar)*Lfar*Isp), not the bare Zref.
+- **closed positive OS background**: `spectatorUnit` constructs a leaf
+  path in the actual spectator tree. `background_lower_square` proves
+  Haar(Lfar)^2 <= Zsp. `backgroundFloor` is the explicit rational
+  ((1-128*w^3)^N)^2 with N=lowerSpectators.length; `background_floor`
+  proves it below Zsp under named small-nome guards.
+  `existingNome_background_positive` proves Zsp>0 at w=1/1024 for all
+  K,half. This lower bound is explicitly volume-dependent, not a uniform
+  excitation floor or an assertion uniform in beta.
+- **open constructive/analytic residue**: factor the local reference
+  moments against the full Isp background, control signed local-collar
+  insertions, and retain SAME-partition/reference-energy factors through a
+  volume/cutoff-uniform positive normalized estimate. Pass that estimate
+  to the original thermodynamic completed centered state. Nonzero
+  thermodynamic excitation, full observable realization/completeness and
+  continuum/QFT/all-group Clay remain open. No canonical atom/type/flag,
+  analytic premise or hole changed.
+- **verification**: three modules, 13+14+18=45 exactly matched focused
+  gates within {propext, Quot.sound}; one pruning gate axiom-free. Final
+  logs error/warning free and own/direct-import artifacts fresh. One worker,
+  mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+  run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-partial-interface-haar-form.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-interface-factorization.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-interacting-amplitudes.log`.
+
 ## CLOSED translated original local tests and detached reference; OPEN interacting uniform positive excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeInterface.lean`,
