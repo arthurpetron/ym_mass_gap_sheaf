@@ -412,8 +412,19 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           quotient algebra      [PROVED]
                                   |           positive functional,
                                   |           unit distinct from 0  [PROVED]
-                                  |      + full-spacetime/reflected
-                                  |        thermodynamic moments    [NEXT OPEN]
+                                  |        + all-face support/bounds
+                                  |          + reflected-product pin[PROVED]
+                                  |        -> all-face moments with
+                                  |           volume moduli          [PROVED]
+                                  |        + ORIGINAL finite OS
+                                  |          positivity and CS       [PROVED]
+                                  |        -> thermodynamic reflected
+                                  |           form + connected means[PROVED]
+                                  |        + original mean size caps [PROVED]
+                                  |        -> connected covariance
+                                  |           boundary-error modulus[PROVED]
+                                  |      + reflected-form descent
+                                  |        across base presentations[NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -466,7 +477,47 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: one presentation-independent positive thermodynamic functional on the lower plaquette algebra.**
+**Latest result: the original reflected form and connected covariance reach thermodynamic volume, with explicit error moduli.**
+[`SpacetimeExpression`, `reflectedProduct_pin`](lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpression.lean)
+extend the finite expression carrier to all physical faces of a base slab.
+The evaluated reflected product is literally the existing upper/lower
+product, with constructed bounds, locality and original embedding pins.
+[`difference_bound`](lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpectationDecay.lean)
+therefore applies the original normalized inter-volume comparison to it.
+[`meanLimit`, `volumeModulus`, `lower_limit_pin`](lean/YMGap/Continuum/BF4ExactSlabSpacetimeThermodynamicLimit.lean)
+construct all-face limits and pin their lower restriction to the previous
+mean. The volume modulus is `M(base)+geoOuterModulus(A(e),epsilon)`;
+inner and limit-representative Cauchy moduli are also data.
+
+[`form_converges`, `form_nonnegative`, `form_cauchySchwarz`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedForm.lean)
+pass the **original finite-slab OS forms** to the constructed limit.
+Symmetry, rational bilinearity, unit normalization and the radical-zero law
+hold; `form_unit_left_mean` pins the unit row to the same lower mean.
+[`covariance_converges`, `covarianceSequence_centeredPairing`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicConnectedCovariance.lean)
+identify the connected limit with the actual prior centered finite-volume
+pairings. Its diagonal is positive and it satisfies sharp Cauchy–Schwarz.
+
+[`covariance_geometric_bound`, `covarianceVolumeModulus`, `covariance_error_le`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCovarianceRate.lean)
+give `|Cov_limit-Cov_m| <= A_cov*s^(m+1-M)` and a computed volume modulus.
+Here `A_cov = A_reflected + B_e*A_f + B_f*A_e`, with the existing original
+mean caps `B_e=bound(e)+1`. This is **receding-boundary error**, not decay
+with physical time separation. The constructed limits are at fixed
+`w=1/1024` and fixed spacing, for plaquette-generated expressions.
+
+**Next:** descend the reflected form across base presentations to a common
+observable carrier, then construct its thermodynamic OS quotient/completion
+and required time action. Full spacetime-state compatibility, physical
+stationary vacuum, strict completed gap, spacing/continuum/QFT control and
+the all-group Clay target remain open. A positive form is not a strict gap.
+
+Six new modules: 16+5+21+21+9+10=82 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change; no full build/audit/guard/progress run.
+Root imports updated, not rebuilt.
+
+**Preceding result: one presentation-independent positive thermodynamic functional on the lower plaquette algebra.**
 [`shiftedExpression_enlarge`, `meanLimit_enlarge`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBaseCompatibility.lean)
 prove the short compatibility argument: zero-lag enlargement of a base box
 gives literally a tail of the SAME original expectation sequence, so the
@@ -489,8 +540,8 @@ from an arbitrary quotient class.
 [`qadd_assoc`, `qmul_assoc`, `qmul_add` and scalar laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerAlgebra.lean)
 prove the actual commutative rational algebra laws for these operations.
 
-**Next:** full-spacetime/reflected thermodynamic moments and the required
-state/time/reflection properties for OS reconstruction. The new functional
+At that checkpoint, full-spacetime/reflected thermodynamic moments and the
+required state/time/reflection properties were next. That functional
 is on the **lower plaquette-generated algebra**, at fixed `w=1/1024` and
 fixed spacing. It is not a full spacetime state, an OS form, a stationary
 vacuum, a physical transfer/gap, or continuum QFT. All-group Clay remains open.

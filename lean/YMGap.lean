@@ -4077,11 +4077,20 @@ import YMGap.Continuum.BF4ExactSlabExpressionExpectationDecay
 import YMGap.Continuum.BF4ExactSlabExpressionThermodynamicLimit
 -- Zero-lag base changes are tails of the SAME original mean sequence.
 -- Semantic lower-observable descent retains a positive linear functional;
--- full spacetime/reflected correlations and physical OS transfer remain open.
+-- this lower-algebra construction alone is not the physical OS transfer.
 import YMGap.Continuum.BF4ExactSlabThermodynamicBaseCompatibility
 import YMGap.Continuum.BF4ExactSlabThermodynamicPresentation
 import YMGap.Continuum.BF4ExactSlabThermodynamicLowerFunctional
 import YMGap.Continuum.BF4ExactSlabThermodynamicLowerAlgebra
+-- All-face moment limits carry the ORIGINAL reflected form and connected
+-- covariance to thermodynamic volume, with explicit boundary-error moduli.
+-- Reflected quotient descent, physical time/gap and continuum remain open.
+import YMGap.Continuum.BF4ExactSlabSpacetimeExpression
+import YMGap.Continuum.BF4ExactSlabSpacetimeExpectationDecay
+import YMGap.Continuum.BF4ExactSlabSpacetimeThermodynamicLimit
+import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedForm
+import YMGap.Continuum.BF4ExactSlabThermodynamicConnectedCovariance
+import YMGap.Continuum.BF4ExactSlabThermodynamicCovarianceRate
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

@@ -4,7 +4,63 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: semantic lower algebra and one positive functional (2026-09-13)
+## Current increment: original thermodynamic OS form and connected covariance (2026-09-13)
+
+The preceding turn was PROGRESS: `ae4517b` committed and pushed the semantic
+lower algebra and its positive functional. This turn is PROGRESS: finite
+all-face moments, including literal reflected mixed products, now have
+constructed original thermodynamic limits. The same sequence carries OS
+positivity and connected covariance, with explicit volume-error moduli.
+
+`BF4ExactSlabSpacetimeExpression.SpacetimeExpression`, `squareBound`,
+`linkLocal`, `image_prefix`, and `reflectedProduct_pin` provide the actual
+all-face carrier, bounds, locality and same-original polynomial pins.
+`BF4ExactSlabSpacetimeExpectationDecay.difference_bound` applies the
+existing normalized original comparison, with support/coupling dependence.
+`BF4ExactSlabSpacetimeThermodynamicLimit.meanLimit`, `volumeModulus`,
+`innerModulus`, `meanLimitCauchy`, and `meanLimit_error_le` construct the
+limits and moduli. `lower_limit_pin` identifies the lower restriction with
+the preceding constructed mean, without a state-identity assumption.
+
+`BF4ExactSlabThermodynamicReflectedForm.formSequence_pin`,
+`form_converges`, and `form_geometric_bound` pin the actual original OS
+sequence and its error. Symmetry, rational bilinearity, positive diagonal,
+unit normalization, sharp CS and radical-zero are proved. The unit rows
+equal the SAME lower mean. `BF4ExactSlabThermodynamicConnectedCovariance`
+constructs `covarianceLimit` and `covarianceLimitCauchy`;
+`covariance_converges` and `covarianceSequence_centeredPairing` connect it
+to the actual previously constructed centered pairings at each volume.
+The limit has positive diagonal, symmetry and sharp CS.
+
+`BF4ExactSlabThermodynamicCovarianceRate.covariance_geometric_bound`
+combines the three input errors with the existing original mean caps:
+A_cov=A_reflected+B_e*A_f+B_f*A_e, B_e=bound(e)+1.
+`covarianceVolumeModulus` computes M+geoOuterModulus(A_cov,epsilon), and
+`covariance_error_le` specifies it. This is receding-boundary error decay,
+NOT physical-time decay. Coupling w=1/1024 and spacing remain fixed.
+
+Next: reflected-form compatibility across base/semantic presentations and
+descent to a common observable carrier, then thermodynamic OS
+quotient/completion and required time action. Full spacetime-state
+compatibility, physical stationary vacuum/strict completed gap,
+spacing/continuum/QFT and all-group Clay remain open. No canonical atom,
+frontier type/flag, analytic premise or hole changed.
+
+Six new modules: 16+5+21+21+9+10=82 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling. A
+constant-product proof was changed from implicit real-record reduction to
+an explicit pointwise proof after a deterministic timeout; no limit was
+raised. No oracle or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-spacetime-expression.log`,
+`/tmp/ym-bf4-exact-slab-spacetime-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-spacetime-thermodynamic-limit.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-form.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-connected-covariance.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-covariance-rate.log`.
+
+## Previous increment: semantic lower algebra and one positive functional (2026-09-13)
 
 The preceding turn was PROGRESS: `1138847` committed and pushed original
 mixed-expression thermodynamic limits. This turn is PROGRESS: base changes

@@ -13,7 +13,65 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED semantic lower-algebra functional; OPEN full-spacetime/reflected thermodynamic state (2026-09-13)
+## CLOSED original thermodynamic reflected form and connected covariance; OPEN reflected carrier descent and physical time (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpression.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpectationDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpacetimeThermodynamicLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicConnectedCovariance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCovarianceRate.lean`.
+- **constructed all-face inputs**: `SpacetimeExpression` covers finite
+  expressions on all physical faces of a base slab. `squareBound`,
+  `linkLocal`, and `image_prefix` construct the original comparison inputs;
+  `reflectedProduct_pin` is literal equality with the existing upper/lower
+  product. `difference_bound` applies the original normalized inter-volume
+  comparison, with its explicit coupling and support dependence.
+- **constructed moment limits**: `meanLimit`, `volumeModulus`,
+  `innerModulus`, `meanLimitCauchy`, `meanLimit_geometric_bound`, and
+  `meanLimit_error_le` give the actual limit and moduli at w=1/1024.
+  `lower_limit_pin` identifies its restriction with the preceding lower
+  mean. No fresh analytic state-compatibility input is used.
+- **constructed original reflected form**: `formSequence_pin` and
+  `form_converges` pin the original finite-volume OS sequence to
+  `formLimit`. `formLimitCauchy`, `formVolumeModulus`, and
+  `form_geometric_bound` provide its data and error. `form_symm`,
+  `form_add_left/right`, `form_smul_left/right`, `form_nonnegative`,
+  `form_unit`, `form_cauchySchwarz`, and `form_radical_zero` preserve the
+  actual OS form laws. `form_unit_left_mean` and `form_unit_right_mean`
+  identify its unit rows with the same constructed lower mean.
+- **constructed connected limit and error**: `covarianceLimit`,
+  `covarianceLimitCauchy`, `covariance_converges`, and
+  `covarianceSequence_centeredPairing` identify the limit of the actual
+  prior centered completed finite-volume pairings. Symmetry, positive
+  diagonal and sharp CS hold. `covarianceAmplitude` is
+  A_reflected+B_e*A_f+B_f*A_e, with B_e=bound(e)+1 from the original
+  size bounds. `covariance_geometric_bound` gives error at most
+  A_cov*s^(m+1-M); `covarianceVolumeModulus` and `covariance_error_le`
+  construct and specify M+geoOuterModulus(A_cov,epsilon).
+- **remaining obligation**: reflected-form compatibility across base and
+  semantic presentations, descent to a common observable carrier, then
+  thermodynamic OS quotient/completion and required time action. The
+  proved covariance rate concerns receding boundaries, NOT physical time
+  separation. Fixed w=1/1024, fixed spacing and plaquette-generated
+  expressions do not close full spacetime-state compatibility, physical
+  stationary vacuum/strict completed gap, spacing/continuum/QFT or
+  all-group Clay. The preceding reflected-moment residue is closed at this
+  scoped expression level. No canonical atom/type/flag, analytic premise
+  or hole changed.
+- **verification**: 16+5+21+21+9+10=82 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no
+  oracle, raised limit or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-spacetime-expression.log`,
+  `/tmp/ym-bf4-exact-slab-spacetime-expectation-decay.log`,
+  `/tmp/ym-bf4-exact-slab-spacetime-thermodynamic-limit.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-reflected-form.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-connected-covariance.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-covariance-rate.log`.
+
+## CLOSED semantic lower-algebra functional; OPEN full-spacetime/reflected thermodynamic state at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicBaseCompatibility.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPresentation.lean`,

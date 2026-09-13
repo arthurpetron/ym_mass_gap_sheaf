@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (semantic lower algebra and positive functional):**
+**Latest original-action increment (thermodynamic reflected form and connected covariance):**
+`BF4ExactSlabSpacetimeExpression.SpacetimeExpression` covers all physical
+faces of a base slab. `squareBound`, `linkLocal`, `image_prefix`, and
+`reflectedProduct_pin` construct the same-original-action inputs for
+`BF4ExactSlabSpacetimeExpectationDecay.difference_bound`.
+`BF4ExactSlabSpacetimeThermodynamicLimit.meanLimit` returns the actual
+all-face moment limit; `volumeModulus`, `innerModulus`, `meanLimitCauchy`,
+and `meanLimit_error_le` provide explicit data and actual error bounds.
+`lower_limit_pin` identifies the restriction with the preceding lower mean.
+
+`BF4ExactSlabThermodynamicReflectedForm.formSequence_pin` identifies the
+literal original finite-slab OS form sequence. `form_converges`,
+`form_nonnegative`, `form_symm`, rational bilinearity, `form_unit`,
+`form_cauchySchwarz`, and `form_radical_zero` establish the limit form laws.
+`form_unit_left_mean` pins its unit row to the same constructed lower mean.
+`BF4ExactSlabThermodynamicConnectedCovariance.covariance_converges` and
+`covarianceSequence_centeredPairing` pin the connected limit to the actual
+previously constructed centered finite-volume pairings. Its representative
+Cauchy modulus, positive diagonal, symmetry and sharp CS are proved.
+
+`BF4ExactSlabThermodynamicCovarianceRate.covariance_geometric_bound` gives
+|Cov_limit-Cov_m|<=A_cov*s^(m+1-M), where
+A_cov=A_reflected+B_e*A_f+B_f*A_e and B_e=bound(e)+1 is the original mean
+cap. `covarianceVolumeModulus` computes M+geoOuterModulus(A_cov,epsilon);
+`covariance_error_le` proves its specification. This is boundary-error
+decay, not time-separation decay. The limits use fixed w=1/1024 and spacing.
+
+Next: reflected-form base/semantic compatibility and descent to a common
+carrier, then thermodynamic OS quotient/completion and required time action.
+Full spacetime-state compatibility, physical stationary vacuum/strict
+completed gap, spacing/continuum/QFT and all-group Clay remain open.
+No canonical atom/type/flag, new analytic premise or hole changed.
+
+Verification: six new modules, 16+5+21+21+9+10=82 exactly matched focused
+gates within {propext, Quot.sound}, final error/warning free;
+source/direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling; no oracle, raised limit or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-spacetime-expression.log`,
+`/tmp/ym-bf4-exact-slab-spacetime-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-spacetime-thermodynamic-limit.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-form.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-connected-covariance.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-covariance-rate.log`.
+
+**Preceding original-action increment (semantic lower algebra and positive functional):**
 `BF4ExactSlabThermodynamicBaseCompatibility.shiftedExpression_enlarge`
 proves the literal zero-lag base-change identity. `meanSequence_enlarge`
 is a tail of the original sequence; `meanLimit_enlarge` follows by limit
