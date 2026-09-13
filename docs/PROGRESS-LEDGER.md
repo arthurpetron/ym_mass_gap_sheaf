@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SAME completed pairing normalized by ORIGINAL action (2026-09-12)
+## Current increment: positive normalized ORIGINAL polynomial expectations (2026-09-12)
+
+PROGRESS: `BF4ExactSlabPolynomialExpectation.expectation` is E(p)=N(p)/Z
+for every rational 0<w<1 and odd slab. N is the original interacting Haar
+numerator, not an independent-face law; Z is the previously proved original
+action limit. Normalization, linearity, quaternion-Haar carrier invariance,
+ordinary supported-square positivity and exact recovery E(p)*Z=N(p) pass.
+The actual normalized approximants have the explicit Type-level
+`expectationCauchy`/`expectationModulus` witness.
+
+The mathematical contraction retains arbitrary signed insertions in the
+existing shared-link product telescope. Rescale its error by coefficient
+L1(p)+1; the resulting `numeratorCutoff` proves Cauchy convergence. Rescale
+the Jacobi comparison in the same way; weighted-product square certificates
+then yield `numeratorLimit_approx_nonnegative` on the original limit.
+No positivity of signed finite truncations or pointwise-to-Haar rule is used.
+The normalized modulus uses the computed common bound
+B=coefficientL1(p)*heatProductBound+reciprocalCeiling+1 and delta=epsilon/(2B).
+
+Next: positive-time REFLECTED observable realization and its connection to
+the existing slab completion; ordinary-square positivity is not OS
+reflection positivity. The old finite character-coefficient carrier has no
+proved arbitrary-polynomial multiplication action. Compatible slabs,
+physical transfer, stationary vacuum, strict physical gap, volume/spacing
+passage and continuum/QFT/all-group Clay remain open. No canonical atom,
+type or flag changed. No refuted-law identity is used.
+
+Three new modules, 22 + 6 + 21 = 49 focused gates within
+{propext, Quot.sound}; final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks. Intermediate notation/namespace/sequence-typing
+errors were corrected without raised proof limits. No new holes, analytic
+inputs, numerical oracles or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-polynomial-insertion-limit.log`,
+`/tmp/ym-bounded-rational-cauchy-product.log`,
+`/tmp/ym-bf4-exact-slab-polynomial-expectation.log`.
+
+## Previous increment: SAME completed pairing normalized by ORIGINAL action (2026-09-12)
 
 PROGRESS: `BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one`
 normalizes the ACTUAL full heat unit in the pairing B/Z on the unchanged

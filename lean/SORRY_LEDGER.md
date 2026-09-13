@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED positive normalized ORIGINAL finite-slab polynomial functional (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPolynomialInsertionLimit.lean`,
+  `lean/YMGap/Continuum/BoundedRationalCauchyProduct.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean`.
+- **discharged**: `expectation` constructs E(p)=N(p)/Z on the original
+  shared coordinates for every rational 0<w<1 and odd slab.
+  `expectation_one`, `expectation_add`, `expectation_smul`,
+  `expectation_carrier_congr`, `expectation_square_nonnegative` and
+  `expectation_recover` prove normalization, linearity, original-Haar
+  carrier invariance, supported ordinary-square positivity and recovery
+  of the original interacting numerator using the SAME partition function.
+  `numeratorCutoff` and `insertedComparisonCutoff` carry actual insertion
+  errors; `numeratorLimit_approx_nonnegative` passes weighted square
+  certificates to the original limit. `expectationCauchy` supplies an
+  explicit modulus for the actual normalized CReal representative.
+- **boundary**: this constructs a CReal-valued ordinary polynomial
+  functional, not the older Q'-valued `ObservableMeasure.ProbFunctional`
+  and not a physical OS reconstruction. No existing frontier type was
+  weakened to fit it; no canonical atom/type/flag changed.
+- **OPEN**: positive-time REFLECTED observable realization and its relation
+  to the existing finite character-coefficient completion; that carrier
+  has no proved arbitrary-polynomial multiplication action. Compatible
+  slabs, geometric transfer, stationary physical vacuum, strict physical
+  gap, volume/spacing limits, continuum QFT and all-group Clay remain open.
+  Constants depend on w, slab and polynomial; no uniform mass bound follows.
+- **verification**: 22 + 6 + 21 = 49 focused axiom gates within
+  {propext, Quot.sound}, final error/warning free, current outputs. Monitored
+  one-worker 20 GiB checks. No new sorry, named analytic premise, oracle,
+  raised proof limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-polynomial-insertion-limit.log`,
+  `/tmp/ym-bounded-rational-cauchy-product.log`,
+  `/tmp/ym-bf4-exact-slab-polynomial-expectation.log`.
+
 ## CLOSED scalar normalization of the ORIGINAL completed slab pairing (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/PositiveRationalCauchyReciprocal.lean`,

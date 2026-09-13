@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest finite-slab increment (SAME completed pairing normalized by ORIGINAL action):**
+**Latest finite-slab increment (positive normalized ORIGINAL polynomial expectations):**
+`BF4ExactSlabPolynomialExpectation.expectation` constructs E(p)=N(p)/Z
+for every rational 0<w<1 and odd slab, using the ORIGINAL interacting
+Haar numerator and the SAME original action reciprocal. `expectation_one`,
+`expectation_add`, `expectation_smul`, `expectation_carrier_congr` and
+`expectation_recover` prove normalization, linearity, quaternion-Haar
+invariance and exact recovery of the original numerator.
+`expectation_square_nonnegative` covers every supported ordinary square.
+
+`BF4ExactSlabPolynomialInsertionLimit` carries an arbitrary signed
+polynomial through the original shared-variable product tail and Jacobi
+comparison. Its insertion tolerance is epsilon/(coefficientL1(p)+1);
+`numeratorCutoff` and `insertedComparisonCutoff` are computed indices.
+The weighted products have explicit square certificates on the original
+Haar carrier. `numeratorLimit_approx_nonnegative` retains that positivity
+after quantified weight removal, without a signed-prefix positivity premise.
+
+`BoundedRationalCauchyProduct.productCauchy` supplies the explicit product
+modulus using delta=epsilon/(2B). Applied to the actual numerator and
+reciprocal representatives, B=coefficientL1(p)*heatProductBound+R+1,
+it gives `expectationCauchy` and `expectationModulus_eq`: the denominator
+of that rational delta is a sufficient normalized representative index.
+All these constants depend on the stated nome, slab and polynomial.
+
+Next: positive-time REFLECTED observable realization and its relation to
+the original slab completion. The preceding boundary carrier is a finite
+character-coefficient carrier, not a proved arbitrary-polynomial observable
+algebra. E(p^2)>=0 is not E(theta(p)*p)>=0, and neither identifies geometric
+transfer or a stationary physical vacuum. Compatible slabs, strict physical
+gap, volume/spacing/QFT/all-group Clay remain open. No canonical frontier
+atom/type/flag changed; no refuted auxiliary-law identity is used.
+
+Verification: three new modules, 22 + 6 + 21 = 49 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. One-worker
+monitored 20 GiB checks. Explicit sequence typing and notation/namespace
+fixes resolved intermediate elaboration failures without raised limits.
+No new sorry, analytic premise, oracle or full build/audit/guard/progress run.
+Logs: `/tmp/ym-bf4-exact-slab-polynomial-insertion-limit.log`,
+`/tmp/ym-bounded-rational-cauchy-product.log`,
+`/tmp/ym-bf4-exact-slab-polynomial-expectation.log`.
+
+**Preceding finite-slab increment (SAME completed pairing normalized by ORIGINAL action):**
 `BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one` proves
 the actual full heat unit has squared norm one in `normalizedInner = B/Z`,
 on the unchanged completed carrier, for every rational 0<w<1 and odd slab.

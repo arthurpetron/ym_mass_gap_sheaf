@@ -126,6 +126,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      -> SAME completed pairing / Z
                                   |         + full unit norm one
                                   |         + norm/rate comparison  [PROVED]
+                                  |      + original action with
+                                  |        arbitrary polynomial p
+                                  |        + insertion-tail modulus [PROVED]
+                                  |        + same-link positive
+                                  |          approximants and limit [PROVED]
+                                  |      -> E(p)=N(p)/SAME Z
+                                  |         + E(1)=1 + E(p^2)>=0
+                                  |         + explicit real modulus [PROVED]
+                                  |      + positive-time REFLECTED
+                                  |        observable realization     [OPEN]
                                   |      + physical vacuum
                                   |        identification             [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
@@ -170,7 +180,28 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the original completed slab pairing is normalized, with its FULL heat unit of norm one.**
+**Latest result: positive normalized polynomial expectations for the ORIGINAL slab action.**
+[`BF4ExactSlabPolynomialExpectation.expectation`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L46)
+constructs `E(p)=N(p)/Z` for every rational `0<w<1` and odd slab, on the
+original shared link coordinates. The signed numerator has a computed
+cutoff modulus; normalization uses the same original action limit `Z`.
+[`expectation_one`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L48)
+proves `E(1)=1`, and
+[`expectation_square_nonnegative`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L82)
+proves positivity on every supported ordinary polynomial square. Linearity,
+quaternion-Haar carrier invariance and exact recovery `E(p)*Z=N(p)` are proved.
+[`expectationCauchy`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L133)
+provides a modulus for the actual normalized real approximants, with an
+explicit bound depending on the nome, finite slab and polynomial.
+
+Three new modules: 49 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+Ordinary-square positivity is **not** reflection positivity: the
+positive-time observable construction and its connection to the existing
+completed pairing remain open, as do physical transfer, stationary vacuum,
+strict physical gap, volume/spacing passage and continuum QFT.
+
+**Preceding result: the original completed slab pairing is normalized, with its FULL heat unit of norm one.**
 [`BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one`](lean/YMGap/Continuum/BF4ExactSlabNormalizedCompletedPairing.lean#L86)
 proves this on the unchanged completed carrier, for every rational `0<w<1`
 and every odd slab. The normalized form is exactly `B(x,y)/Z`, where `Z`
