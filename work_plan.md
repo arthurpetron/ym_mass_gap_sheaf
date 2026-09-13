@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL completed CS, distance geometry and represented-row limits):**
+**Latest finite-slab increment (ORIGINAL modulus-bearing real-scalar action and algebra):**
+`BF4ExactSlabPlaquetteRealScalarCauchy.realScalarCauchy` constructs the
+original expression stream s_n*X_n. Let A be its computed scalar tail
+ceiling and B the computed original vector norm ceiling. The vector
+tolerance is (epsilon/4)/(A*A+1), and the scalar tolerance is
+min((epsilon/4)/(B+1),1). `realScalarRate` takes the maximum of the two
+tail anchors and the supplied moduli at these tolerances. The original
+squared triangle bound combines the two epsilon/4 estimates.
+
+`BF4ExactSlabPlaquetteCompletedRealScalar.completedRealSmul` descends
+to the SAME completion. Original homogeneity passes through the pairing
+limits. `completed_eq_of_pairings` tests a difference against itself;
+`realScalarCauchy_congr` and `completedRealSmul_congr` prove independence
+from scalar/vector representatives and supplied scalar moduli.
+Both-slot homogeneity, the rational-action pin, zero/one and vector
+addition laws are proved.
+
+`BF4ExactSlabPlaquetteRealScalarAlgebra.scalarAddCauchy`,
+`scalarNegCauchy` and `scalarMulCauchy` compute arithmetic moduli.
+The product modulus uses a computed common tail ceiling, not an assumed
+global bound. Scalar addition/composition, vector negation/subtraction,
+diagonal homogeneity and exact completed squared-distance scaling pass.
+No scalar-product convergence premise is added.
+
+Next: construct canonical centering against the original norm-one unit,
+using the actual pairing and its computed modulus as scalar data; prove
+orthogonality and the projection laws on this completion. This is not
+identification with a stationary physical vacuum. Full quotient-level
+constructive completeness, physical realization/observable action,
+all required gauge observables, compatible slabs, physical transfer,
+strict physical gap and volume/spacing/QFT/all-group Clay remain open.
+The action takes a CReal and supplied QCauchy data; no modulus or vector
+representative is selected from an arbitrary legacy quotient.
+
+Verification: three new modules, 12 + 14 + 11 = 37 focused gates within
+{propext, Quot.sound}, final error/warning free, outputs current. Monitored
+one-worker 20 GiB checks. Intermediate namespace/type-inference and
+constant-rewrite errors were corrected without raised proof limits.
+No new sorry, physical analytic input, substitute carrier, canonical
+atom/type/flag change, or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-real-scalar-cauchy.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-real-scalar.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-real-scalar-algebra.log`.
+
+**Preceding finite-slab increment (ORIGINAL completed CS, distance geometry and represented-row limits):**
 `BF4ExactSlabPlaquetteCompletedGeometry.completedInner_cauchySchwarz`
 passes the original sharp CS through the actual pairing limits, reusing
 only the model-independent `CReal.convergesTo_mul_general` theorem in
@@ -46,9 +90,10 @@ from every supplied original Cauchy representative;
 `rowLimit_expressionRows` recovers its SAME completion class from the
 embedded original expressions. epsilon/16 is not a physical decay rate.
 
-Next: use the represented-family constructor for real-scalar extension
-from explicit scalar data; resolve the stronger full quotient-level
-completeness obligation without silently selecting Cauchy representatives.
+The latest increment supplies real-scalar extension by a simpler direct
+diagonal stream and pairing separation; the represented-family constructor
+remains available. Resolve the stronger full quotient-level completeness
+obligation without silently selecting Cauchy representatives.
 No such selection or full Hilbert completeness is claimed here.
 Observable action, all required gauge observables, compatible slabs,
 physical transfer, stationary vacuum, strict physical gap and
@@ -85,9 +130,9 @@ the SAME outer Cauchy rate to control each late pairing against its limit.
 with modulus `pairRate X X`. `completedInner_posdef` proves zero diagonal
 exactly characterizes the zero completed state, on the entire completion.
 
-The latest increment above supplies completed CS and represented-row
-limits. Real-scalar extension and full quotient-level constructive
-completeness remain open. These, observable action and all
+The latest increments above supply completed CS, represented-row limits
+and modulus-bearing real-scalar extension. Full quotient-level constructive
+completeness remains open. This, observable action and all
 required gauge observables, compatible slabs, physical transfer, stationary
 vacuum, strict physical gap, volume/spacing/QFT and all-group Clay remain
 open. No canonical atom/type/flag changed, new analytic input assumed or

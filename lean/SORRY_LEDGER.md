@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL real-scalar action with explicit arithmetic moduli (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarCauchy.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedRealScalar.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarAlgebra.lean`.
+- **discharged**: `realScalarCauchy` constructs the original stream
+  s_n*X_n with rate `realScalarRate`, using computed scalar/vector
+  ceilings and explicit positive tolerances. Original homogeneity
+  passes to the actual pairing limit. `completed_eq_of_pairings`
+  tests a difference against itself; `realScalarCauchy_congr` proves
+  descent, and `completedRealSmul_congr` proves independence of scalar
+  values' representatives and moduli. `completedRealSmul` is an action
+  on the SAME original completion, with both-slot homogeneity and exact
+  rational compatibility. `scalarAddCauchy`, `scalarNegCauchy` and
+  `scalarMulCauchy` construct arithmetic moduli. Scalar addition and
+  composition, vector addition/subtraction, diagonal homogeneity and
+  `completedDist_realSmul` are proved.
+- **scope**: every rational 0<w<1 and odd slab, original reflected
+  plaquette completion; scalar input is CReal with supplied QCauchy data
+  for its actual approximation stream. No data are selected from legacy
+  CReal.cauchy or arbitrary scalar/vector quotients. No new physical
+  analytic input or scalar-product convergence assumption is introduced.
+- **superseded**: the preceding real-scalar-extension obligation at
+  this explicit-data scope. A direct diagonal construction and pairing
+  separation suffice; the represented-row limit constructor is not needed
+  for this action and remains available.
+- **OPEN**: canonical centering against the original norm-one unit and
+  its projection laws (next); physical vacuum identification/stationarity
+  is separate. Full quotient-level constructive completeness, observable
+  realization/action, all required gauge observables, compatible slabs,
+  physical transfer, strict physical gap, volume/spacing limits,
+  continuum QFT and all-group Clay remain open. No canonical atom/type/
+  flag changed or frontier field weakened.
+- **verification**: 12 + 14 + 11 = 37 focused gates within
+  {propext, Quot.sound}; final error/warning free, outputs current.
+  Monitored one-worker 20 GiB checks. Intermediate elaboration and constant
+  rewrite errors corrected without raised limits. No new sorry, oracle,
+  or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-real-scalar-cauchy.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-real-scalar.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-real-scalar-algebra.log`.
+
 ## CLOSED ORIGINAL completed CS, distance geometry and represented-row limits (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedGeometry.lean`,
@@ -40,8 +82,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **superseded**: completed CS from the preceding frontier. The represented
   Cauchy-row limit constructor is now supplied, but is not the full
   quotient-level completeness theorem.
-- **OPEN**: real-scalar extension from explicit scalar data; completeness
-  for arbitrary quotient-valued Cauchy sequences without a silent choice
+- **superseded next input**: modulus-bearing real-scalar extension is
+  supplied in the newer entry above.
+- **OPEN**: completeness for arbitrary quotient-valued Cauchy sequences without a silent choice
   of representatives. Observable action, all required gauge observables,
   compatible slabs, physical transfer, stationary vacuum, strict physical
   gap, volume/spacing limits, continuum QFT and all-group Clay remain open.

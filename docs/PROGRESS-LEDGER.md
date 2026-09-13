@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL completed CS, geometry and represented-row limits (2026-09-13)
+## Current increment: ORIGINAL real-scalar action with computed arithmetic moduli (2026-09-13)
+
+PROGRESS: `BF4ExactSlabPlaquetteRealScalarCauchy` constructs the actual
+original expression stream s_n*X_n with its explicit squared-distance
+Cauchy rate. The computed scalar ceiling A and original norm ceiling B
+give vector tolerance (epsilon/4)/(A*A+1) and scalar tolerance
+min((epsilon/4)/(B+1),1). The rate includes both tail anchors and the
+two supplied moduli. No modulus is extracted from CReal.cauchy.
+
+`BF4ExactSlabPlaquetteCompletedRealScalar` passes original homogeneity
+through the pairing limits. Positive definiteness yields pairing
+separation and hence descent to the SAME completed vector carrier,
+independent of scalar/vector representatives and the scalar modulus.
+Both-slot homogeneity, rational compatibility and vector additivity pass.
+`BF4ExactSlabPlaquetteRealScalarAlgebra` computes scalar sum, negation
+and product moduli, proves the corresponding action laws and exact
+completed squared-distance scaling. Product convergence is not assumed.
+
+This direct-diagonal proof replaces the planned row-limit detour for
+scalar action; the existing represented-row limits remain valid. The
+public scalar argument is a CReal with supplied QCauchy data, not an
+arbitrary legacy quotient real with a silently chosen modulus.
+Next: canonical centering against the original norm-one unit using its
+actual pairing coefficient; orthogonality and projection laws. Physical
+vacuum identification/stationarity, full quotient-level completeness,
+observable realization/action, compatible slabs, transfer, strict physical
+gap and volume/spacing/QFT/all-group Clay remain open. No canonical
+atom/type/flag changed or substitute physical model used.
+
+Three new modules, 12 + 14 + 11 = 37 focused gates within
+{propext, Quot.sound}; final logs error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. Intermediate elaboration/constant
+rewrite errors corrected without raised limits. No new holes, physical
+analytic premises, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-real-scalar-cauchy.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-real-scalar.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-real-scalar-algebra.log`.
+
+## Previous increment: ORIGINAL completed CS, geometry and represented-row limits (2026-09-13)
 
 PROGRESS: `BF4ExactSlabPlaquetteCompletedGeometry` proves sharp CS for
 the actual completed pairing, using only general CReal product continuity

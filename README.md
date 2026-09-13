@@ -171,18 +171,25 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        distance to its limit    [PROVED]
                                   |      -> completed norm zero
                                   |         iff completed state zero[PROVED]
-                                  |      + original CS + product
-                                  |        continuity through limits[PROVED]
-                                  |      -> sharp completed CS
-                                  |         + squared-distance laws [PROVED]
-                                  |      -> explicit approximants
-                                  |         from supplied Cauchy reps[PROVED]
-                                  |      -> represented-row limits
-                                  |         + computed convergence
-                                  |         + row independence      [PROVED]
-                                  |      + real-scalar extension
-                                  |        + full quotient-level
-                                  |          completeness            [OPEN]
+                                  |      +--> original CS + product
+                                  |      |    continuity through limits[PROVED]
+                                  |      |    -> sharp completed CS
+                                  |      |       + distance geometry [PROVED]
+                                  |      |    -> explicit approximants
+                                  |      |       from supplied reps [PROVED]
+                                  |      |    -> represented-row limits
+                                  |      |       + computed rate
+                                  |      |       + row independence [PROVED]
+                                  |      |
+                                  |      +--> supplied scalar QCauchy data
+                                  |           + computed tail ceilings
+                                  |           -> SAME real-scalar action
+                                  |              + representative descent
+                                  |              + arithmetic laws/moduli
+                                  |              + distance scaling [PROVED]
+                                  |      + canonical unit centering   [OPEN]
+                                  |      + full quotient-level
+                                  |        completeness              [OPEN]
                                   |      + physical realization and
                                   |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
@@ -231,7 +238,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: sharp completed Cauchy--Schwarz and explicit limits of represented Cauchy families.**
+**Latest result: real-scalar action on the ORIGINAL completed plaquette space, with explicit moduli.**
+[`realScalarCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarCauchy.lean#L160)
+constructs the actual expression stream `s.approx n * X.seq n`. Its
+modulus uses computed scalar/vector tail ceilings and explicit error
+budgets, not a modulus extracted from an erased existence proof.
+[`completedRealSmul`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedRealScalar.lean#L84)
+descends to the SAME completion.
+[`completedRealSmul_congr`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedRealScalar.lean#L105)
+proves independence of the scalar representative and supplied modulus;
+both-slot homogeneity and the rational-action pin are proved.
+
+[`scalarMulCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarAlgebra.lean#L51)
+computes product moduli from the two supplied scalar moduli. Addition
+and negation also retain moduli. The action respects scalar addition,
+composition and vector addition; its
+[`completedDist_realSmul`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarAlgebra.lean#L123)
+is exact squared-distance scaling by the scalar twice.
+
+Scope: `CReal` scalars **with supplied `QCauchy` data** for their actual
+streams. This does not select such data for arbitrary legacy quotient
+reals, prove full quotient-level Hilbert completeness, or prove a gap.
+Next: canonical centering against the original norm-one unit using its
+actual pairing coefficient. Physical vacuum stationarity, transfer,
+strict mass gap and continuum/Clay remain open.
+
+Three new modules: 37 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+
+**Preceding result: sharp completed Cauchy--Schwarz and explicit limits of represented Cauchy families.**
 [`completedInner_cauchySchwarz`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedGeometry.lean#L47)
 passes the original sharp inequality through the actual pairing limits.
 The reused product-continuity theorem has only constructive-real inputs;
@@ -253,8 +288,8 @@ also proves that limiting the dense expressions of any supplied original
 Cauchy representative recovers its same completion class.
 
 This **does not select representatives of an arbitrary quotient-valued
-Cauchy sequence**. Real-scalar extension and that stronger completeness
-claim remain open. The `epsilon/16` split is an error budget, not a physical
+Cauchy sequence**. Modulus-bearing real-scalar extension is supplied above;
+the stronger completeness claim remains open. The `epsilon/16` split is an error budget, not a physical
 decay rate. The physical observable/transfer/vacuum, strict mass-gap,
 volume/spacing/QFT and all-group Clay obligations remain open.
 
@@ -282,8 +317,9 @@ using the existing pairing rate, not a chosen modulus.
 Three new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
 Completed CS and limits of represented Cauchy rows are now supplied above.
-**Still open at the Hilbert boundary:** real-scalar extension and full
-quotient-level constructive completeness. Observable action,
+Modulus-bearing real-scalar extension is now supplied above.
+**Still open at the Hilbert boundary:** full quotient-level constructive
+completeness. Observable action,
 all required gauge observables, compatible slabs, physical transfer,
 stationary vacuum, strict physical gap, continuum QFT and all-group Clay
 remain open. No new analytic premise or substitute carrier is used.
