@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL spectator resummation and partition-relative family bound):**
+**Latest finite-slab increment (canonical rooted families of ORIGINAL boundary D):**
+`FiniteSelectionOrder` identifies computed selections with ordered sublists,
+proves their enumeration duplicate-free for duplicate-free input, and proves
+finite-difference permutation invariance. `BF4ExactSlabRootedSelection`
+instantiates the existing constructive Boolean-graph compiler on literal
+plaquette links, with one root carrying the common probe support.
+`core_path` returns Type-valued paths within the retained core;
+`split_perm`, `split_disjoint` and `spectators_eq_detached` pin the ordered
+split to the previous detached-region filter.
+
+`BF4ExactSlabRootedFamilyExpansion.coefficient_rooted_pin` factors the SAME
+original coefficient after a proved permutation. `family_code_unique`,
+`familySelections_nodup` and `connectedNumerator_family_expansion` give
+exact global grouping without double counting. `rootedFamily_factorizes`
+retains the signed spectator coefficients inside the actual computed fiber.
+`BF4ExactSlabBoundaryRootedFamilies.boundaryNumerator_rooted_expansion`
+pins the full exterior/interior-rooted double sum to the EXISTING boundary D,
+with its actual remainder insertions, cutoff, interior action and Haar carrier.
+
+Next: prove the actual ordered fiber is in bijection with ALL selections of
+the detached ambient region. The current `spectatorWeight` is a filtered
+finite sum, NOT yet that full original partition square. The joint probe
+root does not itself certify a probe-to-probe path. Collar/path counting,
+mixed normalization and summability remain open, followed by normalized
+response decay, padding limits, persistence, physical transfer/stationarity,
+strict gap and continuum/QFT/all-group Clay. No canonical atom/type/flag
+changed or new analytic input introduced.
+
+Verification: four modules, 6+16+11+4=37 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-finite-selection-order.log`,
+`/tmp/ym-bf4-exact-slab-rooted-selection.log`,
+`/tmp/ym-bf4-exact-slab-rooted-family-expansion.log`,
+`/tmp/ym-bf4-exact-slab-boundary-rooted-families.log`.
+
+**Preceding finite-slab increment (ORIGINAL spectator resummation and partition-relative family bound):**
 `FiniteSelectionMobiusFactorization.coefficient_factorizes` proves exact
 finite-difference factorization on two lists. With both probes on the anchor
 side, `BF4ExactSlabSpectatorResummation.numerator_spectator_factorizes`

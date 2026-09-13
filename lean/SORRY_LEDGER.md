@@ -13,6 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED canonical rooted-family grouping of ORIGINAL boundary D; OPEN fiber saturation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/FiniteSelectionOrder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRootedSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRootedFamilyExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBoundaryRootedFamilies.lean`.
+- **constructed geometry/order**: `core_path` reuses the constructive graph
+  compiler to return Type-valued paths on ORIGINAL literal links.
+  `split_perm`, `split_disjoint` and `spectators_eq_detached` identify the
+  input-order core/complement with the prior detached-region geometry.
+  `selected_sublist`, `sublist_selected`, `selections_nodup` and
+  `coefficient_perm` prove the required ordered-list facts.
+- **constructed original-object pin**: `coefficient_rooted_pin` factors the
+  original signed coefficient after a proved permutation. `family_code_unique`,
+  `familySelections_nodup` and `connectedNumerator_family_expansion` give
+  exact grouping without double counting. `rootedFamily_factorizes` retains
+  the actual signed spectator fiber sum. `boundaryNumerator_rooted_expansion`
+  reaches the EXISTING boundary D with the same exterior remainders,
+  interior action, cutoff and Haar carrier.
+- **remaining obligation**: ordered fiber saturation/bijection with ALL
+  detached ambient selections. `spectatorWeight` is still a filtered finite
+  sum, not a proved full detached partition square. The common root joins
+  both probe supports, not a proved path between probes. Collar/path counts,
+  mixed normalization Z_large*Z_small, summability, normalized decay, padding
+  limits/moduli, persistence, physical transfer/stationarity, strict gap and
+  continuum/QFT/all-group Clay remain open. No canonical atom/type/flag
+  changed, analytic premise or hole added, or existing hole silently discharged.
+- **verification**: 6+16+11+4=37 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. One-worker monitored 20 GiB checks; no numerical
+  oracle, raised limits or full build/audit/guard/progress run. The root import
+  list was updated but not rebuilt. Logs:
+  `/tmp/ym-finite-selection-order.log`,
+  `/tmp/ym-bf4-exact-slab-rooted-selection.log`,
+  `/tmp/ym-bf4-exact-slab-rooted-family-expansion.log`,
+  `/tmp/ym-bf4-exact-slab-boundary-rooted-families.log`.
+
 ## CLOSED ORIGINAL spectator resummation and relative family estimate; OPEN global summability (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/FiniteSelectionMobiusFactorization.lean`,

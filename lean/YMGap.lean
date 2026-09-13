@@ -4020,6 +4020,12 @@ import YMGap.Continuum.BF4ExactSlabSpectatorResummation
 import YMGap.Continuum.BF4ExactSlabRelativePartitionBound
 import YMGap.Continuum.BF4ExactSlabDetachedFaceRegion
 import YMGap.Continuum.BF4ExactSlabResummedCoefficientBound
+-- Canonical input-order roots group the ORIGINAL boundary numerator exactly.
+-- Actual-fiber saturation by all detached spectator selections remains open.
+import YMGap.Continuum.FiniteSelectionOrder
+import YMGap.Continuum.BF4ExactSlabRootedSelection
+import YMGap.Continuum.BF4ExactSlabRootedFamilyExpansion
+import YMGap.Continuum.BF4ExactSlabBoundaryRootedFamilies
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
