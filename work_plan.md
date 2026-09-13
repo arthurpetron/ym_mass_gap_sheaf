@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-12)
+## Whole-project goal and live completion map (updated 2026-09-13)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -16,9 +16,46 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
+### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL mixed pairing on the actual completion):**
+**Latest finite-slab increment (ORIGINAL completed rational linear laws, bilinearity and positive definiteness):**
+`BF4ExactSlabPlaquetteCompletionLinear.distSq_add` proves the binary
+squared-distance estimate; `distSq_smul` proves exact c^2 scaling.
+`scalarTolerance` is epsilon/(c*c+1), positive for every rational c and
+positive epsilon. `addition` and `scalarContinuous` supply the existing
+completion-map machinery, retaining its Cauchy and closeness moduli.
+The completed additive-group/rational scalar laws descend from original
+coefficient identities using `closeOfPointwiseExpressionEqv`, whose
+closeness modulus is zero. Embedded original expressions are preserved.
+
+`BF4ExactSlabPlaquetteCompletedBilinear` passes additivity and homogeneity
+through the actual mixed-pairing limits. `completedInner_add_left/right`
+and `completedInner_smul_left/right` prove both-slot rational bilinearity;
+the zero laws and the linearity of the original quotient embedding pass.
+
+`BF4ExactSlabPlaquetteCompletedPosdef.pairSequence_limit_close` uses
+the SAME outer Cauchy rate to control each late pairing against its limit.
+`closeZeroOfInnerZero` returns closeness to the constant-zero representative
+with modulus `pairRate X X`. `completedInner_posdef` proves zero diagonal
+exactly characterizes the zero completed state, on the entire completion.
+
+Next: completed CS, real-scalar extension and the appropriate constructive
+completeness theorem for THIS carrier. These, observable action and all
+required gauge observables, compatible slabs, physical transfer, stationary
+vacuum, strict physical gap, volume/spacing/QFT and all-group Clay remain
+open. No canonical atom/type/flag changed, new analytic input assumed or
+surrogate carrier substituted. No beta-uniform strict mass bound claimed.
+
+Verification: three new modules, 27 + 10 + 4 = 41 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks. One unused-binder warning was corrected and
+rechecked; no raised proof limits. No new sorry, analytic premise, oracle
+or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-completion-linear.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-bilinear.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-posdef.log`.
+
+**Preceding finite-slab increment (ORIGINAL mixed pairing on the actual completion):**
 `BF4ExactSlabPlaquettePairingContinuity.pairing_close` proves two-argument
 continuity with squared-distance tolerance epsilon^2/(8*(B+1)), using
 sharp CS and the bilinear difference identity without square roots.
@@ -37,9 +74,10 @@ the actual completion. It recovers the original expression and quotient
 pairings exactly, is symmetric and nonnegative on the diagonal, and
 `completedUnit_norm_one` retains unit normalization.
 
-Next: completed linear operations, bilinearity, completed CS/positive
-definiteness and the appropriate completeness theorem. This is not yet
-a full physical Hilbert-space package. Observable action, all required
+The latest increment above supplies completed rational linear operations,
+bilinearity and positive definiteness. Completed CS, real-scalar extension
+and constructive completeness remain open, so this is not yet a full
+physical Hilbert-space package. Observable action, all required
 gauge observables, compatible slabs, geometric transfer, stationary
 vacuum, strict physical gap and volume/spacing/QFT/all-group Clay remain
 open. No canonical atom/type/flag changed or older carrier substituted.

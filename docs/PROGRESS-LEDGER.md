@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL mixed pairing on the actual completion (2026-09-12)
+## Current increment: ORIGINAL completed linear laws, bilinearity and positive definiteness (2026-09-13)
+
+PROGRESS: `BF4ExactSlabPlaquetteCompletionLinear` constructs addition,
+negation and rational scaling on the actual completion. Its distance
+estimates return the epsilon/4 addition tolerance and
+epsilon/(c*c+1) scalar tolerance. Additive-group and rational scalar laws
+descend from actual original coefficient identities, with zero-modulus
+pointwise closeness. No carrier or module law is assumed instead.
+
+`BF4ExactSlabPlaquetteCompletedBilinear` proves both-slot bilinearity of
+the completed pairing by passage through the actual pairing limits.
+The original null-quotient embedding preserves the completed operations.
+`BF4ExactSlabPlaquetteCompletedPosdef.pairSequence_limit_close` bounds
+late terms against their limit using the existing outer Cauchy rate.
+`closeZeroOfInnerZero` makes that rate a Type-level witness of closeness
+to zero. `completedInner_posdef` proves positive definiteness for every
+completed state, not just the embedded original quotient.
+
+Next: completed CS, real scalars and the appropriate constructive
+completeness theorem. Observable action, all required gauge observables,
+compatible slabs, physical transfer, stationary vacuum, strict physical
+gap and volume/spacing/QFT/all-group Clay remain open. No canonical atom,
+type or flag changed. No substitute carrier or beta-uniform gap claimed.
+
+Three new modules, 27 + 10 + 4 = 41 focused gates within
+{propext, Quot.sound}; final logs error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. One unused-binder warning corrected
+and rechecked; no raised limits, holes, analytic premises, numerical
+oracles or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-completion-linear.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-bilinear.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-posdef.log`.
+
+## Previous increment: ORIGINAL mixed pairing on the actual completion (2026-09-12)
 
 PROGRESS: `BF4ExactSlabPlaquettePairingContinuity.pairing_close` provides
 the explicit two-argument tolerance epsilon^2/(8*(B+1)), by sharp CS

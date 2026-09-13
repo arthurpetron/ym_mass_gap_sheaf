@@ -13,6 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL completed rational linear laws, bilinearity and positive definiteness (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedBilinear.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedPosdef.lean`.
+- **discharged**: `distSq_add` and `distSq_smul` construct addition and
+  rational scaling through the existing explicit-modulus completion maps.
+  `scalarTolerance` is epsilon/(c*c+1); addition uses epsilon/4 per input.
+  Completed additive-group and rational scalar laws follow from original
+  coefficient identities. `closeOfPointwiseExpressionEqv` returns their
+  constant-zero closeness modulus. `completedInner_add_left/right` and
+  `completedInner_smul_left/right` prove rational bilinearity of the actual
+  completed pairing. Zero-pairing laws and compatibility with the original
+  quotient operations pass. `pairSequence_limit_close` retains the SAME
+  outer pairing rate; `closeZeroOfInnerZero` uses it as explicit closeness
+  to zero. `completedInner_posdef` proves zero completed norm iff the
+  completed state is zero.
+- **scope**: every rational 0<w<1 and odd slab, ORIGINAL reflected
+  plaquette form and its actual completion. Rational scalar laws include
+  negative/zero scalars and scalar coefficient equivalence. This is not
+  yet real-scalar structure or a completed physical Hilbert-space package.
+- **superseded**: completed rational linear operations, form laws and
+  positive definiteness from the preceding pairing frontier.
+- **OPEN**: completed CS, real-scalar extension, the appropriate
+  constructive completeness theorem; observable action, all required gauge
+  observables, compatible slabs, physical transfer, stationary vacuum,
+  strict physical gap, volume/spacing limits, continuum QFT and all-group
+  Clay. No canonical atom/type/flag changed or frontier field weakened.
+- **verification**: 27 + 10 + 4 = 41 focused gates within
+  {propext, Quot.sound}; final error/warning free, outputs current.
+  Monitored one-worker 20 GiB checks. One unused-binder warning corrected
+  and rechecked, no raised limits. No new sorry, analytic premise, oracle
+  or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-completion-linear.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-bilinear.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-posdef.log`.
+
 ## CLOSED ORIGINAL mixed pairing on the actual plaquette completion (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingContinuity.lean`,
@@ -34,9 +71,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   new boundedness/convergence premise or auxiliary-law identity is used.
 - **superseded**: the pairing-limit, representative-independence and
   completed-pairing parts of the preceding completion-carrier frontier.
-  The complete Hilbert-space package is not yet supplied.
-- **OPEN**: completed linear operations and form laws, completed CS and
-  positive definiteness, the appropriate completeness theorem; observable
+  The newer entry above supplies completed rational linear/form laws and
+  positive definiteness. The full Hilbert-space package is not yet supplied.
+- **OPEN**: completed CS, real-scalar extension and the appropriate
+  constructive completeness theorem; observable
   action, all required gauge observables, compatible slabs, physical
   transfer, stationary vacuum, strict physical gap, volume/spacing limits,
   continuum QFT and all-group Clay. No canonical atom/type/flag changed

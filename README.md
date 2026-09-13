@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-12): this repository does not prove the Clay
+> **Research status (2026-09-13): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -163,8 +163,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         + original-form pin
                                   |         + symmetry/positivity
                                   |         + unit diagonal one     [PROVED]
-                                  |      + completed linear operations
-                                  |        + Hilbert-space laws      [OPEN]
+                                  |      + explicit addition/scaling
+                                  |        continuity tolerances    [PROVED]
+                                  |      -> completed rational linear
+                                  |         laws + bilinearity      [PROVED]
+                                  |      + pairing rate controls
+                                  |        distance to its limit    [PROVED]
+                                  |      -> completed norm zero
+                                  |         iff completed state zero[PROVED]
+                                  |      + completed CS, real scalars
+                                  |        and completeness          [OPEN]
                                   |      + physical realization and
                                   |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
@@ -213,7 +221,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL mixed pairing now descends to its actual completion.**
+**Latest result: the ORIGINAL completed pairing is rationally bilinear and positive definite on every completion state.**
+[`addition`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean#L93)
+and [`scalarContinuous`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean#L97)
+construct completed operations from their proved distance estimates.
+Scaling by `c` uses the explicit tolerance `epsilon/(c*c+1)`, including
+negative and zero scalars. The additive-group and rational scalar laws
+descend from original plaquette coefficient identities.
+
+[`completedInner_add_left`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedBilinear.lean#L43)
+and [`completedInner_smul_left`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedBilinear.lean#L55)
+pass the original form laws through the constructed limits; both right-slot
+laws follow by symmetry. The quotient embedding preserves these operations.
+[`completedInner_posdef`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedPosdef.lean#L84)
+proves zero completed squared norm **if and only if** the completed state
+is zero. Its forward direction returns an explicit closeness witness
+[`closeZeroOfInnerZero`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedPosdef.lean#L70),
+using the existing pairing rate, not a chosen modulus.
+
+Three new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+**Still open at the Hilbert boundary:** completed CS, real-scalar extension
+and the appropriate constructive completeness theorem. Observable action,
+all required gauge observables, compatible slabs, physical transfer,
+stationary vacuum, strict physical gap, continuum QFT and all-group Clay
+remain open. No new analytic premise or substitute carrier is used.
+
+**Preceding result: the ORIGINAL mixed pairing descends to its actual completion.**
 [`pairing_close`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingContinuity.lean#L101)
 controls changes in both arguments with the explicit squared-distance
 tolerance `epsilon^2 / (8*(B+1))`. The required eventual diagonal bound
@@ -230,14 +264,11 @@ the diagonal, has unit diagonal one, and
 recovers exactly the original null-quotient form. All bounds retain their
 coupling, slab and representative dependence; none is a strict gap bound.
 
-Three new modules: 45 focused axiom gates within `{propext, Quot.sound}`,
-no new proof holes, final error/warning free. No full-tree build/audit was run.
-**The full completed Hilbert-space package is still open:** completed
-linear operations and their form laws, positive definiteness on all
-completion states, and the appropriate completeness theorem. Observable
-action, all required gauge observables, compatible slabs, physical transfer,
-stationary vacuum, uniform physical gap and continuum Clay remain open.
-The older boundary-code completion is not substituted for this carrier.
+That increment passed 45 focused axiom gates within `{propext, Quot.sound}`,
+with no new holes or full-tree audit. Its completed rational linear laws,
+bilinearity and positive-definiteness frontier is now discharged above.
+The remaining Hilbert and physical obligations are explicitly open;
+the older boundary-code completion is not substituted for this carrier.
 
 **Preceding result: the ORIGINAL plaquette null quotient embeds faithfully into an explicit-modulus completion carrier.**
 [`null_iff_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean#L119)
