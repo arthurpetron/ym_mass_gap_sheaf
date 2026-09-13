@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (original time invariance, reflected balance and dense OS time):**
+**Latest original-action increment (derived contraction and completed geometric time):**
+`BoundedMidpointDoublingEventual.bounded_midpointDoubling_leEv_anchor`
+uses eventual orbit caps and an eventually nonnegative anchor. For each
+tolerance it synchronizes a finite doubling orbit, its terminal cap and
+the anchor; it does not require a stage uniform in all time lags.
+`BF4ExactSlabThermodynamicTimeContraction.timeNorm_midpoint` derives
+the recurrence from original reflection positivity and time balance.
+`timeNorm_le_anchor`, `timeState_contraction` and `denseTime_contraction`
+consume the actual lag-independent polynomial cap to prove a relative
+OS-norm bound with constant one, without a contraction premise.
+`distSq_translate` and `timeNonexpansive` control the SAME squared distance.
+
+`BF4ExactSlabThermodynamicCompletedTime.timeCauchy_modulus` retains
+every supplied Cauchy modulus unchanged. `completedTime` acts on the
+EXISTING completion; `completedTime_embedOSQuotient` and
+`completedTime_embedPresentation` pin it to the already-constructed dense
+time and original translated states. Composition, rational and supplied
+constructive-real linearity, symmetry, norm/distance contraction and
+unit/mean preservation are proved. `completedTime_center` and
+`complementTime` preserve the existing unit complement.
+`twoStepTransfer` is actual geometric time by two lattice steps, positive,
+symmetric and contractive with the original nonzero fixed unit.
+`timeCovariance_operator_sum` identifies its time-semigroup moments with
+the ORIGINAL thermodynamic connected-correlation limits.
+
+Next: original connected time-separation decay on these same operator
+moments, then a strict norm-relative bound; also construct a nonzero
+thermodynamic excitation. The existing boundary-error decay is not that
+time-decay estimate. Vacuum uniqueness/isolation, full required observables
+and quotient completeness, continuum scaling/QFT/all-group Clay remain
+open. Fixed w=1/1024 and lattice spacing remain; no canonical atom/type/flag,
+analytic premise or hole changed.
+
+Verification: three new modules, 1+10+35=46 exactly matched focused gates
+within {propext, Quot.sound}; final error/warning-free logs; own/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no raised
+limit or full build/audit/guard/progress run. Root imports updated, not
+rebuilt. Logs: `/tmp/ym-bounded-midpoint-doubling-eventual.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-contraction.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-time.log`.
+
+**Preceding original-action increment (original time invariance, reflected balance and dense OS time):**
 `BF4ExactSlabOffsetProbeCarrier.shiftPath` and `shiftProbe` translate
 actual witnesses with independent spatial/time shifts.
 `BF4ExactSlabOffsetSpacetimeExpression.embed`, `bound_embed`,

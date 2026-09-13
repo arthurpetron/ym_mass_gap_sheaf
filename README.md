@@ -500,8 +500,25 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           EXISTING dense OS space
                                   |           symmetric, linear,
                                   |           unit/mean preserving  [PROVED]
-                                  |      + norm-relative boundedness
-                                  |        and completed extension  [NEXT OPEN]
+                                  |        + lag-independent original cap
+                                  |          and reflected positivity
+                                  |        -> bounded midpoint doubling
+                                  |           with EVENTUAL bounds  [PROVED]
+                                  |        -> ORIGINAL OS-norm and
+                                  |           distance contraction  [PROVED]
+                                  |        -> completed time semigroup
+                                  |           SAME Cauchy moduli;
+                                  |           symmetric, linear,
+                                  |           fixed nonzero unit    [PROVED]
+                                  |        -> positive two-step transfer
+                                  |           + invariant unit complement
+                                  |           + ORIGINAL connected
+                                  |             correlation moments [PROVED]
+                                  |      + time-separation decay for
+                                  |        THESE connected moments  [NEXT OPEN]
+                                  |        -> strict complement gap [OPEN]
+                                  |      + nonzero thermodynamic
+                                  |        excitation witness        [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -514,9 +531,10 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   +<-- physical observable/unit
                                   |    realization                    [OPEN]
                                   v
-  One physical positive-time completed carrier                     [OPEN]
+  Full required positive-time physical realization                  [OPEN]
                                   |
-                                  +<-- geometric time / transfer      [OPEN]
+                                  +<-- continuum continuous-time
+                                  |    semigroup / generator         [OPEN]
                                   +<-- stationary physical vacuum     [OPEN]
                                   +<-- strict bound on ITS completed
                                   |    vacuum complement              [OPEN]
@@ -552,7 +570,38 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: original time invariance and a well-defined dense OS time semigroup.**
+**Latest result: a contractive completed ORIGINAL time semigroup and positive two-step transfer.**
+[`timeNorm_midpoint` and `timeNorm_le_anchor`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeContraction.lean)
+derive, rather than assume, `||T^n p||^2 <= ||p||^2`. Reflection positivity
+gives `2*a(n) <= a(0)+a(2*n)`; the existing original polynomial cap is
+independent of lag. The new
+[`bounded_midpointDoubling_leEv_anchor`](lean/YMGap/Continuum/BoundedMidpointDoublingEventual.lean)
+handles eventual bounds by synchronizing only a finite doubling orbit.
+`distSq_translate` gives exact nonexpansiveness on original presentations.
+
+[`completedTime`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedTime.lean)
+extends that actual map to the EXISTING Cauchy completion without changing
+any supplied Cauchy modulus. It preserves composition, rational and supplied
+constructive-real scalar multiplication, symmetry, the unit and the unit
+complement. Its norm and squared distance are nonincreasing at every lag.
+`twoStepTransfer` is positive and symmetric, fixes the original nonzero unit,
+and is the actual two-step geometric time map, not a heat-bath generator.
+`timeCovariance_operator_sum` pins its time-semigroup moments to the
+already-constructed ORIGINAL connected-correlation limits.
+
+**Next:** a strict time-separation estimate for these same connected moments,
+and a nonzero thermodynamic excitation witness. The norm bound is **one**,
+not a strict gap constant. Vacuum uniqueness/isolation, the full required
+observable algebra and quotient-level completeness, continuum scaling,
+QFT reconstruction and all-group Clay remain open. Nome `w=1/1024` and
+lattice spacing remain fixed; no coupling-uniform or continuum claim follows.
+
+Three new modules: 1+10+35=46 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final error/warning-free logs and fresh own/direct-import
+artifacts. One monitored worker with the mandatory 20 GiB ceiling. No full
+build/audit/guard/progress run; root imports updated but not rebuilt.
+
+**Preceding result: original time invariance and a well-defined dense OS time semigroup.**
 The [shifted probe](lean/YMGap/Continuum/BF4ExactSlabOffsetProbeCarrier.lean)
 and [spacetime expression](lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeExpression.lean)
 supply every observable/geometric premise of the original comparison.
@@ -572,14 +621,9 @@ prove null preservation and construct the actual time semigroup on the
 EXISTING original OS null quotient. It is linear and symmetric, fixes the
 unit and preserves the original mean. No contraction premise is used.
 
-**Next:** prove an OS-norm-relative bound and extend this dense operator to
-the completion. The existing bounded-midpoint lemma requires pointwise
-bounds; the current lag-uniform size bounds are eventual, so its premises
-must first be constructed or its eventual-bound variant proved. A dense
-symmetric operator is not yet a bounded completed operator or a strict gap.
-Nonzero thermodynamic excitations, physical vacuum isolation, full required
-observables/completeness and continuum/QFT/all-group Clay remain open.
-The concrete law remains at nome `w=1/1024` and fixed lattice spacing.
+The norm-relative bound and completed extension were open at this checkpoint;
+the latest result above closes those two steps at the same fixed nome and
+spacing. A strict gap and the larger physical/continuum obligations remain open.
 
 Seven new modules: 64 exactly matched focused axiom gates within
 `{propext, Quot.sound}`; final logs error/warning free and own/direct-import

@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original time invariance, reflected balance and dense OS time semigroup (2026-09-13)
+## Current increment: derived original OS contraction and completed physical time (2026-09-13)
+
+The preceding user-facing turn clarified status but made no proof change:
+NO PROGRESS. This turn is PROGRESS: the pending eventual scalar theorem
+is verified and consumed to prove original OS norm/distance contraction,
+then construct actual time on the EXISTING completion with same-object
+connected-correlation pins. No new physical law or state space is chosen.
+
+- `BoundedMidpointDoublingEventual.bounded_midpointDoubling_leEv_anchor`
+  closes the pointwise/eventual mismatch. Only a finite doubling orbit,
+  its terminal upper cap and the anchor lower bound are synchronized.
+- `BF4ExactSlabThermodynamicTimeContraction.timeNorm_midpoint` derives
+  the recurrence from original positivity and reflected time balance.
+  `timeNorm_le_anchor`, `denseTime_contraction` and `distSq_translate`
+  turn the actual lag-independent cap into a norm-relative bound and
+  exact squared-distance contraction. No contraction premise is assumed.
+- `BF4ExactSlabThermodynamicCompletedTime.completedTime` translates
+  supplied Cauchy sequences with their original moduli unchanged.
+  It retains the original dense-state pin, semigroup laws, rational and
+  supplied-real linearity, symmetry, norm/distance contraction and fixed
+  unit. `complementTime` preserves the existing unit complement.
+- `twoStepTransfer` is the positive symmetric contractive TWO-STEP
+  geometric time operator. `timeCovariance_operator_sum` identifies
+  the original connected-correlation limits with moments of this SAME
+  time semigroup. It is not a Markov/heat-bath generator.
+
+Next: strict time-separation decay of THESE connected moments and a
+nonzero thermodynamic excitation witness. Constant-one contraction is
+not a strict gap. Vacuum isolation, full required observables/quotient
+completeness and continuum/QFT/all-group Clay remain open. Fixed nome
+1/1024 and spacing remain. No canonical atom/type/flag, analytic premise
+or hole changed.
+
+Verification: three new modules, 1+10+35=46 exactly matched focused
+gates within {propext, Quot.sound}; final error/warning-free logs and
+fresh own/direct-import artifacts. One monitored worker, mandatory 20 GiB
+ceiling; no raised limits or full build/audit/guard/progress run. Root
+imports updated, not rebuilt. Logs: `/tmp/ym-bounded-midpoint-doubling-eventual.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-contraction.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-time.log`.
+
+## Previous increment: original time invariance, reflected balance and dense OS time semigroup (2026-09-13)
 
 The preceding goal turn was PROGRESS: 4e21bdb committed and pushed the
 off-center original normalized comparison. This turn is PROGRESS: its

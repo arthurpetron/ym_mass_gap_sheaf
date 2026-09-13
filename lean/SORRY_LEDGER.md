@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original time invariance, reflected balance and dense OS time; OPEN norm-relative bound and completed operator (2026-09-13)
+## CLOSED derived original OS contraction and completed geometric time; OPEN strict gap and physical isolation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BoundedMidpointDoublingEventual.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeContraction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedTime.lean`.
+- **closed analytic step**: `bounded_midpointDoubling_leEv_anchor`
+  needs only eventual upper caps and an eventual nonnegative anchor.
+  The finite doubling-orbit proof never assumes one representative
+  index works for every lag. `timeNorm_midpoint` derives its recurrence
+  from the original positive form and actual reflected time balance;
+  `timeNorm_le_anchor` consumes the existing lag-independent cap.
+  `timeState_contraction`, `denseTime_contraction` and `distSq_translate`
+  are norm-relative bounds with constant one, not assumptions.
+- **constructed original completed dynamics**: `timeCauchy` retains
+  the input modulus exactly; `completedTime` descends on the EXISTING
+  completion. Original dense-state pins, semigroup/linear/symmetry laws,
+  norm/distance contraction and fixed unit/mean are proved.
+  `complementTime` preserves the SAME unit complement; centering commutes.
+  `twoStepTransfer` is positive, symmetric and contractive geometric
+  time by two steps. `timeCovariance_operator_sum` pins the original
+  connected-correlation limits to these operator moments.
+- **remaining analytic/constructive obligations**: strict time-separation
+  decay for these SAME moments; a nonzero thermodynamic excitation;
+  strict completed complement gap and physical vacuum isolation.
+  Boundary-error decay alone does not supply time-separation decay.
+  Full required observables/quotient completeness, continuum scaling,
+  QFT reconstruction and all-group Clay remain open. The law is at
+  nome w=1/1024 and fixed lattice spacing. No coupling uniformity follows.
+- **frontier honesty**: no canonical atom/type/flag, analytic premise
+  or hole changed; no new surrogate or contraction input was introduced.
+- **verification**: three modules, 1+10+35=46 exactly matched focused
+  gates within {propext, Quot.sound}; final error/warning-free logs and
+  fresh own/direct-import artifacts. One monitored worker, mandatory
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bounded-midpoint-doubling-eventual.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-time-contraction.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-time.log`.
+
+## CLOSED original time invariance, reflected balance and dense OS time; OPEN norm-relative bound and completed operator at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabOffsetProbeCarrier.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeExpression.lean`,

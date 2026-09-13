@@ -682,6 +682,7 @@ import YMGap.Continuum.ClusteringImpliesGap
 import YMGap.Continuum.BoundedMidpointDoubling
 import YMGap.Continuum.BoundedMidpointDoublingError
 import YMGap.Continuum.BoundedMidpointDoublingCReal
+import YMGap.Continuum.BoundedMidpointDoublingEventual
 import YMGap.Continuum.MayerClustering
 import YMGap.Continuum.RealCorrMass
 import YMGap.Continuum.MultiPlaquetteMayer
@@ -4157,6 +4158,8 @@ import YMGap.Continuum.BF4ExactSlabSpacetimeTimeInvariance
 import YMGap.Continuum.BF4ExactSlabSpacetimeReflectedTimeGeometry
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeBalance
 import YMGap.Continuum.BF4ExactSlabThermodynamicDenseTime
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeContraction
+import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedTime
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
