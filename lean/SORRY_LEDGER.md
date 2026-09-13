@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Strict original heat floor and shared-link pointwise product (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/EulerProductStrictFloor.lean`,
+  `lean/YMGap/Continuum/ThetaProductStrictFloor.lean`,
+  `lean/YMGap/Continuum/SU2PointwiseHeatStrictFloor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabHeatPointwiseFloor.lean`.
+- **discharged**: `floor_le_euler` retains a computed positive Euler prefix
+  and bounds all its tails below by half, for each named rational 0<q<1.
+  `euler_square_le_Ppart` bounds the ORIGINAL theta product by `E_q(2N)^2`
+  from below. `pointwiseHeatCReal_geRat_floor` combines that floor with
+  `S_N>=q/2`, proved DiffJTP and the original nome bridge to give the
+  ORIGINAL completed heat floor `c(q)=E_q(L(q))^2/16>0`, uniformly in
+  rational x in [-1,1]. `finiteFloor_le_standardPointwiseHeatPartial`
+  supplies `b(q)=c(q)/2` with an explicit `finiteCutoff q`; no geRat
+  existential is used to produce that cutoff. `eval_faceHeatPolynomial_eqv`
+  pins the original geometric face at K to the K+1-term character prefix.
+  `productFloor_le_eval_heatProduct` proves `b(q)^F` at a common rational
+  environment with every face scalar box hypothesis explicit, overlaps intact.
+- **OPEN**: original interacting product/Haar passage and a positive
+  original action-limit floor. The existing algebraic Haar theorem
+  `SU2QuaternionFiniteProductHaarPolynomialPositivity.finiteProductHaar_square_nonneg`
+  certifies literal supported polynomial squares; no general pointwise-order
+  preservation theorem is supplied by this increment. Non-null full unit,
+  physical slab compatibility, stationary vacuum/transfer, strict completed
+  physical gap, volume/spacing/QFT and all-group Clay remain open. The bound
+  depends on q and F; it is not coupling-/volume-uniform. No canonical
+  frontier atom/type/flag changed. No refuted auxiliary-law identity is used.
+- **verification**: four focused monitored one-worker 20 GiB checks,
+  6 + 6 + 12 + 6 = 30 gates within `{propext, Quot.sound}`, current `.olean`
+  outputs, final error/warning free. Logs `/tmp/ym-euler-product-strict-floor.log`,
+  `/tmp/ym-theta-product-strict-floor.log`, `/tmp/ym-su2-pointwise-heat-strict-floor.log`,
+  `/tmp/ym-bf4-exact-slab-heat-pointwise-floor.log`. No new sorry or named
+  analytic input, oracle, raised proof limits or full build/audit/guard/progress run.
+
 ## CLOSED analytic input: differentiated JTP and original heat nonnegativity (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/FiniteSymmetricChebyshevDerivative.lean`,

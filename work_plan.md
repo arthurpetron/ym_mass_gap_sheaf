@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (differentiated JTP and original heat nonnegativity):**
+**Latest analytic increment (strict original heat floor and shared-link evaluation):**
+`EulerProductStrictFloor.cutoff q` computes
+`FiniteJacobiWeightConvergence.lossCutoff q half`. With this prefix length L,
+`floor_le_euler` proves `E_q(N) >= E_q(L)/2 > 0` for EVERY N. A finite
+prefix is retained and every remaining segment loses at most half.
+`ThetaProductStrictFloor.euler_square_le_Ppart` proves the exact comparison
+`E_q(2N)^2 <= Ppart q x N`; the theta floor therefore survives completion.
+
+`SU2PointwiseHeatStrictFloor.half_nome_le_Spart` proves `S_N(q,x)>=q/2`
+for every N>=1 and rational x in [-1,1]. The now-proved DiffJTP and original
+inverse-nome bridge yield `pointwiseHeatCReal_geRat_floor` with
+`c(q)=E_q(L)^2/16>0`, for every rational 0<q<1. The same finite derivative
+error gives `finiteFloor_le_standardPointwiseHeatPartial` with
+`b(q)=c(q)/2` and the COMPUTED label-count cutoff
+`max 1 (derivativeCutoff q (q*b(q)))`. No modulus is extracted from geRat.
+
+`BF4ExactSlabHeatPointwiseFloor.eval_faceHeatPolynomial_eqv` identifies
+the actual faceHeatPolynomial at cutoff K with precisely K+1 original
+character terms. `productFloor_le_eval_heatProduct` gives `b(q)^ids.length`
+for the original product at ONE rational environment, retaining overlapping
+link variables. Every face scalar's [-1,1] hypotheses are explicit. These
+are evaluation bounds, not Haar expectations; the floor depends on q and F.
+
+Next: establish the original interacting Haar lower bound from the positive
+heat input. `SU2QuaternionFiniteProductHaarPolynomialPositivity.finiteProductHaar_square_nonneg`
+proves positivity on literal polynomial squares, not an order-preservation
+theorem for all pointwise-positive functions. A compatible square/positive
+approximation and its passage through the original Haar carrier remains to
+be proved. No positivity of the original action limit or non-nullness of
+the completed full unit is claimed. Physical slab compatibility, stationary
+vacuum/transfer, strict physical gap, volume/spacing/QFT and all-group Clay
+remain open. No canonical frontier atom/type/flag changed; refuted law unused.
+
+Verification: four new modules, focused monitored one-worker 20 GiB checks,
+6 + 6 + 12 + 6 = 30 axiom gates within `{propext, Quot.sound}`, current
+`.olean` outputs, final error/warning free. Logs
+`/tmp/ym-euler-product-strict-floor.log`,
+`/tmp/ym-theta-product-strict-floor.log`,
+`/tmp/ym-su2-pointwise-heat-strict-floor.log`,
+`/tmp/ym-bf4-exact-slab-heat-pointwise-floor.log`.
+No new sorry, analytic premise, numerical oracle, raised proof limits or
+full build/audit/guard/progress run.
+
+**Preceding analytic increment (differentiated JTP and original heat nonnegativity):**
 `FiniteSymmetricChebyshevDerivative.dsum_step_with_boundary` proves the
 derivative companion of the three-neighbor coefficient update, retaining
 both endpoints and the derivative of 2*x. `FiniteJacobiDerivativeIdentity`

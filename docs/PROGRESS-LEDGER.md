@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: differentiated JTP and original completed heat nonnegativity (2026-09-12)
+## Current increment: strict original heat and shared-link pointwise floors (2026-09-12)
+
+PROGRESS: `EulerProductStrictFloor.floor_le_euler` proves a positive Euler
+floor at ALL truncations by retaining a computed prefix and bounding every
+tail's loss by half. `ThetaProductStrictFloor.euler_square_le_Ppart` gives
+the short comparison `E_q(2N)^2 <= Ppart q x N`. The positive S term gives
+`S_N>=q/2`; proved DiffJTP and the original inverse-nome bridge then give
+`SU2PointwiseHeatStrictFloor.pointwiseHeatCReal_geRat_floor`:
+the ORIGINAL completed heat value is >= `c(q)=E_q(L(q))^2/16>0`.
+
+The finite derivative-error estimate also proves a positive floor `b(q)=c(q)/2`
+for every original character prefix beyond `finiteCutoff q`, an explicit
+function independent of rational x in [-1,1].
+`BF4ExactSlabHeatPointwiseFloor.eval_faceHeatPolynomial_eqv` pins the original
+face polynomial with cutoff K to precisely K+1 such terms. Its product bound
+is `b(q)^F`, with all original shared-link variables retained and all scalar
+box hypotheses explicit. This is NOT a product of Haar expectations.
+
+Next: the original product/Haar lower-bound passage. Existing exact Haar
+positivity applies to polynomial squares. A pointwise-positive product is
+not silently promoted to a positive Haar integral. Positive action limit,
+non-null full unit, physical compatible slabs, stationary vacuum/transfer,
+strict completed physical gap and volume/spacing/QFT/all-group Clay stay open.
+Constants depend on q and F; no coupling-/volume-uniform gap claim, new
+analytic premise, canonical frontier change or use of the refuted law identity.
+
+Four focused monitored one-worker 20 GiB checks: 6 + 6 + 12 + 6 = 30 gates
+inside `{propext, Quot.sound}`, current outputs, final error/warning free.
+An indentation issue and an unavailable cancellation identifier were repaired;
+the final proofs use existing rational algebra. No new sorry, numerical oracle,
+raised proof limits or full build/audit/guard/progress run. Logs
+`/tmp/ym-euler-product-strict-floor.log`, `/tmp/ym-theta-product-strict-floor.log`,
+`/tmp/ym-su2-pointwise-heat-strict-floor.log`,
+`/tmp/ym-bf4-exact-slab-heat-pointwise-floor.log`.
+
+## Previous increment: differentiated JTP and original completed heat nonnegativity (2026-09-12)
 
 PROGRESS: `JacobiDifferentiatedIdentityOnBox.diffJTP` proves the unchanged
 `JTPIdentity.DiffJTP` for every rational 0<q<1 and -1<=x<=1, including both

@@ -4,6 +4,38 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: strict original heat floor, with a constructive finite cutoff
+
+`EulerProductStrictFloor` computes L(q) from an explicit geometric half-budget
+and proves `E_q(N)>=E_q(L(q))/2>0` for every N, at every rational 0<q<1.
+`ThetaProductStrictFloor.euler_square_le_Ppart` then gives
+
+    Ppart(q,x,N) >= E_q(2N)^2 >= E_q(L(q))^2/4.
+
+The first logarithmic-derivative term gives `S_N(q,x)>=q/2` for N>=1.
+`SU2PointwiseHeatStrictFloor.pointwiseHeatCReal_geRat_floor` combines these
+bounds with the PROVED DiffJTP and original inverse-nome identity:
+
+    original completed K_q(x) >= c(q) = E_q(L(q))^2/16 > 0.
+
+The estimate is uniform in rational x in [-1,1], endpoints included, NOT
+uniform in q approaching one. `finiteCutoff q` is explicitly
+`max 1 (derivativeCutoff q (q*c(q)/2))`; every original character prefix
+at a later label count is >= c(q)/2. It is not extracted from a geRat proof.
+
+`BF4ExactSlabHeatPointwiseFloor` pins these prefixes to the original face
+polynomials with their K+1 convention, and proves their shared-link product
+is >= `(c(q)/2)^F` under the explicit scalar-box hypotheses. Passing through
+the original Haar functional remains open: the existing positivity theorem
+is for polynomial squares. No positive original action limit, physical
+stationary vacuum/transfer/gap or continuum closure follows yet.
+
+Four new modules, 30 focused gates within `{propext, Quot.sound}`, current
+outputs, final error/warning free. No new sorry, analytic premise, oracle,
+canonical frontier change, raised proof limits or full build/audit/guard run.
+This supersedes the strict pointwise heat-positivity residue below, not the
+original interacting-action/Haar residue.
+
 ## 2026-09-12: differentiated JTP proved, original heat nonnegativity obtained
 
 `JacobiDifferentiatedIdentityOnBox.diffJTP` now proves the unchanged named

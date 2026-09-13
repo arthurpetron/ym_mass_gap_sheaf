@@ -191,6 +191,9 @@ import YMGap.Continuum.FiniteSymmetricChebyshevDerivative
 import YMGap.Continuum.FiniteJacobiDerivativeIdentity
 import YMGap.Continuum.FiniteJacobiDerivativeComparison
 import YMGap.Continuum.JacobiDifferentiatedIdentityOnBox
+import YMGap.Continuum.EulerProductStrictFloor
+import YMGap.Continuum.ThetaProductStrictFloor
+import YMGap.Continuum.SU2PointwiseHeatStrictFloor
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
@@ -3917,6 +3920,7 @@ import YMGap.Continuum.BF4ExactSlabAllExtentHeatUnit
 import YMGap.Continuum.SU2HeatCharacterPolynomialMajorant
 import YMGap.Continuum.SU2HeatCharacterPolynomialTail
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatTail
+import YMGap.Continuum.BF4ExactSlabHeatPointwiseFloor
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
 import YMGap.Continuum.BF4ExactSlabAllExtentHeatProductTail
