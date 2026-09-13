@@ -4084,13 +4084,21 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicLowerFunctional
 import YMGap.Continuum.BF4ExactSlabThermodynamicLowerAlgebra
 -- All-face moment limits carry the ORIGINAL reflected form and connected
 -- covariance to thermodynamic volume, with explicit boundary-error moduli.
--- Reflected quotient descent, physical time/gap and continuum remain open.
+-- These moment limits alone do not supply physical time/gap or continuum.
 import YMGap.Continuum.BF4ExactSlabSpacetimeExpression
 import YMGap.Continuum.BF4ExactSlabSpacetimeExpectationDecay
 import YMGap.Continuum.BF4ExactSlabSpacetimeThermodynamicLimit
 import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedForm
 import YMGap.Continuum.BF4ExactSlabThermodynamicConnectedCovariance
 import YMGap.Continuum.BF4ExactSlabThermodynamicCovarianceRate
+-- Common-volume semantic descent of the SAME original thermodynamic OS form,
+-- positive-definite null quotient, and explicit-modulus completion carrier.
+-- Completed inner/full completeness, physical time/vacuum/gap remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicCommonForm
+import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedObservable
+import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedBilinear
+import YMGap.Continuum.BF4ExactSlabThermodynamicNullQuotient
+import YMGap.Continuum.BF4ExactSlabThermodynamicSeminormCompletion
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

@@ -4,7 +4,66 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original thermodynamic OS form and connected covariance (2026-09-13)
+## Current increment: semantic thermodynamic OS quotient and completion carrier (2026-09-13)
+
+The preceding turn was PROGRESS: `4b54001` committed and pushed the
+original thermodynamic reflected form and connected covariance. This turn
+is PROGRESS: that SAME form descends to the existing semantic observable
+algebra, then its positive-definite OS quotient embeds injectively into a
+constructed explicit-modulus completion carrier.
+
+`BF4ExactSlabThermodynamicCommonForm.form_lower_congr` uses original
+Haar-carrier equality in one slot and symmetry in the other. `formAt`
+compares presentations at the same absolute volume. `formAtSequence_pin`,
+`formAt_converges`, `formAt_error_le`, and `basedForm_compatible` pass
+literal common-volume tail compatibility to the actual constructed limits,
+with representative and volume moduli retained as data.
+
+`BF4ExactSlabThermodynamicReflectedObservable.presentedForm_same` proves
+semantic well-definedness; `pairing` descends to the EXISTING observable
+quotient. `pairingRepresentative` returns CReal/QCauchy/quotient-pin data
+for presented pairings without selecting quotient representatives.
+`BF4ExactSlabThermodynamicReflectedBilinear` proves symmetry, rational
+bilinearity, positivity, unit normalization, sharp CS and radical-zero.
+The unit rows equal `value`; `connectedPairing_sameBase` pins the connected
+form to the previously constructed original covariance.
+
+`BF4ExactSlabThermodynamicNullQuotient.null_iff_pairing` identifies the
+norm radical with equality of all mixed pairings. `Carrier`, `inner`,
+`inner_posdef`, `unit_norm_one`, and `inner_unit_coefficient` construct
+the positive-definite OS quotient with a norm-one unit and original mean.
+Only addition and rational scaling descend, not multiplication or an
+observable action.
+
+`BF4ExactSlabThermodynamicSeminormCompletion.distSq` is the original
+constructed difference form, with `distSqCauchy`, squared triangle and
+null congruence. `seminorm` instantiates the existing completion machinery
+on presentations. `embedObservable` and `embedOSQuotient` descend without
+representative selection; `embedOSQuotient_injective` and
+`completedUnit_ne_zero` show that this carrier preserves the OS quotient
+and its nonzero unit.
+
+Next: extend the SAME inner product to Cauchy classes with explicit
+pairing-limit data. Full quotient-level completeness, physical time action,
+stationary vacuum, nonzero excitations, strict completed gap, full gauge
+observables and spacing/continuum/QFT/all-group Clay remain open. Fixed
+w=1/1024 and spacing are unchanged. No canonical atom/type/flag, analytic
+premise or hole changed. Completion carrier is not completed Hilbert structure.
+
+Five new modules: 17+13+20+31+27=108 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling. Large
+equality normalization was replaced by generic congruence; quotient
+induction exposes the actual embed map with explicit motives. No raised
+limit, oracle or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-common-form.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-observable.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-bilinear.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-null-quotient.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-seminorm-completion.log`.
+
+## Previous increment: original thermodynamic OS form and connected covariance (2026-09-13)
 
 The preceding turn was PROGRESS: `ae4517b` committed and pushed the semantic
 lower algebra and its positive functional. This turn is PROGRESS: finite

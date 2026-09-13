@@ -423,8 +423,18 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        + original mean size caps [PROVED]
                                   |        -> connected covariance
                                   |           boundary-error modulus[PROVED]
-                                  |      + reflected-form descent
-                                  |        across base presentations[NEXT OPEN]
+                                  |        + common-volume tails and
+                                  |          lower-carrier equality [PROVED]
+                                  |        -> ONE semantic OS pairing[PROVED]
+                                  |        + radical-zero law       [PROVED]
+                                  |        -> positive-definite OS
+                                  |           null quotient         [PROVED]
+                                  |        + squared-distance laws
+                                  |          and Cauchy moduli      [PROVED]
+                                  |        -> completion CARRIER,
+                                  |           injective OS embedding[PROVED]
+                                  |           nonzero unit          [PROVED]
+                                  |      + SAME completed inner form[NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -477,7 +487,46 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the original reflected form and connected covariance reach thermodynamic volume, with explicit error moduli.**
+**Latest result: one original thermodynamic OS quotient embeds injectively into an explicit-modulus completion carrier.**
+[`form_lower_congr`, `basedForm_compatible`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCommonForm.lean)
+give the compatibility argument: lower-observable Haar equality preserves
+one slot, symmetry handles the other, and two base presentations are
+compared as tails at the same absolute volume. No new analytic
+reflection-compatibility assumption is added; volume and real-representative
+moduli remain explicit.
+
+[`presentedForm_same`, `pairing`, `pairingRepresentative`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedObservable.lean)
+descend the original form to the **existing semantic observable quotient**.
+The relation is equality under every original Haar insertion, independent
+of the interacting mean. Presented pairings retain real/Cauchy data without
+choosing representatives from quotient classes.
+[`pairing_cauchySchwarz`, `pairing_unit_left_value`, `connectedPairing_sameBase`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedBilinear.lean)
+retain rational bilinearity, positivity, the same mean functional, and the
+actual connected covariance on this common carrier.
+
+[`null_iff_pairing`, `Carrier`, `inner_posdef`, `unit_norm_one`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicNullQuotient.lean)
+construct the positive-definite OS null quotient. Addition and rational
+scaling descend; multiplication or an observable action is **not** assumed
+to descend. The unit has norm one, and its coefficient is the original mean.
+[`distSqCauchy`, `seminorm`, `Completion`, `embedOSQuotient_injective`, `completedUnit_ne_zero`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSeminormCompletion.lean)
+construct the squared seminorm and explicit-modulus completion carrier,
+with an injective embedding of that OS quotient and a nonzero unit.
+
+**Next:** extend the SAME inner product to Cauchy classes, with explicit
+pairing-limit data. The completion carrier is not yet a completed Hilbert
+structure or a proof of full quotient-level completeness. Physical time
+action, stationary vacuum, nonzero excitations, strict gap, full gauge
+observables, spacing/continuum/QFT and all-group Clay remain open. This
+increment retains fixed `w=1/1024`, fixed spacing and plaquette observables.
+
+Five new modules: 17+13+20+31+27=108 exactly matched focused axiom gates
+within `{propext, Quot.sound}`, final error/warning free;
+source/direct-import artifacts fresh. The safe-build skill kept checks to
+one monitored worker and the mandatory 20 GiB ceiling. No new hole,
+analytic premise, raised limit or canonical frontier change; no full
+build/audit/guard/progress run. Root imports updated, not rebuilt.
+
+**Preceding result: the original reflected form and connected covariance reach thermodynamic volume, with explicit error moduli.**
 [`SpacetimeExpression`, `reflectedProduct_pin`](lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpression.lean)
 extend the finite expression carrier to all physical faces of a base slab.
 The evaluated reflected product is literally the existing upper/lower
@@ -504,9 +553,8 @@ mean caps `B_e=bound(e)+1`. This is **receding-boundary error**, not decay
 with physical time separation. The constructed limits are at fixed
 `w=1/1024` and fixed spacing, for plaquette-generated expressions.
 
-**Next:** descend the reflected form across base presentations to a common
-observable carrier, then construct its thermodynamic OS quotient/completion
-and required time action. Full spacetime-state compatibility, physical
+At that checkpoint, descent across base presentations and the thermodynamic
+OS quotient/completion were next. Full spacetime-state compatibility, physical
 stationary vacuum, strict completed gap, spacing/continuum/QFT control and
 the all-group Clay target remain open. A positive form is not a strict gap.
 

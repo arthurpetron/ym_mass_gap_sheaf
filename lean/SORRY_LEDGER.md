@@ -13,7 +13,60 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original thermodynamic reflected form and connected covariance; OPEN reflected carrier descent and physical time (2026-09-13)
+## CLOSED semantic thermodynamic OS quotient and completion carrier; OPEN completed inner and physical time (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCommonForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedObservable.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedBilinear.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicNullQuotient.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSeminormCompletion.lean`.
+- **constructed common-volume compatibility**: `form_lower_congr` uses
+  original lower Haar-carrier equality and symmetry, not a new analytic
+  reflection assumption. `formAtSequence_pin`, `formAt_converges`,
+  `formAt_error_le`, and `basedForm_compatible` compare actual form
+  sequences and their tails at a common absolute volume. `basedFormCauchy`
+  and `basedVolumeModulus` retain the original representative/volume data.
+- **semantic descent and laws**: `presentedForm_same` proves invariance
+  under the existing state-independent `SameObservable` relation;
+  `pairing` descends to the existing observable quotient, and
+  `pairingRepresentative` returns CReal/QCauchy/value-pin data for each
+  presentation. Bilinearity, symmetry, positivity, unit normalization,
+  sharp CS and radical-zero hold. `pairing_unit_left_value` retains the
+  same mean; `connectedPairing_sameBase` pins the connected form to the
+  preceding actual thermodynamic covariance.
+- **constructed OS quotient**: `null_iff_pairing` proves that zero
+  reflected squared distance is exactly equality of all mixed pairings.
+  `Carrier`, `inner`, and `inner_posdef` give a positive-definite quotient;
+  `unit_norm_one` and `inner_unit_coefficient` retain the norm-one unit and
+  original mean coefficient. `osAdd` and `osSmul` descend. No multiplication
+  or observable action on OS states is assumed.
+- **constructed completion carrier**: `distSq`, `distSqCauchy`,
+  `distSq_triangle`, and `distSq_null_congr` instantiate `SquaredSeminorm`
+  on concrete presentations. `Completion`, `embedObservable`, and
+  `embedOSQuotient` use the existing explicit-modulus machinery without
+  selecting quotient representatives. `embedOSQuotient_injective` and
+  `completedUnit_ne_zero` prove that the OS quotient and its unit survive.
+- **remaining obligation**: the SAME inner product on Cauchy classes with
+  explicit pairing-limit data; full quotient-level completeness and
+  completed Hilbert laws; physical time action, stationary vacuum, nonzero
+  excitations, strict completed gap, full gauge observables, and
+  spacing/continuum/QFT/all-group Clay. Fixed w=1/1024 and fixed spacing
+  remain in force. A nonzero unit is not a nonzero excitation or a
+  stationary physical vacuum. The preceding semantic-descent/null-quotient
+  residue is closed at this scope, not a canonical continuum atom. No
+  canonical type/flag, new analytic premise or hole changed.
+- **verification**: 17+13+20+31+27=108 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no
+  raised limit, oracle or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-common-form.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-reflected-observable.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-reflected-bilinear.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-null-quotient.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-seminorm-completion.log`.
+
+## CLOSED original thermodynamic reflected form and connected covariance; OPEN reflected carrier descent and physical time at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpression.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSpacetimeExpectationDecay.lean`,

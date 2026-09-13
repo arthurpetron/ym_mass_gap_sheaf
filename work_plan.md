@@ -18,7 +18,54 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (thermodynamic reflected form and connected covariance):**
+**Latest original-action increment (semantic OS quotient and completion carrier):**
+`BF4ExactSlabThermodynamicCommonForm.form_lower_congr` proves finite
+original-form compatibility from lower Haar-carrier equality, using
+symmetry for the first slot. `formAtSequence_pin`, `formAt_converges`,
+`formAt_error_le`, and `basedForm_compatible` compare actual common-volume
+tails. The representative Cauchy and volume moduli are computed data.
+
+`BF4ExactSlabThermodynamicReflectedObservable.presentedForm_same` descends
+the original limit to `pairing` on the EXISTING semantic observable
+quotient; `pairingRepresentative` retains real/QCauchy/pin data for
+presentations. `BF4ExactSlabThermodynamicReflectedBilinear` proves symmetry,
+rational bilinearity, positivity, sharp CS and the radical law. Its unit
+rows equal the original `value`; `connectedPairing_sameBase` pins the
+connected form to the preceding constructed thermodynamic covariance.
+
+`BF4ExactSlabThermodynamicNullQuotient.null_iff_pairing` identifies the
+norm radical with equality of all pairings. `Carrier`, `inner`,
+`inner_posdef`, `unit_norm_one`, and `inner_unit_coefficient` construct
+the positive-definite OS quotient with its original mean coefficient.
+Only addition and rational scaling descend; no multiplication/action on
+OS states is assumed.
+
+`BF4ExactSlabThermodynamicSeminormCompletion.distSq`, `distSqCauchy`,
+`distSq_triangle`, and `distSq_null_congr` construct the existing
+`SquaredSeminorm` interface on concrete presentations. `Completion`,
+`embedObservable`, and `embedOSQuotient` select no representatives;
+`embedOSQuotient_injective` and `completedUnit_ne_zero` certify that the
+positive-definite OS quotient and its unit survive in the completion carrier.
+
+Next: the SAME inner product on Cauchy classes with constructed pairing
+limits. Full quotient-level completeness, physical time action/stationary
+vacuum/nonzero excitations/strict gap, full gauge observables and
+spacing/continuum/QFT/all-group Clay remain open. Fixed w=1/1024 and
+spacing are unchanged. No canonical atom/type/flag, new analytic premise
+or hole changed; a completion carrier is not a completed Hilbert structure.
+
+Verification: five new modules, 17+13+20+31+27=108 exactly matched focused
+gates within {propext, Quot.sound}, final error/warning free;
+source/direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling; no oracle, raised limit or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-common-form.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-observable.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-reflected-bilinear.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-null-quotient.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-seminorm-completion.log`.
+
+**Preceding original-action increment (thermodynamic reflected form and connected covariance):**
 `BF4ExactSlabSpacetimeExpression.SpacetimeExpression` covers all physical
 faces of a base slab. `squareBound`, `linkLocal`, `image_prefix`, and
 `reflectedProduct_pin` construct the same-original-action inputs for
