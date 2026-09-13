@@ -4,7 +4,55 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: semantic thermodynamic OS quotient and completion carrier (2026-09-13)
+## Current increment: original thermodynamic completed pairing and positive definiteness (2026-09-13)
+
+The preceding turn was PROGRESS: `a966439` committed and pushed the original
+semantic OS quotient and its completion carrier. This turn is PROGRESS:
+The ORIGINAL thermodynamic pairing now extends to arbitrary Cauchy
+classes, with no new boundedness, convergence or representative-selection
+premise. `BF4ExactSlabThermodynamicPairingContinuity.pairing_close`
+uses sharp CS and the bilinear difference identity with the explicit
+tolerance epsilon^2/(8*(B+1)).
+
+`BF4ExactSlabThermodynamicPairingLimit.diagonal_le_ceiling` passes the
+original positive-polynomial size cap to its own limit. `normCeiling`
+comes from a Cauchy anchor; `pairRate` and `pairReg` compute the outer
+and inner rates. `representativeInner` returns the actual pairing limit,
+and `representativeInnerCauchy` retains its approximation modulus.
+
+`BF4ExactSlabThermodynamicCompletedInner.representativeInner_welldef`
+uses `closeRate` to prove independence of both representatives.
+`completedInner` descends to the existing completion.
+`completedInner_embedObservable` and `completedInner_embedOSQuotient`
+pin it to the original semantic form and null quotient. Symmetry,
+positivity, unit norm one, the original unit coefficient and sharp CS hold.
+
+`BF4ExactSlabThermodynamicCompletedPosdef.pairSequence_limit_close`
+uses that SAME outer rate. `closeZeroOfInnerZero` returns a Type-level
+closeness witness to zero; `completedInner_posdef` proves zero norm iff
+zero completed state on arbitrary Cauchy classes.
+
+Next: completed linear operations and laws, bilinearity and the appropriate
+constructive completeness theorem on this SAME carrier. Physical time,
+stationary vacuum, nonzero excitations, strict gap, full gauge observables,
+spacing/continuum/QFT and all-group Clay remain open. Fixed w=1/1024 and
+spacing are unchanged. A positive-definite pairing alone is not a completed
+Hilbert structure or a physical mass gap. No canonical atom/type/flag,
+new analytic premise or hole changed.
+
+Verification: four new modules, 6+22+17+8=53 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free;
+source/direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling. A generic diagonal-modulus helper avoids expanding the
+thermodynamic construction during normalization; no limit was raised.
+No oracle or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-pairing-continuity.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-pairing-limit.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-inner.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-posdef.log`.
+
+## Previous increment: semantic thermodynamic OS quotient and completion carrier (2026-09-13)
 
 The preceding turn was PROGRESS: `4b54001` committed and pushed the
 original thermodynamic reflected form and connected covariance. This turn

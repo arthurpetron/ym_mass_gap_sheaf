@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED semantic thermodynamic OS quotient and completion carrier; OPEN completed inner and physical time (2026-09-13)
+## CLOSED original thermodynamic completed pairing and positive definiteness; OPEN completed linear structure, completeness and physical time (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingContinuity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedInner.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedPosdef.lean`.
+- **constructed continuity and limits**: `pairing_close` gives an explicit
+  same-form tolerance. `diagonal_le_ceiling` passes the original size cap
+  to its own limit; `normCeiling` comes from a Cauchy anchor.
+  `pairRate`, `pairReg`, `representativeInner` and
+  `representativeInnerCauchy` construct outer/inner rates, the actual
+  mixed-pairing limit and its real approximation modulus.
+- **descent and same-object pins**: `closeRate` and
+  `representativeInner_welldef` prove independence of both Cauchy
+  representatives. `completedInner` descends to the existing completion;
+  `completedInner_embedObservable` and `completedInner_embedOSQuotient`
+  identify it with the original form. Symmetry, positivity,
+  `completedUnit_norm_one`, `completedInner_unitCoefficient` and
+  `completedInner_cauchySchwarz` retain the original geometry.
+- **positive definiteness with witnessing data**:
+  `pairSequence_limit_close` uses the same computed outer rate;
+  `closeZeroOfInnerZero` returns a Type-level closeness witness.
+  `completedInner_posdef` proves zero norm iff zero state on arbitrary
+  Cauchy classes, not only the embedded OS quotient.
+- **remaining obligation**: completed linear operations and their laws,
+  bilinearity and the appropriate constructive completeness theorem on
+  this same carrier; physical time, stationary vacuum, nonzero excitations,
+  strict completed gap, full gauge observables and
+  spacing/continuum/QFT/all-group Clay. Fixed w=1/1024 and spacing remain.
+  A positive-definite pairing is not yet a completed Hilbert structure.
+  The preceding completed-pairing residue is closed at this scope, not a
+  canonical continuum atom. No canonical type/flag, new analytic premise
+  or hole changed; no quotient representative is selected.
+- **verification**: 6+22+17+8=53 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no
+  raised limit, oracle or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-pairing-continuity.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-pairing-limit.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-inner.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-posdef.log`.
+
+## CLOSED semantic thermodynamic OS quotient and completion carrier; OPEN completed inner and physical time at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCommonForm.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicReflectedObservable.lean`,

@@ -434,7 +434,18 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> completion CARRIER,
                                   |           injective OS embedding[PROVED]
                                   |           nonzero unit          [PROVED]
-                                  |      + SAME completed inner form[NEXT OPEN]
+                                  |        + SAME form continuity
+                                  |          + computed Cauchy caps
+                                  |          + two-level limit rates[PROVED]
+                                  |        -> completed pairing with
+                                  |           original-form pins,
+                                  |           unit norm one and CS  [PROVED]
+                                  |        + SAME rate gives explicit
+                                  |          zero-closeness witness [PROVED]
+                                  |        -> zero norm iff zero
+                                  |           completed state       [PROVED]
+                                  |      + completed linear laws
+                                  |        and bilinearity          [NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -487,7 +498,40 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: one original thermodynamic OS quotient embeds injectively into an explicit-modulus completion carrier.**
+**Latest result: the SAME original thermodynamic pairing extends to Cauchy classes and is positive definite.**
+[`pairing_close`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingContinuity.lean)
+combines sharp Cauchy--Schwarz with the bilinear difference identity.
+The explicit tolerance is `epsilon^2/(8*(B+1))`, requiring no square root.
+[`diagonal_le_ceiling`, `normCeiling`, `pairRate`, `representativeInner`, `representativeInnerCauchy`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingLimit.lean)
+construct the pairing limit and its moduli: the original size cap bounds
+one Cauchy anchor, then continuity supplies the outer rate and the original
+presented forms supply inner regularity. No boundedness or convergence
+premise is added.
+
+[`completedInner`, `completedInner_embedObservable`, `completedInner_embedOSQuotient`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedInner.lean)
+descend that limit to the existing completion and identify it with the
+original OS pairing on embedded states. It is symmetric and positive,
+retains the norm-one unit and original mean coefficient, and satisfies
+sharp Cauchy--Schwarz.
+[`closeZeroOfInnerZero`, `completedInner_posdef`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedPosdef.lean)
+use the same explicit rate to prove that zero norm is exactly the zero
+completed state. No representatives are selected from quotient classes.
+
+**Next:** completed linear operations and laws, bilinearity and the
+appropriate constructive completeness theorem on this SAME carrier.
+A positive-definite pairing alone is not a completed Hilbert structure.
+Physical time, stationary vacuum, nonzero excitations, strict gap, full
+gauge observables, spacing/continuum/QFT and all-group Clay remain open.
+The coupling `w=1/1024` and lattice spacing remain fixed.
+
+Four new modules: 6+22+17+8=53 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change; no full build/audit/guard/progress
+run. Root imports updated, not rebuilt.
+
+**Preceding result: one original thermodynamic OS quotient embeds injectively into an explicit-modulus completion carrier.**
 [`form_lower_congr`, `basedForm_compatible`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCommonForm.lean)
 give the compatibility argument: lower-observable Haar equality preserves
 one slot, symmetry handles the other, and two base presentations are

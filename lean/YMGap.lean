@@ -4093,12 +4093,20 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicConnectedCovariance
 import YMGap.Continuum.BF4ExactSlabThermodynamicCovarianceRate
 -- Common-volume semantic descent of the SAME original thermodynamic OS form,
 -- positive-definite null quotient, and explicit-modulus completion carrier.
--- Completed inner/full completeness, physical time/vacuum/gap remain open.
+-- The same completed pairing follows below; full completeness and physical
+-- time/vacuum/gap remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicCommonForm
 import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedObservable
 import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedBilinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicNullQuotient
 import YMGap.Continuum.BF4ExactSlabThermodynamicSeminormCompletion
+-- Computed pairing limits descend to the SAME completion, retain original
+-- form pins and sharp CS, and have zero norm iff zero completed state.
+-- Completed linear laws, full completeness and physical time remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicPairingContinuity
+import YMGap.Continuum.BF4ExactSlabThermodynamicPairingLimit
+import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedInner
+import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedPosdef
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
