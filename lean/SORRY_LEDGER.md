@@ -13,6 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original partial-retention and whole-forest test machinery; OPEN uniform positive minor and excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreePruning.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceRetention.lean`,
+  `lean/YMGap/Continuum/ReflectedSquareTreeTestForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean`.
+- **closed constructive retention**: `Pruning.ofLeaf`, `productLeft`,
+  `productRight` and `product` retain actual local branches and whole
+  spectator trees. `dressed_value_le` proves the bound for arbitrary signed
+  polynomial insertions. No independence premise is used.
+- **closed SAME original-law pin**: `interfacePruning` selects original
+  unit/fundamental leaves only where requested and keeps the full Gram
+  expansion elsewhere. `retainedValue_le_rawForm` bounds the original
+  reflected numerator, including every rational recentering.
+  `retainedValue_keepAll` exactly recovers that numerator. The original
+  lower heat product is not replaced or omitted.
+- **closed whole-forest tests**: `treeForm` derives sharp CS from actual
+  tree positivity. `testAmplitude_bound` proves A_i(e)^2 <= rawForm(e,e)*E_i.
+  `testMinor_recentered` and `every_recentered_bound` prove
+  D(e) <= rawForm(e-c,e-c)*R, where
+  D(e)=(A_0(e)*A_1(1)-A_1(e)*A_0(1))^2 and
+  R=2*(E_0*A_1(1)^2+E_1*A_0(1)^2). All quantities are finite rational data.
+  `testFloor_bound` gives D/(R+1); `testFloor_positive` requires the explicit
+  decidable rational minor test, not an opaque positivity input.
+- **open constructive/analytic estimate**: produce translated local tests,
+  identify the spectator-partition-relative moments, and prove a strictly
+  positive normalized bound uniformly through volume and cutoff. No concrete
+  positive whole-forest minor or thermodynamic excitation is constructed
+  here. The fixed extent-one witness in
+  `BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` does not discharge
+  this. The finite D/(R+1) bound is not a volume-uniform normalized estimate.
+- **frontier honesty**: retention holds at every SU(2) w>=0, K>=1 and odd
+  extent, without asserting a beta-uniform positive floor. Full observables,
+  quotient completeness and continuum/QFT/all-group Clay remain open.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: four modules, 9+15+7+17=48 exactly matched focused
+  gates within {propext, Quot.sound}; seven pruning gates axiom-free.
+  Final logs error/warning free and own/direct-import artifacts fresh.
+  One worker, mandatory 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-reflected-square-tree-pruning.log`,
+  `/tmp/ym-bf4-exact-slab-partial-interface-retention.log`,
+  `/tmp/ym-reflected-square-tree-test-form.log`,
+  `/tmp/ym-bf4-exact-slab-partial-interface-tests.log`.
+
 ## CLOSED original quantitative relaxation and positive-time fixed-space uniqueness; OPEN excitation and continuum (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean`,

@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL quantitative relaxation and positive-time fixed-space uniqueness (2026-09-13)
+## Current increment: ORIGINAL partial interface retention and whole-forest minor tests (2026-09-13)
+
+The preceding goal turn was PROGRESS: 3cd5988 proved and pushed original
+quantitative relaxation and fixed-unit uniqueness. This turn is PROGRESS:
+local channel retention now keeps whole spectator forests, and its actual
+original-law test amplitudes give a centering-independent determinant bound.
+
+- Source inspection found the existing positive excitation floor in
+  `BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` is fixed extent one.
+  It cannot be reported as a thermodynamic witness.
+- `ReflectedSquareTreePruning.Pruning.productLeft`/`productRight` retain
+  entire spectator trees; `dressed_value_le` covers signed insertions.
+- `BF4ExactSlabPartialInterfaceRetention.retainedValue_le_rawForm` pins
+  the retained forest to the full original reflected numerator, with all
+  lower interactions intact. `retainedValue_keepAll` is exact recovery.
+- `ReflectedSquareTreeTestForm.treeForm` derives whole-forest CS.
+- `BF4ExactSlabPartialInterfaceTests.every_recentered_bound` proves
+  D(e) <= rawForm(e-c,e-c)*R for every c, with computed determinant D and
+  reference budget R. `testFloor_bound` supplies the finite rational floor.
+
+Next: explicit translated local tests, spectator-partition-relative moment
+identities and a positive normalized estimate surviving volume/cutoff.
+The finite denominator-plus-one compiler does not prove uniformity.
+Thermodynamic excitation, full observables/completeness and continuum/Clay
+remain open; no canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 9+15+7+17=48 exactly matched focused gates
+within {propext, Quot.sound}; seven pruning gates axiom-free. Final logs
+error/warning free and own/direct-import artifacts fresh. One worker,
+mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-reflected-square-tree-pruning.log`,
+`/tmp/ym-bf4-exact-slab-partial-interface-retention.log`,
+`/tmp/ym-reflected-square-tree-test-form.log`,
+`/tmp/ym-bf4-exact-slab-partial-interface-tests.log`.
+
+## Previous increment: ORIGINAL quantitative relaxation and positive-time fixed-space uniqueness (2026-09-13)
 
 The preceding goal turn was PROGRESS: 2ccdc68 proved and pushed the
 original completed unit-complement form gap. This turn is PROGRESS:

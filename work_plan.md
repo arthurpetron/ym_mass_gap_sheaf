@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (quantitative relaxation and fixed-unit uniqueness):**
+**Latest original-action increment (partial interface retention and whole-forest minor tests):**
+The existing `BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` witness
+has a fixed extent-one floor; it does not supply a thermodynamic excitation.
+`ReflectedSquareTreePruning.Pruning` now carries explicit retained-tree
+paths. `productLeft`/`productRight` retain whole spectator trees, and
+`dressed_value_le` proves monotonicity after arbitrary signed insertions.
+`BF4ExactSlabPartialInterfaceRetention.interfacePruning` constructs that
+certificate on the original crossing-face product, selecting only the
+requested unit/fundamental leaves. `retainedValue_le_rawForm` keeps the
+full original lower heat product and proves the actual numerator bound.
+`retainedValue_keepAll` pins the no-selection endpoint to the same raw form.
+
+`ReflectedSquareTreeTestForm.treeForm` derives sharp Cauchy--Schwarz for
+the entire retained forest, with coefficient transport and linearity.
+`BF4ExactSlabPartialInterfaceTests.testAmplitude_bound` gives
+A_i(e)^2 <= rawForm(e,e)*E_i for computed amplitudes and reference energies.
+`testMinor_recentered` and `every_recentered_bound` give
+D(e) <= rawForm(e-c,e-c)*R for every rational c, where
+D(e)=(A_0(e)*A_1(1)-A_1(e)*A_0(1))^2 and
+R=2*(E_0*A_1(1)^2+E_1*A_0(1)^2). `testFloor_bound` is an executable finite
+floor; `testFloor_positive` consumes only its displayed rational minor test.
+
+Next: construct local test choices/polynomials around the translated probe,
+identify their amplitudes with spectator-partition-relative local moments,
+and prove a positive normalized lower estimate uniform in volume/cutoff.
+The unnormalized inequality above retains R explicitly; its denominator-plus-one
+finite floor must not be mistaken for that uniform estimate. No concrete
+positive whole-forest minor or thermodynamic excitation is yet asserted.
+Full observable realization/completeness and continuum/Clay remain open.
+Retention holds for SU(2), w>=0, K>=1 and all odd extents; this is not a
+beta-uniform positive lower bound. No canonical atom/type/flag, analytic
+premise or hole changed.
+
+Verification: four modules, 9+15+7+17=48 exactly matched focused gates
+within {propext, Quot.sound}, seven pruning gates axiom-free. Final logs
+error/warning free; own/direct-import artifacts fresh. One monitored worker,
+mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-reflected-square-tree-pruning.log`,
+`/tmp/ym-bf4-exact-slab-partial-interface-retention.log`,
+`/tmp/ym-reflected-square-tree-test-form.log`,
+`/tmp/ym-bf4-exact-slab-partial-interface-tests.log`.
+
+**Preceding original-action increment (quantitative relaxation and fixed-unit uniqueness):**
 `BF4ExactSlabThermodynamicRelaxation.centered_norm_one_step` identifies
 the one-step squared norm with the proved two-step form bound.
 `centered_norm_decay` iterates it using the SAME time semigroup.

@@ -564,6 +564,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> every positive-time
                                   |           fixed state lies in
                                   |           that SAME unit line   [PROVED]
+                                  |      + local channel selection,
+                                  |        ALL spectator channels kept
+                                  |        -> ORIGINAL raw-form bound
+                                  |        + whole-forest CS tests
+                                  |        -> centering-invariant
+                                  |           two-test minor bound  [PROVED]
+                                  |        + local positive minor and
+                                  |          SAME partition-relative
+                                  |          volume-uniform estimate [OPEN]
                                   |      + nonzero thermodynamic
                                   |        excitation witness        [OPEN]
                                   |      + full quotient-level
@@ -617,7 +626,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: quantitative relaxation and uniqueness of the ORIGINAL unit fixed space.**
+**Current work: a spectator-preserving route to a nonzero thermodynamic excitation.**
+The existing positive excitation witness concerns the extent-one slab;
+its floor does not establish thermodynamic nontriviality.
+[Partial interface retention](lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceRetention.lean)
+now selects original unit/fundamental channels locally while leaving all
+channels of unselected faces intact. Its lower-bound theorem applies to
+the ORIGINAL reflected numerator, every odd extent and `K>=1`, `w>=0`.
+Keeping all channels recovers that numerator exactly.
+
+[Whole-forest tests](lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean)
+then produce explicit amplitudes `A_i(e)` and reference energies `E_i`, with
+`A_i(e)^2 <= rawForm(e,e)*E_i`. The computed determinant square
+`D(e)=(A_0(e)A_1(1)-A_1(e)A_0(1))^2` is unchanged by rational recentering
+and satisfies `D(e) <= rawForm(e-c,e-c)*R`, with explicit reference budget
+`R=2*(E_0*A_1(1)^2+E_1*A_0(1)^2)`.
+
+**Open next:** concrete local tests with a positive determinant estimate
+relative to the SAME partition and reference budget, uniformly through
+volume and cutoff. The finite test-floor compiler alone does not prove
+this estimate or a nonzero thermodynamic excitation.
+
+Four modules: 9+15+7+17=48 exactly matched focused gates within
+`{propext, Quot.sound}`; seven pruning gates are axiom-free. Final logs
+error/warning free and own/direct-import artifacts fresh. One monitored
+worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
+Root imports updated, not rebuilt. No canonical frontier atom is closed.
+
+**Most recent completed dynamical result: quantitative relaxation and uniqueness of the ORIGINAL unit fixed space.**
 The completed form gap and geometric time identities now give
 
 ```text
