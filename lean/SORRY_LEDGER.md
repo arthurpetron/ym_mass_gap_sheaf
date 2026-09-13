@@ -13,7 +13,57 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original time geometry and translated-state covariance realization; OPEN reflected time balance and completed operator (2026-09-13)
+## CLOSED original off-center normalized boundary comparison; OPEN original time homogeneity and reflected balance (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabOffsetHaarEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetAction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetInteriorHaarPin.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetExteriorSeparation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetBoundaryDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetBoundaryResponse.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetExpectationComparison.lean`.
+- **constructed geometry and original action**: `Placement.embedding`
+  is the actual injective link map; `Placement.character_pin` and
+  `Placement.haar` preserve ordered holonomy and supported Haar integrals.
+  `fullHeatProduct_dressing` retains the exterior interaction;
+  `boundary_mixedNumerator` and `boundary_mixedPartition` use the existing
+  arbitrary-mask determinant on the SAME carrier. `interiorMoment_small`
+  and `interiorPartition_small` pin the ORIGINAL source numerator/partition.
+- **constructed separation and finite decay**: `embeddedFacePreimage`
+  computes preimages without witness erasure; `shifted_base_protected`
+  and `protected_core_size_floor` give the original actual-core size floor.
+  `protected_boundary_bound` and `singlePlaquette_boundary_geometric_bound`
+  retain coupling/probe/interval dependence. No coefficient depends on
+  outer padding or allowed time offset; original unit moments remain.
+- **constructed cutoff limit and normalized estimate**:
+  `boundaryNumeratorCauchy`, `boundaryCutoff` and
+  `boundaryResponse_approx_close` give explicit same-cutoff data.
+  `expectationDifference_formula` and `protected_expectationDifference_bound`
+  cancel the SAME two original partition factors, not substitutes or
+  volume-uniform reciprocal ceilings. The final estimate retains source
+  support, target prefix pin/support, interval, locality and protected root.
+- **remaining constructive producer**: independently shifted literal
+  finite expressions and their connected box probes must supply those
+  premises. Original thermodynamic-limit comparison must then establish
+  time invariance and one-step reflected balance. Neither identity is
+  assumed or discharged in these modules. This is logged residue, not a
+  new code hole or an asserted boundary-to-time-decay implication.
+- **larger open boundary**: semantic/OS-null time-operator descent,
+  OS-norm-relative continuity, stationary physical vacuum, nonzero
+  excitations, strict gap, full observables/quotient completeness and
+  continuum/QFT/all-group Clay. The concrete thermodynamic point remains
+  w=1/1024 at fixed spacing. New estimates expose their coupling guards.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: seven modules, 24+21+9+13+5+10+11=93 exactly matched
+  focused gates within {propext, Quot.sound}; final error/warning-free logs;
+  own/direct-import artifacts fresh. One monitored worker, mandatory 20 GiB
+  ceiling; no raised limit or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs are `/tmp/ym-bf4-exact-slab-offset-` followed by
+  `haar-embedding.log`, `action.log`, `interior-haar-pin.log`,
+  `exterior-separation.log`, `boundary-decay.log`, `boundary-response.log`
+  and `expectation-comparison.log`.
+
+## CLOSED original time geometry and translated-state covariance realization; OPEN reflected time balance and completed operator at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeGeometry.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAlgebra.lean`,

@@ -4,7 +4,60 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original thermodynamic time geometry and actual translated-state correlations (2026-09-13)
+## Current increment: original off-center geometry, boundary decay and normalized comparison (2026-09-13)
+
+The preceding goal turn was PROGRESS: 5d48bb0 committed and pushed the
+actual translated-state construction and original two-time covariance
+limits. This turn is PROGRESS: the off-center original-measure comparison
+needed for time homogeneity now has constructed geometry, an actual-core
+boundary bound, an explicit determinant cutoff modulus and exact original
+partition cancellation. Time homogeneity itself remains open.
+
+- `BF4ExactSlabOffsetHaarEmbedding.Placement.embedding`,
+  `Placement.plaquette_pin`, `Placement.character_pin` and `Placement.haar`
+  retain the actual source/target link carriers, ordered holonomies and
+  supported product-Haar integrals. Placement contains only geometric
+  sizes and the allowed time-offset inequality.
+- `BF4ExactSlabOffsetAction.fullHeatProduct_dressing`,
+  `boundary_mixedNumerator` and `boundary_mixedPartition` retain the full
+  original action and its interior/exterior factors on the SAME target.
+- `BF4ExactSlabOffsetInteriorHaarPin.interiorMoment_small` and
+  `interiorPartition_small` identify the original source numerator and
+  partition, at every representation cutoff and its existing limit.
+- `BF4ExactSlabOffsetExteriorSeparation.embeddedFacePreimage` computes
+  preimages; `shifted_base_protected` and `protected_core_size_floor`
+  give actual exterior separation with no loss from the outer time offset.
+- `BF4ExactSlabOffsetBoundaryDecay.protected_boundary_bound` consumes
+  the existing arbitrary-mask core sum; `singlePlaquette_boundary_geometric_bound`
+  exhibits its coupling-dependent geometric coefficient. Both original
+  unit moments are retained. This is boundary sensitivity, not time decay.
+- `BF4ExactSlabOffsetBoundaryResponse.boundaryNumeratorCauchy`,
+  `boundaryCutoff`, `boundaryResponse_approx_close` and
+  `boundaryResponse_formula` construct and pin the SAME-cutoff determinant.
+- `BF4ExactSlabOffsetExpectationComparison.expectationDifference_formula`
+  and `protected_expectationDifference_bound` compare the two ORIGINAL
+  normalized expectations, canceling the SAME two partition factors.
+  There is no volume-uniform reciprocal bound or added analytic premise.
+
+Next: provide the independently shifted literal expression/probe inputs,
+then compare their original thermodynamic limits to prove time invariance
+and reflected balance. Semantic/OS-null operator descent and norm control,
+stationary physical vacuum, nonzero thermodynamic excitations, strict gap,
+full observables/completeness and continuum/QFT/all-group Clay remain open.
+The thermodynamic point remains w=1/1024 at fixed spacing; all new estimate
+guards name w. No canonical frontier atom/type/flag or hole changed.
+
+Verification: seven new modules, 24+21+9+13+5+10+11=93 exactly matched
+focused gates within {propext, Quot.sound}; final error/warning-free logs;
+own/direct-import artifacts fresh. One monitored worker with mandatory
+20 GiB ceiling; no raised limit or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs are `/tmp/ym-bf4-exact-slab-offset-`
+followed by `haar-embedding.log`, `action.log`, `interior-haar-pin.log`,
+`exterior-separation.log`, `boundary-decay.log`, `boundary-response.log`
+and `expectation-comparison.log`. GitHub Actions remained disabled before
+the milestone push.
+
+## Previous increment: original thermodynamic time geometry and actual translated-state correlations (2026-09-13)
 
 The immediately preceding goal turn was NO PROGRESS: it answered the user's
 encouragement/status message and rechecked the existing frontier, without a

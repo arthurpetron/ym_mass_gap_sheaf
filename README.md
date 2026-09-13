@@ -476,8 +476,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> SAME original two-time
                                   |           covariance limits,
                                   |           explicit volume rate  [PROVED]
+                                  |      + off-center actual link map
+                                  |        + full/interior action pin
+                                  |        + exterior distance floor[PROVED]
+                                  |        -> ORIGINAL boundary decay
+                                  |           for allowed time offsets
+                                  |           + same-cutoff modulus [PROVED]
+                                  |        + SAME partition cancellation
+                                  |        -> normalized off-center
+                                  |           expectation comparison[PROVED]
+                                  |        + shifted-expression producer
+                                  |          and limit comparison   [NEXT OPEN]
+                                  |        -> original time invariance[OPEN]
                                   |      + ORIGINAL reflected
-                                  |        time-balance identity    [NEXT OPEN]
+                                  |        time-balance identity     [OPEN]
                                   |      + semantic/OS-null descent
                                   |        and norm-relative control [OPEN]
                                   |      + full quotient-level
@@ -530,7 +542,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: actual translated states and their original two-time correlations are constructed.**
+**Latest result: off-center comparisons now retain the original interacting law and its normalization.**
+[`Placement.embedding`, `Placement.haar`](lean/YMGap/Continuum/BF4ExactSlabOffsetHaarEmbedding.lean)
+construct the actual link map for every allowed time offset.
+[`interiorMoment_small`, `interiorPartition_small`](lean/YMGap/Continuum/BF4ExactSlabOffsetInteriorHaarPin.lean)
+identify the embedded interior integral with the original smaller slab,
+at every cutoff and at its explicit-modulus limit.
+The [exterior distance floor](lean/YMGap/Continuum/BF4ExactSlabOffsetExteriorSeparation.lean)
+feeds the existing core sum, giving [off-center boundary decay](lean/YMGap/Continuum/BF4ExactSlabOffsetBoundaryDecay.lean).
+[`protected_expectationDifference_bound`](lean/YMGap/Continuum/BF4ExactSlabOffsetExpectationComparison.lean)
+cancels the two SAME original partition factors after cutoff removal.
+The resulting bound names the coupling, observable interval, probe and
+margin; its coefficient does not depend on the outer padding or time offset.
+It is boundary sensitivity, **not** time decay or a spectral gap.
+
+**Next:** construct the shifted-expression inputs to this estimate and
+compare their original thermodynamic limits to establish time invariance,
+then reflected one-step balance. These identities are not assumed or proved
+by the new comparison theorem. Completed time-operator descent, strict gap,
+physical vacuum and continuum/QFT/all-group Clay remain open.
+
+Seven new modules: 93 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final logs error/warning free and own/direct-import
+artifacts fresh. Checks used one monitored worker with the mandatory 20 GiB
+ceiling. No new hole, analytic premise, raised limit or canonical frontier
+change. Root imports updated, not rebuilt; no full build/audit/guard/progress
+run. GitHub Actions remains disabled.
+
+**Preceding result: actual translated states and their original two-time correlations are constructed.**
 The [literal time geometry](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeGeometry.lean)
 proves that outward physical lags add and commute with changing the base
 box. [Original observable comparisons](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAlgebra.lean)
@@ -547,7 +586,7 @@ covariance limit. The construction computes common padding `max(s,t)` and
 retains the CReal/Cauchy and volume-error moduli. Both lags remain explicit;
 the geometric estimate controls receding boundaries, not time decay.
 
-**Next:** prove the original reflected one-step time-balance identity,
+**Next at that checkpoint:** prove the original reflected one-step time-balance identity,
 then establish representative independence and norm-controlled extension
 to a completed time operator. The current time family takes finite
 presentations, not arbitrary completed states. The existing dyadic gap

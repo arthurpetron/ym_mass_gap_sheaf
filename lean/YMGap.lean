@@ -4135,6 +4135,16 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicTimeGeometry
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeAlgebra
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeStates
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeCorrelations
+-- Off-center ORIGINAL link/action transport, exterior-distance core decay,
+-- same-cutoff determinant modulus and exact original partition cancellation.
+-- Shifted-expression consumers, time invariance and reflected balance remain open.
+import YMGap.Continuum.BF4ExactSlabOffsetHaarEmbedding
+import YMGap.Continuum.BF4ExactSlabOffsetAction
+import YMGap.Continuum.BF4ExactSlabOffsetInteriorHaarPin
+import YMGap.Continuum.BF4ExactSlabOffsetExteriorSeparation
+import YMGap.Continuum.BF4ExactSlabOffsetBoundaryDecay
+import YMGap.Continuum.BF4ExactSlabOffsetBoundaryResponse
+import YMGap.Continuum.BF4ExactSlabOffsetExpectationComparison
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

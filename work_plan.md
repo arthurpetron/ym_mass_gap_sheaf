@@ -18,7 +18,54 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (actual time geometry, bounded translated states and same-object two-time correlations):**
+**Latest original-action increment (off-center boundary comparison with exact original normalization):**
+`BF4ExactSlabOffsetHaarEmbedding.Placement` is geometric data: source
+half-size, outer padding and a time offset bounded by twice the padding.
+`Placement.embedding` constructs the actual injective link map;
+`Placement.character_pin` and `Placement.haar` preserve ordered holonomy
+characters and supported product-Haar insertions. `BF4ExactSlabOffsetAction`
+retains the original full/interior/exterior face products and pins the
+actual determinant to the existing arbitrary-mask mixed numerator.
+`BF4ExactSlabOffsetInteriorHaarPin.interiorMoment_small` and
+`interiorPartition_small` identify the SAME source integral at finite
+cutoff and at the existing modulus-bearing cutoff limit.
+
+`BF4ExactSlabOffsetExteriorSeparation.embeddedFacePreimage` computes
+interior preimages by coordinate subtraction. `shifted_base_protected`
+retains the full inner margin for every allowed offset;
+`protected_core_size_floor` feeds the existing actual-core count.
+`BF4ExactSlabOffsetBoundaryDecay.protected_boundary_bound` and
+`singlePlaquette_boundary_geometric_bound` retain both original unit
+moments and explicit coupling/probe dependence, without outer-offset loss.
+`BF4ExactSlabOffsetBoundaryResponse.boundaryNumeratorCauchy`,
+`boundaryCutoff` and `boundaryResponse_formula` construct the actual
+same-cutoff determinant limit and its modulus.
+`BF4ExactSlabOffsetExpectationComparison.expectationDifference_formula`
+and `protected_expectationDifference_bound` cancel the SAME two original
+partition factors and bound the original normalized expectation difference.
+No volume-uniform reciprocal ceiling or new analytic premise is introduced.
+
+Next producer: independent space/time shifts of the actual finite
+expression and its connected box probe, with support, interval, locality
+and embedding pins. Then compare the original thermodynamic limits to
+prove time invariance and reflected one-step balance. These identities
+remain open, as do OS-null descent, a completed norm-controlled physical
+time operator, nonzero excitations, strict gap, full observables/completeness
+and continuum/QFT/all-group Clay. Boundary decay is not time decay.
+The concrete thermodynamic coupling remains w=1/1024 at fixed spacing;
+the new estimates expose their coupling guards. No canonical atom/type/flag
+or hole changed.
+
+Verification: seven new modules, 24+21+9+13+5+10+11=93 exactly matched
+focused gates within {propext, Quot.sound}; final error/warning-free logs;
+own and direct-import artifacts fresh. One monitored worker with mandatory
+20 GiB ceiling; no raised limit or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs are `/tmp/ym-bf4-exact-slab-offset-`
+followed by `haar-embedding.log`, `action.log`, `interior-haar-pin.log`,
+`exterior-separation.log`, `boundary-decay.log`, `boundary-response.log`
+and `expectation-comparison.log`.
+
+**Preceding original-action increment (actual time geometry, bounded translated states and same-object two-time correlations):**
 `BF4ExactSlabThermodynamicTimeGeometry.translate` uses the existing bulk
 placement at the actual outward time lag. `polynomial_translate` pins the
 target space/time coordinates; `timePolynomial_translate` adds lags and
