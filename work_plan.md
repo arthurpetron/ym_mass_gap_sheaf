@@ -18,7 +18,43 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (common ORIGINAL cutoff-limit completion at every odd extent):**
+**Latest larger-slab progress (non-null normalized code and SAME-form centered pairings):**
+`BF4ExactSlabAllExtentVacuumNormalization.selectedFaceBound_one` and
+`interfaceBound_one` prove zero exposed degree for the constant insertion.
+`interfacePairing_one` applies the full original interface cutoff theorem at
+stage zero: all nonzero modes cancel, and the original zero-mode coefficient
+is one. `lowerObservable_cutoff_zero` and `upperObservable_cutoff_zero` keep
+the same original heat weights. `vacuumCode_finite_norm` and
+`vacuumCode_limit_norm` prove exact norm one for this specified boundary
+code at every odd extent, finite K and rational w.
+
+`BF4ExactSlabAllExtentVacuumCodeGNS.vacuumCode_completed_norm` and
+`vacuumCode_completed_ne_zero` place this non-null code in each original-law
+completion (w >= 0). `centerCode` subtracts its OWN rational `codeMean`, still
+inside the finite-boundary carrier. `centerCode_orthogonal` and
+`centerCode_pairing` prove the exact code-relative orthogonalization and
+covariance formula, with `codeCovariance_nonnegative` from original positivity.
+`covarianceModulus` is the explicit maximum of the joint and two one-point
+form moduli. `finiteCodeCovariance_stable` and
+`centerCode_completed_finite_pairing` pin the completed centered pairing to
+these SAME original finite quantities at that common stage.
+
+Next residue: inter-slab observable maps with original Gram preservation;
+the physical unit/vacuum realization and geometric time/transfer, including
+stationarity. The trivial-representation CODE is not identified here with
+the all-label heat-dressed unit or a stationary physical vacuum. Thus its
+centered covariance is not yet a physical-time connected correlator.
+Strict completed gap, volume/spacing/QFT and all-group Clay remain open;
+no canonical atom/type changed and no refuted law identity is used.
+Uniformity of this normalization is NOT a beta-uniform spectral estimate.
+
+Verification: two focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 11 + 16 = 27 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-all-extent-vacuum-normalization.log` and
+`/tmp/ym-all-extent-vacuum-code-gns.log`. No new sorry, analytic premise,
+raised proof limit, numerical oracle or spectral rate. No full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (common ORIGINAL cutoff-limit completion at every odd extent):**
 `BF4ExactSlabAllExtentBoundaryCutoffRecoding.exact_bilinear_anchored`
 retains both original heat-dressed observables under the existing zero
 extension. `BF4ExactSlabAllExtentAnchoredCutoffLimit.exactCutoffPairing_stable`
@@ -46,8 +82,9 @@ pin its inner products to the same original law. `limitRepresentative` and
 `limitRepresentative_close_at` has the existing eventual inner-index reading.
 No arbitrary quotient-sequence representatives are chosen.
 
-Next residue: all-extent vacuum-code normalization/non-nullness and slab
-compatibility, then a single physical positive-time carrier, geometric
+Subsequent discharge above: all-extent vacuum-code normalization/non-nullness
+and original code-centered pairing pins. Next residue: slab compatibility,
+then a single physical positive-time carrier, geometric
 time/transfer, stationary physical vacuum and a strict bound on its own
 completed vacuum complement. A family of slab completions is NOT yet that
 physical realization. No slab-uniform modulus or beta/spacing-uniform spectral

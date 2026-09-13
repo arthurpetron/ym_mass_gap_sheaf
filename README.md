@@ -61,8 +61,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
     -> all cutoff anchors in that slab share ONE completed carrier [PROVED]
        with exact original finite/limit inner-product pins         [PROVED]
                                   |
-                                  +<-- all-extent norm-one code      [OPEN]
+                                  +<-- all-extent norm-one,
+                                  |    non-null boundary CODE       [PROVED]
+                                  |      -> code-centered completed
+                                  |         pairing = original
+                                  |         finite code covariance  [PROVED]
                                   +<-- larger-slab compatibility      [OPEN]
+                                  +<-- physical observable/unit
+                                  |    realization                    [OPEN]
                                   v
   One physical positive-time completed carrier                     [OPEN]
                                   |
@@ -83,7 +89,7 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 
 Scope: arbitrary signed boundary coefficients; original overlapping links.
 Finite-slab positivity is not a strict gap, compatibility or continuum limit.
-The extent-one norm-one vacuum CODE is not yet a stationary physical vacuum.
+The all-extent norm-one CODE is not identified with a stationary physical vacuum.
 ```
 
 `PROVED` means kernel-checked at exactly the displayed scope. It does not mean
@@ -101,7 +107,27 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: one original-law cutoff-limit completion at every odd slab extent.**
+**Latest result: a non-null normalized code and exact centered pairings at every odd extent.**
+[`BF4ExactSlabAllExtentVacuumNormalization.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumNormalization.lean)
+proves that the constant insertion has exposed degree zero. The full original
+interface therefore stabilizes at cutoff zero and has Haar value one. This
+gives the trivial-representation boundary code norm one at every odd extent
+and cutoff, retaining the original heat weights.
+
+[`BF4ExactSlabAllExtentVacuumCodeGNS.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumCodeGNS.lean)
+proves this code is non-null in the completed space. Centering by its own
+rational mean stays inside the finite-boundary carrier. The completed centered
+pairing equals the original finite bilinear minus the product of its two
+original code means, beyond one explicit common cutoff stage.
+
+This is a **code-relative covariance**, not yet a physical-time connected
+correlator: the code is not identified with the all-label heat-dressed unit
+or a stationary physical vacuum. Slab compatibility, physical unit/vacuum and
+time evolution, strict gap, volume/spacing/QFT and all-group Clay remain open.
+Two focused monitored checks passed: 27 axiom gates within
+`{propext, Quot.sound}`, no new sorry or analytic premise. No full-tree audit.
+
+**Preceding result: one original-law cutoff-limit completion at every odd slab extent.**
 [`BF4ExactSlabAllExtentAnchoredCutoffLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentAnchoredCutoffLimit.lean)
 proves exact stabilization of the FULL original signed bilinear on fixed
 finite boundary observables. The same zero extension retains both boundary
@@ -119,8 +145,9 @@ embed into the same carrier, with inner products equal to the original
 finite/limit pairings. Specified Cauchy representatives and the outer
 convergence rate remain data; no quotient representatives are chosen.
 
-Next: all-extent vacuum-code normalization/non-nullness and compatibility
-between these slabs, then physical time/transfer and a stationary vacuum.
+Subsequent discharge above: all-extent code normalization/non-nullness and
+centered pairing pins. Next: compatibility between these slabs, then physical
+time/transfer and a stationary vacuum.
 A family of completed slab spaces is not yet one physical positive-time
 realization. Its strict gap, volume/spacing limits, QFT axioms and all-group
 Clay target remain open. No slab-uniform modulus or beta/spacing-uniform

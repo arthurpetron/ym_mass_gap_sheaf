@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Non-null normalized original code and centered pairing pins, every odd extent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumNormalization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumCodeGNS.lean`.
+- **discharged**: zero exposed degree of the constant insertion and
+  `interfaceBound_one = 0`; exact original interface Haar normalization via
+  simultaneous cutoff selection; both original zero-anchor boundary
+  observables equal one coefficientwise; norm one of the trivial-representation
+  boundary code at every odd extent, finite K and rational w. For w >= 0,
+  `vacuumCode_completed_norm` and `vacuumCode_completed_ne_zero` prove this code
+  is normalized and non-null in the actual original-law completion.
+  `centerCode` is finite-boundary data centered by its own exact rational
+  mean; `centerCode_orthogonal`, `centerCode_pairing` and
+  `codeCovariance_nonnegative` give its code-relative Gram laws.
+  `covarianceModulus` carries the common joint/two-mean stage;
+  `finiteCodeCovariance_stable` and `centerCode_completed_finite_pairing`
+  pin the completed centered inner product to the SAME original finite law.
+- **OPEN residue**: inter-slab observable maps/Gram preservation, physical
+  unit and vacuum realization, geometric transfer and stationarity, strict
+  bound on its completed vacuum complement, volume/spacing/QFT and all-group
+  Clay. The specified CODE is not identified with the all-label heat-dressed
+  unit or a stationary physical vacuum; code-centered pairings are not yet
+  physical-time connected correlators. Normalization uniformity is not a
+  beta-uniform spectral rate. No canonical atom/type changed, no refuted law
+  identity used, no new sorry or analytic premise.
+- **verification**: two focused monitored one-worker 20 GiB checks with
+  `.olean` outputs; 11 + 16 = 27 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-all-extent-vacuum-normalization.log`
+  and `/tmp/ym-all-extent-vacuum-code-gns.log`. No raised proof limit,
+  numerical oracle or spectral rate. No full build/audit/guard/progress run.
+
 ## Common ORIGINAL cutoff-limit completion at every odd extent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentBoundaryCutoffRecoding.lean`,
@@ -34,8 +65,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   data; `limitRepresentative_close_at` proves convergence at that outer rate
   with the existing propositional eventual inner-index bound. No quotient
   representatives are chosen and no GNS law is a new analytic premise.
-- **OPEN residue**: all-extent vacuum-code normalization/non-nullness, slab
-  compatibility and a single physical positive-time realization, geometric
+- **subsequent discharge**: all-extent vacuum-code normalization/non-nullness
+  and original code-centered pairing pins are proved above.
+- **OPEN residue**: slab compatibility and a single physical positive-time realization, geometric
   transfer, stationary physical vacuum, strict bound on ITS completed vacuum
   complement, volume/spacing/QFT and all-group Clay. Per-slab completions do
   not discharge the canonical positive-time root. The cutoff stage depends on

@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: common ORIGINAL cutoff-limit completion at every odd extent (2026-09-12)
+## Current increment: non-null original code and centered pairing pins, every odd extent (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentVacuumNormalization.interfaceBound_one` shows
+the constant insertion has cutoff stage zero. `interfacePairing_one` retains
+ALL original crossing factors and uses harmonic cancellation to remove their
+nonzero modes. Original zero-anchor lower/upper observables equal one, so
+`vacuumCode_finite_norm` and `vacuumCode_limit_norm` give norm one for the
+specified trivial-representation code at every odd extent and rational w.
+
+`BF4ExactSlabAllExtentVacuumCodeGNS.vacuumCode_completed_ne_zero` proves
+non-nullness in each original-law completion for w >= 0. Exact rational
+`centerCode` stays inside its finite-boundary carrier. Its orthogonality and
+Gram formula use that SAME code and the ORIGINAL limit form, not an imported
+covariance. `covarianceModulus` computes one maximum covering the joint form
+and both code means. `centerCode_completed_finite_pairing` identifies the
+completed centered inner product with these original finite quantities;
+code-relative diagonal nonnegativity follows from original reflection positivity.
+
+Next: inter-slab observable maps preserving the original Gram form, physical
+unit/vacuum realization and geometric time/transfer with stationarity. The
+trivial-representation CODE is not identified with the all-label heat-dressed
+unit or a stationary physical vacuum. Its covariance is not yet a physical-time
+connected correlator. Strict completed gap, volume/spacing/QFT and all-group
+Clay remain open; canonical atoms/types unchanged, refuted identity unused.
+No beta-uniform spectral bound follows from normalization uniformity.
+
+Two focused monitored one-worker 20 GiB checks passed with `.olean` outputs:
+11 + 16 = 27 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-all-extent-vacuum-normalization.log` and
+`/tmp/ym-all-extent-vacuum-code-gns.log`. No new sorry, analytic premise,
+raised proof limit, numerical oracle or spectral rate. No full build/audit/guard/progress run.
+
+## Previous increment: common ORIGINAL cutoff-limit completion at every odd extent (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentBoundaryCutoffRecoding.exact_bilinear_anchored`
 keeps both original heat-dressed boundary observables fixed under the existing
@@ -29,8 +61,9 @@ outer convergence modulus; no arbitrary quotient representatives are chosen.
 The eventual inner representative-index bound retains its legacy propositional
 reading. No completion law or analytic input was added as a hypothesis.
 
-Next: all-extent vacuum-code normalization/non-nullness and slab compatibility,
-then a single physical positive-time carrier, geometric transfer, stationary
+Subsequent discharge above: all-extent vacuum-code normalization/non-nullness
+and original code-centered pairing pins. Next: slab compatibility, then a
+single physical positive-time carrier, geometric transfer, stationary
 physical vacuum and a strict completed bound on the same vacuum complement.
 No per-slab construction is claimed to supply those bridges. Volume/spacing/QFT,
 all-group Clay and canonical atoms/types remain open and unchanged. No
