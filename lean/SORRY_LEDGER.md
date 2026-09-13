@@ -13,6 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED selected-cut cancellation and ORIGINAL boundary pin; OPEN coefficient bounds and summability (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/FiniteSelectionMobius.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSelectionSeparation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabConnectedSelectionExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBoundaryConnectingSelections.lean`.
+- **constructed finite algebra/geometry**: `coefficient` computes finite
+  differences; `reconstruct` proves exact inclusion-exclusion inversion.
+  `Separator` returns a cut and disjoint actual link supports; `restrict`
+  constructs inherited cuts. `findSeparator` searches all positional cuts,
+  and `keep_no_cut` certifies absence of an enumerated separator.
+- **constructed original cancellation**: `connectedCoefficient` applies
+  finite differences to the EXISTING original connected numerator.
+  `coefficient_zero_of_separator` cancels every separated coefficient via
+  original moment factorizations on all subselections; the FULL slab need
+  not split. `connectedNumerator_filtered` gives an exact filtered sum.
+  `selectionResponse_connected` pins the previous exterior-selection
+  response to the original interior connected numerator. The existing
+  `boundaryNumerator` is identified by `boundaryNumerator_connecting_expansion`
+  with the exterior sum of filtered interior sums, at one cutoff/carrier and
+  with the actual determinant factors retained.
+- **remaining obligation**: quantitative bounds on these NEW finite-difference
+  coefficients, geometric path-length control and normalized summability
+  yielding separation decay. Prior delta(w)^n remainder-activity bounds do
+  not automatically apply. Exhaustive separating cuts are computed, but no
+  efficient cluster enumeration is claimed. Padding limits/moduli, nonzero
+  persistence, physical transfer/stationary vacuum, strict gap and continuum/
+  QFT/all-group Clay remain open. No canonical atom/type/flag changed, no
+  new analytic input or hole, and no existing hole silently discharged.
+- **verification**: 9+15+9+4=37 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. One-worker monitored 20 GiB checks; no new
+  numerical oracle, raised limits or full build/audit/guard/progress run.
+  The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-finite-selection-mobius.log`,
+  `/tmp/ym-bf4-exact-slab-selection-separation.log`,
+  `/tmp/ym-bf4-exact-slab-connected-selection-expansion.log`,
+  `/tmp/ym-bf4-exact-slab-boundary-connecting-selections.log`.
+
 ## CLOSED ORIGINAL finite selection expansion and disjoint cancellation; OPEN connected summability (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialIntervalProduct.lean`,

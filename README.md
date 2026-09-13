@@ -287,9 +287,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           at the SAME cutoff    [PROVED]
                                   |        -> empty / entirely detached
                                   |           selections vanish     [PROVED]
-                                  |      + general connecting-selection
-                                  |        reorganization and normalized
-                                  |        summability               [OPEN]
+                                  |      + finite inclusion-exclusion
+                                  |        of ORIGINAL connected numerator
+                                  |        + computed selected-face cuts
+                                  |        -> separated coefficients vanish
+                                  |           even in interacting slabs
+                                  |        -> SAME boundary D: exterior sum
+                                  |           of filtered interior sums
+                                  |           with no separating cut [PROVED]
+                                  |      + bounds on THESE coefficients
+                                  |        + geometric path-length control
+                                  |        + normalized summability  [OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
@@ -344,7 +352,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: an exact expansion of the ORIGINAL boundary response.**
+**Latest result: selected-cut cancellation reaches the ORIGINAL boundary response.**
+[`boundaryNumerator_connecting_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundaryConnectingSelections.lean#L85)
+is an exact double finite expansion of the existing boundary numerator:
+exterior remainder selections, then interior inclusion–exclusion coefficients
+filtered by a computed separating-cut search. The same probe, action, cutoff,
+Haar carrier and determinant factors are retained.
+
+[`coefficient_zero_of_separator`](lean/YMGap/Continuum/BF4ExactSlabConnectedSelectionExpansion.lean#L83)
+proves a coefficient is zero whenever its selected faces admit a cut between
+the probes. Every subselection inherits the separator and its original
+connected numerator vanishes. Thus the FULL interior may remain interacting;
+detachment from the entire interior is no longer required for this cancellation.
+[`findSeparator`](lean/YMGap/Continuum/BF4ExactSlabSelectionSeparation.lean#L103)
+returns an actual cut with a disjoint-support proof; retained selections
+[`have no enumerated separating cut`](lean/YMGap/Continuum/BF4ExactSlabConnectedSelectionExpansion.lean#L102).
+The search is exhaustive finite enumeration, not an efficient cluster algorithm.
+
+**Next:** bounds on these inclusion–exclusion coefficients, geometric
+path-length control and normalized summability yielding separation decay.
+The previous `delta(w)^n` bounds concern remainder activities, not these new
+coefficients; no such bound is inferred. No distance-decay, padding-limit,
+physical-gap or continuum/Clay theorem is proved by this finite identity.
+Four modules, 9+15+9+4=37 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final error/warning free, with source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: an exact expansion of the ORIGINAL boundary response.**
 [`boundaryNumerator_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundarySelectionExpansion.lean#L92)
 expresses the existing boundary numerator as a finite sum of actual exterior
 face-selection responses. The interior action, probe, shared links, common

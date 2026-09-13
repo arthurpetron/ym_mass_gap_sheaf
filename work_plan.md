@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL remainder expansion and boundary pin):**
+**Latest finite-slab increment (selected-cut cancellation on the ORIGINAL boundary path):**
+`FiniteSelectionMobius.coefficient` computes iterated finite differences;
+`reconstruct` proves exact inversion on positional selections and
+`coefficient_zero_on` cancels coefficients whose subselections all vanish.
+`BF4ExactSlabSelectionSeparation.Separator` returns an actual face cut with
+disjoint probe-plus-face link supports. `restrict` constructs separators for
+subselections; `findSeparator` searches all computed cuts and `keep_no_cut`
+certifies the retained selections have no enumerated separating cut.
+
+`BF4ExactSlabConnectedSelectionExpansion.connectedCoefficient` applies
+inclusion-exclusion to the EXISTING original connected numerator, not a
+surrogate model. `coefficient_zero_of_separator` uses four original Haar
+factorizations on every subselection; only the SELECTED set must split.
+`connectedNumerator_filtered` is the exact resulting filtered finite sum.
+`BF4ExactSlabBoundaryConnectingSelections.selectionResponse_connected`
+identifies each exterior-selection response with the connected numerator
+of the probe and selected remainder under the ORIGINAL interior action.
+`boundaryNumerator_connecting_expansion` pins the existing boundary D to
+the exterior sum of these filtered interior sums at the SAME cutoff/carrier.
+
+The previous whole-interior detachment restriction is reduced for finite
+cancellation. Next: quantitative bounds on the NEW inclusion-exclusion
+coefficients, path-length control and NORMALIZED summability/decay.
+The older delta(w)^n remainder-activity bound does not by itself bound these
+coefficients. Exhaustive cuts are computed but not an efficient enumeration.
+No padding limit, nonzero-norm persistence, physical transfer/stationarity,
+strict gap or continuum/QFT/all-group Clay result; no canonical atom/type/
+flag changed, analytic input introduced or existing hole discharged.
+
+Verification: four modules, 9+15+9+4=37 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-finite-selection-mobius.log`,
+`/tmp/ym-bf4-exact-slab-selection-separation.log`,
+`/tmp/ym-bf4-exact-slab-connected-selection-expansion.log`,
+`/tmp/ym-bf4-exact-slab-boundary-connecting-selections.log`.
+
+**Preceding finite-slab increment (ORIGINAL remainder expansion and boundary pin):**
 `QuaternionHaarPolynomialIntervalProduct` constructs multiplicative signed
 interval certificates on shared variables, with cap delta^n and a bound
 relative to any actual positive background integral.

@@ -4000,6 +4000,12 @@ import YMGap.Continuum.BF4ExactSlabRemainderExpansion
 import YMGap.Continuum.BF4ExactSlabFaceLinkLocality
 import YMGap.Continuum.BF4ExactSlabDisconnectedHaarCancellation
 import YMGap.Continuum.BF4ExactSlabBoundarySelectionExpansion
+-- Finite inclusion-exclusion cancels selected separating cuts, even in an
+-- interacting interior. Coefficient bounds and normalized decay remain open.
+import YMGap.Continuum.FiniteSelectionMobius
+import YMGap.Continuum.BF4ExactSlabSelectionSeparation
+import YMGap.Continuum.BF4ExactSlabConnectedSelectionExpansion
+import YMGap.Continuum.BF4ExactSlabBoundaryConnectingSelections
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
