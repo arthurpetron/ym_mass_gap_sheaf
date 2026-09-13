@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL mixed pairing on the actual plaquette completion (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingContinuity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedInner.lean`.
+- **discharged**: `pairing_close` supplies two-argument continuity at
+  epsilon^2/(8*(B+1)). `normCeiling` and `diagonal_le_normCeiling` derive
+  an eventual bound from the Cauchy anchor and the original action bounds.
+  `rawRate`, `pairRate`, `pairReg`, `representativeInner` and
+  `representativeInnerCauchy` construct the mixed-pairing limit with
+  explicit data at both approximation levels. `closeRate` and
+  `representativeInner_welldef` prove representative-independence.
+  `completedInner` descends to the actual completion; dense expression
+  and quotient pins, symmetry, diagonal nonnegativity and unit diagonal
+  one are proved.
+- **scope**: every rational 0<w<1 and odd slab, on the ORIGINAL normalized
+  reflected plaquette form. The norm ceilings and moduli retain w, slab
+  and representative dependence. No square root, selected representative,
+  new boundedness/convergence premise or auxiliary-law identity is used.
+- **superseded**: the pairing-limit, representative-independence and
+  completed-pairing parts of the preceding completion-carrier frontier.
+  The complete Hilbert-space package is not yet supplied.
+- **OPEN**: completed linear operations and form laws, completed CS and
+  positive definiteness, the appropriate completeness theorem; observable
+  action, all required gauge observables, compatible slabs, physical
+  transfer, stationary vacuum, strict physical gap, volume/spacing limits,
+  continuum QFT and all-group Clay. No canonical atom/type/flag changed
+  or frontier field weakened.
+- **verification**: 9 + 23 + 13 = 45 focused gates within
+  {propext, Quot.sound}, final error/warning free, current outputs.
+  Monitored one-worker 20 GiB checks; intermediate elaboration timeouts
+  were removed by a factored anchor estimate and explicit constant-real
+  rewrites, without raised limits. No new sorry, analytic premise, oracle
+  or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-pairing-continuity.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-pairing-limit.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-inner.log`.
+
 ## CLOSED ORIGINAL plaquette null quotient and faithful completion carrier (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean`,
@@ -31,9 +69,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   action on the plaquette-generated subalgebra. The Q'-valued GNS interface
   was not weakened or substituted for the actual CReal form.
 - **superseded**: the null-quotient/completion-CARRIER part of the preceding
-  reflected-form entry. No completed mixed inner product is yet constructed.
-- **OPEN**: pairing-limit convergence with explicit moduli, independence
-  of Cauchy representatives, completed inner product and Hilbert-space laws;
+  reflected-form entry. The newer entry above supplies the completed
+  mixed pairing and representative-independence.
+- **OPEN**: the remaining completed Hilbert-space laws listed above;
   observable action, all required gauge observables, compatible slabs,
   physical time transfer, stationary vacuum, strict physical gap,
   volume/spacing limits, continuum QFT and all-group Clay. No canonical

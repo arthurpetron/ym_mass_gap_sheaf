@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest finite-slab increment (ORIGINAL null quotient and faithful completion carrier):**
+**Latest finite-slab increment (ORIGINAL mixed pairing on the actual completion):**
+`BF4ExactSlabPlaquettePairingContinuity.pairing_close` proves two-argument
+continuity with squared-distance tolerance epsilon^2/(8*(B+1)), using
+sharp CS and the bilinear difference identity without square roots.
+`BF4ExactSlabPlaquettePairingLimit.normCeiling` computes an eventual
+diagonal ceiling from the Cauchy anchor at modulus(1): 2 plus twice its
+original diagonal ceiling. `rawRate` combines those anchor thresholds
+with the two Cauchy moduli at the computed tolerance. `pairRate` is its
+constructive antitone closure; `pairReg` uses each original expectation's
+modulus. `representativeInner` and `representativeInnerCauchy` construct
+the diagonal limit and its explicit approximation modulus.
+
+`BF4ExactSlabPlaquetteCompletedInner.closeRate` computes replacement
+thresholds from both closeness witnesses. `representativeInner_welldef`
+proves independence of representatives; `completedInner` descends to
+the actual completion. It recovers the original expression and quotient
+pairings exactly, is symmetric and nonnegative on the diagonal, and
+`completedUnit_norm_one` retains unit normalization.
+
+Next: completed linear operations, bilinearity, completed CS/positive
+definiteness and the appropriate completeness theorem. This is not yet
+a full physical Hilbert-space package. Observable action, all required
+gauge observables, compatible slabs, geometric transfer, stationary
+vacuum, strict physical gap and volume/spacing/QFT/all-group Clay remain
+open. No canonical atom/type/flag changed or older carrier substituted.
+Constants and moduli retain coupling/slab/representative dependence.
+
+Verification: three new modules, 9 + 23 + 13 = 45 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks; existing small limit/rate dependencies checked
+as needed. Intermediate elaboration timeouts were removed by isolating
+the anchor estimate and explicitly rewriting sums of constant reals;
+no proof limit was raised. No new sorry, analytic premise, oracle or
+full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-pairing-continuity.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-pairing-limit.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-inner.log`.
+
+**Preceding finite-slab increment (ORIGINAL null quotient and faithful completion carrier):**
 `BF4ExactSlabPlaquetteNullQuotient.null_iff_pairing` proves that zero
 reflected squared distance is exactly equality of every mixed pairing.
 It constructs `nullSetoid`, the actual `Carrier`, and its descended `inner`,
@@ -36,10 +74,9 @@ therefore retains Type-level Cauchy and closeness moduli.
 `embedQuotient_injective` proves faithful embedding of the positive-definite
 quotient, and `completedUnit_ne_zero` proves its unit remains nonzero.
 
-Next: construct the completed mixed inner product using controlled pairing
-limits on these Cauchy representatives, prove representative-independence
-and the Hilbert-space laws. The carrier is not yet the completed inner
-space; no arbitrary observable multiplication action is assumed. All
+Its controlled pairing limits and representative-independence are now
+supplied by the latest increment above; full Hilbert-space laws remain
+open. No arbitrary observable multiplication action is assumed. All
 required gauge observables, compatible slabs, physical time transfer,
 stationary vacuum, strict physical gap, volume/spacing limits, continuum
 QFT and all-group Clay remain open. No canonical frontier atom/type/flag

@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL null quotient and faithful completion carrier (2026-09-12)
+## Current increment: ORIGINAL mixed pairing on the actual completion (2026-09-12)
+
+PROGRESS: `BF4ExactSlabPlaquettePairingContinuity.pairing_close` provides
+the explicit two-argument tolerance epsilon^2/(8*(B+1)), by sharp CS
+and a two-term difference identity. `BF4ExactSlabPlaquettePairingLimit`
+derives each eventual norm ceiling from its Cauchy anchor and original
+action bounds. Outer Cauchy rates, their antitone closure and per-term
+expectation moduli construct `representativeInner`; its approximation
+modulus remains Type-level data in `representativeInnerCauchy`.
+
+`BF4ExactSlabPlaquetteCompletedInner.representativeInner_welldef` uses
+computed closeness thresholds to prove independence of representatives.
+`completedInner` descends to the actual completion, agrees exactly with
+the original form on embedded expressions and null-quotient states,
+is symmetric and nonnegative, and has unit diagonal one.
+
+Next: completed linear operations, their form laws, completed CS/positive
+definiteness and the appropriate completeness theorem. The full physical
+Hilbert package, observable action, all required gauge observables,
+compatible slabs, geometric transfer, stationary vacuum, strict physical
+gap and volume/spacing/QFT/all-group Clay remain open. No canonical atom,
+type or flag changed. No substitute carrier or beta-uniform gap claimed.
+
+Three new modules, 9 + 23 + 13 = 45 focused gates within
+{propext, Quot.sound}; final logs error/warning free, outputs current.
+Monitored one-worker 20 GiB checks, plus small existing dependencies.
+Intermediate elaboration timeouts and a scalar-name error were corrected
+without raised limits. No new holes, analytic premises, numerical oracles
+or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-pairing-continuity.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-pairing-limit.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-inner.log`.
+
+## Previous increment: ORIGINAL null quotient and faithful completion carrier (2026-09-12)
 
 PROGRESS: `BF4ExactSlabPlaquetteNullQuotient` constructs the null quotient
 of the actual normalized reflected form. `null_iff_pairing` identifies

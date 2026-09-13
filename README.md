@@ -155,8 +155,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      -> Cauchy completion CARRIER
                                   |         + injective embedding
                                   |         + nonzero unit          [PROVED]
-                                  |      + completed inner product
-                                  |        and Hilbert-space laws    [OPEN]
+                                  |      + explicit pairing tolerance
+                                  |        + computed Cauchy bounds
+                                  |        + two-level limit moduli [PROVED]
+                                  |      -> completed mixed pairing
+                                  |         + representative descent
+                                  |         + original-form pin
+                                  |         + symmetry/positivity
+                                  |         + unit diagonal one     [PROVED]
+                                  |      + completed linear operations
+                                  |        + Hilbert-space laws      [OPEN]
                                   |      + physical realization and
                                   |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
@@ -205,7 +213,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL plaquette null quotient embeds faithfully into an explicit-modulus completion carrier.**
+**Latest result: the ORIGINAL mixed pairing now descends to its actual completion.**
+[`pairing_close`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingContinuity.lean#L101)
+controls changes in both arguments with the explicit squared-distance
+tolerance `epsilon^2 / (8*(B+1))`. The required eventual diagonal bound
+is computed from a Cauchy anchor and the original action bounds, not assumed.
+[`representativeInner`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingLimit.lean#L137)
+constructs the pairing limit with explicit outer and inner moduli;
+[`representativeInnerCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquettePairingLimit.lean#L147)
+retains its approximation modulus as data.
+
+[`completedInner`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedInner.lean#L83)
+is independent of both representatives. It is symmetric, nonnegative on
+the diagonal, has unit diagonal one, and
+[`completedInner_embedQuotient`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedInner.lean#L105)
+recovers exactly the original null-quotient form. All bounds retain their
+coupling, slab and representative dependence; none is a strict gap bound.
+
+Three new modules: 45 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+**The full completed Hilbert-space package is still open:** completed
+linear operations and their form laws, positive definiteness on all
+completion states, and the appropriate completeness theorem. Observable
+action, all required gauge observables, compatible slabs, physical transfer,
+stationary vacuum, uniform physical gap and continuum Clay remain open.
+The older boundary-code completion is not substituted for this carrier.
+
+**Preceding result: the ORIGINAL plaquette null quotient embeds faithfully into an explicit-modulus completion carrier.**
 [`null_iff_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean#L119)
 characterizes zero reflected distance as equality of all mixed pairings.
 The actual normalized form therefore descends to the null quotient, where
@@ -225,15 +259,11 @@ proves that completion loses no additional quotient states, and
 proves the embedded unit is nonzero. These statements hold for every
 rational `0<w<1` and odd slab, on the same plaquette-generated subalgebra.
 
-Two new modules: 53 focused axiom gates within `{propext, Quot.sound}`,
-no new proof holes, final error/warning free. No full-tree build/audit was run.
-**The completed inner product and Hilbert-space laws are still open.**
-The next step is controlled convergence and representative-independence
-of the mixed pairing on these Cauchy representatives. No arbitrary
-observable multiplication action or identification with the older
-boundary-code completion is assumed. All required gauge observables,
-compatible slabs, physical transfer, stationary vacuum, uniform physical
-gap and continuum Clay remain open.
+That increment passed 53 focused axiom gates within
+`{propext, Quot.sound}`, with no new proof holes or full-tree audit.
+Its pairing-limit and representative-independence frontier is now
+discharged by the latest result above; the remaining Hilbert/physical
+obligations are unchanged.
 
 **Preceding result: the ORIGINAL normalized plaquette reflected form has sharp Cauchy--Schwarz and norm-null descent.**
 [`form_reflected`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L53)
