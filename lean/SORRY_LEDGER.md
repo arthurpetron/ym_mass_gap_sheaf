@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED bulk placement and exact ORIGINAL boundary response; OPEN quantitative boundary control (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkEmbeddingGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteBulkEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkActionDressing.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkBoundaryResponse.lean`.
+- **constructed geometry and observables**: actual spatial/time face and
+  link maps, reflection pins, and `paddingForMargin_bound` with explicit
+  padding lag+radius. `bulkAtTime` maps the existing original expressions;
+  `bulkCorrelation_pairing` identifies their connected correlations with
+  the same stage's original completed centered pairing, with QCauchy data.
+- **constructed action comparison**: actual embedded target face IDs are
+  duplicate-free and the target face list partitions into that image and
+  exterior complement. `fullHeatProduct_dressing` factors the ORIGINAL
+  heat action without independent copies of shared links.
+  `fullMoment_insertExterior` gives the actual interior-weighted insertion.
+  `boundaryNumerator_covariance` proves D(p)=I(pW)I(1)-I(p)I(W) at ONE
+  common cutoff. `boundaryNumeratorCauchy`, `boundaryCutoff` and
+  `boundaryResponse_approx_close` construct its limit with explicit moduli;
+  `boundaryResponse_formula` pins it to the four original moment limits.
+  `normalized_boundary_response` proves E_full(p)I(1)-I(p)=D(p)/Z_full,
+  with the already proved full original reciprocal. No interior reciprocal
+  or truncated-character positivity is assumed. Constant response is zero.
+- **remaining obligation**: identify I on the larger Haar carrier with
+  the actual smaller slab integral, then quantify the boundary response
+  for deep-interior observables. The new cutoff modulus is NOT a padding
+  modulus or a uniform-in-nome estimate. No smallness, padding convergence,
+  time homogeneity, inter-stage isometry, transfer-power identity, physical
+  stationarity or decay bound is supplied. Full realization/completeness,
+  physical spectral gap and volume/spacing/QFT/all-group Clay remain open.
+  This supersedes the previous spatial-placement residue, not the physical
+  time-descent obligation. No canonical atom/type/flag changed.
+- **verification**: 26+18+21+14=79 exact focused gates within
+  {propext, Quot.sound}, final error/warning free and artifacts current.
+  One-worker monitored 20 GiB checks. No new holes, analytic premise,
+  numerical constants, oracle, raised limits or full
+  build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-bulk-embedding-geometry.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-bulk-embedding.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-action-dressing.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-boundary-response.log`.
+
 ## CLOSED geometric time embeddings and ORIGINAL finite-stage time correlations; OPEN physical time descent (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTimeEmbeddingGeometry.lean`,
@@ -31,7 +73,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Symmetry, diagonal positivity and sharp Cauchy--Schwarz hold on those
   states. `probe_zero_floor` recovers the earlier positive original seed,
   only at zero padding/lags and nome=1/1024.
-- **remaining obligation**: original slab comparison with boundary control,
+- **superseding increment**: spatial bulk placement and the exact
+  original boundary-response formula are now constructed in the entry
+  above. Quantitative boundary control and physical time descent remain open.
+- **remaining obligation at that checkpoint**: original slab comparison with boundary control,
   spatial bulk placement (current time maps do not shift spatial coordinates),
   quantitative padding convergence, time homogeneity and bounded OS-norm
   descent. Geometry depending on s+t is NOT a proof that the correlations

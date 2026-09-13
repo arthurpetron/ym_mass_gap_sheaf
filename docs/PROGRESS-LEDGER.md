@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: geometric time maps and ORIGINAL time correlations (2026-09-13)
+## Current increment: bulk placement and ORIGINAL boundary-response limit (2026-09-13)
+
+PROGRESS: `BF4ExactSlabBulkEmbeddingGeometry.paddingForMargin_bound` gives a
+literal spatial-and-temporal placement with any requested boundary margin;
+the padding witness is lag+radius. `BF4ExactSlabPlaquetteBulkEmbedding`
+realizes it on the existing original expression algebra, with exact
+polynomial pins, actual connected correlations and completed centered
+pairings carrying QCauchy data.
+
+`BF4ExactSlabBulkActionDressing.fullHeatProduct_dressing` partitions all
+actual target faces into the embedded source image and exterior complement.
+The original product factors exactly, with overlapping links retained.
+`fullMoment_insertExterior` is the actual weighted-Haar comparison identity.
+`BF4ExactSlabBulkBoundaryResponse.boundaryNumerator_covariance` pins the
+same-cutoff determinant to I(pW)I(1)-I(p)I(W). Its returned QCauchy modulus
+constructs the cutoff-limit response, with explicit approximation thresholds.
+`normalized_boundary_response` proves E_full(p)I(1)-I(p)=D(p)/Z_full,
+using the original full partition reciprocal and no interior normalization
+assumption. The constant insertion has zero response.
+
+This is an exact response formula, NOT a smallness estimate. I still uses
+the larger Haar carrier; its pin to the smaller slab is next, alongside
+quantitative response control for deep-interior observables. No padding
+limit, time homogeneity, transfer or gap. The physical vacuum, full
+realization/completeness and volume/spacing/QFT/all-group Clay remain open.
+No canonical atom/type/flag changed or analytic assumption introduced.
+
+Four modules, 26+18+21+14=79 exact focused gates within {propext, Quot.sound},
+final error/warning free and artifacts current. One-worker monitored 20 GiB
+checks; no new holes/constants/oracle/raised limits or full
+build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-embedding-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-bulk-embedding.log`,
+`/tmp/ym-bf4-exact-slab-bulk-action-dressing.log`,
+`/tmp/ym-bf4-exact-slab-bulk-boundary-response.log`.
+
+## Previous increment: geometric time maps and ORIGINAL time correlations (2026-09-13)
 
 PROGRESS: `BF4ExactSlabTimeEmbeddingGeometry` constructs the actual physical
 face reindex under admissible time shifts, proves support, injectivity and

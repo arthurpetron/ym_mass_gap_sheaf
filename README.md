@@ -232,8 +232,22 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           connected correlations
                                   |           = completed pairings,
                                   |           with Cauchy moduli     [PROVED]
-                                  |      + boundary-aware slab comparison
-                                  |        + spatial bulk placement [OPEN]
+                                  |      + space AND time placement
+                                  |        + explicit boundary margin
+                                  |        -> ORIGINAL bulk correlations
+                                  |           = completed pairings  [PROVED]
+                                  |      + actual embedded face list
+                                  |        + exterior face complement
+                                  |        -> exact ORIGINAL action
+                                  |           = interior * exterior [PROVED]
+                                  |        -> boundary covariance D
+                                  |           + same-cutoff modulus
+                                  |           + limit comparison
+                                  |             E_full(p) I(1)-I(p)
+                                  |               = D(p)/Z_full     [PROVED]
+                                  |      + smaller-carrier Haar pin
+                                  |        + quantitative decay of
+                                  |          this boundary response [OPEN]
                                   |      + padding limit and genuine
                                   |        time homogeneity         [OPEN]
                                   |      + full quotient-level
@@ -286,7 +300,42 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: literal time-separated ORIGINAL correlations, with separate stage padding and time lags.**
+**Latest result: bulk placement and an exact ORIGINAL boundary-response identity.**
+The new geometry shifts all three spatial coordinates as well as time.
+[`paddingForMargin_bound`](lean/YMGap/Continuum/BF4ExactSlabBulkEmbeddingGeometry.lean#L197)
+proves that padding `lag+radius` places every translated plaquette-edge
+endpoint at least `radius` from all box boundaries. The observable map uses
+the existing original expression algebra;
+[`bulkCorrelation_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteBulkEmbedding.lean#L147)
+identifies its connected correlations with the actual completed centered
+pairings at that stage.
+
+[`fullHeatProduct_dressing`](lean/YMGap/Continuum/BF4ExactSlabBulkActionDressing.lean#L107)
+partitions the full target action into the embedded original face factors
+and their actual exterior complement, with all shared link variables retained.
+Writing `I` for the interior-weighted Haar moment and `W` for the exterior
+factor, [`boundaryNumerator_covariance`](lean/YMGap/Continuum/BF4ExactSlabBulkBoundaryResponse.lean#L68)
+proves the exact same-cutoff identity
+`D(p) = I(p W) I(1) - I(p) I(W)`.
+
+This determinant has a constructed cutoff-limit CReal and explicit
+[`boundaryCutoff`](lean/YMGap/Continuum/BF4ExactSlabBulkBoundaryResponse.lean#L114).
+[`normalized_boundary_response`](lean/YMGap/Continuum/BF4ExactSlabBulkBoundaryResponse.lean#L150)
+then proves `E_full(p) I(1) - I(p) = D(p)/Z_full` after cutoff removal,
+using the SAME original full partition reciprocal. No reciprocal of `I(1)`
+or independence of overlapping plaquettes is assumed.
+
+**Scope and next step:** this exposes the boundary response; it does not
+bound its size as the boundary recedes. The interior moment is still on the
+larger Haar carrier, not yet identified with the smaller slab integral.
+That identification and quantitative response control are next, before
+padding convergence, time homogeneity, physical transfer and a spectral gap.
+The continuum/Clay target remains open. Four new modules: 79 focused axiom
+gates within `{propext, Quot.sound}`, final error/warning free. No new holes,
+analytic assumptions, numerical constants, oracle or raised limits; no full
+build/audit/guard/progress run.
+
+**Preceding result: literal time-separated ORIGINAL correlations, with separate stage padding and time lags.**
 [`faceId_pin`](lean/YMGap/Continuum/BF4ExactSlabTimeEmbeddingGeometry.lean#L79)
 constructs the actual translated physical face ID. Its map is injective and
 composes correctly. Reflection changes a shift `s` under enlargement `n`
@@ -313,10 +362,10 @@ the strictly positive original seed below.
 or stationary-vacuum claim. Geometry has sum-of-lags separation; the finite
 correlations are NOT proved to depend only on that sum. Spatial coordinates
 are unchanged, so this alone is not a bulk-centered 4D exhaustion.
-**Next:** boundary-aware original slab comparison, including spatial bulk
-placement, then quantitative padding limits and time homogeneity needed for
-bounded physical transfer descent. The physical gap and continuum/Clay
-target remain open. Three new modules: 53 focused axiom gates within
+**At that checkpoint:** spatial bulk placement and an exact boundary
+comparison were next; the new result above constructs them. Quantitative
+boundary control, padding limits and time homogeneity needed for bounded
+physical transfer descent remain open. Three modules: 53 focused axiom gates within
 `{propext, Quot.sound}`, final error/warning free; no new holes, numerical
 constants, oracle, raised proof limits or full-tree build/audit.
 

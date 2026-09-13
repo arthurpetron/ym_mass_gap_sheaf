@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (geometric time maps and ORIGINAL time correlations):**
+**Latest finite-slab increment (bulk placement and ORIGINAL boundary response):**
+`BF4ExactSlabBulkEmbeddingGeometry` constructs spatial-and-temporal maps on
+actual faces and links. `paddingForMargin lag radius = lag+radius` is a
+returned witness; `paddingForMargin_bound` puts every translated edge
+endpoint at the requested margin from all target box boundaries.
+`BF4ExactSlabPlaquetteBulkEmbedding.bulkAtTime` acts on the existing original
+algebra, with exact lower/upper evaluation pins. `bulkCorrelation_pairing`
+pins its cutoff-limit connected correlations, with QCauchy data, to the
+same stage's original completed centered pairing.
+
+`BF4ExactSlabBulkActionDressing` partitions the actual target face list into
+the embedded source image and exterior complement. `fullHeatProduct_dressing`
+is a coefficient-level factorization of the ORIGINAL full action, keeping
+shared target links. `fullMoment_insertExterior` interprets the extra action
+as an insertion in the interior-weighted Haar moment, without independence.
+
+`BF4ExactSlabBulkBoundaryResponse.boundaryNumerator_covariance` identifies
+the actual same-cutoff determinant F(p)I(1)-I(p)F(1) with
+I(pW)I(1)-I(p)I(W). `boundaryNumeratorCauchy`, `boundaryCutoff` and
+`boundaryResponse_approx_close` retain explicit cutoff/representative
+thresholds. `boundaryResponse_formula` identifies its limit with the four
+original moment limits. `normalized_boundary_response` proves
+E_full(p)I(1)-I(p)=D(p)/Z_full, using only the proved original reciprocal.
+`boundaryResponse_one` checks zero response for the constant insertion.
+
+Next: pin the interior moment on the larger Haar carrier to the actual
+smaller slab integral, and obtain quantitative boundary-response estimates
+for deep-interior observables. The exact determinant is not assumed small;
+its cutoff modulus depends on nome, slab, padding and insertion. No padding
+convergence, inter-stage isometry, time homogeneity, transfer-power identity,
+stationary physical vacuum or uniform gap is proved. Full realization,
+required completeness and volume/spacing/QFT/all-group Clay remain open;
+no canonical atom/type/flag changed and no analytic premise was added.
+
+Verification: four modules, 26+18+21+14=79 exact focused gates within
+{propext, Quot.sound}, final error/warning free, outputs current. One-worker
+monitored 20 GiB checks. Constructive list induction replaces the standard
+range-nodup lemma's classical dependency; structural geometry and composed
+existing moment moduli avoid proof-limit increases and new numerical inputs.
+No holes or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-embedding-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-bulk-embedding.log`,
+`/tmp/ym-bf4-exact-slab-bulk-action-dressing.log`,
+`/tmp/ym-bf4-exact-slab-bulk-boundary-response.log`.
+
+**Preceding finite-slab increment (geometric time maps and ORIGINAL time correlations):**
 `BF4ExactSlabTimeEmbeddingGeometry.faceId` computes the literal translated
 face index in the actual boundary-complete target list. Physicality,
 injectivity, identity and composition are proved structurally at arbitrary
@@ -47,9 +92,9 @@ the previous strictly positive seed at zero padding/lags.
 The geometry has sum-of-lags separation, but no finite-slab time homogeneity
 is claimed. There is no padding limit, inter-stage norm comparison, stationary
 physical unit, transfer-power identity or decay rate. Spatial coordinates
-remain unchanged: this is NOT yet a bulk-centered 4D exhaustion. Next:
-boundary-aware comparison of the original slab functionals with the required
-spatial bulk placement, then quantitative padding convergence and time
+remain unchanged: that time-only construction is NOT a bulk-centered 4D
+exhaustion. The latest increment above supplies spatial placement and the
+exact boundary response. Still needed: quantitative padding convergence and time
 homogeneity/OS-norm control for physical transfer descent. Full observable
 realization/completeness, strict gap and volume/spacing/QFT/all-group Clay
 remain open. No canonical atom/type/flag changed.
