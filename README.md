@@ -131,7 +131,18 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: an ORIGINAL retained channel bounds the full interacting action.**
+**Latest analytic work: exact finite Gaussian-coefficient normalization.**
+[`GaussQBinomEulerNormalization.lean`](lean/YMGap/Continuum/GaussQBinomEulerNormalization.lean)
+proves the recursive q-binomial's denominator-cleared Euler-product formula
+by q-Pascal induction, without division or extra hypotheses.
+[`GaussQBinomEulerQuotient.lean`](lean/YMGap/Continuum/GaussQBinomEulerQuotient.lean)
+proves positive finite denominators for `0<Q<1`, the exact quotient and
+complementary-index symmetry, and pins `Q=a*a` to the existing theta Euler
+product. These are ingredients for the Jacobi route to heat positivity;
+the symmetric finite identity and quantitative limit passage remain open.
+This does not yet produce the positive original-action floor below.
+
+**Latest original-action result: a retained channel bounds the full interacting action.**
 [`BF4ExactSlabAllExtentRetainedVacuumChannel.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentRetainedVacuumChannel.lean)
 proves `Z_K >= lowerActionValue_K^2` at every finite cutoff, odd slab and
 `w >= 0`. An explicit path retains the actual trivial-representation interface

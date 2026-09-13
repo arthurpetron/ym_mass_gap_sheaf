@@ -176,6 +176,8 @@ import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.UTelescope
 import YMGap.Continuum.GaussQBinom
+import YMGap.Continuum.GaussQBinomEulerNormalization
+import YMGap.Continuum.GaussQBinomEulerQuotient
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity

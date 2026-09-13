@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Exact Gaussian-coefficient Euler normalization (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/GaussQBinomEulerNormalization.lean`,
+  `lean/YMGap/Continuum/GaussQBinomEulerQuotient.lean`.
+- **discharged**: `qbin_diagonal`, `euler_pascal_factor`, `qbin_mul_euler`
+  and `centered_qbin_mul_euler` prove the denominator-cleared Euler formula
+  for the ORIGINAL recursive Gaussian binomial, all rational bases, with no
+  division or nonzero assumption. `euler_pos` proves finite denominator
+  positivity for `0<Q<1`; `qbin_eq_euler_quotient` and `qbin_complement`
+  give justified quotient and symmetry identities. `euler_square_eq_theta`
+  pins the base a*a to `RealTheta.eulerProd`. `centeredWeight_mul_euler` and
+  `centeredWeight_eq_quotient` expose the actual finite Euler-normalized
+  centered weight. No finite coefficient is replaced by its proposed limit.
+- **OPEN, unchanged**: symmetric finite Jacobi identity and constructive
+  coefficient/tail limit passage; correctly half-normalized differentiated
+  JTP; universal original lower-half/action nonvanishing producer; physical
+  unit/vacuum realization, compatible slabs, transfer and stationarity,
+  strict completed gap, volume/spacing/QFT and all-group Clay target. The new
+  algebra does not inhabit `DiffJTP` or any canonical frontier. No new named
+  analytic input or uniform spectral claim; refuted law identity unused.
+- **verification**: two focused monitored one-worker 20 GiB checks, current
+  `.olean` outputs, 5 + 8 = 13 gates within `{propext, Quot.sound}`, final
+  error/warning free. Logs `/tmp/ym-gauss-qbinom-euler-normalization.log`
+  and `/tmp/ym-gauss-qbinom-euler-quotient.log`. No new sorry, numerical
+  oracle, raised proof limits or full build/audit/guard/progress run.
+
 ## Retained original channel and lower-half floor producer (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreeRetainedChannel.lean`,

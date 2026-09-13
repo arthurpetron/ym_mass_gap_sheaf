@@ -4,6 +4,36 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: exact finite q-binomial normalization, not JTP closure
+
+`GaussQBinomEulerNormalization.qbin_mul_euler` now derives the exact Euler
+formula from the original recursive q-Pascal definition:
+
+    [N choose k]_Q E(Q,k) E(Q,N-k) = E(Q,N),  k <= N,
+    E(Q,n) = product_{j=1..n} (1-Q^j).
+
+It is denominator-cleared and valid for every rational Q. The two induction
+branches combine using `(1-a)+a*(1-b)=1-a*b`; no vanishing factor is cancelled.
+`GaussQBinomEulerQuotient.qbin_eq_euler_quotient` supplies the computable
+quotient when `0<Q<1`, using proved finite denominator positivity.
+`qbin_complement` gives the complementary-index symmetry and
+`euler_square_eq_theta` identifies E(a*a,N) with the ORIGINAL
+`RealTheta.eulerProd a N`. `centeredWeight_eq_quotient` gives
+
+    E(Q,N) [2N choose N+j]_Q
+      = E(Q,N) E(Q,2N) / (E(Q,N+j) E(Q,N-j)),  j <= N.
+
+These equalities are rational setoid equalities in Lean. They do not yet
+prove the symmetric finite Jacobi identity, a quantitative limit of these
+weights, or differentiated JTP. In particular, neither product regrouping
+nor the one-sided `gauss_qbinom_creal_equiv` supplies the missing identity.
+The existing `Rhalf = (1/2)*Theta*S` normalization remains unchanged.
+
+Two focused monitored one-worker 20 GiB checks: 13 gates inside
+`{propext, Quot.sound}`, current `.olean` outputs, final error/warning free.
+No new sorry, analytic premise, numerical oracle, or canonical frontier
+change. No full build/audit/guard/progress run.
+
 ## What closed (new, axiom-clean Lean content)
 
 1. **The quadratic–geometric majorant for the `K_t` series.**  The heat-kernel

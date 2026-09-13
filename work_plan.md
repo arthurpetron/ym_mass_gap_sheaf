@@ -18,6 +18,34 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
+**Latest analytic increment (exact q-Pascal/Euler normalization):**
+`GaussQBinomEulerNormalization.qbin_mul_euler` proves
+`qbin Q N k * E Q k * E Q (N-k) ≈ E Q N`, for every rational Q and k <= N.
+Here `E Q n` is the computed product of `1-Q^j`, j=1..n. The proof uses
+q-Pascal and `(1-a)+a*(1-b)=1-a*b`, with no division or nonzero premise.
+`centered_qbin_mul_euler` provides the N+j, N-j centered indices.
+
+`GaussQBinomEulerQuotient.euler_pos` justifies finite denominator cancellation
+for `0<Q<1`; `qbin_eq_euler_quotient` and `qbin_complement` give the exact
+quotient and complementary-index symmetry. `euler_square_eq_theta` pins
+`E (a*a) N` to the ORIGINAL `RealTheta.eulerProd a N`, for every rational a.
+`centeredWeight_mul_euler` and `centeredWeight_eq_quotient` expose the actual
+finite centered weight and its normalization, not a coefficient assumed one.
+
+This is algebra on the Jacobi route to the still-missing original-action
+nonvanishing estimate. The symmetric finite Jacobi identity, explicit
+coefficient/tail convergence and differentiated identity remain open here;
+the finite quotient formula does not discharge `DiffJTP` or supply a heat
+or action floor. No new named input, canonical frontier change, uniform
+spectral estimate, or use of the refuted law identity. The completed physical
+carrier/transfer/vacuum, strict gap and continuum/all-group target remain open.
+
+Verification: two focused monitored one-worker 20 GiB checks, current `.olean`
+outputs; 5 + 8 = 13 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-gauss-qbinom-euler-normalization.log` and
+`/tmp/ym-gauss-qbinom-euler-quotient.log`. No new sorry, analytic premise,
+numerical oracle, or raised proof limits. No full build/audit/guard/progress run.
+
 **Latest larger-slab progress (retained original channel and lower-half floor producer):**
 `ReflectedSquareTreeRetainedChannel.Leaf` is Type-level path data in the actual
 square tree, with computable weight/channel projections. Scaling and products

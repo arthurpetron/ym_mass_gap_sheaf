@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: retained original channel and lower-half floor producer (2026-09-12)
+## Current increment: exact Gaussian-coefficient Euler normalization (2026-09-12)
+
+PROGRESS: `GaussQBinomEulerNormalization.qbin_mul_euler` proves the exact
+denominator-cleared factorial formula for the ORIGINAL recursive q-binomial:
+`qbin Q N k * E Q k * E Q (N-k) ≈ E Q N`, k <= N, every rational Q.
+The q-Pascal branches collapse by `(1-a)+a*(1-b)=1-a*b`; no possibly zero
+factor is cancelled. `centered_qbin_mul_euler` supplies centered indices.
+
+`GaussQBinomEulerQuotient.euler_pos` proves finite Euler positivity for
+`0<Q<1`; `qbin_eq_euler_quotient` exposes the rational quotient and
+`qbin_complement` proves index symmetry using justified positive cancellation.
+`euler_square_eq_theta` pins the generic base a*a to the EXISTING theta Euler
+product. `centeredWeight_mul_euler` and `centeredWeight_eq_quotient` retain
+the finite coefficient's exact Euler normalization.
+
+Next Jacobi inputs: symmetric finite identity and quantitative coefficient/
+tail convergence, then the correctly half-normalized differentiated identity.
+These are not supplied by the quotient formula. No `DiffJTP` inhabitant,
+heat/action floor, physical vacuum/transfer, strict gap or continuum closure
+is claimed. The original lower-half nonvanishing producer remains open.
+No canonical atom/type changed; no new named analytic premise; no refuted
+law identity or uniform spectral estimate used.
+
+Two focused monitored one-worker 20 GiB checks passed, current `.olean`
+outputs, 5 + 8 = 13 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-gauss-qbinom-euler-normalization.log` and
+`/tmp/ym-gauss-qbinom-euler-quotient.log`. Initial syntax/namespace issues
+were corrected without raised proof limits. No new sorry or numerical oracle.
+No full build/audit/guard/progress run.
+
+## Previous increment: retained original channel and lower-half floor producer (2026-09-12)
 
 PROGRESS: `ReflectedSquareTreeRetainedChannel.Leaf.value_le` bounds a
 nonnegative weighted square sum from below by an explicitly retained leaf.
