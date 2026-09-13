@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (uniform ORIGINAL observable-size bounds):**
+**Latest finite-slab increment (local ORIGINAL heat-weight comparison):**
+`QuaternionHaarPolynomialInterval.Interval` carries two existing square
+certificates and constructs their sums, nonnegative scales and cap
+enlargements. `QuaternionHaarCharacterInterval.characterBound_le` bounds
+the original square-cap recurrence by 16^n; `characterInterval` certifies
+both signs of the actual character with cap 2*16^n. The original Casimir
+weight ratio then gives `heatPositiveLabels_bound` with the explicit cap
+`heatRemainderBound w = 128*w^3`, under 0<=w<=1 and (2*w^3)*16<=1/2.
+
+`BF4ExactSlabSmallNomeHaarComparison.faceRemainderInterval` instantiates
+this on every original physical face, at every cutoff and extent. With
+delta(w)<=1, `faceCertificate`, `faceProductCertificate` and
+`fullActionCertificate` construct positivity of the original prefixes and
+their shared-link products. `insertFace_lower` / `insertFace_upper` yield
+one-face factors 1-delta(w), 1+delta(w) for any positive background;
+`originalBackground_comparison` discharges that background premise for
+actual finite face collections. The factors are independent of cutoff,
+extent and background size. `existingNome_guards` verifies the already-used
+1/1024 pilot; no new numerical pilot constant or oracle is introduced.
+
+`faceProduct_floor` / `fullAction_floor` give (1-delta(w))^F. This floor
+depends on F and must not be called volume-uniform. The next analytic
+frontier remains decay of the NORMALIZED boundary response with separation:
+the local factor supplies no distance decay, padding modulus, positive-norm
+persistence, physical transfer/stationarity, strict gap or continuum passage.
+No canonical atom/type/flag changed and no analytic premise was added.
+
+Verification: three modules, 10+12+10=32 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks; no new holes, raised limits or full
+build/audit/guard/progress run. Logs:
+`/tmp/ym-quaternion-haar-polynomial-interval.log`,
+`/tmp/ym-quaternion-haar-character-interval.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-haar-comparison.log`.
+
+**Preceding finite-slab increment (uniform ORIGINAL observable-size bounds):**
 `QuaternionHaarPolynomialSquareBound.SquareBound` carries supported
 polynomial data, a rational nonnegative cap and an existing square certificate
 for cap-p^2. Constants, sums, products and arbitrary rational scales construct

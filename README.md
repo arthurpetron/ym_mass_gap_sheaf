@@ -262,6 +262,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           correlation SIZE bounds
                                   |           independent of w/padding
                                   |           for fixed expressions [PROVED]
+                                  |      + all-spin Haar certificates
+                                  |        + ORIGINAL Casimir weights
+                                  |        + explicit small-nome guard
+                                  |        -> one-face remainder
+                                  |           delta(w)=128*w^3,
+                                  |           all K and extents     [PROVED]
+                                  |        + constructed ORIGINAL
+                                  |          positive face backgrounds
+                                  |        -> ONE-face integral factors
+                                  |           1-delta(w),1+delta(w)
+                                  |           independent of volume [PROVED]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
@@ -316,7 +327,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: uniform observable-size bounds on the ORIGINAL action.**
+**Latest result: local heat-weight comparisons on the ORIGINAL action.**
+[`faceRemainderInterval`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean#L54)
+constructs both signs of the original face-remainder bound under Haar
+integration, retaining shared links. The explicit cap is
+[`delta(w)=128*w^3`](lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean#L85),
+at every representation cutoff and physical face in every finite slab,
+under `0<=w<=1` and `(2*w^3)*16<=1/2`.
+
+With `delta(w)<=1`, the actual original heat factors and their finite products
+receive constructed positivity certificates.
+[`originalBackground_comparison`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean#L160)
+then proves that inserting one face multiplies any such background integral
+by factors bounded between `1-delta(w)` and `1+delta(w)`. These factors do not
+depend on cutoff, volume or the number of background faces. No link
+independence or substitute probability law is used. The existing `w=1/1024`
+pilot satisfies both guards by kernel calculation.
+
+**Boundary of this result:** the finite-product floor `(1-delta(w))^F`
+depends on the number of faces `F`; it is not a volume-uniform partition
+floor. The local comparison has no separation factor. Quantitative
+normalized boundary decay, padding convergence, nonzero-norm persistence,
+physical transfer/gap and the continuum/Clay target remain open.
+Three modules, 10+12+10=32 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks; no new holes, analytic inputs,
+numerical oracle or raised limits. No full build/audit/guard/progress run.
+
+**Preceding result: uniform observable-size bounds on the ORIGINAL action.**
 The computed [`bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformSquareBound.lean#L33)
 depends only on an expression's spins, rational coefficients and operations.
 Constructed sum-of-squares certificates bound its actual lower and reflected

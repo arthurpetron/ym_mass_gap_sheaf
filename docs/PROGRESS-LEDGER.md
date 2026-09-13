@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: uniform ORIGINAL observable-size bounds (2026-09-13)
+## Current increment: local ORIGINAL heat-weight comparison (2026-09-13)
+
+PROGRESS: `QuaternionHaarPolynomialInterval.Interval` constructs two-sided
+Haar certificates from square caps, with sums, nonnegative scales and explicit
+cap enlargement. `QuaternionHaarCharacterInterval.characterBound_le` proves
+b(n)<=16^n; `characterInterval` supplies both signs of the actual character
+with cap 2*16^n. `heatPositiveLabels_bound` uses the original SU(2) Casimir
+ratio and the explicit guard (2*w^3)*16<=1/2, for 0<=w<=1. The returned cap
+is explicitly `heatRemainderBound w = 128*w^3`.
+
+`BF4ExactSlabSmallNomeHaarComparison.faceRemainderInterval` applies to every
+original physical face, cutoff and extent. With delta(w)<=1,
+`faceCertificate`, `faceProductCertificate` and `fullActionCertificate`
+construct positivity of the actual character prefixes and all original
+finite face backgrounds, retaining shared links. `insertFace_lower`,
+`insertFace_upper` and `originalBackground_comparison` give ONE-face
+multiplicative integral factors 1-delta(w), 1+delta(w), independent of
+cutoff, extent and background size. `existingNome_guards` kernel-checks
+both guards at the existing exact-rational 1/1024 pilot.
+
+`faceProduct_floor` and `fullAction_floor` give (1-delta(w))^F, explicitly
+depending on face count F. This is not a volume-uniform partition floor.
+No link independence, pointwise-to-Haar axiom or substitute law is assumed.
+The local comparison does not give separation decay. Quantitative normalized
+boundary-response decay, padding convergence, nonzero-norm persistence,
+physical transfer/vacuum, strict gap and continuum/QFT/all-group Clay remain
+open. No canonical atom/type/flag changed or analytic input introduced.
+
+Three modules: 10+12+10=32 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks. No new holes, numerical oracle, raised
+limits or full build/audit/guard/progress run. Logs:
+`/tmp/ym-quaternion-haar-polynomial-interval.log`,
+`/tmp/ym-quaternion-haar-character-interval.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-haar-comparison.log`.
+
+## Previous increment: uniform ORIGINAL observable-size bounds (2026-09-13)
 
 PROGRESS: `QuaternionHaarPolynomialSquareBound` constructs actual
 sum-of-squares certificates for cap-p^2 under every Haar insertion.

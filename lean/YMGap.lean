@@ -3987,6 +3987,11 @@ import YMGap.Continuum.BF4ExactSlabBulkExpectationComparison
 import YMGap.Continuum.QuaternionHaarPolynomialSquareBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteUniformSquareBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteUniformMomentBound
+-- Original shared-link local heat comparisons at explicitly small nome.
+-- The one-face factors are volume-independent; the full-product floor is not.
+import YMGap.Continuum.QuaternionHaarPolynomialInterval
+import YMGap.Continuum.QuaternionHaarCharacterInterval
+import YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

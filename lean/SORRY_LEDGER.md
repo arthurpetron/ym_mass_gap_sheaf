@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED local ORIGINAL heat-weight comparison; OPEN normalized boundary decay (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialInterval.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean`.
+- **constructed evidence**: `Interval` carries actual certificates for both
+  signs. `characterBound_le` proves the all-spin envelope b(n)<=16^n;
+  `characterInterval` returns cap 2*16^n for the original character.
+  `heatPositiveLabels_bound` uses the original Casimir weights, under
+  0<=w<=1 and (2*w^3)*16<=1/2, with returned `heatRemainderBound w`.
+  `heatRemainderBound_eq` explicitly identifies that cap as 128*w^3.
+  `faceRemainderInterval` instantiates it on each physical original face,
+  at every cutoff and extent, using the actual Haar-unit holonomy.
+- **original interacting consequences**: with delta(w)<=1,
+  `faceCertificate`, `faceProductCertificate`, `fullActionCertificate`
+  construct original prefix/product positivity, retaining shared links.
+  `insertFace_lower` / `insertFace_upper` and fully instantiated
+  `originalBackground_comparison` give ONE-face factors 1-delta(w),
+  1+delta(w), independent of cutoff, extent and background size.
+  `existingNome_guards` checks the existing 1/1024 pilot without an oracle.
+  `faceProduct_floor` / `fullAction_floor` give (1-delta(w))^F.
+- **remaining obligation**: the F-dependent floor is not volume-uniform;
+  the local comparison gives no decay in separation. Quantitative normalized
+  boundary-response control, padding limit/modulus, nonzero-norm persistence,
+  physical transfer and stationary vacuum, strict gap, continuum/QFT and
+  all-group Clay remain open. No canonical atom/type/flag changed, no
+  analytic premise was added and no existing hole was silently discharged.
+- **verification**: 10+12+10=32 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free and artifacts current.
+  One-worker monitored 20 GiB checks; no new holes, numerical oracle,
+  raised limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-quaternion-haar-polynomial-interval.log`,
+  `/tmp/ym-quaternion-haar-character-interval.log`,
+  `/tmp/ym-bf4-exact-slab-small-nome-haar-comparison.log`.
+
 ## CLOSED uniform ORIGINAL observable-size bounds; OPEN boundary decay and physical gap (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialSquareBound.lean`,
