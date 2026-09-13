@@ -4,6 +4,49 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: differentiated JTP proved, original heat nonnegativity obtained
+
+`JacobiDifferentiatedIdentityOnBox.diffJTP` now proves the unchanged named
+obligation for every rational 0<q<1 and -1<=x<=1, including both endpoints:
+
+    dSeriesCReal = Rhalf = (1/2) * Theta * S.
+
+The proof does not differentiate an infinite limit or assume a common F.
+`FiniteSymmetricChebyshevDerivative.dsum_step_with_boundary` is the finite
+Leibniz companion of the original coefficient rule, with both endpoint terms.
+`FiniteJacobiDerivativeIdentity.fullProdDx_eq_two_weighted_dPartial`
+identifies the EXISTING full finite derivative with twice the dTerm partial
+sum carrying the actual normalized Jacobi weights.
+
+`FiniteJacobiDerivativeComparison.shiftedGaussian_le` bounds
+`(r+1)^2 q^(r*r) <= D(q) q^r`, with
+`D(q)=1+4*JTPIdentity.Cmaj(q)/q`. Gaussian absorption of the weight deficit
+then gives the whole derivative comparison:
+
+    abs(fullProdDx_N - 2*dPartial_N) <= C_d(q) q^(2N+1),
+    C_d(q) = 2*lossScale(q*q)*D(q)/(1-q).
+
+`derivativeCutoff q epsilon` computes
+`powBaseCutoff q (epsilon/(C_d(q)+1))`. The limit equality retains this
+modulus in `Rhalf_sub_dSeries_close` and explicitly checks the factor half.
+All q-dependence is exposed; uniformity is over x in the stated interval,
+not q approaching one. The legacy all-Q totalizer is not needed for this
+finite-derivative-comparison route and is not asserted to be inhabited.
+
+The corollary `pointwiseHeatCReal_geRat_zero` applies the EXISTING exact
+nome/offset bridge to the original completed SU(2) character series. The
+result is nonnegativity, NOT a strictly positive heat/action floor. The
+original interacting-action floor and physical vacuum/transfer/gap/continuum
+construction remain open. Prior OPEN entries for DiffJTP below are historical
+and superseded by this closure; its type is unchanged.
+
+Four new proof modules: 36 focused gates within `{propext, Quot.sound}`,
+current `.olean` outputs, final error/warning free. Two documentation-only
+dependency modules were refreshed separately: 26 gates pass; `JTPIdentity`
+retains two pre-existing unused-variable warnings. No new sorry, analytic premise,
+numerical oracle, canonical frontier change, raised proof limits or full
+build/audit/guard/progress run.
+
 ## 2026-09-12: original product and full theta series limits agree on [-1,1]
 
 `FiniteJacobiSeriesComparison.coefficientError_succ_le_gaussian` uses

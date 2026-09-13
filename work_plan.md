@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (whole-polynomial comparison and on-box Jacobi identity):**
+**Latest analytic increment (differentiated JTP and original heat nonnegativity):**
+`FiniteSymmetricChebyshevDerivative.dsum_step_with_boundary` proves the
+derivative companion of the three-neighbor coefficient update, retaining
+both endpoints and the derivative of 2*x. `FiniteJacobiDerivativeIdentity`
+pins this finite recurrence to the EXISTING factor/full-product derivatives.
+`fullProdDx_eq_two_weighted_dPartial` proves the actual full derivative is
+twice the heat-series partial with the ORIGINAL normalized Jacobi weights.
+
+`FiniteJacobiDerivativeComparison.shiftedGaussian_le` bounds
+`(r+1)^2 q^(r*r) <= D(q) q^r`, with
+`D(q) = 1 + 4*JTPIdentity.Cmaj(q)/q` exposed as data.
+`fullProdDx_sub_two_dPartial_le` bounds the entire derivative error by
+`C_d(q) q^(2N+1)`, with
+`C_d(q) = 2*lossScale(q*q)*D(q)/(1-q)`.
+`derivativeCutoff q epsilon` computes
+`powBaseCutoff q (epsilon/(C_d(q)+1))`; the comparison holds at every
+later N and every x in [-1,1]. It is NOT uniform in q approaching one.
+
+`JacobiDifferentiatedIdentityOnBox.diffJTP` inhabits the unchanged named
+`JTPIdentity.DiffJTP` for ALL its rational parameters, including x=-1 and
+x=1. `Rhalf_sub_dSeries_close` carries the computed approximation modulus
+with the correct factor half. No common-function identity, off-box
+totalizer, derivative-limit interchange or new analytic input is assumed.
+`pointwiseHeatCReal_geRat_zero` applies the EXISTING original nome/completion
+bridge to prove nonnegativity of the original completed SU(2) heat kernel.
+
+Next: a strict positive heat/action floor and the interacting product/Haar
+passage to the existing original-action certificate. Nonnegativity alone
+does not prove non-nullness of the completed full unit. Compatible physical
+slabs, geometric transfer, stationary vacuum, strict physical spectral gap,
+volume/spacing/QFT and all-group Clay remain open. No canonical frontier
+atom/type/flag changed; the refuted auxiliary-law identity is unused.
+
+Verification: four new proof modules, focused monitored one-worker 20 GiB
+checks; 6 + 8 + 17 + 5 = 36 gates within `{propext, Quot.sound}`, current
+`.olean` outputs, final error/warning free. Two documentation-only dependency
+modules were refreshed separately: their 26 axiom gates pass; `JTPIdentity`
+retains two pre-existing unused-variable warnings. Logs `/tmp/ym-finite-symmetric-chebyshev-derivative.log`,
+`/tmp/ym-finite-jacobi-derivative-identity.log`,
+`/tmp/ym-finite-jacobi-derivative-comparison.log`,
+`/tmp/ym-jacobi-differentiated-identity-on-box.log`.
+No new sorry, numerical oracle, raised proof limits, or full build/audit/guard/progress run.
+
+**Preceding analytic increment (whole-polynomial comparison and on-box Jacobi identity):**
 `FiniteJacobiSeriesComparison.coefficientError_succ_le_gaussian` absorbs the
 ACTUAL coefficient deficit using
 `q^((r+1)^2) (q*q)^(N-r) = q^(2N+1) q^(r*r)`, r+1<=N.
@@ -39,10 +82,10 @@ on-box majorant. `product_series_approx_close` pins their actual rational
 approximations to the same computed comparison cutoff. No per-N equality
 to bare partials, same-limit input, or off-box totalizer is assumed.
 
-Next: correctly half-normalized differentiated JTP. The on-box identity
-does not supply the legacy derivative engine's all-Q off-interval input;
-endpoint/domain control remains to be established. Original heat/action
-positivity, physical unit/vacuum, compatible slabs, geometric transfer and
+Differentiated JTP and heat nonnegativity are now proved above by finite
+derivative comparison; the legacy all-Q off-interval input is not needed for
+that route. Strict original heat/action positivity, physical unit/vacuum,
+compatible slabs, geometric transfer and
 stationarity, strict physical gap, volume/spacing/QFT and all-group Clay
 remain open. No canonical atom/type change; refuted law identity unused.
 
@@ -73,8 +116,8 @@ parameters; no Prop-level index extraction, infinite-product denominator,
 convergence uniform over all j, or coupling-uniform physical gap is claimed.
 
 The whole-polynomial comparison and undifferentiated on-box identity are
-now proved above. Next: the correctly half-normalized differentiated limit.
-No `DiffJTP` inhabitant, original-action positive floor,
+now proved above, as is the correctly half-normalized differentiated limit.
+This still does not supply an original-action positive floor,
 physical unit/vacuum, compatible slabs, transfer/stationarity, strict gap,
 volume/spacing/QFT or all-group Clay closure. No new analytic premise or
 canonical atom/type change; refuted law identity unused.
@@ -104,8 +147,8 @@ full `ThetaConv.Ppart` to its weighted finite series. No equality premise,
 complex substitution or coefficient replacement by one is assumed.
 
 Coefficient convergence, whole-polynomial comparison and undifferentiated
-on-box JTP are now proved above. Next: the correctly half-normalized
-differentiated identity. Finite JTP does not discharge `DiffJTP`, produce the original-action
+on-box JTP and differentiated JTP are now proved above. Finite JTP alone
+does not produce the original-action
 positive floor, or identify a physical vacuum/transfer/gap. Compatible slabs,
 volume/spacing/QFT and all-group Clay remain open. No new named analytic
 input, canonical atom/type change, or refuted law identity used.

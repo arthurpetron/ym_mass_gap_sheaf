@@ -131,7 +131,27 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest analytic result: the original theta product equals its series on `[-1,1]`.**
+**Latest analytic result: differentiated JTP and original SU(2) heat nonnegativity.**
+[`JacobiDifferentiatedIdentityOnBox.diffJTP`](lean/YMGap/Continuum/JacobiDifferentiatedIdentityOnBox.lean)
+proves the existing, unchanged obligation `dSeriesCReal = (1/2)*Theta*S`
+for every rational `0<q<1` and `-1<=x<=1`, including both endpoints.
+Its `pointwiseHeatCReal_geRat_zero` then proves nonnegativity of the
+ORIGINAL completed SU(2) heat series through the existing nome/offset bridge.
+No same-function hypothesis, off-box totalizer, or limit-interchange premise
+is supplied.
+
+The proof identifies the actual finite product derivative with twice the
+weighted heat partials, then bounds the entire derivative error by
+`C_d(q) q^(2N+1)`, with a computed cutoff. All q-dependence is explicit;
+uniformity is only over x in the stated interval. Four new proof modules:
+36 focused axiom gates within `{propext, Quot.sound}`, no new holes.
+
+**Next: a strictly positive original-action floor.** Nonnegativity alone
+does not establish a non-null full unit, stationary physical vacuum, strict
+spectral gap, controlled continuum limit, or the Clay theorem. Those remain
+open; the refuted auxiliary-law identity above is not used.
+
+**Preceding analytic result: the original theta product equals its series on `[-1,1]`.**
 [`JacobiTripleProductOnBox.thetaProduct_eq_fullThetaSeries`](lean/YMGap/Continuum/JacobiTripleProductOnBox.lean)
 proves the undifferentiated Jacobi triple product for every rational `0<q<1`
 and rational `-1<=x<=1`, using the EXISTING product and series `CReal`s.
@@ -145,8 +165,9 @@ bounds the whole finite-polynomial error by `C(q) q^(2N+1)`, with
 Gaussian absorption of the coefficient deficit avoids a separate finite-band
 split. The estimate is uniform in `x` on the stated interval, NOT in `q`.
 Two focused checks passed: 22 gates inside `{propext, Quot.sound}`, no new
-holes. Differentiated JTP, heat/action positivity, physical vacuum/transfer/gap,
-and continuum/Clay remain open; no full-tree audit was run.
+holes. Differentiated JTP and heat nonnegativity are now proved above.
+Strict original-action positivity, physical vacuum/transfer/gap, and
+continuum/Clay remain open; no full-tree audit was run.
 
 **Preceding analytic result: explicit convergence of the finite Jacobi weights.**
 [`FiniteJacobiWeightBounds.centeredWeight_eq_segments`](lean/YMGap/Continuum/FiniteJacobiWeightBounds.lean)
@@ -157,10 +178,9 @@ most `2 Q^(N-j+1)/(1-Q)`, where `0<Q<1`.
 provides a computed cutoff uniform over each specified finite band `j<=J`.
 The base and band are explicit; no infinite-product denominator is assumed.
 Three focused checks passed: 25 gates inside `{propext, Quot.sound}`, no new
-holes. The whole-polynomial comparison and undifferentiated on-box identity
-are now proved above; passing to the differentiated identity remains open.
-These are coefficient estimates, not a
-coupling-uniform physical gap or an original-action positive floor.
+holes. The whole-polynomial comparison and both on-box identities are now
+proved above. These coefficient estimates are not a coupling-uniform physical
+gap or an original-action positive floor.
 
 **Preceding analytic result: the finite symmetric Jacobi identity is proved.**
 [`FiniteJacobiIdentity.Ppart_eq_finiteJacobi`](lean/YMGap/Continuum/FiniteJacobiIdentity.lean)
@@ -171,9 +191,8 @@ recurrence, including the center's factor of two and both finite endpoints.
 It uses the actual q-binomial weights, not bare theta coefficients.
 Four focused checks passed: 31 gates inside `{propext, Quot.sound}`, no new
 holes. Coefficient convergence, whole-polynomial comparison and the
-undifferentiated on-box identity are now proved above; differentiated JTP
-remains open. This does not yet supply heat positivity or the
-positive original-action floor below.
+undifferentiated and differentiated on-box identities are now proved above.
+They supply heat nonnegativity, but not the positive original-action floor below.
 
 **Latest original-action result: a retained channel bounds the full interacting action.**
 [`BF4ExactSlabAllExtentRetainedVacuumChannel.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentRetainedVacuumChannel.lean)

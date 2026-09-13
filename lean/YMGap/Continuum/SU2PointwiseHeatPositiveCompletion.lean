@@ -1,6 +1,13 @@
 /-
 # SU(2) pointwise heat positivity: exact completion bridge and honest fence
 
+STATUS UPDATE (2026-09-12): `JacobiDifferentiatedIdentityOnBox.diffJTP`
+now supplies the unchanged analytic input to this module's final theorem.
+Its `pointwiseHeatCReal_geRat_zero` consequently proves nonnegativity for
+every rational 0<w<1 and -1<=x<=1. The implication here remains conditional
+by design; the historical open-input discussion below is superseded by the
+downstream proof. Strict positive heat/action floors are still separate.
+
 For every rational nome `0 < w < 1` and class coordinate `x ∈ [-1,1]`,
 `SU2PointwiseHeatSpacingCompletion` constructs the completed character series
 

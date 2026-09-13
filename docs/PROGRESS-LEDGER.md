@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original theta product and series limits identified on [-1,1] (2026-09-12)
+## Current increment: differentiated JTP and original completed heat nonnegativity (2026-09-12)
+
+PROGRESS: `JacobiDifferentiatedIdentityOnBox.diffJTP` proves the unchanged
+`JTPIdentity.DiffJTP` for every rational 0<q<1 and -1<=x<=1, including both
+endpoints. The ACTUAL `dSeriesCReal` equals `Rhalf=(1/2)*Theta*S` with the
+computed cutoff in `Rhalf_sub_dSeries_close`, not a supplied identity input.
+`pointwiseHeatCReal_geRat_zero` uses the original nome/offset completion
+bridge to prove nonnegativity of the completed SU(2) pointwise heat series.
+
+The proof contracts four substantive steps: the derivative companion of the
+Chebyshev three-neighbor rule (both boundary terms retained); its actual
+finite product-derivative pin; absorption of the coefficient deficit into
+the summable shifted quadratic Gaussian; and the correctly half-normalized
+CReal comparison. `derivativeCutoff q epsilon` is computed using the explicit
+q-dependent `derivativeScale`. No off-box totalizer, infinite derivative
+interchange or same-function premise is used. No all-q uniform bound is claimed.
+
+Next: strict original heat/action floors and interacting product/Haar passage.
+Nonnegativity is not a positive action floor or a proof that the full unit is
+non-null. Physical slab compatibility, transfer/stationarity, strict completed
+gap, volume/spacing/QFT and all-group Clay remain open. No canonical frontier
+change; the refuted law identity remains unused.
+
+Four new proof modules: 6 + 8 + 17 + 5 = 36 focused gates within
+`{propext, Quot.sound}`, current `.olean` outputs, final error/warning free.
+Two documentation-only dependencies were refreshed separately: 26 gates pass;
+`JTPIdentity` retains two pre-existing unused-variable warnings. The finite
+base-case expansion was simplified after a heartbeat cutoff; no proof limit
+was raised. Local order-pair and half-namespace mismatches were corrected.
+No new sorry, numerical oracle, or full build/audit/guard/progress run.
+Logs `/tmp/ym-finite-symmetric-chebyshev-derivative.log`,
+`/tmp/ym-finite-jacobi-derivative-identity.log`,
+`/tmp/ym-finite-jacobi-derivative-comparison.log`,
+`/tmp/ym-jacobi-differentiated-identity-on-box.log`.
+
+## Previous increment: original theta product and series limits identified on [-1,1] (2026-09-12)
 
 PROGRESS: `FiniteJacobiSeriesComparison.Ppart_sub_bareTheta_le` proves the
 ENTIRE finite-polynomial error is bounded by `C(q) q^(2N+1)` at `0<q<1`,

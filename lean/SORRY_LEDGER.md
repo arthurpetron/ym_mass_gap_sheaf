@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED analytic input: differentiated JTP and original heat nonnegativity (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/FiniteSymmetricChebyshevDerivative.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiDerivativeIdentity.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiDerivativeComparison.lean`,
+  `lean/YMGap/Continuum/JacobiDifferentiatedIdentityOnBox.lean`.
+- **discharged**: `JacobiDifferentiatedIdentityOnBox.diffJTP` proves the
+  unchanged `JTPIdentity.DiffJTP` for every rational 0<q<1 and -1<=x<=1.
+  The finite derivative rule keeps both endpoints; the original full
+  Leibniz derivative equals twice the actual weighted dPartial. The entire
+  error is bounded by `derivativeScale q * q^(2N+1)`; `derivativeCutoff`
+  computes the modulus in q and epsilon, independent of x on the named
+  interval. `Rhalf_sub_dSeries_close` checks the factor half on the actual
+  CReal approximations. The original nome/offset bridge then yields
+  `pointwiseHeatCReal_geRat_zero`, with no analytic premise. This supersedes
+  prior OPEN descriptions of this DiffJTP input, including the historical
+  common-function/off-box route; it does not inhabit that route's stronger
+  all-Q interface. No new analytic hypothesis is substituted for DiffJTP.
+- **OPEN**: strict original heat/action floor, interacting product/Haar
+  passage and lower-half nonvanishing; non-null physical full unit, compatible
+  slabs, geometric transfer, stationary vacuum, strict completed physical gap,
+  volume/spacing/QFT and all-group Clay. Nonnegativity alone is not a positive
+  floor. No canonical frontier atom/type/flag changed; no uniform-in-q spectral
+  claim or use of the refuted auxiliary-law identity.
+- **verification**: four new proof modules, 6 + 8 + 17 + 5 = 36 gates within
+  `{propext, Quot.sound}`, current `.olean` outputs, final error/warning free;
+  focused monitored one-worker 20 GiB checks. Two documentation-only dependency
+  modules were refreshed separately: 26 gates pass; `JTPIdentity` retains
+  two pre-existing unused-variable warnings. No new sorry, numerical oracle, raised
+  proof limits or full build/audit/guard/progress run. Logs
+  `/tmp/ym-finite-symmetric-chebyshev-derivative.log`,
+  `/tmp/ym-finite-jacobi-derivative-identity.log`,
+  `/tmp/ym-finite-jacobi-derivative-comparison.log`,
+  `/tmp/ym-jacobi-differentiated-identity-on-box.log`.
+
 ## Whole-polynomial comparison and undifferentiated on-box Jacobi identity (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/FiniteJacobiSeriesComparison.lean`,
@@ -208,7 +243,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   inter-slab observable/Gram maps, geometric transfer, stationary physical
   vacuum, strict completed gap, volume/spacing/QFT and all-group Clay. The
   inspected `SU2PointwiseHeatPositiveCompletion.pointwiseHeatCReal_geRat_zero_of_diffJTP`
-  depends on open `JTPIdentity.DiffJTP` and only gives nonnegativity.
+  consumes `JTPIdentity.DiffJTP` (now proved in the closure entry above) and
+  only gives nonnegativity, not the strict action floor needed here.
   `PartitionPos.partitionFunction_pos` concerns decoupled weights, not this
   interacting integral. Neither is used to discharge positivity. All new bounds
   retain rational `0<w<1` and slab dependence; no beta/spacing-uniform spectral

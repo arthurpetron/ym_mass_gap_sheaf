@@ -1,6 +1,15 @@
 /-
 # Wall 2 — the differentiated Jacobi-triple-product residual (G2)
 
+STATUS UPDATE (2026-09-12): the unchanged `DiffJTP` obligation below is now
+proved for all its rational on-box parameters by
+`JacobiDifferentiatedIdentityOnBox.diffJTP`. That downstream module compares
+the actual finite differentiated Jacobi identity with the bare derivative
+series using a computed Gaussian-error modulus. The conditional interfaces
+and historical route discussion below remain valid; their description as
+an open project obligation is superseded by that theorem. Strict heat/action
+positivity, physical vacuum/transfer/gap and continuum Yang--Mills remain open.
+
 This module builds the `K_t`-side of the residual convergence `Rtrunc M ≈ R`
 named in `UTelescope.Kt_nonneg_of_residual`, and characterises sharply the single
 analytic obligation that remains.
