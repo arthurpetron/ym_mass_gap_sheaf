@@ -134,8 +134,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      -> E(p)=N(p)/SAME Z
                                   |         + E(1)=1 + E(p^2)>=0
                                   |         + explicit real modulus [PROVED]
-                                  |      + positive-time REFLECTED
-                                  |        observable realization     [OPEN]
+                                  |      + concrete lower plaquette
+                                  |        algebra + literal reflection
+                                  |        + temporal Haar pin       [PROVED]
+                                  |      -> SAME full-action reflected
+                                  |         numerator = square value [PROVED]
+                                  |      -> E(theta(p)*p)>=0
+                                  |         + reflected unit = 1     [PROVED]
+                                  |      + mixed-form laws, physical
+                                  |        completion/observable maps [OPEN]
+                                  |      + all required gauge observables
+                                  |        beyond this subalgebra     [OPEN]
                                   |      + physical vacuum
                                   |        identification             [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
@@ -180,7 +189,29 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: positive normalized polynomial expectations for the ORIGINAL slab action.**
+**Latest result: reflected positivity for the ORIGINAL normalized plaquette functional.**
+[`expectation_reflection_nonnegative`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean#L196)
+proves `E(theta(p)*p)>=0` for every finite sum, product and rational multiple
+of lower-half plaquette characters, at every rational `0<w<1` and odd slab.
+The reflection is the literal oriented link reflection.
+[`reflected_numerator_eq_squareValue`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean#L178)
+pins the ORIGINAL full-action numerator to an explicit finite square
+expansion at each cutoff. The original numerator limit and SAME positive
+partition function then give the normalized inequality.
+[`expectation_reflection_eq_upper`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean#L201)
+also pins every mixed reflected pair, and
+[`expectation_reflected_unit`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean#L212)
+proves the distinguished unit has reflected value one.
+
+Two new modules: 44 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+This is the **plaquette-generated subalgebra**: completeness among all gauge
+observables is not proved. Mixed-form laws and the physical completion,
+observable action, compatible slabs, transfer and stationary vacuum remain
+to be connected; the strict uniform physical gap and continuum Clay target
+remain open.
+
+**Preceding result: positive normalized polynomial expectations for the ORIGINAL slab action.**
 [`BF4ExactSlabPolynomialExpectation.expectation`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L46)
 constructs `E(p)=N(p)/Z` for every rational `0<w<1` and odd slab, on the
 original shared link coordinates. The signed numerator has a computed
@@ -196,10 +227,10 @@ explicit bound depending on the nome, finite slab and polynomial.
 
 Three new modules: 49 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
-Ordinary-square positivity is **not** reflection positivity: the
-positive-time observable construction and its connection to the existing
-completed pairing remain open, as do physical transfer, stationary vacuum,
-strict physical gap, volume/spacing passage and continuum QFT.
+Ordinary-square positivity is **not** reflection positivity. The new result
+above supplies the latter on the concrete plaquette-generated subalgebra;
+its physical completion/observable action, transfer, stationary vacuum,
+strict physical gap, volume/spacing passage and continuum QFT remain open.
 
 **Preceding result: the original completed slab pairing is normalized, with its FULL heat unit of norm one.**
 [`BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one`](lean/YMGap/Continuum/BF4ExactSlabNormalizedCompletedPairing.lean#L86)

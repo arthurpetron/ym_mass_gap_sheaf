@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive normalized ORIGINAL polynomial expectations (2026-09-12)
+## Current increment: ORIGINAL normalized plaquette reflection positivity (2026-09-12)
+
+PROGRESS: `BF4ExactSlabPlaquetteReflectionPositivity.expectation_reflection_nonnegative`
+proves E(theta(p)*p)>=0 for the concrete plaquette-generated algebra, every
+rational 0<w<1 and odd slab. The literal link reflection, ORIGINAL action
+numerator and SAME partition function are retained. The reflected unit
+value is one, and the mixed-pair reflection identity is proved.
+
+`BF4ExactSlabPlaquetteObservableAlgebra` supplies actual all-spin lower
+plaquette generators closed under sums, products and rational scaling.
+Original/temporal and lower/upper evaluations are independently defined;
+support, locality, literal reflection, temporal images and the original
+Haar carrier identities are proved structurally. This is a subalgebra,
+not a completeness claim for all Wilson loops or gauge observables.
+
+The proof contracts the existing temporal change of variables and spatial
+Gram interface after attaching the full original lower heat factor to the
+observable. `squareExpansion` is explicit data.
+`reflected_numerator_eq_squareValue` identifies its value with the ORIGINAL
+full-action numerator for every finite cutoff and w>=0. The existing
+original numerator limit and positive reciprocal yield the normalized RP
+inequality. There is no signed-prefix positivity premise or auxiliary-law
+identity. Previously supplied explicit polynomial moduli remain applicable.
+
+Next: mixed-form symmetry/other laws, same-functional physical completion
+and observable action; all required gauge observables, compatible slabs,
+geometric transfer and stationary vacuum. Strict physical gap, spacing/
+volume control, continuum QFT and all-group Clay remain open. No canonical
+frontier atom/type/flag changed. Unit normalization is not stationarity.
+
+Two new modules, 26 + 18 = 44 focused gates within {propext, Quot.sound};
+final error/warning free, current outputs. Monitored one-worker 20 GiB
+checks. Intermediate namespace/relation-method errors were corrected;
+no raised proof limits, new holes, analytic inputs or numerical oracles.
+No full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-observable-algebra.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-reflection-positivity.log`.
+
+## Previous increment: positive normalized ORIGINAL polynomial expectations (2026-09-12)
 
 PROGRESS: `BF4ExactSlabPolynomialExpectation.expectation` is E(p)=N(p)/Z
 for every rational 0<w<1 and odd slab. N is the original interacting Haar

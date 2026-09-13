@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL normalized reflection positivity on the plaquette algebra (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteObservableAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean`.
+- **discharged**: `expectation_reflection_nonnegative` proves
+  E(theta(p)*p)>=0 on the concrete lower-half plaquette-generated algebra,
+  for every rational 0<w<1 and odd slab. `expectation_reflected_unit` gives
+  reflected unit value one; `expectation_reflection_eq_upper` identifies
+  every mixed reflected pair with the independently evaluated upper
+  plaquette observable. The action and partition function are the ORIGINAL
+  ones. `squareExpansion` is computed reflected-square data;
+  `reflected_numerator_eq_squareValue` ties it to the full original action
+  numerator at every finite cutoff, already for w>=0. Existing original
+  numerator/expectation moduli apply to the inserted literal polynomial.
+- **producer**: `PlaquetteExpression` contains genuine all-spin lower
+  plaquette characters and is closed under unit, rational scaling, sums
+  and products. Full support, lower locality, literal reflection, temporal
+  images and original Haar-carrier invariance are proved, not supplied as
+  open assumptions. No finite signed-heat positivity premise is used.
+- **boundary**: the subalgebra is not proved complete among all Wilson
+  loops or all positive-time gauge observables. This does not identify the
+  older finite character-coefficient completion with a physical OS carrier.
+  No canonical frontier atom/type/flag changed or frontier field weakened.
+- **OPEN**: mixed reflected-form symmetry/other laws, same-functional
+  physical completion and observable action; all required gauge observables,
+  compatible slabs, geometric transfer, stationary physical vacuum,
+  strict physical gap, volume/spacing limits, continuum QFT and all-group
+  Clay. Unit normalization is not vacuum stationarity or a mass bound.
+- **verification**: 26 + 18 = 44 focused axiom gates within
+  {propext, Quot.sound}, final error/warning free, current outputs. Monitored
+  one-worker 20 GiB checks. No new sorry, analytic premise, oracle, raised
+  proof limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-observable-algebra.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-reflection-positivity.log`.
+
 ## CLOSED positive normalized ORIGINAL finite-slab polynomial functional (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPolynomialInsertionLimit.lean`,

@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest finite-slab increment (positive normalized ORIGINAL polynomial expectations):**
+**Latest finite-slab increment (ORIGINAL normalized plaquette reflection positivity):**
+`BF4ExactSlabPlaquetteReflectionPositivity.expectation_reflection_nonnegative`
+proves E(theta(p)*p)>=0 on the concrete lower-half plaquette-generated
+algebra, for every rational 0<w<1 and odd slab. `expectation_reflected_unit`
+proves the distinguished unit has reflected value one. The mixed-pair
+`expectation_reflection_eq_upper` pins literal link reflection to the
+independently evaluated upper observable for every two expressions.
+
+`BF4ExactSlabPlaquetteObservableAlgebra.PlaquetteExpression` supplies
+actual all-spin plaquette generators, unit, rational scaling, sums and
+products. Four independent evaluations retain original lower/upper and
+temporal-gauge lower/upper polynomials. Structural proofs give full support,
+lower locality, literal reflection, temporal coefficient images and the
+original quaternion-Haar carrier pins. This is a concrete subalgebra,
+not an assumption that it exhausts Wilson loops or gauge observables.
+
+The causal proof attaches the ORIGINAL lower heat factor to the observable.
+The existing all-extent temporal ledger preserves its characters and turns
+the crossing action into the actual spatial Gram interface.
+`squareExpansion` constructs its lower-local reflected-square channels;
+`reflected_numerator_eq_squareValue` identifies their value with the
+ORIGINAL full-action numerator, at every finite cutoff and w>=0.
+Its original numerator CReal is therefore nonnegative, and normalization
+uses the SAME already proved action reciprocal. No signed heat-prefix
+positivity premise, auxiliary-law identity or new analytic input is used.
+The existing insertion/expectation moduli apply to this literal polynomial.
+
+Next: mixed reflected-form symmetry/other laws and the physical completion
+and observable-action connection on the SAME functional; representation of
+all required gauge observables; compatible slabs, geometric transfer and
+stationary physical vacuum. A reflected unit value of one is not vacuum
+stationarity. Strict physical gap, volume/spacing limits, continuum QFT
+and all-group Clay remain open. No canonical frontier atom/type/flag changed.
+
+Verification: two new modules, 26 + 18 = 44 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. One-worker
+monitored 20 GiB checks. Qualified relation methods and namespace fixes
+resolved intermediate elaboration errors without raised limits. No new
+sorry, analytic premise, oracle or full build/audit/guard/progress run.
+Logs: `/tmp/ym-bf4-exact-slab-plaquette-observable-algebra.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-reflection-positivity.log`.
+
+**Preceding finite-slab increment (positive normalized ORIGINAL polynomial expectations):**
 `BF4ExactSlabPolynomialExpectation.expectation` constructs E(p)=N(p)/Z
 for every rational 0<w<1 and odd slab, using the ORIGINAL interacting
 Haar numerator and the SAME original action reciprocal. `expectation_one`,

@@ -3939,6 +3939,8 @@ import YMGap.Continuum.BF4ExactSlabNormalizedCompletedPairing
 import YMGap.Continuum.BF4ExactSlabPolynomialInsertionLimit
 import YMGap.Continuum.BoundedRationalCauchyProduct
 import YMGap.Continuum.BF4ExactSlabPolynomialExpectation
+import YMGap.Continuum.BF4ExactSlabPlaquetteObservableAlgebra
+import YMGap.Continuum.BF4ExactSlabPlaquetteReflectionPositivity
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
 import YMGap.Continuum.BF4ExactSlabAllExtentHeatProductTail
