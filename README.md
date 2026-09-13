@@ -295,7 +295,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> SAME boundary D: exterior sum
                                   |           of filtered interior sums
                                   |           with no separating cut [PROVED]
-                                  |      + bounds on THESE coefficients
+                                  |      + SAME two-copy Haar moment form
+                                  |        + exact three-term insertion
+                                  |        -> ACTUAL coefficient bound
+                                  |           2*c_p*c_q*kappa(w)^n,
+                                  |           kappa=2*delta+delta^2 [PROVED]
+                                  |        -> original boundary D has a
+                                  |           computed finite majorant
+                                  |           independent of cutoff [PROVED]
+                                  |      + spectator/partition control
                                   |        + geometric path-length control
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
@@ -352,7 +360,38 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: selected-cut cancellation reaches the ORIGINAL boundary response.**
+**Latest result: actual connected-coefficient bounds and an ORIGINAL boundary majorant.**
+[`connectedCoefficient_bound`](lean/YMGap/Continuum/BF4ExactSlabConnectedCoefficientBound.lean#L74)
+bounds the existing inclusion–exclusion coefficient by `2*c_p*c_q*kappa(w)^n`,
+where `c_p,c_q` are constructed Haar interval caps and
+[`kappa(w)=2*delta(w)+delta(w)^2`](lean/YMGap/Continuum/BF4ExactSlabConnectedCoefficientBound.lean#L45),
+with `delta(w)=128*w^3`. It holds at every cutoff and extent under
+`0<=w<=1` and `(2*w^3)*16<=1/2`. The general guard does **not** imply
+`kappa<1`; strict smallness is kernel-checked at the existing `w=1/1024` pilot.
+
+The proof identifies the actual coefficient with repeated simultaneous
+insertions into the original two-copy Haar moment form. Each step has exactly
+three terms: remainder in the left copy, right copy, or both. This proves the
+new bound rather than borrowing a single-copy activity estimate.
+
+[`boundarySummand_bound`](lean/YMGap/Continuum/BF4ExactSlabBoundaryCoefficientBound.lean#L63)
+gives `2*c_p*delta(w)^|S|*kappa(w)^|T|` for each exterior/interior selection
+pair. [`boundaryNumerator_bound`](lean/YMGap/Continuum/BF4ExactSlabBoundaryCoefficientBound.lean#L86)
+sums those caps over the actual separating-cut filtered expansion, producing
+a computed finite bound for the EXISTING boundary numerator with **no cutoff
+parameter**. Volume, nome and probe support/cap remain explicit.
+
+**Next:** handle disconnected spectator pieces together with the original
+partition factors, and prove geometric counting and normalized summability.
+The finite majorant is not volume-uniform or a distance-decay bound. No
+padding limit, physical gap or continuum/Clay theorem is proved here.
+Five modules, 7+8+9+6+7=37 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final error/warning free, with source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: selected-cut cancellation reaches the ORIGINAL boundary response.**
 [`boundaryNumerator_connecting_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundaryConnectingSelections.lean#L85)
 is an exact double finite expansion of the existing boundary numerator:
 exterior remainder selections, then interior inclusion–exclusion coefficients

@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ACTUAL coefficient bounds and ORIGINAL boundary majorant; OPEN normalized summability (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/PolynomialBiadditive.lean`,
+  `lean/YMGap/Continuum/PolynomialBiadditiveMobius.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarBiadditive.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabConnectedCoefficientBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBoundaryCoefficientBound.lean`.
+- **constructed finite algebra**: `Biadditive` records pure polynomial
+  congruence/additivity; constructors prove all laws. `diagonal_increment`
+  gives the three remainder terms. `pairedCoefficient_pin` proves equality
+  with the actual Mobius coefficient and `pairedCoefficient_bound` retains
+  the factor (2*d+d*d)^n. Original Haar moment-product and connected forms
+  are explicitly constructed with their interval bounds; no pure-algebra
+  or analytic premise is left open in the concrete application.
+- **constructed original estimate**: `connectedCoefficient_pair_pin`
+  identifies the existing coefficient. `connectedCoefficient_bound` gives
+  2*c_p*c_q*kappa(w)^n for every cutoff/extent, under 0<=w<=1 and
+  (2*w^3)*16<=1/2. `pairedHeatRate` returns 2*delta(w)+delta(w)^2,
+  with delta(w)=128*w^3. `existingNome_rate` checks 0<kappa<1 only
+  at the existing 1/1024 pilot; the general heat guard is insufficient.
+  `boundarySummand_bound` gives 2*c_p*delta(w)^|S|*kappa(w)^|T|.
+  `boundaryNumerator_bound` yields an explicit finite `boundaryMajorant`
+  for the EXISTING boundary D with no cutoff parameter.
+- **remaining obligation**: the selected-cut test still permits spectator
+  pieces. Control these together with the original partitions and prove
+  geometric counting and NORMALIZED summability/decay. The finite majorant
+  remains volume/nome/probe dependent, not a uniform distance bound. No
+  cutoff-limit estimate, padding limit/modulus, persistence, physical
+  transfer/stationarity, strict gap or continuum/QFT/all-group Clay result
+  is added. No canonical atom/type/flag changed, analytic input or hole
+  introduced, or existing hole silently discharged.
+- **verification**: 7+8+9+6+7=37 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. One-worker monitored 20 GiB checks; no new
+  numerical oracle, raised limits or full build/audit/guard/progress run.
+  The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-polynomial-biadditive.log`,
+  `/tmp/ym-polynomial-biadditive-mobius.log`,
+  `/tmp/ym-quaternion-haar-biadditive.log`,
+  `/tmp/ym-bf4-exact-slab-connected-coefficient-bound.log`,
+  `/tmp/ym-bf4-exact-slab-boundary-coefficient-bound.log`.
+
 ## CLOSED selected-cut cancellation and ORIGINAL boundary pin; OPEN coefficient bounds and summability (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/FiniteSelectionMobius.lean`,

@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (selected-cut cancellation on the ORIGINAL boundary path):**
+**Latest finite-slab increment (ACTUAL coefficient bound and ORIGINAL boundary majorant):**
+`PolynomialBiadditive` constructs coefficient-sensitive two-slot additive
+forms and their insertion operations. `diagonal_increment` gives exactly
+the left/right/both remainder terms. `PolynomialBiadditiveMobius.pairedCoefficient_pin`
+identifies this recursion with the actual finite inclusion-exclusion
+coefficient; `pairedCoefficient_bound` retains the factor (2*d+d*d)^n.
+`QuaternionHaarBiadditive` constructs the original moment-product and
+connected forms with their interval bounds; no algebraic or analytic
+premise is left uninstantiated in the concrete consumer.
+
+`BF4ExactSlabConnectedCoefficientBound.connectedCoefficient_pair_pin`
+reaches the EXISTING original coefficient. `connectedCoefficient_bound`
+gives 2*c_p*c_q*kappa(w)^n at every cutoff and extent, under 0<=w<=1
+and (2*w^3)*16<=1/2. The returned `pairedHeatRate w` is explicitly
+2*delta(w)+delta(w)^2, delta(w)=128*w^3. `existingNome_rate` checks
+0<kappa<1 at the existing 1/1024 pilot only; the heat guard alone does
+not imply strict smallness.
+
+`BF4ExactSlabBoundaryCoefficientBound.boundarySummand_bound` gives
+2*c_p*delta(w)^|S|*kappa(w)^|T| for actual exterior/interior selections.
+`boundaryNumerator_bound` applies finite triangle inequalities to the
+existing filtered expansion and bounds the EXISTING boundary D by the
+computed `boundaryMajorant`, which has NO representation-cutoff parameter.
+Nome, volume and probe support/cap remain explicit. Additional disconnected
+spectator pieces are not removed by the separating-cut test.
+
+Next: spectator/partition control and geometric counting for NORMALIZED
+summability and separation decay. The finite majorant is not volume-uniform;
+no cutoff-limit estimate, padding modulus, nonzero persistence, physical
+transfer/stationarity, strict gap or continuum/QFT/all-group Clay result is
+added. No canonical atom/type/flag changed or new analytic input introduced.
+
+Verification: five modules, 7+8+9+6+7=37 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-polynomial-biadditive.log`,
+`/tmp/ym-polynomial-biadditive-mobius.log`,
+`/tmp/ym-quaternion-haar-biadditive.log`,
+`/tmp/ym-bf4-exact-slab-connected-coefficient-bound.log`,
+`/tmp/ym-bf4-exact-slab-boundary-coefficient-bound.log`.
+
+**Preceding finite-slab increment (selected-cut cancellation on the ORIGINAL boundary path):**
 `FiniteSelectionMobius.coefficient` computes iterated finite differences;
 `reconstruct` proves exact inversion on positional selections and
 `coefficient_zero_on` cancels coefficients whose subselections all vanish.

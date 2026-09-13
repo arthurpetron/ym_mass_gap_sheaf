@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: selected-cut cancellation on the ORIGINAL boundary path (2026-09-13)
+## Current increment: ACTUAL coefficient bound and ORIGINAL boundary majorant (2026-09-13)
+
+PROGRESS: `PolynomialBiadditive.Biadditive.diagonal_increment` derives the
+three left/right/both remainder terms from actual polynomial additivity.
+`PolynomialBiadditiveMobius.pairedCoefficient_pin` identifies the iterated
+three-term recursion with finite inclusion-exclusion; its bound is
+C*(2*d+d*d)^n. `QuaternionHaarBiadditive` constructs the original Haar
+moment-product/connected forms and proves their interval bounds.
+
+`BF4ExactSlabConnectedCoefficientBound.connectedCoefficient_bound` now
+controls the EXISTING original coefficient by 2*c_p*c_q*kappa(w)^n,
+all cutoffs/extents, under 0<=w<=1 and (2*w^3)*16<=1/2. The returned
+rate is 2*delta(w)+delta(w)^2 with delta(w)=128*w^3. Strict kappa<1
+is checked at the existing 1/1024 pilot; it is NOT inferred from the
+general heat guard.
+
+`BF4ExactSlabBoundaryCoefficientBound.boundarySummand_bound` gives
+2*c_p*delta(w)^|S|*kappa(w)^|T|. `boundaryNumerator_bound` sums these
+caps over the existing selected-cut filtered expansion, yielding a computed
+finite `boundaryMajorant` for the EXISTING boundary D, with no cutoff
+parameter. This closes the preceding per-coefficient bound residue, not
+normalized summability. Extra disconnected spectator pieces remain allowed.
+
+Next: spectator/partition control, geometric counting and NORMALIZED
+summability yielding separation decay. The finite bound remains volume,
+nome and probe dependent. No cutoff-limit bound, padding limit, persistence,
+physical transfer/stationary vacuum, strict gap or continuum/QFT/all-group
+Clay result is added. No canonical atom/type/flag changed, new analytic
+premise or hole.
+
+Five modules, 7+8+9+6+7=37 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no numerical
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-polynomial-biadditive.log`,
+`/tmp/ym-polynomial-biadditive-mobius.log`,
+`/tmp/ym-quaternion-haar-biadditive.log`,
+`/tmp/ym-bf4-exact-slab-connected-coefficient-bound.log`,
+`/tmp/ym-bf4-exact-slab-boundary-coefficient-bound.log`.
+
+## Previous increment: selected-cut cancellation on the ORIGINAL boundary path (2026-09-13)
 
 PROGRESS: `FiniteSelectionMobius.reconstruct` gives exact finite
 inclusion-exclusion; `coefficient_zero_on` removes coefficients when all

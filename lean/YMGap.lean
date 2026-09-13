@@ -4006,6 +4006,13 @@ import YMGap.Continuum.FiniteSelectionMobius
 import YMGap.Continuum.BF4ExactSlabSelectionSeparation
 import YMGap.Continuum.BF4ExactSlabConnectedSelectionExpansion
 import YMGap.Continuum.BF4ExactSlabBoundaryConnectingSelections
+-- Actual two-copy Mobius coefficients retain kappa(w)^n. The finite original
+-- boundary majorant is cutoff-independent, not normalized or volume-uniform.
+import YMGap.Continuum.PolynomialBiadditive
+import YMGap.Continuum.PolynomialBiadditiveMobius
+import YMGap.Continuum.QuaternionHaarBiadditive
+import YMGap.Continuum.BF4ExactSlabConnectedCoefficientBound
+import YMGap.Continuum.BF4ExactSlabBoundaryCoefficientBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
