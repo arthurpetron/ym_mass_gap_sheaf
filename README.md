@@ -350,7 +350,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           A(w,ell)*rho(w)^n     [PROVED]
                                   |        -> SAME D controlled by
                                   |           sum_active rho^|core| [PROVED]
-                                  |        + actual rooted-core count
+                                  |      + connected M-face probe carrier
+                                  |        (singleton constructed)  [INPUT]
+                                  |        -> actual core becomes a
+                                  |           literal animal, <=M+n [PROVED]
+                                  |        + carrier-intersection mask
+                                  |        -> tour decoder restores
+                                  |           ORIGINAL core exactly [PROVED]
+                                  |        -> actual size-n count
+                                  |           <=C(probe)*625^n      [PROVED]
+                                  |           singleton C=1250      [PROVED]
                                   |        + path-length estimates
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
@@ -407,7 +416,41 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the local collar cost is absorbed into a geometric rate.**
+**Latest result: a faithful count of the original probe-rooted cores.**
+[`augmentedAnimal`](lean/YMGap/Continuum/BF4ExactSlabProbeCarrierAnimal.lean)
+replaces the virtual probe root by an explicit connected plaquette carrier.
+For a carrier of `M` faces and a core of `n` faces, it constructs a genuine
+4D plaquette animal with at most `M+n` faces. A singleton carrier covering
+the four links of one plaquette is constructed, without supplied connectivity.
+
+[`decodeCore_encode`](lean/YMGap/Continuum/BF4ExactSlabProbeCoreCode.lean)
+proves that the padded tour **plus the core's intersection with the carrier**
+recovers the original face identifiers in their original ambient order.
+The mask matters: augmentation alone loses that intersection information.
+The finite code carrier has length `2^M * 625^(M+n)`.
+
+[`activeAtSize_length_le`](lean/YMGap/Continuum/BF4ExactSlabActiveCoreCount.lean)
+applies this injection to the EXISTING active-core list and proves its
+size-`n` count is at most `C(probe)*625^n`, with `C=2^M*625^M`.
+`singleton_activeAtSize_length_le` gives the concrete prefactor `1250`.
+For a fixed carrier, neither volume, cutoff, coupling nor the interior test
+enters this count. General probe carriers remain explicit geometric data.
+
+**Next:** sum the weighted size strata with the existing coupling-dependent
+rate, and prove the size cost of reaching the exterior. The count alone
+does not prove summability or decay: the combined entropy/weight rate must
+be less than one. Normalized cutoff-limit transport, padding limits,
+physical transfer/vacuum, a strict physical gap and continuum/QFT/all-group
+Clay remain open.
+
+Three new modules: 14+11+10=35 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free, with fresh source and
+direct-import artifacts. One monitored worker, mandatory 20 GiB ceiling;
+no new hole, analytic premise, raised limit or full-tree build/audit.
+The safe-build discipline kept verification targeted; root imports were
+updated but the root was not rebuilt.
+
+**Preceding result: the local collar cost is absorbed into a geometric rate.**
 [`collarIds_length_le`](lean/YMGap/Continuum/BF4ExactSlabCollarDegreeBound.lean)
 uses the existing six-plaquettes-per-link enumeration and physical face-ID
 injectivity to prove `|collar| <= 6*(ell+4*n)`, where `ell` is the number of
@@ -426,10 +469,9 @@ controls the ORIGINAL `D_K` by
 At the existing `w=1/1024` pilot, `0<rho<1` is kernel checked using small
 power blocks. The actual rooted-core sum is **not yet bounded uniformly**.
 
-**Next:** encode and count the actual probe-rooted cores, then prove the
-length cost of reaching the exterior. Their connectivity includes the
-virtual probe vertex; the existing ordinary lattice-animal count needs a
-proved bridge before it can be used here. Normalized limit transport,
+The formerly missing virtual-root/ordinary-animal bridge and faithful
+size count are now proved above. The length cost of reaching the exterior
+and the weighted sum remain open. Normalized limit transport,
 volume-uniform decay, physical transfer/vacuum, a strict physical gap and
 the continuum/QFT/all-group Clay target remain open. Bounds retain
 `0<=w<=1`, `heatRatio(w)<=1/2` and `delta(w)<1`.

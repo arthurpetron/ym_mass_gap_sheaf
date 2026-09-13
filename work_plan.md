@@ -18,7 +18,43 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (literal collar count and adjusted geometric rate):**
+**Latest finite-slab increment (faithful original-core encoding and size count):**
+`BF4ExactSlabProbeCarrierAnimal` constructs literal shared-link paths from
+the actual virtual-root paths. Given an explicit connected M-face probe
+carrier, `augmentedAnimal` is a genuine degree-24 plaquette animal with at
+most M+n faces. `singletonCarrier` constructs the carrier for the four
+links of one plaquette; no connectivity field is supplied in that instance.
+
+`BF4ExactSlabProbeCoreCode` retains both the padded tour and the original
+core's intersection with the carrier. `decodeCore_encode` computes and
+proves literal recovery in ambient order; `encodeCore_injective` follows.
+`codeCarrier_length` is exactly 2^M*625^(M+n). Dropping the mask would lose
+information and invalidate the injection.
+
+`BF4ExactSlabActiveCoreCount.activeAtSize_length_le` consumes the code in
+the EXISTING active-anchor list, giving count_n <= C(probe)*625^n with
+C=2^M*625^M. `full_activeAtSize_length_le` covers every full physical slab;
+`singleton_activeAtSize_length_le` has the concrete prefactor 1250.
+For a fixed geometric carrier, there is no extent, ambient volume, cutoff,
+coupling or interior-test dependence in the count constant.
+
+Next: combine these actual size counts with the existing rho(w)^n weights,
+check the entropy-adjusted rate, and prove a size floor for reaching the
+exterior. General carriers remain explicit geometric Type data; only the
+singleton instance is constructed here. Weighted summability, decay,
+normalized cutoff-limit transport, padding limits, persistence, physical
+transfer/vacuum, strict gap and continuum/QFT/all-group Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 14+11+10=35 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-probe-carrier-animal.log`,
+`/tmp/ym-bf4-exact-slab-probe-core-code.log`,
+`/tmp/ym-bf4-exact-slab-active-core-count.log`.
+
+**Preceding finite-slab increment (literal collar count and adjusted geometric rate):**
 `BF4ExactSlabCollarDegreeBound.sharedLink` computes a shared literal link;
 `collar_sharedLink` and `collar_face_covered` cover every removed face by the
 existing six-per-link enumeration. Physical face-ID injectivity gives

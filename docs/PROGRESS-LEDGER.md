@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: literal collar count and original geometric boundary estimate (2026-09-13)
+## Current increment: faithful original-core code and volume-independent size count (2026-09-13)
+
+The preceding status-only turn was NO PROGRESS. This turn is PROGRESS:
+the virtual-root counting bridge identified after `8bb3385` is now proved
+and consumed by the original active-core list.
+
+`BF4ExactSlabProbeCarrierAnimal.augmentedAnimal` translates the actual
+Type-valued root paths to literal shared-link plaquette paths. A supplied
+connected geometric probe carrier of M faces yields an animal with at most
+M+n faces for an n-face core. `singletonCarrier` is constructed for the
+four links of one plaquette.
+
+`BF4ExactSlabProbeCoreCode.encodeCore` pairs the padded tour with a mask of
+the original core's intersection with the carrier. `decodeCore_encode`
+proves exact recovery of the original identifiers and their ambient order;
+the mask prevents the loss of information caused by augmentation alone.
+`codeCarrier_length` gives 2^M*625^(M+n).
+
+`BF4ExactSlabActiveCoreCount.activeAtSize_length_le` applies this injection
+to the EXISTING active-core size stratum. Its count is <=C(probe)*625^n,
+C=2^M*625^M, independent of extent, ambient volume, cutoff, coupling and
+the interior test for a fixed carrier. `full_activeAtSize_length_le`
+specializes to the complete slab; `singleton_activeAtSize_length_le`
+constructs the concrete C=1250 instance.
+
+Next: sum the weighted strata, check the entropy-adjusted rate, and prove
+the exterior-reaching size floor. General carriers remain explicit
+geometric data, not an analytic bound. No weighted summability, decay,
+normalized cutoff-limit transport, padding limit, persistence, physical
+transfer/vacuum, strict gap or continuum/QFT/all-group Clay closure is
+claimed. No canonical atom/type/flag, analytic premise or hole changed.
+
+Three new modules: 14+11+10=35 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free, source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-probe-carrier-animal.log`,
+`/tmp/ym-bf4-exact-slab-probe-core-code.log`,
+`/tmp/ym-bf4-exact-slab-active-core-count.log`.
+
+## Previous increment: literal collar count and original geometric boundary estimate (2026-09-13)
 
 PROGRESS: the previous goal turn committed/pushed the original mixed
 coefficient bound and finite boundary budget (`ac74c86`). This turn removes

@@ -4052,6 +4052,9 @@ import YMGap.Continuum.BF4ExactSlabMixedFiniteBoundaryBudget
 import YMGap.Continuum.BF4ExactSlabCollarDegreeBound
 import YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 import YMGap.Continuum.BF4ExactSlabGeometricBoundaryBudget
+import YMGap.Continuum.BF4ExactSlabProbeCarrierAnimal
+import YMGap.Continuum.BF4ExactSlabProbeCoreCode
+import YMGap.Continuum.BF4ExactSlabActiveCoreCount
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

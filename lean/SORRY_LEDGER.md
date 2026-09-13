@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED literal collar count and adjusted core rate; OPEN actual rooted-core count (2026-09-13)
+## CLOSED faithful original-core size count; OPEN weighted sum and exterior size floor (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabProbeCarrierAnimal.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabProbeCoreCode.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabActiveCoreCount.lean`.
+- **constructed geometric bridge**: `faceAtLink`, `nodeAccess`, `liftPath`
+  and `rootPath` compute literal shared-link paths from the actual virtual
+  root. `augmentedAnimal` has at most M+n faces. `ProbeCarrier` is explicit
+  connected geometric data covering the probe links; `singletonCarrier`
+  constructs it for one plaquette's four links.
+- **constructed inverse**: `encodeCore` retains the tour and the original
+  core's intersection with the carrier. `decodeCore_encode` proves literal
+  ambient-order recovery, and `encodeCore_injective` certifies no collision.
+  `codeCarrier_length` is 2^M*625^(M+n), without extent or cutoff parameters.
+- **constructed original consumer**: `activeAtSize_length_le` bounds the
+  EXISTING active-anchor size stratum by C(probe)*625^n, C=2^M*625^M.
+  `full_activeAtSize_length_le` covers each full physical slab, and
+  `singleton_activeAtSize_length_le` constructs C=1250. No analytic counting
+  hypothesis or replacement graph is used.
+- **remaining obligation**: sum the weighted size strata, prove the
+  entropy-adjusted rate small, and prove a size floor for reaching the
+  exterior. General geometric carriers are still supplied, not constructed
+  for arbitrary probe supports. Weighted summability, decay, normalized
+  cutoff-limit transport, padding limits, persistence, physical transfer/
+  vacuum, strict gap and continuum/QFT/all-group Clay remain open. This
+  closes the size-count residue of the preceding entry at the stated
+  carrier scope; no canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: 14+11+10=35 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-probe-carrier-animal.log`,
+  `/tmp/ym-bf4-exact-slab-probe-core-code.log`,
+  `/tmp/ym-bf4-exact-slab-active-core-count.log`.
+
+## CLOSED literal collar count and adjusted core rate; OPEN actual rooted-core count at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabCollarDegreeBound.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCollarAdjustedRate.lean`,
