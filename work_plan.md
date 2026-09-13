@@ -18,7 +18,63 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (completed rational geometry and represented-row limits):**
+**Latest original-action increment (real scalars, unit centering and same-covariance realization):**
+`BF4ExactSlabThermodynamicRealScalarCauchy.realScalarRate` and
+`realScalarCauchy` construct scalar-multiplied original presentation
+streams from supplied scalar QCauchy data and computed vector/scalar
+ceilings. `BF4ExactSlabThermodynamicCompletedRealScalar.completedRealSmul`
+descends to the SAME completed carrier. `completed_eq_of_pairings`
+uses positive definiteness; scalar/vector representatives and scalar
+moduli give the same action. `BF4ExactSlabThermodynamicRealScalarAlgebra`
+proves sum, product, subtraction and squared-distance scaling laws, using
+generic modulus-bearing scalar arithmetic without physical-model premises.
+
+`BF4ExactSlabThermodynamicUnitProjection.unitCoefficientCauchy` supplies
+the modulus of the actual original mixed-pairing coefficient.
+`unitProjectionCauchy` constructs its product with the SAME unit;
+`unitProjection` descends and is self-adjoint, idempotent, linear and
+norm-contractive. The unit is not assumed to be a stationary vacuum.
+
+`BF4ExactSlabThermodynamicCenteredCompletion.center`, `centerCauchy`
+and `UnitComplement` construct exact unit-orthogonal states.
+`orthogonal_decomposition_inner` is the mixed Pythagorean identity;
+`center_nonexpansive` loses no squared-distance control.
+`centered_inner_embedObservable` identifies the actual completed pairing
+with the preceding ORIGINAL semantic connected form.
+`centered_inner_sameBase` and `centeredPairingRepresentative_sameBase`
+pin it to the actual covariance limit. `centeredPairingRepresentative`
+returns its CReal/QCauchy/value data, and `centeredPairing_error_le`
+retains the SAME `covarianceVolumeModulus` and geometric volume error.
+This controls receding boundaries, NOT physical-time separation.
+
+`BF4ExactSlabThermodynamicCenteredDensity.approximateCentered` returns
+the actual approximating presentation; `centeredRows` preserves the
+outer modulus, `rowLimit_centeredRows` commutes the limit with centering,
+and `complementRowLimit` returns the orthogonal limit with the same rate
+for supplied represented orthogonal Cauchy families.
+
+Next: physical time translation and state homogeneity, with original-law
+compatibility, OS norm control and stationary-unit identification.
+Nonzero thermodynamic excitations, strict completed gap, full required
+observables, full quotient-level completeness, spacing/continuum/QFT and
+all-group Clay remain open. The unit complement is not asserted nontrivial.
+Real scalars carry supplied moduli; no arbitrary scalar or state quotient
+representative is selected. Fixed w=1/1024 and spacing remain unchanged.
+No canonical atom/type/flag, new analytic premise or hole changed.
+
+Verification: six new modules, 6+13+6+20+33+12=90 exactly matched focused
+gates within {propext, Quot.sound}, final error/warning free;
+source/direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling; no oracle, raised limit or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-real-scalar-cauchy.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-real-scalar.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-real-scalar-algebra.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-unit-projection.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-centered-completion.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-centered-density.log`.
+
+**Preceding original-action increment (completed rational geometry and represented-row limits):**
 `BF4ExactSlabThermodynamicCompletionLinear.subtract_add` and
 `subtract_smul` use the existing semantic observable algebra.
 `distSq_add` and `distSq_smul` prove the SAME squared-distance bounds.

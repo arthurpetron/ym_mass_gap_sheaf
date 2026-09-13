@@ -455,10 +455,21 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> diagonal limit + rate,
                                   |           row independence and
                                   |           same-class recovery   [PROVED]
-                                  |      + modulus-bearing real scalars
-                                  |        and unit centering       [NEXT OPEN]
+                                  |        + modulus-bearing real action
+                                  |          + actual pairing moduli[PROVED]
+                                  |        -> SAME unit projection
+                                  |           and exact centering   [PROVED]
+                                  |        -> Pythagoras, no norm loss
+                                  |           and unit complement   [PROVED]
+                                  |        + original mean/form pins[PROVED]
+                                  |        -> centered pairing equals
+                                  |           ORIGINAL covariance,
+                                  |           with volume error rate[PROVED]
+                                  |        -> centered approximants
+                                  |           and represented limits
+                                  |           preserve their rates  [PROVED]
                                   |      + full thermodynamic state
-                                  |        and time homogeneity     [OPEN]
+                                  |        and time homogeneity     [NEXT OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -509,7 +520,45 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the thermodynamic completion has compatible rational linear geometry and explicit represented-row limits.**
+**Latest result: original thermodynamic connected covariance is realized by centered completed-state pairings.**
+[`realScalarCauchy`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarCauchy.lean)
+constructs scalar-multiplied original streams using explicit scalar and
+vector moduli. [`completedRealSmul`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedRealScalar.lean)
+descends to the SAME carrier, independently of representatives and supplied
+scalar moduli. [Arithmetic and distance-scaling laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarAlgebra.lean)
+hold for these modulus-bearing scalars; no arbitrary quotient modulus is
+selected.
+
+[`unitProjection`, `unitCoefficientCauchy`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUnitProjection.lean)
+construct the projection onto the SAME original unit using its actual
+mixed-pairing coefficient and modulus. It is self-adjoint, idempotent,
+linear and norm-contractive.
+[`center`, `orthogonal_decomposition_inner`, `centered_inner_sameBase`, `centeredPairing_error_le`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCenteredCompletion.lean)
+construct exact unit centering, prove Pythagoras and identify its completed
+pairing with the previously constructed ORIGINAL covariance limit.
+The actual centered pairing retains CReal/QCauchy data and the same
+explicit volume-error modulus. That estimate concerns receding boundaries,
+**not physical-time decay**.
+
+[`approximateCentered`, `rowLimit_centeredRows`, `complementRowLimit`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCenteredDensity.lean)
+preserve approximation and represented-row convergence rates in the
+unit complement, returning the required states and presentations as data.
+
+**Next:** physical time translation and state homogeneity, with original-law
+compatibility, OS norm control and stationary-unit identification. The unit
+complement is not yet proved nontrivial. Nonzero thermodynamic excitations,
+strict gap, full required observables, full quotient-level completeness,
+spacing/continuum/QFT and all-group Clay remain open. Coupling `w=1/1024`
+and lattice spacing remain fixed; a norm-one unit is not a proved vacuum.
+
+Six new modules: 6+13+6+20+33+12=90 exactly matched focused axiom gates
+within `{propext, Quot.sound}`, final error/warning free;
+source/direct-import artifacts fresh. The safe-build skill kept checks to
+one monitored worker and the mandatory 20 GiB ceiling. No new hole,
+analytic premise, raised limit or canonical frontier change; no full
+build/audit/guard/progress run. Root imports updated, not rebuilt.
+
+**Preceding result: the thermodynamic completion has compatible rational linear geometry and explicit represented-row limits.**
 [`addition`, `scalarContinuous`, `completedAdd`, `completedSmul`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletionLinear.lean)
 construct the operations with explicit continuity moduli, prove their
 rational linear laws, and identify them with the existing observable and

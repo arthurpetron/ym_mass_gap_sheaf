@@ -4110,12 +4110,23 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedInner
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedPosdef
 -- SAME completed rational operations, bilinearity, squared-distance geometry,
 -- certified original approximants and limits of represented Cauchy rows.
--- No arbitrary quotient representatives, real-scalar action or time gap.
+-- No arbitrary quotient representatives or time gap; modulus-bearing real
+-- scalars and exact unit centering follow below.
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletionLinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedBilinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedGeometry
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicCauchyRows
+-- Constructed real-scalar action and SAME unit projection/centering, with
+-- exact ORIGINAL covariance pins, volume-error and centered-density rates.
+-- Stationary physical vacuum, nonzero thermodynamic excitations and strict
+-- gap remain open, as do full quotient completeness and continuum/QFT.
+import YMGap.Continuum.BF4ExactSlabThermodynamicRealScalarCauchy
+import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedRealScalar
+import YMGap.Continuum.BF4ExactSlabThermodynamicRealScalarAlgebra
+import YMGap.Continuum.BF4ExactSlabThermodynamicUnitProjection
+import YMGap.Continuum.BF4ExactSlabThermodynamicCenteredCompletion
+import YMGap.Continuum.BF4ExactSlabThermodynamicCenteredDensity
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

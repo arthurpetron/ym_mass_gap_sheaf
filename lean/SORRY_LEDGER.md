@@ -13,7 +13,64 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED thermodynamic completed rational geometry and represented-row limits; OPEN real-scalar action, full completeness and physical time (2026-09-13)
+## CLOSED thermodynamic real scalars, unit centering and original covariance realization; OPEN physical time, excitation and strict gap (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarCauchy.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedRealScalar.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicUnitProjection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCenteredCompletion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCenteredDensity.lean`.
+- **constructed scalar action**: `realScalarRate` and `realScalarCauchy`
+  use actual scalar QCauchy data and computed original vector/scalar
+  ceilings. `completed_eq_of_pairings` proves separation by testing the
+  difference; `completedRealSmul` descends without selecting representatives
+  and respects scalar/vector equivalence and different supplied moduli.
+  `completedRealSmul_addScalar`, `completedRealSmul_mul` and
+  `completedDist_realSmul` certify the arithmetic and distance laws.
+- **constructed original unit projection**: `unitCauchy_pin` identifies
+  the original unit stream. `unitCoefficientCauchy` is the actual pairing
+  modulus; `unitProjectionCauchy` constructs the scalar product with the
+  same unit. `unitProjection` is self-adjoint, idempotent, linear and
+  norm-contractive. A stationary-vacuum identity is not assumed.
+- **centering and exact same-object covariance**: `center`, `centerCauchy`
+  and `UnitComplement` construct unit-orthogonal states.
+  `orthogonal_decomposition_inner` gives Pythagoras and
+  `center_nonexpansive` gives no-loss distance control.
+  `centered_inner_embedObservable` identifies completed centered pairings
+  with the ORIGINAL semantic connected form. `centered_inner_sameBase`
+  and `centeredPairingRepresentative_sameBase` pin the actual covariance
+  limit; `centeredPairingRepresentative` returns real/modulus/value data.
+  `centeredPairing_geometric_bound` and `centeredPairing_error_le` retain
+  the same volume estimate and `covarianceVolumeModulus`. This is receding-
+  boundary convergence, not physical-time decay or a strict gap.
+- **rate-preserving represented density**: `approximateCentered` returns
+  the approximating presentation. `centeredRows` preserves the outer
+  modulus, `rowLimit_centeredRows` commutes the constructed limit with
+  centering, and `complementRowLimit` returns a unit-orthogonal limit with
+  the existing rate for supplied represented orthogonal Cauchy families.
+- **remaining obligation**: physical time translation/state homogeneity
+  with original-law compatibility, OS norm control and stationary-unit
+  identification; nonzero thermodynamic excitations, strict gap, full
+  required observables, full quotient-level completeness and
+  spacing/continuum/QFT/all-group Clay. The unit complement is not asserted
+  nontrivial. Scalars retain supplied moduli; no arbitrary scalar or state
+  quotient representative is selected. Fixed w=1/1024 and spacing remain.
+  This closes the preceding real-scalar/centering residue, not a canonical
+  continuum atom. No canonical type/flag, analytic premise or hole changed.
+- **verification**: 6+13+6+20+33+12=90 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no
+  raised limit, oracle or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-real-scalar-cauchy.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-real-scalar.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-real-scalar-algebra.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-unit-projection.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-centered-completion.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-centered-density.log`.
+
+## CLOSED thermodynamic completed rational geometry and represented-row limits; OPEN real-scalar action, full completeness and physical time at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletionLinear.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedBilinear.lean`,
