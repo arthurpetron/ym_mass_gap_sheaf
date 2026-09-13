@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL smaller-carrier pin and normalized comparison):**
+**Latest finite-slab increment (uniform ORIGINAL observable-size bounds):**
+`QuaternionHaarPolynomialSquareBound.SquareBound` carries supported
+polynomial data, a rational nonnegative cap and an existing square certificate
+for cap-p^2. Constants, sums, products and arbitrary rational scales construct
+these certificates; `cross` uses 2(c-pq)=(c-p^2)+(c-q^2)+(p-q)^2 with shared
+variables retained. `scalar` uses the ORIGINAL quaternion Haar-unit relation,
+and `character_squareBound` follows the actual all-spin character recurrence.
+
+`BF4ExactSlabPlaquetteUniformSquareBound.bound` is computed from expression
+syntax, spins and rational coefficients only. `lowerBound`, `upperBound` and
+`reflectedBound` instantiate the certificates on actual original ordered
+plaquette holonomies. `bound_bulkAtTime` proves exact invariance of the cap
+under all bulk placements and admissible lags.
+`BF4ExactSlabPlaquetteUniformMomentBound.expectation_upper` uses original
+positivity and E(c*1)=c, not a full-action or reciprocal ceiling.
+`square_moment_bound`, `form_bound`, `connected_norm_bound` and
+`bulk_completed_norm_bound` bound the actual ordinary square moment, reflected
+OS form and completed centered squared norm by the same computed cap.
+`bulk_correlation_square_bound` proves C_bulk(e,f)^2<=bound(e)*bound(f).
+Means and their negatives are <=bound(e)+1. All rational 0<w<1, finite odd
+slabs, padding and admissible lags are retained as quantified parameters.
+
+This supplies uniform SIZE bounds, not decay: no lag factor, strict q<1,
+norm-relative operator estimate, uniform cutoff/padding modulus, boundary
+insensitivity or nonzero-norm persistence. The quantitative NORMALIZED
+boundary response remains the next analytic frontier. Physical time descent,
+full realization/completeness, gap and volume/spacing/QFT/all-group Clay remain
+open; no canonical atom/type/flag changed or analytic input assumed.
+
+Verification: three modules, 21+6+15=42 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks; generic ring identities are checked by
+the existing kernel normalizer before inserting the large slab polynomials.
+No new holes, numerical oracle, raised limits or full build/audit/guard/progress
+run. Logs: `/tmp/ym-quaternion-haar-polynomial-square-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-uniform-square-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-uniform-moment-bound.log`.
+
+**Preceding finite-slab increment (ORIGINAL smaller-carrier pin and normalized comparison):**
 `SU2QuaternionHaarBlockEmbedding.BlockEmbedding` carries an ordered,
 duplicate-free list of selected target blocks. Its polynomial map preserves
 the original supported Haar integral by integrating unused blocks to one.

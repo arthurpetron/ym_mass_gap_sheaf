@@ -13,6 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED uniform ORIGINAL observable-size bounds; OPEN boundary decay and physical gap (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialSquareBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformSquareBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformMomentBound.lean`.
+- **constructed polynomial evidence**: `SquareBound` carries support,
+  nonnegative rational cap and a square certificate for cap-p^2. Its
+  constant/add/mul/smul/scalar constructors are implemented, not assumptions.
+  `cross` certifies c-pq from two equal-cap bounds, retaining shared links.
+  `character_squareBound` follows the original character recurrence from
+  the original Haar-unit scalar norm. `bound` is computed from observable
+  syntax/spins/coefficients, with `lowerBound`, `upperBound`, `reflectedBound`
+  and exact `bound_bulkAtTime` on the existing original expression algebra.
+- **normalized consequences**: `expectation_upper` consumes the existing
+  original positivity theorem and E(c*1)=c. `square_moment_bound`,
+  `form_bound`, `connected_norm_bound` and `bulk_completed_norm_bound`
+  control the original ordinary square moment, OS form and completed centered
+  squared norm. `bulk_correlation_square_bound` bounds the square of the
+  actual two-lag connected correlation by bound(e)*bound(f). Means have
+  two-sided cap bound(e)+1. All rational 0<w<1, odd finite slabs, padding
+  and admissible lags are quantified; no reciprocal ceiling is used.
+- **remaining obligation**: these are observable-dependent SIZE caps,
+  not a uniform strict form bound q<1 or a decaying distance estimate.
+  No boundary-response smallness, uniform cutoff/padding modulus,
+  persistence of positive excitation norm, norm-relative time descent,
+  transfer-power identity or physical stationarity is supplied. The
+  quantitative normalized boundary response, full realization/completeness,
+  physical gap and volume/spacing/QFT/all-group Clay remain open. No canonical
+  atom/type/flag changed; no new analytic premise or hole was introduced.
+- **verification**: 21+6+15=42 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free and artifacts current.
+  One-worker monitored 20 GiB checks; generic kernel-normalized identities
+  keep the original slab polynomials opaque. No numerical oracle, raised
+  limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-quaternion-haar-polynomial-square-bound.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-uniform-square-bound.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-uniform-moment-bound.log`.
+
 ## CLOSED ORIGINAL smaller-carrier pin and normalized inter-slab comparison; OPEN response smallness (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbedding.lean`,

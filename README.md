@@ -254,6 +254,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           = D/(Z_large Z_small) [PROVED]
                                   |           for actual bulk means,
                                   |           with Cauchy data      [PROVED]
+                                  |      + original unit holonomies
+                                  |        + computed square bounds
+                                  |        + positivity and E(1)=1
+                                  |        -> original bulk means,
+                                  |           OS/centered norms and
+                                  |           correlation SIZE bounds
+                                  |           independent of w/padding
+                                  |           for fixed expressions [PROVED]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
@@ -308,7 +316,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: exact comparison of ORIGINAL expectations in two slabs.**
+**Latest result: uniform observable-size bounds on the ORIGINAL action.**
+The computed [`bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformSquareBound.lean#L33)
+depends only on an expression's spins, rational coefficients and operations.
+Constructed sum-of-squares certificates bound its actual lower and reflected
+upper polynomials; they retain all shared link variables. Positivity of the
+original action and exact normalization then give
+[`form_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformMomentBound.lean#L98)
+and [`connected_norm_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformMomentBound.lean#L108).
+No full-action coefficient bound or partition-reciprocal ceiling enters these estimates.
+
+[`bound_bulkAtTime`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformSquareBound.lean#L69)
+proves that padding and admissible time displacement leave the cap unchanged.
+[`bulk_completed_norm_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformMomentBound.lean#L134)
+bounds the actual completed centered state at every padding, and
+[`bulk_correlation_square_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUniformMomentBound.lean#L141)
+proves `C_bulk(e,f)^2 <= bound(e) * bound(f)` at any two admissible lags.
+All rational `0<w<1` and finite odd slabs are quantified; means are bounded
+on both sides by `bound(e)+1`. The cap is deliberately coarse, not optimal.
+
+**Scope and next step:** these are a priori size bounds, with NO decaying
+distance factor and NO norm-relative `q<1`. They do not prove boundary
+insensitivity, persistence of a positive excitation norm, padding convergence,
+bounded time descent, a physical gap, or the continuum/Clay target. Existing
+cutoff moduli keep their parameter dependence; no uniform padding modulus
+is claimed. Next remains quantitative normalized boundary-response control.
+Three new modules: 21+6+15=42 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks; no new holes, analytic inputs, numerical
+oracle or raised limits. No full build/audit/guard/progress run.
+
+**Preceding result: exact comparison of ORIGINAL expectations in two slabs.**
 An explicit injective map places each source link in the larger slab.
 [`haar_embedding`](lean/YMGap/Continuum/BF4ExactSlabBulkHaarEmbedding.lean#L145)
 proves that unused target variables integrate to one; the same map preserves

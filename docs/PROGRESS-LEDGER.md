@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL smaller-carrier pin and normalized inter-slab comparison (2026-09-13)
+## Current increment: uniform ORIGINAL observable-size bounds (2026-09-13)
+
+PROGRESS: `QuaternionHaarPolynomialSquareBound` constructs actual
+sum-of-squares certificates for cap-p^2 under every Haar insertion.
+The source is the original unit-quaternion holonomy, followed by the actual
+character recurrence and expression operations. The product and cross
+identities retain shared variables. No pointwise-to-Haar axiom is added.
+
+`BF4ExactSlabPlaquetteUniformSquareBound.bound` depends only on spins,
+coefficients and expression syntax. Its `lowerBound`, `upperBound` and
+`reflectedBound` certify the actual original observable polynomials;
+`bound_bulkAtTime` preserves the cap exactly under all bulk placements.
+`BF4ExactSlabPlaquetteUniformMomentBound.expectation_upper` cancels the
+partition through original normalization, rather than estimating 1/Z.
+`form_bound`, `connected_norm_bound` and `bulk_completed_norm_bound` give
+uniform upper bounds for the ORIGINAL reflected and completed centered norms.
+`bulk_correlation_square_bound` gives C_bulk(e,f)^2<=bound(e)*bound(f) at
+arbitrary two lags. Mean and negative mean are <=bound(e)+1.
+
+The cap is coarse but independent of nome and geometry at fixed expression;
+all rational 0<w<1, finite odd slabs, padding and admissible lags are explicit.
+These are SIZE bounds, not distance decay, q<1 or norm-relative descent.
+The existing cutoff moduli are not made uniform, and no padding modulus,
+boundary-response smallness or persistence of the nonzero seed is proved.
+Quantitative normalized boundary control, physical transfer/stationarity,
+full realization/completeness, gap and continuum/QFT/all-group Clay remain
+open. No canonical atom/type/flag changed or analytic premise introduced.
+
+Three modules, 21+6+15=42 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free and artifacts current.
+One-worker monitored 20 GiB checks. No new holes, numerical oracle, raised
+limits or full build/audit/guard/progress run. Logs:
+`/tmp/ym-quaternion-haar-polynomial-square-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-uniform-square-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-uniform-moment-bound.log`.
+
+## Previous increment: ORIGINAL smaller-carrier pin and normalized inter-slab comparison (2026-09-13)
 
 PROGRESS: `SU2QuaternionHaarBlockEmbedding.BlockEmbedding.haar` proves
 injective finite product-Haar placement, with an explicit ordered image and
