@@ -13,6 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original two-probe count and signed finite-law distance decay; OPEN normalized limit/operator transport (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoProbeGraph.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoProbeAnimal.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoProbeCoreCount.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoProbeTailBudget.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoProbeDistanceDecay.lean`.
+- **closed geometric producer**: `separatorOfRightOutside` computes
+  a cut from the left component of a genuine TWO-probe graph. The
+  existing retention test excludes it, so `probePath` and `coreFacePath`
+  construct actual paths. `augmentedAnimal` has literal shared-link
+  support of size at most M_left+M_right+n; no corridor is assumed.
+- **closed actual-family count**: `decodeCore_encode` restores the
+  original core from a tour and probe/core mask. `connectingAtSize_length_le`
+  bounds the retained size-n cores by 2^M*625^(M+n), M=M_left+M_right.
+  `connectedNumerator_connecting_expansion` pins that family to the SAME
+  signed numerator after exact spectator partition-square resummation.
+- **closed partition-relative distance bound**:
+  `resummed_geometric_bound` retains the original local collar floor and
+  full Z_K^2. `connectedNumerator_tail_bound` sums the actual cores.
+  `connecting_core_size_floor` proves distance+1-M <= |core|, so
+  `full_connectedNumerator_distance_bound` gives a shrinking coefficient
+  A(w,probes,c,d)*s(w)^(distance+1-M), with s=625*adjustedCoreRate(w)<1.
+  Cutoff and ambient volume do not occur in that coefficient; both
+  observable bounds and carrier/link sizes do. Coupling guards are
+  explicit and hold at existing nome 1/1024.
+- **remaining analytic/constructive obligations**: normalized cutoff
+  and thermodynamic passage for these same numerators; actual reflected
+  time-support instances; strict decay/gap on the existing completed
+  operator, nonzero excitations and vacuum isolation. Full required
+  observables/completeness and continuum/QFT/all-group Clay remain open.
+  Geometry is group-independent; the heat estimates are SU(2) estimates
+  with explicit small-nome guards. No beta-uniform or continuum claim.
+- **frontier honesty**: no canonical atom/type/flag, analytic premise
+  or hole changed. No assumed connecting corridor or separation-dependent
+  probe prefactor was introduced.
+- **verification**: five modules, 16+18+21+6+5=66 exactly matched focused
+  gates within {propext, Quot.sound}; final error/warning-free logs and
+  fresh own/direct-import artifacts. One monitored worker, mandatory
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports updated, not rebuilt. Log prefix `/tmp/ym-bf4-exact-slab-`,
+  suffixes `two-probe-graph.log`, `two-probe-animal.log`,
+  `two-probe-core-count.log`, `two-probe-tail-budget.log`,
+  `two-probe-distance-decay.log`.
+
 ## CLOSED derived original OS contraction and completed geometric time; OPEN strict gap and physical isolation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BoundedMidpointDoublingEventual.lean`,

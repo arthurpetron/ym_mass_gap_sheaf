@@ -4,7 +4,50 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: derived original OS contraction and completed physical time (2026-09-13)
+## Current increment: original two-probe distance decay with separation-independent prefactor (2026-09-13)
+
+The preceding goal turn was PROGRESS: ef649ba constructed and pushed the
+original completed time semigroup and positive two-step transfer. This
+turn is PROGRESS: the actual signed finite-law connected numerator now
+has a distance-decaying bound relative to its SAME partition square.
+
+- `BF4ExactSlabTwoProbeGraph.separatorOfRightOutside` constructs the
+  forbidden cut if the distinct probe roots were disconnected.
+  `probePath` and `coreFacePath` therefore return genuine connecting
+  chains from the existing retained-coefficient test.
+- `BF4ExactSlabTwoProbeAnimal.augmentedAnimal` is a literal connected
+  plaquette animal with at most M_left+M_right+n faces, without an
+  added corridor between probe supports.
+- `BF4ExactSlabTwoProbeCoreCount.decodeCore_encode` is a faithful
+  tour-plus-mask inverse in original ambient order. The ACTUAL
+  connecting-core size count is at most 2^M*625^(M+n), M=M_left+M_right.
+  `connectedNumerator_connecting_expansion` pins the counted family
+  to the full signed original numerator after exact spectator resummation.
+- `BF4ExactSlabTwoProbeTailBudget.connectedNumerator_tail_bound`
+  combines the count with original collar-removal and heat bounds.
+  No volume-dependent partition floor replaces the SAME Z_K^2.
+- `BF4ExactSlabTwoProbeDistanceDecay.connecting_core_size_floor`
+  supplies distance+1-M <= |core|. `full_connectedNumerator_distance_bound`
+  gives |D_K| <= A(w,probes,c,d)*s(w)^(distance+1-M)*Z_K^2, every cutoff
+  and extent, under explicit coupling guards with s=625*adjustedCoreRate<1.
+  The prefactor depends on observable bounds and probe/carrier sizes,
+  not cutoff, volume or separation. Existing nome 1/1024 satisfies the guards.
+
+Next: normalized cutoff/thermodynamic passage and actual reflected-time
+support/carrier instances, then decay of the already-constructed operator
+moments. Strict completed gap, nonzero excitations, vacuum isolation, full
+observables/completeness and continuum/QFT/all-group Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: five modules, 16+18+21+6+5=66 exactly matched focused gates
+within {propext, Quot.sound}; final logs error/warning free and own/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports updated, not
+rebuilt. Log prefix `/tmp/ym-bf4-exact-slab-`, suffixes
+`two-probe-graph.log`, `two-probe-animal.log`, `two-probe-core-count.log`,
+`two-probe-tail-budget.log`, `two-probe-distance-decay.log`.
+
+## Previous increment: derived original OS contraction and completed physical time (2026-09-13)
 
 The preceding user-facing turn clarified status but made no proof change:
 NO PROGRESS. This turn is PROGRESS: the pending eventual scalar theorem

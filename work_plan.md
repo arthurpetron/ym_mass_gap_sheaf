@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (derived contraction and completed geometric time):**
+**Latest original-action increment (actual two-probe count and signed distance decay):**
+`BF4ExactSlabTwoProbeGraph.separatorOfRightOutside` constructs a cut
+from the component of a DISTINCT left probe vertex. `right_mem_of_keep`
+uses the existing retained-coefficient test to exclude it; `probePath`
+and `coreFacePath` return actual Type-valued paths. The old merged root
+is not used as evidence of a physical bridge.
+`BF4ExactSlabTwoProbeAnimal.augmentedAnimal` replaces the two virtual
+vertices with their separate connected probe carriers. Its literal
+support has size at most M_left+M_right+n, without adding a corridor.
+
+`BF4ExactSlabTwoProbeCoreCount.decodeCore_encode` recovers the actual
+face IDs in ambient order from the animal tour and the probe/core mask.
+`connectingAtSize_length_le` bounds the ACTUAL retained common-root
+cores by C(P,Q)*625^n, C=2^M*625^M and M=M_left+M_right. This has no
+separation, volume, cutoff or coupling parameter.
+`connectedNumerator_connecting_expansion` pins the SAME signed original
+numerator to this counted list, with exact spectator partition squares.
+
+`BF4ExactSlabTwoProbeTailBudget.resummed_geometric_bound` uses the
+existing original collar-removal floor. `connectedNumerator_tail_bound`
+sums the counted coefficients relative to the SAME full Z_K^2.
+`BF4ExactSlabTwoProbeDistanceDecay.connecting_core_size_floor` proves
+distance+1-M <= |core| using the literal animal radius bound.
+`full_connectedNumerator_distance_bound` therefore bounds the original
+finite connected numerator by A(w,probes,c,d)*s(w)^(distance+1-M)*Z_K^2,
+where s=625*adjustedCoreRate(w)<1. The amplitude retains observable
+bounds and both carrier/link sizes, but no cutoff, volume or separation.
+All coupling guards are explicit and inhabited at the existing 1/1024.
+
+Next: normalized cutoff/thermodynamic passage for the SAME numerator,
+then actual reflected-time probe instances and transport to the proved
+completed operator moments. Strict gap, nonzero excitation, physical
+vacuum isolation, full observables/quotient completeness and continuum
+scaling/QFT/all-group Clay remain open. No canonical atom/type/flag,
+analytic premise or hole changed. The geometric count is group-independent;
+the small-nome heat estimates retain their SU(2) coupling guards.
+
+Verification: five new modules, 16+18+21+6+5=66 exactly matched focused
+gates within {propext, Quot.sound}; final error/warning-free logs and
+fresh own/direct-import artifacts. One monitored worker, mandatory
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs use prefix `/tmp/ym-bf4-exact-slab-`
+and suffixes `two-probe-graph.log`, `two-probe-animal.log`,
+`two-probe-core-count.log`, `two-probe-tail-budget.log`,
+`two-probe-distance-decay.log`.
+
+**Preceding original-action increment (derived contraction and completed geometric time):**
 `BoundedMidpointDoublingEventual.bounded_midpointDoubling_leEv_anchor`
 uses eventual orbit caps and an eventually nonnegative anchor. For each
 tolerance it synchronizes a finite doubling orbit, its terminal cap and

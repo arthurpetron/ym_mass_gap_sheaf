@@ -514,8 +514,26 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           + invariant unit complement
                                   |           + ORIGINAL connected
                                   |             correlation moments [PROVED]
-                                  |      + time-separation decay for
-                                  |        THESE connected moments  [NEXT OPEN]
+                                  |      + ORIGINAL signed connected
+                                  |        numerator expansion      [PROVED]
+                                  |        + no separating cut
+                                  |        -> actual TWO-probe path
+                                  |        -> literal animal, size
+                                  |           <= M_left+M_right+n   [PROVED]
+                                  |        -> faithful tour+mask count
+                                  |           <= 2^M*625^(M+n),
+                                  |           M=M_left+M_right      [PROVED]
+                                  |        + SAME spectator Z^2
+                                  |          and local collar floor
+                                  |        + distance+1 <= M+n
+                                  |        -> |ORIGINAL D_K| <=
+                                  |           A(w,probes)*s(w)^
+                                  |           (distance+1-M)*Z_K^2 [PROVED]
+                                  |      + normalized cutoff/volume
+                                  |        passage and reflected-time
+                                  |        probe instances          [NEXT OPEN]
+                                  |        -> time decay of THESE
+                                  |           operator moments      [OPEN]
                                   |        -> strict complement gap [OPEN]
                                   |      + nonzero thermodynamic
                                   |        excitation witness        [OPEN]
@@ -570,7 +588,45 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a contractive completed ORIGINAL time semigroup and positive two-step transfer.**
+**Latest result: distance decay of the ORIGINAL signed finite-slab connected numerator.**
+The new [two-probe graph](lean/YMGap/Continuum/BF4ExactSlabTwoProbeGraph.lean)
+keeps the probes distinct: a missing path would construct a separating cut
+forbidden by the existing retained-coefficient test. Its Type-valued paths
+give a [literal connected animal](lean/YMGap/Continuum/BF4ExactSlabTwoProbeAnimal.lean)
+of at most `M_left+M_right+n` faces. No connecting corridor is added.
+The [tour-plus-mask code](lean/YMGap/Continuum/BF4ExactSlabTwoProbeCoreCount.lean)
+recovers the original face IDs in ambient order and bounds the actual
+size-`n` connecting cores by `2^M*625^(M+n)`, where `M=M_left+M_right`.
+The SAME original signed numerator expands exactly over this counted list.
+
+The [local partition-relative estimate](lean/YMGap/Continuum/BF4ExactSlabTwoProbeTailBudget.lean)
+resums spectators before taking absolute values and retains the original
+full partition square. The [distance theorem](lean/YMGap/Continuum/BF4ExactSlabTwoProbeDistanceDecay.lean)
+then supplies the geometric core-size floor, yielding
+
+```text
+|D_K(p,q)| <= A(w,p,q,probe sizes/link counts)
+             * s(w)^(distance+1-M) * Z_K^2,
+s(w) = 625*adjustedCoreRate(w) < 1.
+```
+
+The prefactor has no representation cutoff, ambient volume or separation
+parameter. All coupling guards are explicit; the existing nome `1/1024`
+satisfies them. The distance is between the two supplied probe-carrier
+roots. Both observable bounds and carrier sizes remain in the prefactor.
+
+**Next:** normalized cutoff/thermodynamic limit passage for this SAME
+numerator, and actual reflected-time probe instances. Those are required
+before this finite-law theorem becomes decay of the already-constructed
+operator moments. A strict completed gap, nonzero excitations, vacuum
+isolation and continuum/QFT/all-group Clay remain open.
+
+Five new modules: 16+18+21+6+5=66 exactly matched focused axiom gates
+within `{propext, Quot.sound}`; final error/warning-free logs and fresh
+own/direct-import artifacts. One monitored worker, mandatory 20 GiB ceiling.
+No full build/audit/guard/progress run; root imports updated but not rebuilt.
+
+**Preceding result: a contractive completed ORIGINAL time semigroup and positive two-step transfer.**
 [`timeNorm_midpoint` and `timeNorm_le_anchor`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeContraction.lean)
 derive, rather than assume, `||T^n p||^2 <= ||p||^2`. Reflection positivity
 gives `2*a(n) <= a(0)+a(2*n)`; the existing original polynomial cap is
