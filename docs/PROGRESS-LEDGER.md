@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL thermodynamic completed unit-complement form gap (2026-09-13)
+## Current increment: ORIGINAL quantitative relaxation and positive-time fixed-space uniqueness (2026-09-13)
+
+The preceding goal turn was PROGRESS: 2ccdc68 proved and pushed the
+original completed unit-complement form gap. This turn is PROGRESS:
+that bound now yields quantitative relaxation and an exact identification
+of the fixed space of every positive integer time lag.
+
+- `BF4ExactSlabThermodynamicRelaxation.centered_norm_decay` gives
+  a factor (1/2)^n on squared centered norms, using the actual time laws.
+  `relaxation_norm_bound` bounds ||T_n x-P x||^2 by (1/2)^n ||x||^2.
+- `normCap`, `relaxationModulus` and `relaxationCertificate` compute
+  the norm ceiling and time threshold from supplied original Cauchy data.
+- `BF4ExactSlabThermodynamicFixedUnit.time_fixed_iff_projection`
+  proves T_n x=x iff P x=x for every n>0. `fixedScalarWitness`
+  returns the actual scalar coefficient with QCauchy data.
+- `fixed_unitCoefficient_one` and `unit_fixed_normalized_nonzero`
+  identify the existing nonzero unit as the unique coefficient-one fixed
+  vector, without deciding norms or choosing quotient representatives.
+
+Next: a strictly positive centered-norm excitation in this SAME original
+thermodynamic completion. Full required observables/completeness and
+continuum scaling, continuous-time generator/spectral/QFT/all-group Clay
+identification remain open. Nome 1/1024 and spacing stay fixed; no canonical
+atom/type/flag, analytic premise or hole changed.
+
+Verification: two modules, 14+6=20 exactly matched focused gates within
+{propext, Quot.sound}; final logs error/warning free and own/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports updated, not
+rebuilt. Logs: `/tmp/ym-bf4-exact-slab-thermodynamic-relaxation.log` and
+`/tmp/ym-bf4-exact-slab-thermodynamic-fixed-unit.log`.
+
+## Previous increment: ORIGINAL thermodynamic completed unit-complement form gap (2026-09-13)
 
 The preceding goal turn was PROGRESS: b4dc953 proved and pushed the
 original finite-law numerator distance bound. This turn is PROGRESS:

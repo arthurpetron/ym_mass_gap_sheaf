@@ -13,11 +13,11 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest checked milestone:** the original thermodynamic geometric OS
-two-step transfer satisfies
-[`0 <= <v,T_2 v> <= (1/2)<v,v>`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGap.lean)
-on its entire constructed completed unit complement, at SU(2) nome
-`1/1024` and fixed spacing. Nonzero excitations, the full observable
+**Latest checked milestone:** the original thermodynamic geometric OS time
+evolution [converges quantitatively to its unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean),
+and [its positive-time fixed space is exactly that unit line](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean).
+These follow from the proved completed unit-complement form gap, at SU(2)
+nome `1/1024` and fixed spacing. Nonzero excitations, the full observable
 realization and continuum scaling are still open; this is not Clay closure.
 
 ## Whole-project goal
@@ -556,6 +556,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> 0 <= <v,T_2 v>
                                   |           <= (1/2)<v,v>, every
                                   |           unit-complement v     [PROVED]
+                                  |        + SAME time composition,
+                                  |          unit projection and
+                                  |          squared-norm identity
+                                  |        -> relaxation to unit line
+                                  |           with computed modulus [PROVED]
+                                  |        -> every positive-time
+                                  |           fixed state lies in
+                                  |           that SAME unit line   [PROVED]
                                   |      + nonzero thermodynamic
                                   |        excitation witness        [OPEN]
                                   |      + full quotient-level
@@ -609,7 +617,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a strict form gap for the ORIGINAL thermodynamic OS two-step transfer.**
+**Latest result: quantitative relaxation and uniqueness of the ORIGINAL unit fixed space.**
+The completed form gap and geometric time identities now give
+
+```text
+||T_n x - P x||^2 <= (1/2)^n ||center x||^2 <= (1/2)^n ||x||^2.
+T_n x = x  <=>  P x = x, for every positive integer n.
+```
+
+Here `P` is the existing original rank-one unit projection, not a newly
+chosen state. [`relaxationCertificate`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean)
+returns a time threshold for each positive squared-distance tolerance from
+a supplied Cauchy representative and its existing pairing modulus.
+[`fixedScalarWitness`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean)
+returns the actual scalar coefficient and its Cauchy data for a fixed state.
+The unique fixed vector with unit coefficient one is the existing nonzero unit.
+
+**Next:** a nonzero thermodynamic excitation witness. Full required
+observable realization and quotient-level completeness, continuum scaling,
+continuous-time generator/spectral identification and continuum/QFT/all-group
+Clay remain open. These results concern the current plaquette OS completion
+at fixed nome `1/1024` and fixed spacing, not a continuum vacuum theorem.
+
+Two modules: 14+6=20 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final logs error/warning free and own/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling. No full
+build/audit/guard/progress run; root imports updated but not rebuilt.
+
+**Preceding result: a strict form gap for the ORIGINAL thermodynamic OS two-step transfer.**
 For every vector `v` in the constructed completed unit complement,
 
 ```text
@@ -636,11 +671,10 @@ The causal proof uses the preceding signed numerator estimate:
   remove `P`; the existing centered Cauchy limits extend the strict form
   bound to every completed unit-complement vector.
 
-**Next:** a nonzero thermodynamic excitation witness and fixed-unit
-uniqueness/isolation, then the full required observable realization and
-continuum scaling. Full quotient-level completeness, continuous-time
-generator/spectral identification and continuum/QFT/all-group Clay remain
-open. The coupling is fixed here; no beta- or spacing-uniform gap is claimed.
+This bound feeds the relaxation and fixed-space results above. A nonzero
+thermodynamic excitation, full required observable realization and
+continuum scaling remain open. The coupling is fixed here; no beta- or
+spacing-uniform gap is claimed.
 
 Six new modules: 11+4+7+10+10+10=52 exactly matched focused axiom gates
 within `{propext, Quot.sound}`; error/warning-free final logs and fresh

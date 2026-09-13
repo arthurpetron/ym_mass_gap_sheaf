@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (SAME thermodynamic OS completed form gap):**
+**Latest original-action increment (quantitative relaxation and fixed-unit uniqueness):**
+`BF4ExactSlabThermodynamicRelaxation.centered_norm_one_step` identifies
+the one-step squared norm with the proved two-step form bound.
+`centered_norm_decay` iterates it using the SAME time semigroup.
+`completedTime_projection` and `projection_completedTime` fix the original
+unit projection, so `relaxation_norm_bound` gives
+||T_n x-P x||^2 <= (1/2)^n ||x||^2 for every completed x.
+`normCap` uses the supplied representative's existing pairing modulus;
+`relaxationModulus` and `relaxationCertificate` return an explicit time
+threshold for any positive squared-distance tolerance. No quotient
+representative is selected.
+
+`BF4ExactSlabThermodynamicFixedUnit.fixed_center_zero` uses contraction
+and positive definiteness to show that every positive-time fixed state
+has zero centered component. `time_fixed_iff_projection` identifies
+the fixed space with the SAME unit projection's range for every n>0.
+`fixedScalarWitness` returns the original coefficient and QCauchy data
+from a supplied representative. `fixed_unitCoefficient_one` and
+`unit_fixed_normalized_nonzero` identify its unique coefficient-one
+fixed vector with the existing nonzero unit.
+
+Next: a nonzero thermodynamic excitation witness; full required observable
+realization and quotient-level completeness; continuum scaling,
+continuous-time generator and physical spectral/QFT/all-group Clay
+identification. The current plaquette OS completion, nome 1/1024 and
+spacing remain fixed. No canonical atom/type/flag, analytic premise or
+hole changed; fixed-space uniqueness is not continuum vacuum closure.
+
+Verification: two modules, 14+6=20 exactly matched focused gates within
+{propext, Quot.sound}; final logs error/warning free and own/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports updated, not
+rebuilt. Logs: `/tmp/ym-bf4-exact-slab-thermodynamic-relaxation.log` and
+`/tmp/ym-bf4-exact-slab-thermodynamic-fixed-unit.log`.
+
+**Preceding original-action increment (SAME thermodynamic OS completed form gap):**
 `BF4ExactSlabTwoProbeCovariance.connectedNumeratorCauchy` computes the
 common-cutoff determinant modulus. `covariance_formula` identifies its
 twice-normalized limit with the existing E(pq)-E(p)E(q), and

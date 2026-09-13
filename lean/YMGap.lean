@@ -4171,6 +4171,8 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicTimeDecay
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeDecayRate
 import YMGap.Continuum.BF4ExactSlabThermodynamicDenseGap
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedGap
+import YMGap.Continuum.BF4ExactSlabThermodynamicRelaxation
+import YMGap.Continuum.BF4ExactSlabThermodynamicFixedUnit
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

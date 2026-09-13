@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original quantitative relaxation and positive-time fixed-space uniqueness; OPEN excitation and continuum (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean`.
+- **closed relative relaxation**: `centered_norm_one_step` uses the
+  existing two-step form gap and reflection-symmetric time identity.
+  `centered_norm_decay` iterates it; `completedTime_projection` and
+  `projection_completedTime` pin the SAME projection. `relaxation_norm_bound`
+  proves ||T_n x-P x||^2 <= (1/2)^n ||x||^2 for every completed x.
+- **closed witness-bearing convergence**: `normCap` computes a rational
+  ceiling from the supplied Cauchy representative's pairing modulus.
+  `relaxationModulus` and `relaxationCertificate` return a time threshold
+  for any positive squared-distance tolerance; no representative is chosen.
+- **closed fixed-space identification**: `fixed_center_zero` combines
+  strict contraction with positive definiteness. `time_fixed_iff_projection`
+  proves T_n x=x iff P x=x for every n>0. `fixedScalarWitness` returns
+  the existing coefficient and its QCauchy data for a supplied fixed
+  representative. `fixed_unitCoefficient_one` identifies the unique
+  coefficient-one fixed vector; `unit_fixed_normalized_nonzero` supplies
+  the existing nonzero unit.
+- **remaining obligations**: a nonzero thermodynamic excitation; full
+  required observable realization and quotient-level completeness;
+  continuum scaling, continuous-time generator and physical spectral/QFT/
+  all-group Clay identification. This is the current plaquette OS completion
+  at SU(2) nome 1/1024 and fixed spacing, not a continuum vacuum theorem.
+- **frontier honesty**: no canonical atom/type/flag, analytic premise or
+  hole changed. No beta/spacing-uniform or continuum closure is claimed.
+- **verification**: two modules, 14+6=20 exactly matched focused gates
+  within {propext, Quot.sound}; final error/warning-free logs and fresh
+  own/direct-import artifacts. One monitored worker, mandatory 20 GiB
+  ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-relaxation.log` and
+  `/tmp/ym-bf4-exact-slab-thermodynamic-fixed-unit.log`.
+
 ## CLOSED original thermodynamic completed unit-complement form gap; OPEN excitation and continuum (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoProbeCovariance.lean`,
