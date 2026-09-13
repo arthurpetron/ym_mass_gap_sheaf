@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL normalized plaquette reflected-form laws, CS and radical descent (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPolynomialReflectionInvariance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteFiniteGNS.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean`.
+- **discharged**: `form_reflected` pins the normalized CReal form to the
+  literal E(theta(p)*q). Symmetry, rational bilinearity, positivity and
+  unit normalization are proved for every rational 0<w<1 and odd slab.
+  `form_cauchySchwarz` gives the sharp inequality; `form_radical_zero`
+  gives norm-null pairing descent. `formCauchy`/`formModulus` are explicit
+  witnesses for the actual normalized representatives.
+- **producer**: `fullHeatProduct_reflection` retains all original heat
+  coefficients under the physical-face permutation;
+  `expectation_reflection_invariant` covers every supported polynomial.
+  `finiteGNSData` is the actual finite-cutoff plaquette pairing with proved
+  laws and positivity. Its CS passes through original numerator limits
+  using explicit `rawBound`, then through the SAME positive action
+  reciprocal. No auxiliary-law identity or additional analytic input.
+- **superseded**: mixed reflected-form laws listed OPEN in the preceding
+  plaquette-reflection entry. The physical completion is not discharged.
+- **boundary**: all constants/moduli retain w/slab/expression dependence;
+  CS with constant one is not a strict contraction or a uniform physical
+  mass bound. No canonical frontier atom/type/flag changed or type weakened.
+- **OPEN**: quotient/completion and observable action for THIS CReal
+  form; all required gauge observables, compatible slabs, geometric
+  transfer, stationary physical vacuum, strict physical gap, volume/spacing
+  limits, continuum QFT and all-group Clay. No identification with the
+  older boundary-code completion is asserted.
+- **verification**: 9 + 10 + 22 = 41 focused gates within
+  {propext, Quot.sound}, final error/warning free, current outputs. Monitored
+  one-worker 20 GiB checks. No new sorry, analytic premise, oracle, raised
+  proof limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-polynomial-reflection-invariance.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-finite-gns.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-reflected-form.log`.
+
 ## CLOSED ORIGINAL normalized reflection positivity on the plaquette algebra (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteObservableAlgebra.lean`,
@@ -36,8 +72,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   loops or all positive-time gauge observables. This does not identify the
   older finite character-coefficient completion with a physical OS carrier.
   No canonical frontier atom/type/flag changed or frontier field weakened.
-- **OPEN**: mixed reflected-form symmetry/other laws, same-functional
-  physical completion and observable action; all required gauge observables,
+- **superseded**: mixed reflected-form symmetry/other laws are proved by
+  the newer reflected-form entry above.
+- **OPEN**: same-functional physical completion and observable action;
+  all required gauge observables,
   compatible slabs, geometric transfer, stationary physical vacuum,
   strict physical gap, volume/spacing limits, continuum QFT and all-group
   Clay. Unit normalization is not vacuum stationarity or a mass bound.

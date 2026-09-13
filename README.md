@@ -141,8 +141,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         numerator = square value [PROVED]
                                   |      -> E(theta(p)*p)>=0
                                   |         + reflected unit = 1     [PROVED]
-                                  |      + mixed-form laws, physical
-                                  |        completion/observable maps [OPEN]
+                                  |      + ORIGINAL action reflection
+                                  |        invariance at every cutoff[PROVED]
+                                  |      -> finite plaquette GNS / CS[PROVED]
+                                  |        + original numerator limits
+                                  |          + SAME positive Z       [PROVED]
+                                  |      -> normalized reflected form
+                                  |         symmetric, bilinear, CS
+                                  |         + norm-null descent
+                                  |         + explicit real modulus [PROVED]
+                                  |      + physical completion and
+                                  |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
                                   |        beyond this subalgebra     [OPEN]
                                   |      + physical vacuum
@@ -189,7 +198,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: reflected positivity for the ORIGINAL normalized plaquette functional.**
+**Latest result: the ORIGINAL normalized plaquette reflected form has sharp Cauchy--Schwarz and norm-null descent.**
+[`form_reflected`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L53)
+identifies the form with the literal `E(theta(p)*q)`, for every rational
+`0<w<1` and odd slab. It is symmetric, rationally bilinear, nonnegative
+on the diagonal and normalized at the unit.
+[`form_cauchySchwarz`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L185)
+proves `B(p,q)^2 <= B(p,p)*B(q,q)`, and
+[`form_radical_zero`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L213)
+proves that norm-null expressions pair to zero.
+[`formCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L106)
+retains the explicit original expectation modulus.
+
+The proof uses
+[`expectation_reflection_invariant`](lean/YMGap/Continuum/BF4ExactSlabPolynomialReflectionInvariance.lean#L135)
+for the actual full action with any supported polynomial, and
+[`finiteGNSData`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteFiniteGNS.lean#L84)
+for actual finite-cutoff plaquette expressions. Finite Cauchy--Schwarz
+passes through the original numerator limits; normalization divides every
+pairing by the SAME positive partition function. No auxiliary-law identity
+or additional analytic premise is used.
+
+Three new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+Bounds and moduli depend on the nome, slab and expressions. This is still
+the **plaquette-generated subalgebra**, not all gauge observables. Its
+physical quotient/completion and observable action, compatible slabs,
+transfer, stationary vacuum, uniform physical gap and continuum Clay
+target remain open. The older boundary-code completion is not silently
+identified with this form.
+
+**Preceding result: reflected positivity for the ORIGINAL normalized plaquette functional.**
 [`expectation_reflection_nonnegative`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectionPositivity.lean#L196)
 proves `E(theta(p)*p)>=0` for every finite sum, product and rational multiple
 of lower-half plaquette characters, at every rational `0<w<1` and odd slab.
@@ -206,10 +245,10 @@ proves the distinguished unit has reflected value one.
 Two new modules: 44 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
 This is the **plaquette-generated subalgebra**: completeness among all gauge
-observables is not proved. Mixed-form laws and the physical completion,
-observable action, compatible slabs, transfer and stationary vacuum remain
-to be connected; the strict uniform physical gap and continuum Clay target
-remain open.
+observables is not proved. The mixed-form laws are supplied by the newer
+result above. Physical completion, observable action, compatible slabs,
+transfer and stationary vacuum remain to be connected; the strict uniform
+physical gap and continuum Clay target remain open.
 
 **Preceding result: positive normalized polynomial expectations for the ORIGINAL slab action.**
 [`BF4ExactSlabPolynomialExpectation.expectation`](lean/YMGap/Continuum/BF4ExactSlabPolynomialExpectation.lean#L46)

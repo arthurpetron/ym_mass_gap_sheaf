@@ -18,7 +18,45 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest finite-slab increment (ORIGINAL normalized plaquette reflection positivity):**
+**Latest finite-slab increment (ORIGINAL normalized reflected form, CS and radical descent):**
+`BF4ExactSlabPlaquetteReflectedForm.form_reflected` pins the CReal form
+to E(theta(p)*q) on actual lower plaquette expressions, for every rational
+0<w<1 and odd slab. `form_symm`, `form_add_left`, `form_smul_left` and their
+right counterparts prove rational bilinearity and symmetry;
+`form_nonnegative` and `form_unit` retain positivity and normalization.
+`form_cauchySchwarz` proves the sharp inequality with constant one, and
+`form_radical_zero` proves norm-null expressions pair to zero without
+selecting square roots. `formCauchy`/`formModulus` are explicit data for
+the actual normalized representatives, depending on w, slab and expressions.
+
+`BF4ExactSlabPolynomialReflectionInvariance.fullHeatProduct_reflection`
+retains every original heat coefficient and uses the actual physical-face
+permutation. `expectation_reflection_invariant` applies to every supported
+polynomial insertion. `BF4ExactSlabPlaquetteFiniteGNS.finiteGNSData` supplies
+the existing constructive rational GNS machinery with the original
+finite-cutoff pairing, proved module laws, symmetry and positivity.
+Its sharp CS passes to `rawLimit_cauchySchwarz` along the original cutoff
+sequence using explicit `rawBound`; the SAME positive reciprocal rescales
+both sides. There is no new analytic premise or refuted-law identity.
+
+Next: the physical quotient/completion and observable action for THIS
+CReal form, all required gauge observables, compatible slabs, geometric
+transfer and stationary vacuum. The older boundary-code completion is
+not automatically the same object. Strict physical gap, volume/spacing
+limits, continuum QFT and all-group Clay remain open. No canonical
+frontier atom/type/flag changed; the dimensionless CS constant is not a
+strict contraction or a beta-uniform physical mass bound.
+
+Verification: three new modules, 9 + 10 + 22 = 41 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. One-worker
+monitored 20 GiB checks. Namespace and explicit-binder fixes resolved
+intermediate elaboration failures without raised limits. No new sorry,
+analytic premise, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-polynomial-reflection-invariance.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-finite-gns.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-reflected-form.log`.
+
+**Preceding finite-slab increment (ORIGINAL normalized plaquette reflection positivity):**
 `BF4ExactSlabPlaquetteReflectionPositivity.expectation_reflection_nonnegative`
 proves E(theta(p)*p)>=0 on the concrete lower-half plaquette-generated
 algebra, for every rational 0<w<1 and odd slab. `expectation_reflected_unit`
@@ -45,8 +83,9 @@ uses the SAME already proved action reciprocal. No signed heat-prefix
 positivity premise, auxiliary-law identity or new analytic input is used.
 The existing insertion/expectation moduli apply to this literal polynomial.
 
-Next: mixed reflected-form symmetry/other laws and the physical completion
-and observable-action connection on the SAME functional; representation of
+The mixed reflected-form laws are now supplied by the increment above.
+Next: the physical completion and observable-action connection on the
+SAME functional; representation of
 all required gauge observables; compatible slabs, geometric transfer and
 stationary physical vacuum. A reflected unit value of one is not vacuum
 stationarity. Strict physical gap, volume/spacing limits, continuum QFT

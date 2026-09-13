@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL normalized plaquette reflection positivity (2026-09-12)
+## Current increment: ORIGINAL normalized reflected form, CS and radical descent (2026-09-12)
+
+PROGRESS: `BF4ExactSlabPlaquetteReflectedForm.form` is the SAME original
+normalized E(theta(p)*q), pinned by `form_reflected`, for rational 0<w<1
+and every odd slab. Symmetry, rational bilinearity, positivity and unit
+normalization pass. `form_cauchySchwarz` gives the sharp CS inequality;
+`form_radical_zero` proves actual norm-null expressions pair to zero.
+`formCauchy` and `formModulus` retain explicit representative moduli.
+
+The causal proof uses full-action reflection invariance for arbitrary
+supported insertions, via the actual physical-face permutation and original
+heat coefficients. `BF4ExactSlabPlaquetteFiniteGNS.finiteGNSData` puts
+actual plaquette expressions and their finite original pairing into the
+existing rational GNS machinery. Its finite CS passes to the original
+numerator limits using the explicit w/slab/expression-dependent `rawBound`.
+Multiplication by the square of the SAME positive action reciprocal yields
+normalized CS. The radical proof uses squared rational tolerances, not
+a selected square root or a new analytic input.
+
+Next: physical quotient/completion and observable action for THIS CReal
+form; all required gauge observables, compatible slabs, geometric transfer,
+stationary physical vacuum, strict physical gap and volume/spacing/QFT
+limits. No automatic identification with the older boundary-code completion
+is made. No canonical frontier atom/type/flag changed. The constant one in
+CS is not a strict gap or a beta-uniform physical mass bound.
+
+Three new modules, 9 + 10 + 22 = 41 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. One-worker
+monitored 20 GiB checks. Intermediate namespace/binder errors were corrected
+without raised proof limits. No new holes, analytic premises, numerical
+oracles or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-polynomial-reflection-invariance.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-finite-gns.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-reflected-form.log`.
+
+## Previous increment: ORIGINAL normalized plaquette reflection positivity (2026-09-12)
 
 PROGRESS: `BF4ExactSlabPlaquetteReflectionPositivity.expectation_reflection_nonnegative`
 proves E(theta(p)*p)>=0 for the concrete plaquette-generated algebra, every
