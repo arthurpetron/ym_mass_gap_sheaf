@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: concrete ORIGINAL plaquette channels and reference Haar determinant (2026-09-13)
+## Current increment: ORIGINAL heat-dressed determinant and shared-link small-nome error (2026-09-13)
+
+PROGRESS: `BF4ExactSlabPlaquetteHeatDressedMinor.scalarPlaquetteMinor_eq`
+pins the actual unit/scalar-loop minor to `(2*w^3)^4*D^2`, with D computed
+from the four ORIGINAL lower-interaction Haar moments on the same 116 links.
+The exact channel amplitudes no longer require tree-path recoding downstream.
+
+`BF4ExactSlabSmallNomeFaceRemainder` proves geometric domination from
+label one under `(2*w^3)*R(face)<=1/2`. `faceTail_coefficientL1` bounds
+every positive-label remainder by twice its first character majorant;
+`faceHeat_eq_one_add` identifies the actual original factor with one plus
+that explicit remainder. No numerical nome is selected.
+
+`BF4ExactSlabSmallNomeHeatPerturbation` telescopes on the SAME shared
+variables. The computed E satisfies 1+E=product_i(1+delta_i), and bounds
+the coefficient norm of the original product remainder at every K under
+the finite list of guards. `lowerMoment_eq` and `lowerMomentError_bound`
+pin each interacting moment to its reference value plus a computed error
+bounded by coefficientL1(p)*E(w). No Haar independence is assumed.
+
+Next: a computed positive nome/guard/error certificate, determinant
+separation, then positive normalized cutoff-limit floor. The positive
+interacting minor and nonzero completed centered state remain open.
+Uniformity here is ONLY in representation cutoff at the displayed w and
+finite face list; it does not establish physical mass/continuum control.
+Physical transfer/stationarity, strict gap, slab compatibility, required
+completeness/observables and volume/spacing/QFT/all-group Clay remain open.
+
+Three new modules, 13+10+17 = 40 focused gates within {propext, Quot.sound};
+final error/warning free and outputs current. Monitored one-worker 20 GiB
+checks. Explicit intermediate geometric sums resolved a heartbeat timeout
+without raising proof limits; namespace and unused-binder issues corrected.
+No new holes, oracle, assumed analytic comparison or canonical atom/type/
+flag change. No full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-heat-dressed-minor.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-face-remainder.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-heat-perturbation.log`.
+
+## Previous increment: concrete ORIGINAL plaquette channels and reference Haar determinant (2026-09-13)
 
 PROGRESS: `ReflectedSquareTreeRealizedLeaf.RealizedLeaf` constructs exact
 polynomial/weight-pinned tree paths through sums and products.

@@ -13,6 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL four-moment identity and small-nome perturbation; OPEN determinant separation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatDressedMinor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSmallNomeFaceRemainder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSmallNomeHeatPerturbation.lean`.
+- **discharged**: `realized_amplitude`, `unit_amplitude`, `scalar_amplitude`
+  and `scalarPlaquetteMinor_eq` pin the original finite minor to the four
+  lower-interaction Haar moments, with weight `(2*w^3)^4`. The first-label
+  geometric estimate and `faceTail_coefficientL1` give a K-independent
+  coefficient remainder bound under the explicit small-nome face guard.
+  `product_eq_one_add` and `productPerturbation_coefficientL1` propagate it
+  through the shared-link product. `one_add_remainderBudget` identifies
+  the computed E with product_i(1+delta_i)-1. `lowerMoment_eq` and
+  `lowerMomentError_bound` give exact bare-plus-error original moments,
+  with error bounded by coefficientL1(p)*E(w) for every K.
+- **displayed guards**: 0<=w<=1 and, for each face in the supplied finite
+  list, `(2*w^3)*characterRadius(faceScalar extent id)<=1/2`. The radius
+  and bounds are computed from the actual polynomial. These are explicit
+  rational sufficient conditions, not assumed analytic norm comparisons.
+  No positive numerical nome satisfying the required determinant budget
+  is selected or certified here. No beta/volume/spacing uniformity follows.
+- **OPEN / precise strict input**: `scalarPlaquetteMinor_positive_of_square`
+  still consumes `0 < heatDeterminant w K * heatDeterminant w K`, with
+  w>0 and K>=1. `scalarPlaquetteFloor_positive_of_square` transports it
+  to the original finite norm floor. Next: certify the finite guards and
+  an error budget that separates this determinant from zero uniformly in
+  K, then preserve a positive normalized floor through cutoff removal.
+  Completed centered nontriviality, physical transfer/vacuum, strict gap,
+  compatible slabs, required completeness/observables and volume/spacing/
+  QFT/all-group Clay remain open. No canonical atom/type/flag changed.
+- **verification**: 13+10+17 = 40 focused gates within {propext, Quot.sound};
+  final error/warning free and outputs current. One-worker monitored
+  20 GiB checks. Explicit geometric-sum intermediates resolve the initial
+  heartbeat timeout without raised limits. No new sorry, oracle, or full
+  build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-heat-dressed-minor.log`,
+  `/tmp/ym-bf4-exact-slab-small-nome-face-remainder.log`,
+  `/tmp/ym-bf4-exact-slab-small-nome-heat-perturbation.log`.
+
 ## CLOSED concrete ORIGINAL channel producer and reference Haar table; OPEN heat-dressed minor (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreeRealizedLeaf.lean`,

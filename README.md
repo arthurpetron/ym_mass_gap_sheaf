@@ -209,7 +209,12 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      + reference Haar mixed moment
                                   |        = 1/128; determinant nonzero[PROVED]
                                   |      + original heat-dressed
-                                  |        determinant control       [OPEN]
+                                  |        four-moment identity      [PROVED]
+                                  |      + small-nome face guards
+                                  |        -> shared-link moment error
+                                  |           bound, independent of K[PROVED]
+                                  |      + numerical guard certificate
+                                  |        + determinant separation  [OPEN]
                                   |        -> concrete positive minor[OPEN]
                                   |      + cutoff-removal floor      [OPEN]
                                   |      -> nonzero centered observable
@@ -264,7 +269,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: concrete ORIGINAL plaquette channels and exact reference Haar moments.**
+**Latest result: ORIGINAL interacting moment identity and small-nome error bound.**
+[`scalarPlaquetteMinor_eq`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatDressedMinor.lean#L91)
+identifies the actual two-channel minor with `(2*w^3)^4 * D^2`, where
+`D = H(p L)*H(r L)-H(p r L)*H(L)`. Here H is the same 116-link Haar
+functional, p the original plaquette, r its scalar-coordinate loop, and L
+the ORIGINAL lower heat product. No tree-path recoding remains in D.
+
+Under the explicit per-face guard `(2*w^3)*R(face) <= 1/2`, where
+`R(f)=2*coefficientL1(f)+1`,
+[`faceTail_coefficientL1`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeFaceRemainder.lean#L76)
+bounds all positive-label terms by twice the first character majorant.
+A shared-variable telescope computes `E=product_i(1+delta_i)-1` from these
+face bounds, without treating plaquettes as independent.
+[`lowerMoment_eq`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHeatPerturbation.lean#L145)
+and [`lowerMomentError_bound`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHeatPerturbation.lean#L149)
+give `H(p L)=H(p)+error` and `abs(error)<=coefficientL1(p)*E` at every
+representation cutoff. E depends explicitly on w and the face list.
+
+**Next:** certify a positive nome satisfying the finite guards and an error
+budget that separates D from zero; then retain a positive normalized floor
+through cutoff removal. No numerical nome or positive interacting minor
+has yet been certified. This small-nome estimate is not beta-, volume- or
+spacing-uniform mass control. Three new modules: 40 focused axiom gates
+within `{propext, Quot.sound}`, final error/warning free. No new proof holes
+or full-tree build/audit; the nonzero centered state and Clay goal remain open.
+
+**Preceding result: concrete ORIGINAL plaquette channels and exact reference Haar moments.**
 [`interfaceChoice`](lean/YMGap/Continuum/BF4ExactSlabFundamentalRetainedChannels.lean#L150)
 constructs the actual interface leaf for any selection of quaternion
 coordinates, with coefficient-level polynomial and exact heat-weight pins.

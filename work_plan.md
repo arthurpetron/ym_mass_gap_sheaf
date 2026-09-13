@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (concrete ORIGINAL plaquette channels and reference Haar determinant):**
+**Latest finite-slab increment (ORIGINAL heat-dressed determinant and small-nome perturbation):**
+`BF4ExactSlabPlaquetteHeatDressedMinor.scalarPlaquetteMinor_eq` identifies
+the actual unit/scalar-loop minor with `(2*w^3)^4*D^2`. Its D uses the four
+Haar integrals H(p L), H(p r L), H(L), H(r L), retaining the original lower
+heat product L, actual probe p, scalar loop r and 116-link carrier.
+The channel recodings are eliminated by exact coefficient-level pins.
+
+`BF4ExactSlabSmallNomeFaceRemainder` uses the computed guard
+`firstRatio w f = (2*w^3)*characterRadius f <= 1/2` to start geometric
+domination at label one. `firstTailBound` is twice the first majorant;
+`faceTail_coefficientL1` bounds every finite positive-label remainder,
+and `faceHeat_eq_one_add` pins the actual factor to one plus that remainder.
+All w/polynomial dependence is explicit and no numerical nome is selected.
+
+`BF4ExactSlabSmallNomeHeatPerturbation` computes productBudget B and
+remainderBudget E from the actual finite face list. `one_add_remainderBudget`
+proves 1+E=B. `product_eq_one_add` and `productPerturbation_coefficientL1`
+keep every shared variable and bound the actual telescope under the finite
+list of guards. `lowerMoment_eq` gives H(p L)=H(p)+computed error;
+`lowerMomentError_bound` gives abs(error)<=coefficientL1(p)*lowerBudget(w)
+for every K. This supplies a cutoff-independent insertion-error estimate,
+not a beta-, volume- or spacing-uniform estimate.
+
+Next: compute and kernel-certify a positive nome and finite guard/error
+budget separating the determinant from zero, then a normalized floor
+surviving cutoff removal. Positive interacting minor, nonzero completed
+centered state, physical transfer/stationarity, strict gap, compatible slabs,
+required completeness/observables and volume/spacing/QFT/all-group Clay remain
+open. No canonical atom/type/flag changed or analytic comparison assumed.
+
+Verification: three new modules, 13+10+17 = 40 focused gates within
+{propext, Quot.sound}, final error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. Polynomial/face-list namespace issues
+and an unused binder were corrected; explicit geometric-sum intermediates
+resolved an elaborator heartbeat timeout without raised limits. No new
+holes, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-heat-dressed-minor.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-face-remainder.log`,
+`/tmp/ym-bf4-exact-slab-small-nome-heat-perturbation.log`.
+
+**Preceding finite-slab increment (concrete ORIGINAL plaquette channels and reference Haar determinant):**
 `ReflectedSquareTreeRealizedLeaf.RealizedLeaf` carries an actual path,
 exact weight pin and coefficient-level polynomial pin. Finite sums and
 products construct these data. `BF4ExactSlabFundamentalRetainedChannels`
