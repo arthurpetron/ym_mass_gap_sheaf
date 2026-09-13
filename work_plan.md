@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (finite-expression thermodynamic limits):**
+**Latest original-action increment (semantic lower algebra and positive functional):**
+`BF4ExactSlabThermodynamicBaseCompatibility.shiftedExpression_enlarge`
+proves the literal zero-lag base-change identity. `meanSequence_enlarge`
+is a tail of the original sequence; `meanLimit_enlarge` follows by limit
+uniqueness, without another analytic compatibility input.
+
+`BF4ExactSlabThermodynamicPresentation.SameObservable` retains a common
+threshold and ORIGINAL Haar-carrier equality under arbitrary polynomial
+insertions at every later common volume. This semantic relation does not
+mention the interacting mean. `atBase` computes common-base expressions;
+`SameObservable.rebase`, `.add`, `.mul`, `.smul` construct compatible
+operations, and `meanLimit_same` proves the actual limit compatibility.
+
+`BF4ExactSlabThermodynamicLowerFunctional.Observable` is the semantic
+quotient; `qadd`, `qmul`, `qsmul` and `value` descend to it. `value_unit`,
+`value_add`, `value_smul`, `value_square_nonnegative`, and `unit_ne_zero`
+give one normalized positive rational-linear functional with a nonzero
+unit. `valueRepresentative` returns the actual CReal/QCauchy/pin for each
+presented value; no quotient representative is selected.
+`BF4ExactSlabThermodynamicLowerAlgebra` proves associativity, commutativity,
+unit, distributivity, additive inverse and rational scalar laws for the
+same operations. Interacting moment multiplicativity is not claimed.
+
+Next: full-spacetime/reflected thermodynamic moments, then the required
+state/time/reflection properties for OS reconstruction. The constructed
+functional is only on the lower plaquette-generated algebra, at fixed
+w=1/1024 and fixed spacing. Physical transfer/vacuum/strict completed gap,
+continuum/QFT and all-group Clay remain open. No canonical atom/type/flag,
+analytic premise or hole changed.
+
+Verification: four new modules, 6+28+18+16=68 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-thermodynamic-base-compatibility.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-presentation.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-lower-functional.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-lower-algebra.log`.
+
+**Preceding original-action increment (finite-expression thermodynamic limits):**
 `Z4FiniteBoxConnectedAnimal.boxAnimal` constructs Type-valued shared-link
 paths in the full six-plane box. `BF4ExactSlabShiftedProbeCarrier.shiftedBoxProbe`
 translates the paths, using computed coordinate-subtraction preimages, and
@@ -43,7 +82,7 @@ and `meanLimit_error_le` certify the actual returned limit. `meanLimit_one`,
 normalization, linearity and ordinary-square positivity to mixed-expression
 limits. They do not assert factorization of interacting moments.
 
-Next: cross-presentation/base-box compatibility, then full physical-state
+Next at that checkpoint: cross-presentation/base-box compatibility, then full physical-state
 and time/reflection properties. Physical transfer/vacuum, strict completed
 gap, spacing control and continuum/QFT/all-group Clay remain open. No
 canonical atom/type/flag, analytic premise or hole changed.

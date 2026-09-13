@@ -13,7 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original mixed-expression thermodynamic limits; OPEN cross-presentation physical state (2026-09-13)
+## CLOSED semantic lower-algebra functional; OPEN full-spacetime/reflected thermodynamic state (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicBaseCompatibility.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPresentation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerFunctional.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerAlgebra.lean`.
+- **constructed base compatibility**: `shiftedExpression_enlarge` is a
+  literal polynomial identity. `meanSequence_enlarge` gives a tail of the
+  SAME original means and `meanLimit_enlarge` applies limit uniqueness.
+- **semantic comparison, not a new analytic assumption**: `SameObservable`
+  defines equality under arbitrary ORIGINAL Haar polynomial insertions at
+  all sufficiently large common volumes. Its threshold is Type-level data.
+  It does not mention meanLimit or equality of expectations. `atBase`
+  computes common-base presentations; `SameObservable.rebase`, `.add`,
+  `.mul`, and `.smul` construct comparisons. `meanLimit_same` proves the
+  original-limit consequence. Only the mere existence of these data enters
+  the quotient relation; no data are extracted from that proposition.
+- **constructed algebra and functional**: `Observable`, `qadd`, `qmul`,
+  `qsmul`, and `value` descend to the same semantic quotient. `value_unit`,
+  `value_add`, `value_smul`, `value_square_nonnegative`, and `unit_ne_zero`
+  prove normalization, rational linearity, ordinary-square positivity and
+  a nonzero unit. `valueRepresentative` returns CReal/QCauchy/quotient-pin
+  data for each presented value. `qadd_assoc`, `qmul_assoc`, `qmul_add`,
+  and the commutativity/unit/inverse/scalar laws certify the actual algebra.
+- **remaining obligation**: full-spacetime/reflected thermodynamic moments
+  and state/time/reflection properties for OS reconstruction. The result is
+  a functional on the lower plaquette-generated algebra at fixed w=1/1024
+  and fixed spacing; not the full spacetime state, an OS form, a stationary
+  vacuum, a physical transfer/strict completed gap or continuum/QFT/all-group
+  Clay construction. No interacting-moment factorization is asserted.
+  The preceding presentation-compatibility residue is closed at this semantic
+  lower-algebra scope. No canonical atom/type/flag, analytic premise or hole
+  changed.
+- **verification**: 6+28+18+16=68 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free, source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-thermodynamic-base-compatibility.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-presentation.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-lower-functional.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-lower-algebra.log`.
+
+## CLOSED original mixed-expression thermodynamic limits; OPEN cross-presentation physical state at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/Z4FiniteBoxConnectedAnimal.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCarrier.lean`,

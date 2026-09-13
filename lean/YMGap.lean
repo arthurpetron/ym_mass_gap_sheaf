@@ -4075,6 +4075,13 @@ import YMGap.Continuum.BF4ExactSlabShiftedProbeCarrier
 import YMGap.Continuum.BF4ExactSlabShiftedPlaquetteExpression
 import YMGap.Continuum.BF4ExactSlabExpressionExpectationDecay
 import YMGap.Continuum.BF4ExactSlabExpressionThermodynamicLimit
+-- Zero-lag base changes are tails of the SAME original mean sequence.
+-- Semantic lower-observable descent retains a positive linear functional;
+-- full spacetime/reflected correlations and physical OS transfer remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicBaseCompatibility
+import YMGap.Continuum.BF4ExactSlabThermodynamicPresentation
+import YMGap.Continuum.BF4ExactSlabThermodynamicLowerFunctional
+import YMGap.Continuum.BF4ExactSlabThermodynamicLowerAlgebra
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

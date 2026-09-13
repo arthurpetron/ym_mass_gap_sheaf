@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original mixed-expression thermodynamic limits (2026-09-13)
+## Current increment: semantic lower algebra and one positive functional (2026-09-13)
+
+The preceding turn was PROGRESS: `1138847` committed and pushed original
+mixed-expression thermodynamic limits. This turn is PROGRESS: base changes
+and semantic equality are consumed to construct one quotient-level positive
+functional on the lower plaquette algebra, with proved algebra laws.
+
+`BF4ExactSlabThermodynamicBaseCompatibility.shiftedExpression_enlarge`
+pins zero-lag enlargement literally; `meanSequence_enlarge` is a tail of
+the same expectation sequence, so `meanLimit_enlarge` proves compatibility.
+`BF4ExactSlabThermodynamicPresentation.SameObservable` carries an explicit
+threshold for equality under EVERY original-Haar polynomial insertion at
+all later common volumes. It is independent of the interacting state.
+`atBase`, `SameObservable.rebase`, `.add`, `.mul`, and `.smul` compute
+compatible presentations. `meanLimit_same` transfers that equality to the
+already-constructed limits through one common-volume sequence.
+
+`BF4ExactSlabThermodynamicLowerFunctional.Observable`, `qadd`, `qmul`,
+`qsmul`, and `value` descend to the semantic quotient. `value_unit`,
+`value_add`, `value_smul`, `value_square_nonnegative`, and `unit_ne_zero`
+give normalization, rational linearity, square positivity and a nonzero
+unit. `valueRepresentative` returns CReal/QCauchy/value-pin data for each
+presentation, without quotient representative selection.
+`BF4ExactSlabThermodynamicLowerAlgebra` proves the commutative rational
+algebra laws for these same operations.
+
+Next: full-spacetime/reflected thermodynamic moments and state/time/reflection
+properties for OS reconstruction. The lower plaquette-generated functional
+is not the full spacetime state, an OS form, a stationary vacuum, physical
+transfer/strict completed gap or continuum/QFT/all-group Clay result.
+Coupling w=1/1024 and spacing are fixed. No canonical atom/type/flag,
+new analytic premise, hole or claim that interacting moments factorize.
+
+Four new modules: 6+28+18+16=68 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-thermodynamic-base-compatibility.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-presentation.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-lower-functional.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-lower-algebra.log`.
+
+## Previous increment: original mixed-expression thermodynamic limits (2026-09-13)
 
 The preceding turn was PROGRESS: `18dfcf7` committed and pushed original
 single-character thermodynamic limits. This turn is PROGRESS: the same

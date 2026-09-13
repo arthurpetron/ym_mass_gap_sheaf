@@ -405,8 +405,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           thermodynamic limits  [PROVED]
                                   |           unit, linearity,
                                   |           square positivity     [PROVED]
-                                  |      + cross-presentation
-                                  |        compatibility            [NEXT OPEN]
+                                  |        + base-change tail pin
+                                  |        + original Haar-carrier
+                                  |          semantic equality      [PROVED]
+                                  |        -> ONE lower observable
+                                  |           quotient algebra      [PROVED]
+                                  |           positive functional,
+                                  |           unit distinct from 0  [PROVED]
+                                  |      + full-spacetime/reflected
+                                  |        thermodynamic moments    [NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -459,7 +466,43 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: constructed thermodynamic limits for finite plaquette expressions, including mixed products.**
+**Latest result: one presentation-independent positive thermodynamic functional on the lower plaquette algebra.**
+[`shiftedExpression_enlarge`, `meanLimit_enlarge`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBaseCompatibility.lean)
+prove the short compatibility argument: zero-lag enlargement of a base box
+gives literally a tail of the SAME original expectation sequence, so the
+constructed limits agree.
+
+[`SameObservable`, `meanLimit_same`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPresentation.lean)
+handle common-volume semantic equality. The comparison threshold is data;
+equality is under **every polynomial insertion on the original Haar carrier**
+at sufficiently large common volumes. It does not mention the interacting
+mean and is not defined as equality of means. Computed common-base addition,
+multiplication and scaling preserve this relation.
+
+[`Observable`, `value`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerFunctional.lean)
+descend to the semantic quotient. `value_unit`, `value_add`, `value_smul`,
+and `value_square_nonnegative` prove normalization, rational linearity and
+ordinary-square positivity. `unit_ne_zero` proves nontriviality.
+`valueRepresentative` returns a presented value's constructive real,
+QCauchy modulus and exact quotient pin, without choosing a representative
+from an arbitrary quotient class.
+[`qadd_assoc`, `qmul_assoc`, `qmul_add` and scalar laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerAlgebra.lean)
+prove the actual commutative rational algebra laws for these operations.
+
+**Next:** full-spacetime/reflected thermodynamic moments and the required
+state/time/reflection properties for OS reconstruction. The new functional
+is on the **lower plaquette-generated algebra**, at fixed `w=1/1024` and
+fixed spacing. It is not a full spacetime state, an OS form, a stationary
+vacuum, a physical transfer/gap, or continuum QFT. All-group Clay remains open.
+
+Four new modules: 6+28+18+16=68 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change; no full build/audit/guard/progress run.
+Root imports updated, not rebuilt.
+
+**Preceding result: constructed thermodynamic limits for finite plaquette expressions, including mixed products.**
 [`boxAnimal`](lean/YMGap/Continuum/Z4FiniteBoxConnectedAnimal.lean) constructs
 shared-link paths throughout the literal six-plane box.
 [`shiftedBoxProbe`](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCarrier.lean)
@@ -486,7 +529,7 @@ moduli are also returned. The actual geometric error bound survives.
 square positivity. No multiplicativity is claimed: mixed-product limits
 are interacting moments.
 
-**Next:** compatibility across presentations/base boxes of the same observable,
+**Next at that checkpoint:** compatibility across presentations/base boxes of the same observable,
 then the required state/time/reflection properties. These expression-level
 limits are not yet a full physical state, transfer/vacuum/gap, or continuum
 QFT. The result is fixed-coupling/fixed-spacing, not beta/spacing-uniform.
