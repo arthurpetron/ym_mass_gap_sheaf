@@ -4021,11 +4021,17 @@ import YMGap.Continuum.BF4ExactSlabRelativePartitionBound
 import YMGap.Continuum.BF4ExactSlabDetachedFaceRegion
 import YMGap.Continuum.BF4ExactSlabResummedCoefficientBound
 -- Canonical input-order roots group the ORIGINAL boundary numerator exactly.
--- Actual-fiber saturation by all detached spectator selections remains open.
+-- Actual-fiber saturation is supplied by the following merge/decode modules.
 import YMGap.Continuum.FiniteSelectionOrder
 import YMGap.Continuum.BF4ExactSlabRootedSelection
 import YMGap.Continuum.BF4ExactSlabRootedFamilyExpansion
 import YMGap.Continuum.BF4ExactSlabBoundaryRootedFamilies
+-- Constructive merge/decode saturates actual fixed-core fibers. Their full
+-- signed resummation reaches the existing bounded original boundary families.
+import YMGap.Continuum.FiniteSelectionMerge
+import YMGap.Continuum.BF4ExactSlabRootedSelectionStability
+import YMGap.Continuum.BF4ExactSlabRootedFamilyResummation
+import YMGap.Continuum.BF4ExactSlabBoundaryResummedFamilies
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

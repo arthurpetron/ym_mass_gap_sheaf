@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED canonical rooted-family grouping of ORIGINAL boundary D; OPEN fiber saturation (2026-09-13)
+## CLOSED ACTUAL fiber saturation and full boundary resummation; OPEN mixed normalization (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/FiniteSelectionMerge.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRootedSelectionStability.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRootedFamilyResummation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBoundaryResummedFamilies.lean`.
+- **constructed bijection**: `merge` returns ambient order;
+  `core_idempotent`, `core_merge`, `spectators_merge` and
+  `merge_family_recovers` prove fixed-core stability and both literal
+  inverses. `family_spectators_perm` identifies the duplicate-free image of
+  the actual fiber with ALL detached ambient selections.
+- **constructed original resummation**: `spectatorWeight_pin` returns the
+  SAME original detached partition square. Non-fixed keys have empty fibers,
+  and `rootedAnchors` filters them with a computed test.
+  `connectedNumerator_resummed_expansion` is the full exact identity.
+  `boundaryRootedFamily_pin` identifies the actual fiber with the EXISTING
+  `boundarySpectatorFamily`; `boundaryNumerator_resummed_expansion` exhausts
+  the full original D by these families, and `boundaryRootedFamily_cleared_bound`
+  transfers the previous removed-face estimate to that actual fiber.
+- **remaining obligation**: mixed-action spectator/partition control,
+  collar/path counts and normalized summability. The current root includes
+  selected exterior support; the bound still uses Z_INTERIOR^2, not the
+  mixed boundary denominator Z_large*Z_small. Exact identities have no
+  small-nome guard; the estimate keeps its previous guards. No volume-uniform
+  normalized decay, padding limits/moduli, persistence, physical transfer/
+  stationarity, strict gap or continuum/QFT/all-group Clay result is claimed.
+  No canonical atom/type/flag changed, analytic premise or hole added.
+- **verification**: 6+10+13+6=35 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. A library helper's classical dependency was
+  removed by direct list cases before downstream use. Monitored one-worker
+  20 GiB checks; no numerical oracle, raised limits or full build/audit/guard/
+  progress run. The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-finite-selection-merge.log`,
+  `/tmp/ym-bf4-exact-slab-rooted-selection-stability.log`,
+  `/tmp/ym-bf4-exact-slab-rooted-family-resummation.log`,
+  `/tmp/ym-bf4-exact-slab-boundary-resummed-families.log`.
+
+## CLOSED canonical rooted-family grouping of ORIGINAL boundary D; OPEN fiber saturation at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/FiniteSelectionOrder.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabRootedSelection.lean`,

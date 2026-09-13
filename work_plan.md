@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (canonical rooted families of ORIGINAL boundary D):**
+**Latest finite-slab increment (ACTUAL fiber saturation and full boundary resummation):**
+`FiniteSelectionMerge` computes ambient-order merging and proves selection
+uniqueness from support. `BF4ExactSlabRootedSelectionStability.core_idempotent`,
+`core_merge` and `spectators_merge` prove that detached additions preserve a
+fixed root core and that decoding recovers the spectator selection literally.
+
+`BF4ExactSlabRootedFamilyResummation.merge_family_recovers` proves the other
+inverse. `family_spectators_perm` identifies the duplicate-free fiber image
+with ALL detached selections. `spectatorWeight_pin` therefore returns the
+SAME original detached partition square. Non-fixed keys have empty fibers;
+`rootedAnchors` computes the valid keys, and `connectedNumerator_resummed_expansion`
+is the full original connected-numerator identity, not a family estimate.
+
+`BF4ExactSlabBoundaryResummedFamilies.boundaryRootedFamily_pin` identifies
+the actual computed fiber with the EXISTING `boundarySpectatorFamily`.
+`boundaryNumerator_resummed_expansion` exhausts the full existing boundary D
+by those families. `boundaryRootedFamily_cleared_bound` transfers the previous
+removed-face estimate to the actual fiber. All identities hold without nome
+smallness; the estimate retains its previous small-nome guards and Z_INTERIOR^2.
+
+Next: mixed-action spectator/partition control before volume-uniform counting.
+The current root joins the probe and selected exterior support, and the
+family estimate has Z_INTERIOR^2 rather than Z_large*Z_small. Investigate a
+probe-rooted mixed-action expansion keeping both original partition factors
+visible; no such new expansion is claimed here. Collar/path counts, normalized
+summability/decay, padding limits, persistence, physical transfer/stationarity,
+strict gap and continuum/QFT/all-group Clay remain open. No canonical atom/
+type/flag changed or analytic input added.
+
+Verification: four modules, 6+10+13+6=35 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. An initial library empty-list helper depended
+on classical choice; direct list cases replaced it before downstream use.
+Monitored one-worker 20 GiB checks; no new holes, oracle, raised limits or
+full build/audit/guard/progress run. The root import list was updated but not
+rebuilt. Logs: `/tmp/ym-finite-selection-merge.log`,
+`/tmp/ym-bf4-exact-slab-rooted-selection-stability.log`,
+`/tmp/ym-bf4-exact-slab-rooted-family-resummation.log`,
+`/tmp/ym-bf4-exact-slab-boundary-resummed-families.log`.
+
+**Preceding finite-slab increment (canonical rooted families of ORIGINAL boundary D):**
 `FiniteSelectionOrder` identifies computed selections with ordered sublists,
 proves their enumeration duplicate-free for duplicate-free input, and proves
 finite-difference permutation invariance. `BF4ExactSlabRootedSelection`

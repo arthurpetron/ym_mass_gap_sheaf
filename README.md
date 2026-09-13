@@ -315,9 +315,13 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        + coefficient permutation pin
                                   |        -> ORIGINAL D grouped by cores
                                   |           with no double counting[PROVED]
-                                  |      + actual fiber = ALL detached
-                                  |        spectator selections      [OPEN]
-                                  |        -> apply full Z^2 resummation
+                                  |      + fixed-core stability
+                                  |        + ambient-order merge/decode
+                                  |        -> actual fiber = ALL detached
+                                  |           spectator selections  [PROVED]
+                                  |        -> family = core coefficient * Z^2
+                                  |        -> FULL original D exhausted
+                                  |           by bounded families   [PROVED]
                                   |        + collar / path-length counting
                                   |        + boundary mixed normalization
                                   |        + normalized summability  [OPEN]
@@ -375,7 +379,35 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: canonical rooted families of the ORIGINAL boundary numerator.**
+**Latest result: the actual rooted families are fully resummed.**
+[`core_merge` and `spectators_merge`](lean/YMGap/Continuum/BF4ExactSlabRootedSelectionStability.lean)
+prove that adding any detached selection preserves a fixed core and that
+decoding recovers the added spectators in ambient order.
+[`family_spectators_perm` and `spectatorWeight_pin`](lean/YMGap/Continuum/BF4ExactSlabRootedFamilyResummation.lean)
+prove the full bijection: the ACTUAL signed spectator weight is precisely the
+original partition square on all detached ambient faces. Non-fixed keys
+have empty fibers and are removed by a computed test.
+
+[`boundaryNumerator_resummed_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundaryResummedFamilies.lean)
+now expresses the EXISTING full boundary D as a double sum of the previously
+bounded `boundarySpectatorFamily` objects. `boundaryRootedFamily_cleared_bound`
+transfers that estimate to the actual computed fiber. The exact identities
+require no small-nome restriction; the estimate retains its previous heat
+guards and the original INTERIOR partition square.
+
+**Next:** mixed-action spectator/partition control, collar/path counting and
+normalized summability. The current root includes the selected exterior
+support, and `Z_interior^2` is not the mixed boundary denominator
+`Z_large*Z_small`. Neither volume-uniform boundary decay nor a physical gap
+follows yet. The continuum/QFT/all-group Clay target remains open.
+
+Four modules, 6+10+13+6=35 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source and direct-import
+artifact freshness checked. Monitored one-worker 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: canonical rooted families of the ORIGINAL boundary numerator.**
 [`core_path`](lean/YMGap/Continuum/BF4ExactSlabRootedSelection.lean)
 returns explicit paths in the literal plaquette-link graph. The computed
 core keeps the input face order; its complement is proved equal to the
@@ -390,10 +422,8 @@ keys give an exact family grouping without double counting.
 [`boundaryNumerator_rooted_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundaryRootedFamilies.lean)
 pins the resulting double sum to the EXISTING original boundary D.
 
-**Next:** prove each actual family contains exactly all detached spectator
-selections, respecting ambient order. Until that bijection is checked, its
-filtered signed spectator weight is **not** replaced by the full detached
-partition square. Collar/path counting, mixed normalization, summability
+The ordered-family saturation residue of this checkpoint is now closed by
+the result above. Collar/path counting, mixed normalization, summability
 and the physical/continuum gap remain open.
 
 Four modules, 6+16+11+4=37 exactly matched focused axiom gates within
@@ -419,11 +449,11 @@ The loss counts removed faces, not spectator faces. The explicit small-nome
 guards remain, with `delta<=1`; `F>0` is checked for every finite collar at
 the existing `w=1/1024` pilot.
 
-**Scope of this estimate:** it applies to an anchored family. The canonical
-grouping above still needs its actual-fiber/full-detached-family pin. The boundary-insertion
+**Scope of this estimate:** it applies to an anchored family, now identified
+with the actual computed fiber by the result above. The boundary-insertion
 specialization uses the INTERIOR partition square, not the boundary
-comparison's mixed denominator `Z_large*Z_small`. Fiber saturation,
-collar/path counting, mixed normalization and summability
+comparison's mixed denominator `Z_large*Z_small`. Collar/path counting,
+mixed normalization and summability
 remain open, before distance decay, padding limits and the physical/Clay gap.
 Five modules, 4+8+6+7+6=31 exactly matched focused axiom gates within
 `{propext, Quot.sound}`; final error/warning free, with source and direct-import

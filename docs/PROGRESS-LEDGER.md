@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: canonical rooted families of ORIGINAL boundary D (2026-09-13)
+## Current increment: ACTUAL fiber saturation and full boundary resummation (2026-09-13)
+
+PROGRESS: the previous goal turn committed/pushed exact rooted-family
+grouping of the original boundary numerator (`305c389`). This turn closes
+its ordered fiber-saturation residue. `FiniteSelectionMerge` computes the
+ambient-order merge and proves support determines an ordered selection.
+`BF4ExactSlabRootedSelectionStability` proves core idempotence and stability
+under arbitrary detached additions, with literal spectator recovery.
+
+`BF4ExactSlabRootedFamilyResummation.merge_family_recovers` proves the
+other inverse. `family_spectators_perm` gives the full duplicate-free
+bijection, and `spectatorWeight_pin` identifies the actual fiber's signed
+spectator weight with the original partition square on ALL detached ambient faces. Non-fixed
+keys are proved empty and filtered computationally. The original connected
+numerator now has an exact fully resummed rooted expansion.
+
+`BF4ExactSlabBoundaryResummedFamilies.boundaryRootedFamily_pin` reaches
+the EXISTING bounded `boundarySpectatorFamily`. The full original D is
+exhausted by these families in `boundaryNumerator_resummed_expansion`;
+`boundaryRootedFamily_cleared_bound` transfers the existing removed-face
+estimate to the actual fiber. Exact identities need no small-nome guard;
+the transferred bound retains all prior guards and Z_INTERIOR^2.
+
+Next: mixed-action spectator/partition control before volume-uniform
+summability. The current common root includes selected exterior support,
+and Z_INTERIOR^2 is not the mixed denominator Z_large*Z_small. A probe-rooted
+mixed-action expansion is the next investigation, not a proved result.
+Collar/path counts, normalized decay, padding limits, persistence, physical
+transfer/stationarity, strict gap and continuum/QFT/all-group Clay remain
+open. No canonical atom/type/flag changed or analytic premise/hole added.
+
+Four modules, 6+10+13+6=35 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. A classically dependent empty-list convenience
+lemma was replaced by constructive list cases before downstream use.
+Monitored one-worker 20 GiB checks; no numerical oracle, raised limits or
+full build/audit/guard/progress run. The root import list was updated but not
+rebuilt. Logs: `/tmp/ym-finite-selection-merge.log`,
+`/tmp/ym-bf4-exact-slab-rooted-selection-stability.log`,
+`/tmp/ym-bf4-exact-slab-rooted-family-resummation.log`,
+`/tmp/ym-bf4-exact-slab-boundary-resummed-families.log`.
+
+## Previous increment: canonical rooted families of ORIGINAL boundary D (2026-09-13)
 
 PROGRESS: the preceding goal turn located reusable constructive graph/path
 machinery, changing the next implementation step. This turn instantiates it
