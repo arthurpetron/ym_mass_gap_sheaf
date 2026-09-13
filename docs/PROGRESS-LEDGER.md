@@ -4,7 +4,53 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ACTUAL fiber saturation and full boundary resummation (2026-09-13)
+## Current increment: probe-only mixed-action boundary expansion and matched partitions (2026-09-13)
+
+PROGRESS: the previous turn committed/pushed actual-family saturation
+(`3d3d680`), leaving an interior-square denominator and exterior support
+attached to the root. This turn pins the existing D to a mixed-action
+determinant in `BF4ExactSlabMixedAction.boundary_mixedNumerator`; its
+all-interior finite-difference coefficients cancel exactly.
+
+`BF4ExactSlabMixedSpectatorFactorization` proves literal-link factorization
+of the mixed determinant and coefficient. `BF4ExactSlabMixedRootedResummation`
+reuses the ordered-fiber bijection to resum BOTH interior and exterior
+spectators into Z_detached * Z_inside-detached. The root now has only the
+probe support. `BF4ExactSlabProbeRootedBoundaryExpansion.boundary_probe_rooted_expansion`
+gives a SINGLE original-D sum over computed active cores.
+`boundary_anchor_path` returns an actual exterior face and an explicit
+Type-valued path from the probe root to that face within the retained core.
+
+`BF4ExactSlabMixedRelativePartition.relative_mixed_floor` compares the two
+original actions with the product of their removed-face costs.
+`boundary_mixedFamily_cleared_bound` retains the NEW mixed coefficient and
+gives R*|actual family| <= |mixed coefficient|*F(1)*I(1), with the exact
+two original unit moments from the boundary determinant. R is
+(1-delta)^|collar| * (1-delta)^|inside collar|; it is strictly positive
+for every finite collar at the existing 1/1024 pilot.
+
+Next: prove the NEW mixed-coefficient small-factor bound (interior faces
+insert into both copies, exterior faces only the first), then collar/path
+counts and normalized summability. The earlier two-probe coefficient bound
+is not silently reused. The identities are exact without nome smallness;
+partition inequalities keep 0<=w<=1, heatRatio(w)<=1/2 and delta(w)<=1.
+No uniform boundary decay, padding limit, persistence, physical transfer/
+stationarity, strict gap or continuum/QFT/all-group Clay result. No
+canonical atom/type/flag changed or analytic premise/hole added.
+
+Five modules, 14+3+6+8+11=42 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. The core library's classical range helper was
+replaced by the repository's constructive range proof before downstream use.
+Monitored one-worker 20 GiB checks; no oracle, raised limits or full build/
+audit/guard/progress run. The root import list was updated but not rebuilt.
+Logs: `/tmp/ym-bf4-exact-slab-mixed-action.log`,
+`/tmp/ym-bf4-exact-slab-mixed-spectator-factorization.log`,
+`/tmp/ym-bf4-exact-slab-mixed-rooted-resummation.log`,
+`/tmp/ym-bf4-exact-slab-probe-rooted-boundary-expansion.log`,
+`/tmp/ym-bf4-exact-slab-mixed-relative-partition.log`.
+
+## Previous increment: ACTUAL fiber saturation and full boundary resummation (2026-09-13)
 
 PROGRESS: the previous goal turn committed/pushed exact rooted-family
 grouping of the original boundary numerator (`305c389`). This turn closes

@@ -297,7 +297,7 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           with no separating cut [PROVED]
                                   |      + SAME two-copy Haar moment form
                                   |        + exact three-term insertion
-                                  |        -> ACTUAL coefficient bound
+                                  |        -> two-probe coefficient bound
                                   |           2*c_p*c_q*kappa(w)^n,
                                   |           kappa=2*delta+delta^2 [PROVED]
                                   |        -> original boundary D has a
@@ -322,8 +322,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> family = core coefficient * Z^2
                                   |        -> FULL original D exhausted
                                   |           by bounded families   [PROVED]
+                                  |      + MIXED-ACTION probe-only root:
+                                  |        same D, two original actions
+                                  |        -> exterior spectators resummed
+                                  |           into Z_det * Z_inside-det
+                                  |        + all-interior cores cancel
+                                  |        -> SINGLE rooted sum for D
+                                  |           + explicit root-to-exterior
+                                  |             path for each retained core
+                                  |        + two removed-face comparisons
+                                  |        -> R*|actual family| <=
+                                  |           |NEW mixed coefficient| *
+                                  |           Z_full * Z_inside     [PROVED]
+                                  |      + NEW mixed-coefficient bound [OPEN]
                                   |        + collar / path-length counting
-                                  |        + boundary mixed normalization
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
@@ -379,7 +391,38 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the actual rooted families are fully resummed.**
+**Latest result: a probe-only mixed-action expansion with matching partition factors.**
+[`boundary_mixedNumerator`](lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean)
+identifies the EXISTING boundary determinant with a face functional whose
+first action uses every selected face and whose second uses only interior
+faces. Its all-interior coefficients vanish exactly.
+[`mixedFamily_resummed`](lean/YMGap/Continuum/BF4ExactSlabMixedRootedResummation.lean)
+resums interior AND exterior spectators into `Z_detached * Z_inside-detached`.
+The root now contains only the probe support, not selected exterior faces.
+
+[`boundary_probe_rooted_expansion` and `boundary_anchor_path`](lean/YMGap/Continuum/BF4ExactSlabProbeRootedBoundaryExpansion.lean)
+give a single exact sum for the original D and return an explicit path from
+the probe root to an actual exterior face for every retained core.
+[`boundary_mixedFamily_cleared_bound`](lean/YMGap/Continuum/BF4ExactSlabMixedRelativePartition.lean)
+proves `R*|actual family| <= |mixed coefficient|*F(1)*I(1)` using the two
+ORIGINAL unit moments in the boundary determinant, at the same cutoff.
+The removal cost R is `(1-delta)^|collar| * (1-delta)^|inside collar|`, strictly
+positive at the existing `w=1/1024` pilot for every finite collar.
+
+**Next:** bound the NEW mixed coefficient, then collar/path counts and
+normalized summability. The previous two-probe coefficient estimate is
+not silently applied to this different finite difference. Exact identities
+need no small-nome guard; the partition bound retains `0<=w<=1`,
+`heatRatio(w)<=1/2`, and `delta(w)<=1`. No uniform boundary decay, physical
+gap, continuum/QFT construction or all-group Clay closure follows yet.
+
+Five modules, 14+3+6+8+11=42 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source and direct-import
+artifact freshness checked. Monitored one-worker 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: the actual rooted families are fully resummed.**
 [`core_merge` and `spectators_merge`](lean/YMGap/Continuum/BF4ExactSlabRootedSelectionStability.lean)
 prove that adding any detached selection preserves a fixed core and that
 decoding recovers the added spectators in ambient order.
@@ -395,11 +438,11 @@ transfers that estimate to the actual computed fiber. The exact identities
 require no small-nome restriction; the estimate retains its previous heat
 guards and the original INTERIOR partition square.
 
-**Next:** mixed-action spectator/partition control, collar/path counting and
-normalized summability. The current root includes the selected exterior
+The preceding root includes the selected exterior
 support, and `Z_interior^2` is not the mixed boundary denominator
-`Z_large*Z_small`. Neither volume-uniform boundary decay nor a physical gap
-follows yet. The continuum/QFT/all-group Clay target remains open.
+`Z_large*Z_small`. The result above supplies a probe-only mixed-action
+expansion and matched partition comparison, with a new coefficient still
+to bound. Volume-uniform decay and the physical/continuum gap remain open.
 
 Four modules, 6+10+13+6=35 exactly matched focused axiom gates within
 `{propext, Quot.sound}`, final error/warning free; source and direct-import

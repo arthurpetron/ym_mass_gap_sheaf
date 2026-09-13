@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED ACTUAL fiber saturation and full boundary resummation; OPEN mixed normalization (2026-09-13)
+## CLOSED probe-only mixed-action expansion and matched partition comparison; OPEN new coefficient bound (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedSpectatorFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedRootedResummation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabProbeRootedBoundaryExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedRelativePartition.lean`.
+- **constructed original-object formulation**: `boundary_mixedNumerator`
+  pins D to N_all(p)Z_inside - N_inside(p)Z_all at the same carrier/cutoff.
+  `mixedCoefficient_inside_zero` cancels all-interior cores.
+  `mixedNumerator_factorizes` and `mixedCoefficient_factorizes` keep the
+  mixed spectator factor; `mixedFamily_resummed` sums all detached interior
+  AND exterior faces using the existing constructive fiber bijection.
+- **constructed observable path**: `activeAnchors` computes surviving
+  cores, and `boundary_probe_rooted_expansion` is a single exact sum for the
+  EXISTING D. `boundary_anchor_path` returns an actual exterior face and a
+  Type-valued path from the PROBE-ONLY root, staying in its retained core.
+- **constructed matched comparison**: `relative_mixed_floor` costs
+  (1-delta)^|removed| * (1-delta)^|inside removed|.
+  `boundary_mixedFamily_cleared_bound` proves R*|actual family| <=
+  |NEW mixed coefficient|*F(1)*I(1), using the two existing original unit
+  moments at the same cutoff. `existingNome_mixedRemovalFloor_pos` proves
+  strict positivity for every finite removal list at the existing 1/1024 pilot.
+- **remaining obligation**: small-factor bounds for this NEW mixed
+  coefficient, collar/path counts and normalized summability. The previous
+  two-probe coefficient estimate is not a bound on this different finite
+  difference. Exact identities need no small-nome guard; partition bounds
+  retain 0<=w<=1, heatRatio(w)<=1/2 and delta(w)<=1. No uniform boundary
+  decay, padding limit/modulus, persistence, physical transfer/stationarity,
+  strict gap or continuum/QFT/all-group Clay closure. No canonical atom/
+  type/flag changed, analytic premise or hole added.
+- **verification**: 14+3+6+8+11=42 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. A classically dependent range helper was
+  replaced by `CayleyParentInj.range_nodup` before downstream use. Monitored
+  one-worker 20 GiB checks; no oracle, raised limits or full build/audit/guard/
+  progress run. The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-mixed-action.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-spectator-factorization.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-rooted-resummation.log`,
+  `/tmp/ym-bf4-exact-slab-probe-rooted-boundary-expansion.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-relative-partition.log`.
+
+## CLOSED ACTUAL fiber saturation and full boundary resummation; OPEN mixed normalization at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/FiniteSelectionMerge.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabRootedSelectionStability.lean`,

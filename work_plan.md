@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ACTUAL fiber saturation and full boundary resummation):**
+**Latest finite-slab increment (probe-only mixed-action boundary expansion):**
+`BF4ExactSlabMixedAction.boundary_mixedNumerator` pins the EXISTING D to the
+determinant N_all(p) Z_inside - N_inside(p) Z_all, with the original cutoff,
+carrier and embedded-interior test. `mixedCoefficient_inside_zero` cancels
+all-interior cores. `BF4ExactSlabMixedSpectatorFactorization` proves the
+mixed numerator/coefficient factorization across literal disjoint links.
+
+`BF4ExactSlabMixedRootedResummation.mixedFamily_resummed` reuses the
+constructive ordered-fiber bijection to sum ALL detached faces, including
+exterior spectators, into Z_detached * Z_inside-detached. The root carries
+ONLY the probe links. `BF4ExactSlabProbeRootedBoundaryExpansion.activeAnchors`
+computes the surviving cores; `boundary_probe_rooted_expansion` gives a
+single exact sum for D. `boundary_anchor_path` returns an actual exterior
+face and a Type-valued path from the probe root, staying in the selected core.
+
+`BF4ExactSlabMixedRelativePartition.relative_mixed_floor` retains both
+original actions with cost (1-delta)^|removed| * (1-delta)^|inside removed|.
+`boundary_mixedFamily_cleared_bound` gives R*|actual family| <=
+|NEW mixed coefficient|*F(1)*I(1), using the two existing original unit
+moments at the SAME cutoff. `existingNome_mixedRemovalFloor_pos` proves
+R>0 for every finite collar at the existing 1/1024 pilot.
+
+Next: a small-factor bound for the NEW mixed coefficient, then collar/path
+counts and normalized summability. The previous two-probe coefficient
+bound is not a bound for this different finite difference. Its interior
+faces act in both copies and exterior faces only in the first; inspect the
+existing two-slot additive-form insertion algebra for the next estimate.
+Exact identities have no small-nome guard; partition bounds retain
+0<=w<=1, heatRatio(w)<=1/2 and delta(w)<=1. No uniform normalized decay,
+padding limit, persistence, physical transfer/stationarity, strict gap or
+continuum/QFT/all-group Clay result is claimed. No canonical atom/type/flag
+changed or analytic premise added.
+
+Verification: five modules, 14+3+6+8+11=42 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. The toolchain's classical range helper was
+replaced by the existing constructive `CayleyParentInj.range_nodup` before
+downstream use. Monitored one-worker 20 GiB checks; no new holes, oracle,
+raised limits or full build/audit/guard/progress run. The root import list
+was updated but not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-mixed-action.log`,
+`/tmp/ym-bf4-exact-slab-mixed-spectator-factorization.log`,
+`/tmp/ym-bf4-exact-slab-mixed-rooted-resummation.log`,
+`/tmp/ym-bf4-exact-slab-probe-rooted-boundary-expansion.log`,
+`/tmp/ym-bf4-exact-slab-mixed-relative-partition.log`.
+
+**Preceding finite-slab increment (ACTUAL fiber saturation and full boundary resummation):**
 `FiniteSelectionMerge` computes ambient-order merging and proves selection
 uniqueness from support. `BF4ExactSlabRootedSelectionStability.core_idempotent`,
 `core_merge` and `spectators_merge` prove that detached additions preserve a
