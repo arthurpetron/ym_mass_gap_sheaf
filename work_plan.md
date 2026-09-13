@@ -18,7 +18,54 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (coefficient-level original weighted-heat identification):**
+**Latest physical finite-slab increment (ORIGINAL action floor and non-null full unit):**
+`BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor` proves the
+existing original interacting action CReal is >= `c(w)^F>0`, for EVERY
+rational 0<w<1 and odd slab. `productLimit_approx_floor` gives the explicit
+all-later index `comparisonCutoff w extent ids epsilon`; the actual original
+CReal cofinal reindex preserves it. No auxiliary-law identity is used.
+
+`fullActionFloorCertificate` now constructs the EXISTING FiniteActionFloor
+with no positive-floor premise or field weakening. Its floor and epsilon
+are both `c(w)^F/4`, and its cutoff is the existing original action-tail
+cutoff at that budget. `completedHeatUnit_ne_zero` and
+`completedHeatUnit_norm_ne_zero` refer to the ACTUAL previously constructed
+completed heat unit and original slab completion, using the original
+norm/action pin. This closes the successful-certificate and non-nullness
+residue, not a surrogate boundary-code normalization claim.
+
+The limit estimate is explicit. `BF4ExactSlabJacobiWeightRemoval` computes
+`J = faceHeatCutoff(w,extent,id,epsilon/2)+1` and
+`delta = (epsilon/2)/(faceHeatBound(w,extent,id)+1)`.
+`weightRemovalCutoff = centeredCutoff(w*w,J,delta)` controls the literal
+deficit sum `(1-W)*faceHeatTerm` in coefficient L1. The initial band pays
+epsilon/2; the original coefficient tail pays epsilon/2. Both weighted and
+unweighted prefixes satisfy the same original face bound.
+`BF4ExactSlabJacobiProductComparison` rescales each tolerance by the existing
+product sensitivity plus one and takes a finite maximum of face cutoffs.
+Its actual shared-variable product remainder proves the two-sided Haar
+comparison and `c(w)^F <= originalAction_K + epsilon` at every later K.
+
+Next: normalization on the same completed carrier, compatible physical slab
+maps and observable realization, geometric time/transfer and stationarity.
+A non-null full unit does not supply those data. The strict physical
+vacuum-complement gap, volume/spacing control, continuum QFT and all-group
+Clay remain open. The new floor depends on w and F and is not a uniform
+spectral margin. No canonical frontier atom/type/flag changed; the three
+scorecards do not enumerate this finite-action certificate as an atom.
+
+Verification: four new modules, 6 + 17 + 7 + 11 = 41 focused axiom gates
+within `{propext, Quot.sound}`, current outputs, final error/warning free.
+Monitored one-worker 20 GiB checks; logs
+`/tmp/ym-polynomial-weighted-sum-bounds.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-weight-removal.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-product-comparison.log`,
+`/tmp/ym-bf4-exact-slab-original-action-strict-floor.log`.
+No new sorry, analytic premise, numerical oracle, raised proof limits or
+full build/audit/guard/progress run. Earlier dependency status notes were
+updated to point to this closure and checked separately.
+
+**Preceding analytic increment (coefficient-level original weighted-heat identification):**
 `QPolyRatPolySubstitutionAlgebra.polyEqv_of_ge_neg_one` uses the existing
 division-free root count on a computed positive rational grid. An identity
 on x>=-1 between finite polynomials consequently determines their actual

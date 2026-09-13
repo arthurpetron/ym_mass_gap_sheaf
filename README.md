@@ -112,12 +112,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |          to weighted heat terms [PROVED]
                                   |        -> same floor for WEIGHTED
                                   |           original face-product [PROVED]
-                                  |        + quantified Haar passage
-                                  |          to ORIGINAL heat action  [OPEN]
+                                  |        + finite-band weight loss
+                                  |          + original coefficient tail
+                                  |          + shared-link telescope[PROVED]
+                                  |        -> quantified Haar passage
+                                  |           to ORIGINAL heat action[PROVED]
                                   |      -> strict positive floor
-                                  |         for THAT action limit     [OPEN]
-                                  |      -> non-nullness / physical
-                                  |         vacuum identification    [OPEN]
+                                  |         for THAT action limit   [PROVED]
+                                  |      -> successful finite certificate
+                                  |         + non-null full heat unit[PROVED]
+                                  |      + normalization / physical
+                                  |        vacuum identification      [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
                                   +<-- physical observable/unit
                                   |    realization                    [OPEN]
@@ -160,7 +165,38 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the Jacobi approximants are the weighted ORIGINAL heat polynomials.**
+**Latest result: the ORIGINAL action limit is strictly positive, and its completed full heat unit is non-null.**
+[`BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor`](lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean#L61)
+proves `Z(w,slab) >= c(w)^F > 0` for every rational `0<w<1` and every odd
+slab, on the existing interacting Haar action limit. The bound and all
+approximation cutoffs are explicit. `fullActionFloorCertificate` constructs
+the existing finite certificate without a positive-floor premise; its
+finite margin is `c(w)^F/4`.
+
+[`completedHeatUnit_ne_zero`](lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean#L94)
+then proves the ACTUAL completed full heat unit is not the zero vector,
+using the previously proved norm/action identity on the same slab carrier.
+This is not the earlier norm-one boundary CODE or the auxiliary positive law.
+
+The last limit step is now proved: a computed finite label band controls
+the `(1-W)` coefficient deficit, the original character tail pays the
+remaining error, and a shared-link product telescope gives an explicit
+Haar comparison. No pointwise-to-Haar principle or link independence is used.
+Four new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+
+**Next: normalization and physical compatibility/transfer on these same objects.**
+Non-nullness is not normalization or vacuum stationarity. Compatible slabs,
+physical observable realization, geometric time transfer, a strict bound on
+its vacuum complement, volume/spacing control, continuum QFT and the
+all-group Clay target remain open. The floor depends on `w` and the finite
+face count `F`; it is not a uniform spectral-gap estimate.
+
+The dated milestones below preserve their historical verification scope.
+Their former action-floor/non-nullness residues are superseded by this result;
+the remaining physical and continuum obligations are not.
+
+**Preceding result: the Jacobi approximants are the weighted ORIGINAL heat polynomials.**
 [`BF4ExactSlabJacobiWeightedHeatPin.face_coeffEqv`](lean/YMGap/Continuum/BF4ExactSlabJacobiWeightedHeatPin.lean)
 proves coefficient equality with the existing original `faceHeatTerm`s,
 carrying the actual finite weights `W(w*w,N,r+1)`. `product_haar_insertion`
@@ -173,12 +209,10 @@ coefficient-preserving substitution. It does not assume that agreement of
 scalar evaluations implies equality of Haar integrals. The original label
 shift, heat coefficients, and inverse-nome/half normalization are retained.
 
-**Next: remove the finite weights with a quantified Haar-limit comparison.**
-The weights are not one at finite N. Their existing finite-band convergence
-and the original character coefficient-tail bounds still need to be combined
-on these literal weighted polynomials and their overlapping products.
-Original action-limit positivity, non-null full unit, physical
-vacuum/transfer/gap and continuum/Clay remain open. Three new modules:
+**Boundary of the coefficient-identification milestone.** The finite weights
+are not one. The required finite-band/tail/product comparison and original
+action-limit floor are now proved above. Physical vacuum/transfer/gap and
+continuum/Clay remain open. Three new modules in this preceding milestone:
 31 focused gates within `{propext, Quot.sound}`, no new holes, final
 error/warning free. No full-tree build or audit was run.
 
@@ -200,10 +234,10 @@ general pointwise-to-Haar order principle or independence is assumed.
 
 **Boundary of the preceding finite Haar result.** They are not the original
 unweighted heat cutoffs. The coefficient-level pin to weighted character
-polynomials is now proved above; quantified Haar-limit passage remains
-open. The original action-limit floor, non-null full unit, compatible
-physical slabs, stationary vacuum/transfer, strict physical gap and
-continuum/QFT/all-group target therefore remain open. Five new modules:
+polynomials and quantified Haar-limit passage are now proved above, as are
+the original action-limit floor and non-null full unit. Compatible physical
+slabs, stationary vacuum/transfer, strict physical gap and continuum/QFT/
+all-group target remain open. Five new modules in this preceding milestone:
 51 focused axiom gates within `{propext, Quot.sound}`, no new holes, final
 error/warning free. No full-tree build or audit was run.
 

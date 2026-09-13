@@ -6,9 +6,10 @@ their existing faceHeatTerm. Every finite face product, arbitrary Haar
 insertion, square certificate, and strict integrated floor transports to
 that weighted original polynomial without changing the shared link carrier.
 
-The finite weights are NOT removed here. A quantified original-Haar limit
-comparison is still required for the original unweighted action limit,
-completed-unit non-nullness, physical vacuum, and spectral gap.
+The finite weights are NOT removed here. STATUS UPDATE (2026-09-12):
+BF4ExactSlabOriginalActionStrictFloor now supplies the quantified original
+Haar comparison, positive unweighted action-limit floor and completed-unit
+non-nullness. Normalization, physical vacuum/transfer/gap remain open.
 -/
 
 import YMGap.Continuum.JacobiWeightedHeatPolynomial

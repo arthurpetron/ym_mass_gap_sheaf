@@ -8,8 +8,10 @@ polynomial with the ORIGINAL character polynomials and heat coefficients,
 weighted by the actual finite centered q-binomial/Euler weights.
 
 This is a coefficient-level identity valid under arbitrary Haar insertions,
-not an inference from pointwise Haar order. Removing the finite weights with
-a quantified polynomial/Haar tail estimate is the remaining limit step.
+not an inference from pointwise Haar order. STATUS UPDATE (2026-09-12):
+BF4ExactSlabOriginalActionStrictFloor now removes these weights with a
+quantified polynomial/Haar estimate, proves a positive original action-limit
+floor and the completed full unit non-null. Physical vacuum/gap remain open.
 -/
 
 import YMGap.Continuum.QPolyRatPolySubstitutionAlgebra

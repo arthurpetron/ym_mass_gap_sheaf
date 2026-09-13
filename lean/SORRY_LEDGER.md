@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original-action floor and completed full-unit non-nullness (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/PolynomialWeightedSumBounds.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabJacobiWeightRemoval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabJacobiProductComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean`.
+- **discharged**: the actual finite Jacobi weights are removed with a
+  COMPUTED coefficient-L1/Haar modulus, not a pointwise convergence premise.
+  `faceDeficit_small` splits the literal deficit into a finite-band half-budget
+  and an original-character-tail half-budget. `productDeficit_small` uses
+  the existing shared-link telescope and product sensitivity.
+  `fullActionLimit_ge_floor` proves the existing original action CReal is
+  >= c(w)^F>0 for all rational 0<w<1 and odd slabs.
+  `fullActionFloorCertificate` produces the UNCHANGED existing finite
+  certificate; the floor/epsilon are c(w)^F/4 and the cutoff is the original
+  action-tail function at that budget. `completedHeatUnit_ne_zero` and its
+  norm counterpart prove the ACTUAL completed full unit non-null through
+  the existing same-object norm/action identity. No surrogate unit, new
+  positivity hypothesis or auxiliary-law identity is used.
+- **superseded**: previous OPEN quantified Jacobi-weight/Haar passage,
+  positive original action-limit floor, universal successful finite-floor
+  family, and completed-full-unit non-nullness descriptions in this ledger.
+  The generic conditional consumers remain valid with unchanged types;
+  this new producer discharges their positive-floor input for this slab family.
+- **OPEN**: normalization, compatible physical slabs and observable
+  realization, geometric time transfer and stationary physical vacuum;
+  strict gap on that vacuum complement, volume/spacing control,
+  continuum/QFT and the all-group Clay target. The c(w)^F floor depends on
+  nome and face count; it is NOT a coupling-/volume-/spacing-uniform mass
+  gap. No canonical frontier atom/type/flag changed: the scorecards do not
+  enumerate this finite-action certificate as an atom.
+- **verification**: four new modules, 6 + 17 + 7 + 11 = 41 focused gates
+  within `{propext, Quot.sound}`, current outputs, final error/warning free;
+  monitored one-worker 20 GiB checks. Logs
+  `/tmp/ym-polynomial-weighted-sum-bounds.log`,
+  `/tmp/ym-bf4-exact-slab-jacobi-weight-removal.log`,
+  `/tmp/ym-bf4-exact-slab-jacobi-product-comparison.log`,
+  `/tmp/ym-bf4-exact-slab-original-action-strict-floor.log`.
+  No new sorry, named analytic input, oracle, raised proof limits or full
+  build/audit/guard run. Prior dependency status notes were refreshed and
+  their existing gates checked separately.
+
 ## CLOSED coefficient bridge: Jacobi approximants to weighted original heat (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/QPolyRatPolySubstitutionAlgebra.lean`,

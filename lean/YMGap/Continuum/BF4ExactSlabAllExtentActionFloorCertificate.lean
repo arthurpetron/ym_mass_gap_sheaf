@@ -1,6 +1,12 @@
 /-
 # Finite exact certificates for a positive ORIGINAL action-integral limit
 
+STATUS UPDATE (2026-09-12): the downstream
+BF4ExactSlabOriginalActionStrictFloor.fullActionFloorCertificate now produces
+this UNCHANGED certificate for every rational 0<w<1 and odd slab. The
+historical open-producer discussion below is superseded for that family;
+this module's generic finite criterion and conditional converse are unchanged.
+
 The original product-tail modulus makes a finite rational test sufficient:
 choose epsilon > 0, b > 0 and K beyond that modulus, then check
                          b + epsilon <= fullActionValue w K half.

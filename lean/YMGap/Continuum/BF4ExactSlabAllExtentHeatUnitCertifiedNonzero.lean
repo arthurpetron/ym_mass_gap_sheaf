@@ -1,6 +1,11 @@
 /-
 # A finite original-action floor certifies the ACTUAL completed full unit
 
+STATUS UPDATE (2026-09-12): BF4ExactSlabOriginalActionStrictFloor now
+constructs the required finite certificate for every rational 0<w<1 and
+odd slab, and applies this unchanged implication to prove the actual full
+unit non-null. Normalization and physical stationarity/gap remain open.
+
 The imported certificate consists only of finite exact inequalities and an
 explicit original product-tail threshold. Its positive rational floor excludes
 zero for the original action-integral limit. The proved norm/action identity

@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Jacobi coefficients pinned to original weighted heat terms (2026-09-12)
+## Current increment: ORIGINAL action-limit strict floor and non-null completed unit (2026-09-12)
+
+PROGRESS: `BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor`
+proves `Z>=c(w)^F>0` for the existing original action CReal at every
+rational 0<w<1 and odd slab. Its approximation bound carries the computed
+product-comparison index. `fullActionFloorCertificate` constructs the
+unchanged finite criterion, with floor and epsilon c(w)^F/4.
+`completedHeatUnit_ne_zero` proves the ACTUAL full heat unit non-null in
+the original slab completion, through the original norm/action equality.
+This supersedes prior OPEN action-floor and successful-certificate residues.
+
+The causal closure is substantive: the literal `(1-W)` face deficit has a
+computed coefficient-L1 modulus (finite band plus original character tail).
+Both families obey the original face bound; the shared-link telescope then
+gives an explicit two-sided Haar comparison to the unweighted original
+action. Passing that bound through its existing cofinal CReal construction
+retains c(w)^F, without a positivity or Haar-limit premise.
+
+Next: normalization, physical slab compatibility/observable realization,
+geometric transfer and stationary vacuum on the SAME objects. Strict
+physical gap, volume/spacing/QFT/all-group Clay remain open. The floor
+depends on w and face count F; it is not a uniform spectral margin. No
+canonical frontier atom/type/flag changed and no refuted law is used.
+
+Four new modules: 6 + 17 + 7 + 11 = 41 focused gates within
+`{propext, Quot.sound}`, current outputs, final error/warning free.
+Monitored one-worker 20 GiB checks. A missing local bound type annotation
+was corrected before the final clean check. No new sorry, analytic premise,
+oracle, raised proof limits or full build/audit/guard/progress run. Logs
+`/tmp/ym-polynomial-weighted-sum-bounds.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-weight-removal.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-product-comparison.log`,
+`/tmp/ym-bf4-exact-slab-original-action-strict-floor.log`.
+Historical dependency status notes were refreshed and checked separately.
+
+## Previous increment: Jacobi coefficients pinned to original weighted heat terms (2026-09-12)
 
 PROGRESS: `JacobiWeightedHeatPolynomial.shiftedHeat_subst_coeffEqv_weightedPolynomial`
 proves the stronger coefficient identity after arbitrary multivariate

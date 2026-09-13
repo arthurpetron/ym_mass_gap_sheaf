@@ -4,6 +4,42 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: original interacting action-limit positivity is proved
+
+The finite Jacobi route now reaches the ORIGINAL interacting action CReal:
+
+    fullActionLimit(w, odd slab) >= c(w)^F > 0,  0<w<1.
+
+`BF4ExactSlabJacobiWeightRemoval.faceDeficit_small` removes the actual
+finite weights using an explicit band J and deficit budget delta:
+
+    J = faceHeatCutoff(w,extent,id,epsilon/2)+1,
+    delta = (epsilon/2)/(faceHeatBound(w,extent,id)+1),
+    weightRemovalCutoff = centeredCutoff(w*w,J,delta).
+
+The first J literal `(1-W)*faceHeatTerm`s cost at most epsilon/2.
+The remaining terms cost at most the original coefficient tail, epsilon/2.
+No L1 cancellation of a syntactic difference is assumed.
+`BF4ExactSlabJacobiProductComparison` rescales tolerance by the original
+product sensitivity, takes a finite maximum of face cutoffs and telescopes
+the actual overlapping factors. The resulting coefficient/Haar remainder
+gives `c(w)^F <= originalAction_K + epsilon` at every later K.
+
+`BF4ExactSlabOriginalActionStrictFloor.productLimit_approx_floor` passes
+that bound through the EXISTING original CReal cofinal reindex with a
+computed approximation threshold. `fullActionFloorCertificate` constructs
+the unchanged finite-action criterion; the actual completed heat unit is
+proved non-null by `completedHeatUnit_ne_zero` and the original norm/action
+pin. This closes the original-action positivity and non-nullness residues
+below, not just scalar heat positivity.
+
+Normalization, compatible slabs, physical stationary vacuum/transfer,
+strict physical spectral gap, volume/spacing control and continuum/all-group
+Clay remain open. The positive floor depends on w and finite face count F;
+no uniform mass-gap bound is asserted. Four new modules, 41 focused gates
+within `{propext, Quot.sound}`, no new holes, final error/warning free.
+No full-tree build/audit/guard run.
+
 ## 2026-09-12: finite Jacobi approximants identified at coefficient level
 
 `JacobiWeightedHeatPolynomial.shiftedHeat_coefficients` proves the exact

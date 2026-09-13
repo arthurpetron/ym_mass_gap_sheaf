@@ -9,9 +9,10 @@ normalized quaternion Haar integral, uniformly in N>=1 at fixed w and F.
 
 STATUS UPDATE (2026-09-12): BF4ExactSlabJacobiWeightedHeatPin now identifies
 these approximants coefficientwise with WEIGHTED original heat polynomials.
-They are NOT original unweighted heat cutoffs. Quantified convergence to
-the original interacting action remains open. No action-limit floor,
-physical vacuum, spectral gap, or volume/spacing-uniform bound is claimed.
+They are NOT original unweighted heat cutoffs.
+BF4ExactSlabOriginalActionStrictFloor now supplies the quantified original
+Haar passage, positive action-limit floor and non-null completed full unit.
+Physical vacuum/transfer/gap and volume/spacing/continuum control remain open.
 -/
 
 import YMGap.Continuum.JacobiShiftedPositiveCoefficients
