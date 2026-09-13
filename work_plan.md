@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest physical finite-slab increment (ORIGINAL action floor and non-null full unit):**
+**Latest finite-slab increment (SAME completed pairing normalized by ORIGINAL action):**
+`BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one` proves
+the actual full heat unit has squared norm one in `normalizedInner = B/Z`,
+on the unchanged completed carrier, for every rational 0<w<1 and odd slab.
+`normalizedInner_recover` recovers B exactly by multiplication by the same Z;
+`normalizedInner_zero_iff` retains all zero pairings. Positivity, symmetry,
+additivity and Cauchy–Schwarz are proved for that form.
+
+The reciprocal is constructed, not assumed. `PositiveRationalCauchyReciprocal`
+uses the existing rational reciprocal step estimate with explicit sensitivity
+R^2=(1/b)^2 and reciprocal-stream modulus M(epsilon/R^2).
+`BF4ExactSlabOriginalActionReciprocal` takes b=c(w)^F/4 from the proved finite
+certificate, shifts the original action approximants past its computed index,
+and proves their limit is the ORIGINAL action. `action_mul_reciprocal` is the
+exact cancellation. A computed original-action coefficient ceiling B+1 gives
+the positive reciprocal floor 1/(B+1), while 1/b is its upper bound R.
+
+`normalizedInner_norm_lower` and `normalizedInner_norm_upper` compare the
+completed norms with those SAME constants. `normalizedModulus X epsilon`
+is X.modulus(epsilon/R); `normalizedRepresentative_cauchy` and
+`normalizedDense_approximation` verify it on original representatives and
+their actual completed classes. No square root or replacement unit is used.
+
+Next: physical observable realization and compatible slab maps, geometric
+time transfer and stationarity on these same objects. The raw completion
+remains the existing construction; the normalized pairing and quantitative
+comparison are not a physical reconstruction package. Strict physical gap,
+volume/spacing limits, QFT and all-group Clay remain open. No canonical
+frontier atom/type/flag changed; no scorecard lists scalar slab normalization
+as a separate atom.
+
+Verification: three new modules, 16 + 19 + 15 = 50 focused axiom gates
+within {propext, Quot.sound}, final error/warning free, current outputs.
+One-worker monitored 20 GiB checks. Namespace/argument/notation fixes and a
+generic dense-approximation factorization resolved intermediate elaboration
+failures without raised proof limits. No new sorry, analytic premise,
+numerical oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-positive-rational-cauchy-reciprocal.log`,
+`/tmp/ym-bf4-exact-slab-original-action-reciprocal.log`,
+`/tmp/ym-bf4-exact-slab-normalized-completed-pairing.log`.
+
+**Preceding physical finite-slab increment (ORIGINAL action floor and non-null full unit):**
 `BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor` proves the
 existing original interacting action CReal is >= `c(w)^F>0`, for EVERY
 rational 0<w<1 and odd slab. `productLimit_approx_floor` gives the explicit
@@ -46,9 +87,9 @@ product sensitivity plus one and takes a finite maximum of face cutoffs.
 Its actual shared-variable product remainder proves the two-sided Haar
 comparison and `c(w)^F <= originalAction_K + epsilon` at every later K.
 
-Next: normalization on the same completed carrier, compatible physical slab
-maps and observable realization, geometric time/transfer and stationarity.
-A non-null full unit does not supply those data. The strict physical
+The scalar-normalization residue of this preceding milestone is now closed
+above. Compatible physical slab maps and observable realization, geometric
+time/transfer and stationarity remain open. The strict physical
 vacuum-complement gap, volume/spacing control, continuum QFT and all-group
 Clay remain open. The new floor depends on w and F and is not a uniform
 spectral margin. No canonical frontier atom/type/flag changed; the three

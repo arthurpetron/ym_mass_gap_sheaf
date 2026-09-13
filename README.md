@@ -121,8 +121,13 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         for THAT action limit   [PROVED]
                                   |      -> successful finite certificate
                                   |         + non-null full heat unit[PROVED]
-                                  |      + normalization / physical
-                                  |        vacuum identification      [OPEN]
+                                  |      -> explicit reciprocal of Z
+                                  |         with positive bounds    [PROVED]
+                                  |      -> SAME completed pairing / Z
+                                  |         + full unit norm one
+                                  |         + norm/rate comparison  [PROVED]
+                                  |      + physical vacuum
+                                  |        identification             [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
                                   +<-- physical observable/unit
                                   |    realization                    [OPEN]
@@ -146,7 +151,7 @@ WHOLE-PROJECT GOAL / CLAY TARGET
 
 Scope: arbitrary signed boundary coefficients; original overlapping links.
 Finite-slab positivity is not a strict gap, compatibility or continuum limit.
-The all-extent norm-one CODE is not identified with a stationary physical vacuum.
+The normalized FULL heat unit is not yet a stationary physical vacuum.
 ```
 
 `INPUT` marks an explicit hypothesis, not a discharged prerequisite.
@@ -165,7 +170,33 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL action limit is strictly positive, and its completed full heat unit is non-null.**
+**Latest result: the original completed slab pairing is normalized, with its FULL heat unit of norm one.**
+[`BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one`](lean/YMGap/Continuum/BF4ExactSlabNormalizedCompletedPairing.lean#L86)
+proves this on the unchanged completed carrier, for every rational `0<w<1`
+and every odd slab. The normalized form is exactly `B(x,y)/Z`, where `Z`
+is the ORIGINAL interacting action limit. No square root, substitute vector,
+or auxiliary positive law is used.
+
+[`action_mul_reciprocal`](lean/YMGap/Continuum/BF4ExactSlabOriginalActionReciprocal.lean#L125)
+constructs and cancels the reciprocal of that same `Z`. Its rational samples,
+positive lower/upper bounds and modulus are explicit. The completed pairing
+retains positivity, symmetry, additivity, Cauchy–Schwarz and exactly the same
+zero pairings; multiplying by `Z` recovers the original form.
+[`normalizedDense_approximation`](lean/YMGap/Continuum/BF4ExactSlabNormalizedCompletedPairing.lean#L166)
+supplies a computed rescaling of the original dense-approximation modulus.
+
+Three new modules: 50 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+The normalization constants depend on the nome and finite slab.
+
+**Next: physical observable realization, compatible slabs and geometric transfer.**
+Norm one does not establish a stationary physical vacuum. These physical
+identifications, the strict gap on its complement, volume/spacing control,
+continuum QFT and the all-group Clay target remain open. The existing raw
+completion is unchanged; this milestone proves the normalized pairing and
+its quantitative comparison, not a new physical reconstruction package.
+
+**Preceding result: the ORIGINAL action limit is strictly positive, and its completed full heat unit is non-null.**
 [`BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor`](lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean#L61)
 proves `Z(w,slab) >= c(w)^F > 0` for every rational `0<w<1` and every odd
 slab, on the existing interacting Haar action limit. The bound and all
@@ -185,15 +216,15 @@ Haar comparison. No pointwise-to-Haar principle or link independence is used.
 Four new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
 
-**Next: normalization and physical compatibility/transfer on these same objects.**
-Non-nullness is not normalization or vacuum stationarity. Compatible slabs,
+**Boundary of the action-floor milestone.** Normalization of the completed
+pairing is now proved above; physical vacuum stationarity is not. Compatible slabs,
 physical observable realization, geometric time transfer, a strict bound on
 its vacuum complement, volume/spacing control, continuum QFT and the
 all-group Clay target remain open. The floor depends on `w` and the finite
 face count `F`; it is not a uniform spectral-gap estimate.
 
 The dated milestones below preserve their historical verification scope.
-Their former action-floor/non-nullness residues are superseded by this result;
+Their former action-floor/non-nullness and scalar-normalization residues are superseded above;
 the remaining physical and continuum obligations are not.
 
 **Preceding result: the Jacobi approximants are the weighted ORIGINAL heat polynomials.**

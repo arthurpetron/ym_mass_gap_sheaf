@@ -3933,6 +3933,9 @@ import YMGap.Continuum.PolynomialWeightedSumBounds
 import YMGap.Continuum.BF4ExactSlabJacobiWeightRemoval
 import YMGap.Continuum.BF4ExactSlabJacobiProductComparison
 import YMGap.Continuum.BF4ExactSlabOriginalActionStrictFloor
+import YMGap.Continuum.PositiveRationalCauchyReciprocal
+import YMGap.Continuum.BF4ExactSlabOriginalActionReciprocal
+import YMGap.Continuum.BF4ExactSlabNormalizedCompletedPairing
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
 import YMGap.Continuum.BF4ExactSlabAllExtentHeatProductTail

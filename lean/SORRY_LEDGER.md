@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED scalar normalization of the ORIGINAL completed slab pairing (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/PositiveRationalCauchyReciprocal.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalActionReciprocal.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabNormalizedCompletedPairing.lean`.
+- **discharged**: `action_mul_reciprocal` constructs the reciprocal of the
+  ORIGINAL action limit from its proved finite certificate, with explicit
+  positive upper/lower bounds and modulus. `completedHeatUnit_norm_one`
+  proves the actual full heat unit has squared norm one in B/Z, on the SAME
+  completed carrier. `normalizedInner_recover` and `normalizedInner_zero_iff`
+  prove exact recovery and unchanged zero pairings. Positivity, symmetry,
+  additivity, Cauchy–Schwarz, two-sided norm comparison and the explicit
+  `normalizedDense_approximation` rate are also proved.
+- **superseded**: OPEN scalar-normalization descriptions for this fixed-nome,
+  finite-slab completed pairing. No stationary-vacuum or physical-carrier
+  identification is thereby discharged. The existing raw completion has not
+  been replaced or relabeled as the physical reconstructed Hilbert space.
+- **OPEN**: physical observable realization, compatible slabs, geometric
+  time transfer, stationary physical vacuum, strict physical gap,
+  volume/spacing limits, continuum QFT and all-group Clay. Constants depend
+  on w and the finite slab. No canonical frontier atom/type/flag changed;
+  the scorecards do not enumerate scalar slab normalization as an atom.
+- **verification**: 16 + 19 + 15 = 50 focused axiom gates within
+  {propext, Quot.sound}, final error/warning free, current outputs. Monitored
+  one-worker 20 GiB checks; logs `/tmp/ym-positive-rational-cauchy-reciprocal.log`,
+  `/tmp/ym-bf4-exact-slab-original-action-reciprocal.log`,
+  `/tmp/ym-bf4-exact-slab-normalized-completed-pairing.log`.
+  No new sorry, named analytic premise, oracle, raised proof limits or full
+  build/audit/guard run. Intermediate elaboration failures were corrected.
+
 ## CLOSED original-action floor and completed full-unit non-nullness (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/PolynomialWeightedSumBounds.lean`,

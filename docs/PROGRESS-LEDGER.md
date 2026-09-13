@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL action-limit strict floor and non-null completed unit (2026-09-12)
+## Current increment: SAME completed pairing normalized by ORIGINAL action (2026-09-12)
+
+PROGRESS: `BF4ExactSlabNormalizedCompletedPairing.completedHeatUnit_norm_one`
+normalizes the ACTUAL full heat unit in the pairing B/Z on the unchanged
+completed slab carrier. `BF4ExactSlabOriginalActionReciprocal.action_mul_reciprocal`
+constructs and cancels the reciprocal of the ORIGINAL action CReal, from its
+proved positive tail and explicit regularity. There is no new positivity
+premise, square root, surrogate vector or auxiliary-law identity.
+
+All reciprocal constants and moduli are data. The completed normalized form
+retains positivity, symmetry, additivity, Cauchy–Schwarz and all zero
+pairings. Multiplication by the SAME action recovers the raw form. Positive
+lower/upper norm comparisons and a dense-approximation modulus are proved.
+This is scalar normalization, not physical observable realization, slab
+compatibility, geometric transfer or vacuum stationarity. Those, the strict
+physical gap, volume/spacing limits and continuum/QFT/all-group Clay remain
+open. No canonical frontier atom/type/flag changed.
+
+Three new modules, 16 + 19 + 15 = 50 focused gates within
+{propext, Quot.sound}; final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks. Intermediate elaboration issues were fixed, not
+accepted; no raised proof limits, new holes, analytic inputs or numerical
+oracles. No full build/audit/guard/progress run. Logs:
+`/tmp/ym-positive-rational-cauchy-reciprocal.log`,
+`/tmp/ym-bf4-exact-slab-original-action-reciprocal.log`,
+`/tmp/ym-bf4-exact-slab-normalized-completed-pairing.log`.
+
+## Previous increment: ORIGINAL action-limit strict floor and non-null completed unit (2026-09-12)
 
 PROGRESS: `BF4ExactSlabOriginalActionStrictFloor.fullActionLimit_ge_floor`
 proves `Z>=c(w)^F>0` for the existing original action CReal at every
