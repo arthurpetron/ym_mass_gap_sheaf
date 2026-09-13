@@ -444,8 +444,19 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |          zero-closeness witness [PROVED]
                                   |        -> zero norm iff zero
                                   |           completed state       [PROVED]
-                                  |      + completed linear laws
-                                  |        and bilinearity          [NEXT OPEN]
+                                  |        + semantic addition/scaling
+                                  |          + continuity moduli    [PROVED]
+                                  |        -> completed rational laws
+                                  |           and bilinearity       [PROVED]
+                                  |        -> SAME squared distance,
+                                  |           certified approximants[PROVED]
+                                  |        + supplied Cauchy rows
+                                  |          and outer modulus       [INPUT]
+                                  |        -> diagonal limit + rate,
+                                  |           row independence and
+                                  |           same-class recovery   [PROVED]
+                                  |      + modulus-bearing real scalars
+                                  |        and unit centering       [NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -498,7 +509,42 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the SAME original thermodynamic pairing extends to Cauchy classes and is positive definite.**
+**Latest result: the thermodynamic completion has compatible rational linear geometry and explicit represented-row limits.**
+[`addition`, `scalarContinuous`, `completedAdd`, `completedSmul`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletionLinear.lean)
+construct the operations with explicit continuity moduli, prove their
+rational linear laws, and identify them with the existing observable and
+OS quotient operations. [Completed bilinearity](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedBilinear.lean)
+follows from the SAME original pairing limits.
+
+[`completedDist`, `completedDist_zero_iff`, `completedDist_embedObservable`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGeometry.lean)
+give the actual original squared-distance geometry, including its triangle
+law and real-representative modulus.
+[`approximationData`, `approximant_bound`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedApproximation.lean)
+return nearby original presentations and their certified distance errors.
+
+[`CauchyRows`, `rowLimit`, `rowLimit_bound`, `rowLimit_independent`, `rowLimit_presentationRows`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCauchyRows.lean)
+construct a unique limit for a family with **supplied row representatives
+and outer Cauchy modulus**. Its convergence rate is `M(epsilon/16)`;
+the diagonal Cauchy rate is `max(M(epsilon/16),(epsilon/16).den)`.
+Changing supplied representatives does not change the limit, and rows of
+original presentations recover the existing completion class.
+
+**Next:** modulus-bearing real-scalar action and unit-orthogonal
+projection/covariance realization. Full quotient-level completeness
+remains open: the row construction does not select representatives for
+arbitrary quotient-valued sequences. Physical time, stationary vacuum,
+nonzero excitations, strict gap, full gauge observables,
+spacing/continuum/QFT and all-group Clay also remain open. Coupling
+`w=1/1024` and lattice spacing are still fixed.
+
+Five new modules: 32+8+20+7+16=83 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change; no full build/audit/guard/progress
+run. Root imports updated, not rebuilt.
+
+**Preceding result: the SAME original thermodynamic pairing extends to Cauchy classes and is positive definite.**
 [`pairing_close`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingContinuity.lean)
 combines sharp Cauchy--Schwarz with the bilinear difference identity.
 The explicit tolerance is `epsilon^2/(8*(B+1))`, requiring no square root.

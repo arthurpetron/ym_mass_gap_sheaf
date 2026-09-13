@@ -13,7 +13,56 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original thermodynamic completed pairing and positive definiteness; OPEN completed linear structure, completeness and physical time (2026-09-13)
+## CLOSED thermodynamic completed rational geometry and represented-row limits; OPEN real-scalar action, full completeness and physical time (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletionLinear.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedBilinear.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedApproximation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCauchyRows.lean`.
+- **constructed rational operations**: `subtract_add`, `subtract_smul`,
+  `distSq_add` and `distSq_smul` use the original semantic algebra and form.
+  `addition` and `scalarContinuous` retain the continuity tolerances;
+  `completedAdd` and `completedSmul` obey the proved rational linear laws
+  and agree with both the observable and OS quotient embeddings.
+  `representativeInner_add_left` and `representativeInner_smul_left`
+  pass original form laws through actual limits; completed bilinearity,
+  including both zero rows, follows.
+- **constructed distance and approximation**: `representativeDist`,
+  `representativeDistCauchy` and `representativeDist_converges` retain the
+  original distance limit and its real modulus. `completedDist_zero_iff`,
+  `completedDist_triangle` and `completedDist_embedObservable` give
+  separation, the square-root-free triangle law and the original semantic
+  pin. `approximationData` returns the nearby presentation and certified
+  error from supplied Cauchy data; `approximant_bound` controls the
+  canonical invSucc-scale approximant.
+- **represented-row limit with explicit scope**: `CauchyRows` carries the
+  actual representatives and outer modulus M. `diagonalCauchy` computes
+  max(M(epsilon/16),(epsilon/16).den). `rowLimit` has convergence rate
+  `rowLimitRate = M(epsilon/16)`, specified by `rowLimit_bound`.
+  `rowLimit_independent` proves independence of supplied representatives;
+  `rowLimit_presentationRows` recovers the SAME existing class.
+- **remaining obligation**: modulus-bearing real-scalar action, original
+  unit-orthogonal projection/covariance realization, and full quotient-level
+  completeness. Represented-row convergence does NOT choose representatives
+  for arbitrary quotient-valued Cauchy sequences. Physical time, stationary
+  vacuum, nonzero excitations, strict gap, full gauge observables and
+  spacing/continuum/QFT/all-group Clay remain open. Fixed w=1/1024 and
+  spacing remain; no canonical atom/type/flag, analytic premise or hole
+  changed. This closes the preceding rational-linear residue, not full
+  Hilbert completeness or a canonical continuum atom.
+- **verification**: 32+8+20+7+16=83 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no
+  raised limit, oracle or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completion-linear.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-bilinear.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-geometry.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-completed-approximation.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-cauchy-rows.log`.
+
+## CLOSED original thermodynamic completed pairing and positive definiteness; OPEN completed linear structure, completeness and physical time at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingContinuity.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPairingLimit.lean`,

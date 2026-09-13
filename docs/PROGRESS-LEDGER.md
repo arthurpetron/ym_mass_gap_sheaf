@@ -4,7 +4,59 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original thermodynamic completed pairing and positive definiteness (2026-09-13)
+## Current increment: thermodynamic completed linear geometry and represented-row limits (2026-09-13)
+
+The preceding turn was PROGRESS: `690a54e` committed and pushed the original
+completed pairing and positive definiteness. This turn is PROGRESS:
+compatible rational linear operations, distance geometry, certified dense
+approximants and represented-row limits now use that SAME carrier.
+
+`BF4ExactSlabThermodynamicCompletionLinear.subtract_add` and
+`subtract_smul` use the existing semantic observable algebra.
+`distSq_add` and `distSq_smul` prove the SAME squared-distance bounds.
+`addition` and `scalarContinuous` retain explicit tolerances and
+construct `completedAdd`, `completedSmul` and their rational linear laws.
+The operations agree with both `embedObservable` and `embedOSQuotient`.
+`BF4ExactSlabThermodynamicCompletedBilinear` passes the original form
+laws through the actual pairing limits, proving completed bilinearity.
+
+`BF4ExactSlabThermodynamicCompletedGeometry.representativeDist` is the
+limit of the original presentation distances; `representativeDistCauchy`
+retains its modulus. `completedDist_embedObservable`,
+`completedDist_zero_iff` and `completedDist_triangle` give the original
+semantic distance pin, separation and square-root-free triangle law.
+`BF4ExactSlabThermodynamicCompletedApproximation.approximationData`
+returns an actual nearby presentation with its distance certificate.
+`approximant` uses the supplied representative's modulus at invSucc n.
+
+`BF4ExactSlabThermodynamicCauchyRows.CauchyRows` explicitly carries the
+row representatives and an outer completed-distance Cauchy modulus.
+`diagonalCauchy` has rate max(M(epsilon/16),(epsilon/16).den).
+`rowLimit`, `rowLimitRate` and `rowLimit_bound` construct the actual
+completed limit with rate M(epsilon/16). `rowLimit_independent` proves
+independence of supplied representatives; `rowLimit_presentationRows`
+recovers the SAME existing completion class.
+
+Next: modulus-bearing real-scalar action and the original unit-orthogonal
+projection/covariance realization. Full quotient-level completeness is
+still open: represented-row convergence does not select representatives
+for arbitrary quotient-valued Cauchy sequences. Physical time, stationary
+vacuum, nonzero excitations, strict gap, full gauge observables and
+spacing/continuum/QFT/all-group Clay remain open. Fixed w=1/1024 and spacing
+are unchanged; no canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: five new modules, 32+8+20+7+16=83 exactly matched focused
+gates within {propext, Quot.sound}, final error/warning free;
+source/direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling; no oracle, raised limit or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-completion-linear.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-bilinear.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-geometry.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-completed-approximation.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-cauchy-rows.log`.
+
+## Previous increment: original thermodynamic completed pairing and positive definiteness (2026-09-13)
 
 The preceding turn was PROGRESS: `a966439` committed and pushed the original
 semantic OS quotient and its completion carrier. This turn is PROGRESS:
