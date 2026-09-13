@@ -203,8 +203,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> two distinct retained leaves
                                   |        -> centering-invariant minor
                                   |        -> finite raw norm floor [PROVED]
-                                  |      + concrete positive minor
-                                  |        + cutoff-removal floor    [OPEN]
+                                  |      + fundamental coordinate leaves
+                                  |        -> literal plaquette-boundary
+                                  |           channels + heat weights[PROVED]
+                                  |      + reference Haar mixed moment
+                                  |        = 1/128; determinant nonzero[PROVED]
+                                  |      + original heat-dressed
+                                  |        determinant control       [OPEN]
+                                  |        -> concrete positive minor[OPEN]
+                                  |      + cutoff-removal floor      [OPEN]
                                   |      -> nonzero centered observable
                                   |         with positive norm floor [OPEN]
                                   |      + full quotient-level
@@ -257,7 +264,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a centering-independent lower bound from ORIGINAL interface channels.**
+**Latest result: concrete ORIGINAL plaquette channels and exact reference Haar moments.**
+[`interfaceChoice`](lean/YMGap/Continuum/BF4ExactSlabFundamentalRetainedChannels.lean#L150)
+constructs the actual interface leaf for any selection of quaternion
+coordinates, with coefficient-level polynomial and exact heat-weight pins.
+[`loopChannel`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCoordinateChannels.lean#L108)
+specializes this to the four boundary links of the original fundamental
+plaquette `probe`: crossing faces `[2,4,20,40]` correspond to `A,D,C,B`.
+Each resulting coordinate-product channel has weight `(2*w^3)^4`, positive
+for w>0 and unchanged as the character cutoff increases past one.
+
+The unit leaf and scalar-coordinate loop now give a fully specified
+[`scalarPlaquetteFloor_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteConcreteMinor.lean#L124)
+for the ORIGINAL raw reflected norm of `probe-c*unit`, for every rational c.
+The two-probe bound allows overlap and pays a factor two; the sharper
+distinct-path bound below remains available. No channel witness is assumed.
+
+Bare product-Haar integration on the same 116-link carrier gives both
+means zero and
+[`probe_scalarChannel_haar`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteProbeHaarMoments.lean#L38)
+equal to `1/128`. The resulting reference determinant is proved exactly
+`-1/128`, with square `1/16384`.
+
+**Open:** control this determinant after inserting the ORIGINAL lower heat
+product, then preserve a positive normalized floor through cutoff removal.
+The reference Haar computation omits that insertion; it is not the
+interacting covariance. Positive channel weights alone do not establish a
+positive minor. No nonzero completed centered state or mass gap is claimed.
+Five new modules: 68 focused axiom gates within `{propext, Quot.sound}`,
+final error/warning free, no new proof holes or full-tree build/audit.
+
+**Preceding result: a centering-independent lower bound from ORIGINAL interface channels.**
 Two distinct paths in the actual reflected-square expansion retain two
 weighted Haar squares without double-counting. For their observable
 amplitudes `a0,a1`, unit amplitudes `b0,b1`, and weights `w0,w1`, set

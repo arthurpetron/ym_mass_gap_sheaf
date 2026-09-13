@@ -18,7 +18,56 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL two-channel minor floor):**
+**Latest finite-slab increment (concrete ORIGINAL plaquette channels and reference Haar determinant):**
+`ReflectedSquareTreeRealizedLeaf.RealizedLeaf` carries an actual path,
+exact weight pin and coefficient-level polynomial pin. Finite sums and
+products construct these data. `BF4ExactSlabFundamentalRetainedChannels`
+realizes all four quaternion coordinates in the actual degree-one Gram
+tree and original crossing-face heat packet. `interfaceChoice` multiplies
+arbitrary coordinate/unit choices across the original interface list.
+Each selected fundamental factor has exact weight coeffW w 1 = 2*w^3,
+positive for w>0, independently of K>=1. No span or amplitude is assumed.
+
+`BF4ExactSlabPlaquetteCoordinateChannels.probe` is the actual lower
+fundamental character with face ID 0 at extent one. `crossing_links` and
+`crossing_ids` identify `[2,4,20,40]` with its boundary links A,D,C,B.
+`loopChannel` constructs every coordinate-product leaf on this closed
+boundary, with the same polynomial and weight `(2*w^3)^4` at every K>=1.
+`scalarLoopChannel` is the all-scalar coordinate candidate.
+
+`BF4ExactSlabPlaquetteConcreteMinor.scalarPlaquetteMinor` and
+`scalarPlaquetteFloor` use the original unit and that explicit loop leaf.
+`scalarPlaquetteFloor_bound` bounds rawForm(probe-c*unit,probe-c*unit)
+for every rational c. Separate leaf bounds allow overlap at cost two;
+the previous distinct-path bound is unchanged. The floor may be zero.
+
+`BF4ExactSlabPlaquetteProbeHaarMoments` kernel-checks the bare product-Haar
+table on the original 116-link carrier: unit mean one, probe and scalar-loop
+means zero, mixed moment 1/128. `referenceDeterminant_value` gives -1/128;
+`referenceDeterminant_square` gives 1/16384, strictly positive.
+These integrals DO NOT insert the lower heat product, and the actual
+loop heat weight vanishes at w=0. No interacting positive minor follows yet.
+
+Next: estimate the original heat-dressed determinant of this concrete pair,
+then retain a positive normalized floor through cutoff removal. The channel
+producer and reference moment evaluation are no longer unspecified tasks.
+Actual completed centered nontriviality, physical transfer/stationarity,
+strict gap, compatible slabs, quotient completeness and volume/spacing/QFT/
+all-group Clay remain open. No canonical atom/type/flag changes.
+
+Verification: five modules, 10+18+15+16+9 = 68 focused gates within
+{propext, Quot.sound}, final error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. Namespace/constant elaboration issues
+were corrected; finite Haar moments use `decide +kernel` after ordinary
+`decide` reached elaborator recursion depth. No native oracle, raised proof
+limits, new holes, analytic premises or full build/audit/guard/progress run.
+Logs: `/tmp/ym-reflected-square-tree-realized-leaf.log`,
+`/tmp/ym-bf4-exact-slab-fundamental-retained-channels.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-coordinate-channels.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-concrete-minor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-probe-haar-moments.log`.
+
+**Preceding finite-slab increment (ORIGINAL two-channel minor floor):**
 `ReflectedSquareTreeTwoChannelBound.Pair` stores two distinct leaf paths
 in the actual square tree; `Pair.value_le` retains both squares without
 double-counting. `weighted_lagrange` and `determinant_shift` prove the

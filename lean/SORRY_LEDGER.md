@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED concrete ORIGINAL channel producer and reference Haar table; OPEN heat-dressed minor (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreeRealizedLeaf.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFundamentalRetainedChannels.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCoordinateChannels.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteConcreteMinor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteProbeHaarMoments.lean`.
+- **discharged**: actual path/weight/polynomial data survive finite sums
+  and products. `faceCoordinate` realizes all four coordinates with the
+  exact fundamental heat coefficient 2*w^3. `interfaceChoice` constructs
+  full original interface leaves. `probe`, `crossing_links` and
+  `crossing_ids` identify lower face 0 and its four boundary crossing faces
+  `[2,4,20,40]`, ordered A,D,C,B. `loopChannel` constructs every corresponding
+  coordinate product, with unchanged polynomial and heat weight `(2*w^3)^4`
+  for all K>=1. That weight is positive for w>0. `scalarLoopChannel` is
+  the explicit all-scalar candidate. `scalarPlaquetteFloor_bound` proves
+  its two-probe floor bounds every rational recentering of the original
+  plaquette raw reflected numerator. A factor-two budget allows overlap.
+- **reference evaluation**: `probe_haar_zero`, `scalarChannel_haar_zero`,
+  `probe_scalarChannel_haar`, `unit_haar_one` give 0,0,1/128,1 on the original
+  116-link bare product-Haar carrier. `referenceDeterminant_value` gives
+  -1/128 and `referenceDeterminant_square` gives the positive 1/16384.
+  These reference integrals OMIT the interacting lower heat product.
+- **OPEN / precise input**: `scalarPlaquetteFloor_positive` still consumes
+  `0 < scalarPlaquetteMinor w hw K hK`, now for explicit original paths
+  and observable rather than an unconstructed pair. The reference table
+  does not discharge it; the heat-dressed amplitude determinant must be
+  controlled. At w=0 the channel weight is zero. A positive normalized
+  cutoff-limit floor, nonzero completed centered state, physical vacuum/
+  transfer, strict gap, compatible slabs, full quotient completeness,
+  volume/spacing/QFT and all-group Clay remain open. No canonical field,
+  atom or flag changed or analytic premise added.
+- **verification**: 10+18+15+16+9 = 68 focused gates within
+  {propext, Quot.sound}, final error/warning free and outputs current.
+  Monitored one-worker 20 GiB checks. Kernel-only `decide +kernel` proves
+  the finite moments without raised proof limits or a native oracle.
+  No new sorry or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-reflected-square-tree-realized-leaf.log`,
+  `/tmp/ym-bf4-exact-slab-fundamental-retained-channels.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-coordinate-channels.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-concrete-minor.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-probe-haar-moments.log`.
+
 ## CLOSED ORIGINAL two-channel lower-bound compiler; OPEN positive minor and cutoff passage (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreeTwoChannelBound.lean`,

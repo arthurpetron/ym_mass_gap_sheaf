@@ -4,7 +4,51 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL centering-independent two-channel minor floor (2026-09-13)
+## Current increment: concrete ORIGINAL plaquette channels and reference Haar determinant (2026-09-13)
+
+PROGRESS: `ReflectedSquareTreeRealizedLeaf.RealizedLeaf` constructs exact
+polynomial/weight-pinned tree paths through sums and products.
+`BF4ExactSlabFundamentalRetainedChannels.interfaceChoice` now supplies
+original interface leaves from actual quaternion-coordinate choices. The
+fundamental heat factor is exactly 2*w^3, positive for w>0 and unchanged
+for every K>=1. There is no assumed channel realization.
+
+`BF4ExactSlabPlaquetteCoordinateChannels` selects original lower face 0
+as the fundamental probe. The four crossing IDs `[2,4,20,40]` are proved
+to carry its links A,D,C,B. `loopChannel` produces the actual closed-boundary
+coordinate products with weight `(2*w^3)^4`; `scalarLoopChannel` is explicit.
+`BF4ExactSlabPlaquetteConcreteMinor.scalarPlaquetteFloor_bound` connects
+that loop leaf and the unit leaf to the original raw reflected norm of
+probe-c*unit for every rational c. The two independent retained-leaf
+estimates cost a factor two and do not require a distinct-path certificate.
+
+The reference Haar table is now exact in
+`BF4ExactSlabPlaquetteProbeHaarMoments`: unit mean one, other two means
+zero, mixed moment 1/128. The unweighted reference determinant is -1/128
+and its square is 1/16384. These are integrals of the actual polynomials
+on the same 116-link carrier, but WITHOUT the lower heat insertion.
+They are not the interacting amplitudes or a completed reflected norm.
+
+Next: quantitative control of the actual heat-dressed determinant of the
+named pair, followed by a positive normalized cutoff-limit floor. A positive
+interacting minor has not been proved, and positive channel weights do not
+imply it. No nonzero completed centered state, physical stationarity or
+transfer, strict gap, volume/spacing/QFT/all-group Clay result is claimed.
+
+Five new modules, 10+18+15+16+9 = 68 focused gates within
+{propext, Quot.sound}; final error/warning free and outputs current.
+One-worker monitored 20 GiB checks. Namespace/constant issues corrected;
+kernel-only `decide +kernel` verifies the finite moments after elaborator
+recursion depth blocked ordinary `decide`. No increased proof limits,
+native oracle, new holes, analytic premises, canonical atom/type/flag
+changes or full build/audit/guard/progress run. Logs:
+`/tmp/ym-reflected-square-tree-realized-leaf.log`,
+`/tmp/ym-bf4-exact-slab-fundamental-retained-channels.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-coordinate-channels.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-concrete-minor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-probe-haar-moments.log`.
+
+## Previous increment: ORIGINAL centering-independent two-channel minor floor (2026-09-13)
 
 PROGRESS: `ReflectedSquareTreeTwoChannelBound.Pair` constructs distinct
 retained paths in the actual square tree. `Pair.value_le` proves the sum
