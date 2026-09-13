@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (nonzero ORIGINAL completed centered plaquette state):**
+**Latest finite-slab increment (geometric time maps and ORIGINAL time correlations):**
+`BF4ExactSlabTimeEmbeddingGeometry.faceId` computes the literal translated
+face index in the actual boundary-complete target list. Physicality,
+injectivity, identity and composition are proved structurally at arbitrary
+extent. `faceId_lower` returns the lower-half support proof. Reflection of
+a shift s under half-size enlargement n has the complementary shift 2*n-s.
+`reflected_time_separation` proves that two outward lags add to the original
+reflected time separation, independently of stage padding.
+
+`BF4ExactSlabPlaquetteTimeEmbedding.translate` realizes these maps on the
+existing original expression algebra and preserves its operations and
+all-spin lower/reflected-upper evaluation exactly. `centered` means centered
+in TIME only. `displaced padding lag` separates enlargement from physical
+time lag and requires lag<=padding; no out-of-range Nat-subtraction alias is
+admitted. Its lower and upper shifts are padding-lag and padding+lag.
+
+`BF4ExactSlabPlaquetteTimeCorrelations` constructs the ORIGINAL connected
+correlation family at every rational 0<w<1, stage padding, pair of allowed
+lags and original plaquette expressions. `correlation_formula` pins all
+three moments to the same full original slab action/partition after cutoff
+removal. `correlationCauchy` returns actual explicit-modulus data.
+`point` gives the two existing completed centered states at that stage;
+`correlation_pairing` pins their pairing exactly. Symmetry, diagonal
+positivity and sharp Cauchy--Schwarz are proved. `probe_zero_floor` recovers
+the previous strictly positive seed at zero padding/lags.
+
+The geometry has sum-of-lags separation, but no finite-slab time homogeneity
+is claimed. There is no padding limit, inter-stage norm comparison, stationary
+physical unit, transfer-power identity or decay rate. Spatial coordinates
+remain unchanged: this is NOT yet a bulk-centered 4D exhaustion. Next:
+boundary-aware comparison of the original slab functionals with the required
+spatial bulk placement, then quantitative padding convergence and time
+homogeneity/OS-norm control for physical transfer descent. Full observable
+realization/completeness, strict gap and volume/spacing/QFT/all-group Clay
+remain open. No canonical atom/type/flag changed.
+
+Verification: three modules, 19+18+16=53 exact focused gates within
+{propext, Quot.sound}, final error/warning free. Single-worker monitored
+20 GiB checks. Structural evaluation congruence avoids expanding the actual
+slab polynomial; explicit arithmetic avoids broad simplification. No new
+numerical constants, proof holes, oracle or raised limits. No full
+build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-time-embedding-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-time-embedding.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-time-correlations.log`.
+
+**Preceding finite-slab increment (nonzero ORIGINAL completed centered plaquette state):**
 `computations/original_plaquette_small_nome_minor.py` computes exact
 rational candidate constants using the existing corrected-slab geometry
 and unfixed quaternion polynomials. `BF4ExactSlabPlaquetteSmallNomeCertificate`

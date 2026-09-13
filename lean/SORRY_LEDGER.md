@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED geometric time embeddings and ORIGINAL finite-stage time correlations; OPEN physical time descent (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTimeEmbeddingGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteTimeEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteTimeCorrelations.lean`.
+- **constructed geometry**: literal target face IDs, physical/support
+  proofs, injectivity, identity, composition, and complementary reflection
+  shift 2*n-s. `reflected_time_separation` proves the sum-of-lags separation.
+  `translate` preserves the existing expression operations and all-spin
+  original lower/upper polynomial evaluations. `displaced` keeps padding
+  and lag independent with an explicit admissibility bound.
+- **constructed correlations**: at every rational 0<w<1 and finite stage,
+  `correlation`, `correlationCauchy`, `correlation_formula`, `point` and
+  `correlation_pairing` give original normalized cutoff-limit moments,
+  explicit Cauchy data, and the literal completed centered pairing.
+  Symmetry, diagonal positivity and sharp Cauchy--Schwarz hold on those
+  states. `probe_zero_floor` recovers the earlier positive original seed,
+  only at zero padding/lags and nome=1/1024.
+- **remaining obligation**: original slab comparison with boundary control,
+  spatial bulk placement (current time maps do not shift spatial coordinates),
+  quantitative padding convergence, time homogeneity and bounded OS-norm
+  descent. Geometry depending on s+t is NOT a proof that the correlations
+  depend only on s+t. No transfer-power identity, physical stationarity or
+  decay bound is supplied. The nonzero seed does not propagate to later
+  padding by this result. Full observable realization/completeness,
+  physical spectral gap and volume/spacing/QFT/all-group Clay remain open.
+  No canonical frontier atom/type/flag changed or analytic input assumed.
+- **verification**: 19+18+16=53 exact focused gates within
+  {propext, Quot.sound}, final error/warning free; one-worker monitored
+  20 GiB checks. No new proof holes, numerical constants, oracle or raised
+  limits. No full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-time-embedding-geometry.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-time-embedding.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-time-correlations.log`.
+
 ## CLOSED concrete ORIGINAL completed centered nontriviality at w=1/1024, extent one (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCertificate.lean`,

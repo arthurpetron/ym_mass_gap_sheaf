@@ -226,6 +226,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         + positive normalized floor
                                   |         + norm Cauchy modulus,
                                   |         at THAT w and slab       [PROVED]
+                                  |      + actual geometric face maps
+                                  |        + independent padding/lags
+                                  |        -> original time-separated
+                                  |           connected correlations
+                                  |           = completed pairings,
+                                  |           with Cauchy moduli     [PROVED]
+                                  |      + boundary-aware slab comparison
+                                  |        + spatial bulk placement [OPEN]
+                                  |      + padding limit and genuine
+                                  |        time homogeneity         [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -276,7 +286,41 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a nonzero centered state in the ORIGINAL completed plaquette space.**
+**Latest result: literal time-separated ORIGINAL correlations, with separate stage padding and time lags.**
+[`faceId_pin`](lean/YMGap/Continuum/BF4ExactSlabTimeEmbeddingGeometry.lean#L79)
+constructs the actual translated physical face ID. Its map is injective and
+composes correctly. Reflection changes a shift `s` under enlargement `n`
+into the upper shift `2*n-s`. The observable maps preserve sums, products,
+scalars, and literal all-spin plaquette evaluation.
+
+[`displaced`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteTimeEmbedding.lean#L132)
+keeps the stage padding `n` independent of the lag. Lower and reflected upper
+coordinates shift by `n-lag` and `n+lag`. The exact
+[`reflected_time_separation`](lean/YMGap/Continuum/BF4ExactSlabTimeEmbeddingGeometry.lean#L179)
+therefore grows by the sum of the two outward lags.
+
+[`correlation_formula`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteTimeCorrelations.lean#L80)
+uses these original translated polynomials in three expectations under ONE
+original slab action and partition function, after representation-cutoff
+removal. Its `correlationCauchy` returns explicit Cauchy data.
+[`correlation_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteTimeCorrelations.lean#L94)
+identifies it with the two actual centered states in THAT stage's existing
+completion. Symmetry, nonnegative diagonal and sharp Cauchy--Schwarz hold
+for every rational `0<w<1`. At zero padding/lags, `probe_zero_floor` recovers
+the strictly positive original seed below.
+
+**Scope:** no decay estimate, transfer-power identity, inter-stage isometry,
+or stationary-vacuum claim. Geometry has sum-of-lags separation; the finite
+correlations are NOT proved to depend only on that sum. Spatial coordinates
+are unchanged, so this alone is not a bulk-centered 4D exhaustion.
+**Next:** boundary-aware original slab comparison, including spatial bulk
+placement, then quantitative padding limits and time homogeneity needed for
+bounded physical transfer descent. The physical gap and continuum/Clay
+target remain open. Three new modules: 53 focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; no new holes, numerical
+constants, oracle, raised proof limits or full-tree build/audit.
+
+**Preceding result: a nonzero centered state in the ORIGINAL completed plaquette space.**
 At the certified nome `w=1/1024` on the extent-one slab,
 [`determinant_negative`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeMinor.lean#L88)
 proves `D<=-1/1024` at every representation cutoff. The actual channel
@@ -301,8 +345,9 @@ pins this result to the ORIGINAL connected reflected covariance.
 **Scope:** one fixed positive nome and finite slab, after representation-cutoff
 removal and completion. This is not a stationary-vacuum identification,
 physical transfer, spectral gap, or volume/spacing-uniform estimate.
-**Next:** geometric time translation on original observables, its slab
-comparison, and a bound allowing descent to this original completed form.
+**At that checkpoint:** geometric time translation on original observables
+was next. The maps and finite-stage correlations are now constructed above;
+slab comparison and a bound allowing physical transfer descent remain open.
 The full physical OS root and continuum/Clay target remain open.
 Four new Lean modules: 49 focused axiom gates within `{propext, Quot.sound}`,
 final error/warning free; exact-rational pilot passed. No new proof holes,

@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: nonzero ORIGINAL completed centered plaquette state (2026-09-13)
+## Current increment: geometric time maps and ORIGINAL time correlations (2026-09-13)
+
+PROGRESS: `BF4ExactSlabTimeEmbeddingGeometry` constructs the actual physical
+face reindex under admissible time shifts, proves support, injectivity and
+composition, and identifies the complementary reflected shift 2*n-s.
+`reflected_time_separation` proves the exact sum-of-outward-lags formula.
+`BF4ExactSlabPlaquetteTimeEmbedding` lifts the geometry to the ORIGINAL
+expression algebra with exact all-spin polynomial evaluation pins. Stage
+padding and time lag are independent parameters, with explicit lag bounds.
+
+`BF4ExactSlabPlaquetteTimeCorrelations.correlation` returns the time-separated
+original connected covariance with `correlationCauchy` modulus data. Its
+`correlation_formula` uses one original action and partition; its
+`correlation_pairing` uses the same stage's completed centered states.
+Symmetry, diagonal positivity and sharp Cauchy--Schwarz are inherited on
+these actual states. The previous positive seed is recovered at zero padding.
+
+No padding convergence, time homogeneity, cross-stage isometry, transfer-power
+pin, stationary physical vacuum or decay bound. Time embeddings leave spatial
+coordinates unchanged and are not a bulk-centered 4D exhaustion. Next is
+boundary-aware original slab comparison with spatial bulk placement, followed
+by quantitative limits and bounded time descent. Physical gap and continuum
+Clay remain open; no canonical atom/type/flag changed.
+
+Three modules checked with narrow monitored runs, 19+18+16=53 exact gates within
+{propext, Quot.sound}; final error/warning free. No new constants or holes,
+oracle, raised limits or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-time-embedding-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-time-embedding.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-time-correlations.log`.
+
+## Previous increment: nonzero ORIGINAL completed centered plaquette state (2026-09-13)
 
 PROGRESS: the exact-rational pilot `original_plaquette_small_nome_minor.py`
 produces a successful w=1/1024 candidate. `BF4ExactSlabPlaquetteSmallNomeCertificate`
