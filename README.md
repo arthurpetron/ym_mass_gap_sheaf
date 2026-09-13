@@ -171,8 +171,18 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        distance to its limit    [PROVED]
                                   |      -> completed norm zero
                                   |         iff completed state zero[PROVED]
-                                  |      + completed CS, real scalars
-                                  |        and completeness          [OPEN]
+                                  |      + original CS + product
+                                  |        continuity through limits[PROVED]
+                                  |      -> sharp completed CS
+                                  |         + squared-distance laws [PROVED]
+                                  |      -> explicit approximants
+                                  |         from supplied Cauchy reps[PROVED]
+                                  |      -> represented-row limits
+                                  |         + computed convergence
+                                  |         + row independence      [PROVED]
+                                  |      + real-scalar extension
+                                  |        + full quotient-level
+                                  |          completeness            [OPEN]
                                   |      + physical realization and
                                   |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
@@ -221,7 +231,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL completed pairing is rationally bilinear and positive definite on every completion state.**
+**Latest result: sharp completed Cauchy--Schwarz and explicit limits of represented Cauchy families.**
+[`completedInner_cauchySchwarz`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedGeometry.lean#L47)
+passes the original sharp inequality through the actual pairing limits.
+The reused product-continuity theorem has only constructive-real inputs;
+no older gauge carrier or physical transfer is imported into the statement.
+The completed squared distance is symmetric, nonnegative, obeys the
+sqrt-free triangle bound, and is zero exactly when its states are equal.
+
+[`constantApproximation_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedApproximation.lean#L65)
+shows how to approximate a state from its supplied Cauchy representative.
+[`rowLimit`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCauchyRows.lean#L98)
+constructs a limit for a Cauchy family supplied with such representatives
+and an outer modulus `M`. The diagonal has rate
+`max(M(epsilon/16), (epsilon/16).den)`; convergence to the completed limit
+has rate `M(epsilon/16)`. Its value is unique and
+[`rowLimit_independent`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCauchyRows.lean#L146)
+proves independence from row representatives and their moduli.
+[`rowLimit_expressionRows`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCauchyRows.lean#L168)
+also proves that limiting the dense expressions of any supplied original
+Cauchy representative recovers its same completion class.
+
+This **does not select representatives of an arbitrary quotient-valued
+Cauchy sequence**. Real-scalar extension and that stronger completeness
+claim remain open. The `epsilon/16` split is an error budget, not a physical
+decay rate. The physical observable/transfer/vacuum, strict mass-gap,
+volume/spacing/QFT and all-group Clay obligations remain open.
+
+Three new modules: 45 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+
+**Preceding result: the ORIGINAL completed pairing is rationally bilinear and positive definite on every completion state.**
 [`addition`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean#L93)
 and [`scalarContinuous`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean#L97)
 construct completed operations from their proved distance estimates.
@@ -241,8 +281,9 @@ using the existing pairing rate, not a chosen modulus.
 
 Three new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
-**Still open at the Hilbert boundary:** completed CS, real-scalar extension
-and the appropriate constructive completeness theorem. Observable action,
+Completed CS and limits of represented Cauchy rows are now supplied above.
+**Still open at the Hilbert boundary:** real-scalar extension and full
+quotient-level constructive completeness. Observable action,
 all required gauge observables, compatible slabs, physical transfer,
 stationary vacuum, strict physical gap, continuum QFT and all-group Clay
 remain open. No new analytic premise or substitute carrier is used.

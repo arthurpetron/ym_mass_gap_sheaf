@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL completed rational linear laws, bilinearity and positive definiteness):**
+**Latest finite-slab increment (ORIGINAL completed CS, distance geometry and represented-row limits):**
+`BF4ExactSlabPlaquetteCompletedGeometry.completedInner_cauchySchwarz`
+passes the original sharp CS through the actual pairing limits, reusing
+only the model-independent `CReal.convergesTo_mul_general` theorem in
+the existing strict-cylinder module. `completedDist` is the actual
+squared norm of a completed difference; its original-expression pin,
+nonnegativity, symmetry, sqrt-free triangle and zero-iff-equality laws
+are proved. No older carrier or transfer is substituted.
+
+`BF4ExactSlabPlaquetteCompletedApproximation.constantApproximation_bound`
+bounds the distance from `X.seq n` to the class of supplied representative
+X whenever n >= X.modulus(epsilon). `approximant X n` samples at
+X.modulus(invSucc n). The two-/three-segment bounds retain explicit
+quarter/sixteenth error budgets.
+
+`BF4ExactSlabPlaquetteCauchyRows.CauchyRows` retains both supplied
+representatives and an outer Cauchy modulus M for their actual completed
+distance. `diagonalCauchy` samples row n at its own modulus(invSucc n),
+with rate max(M(epsilon/16), (epsilon/16).den). `rowLimit` and
+`rowLimitRate` return the completed limit and rate M(epsilon/16).
+`rowLimit_bound`, `rowLimit_eq_of_bound` and `rowLimit_independent`
+prove convergence, uniqueness and independence of row representatives
+and moduli. This is a genuine limit constructor, not a convergence field
+assumed at the output. `expressionRows` constructs represented families
+from every supplied original Cauchy representative;
+`rowLimit_expressionRows` recovers its SAME completion class from the
+embedded original expressions. epsilon/16 is not a physical decay rate.
+
+Next: use the represented-family constructor for real-scalar extension
+from explicit scalar data; resolve the stronger full quotient-level
+completeness obligation without silently selecting Cauchy representatives.
+No such selection or full Hilbert completeness is claimed here.
+Observable action, all required gauge observables, compatible slabs,
+physical transfer, stationary vacuum, strict physical gap and
+volume/spacing/QFT/all-group Clay remain open. No canonical atom/type/flag
+changed, new physical analytic input assumed or substitute model used.
+
+Verification: three new modules, 19 + 10 + 16 = 45 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks. An explicit beta-reduction of an equality fixed
+one intermediate cancellation rewrite error; no raised proof limits.
+No new sorry, numerical oracle or full build/audit/guard/progress run.
+Logs: `/tmp/ym-bf4-exact-slab-plaquette-completed-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-approximation.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-cauchy-rows.log`.
+
+**Preceding finite-slab increment (ORIGINAL completed rational linear laws, bilinearity and positive definiteness):**
 `BF4ExactSlabPlaquetteCompletionLinear.distSq_add` proves the binary
 squared-distance estimate; `distSq_smul` proves exact c^2 scaling.
 `scalarTolerance` is epsilon/(c*c+1), positive for every rational c and
@@ -39,8 +85,9 @@ the SAME outer Cauchy rate to control each late pairing against its limit.
 with modulus `pairRate X X`. `completedInner_posdef` proves zero diagonal
 exactly characterizes the zero completed state, on the entire completion.
 
-Next: completed CS, real-scalar extension and the appropriate constructive
-completeness theorem for THIS carrier. These, observable action and all
+The latest increment above supplies completed CS and represented-row
+limits. Real-scalar extension and full quotient-level constructive
+completeness remain open. These, observable action and all
 required gauge observables, compatible slabs, physical transfer, stationary
 vacuum, strict physical gap, volume/spacing/QFT and all-group Clay remain
 open. No canonical atom/type/flag changed, new analytic input assumed or

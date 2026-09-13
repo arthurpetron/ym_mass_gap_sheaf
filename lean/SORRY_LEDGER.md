@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL completed CS, distance geometry and represented-row limits (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletedApproximation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCauchyRows.lean`.
+- **discharged**: `completedInner_cauchySchwarz` passes original sharp
+  CS through the actual pairing limits. `completedDist` is the squared
+  norm of the actual difference, with original-expression pin, positivity,
+  symmetry, sqrt-free triangle and zero-iff-equality laws.
+  `constantApproximation_bound` and `approximant` give computed dense
+  approximants from supplied representatives. `CauchyRows` retains those
+  representatives and their outer distance modulus M. `diagonalCauchy`
+  has explicit rate max(M(epsilon/16), (epsilon/16).den); `rowLimit` has
+  convergence rate M(epsilon/16), proved by `rowLimit_bound`.
+  `rowLimit_eq_of_bound` and `rowLimit_independent` prove uniqueness and
+  independence from supplied representatives and moduli.
+  `expressionRows` constructs represented families from original Cauchy
+  data; `rowLimit_expressionRows` recovers their SAME original completion
+  classes from the embedded expressions.
+- **scope**: every rational 0<w<1 and odd slab, ORIGINAL reflected
+  plaquette form and completion. Only general CReal multiplication
+  continuity is reused from the strict-cylinder module; its carrier and
+  transfer are not used. epsilon/16 is a diagonalization error budget,
+  not a mass-gap or physical decay rate.
+- **superseded**: completed CS from the preceding frontier. The represented
+  Cauchy-row limit constructor is now supplied, but is not the full
+  quotient-level completeness theorem.
+- **OPEN**: real-scalar extension from explicit scalar data; completeness
+  for arbitrary quotient-valued Cauchy sequences without a silent choice
+  of representatives. Observable action, all required gauge observables,
+  compatible slabs, physical transfer, stationary vacuum, strict physical
+  gap, volume/spacing limits, continuum QFT and all-group Clay remain open.
+  No canonical atom/type/flag changed or frontier field weakened.
+- **verification**: 19 + 10 + 16 = 45 focused gates within
+  {propext, Quot.sound}; final error/warning free, outputs current.
+  Monitored one-worker 20 GiB checks. An explicit beta-reduction fixed
+  an intermediate cancellation rewrite error, without raised limits.
+  No new sorry, physical analytic premise, oracle or full build/audit/
+  guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-geometry.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-completed-approximation.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-cauchy-rows.log`.
+
 ## CLOSED ORIGINAL completed rational linear laws, bilinearity and positive definiteness (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCompletionLinear.lean`,
@@ -36,8 +79,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   yet real-scalar structure or a completed physical Hilbert-space package.
 - **superseded**: completed rational linear operations, form laws and
   positive definiteness from the preceding pairing frontier.
-- **OPEN**: completed CS, real-scalar extension, the appropriate
-  constructive completeness theorem; observable action, all required gauge
+- **superseded subsequently**: completed CS and represented-row limits
+  are supplied by the newer entry above.
+- **OPEN**: real-scalar extension and full quotient-level constructive
+  completeness; observable action, all required gauge
   observables, compatible slabs, physical transfer, stationary vacuum,
   strict physical gap, volume/spacing limits, continuum QFT and all-group
   Clay. No canonical atom/type/flag changed or frontier field weakened.

@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL completed linear laws, bilinearity and positive definiteness (2026-09-13)
+## Current increment: ORIGINAL completed CS, geometry and represented-row limits (2026-09-13)
+
+PROGRESS: `BF4ExactSlabPlaquetteCompletedGeometry` proves sharp CS for
+the actual completed pairing, using only general CReal product continuity
+from the existing strict-cylinder module. Its completed squared distance
+recovers the original form, is symmetric/nonnegative, satisfies the
+sqrt-free triangle bound, and vanishes exactly on equal completed states.
+
+`BF4ExactSlabPlaquetteCompletedApproximation` computes original-expression
+approximants from supplied Cauchy representatives, with reciprocal-index
+error bounds. Explicit two-/three-segment error budgets support
+`BF4ExactSlabPlaquetteCauchyRows`: its represented-family diagonal has
+rate max(M(epsilon/16), (epsilon/16).den), and its completed limit has
+rate M(epsilon/16). Convergence, uniqueness and independence from row
+representatives and their moduli are proved, not assumed.
+`expressionRows` supplies represented families from original Cauchy
+data; `rowLimit_expressionRows` recovers the SAME completion class
+by limiting its embedded original expressions.
+
+Next: real-scalar extension from explicit scalar data using the actual
+row-limit constructor; full quotient-level completeness remains open.
+The construction does not choose representatives of an arbitrary
+quotient-valued Cauchy sequence. The epsilon/16 budget is not physical
+decay. Observable action, all required gauge observables, compatible
+slabs, physical transfer, stationary vacuum, strict physical gap and
+volume/spacing/QFT/all-group Clay remain open. No canonical atom/type/flag
+changed or substitute physical model used.
+
+Three new modules, 19 + 10 + 16 = 45 focused gates within
+{propext, Quot.sound}; final logs error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. One cancellation rewrite error was
+fixed with explicit beta-reduction; no raised limits. No new holes,
+physical analytic premises, numerical oracles or full build/audit/guard/
+progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-completed-geometry.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-completed-approximation.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-cauchy-rows.log`.
+
+## Previous increment: ORIGINAL completed linear laws, bilinearity and positive definiteness (2026-09-13)
 
 PROGRESS: `BF4ExactSlabPlaquetteCompletionLinear` constructs addition,
 negation and rational scaling on the actual completion. Its distance
