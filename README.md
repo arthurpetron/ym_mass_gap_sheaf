@@ -100,8 +100,18 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |            common environment    [INPUT]
                                   |        -> shared-link product
                                   |           pointwise floor b(w)^F[PROVED]
-                                  |        + order-preserving passage
-                                  |          through ORIGINAL Haar    [OPEN]
+                                  |      + actual Haar-unit holonomy
+                                  |        -> four-square certificate
+                                  |           for 1+face scalar     [PROVED]
+                                  |      + finite Jacobi derivative
+                                  |        has nonnegative shifted
+                                  |        coefficients, constant>=c[PROVED]
+                                  |        -> SAME shared-link Haar
+                                  |           approximant floor c^F [PROVED]
+                                  |        + coefficient-level pin
+                                  |          to weighted heat terms   [OPEN]
+                                  |        + quantified Haar passage
+                                  |          to ORIGINAL heat action  [OPEN]
                                   |      -> strict positive floor
                                   |         for THAT action limit     [OPEN]
                                   |      -> non-nullness / physical
@@ -148,7 +158,32 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: an explicit strictly positive original heat floor.**
+**Latest result: a strict shared-link Haar floor for finite Jacobi approximants.**
+[`BF4ExactSlabJacobiHaarFloor.productFloor_le_haar`](lean/YMGap/Continuum/BF4ExactSlabJacobiHaarFloor.lean)
+proves that the ORIGINAL normalized quaternion Haar integral of the
+finite Jacobi face-product is at least `c(w)^F > 0`, at every rational
+`0<w<1`, every finite slab and every truncation `N>=1`. All overlapping
+link variables and actual ordered plaquette words are retained. The floor
+depends on the nome `w` and face count `F`; it is NOT coupling- or
+volume-uniform, nor a spectral-gap bound.
+
+The algebraic core is short: the actual unit holonomy gives the four-square
+identity `2(1+a)=(1+a)^2+b^2+c^2+d^2` under every Haar insertion. The finite
+Jacobi factors and their derivative have nonnegative coefficients in `1+a`.
+The square-certificate compiler preserves products with shared variables;
+retaining each constant coefficient supplies the integrated floor. No
+general pointwise-to-Haar order principle or independence is assumed.
+
+**Next: identify and converge these approximants to the ORIGINAL action.**
+They are not the original unweighted heat cutoffs. A coefficient-level pin
+to the weighted character polynomials and a quantified Haar-limit passage
+remain open. The original action-limit floor, non-null full unit, compatible
+physical slabs, stationary vacuum/transfer, strict physical gap and
+continuum/QFT/all-group target therefore remain open. Five new modules:
+51 focused axiom gates within `{propext, Quot.sound}`, no new holes, final
+error/warning free. No full-tree build or audit was run.
+
+**Preceding result: an explicit strictly positive original heat floor.**
 [`SU2PointwiseHeatStrictFloor.pointwiseHeatCReal_geRat_floor`](lean/YMGap/Continuum/SU2PointwiseHeatStrictFloor.lean)
 proves `K_q(x) >= c(q) > 0`, for every rational `0<q<1` and `x` in
 `[-1,1]`, endpoints included. With a computed prefix length `L(q)`,
@@ -166,9 +201,11 @@ explicit. Neither the heat floor nor the product floor is coupling- or
 volume-uniform. Four new modules: 30 focused axiom gates within
 `{propext, Quot.sound}`, no new holes, final error/warning free.
 
-**Next: pass the bound through the ORIGINAL Haar functional.** Pointwise
+**Boundary of the preceding pointwise result.** Pointwise
 positivity is not silently promoted to a Haar-integral lower bound: the
 existing algebraic Haar positivity theorem applies to polynomial squares.
+The new square-certified Jacobi approximation above supplies a finite
+integrated bound; its original-action limit identification is still open.
 The original interacting-action floor and non-null full unit remain open,
 as do physical slab compatibility, stationary vacuum/transfer, strict
 physical gap, continuum/QFT and the all-group Clay target. No full-tree

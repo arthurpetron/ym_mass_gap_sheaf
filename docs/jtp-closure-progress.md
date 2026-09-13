@@ -4,6 +4,43 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: finite Jacobi approximants have a strict original-Haar floor
+
+`JacobiShiftedPositiveCoefficients` writes every full factor in t=1+x as
+
+    (1-q^(2k+2)) * [(1-q^(2k+1))^2 + 2*q^(2k+1)*t].
+
+Its product and formal Leibniz derivative therefore have nonnegative
+rational coefficient lists, with exact evaluation pins to the existing
+Ppart/fullProdDx. The normalized heat approximant is fullProdDx/(2*q).
+At t=0 (x=-1), `floor_le_heat_constant` retains the previous strict
+floor c(q)=E_q(L(q))^2/16>0 at EVERY N>=1.
+
+`QuaternionHaarUnitScalarSquare` certifies 1+a for the actual ordered
+plaquette holonomy (a,b,c,d) using
+
+    2*(1+a) = (1+a)^2 + b^2 + c^2 + d^2
+
+under EVERY original Haar insertion. This uses the proved unit-norm relation,
+not a pointwise-box assumption. `QuaternionHaarSquareCertificate` proves
+product closure by expanding supported squares; `QPolyHaarPositiveSubstitution`
+compiles the nonnegative coefficient lists and retains their constant
+coefficient with any certified positive insertion. Consequently
+`BF4ExactSlabJacobiHaarFloor.productFloor_le_haar` proves
+
+    original Haar(product over F actual faces of JacobiApprox_N) >= c(q)^F > 0.
+
+The link variables remain shared. The bound is uniform in N>=1 for each
+supplied q and finite face list, NOT in coupling, volume or spacing.
+
+Remaining: a coefficient-level pin to WEIGHTED original character polynomials
+and explicit Haar-limit passage to the original heat action. JacobiApprox_N
+is not the original unweighted heat cutoff. Thus this is a strict finite
+integrated floor, not yet an original action-limit floor, non-null full
+unit, stationary physical vacuum/transfer/gap or continuum result.
+Five focused checks: 51 gates within `{propext, Quot.sound}`, no new holes,
+final error/warning free. No full-tree build/audit/guard run.
+
 ## 2026-09-12: strict original heat floor, with a constructive finite cutoff
 
 `EulerProductStrictFloor` computes L(q) from an explicit geometric half-budget

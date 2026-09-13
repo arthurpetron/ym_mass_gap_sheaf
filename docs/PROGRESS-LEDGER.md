@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: strict original heat and shared-link pointwise floors (2026-09-12)
+## Current increment: square-certified shared-link Jacobi Haar floor (2026-09-12)
+
+PROGRESS: `BF4ExactSlabJacobiHaarFloor.productFloor_le_haar` proves an
+explicit `c(w)^F>0` lower bound for the ORIGINAL normalized Haar integral
+of the finite Jacobi approximants on every finite slab, 0<w<1, N>=1.
+Actual ordered plaquettes and overlapping links are retained. Uniformity
+is in N, not w or F. The complete slab's integral is strictly positive.
+
+The causal proof contracts the actual Haar-unit four-square identity for
+1+scalar, nonnegative Jacobi coefficient lists in that shifted variable,
+the original derivative's positive constant coefficient, and a constructive
+square-certificate product compiler. The key insertion estimate
+`QPolyHaarPositiveSubstitution.eval_zero_mul_haar_le` retains the constant
+coefficient with the other shared-variable certified factors still present.
+This replaces a general pointwise-order theorem with explicit algebraic
+witnesses. No reflection-form/square-integral confusion or independence.
+
+Next: coefficient-level pin to WEIGHTED original character polynomials and
+quantified Haar convergence to the original interacting heat action. The
+finite Jacobi approximants are not original heat cutoffs, so their floor
+does not yet discharge the action-limit floor or completed-unit non-nullness.
+Compatible slabs, physical stationary vacuum/transfer/gap and
+volume/spacing/QFT/all-group Clay remain open; no canonical frontier change.
+
+Five monitored one-worker 20 GiB checks: 11 + 11 + 6 + 15 + 8 = 51 gates
+within `{propext, Quot.sound}`, current outputs, final error/warning free.
+Local namespace, Boolean-constructor and rational setoid-transitivity
+elaboration errors were corrected before the final clean checks. No new
+sorry, analytic premise, oracle, raised proof limits or full build/audit/
+guard/progress run. Logs `/tmp/ym-quaternion-haar-square-certificate.log`,
+`/tmp/ym-quaternion-haar-unit-scalar-square.log`,
+`/tmp/ym-qpoly-haar-positive-substitution.log`,
+`/tmp/ym-jacobi-shifted-positive-coefficients.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-haar-floor.log`.
+
+## Previous increment: strict original heat and shared-link pointwise floors (2026-09-12)
 
 PROGRESS: `EulerProductStrictFloor.floor_le_euler` proves a positive Euler
 floor at ALL truncations by retaining a computed prefix and bounding every

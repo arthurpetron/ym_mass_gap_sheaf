@@ -13,6 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Square-certified original shared-link Jacobi Haar floor (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarUnitScalarSquare.lean`,
+  `lean/YMGap/Continuum/QPolyHaarPositiveSubstitution.lean`,
+  `lean/YMGap/Continuum/JacobiShiftedPositiveCoefficients.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabJacobiHaarFloor.lean`.
+- **discharged**: ordinary supported-square certificates have proved product
+  closure on the SAME Haar carrier. `slab_oneAddScalar_certificate` uses the
+  actual ordered plaquette's support and arbitrary-insertion unit norm to
+  construct the four-square certificate for 1+scalar. Nonnegative shifted
+  coefficient lists are constructed for the actual Jacobi products and
+  derivatives; their evaluation pins and inverse-nome/half normalization are
+  proved. `floor_le_heat_constant` retains the proved c(w)>0 at N>=1.
+  `productFloor_le_haar` gives c(w)^F below the original Haar integral of
+  the finite Jacobi face-product on every finite slab, all overlaps retained.
+  There is no positivity-assumption constructor or Haar independence premise.
+- **OPEN**: coefficient-level identification of these approximants with
+  WEIGHTED original heat polynomials, and quantified convergence through the
+  original Haar functional to the original interacting action. They are NOT
+  original unweighted heat cutoffs. Pointwise evaluation/convergence cannot
+  silently replace the coefficient/probe-strength pin or Haar-limit proof.
+  Positive original action limit, non-null completed full unit, compatible
+  physical slabs, stationary vacuum/transfer, strict physical gap and
+  volume/spacing/QFT/all-group Clay remain open. No canonical frontier
+  atom/type/flag changed. The floor depends on w and F, not a uniform spectral
+  margin; the refuted auxiliary-law identity is unused.
+- **verification**: five focused monitored one-worker 20 GiB checks,
+  11 + 11 + 6 + 15 + 8 = 51 gates within `{propext, Quot.sound}`, current
+  outputs, final error/warning free. Logs
+  `/tmp/ym-quaternion-haar-square-certificate.log`,
+  `/tmp/ym-quaternion-haar-unit-scalar-square.log`,
+  `/tmp/ym-qpoly-haar-positive-substitution.log`,
+  `/tmp/ym-jacobi-shifted-positive-coefficients.log`,
+  `/tmp/ym-bf4-exact-slab-jacobi-haar-floor.log`. No new sorry, named analytic
+  input, numerical oracle, raised proof limits or full build/audit/guard run.
+
 ## Strict original heat floor and shared-link pointwise product (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/EulerProductStrictFloor.lean`,

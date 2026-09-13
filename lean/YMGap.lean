@@ -3921,6 +3921,11 @@ import YMGap.Continuum.SU2HeatCharacterPolynomialMajorant
 import YMGap.Continuum.SU2HeatCharacterPolynomialTail
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatTail
 import YMGap.Continuum.BF4ExactSlabHeatPointwiseFloor
+import YMGap.Continuum.QuaternionHaarSquareCertificate
+import YMGap.Continuum.QuaternionHaarUnitScalarSquare
+import YMGap.Continuum.QPolyHaarPositiveSubstitution
+import YMGap.Continuum.JacobiShiftedPositiveCoefficients
+import YMGap.Continuum.BF4ExactSlabJacobiHaarFloor
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
 import YMGap.Continuum.BF4ExactSlabAllExtentHeatProductTail
