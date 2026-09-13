@@ -18,7 +18,39 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (exact q-Pascal/Euler normalization):**
+**Latest analytic increment (finite symmetric Jacobi identity):**
+`GaussQBinomSymmetricStep.qbin_pascal_opposite`, `qbin_two_sided_step`,
+and `centered_qbin_step` derive the three-neighbor recurrence from the
+ORIGINAL recursive coefficients, using one Pascal step in each orientation.
+`FiniteSymmetricChebyshev.sum_step_with_boundary` proves finite multiplication
+by B+2cx with both endpoint terms retained; `sum_step` discards them only
+after their coefficients are proved zero.
+
+`FiniteJacobiCoefficients.coeff_step` proves that the ACTUAL Gaussian-weighted
+q-binomial coefficients obey this rule at every required index. The center's
+factor two, interior exponent arithmetic, outermost term, and out-of-range
+vanishing are checked separately. `FiniteJacobiIdentity.factorProd_eq_gaussianPartial`
+then proves the symmetric finite Jacobi identity for the EXISTING factor
+product, every finite N, rational `0<q<1` and rational x.
+`Ppart_eq_finiteJacobi` includes the ORIGINAL Euler normalizer and pins the
+full `ThetaConv.Ppart` to its weighted finite series. No equality premise,
+complex substitution or coefficient replacement by one is assumed.
+
+Next: explicit convergence of the normalized coefficients together with
+Gaussian/Chebyshev tails, and the correctly half-normalized differentiated
+identity. Finite JTP does not discharge `DiffJTP`, produce the original-action
+positive floor, or identify a physical vacuum/transfer/gap. Compatible slabs,
+volume/spacing/QFT and all-group Clay remain open. No new named analytic
+input, canonical atom/type change, or refuted law identity used.
+
+Verification: four focused monitored one-worker 20 GiB checks, current
+`.olean` outputs; 3 + 6 + 14 + 8 = 31 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-gauss-qbinom-symmetric-step.log`,
+`/tmp/ym-finite-symmetric-chebyshev.log`, `/tmp/ym-finite-jacobi-coefficients.log`,
+`/tmp/ym-finite-jacobi-identity.log`. No new sorry, numerical oracle, or raised
+proof limits. No full build/audit/guard/progress run.
+
+**Preceding analytic increment (exact q-Pascal/Euler normalization):**
 `GaussQBinomEulerNormalization.qbin_mul_euler` proves
 `qbin Q N k * E Q k * E Q (N-k) ≈ E Q N`, for every rational Q and k <= N.
 Here `E Q n` is the computed product of `1-Q^j`, j=1..n. The proof uses
@@ -33,9 +65,9 @@ quotient and complementary-index symmetry. `euler_square_eq_theta` pins
 finite centered weight and its normalization, not a coefficient assumed one.
 
 This is algebra on the Jacobi route to the still-missing original-action
-nonvanishing estimate. The symmetric finite Jacobi identity, explicit
-coefficient/tail convergence and differentiated identity remain open here;
-the finite quotient formula does not discharge `DiffJTP` or supply a heat
+nonvanishing estimate. The symmetric finite identity is now supplied by the
+increment above; explicit coefficient/tail convergence and the differentiated
+identity remain open. The finite quotient formula does not discharge `DiffJTP` or supply a heat
 or action floor. No new named input, canonical frontier change, uniform
 spectral estimate, or use of the refuted law identity. The completed physical
 carrier/transfer/vacuum, strict gap and continuum/all-group target remain open.

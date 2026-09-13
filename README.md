@@ -131,16 +131,17 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest analytic work: exact finite Gaussian-coefficient normalization.**
-[`GaussQBinomEulerNormalization.lean`](lean/YMGap/Continuum/GaussQBinomEulerNormalization.lean)
-proves the recursive q-binomial's denominator-cleared Euler-product formula
-by q-Pascal induction, without division or extra hypotheses.
-[`GaussQBinomEulerQuotient.lean`](lean/YMGap/Continuum/GaussQBinomEulerQuotient.lean)
-proves positive finite denominators for `0<Q<1`, the exact quotient and
-complementary-index symmetry, and pins `Q=a*a` to the existing theta Euler
-product. These are ingredients for the Jacobi route to heat positivity;
-the symmetric finite identity and quantitative limit passage remain open.
-This does not yet produce the positive original-action floor below.
+**Latest analytic result: the finite symmetric Jacobi identity is proved.**
+[`FiniteJacobiIdentity.Ppart_eq_finiteJacobi`](lean/YMGap/Continuum/FiniteJacobiIdentity.lean)
+identifies the ORIGINAL full theta product with its Euler-normalized finite
+Gaussian/Chebyshev series, for every finite cutoff, rational `0<q<1`, and
+rational `x`. The proof combines two q-Pascal orientations with the Chebyshev
+recurrence, including the center's factor of two and both finite endpoints.
+It uses the actual q-binomial weights, not bare theta coefficients.
+Four focused checks passed: 31 gates inside `{propext, Quot.sound}`, no new
+holes. Explicit coefficient/tail convergence and the differentiated limit
+identity remain open. This does not yet supply heat positivity or the
+positive original-action floor below.
 
 **Latest original-action result: a retained channel bounds the full interacting action.**
 [`BF4ExactSlabAllExtentRetainedVacuumChannel.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentRetainedVacuumChannel.lean)

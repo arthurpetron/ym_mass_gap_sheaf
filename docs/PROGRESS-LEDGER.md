@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact Gaussian-coefficient Euler normalization (2026-09-12)
+## Current increment: finite symmetric Jacobi identity on the ORIGINAL theta product (2026-09-12)
+
+PROGRESS: `FiniteJacobiIdentity.factorProd_eq_gaussianPartial` proves the
+finite symmetric Jacobi identity for the EXISTING real theta factor product.
+`Ppart_eq_finiteJacobi` includes its original Euler factor and gives exact
+per-N equality to the Euler-normalized Gaussian/Chebyshev polynomial, every
+finite N, rational `0<q<1` and rational x. The finite q-binomial weights are
+retained; there is no asserted equality to bare theta truncations.
+
+The proof is a finite induction: `GaussQBinomSymmetricStep.qbin_two_sided_step`
+uses q-Pascal in opposite orientations; `FiniteSymmetricChebyshev.sum_step_with_boundary`
+keeps both finite endpoints; `FiniteJacobiCoefficients.coeff_step` matches
+the original weighted coefficients at the center, interior and outer boundary.
+The center's factor two and out-of-range vanishing are proved, not implicit.
+No complex substitution or per-N identity hypothesis enters the capstone.
+
+Next: quantitative normalized-coefficient convergence and Gaussian/Chebyshev
+tail control, followed by the correctly half-normalized differentiated JTP.
+The universal original lower-half/action nonvanishing producer remains open.
+Finite JTP does not establish heat positivity, physical vacuum/transfer,
+strict gap, volume/spacing/QFT or all-group Clay. No new named analytic
+input or canonical atom/type change; refuted law identity unused.
+
+Four focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs: 3 + 6 + 14 + 8 = 31 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-gauss-qbinom-symmetric-step.log`,
+`/tmp/ym-finite-symmetric-chebyshev.log`, `/tmp/ym-finite-jacobi-coefficients.log`,
+`/tmp/ym-finite-jacobi-identity.log`. Initial local namespace/base-case
+elaboration issues were corrected without raised proof limits. No new sorry,
+numerical oracle or full build/audit/guard/progress run.
+
+## Previous increment: exact Gaussian-coefficient Euler normalization (2026-09-12)
 
 PROGRESS: `GaussQBinomEulerNormalization.qbin_mul_euler` proves the exact
 denominator-cleared factorial formula for the ORIGINAL recursive q-binomial:

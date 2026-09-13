@@ -13,6 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Finite symmetric Jacobi identity on the ORIGINAL theta product (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/GaussQBinomSymmetricStep.lean`,
+  `lean/YMGap/Continuum/FiniteSymmetricChebyshev.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiCoefficients.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiIdentity.lean`.
+- **discharged**: the original q-binomial's opposite Pascal and two-sided
+  centered recurrence; finite symmetric Chebyshev multiplication with exact
+  boundary terms; Gaussian coefficient recurrence including center, interior,
+  outermost term and out-of-range vanishing. `factorProd_eq_gaussianPartial`
+  proves the symmetric finite Jacobi identity for the EXISTING factor product.
+  `Ppart_eq_finiteJacobi` pins the ORIGINAL full theta product to its
+  Euler-normalized weighted Gaussian/Chebyshev series, every finite N,
+  rational `0<q<1` and rational x. No per-N identity hypothesis is supplied;
+  the finite coefficients are not replaced by one.
+- **OPEN, unchanged**: explicit normalized-coefficient convergence and
+  Gaussian/Chebyshev tail control; correctly half-normalized differentiated
+  JTP; original lower-half/action nonvanishing producer; physical unit/vacuum,
+  compatible slabs, geometric transfer and stationarity, strict completed
+  gap, volume/spacing/QFT and all-group Clay. No `DiffJTP` or canonical
+  frontier inhabitant is produced. No new analytic premise or uniform
+  spectral claim; refuted law identity unused.
+- **verification**: four focused monitored one-worker 20 GiB checks, current
+  `.olean` outputs, 3 + 6 + 14 + 8 = 31 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-gauss-qbinom-symmetric-step.log`,
+  `/tmp/ym-finite-symmetric-chebyshev.log`, `/tmp/ym-finite-jacobi-coefficients.log`,
+  `/tmp/ym-finite-jacobi-identity.log`. No new sorry, numerical oracle,
+  raised proof limits or full build/audit/guard/progress run.
+
 ## Exact Gaussian-coefficient Euler normalization (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/GaussQBinomEulerNormalization.lean`,

@@ -178,6 +178,10 @@ import YMGap.Continuum.UTelescope
 import YMGap.Continuum.GaussQBinom
 import YMGap.Continuum.GaussQBinomEulerNormalization
 import YMGap.Continuum.GaussQBinomEulerQuotient
+import YMGap.Continuum.GaussQBinomSymmetricStep
+import YMGap.Continuum.FiniteSymmetricChebyshev
+import YMGap.Continuum.FiniteJacobiCoefficients
+import YMGap.Continuum.FiniteJacobiIdentity
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity

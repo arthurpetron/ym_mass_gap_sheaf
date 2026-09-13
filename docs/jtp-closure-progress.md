@@ -4,7 +4,39 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
-## 2026-09-12: exact finite q-binomial normalization, not JTP closure
+## 2026-09-12: finite symmetric Jacobi identity proved; limit remains open
+
+`FiniteJacobiIdentity.factorProd_eq_gaussianPartial` now proves, for every
+rational `0<q<1`, rational x and finite N,
+
+    RealTheta.factorProd q x N
+      = [2N choose N]_(q*q)
+        + 2 sum_{j=1..N} q^(j*j) [2N choose N+j]_(q*q) T_j(x).
+
+`Ppart_eq_finiteJacobi` includes the actual Euler product and identifies
+`ThetaConv.Ppart` with the finite series whose j-th Gaussian coefficient is
+`q^(j*j) * centeredWeight (q*q) N j`. These are setoid equalities of actual
+rational data. Neither identity is a supplied field.
+
+The proof combines `GaussQBinomSymmetricStep.qbin_two_sided_step` (one Pascal
+step in each orientation) with `FiniteSymmetricChebyshev.sum_step` (finite
+quadratic multiplication with proved-zero endpoints). The concrete bridge
+`FiniteJacobiCoefficients.coeff_step` checks center, interior, and outer
+coefficients; the central factor two is explicit. No complex variable,
+negative natural exponent or assumed coefficient limit is used.
+
+Still OPEN: quantitative convergence of the normalized weights and
+Gaussian/Chebyshev tails, then the correctly half-normalized differentiated
+limit identity. Finite JTP does not itself inhabit `DiffJTP` or supply heat
+or original-action positivity. The older finite-normalization residue below
+is superseded only for the symmetric finite identity, not for these limits.
+
+Four focused monitored one-worker 20 GiB checks: 31 gates within
+`{propext, Quot.sound}`, current `.olean` outputs, final error/warning free.
+No new sorry, named analytic input, numerical oracle or canonical frontier
+change. No full build/audit/guard/progress run.
+
+## 2026-09-12: exact finite q-binomial normalization, preparatory increment
 
 `GaussQBinomEulerNormalization.qbin_mul_euler` now derives the exact Euler
 formula from the original recursive q-Pascal definition:
