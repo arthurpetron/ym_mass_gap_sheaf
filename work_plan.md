@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest finite-slab increment (ORIGINAL normalized reflected form, CS and radical descent):**
+**Latest finite-slab increment (ORIGINAL null quotient and faithful completion carrier):**
+`BF4ExactSlabPlaquetteNullQuotient.null_iff_pairing` proves that zero
+reflected squared distance is exactly equality of every mixed pairing.
+It constructs `nullSetoid`, the actual `Carrier`, and its descended `inner`,
+addition and rational scaling. `inner_posdef` proves positive definiteness;
+the quotient inherits symmetry, bilinearity and sharp CS. `unit_norm_one`
+and `unit_ne_zero` supply a genuine distinguished nonzero state.
+
+`BF4ExactSlabPlaquetteSeminormCompletion.distSq_reflected` pins the distance
+to E(theta(p-q)*(p-q)) for the ORIGINAL normalized action. Positivity of
+the difference form and the exact parallelogram identity prove the
+square-root-free triangle estimate; null congruence is derived from the
+actual radical, not assumed. `seminorm` instantiates the existing CReal
+squared-distance completion with actual plaquette expressions. `Completion`
+therefore retains Type-level Cauchy and closeness moduli.
+`embedQuotient_injective` proves faithful embedding of the positive-definite
+quotient, and `completedUnit_ne_zero` proves its unit remains nonzero.
+
+Next: construct the completed mixed inner product using controlled pairing
+limits on these Cauchy representatives, prove representative-independence
+and the Hilbert-space laws. The carrier is not yet the completed inner
+space; no arbitrary observable multiplication action is assumed. All
+required gauge observables, compatible slabs, physical time transfer,
+stationary vacuum, strict physical gap, volume/spacing limits, continuum
+QFT and all-group Clay remain open. No canonical frontier atom/type/flag
+changed; no older boundary-code carrier is substituted.
+
+Verification: two new modules, 35 + 18 = 53 focused gates within
+{propext, Quot.sound}, final error/warning free, current outputs. Monitored
+one-worker 20 GiB checks. Explicit setoid typing and a matching algebraic
+rewrite corrected intermediate elaboration errors without raised limits.
+No new sorry, analytic premise, oracle or full build/audit/guard/progress run.
+Logs: `/tmp/ym-bf4-exact-slab-plaquette-null-quotient.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-seminorm-completion.log`.
+
+**Preceding finite-slab increment (ORIGINAL normalized reflected form, CS and radical descent):**
 `BF4ExactSlabPlaquetteReflectedForm.form_reflected` pins the CReal form
 to E(theta(p)*q) on actual lower plaquette expressions, for every rational
 0<w<1 and odd slab. `form_symm`, `form_add_left`, `form_smul_left` and their
@@ -39,8 +74,9 @@ Its sharp CS passes to `rawLimit_cauchySchwarz` along the original cutoff
 sequence using explicit `rawBound`; the SAME positive reciprocal rescales
 both sides. There is no new analytic premise or refuted-law identity.
 
-Next: the physical quotient/completion and observable action for THIS
-CReal form, all required gauge observables, compatible slabs, geometric
+The null quotient and completion carrier are now constructed above.
+Next: the completed inner product, Hilbert-space laws and observable action
+for THIS CReal form, all required gauge observables, compatible slabs, geometric
 transfer and stationary vacuum. The older boundary-code completion is
 not automatically the same object. Strict physical gap, volume/spacing
 limits, continuum QFT and all-group Clay remain open. No canonical

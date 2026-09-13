@@ -150,7 +150,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         symmetric, bilinear, CS
                                   |         + norm-null descent
                                   |         + explicit real modulus [PROVED]
-                                  |      + physical completion and
+                                  |      -> actual null quotient
+                                  |         + positive-definite form[PROVED]
+                                  |      -> Cauchy completion CARRIER
+                                  |         + injective embedding
+                                  |         + nonzero unit          [PROVED]
+                                  |      + completed inner product
+                                  |        and Hilbert-space laws    [OPEN]
+                                  |      + physical realization and
                                   |        observable-action maps    [OPEN]
                                   |      + all required gauge observables
                                   |        beyond this subalgebra     [OPEN]
@@ -198,7 +205,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the ORIGINAL normalized plaquette reflected form has sharp Cauchy--Schwarz and norm-null descent.**
+**Latest result: the ORIGINAL plaquette null quotient embeds faithfully into an explicit-modulus completion carrier.**
+[`null_iff_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean#L119)
+characterizes zero reflected distance as equality of all mixed pairings.
+The actual normalized form therefore descends to the null quotient, where
+[`inner_posdef`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean#L209)
+proves positive definiteness. Addition and rational scaling descend, and
+the unit has squared norm one.
+
+[`distSq_reflected`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSeminormCompletion.lean#L77)
+pins the squared distance to `E(theta(p-q)*(p-q))`.
+Positivity of a difference gives its square-root-free triangle bound;
+the radical theorem supplies null congruence. This constructs the existing
+explicit-modulus Cauchy
+[`Completion`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSeminormCompletion.lean#L144).
+[`embedQuotient_injective`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSeminormCompletion.lean#L173)
+proves that completion loses no additional quotient states, and
+[`completedUnit_ne_zero`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSeminormCompletion.lean#L184)
+proves the embedded unit is nonzero. These statements hold for every
+rational `0<w<1` and odd slab, on the same plaquette-generated subalgebra.
+
+Two new modules: 53 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+**The completed inner product and Hilbert-space laws are still open.**
+The next step is controlled convergence and representative-independence
+of the mixed pairing on these Cauchy representatives. No arbitrary
+observable multiplication action or identification with the older
+boundary-code completion is assumed. All required gauge observables,
+compatible slabs, physical transfer, stationary vacuum, uniform physical
+gap and continuum Clay remain open.
+
+**Preceding result: the ORIGINAL normalized plaquette reflected form has sharp Cauchy--Schwarz and norm-null descent.**
 [`form_reflected`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteReflectedForm.lean#L53)
 identifies the form with the literal `E(theta(p)*q)`, for every rational
 `0<w<1` and odd slab. It is symmetric, rationally bilinear, nonnegative
@@ -223,7 +260,8 @@ Three new modules: 41 focused axiom gates within `{propext, Quot.sound}`,
 no new proof holes, final error/warning free. No full-tree build/audit was run.
 Bounds and moduli depend on the nome, slab and expressions. This is still
 the **plaquette-generated subalgebra**, not all gauge observables. Its
-physical quotient/completion and observable action, compatible slabs,
+null quotient and completion carrier are now supplied above; the completed
+inner product, Hilbert-space laws and observable action, compatible slabs,
 transfer, stationary vacuum, uniform physical gap and continuum Clay
 target remain open. The older boundary-code completion is not silently
 identified with this form.

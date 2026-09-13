@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL normalized reflected form, CS and radical descent (2026-09-12)
+## Current increment: ORIGINAL null quotient and faithful completion carrier (2026-09-12)
+
+PROGRESS: `BF4ExactSlabPlaquetteNullQuotient` constructs the null quotient
+of the actual normalized reflected form. `null_iff_pairing` identifies
+norm-null differences with equality of every mixed pairing. `inner_posdef`
+proves positive definiteness of the descended form. Addition and rational
+scaling descend; symmetry, bilinearity, sharp CS and unit norm one are
+inherited. The quotient unit is proved nonzero.
+
+`BF4ExactSlabPlaquetteSeminormCompletion` supplies the SAME reflected
+squared distance E(theta(p-q)*(p-q)) to `SquaredSeminorm`. Positivity
+of differences and the parallelogram identity prove the sqrt-free triangle
+bound; radical descent proves null congruence. The resulting completion
+carrier retains explicit Type-level Cauchy/closeness moduli.
+`embedQuotient_injective` proves no additional quotient states collapse;
+`completedUnit_ne_zero` retains the distinguished nonzero unit.
+
+Next: controlled limits and representative-independence of mixed pairings
+on THIS completion, followed by completed inner/Hilbert laws. A completion
+carrier alone is not a completed physical Hilbert space. Observable action,
+all required gauge observables, compatible slabs, geometric transfer,
+stationary vacuum, strict physical gap, volume/spacing/QFT and all-group
+Clay remain open. No canonical frontier atom/type/flag changed or older
+boundary-code carrier substituted.
+
+Two new modules, 35 + 18 = 53 focused gates within {propext, Quot.sound},
+final error/warning free, current outputs. Monitored one-worker 20 GiB
+checks. Intermediate setoid-inference and rewrite errors were corrected
+without raised limits. No new holes, analytic premises, numerical oracles
+or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-null-quotient.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-seminorm-completion.log`.
+
+## Previous increment: ORIGINAL normalized reflected form, CS and radical descent (2026-09-12)
 
 PROGRESS: `BF4ExactSlabPlaquetteReflectedForm.form` is the SAME original
 normalized E(theta(p)*q), pinned by `form_reflected`, for rational 0<w<1

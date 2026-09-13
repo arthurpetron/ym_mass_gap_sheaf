@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL plaquette null quotient and faithful completion carrier (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteNullQuotient.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSeminormCompletion.lean`.
+- **discharged**: `null_iff_pairing` characterizes zero reflected distance
+  by equality of all mixed pairings. `Carrier` is the actual null quotient;
+  `inner_posdef` proves its descended form is positive definite. Addition
+  and rational scaling descend with form laws and sharp CS. `unit_norm_one`
+  and `unit_ne_zero` certify its distinguished nonzero unit.
+  `distSq_reflected` pins distance to E(theta(p-q)*(p-q)); `seminorm`
+  constructs the squared-distance completion input, with proved triangle
+  inequality and null congruence. `Completion` retains explicit Cauchy and
+  closeness moduli; `embedQuotient_injective` and `completedUnit_ne_zero`
+  prove faithful quotient embedding and a nonzero completed unit.
+- **scope**: every rational 0<w<1 and odd slab, for the ORIGINAL normalized
+  action on the plaquette-generated subalgebra. The Q'-valued GNS interface
+  was not weakened or substituted for the actual CReal form.
+- **superseded**: the null-quotient/completion-CARRIER part of the preceding
+  reflected-form entry. No completed mixed inner product is yet constructed.
+- **OPEN**: pairing-limit convergence with explicit moduli, independence
+  of Cauchy representatives, completed inner product and Hilbert-space laws;
+  observable action, all required gauge observables, compatible slabs,
+  physical time transfer, stationary vacuum, strict physical gap,
+  volume/spacing limits, continuum QFT and all-group Clay. No canonical
+  frontier atom/type/flag changed or frontier field weakened.
+- **verification**: 35 + 18 = 53 focused gates within
+  {propext, Quot.sound}, final error/warning free, current outputs. Monitored
+  one-worker 20 GiB checks. No new sorry, analytic premise, oracle, raised
+  proof limits or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-null-quotient.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-seminorm-completion.log`.
+
 ## CLOSED ORIGINAL normalized plaquette reflected-form laws, CS and radical descent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPolynomialReflectionInvariance.lean`,
@@ -36,8 +68,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: all constants/moduli retain w/slab/expression dependence;
   CS with constant one is not a strict contraction or a uniform physical
   mass bound. No canonical frontier atom/type/flag changed or type weakened.
-- **OPEN**: quotient/completion and observable action for THIS CReal
-  form; all required gauge observables, compatible slabs, geometric
+- **superseded subsequently**: the actual null quotient and completion
+  carrier are supplied by the newer entry above.
+- **OPEN**: completed inner product/Hilbert-space laws and observable
+  action for THIS CReal form; all required gauge observables, compatible slabs, geometric
   transfer, stationary physical vacuum, strict physical gap, volume/spacing
   limits, continuum QFT and all-group Clay. No identification with the
   older boundary-code completion is asserted.
