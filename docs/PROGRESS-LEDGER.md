@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL real-scalar action with computed arithmetic moduli (2026-09-13)
+## Current increment: ORIGINAL orthogonal centering and literal connected covariance (2026-09-13)
+
+PROGRESS: `BF4ExactSlabPlaquetteUnitProjection` constructs P(x)=<x,u>u
+with the actual pairing coefficient and its computed QCauchy data.
+Quotient descent follows from pairing separation; self-adjointness,
+idempotence, linearity and norm contraction are proved, not assumed.
+`BF4ExactSlabPlaquetteCenteredCompletion` constructs C=I-P and the
+actual unit-complement subtype. Orthogonality, fixed points, retraction,
+linearity, mixed Pythagoras and nonexpansiveness pass on the SAME carrier.
+
+`BF4ExactSlabPlaquetteCenteredDensity` returns original expression
+approximants after exact completed centering, preserving the supplied
+Cauchy rate. Centering preserves the outer modulus of represented rows
+and commutes with their limits. Orthogonal represented families have
+constructed unit-complement limits, retaining rate M(epsilon/16).
+No representative of an arbitrary quotient sequence is selected.
+
+`BF4ExactSlabPlaquetteConnectedCovariance` identifies the coefficient
+with E(p), and the centered pairing with the literal ORIGINAL
+E(theta(p)q)-E(p)E(q). It constructs QCauchy data for that real and proves
+symmetry, nonnegative diagonal and sharp CS. Every expectation uses the
+same action and Z. This is not a temporal decay or spectral-gap result.
+
+Next: a concrete original centered observable with a computed positive
+reflected-norm floor. The complement's nontriviality is not asserted by
+its definition. Physical vacuum identification/stationarity, compatible
+slabs, observable realization/action, full quotient completeness,
+geometric transfer, strict physical gap and volume/spacing/QFT/all-group
+Clay remain open. No auxiliary-law substitution or canonical atom/type/
+flag change.
+
+Four new modules, 19 + 28 + 12 + 13 = 72 focused gates within
+{propext, Quot.sound}; final error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. Minor elaboration/deprecation issues
+corrected without changed statements or raised limits. No new holes,
+analytic premises, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-unit-projection.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-centered-completion.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-centered-density.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-connected-covariance.log`.
+
+## Previous increment: ORIGINAL real-scalar action with computed arithmetic moduli (2026-09-13)
 
 PROGRESS: `BF4ExactSlabPlaquetteRealScalarCauchy` constructs the actual
 original expression stream s_n*X_n with its explicit squared-distance

@@ -187,7 +187,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |              + representative descent
                                   |              + arithmetic laws/moduli
                                   |              + distance scaling [PROVED]
-                                  |      + canonical unit centering   [OPEN]
+                                  |      + SAME pairing modulus
+                                  |        + original unit norm one [PROVED]
+                                  |      -> P(x)=<x,u>u; C(x)=x-P(x)
+                                  |         + orthogonal projections
+                                  |         + Pythagoras / no norm loss[PROVED]
+                                  |      + literal mean E(p) pin
+                                  |      -> <C(p),C(q)> equals
+                                  |         E(theta(p)q)-E(p)E(q)
+                                  |         + explicit real modulus [PROVED]
+                                  |      + original approximants/rows
+                                  |      -> centered approximation
+                                  |         + represented-row limits[PROVED]
+                                  |      + nonzero centered observable
+                                  |        with positive norm floor  [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -238,7 +251,40 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: real-scalar action on the ORIGINAL completed plaquette space, with explicit moduli.**
+**Latest result: actual orthogonal centering and literal ORIGINAL connected covariance.**
+[`unitProjection`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUnitProjection.lean#L78)
+constructs `P(x)=<x,u>u` from the actual pairing coefficient and its
+computed modulus. It is self-adjoint, idempotent and contractive.
+[`center`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredCompletion.lean#L81)
+is `x-P(x)`, exactly orthogonal to the original norm-one unit. Its
+projection/linearity laws and
+[`orthogonal_decomposition_inner`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredCompletion.lean#L161)
+give Pythagoras and nonexpansiveness with no extra factor.
+
+[`approximateCentered`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredDensity.lean#L59)
+returns an original expression whose exactly centered completed state
+approximates a supplied centered Cauchy representative at its original
+rate. Centering commutes with represented-row limits, and
+[`complementRowLimit`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredDensity.lean#L94)
+retains their explicit convergence rate. No arbitrary quotient
+representative is selected.
+
+[`connectedCovariance_pairing`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteConnectedCovariance.lean#L86)
+proves the literal identity
+`<C(p),C(q)> = E(theta(p)q)-E(p)E(q)` with the SAME original action and
+partition function. Its real representative has a computed Cauchy
+modulus, symmetry, nonnegative diagonal and sharp Cauchy--Schwarz.
+
+This is a finite-slab unit complement, **not yet a stationary physical
+vacuum complement**. Next: a concrete centered observable with a strictly
+positive original reflected norm. Nontriviality, physical transfer,
+compatible slabs, full quotient completeness, strict gap and
+continuum/Clay remain open. No temporal decay is asserted here.
+
+Four new modules: 72 focused axiom gates within `{propext, Quot.sound}`,
+no new proof holes, final error/warning free. No full-tree build/audit was run.
+
+**Preceding result: real-scalar action on the ORIGINAL completed plaquette space, with explicit moduli.**
 [`realScalarCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarCauchy.lean#L160)
 constructs the actual expression stream `s.approx n * X.seq n`. Its
 modulus uses computed scalar/vector tail ceilings and explicit error
@@ -259,8 +305,8 @@ is exact squared-distance scaling by the scalar twice.
 Scope: `CReal` scalars **with supplied `QCauchy` data** for their actual
 streams. This does not select such data for arbitrary legacy quotient
 reals, prove full quotient-level Hilbert completeness, or prove a gap.
-Next: canonical centering against the original norm-one unit using its
-actual pairing coefficient. Physical vacuum stationarity, transfer,
+Canonical centering against the original norm-one unit using its actual
+pairing coefficient is now supplied above. Physical vacuum stationarity, transfer,
 strict mass gap and continuum/Clay remain open.
 
 Three new modules: 37 focused axiom gates within `{propext, Quot.sound}`,

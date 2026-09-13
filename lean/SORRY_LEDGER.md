@@ -13,6 +13,53 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL unit centering, represented density and connected covariance (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteUnitProjection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredCompletion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCenteredDensity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteConnectedCovariance.lean`.
+- **discharged**: `unitProjection` constructs P(x)=<x,u>u through
+  `unitCoefficientCauchy` and `unitProjectionCauchy`; pairing separation
+  proves descent. Self-adjointness, idempotence, linearity and norm
+  contraction pass. `center` constructs I-P; its orthogonality, fixed
+  points, linearity, Pythagoras and nonexpansiveness are proved.
+  `UnitComplement` is the actual orthogonal subtype; `centeredState`
+  is its retraction, not a nontriviality witness. `approximateCentered`
+  returns original expression data at the supplied Cauchy rate after
+  exact completed centering. `centeredRows` preserves the outer modulus;
+  `rowLimit_centeredRows` commutes with centering, and
+  `complementRowLimit` constructs limits of represented orthogonal rows
+  with rate M(epsilon/16). `centeredExpression_mean` identifies p-E(p)u;
+  `connectedCovariance_pairing` proves the literal ORIGINAL
+  E(theta(p)q)-E(p)E(q) identity, with explicit covariance QCauchy data,
+  symmetry, nonnegative diagonal and sharp CS.
+- **scope**: every rational 0<w<1 and odd slab, SAME original action,
+  partition function, plaquette completion and norm-one unit. No scalar/
+  vector quotient representative is chosen; no full quotient-level
+  completeness or temporal decay is asserted. The centered approximants
+  are completed expression states, not exactly centered rational expressions.
+- **superseded**: canonical unit centering and its projection laws from
+  the preceding entry. Physical stationary-vacuum identification remains
+  a different obligation.
+- **OPEN / next**: construct a concrete original lower-plaquette expression
+  with a computed strictly positive connected reflected diagonal, hence a
+  nonzero state in this unit complement. No such floor is assumed here.
+  Full quotient completeness, observable realization/action, all required
+  gauge observables, compatible slabs, physical vacuum identification/
+  stationarity, geometric transfer, strict physical gap, volume/spacing
+  limits, continuum QFT and all-group Clay remain open. No canonical
+  atom/type/flag changed or frontier field weakened.
+- **verification**: 19 + 28 + 12 + 13 = 72 focused gates within
+  {propext, Quot.sound}; final error/warning free, outputs current.
+  Monitored one-worker 20 GiB checks. Deprecation/argument/namespace
+  issues corrected without changed statements or raised limits. No new
+  sorry, analytic premise, oracle or full build/audit/guard/progress run.
+  Logs: `/tmp/ym-bf4-exact-slab-plaquette-unit-projection.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-centered-completion.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-centered-density.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-connected-covariance.log`.
+
 ## CLOSED ORIGINAL real-scalar action with explicit arithmetic moduli (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteRealScalarCauchy.lean`,
@@ -39,9 +86,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   this explicit-data scope. A direct diagonal construction and pairing
   separation suffice; the represented-row limit constructor is not needed
   for this action and remains available.
-- **OPEN**: canonical centering against the original norm-one unit and
-  its projection laws (next); physical vacuum identification/stationarity
-  is separate. Full quotient-level constructive completeness, observable
+- **superseded next input**: canonical unit centering and its projection
+  laws are supplied in the newer entry above.
+- **OPEN**: physical vacuum identification/stationarity is separate.
+  Full quotient-level constructive completeness, observable
   realization/action, all required gauge observables, compatible slabs,
   physical transfer, strict physical gap, volume/spacing limits,
   continuum QFT and all-group Clay remain open. No canonical atom/type/

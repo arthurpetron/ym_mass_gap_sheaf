@@ -18,7 +18,61 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL modulus-bearing real-scalar action and algebra):**
+**Latest finite-slab increment (ORIGINAL orthogonal centering, represented density and literal covariance):**
+`BF4ExactSlabPlaquetteUnitProjection.unitCoefficient` is the actual
+pairing limit with the constant original unit; `unitCoefficientCauchy`
+retains its computed rational modulus. `unitProjectionCauchy` scales
+the unit stream by that coefficient, and `unitProjection` descends by
+pairing separation, without choosing a scalar or vector representative.
+Its rank-one identity, self-adjointness, idempotence, linear laws and
+norm contraction are proved on the SAME original completion.
+
+`BF4ExactSlabPlaquetteCenteredCompletion.center` subtracts that
+projection. Orthogonality, the fixed-point characterization, idempotence,
+linearity, mixed Pythagoras and nonexpansiveness are proved.
+`UnitComplement` is exactly the unit-orthogonal subtype; `centeredState`
+is a retraction onto it. `centerCauchy` retains the actual constructed
+Cauchy data. No nonzero vector or stationary-vacuum claim is implied by
+the subtype definition.
+
+`BF4ExactSlabPlaquetteCenteredDensity.approximateCentered` returns an
+original expression witness, with the input Cauchy rate preserved after
+exact completed centering. `centeredRows` preserves the input outer
+modulus M, and `rowLimit_centeredRows` proves that limits commute with
+centering. `complementRowLimit` constructs limits of supplied represented
+orthogonal families with rate M(epsilon/16). Full arbitrary quotient
+completeness is not asserted, nor exact rational-expression centering.
+
+`BF4ExactSlabPlaquetteConnectedCovariance.centeredExpression_mean`
+identifies centering as p-E(p)u. `connectedCovariance_pairing` identifies
+its actual mixed pairing with E(theta(p)q)-E(p)E(q), using the SAME
+original action and partition function throughout. The covariance has
+explicit QCauchy data, symmetry, nonnegative diagonal and sharp CS.
+No temporal separation estimate or strict physical contraction appears.
+
+Next: construct a concrete original lower-plaquette expression whose
+connected reflected diagonal has a computed strictly positive floor.
+This must establish a nonzero state in this actual unit complement,
+not transport an excitation through the refuted auxiliary-law identity.
+Ordinary square/variance positivity alone is not the required reflected
+diagonal lower bound.
+Physical vacuum identification/stationarity, compatible slabs, complete
+observable realization/action, full quotient completeness, geometric
+transfer, strict gap and volume/spacing/QFT/all-group Clay remain open.
+No canonical atom/type/flag changed or new analytic premise assumed.
+
+Verification: four new modules, 19 + 28 + 12 + 13 = 72 focused gates
+within {propext, Quot.sound}, final error/warning free, outputs current.
+Monitored one-worker 20 GiB checks. A deprecated subtype equality call,
+two inferred vector arguments and a missing polynomial-helper namespace
+were corrected without changed statements or raised limits. No new
+sorry, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-unit-projection.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-centered-completion.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-centered-density.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-connected-covariance.log`.
+
+**Preceding finite-slab increment (ORIGINAL modulus-bearing real-scalar action and algebra):**
 `BF4ExactSlabPlaquetteRealScalarCauchy.realScalarCauchy` constructs the
 original expression stream s_n*X_n. Let A be its computed scalar tail
 ceiling and B the computed original vector norm ceiling. The vector
@@ -42,10 +96,10 @@ global bound. Scalar addition/composition, vector negation/subtraction,
 diagonal homogeneity and exact completed squared-distance scaling pass.
 No scalar-product convergence premise is added.
 
-Next: construct canonical centering against the original norm-one unit,
-using the actual pairing and its computed modulus as scalar data; prove
-orthogonality and the projection laws on this completion. This is not
-identification with a stationary physical vacuum. Full quotient-level
+The latest increment supplies canonical centering against the original
+norm-one unit, orthogonality and projection laws, using the actual pairing
+and its computed scalar modulus. This is not identification with a
+stationary physical vacuum. Full quotient-level
 constructive completeness, physical realization/observable action,
 all required gauge observables, compatible slabs, physical transfer,
 strict physical gap and volume/spacing/QFT/all-group Clay remain open.
