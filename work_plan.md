@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (non-null normalized code and SAME-form centered pairings):**
+**Latest larger-slab progress (full heat-unit pins and explicit original face tails):**
+`BF4ExactSlabAllExtentHeatUnit.lowerObservable_one` and `upperObservable_one`
+resum all actual bounded boundary labels to products of ORIGINAL heat factors.
+`heatUnitCode_full_action` identifies the equal-cutoff quadratic with the full
+original slab action integral. `heatUnitCode_finite_pairing`,
+`heatUnitCode_limit_pairing` and `heatUnitCode_completed_pairing` retain LEFT,
+INTERFACE and RIGHT cutoffs separately; `heatUnitPairingStage` computes the
+interface stage while preserving both boundary anchors. The resulting
+growing sequence is not claimed Cauchy by fixed-anchor stabilization.
+
+`SU2HeatCharacterPolynomialMajorant.characterPolynomial_coefficientL1`
+proves the original Chebyshev polynomial bound `(2*L1(p)+1)^s`.
+`heatCharacter_coefficientL1` retains the exact dimension/Casimir heat weight;
+`heatCharacter_haar_abs` applies the SAME syntactic bound to exact Haar.
+`SU2HeatCharacterPolynomialTail.polynomialLabelCutoff` computes a starting
+label for every rational `0<w<1`, using the actual polynomial radius.
+`polynomialTailRatio_le_half` and `heatCharacter_coefficientL1_block` bound
+all finite tail blocks. `polynomialTailModulus` is Type-level data and
+`polynomialClosedTail_small` proves its tolerance guarantee. Both the start
+and tail head depend on w and p; one half is NOT a spectral rate.
+
+`BF4ExactSlabAllExtentFaceHeatTail.faceHeatPolynomial_cutoff_append` gives a
+LITERAL original prefix-plus-remainder identity at every extent and face.
+`faceHeatCutoff` retains w, extent, face and tolerance dependence;
+`faceHeatTail_small` and `faceHeatTail_haar_small` certify its remainder.
+The small coefficient norm is on that remainder, not on the unreduced
+syntactic difference of prefixes; no false coefficient-L1 invariance or
+pointwise-to-Haar limit transfer is used.
+
+Next mathematical residue: full finite-product norm/remainder bounds,
+then the moving-anchor original GNS Cauchy modulus and completed full unit.
+Inter-slab Gram maps, physical unit/vacuum identification, geometric transfer
+and stationarity, strict completed gap, volume/spacing/QFT and all-group Clay
+remain open. Canonical atoms/types unchanged; refuted law identity unused.
+
+Verification: four focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 14 + 11 + 14 + 10 = 49 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-heat-unit.log`,
+`/tmp/ym-heat-character-polynomial-majorant.log`,
+`/tmp/ym-heat-character-polynomial-tail.log`, `/tmp/ym-all-extent-face-heat-tail.log`.
+No new sorry, analytic premise, raised proof limit, numerical oracle or pilot
+constant. No full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (non-null normalized code and SAME-form centered pairings):**
 `BF4ExactSlabAllExtentVacuumNormalization.selectedFaceBound_one` and
 `interfaceBound_one` prove zero exposed degree for the constant insertion.
 `interfacePairing_one` applies the full original interface cutoff theorem at

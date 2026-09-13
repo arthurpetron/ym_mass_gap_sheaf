@@ -66,6 +66,11 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      -> code-centered completed
                                   |         pairing = original
                                   |         finite code covariance  [PROVED]
+                                  +--> full heat-unit sequence:
+                                  |    ORIGINAL three-cutoff pairing[PROVED]
+                                  |      + original face remainders
+                                  |        with w-dependent moduli  [PROVED]
+                                  |      -> full product/GNS Cauchy   [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
                                   +<-- physical observable/unit
                                   |    realization                    [OPEN]
@@ -107,7 +112,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a non-null normalized code and exact centered pairings at every odd extent.**
+**Latest result: the full heat-unit pairing and explicit original plaquette tails.**
+[`BF4ExactSlabAllExtentHeatUnit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnit.lean)
+resums the all-label boundary coefficients into the ORIGINAL heat products.
+Its completed pairing retains three separate cutoffs: left boundary, interface
+and right boundary. At equal finite cutoffs, the quadratic is exactly the
+full original slab action integral. This identifies the growing sequence;
+fixed-anchor stabilization does not establish its convergence.
+
+[`SU2HeatCharacterPolynomialMajorant.lean`](lean/YMGap/Continuum/SU2HeatCharacterPolynomialMajorant.lean)
+bounds the actual character polynomial's coefficient sum by
+`(2*L1(p)+1)^s`, retaining the exact dimension/Casimir heat coefficient.
+[`SU2HeatCharacterPolynomialTail.lean`](lean/YMGap/Continuum/SU2HeatCharacterPolynomialTail.lean)
+supplies a starting label and tolerance modulus for every rational `0<w<1`.
+Both depend explicitly on `w` and the polynomial; its eventual factor `1/2`
+is a representation-tail estimate, **not a spectral-gap rate**.
+[`BF4ExactSlabAllExtentFaceHeatTail.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentFaceHeatTail.lean)
+applies this to each original plaquette: a later heat prefix literally equals
+the earlier prefix plus a computed remainder with small coefficient norm and
+Haar integral. No pointwise-to-Haar limit bridge is assumed.
+
+Next: propagate these remainders through the full products and prove a
+moving-anchor GNS Cauchy modulus. The completed full unit, compatible slabs,
+physical transfer and stationary vacuum, strict gap, volume/spacing/QFT and
+all-group Clay remain open. Four focused monitored checks passed: 49 axiom
+gates within `{propext, Quot.sound}`, no new sorry or analytic premise.
+No full-tree build/audit/guard was run.
+
+**Preceding result: a non-null normalized code and exact centered pairings at every odd extent.**
 [`BF4ExactSlabAllExtentVacuumNormalization.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumNormalization.lean)
 proves that the constant insertion has exposed degree zero. The full original
 interface therefore stabilizes at cutoff zero and has Haar value one. This

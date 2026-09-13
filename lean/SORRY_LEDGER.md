@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Full heat-unit pairing and explicit original polynomial tails (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnit.lean`,
+  `lean/YMGap/Continuum/SU2HeatCharacterPolynomialMajorant.lean`,
+  `lean/YMGap/Continuum/SU2HeatCharacterPolynomialTail.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentFaceHeatTail.lean`.
+- **discharged**: all-label coefficient-one boundary resummation to ORIGINAL
+  heat products; `heatUnitCode_full_action` identifies the equal-cutoff full
+  action integral; `heatUnitCode_completed_pairing` preserves the two boundary
+  anchors and computes the interface cutoff independently. Original character
+  coefficient-L1 growth is bounded by the computed radius `2*L1(p)+1`, retaining
+  the exact heat coefficient. `polynomialLabelCutoff` and
+  `polynomialTailModulus` are explicit data for each rational `0<w<1`;
+  `heatCharacter_coefficientL1_block` and `polynomialClosedTail_small` certify
+  finite tails. `faceHeatPolynomial_cutoff_append` is a literal original
+  prefix-plus-remainder identity; `faceHeatCutoff`, `faceHeatTail_small` and
+  `faceHeatTail_haar_small` pin the bound to the original plaquette polynomial.
+- **OPEN residue**: full-product coefficient bounds and remainder propagation,
+  moving-anchor GNS Cauchy modulus, completed full unit, compatible slabs,
+  physical unit/vacuum realization, geometric transfer and stationarity,
+  strict completed gap, volume/spacing/QFT and all-group Clay. The eventual
+  representation-tail factor one half has w- and polynomial-dependent starting
+  label and head; it is NOT a beta-uniform spectral bound. Fixed-anchor form
+  stabilization does not discharge moving-anchor convergence. Syntactic L1
+  is not invariant under polynomial cancellation, and no such invariance or
+  pointwise-to-Haar limit bridge is assumed. No canonical atom/type changed,
+  no refuted law identity used, no new sorry or analytic premise.
+- **verification**: four focused monitored one-worker 20 GiB checks with
+  current `.olean` outputs; 14 + 11 + 14 + 10 = 49 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-all-extent-heat-unit.log`, `/tmp/ym-heat-character-polynomial-majorant.log`,
+  `/tmp/ym-heat-character-polynomial-tail.log`, `/tmp/ym-all-extent-face-heat-tail.log`.
+  No raised proof limit, numerical oracle or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Non-null normalized original code and centered pairing pins, every odd extent (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentVacuumNormalization.lean`,

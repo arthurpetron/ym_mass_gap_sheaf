@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: non-null original code and centered pairing pins, every odd extent (2026-09-12)
+## Current increment: full heat-unit pairing and original polynomial tails (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentHeatUnit.heatUnitCode_full_action` resums the
+actual all-label coefficient-one code to the FULL original slab action.
+`heatUnitCode_completed_pairing` keeps its two boundary anchors and computed
+interface stage distinct. No fixed-anchor stabilization theorem is used to
+claim that the moving-anchor sequence converges.
+
+`SU2HeatCharacterPolynomialMajorant.characterPolynomial_coefficientL1`
+proves a computed exponential coefficient bound for the actual polynomial
+recurrence; `heatCharacter_coefficientL1` retains the original heat coefficient.
+`SU2HeatCharacterPolynomialTail.polynomialLabelCutoff` pays for that growth
+for every rational `0<w<1`. Its `polynomialTailRatio_le_half` and
+`heatCharacter_coefficientL1_block` give finite-block bounds, with explicit
+`polynomialTailModulus` and its `polynomialClosedTail_small` guarantee.
+Starting label and head depend on w and polynomial; this is not a spectral rate.
+
+`BF4ExactSlabAllExtentFaceHeatTail.faceHeatPolynomial_cutoff_append` gives the
+literal original face prefix plus its explicit remainder. `faceHeatCutoff`,
+`faceHeatTail_small` and `faceHeatTail_haar_small` pin a tolerance modulus
+to these SAME heat factors on every slab extent. The coefficient bound is on
+the remainder, not a cancellation-invariant norm of raw polynomial syntax.
+No pointwise-to-Haar limit bridge is assumed.
+
+Next: combine the original face remainders through the full finite products,
+then prove the moving-anchor GNS Cauchy modulus. Completed full unit, slab
+compatibility, physical time/transfer and stationary vacuum, strict completed
+gap, volume/spacing/QFT and all-group Clay remain open. Canonical atoms/types
+unchanged and refuted signed/positive-law identity unused.
+
+Four focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs: 14 + 11 + 14 + 10 = 49 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-heat-unit.log`,
+`/tmp/ym-heat-character-polynomial-majorant.log`,
+`/tmp/ym-heat-character-polynomial-tail.log`, `/tmp/ym-all-extent-face-heat-tail.log`.
+No new sorry, analytic premise, raised proof limit, numerical oracle or pilot
+constant. No full build/audit/guard/progress run.
+
+## Previous increment: non-null original code and centered pairing pins, every odd extent (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentVacuumNormalization.interfaceBound_one` shows
 the constant insertion has cutoff stage zero. `interfacePairing_one` retains
