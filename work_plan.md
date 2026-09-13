@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (normalized comparison and character thermodynamic limits):**
+**Latest original-action increment (finite-expression thermodynamic limits):**
+`Z4FiniteBoxConnectedAnimal.boxAnimal` constructs Type-valued shared-link
+paths in the full six-plane box. `BF4ExactSlabShiftedProbeCarrier.shiftedBoxProbe`
+translates the paths, using computed coordinate-subtraction preimages, and
+preserves support/link counts. Thus every fixed base box has a constructed
+connected probe; no new geometric or analytic input is required.
+
+`BF4ExactSlabShiftedPlaquetteExpression` proves `shiftedExpressionBound`,
+`shiftedExpression_local` and `shiftedExpression_image` for the existing
+finite sum/product/signed-scale syntax. These are original ordered holonomies
+and the same literal inter-slab polynomial map.
+`BF4ExactSlabExpressionExpectationDecay.expressionMean_difference_bound`
+consumes them and the prior partition cancellation, giving
+|E_(m+p)(e)-E_m(e)|<=A(w,base,e)*s(w)^(m+1-M(base)), uniformly in outer p.
+For n=centralExtent(base)+1, M=6*n^4, link count=24*n^4, and counting
+prefactor=2^M*625^M. Support/coupling dependence is explicit.
+
+`BF4ExactSlabExpressionThermodynamicLimit` constructs `meanLimit` at
+w=1/1024, with `volumeModulus = M(base)+geoOuterModulus(A(e),epsilon)`,
+per-volume `innerModulus`, and `meanLimitCauchy`. `meanLimit_geometric_bound`
+and `meanLimit_error_le` certify the actual returned limit. `meanLimit_one`,
+`meanLimit_add`, `meanLimit_smul`, and `meanLimit_square_nonnegative` pass
+normalization, linearity and ordinary-square positivity to mixed-expression
+limits. They do not assert factorization of interacting moments.
+
+Next: cross-presentation/base-box compatibility, then full physical-state
+and time/reflection properties. Physical transfer/vacuum, strict completed
+gap, spacing control and continuum/QFT/all-group Clay remain open. No
+canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: five new modules, 13+12+6+13+19=63 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free, source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-z4-finite-box-connected-animal.log`,
+`/tmp/ym-bf4-exact-slab-shifted-probe-carrier.log`,
+`/tmp/ym-bf4-exact-slab-shifted-plaquette-expression.log`,
+`/tmp/ym-bf4-exact-slab-expression-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-expression-thermodynamic-limit.log`.
+
+**Preceding original-action increment (normalized comparison and character thermodynamic limits):**
 `BF4ExactSlabBoundaryLimitNormalization.boundaryResponse_bound` passes the
 common-cutoff cleared estimate to the SAME original moment limits.
 `normalizedPartition_cancel` cancels both original partition factors through
@@ -43,7 +83,7 @@ connect the returned object and moduli to the original normalized means.
 The sharp original s^m error is retained; the half-power envelope is only
 used to compute the outer modulus. No beta/spacing-uniform claim.
 
-Next: finite products and mixed-observable thermodynamic limits, then their
+Next at that checkpoint: finite products and mixed-observable thermodynamic limits, then their
 algebraic compatibility as one original state. Single-plaquette character
 limits do not construct that full state. Physical transfer/vacuum, strict
 physical gap, spacing control and continuum/QFT/all-group Clay remain open.

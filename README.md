@@ -393,8 +393,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           ONE plaquette's
                                   |           character means       [PROVED]
                                   |           fixed w=1/1024
-                                  |      + finite products / mixed
-                                  |        observable correlations  [NEXT OPEN]
+                                  |        + connected box carrier,
+                                  |          size-preserving shifts [PROVED]
+                                  |        + expression support,
+                                  |          bounds + image pins    [PROVED]
+                                  |        -> mixed-expression
+                                  |           normalized comparison [PROVED]
+                                  |           A(e,base,w)*s^(m+1-M)
+                                  |        + explicit volume moduli
+                                  |        -> mixed-expression
+                                  |           thermodynamic limits  [PROVED]
+                                  |           unit, linearity,
+                                  |           square positivity     [PROVED]
+                                  |      + cross-presentation
+                                  |        compatibility            [NEXT OPEN]
                                   |      + full thermodynamic state
                                   |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
@@ -447,7 +459,47 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: normalized comparison and a constructed thermodynamic limit for single-plaquette character means.**
+**Latest result: constructed thermodynamic limits for finite plaquette expressions, including mixed products.**
+[`boxAnimal`](lean/YMGap/Continuum/Z4FiniteBoxConnectedAnimal.lean) constructs
+shared-link paths throughout the literal six-plane box.
+[`shiftedBoxProbe`](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCarrier.lean)
+translates those paths and preserves the carrier size; preimages are computed
+by coordinate subtraction. No connected-carrier hypothesis remains for a
+finite expression.
+
+[`shiftedExpressionBound`, `shiftedExpression_local`, `shiftedExpression_image`](lean/YMGap/Continuum/BF4ExactSlabShiftedPlaquetteExpression.lean)
+construct bounds, locality and the SAME original Haar embedding for the
+existing expression language's products, sums and signed rational scales.
+[`expressionMean_difference_bound`](lean/YMGap/Continuum/BF4ExactSlabExpressionExpectationDecay.lean)
+gives `|E_(m+p)(e)-E_m(e)| <= A(w,base,e)*s(w)^(m+1-M(base))` for any
+outer padding `p`. Here `n=centralExtent(base)+1`, `M=6*n^4`, the probe
+has `24*n^4` link occurrences, and its counting prefactor is `2^M*625^M`.
+The amplitude explicitly retains support and coupling dependence; natural
+subtraction truncates the exponent at zero.
+
+[`meanLimit`](lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean)
+constructs the limit at `w=1/1024`. Its explicit volume modulus is
+`M(base)+geoOuterModulus(A(e),epsilon)`; per-volume and limit-representative
+moduli are also returned. The actual geometric error bound survives.
+`meanLimit_one`, `meanLimit_add`, `meanLimit_smul`, and
+`meanLimit_square_nonnegative` prove normalization, linearity and ordinary
+square positivity. No multiplicativity is claimed: mixed-product limits
+are interacting moments.
+
+**Next:** compatibility across presentations/base boxes of the same observable,
+then the required state/time/reflection properties. These expression-level
+limits are not yet a full physical state, transfer/vacuum/gap, or continuum
+QFT. The result is fixed-coupling/fixed-spacing, not beta/spacing-uniform.
+The all-group Clay target remains open.
+
+Five new modules: 13+12+6+13+19=63 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free, source/direct-import
+artifacts fresh. The safe-build skill kept verification to one monitored
+worker and the mandatory 20 GiB ceiling. No new hole, analytic premise,
+raised limit or canonical frontier change; no full build/audit/guard/progress
+run. Root imports updated, not rebuilt.
+
+**Preceding result: normalized comparison and a constructed thermodynamic limit for single-plaquette character means.**
 [`expectationDifference_bound`](lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean)
 passes the common-cutoff determinant estimate to the original moment limits
 and cancels the SAME two partition functions using their proved reciprocals.
@@ -474,7 +526,7 @@ analytic convergence input. `meanLimit_geometric_bound` retains
 The proved `s<=1/2` envelope is used for the modulus, not substituted for
 the original geometric error rate.
 
-**Next:** construct finite-product/mixed-observable thermodynamic limits and
+**Next at that checkpoint:** construct finite-product/mixed-observable thermodynamic limits and
 their algebraic compatibility. A limit for each single-plaquette character
 is not yet a full thermodynamic state, much less a physical transfer, vacuum,
 spectral gap or continuum QFT. This is fixed-coupling/fixed-spacing progress;

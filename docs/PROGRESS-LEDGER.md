@@ -4,7 +4,51 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original normalized comparison and character thermodynamic limits (2026-09-13)
+## Current increment: original mixed-expression thermodynamic limits (2026-09-13)
+
+The preceding turn was PROGRESS: `18dfcf7` committed and pushed original
+single-character thermodynamic limits. This turn is PROGRESS: the same
+original-action route now constructs limits for the existing finite
+plaquette-expression syntax, including mixed products, with normalization,
+linearity and ordinary-square positivity.
+
+`Z4FiniteBoxConnectedAnimal.boxAnimal` constructs shared-link paths through
+the full six-plane box. `BF4ExactSlabShiftedProbeCarrier.shiftedBoxProbe`
+translates this carrier with unchanged size and computed endpoint preimages.
+`BF4ExactSlabShiftedPlaquetteExpression.shiftedExpressionBound`,
+`shiftedExpression_local`, and `shiftedExpression_image` construct the
+actual finite-expression bounds, link support and original embedding pin.
+
+`BF4ExactSlabExpressionExpectationDecay.expressionMean_difference_bound`
+proves |E_(m+p)(e)-E_m(e)|<=A(w,base,e)*s(w)^(m+1-M(base)), for every outer p.
+For n=centralExtent(base)+1, M=6*n^4, link count=24*n^4, counting
+prefactor=2^M*625^M; A retains support and coupling dependence. No
+geometric probe premise or beta/spacing-uniform assertion remains hidden.
+
+`BF4ExactSlabExpressionThermodynamicLimit.meanLimit` consumes that bound
+at w=1/1024 using the existing completeness engine. `volumeModulus` includes
+the fixed support delay; `innerModulus` and `meanLimitCauchy` return the
+approximation moduli. `meanLimit_geometric_bound` and `meanLimit_error_le`
+pin the actual error. `meanLimit_one`, `meanLimit_add`, `meanLimit_smul`,
+and `meanLimit_square_nonnegative` preserve the original finite-volume
+laws. No factorization/multiplicativity of interacting moments is asserted.
+
+Next: cross-presentation/base-box compatibility, then the required full
+state/time/reflection properties. Physical transfer/vacuum, strict completed
+gap, continuum/spacing control and the all-group Clay target remain open.
+No canonical atom/type/flag, new analytic premise or hole changed.
+
+Five new modules: 13+12+6+13+19=63 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free, source/direct-import artifacts
+fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle, raised
+limit or full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-z4-finite-box-connected-animal.log`,
+`/tmp/ym-bf4-exact-slab-shifted-probe-carrier.log`,
+`/tmp/ym-bf4-exact-slab-shifted-plaquette-expression.log`,
+`/tmp/ym-bf4-exact-slab-expression-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-expression-thermodynamic-limit.log`.
+
+## Previous increment: original normalized comparison and character thermodynamic limits (2026-09-13)
 
 The preceding turn was PROGRESS: `f706666` committed and pushed the original
 inner-margin comparison coefficient. This turn is PROGRESS: the two

@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED normalized comparison and single-character thermodynamic limits; OPEN full thermodynamic state (2026-09-13)
+## CLOSED original mixed-expression thermodynamic limits; OPEN cross-presentation physical state (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/Z4FiniteBoxConnectedAnimal.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCarrier.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedPlaquetteExpression.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabExpressionExpectationDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean`.
+- **constructed finite support**: `boxAnimal` supplies actual Type-valued
+  shared-link paths. `shiftedBoxProbe` translates them and retains their
+  size, with computed coordinate-subtraction preimages. For
+  n=centralExtent(base)+1, the carrier size M=6*n^4 and link count=24*n^4;
+  the actual-core counting prefactor is 2^M*625^M. No connected-carrier
+  premise remains for this expression instance.
+- **constructed original consumer**: `shiftedExpressionBound`,
+  `shiftedExpression_local`, and `shiftedExpression_image` cover finite
+  products, sums and signed rational scales in the existing plaquette
+  algebra. `expressionMean_difference_bound` proves
+  |E_(m+p)(e)-E_m(e)|<=A(w,base,e)*s(w)^(m+1-M(base)) for arbitrary outer p.
+  Natural subtraction truncates at zero; A names support and coupling.
+  All small-nome guards are discharged at the existing w=1/1024 point.
+- **constructed thermodynamic objects and laws**: `volumeModulus` returns
+  M(base)+geoOuterModulus(A(e),epsilon); `innerModulus` uses the original
+  expectation QCauchy data. `meanLimit` is the existing explicit diagonal.
+  `meanLimitCauchy`, `meanLimit_geometric_bound` and `meanLimit_error_le`
+  certify its representative modulus and actual error. `meanLimit_one`,
+  `meanLimit_add`, `meanLimit_smul`, and `meanLimit_square_nonnegative`
+  prove normalization, linearity and ordinary-square positivity.
+- **remaining obligation**: compatibility across presentations/base boxes
+  of the same observable, then full physical state/time/reflection
+  properties, physical transfer/vacuum/strict completed gap, spacing and
+  continuum/QFT/all-group Clay. This is expression-level fixed-coupling,
+  fixed-spacing convergence; it is not an OS spectral gap or a claim that
+  interacting moments factorize. The preceding finite-product/mixed-limit
+  residue is closed at this scope. No canonical atom/type/flag, new analytic
+  premise or hole changed.
+- **verification**: 13+12+6+13+19=63 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-z4-finite-box-connected-animal.log`,
+  `/tmp/ym-bf4-exact-slab-shifted-probe-carrier.log`,
+  `/tmp/ym-bf4-exact-slab-shifted-plaquette-expression.log`,
+  `/tmp/ym-bf4-exact-slab-expression-expectation-decay.log`,
+  `/tmp/ym-bf4-exact-slab-expression-thermodynamic-limit.log`.
+
+## CLOSED normalized comparison and single-character thermodynamic limits; OPEN full thermodynamic state at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabInnerMarginExpectationDecay.lean`,

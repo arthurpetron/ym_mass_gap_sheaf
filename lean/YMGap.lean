@@ -4068,6 +4068,13 @@ import YMGap.Continuum.BF4ExactSlabInnerMarginBoundaryDecay
 import YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization
 import YMGap.Continuum.BF4ExactSlabInnerMarginExpectationDecay
 import YMGap.Continuum.BF4ExactSlabCharacterThermodynamicLimit
+-- Construct connected finite-support carriers and ORIGINAL mixed-expression
+-- thermodynamic limits. Cross-presentation state/physical gap/continuum remain open.
+import YMGap.Continuum.Z4FiniteBoxConnectedAnimal
+import YMGap.Continuum.BF4ExactSlabShiftedProbeCarrier
+import YMGap.Continuum.BF4ExactSlabShiftedPlaquetteExpression
+import YMGap.Continuum.BF4ExactSlabExpressionExpectationDecay
+import YMGap.Continuum.BF4ExactSlabExpressionThermodynamicLimit
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
