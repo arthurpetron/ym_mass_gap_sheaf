@@ -4034,12 +4034,19 @@ import YMGap.Continuum.BF4ExactSlabRootedFamilyResummation
 import YMGap.Continuum.BF4ExactSlabBoundaryResummedFamilies
 -- Probe-only mixed-action rerooting resums exterior spectators too. Every
 -- retained core has an explicit path to an actual exterior face. Matched
--- original partitions are controlled; the NEW mixed coefficient needs a bound.
+-- original partitions are controlled; the following selective estimate bounds
+-- the NEW mixed coefficient without using the older diagonal coefficient.
 import YMGap.Continuum.BF4ExactSlabMixedAction
 import YMGap.Continuum.BF4ExactSlabMixedSpectatorFactorization
 import YMGap.Continuum.BF4ExactSlabMixedRootedResummation
 import YMGap.Continuum.BF4ExactSlabProbeRootedBoundaryExpansion
 import YMGap.Continuum.BF4ExactSlabMixedRelativePartition
+-- Actual mixed coefficients and families now yield a computed finite boundary
+-- budget independent of K. Volume-uniform counting and decay remain open.
+import YMGap.Continuum.PolynomialBiadditiveSelectiveMobius
+import YMGap.Continuum.BF4ExactSlabMixedCoefficientBound
+import YMGap.Continuum.BF4ExactSlabMixedBoundedFamilies
+import YMGap.Continuum.BF4ExactSlabMixedFiniteBoundaryBudget
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

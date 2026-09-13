@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED probe-only mixed-action expansion and matched partition comparison; OPEN new coefficient bound (2026-09-13)
+## CLOSED original mixed-coefficient bound and finite boundary budget; OPEN volume-uniform counting (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/PolynomialBiadditiveSelectiveMobius.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedBoundedFamilies.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMixedFiniteBoundaryBudget.lean`.
+- **constructed exact estimate**: `selectiveCoefficient_pin` identifies the
+  filtered two-slot finite difference with its insertion recursion. The
+  computed rate product costs delta(w) for each exterior face and
+  2*delta(w)+delta(w)^2 for each interior face. `mixedHaarForm_pin` and
+  `mixedCoefficient_selective_pin` pin this to the ORIGINAL signed Haar
+  determinant; `mixedCoefficient_bound` proves cap 2*c*W(core).
+- **constructed actual-family consumer**: `mixedFamily_weight_bound` and
+  `boundary_mixedFamily_weight_bound` combine the new coefficient bound
+  with the existing matched two-partition comparison, retaining the local
+  collar floor. The older diagonal coefficient is not substituted.
+- **constructed finite budget**: `mixedRemovalFloor_pos` proves positivity
+  for delta(w)<1; `normalizedCoreWeight` constructs W(core)/R(collar).
+  `finiteBoundaryBudget` sums those nonnegative costs over actual active
+  cores with no cutoff K parameter. `mixedNumerator_budget_bound` and
+  `boundaryNumerator_budget_bound` prove |D_K| <= 2*c*B*F_K(1)*I_K(1) for
+  the existing original determinant and its matching unit moments.
+- **remaining obligation**: control B by collar size, rooted-core counts
+  and root-to-exterior path length, then pass the quantitative estimate
+  through the original normalized limits. This denominator-cleared finite
+  estimate is not volume-uniform summability, decay or a padding modulus.
+  Guards 0<=w<=1 and heatRatio(w)<=1/2 remain; reciprocal costs require
+  delta(w)<1. No persistence, physical transfer/stationarity, strict gap or
+  continuum/QFT/all-group Clay closure. No canonical atom/type/flag changed,
+  analytic premise or hole added.
+- **verification**: 15+9+3+8=35 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifacts fresh. Older Sqrt/HeatKernelPos artifacts refreshed by focused
+  checks without source changes, followed by a final consumer recheck.
+  Sqrt emitted three existing unused-code warnings; its 19 gates and
+  HeatKernelPos's 16 gates stayed within the allowed axiom set.
+  One monitored worker, mandatory 20 GiB ceiling; no oracle, raised limits
+  or full build/audit/guard/progress run. Root imports updated, not rebuilt.
+  Logs: `/tmp/ym-polynomial-biadditive-selective-mobius.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-coefficient-bound.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-bounded-families.log`,
+  `/tmp/ym-bf4-exact-slab-mixed-finite-boundary-budget.log`,
+  `/tmp/ym-selective-support-sqrt.log`,
+  `/tmp/ym-selective-support-heat-kernel-pos.log`.
+
+## CLOSED probe-only mixed-action expansion and matched partition comparison; OPEN new coefficient bound at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabMixedSpectatorFactorization.lean`,

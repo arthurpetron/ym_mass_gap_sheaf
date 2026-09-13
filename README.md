@@ -334,7 +334,16 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> R*|actual family| <=
                                   |           |NEW mixed coefficient| *
                                   |           Z_full * Z_inside     [PROVED]
-                                  |      + NEW mixed-coefficient bound [OPEN]
+                                  |      + selective two-slot insertion:
+                                  |        exterior cost delta(w),
+                                  |        interior cost 2*delta+delta^2
+                                  |        -> NEW mixed-coefficient bound
+                                  |           at every cutoff K     [PROVED]
+                                  |        + positive local collar floor
+                                  |        -> computed finite budget B
+                                  |           with NO cutoff K
+                                  |        -> |D_K| <= 2*c*B*
+                                  |           Z_full,K * Z_inside,K [PROVED]
                                   |        + collar / path-length counting
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
@@ -391,7 +400,41 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a probe-only mixed-action expansion with matching partition factors.**
+**Latest result: an explicit finite boundary budget for the ORIGINAL action.**
+[`mixedCoefficient_selective_pin` and `mixedCoefficient_bound`](lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean)
+identify and bound the NEW mixed coefficient by an exact two-slot insertion
+recursion. Each exterior face costs `delta(w)=128*w^3`; each interior face
+costs `kappa(w)=2*delta(w)+delta(w)^2`. The bound is `2*c*W(core)`, where
+`c` is the supplied polynomial interval cap and `W` is the computed product
+of those respective costs. This is a theorem about the original signed
+Haar moments, not the auxiliary positive law.
+
+[`mixedFamily_weight_bound`](lean/YMGap/Continuum/BF4ExactSlabMixedBoundedFamilies.lean)
+combines that estimate with the matching partition comparison.
+[`finiteBoundaryBudget` and `boundaryNumerator_budget_bound`](lean/YMGap/Continuum/BF4ExactSlabMixedFiniteBoundaryBudget.lean)
+sum `W(core)/R(collar)` over the actual probe-to-exterior cores and prove
+`|D_K| <= 2*c*B*Z_full,K*Z_inside,K`. The positive reciprocal of each local
+collar floor is constructed. `B` contains no representation cutoff `K`;
+it explicitly depends on the coupling, slab, probe links and interior test.
+This is a **denominator-cleared finite bound**, not yet volume-uniform decay.
+
+**Next:** control that computed budget by collar size, rooted-core counts
+and probe-to-exterior path length, then carry the resulting quantitative
+bound through the original normalized limits. Bounds retain `0<=w<=1` and
+`heatRatio(w)<=1/2`; the reciprocal budget requires the explicit strict
+guard `delta(w)<1`. No uniform boundary decay, physical gap, continuum/QFT
+construction or all-group Clay closure follows yet.
+
+Four new modules, 15+9+3+8=35 exactly matched focused gates within
+`{propext, Quot.sound}`, final error/warning free; source and direct-import
+artifact freshness checked. Two older dependency artifacts were refreshed
+by focused checks without source changes; `Sqrt` emitted three existing
+unused-code warnings. Checks used one monitored worker and the mandatory
+20 GiB ceiling. No new
+holes, analytic assumptions, oracle or raised limits. No full build/audit/
+guard/progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: a probe-only mixed-action expansion with matching partition factors.**
 [`boundary_mixedNumerator`](lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean)
 identifies the EXISTING boundary determinant with a face functional whose
 first action uses every selected face and whose second uses only interior
@@ -409,9 +452,10 @@ ORIGINAL unit moments in the boundary determinant, at the same cutoff.
 The removal cost R is `(1-delta)^|collar| * (1-delta)^|inside collar|`, strictly
 positive at the existing `w=1/1024` pilot for every finite collar.
 
-**Next:** bound the NEW mixed coefficient, then collar/path counts and
-normalized summability. The previous two-probe coefficient estimate is
-not silently applied to this different finite difference. Exact identities
+The mixed-coefficient obligation at that checkpoint is discharged by the
+new selective-insertion theorem above; collar/path counts and normalized
+summability remain open. The previous two-probe coefficient estimate is
+not applied to this different finite difference. Exact identities
 need no small-nome guard; the partition bound retains `0<=w<=1`,
 `heatRatio(w)<=1/2`, and `delta(w)<=1`. No uniform boundary decay, physical
 gap, continuum/QFT construction or all-group Clay closure follows yet.
@@ -441,8 +485,8 @@ guards and the original INTERIOR partition square.
 The preceding root includes the selected exterior
 support, and `Z_interior^2` is not the mixed boundary denominator
 `Z_large*Z_small`. The result above supplies a probe-only mixed-action
-expansion and matched partition comparison, with a new coefficient still
-to bound. Volume-uniform decay and the physical/continuum gap remain open.
+expansion, matched partition comparison and a bound on its new coefficient.
+Volume-uniform decay and the physical/continuum gap remain open.
 
 Four modules, 6+10+13+6=35 exactly matched focused axiom gates within
 `{propext, Quot.sound}`, final error/warning free; source and direct-import

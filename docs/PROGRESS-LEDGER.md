@@ -4,7 +4,51 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: probe-only mixed-action boundary expansion and matched partitions (2026-09-13)
+## Current increment: original mixed-coefficient estimate and finite boundary budget (2026-09-13)
+
+PROGRESS: the previous committed/pushed checkpoint (`58861eb`) gave the
+probe-only mixed expansion and matching partitions but retained the new
+coefficient unbounded. `PolynomialBiadditiveSelectiveMobius` now proves an
+exact selective insertion recursion for that filtered two-slot difference:
+exterior cost delta, interior cost 2*delta+delta^2. The computed rate product
+and its coarser cardinality bound are proved, not supplied as analytic input.
+
+`BF4ExactSlabMixedCoefficientBound` constructs the antisymmetric two-slot
+form from ORIGINAL Haar moments and proves `mixedCoefficient_bound` with
+cap 2*c*W(core). `BF4ExactSlabMixedBoundedFamilies` applies it to the ACTUAL
+family and the two original partition factors. No auxiliary-law identity
+or diagonal two-probe coefficient substitution is used.
+
+`BF4ExactSlabMixedFiniteBoundaryBudget` proves every local removal floor
+positive under delta(w)<1, constructs its reciprocal, and computes
+B=sum_active W(core)/R(collar). `boundaryNumerator_budget_bound` proves
+|D_K| <= 2*c*B*F_K(1)*I_K(1) for the EXISTING original boundary determinant.
+B has no cutoff K; w, slab, probe links, interior test and ambient faces
+remain named parameters. The original heat guards remain explicit.
+
+Next: control B by collar size, rooted-core counts and probe-to-exterior
+path length, then transport the quantitative bound through the original
+normalized limits. The result is denominator-cleared and finite, not
+volume-uniform summability or decay. No padding-limit, persistence,
+physical transfer/stationarity, strict gap or continuum/QFT/all-group Clay
+closure. No canonical atom/type/flag changed, new analytic input or hole.
+
+Four new modules, 15+9+3+8=35 exactly matched focused gates within
+{propext, Quot.sound}; final error/warning free and source/direct-import
+artifacts fresh. Sqrt and HeatKernelPos were narrowly rechecked to refresh
+older artifacts, with no source edits, before the final consumer recheck.
+Sqrt emitted three existing unused-code warnings; its 19 gates and
+HeatKernelPos's 16 gates remained within the allowed axiom set.
+One monitored worker, mandatory 20 GiB ceiling; no oracle, raised limits or
+full build/audit/guard/progress run. Root imports updated but not rebuilt.
+Logs: `/tmp/ym-polynomial-biadditive-selective-mobius.log`,
+`/tmp/ym-bf4-exact-slab-mixed-coefficient-bound.log`,
+`/tmp/ym-bf4-exact-slab-mixed-bounded-families.log`,
+`/tmp/ym-bf4-exact-slab-mixed-finite-boundary-budget.log`,
+`/tmp/ym-selective-support-sqrt.log`,
+`/tmp/ym-selective-support-heat-kernel-pos.log`.
+
+## Previous increment: probe-only mixed-action boundary expansion and matched partitions (2026-09-13)
 
 PROGRESS: the previous turn committed/pushed actual-family saturation
 (`3d3d680`), leaving an interior-square denominator and exterior support

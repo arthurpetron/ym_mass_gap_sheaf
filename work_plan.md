@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (probe-only mixed-action boundary expansion):**
+**Latest finite-slab increment (mixed coefficient and computed boundary budget):**
+`PolynomialBiadditiveSelectiveMobius.selectiveCoefficient_pin` proves that
+the actual filtered two-slot finite difference equals its insertion recursion.
+Exterior steps insert on the left, with cost delta; interior steps insert on
+the left, right or both, with cost kappa=2*delta+delta^2. The bound retains
+this computed per-face product; a kappa^|core| corollary is also proved.
+
+`BF4ExactSlabMixedCoefficientBound.mixedHaarForm_pin` constructs the form
+from the ORIGINAL Haar moments. `mixedCoefficient_selective_pin` and
+`mixedCoefficient_bound` reach the existing NEW mixed coefficient with
+cap 2*c*W(core). `BF4ExactSlabMixedBoundedFamilies.mixedFamily_weight_bound`
+consumes it in the existing matched-partition family estimate.
+
+`BF4ExactSlabMixedFiniteBoundaryBudget.mixedRemovalFloor_pos` proves the
+local collar floor positive for delta(w)<1. `normalizedCoreWeight` computes
+W(core)/R(collar) with an explicit positive reciprocal; `finiteBoundaryBudget`
+is its nonnegative sum over actual active cores, with NO cutoff K parameter.
+`mixedNumerator_budget_bound` and `boundaryNumerator_budget_bound` give
+|D_K| <= 2*c*B*F_K(1)*I_K(1), using the EXISTING boundary determinant and
+the two matching ORIGINAL unit moments. All dependencies on w, extent,
+probe support and interior test remain explicit. The heat bounds require
+0<=w<=1 and heatRatio(w)<=1/2; the reciprocal budget additionally requires
+delta(w)<1, as satisfied by the already-checked 1/1024 pilot.
+
+Next: bound B by collar size and the number/length of rooted cores reaching
+the exterior, then transport the quantitative estimate through the original
+normalized limits. Finite B is not a volume-uniform estimate or decay
+modulus. Padding limits, persistence, physical transfer/stationarity, strict
+gap and continuum/QFT/all-group Clay remain open. No canonical atom/type/
+flag changed, analytic assumption or hole added.
+
+Verification: four new modules, 15+9+3+8=35 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifact freshness checked. The older Sqrt and HeatKernelPos artifacts were
+refreshed by focused checks without source edits, then the final consumer
+was rechecked. Sqrt emitted three existing unused-code warnings; its 19
+reported gates and HeatKernelPos's 16 gates stayed within the axiom gate.
+Monitored one-worker 20 GiB checks; no oracle, raised limits
+or full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-polynomial-biadditive-selective-mobius.log`,
+`/tmp/ym-bf4-exact-slab-mixed-coefficient-bound.log`,
+`/tmp/ym-bf4-exact-slab-mixed-bounded-families.log`,
+`/tmp/ym-bf4-exact-slab-mixed-finite-boundary-budget.log`;
+dependency checks: `/tmp/ym-selective-support-sqrt.log` and
+`/tmp/ym-selective-support-heat-kernel-pos.log`.
+
+**Preceding finite-slab increment (probe-only mixed-action boundary expansion):**
 `BF4ExactSlabMixedAction.boundary_mixedNumerator` pins the EXISTING D to the
 determinant N_all(p) Z_inside - N_inside(p) Z_all, with the original cutoff,
 carrier and embedded-interior test. `mixedCoefficient_inside_zero` cancels
