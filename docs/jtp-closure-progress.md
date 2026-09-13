@@ -4,6 +4,45 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: original product and full theta series limits agree on [-1,1]
+
+`FiniteJacobiSeriesComparison.coefficientError_succ_le_gaussian` uses
+
+    q^((r+1)^2) (q*q)^(N-r) = q^(2N+1) q^(r*r),  r+1<=N,
+
+to absorb the moving coefficient deficit. The central coefficient is
+bounded separately. Together with `|T_j(x)|<=1` and a geometric sum, this
+gives `Ppart_sub_bareTheta_le`:
+
+    abs(Ppart q x N - bareTheta q x N) <= C(q) q^(2N+1),
+    C(q) = (2/(1-q*q)) (1+2/(1-q)),  0<q<1, -1<=x<=1.
+
+The error is for the entire finite polynomial, not merely a coefficient
+band. `comparisonCutoff q epsilon` computes
+`powBaseCutoff q (epsilon/(C(q)+1))`; `Ppart_sub_bareTheta_close` proves
+the tolerance bound for every later N, uniformly over the named interval
+in x. C(q) is explicitly q-dependent and unbounded as q approaches one.
+
+`JacobiTripleProductOnBox.bareTheta_eq_one_add_two_chebTTrunc` pins the
+normalization, and `thetaProduct_eq_fullThetaSeries` proves
+
+    thetaConvCRealGen = 1 + 2 * chebTConvPt(onBoxPtMajorant)
+
+as `CReal.Equiv`, with the actual approximation comparison and its computed
+cutoff. Both limit constructions already existed; their equality is now
+proved on the interval with no identity premise or extra analytic input.
+
+Still OPEN: differentiated JTP, with `Rhalf=(1/2)*Theta*S`; domain/endpoint
+control for differentiation (the legacy all-Q interfaces are not supplied
+by this on-box theorem); heat/action positivity and the physical gap/continuum
+target. This is not `DiffJTP`, and does not equate the full product with the
+nonconstant half-series alone.
+
+Two focused monitored one-worker 20 GiB checks: 22 gates within
+`{propext, Quot.sound}`, current `.olean` outputs, final error/warning free.
+No new sorry, named analytic input, numerical oracle, canonical frontier
+change, or full build/audit/guard/progress run.
+
 ## 2026-09-12: normalized coefficients have a computed convergence modulus
 
 `FiniteJacobiWeightBounds.centeredWeight_eq_segments` proves the exact

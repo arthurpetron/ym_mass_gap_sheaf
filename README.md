@@ -131,7 +131,24 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest analytic result: explicit convergence of the finite Jacobi weights.**
+**Latest analytic result: the original theta product equals its series on `[-1,1]`.**
+[`JacobiTripleProductOnBox.thetaProduct_eq_fullThetaSeries`](lean/YMGap/Continuum/JacobiTripleProductOnBox.lean)
+proves the undifferentiated Jacobi triple product for every rational `0<q<1`
+and rational `-1<=x<=1`, using the EXISTING product and series `CReal`s.
+The normalization is explicit: full theta is `1 + 2 * chebTConvPt`, not
+the nonconstant half-series alone. No same-limit premise is assumed.
+
+The key estimate in
+[`FiniteJacobiSeriesComparison.Ppart_sub_bareTheta_le`](lean/YMGap/Continuum/FiniteJacobiSeriesComparison.lean)
+bounds the whole finite-polynomial error by `C(q) q^(2N+1)`, with
+`C(q) = (2/(1-q*q)) (1+2/(1-q))` and a computed tolerance-to-cutoff map.
+Gaussian absorption of the coefficient deficit avoids a separate finite-band
+split. The estimate is uniform in `x` on the stated interval, NOT in `q`.
+Two focused checks passed: 22 gates inside `{propext, Quot.sound}`, no new
+holes. Differentiated JTP, heat/action positivity, physical vacuum/transfer/gap,
+and continuum/Clay remain open; no full-tree audit was run.
+
+**Preceding analytic result: explicit convergence of the finite Jacobi weights.**
 [`FiniteJacobiWeightBounds.centeredWeight_eq_segments`](lean/YMGap/Continuum/FiniteJacobiWeightBounds.lean)
 rewrites the ORIGINAL normalized coefficient as two finite Euler products.
 The coefficients lie in `[0,1]`, and for `j<=N` their deficit from one is at
@@ -140,8 +157,9 @@ most `2 Q^(N-j+1)/(1-Q)`, where `0<Q<1`.
 provides a computed cutoff uniform over each specified finite band `j<=J`.
 The base and band are explicit; no infinite-product denominator is assumed.
 Three focused checks passed: 25 gates inside `{propext, Quot.sound}`, no new
-holes. Combining this with Gaussian/Chebyshev tails and passing to the
-differentiated identity remain open. These are coefficient estimates, not a
+holes. The whole-polynomial comparison and undifferentiated on-box identity
+are now proved above; passing to the differentiated identity remains open.
+These are coefficient estimates, not a
 coupling-uniform physical gap or an original-action positive floor.
 
 **Preceding analytic result: the finite symmetric Jacobi identity is proved.**
@@ -152,8 +170,9 @@ rational `x`. The proof combines two q-Pascal orientations with the Chebyshev
 recurrence, including the center's factor of two and both finite endpoints.
 It uses the actual q-binomial weights, not bare theta coefficients.
 Four focused checks passed: 31 gates inside `{propext, Quot.sound}`, no new
-holes. Finite-band coefficient convergence is now proved above; the full
-tail comparison and differentiated limit identity remain open. This does not yet supply heat positivity or the
+holes. Coefficient convergence, whole-polynomial comparison and the
+undifferentiated on-box identity are now proved above; differentiated JTP
+remains open. This does not yet supply heat positivity or the
 positive original-action floor below.
 
 **Latest original-action result: a retained channel bounds the full interacting action.**

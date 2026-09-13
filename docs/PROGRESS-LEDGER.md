@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original Jacobi weights have explicit convergence bounds (2026-09-12)
+## Current increment: original theta product and series limits identified on [-1,1] (2026-09-12)
+
+PROGRESS: `FiniteJacobiSeriesComparison.Ppart_sub_bareTheta_le` proves the
+ENTIRE finite-polynomial error is bounded by `C(q) q^(2N+1)` at `0<q<1`,
+`-1<=x<=1`, with `C(q) = (2/(1-q*q)) (1+2/(1-q))` explicitly computed.
+The key exact Gaussian absorption is
+`q^((r+1)^2) (q*q)^(N-r) = q^(2N+1) q^(r*r)`.
+This combines the original coefficient deficit with a summable remainder
+without a fixed-band split. `comparisonCutoff q epsilon` is computed;
+`Ppart_sub_bareTheta_close` works for every later N and every x in the
+named interval. There is no uniformity in q approaching one.
+
+`JacobiTripleProductOnBox.thetaProduct_eq_fullThetaSeries` proves
+`thetaConvCRealGen` equivalent to `1 + 2 * chebTConvPt` with the CLOSED
+on-box majorant. The actual CReal approximation comparison is also proved
+with the explicit cutoff. No identity premise or new analytic input occurs.
+This discharges the undifferentiated on-box identity, not differentiated JTP.
+
+Next: differentiated JTP with correct half normalization and domain/endpoint
+control; the legacy all-Q derivative interfaces are not inhabited by an
+on-box identity alone. Original heat/action positivity, compatible physical
+slabs, vacuum/transfer/stationarity, strict gap, volume/spacing/QFT and
+all-group Clay remain open. No canonical frontier change; refuted law
+identity unused.
+
+Two focused monitored one-worker 20 GiB checks passed, current `.olean`
+outputs: 17 + 5 = 22 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-finite-jacobi-series-comparison.log` and
+`/tmp/ym-jacobi-triple-product-on-box.log`. One local nonnegativity API name
+was corrected; no raised proof limits. No new sorry, numerical oracle or
+full build/audit/guard/progress run.
+
+## Previous increment: original Jacobi weights have explicit convergence bounds (2026-09-12)
 
 PROGRESS: `FiniteJacobiWeightBounds.centeredWeight_eq_segments` eliminates
 the finite Euler quotient by exact positive-factor cancellation, obtaining

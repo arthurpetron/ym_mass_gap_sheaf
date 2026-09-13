@@ -185,6 +185,8 @@ import YMGap.Continuum.FiniteJacobiIdentity
 import YMGap.Continuum.FiniteEulerSegment
 import YMGap.Continuum.FiniteJacobiWeightBounds
 import YMGap.Continuum.FiniteJacobiWeightConvergence
+import YMGap.Continuum.FiniteJacobiSeriesComparison
+import YMGap.Continuum.JacobiTripleProductOnBox
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity

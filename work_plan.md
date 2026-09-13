@@ -18,7 +18,41 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (original Jacobi-weight bounds and computed convergence):**
+**Latest analytic increment (whole-polynomial comparison and on-box Jacobi identity):**
+`FiniteJacobiSeriesComparison.coefficientError_succ_le_gaussian` absorbs the
+ACTUAL coefficient deficit using
+`q^((r+1)^2) (q*q)^(N-r) = q^(2N+1) q^(r*r)`, r+1<=N.
+The central coefficient is separately bounded, and `|T_j(x)|<=1` plus the
+geometric sum bound control the ENTIRE finite polynomial:
+
+`abs(Ppart q x N - bareTheta q x N) <= C(q) q^(2N+1)`,
+`C(q) = (2/(1-q*q)) (1+2/(1-q))`, `0<q<1`, `-1<=x<=1`.
+
+`comparisonCutoff q epsilon` computes
+`powBaseCutoff q (epsilon/(C(q)+1))`; `Ppart_sub_bareTheta_close`
+proves the bound for every later N, uniformly in x on the named interval.
+Neither the constant nor cutoff is uniform as q approaches one.
+
+`JacobiTripleProductOnBox.thetaProduct_eq_fullThetaSeries` proves equality
+of the EXISTING product CReal and `1 + 2 * chebTConvPt` with its proved
+on-box majorant. `product_series_approx_close` pins their actual rational
+approximations to the same computed comparison cutoff. No per-N equality
+to bare partials, same-limit input, or off-box totalizer is assumed.
+
+Next: correctly half-normalized differentiated JTP. The on-box identity
+does not supply the legacy derivative engine's all-Q off-interval input;
+endpoint/domain control remains to be established. Original heat/action
+positivity, physical unit/vacuum, compatible slabs, geometric transfer and
+stationarity, strict physical gap, volume/spacing/QFT and all-group Clay
+remain open. No canonical atom/type change; refuted law identity unused.
+
+Verification: two focused monitored one-worker 20 GiB checks, current
+`.olean` outputs; 17 + 5 = 22 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-finite-jacobi-series-comparison.log`,
+`/tmp/ym-jacobi-triple-product-on-box.log`. No new sorry, numerical oracle,
+raised proof limits or full build/audit/guard/progress run.
+
+**Preceding analytic increment (original Jacobi-weight bounds and computed convergence):**
 `FiniteEulerSegment.euler_split` pins finite segments to the original Euler
 prefix. `segment_pos`, `segment_le_one`, `segment_loss_le`, and
 `one_le_segment_add_tail` prove finite product bounds using the actual
@@ -38,9 +72,9 @@ for every later N and every j<=J. Base, finite band and tolerance are explicit
 parameters; no Prop-level index extraction, infinite-product denominator,
 convergence uniform over all j, or coupling-uniform physical gap is claimed.
 
-Next: combine these coefficient estimates with Gaussian/Chebyshev tails on
-the original finite identity and pass to the correctly half-normalized
-differentiated limit. No `DiffJTP` inhabitant, original-action positive floor,
+The whole-polynomial comparison and undifferentiated on-box identity are
+now proved above. Next: the correctly half-normalized differentiated limit.
+No `DiffJTP` inhabitant, original-action positive floor,
 physical unit/vacuum, compatible slabs, transfer/stationarity, strict gap,
 volume/spacing/QFT or all-group Clay closure. No new analytic premise or
 canonical atom/type change; refuted law identity unused.
@@ -69,9 +103,9 @@ product, every finite N, rational `0<q<1` and rational x.
 full `ThetaConv.Ppart` to its weighted finite series. No equality premise,
 complex substitution or coefficient replacement by one is assumed.
 
-Finite-band normalized-coefficient convergence is now proved above. Next:
-combine it with Gaussian/Chebyshev tails and the correctly half-normalized differentiated
-identity. Finite JTP does not discharge `DiffJTP`, produce the original-action
+Coefficient convergence, whole-polynomial comparison and undifferentiated
+on-box JTP are now proved above. Next: the correctly half-normalized
+differentiated identity. Finite JTP does not discharge `DiffJTP`, produce the original-action
 positive floor, or identify a physical vacuum/transfer/gap. Compatible slabs,
 volume/spacing/QFT and all-group Clay remain open. No new named analytic
 input, canonical atom/type change, or refuted law identity used.

@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Whole-polynomial comparison and undifferentiated on-box Jacobi identity (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/FiniteJacobiSeriesComparison.lean`,
+  `lean/YMGap/Continuum/JacobiTripleProductOnBox.lean`.
+- **discharged**: Gaussian absorption of the actual normalized-coefficient
+  deficit; `Ppart_sub_bareTheta_le` bounds the ENTIRE finite error by
+  `C(q) q^(2N+1)`, `C(q) = (2/(1-q*q)) (1+2/(1-q))`, at `0<q<1`,
+  `-1<=x<=1`. `comparisonCutoff` computes the modulus in q and epsilon,
+  independent of x on this interval. `thetaProduct_eq_fullThetaSeries`
+  proves the EXISTING product CReal equals `1 + 2 * chebTConvPt`, using
+  the proved on-box majorant and the actual approximation comparison.
+  No same-limit premise or off-box totalizer is supplied. This supersedes
+  the whole-series/on-box undifferentiated residue in the preceding entries.
+- **OPEN**: correctly half-normalized differentiated JTP and required
+  domain/endpoint control; original heat/action positivity and lower-half
+  nonvanishing; physical unit/vacuum, compatible slabs, geometric transfer,
+  stationarity, strict completed physical gap, volume/spacing/QFT and all-group
+  Clay. The legacy all-Q derivative inputs do not follow from an on-box
+  identity. No `DiffJTP` or canonical frontier inhabitant, new analytic premise,
+  or coupling-uniform spectral claim; refuted law identity unused.
+- **verification**: two focused monitored one-worker 20 GiB checks, current
+  `.olean` outputs, 17 + 5 = 22 gates within `{propext, Quot.sound}`, final
+  error/warning free. Logs `/tmp/ym-finite-jacobi-series-comparison.log`,
+  `/tmp/ym-jacobi-triple-product-on-box.log`. No new sorry, numerical oracle,
+  raised proof limits or full build/audit/guard/progress run.
+
 ## Original Jacobi weights: finite products, bounds and computed convergence (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/FiniteEulerSegment.lean`,
