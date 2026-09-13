@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED coefficient bridge: Jacobi approximants to weighted original heat (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/QPolyRatPolySubstitutionAlgebra.lean`,
+  `lean/YMGap/Continuum/JacobiWeightedHeatPolynomial.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabJacobiWeightedHeatPin.lean`.
+- **discharged**: constructive finite-grid reflection promotes the existing
+  finite derivative identity to coefficient equality. Horner substitution
+  preserves that equality and the original character recurrence in RatPoly.
+  `shiftedHeat_coefficients` proves the actual kernel coefficient test with
+  correct inverse-nome/half normalization and finite weight W(w*w,N,r+1).
+  `face_coeffEqv` identifies the original ordered face polynomial with the
+  weighted existing faceHeatTerm sum; `product_haar_insertion` gives equality
+  for every shared-link product and arbitrary insertion. The same square
+  certificate and c(w)^F floor transfer via `productFloor_le_weightedHaar`.
+  This supersedes the coefficient-identification OPEN residue immediately
+  below; no scalar-evaluation-to-Haar axiom or independence input is added.
+- **OPEN**: quantified removal of the finite weights on the literal original
+  character polynomials and overlapping products, followed by comparison to
+  the existing original action limit. The weights are NOT one at finite N.
+  Existing finite-band coefficient convergence must be combined with the
+  explicit polynomial tails; pointwise convergence is not used in its place.
+  Original action-limit positivity, non-null completed full unit, physical
+  compatible slabs/stationary vacuum/transfer/gap and continuum/all-group
+  target remain open. No canonical frontier atom/type/flag changed. The
+  lower bound still depends on w and face count F; refuted-law identity unused.
+- **verification**: three new modules, 15 + 9 + 7 = 31 focused gates within
+  `{propext, Quot.sound}`, current outputs, final error/warning free;
+  documentation-only prior Haar-floor module refresh separately passed
+  8 gates. Monitored one-worker 20 GiB checks. Logs
+  `/tmp/ym-qpoly-ratpoly-substitution-algebra.log`,
+  `/tmp/ym-jacobi-weighted-heat-polynomial.log`,
+  `/tmp/ym-bf4-exact-slab-jacobi-weighted-heat-pin.log`. No new sorry,
+  named analytic input, oracle, raised proof limits or full build/audit/guard run.
+
 ## Square-certified original shared-link Jacobi Haar floor (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean`,

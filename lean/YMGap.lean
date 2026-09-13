@@ -3926,6 +3926,9 @@ import YMGap.Continuum.QuaternionHaarUnitScalarSquare
 import YMGap.Continuum.QPolyHaarPositiveSubstitution
 import YMGap.Continuum.JacobiShiftedPositiveCoefficients
 import YMGap.Continuum.BF4ExactSlabJacobiHaarFloor
+import YMGap.Continuum.QPolyRatPolySubstitutionAlgebra
+import YMGap.Continuum.JacobiWeightedHeatPolynomial
+import YMGap.Continuum.BF4ExactSlabJacobiWeightedHeatPin
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
 import YMGap.Continuum.BF4ExactSlabAllExtentHeatProductTail

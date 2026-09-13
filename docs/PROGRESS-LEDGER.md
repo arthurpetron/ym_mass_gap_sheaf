@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: square-certified shared-link Jacobi Haar floor (2026-09-12)
+## Current increment: Jacobi coefficients pinned to original weighted heat terms (2026-09-12)
+
+PROGRESS: `JacobiWeightedHeatPolynomial.shiftedHeat_subst_coeffEqv_weightedPolynomial`
+proves the stronger coefficient identity after arbitrary multivariate
+substitution. `BF4ExactSlabJacobiWeightedHeatPin.face_coeffEqv` pins it to
+the actual original faceHeatTerm; `product_haar_insertion` retains all
+overlapping links and any insertion. The previous c(w)^F floor and square
+certificate now hold for the WEIGHTED original face products.
+
+The proof contracts a constructive finite-grid root argument, coefficient
+reflection and Horner substitution, with the actual finite differentiated
+Jacobi identity and original nome-exponent normalization. It does not
+postulate multivariate/Haar extensionality or erase the finite weights.
+
+Next: quantify their removal using the original polynomial coefficient tails,
+then telescope shared-link products and compare to the existing original
+action limit. Pointwise convergence and W->1 on fixed bands do not by
+themselves close this Haar-limit step. Action positivity, non-null full unit,
+physical compatible slabs/vacuum/transfer/gap and continuum/all-group remain
+open. No canonical frontier change or refuted-law identity used.
+
+Three new modules: 15 + 9 + 7 = 31 focused gates within
+`{propext, Quot.sound}`, current outputs, final error/warning free;
+documentation-only prior Haar-floor refresh separately passed 8 gates.
+Monitored one-worker 20 GiB checks. A finite-grid length reflexivity goal
+and the weight's namespace were corrected before final checks. No new sorry,
+analytic premise, oracle, raised proof limits or full build/audit/guard/
+progress run. Logs `/tmp/ym-qpoly-ratpoly-substitution-algebra.log`,
+`/tmp/ym-jacobi-weighted-heat-polynomial.log`,
+`/tmp/ym-bf4-exact-slab-jacobi-weighted-heat-pin.log`.
+
+## Previous increment: square-certified shared-link Jacobi Haar floor (2026-09-12)
 
 PROGRESS: `BF4ExactSlabJacobiHaarFloor.productFloor_le_haar` proves an
 explicit `c(w)^F>0` lower bound for the ORIGINAL normalized Haar integral

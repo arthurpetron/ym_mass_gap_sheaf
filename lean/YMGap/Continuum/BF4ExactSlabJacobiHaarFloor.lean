@@ -7,9 +7,10 @@ valid with arbitrary insertions, so all face factors may share links.
 Retaining each constant coefficient gives c(w)^F below the original
 normalized quaternion Haar integral, uniformly in N>=1 at fixed w and F.
 
-These are finite Jacobi approximants, NOT the original unweighted heat
-cutoffs. Their coefficient-level identification and quantified convergence
-to the original interacting action remain open. No action-limit floor,
+STATUS UPDATE (2026-09-12): BF4ExactSlabJacobiWeightedHeatPin now identifies
+these approximants coefficientwise with WEIGHTED original heat polynomials.
+They are NOT original unweighted heat cutoffs. Quantified convergence to
+the original interacting action remains open. No action-limit floor,
 physical vacuum, spectral gap, or volume/spacing-uniform bound is claimed.
 -/
 

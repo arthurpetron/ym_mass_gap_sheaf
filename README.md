@@ -109,7 +109,9 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> SAME shared-link Haar
                                   |           approximant floor c^F [PROVED]
                                   |        + coefficient-level pin
-                                  |          to weighted heat terms   [OPEN]
+                                  |          to weighted heat terms [PROVED]
+                                  |        -> same floor for WEIGHTED
+                                  |           original face-product [PROVED]
                                   |        + quantified Haar passage
                                   |          to ORIGINAL heat action  [OPEN]
                                   |      -> strict positive floor
@@ -158,7 +160,29 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a strict shared-link Haar floor for finite Jacobi approximants.**
+**Latest result: the Jacobi approximants are the weighted ORIGINAL heat polynomials.**
+[`BF4ExactSlabJacobiWeightedHeatPin.face_coeffEqv`](lean/YMGap/Continuum/BF4ExactSlabJacobiWeightedHeatPin.lean)
+proves coefficient equality with the existing original `faceHeatTerm`s,
+carrying the actual finite weights `W(w*w,N,r+1)`. `product_haar_insertion`
+preserves every shared-link product with ANY insertion polynomial present.
+`productFloor_le_weightedHaar` therefore gives `c(w)^F` below the integral
+of those weighted original terms, at `0<w<1` and `N>=1`.
+
+The proof uses constructive finite-grid polynomial uniqueness followed by
+coefficient-preserving substitution. It does not assume that agreement of
+scalar evaluations implies equality of Haar integrals. The original label
+shift, heat coefficients, and inverse-nome/half normalization are retained.
+
+**Next: remove the finite weights with a quantified Haar-limit comparison.**
+The weights are not one at finite N. Their existing finite-band convergence
+and the original character coefficient-tail bounds still need to be combined
+on these literal weighted polynomials and their overlapping products.
+Original action-limit positivity, non-null full unit, physical
+vacuum/transfer/gap and continuum/Clay remain open. Three new modules:
+31 focused gates within `{propext, Quot.sound}`, no new holes, final
+error/warning free. No full-tree build or audit was run.
+
+**Preceding result: a strict shared-link Haar floor for finite Jacobi approximants.**
 [`BF4ExactSlabJacobiHaarFloor.productFloor_le_haar`](lean/YMGap/Continuum/BF4ExactSlabJacobiHaarFloor.lean)
 proves that the ORIGINAL normalized quaternion Haar integral of the
 finite Jacobi face-product is at least `c(w)^F > 0`, at every rational
@@ -174,10 +198,10 @@ The square-certificate compiler preserves products with shared variables;
 retaining each constant coefficient supplies the integrated floor. No
 general pointwise-to-Haar order principle or independence is assumed.
 
-**Next: identify and converge these approximants to the ORIGINAL action.**
-They are not the original unweighted heat cutoffs. A coefficient-level pin
-to the weighted character polynomials and a quantified Haar-limit passage
-remain open. The original action-limit floor, non-null full unit, compatible
+**Boundary of the preceding finite Haar result.** They are not the original
+unweighted heat cutoffs. The coefficient-level pin to weighted character
+polynomials is now proved above; quantified Haar-limit passage remains
+open. The original action-limit floor, non-null full unit, compatible
 physical slabs, stationary vacuum/transfer, strict physical gap and
 continuum/QFT/all-group target therefore remain open. Five new modules:
 51 focused axiom gates within `{propext, Quot.sound}`, no new holes, final

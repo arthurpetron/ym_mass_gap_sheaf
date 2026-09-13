@@ -4,6 +4,38 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
+## 2026-09-12: finite Jacobi approximants identified at coefficient level
+
+`JacobiWeightedHeatPolynomial.shiftedHeat_coefficients` proves the exact
+finite coefficient identity, including the affine variable shift:
+
+    JacobiHeat_N(1+x) = sum_{r<N} W(w*w,N,r+1) * coeffW(w,r) * U_r(x).
+
+Here JacobiHeat_N(t) is the nonnegative-coefficient derivative polynomial
+normalized by 1/(2*w), and W is the ACTUAL centered finite Euler/q-binomial
+weight. The existing derivative identity is first used on x>=-1. A
+constructive finite positive-integer root grid then identifies the genuine
+finite polynomials everywhere and reflects their coefficients. No analytic
+off-box totalizer or infinite identity is inferred.
+
+`QPolyRatPolySubstitutionAlgebra` proves that those coefficients, products,
+composition and original character recurrence survive substitution into
+RatPoly. `shiftedHeat_subst_coeffEqv_weightedPolynomial` is therefore an
+identity under every coefficient probe, not only scalar evaluations.
+`BF4ExactSlabJacobiWeightedHeatPin` applies it to existing faceHeatTerm
+and transports every shared-link product, arbitrary Haar insertion, square
+certificate and positive c(w)^F integrated floor to the weighted original
+terms. Uniformity remains only over N>=1 at fixed w and face list.
+
+The OPEN residue is now smaller: quantify removal of W on the actual
+polynomials, telescope overlapping products, and compare to the original
+action limit. Existing finite-band W->1 and coefficient-tail moduli are
+available, but their required Haar-strength combination is not yet proved.
+No original action-limit floor, non-null full unit, physical gap or continuum
+closure is claimed. Three new modules, 31 focused axiom gates within
+`{propext, Quot.sound}`, no new holes, final error/warning free. No full-tree
+build/audit/guard run.
+
 ## 2026-09-12: finite Jacobi approximants have a strict original-Haar floor
 
 `JacobiShiftedPositiveCoefficients` writes every full factor in t=1+x as
