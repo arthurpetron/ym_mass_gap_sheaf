@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original two-probe distance decay with separation-independent prefactor (2026-09-13)
+## Current increment: ORIGINAL thermodynamic completed unit-complement form gap (2026-09-13)
+
+The preceding goal turn was PROGRESS: b4dc953 proved and pushed the
+original finite-law numerator distance bound. This turn is PROGRESS:
+normalization, reflected-time placement, thermodynamic operator transport,
+prefactor removal and completed form-gap extension are now proved.
+
+- `BF4ExactSlabTwoProbeCovariance.covariance_distance_bound` removes
+  the representation cutoff with explicit moduli and cancels the SAME Z^2.
+- `BF4ExactSlabTwoProbeSpacetimeDecay.placed_covariance_bound` keeps
+  both original base-box carriers independent of time separation/volume.
+- `BF4ExactSlabThermodynamicTimeDecay.timeCovariance_bound` uses
+  distance=s+t and the existing original covariance limit.
+  `operatorDecayRepresentative` returns the SAME operator pin and QCauchy.
+- `BF4ExactSlabThermodynamicTimeDecayRate.timeModulus` and
+  `timeCovariance_geometric_bound` give actual temporal decay, not
+  boundary-error decay, with computed positive prefactor P(e,f).
+- `BF4ExactSlabThermodynamicDenseGap.dense_twoStep_form_gap` derives
+  a constant 1/2 by dyadic moment inequalities on the SAME original states.
+- `BF4ExactSlabThermodynamicCompletedGap.complement_twoStep_form_gap`
+  proves 0 <= <v,T_2 v> <= (1/2)<v,v> for every completed unit-complement
+  vector, using the existing centered Cauchy limits and quotient elimination.
+
+Next: nonzero thermodynamic excitation, fixed-unit uniqueness/isolation,
+full required observable realization/completeness, continuum scaling,
+continuous-time generator and physical spectral/QFT/Clay identification.
+The fixed nome 1/1024 and fixed spacing are NOT removed. No canonical
+atom/type/flag, analytic premise or hole changed; no full Clay closure.
+
+Verification: six modules, 11+4+7+10+10+10=52 exactly matched focused
+gates within {propext, Quot.sound}; final logs error/warning free and
+own/direct-import artifacts fresh. One monitored worker, mandatory 20 GiB
+ceiling; no raised limits or full build/audit/guard/progress run. Root
+imports updated, not rebuilt. Log prefix `/tmp/ym-bf4-exact-slab-`, suffixes
+`two-probe-covariance.log`, `two-probe-spacetime-decay.log`,
+`thermodynamic-time-decay.log`, `thermodynamic-time-decay-rate.log`,
+`thermodynamic-dense-gap.log`, `thermodynamic-completed-gap.log`.
+
+## Previous increment: original two-probe distance decay with separation-independent prefactor (2026-09-13)
 
 The preceding goal turn was PROGRESS: ef649ba constructed and pushed the
 original completed time semigroup and positive two-step transfer. This

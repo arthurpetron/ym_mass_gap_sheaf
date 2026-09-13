@@ -13,6 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original thermodynamic completed unit-complement form gap; OPEN excitation and continuum (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoProbeCovariance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoProbeSpacetimeDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDecayRate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseGap.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGap.lean`.
+- **closed SAME-law normalization**: `connectedNumeratorCauchy`,
+  `covariance_formula`, `covariance_distance_bound`: explicit common-cutoff
+  modulus, original moment limits and exact cancellation of the original Z^2.
+- **closed SAME-object temporal transport**: `placed_covariance_bound`
+  retains two separate fixed-size probe carriers. `reflected_offset_distance`
+  is s+t. `timeCovariance_bound` passes to the existing thermodynamic limit;
+  `operatorDecayRepresentative` returns the CReal/QCauchy and original
+  completed geometric time pin. `timeModulus` and
+  `timeCovariance_geometric_bound` provide actual temporal decay data.
+- **closed prefactor removal**: `moment_dyadic` follows from original
+  completed CS/time laws. `moment_first_gap` consumes the abstract
+  constructive dyadic theorem with the proved moment envelope.
+  `dense_twoStep_form_gap` has the presentation-independent constant 1/2.
+- **closed completed extension**: `centeredSequence_converges` combines
+  the existing three pairing limits with exact rank-one centering.
+  `complement_twoStep_form_gap` states 0 <= <v,T_2 v> <= (1/2)<v,v>
+  for every vector in the actual completed unit complement. T_2 is
+  geometric OS time translation, NOT a link-variable heat-bath generator.
+- **remaining obligations**: nonzero thermodynamic excitation and
+  fixed-unit uniqueness/isolation; full required observable realization
+  and quotient-level completeness; continuum scaling, continuous-time
+  generator and physical spectral/QFT/all-group Clay identification.
+  The law remains SU(2), nome 1/1024, fixed spacing. The form gap alone
+  does not assert a nonzero excitation or a continuum Hamiltonian spectrum.
+- **frontier honesty**: no canonical atom/type/flag, analytic premise
+  or hole changed. No surrogate identity, gap premise, beta-uniformity
+  or continuum closure is asserted.
+- **verification**: six modules, 11+4+7+10+10+10=52 exactly matched
+  focused gates within {propext, Quot.sound}; error/warning-free final logs,
+  fresh own/direct-import artifacts. One worker, mandatory 20 GiB ceiling;
+  no raised limits or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Log prefix `/tmp/ym-bf4-exact-slab-`, suffixes
+  `two-probe-covariance.log`, `two-probe-spacetime-decay.log`,
+  `thermodynamic-time-decay.log`, `thermodynamic-time-decay-rate.log`,
+  `thermodynamic-dense-gap.log`, `thermodynamic-completed-gap.log`.
+
 ## CLOSED original two-probe count and signed finite-law distance decay; OPEN normalized limit/operator transport (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoProbeGraph.lean`,

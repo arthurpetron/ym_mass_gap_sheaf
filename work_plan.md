@@ -16,9 +16,51 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
+### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (actual two-probe count and signed distance decay):**
+**Latest original-action increment (SAME thermodynamic OS completed form gap):**
+`BF4ExactSlabTwoProbeCovariance.connectedNumeratorCauchy` computes the
+common-cutoff determinant modulus. `covariance_formula` identifies its
+twice-normalized limit with the existing E(pq)-E(p)E(q), and
+`covariance_distance_bound` cancels the SAME full partition square.
+`BF4ExactSlabTwoProbeSpacetimeDecay.placed_covariance_bound` uses two
+separate original base-box carriers; their sizes do not grow with the
+time separation or ambient volume.
+
+`BF4ExactSlabThermodynamicTimeDecay.reflected_offset_distance` gives
+distance=s+t. `timeCovariance_bound` passes the original bound through
+the existing covariance limit. `operatorDecayRepresentative` returns
+the CReal, QCauchy data, SAME completed-time operator pin and bound.
+`BF4ExactSlabThermodynamicTimeDecayRate.timeModulus` is a temporal,
+not volume, modulus; `timeCovariance_geometric_bound` supplies
+P(e,f)*(1/2)^(s+t), with explicit positive P independent of both lags.
+
+`BF4ExactSlabThermodynamicDenseGap.moment_dyadic` derives the moment
+inequality from the actual completed OS Cauchy--Schwarz and time laws.
+`moment_first_gap` consumes the abstract constructive dyadic theorem;
+`dense_twoStep_form_gap` removes the observable prefactor entirely.
+`BF4ExactSlabThermodynamicCompletedGap.centeredSequence_converges`
+uses the existing Cauchy pairing limits and exact centering formula.
+`complement_twoStep_form_gap` gives, for EVERY actual completed
+unit-complement vector v, 0 <= <v,T_2 v> <= (1/2)<v,v>.
+
+Next: nonzero thermodynamic excitation and fixed-unit uniqueness/isolation;
+full required observable realization and quotient-level completeness;
+continuum scaling, continuous-time generator and physical spectral/QFT
+identification. Nome 1/1024 and spacing remain fixed. No canonical
+atom/type/flag, analytic premise or hole changed; no beta-uniform,
+all-group or continuum Clay closure is claimed.
+
+Verification: six modules, 11+4+7+10+10+10=52 exactly matched focused
+gates within {propext, Quot.sound}; final logs error/warning free and
+own/direct-import artifacts fresh. One worker, mandatory 20 GiB ceiling;
+no raised limits or full build/audit/guard/progress run. Root imports
+updated but not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-` followed by
+`two-probe-covariance.log`, `two-probe-spacetime-decay.log`,
+`thermodynamic-time-decay.log`, `thermodynamic-time-decay-rate.log`,
+`thermodynamic-dense-gap.log`, `thermodynamic-completed-gap.log`.
+
+**Preceding original-action increment (actual two-probe count and signed distance decay):**
 `BF4ExactSlabTwoProbeGraph.separatorOfRightOutside` constructs a cut
 from the component of a DISTINCT left probe vertex. `right_mem_of_keep`
 uses the existing retained-coefficient test to exclude it; `probePath`

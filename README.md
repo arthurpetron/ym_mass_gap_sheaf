@@ -13,6 +13,13 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
+**Latest checked milestone:** the original thermodynamic geometric OS
+two-step transfer satisfies
+[`0 <= <v,T_2 v> <= (1/2)<v,v>`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGap.lean)
+on its entire constructed completed unit complement, at SU(2) nome
+`1/1024` and fixed spacing. Nonzero excitations, the full observable
+realization and continuum scaling are still open; this is not Clay closure.
+
 ## Whole-project goal
 
 The Clay target requires a non-trivial quantum Yang--Mills theory on
@@ -529,12 +536,26 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> |ORIGINAL D_K| <=
                                   |           A(w,probes)*s(w)^
                                   |           (distance+1-M)*Z_K^2 [PROVED]
-                                  |      + normalized cutoff/volume
-                                  |        passage and reflected-time
-                                  |        probe instances          [NEXT OPEN]
+                                  |        + SAME cutoff limits and
+                                  |          exact Z^2 cancellation
+                                  |        -> normalized covariance [PROVED]
+                                  |        + separate fixed-size
+                                  |          reflected-time probes
+                                  |        -> root distance = s+t   [PROVED]
+                                  |        + ORIGINAL volume limit
+                                  |          and operator-moment pin
                                   |        -> time decay of THESE
-                                  |           operator moments      [OPEN]
-                                  |        -> strict complement gap [OPEN]
+                                  |           completed OS moments,
+                                  |           explicit time modulus [PROVED]
+                                  |        + contraction and sharp CS
+                                  |        -> dyadic moments remove
+                                  |           observable prefactor
+                                  |        -> dense strict form gap [PROVED]
+                                  |        + SAME centered Cauchy
+                                  |          pairing limits
+                                  |        -> 0 <= <v,T_2 v>
+                                  |           <= (1/2)<v,v>, every
+                                  |           unit-complement v     [PROVED]
                                   |      + nonzero thermodynamic
                                   |        excitation witness        [OPEN]
                                   |      + full quotient-level
@@ -588,7 +609,45 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: distance decay of the ORIGINAL signed finite-slab connected numerator.**
+**Latest result: a strict form gap for the ORIGINAL thermodynamic OS two-step transfer.**
+For every vector `v` in the constructed completed unit complement,
+
+```text
+0 <= <v,T_2 v> <= (1/2)<v,v>.
+```
+
+[`complement_twoStep_form_gap`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGap.lean)
+proves this for the actual geometric two-step time operator at SU(2) nome
+`1/1024` and fixed lattice spacing. No gap premise or replacement law is
+supplied. This is not a continuum Hamiltonian spectral theorem, and no
+nonzero excitation is established by the bound alone.
+
+The causal proof uses the preceding signed numerator estimate:
+
+- [Cutoff removal and normalization](lean/YMGap/Continuum/BF4ExactSlabTwoProbeCovariance.lean)
+  retain explicit moduli and cancel the SAME original partition square.
+- [Separate spacetime probes](lean/YMGap/Continuum/BF4ExactSlabTwoProbeSpacetimeDecay.lean)
+  keep the original base-box sizes independent of time separation and volume.
+- [Thermodynamic time decay](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDecay.lean)
+  identifies their distance with `s+t` and reaches the existing operator moments.
+- [Temporal rate data](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDecayRate.lean)
+  supply a computed time modulus and a positive envelope `P(e,f)*(1/2)^(s+t)`.
+- [Dyadic moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseGap.lean)
+  remove `P`; the existing centered Cauchy limits extend the strict form
+  bound to every completed unit-complement vector.
+
+**Next:** a nonzero thermodynamic excitation witness and fixed-unit
+uniqueness/isolation, then the full required observable realization and
+continuum scaling. Full quotient-level completeness, continuous-time
+generator/spectral identification and continuum/QFT/all-group Clay remain
+open. The coupling is fixed here; no beta- or spacing-uniform gap is claimed.
+
+Six new modules: 11+4+7+10+10+10=52 exactly matched focused axiom gates
+within `{propext, Quot.sound}`; error/warning-free final logs and fresh
+own/direct-import artifacts. One monitored worker, mandatory 20 GiB ceiling.
+No full build/audit/guard/progress run; root imports updated but not rebuilt.
+
+**Preceding result: distance decay of the ORIGINAL signed finite-slab connected numerator.**
 The new [two-probe graph](lean/YMGap/Continuum/BF4ExactSlabTwoProbeGraph.lean)
 keeps the probes distinct: a missing path would construct a separating cut
 forbidden by the existing retained-coefficient test. Its Type-valued paths
@@ -615,11 +674,10 @@ parameter. All coupling guards are explicit; the existing nome `1/1024`
 satisfies them. The distance is between the two supplied probe-carrier
 roots. Both observable bounds and carrier sizes remain in the prefactor.
 
-**Next:** normalized cutoff/thermodynamic limit passage for this SAME
-numerator, and actual reflected-time probe instances. Those are required
-before this finite-law theorem becomes decay of the already-constructed
-operator moments. A strict completed gap, nonzero excitations, vacuum
-isolation and continuum/QFT/all-group Clay remain open.
+The normalized cutoff/thermodynamic passage, reflected-time instances
+and strict completed form bound requested at this stage are now proved
+in the six modules above. Nonzero excitations, vacuum isolation and
+continuum/QFT/all-group Clay remain open.
 
 Five new modules: 16+18+21+6+5=66 exactly matched focused axiom gates
 within `{propext, Quot.sound}`; final error/warning-free logs and fresh
