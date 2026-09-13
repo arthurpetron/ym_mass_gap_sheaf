@@ -344,7 +344,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           with NO cutoff K
                                   |        -> |D_K| <= 2*c*B*
                                   |           Z_full,K * Z_inside,K [PROVED]
-                                  |        + collar / path-length counting
+                                  |      + six faces per literal link
+                                  |        -> |collar| <= 6*(ell+4*n)[PROVED]
+                                  |        -> collar absorbed into
+                                  |           A(w,ell)*rho(w)^n     [PROVED]
+                                  |        -> SAME D controlled by
+                                  |           sum_active rho^|core| [PROVED]
+                                  |        + actual rooted-core count
+                                  |        + path-length estimates
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
@@ -400,7 +407,40 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: an explicit finite boundary budget for the ORIGINAL action.**
+**Latest result: the local collar cost is absorbed into a geometric rate.**
+[`collarIds_length_le`](lean/YMGap/Continuum/BF4ExactSlabCollarDegreeBound.lean)
+uses the existing six-plaquettes-per-link enumeration and physical face-ID
+injectivity to prove `|collar| <= 6*(ell+4*n)`, where `ell` is the number of
+probe links and `n` the number of core faces. Shared links are returned as
+explicit witnesses; no independence assumption is introduced.
+
+[`normalizedCoreWeight_geometric_bound`](lean/YMGap/Continuum/BF4ExactSlabCollarAdjustedRate.lean)
+then bounds the existing normalized core weight by `A(w,ell)*rho(w)^n`, with
+`r(w)=1/(1-delta(w))`, `A(w,ell)=r(w)^(12*ell)` and
+`rho(w)=(2*delta(w)+delta(w)^2)*r(w)^48`. The rate depends on the coupling,
+not the slab volume, cutoff or probe size. The probe size remains in `A`.
+
+[`boundaryNumerator_geometric_bound`](lean/YMGap/Continuum/BF4ExactSlabGeometricBoundaryBudget.lean)
+controls the ORIGINAL `D_K` by
+`2*c*A(w,ell)*sum_active rho(w)^|core|*Z_full,K*Z_inside,K`.
+At the existing `w=1/1024` pilot, `0<rho<1` is kernel checked using small
+power blocks. The actual rooted-core sum is **not yet bounded uniformly**.
+
+**Next:** encode and count the actual probe-rooted cores, then prove the
+length cost of reaching the exterior. Their connectivity includes the
+virtual probe vertex; the existing ordinary lattice-animal count needs a
+proved bridge before it can be used here. Normalized limit transport,
+volume-uniform decay, physical transfer/vacuum, a strict physical gap and
+the continuum/QFT/all-group Clay target remain open. Bounds retain
+`0<=w<=1`, `heatRatio(w)<=1/2` and `delta(w)<1`.
+
+Three modules, 8+10+7=25 exactly matched focused gates within
+`{propext, Quot.sound}`, final error/warning free; source and direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no new
+holes, analytic assumptions, oracle or raised limits. No full build/audit/
+guard/progress run; root imports updated but not rebuilt.
+
+**Preceding result: an explicit finite boundary budget for the ORIGINAL action.**
 [`mixedCoefficient_selective_pin` and `mixedCoefficient_bound`](lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean)
 identify and bound the NEW mixed coefficient by an exact two-slot insertion
 recursion. Each exterior face costs `delta(w)=128*w^3`; each interior face
@@ -418,9 +458,9 @@ collar floor is constructed. `B` contains no representation cutoff `K`;
 it explicitly depends on the coupling, slab, probe links and interior test.
 This is a **denominator-cleared finite bound**, not yet volume-uniform decay.
 
-**Next:** control that computed budget by collar size, rooted-core counts
-and probe-to-exterior path length, then carry the resulting quantitative
-bound through the original normalized limits. Bounds retain `0<=w<=1` and
+The collar-size part of that checkpoint is now closed above. Rooted-core
+counts, probe-to-exterior path length and quantitative transport through
+the original normalized limits remain open. Bounds retain `0<=w<=1` and
 `heatRatio(w)<=1/2`; the reciprocal budget requires the explicit strict
 guard `delta(w)<1`. No uniform boundary decay, physical gap, continuum/QFT
 construction or all-group Clay closure follows yet.

@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original mixed-coefficient bound and finite boundary budget; OPEN volume-uniform counting (2026-09-13)
+## CLOSED literal collar count and adjusted core rate; OPEN actual rooted-core count (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabCollarDegreeBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCollarAdjustedRate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabGeometricBoundaryBudget.lean`.
+- **constructed literal geometry**: `sharedLink` and `collar_sharedLink`
+  return a shared link as Type-valued data. `collar_face_covered` uses the
+  existing six-per-link enumeration; `collarIds_length_le` proves
+  |collar| <= 6*(ell+4*n) using physical face-ID injectivity and Nodup.
+- **constructed volume-independent per-core bound**: `inverseFaceFloor`,
+  `probePrefactor`, and `adjustedCoreRate` return r=1/(1-delta),
+  A=r^(12*ell), rho=kappa*r^48. `normalizedCoreWeight_geometric_bound`
+  proves the EXISTING W(core)/R(collar) <= A*rho^|core|, accounting for
+  both removal copies. Coupling dependence is explicit; probe size is in A.
+- **constructed original consumer**: `geometricCoreSum` computes the
+  remaining sum_active rho^|core|; `finiteBoundaryBudget_le_geometric` and
+  `boundaryNumerator_geometric_bound` give |D_K| <=
+  2*c*A*sum_active rho^|core|*F_K(1)*I_K(1), with the existing original
+  determinant and two partition factors. `existingNome_adjustedRate`
+  proves 0<rho<1 at the already-used 1/1024 pilot by bounded power blocks.
+- **remaining obligation**: actual rooted-core encoding/count and a
+  geometric size floor for reaching the exterior. Connectivity presently
+  uses a virtual vertex carrying all probe links (`nodeLinks`), not an
+  ordinary plaquette-animal witness. The existing tour compiler requires a
+  proved bridge and recovery of the original core. No volume-uniform
+  summability, decay, normalized limit transport, padding limit,
+  persistence, physical transfer/vacuum, strict gap or continuum/QFT/
+  all-group Clay closure. Guards 0<=w<=1, heatRatio(w)<=1/2 and delta(w)<1
+  remain explicit. No canonical atom/type/flag, analytic premise or hole
+  changed.
+- **verification**: 8+10+7=25 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. A monolithic scalar reduction hit recursion depth;
+  a checked eighth-power bound and six-block comparison replaced it, with
+  no increased limits. One monitored worker, mandatory 20 GiB ceiling;
+  no oracle or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-collar-degree-bound.log`,
+  `/tmp/ym-bf4-exact-slab-collar-adjusted-rate.log`,
+  `/tmp/ym-bf4-exact-slab-geometric-boundary-budget.log`.
+
+## CLOSED original mixed-coefficient bound and finite boundary budget; OPEN volume-uniform counting at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/PolynomialBiadditiveSelectiveMobius.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean`,

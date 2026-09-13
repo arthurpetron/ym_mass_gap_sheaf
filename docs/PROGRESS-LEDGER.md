@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original mixed-coefficient estimate and finite boundary budget (2026-09-13)
+## Current increment: literal collar count and original geometric boundary estimate (2026-09-13)
+
+PROGRESS: the previous goal turn committed/pushed the original mixed
+coefficient bound and finite boundary budget (`ac74c86`). This turn removes
+the local collar-denominator obstruction from each normalized core weight.
+
+`BF4ExactSlabCollarDegreeBound` computes the shared-link witness, covers
+removed faces by the existing six-per-link carrier, and uses physical
+face-ID injectivity to prove |collar| <= 6*(ell+4*n). This is a bound on the
+ACTUAL collar with no slab-volume or coupling constant.
+
+`BF4ExactSlabCollarAdjustedRate.normalizedCoreWeight_geometric_bound`
+absorbs both collar factors into A(w,ell)*rho(w)^n, with
+r=1/(1-delta), A=r^(12*ell), rho=kappa*r^48 and delta=128*w^3.
+The per-face rate names w, not volume, cutoff or probe size; the probe size
+remains in the explicit prefactor. `BF4ExactSlabGeometricBoundaryBudget`
+transfers the bound through the existing finite budget to the ORIGINAL D_K
+and its two unit moments. Its residual `geometricCoreSum` is the literal
+sum_active rho^|core|, not a supplied summability assumption.
+
+`existingNome_adjustedRate` proves 0<rho<1 at the existing 1/1024 pilot.
+A direct reduction reached recursion depth; a checked eighth-power bound
+and six-block power comparison replaced it without raising any limit.
+
+Next: encode/count the actual probe-rooted cores and prove a size floor for
+reaching the exterior. The `none` root in `BF4ExactSlabRootedSelection`
+carries all probe links, so the existing `FiniteRootedAnimalTourCode`
+ordinary plaquette-animal compiler needs a geometric bridge and original
+core recovery before its count applies. No volume-uniform sum, decay,
+normalized limit transport, padding limit, persistence, physical transfer/
+vacuum, strict gap or continuum/QFT/all-group Clay closure. No canonical
+atom/type/flag, analytic premise or hole changed.
+
+Three modules, 8+10+7=25 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limits or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-collar-degree-bound.log`,
+`/tmp/ym-bf4-exact-slab-collar-adjusted-rate.log`,
+`/tmp/ym-bf4-exact-slab-geometric-boundary-budget.log`.
+
+## Previous increment: original mixed-coefficient estimate and finite boundary budget (2026-09-13)
 
 PROGRESS: the previous committed/pushed checkpoint (`58861eb`) gave the
 probe-only mixed expansion and matching partitions but retained the new

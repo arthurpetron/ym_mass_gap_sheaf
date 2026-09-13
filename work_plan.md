@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (mixed coefficient and computed boundary budget):**
+**Latest finite-slab increment (literal collar count and adjusted geometric rate):**
+`BF4ExactSlabCollarDegreeBound.sharedLink` computes a shared literal link;
+`collar_sharedLink` and `collar_face_covered` cover every removed face by the
+existing six-per-link enumeration. Physical face-ID injectivity gives
+`collarIds_length_le`: |collar| <= 6*(ell+4*n), for every duplicate-free
+physical ambient list. No coupling, cutoff or volume enters the degree bound.
+
+`BF4ExactSlabCollarAdjustedRate` constructs r(w)=1/(1-delta(w)), the
+probe prefactor A(w,ell)=r(w)^(12*ell), and the adjusted rate
+rho(w)=kappa(w)*r(w)^48. `normalizedCoreWeight_geometric_bound` proves
+the EXISTING W(core)/R(collar) <= A(w,ell)*rho(w)^|core|. Both removal
+copies are accounted for; the rate is independent of probe size, volume
+and cutoff, with coupling dependence explicit.
+
+`BF4ExactSlabGeometricBoundaryBudget.geometricCoreSum` computes the residual
+sum over the same active cores. `finiteBoundaryBudget_le_geometric` and
+`boundaryNumerator_geometric_bound` transfer the new estimate through the
+existing budget to |D_K| <= 2*c*A*sum_active rho^|core|*F_K(1)*I_K(1).
+`existingNome_adjustedRate` proves 0<rho<1 at the existing 1/1024 pilot.
+The scalar proof uses a checked eighth-power bound six times after a
+monolithic reduction exceeded recursion depth; no limit was raised.
+
+Next: an actual rooted-core encoding/count and a geometric size floor for
+cores reaching the exterior. `BF4ExactSlabRootedSelection.nodeLinks` gives
+the virtual root ALL probe links, so its `core_path` is not yet ordinary
+plaquette-animal connectivity. `FiniteRootedAnimalTourCode` supplies the
+existing finite tour algorithm, but requires a proved geometric bridge and
+recovery of the original core. Do not apply its 625^n count directly to the
+current root graph. Normalized limit transport and volume-uniform decay
+remain open, as do padding limits, persistence, physical transfer/vacuum,
+strict gap and continuum/QFT/all-group Clay. No canonical atom/type/flag,
+analytic premise or hole changed. Heat guards remain explicit.
+
+Verification: three modules, 8+10+7=25 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limits or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-collar-degree-bound.log`,
+`/tmp/ym-bf4-exact-slab-collar-adjusted-rate.log`,
+`/tmp/ym-bf4-exact-slab-geometric-boundary-budget.log`.
+
+**Preceding finite-slab increment (mixed coefficient and computed boundary budget):**
 `PolynomialBiadditiveSelectiveMobius.selectiveCoefficient_pin` proves that
 the actual filtered two-slot finite difference equals its insertion recursion.
 Exterior steps insert on the left, with cost delta; interior steps insert on

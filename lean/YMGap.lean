@@ -4047,6 +4047,11 @@ import YMGap.Continuum.PolynomialBiadditiveSelectiveMobius
 import YMGap.Continuum.BF4ExactSlabMixedCoefficientBound
 import YMGap.Continuum.BF4ExactSlabMixedBoundedFamilies
 import YMGap.Continuum.BF4ExactSlabMixedFiniteBoundaryBudget
+-- Literal six-per-link collar counting absorbs both removal factors into a
+-- volume-independent per-core rate. The actual rooted-core sum remains open.
+import YMGap.Continuum.BF4ExactSlabCollarDegreeBound
+import YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
+import YMGap.Continuum.BF4ExactSlabGeometricBoundaryBudget
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
