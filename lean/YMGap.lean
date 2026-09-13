@@ -4059,11 +4059,15 @@ import YMGap.Continuum.FiniteSizeGeometricSum
 import YMGap.Continuum.BF4ExactSlabSummableCoreRate
 import YMGap.Continuum.BF4ExactSlabUniformCoreBudget
 -- Original exterior separation pays a growing inner-margin size cost.
--- The shrinking coefficient still multiplies the two original unit moments;
--- normalized limit transport and physical/continuum gap remain open.
+-- This finite coefficient multiplies the two original unit moments.
 import YMGap.Continuum.BF4ExactSlabEmbeddedExteriorSeparation
 import YMGap.Continuum.BF4ExactSlabCoreDistanceFloor
 import YMGap.Continuum.BF4ExactSlabInnerMarginBoundaryDecay
+-- Cancel the SAME partition limits and construct single-plaquette character
+-- thermodynamic means at w=1/1024. Full state/physical gap/continuum remain open.
+import YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization
+import YMGap.Continuum.BF4ExactSlabInnerMarginExpectationDecay
+import YMGap.Continuum.BF4ExactSlabCharacterThermodynamicLimit
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

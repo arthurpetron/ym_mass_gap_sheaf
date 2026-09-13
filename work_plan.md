@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (original inner-margin comparison coefficient):**
+**Latest original-action increment (normalized comparison and character thermodynamic limits):**
+`BF4ExactSlabBoundaryLimitNormalization.boundaryResponse_bound` passes the
+common-cutoff cleared estimate to the SAME original moment limits.
+`normalizedPartition_cancel` cancels both original partition factors through
+the existing proved reciprocals. `expectationDifference_bound` therefore
+needs no volume-uniform reciprocal ceiling. `boundaryNumerator_prefix` and
+`expectationDifference_bound_of_prefix` retain the literal Haar image pin.
+
+`BF4ExactSlabInnerMarginExpectationDecay.characterMean_difference_bound`
+constructs the single-plaquette character instance: geometric carrier,
+locality, interval certificate and embedding pin. The bound is
+|E_(m+p)(chi_spin)-E_m(chi_spin)|<=A_spin(w)*s(w)^m, for every outer p,
+with A_spin=4*16^spin*singlePlaquetteAmplitude(w). All coupling guards are
+discharged by `existingNome_characterMean_difference_bound` at w=1/1024.
+
+`BF4ExactSlabCharacterThermodynamicLimit` proves the half-rate envelope at
+that same coupling and returns `volumeModulus`, per-volume `innerModulus`,
+`outer_cauchy`, and `meanLimit` for every physical base face and spin.
+The existing completeness diagonal uses those data, without extracting an
+erased modulus or adding a convergence assumption. `meanLimit_converges`,
+`meanLimitCauchy`, `meanLimit_geometric_bound`, and `meanLimit_error_le`
+connect the returned object and moduli to the original normalized means.
+The sharp original s^m error is retained; the half-power envelope is only
+used to compute the outer modulus. No beta/spacing-uniform claim.
+
+Next: finite products and mixed-observable thermodynamic limits, then their
+algebraic compatibility as one original state. Single-plaquette character
+limits do not construct that full state. Physical transfer/vacuum, strict
+physical gap, spacing control and continuum/QFT/all-group Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three new modules, 7+8+18=33 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-boundary-limit-normalization.log`,
+`/tmp/ym-bf4-exact-slab-inner-margin-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-character-thermodynamic-limit.log`.
+
+**Preceding finite-slab increment (original inner-margin comparison coefficient):**
 `BF4ExactSlabEmbeddedExteriorSeparation.embeddedFacePreimage` computes the
 source face identifier for the literal embedded box. `exterior_linf_floor`
 and `shifted_base_exterior_linf_floor` prove distance>=margin from the

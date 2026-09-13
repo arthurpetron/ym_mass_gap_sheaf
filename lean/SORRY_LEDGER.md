@@ -13,7 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original inner-margin comparison coefficient; OPEN normalized limit transport (2026-09-13)
+## CLOSED normalized comparison and single-character thermodynamic limits; OPEN full thermodynamic state (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabInnerMarginExpectationDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCharacterThermodynamicLimit.lean`.
+- **constructed normalization**: `boundaryResponse_bound` passes the
+  common-cutoff cleared inequality to the SAME original moment limits.
+  `normalizedPartition_cancel` cancels the two original partition factors
+  using their proved reciprocals. `expectationDifference_bound` has no
+  volume-dependent reciprocal ceiling. `boundaryNumerator_prefix` and
+  `expectationDifference_bound_of_prefix` preserve the exact Haar image pin.
+- **constructed physical observable instance**:
+  `characterMean_difference_bound` supplies the single-plaquette carrier,
+  locality, interval certificate and literal embedding, giving
+  |E_(m+p)(chi_spin)-E_m(chi_spin)|<=A_spin(w)*s(w)^m for any outer p.
+  A_spin=4*16^spin*singlePlaquetteAmplitude(w); position and volume are
+  absent from the amplitude/rate. `existingNome_characterMean_difference_bound`
+  discharges all coupling guards at w=1/1024.
+- **constructed thermodynamic object**: at that fixed coupling,
+  `volumeModulus` and `innerModulus` are explicit data; `outer_cauchy`
+  consumes the normalized inter-volume estimate. `meanLimit` is the
+  existing completeness diagonal of the original normalized means.
+  `meanLimit_converges`, `meanLimitCauchy`, `meanLimit_geometric_bound`
+  and `meanLimit_error_le` certify its convergence, representative modulus
+  and error to the SAME finite-volume means. `rate_le_half` supplies only
+  the half-power envelope for computing the modulus; the s^m error is retained.
+- **remaining obligation**: finite products and mixed-observable limits,
+  algebraic compatibility and a full thermodynamic state, then physical
+  time transfer/stationary vacuum/strict gap and continuum/QFT/all-group
+  Clay. Single-plaquette character means do not constitute a full state.
+  No beta/spacing-uniform statement. The preceding normalized-limit
+  transport residue is closed, and thermodynamic convergence is now
+  constructed at the stated single-character/fixed-coupling scope.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: 7+8+18=33 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-boundary-limit-normalization.log`,
+  `/tmp/ym-bf4-exact-slab-inner-margin-expectation-decay.log`,
+  `/tmp/ym-bf4-exact-slab-character-thermodynamic-limit.log`.
+
+## CLOSED original inner-margin comparison coefficient; OPEN normalized limit transport at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabEmbeddedExteriorSeparation.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCoreDistanceFloor.lean`,

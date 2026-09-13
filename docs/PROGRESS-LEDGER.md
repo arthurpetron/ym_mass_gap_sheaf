@@ -4,7 +4,54 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original inner-margin comparison coefficient (2026-09-13)
+## Current increment: original normalized comparison and character thermodynamic limits (2026-09-13)
+
+The preceding turn was PROGRESS: `f706666` committed and pushed the original
+inner-margin comparison coefficient. This turn is PROGRESS: the two
+partition factors are cancelled, and the resulting original character
+means acquire a constructed thermodynamic limit with explicit moduli.
+
+`BF4ExactSlabBoundaryLimitNormalization.boundaryResponse_bound` transfers
+the common-cutoff inequality to the SAME moment limits.
+`normalizedPartition_cancel` uses the two proved ORIGINAL reciprocals;
+`expectationDifference_bound` has no volume-dependent reciprocal ceiling.
+`boundaryNumerator_prefix` and `expectationDifference_bound_of_prefix`
+pin the exact source-image/literal-holonomy comparison.
+
+`BF4ExactSlabInnerMarginExpectationDecay.characterMean_difference_bound`
+constructs locality, interval boundedness, geometric carrier and literal
+embedding for a single-plaquette character. It proves
+|E_(m+p)(chi_spin)-E_m(chi_spin)|<=A_spin(w)*s(w)^m for any outer p,
+where A_spin=4*16^spin*singlePlaquetteAmplitude(w).
+`existingNome_characterMean_difference_bound` discharges all coupling
+guards at the existing w=1/1024 point.
+
+`BF4ExactSlabCharacterThermodynamicLimit.rate_le_half` proves a half-power
+envelope at that coupling. `volumeModulus` uses the existing bounded least
+half-power search; `innerModulus` uses the original expectation QCauchy
+data. `outer_cauchy` consumes the normalized comparison for any two volumes.
+`meanLimit` is the existing completeness diagonal of those SAME means;
+`meanLimit_converges` and `meanLimitCauchy` certify its limit and explicit
+representative modulus. `meanLimit_geometric_bound` retains A_spin*s^m,
+and `meanLimit_error_le` ties the volume modulus to the actual limit error.
+No second finite normalization or new completeness compiler was needed.
+
+Next: products/mixed-observable thermodynamic limits and compatibility as
+one state. These single-plaquette character limits are not a full
+thermodynamic state, time-homogeneous physical transfer, stationary vacuum,
+strict physical gap or continuum/QFT/all-group Clay construction. Coupling
+is fixed; no beta/spacing-uniform bound, canonical atom/type/flag change,
+new analytic premise or hole.
+
+Three new modules: 7+8+18=33 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-boundary-limit-normalization.log`,
+`/tmp/ym-bf4-exact-slab-inner-margin-expectation-decay.log`,
+`/tmp/ym-bf4-exact-slab-character-thermodynamic-limit.log`.
+
+## Previous increment: original inner-margin comparison coefficient (2026-09-13)
 
 The preceding turn was PROGRESS: `d363169` proved and pushed the summed
 original-core budget. This turn is PROGRESS: its distance-dependent size

@@ -380,10 +380,23 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           times its unit moments[PROVED]
                                   |           singleton; w=1/1024
                                   |           ANY outer padding
-                                  |      + transport to NORMALIZED
-                                  |        cutoff-limit expectations[NEXT OPEN]
-                                  |      + thermodynamic limit and
-                                  |        time homogeneity         [OPEN]
+                                  |        + ORIGINAL reciprocals
+                                  |          and literal image pins [PROVED]
+                                  |        -> cancel SAME partitions
+                                  |           at cutoff limits      [PROVED]
+                                  |        -> |E_(m+p)(chi)-E_m(chi)|
+                                  |           <= A_spin*s^m         [PROVED]
+                                  |           ANY outer padding p
+                                  |        + explicit outer/inner
+                                  |          Cauchy moduli          [PROVED]
+                                  |        -> thermodynamic limit of
+                                  |           ONE plaquette's
+                                  |           character means       [PROVED]
+                                  |           fixed w=1/1024
+                                  |      + finite products / mixed
+                                  |        observable correlations  [NEXT OPEN]
+                                  |      + full thermodynamic state
+                                  |        and time homogeneity     [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -434,7 +447,47 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a shrinking inner-margin coefficient for the original boundary comparison.**
+**Latest result: normalized comparison and a constructed thermodynamic limit for single-plaquette character means.**
+[`expectationDifference_bound`](lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean)
+passes the common-cutoff determinant estimate to the original moment limits
+and cancels the SAME two partition functions using their proved reciprocals.
+No volume-dependent reciprocal ceiling enters the resulting bound.
+`boundaryNumerator_prefix` and `expectationDifference_bound_of_prefix`
+preserve the literal quaternion-Haar observable pin.
+
+[`characterMean_difference_bound`](lean/YMGap/Continuum/BF4ExactSlabInnerMarginExpectationDecay.lean)
+constructs the carrier, locality, interval certificate and embedding pin
+for the actual character of a translated plaquette holonomy. It proves
+`|E_(m+p)(chi_spin)-E_m(chi_spin)| <= A_spin(w)*s(w)^m` for ANY outer
+padding `p`, where `A_spin(w)=4*16^spin*singlePlaquetteAmplitude(w)`.
+Coupling guards remain explicit; all are discharged at `w=1/1024`.
+The amplitude and rate do not depend on base size, position or padding.
+
+[`meanLimit`](lean/YMGap/Continuum/BF4ExactSlabCharacterThermodynamicLimit.lean)
+constructs the thermodynamic limit of these SAME normalized means at that
+fixed coupling. `volumeModulus` and `innerModulus` are returned as data;
+`meanLimitCauchy` also supplies the returned representative's modulus.
+The existing completeness diagonal is reused, with no choice or new
+analytic convergence input. `meanLimit_geometric_bound` retains
+`|E_infinity(chi_spin)-E_m(chi_spin)| <= A_spin*s^m`;
+`meanLimit_error_le` applies the explicit volume modulus to the actual limit.
+The proved `s<=1/2` envelope is used for the modulus, not substituted for
+the original geometric error rate.
+
+**Next:** construct finite-product/mixed-observable thermodynamic limits and
+their algebraic compatibility. A limit for each single-plaquette character
+is not yet a full thermodynamic state, much less a physical transfer, vacuum,
+spectral gap or continuum QFT. This is fixed-coupling/fixed-spacing progress;
+beta/spacing-uniform control and the all-group Clay target remain open.
+
+Three new modules: 7+8+18=33 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free; source/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change; no full build/audit/guard/progress run.
+Root imports updated, not rebuilt.
+
+**Preceding result: a shrinking inner-margin coefficient for the original boundary comparison.**
 [`shifted_base_exterior_linf_floor`](lean/YMGap/Continuum/BF4ExactSlabEmbeddedExteriorSeparation.lean)
 proves separation from the ORIGINAL embedded smaller-slab exterior. The
 smaller slab has half-size `base+margin`; arbitrary outer `padding` embeds it
@@ -461,12 +514,14 @@ slab around a fixed probe, uniformly in further OUTER padding. Increasing
 outer padding at fixed smaller slab does not move that slab's boundary
 away from its probe. This is not a beta- or spacing-uniform estimate.
 
-**Next:** finite normalization and transport to the existing normalized
+**Next at that checkpoint:** finite normalization and transport to the existing normalized
 cutoff-limit expectations. The theorem still multiplies by the two original
 unit moments: a shrinking comparison coefficient does not assert that the
 raw determinant tends to zero. Thermodynamic Cauchy data, general probe
 construction, physical transfer/vacuum, strict physical gap and continuum/
-QFT/all-group Clay remain open.
+QFT/all-group Clay remain open. Normalization is now proved directly at the
+cutoff limits, and single-plaquette character thermodynamic limits are
+constructed above; no intermediate finite reciprocal construction was needed.
 
 Three new modules: 13+5+9=27 exactly matched focused axiom gates within
 `{propext, Quot.sound}`, final error/warning free, source/direct-import
