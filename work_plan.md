@@ -18,7 +18,59 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL heat-dressed determinant and small-nome perturbation):**
+**Latest finite-slab increment (nonzero ORIGINAL completed centered plaquette state):**
+`computations/original_plaquette_small_nome_minor.py` computes exact
+rational candidate constants using the existing corrected-slab geometry
+and unfixed quaternion polynomials. `BF4ExactSlabPlaquetteSmallNomeCertificate`
+independently kernel-checks the actual unreduced Lean expressions:
+w=1/1024, every lower-face smallness guard, product error <=1/65536,
+probe/mixed/unit/loop coefficient bounds 128,128,1,1 and channel weight <=1.
+The pilot is not an oracle and no numerical norm comparison is assumed.
+
+`BF4ExactSlabPlaquetteSmallNomeMinor` puts the four actual interacting
+moments in intervals, proves D<=-1/1024 for every K, and gives D^2>=1/1048576.
+`minor_floor` and `minor_positive` apply this to the ORIGINAL retained
+channels for every K>=1. `BF4ExactSlabPlaquetteSmallNomeUniformFloor`
+bounds the retained reference energy by 5 and its doubled budget by 10.
+`rawFloor` is the positive channel weight times 1/1048576 divided by 11.
+`rawFloor_bound` holds for EVERY K>=1 and rational center c.
+
+`BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` passes this raw floor
+through the original cutoff limit and SAME partition reciprocal. Its
+`normalizedFloor` is rawFloor times the computed original reciprocal floor,
+strictly positive. `centeredRepresentative_seq` pins the actual completed
+centering stream to the rational recenterings, without choosing a quotient
+representative. The floor survives the mixed-pairing limit. `state` is an
+element of the existing original UnitComplement; `state_norm_floor`,
+`state_orthogonal`, `state_ne_zero` prove its positive norm and nontriviality.
+`normRepresentative` and `normCauchy` return the real and its explicit modulus;
+`connectedCovariance_floor` pins the result to the literal original covariance.
+
+This closes the concrete centered nontriviality task at w=1/1024, extent one,
+not at arbitrary coupling/volume. Next: source-backed geometric time shift
+on the ORIGINAL observables, its slab comparison, and a norm bound allowing
+quotient/completion descent. Do not assume exact marginal consistency or
+reuse an ordinary Euclidean isometry as the physical reflected transfer.
+`CanonicalOSRoot.PositiveTimeOSRoot.transferRepresentative` and its positivity,
+self-adjointness, contraction and strict Rayleigh-response fields remain
+uninhabited for this construction. A nonzero state alone does not supply them.
+Stationary physical vacuum, compatible slabs, required completeness/full
+observables, strict gap and volume/spacing/QFT/all-group Clay remain open.
+No canonical atom/type/flag changed.
+
+Verification: four new modules, 11+12+9+17 = 49 exact focused gates within
+{propext, Quot.sound}; final logs error/warning free and outputs current.
+The exact-rational pilot passed. One-worker monitored 20 GiB checks;
+`decide +kernel` certifies finite source constants without a native oracle.
+Explicit scalar types/equivalence transports resolved initial elaboration
+and rewrite issues without raised limits. No new holes, assumed analytic
+comparison or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-certificate.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-minor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-uniform-floor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-centered-nontriviality.log`.
+
+**Preceding finite-slab increment (ORIGINAL heat-dressed determinant and small-nome perturbation):**
 `BF4ExactSlabPlaquetteHeatDressedMinor.scalarPlaquetteMinor_eq` identifies
 the actual unit/scalar-loop minor with `(2*w^3)^4*D^2`. Its D uses the four
 Haar integrals H(p L), H(p r L), H(L), H(r L), retaining the original lower

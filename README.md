@@ -213,12 +213,19 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      + small-nome face guards
                                   |        -> shared-link moment error
                                   |           bound, independent of K[PROVED]
-                                  |      + numerical guard certificate
-                                  |        + determinant separation  [OPEN]
-                                  |        -> concrete positive minor[OPEN]
-                                  |      + cutoff-removal floor      [OPEN]
+                                  |      + w=1/1024, extent-one
+                                  |        kernel guard certificate
+                                  |        -> D <= -1/1024, every K [PROVED]
+                                  |        -> concrete positive minor
+                                  |           for every K>=1         [PROVED]
+                                  |        -> one raw norm floor,
+                                  |           every K>=1 and center c[PROVED]
+                                  |      + SAME action reciprocal
+                                  |        + cutoff/centering limits [PROVED]
                                   |      -> nonzero centered observable
-                                  |         with positive norm floor [OPEN]
+                                  |         + positive normalized floor
+                                  |         + norm Cauchy modulus,
+                                  |         at THAT w and slab       [PROVED]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -269,7 +276,39 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: ORIGINAL interacting moment identity and small-nome error bound.**
+**Latest result: a nonzero centered state in the ORIGINAL completed plaquette space.**
+At the certified nome `w=1/1024` on the extent-one slab,
+[`determinant_negative`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeMinor.lean#L88)
+proves `D<=-1/1024` at every representation cutoff. The actual channel
+weight is positive for `K>=1`.
+[`rawFloor_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeUniformFloor.lean#L85)
+gives one strictly positive rational raw reflected-norm floor for every
+`K>=1` and every rational centering coefficient.
+
+That floor survives cutoff removal, normalization by the SAME original
+partition function, and the actual Cauchy representative of orthogonal
+centering. The constructed
+[`state`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality.lean#L112)
+belongs to the existing original unit complement;
+[`state_ne_zero`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality.lean#L123)
+proves it is nonzero. Its normalized positive floor is computed from the raw
+floor and original reciprocal bound, and
+[`normCauchy`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality.lean#L103)
+retains the explicit norm modulus.
+[`connectedCovariance_floor`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality.lean#L134)
+pins this result to the ORIGINAL connected reflected covariance.
+
+**Scope:** one fixed positive nome and finite slab, after representation-cutoff
+removal and completion. This is not a stationary-vacuum identification,
+physical transfer, spectral gap, or volume/spacing-uniform estimate.
+**Next:** geometric time translation on original observables, its slab
+comparison, and a bound allowing descent to this original completed form.
+The full physical OS root and continuum/Clay target remain open.
+Four new Lean modules: 49 focused axiom gates within `{propext, Quot.sound}`,
+final error/warning free; exact-rational pilot passed. No new proof holes,
+native oracle, raised limits or full-tree build/audit.
+
+**Preceding result: ORIGINAL interacting moment identity and small-nome error bound.**
 [`scalarPlaquetteMinor_eq`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatDressedMinor.lean#L91)
 identifies the actual two-channel minor with `(2*w^3)^4 * D^2`, where
 `D = H(p L)*H(r L)-H(p r L)*H(L)`. Here H is the same 116-link Haar
@@ -287,13 +326,13 @@ and [`lowerMomentError_bound`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHeatPer
 give `H(p L)=H(p)+error` and `abs(error)<=coefficientL1(p)*E` at every
 representation cutoff. E depends explicitly on w and the face list.
 
-**Next:** certify a positive nome satisfying the finite guards and an error
-budget that separates D from zero; then retain a positive normalized floor
-through cutoff removal. No numerical nome or positive interacting minor
-has yet been certified. This small-nome estimate is not beta-, volume- or
+**At that checkpoint:** the remaining task was to certify a positive nome
+satisfying the finite guards, separate D from zero, and retain a positive
+normalized floor through cutoff removal. The latest result above now
+supplies these at w=1/1024, extent one. This estimate is not beta-, volume- or
 spacing-uniform mass control. Three new modules: 40 focused axiom gates
 within `{propext, Quot.sound}`, final error/warning free. No new proof holes
-or full-tree build/audit; the nonzero centered state and Clay goal remain open.
+or full-tree build/audit; the Clay goal remains open.
 
 **Preceding result: concrete ORIGINAL plaquette channels and exact reference Haar moments.**
 [`interfaceChoice`](lean/YMGap/Continuum/BF4ExactSlabFundamentalRetainedChannels.lean#L150)
@@ -317,11 +356,13 @@ means zero and
 equal to `1/128`. The resulting reference determinant is proved exactly
 `-1/128`, with square `1/16384`.
 
-**Open:** control this determinant after inserting the ORIGINAL lower heat
-product, then preserve a positive normalized floor through cutoff removal.
+**At that checkpoint:** the determinant still needed control after inserting
+the ORIGINAL lower heat product, followed by a positive normalized floor
+through cutoff removal. Both are now supplied above at w=1/1024, extent one.
 The reference Haar computation omits that insertion; it is not the
 interacting covariance. Positive channel weights alone do not establish a
-positive minor. No nonzero completed centered state or mass gap is claimed.
+positive minor. This reference computation alone did not prove a nonzero
+completed centered state or mass gap.
 Five new modules: 68 focused axiom gates within `{propext, Quot.sound}`,
 final error/warning free, no new proof holes or full-tree build/audit.
 

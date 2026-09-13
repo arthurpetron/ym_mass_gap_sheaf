@@ -4,7 +4,51 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL heat-dressed determinant and shared-link small-nome error (2026-09-13)
+## Current increment: nonzero ORIGINAL completed centered plaquette state (2026-09-13)
+
+PROGRESS: the exact-rational pilot `original_plaquette_small_nome_minor.py`
+produces a successful w=1/1024 candidate. `BF4ExactSlabPlaquetteSmallNomeCertificate`
+kernel-checks all actual lower-face guards, product error <=1/65536 and
+original polynomial coefficient bounds independently of the pilot.
+`BF4ExactSlabPlaquetteSmallNomeMinor.determinant_negative` proves the
+ORIGINAL interacting D<=-1/1024 at every K. Its square has floor 1/1048576;
+the concrete retained minor is positive for every K>=1.
+
+`BF4ExactSlabPlaquetteSmallNomeUniformFloor.rawFloor_bound` provides one
+positive rational raw reflected-norm floor valid for every K>=1 and every
+rational center. The retained unit energy is <=5, and the denominator 11
+is sufficient. This is an actual original reflected form, not an ordinary
+variance or auxiliary multiplicity-product law.
+
+`BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` passes that floor
+through the ORIGINAL cutoff limit, normalization by the SAME action, and
+the actual modulated centering representative. `state` belongs to the
+existing UnitComplement and is proved nonzero. `state_norm_floor` gives a
+computed strictly positive normalized floor; `normRepresentative` and
+`normCauchy` return its norm real and explicit modulus. The literal original
+connected reflected covariance has the same lower bound.
+
+The previously open concrete centered nontriviality is now proved at THIS
+nome and extent-one slab. No arbitrary-coupling or volume-uniform extension
+is claimed. Next: geometric time shift on original observable states,
+slab comparison and bounded quotient/completion descent. The physical
+stationary unit, transfer laws/nontrivial Rayleigh response, compatible
+slabs, full observable realization/completeness, strict spectral gap and
+volume/spacing/QFT/all-group Clay remain open. No canonical atom/type/flag
+changed; no exact marginal consistency or auxiliary-law identification used.
+
+Four new modules, 11+12+9+17 = 49 exact focused gates within
+{propext, Quot.sound}; final error/warning free and outputs current.
+Exact-rational pilot passed; kernel-only finite certification. One-worker
+monitored 20 GiB checks. Explicit types/equivalence transports resolved
+initial elaboration and rewrite issues without raised limits. No new
+holes, oracle or full build/audit/guard/progress run. Logs:
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-certificate.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-minor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-uniform-floor.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-small-nome-centered-nontriviality.log`.
+
+## Previous increment: ORIGINAL heat-dressed determinant and shared-link small-nome error (2026-09-13)
 
 PROGRESS: `BF4ExactSlabPlaquetteHeatDressedMinor.scalarPlaquetteMinor_eq`
 pins the actual unit/scalar-loop minor to `(2*w^3)^4*D^2`, with D computed

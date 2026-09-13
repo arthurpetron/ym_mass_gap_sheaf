@@ -13,6 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED concrete ORIGINAL completed centered nontriviality at w=1/1024, extent one (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCertificate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeMinor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeUniformFloor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality.lean`.
+  Pilot: `computations/original_plaquette_small_nome_minor.py`.
+- **discharged finite inputs**: the actual source polynomials satisfy all
+  lower-face guards and lowerBudget<=1/65536 at nome=1/1024. Coefficient
+  bounds 128,128,1,1 and channelWeight<=1 are independently kernel-checked.
+  `determinant_negative` gives D<=-1/1024 for every K; `minor_positive`
+  supplies the formerly unconstructed strict minor input for every K>=1.
+  `rawFloor_bound` gives a strictly positive, cutoff- and rational-center-
+  independent ORIGINAL raw reflected-norm floor from the retained channels.
+- **discharged limits and actual state**: `rawLimit_floor` passes the
+  estimate through the original representation-cutoff limit.
+  `normalized_form_floor` uses the SAME positive original partition
+  reciprocal. The computed `normalizedFloor` is strictly positive and
+  independent of rational centering. `centeredRepresentative_seq` identifies
+  the actual modulated centering stream; `norm_floor` passes the bound to
+  its completed pairing. `state`, `state_orthogonal`, `state_norm_floor`
+  and `state_ne_zero` construct and prove a nonzero element of the EXISTING
+  original UnitComplement. `normRepresentative`/`normCauchy` return its real
+  norm with explicit modulus. `connectedCovariance_floor` pins the floor
+  to the literal original connected reflected covariance.
+- **scope / superseded residue**: positive interacting minor, normalized
+  cutoff-limit floor and concrete completed centered nontriviality are no
+  longer open for w=1/1024 at extent one. No arbitrary-coupling or
+  volume/spacing-uniform claim. The unit is not identified with a stationary
+  physical vacuum, nor does the state supply the canonical strict transfer
+  Rayleigh response. Physical geometric shift/transfer, compatible slabs,
+  full observable realization/required completeness, strict gap and
+  volume/spacing/QFT/all-group Clay remain open. No canonical atom/type/flag
+  changed or frontier statement weakened.
+- **verification**: 11+12+9+17 = 49 exact focused gates within
+  {propext, Quot.sound}, final error/warning free and outputs current.
+  Exact-rational pilot passed; no native oracle or raised proof limits.
+  One-worker monitored 20 GiB checks. No new sorry, assumed analytic
+  comparison or full build/audit/guard/progress run. Logs:
+  `/tmp/ym-bf4-exact-slab-plaquette-small-nome-certificate.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-small-nome-minor.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-small-nome-uniform-floor.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-small-nome-centered-nontriviality.log`.
+
 ## CLOSED ORIGINAL four-moment identity and small-nome perturbation; OPEN determinant separation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatDressedMinor.lean`,
