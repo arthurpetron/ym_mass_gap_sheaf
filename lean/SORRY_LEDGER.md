@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL spectator resummation and relative family estimate; OPEN global summability (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/FiniteSelectionMobiusFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpectatorResummation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRelativePartitionBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabDetachedFaceRegion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabResummedCoefficientBound.lean`.
+- **constructed exact resummation**: `coefficient_factorizes` handles
+  ordered-list finite differences. `numerator_spectator_factorizes` and
+  `coefficient_spectator_factorizes` retain the original spectator Z^2.
+  `spectatorSum_pin` sums signed spectator coefficients FIRST and recovers
+  that partition square, rather than its volume-growing absolute majorant.
+- **constructed geometry/comparison**: `detachedIds`, `collarIds`,
+  `region_partition` and `detached_disjoint` compute and verify the literal
+  spectator/removed split. `relative_floor` proves
+  (1-delta)^|removed| Z_background<=Z_full. `relative_square_floor_perm`
+  retains the original partition square, with no global reciprocal ceiling.
+  `existingNome_removalFloor_pos` proves F>0 for all finite removal counts
+  at the existing 1/1024 pilot.
+- **constructed bound**: `detached_cleared_bound` gives
+  F^2*|family|<=anchorCap*Z_ambient^2, F=(1-delta)^|collar| and
+  anchorCap=2*c_p*c_q*kappa^|anchor|. The existing small-nome heat guards
+  and delta<=1 are explicit. `boundarySpectatorFamily_cleared_bound`
+  applies to the same original probe/exterior remainder on the interior action.
+- **remaining obligation**: global ORDERED family decomposition, collar/
+  path counting, mixed normalization and summability. The boundary family
+  estimate uses Z_INTERIOR^2, not Z_large*Z_small; it is not a normalized
+  bound for the full boundary response. Distance decay, padding limits/
+  moduli, persistence, physical transfer/stationarity, strict gap and
+  continuum/QFT/all-group Clay remain open. No canonical atom/type/flag
+  changed, analytic premise or hole added, or existing hole silently discharged.
+- **verification**: 4+8+6+7+6=31 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. One-worker monitored 20 GiB checks; no new
+  numerical oracle, raised limits or full build/audit/guard/progress run.
+  The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-finite-selection-mobius-factorization.log`,
+  `/tmp/ym-bf4-exact-slab-spectator-resummation.log`,
+  `/tmp/ym-bf4-exact-slab-relative-partition-bound.log`,
+  `/tmp/ym-bf4-exact-slab-detached-face-region.log`,
+  `/tmp/ym-bf4-exact-slab-resummed-coefficient-bound.log`.
+
 ## CLOSED ACTUAL coefficient bounds and ORIGINAL boundary majorant; OPEN normalized summability (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/PolynomialBiadditive.lean`,

@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ACTUAL coefficient bound and ORIGINAL boundary majorant):**
+**Latest finite-slab increment (ORIGINAL spectator resummation and partition-relative family bound):**
+`FiniteSelectionMobiusFactorization.coefficient_factorizes` proves exact
+finite-difference factorization on two lists. With both probes on the anchor
+side, `BF4ExactSlabSpectatorResummation.numerator_spectator_factorizes`
+retains the ORIGINAL spectator partition square. The corresponding
+coefficient factorization and `spectatorSum_pin` sum signed spectator
+coefficients FIRST, returning anchor coefficient times Z_spectator^2.
+
+`BF4ExactSlabDetachedFaceRegion.detachedIds` and `collarIds` compute
+spectator/removed faces from literal probe-plus-anchor link supports.
+Their partition and disjointness are proved. `BF4ExactSlabRelativePartitionBound.relative_floor`
+gives (1-delta)^|removed| Z_background<=Z_full, retaining the SAME original
+background. The squared/permuted comparison avoids a whole-volume floor.
+`existingNome_removalFloor_pos` proves a strict floor for every finite
+removal count at the existing 1/1024 pilot.
+
+`BF4ExactSlabResummedCoefficientBound.resummed_bound` takes the absolute
+value AFTER exact resummation. `detached_cleared_bound` yields
+F^2*|family|<=anchorCap*Z_ambient^2, F=(1-delta)^|collar| and
+anchorCap=2*c_p*c_q*kappa^|anchor|, under the existing heat guards and
+delta<=1. `boundarySpectatorFamily_cleared_bound` instantiates the actual
+probe and exterior remainder on the original interior action.
+
+Next: a global ORDERED family decomposition of the full expansion, collar/
+path counting, mixed normalization and summability. The boundary family
+specialization has Z_INTERIOR^2, not Z_large*Z_small. No global normalized
+boundary bound, distance decay, padding modulus, persistence, physical
+transfer/stationarity, strict gap or continuum/QFT/all-group Clay result.
+No canonical atom/type/flag changed or new analytic input introduced.
+
+Verification: five modules, 4+8+6+7+6=31 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-finite-selection-mobius-factorization.log`,
+`/tmp/ym-bf4-exact-slab-spectator-resummation.log`,
+`/tmp/ym-bf4-exact-slab-relative-partition-bound.log`,
+`/tmp/ym-bf4-exact-slab-detached-face-region.log`,
+`/tmp/ym-bf4-exact-slab-resummed-coefficient-bound.log`.
+
+**Preceding finite-slab increment (ACTUAL coefficient bound and ORIGINAL boundary majorant):**
 `PolynomialBiadditive` constructs coefficient-sensitive two-slot additive
 forms and their insertion operations. `diagonal_increment` gives exactly
 the left/right/both remainder terms. `PolynomialBiadditiveMobius.pairedCoefficient_pin`

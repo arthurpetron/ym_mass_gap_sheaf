@@ -4013,6 +4013,13 @@ import YMGap.Continuum.PolynomialBiadditiveMobius
 import YMGap.Continuum.QuaternionHaarBiadditive
 import YMGap.Continuum.BF4ExactSlabConnectedCoefficientBound
 import YMGap.Continuum.BF4ExactSlabBoundaryCoefficientBound
+-- Exact ORIGINAL spectator resummation and removed-face partition comparison.
+-- Anchored-family bounds do not yet provide global mixed-normalization decay.
+import YMGap.Continuum.FiniteSelectionMobiusFactorization
+import YMGap.Continuum.BF4ExactSlabSpectatorResummation
+import YMGap.Continuum.BF4ExactSlabRelativePartitionBound
+import YMGap.Continuum.BF4ExactSlabDetachedFaceRegion
+import YMGap.Continuum.BF4ExactSlabResummedCoefficientBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

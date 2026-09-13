@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ACTUAL coefficient bound and ORIGINAL boundary majorant (2026-09-13)
+## Current increment: ORIGINAL spectator resummation and partition-relative family bound (2026-09-13)
+
+PROGRESS: `FiniteSelectionMobiusFactorization` proves finite-difference
+factorization on two ordered lists. `BF4ExactSlabSpectatorResummation`
+factors the original connected numerator and coefficient when both probes
+are on the anchor side. `spectatorSum_pin` sums signed spectator coefficients
+before any absolute value, recovering the SAME original partition square.
+
+`BF4ExactSlabDetachedFaceRegion` computes detached spectator faces and the
+removed collar from literal links, proving their partition and disjointness.
+`BF4ExactSlabRelativePartitionBound.relative_floor` compares the original
+background and full partition with loss (1-delta)^|removed|. Its squared/
+permuted form does not use a whole-volume partition floor.
+`BF4ExactSlabResummedCoefficientBound.detached_cleared_bound` yields
+F^2*|family|<=anchorCap*Z_ambient^2 with F=(1-delta)^|collar| and
+anchorCap=2*c_p*c_q*kappa^|anchor|. The small-nome heat guards and
+delta<=1 remain explicit; the existing 1/1024 pilot has F>0 at every
+finite removal count. `boundarySpectatorFamily_cleared_bound` uses the
+actual boundary probe/exterior remainder and the ORIGINAL interior action.
+
+The estimate is for an anchored family, not the full boundary sum. A global
+ordered family decomposition, collar/path counts, mixed normalization and
+summability remain open. The boundary specialization retains Z_INTERIOR^2,
+not the boundary comparison's Z_large*Z_small. No normalized full-boundary
+decay, padding limit, persistence, physical transfer/stationary vacuum, gap
+or continuum/QFT/all-group Clay result; no canonical atom/type/flag changed,
+analytic premise or hole introduced.
+
+Five modules, 4+8+6+7+6=31 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no numerical
+oracle, raised limits or full build/audit/guard/progress run. The root import
+list was updated but not rebuilt. Logs:
+`/tmp/ym-finite-selection-mobius-factorization.log`,
+`/tmp/ym-bf4-exact-slab-spectator-resummation.log`,
+`/tmp/ym-bf4-exact-slab-relative-partition-bound.log`,
+`/tmp/ym-bf4-exact-slab-detached-face-region.log`,
+`/tmp/ym-bf4-exact-slab-resummed-coefficient-bound.log`.
+
+## Previous increment: ACTUAL coefficient bound and ORIGINAL boundary majorant (2026-09-13)
 
 PROGRESS: `PolynomialBiadditive.Biadditive.diagonal_increment` derives the
 three left/right/both remainder terms from actual polynomial additivity.

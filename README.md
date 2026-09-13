@@ -303,8 +303,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> original boundary D has a
                                   |           computed finite majorant
                                   |           independent of cutoff [PROVED]
-                                  |      + spectator/partition control
-                                  |        + geometric path-length control
+                                  |      + ANCHORED spectator families:
+                                  |        exact signed resummation
+                                  |        -> original spectator Z^2
+                                  |        + computed detached/collar split
+                                  |        + removed-face partition cost
+                                  |        -> F^2*|family| <= cap*Z^2 [PROVED]
+                                  |      + global ordered family decomposition
+                                  |        + collar / path-length counting
+                                  |        + boundary mixed normalization
                                   |        + normalized summability  [OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
@@ -360,7 +367,36 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: actual connected-coefficient bounds and an ORIGINAL boundary majorant.**
+**Latest result: exact spectator resummation with an ORIGINAL partition-relative bound.**
+[`spectatorSum_pin`](lean/YMGap/Continuum/BF4ExactSlabSpectatorResummation.lean#L114)
+sums signed spectator coefficients before taking absolute values and returns
+`anchor coefficient * Z_spectator^2`, with the original Haar partition.
+The detached spectator faces and their removed collar are computed from
+literal probe/anchor links; their partition and disjointness are proved.
+
+[`relative_floor`](lean/YMGap/Continuum/BF4ExactSlabRelativePartitionBound.lean#L50)
+proves `(1-delta)^|removed| Z_background <= Z_full`, retaining shared links.
+Combined with resummation,
+[`detached_cleared_bound`](lean/YMGap/Continuum/BF4ExactSlabResummedCoefficientBound.lean#L72)
+gives `F^2 |family| <= anchorCap * Z_ambient^2`, where
+`F=(1-delta(w))^(collar size)` and `anchorCap=2*c_p*c_q*kappa(w)^|anchor|`.
+The loss counts removed faces, not spectator faces. The explicit small-nome
+guards remain, with `delta<=1`; `F>0` is checked for every finite collar at
+the existing `w=1/1024` pilot.
+
+**Scope and next step:** this is an anchored-family estimate, not a global
+reorganization of the boundary numerator. The boundary-insertion
+specialization uses the INTERIOR partition square, not the boundary
+comparison's mixed denominator `Z_large*Z_small`. Global ordered family
+decomposition, collar/path counting, mixed normalization and summability
+remain open, before distance decay, padding limits and the physical/Clay gap.
+Five modules, 4+8+6+7+6=31 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final error/warning free, with source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: actual connected-coefficient bounds and an ORIGINAL boundary majorant.**
 [`connectedCoefficient_bound`](lean/YMGap/Continuum/BF4ExactSlabConnectedCoefficientBound.lean#L74)
 bounds the existing inclusion–exclusion coefficient by `2*c_p*c_q*kappa(w)^n`,
 where `c_p,c_q` are constructed Haar interval caps and
