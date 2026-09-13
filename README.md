@@ -360,8 +360,17 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> actual size-n count
                                   |           <=C(probe)*625^n      [PROVED]
                                   |           singleton C=1250      [PROVED]
-                                  |        + path-length estimates
-                                  |        + normalized summability  [OPEN]
+                                  |        + s(w)=625*rho(w)<1
+                                  |          at w=1/1024            [PROVED]
+                                  |        -> actual weighted sum
+                                  |           <= C*s^d/(1-s)        [PROVED]
+                                  |           when all sizes >= d
+                                  |        + active sizes >= 1      [PROVED]
+                                  |        -> ORIGINAL D_K bounded by
+                                  |           2*c*A*C*s/(1-s) times
+                                  |           its two unit moments [PROVED]
+                                  |        + distance-growing size
+                                  |          floor d                [NEXT OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
@@ -416,7 +425,41 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a faithful count of the original probe-rooted cores.**
+**Latest result: the original weighted core sum has a volume-independent budget.**
+[`size_sum_bound`](lean/YMGap/Continuum/FiniteSizeGeometricSum.lean)
+groups the finite source by its actual sizes. A count `count_n<=C*D^n`
+and weights `rate^n` give the explicit rational budget
+`C*(D*rate)^d/(1-D*rate)` when every size is at least `d` and `D*rate<1`.
+The finite upper size bound disappears; no infinite rearrangement is used.
+
+[`existingNome_entropyRate`](lean/YMGap/Continuum/BF4ExactSlabSummableCoreRate.lean)
+checks **the combined rate** `s(w)=625*rho(w)<1` at the existing `w=1/1024`
+pilot. This is coupling-specific, not beta- or spacing-uniform.
+
+[`geometricCoreSum_uniform_bound`](lean/YMGap/Continuum/BF4ExactSlabUniformCoreBudget.lean)
+applies the actual core count, proving `sum_active rho^|core| <= C*s/(1-s)`.
+The size-one floor is proved from the exterior-face witness.
+`boundaryNumerator_uniform_bound` then gives the ORIGINAL
+`|D_K| <= 2*c*A(w,ell)*C(probe)*s(w)/(1-s(w))*Z_full,K*Z_inside,K`.
+`existingNome_boundary_bound` supplies all coupling guards at the stated
+pilot. The coefficient has no extent, volume or cutoff parameter; its probe
+and coupling dependence remains explicit. General connected probe carriers
+are supplied geometric data; the singleton carrier is already constructed.
+
+**Next:** prove a distance-growing lower bound on core size. The proved
+`boundaryNumerator_tail_bound` already carries that size bound as the
+exponent `d`; no such distance estimate is assumed in the size-one result.
+Normalized cutoff-limit transport, padding convergence, physical transfer/
+vacuum, strict physical gap and continuum/QFT/all-group Clay remain open.
+A bounded boundary response is not a boundary-decay theorem.
+
+Three new modules: 8+2+9=19 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free, with fresh source and
+direct-import artifacts. Safe-build verification used one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise or raised
+limit; no full build/audit/guard/progress run. Root imports updated, not rebuilt.
+
+**Preceding result: a faithful count of the original probe-rooted cores.**
 [`augmentedAnimal`](lean/YMGap/Continuum/BF4ExactSlabProbeCarrierAnimal.lean)
 replaces the virtual probe root by an explicit connected plaquette carrier.
 For a carrier of `M` faces and a core of `n` faces, it constructs a genuine
@@ -436,10 +479,9 @@ size-`n` count is at most `C(probe)*625^n`, with `C=2^M*625^M`.
 For a fixed carrier, neither volume, cutoff, coupling nor the interior test
 enters this count. General probe carriers remain explicit geometric data.
 
-**Next:** sum the weighted size strata with the existing coupling-dependent
-rate, and prove the size cost of reaching the exterior. The count alone
-does not prove summability or decay: the combined entropy/weight rate must
-be less than one. Normalized cutoff-limit transport, padding limits,
+The weighted sum and combined-rate guard left open at that checkpoint are
+now proved above. The distance-growing size cost remains open. Normalized
+cutoff-limit transport, padding limits,
 physical transfer/vacuum, a strict physical gap and continuum/QFT/all-group
 Clay remain open.
 

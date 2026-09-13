@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: faithful original-core code and volume-independent size count (2026-09-13)
+## Current increment: summed original-core budget at the existing coupling (2026-09-13)
+
+The preceding turn was PROGRESS: `cdad8b9` proved and pushed the faithful
+original-core size count. This turn is PROGRESS: the actual weighted sum
+is bounded and consumed by the original boundary estimate.
+
+`FiniteSizeGeometricSum.size_sum_bound` proves the explicit finite tail
+budget C*(D*rate)^d/(1-D*rate) from actual size-fiber counts, a lower size
+floor and a strict combined rate. It uses exact finite grouping and the
+proved geometric recurrence; the finite upper size cutoff disappears.
+
+`BF4ExactSlabSummableCoreRate.existingNome_entropyRate` proves the
+combined rate s=625*rho strictly between zero and one at the existing
+w=1/1024 point. It does not assert beta/spacing-uniform smallness.
+
+`BF4ExactSlabUniformCoreBudget.geometricCoreSum_tail_bound` applies the
+original active-size count. `active_core_size_pos` discharges size>=1 from
+the exterior-face witness, giving `geometricCoreSum_uniform_bound`:
+sum_active rho^|core|<=C(probe)*s/(1-s). `summedBoundaryBudget` computes
+A(w,ell)*C(probe)*s^d/(1-s), without extent, volume or cutoff parameters.
+
+The chain `finiteBoundaryBudget_tail_bound` -> `mixedNumerator_tail_bound`
+-> `boundaryNumerator_tail_bound` retains the EXISTING original quantities.
+`boundaryNumerator_uniform_bound` proves |D_K|<=2*c*A*C*s/(1-s) times
+the SAME two original unit moments. `existingNome_boundary_bound` supplies
+all coupling guards. General connected probe carriers are explicit
+geometric data; the singleton carrier was constructed in `cdad8b9`.
+
+Next: the exterior-reaching size floor must grow with distance. Only
+size>=1 is proved here; no distance-decay theorem or normalized limit
+transport follows yet. Padding convergence, persistence, physical transfer/
+vacuum, strict gap and continuum/QFT/all-group Clay remain open. No canonical
+atom/type/flag, analytic premise or hole changed.
+
+Three new modules: 8+2+9=19 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-finite-size-geometric-sum.log`,
+`/tmp/ym-bf4-exact-slab-summable-core-rate.log`,
+`/tmp/ym-bf4-exact-slab-uniform-core-budget.log`.
+
+## Previous increment: faithful original-core code and volume-independent size count (2026-09-13)
 
 The preceding status-only turn was NO PROGRESS. This turn is PROGRESS:
 the virtual-root counting bridge identified after `8bb3385` is now proved

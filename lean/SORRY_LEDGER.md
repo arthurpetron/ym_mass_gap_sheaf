@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED faithful original-core size count; OPEN weighted sum and exterior size floor (2026-09-13)
+## CLOSED original weighted-core sum; OPEN distance-growing size floor and normalized limit transport (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/FiniteSizeGeometricSum.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSummableCoreRate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabUniformCoreBudget.lean`.
+- **constructed finite sum**: `size_sum_bound` uses exact finite size
+  fibers and the geometric recurrence to bound count_n<=C*D^n weighted
+  by rate^n by `tailBudget`=C*(D*rate)^d/(1-D*rate), for sizes>=d and
+  D*rate<1. No infinite rearrangement or analytic summability input.
+- **constructed strict combined rate**: `existingNome_entropyRate`
+  proves 0<625*rho<1 at the existing w=1/1024 pilot. The dependence on
+  coupling is explicit; there is no beta/spacing-uniform assertion.
+- **constructed actual consumer**: `geometricCoreSum_tail_bound` consumes
+  the original active-size count; `active_core_size_pos` proves size>=1,
+  giving `geometricCoreSum_uniform_bound`. `summedBoundaryBudget` returns
+  A*C*s^d/(1-s), without cutoff, volume or extent parameters.
+  `finiteBoundaryBudget_tail_bound`, `mixedNumerator_tail_bound` and
+  `boundaryNumerator_tail_bound` retain the original budget, numerator and
+  determinant. `boundaryNumerator_uniform_bound` proves the size-one bound
+  |D_K|<=2*c*A*C*s/(1-s)*F_K(1)*I_K(1); `existingNome_boundary_bound`
+  discharges every coupling guard at the named pilot.
+- **remaining obligation**: prove the core-size lower bound grows with
+  probe-to-exterior distance. The `d`-tail theorem consumes that geometric
+  side condition explicitly; only d=1 is discharged here. General connected
+  probe carriers remain supplied geometric Type data, with the singleton
+  instance already constructed. No normalized cutoff-limit transport,
+  padding convergence, persistence, physical transfer/vacuum, strict gap
+  or continuum/QFT/all-group Clay closure. No canonical atom/type/flag,
+  analytic premise or hole changed. The weighted-sum residue of the preceding
+  entry is closed at the stated coupling/carrier scope.
+- **verification**: 8+2+9=19 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-finite-size-geometric-sum.log`,
+  `/tmp/ym-bf4-exact-slab-summable-core-rate.log`,
+  `/tmp/ym-bf4-exact-slab-uniform-core-budget.log`.
+
+## CLOSED faithful original-core size count; OPEN weighted sum and exterior size floor at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabProbeCarrierAnimal.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabProbeCoreCode.lean`,

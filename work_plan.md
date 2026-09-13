@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (faithful original-core encoding and size count):**
+**Latest finite-slab increment (summed original-core budget):**
+`FiniteSizeGeometricSum.size_sum_bound` stratifies the actual finite list by
+size. Count_n<=C*D^n and weights rate^n give the rational tail budget
+C*(D*rate)^d/(1-D*rate), provided sizes>=d and 0<=D*rate<1. The finite
+upper size cutoff disappears via the proved geometric recurrence.
+
+`BF4ExactSlabSummableCoreRate.existingNome_entropyRate` proves
+0<625*rho(w)<1 at the EXISTING w=1/1024 pilot, using the existing eighth-
+power block and the scalar count factor. This is not beta/spacing uniform.
+
+`BF4ExactSlabUniformCoreBudget.geometricCoreSum_tail_bound` applies the
+actual size count to the original active-core sum. `active_core_size_pos`
+proves every active core has an exterior face and hence size>=1.
+`geometricCoreSum_uniform_bound` gives sum_active rho^|core|<=C*s/(1-s).
+`summedBoundaryBudget` returns A*C*s^d/(1-s) as explicit rational data,
+without extent, volume or cutoff parameters. General probe carriers remain
+geometric input data; the single-plaquette carrier is already constructed.
+
+`finiteBoundaryBudget_tail_bound`, `mixedNumerator_tail_bound` and
+`boundaryNumerator_tail_bound` reach the EXISTING budget, mixed numerator
+and original D_K. `boundaryNumerator_uniform_bound` gives
+|D_K|<=2*c*A*C*s/(1-s)*F_K(1)*I_K(1). `existingNome_boundary_bound`
+supplies all coupling guards at the existing pilot. No replacement measure,
+partition function or analytic summability premise is introduced.
+
+Next: prove a size floor growing with the distance to the exterior. The
+conditional size-tail exponent is already exposed; only size>=1 is
+discharged here. Normalized cutoff-limit transport, padding convergence,
+persistence, physical transfer/vacuum, strict physical gap and continuum/
+QFT/all-group Clay remain open. No canonical atom/type/flag or hole changed.
+
+Verification: three new modules, 8+2+9=19 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-finite-size-geometric-sum.log`,
+`/tmp/ym-bf4-exact-slab-summable-core-rate.log`,
+`/tmp/ym-bf4-exact-slab-uniform-core-budget.log`.
+
+**Preceding finite-slab increment (faithful original-core encoding and size count):**
 `BF4ExactSlabProbeCarrierAnimal` constructs literal shared-link paths from
 the actual virtual-root paths. Given an explicit connected M-face probe
 carrier, `augmentedAnimal` is a genuine degree-24 plaquette animal with at
