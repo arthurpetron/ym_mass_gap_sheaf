@@ -4,7 +4,66 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: thermodynamic real scalars, unit complement and same-covariance realization (2026-09-13)
+## Current increment: original thermodynamic time geometry and actual translated-state correlations (2026-09-13)
+
+The immediately preceding goal turn was NO PROGRESS: it answered the user's
+encouragement/status message and rechecked the existing frontier, without a
+proof change. The last implementation checkpoint was 8bf8649, the completed
+original centering/covariance realization. This turn is PROGRESS: actual time
+placements, their algebra, uniformly size-bounded completed states and their
+original two-time covariance limits are now constructed and checked.
+
+`BF4ExactSlabThermodynamicTimeGeometry.translate` uses the existing bulk
+placement at the actual outward time lag. `polynomial_translate` pins the
+target space/time coordinates; `timePolynomial_translate` adds lags and
+`timePolynomial_atBase` proves literal base-change compatibility.
+`BF4ExactSlabThermodynamicTimeAlgebra.sameTranslate_comp`,
+`sameTranslate_rebase`, `sameTranslate_add`, `sameTranslate_mul` and
+`sameBulkTime` return original Haar-carrier comparisons with computed
+common-volume thresholds. `timeObservable` obeys these specific laws.
+
+`BF4ExactSlabThermodynamicTimeStates.timeState` and `centeredTimeState`
+construct actual translated states in the SAME original completion.
+`timeState_comp`, `timeState_rebase` and `timeState_bulk` retain the
+geometric pins. `timeState_norm_le` and `centeredTimeState_norm_le` use
+the original polynomial square cap `diagonalCeiling p`, independent of
+lag. This is a presentation-dependent size cap, NOT an OS-norm-relative
+contraction or strict gap. `timeState_one` fixes the literal constant
+expression; it does not yet assert stationarity under a completed operator.
+
+`BF4ExactSlabThermodynamicTimeCorrelations.timeCovariance_bulk` identifies
+the completed centered two-time pairing with the ORIGINAL covariance
+limit at every common bulk padding. `timeCovarianceRepresentative`
+retains its actual CReal/QCauchy/value data. `timeCovarianceSequence` and
+`timeCovarianceVolumeModulus` compute common padding max(s,t);
+`timeCovariance_converges` and `timeCovariance_error_le` retain the
+original volume limit and error bound. Both lags remain explicit in the
+modulus. Symmetry, positivity and sharp Cauchy--Schwarz are proved.
+
+Next analytic target: prove the ORIGINAL one-step reflected balance
+`B(timeState 1 p, timeState 0 q) = B(timeState 0 p, timeState 1 q)`
+for all presentations p,q, from the original law. It is not assumed here.
+The domain of `timeState` is still Presentation: arbitrary semantic/OS-null
+representative independence and norm-continuous extension remain open.
+The existing dyadic `dyadic_geometric_first_le` requires `hleZero`
+(contraction), so it cannot establish that missing hypothesis.
+No completed physical time operator, physical vacuum, nonzero thermodynamic
+excitation, strict gap, full required observable algebra, full quotient
+completeness or continuum/QFT/all-group Clay claim follows. Nome w=1/1024
+and spacing remain fixed. No canonical atom/type/flag, new analytic
+premise or hole changed.
+
+Verification: four new modules, 17+18+17+13=65 exactly matched focused
+axiom gates within {propext, Quot.sound}; final logs error/warning free;
+own and direct-import artifacts fresh. One monitored worker, mandatory
+20 GiB ceiling; no raised limit or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-geometry.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-algebra.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-states.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-time-correlations.log`.
+
+## Previous increment: thermodynamic real scalars, unit complement and same-covariance realization (2026-09-13)
 
 The preceding turn was PROGRESS: `764d3d4` committed and pushed the original
 completed rational geometry and represented-row limits. This turn is

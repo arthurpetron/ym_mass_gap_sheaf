@@ -13,7 +13,58 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED thermodynamic real scalars, unit centering and original covariance realization; OPEN physical time, excitation and strict gap (2026-09-13)
+## CLOSED original time geometry and translated-state covariance realization; OPEN reflected time balance and completed operator (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeStates.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeCorrelations.lean`.
+- **constructed geometry and comparison witnesses**: `translate` and
+  `polynomial_translate` retain the literal target space/time coordinates.
+  `timePolynomial_translate` and `timePolynomial_atBase` give composition
+  and base independence. `sameTranslate_comp`, `sameTranslate_rebase`,
+  `sameTranslate_add`, `sameTranslate_mul` and `sameBulkTime` return
+  original Haar-carrier comparisons with explicit common-volume thresholds.
+- **actual completed states, not an operator**: `timeState` and
+  `centeredTimeState` have domain Presentation. `timeState_norm_le` and
+  `centeredTimeState_norm_le` are uniform in lag, with cap
+  `diagonalCeiling p` from the original polynomial square bound. That cap
+  depends on the presentation, not just the OS norm, and is not a gap.
+  `timeState_one` translates the constant expression to the same unit;
+  a stationary physical vacuum under a completed operator is not asserted.
+- **original same-object two-time covariance**: `timeCovariance_bulk`
+  pins the actual completed pairing to the original covariance limit for
+  every common padding. `timeCovarianceRepresentative` returns its
+  CReal/QCauchy/value witness. `timeCovarianceSequence` and
+  `timeCovarianceVolumeModulus` compute padding max(s,t);
+  `timeCovariance_converges`, `timeCovariance_bulk_error` and
+  `timeCovariance_error_le` retain the original volume estimate.
+  The modulus names both lags; this is boundary convergence, not time decay.
+- **remaining original analytic obligation**: prove one-step reflected
+  balance `B(timeState 1 p, timeState 0 q) = B(timeState 0 p, timeState 1 q)`
+  for all presentations, from the original interacting law. No declaration
+  in these modules supplies or assumes that identity. Arbitrary semantic
+  and OS-null representative independence, OS-norm-relative continuity
+  and extension to a completed time operator remain unproved. The existing
+  `Z4HalfTimeReflectionStrictJointDenseDyadicGap.dyadic_geometric_first_le`
+  assumes `hleZero` (contraction), so using it to prove contraction would
+  be circular. This residue is logged, not disguised as a passed gate.
+- **larger open boundary**: nonzero thermodynamic excitations, stationary
+  physical vacuum, strict physical gap, full required observable algebra,
+  full quotient-level completeness, continuum/QFT/all-group Clay. Fixed
+  nome w=1/1024 and spacing remain. No canonical type/flag, analytic premise
+  or hole changed.
+- **verification**: four modules, 17+18+17+13=65 exactly matched focused
+  gates within {propext, Quot.sound}; final error/warning-free logs; own
+  and direct-import artifacts fresh. One monitored worker, mandatory 20 GiB
+  ceiling; no raised limit or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-thermodynamic-time-geometry.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-time-algebra.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-time-states.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-time-correlations.log`.
+
+## CLOSED thermodynamic real scalars, unit centering and original covariance realization; OPEN physical time, excitation and strict gap at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarCauchy.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedRealScalar.lean`,

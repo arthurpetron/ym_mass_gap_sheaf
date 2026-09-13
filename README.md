@@ -468,8 +468,18 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> centered approximants
                                   |           and represented limits
                                   |           preserve their rates  [PROVED]
-                                  |      + full thermodynamic state
-                                  |        and time homogeneity     [NEXT OPEN]
+                                  |        + literal physical time
+                                  |          composition and rebasing[PROVED]
+                                  |        -> actual translated states
+                                  |           in SAME completion,
+                                  |           lag-uniform size cap  [PROVED]
+                                  |        -> SAME original two-time
+                                  |           covariance limits,
+                                  |           explicit volume rate  [PROVED]
+                                  |      + ORIGINAL reflected
+                                  |        time-balance identity    [NEXT OPEN]
+                                  |      + semantic/OS-null descent
+                                  |        and norm-relative control [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -520,7 +530,40 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: original thermodynamic connected covariance is realized by centered completed-state pairings.**
+**Latest result: actual translated states and their original two-time correlations are constructed.**
+The [literal time geometry](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeGeometry.lean)
+proves that outward physical lags add and commute with changing the base
+box. [Original observable comparisons](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAlgebra.lean)
+retain sums, products, rational scales and arbitrary common bulk padding,
+with explicit comparison thresholds.
+
+[`timeState`, `centeredTimeState`, `timeState_norm_le`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeStates.lean)
+construct translated states in the SAME original completion. Their squared
+norms have the original polynomial-size ceiling, independent of time lag.
+This is **not** a norm-relative contraction or a strict gap.
+[`timeCovariance_bulk`, `timeCovarianceRepresentative`, `timeCovariance_error_le`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeCorrelations.lean)
+identify their completed centered pairing with the ORIGINAL finite-slab
+covariance limit. The construction computes common padding `max(s,t)` and
+retains the CReal/Cauchy and volume-error moduli. Both lags remain explicit;
+the geometric estimate controls receding boundaries, not time decay.
+
+**Next:** prove the original reflected one-step time-balance identity,
+then establish representative independence and norm-controlled extension
+to a completed time operator. The current time family takes finite
+presentations, not arbitrary completed states. The existing dyadic gap
+engine already assumes contraction and cannot be used to prove that premise.
+Nonzero thermodynamic excitations, physical vacuum, strict gap, full
+observables/completeness and continuum/QFT/all-group Clay remain open.
+Nome `w=1/1024` and lattice spacing remain fixed.
+
+Four new modules: 65 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final logs error/warning free, own/direct-import
+artifacts fresh. The safe-build skill kept checks to one monitored worker
+and the mandatory 20 GiB ceiling. No new hole, analytic premise, raised
+limit or canonical frontier change. No full build/audit/guard/progress run;
+root imports updated, not rebuilt.
+
+**Preceding result: original thermodynamic connected covariance is realized by centered completed-state pairings.**
 [`realScalarCauchy`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealScalarCauchy.lean)
 constructs scalar-multiplied original streams using explicit scalar and
 vector moduli. [`completedRealSmul`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedRealScalar.lean)
@@ -544,7 +587,7 @@ explicit volume-error modulus. That estimate concerns receding boundaries,
 preserve approximation and represented-row convergence rates in the
 unit complement, returning the required states and presentations as data.
 
-**Next:** physical time translation and state homogeneity, with original-law
+**Next at that checkpoint:** physical time translation and state homogeneity, with original-law
 compatibility, OS norm control and stationary-unit identification. The unit
 complement is not yet proved nontrivial. Nonzero thermodynamic excitations,
 strict gap, full required observables, full quotient-level completeness,

@@ -4127,6 +4127,14 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicRealScalarAlgebra
 import YMGap.Continuum.BF4ExactSlabThermodynamicUnitProjection
 import YMGap.Continuum.BF4ExactSlabThermodynamicCenteredCompletion
 import YMGap.Continuum.BF4ExactSlabThermodynamicCenteredDensity
+-- Literal time composition/rebasing and actual translated completed states,
+-- with original two-time covariance pins and explicit volume-error moduli.
+-- The lag-uniform cap is polynomial-size dependent, not an OS contraction.
+-- Original time balance and completed physical operator descent remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeGeometry
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeAlgebra
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeStates
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeCorrelations
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder
