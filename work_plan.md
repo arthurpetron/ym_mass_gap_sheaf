@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (full heat-unit pins and explicit original face tails):**
+**Latest larger-slab progress (actual full-unit Cauchy witness and completion class):**
+`BF4ExactSlabAllExtentFaceHeatBound.faceHeat_coefficientL1_bound` computes
+a bound for every representation cutoff at fixed w, extent and face.
+`PolynomialProductRemainder.polynomialProduct_remainder` constructs the
+telescoping remainder on the SAME shared variables; its
+`productRemainder_coefficientL1` uses a computed product sensitivity, not a
+Haar independence assumption. `BF4ExactSlabAllExtentHeatProductTail`
+instantiates both bounds on the ORIGINAL factors. `heatProductCutoff` is a
+finite maximum at the rescaled tolerance and `heatProductRemainder_small`
+certifies the resulting product remainder. Lower/interface/upper bounds
+cover every cutoff; all retain w and slab dependence.
+
+`BF4ExactSlabAllExtentHeatUnitIncrement.heatUnitIncrement` is the actual
+difference of the two growing all-label boundary codes. The lower and upper
+observable identities retain original zero extension and signed coefficients.
+`heatUnitIncrement_limit_norm` identifies its original cutoff-limit squared
+norm with the joint Haar integral of the two boundary remainders and the
+ORIGINAL interface at an independently computed stage.
+
+`BF4ExactSlabAllExtentHeatUnitCauchy.heatUnitModulus` chooses the maximum of
+the upper product cutoff at tolerance one and the lower cutoff at
+epsilon/(interfaceNormBound+1). `heatUnitIncrementIntegrand_small` holds at
+EVERY interface cutoff; `heatUnitIncrement_norm_small` therefore controls the
+original norm at its exact stabilization stage. `heatUnit_distSq_increment`
+pins this to the original GNS squared distance. `heatUnitCauchy` supplies the
+ACTUAL growing sequence with its Type-level modulus; `completedHeatUnit`
+puts its class in the EXISTING original slab completion. The
+`completedHeatUnit_representative_close` theorem retains explicit outer and
+representative-index thresholds, both using this modulus.
+
+Next residue: full-unit non-nullness/normalization and physical interpretation,
+compatible inter-slab observable/Gram maps, geometric transfer and stationary
+physical vacuum. Strict completed gap, volume/spacing/QFT and all-group Clay
+remain open. This is a completed full-unit class per slab, not an identified
+physical vacuum. No canonical atom/type changed; refuted law identity unused.
+The fixed-w/slab modulus is not a spacing-uniform or spectral-gap estimate.
+
+Verification: five focused monitored one-worker 20 GiB checks with `.olean`
+outputs; 4 + 8 + 16 + 9 + 13 = 50 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-face-heat-bound.log`,
+`/tmp/ym-polynomial-product-remainder.log`, `/tmp/ym-all-extent-heat-product-tail.log`,
+`/tmp/ym-all-extent-heat-unit-increment.log`, `/tmp/ym-all-extent-heat-unit-cauchy.log`.
+Missing namespace references were fixed without raising proof limits.
+No new sorry, analytic premise, numerical oracle or pilot constant.
+No full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (full heat-unit pins and explicit original face tails):**
 `BF4ExactSlabAllExtentHeatUnit.lowerObservable_one` and `upperObservable_one`
 resum all actual bounded boundary labels to products of ORIGINAL heat factors.
 `heatUnitCode_full_action` identifies the equal-cutoff quadratic with the full
@@ -47,8 +93,8 @@ The small coefficient norm is on that remainder, not on the unreduced
 syntactic difference of prefixes; no false coefficient-L1 invariance or
 pointwise-to-Haar limit transfer is used.
 
-Next mathematical residue: full finite-product norm/remainder bounds,
-then the moving-anchor original GNS Cauchy modulus and completed full unit.
+Subsequent discharge above: full finite-product norm/remainder bounds,
+moving-anchor original GNS Cauchy modulus and completed full unit.
 Inter-slab Gram maps, physical unit/vacuum identification, geometric transfer
 and stationarity, strict completed gap, volume/spacing/QFT and all-group Clay
 remain open. Canonical atoms/types unchanged; refuted law identity unused.

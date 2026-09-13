@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full heat-unit pairing and original polynomial tails (2026-09-12)
+## Current increment: actual growing full unit in the original GNS completion (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentFaceHeatBound.faceHeat_coefficientL1_bound`
+covers every cutoff at fixed w, extent and face. `PolynomialProductRemainder`
+computes the shared-variable telescoping remainder and its sensitivity bound.
+`BF4ExactSlabAllExtentHeatProductTail.heatProductRemainder_small` instantiates
+these on ORIGINAL heat factors at the explicit `heatProductCutoff`. All
+overlapping quaternion variables are retained; Haar products are not factored
+as though plaquettes were independent.
+
+`BF4ExactSlabAllExtentHeatUnitIncrement` pins the actual growing code difference
+to the lower and upper product remainders. `heatUnitIncrement_limit_norm`
+gives its SAME original squared norm at a separately computed interface stage.
+`BF4ExactSlabAllExtentHeatUnitCauchy.heatUnitIncrementIntegrand_small`
+covers every interface cutoff: the upper remainder costs at most one, while
+the lower is bounded by epsilon/(interfaceNormBound+1). No square root is needed.
+
+`heatUnitCauchy` constructs the actual all-label sequence and Type-level
+squared-distance modulus for every rational `0<w<1` and odd slab extent.
+`completedHeatUnit` places its class in the EXISTING original-law completion.
+`completedHeatUnit_representative_close` retains explicit outer AND inner
+representative-index thresholds. This closes the previously open moving-anchor
+Cauchy step; it is not another fixed-anchor stabilization wrapper.
+
+Next: non-nullness/normalization and physical interpretation of this full unit,
+slab compatibility, physical transfer and stationary vacuum. Strict completed
+gap, volume/spacing/QFT and all-group Clay remain open. Moduli depend on w and
+slab; canonical atoms/types unchanged and refuted law identity unused.
+
+Five focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs: 4 + 8 + 16 + 9 + 13 = 50 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-face-heat-bound.log`,
+`/tmp/ym-polynomial-product-remainder.log`, `/tmp/ym-all-extent-heat-product-tail.log`,
+`/tmp/ym-all-extent-heat-unit-increment.log`, `/tmp/ym-all-extent-heat-unit-cauchy.log`.
+No new sorry, analytic premise, raised proof limit, numerical oracle or pilot
+constant. No full build/audit/guard/progress run.
+
+## Previous increment: full heat-unit pairing and original polynomial tails (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentHeatUnit.heatUnitCode_full_action` resums the
 actual all-label coefficient-one code to the FULL original slab action.
@@ -28,8 +65,8 @@ to these SAME heat factors on every slab extent. The coefficient bound is on
 the remainder, not a cancellation-invariant norm of raw polynomial syntax.
 No pointwise-to-Haar limit bridge is assumed.
 
-Next: combine the original face remainders through the full finite products,
-then prove the moving-anchor GNS Cauchy modulus. Completed full unit, slab
+Subsequent discharge above: full-product remainders, moving-anchor GNS Cauchy
+modulus and completed full unit. Its non-nullness/normalization, slab
 compatibility, physical time/transfer and stationary vacuum, strict completed
 gap, volume/spacing/QFT and all-group Clay remain open. Canonical atoms/types
 unchanged and refuted signed/positive-law identity unused.

@@ -70,7 +70,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |    ORIGINAL three-cutoff pairing[PROVED]
                                   |      + original face remainders
                                   |        with w-dependent moduli  [PROVED]
-                                  |      -> full product/GNS Cauchy   [OPEN]
+                                  |      -> shared-variable product
+                                  |         remainder + norm pin    [PROVED]
+                                  |      -> growing-unit GNS Cauchy
+                                  |         + explicit modulus      [PROVED]
+                                  |      -> completed full unit     [PROVED]
+                                  |         for each 0<w<1, odd slab
+                                  |      -> non-nullness / physical
+                                  |         vacuum identification    [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
                                   +<-- physical observable/unit
                                   |    realization                    [OPEN]
@@ -112,7 +119,34 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the full heat-unit pairing and explicit original plaquette tails.**
+**Latest result: the growing full heat unit is GNS-Cauchy in the ORIGINAL slab space.**
+[`BF4ExactSlabAllExtentHeatUnitCauchy.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitCauchy.lean)
+constructs the actual all-label sequence, its explicit squared-distance
+modulus, and its class in each original slab completion, for rational
+`0<w<1`. The convergence bound retains explicit thresholds for both the
+boundary cutoff and the supplied limit representative's index.
+
+The proof combines cutoff-independent original face bounds with the
+shared-variable telescoping polynomial in
+[`PolynomialProductRemainder.lean`](lean/YMGap/Continuum/PolynomialProductRemainder.lean).
+[`BF4ExactSlabAllExtentHeatProductTail.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatProductTail.lean)
+computes the full-product remainder modulus.
+[`BF4ExactSlabAllExtentHeatUnitIncrement.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitIncrement.lean)
+pins the actual code difference's original GNS norm to the two boundary
+remainders and the original interface. If its coefficient bound is `B`,
+make the upper remainder at most `1` and the lower at most `epsilon/(B+1)`.
+This directly controls the squared norm, without a square root or assumed
+independence of plaquettes.
+
+This constructs a **full-unit completion class**, not a stationary physical
+vacuum. Its non-nullness/normalization, physical interpretation and
+compatibility between slabs still require proofs. Physical time/transfer,
+strict gap, volume/spacing/QFT and all-group Clay remain open; the modulus
+depends on `w` and the slab. Five focused monitored checks passed: 50 axiom
+gates within `{propext, Quot.sound}`, no new sorry or analytic premise.
+No full-tree build/audit/guard was run.
+
+**Preceding result: the full heat-unit pairing and explicit original plaquette tails.**
 [`BF4ExactSlabAllExtentHeatUnit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnit.lean)
 resums the all-label boundary coefficients into the ORIGINAL heat products.
 Its completed pairing retains three separate cutoffs: left boundary, interface
@@ -132,8 +166,8 @@ applies this to each original plaquette: a later heat prefix literally equals
 the earlier prefix plus a computed remainder with small coefficient norm and
 Haar integral. No pointwise-to-Haar limit bridge is assumed.
 
-Next: propagate these remainders through the full products and prove a
-moving-anchor GNS Cauchy modulus. The completed full unit, compatible slabs,
+Subsequent discharge above: full-product remainders, the moving-anchor GNS
+Cauchy modulus and completed full unit. Non-nullness, compatible slabs,
 physical transfer and stationary vacuum, strict gap, volume/spacing/QFT and
 all-group Clay remain open. Four focused monitored checks passed: 49 axiom
 gates within `{propext, Quot.sound}`, no new sorry or analytic premise.

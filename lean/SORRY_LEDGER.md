@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Actual growing full unit in the original GNS completion (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentFaceHeatBound.lean`,
+  `lean/YMGap/Continuum/PolynomialProductRemainder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatProductTail.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitIncrement.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitCauchy.lean`.
+- **discharged**: original face bounds covering every representation cutoff;
+  computed shared-variable product remainder and sensitivity;
+  `heatProductCutoff` and `heatProductRemainder_small` on the ORIGINAL heat
+  factors. `heatUnitIncrement` is the actual difference of growing all-label
+  boundary codes. Lower/upper recoding and `heatUnitIncrement_limit_norm`
+  pin its SAME original norm to the two boundary remainders and interface.
+  `heatUnitModulus` budgets the upper remainder at one and the lower at
+  epsilon/(interfaceNormBound+1). The integrand bound is valid at every
+  interface cutoff. `heatUnitCauchy` supplies the actual sequence with its
+  Type-level squared-distance modulus; `completedHeatUnit` constructs its
+  class in the existing original completion. `completedHeatUnit_representative_close`
+  retains explicit outer and representative-index thresholds.
+- **OPEN residue**: non-nullness/normalization and physical interpretation of
+  the full unit, compatible inter-slab observable/Gram maps, geometric transfer,
+  stationary physical vacuum, strict completed gap, volume/spacing/QFT and
+  all-group Clay. A class in each slab completion is not yet a physical
+  positive-time realization. Bounds retain rational `0<w<1`, extent and face
+  dependencies; no beta/spacing-uniform spectral estimate. No canonical
+  atom/type changed, no refuted signed/positive-law identity used, no new sorry
+  or analytic premise, and no Haar independence assumption.
+- **verification**: five focused monitored one-worker 20 GiB checks with
+  current `.olean` outputs; 4 + 8 + 16 + 9 + 13 = 50 gates within
+  `{propext, Quot.sound}`, final error/warning free. Logs
+  `/tmp/ym-all-extent-face-heat-bound.log`, `/tmp/ym-polynomial-product-remainder.log`,
+  `/tmp/ym-all-extent-heat-product-tail.log`, `/tmp/ym-all-extent-heat-unit-increment.log`,
+  `/tmp/ym-all-extent-heat-unit-cauchy.log`. Missing namespace references were
+  fixed without raised proof limits. No numerical oracle or pilot constant.
+  No full build/audit/guard/progress run.
+
 ## Full heat-unit pairing and explicit original polynomial tails (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnit.lean`,
@@ -30,8 +66,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   finite tails. `faceHeatPolynomial_cutoff_append` is a literal original
   prefix-plus-remainder identity; `faceHeatCutoff`, `faceHeatTail_small` and
   `faceHeatTail_haar_small` pin the bound to the original plaquette polynomial.
-- **OPEN residue**: full-product coefficient bounds and remainder propagation,
-  moving-anchor GNS Cauchy modulus, completed full unit, compatible slabs,
+- **subsequent discharge**: full-product coefficient bounds/remainders,
+  moving-anchor GNS Cauchy modulus and completed full unit are proved above.
+- **OPEN residue**: full-unit non-nullness/normalization, compatible slabs,
   physical unit/vacuum realization, geometric transfer and stationarity,
   strict completed gap, volume/spacing/QFT and all-group Clay. The eventual
   representation-tail factor one half has w- and polynomial-dependent starting
