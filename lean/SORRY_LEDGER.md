@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Finite original-action floor and completed non-nullness criterion (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentActionFloorCertificate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitCertifiedNonzero.lean`.
+- **discharged**: `fullActionLimit_approx_close` retains explicit finite and
+  approximation-index thresholds. `fullActionLimit_finite_floor` proves an
+  eventual rational floor from the original finite Haar integral and tail
+  budget. `FiniteActionFloor` contains only finite decidable inequalities and
+  data; `checkActionFloor` returns a certificate or none. `approx_ge` and
+  `limit_ge` certify the SAME action limit. `ofLimitFloor` proves completeness
+  GIVEN a positive limit floor b, with epsilon = returned floor = b/4 and an
+  explicitly computed cutoff. No Prop witness is extracted as data.
+  `actionLimit_not_equiv_zero`, `completedHeatUnit_norm_ne_zero` and
+  `completedHeatUnit_ne_zero` connect successful finite certificates to the
+  ACTUAL original completed unit via the norm/action identity.
+- **OPEN input**: successful finite certificate data throughout the required
+  coupling/slab family, equivalently an original-action positive rational
+  lower estimate from which the proved constructor supplies such data.
+  No universal producer is given, and no failed check implies zero. This is
+  not unconditional non-nullness or normalization. Physical unit/vacuum
+  realization, compatible slabs, transfer and stationarity, strict completed
+  gap, volume/spacing/QFT and all-group Clay remain open. No canonical frontier
+  atom/type changed; no refuted law identity, replacement carrier, pointwise
+  positivity/JTP premise or uniform spectral bound is used.
+- **verification**: two focused monitored one-worker 20 GiB checks with current
+  `.olean` outputs; dependent nonzero module refreshed after the final upstream
+  change. 13 + 4 = 17 gates within `{propext, Quot.sound}`, final error/warning
+  free. Logs `/tmp/ym-all-extent-action-floor-certificate.log`,
+  `/tmp/ym-all-extent-heat-unit-certified-nonzero.log`. Namespace references
+  fixed without raised proof limits. No new sorry, numerical oracle or pilot
+  constant. No large certificate computation or full build/audit/guard/progress run.
+
 ## Completed full-unit norm = original action-integral limit (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentActionLimit.lean`,

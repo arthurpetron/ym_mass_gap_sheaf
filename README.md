@@ -80,6 +80,8 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      + vanishing interface error[PROVED]
                                   |      -> completed squared norm
                                   |         = ORIGINAL action limit [PROVED]
+                                  |      -> finite-floor criterion
+                                  |         and nonzero consequence [PROVED]
                                   |      + strict positive lower bound
                                   |         for THAT action limit     [OPEN]
                                   |      -> non-nullness / physical
@@ -125,7 +127,28 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the completed full unit's squared norm is the ORIGINAL action integral.**
+**Latest result: a finite exact criterion certifies non-nullness of the ORIGINAL full unit.**
+[`BF4ExactSlabAllExtentActionFloorCertificate.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentActionFloorCertificate.lean)
+supplies a proof-producing finite check: `epsilon > 0`, `b > 0`, a cutoff
+beyond the original tail modulus, and `b + epsilon <= Z_K` for the ORIGINAL
+interacting Haar integral. Accepted data give a positive floor for the same
+action limit, with an explicit eventual approximation index. Conversely, a
+supplied positive limit floor produces finite data with a computed cutoff and
+quarter-floor budget; the criterion adds no analytic assumption.
+[`BF4ExactSlabAllExtentHeatUnitCertifiedNonzero.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitCertifiedNonzero.lean)
+uses the norm/action identity to prove that a successful certificate makes
+the ACTUAL completed full unit nonzero.
+
+**Successful certificates for the full coupling/slab family are not yet
+constructed.** A failed check does not prove zero. This closes the finite-floor
+to non-nullness implication, not unconditional positivity, normalization or
+physical vacuum identification. Next is a lower estimate for the original
+finite integral at a tail-certified cutoff. Physical slab compatibility,
+time/transfer, strict gap and continuum/Clay remain open. Two focused monitored
+checks passed: 17 axiom gates within `{propext, Quot.sound}`, no new sorry.
+No large certificate computation or full-tree build/audit/guard was run.
+
+**Preceding result: the completed full unit's squared norm is the ORIGINAL action integral.**
 [`BF4ExactSlabAllExtentActionLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentActionLimit.lean)
 constructs the full interacting action-integral limit with an explicit Cauchy
 modulus, for every rational `0<w<1` and odd slab. Its nonnegativity follows

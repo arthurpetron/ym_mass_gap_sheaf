@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (completed full-unit norm = ORIGINAL action-integral limit):**
+**Latest larger-slab progress (finite floor criterion and SAME completed-unit non-nullness):**
+`BF4ExactSlabAllExtentActionFloorCertificate.actionCutoff` specializes the
+original full-product modulus. `fullActionLimit_approx_close` retains explicit
+finite-anchor AND representative-index thresholds; `fullActionLimit_finite_floor`
+turns `b + epsilon <= fullActionValue w K half` into an eventual floor b.
+`FiniteActionFloor` contains only finite rational inequalities, a cutoff and
+its computed tail-threshold check. `checkActionFloor` returns proof-carrying
+data or none, not an untrusted numerical assertion or a zero decision.
+
+`FiniteActionFloor.approx_ge` and `limit_ge` certify the original action limit.
+`FiniteActionFloor.ofLimitFloor` proves completeness GIVEN a positive geRat
+floor b: epsilon and the returned floor are b/4, and the anchor is the original
+modulus at b/4. The quarter budgets pay for one limit-order slack and one
+finite/limit discrepancy. All returned data are computed from w, half and b;
+the eventual Prop witness is used only inside a proof, never extracted as data.
+
+`BF4ExactSlabAllExtentHeatUnitCertifiedNonzero.actionLimit_not_equiv_zero`
+excludes zero using the explicit positive eventual floor.
+`completedHeatUnit_norm_ne_zero` and `completedHeatUnit_ne_zero` consume the
+proved norm/action identity and the ORIGINAL completed zero vector. No
+replacement law, carrier or positive-code surrogate appears.
+
+Next residue: produce successful finite certificates, or an original-action
+positive lower estimate from which they follow, throughout the required
+coupling/slab family. No such universal producer is constructed here. This
+closes a finite-check-to-non-nullness implication, NOT unconditional full-unit
+positivity or normalization. Physical realization, compatible slab maps,
+transfer/stationary vacuum, strict gap, volume/spacing/QFT and all-group Clay
+remain open. The finite criterion does not add a new analytic premise; its
+successful input family remains an honest open requirement. No canonical
+frontier atom/type changed and no refuted law identity used.
+
+Verification: two focused monitored one-worker 20 GiB checks with current
+`.olean` outputs, including the dependent nonzero module after the final
+certificate update; 13 + 4 = 17 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-action-floor-certificate.log`,
+`/tmp/ym-all-extent-heat-unit-certified-nonzero.log`. Namespace references were
+corrected without raised proof limits. No new sorry, numerical oracle,
+pointwise positivity/JTP input or pilot constant. No large certificate
+computation or full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (completed full-unit norm = ORIGINAL action-integral limit):**
 `BF4ExactSlabAllExtentActionLimit.heatProductHaarCauchy` applies the explicit
 original product-remainder modulus on the shared quaternion carrier.
 `fullActionLimit` constructs the full original slab action-integral CReal;

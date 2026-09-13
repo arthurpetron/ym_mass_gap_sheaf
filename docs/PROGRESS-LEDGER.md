@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: completed full-unit norm = original action-integral limit (2026-09-12)
+## Current increment: finite original-action criterion certifies completed non-nullness (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentActionFloorCertificate.fullActionLimit_approx_close`
+pins each tail-certified finite integral to the actual limit approximations.
+`fullActionLimit_finite_floor` proves the finite margin implies a positive
+eventual floor at an explicit representative index. `FiniteActionFloor` stores
+only finite decidable conditions; `checkActionFloor` returns accepted data and
+proofs, or none. The original Haar integral is retained exactly.
+
+`FiniteActionFloor.ofLimitFloor` also proves completeness given a positive
+limit floor b: the finite anchor is computed at error b/4, and both returned
+error and floor equal b/4. No Prop-level witness is extracted as data.
+Thus this is a finite certification route to the SAME positive-limit claim,
+not a stronger analytic hypothesis hidden in a new bundle.
+
+`BF4ExactSlabAllExtentHeatUnitCertifiedNonzero.completedHeatUnit_ne_zero`
+uses a successful certificate, the norm/action identity and the original zero
+vector's norm. This closes the implication all the way to the existing
+completed full unit. It does not instantiate a certificate for every w/slab.
+
+Next mathematical task: successful finite-floor data or a lower estimate for
+the original finite integral at the certified cutoff, throughout the required
+parameter family. Unconditional full-unit positivity/normalization, physical
+realization, slab compatibility, transfer/stationary vacuum, strict completed
+gap, volume/spacing/QFT and all-group Clay remain open. No canonical atom/type
+changed; refuted signed/positive-law identity unused. No uniform spectral claim.
+
+Two focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs, dependent module refreshed after the final upstream change:
+13 + 4 = 17 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-all-extent-action-floor-certificate.log`,
+`/tmp/ym-all-extent-heat-unit-certified-nonzero.log`. Namespace references fixed
+without raised proof limits. No new sorry, numerical oracle, pointwise
+positivity/JTP premise or pilot constant. No large certificate computation or
+full build/audit/guard/progress run.
+
+## Previous increment: completed full-unit norm = original action-integral limit (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentActionLimit.heatProductHaarCauchy` gives a
 computed modulus for the original shared-variable product integrals.
