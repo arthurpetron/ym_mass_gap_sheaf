@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED translated original local tests and detached reference; OPEN interacting uniform positive excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeInterface.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeHaarReference.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorTests.lean`.
+- **closed geometry**: `crossingIds_nodup`, `crossingIds_length` and
+  `crossingIds_links` pin the four actual translated crossing faces.
+  `crossingIds_iff_exposed` excludes spectator exposed links. `lower_partition`,
+  `lowerSpectators_disjoint` and `lowerCollar_length_le` give the exact lower
+  action split and a volume-independent collar bound of 24 faces.
+- **closed same-object reference**: `bulkScalar_coordinate_pin` identifies
+  the selected original scalar-channel product. `bulkProbe_embedding` and
+  `bulkScalar_embedding` use the original link embedding, giving local
+  means 0,0 and mixed moment 1/128 at every half-size. `spectator_factor`
+  and `mixed_spectator_moment` retain arbitrary supported detached signed
+  insertions. No independence of the full action is asserted.
+- **closed concrete tests**: `bulkProbe_enlarge` identifies the existing
+  thermodynamic probe family. `localChoice` selects unit/scalar leaves only
+  on four crossing faces; unselected faces retain full original trees.
+  `lowerHeat_split` keeps all original lower factors. The explicit tests
+  are Lfar and scalarLoop*Lfar; `localMinor_recentered_bound` proves the
+  raw-form determinant-square bound for every rational centering.
+- **closed detached reference identity**: `referenceDeterminant_pin`
+  equals -Zref^2/128, where Zref=Haar(Lfar^2), for every w,K,half. Zref is
+  not the full spectator OS partition. This identity is NOT a uniform
+  positive bound for the interacting whole-forest minor.
+- **open constructive/analytic residue**: identify the full spectator-tree
+  amplitudes, control the signed local-collar insertion, and prove a positive
+  SAME-partition/reference-energy normalized floor uniform through volume
+  and cutoff at the fixed nome. Pass that floor to the original thermodynamic
+  completed centered state. No nonzero thermodynamic excitation is yet
+  constructed. Full observable realization/completeness and continuum/QFT/
+  all-group Clay remain open; no canonical atom/type/flag or hole changed.
+- **verification**: three modules, 17+21+15=53 exactly matched focused
+  gates within {propext, Quot.sound}, one geometric gate axiom-free. Final
+  logs error/warning free and own/direct-import artifacts fresh. One worker,
+  mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+  run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-bulk-probe-interface.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-haar-reference.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-spectator-tests.log`.
+
 ## CLOSED original partial-retention and whole-forest test machinery; OPEN uniform positive minor and excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreePruning.lean`,

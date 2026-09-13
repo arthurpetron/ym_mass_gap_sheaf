@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (partial interface retention and whole-forest minor tests):**
+**Latest original-action increment (translated local tests and exact detached reference):**
+`BF4ExactSlabBulkProbeInterface.crossingIds_links` pins four distinct
+translated original crossing faces to the probe's four links.
+`crossingIds_iff_exposed` excludes every spectator exposed link;
+`lower_partition`, `lowerSpectators_disjoint` and `lowerCollar_length_le`
+split the original lower action into a detached region and at most 24 faces.
+These geometric statements name every half-size and have no coupling input.
+
+`BF4ExactSlabBulkProbeHaarReference.bulkScalar_coordinate_pin` identifies
+the scalar-loop polynomial with the actual selected coordinate channels.
+`bulkProbe_haar_zero`, `bulkScalar_haar_zero`, `bulk_mixed_haar` transport
+the exact moments 0,0,1/128 through the original Haar block embedding at
+every half-size. `mixed_spectator_moment` retains any supported detached
+signed insertion, with its Haar mass multiplied by 1/128.
+
+`BF4ExactSlabBulkProbeSpectatorTests.bulkProbe_enlarge` pins the probe
+to the already-used thermodynamic enlargement family. `localChoice`
+selects only the four local unit/scalar channels and keeps full spectator
+trees. `lowerHeat_split` retains every original lower factor. The concrete
+test polynomials are Lfar and scalarLoop*Lfar; `localMinor_recentered_bound`
+proves their computed determinant-square bound for every rational center.
+`referenceDeterminant_pin` proves the separate detached squared-background
+reference is -Zref^2/128, with Zref=Haar(Lfar^2), for every w,K,half.
+This is an exact reference identity, NOT beta-uniform minor positivity.
+Zref is not identified with the full spectator OS partition.
+
+Next: full spectator-interface amplitude pins and a signed local-collar
+comparison retaining the reference energy and SAME original normalization;
+then a positive normalized floor uniform in volume/cutoff at the fixed nome.
+The bare reference determinant is not the interacting localMinor. Nonzero
+thermodynamic excitation, full observables/completeness and continuum/Clay
+remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 17+21+15=53 exactly matched focused gates
+within {propext, Quot.sound}, one geometric gate axiom-free; final logs
+error/warning free and own/direct-import artifacts fresh. One monitored
+worker, mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-interface.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-haar-reference.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-tests.log`.
+
+**Preceding original-action increment (partial interface retention and whole-forest minor tests):**
 The existing `BF4ExactSlabPlaquetteSmallNomeCenteredNontriviality` witness
 has a fixed extent-one floor; it does not supply a thermodynamic excitation.
 `ReflectedSquareTreePruning.Pruning` now carries explicit retained-tree

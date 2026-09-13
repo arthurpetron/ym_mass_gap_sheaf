@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL partial interface retention and whole-forest minor tests (2026-09-13)
+## Current increment: ORIGINAL translated probe tests and detached reference (2026-09-13)
+
+The preceding goal turn was PROGRESS: fd06412 proved and pushed partial
+interface retention and whole-forest tests. This turn is PROGRESS: the
+local test choices/polynomials are now concrete on the existing translated
+probe family, with exact all-volume local Haar moments and a computed
+detached squared-background reference determinant.
+
+- `BF4ExactSlabBulkProbeInterface.crossingIds_links` identifies four actual
+  crossing faces; `lowerCollar_length_le` gives at most 24 lower collar
+  faces, independent of volume. The detached split and link separation
+  are constructed, not assumed.
+- `BF4ExactSlabBulkProbeHaarReference.bulkScalar_coordinate_pin` pins the
+  scalar loop to the actual selected channel product. `bulk_mixed_haar`
+  proves 1/128 at every volume; both separate means vanish.
+  `mixed_spectator_moment` retains the detached signed insertion's Haar mass.
+- `BF4ExactSlabBulkProbeSpectatorTests.bulkProbe_enlarge` identifies the
+  existing thermodynamic probe family. The concrete tests use Lfar and
+  scalarLoop*Lfar, retaining full spectator trees and all lower action.
+  `localMinor_recentered_bound` applies the original centered raw-form bound.
+- `referenceDeterminant_pin` gives -Zref^2/128 with Zref=Haar(Lfar^2).
+  This reference identity is valid for every w,K,half; it is NOT positivity
+  of the interacting whole-forest minor, and Zref is not the full spectator
+  OS partition. No new beta-uniform positive lower bound is asserted.
+
+Next: pin full spectator-interface amplitudes, compare the signed local
+collar insertion to the reference, and retain partition/reference-energy
+factors through a volume/cutoff-uniform positive normalized estimate.
+Thermodynamic excitation, full observable completeness and continuum/Clay
+remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 17+21+15=53 exactly matched focused gates
+within {propext, Quot.sound}; one geometric gate axiom-free. Final logs
+error/warning free and own/direct-import artifacts fresh. One worker,
+mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-interface.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-haar-reference.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-tests.log`.
+
+## Previous increment: ORIGINAL partial interface retention and whole-forest minor tests (2026-09-13)
 
 The preceding goal turn was PROGRESS: 3cd5988 proved and pushed original
 quantitative relaxation and fixed-unit uniqueness. This turn is PROGRESS:

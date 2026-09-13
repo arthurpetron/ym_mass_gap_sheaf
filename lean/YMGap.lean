@@ -3968,6 +3968,9 @@ import YMGap.Continuum.ReflectedSquareTreePruning
 import YMGap.Continuum.BF4ExactSlabPartialInterfaceRetention
 import YMGap.Continuum.ReflectedSquareTreeTestForm
 import YMGap.Continuum.BF4ExactSlabPartialInterfaceTests
+import YMGap.Continuum.BF4ExactSlabBulkProbeInterface
+import YMGap.Continuum.BF4ExactSlabBulkProbeHaarReference
+import YMGap.Continuum.BF4ExactSlabBulkProbeSpectatorTests
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

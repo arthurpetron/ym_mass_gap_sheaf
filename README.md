@@ -13,7 +13,7 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest checked milestone:** the original thermodynamic geometric OS time
+**Latest dynamical milestone:** the original thermodynamic geometric OS time
 evolution [converges quantitatively to its unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean),
 and [its positive-time fixed space is exactly that unit line](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean).
 These follow from the proved completed unit-complement form gap, at SU(2)
@@ -570,6 +570,15 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        + whole-forest CS tests
                                   |        -> centering-invariant
                                   |           two-test minor bound  [PROVED]
+                                  |        + translated probe geometry:
+                                  |          four crossing faces,
+                                  |          lower collar <= 24     [PROVED]
+                                  |        + SAME local Haar moments
+                                  |          0, 0, 1/128, all volumes
+                                  |        -> explicit local tests,
+                                  |           detached reference
+                                  |           determinant -Zref^2/128
+                                  |                                 [PROVED]
                                   |        + local positive minor and
                                   |          SAME partition-relative
                                   |          volume-uniform estimate [OPEN]
@@ -642,13 +651,27 @@ then produce explicit amplitudes `A_i(e)` and reference energies `E_i`, with
 and satisfies `D(e) <= rawForm(e-c,e-c)*R`, with explicit reference budget
 `R=2*(E_0*A_1(1)^2+E_1*A_0(1)^2)`.
 
-**Open next:** concrete local tests with a positive determinant estimate
-relative to the SAME partition and reference budget, uniformly through
-volume and cutoff. The finite test-floor compiler alone does not prove
-this estimate or a nonzero thermodynamic excitation.
+The [translated local geometry](lean/YMGap/Continuum/BF4ExactSlabBulkProbeInterface.lean)
+now identifies exactly four crossing faces and a lower collar of at most
+24 faces, independently of volume. The [original local Haar moments](lean/YMGap/Continuum/BF4ExactSlabBulkProbeHaarReference.lean)
+are `0, 0, 1/128` at every translated volume. The scalar polynomial is
+exactly the selected original coordinate-channel product.
 
-Four modules: 9+15+7+17=48 exactly matched focused gates within
-`{propext, Quot.sound}`; seven pruning gates are axiom-free. Final logs
+[Concrete tests](lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorTests.lean)
+use `Lfar` and `scalarLoop*Lfar`, where `Lfar` is the original detached
+lower heat product. The probe is pinned to the existing thermodynamic
+family. Its detached squared-background reference determinant is exactly
+`-Zref^2/128`, where `Zref = Haar(Lfar^2)`. This reference is **not** the
+full spectator OS partition or the interacting whole-forest minor.
+
+**Open next:** compare the interacting tests to their local reference,
+retain the full spectator interface through normalization, and prove a
+positive lower estimate uniform in volume/cutoff at the fixed nome.
+Neither the reference identity nor the finite test-floor compiler proves
+a nonzero thermodynamic excitation or continuum scaling.
+
+Latest three modules: 17+21+15=53 exactly matched focused gates within
+`{propext, Quot.sound}`; one geometric gate is axiom-free. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.
