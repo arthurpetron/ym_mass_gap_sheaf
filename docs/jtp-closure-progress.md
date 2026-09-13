@@ -4,7 +4,39 @@ Companion to `docs/jtp-convergence-notes.md`.  Records what the Lean module
 `lean/YMGap/Continuum/JTPIdentity.lean` closed, the explicit modulus used, and
 the honest residual.
 
-## 2026-09-12: finite symmetric Jacobi identity proved; limit remains open
+## 2026-09-12: normalized coefficients have a computed convergence modulus
+
+`FiniteJacobiWeightBounds.centeredWeight_eq_segments` proves the exact
+finite-product cancellation, for `0<Q<1`, j<=N:
+
+    W(Q,N,j) = product_{k=N-j+1..N} (1-Q^k)
+                * product_{k=N+j+1..2N} (1-Q^k).
+
+The empty products are one. `centeredWeight_bounds` proves 0<=W<=1 for
+ALL indices (the original out-of-range q-binomial is zero).
+`FiniteEulerSegment` supplies the Weierstrass/geometric loss estimates;
+`FiniteJacobiWeightConvergence.centeredWeight_abs_loss` proves
+
+    abs(W(Q,N,j)-1) <= 2 Q^(N-j+1)/(1-Q),  j<=N.
+
+`centeredCutoff Q J epsilon` computes
+`J + HKConvGen.powBaseCutoff Q (epsilon/(2/(1-Q)+1))`.
+`centeredWeight_abs_close` proves abs(W-1)<=epsilon for every later N and
+j<=J. The finite band and base are explicit; no convergence uniformly over
+all j or all Q is asserted. No infinite-product denominator or Prop-level
+existential index is assumed/extracted.
+
+Next: combine the coefficient estimates with Gaussian/Chebyshev tails to
+compare the ORIGINAL finite product and bare theta series; then pass to
+the correctly half-normalized derivative identity. Neither `DiffJTP` nor
+heat/action positivity is closed by the coefficient estimate alone.
+
+Three focused monitored one-worker 20 GiB checks: 25 gates within
+`{propext, Quot.sound}`, current `.olean` outputs, final error/warning free.
+No new sorry, analytic premise, numerical oracle, canonical frontier change,
+or full build/audit/guard/progress run.
+
+## 2026-09-12: finite symmetric Jacobi identity proved
 
 `FiniteJacobiIdentity.factorProd_eq_gaussianPartial` now proves, for every
 rational `0<q<1`, rational x and finite N,
@@ -25,8 +57,8 @@ quadratic multiplication with proved-zero endpoints). The concrete bridge
 coefficients; the central factor two is explicit. No complex variable,
 negative natural exponent or assumed coefficient limit is used.
 
-Still OPEN: quantitative convergence of the normalized weights and
-Gaussian/Chebyshev tails, then the correctly half-normalized differentiated
+Finite-band weight convergence is now proved above. Still OPEN: the
+Gaussian/Chebyshev tail comparison and correctly half-normalized differentiated
 limit identity. Finite JTP does not itself inhabit `DiffJTP` or supply heat
 or original-action positivity. The older finite-normalization residue below
 is superseded only for the symmetric finite identity, not for these limits.

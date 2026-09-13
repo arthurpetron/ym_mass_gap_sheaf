@@ -131,7 +131,20 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest analytic result: the finite symmetric Jacobi identity is proved.**
+**Latest analytic result: explicit convergence of the finite Jacobi weights.**
+[`FiniteJacobiWeightBounds.centeredWeight_eq_segments`](lean/YMGap/Continuum/FiniteJacobiWeightBounds.lean)
+rewrites the ORIGINAL normalized coefficient as two finite Euler products.
+The coefficients lie in `[0,1]`, and for `j<=N` their deficit from one is at
+most `2 Q^(N-j+1)/(1-Q)`, where `0<Q<1`.
+[`FiniteJacobiWeightConvergence.centeredWeight_abs_close`](lean/YMGap/Continuum/FiniteJacobiWeightConvergence.lean)
+provides a computed cutoff uniform over each specified finite band `j<=J`.
+The base and band are explicit; no infinite-product denominator is assumed.
+Three focused checks passed: 25 gates inside `{propext, Quot.sound}`, no new
+holes. Combining this with Gaussian/Chebyshev tails and passing to the
+differentiated identity remain open. These are coefficient estimates, not a
+coupling-uniform physical gap or an original-action positive floor.
+
+**Preceding analytic result: the finite symmetric Jacobi identity is proved.**
 [`FiniteJacobiIdentity.Ppart_eq_finiteJacobi`](lean/YMGap/Continuum/FiniteJacobiIdentity.lean)
 identifies the ORIGINAL full theta product with its Euler-normalized finite
 Gaussian/Chebyshev series, for every finite cutoff, rational `0<q<1`, and
@@ -139,8 +152,8 @@ rational `x`. The proof combines two q-Pascal orientations with the Chebyshev
 recurrence, including the center's factor of two and both finite endpoints.
 It uses the actual q-binomial weights, not bare theta coefficients.
 Four focused checks passed: 31 gates inside `{propext, Quot.sound}`, no new
-holes. Explicit coefficient/tail convergence and the differentiated limit
-identity remain open. This does not yet supply heat positivity or the
+holes. Finite-band coefficient convergence is now proved above; the full
+tail comparison and differentiated limit identity remain open. This does not yet supply heat positivity or the
 positive original-action floor below.
 
 **Latest original-action result: a retained channel bounds the full interacting action.**

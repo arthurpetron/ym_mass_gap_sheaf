@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Original Jacobi weights: finite products, bounds and computed convergence (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/FiniteEulerSegment.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiWeightBounds.lean`,
+  `lean/YMGap/Continuum/FiniteJacobiWeightConvergence.lean`.
+- **discharged**: exact Euler-prefix/segment pin; segment positivity, bound
+  one and geometric loss; `centeredWeight_eq_segments` cancels the original
+  finite Euler denominators to two explicit segments for `0<Q<1`, j<=N.
+  `centeredWeight_bounds` proves 0<=W<=1 at all indices including the proved
+  out-of-range zero. The deficit bound is `2 Q^(N-j+1)/(1-Q)`.
+  `centeredCutoff Q J epsilon` is Type-level computed data;
+  `centeredWeight_abs_close` proves convergence to one uniformly for j<=J
+  and every later N. No infinite-product denominator or Prop index
+  extraction is used; no all-j or all-Q convergence uniformity is claimed.
+- **OPEN, unchanged**: summation with Gaussian/Chebyshev tail bounds to
+  compare original finite products and bare theta series; correctly
+  half-normalized differentiated JTP; original lower-half/action nonvanishing;
+  physical unit/vacuum, compatible slabs, geometric transfer/stationarity,
+  strict completed gap, volume/spacing/QFT and all-group Clay. No `DiffJTP`
+  or canonical frontier inhabitant, new analytic premise, or uniform
+  spectral claim. Refuted law identity unused.
+- **verification**: three focused monitored one-worker 20 GiB checks,
+  current `.olean` outputs, 7 + 8 + 10 = 25 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-finite-euler-segment.log`,
+  `/tmp/ym-finite-jacobi-weight-bounds.log`, `/tmp/ym-finite-jacobi-weight-convergence.log`.
+  No new sorry, numerical oracle, raised proof limits or full build/audit/guard/progress run.
+
 ## Finite symmetric Jacobi identity on the ORIGINAL theta product (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/GaussQBinomSymmetricStep.lean`,

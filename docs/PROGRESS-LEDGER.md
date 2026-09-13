@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite symmetric Jacobi identity on the ORIGINAL theta product (2026-09-12)
+## Current increment: original Jacobi weights have explicit convergence bounds (2026-09-12)
+
+PROGRESS: `FiniteJacobiWeightBounds.centeredWeight_eq_segments` eliminates
+the finite Euler quotient by exact positive-factor cancellation, obtaining
+`W(Q,N,j) = segment Q (N-j) j * segment Q (N+j) (N-j)`, j<=N, `0<Q<1`.
+`FiniteEulerSegment` proves the original prefix pin and the actual segment
+loss estimates; no positive infinite-product denominator is assumed.
+
+`centeredWeight_bounds` bounds the ORIGINAL coefficients in [0,1] at every
+index, with out-of-range zero proved from the recursive q-binomial.
+`one_le_centeredWeight_add_loss` and `centeredWeight_abs_loss` give the
+explicit deficit majorant `2 Q^(N-j+1)/(1-Q)`.
+`FiniteJacobiWeightConvergence.centeredCutoff` computes the cutoff for a
+specified finite band j<=J; `centeredWeight_abs_close` proves the epsilon
+bound for every later N. Q, J and epsilon all occur in the data/type.
+No Prop existential is extracted; no uniform-in-all-j convergence is claimed.
+
+Next: original finite weighted series versus bare theta-series comparison,
+using coefficient estimates AND Gaussian/Chebyshev tails, then the correctly
+half-normalized differentiated JTP. The original-action positive floor and
+physical carrier/vacuum/transfer/gap, volume/spacing/QFT and all-group Clay
+remain open. No new analytic premise or canonical atom/type change; no
+coupling-uniform physical gap estimate or refuted law identity used.
+
+Three focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs: 7 + 8 + 10 = 25 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-finite-euler-segment.log`,
+`/tmp/ym-finite-jacobi-weight-bounds.log`, `/tmp/ym-finite-jacobi-weight-convergence.log`.
+Local namespace and numeral elaboration issues were corrected without raised
+proof limits. No new sorry, numerical oracle or full build/audit/guard/progress run.
+
+## Previous increment: finite symmetric Jacobi identity on the ORIGINAL theta product (2026-09-12)
 
 PROGRESS: `FiniteJacobiIdentity.factorProd_eq_gaussianPartial` proves the
 finite symmetric Jacobi identity for the EXISTING real theta factor product.

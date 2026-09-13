@@ -18,7 +18,40 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest analytic increment (finite symmetric Jacobi identity):**
+**Latest analytic increment (original Jacobi-weight bounds and computed convergence):**
+`FiniteEulerSegment.euler_split` pins finite segments to the original Euler
+prefix. `segment_pos`, `segment_le_one`, `segment_loss_le`, and
+`one_le_segment_add_tail` prove finite product bounds using the actual
+geometric losses and the existing Weierstrass inequality.
+
+`FiniteJacobiWeightBounds.centeredWeight_eq_segments` cancels the exact
+finite Euler denominators with proved-positive factors:
+`W(Q,N,j) = segment Q (N-j) j * segment Q (N+j) (N-j)`, j<=N, `0<Q<1`.
+`centeredWeight_bounds` gives 0<=W<=1 at ALL indices, including the
+proved-zero out-of-range coefficients. `one_le_centeredWeight_add_loss`
+gives deficit at most `lossBound Q (N-j+1) = 2 Q^(N-j+1)/(1-Q)`.
+
+`FiniteJacobiWeightConvergence.centeredCutoff Q J epsilon` is computed as
+`J + powBaseCutoff Q (epsilon/(2/(1-Q)+1))`.
+`centeredWeight_abs_close` proves absolute distance from one <=epsilon
+for every later N and every j<=J. Base, finite band and tolerance are explicit
+parameters; no Prop-level index extraction, infinite-product denominator,
+convergence uniform over all j, or coupling-uniform physical gap is claimed.
+
+Next: combine these coefficient estimates with Gaussian/Chebyshev tails on
+the original finite identity and pass to the correctly half-normalized
+differentiated limit. No `DiffJTP` inhabitant, original-action positive floor,
+physical unit/vacuum, compatible slabs, transfer/stationarity, strict gap,
+volume/spacing/QFT or all-group Clay closure. No new analytic premise or
+canonical atom/type change; refuted law identity unused.
+
+Verification: three focused monitored one-worker 20 GiB checks, current
+`.olean` outputs; 7 + 8 + 10 = 25 gates within `{propext, Quot.sound}`,
+final error/warning free. Logs `/tmp/ym-finite-euler-segment.log`,
+`/tmp/ym-finite-jacobi-weight-bounds.log`, `/tmp/ym-finite-jacobi-weight-convergence.log`.
+No new sorry, numerical oracle, raised proof limits or full build/audit/guard/progress run.
+
+**Preceding analytic increment (finite symmetric Jacobi identity):**
 `GaussQBinomSymmetricStep.qbin_pascal_opposite`, `qbin_two_sided_step`,
 and `centered_qbin_step` derive the three-neighbor recurrence from the
 ORIGINAL recursive coefficients, using one Pascal step in each orientation.
@@ -36,8 +69,8 @@ product, every finite N, rational `0<q<1` and rational x.
 full `ThetaConv.Ppart` to its weighted finite series. No equality premise,
 complex substitution or coefficient replacement by one is assumed.
 
-Next: explicit convergence of the normalized coefficients together with
-Gaussian/Chebyshev tails, and the correctly half-normalized differentiated
+Finite-band normalized-coefficient convergence is now proved above. Next:
+combine it with Gaussian/Chebyshev tails and the correctly half-normalized differentiated
 identity. Finite JTP does not discharge `DiffJTP`, produce the original-action
 positive floor, or identify a physical vacuum/transfer/gap. Compatible slabs,
 volume/spacing/QFT and all-group Clay remain open. No new named analytic
