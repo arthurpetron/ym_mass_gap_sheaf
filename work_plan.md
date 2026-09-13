@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (local ORIGINAL heat-weight comparison):**
+**Latest finite-slab increment (ORIGINAL remainder expansion and boundary pin):**
+`QuaternionHaarPolynomialIntervalProduct` constructs multiplicative signed
+interval certificates on shared variables, with cap delta^n and a bound
+relative to any actual positive background integral.
+`FinitePolynomialSubsetExpansion.selections` computes finite positional
+selections; `haar_expansion` proves the exact inserted-product expansion.
+`BF4ExactSlabRemainderExpansion.moment_expansion`, `partition_expansion`
+and `fullAction_expansion` pin it to the ORIGINAL moments and action.
+`activity_bound` gives delta(w)^n under 0<=w<=1 and
+(2*w^3)*16<=1/2, with delta(w)=128*w^3. `original_background_bound`
+constructs the original background premise when delta(w)<=1.
+
+`BF4ExactSlabFaceLinkLocality` proves that actual face heat polynomials and
+remainders depend only on their literal plaquette links.
+`BF4ExactSlabDisconnectedHaarCancellation.connectedNumerator_zero` proves
+N(pq)Z-N(p)N(q)=0 for a supplied disjoint split, using four original moment
+factorizations with their partition factors retained.
+`BF4ExactSlabBoundarySelectionExpansion.boundaryNumerator_expansion` pins
+the EXISTING bulk boundary numerator to a sum of exterior-selection
+responses, keeping the interior action and one common cutoff/carrier.
+`selectionResponse_empty` and `selectionResponse_disjoint_zero` remove
+empty selections and selections detached from the ENTIRE interior/probe region.
+
+Next: general connecting-selection reorganization and normalized summability
+yielding probe-to-boundary separation decay. The proved detachment premise
+does not supply that reorganization; a bound on every selection does not
+control their volume-growing sum. No padding convergence, nonzero-norm
+persistence, physical transfer/stationarity, strict gap or continuum passage
+is proved. No canonical atom/type/flag changed or analytic input introduced.
+
+Verification: six modules, 6+8+12+14+7+6=53 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks. No new holes,
+numerical oracle, raised limits or full build/audit/guard/progress run.
+The root import list was updated but not rebuilt. Logs:
+`/tmp/ym-quaternion-haar-interval-product.log`,
+`/tmp/ym-finite-polynomial-subset-expansion.log`,
+`/tmp/ym-bf4-exact-slab-remainder-expansion.log`,
+`/tmp/ym-bf4-exact-slab-face-link-locality.log`,
+`/tmp/ym-bf4-exact-slab-disconnected-haar-cancellation.log`,
+`/tmp/ym-bf4-exact-slab-boundary-selection-expansion.log`.
+
+**Preceding finite-slab increment (local ORIGINAL heat-weight comparison):**
 `QuaternionHaarPolynomialInterval.Interval` carries two existing square
 certificates and constructs their sums, nonnegative scales and cap
 enlargements. `QuaternionHaarCharacterInterval.characterBound_le` bounds

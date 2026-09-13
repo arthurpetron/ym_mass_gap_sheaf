@@ -3992,6 +3992,14 @@ import YMGap.Continuum.BF4ExactSlabPlaquetteUniformMomentBound
 import YMGap.Continuum.QuaternionHaarPolynomialInterval
 import YMGap.Continuum.QuaternionHaarCharacterInterval
 import YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison
+-- Exact ORIGINAL selection expansions and disjoint-support cancellation.
+-- Pinned to the existing bulk boundary numerator; normalized decay stays open.
+import YMGap.Continuum.QuaternionHaarPolynomialIntervalProduct
+import YMGap.Continuum.FinitePolynomialSubsetExpansion
+import YMGap.Continuum.BF4ExactSlabRemainderExpansion
+import YMGap.Continuum.BF4ExactSlabFaceLinkLocality
+import YMGap.Continuum.BF4ExactSlabDisconnectedHaarCancellation
+import YMGap.Continuum.BF4ExactSlabBoundarySelectionExpansion
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

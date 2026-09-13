@@ -4,7 +4,50 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: local ORIGINAL heat-weight comparison (2026-09-13)
+## Current increment: ORIGINAL remainder expansion and boundary-response pin (2026-09-13)
+
+PROGRESS: `QuaternionHaarPolynomialIntervalProduct.Interval.mul` and
+`productUniform` construct shared-variable product certificates with cap
+delta^n; `weighted_haar_bound` retains the same positive background integral.
+`FinitePolynomialSubsetExpansion.haar_expansion` gives an exact finite sum
+over computed positional selections. `BF4ExactSlabRemainderExpansion` pins
+it to the existing original numerator, partition and full action.
+`activity_bound` gives delta(w)^n for each n-face selection, every cutoff
+and extent, under 0<=w<=1 and (2*w^3)*16<=1/2; delta(w)=128*w^3.
+`original_background_bound` discharges background positivity for actual
+original heat products when delta(w)<=1, including overlapping links.
+
+`BF4ExactSlabFaceLinkLocality` supplies actual plaquette-link support.
+`BF4ExactSlabDisconnectedHaarCancellation.connectedNumerator_zero` uses
+four original moment factorizations to cancel N(pq)Z-N(p)N(q) under an
+explicit disjoint split. `BF4ExactSlabBoundarySelectionExpansion` then
+reaches the active tracked object: `boundaryNumerator_expansion` expresses
+the EXISTING boundary numerator as the sum of actual exterior-selection
+responses, at the same cutoff with the interior action and all determinant
+factors retained. Empty selections and selections detached from the ENTIRE
+interior/probe region vanish exactly.
+
+The previous frontier is not renamed or assumed: general connecting-selection
+reorganization and normalized summability remain open, before separation
+decay. Per-selection smallness does not control the volume-growing sum, and
+detachment from the whole interior is not merely distance from the probe.
+No padding limit, persistence, physical transfer/stationary vacuum, strict
+gap or continuum/QFT/all-group Clay result. No canonical atom/type/flag
+changed; no analytic premise or hole introduced.
+
+Six modules, 6+8+12+14+7+6=53 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no numerical
+oracle, raised limits or full build/audit/guard/progress run. The root
+import list was updated but not rebuilt. Logs:
+`/tmp/ym-quaternion-haar-interval-product.log`,
+`/tmp/ym-finite-polynomial-subset-expansion.log`,
+`/tmp/ym-bf4-exact-slab-remainder-expansion.log`,
+`/tmp/ym-bf4-exact-slab-face-link-locality.log`,
+`/tmp/ym-bf4-exact-slab-disconnected-haar-cancellation.log`,
+`/tmp/ym-bf4-exact-slab-boundary-selection-expansion.log`.
+
+## Previous increment: local ORIGINAL heat-weight comparison (2026-09-13)
 
 PROGRESS: `QuaternionHaarPolynomialInterval.Interval` constructs two-sided
 Haar certificates from square caps, with sums, nonnegative scales and explicit

@@ -13,6 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL finite selection expansion and disjoint cancellation; OPEN connected summability (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialIntervalProduct.lean`,
+  `lean/YMGap/Continuum/FinitePolynomialSubsetExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRemainderExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFaceLinkLocality.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabDisconnectedHaarCancellation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBoundarySelectionExpansion.lean`.
+- **constructed bounds and exact expansion**: `Interval.mul` /
+  `productUniform` retain shared variables and construct cap delta^n;
+  `weighted_haar_bound` retains the actual positive background integral.
+  `selections` computes finite positional choices; `haar_expansion` proves
+  the exact inserted-product sum. `moment_expansion`, `partition_expansion`
+  and `fullAction_expansion` identify the original action objects.
+  `activity_bound` gives delta(w)^n for every cutoff/extent under
+  0<=w<=1 and (2*w^3)*16<=1/2, with delta(w)=128*w^3.
+  `original_background_bound` constructs the premise for actual original
+  backgrounds when delta(w)<=1.
+- **constructed geometry and cancellation**: `face_scalar_local`,
+  `heatProduct_local` and `remainderProduct_local` use literal plaquette
+  links. `connectedNumerator_zero` cancels the four original moments and
+  partition factors under a supplied disjoint split.
+  `boundaryNumerator_expansion` pins the EXISTING bulk boundary numerator
+  to actual exterior-selection responses with the same interior action,
+  cutoff and carrier. `selectionResponse_empty` and
+  `selectionResponse_disjoint_zero` cancel empty selections and selections
+  detached from the ENTIRE interior/probe region.
+- **remaining obligation**: general connecting-selection reorganization and
+  normalized summability that yield separation decay. Summing the individual
+  activity caps can still grow with volume; whole-interior detachment is not
+  a distance-decay theorem. Padding convergence/moduli, nonzero-norm
+  persistence, physical transfer/stationarity, strict gap and continuum/QFT/
+  all-group Clay remain open. No canonical atom/type/flag changed, no new
+  analytic premise was added and no existing hole was silently discharged.
+- **verification**: 6+8+12+14+7+6=53 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source and direct-import
+  artifact freshness checked. One-worker monitored 20 GiB checks; no new
+  holes, numerical oracle, raised limits or full build/audit/guard/progress
+  run. The root import list was updated but not rebuilt. Logs:
+  `/tmp/ym-quaternion-haar-interval-product.log`,
+  `/tmp/ym-finite-polynomial-subset-expansion.log`,
+  `/tmp/ym-bf4-exact-slab-remainder-expansion.log`,
+  `/tmp/ym-bf4-exact-slab-face-link-locality.log`,
+  `/tmp/ym-bf4-exact-slab-disconnected-haar-cancellation.log`,
+  `/tmp/ym-bf4-exact-slab-boundary-selection-expansion.log`.
+
 ## CLOSED local ORIGINAL heat-weight comparison; OPEN normalized boundary decay (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialInterval.lean`,

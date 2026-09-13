@@ -273,6 +273,23 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> ONE-face integral factors
                                   |           1-delta(w),1+delta(w)
                                   |           independent of volume [PROVED]
+                                  |      + exact finite face selections
+                                  |        + shared-link interval products
+                                  |        -> ORIGINAL activities bounded
+                                  |           by delta(w)^n          [PROVED]
+                                  |      + literal face-link locality
+                                  |        + original Haar factorization
+                                  |        -> disconnected-split connected
+                                  |           numerator cancels     [PROVED]
+                                  |      + actual exterior selections
+                                  |        -> EXISTING boundary D equals
+                                  |           sum of selection responses
+                                  |           at the SAME cutoff    [PROVED]
+                                  |        -> empty / entirely detached
+                                  |           selections vanish     [PROVED]
+                                  |      + general connecting-selection
+                                  |        reorganization and normalized
+                                  |        summability               [OPEN]
                                   |      + quantitative control of
                                   |          NORMALIZED response    [OPEN]
                                   |      + padding limit and genuine
@@ -327,7 +344,39 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: local heat-weight comparisons on the ORIGINAL action.**
+**Latest result: an exact expansion of the ORIGINAL boundary response.**
+[`boundaryNumerator_expansion`](lean/YMGap/Continuum/BF4ExactSlabBoundarySelectionExpansion.lean#L92)
+expresses the existing boundary numerator as a finite sum of actual exterior
+face-selection responses. The interior action, probe, shared links, common
+cutoff and partition factors are retained. This is an identity for the
+tracked physical quantity, not a replacement correlation model.
+
+[`moment_expansion`](lean/YMGap/Continuum/BF4ExactSlabRemainderExpansion.lean#L53)
+and `partition_expansion` expand the original moments and partition into
+products of original heat remainders. Under the explicit small-nome guard,
+[`activity_bound`](lean/YMGap/Continuum/BF4ExactSlabRemainderExpansion.lean#L81)
+gives `delta(w)^n` for each selection of `n` faces, at every cutoff and
+extent, even when faces share links. `original_background_bound` retains
+the same positive original background integral on the right-hand side.
+
+Literal face-link locality and original Haar factorization give
+[`connectedNumerator_zero`](lean/YMGap/Continuum/BF4ExactSlabDisconnectedHaarCancellation.lean#L122)
+for a supplied disjoint split, including all four moment/partition factors.
+In the boundary expansion, empty selections and selections detached from
+the **entire interior/probe region** contribute exactly zero.
+
+**Next mathematical frontier:** connecting-selection reorganization and
+normalized summability that yield decay with probe-to-boundary distance.
+The proved detachment condition is stronger than being far from the probe;
+counting all selections can still grow with volume. No distance-decay,
+padding-limit, physical-gap or continuum/Clay claim follows yet.
+Six modules, 6+8+12+14+7+6=53 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final error/warning free, with source and direct-import
+artifact freshness checked. One-worker monitored 20 GiB checks; no new holes,
+analytic inputs, numerical oracle or raised limits. No full build/audit/guard/
+progress run; the root import list was updated but not rebuilt.
+
+**Preceding result: local heat-weight comparisons on the ORIGINAL action.**
 [`faceRemainderInterval`](lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean#L54)
 constructs both signs of the original face-remainder bound under Haar
 integration, retaining shared links. The explicit cap is
