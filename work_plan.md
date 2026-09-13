@@ -18,7 +18,43 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (ORIGINAL orthogonal centering, represented density and literal covariance):**
+**Latest finite-slab increment (ORIGINAL two-channel minor floor):**
+`ReflectedSquareTreeTwoChannelBound.Pair` stores two distinct leaf paths
+in the actual square tree; `Pair.value_le` retains both squares without
+double-counting. `weighted_lagrange` and `determinant_shift` prove the
+weighted two-channel determinant identity and invariance under arbitrary
+rational reference subtraction. No diagonalization or square root is used.
+
+`BF4ExactSlabPlaquetteRetainedMinor.channelAmplitude` integrates the
+original heat-dressed plaquette expression against each selected channel.
+Its addition/scaling laws identify the recentered amplitudes exactly.
+`rawForm_eq_dressedSquareSum` pins the full tree to the original raw
+reflected numerator. `retainedMinor_le_every_recentered` proves
+`w0*w1*D^2 <= rawForm(e-c*unit,e-c*unit)*B` for every rational c,
+where D is the observable/unit amplitude determinant and B the retained
+unit energy. `retainedFloor` computes `w0*w1*D^2/(B+1)`;
+`retainedFloor_bound` proves it is a lower bound for every such c.
+Division is justified even when B=0. Strict positivity follows only
+when the computed finite minor is proved positive.
+
+Next: produce a concrete original plaquette/channel pair with positive
+minor and preserve a positive normalized floor through cutoff removal.
+The exact mean no longer enters the finite minor test. The floor may be
+zero; the nonzero completed unit-complement state remains unconstructed.
+This is a sufficient two-channel test, not a claimed characterization or
+a new assumption of nontriviality. Physical transfer, stationarity, strict
+gap, volume/spacing limits and the whole Clay target remain open.
+
+Verification: two new modules, 20 + 18 = 38 focused axiom gates within
+{propext, Quot.sound}; final error/warning free and outputs current.
+Monitored one-worker 20 GiB checks. Tree projection/notation errors were
+corrected without changing statements or raising proof limits. No new
+holes, analytic premises, canonical atom/type/flag changes, or full-tree
+build/audit/guard/progress run. Logs:
+`/tmp/ym-reflected-square-tree-two-channel-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-retained-minor.log`.
+
+**Preceding finite-slab increment (ORIGINAL orthogonal centering, represented density and literal covariance):**
 `BF4ExactSlabPlaquetteUnitProjection.unitCoefficient` is the actual
 pairing limit with the constant original unit; `unitCoefficientCauchy`
 retains its computed rational modulus. `unitProjectionCauchy` scales

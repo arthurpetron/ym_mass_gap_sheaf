@@ -199,8 +199,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |      + original approximants/rows
                                   |      -> centered approximation
                                   |         + represented-row limits[PROVED]
-                                  |      + nonzero centered observable
-                                  |        with positive norm floor  [OPEN]
+                                  |      + original square-tree channels
+                                  |        -> two distinct retained leaves
+                                  |        -> centering-invariant minor
+                                  |        -> finite raw norm floor [PROVED]
+                                  |      + concrete positive minor
+                                  |        + cutoff-removal floor    [OPEN]
+                                  |      -> nonzero centered observable
+                                  |         with positive norm floor [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -251,7 +257,31 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: actual orthogonal centering and literal ORIGINAL connected covariance.**
+**Latest result: a centering-independent lower bound from ORIGINAL interface channels.**
+Two distinct paths in the actual reflected-square expansion retain two
+weighted Haar squares without double-counting. For their observable
+amplitudes `a0,a1`, unit amplitudes `b0,b1`, and weights `w0,w1`, set
+`D = a0*b1-a1*b0` and `B = w0*b0*b0+w1*b1*b1`.
+[`retainedFloor_bound`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteRetainedMinor.lean#L134)
+proves, for **every rational centering coefficient** `c`,
+
+```text
+w0*w1*D*D / (B+1) <= ORIGINAL raw reflected norm squared of (e-c*unit).
+```
+
+The weighted Lagrange identity proves the bound; subtracting `c*unit`
+leaves `D` unchanged. The denominator is proved positive without assuming
+any amplitude is nonzero. All four amplitudes retain the original lower
+heat product, shared links, and finite cutoff. No surrogate action occurs.
+
+The floor is computable but **may be zero**. A positive minor for a concrete
+original observable/channel pair, and a positive floor surviving cutoff
+removal and normalization, remain open. This does not yet construct a
+nonzero completed centered state, transfer operator, or spectral gap.
+Two new modules: 38 focused axiom gates within `{propext, Quot.sound}`,
+final error/warning free; no new proof holes or full-tree build/audit.
+
+**Preceding result: actual orthogonal centering and literal ORIGINAL connected covariance.**
 [`unitProjection`](lean/YMGap/Continuum/BF4ExactSlabPlaquetteUnitProjection.lean#L78)
 constructs `P(x)=<x,u>u` from the actual pairing coefficient and its
 computed modulus. It is self-adjoint, idempotent and contractive.

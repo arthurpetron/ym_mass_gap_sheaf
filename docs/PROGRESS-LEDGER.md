@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL orthogonal centering and literal connected covariance (2026-09-13)
+## Current increment: ORIGINAL centering-independent two-channel minor floor (2026-09-13)
+
+PROGRESS: `ReflectedSquareTreeTwoChannelBound.Pair` constructs distinct
+retained paths in the actual square tree. `Pair.value_le` proves the sum
+of their two weighted Haar squares is bounded by the full tree value.
+`weighted_lagrange` proves the exact determinant identity; `minor_shift`
+proves its invariance under arbitrary rational reference subtraction.
+
+`BF4ExactSlabPlaquetteRetainedMinor.channelAmplitude` retains the
+original interacting lower heat product. `rawForm_eq_dressedSquareSum`
+identifies the full tree value with the original reflected numerator.
+`retainedMinor_le_every_recentered` therefore proves
+`w0*w1*(a0*b1-a1*b0)^2 <= rawForm(e-c*unit,e-c*unit)*B`,
+where B is the two-channel unit energy. `retainedFloor_bound` divides
+by the proved positive B+1 and returns an explicit lower bound valid
+for EVERY rational c. No exact mean computation is needed for this test.
+
+The new finite floor may be zero. Next: exhibit a concrete original
+observable and retained channel pair with positive minor, then retain a
+strict positive normalized floor through cutoff removal. No nonzero
+completed centered state, cutoff-uniform positive estimate, stationary
+vacuum, physical transfer, strict gap or continuum/Clay result is claimed.
+No auxiliary-law substitution, canonical atom/type/flag change, or new
+analytic premise.
+
+Two new modules, 20 + 18 = 38 focused gates within {propext, Quot.sound};
+final error/warning free and outputs current. Monitored one-worker 20 GiB
+checks. Projection/notation errors corrected without changed statements
+or raised limits. No new holes or full build/audit/guard/progress run.
+Logs: `/tmp/ym-reflected-square-tree-two-channel-bound.log`,
+`/tmp/ym-bf4-exact-slab-plaquette-retained-minor.log`.
+
+## Previous increment: ORIGINAL orthogonal centering and literal connected covariance (2026-09-13)
 
 PROGRESS: `BF4ExactSlabPlaquetteUnitProjection` constructs P(x)=<x,u>u
 with the actual pairing coefficient and its computed QCauchy data.

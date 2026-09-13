@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ORIGINAL two-channel lower-bound compiler; OPEN positive minor and cutoff passage (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreeTwoChannelBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteRetainedMinor.lean`.
+- **discharged**: distinct Type-level leaf paths retain two weighted
+  squares without double-counting (`Pair.value_le`). `weighted_lagrange`
+  and `minor_shift` prove the weighted determinant identity and its
+  centering invariance. `channelAmplitude` uses the original heat-dressed
+  expression; `rawForm_eq_dressedSquareSum` pins the full tree to the
+  original numerator. `retainedMinor_le_every_recentered` controls every
+  rational unit subtraction. `retainedFloor` computes the weighted
+  squared minor divided by the retained unit energy plus one;
+  `retainedFloor_bound` proves the lower bound, with denominator positivity
+  proved even when both unit amplitudes vanish.
+- **scope**: all rational w>=0, finite K and odd slabs, and any supplied
+  distinct paths in the ACTUAL original interface tree. The result is a
+  raw reflected numerator bound, not an ordinary variance bound, a
+  normalized limit estimate, or a spectral statement. The computed floor
+  may be zero. No positivity witness is assumed in its construction.
+- **OPEN / explicit strict input**: `retainedFloor_positive` and
+  `every_recentered_positive` consume the exact decidable inequality
+  `0 < retainedMinor w hw K half p e`. No concrete original e/p pair
+  satisfying it is produced. A positive normalized floor surviving
+  cutoff removal, and thus a nonzero actual completed centered state,
+  remain open. No arbitrary-quotient completeness, compatible slabs,
+  physical realization/observable action, vacuum stationarity, physical
+  transfer, strict gap, volume/spacing/QFT or all-group Clay closure.
+- **verification**: 20 + 18 = 38 focused axiom gates within
+  {propext, Quot.sound}; final error/warning free, outputs current.
+  Monitored one-worker 20 GiB checks; notation errors corrected without
+  changed statements or raised limits. No new sorry, analytic premise,
+  oracle, canonical atom/type/flag change, or full build/audit/guard/progress
+  run. Logs: `/tmp/ym-reflected-square-tree-two-channel-bound.log`,
+  `/tmp/ym-bf4-exact-slab-plaquette-retained-minor.log`.
+
 ## CLOSED ORIGINAL unit centering, represented density and connected covariance (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteUnitProjection.lean`,
