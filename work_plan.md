@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest finite-slab increment (summed original-core budget):**
+**Latest finite-slab increment (original inner-margin comparison coefficient):**
+`BF4ExactSlabEmbeddedExteriorSeparation.embeddedFacePreimage` computes the
+source face identifier for the literal embedded box. `exterior_linf_floor`
+and `shifted_base_exterior_linf_floor` prove distance>=margin from the
+ORIGINAL exterior, for a smaller slab of half-size base+margin embedded by
+arbitrary further padding. The physical base face is shifted by margin+padding.
+
+`BF4ExactSlabCoreDistanceFloor.rootedAnimal_linf_size_floor` reuses the
+existing faithful decoder's diameter bound. `protected_root_core_size_floor`
+gives |core|>=margin+1-M (Nat subtraction) for an M-face connected probe
+carrier. The single-plaquette carrier is constructed and loses no margin.
+
+`BF4ExactSlabInnerMarginBoundaryDecay.singlePlaquette_boundary_geometric_bound`
+proves |D_K|<=2*c*amplitude(w)*s(w)^margin*F_K(1)*I_K(1), with
+amplitude=A(w,4)*1250/(1-s), s=625*rho. No cutoff, base-size, position,
+margin or outer-padding parameter occurs in the amplitude or rate.
+`existingNome_singlePlaquette_boundary_bound` fills every coupling guard
+at w=1/1024, where 0<s<1. Interval boundedness and literal locality of the
+SAME observable remain explicit; no singleton geometric carrier input remains.
+
+Parameter correction: grow the INNER smaller slab around a fixed probe;
+the bound is uniform in additional OUTER padding. Outer padding alone at
+fixed smaller slab does not increase probe-to-embedded-boundary distance.
+This is not beta/spacing-uniform smallness. The two original unit moments
+still multiply the bound; no convergence of the raw D_K is asserted.
+
+Next: finite normalization and inequality transport to the existing
+normalized cutoff-limit expectations, then thermodynamic Cauchy data and
+larger probe supports. General M-face carriers remain explicit geometric
+data. Physical transfer/vacuum, strict physical gap and continuum/QFT/
+all-group Clay remain open. No canonical atom/type/flag, analytic premise
+or hole changed.
+
+Verification: three new modules, 13+5+9=27 exactly matched focused gates
+within {propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-embedded-exterior-separation.log`,
+`/tmp/ym-bf4-exact-slab-core-distance-floor.log`,
+`/tmp/ym-bf4-exact-slab-inner-margin-boundary-decay.log`.
+
+**Preceding finite-slab increment (summed original-core budget):**
 `FiniteSizeGeometricSum.size_sum_bound` stratifies the actual finite list by
 size. Count_n<=C*D^n and weights rate^n give the rational tail budget
 C*(D*rate)^d/(1-D*rate), provided sizes>=d and 0<=D*rate<1. The finite

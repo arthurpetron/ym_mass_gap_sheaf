@@ -4058,6 +4058,12 @@ import YMGap.Continuum.BF4ExactSlabActiveCoreCount
 import YMGap.Continuum.FiniteSizeGeometricSum
 import YMGap.Continuum.BF4ExactSlabSummableCoreRate
 import YMGap.Continuum.BF4ExactSlabUniformCoreBudget
+-- Original exterior separation pays a growing inner-margin size cost.
+-- The shrinking coefficient still multiplies the two original unit moments;
+-- normalized limit transport and physical/continuum gap remain open.
+import YMGap.Continuum.BF4ExactSlabEmbeddedExteriorSeparation
+import YMGap.Continuum.BF4ExactSlabCoreDistanceFloor
+import YMGap.Continuum.BF4ExactSlabInnerMarginBoundaryDecay
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

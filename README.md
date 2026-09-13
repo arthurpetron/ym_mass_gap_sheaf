@@ -369,11 +369,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> ORIGINAL D_K bounded by
                                   |           2*c*A*C*s/(1-s) times
                                   |           its two unit moments [PROVED]
-                                  |        + distance-growing size
-                                  |          floor d                [NEXT OPEN]
-                                  |      + quantitative control of
-                                  |          NORMALIZED response    [OPEN]
-                                  |      + padding limit and genuine
+                                  |        + grow INNER margin around
+                                  |          a fixed base probe
+                                  |        -> original exterior
+                                  |           distance >= margin    [PROVED]
+                                  |        -> core size >= margin+1-M
+                                  |           singleton: >= margin  [PROVED]
+                                  |        -> ORIGINAL D_K bounded by
+                                  |           2*c*amplitude*s^margin
+                                  |           times its unit moments[PROVED]
+                                  |           singleton; w=1/1024
+                                  |           ANY outer padding
+                                  |      + transport to NORMALIZED
+                                  |        cutoff-limit expectations[NEXT OPEN]
+                                  |      + thermodynamic limit and
                                   |        time homogeneity         [OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
@@ -425,7 +434,48 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the original weighted core sum has a volume-independent budget.**
+**Latest result: a shrinking inner-margin coefficient for the original boundary comparison.**
+[`shifted_base_exterior_linf_floor`](lean/YMGap/Continuum/BF4ExactSlabEmbeddedExteriorSeparation.lean)
+proves separation from the ORIGINAL embedded smaller-slab exterior. The
+smaller slab has half-size `base+margin`; arbitrary outer `padding` embeds it
+into the comparison slab. A fixed physical base face is shifted by
+`margin+padding`. Every original exterior face is at distance at least
+`margin`. The embedded-face preimage is computed, not assumed.
+
+[`protected_root_core_size_floor`](lean/YMGap/Continuum/BF4ExactSlabCoreDistanceFloor.lean)
+uses the existing animal decoder to force `|core| >= margin+1-M` (natural
+subtraction), where `M` is the connected carrier's size. For the constructed
+single-plaquette carrier this is `|core| >= margin`.
+
+[`singlePlaquette_boundary_geometric_bound`](lean/YMGap/Continuum/BF4ExactSlabInnerMarginBoundaryDecay.lean)
+substitutes that size floor into the original weighted sum, giving
+`|D_K| <= 2*c*amplitude(w)*s(w)^margin*Z_full,K*Z_inside,K` at every cutoff.
+Here `amplitude(w)=A(w,4)*1250/(1-s(w))` and `s(w)=625*rho(w)` are explicit
+rational data, with no cutoff, base-size, position, margin or outer-padding
+parameter. `existingNome_singlePlaquette_boundary_bound` supplies all
+coupling guards at `w=1/1024`, where `0<s<1`. The observable's interval
+bound `c` and literal single-plaquette locality remain explicit hypotheses.
+
+**Parameter correction:** decay is in the INNER margin, growing the smaller
+slab around a fixed probe, uniformly in further OUTER padding. Increasing
+outer padding at fixed smaller slab does not move that slab's boundary
+away from its probe. This is not a beta- or spacing-uniform estimate.
+
+**Next:** finite normalization and transport to the existing normalized
+cutoff-limit expectations. The theorem still multiplies by the two original
+unit moments: a shrinking comparison coefficient does not assert that the
+raw determinant tends to zero. Thermodynamic Cauchy data, general probe
+construction, physical transfer/vacuum, strict physical gap and continuum/
+QFT/all-group Clay remain open.
+
+Three new modules: 13+5+9=27 exactly matched focused axiom gates within
+`{propext, Quot.sound}`, final error/warning free, source/direct-import
+artifacts fresh. The safe-build skill kept verification to one monitored
+worker and the mandatory 20 GiB ceiling. No new hole, analytic premise,
+raised limit or canonical frontier change; no full build/audit/guard/progress
+run. Root imports updated, not rebuilt.
+
+**Preceding result: the original weighted core sum has a volume-independent budget.**
 [`size_sum_bound`](lean/YMGap/Continuum/FiniteSizeGeometricSum.lean)
 groups the finite source by its actual sizes. A count `count_n<=C*D^n`
 and weights `rate^n` give the explicit rational budget
@@ -446,12 +496,13 @@ pilot. The coefficient has no extent, volume or cutoff parameter; its probe
 and coupling dependence remains explicit. General connected probe carriers
 are supplied geometric data; the singleton carrier is already constructed.
 
-**Next:** prove a distance-growing lower bound on core size. The proved
+**Next at that checkpoint:** prove a distance-growing lower bound on core size. The proved
 `boundaryNumerator_tail_bound` already carries that size bound as the
 exponent `d`; no such distance estimate is assumed in the size-one result.
 Normalized cutoff-limit transport, padding convergence, physical transfer/
 vacuum, strict physical gap and continuum/QFT/all-group Clay remain open.
-A bounded boundary response is not a boundary-decay theorem.
+A bounded boundary response is not a boundary-decay theorem. The inner-margin
+size floor and shrinking coefficient are now proved above at the stated scope.
 
 Three new modules: 8+2+9=19 exactly matched focused axiom gates within
 `{propext, Quot.sound}`, final error/warning free, with fresh source and
@@ -480,7 +531,8 @@ For a fixed carrier, neither volume, cutoff, coupling nor the interior test
 enters this count. General probe carriers remain explicit geometric data.
 
 The weighted sum and combined-rate guard left open at that checkpoint are
-now proved above. The distance-growing size cost remains open. Normalized
+now proved above. The distance-growing size cost is now proved for protected
+roots, including the shifted single-plaquette instance. Normalized
 cutoff-limit transport, padding limits,
 physical transfer/vacuum, a strict physical gap and continuum/QFT/all-group
 Clay remain open.
@@ -511,9 +563,9 @@ controls the ORIGINAL `D_K` by
 At the existing `w=1/1024` pilot, `0<rho<1` is kernel checked using small
 power blocks. The actual rooted-core sum is **not yet bounded uniformly**.
 
-The formerly missing virtual-root/ordinary-animal bridge and faithful
-size count are now proved above. The length cost of reaching the exterior
-and the weighted sum remain open. Normalized limit transport,
+The formerly missing virtual-root/ordinary-animal bridge, faithful size
+count, weighted sum and protected-root exterior size floor are now proved
+above. Normalized limit transport,
 volume-uniform decay, physical transfer/vacuum, a strict physical gap and
 the continuum/QFT/all-group Clay target remain open. Bounds retain
 `0<=w<=1`, `heatRatio(w)<=1/2` and `delta(w)<1`.

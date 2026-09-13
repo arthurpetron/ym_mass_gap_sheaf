@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: summed original-core budget at the existing coupling (2026-09-13)
+## Current increment: original inner-margin comparison coefficient (2026-09-13)
+
+The preceding turn was PROGRESS: `d363169` proved and pushed the summed
+original-core budget. This turn is PROGRESS: its distance-dependent size
+floor is proved and consumed, giving a shrinking comparison coefficient.
+
+`BF4ExactSlabEmbeddedExteriorSeparation.embeddedFacePreimage` computes the
+literal source identifier. `shifted_base_exterior_linf_floor` proves the
+ORIGINAL exterior is at distance>=margin from a shifted fixed physical
+base face. The smaller slab's half-size is base+margin; further outer
+padding is arbitrary. This is decay in INNER margin, not in outer padding
+at fixed smaller slab. The distinction corrects the earlier roadmap wording.
+
+`BF4ExactSlabCoreDistanceFloor.rootedAnimal_linf_size_floor` uses the
+existing faithful decoder's diameter bound, without another graph compiler.
+`protected_root_core_size_floor` gives |core|>=margin+1-M, with Nat
+subtraction. For the constructed singleton carrier, |core|>=margin.
+
+`BF4ExactSlabInnerMarginBoundaryDecay.singlePlaquette_boundary_geometric_bound`
+then proves the original |D_K|<=2*c*amplitude(w)*s(w)^margin*F_K(1)*I_K(1).
+Here amplitude=A(w,4)*1250/(1-s), s=625*rho. The amplitude/rate name
+coupling, not cutoff, base size, position, margin or outer padding.
+`existingNome_singlePlaquette_boundary_bound` supplies all coupling guards
+at w=1/1024; 0<s<1 is proved. Interval boundedness and literal locality of
+the same observable remain explicit. General carriers remain geometric
+input data; the single-plaquette carrier is fully constructed.
+
+Next: finite normalization and transport to normalized cutoff-limit
+expectations. Both original unit moments still multiply the estimate; no
+raw determinant convergence is asserted. Thermodynamic Cauchy data,
+physical transfer/vacuum, strict physical gap and continuum/QFT/all-group
+Clay remain open. No beta/spacing-uniform claim, canonical atom/type/flag
+change, new analytic premise or hole.
+
+Three new modules: 13+5+9=27 exactly matched focused gates within
+{propext, Quot.sound}, final error/warning free; source/direct-import
+artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+raised limit or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-embedded-exterior-separation.log`,
+`/tmp/ym-bf4-exact-slab-core-distance-floor.log`,
+`/tmp/ym-bf4-exact-slab-inner-margin-boundary-decay.log`.
+
+## Previous increment: summed original-core budget at the existing coupling (2026-09-13)
 
 The preceding turn was PROGRESS: `cdad8b9` proved and pushed the faithful
 original-core size count. This turn is PROGRESS: the actual weighted sum

@@ -13,7 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original weighted-core sum; OPEN distance-growing size floor and normalized limit transport (2026-09-13)
+## CLOSED original inner-margin comparison coefficient; OPEN normalized limit transport (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabEmbeddedExteriorSeparation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCoreDistanceFloor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabInnerMarginBoundaryDecay.lean`.
+- **constructed original geometry**: `embeddedFacePreimage` computes the
+  source face and its exact translated physical face-ID pin.
+  `shifted_base_exterior_linf_floor` proves distance>=margin from the
+  ORIGINAL exterior for a fixed base face shifted by margin+padding.
+  Smaller-slab half-size is base+margin; additional outer padding is arbitrary.
+- **constructed size cost**: `rootedAnimal_linf_size_floor` reuses the
+  existing faithful animal decoder's diameter bound.
+  `protected_root_core_size_floor` proves |core|>=margin+1-M (Nat
+  subtraction). For the constructed singleton carrier, |core|>=margin.
+- **constructed original consumer**: `singlePlaquetteAmplitude` returns
+  A(w,4)*1250/(1-s(w)) as rational data; s=625*rho.
+  `singlePlaquette_boundary_geometric_bound` proves
+  |D_K|<=2*c*amplitude*s^margin*F_K(1)*I_K(1) at every cutoff, with no
+  cutoff, base-size, position, margin or outer-padding parameter in its
+  amplitude/rate. `existingNome_singlePlaquette_boundary_bound` supplies
+  all coupling guards at w=1/1024, where 0<s<1. Interval boundedness and
+  literal locality of the SAME observable remain explicit hypotheses.
+- **remaining obligation**: finite normalization and inequality transport
+  to normalized cutoff-limit expectations, then thermodynamic Cauchy data
+  and general probe construction. Both original unit moments remain in the
+  bound: raw determinant convergence is not asserted. Decay is in INNER
+  margin, uniformly in further OUTER padding, not in outer padding at fixed
+  smaller slab. No beta/spacing-uniform result. General M-face carriers
+  remain geometric Type data; the singleton carrier is constructed.
+  Physical transfer/vacuum, strict gap and continuum/QFT/all-group Clay
+  remain open. The preceding distance-floor residue is closed at the
+  protected-root/shifted-base scope. No canonical atom/type/flag, analytic
+  premise or hole changed.
+- **verification**: 13+5+9=27 exactly matched focused gates within
+  {propext, Quot.sound}, final error/warning free; source/direct-import
+  artifacts fresh. One monitored worker, mandatory 20 GiB ceiling; no oracle,
+  raised limit or full build/audit/guard/progress run. Root imports updated,
+  not rebuilt. Logs: `/tmp/ym-bf4-exact-slab-embedded-exterior-separation.log`,
+  `/tmp/ym-bf4-exact-slab-core-distance-floor.log`,
+  `/tmp/ym-bf4-exact-slab-inner-margin-boundary-decay.log`.
+
+## CLOSED original weighted-core sum; OPEN distance-growing size floor and normalized limit transport at this checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/FiniteSizeGeometricSum.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSummableCoreRate.lean`,
