@@ -82,6 +82,10 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         = ORIGINAL action limit [PROVED]
                                   |      -> finite-floor criterion
                                   |         and nonzero consequence [PROVED]
+                                  |      + retained original channel
+                                  |         Z_K >= lowerHaar_K^2    [PROVED]
+                                  |      -> lower-half finite margin
+                                  |         suffices for full floor [PROVED]
                                   |      + strict positive lower bound
                                   |         for THAT action limit     [OPEN]
                                   |      -> non-nullness / physical
@@ -127,7 +131,27 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a finite exact criterion certifies non-nullness of the ORIGINAL full unit.**
+**Latest result: an ORIGINAL retained channel bounds the full interacting action.**
+[`BF4ExactSlabAllExtentRetainedVacuumChannel.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentRetainedVacuumChannel.lean)
+proves `Z_K >= lowerActionValue_K^2` at every finite cutoff, odd slab and
+`w >= 0`. An explicit path retains the actual trivial-representation interface
+channel, whose weight is one; other nonnegative square channels are discarded.
+The lower-half Haar integral keeps its full spatial interactions and shared links.
+
+[`BF4ExactSlabAllExtentLowerActionFloor.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentLowerActionFloor.lean)
+uses the lower-product tail modulus: if one tail-certified anchor has absolute
+integral at least `b + epsilon`, with `b > 0`, then the full original action
+limit is at least `b^2`. Either sign of that lower amplitude is allowed.
+This constructs the existing full-action certificate and proves the actual
+completed full unit nonzero, given those finite lower-half data.
+
+**The required family of lower-half margins remains open.** No universal
+positivity, normalization, stationary physical vacuum, strict gap or
+continuum/Clay result is claimed. Three focused monitored checks passed:
+35 axiom gates within `{propext, Quot.sound}`, no new sorry. No large
+certificate computation or full-tree build/audit/guard was run.
+
+**Preceding result: a finite exact criterion certifies non-nullness of the ORIGINAL full unit.**
 [`BF4ExactSlabAllExtentActionFloorCertificate.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentActionFloorCertificate.lean)
 supplies a proof-producing finite check: `epsilon > 0`, `b > 0`, a cutoff
 beyond the original tail modulus, and `b + epsilon <= Z_K` for the ORIGINAL

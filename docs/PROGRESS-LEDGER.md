@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite original-action criterion certifies completed non-nullness (2026-09-12)
+## Current increment: retained original channel and lower-half floor producer (2026-09-12)
+
+PROGRESS: `ReflectedSquareTreeRetainedChannel.Leaf.value_le` bounds a
+nonnegative weighted square sum from below by an explicitly retained leaf.
+The path, weight and polynomial are Type-level data; product transport keeps
+shared variables. `UnitLeaf.observable_square_le` retains the observable's
+own Haar square using a weight-one, coefficientwise-unit channel.
+
+`BF4ExactSlabAllExtentRetainedVacuumChannel.interfaceUnit` constructs the
+actual all-trivial path through the original heat expansions, using the
+literal zero-degree tensor column and original coefficient one.
+`finiteForm_lower_square` is an estimate on the SAME signed quadratic.
+`fullAction_lower_square` gives Z_K >= lowerActionValue_K^2 for every finite
+K, odd slab and w >= 0, not merely generic positivity of an assumed expansion.
+
+`BF4ExactSlabAllExtentLowerActionFloor.lowerAction_abs_floor` keeps a finite
+lower-half amplitude away from zero once its absolute value clears the
+original product-tail budget. `fullActionLimit_floor_from_lower` proves the
+SAME full-action floor b^2 with an explicit eventual approximation threshold.
+`actionFloorFromLowerAnchor` produces the existing full-action certificate;
+`completedHeatUnit_ne_zero_from_lower` gives actual completed non-nullness.
+Either sign of the retained amplitude is allowed, and all internal lower-half
+interactions remain in the exact integral.
+
+Next: produce the required family of finite lower-half margins or an original
+nonvanishing estimate yielding them. No such universal producer is supplied;
+the square estimate alone is not strict positivity. Full-unit normalization,
+physical realization, compatible slabs, transfer/stationary vacuum, strict
+completed gap, volume/spacing/QFT and all-group Clay remain open. No canonical
+atom/type changed; refuted law identity unused; no uniform spectral claim.
+
+Three focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs, final dependency chain refreshed after import cleanup:
+20 + 8 + 7 = 35 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-reflected-square-retained-channel.log`,
+`/tmp/ym-all-extent-retained-vacuum-channel.log`, `/tmp/ym-all-extent-lower-action-floor.log`.
+Proof-dependent list rewriting was resolved by a proved square-tree equality;
+namespace references fixed without raised proof limits. No new sorry,
+pointwise positivity/JTP premise, numerical oracle or pilot constant.
+No large certificate computation or full build/audit/guard/progress run.
+
+## Previous increment: finite original-action criterion certifies completed non-nullness (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentActionFloorCertificate.fullActionLimit_approx_close`
 pins each tail-certified finite integral to the actual limit approximations.

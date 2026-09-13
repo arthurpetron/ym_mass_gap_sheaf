@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (finite floor criterion and SAME completed-unit non-nullness):**
+**Latest larger-slab progress (retained original channel and lower-half floor producer):**
+`ReflectedSquareTreeRetainedChannel.Leaf` is Type-level path data in the actual
+square tree, with computable weight/channel projections. Scaling and products
+transport those paths without dropping shared variables. `Leaf.value_le`
+bounds the full nonnegative weighted square sum from below by the retained
+leaf. `UnitLeaf.observable_square_le` retains the supplied observable's own
+Haar square when the selected channel and its weight are pinned to one.
+
+`BF4ExactSlabAllExtentRetainedVacuumChannel.gramZeroUnit`, `faceUnit` and
+`interfaceUnit` construct these paths in the ORIGINAL tensor/heat/product
+expansions. The original zero-degree heat coefficient is exactly one.
+`finiteForm_lower_square` bounds every original signed quadratic from below
+by the square of its lower observable's Haar integral.
+`fullAction_lower_square` specializes this to the actual all-label full unit:
+`lowerActionValue w K half ^ 2 <= fullActionValue w K half`, all finite K,
+odd slabs and w >= 0. Internal lower-half interactions are not factored away.
+
+`BF4ExactSlabAllExtentLowerActionFloor.lowerActionCutoff` is the original
+lower-product modulus. `lowerAction_abs_close` and `lowerAction_abs_floor`
+allow either sign of the retained amplitude. Given one finite anchor beyond
+that modulus with `b + epsilon <= abs (lowerActionValue w anchor half)`,
+`fullAction_finite_floor_from_lower` and `fullActionLimit_floor_from_lower`
+give the original full-action floor b^2. `actionFloorFromLowerAnchor`
+constructs the EXISTING finite-action certificate; `completedHeatUnit_ne_zero_from_lower`
+reaches the ACTUAL completed unit via the proved norm/action pin.
+
+Next residue: successful lower-half margins, or a nonvanishing estimate
+producing them, across the required rational `0<w<1` and slab family.
+The square estimate alone does not establish strict positivity, and the
+lower-half action still contains interacting plaquettes. No successful
+universal family is constructed here. Normalization, physical realization,
+compatible slabs, geometric transfer/stationary vacuum, strict completed gap,
+volume/spacing/QFT and all-group Clay remain open. No canonical atom/type
+changed; no refuted law identity or uniform spectral estimate used.
+
+Verification: three focused monitored one-worker 20 GiB checks with current
+`.olean` outputs, final dependency chain refreshed after import cleanup;
+20 + 8 + 7 = 35 gates within `{propext, Quot.sound}`, final error/warning free.
+Logs `/tmp/ym-reflected-square-retained-channel.log`,
+`/tmp/ym-all-extent-retained-vacuum-channel.log`, `/tmp/ym-all-extent-lower-action-floor.log`.
+A proof-dependent list rewrite was replaced by a proved equality of its
+underlying square trees; namespace references corrected without raised proof
+limits. No new sorry, pointwise positivity/JTP input, numerical oracle or pilot
+constant. No large certificate computation or full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (finite floor criterion and SAME completed-unit non-nullness):**
 `BF4ExactSlabAllExtentActionFloorCertificate.actionCutoff` specializes the
 original full-product modulus. `fullActionLimit_approx_close` retains explicit
 finite-anchor AND representative-index thresholds; `fullActionLimit_finite_floor`

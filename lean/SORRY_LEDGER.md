@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Retained original channel and lower-half floor producer (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreeRetainedChannel.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentRetainedVacuumChannel.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentLowerActionFloor.lean`.
+- **discharged**: Type-level retained leaf paths, weight/channel projections,
+  scale/product path transport and `Leaf.value_le`. `UnitLeaf.observable_square_le`
+  keeps the original observable's Haar square. `gramZeroUnit`, `faceUnit`
+  and `interfaceUnit` construct the actual weight-one trivial interface path.
+  `finiteForm_lower_square` applies to arbitrary signed original boundary data;
+  `fullAction_lower_square` proves Z_K >= lowerActionValue_K^2 at all finite
+  cutoffs, odd slabs and w >= 0. `lowerActionCutoff` and the absolute-amplitude
+  Cauchy bounds turn a finite lower-half margin into an eventual magnitude
+  floor. `fullActionLimit_floor_from_lower` gives the original action floor
+  b^2; `actionFloorFromLowerAnchor` builds the existing finite-action certificate;
+  `completedHeatUnit_ne_zero_from_lower` proves ACTUAL completed non-nullness
+  given those finite lower-half data. No internal interactions are discarded.
+- **OPEN input**: finite lower-half anchor, positive epsilon and b, the explicit
+  tail-cutoff inequality and `b + epsilon <= abs (lowerActionValue w anchor half)`,
+  produced throughout the required coupling/slab family. No universal successful
+  family is constructed; the retained square alone is not a positive floor.
+  Unconditional full-unit non-nullness/normalization, physical unit/vacuum
+  realization, compatible slabs, transfer and stationarity, strict completed
+  gap, volume/spacing/QFT and all-group Clay remain open. No canonical frontier
+  atom/type changed; refuted law identity unused; no uniform spectral estimate.
+- **verification**: three focused monitored one-worker 20 GiB checks with
+  current `.olean` outputs, final dependency chain refreshed after import cleanup.
+  20 + 8 + 7 = 35 gates within `{propext, Quot.sound}`, final error/warning free.
+  Logs `/tmp/ym-reflected-square-retained-channel.log`,
+  `/tmp/ym-all-extent-retained-vacuum-channel.log`, `/tmp/ym-all-extent-lower-action-floor.log`.
+  A proof-dependent list rewrite was replaced by a proved square-tree equality;
+  namespace references fixed without raised proof limits. No new sorry,
+  pointwise positivity/JTP input, numerical oracle or pilot constant.
+  No large certificate computation or full build/audit/guard/progress run.
+
 ## Finite original-action floor and completed non-nullness criterion (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentActionFloorCertificate.lean`,
