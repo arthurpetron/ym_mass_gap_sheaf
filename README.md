@@ -486,12 +486,22 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> normalized off-center
                                   |           expectation comparison[PROVED]
                                   |        + shifted-expression producer
-                                  |          and limit comparison   [NEXT OPEN]
-                                  |        -> original time invariance[OPEN]
-                                  |      + ORIGINAL reflected
-                                  |        time-balance identity     [OPEN]
-                                  |      + semantic/OS-null descent
-                                  |        and norm-relative control [OPEN]
+                                  |          and limit comparison   [PROVED]
+                                  |        -> ORIGINAL spacetime-law
+                                  |           time invariance       [PROVED]
+                                  |        + literal reflected-product
+                                  |          coordinate identity    [PROVED]
+                                  |        -> reflected time balance
+                                  |           + same-object sum-lag
+                                  |             covariance identity [PROVED]
+                                  |        + linearity and positivity
+                                  |        -> OS-null preservation  [PROVED]
+                                  |        -> time semigroup on the
+                                  |           EXISTING dense OS space
+                                  |           symmetric, linear,
+                                  |           unit/mean preserving  [PROVED]
+                                  |      + norm-relative boundedness
+                                  |        and completed extension  [NEXT OPEN]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -542,7 +552,43 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: off-center comparisons now retain the original interacting law and its normalization.**
+**Latest result: original time invariance and a well-defined dense OS time semigroup.**
+The [shifted probe](lean/YMGap/Continuum/BF4ExactSlabOffsetProbeCarrier.lean)
+and [spacetime expression](lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeExpression.lean)
+supply every observable/geometric premise of the original comparison.
+[`difference_bound`](lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeDecay.lean)
+retains the original support size; its shrinking coefficient is independent
+of outer padding and time offset.
+[`meanLimit_embed`](lean/YMGap/Continuum/BF4ExactSlabSpacetimeTimeInvariance.lean)
+proves equality of the two existing ORIGINAL thermodynamic limits, using
+the original expression's explicit volume modulus.
+
+A [literal reflected-product identity](lean/YMGap/Continuum/BF4ExactSlabSpacetimeReflectedTimeGeometry.lean)
+then gives [`one_step_balance`, `time_sum`, `timeCovariance_sum`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeBalance.lean)
+on the SAME completed-state family: its two-time covariance equals its
+sum-lag row, and the original mean is time invariant.
+[`timeState_of_zero`, `denseTime`, `denseTime_completed_pin`](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseTime.lean)
+prove null preservation and construct the actual time semigroup on the
+EXISTING original OS null quotient. It is linear and symmetric, fixes the
+unit and preserves the original mean. No contraction premise is used.
+
+**Next:** prove an OS-norm-relative bound and extend this dense operator to
+the completion. The existing bounded-midpoint lemma requires pointwise
+bounds; the current lag-uniform size bounds are eventual, so its premises
+must first be constructed or its eventual-bound variant proved. A dense
+symmetric operator is not yet a bounded completed operator or a strict gap.
+Nonzero thermodynamic excitations, physical vacuum isolation, full required
+observables/completeness and continuum/QFT/all-group Clay remain open.
+The concrete law remains at nome `w=1/1024` and fixed lattice spacing.
+
+Seven new modules: 64 exactly matched focused axiom gates within
+`{propext, Quot.sound}`; final logs error/warning free and own/direct-import
+artifacts fresh. The safe-build procedure used one monitored worker and the
+mandatory 20 GiB ceiling. No new hole, analytic premise, raised limit or
+canonical frontier change. Root imports updated, not rebuilt; no full
+build/audit/guard/progress run. GitHub Actions remains disabled.
+
+**Preceding result: off-center comparisons retain the original interacting law and its normalization.**
 [`Placement.embedding`, `Placement.haar`](lean/YMGap/Continuum/BF4ExactSlabOffsetHaarEmbedding.lean)
 construct the actual link map for every allowed time offset.
 [`interiorMoment_small`, `interiorPartition_small`](lean/YMGap/Continuum/BF4ExactSlabOffsetInteriorHaarPin.lean)
@@ -556,7 +602,7 @@ The resulting bound names the coupling, observable interval, probe and
 margin; its coefficient does not depend on the outer padding or time offset.
 It is boundary sensitivity, **not** time decay or a spectral gap.
 
-**Next:** construct the shifted-expression inputs to this estimate and
+**Next at that checkpoint:** construct the shifted-expression inputs to this estimate and
 compare their original thermodynamic limits to establish time invariance,
 then reflected one-step balance. These identities are not assumed or proved
 by the new comparison theorem. Completed time-operator descent, strict gap,

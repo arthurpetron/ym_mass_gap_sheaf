@@ -4,7 +4,60 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original off-center geometry, boundary decay and normalized comparison (2026-09-13)
+## Current increment: original time invariance, reflected balance and dense OS time semigroup (2026-09-13)
+
+The preceding goal turn was PROGRESS: 4e21bdb committed and pushed the
+off-center original normalized comparison. This turn is PROGRESS: its
+remaining observable/probe premises are constructed, the original law is
+proved time invariant, the one-step reflected balance identity is proved,
+and actual time descends to the existing original OS null quotient.
+
+- `BF4ExactSlabOffsetProbeCarrier.shiftPath` and `shiftProbe` move the
+  actual data-bearing witnesses. The original box size is unchanged.
+- `BF4ExactSlabOffsetSpacetimeExpression.embed`, `bound_embed`,
+  `evaluate_embed_local` and `image_prefix` retain actual all-face
+  expressions and the original-support locality, bound and Haar image.
+- `BF4ExactSlabOffsetSpacetimeDecay.difference_bound` compares the SAME
+  original normalized means with all premises supplied; padding and time
+  offset do not enter its shrinking coefficient.
+- `BF4ExactSlabSpacetimeTimeInvariance.comparisonModulus` reuses the
+  original volume modulus; `meanLimit_embed` proves equality of the two
+  already-constructed interacting thermodynamic limits at fixed nome.
+- `BF4ExactSlabSpacetimeReflectedTimeGeometry.reflectedProduct_balance`
+  gives the literal one-step whole-product shift. Together with original
+  invariance, `BF4ExactSlabThermodynamicTimeBalance.one_step_balance`
+  proves B(Tp,q)=B(p,Tq) on all presentations. `time_sum` and
+  `timeCovariance_sum` give same-object sum-lag rows, while
+  `value_timeObservable` proves invariance of the original mean.
+- `BF4ExactSlabThermodynamicDenseTime.timeState_of_zero` derives null
+  preservation from B(T^t p,T^t p)=B(p,T^(2t)p) and positive definiteness,
+  not contraction. `timeState_congr`, `semanticTime_null` and `denseTime`
+  give two representative-independent quotient lifts. The existing OS
+  null quotient now carries an actual linear symmetric time semigroup,
+  with unit/mean preservation and `denseTime_completed_pin` to the SAME
+  original translated states. No new state space or physical law is chosen.
+
+Next: norm-relative boundedness and completed extension. The available
+`BoundedMidpointDoublingCReal.bounded_midpointDoubling_leEv_anchor` has
+pointwise cap/anchor premises; current original norm bounds are eventual.
+That mismatch must be proved away, not ignored. The older dyadic strict
+gap engine already assumes contraction. No strict gap, nonzero excitation,
+isolated physical vacuum, full observables/quotient completeness or
+continuum/QFT/all-group Clay follows here. Fixed w=1/1024 and spacing remain.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: seven new modules, 13+6+4+3+9+12+17=64 exactly matched
+focused gates within {propext, Quot.sound}; final error/warning-free logs;
+own/direct-import artifacts fresh. One monitored worker, mandatory 20 GiB
+ceiling; no raised limit or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs have prefix `/tmp/ym-bf4-exact-slab-` and suffixes
+`offset-probe-carrier.log`, `offset-spacetime-expression.log`,
+`offset-spacetime-decay.log`, `spacetime-time-invariance.log`,
+`spacetime-reflected-time-geometry.log`, `thermodynamic-time-balance.log`
+and `thermodynamic-dense-time.log`. GitHub Actions remained disabled before
+the milestone push.
+
+## Previous increment: original off-center geometry, boundary decay and normalized comparison (2026-09-13)
 
 The preceding goal turn was PROGRESS: 5d48bb0 committed and pushed the
 actual translated-state construction and original two-time covariance

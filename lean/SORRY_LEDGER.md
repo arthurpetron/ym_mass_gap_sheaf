@@ -13,7 +13,58 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original off-center normalized boundary comparison; OPEN original time homogeneity and reflected balance (2026-09-13)
+## CLOSED original time invariance, reflected balance and dense OS time; OPEN norm-relative bound and completed operator (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabOffsetProbeCarrier.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeExpression.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOffsetSpacetimeDecay.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpacetimeTimeInvariance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpacetimeReflectedTimeGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeBalance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseTime.lean`.
+- **constructed original-law invariance**: `shiftProbe`, `embed`,
+  `bound_embed`, `evaluate_embed_local` and `image_prefix` supply the
+  actual shifted observable/probe premises. `difference_bound` retains
+  the original support size and a coefficient independent of outer
+  padding/time offset. `comparisonModulus` is the original expression's
+  volume modulus, and `meanLimit_embed` identifies the two existing
+  interacting thermodynamic limits. No invariance field is assumed.
+- **closed reflected balance**: `reflectedProduct_balance` is the exact
+  coordinate identity; `one_step_balance` proves the original identity
+  B(timeState 1 p,timeState 0 q)=B(timeState 0 p,timeState 1 q) for all
+  presentations. `time_sum` and `timeCovariance_sum` retain the SAME
+  completed-state pairing and original centered covariance. The original
+  mean is invariant by `value_timeObservable`.
+- **closed OS-null descent**: `timeState_of_zero` uses the actual moment
+  identity and positive definiteness without a contraction hypothesis.
+  `timeState_congr` and `semanticTime_null` make `denseTime` well defined
+  on the EXISTING OS null quotient. `denseTime_completed_pin` retains
+  its original completed-state embedding. Composition, linearity,
+  symmetry and unit/mean preservation are proved. `semanticTime` has
+  codomain OS states; no stronger observable-equivalence claim is made.
+- **remaining analytic/constructive obligation**: prove an original
+  OS-norm-relative bound and use its continuity modulus to extend time
+  to the completion. `bounded_midpointDoubling_leEv_anchor` currently
+  requires pointwise orbit caps/nonnegative anchor; the available
+  original estimates are eventual, so its premises need a producer or
+  a proved eventual-bound variant. Do not reuse an assumed contraction
+  from `dyadic_geometric_first_le` to establish itself.
+- **larger open boundary**: nonzero thermodynamic excitation, strict
+  completed gap, isolated physical vacuum, full required observables and
+  quotient completeness, continuum/QFT/all-group Clay. Fixed w=1/1024
+  and spacing remain. No canonical atom/type/flag, analytic premise or
+  hole changed.
+- **verification**: seven modules, 13+6+4+3+9+12+17=64 exactly matched
+  focused gates within {propext, Quot.sound}; final error/warning-free
+  logs; own/direct-import artifacts fresh. One monitored worker,
+  mandatory 20 GiB ceiling; no raised limit or full build/audit/guard/progress
+  run. Root imports updated, not rebuilt. Log prefix `/tmp/ym-bf4-exact-slab-`;
+  suffixes `offset-probe-carrier.log`, `offset-spacetime-expression.log`,
+  `offset-spacetime-decay.log`, `spacetime-time-invariance.log`,
+  `spacetime-reflected-time-geometry.log`, `thermodynamic-time-balance.log`
+  and `thermodynamic-dense-time.log`.
+
+## CLOSED original off-center normalized boundary comparison; OPEN original time homogeneity and reflected balance at that checkpoint (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabOffsetHaarEmbedding.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabOffsetAction.lean`,

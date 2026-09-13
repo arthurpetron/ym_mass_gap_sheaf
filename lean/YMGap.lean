@@ -4130,14 +4130,15 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicCenteredDensity
 -- Literal time composition/rebasing and actual translated completed states,
 -- with original two-time covariance pins and explicit volume-error moduli.
 -- The lag-uniform cap is polynomial-size dependent, not an OS contraction.
--- Original time balance and completed physical operator descent remain open.
+-- Original time balance and dense descent are supplied below; completed
+-- norm-controlled extension remains open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeGeometry
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeAlgebra
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeStates
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeCorrelations
 -- Off-center ORIGINAL link/action transport, exterior-distance core decay,
 -- same-cutoff determinant modulus and exact original partition cancellation.
--- Shifted-expression consumers, time invariance and reflected balance remain open.
+-- Shifted-expression consumers, time invariance and reflected balance follow below.
 import YMGap.Continuum.BF4ExactSlabOffsetHaarEmbedding
 import YMGap.Continuum.BF4ExactSlabOffsetAction
 import YMGap.Continuum.BF4ExactSlabOffsetInteriorHaarPin
@@ -4145,6 +4146,17 @@ import YMGap.Continuum.BF4ExactSlabOffsetExteriorSeparation
 import YMGap.Continuum.BF4ExactSlabOffsetBoundaryDecay
 import YMGap.Continuum.BF4ExactSlabOffsetBoundaryResponse
 import YMGap.Continuum.BF4ExactSlabOffsetExpectationComparison
+-- Constructed original spacetime-law invariance, reflected balance and
+-- same-object sum-lag moments. Positivity gives null preservation without
+-- contraction, and time descends to the EXISTING dense OS null quotient.
+-- Norm-relative boundedness and completed operator extension remain open.
+import YMGap.Continuum.BF4ExactSlabOffsetProbeCarrier
+import YMGap.Continuum.BF4ExactSlabOffsetSpacetimeExpression
+import YMGap.Continuum.BF4ExactSlabOffsetSpacetimeDecay
+import YMGap.Continuum.BF4ExactSlabSpacetimeTimeInvariance
+import YMGap.Continuum.BF4ExactSlabSpacetimeReflectedTimeGeometry
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeBalance
+import YMGap.Continuum.BF4ExactSlabThermodynamicDenseTime
 import YMGap.Continuum.BF4ExactSlabPlaquetteCoordinateChannels
 import YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatBound
 import YMGap.Continuum.PolynomialProductRemainder

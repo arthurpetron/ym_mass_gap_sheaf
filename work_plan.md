@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-13)
 
-**Latest original-action increment (off-center boundary comparison with exact original normalization):**
+**Latest original-action increment (original time invariance, reflected balance and dense OS time):**
+`BF4ExactSlabOffsetProbeCarrier.shiftPath` and `shiftProbe` translate
+actual witnesses with independent spatial/time shifts.
+`BF4ExactSlabOffsetSpacetimeExpression.embed`, `bound_embed`,
+`evaluate_embed_local` and `image_prefix` retain the actual expressions,
+their original square cap, original-size box locality and same Haar map.
+`BF4ExactSlabOffsetSpacetimeDecay.difference_bound` supplies every
+premise of the original normalized comparison, with coefficient
+A(w,e)*s(w)^(margin+1-M(base)), independent of placement padding/time.
+`BF4ExactSlabSpacetimeTimeInvariance.comparisonModulus` is the ORIGINAL
+expression volume modulus; `difference_error_le` and `meanLimit_embed`
+prove equality of the two already-constructed interacting limits.
+
+`BF4ExactSlabSpacetimeReflectedTimeGeometry.reflectedProduct_balance`
+is the literal coordinate identity. The new
+`BF4ExactSlabThermodynamicTimeBalance.one_step_balance` proves
+`B(timeState 1 p,timeState 0 q)=B(timeState 0 p,timeState 1 q)` for ALL
+presentations. `time_sum` and `timeCovariance_sum` give the same-object
+sum-lag rows. `value_timeObservable` preserves the original mean.
+`BF4ExactSlabThermodynamicDenseTime.timeState_of_zero` uses
+`B(T^t p,T^t p)=B(p,T^(2t)p)` and positive definiteness; it assumes no
+contraction. `timeState_congr`, `semanticTime_null` and `denseTime`
+descend to the EXISTING OS null quotient. `denseTime_completed_pin`
+retains the actual translated-state embedding. Composition, rational
+linearity, symmetry, unit/mean preservation and moment identities hold.
+`semanticTime` maps observables to OS states, not to a new claim of
+state-independent semantic equality of translated observables.
+
+Next: original OS-norm-relative boundedness, then a modulus-continuous
+extension of `denseTime` to the completion. The existing
+`BoundedMidpointDoublingCReal.bounded_midpointDoubling_leEv_anchor`
+requires pointwise rational orbit caps and pointwise nonnegative anchor;
+the available original size/norm bounds are eventual. Construct those
+premises or prove the eventual-bound variant before applying it. Do not
+use the older strict dyadic engine's assumed contraction to prove itself.
+Nonzero thermodynamic excitations, strict gap, vacuum isolation, full
+required observables/quotient completeness and continuum/QFT/all-group
+Clay remain open. The law remains w=1/1024 at fixed spacing. No canonical
+atom/type/flag, analytic premise or hole changed.
+
+Verification: seven new modules, 13+6+4+3+9+12+17=64 exactly matched
+focused gates within {propext, Quot.sound}; final error/warning-free logs;
+own/direct-import artifacts fresh. One monitored worker, mandatory 20 GiB
+ceiling; no raised limit or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs have prefix `/tmp/ym-bf4-exact-slab-` and suffixes
+`offset-probe-carrier.log`, `offset-spacetime-expression.log`,
+`offset-spacetime-decay.log`, `spacetime-time-invariance.log`,
+`spacetime-reflected-time-geometry.log`, `thermodynamic-time-balance.log`
+and `thermodynamic-dense-time.log`.
+
+**Preceding original-action increment (off-center boundary comparison with exact original normalization):**
 `BF4ExactSlabOffsetHaarEmbedding.Placement` is geometric data: source
 half-size, outer padding and a time offset bounded by twice the padding.
 `Placement.embedding` constructs the actual injective link map;
