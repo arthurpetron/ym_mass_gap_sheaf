@@ -76,6 +76,12 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |         + explicit modulus      [PROVED]
                                   |      -> completed full unit     [PROVED]
                                   |         for each 0<w<1, odd slab
+                                  |      + full action-integral limit
+                                  |      + vanishing interface error[PROVED]
+                                  |      -> completed squared norm
+                                  |         = ORIGINAL action limit [PROVED]
+                                  |      + strict positive lower bound
+                                  |         for THAT action limit     [OPEN]
                                   |      -> non-nullness / physical
                                   |         vacuum identification    [OPEN]
                                   +<-- larger-slab compatibility      [OPEN]
@@ -119,7 +125,27 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: the growing full heat unit is GNS-Cauchy in the ORIGINAL slab space.**
+**Latest result: the completed full unit's squared norm is the ORIGINAL action integral.**
+[`BF4ExactSlabAllExtentActionLimit.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentActionLimit.lean)
+constructs the full interacting action-integral limit with an explicit Cauchy
+modulus, for every rational `0<w<1` and odd slab. Its nonnegativity follows
+from the original reflection-positive quadratic, not a decoupled model.
+[`BF4ExactSlabAllExtentHeatUnitActionComparison.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitActionComparison.lean)
+bounds the discrepancy between the code norm's computed interface cutoff
+and the equal-cutoff action integral. The original boundary product bounds
+rescale an explicit interface-remainder modulus.
+[`BF4ExactSlabAllExtentHeatUnitNormAction.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitNormAction.lean)
+then proves `completedHeatUnit_norm_action` by constructive limit uniqueness.
+
+The normalization question is now pinned to this SAME action integral.
+A strictly positive lower bound is still open; nonnegativity alone does not
+give non-nullness. Physical unit/vacuum identification, compatible slabs,
+time/transfer, strict gap and continuum/Clay remain open. All moduli retain
+`w` and slab dependence. Three focused monitored checks passed: 29 axiom
+gates within `{propext, Quot.sound}`, no new sorry or analytic premise.
+No full-tree build/audit/guard was run.
+
+**Preceding result: the growing full heat unit is GNS-Cauchy in the ORIGINAL slab space.**
 [`BF4ExactSlabAllExtentHeatUnitCauchy.lean`](lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitCauchy.lean)
 constructs the actual all-label sequence, its explicit squared-distance
 modulus, and its class in each original slab completion, for rational

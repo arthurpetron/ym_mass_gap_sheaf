@@ -18,7 +18,46 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current BF4 conditional gap and physical-identification frontier (2026-09-12)
 
-**Latest larger-slab progress (actual full-unit Cauchy witness and completion class):**
+**Latest larger-slab progress (completed full-unit norm = ORIGINAL action-integral limit):**
+`BF4ExactSlabAllExtentActionLimit.heatProductHaarCauchy` applies the explicit
+original product-remainder modulus on the shared quaternion carrier.
+`fullActionLimit` constructs the full original slab action-integral CReal;
+`fullActionValue_nonnegative` and `fullActionLimit_nonnegative` follow from
+the ORIGINAL reflection-positive full-unit quadratic. No pointwise heat
+positivity or decoupled partition premise enters this construction.
+
+`BF4ExactSlabAllExtentHeatUnitActionComparison.heatUnitNormAction_append`
+retains the difference between the common-form norm's interface stage and
+the equal-cutoff full action integral. `unitNormActionModulus` budgets the
+interface remainder at epsilon/(boundaryNormProduct+1), using the original
+cutoff-independent lower/upper product bounds. `heatUnitNormAction_close`
+proves the two-sided error estimate on these SAME quantities.
+
+`BF4ExactSlabAllExtentHeatUnitNormAction.heatUnitNorm_converges` uses the
+actual completed unit's representative inner-product sequence.
+`heatUnitNormRepresentative_eq_action` applies constructive limit uniqueness;
+`completedHeatUnit_norm_action` pins the ACTUAL original completed squared
+norm to the independently constructed full action-integral limit.
+All three moduli remain explicit data; rational `0<w<1` and odd extent are
+parameters, not a spacing-uniform estimate.
+
+Next residue: a strictly positive lower bound for THIS action integral, then
+full-unit non-nullness/normalization and physical interpretation. The inspected
+`SU2PointwiseHeatPositiveCompletion.pointwiseHeatCReal_geRat_zero_of_diffJTP`
+still requires `JTPIdentity.DiffJTP` and gives nonnegativity; the decoupled
+`PartitionPos.partitionFunction_pos` does not identify this interacting integral.
+Neither discharges the residue. Compatible slab maps, physical transfer and
+stationary vacuum, strict completed gap, volume/spacing/QFT and all-group Clay
+remain open. No canonical atom/type changed and no refuted law identity used.
+
+Verification: three focused monitored one-worker 20 GiB checks with current
+`.olean` outputs; 12 + 11 + 6 = 29 gates within `{propext, Quot.sound}`, final
+error/warning free. Logs `/tmp/ym-all-extent-action-limit.log`,
+`/tmp/ym-all-extent-heat-unit-action-comparison.log`,
+`/tmp/ym-all-extent-heat-unit-norm-action.log`. No new sorry, analytic premise,
+raised proof limit, numerical oracle or pilot constant. No full build/audit/guard/progress run.
+
+**Preceding larger-slab progress (actual full-unit Cauchy witness and completion class):**
 `BF4ExactSlabAllExtentFaceHeatBound.faceHeat_coefficientL1_bound` computes
 a bound for every representation cutoff at fixed w, extent and face.
 `PolynomialProductRemainder.polynomialProduct_remainder` constructs the

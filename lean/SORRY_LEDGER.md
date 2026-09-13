@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Completed full-unit norm = original action-integral limit (2026-09-12)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentActionLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitActionComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllExtentHeatUnitNormAction.lean`.
+- **discharged**: `heatProductHaarCauchy` supplies the computed original
+  product-integral Cauchy modulus; `fullActionLimit` constructs the full original
+  action-integral CReal. `fullActionValue_nonnegative` and
+  `fullActionLimit_nonnegative` use original reflection positivity.
+  `heatUnitNormAction_append` is the exact original interface-remainder
+  discrepancy; `unitNormActionModulus` rescales its tolerance by the original
+  boundary product bounds; `heatUnitNormAction_close` proves the two-sided
+  estimate. `heatUnitNormRepresentative_eq_action` identifies the two CReal
+  limits; `completedHeatUnit_norm_action` pins the ACTUAL completed squared
+  norm to the original interacting action integral.
+- **OPEN residue**: strict positive lower bound for this SAME action integral,
+  full-unit non-nullness/normalization and physical identification, compatible
+  inter-slab observable/Gram maps, geometric transfer, stationary physical
+  vacuum, strict completed gap, volume/spacing/QFT and all-group Clay. The
+  inspected `SU2PointwiseHeatPositiveCompletion.pointwiseHeatCReal_geRat_zero_of_diffJTP`
+  depends on open `JTPIdentity.DiffJTP` and only gives nonnegativity.
+  `PartitionPos.partitionFunction_pos` concerns decoupled weights, not this
+  interacting integral. Neither is used to discharge positivity. All new bounds
+  retain rational `0<w<1` and slab dependence; no beta/spacing-uniform spectral
+  estimate. No canonical atom/type changed, no refuted law identity used,
+  no new sorry or analytic premise, and no independence assumption.
+- **verification**: three focused monitored one-worker 20 GiB checks with
+  current `.olean` outputs; 12 + 11 + 6 = 29 gates within `{propext, Quot.sound}`,
+  final error/warning free. Logs `/tmp/ym-all-extent-action-limit.log`,
+  `/tmp/ym-all-extent-heat-unit-action-comparison.log`,
+  `/tmp/ym-all-extent-heat-unit-norm-action.log`. No raised proof limit,
+  numerical oracle or pilot constant. No full build/audit/guard/progress run.
+
 ## Actual growing full unit in the original GNS completion (2026-09-12)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllExtentFaceHeatBound.lean`,

@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual growing full unit in the original GNS completion (2026-09-12)
+## Current increment: completed full-unit norm = original action-integral limit (2026-09-12)
+
+PROGRESS: `BF4ExactSlabAllExtentActionLimit.heatProductHaarCauchy` gives a
+computed modulus for the original shared-variable product integrals.
+`fullActionLimit` constructs the actual full slab action-integral CReal.
+Its finite and limit nonnegativity come from the ORIGINAL reflection-positive
+full-unit quadratic, without a pointwise positivity or decoupled partition input.
+
+`BF4ExactSlabAllExtentHeatUnitActionComparison.heatUnitNormAction_append`
+identifies the exact interface-cutoff discrepancy between each code's common
+norm and the equal-cutoff action integral. `unitNormActionModulus` resizes the
+interface tolerance using the original boundary product bounds;
+`heatUnitNormAction_close` proves its two-sided guarantee.
+
+`BF4ExactSlabAllExtentHeatUnitNormAction.heatUnitNormRepresentative_eq_action`
+uses constructive limit uniqueness for the actual completed norm and the
+independently constructed action integral. `completedHeatUnit_norm_action`
+gives equality in the EXISTING original completed inner product. The original
+law and both moving boundary anchors are retained; no finite equality at
+different interface cutoffs is assumed.
+
+Next: strict positive lower bound for THIS action integral and full-unit
+non-nullness/normalization. Inspected general-nome pointwise heat positivity
+still requires `JTPIdentity.DiffJTP` and supplies only nonnegativity; the existing
+decoupled partition theorem is not a pin to this interacting integral.
+Physical interpretation, slab compatibility, transfer/stationary vacuum,
+strict completed gap, volume/spacing/QFT and all-group Clay remain open.
+The fixed-w/slab moduli are not spacing-uniform spectral estimates.
+Canonical atoms/types unchanged; refuted signed/positive-law identity unused.
+
+Three focused monitored one-worker 20 GiB checks passed with current `.olean`
+outputs: 12 + 11 + 6 = 29 gates within `{propext, Quot.sound}`, final error/warning
+free. Logs `/tmp/ym-all-extent-action-limit.log`,
+`/tmp/ym-all-extent-heat-unit-action-comparison.log`,
+`/tmp/ym-all-extent-heat-unit-norm-action.log`. No new sorry, analytic premise,
+raised proof limit, numerical oracle or pilot constant. No full build/audit/guard/progress run.
+
+## Previous increment: actual growing full unit in the original GNS completion (2026-09-12)
 
 PROGRESS: `BF4ExactSlabAllExtentFaceHeatBound.faceHeat_coefficientL1_bound`
 covers every cutoff at fixed w, extent and face. `PolynomialProductRemainder`
