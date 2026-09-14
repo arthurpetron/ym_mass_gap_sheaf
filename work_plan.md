@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (both cancellations on one complete original numerator):**
+**Latest local increment (all-spin leaf rejection in the original connected expansion):**
+The 2778cdc checkpoint proved the common original-numerator expansion.
+This increment strengthens its retained representation support beyond parity:
+a temporal link cannot be occupied by exactly one positive-spin face.
+
+`SU2QuaternionOrientedWordSelection.any_slot_zero` applies the existing
+solid-harmonic Haar selection at any of four distinct blocks and all sixteen
+orientations. `scalar_cyclic` rotates traced products without commuting
+quaternion factors. The arbitrary retained multiplier is independent only
+of the chosen block, and every tail variable stays in the same Haar carrier.
+`BF4ExactSlabSingleLinkCharacterSelection.original_character_link_zero`
+pins this to any actual link A/B/C/D of an original physical plaquette.
+
+`BF4ExactSlabSingletonOccupiedLink.original_insert_singleton_zero` extracts
+one face from the FULL original integrand and proves that the remaining
+factors have degree zero at its singly occupied link. Other incident faces'
+spin-zero characters are exact units. `incidentOccupied` computes actual
+positive-spin incidence; `incident_singleton_zero` consumes its singleton
+result, not an assumed independent background.
+`BF4ExactSlabShiftedProbeLeafFilter.insertion_vertical_degree_zero` supplies
+the actual spatial probes' independence for all four moments.
+`original_numerator_leaf_filter` adds this new two-replica rejection to the
+existing connected-support and odd-cut expansion, retaining both original
+heat weights and the exact vacuum subtraction, all w/K/margins/cut times.
+`retained_link_not_singleton` exposes the checker consequence for the next
+geometric proof. Even-spin leaves are rejected, not just odd-spin ones.
+
+NEXT/OPEN: prove the four-face cut obstruction from no degree-one vertices
+for the FULL positive-spin support, then use connected selected support and
+replica coverage to establish the required intervening-cut nonemptiness and
+combined area/heat-power bound. None of those global conclusions follows here.
+Surviving cycles and empty cuts remain; the signed relative remainder, sign,
+positive original response floor, accepted certificate, normalization and
+cutoff/volume persistence are still open. Full realization, continuum/QFT/
+spectral pins, other groups and Clay remain open. No new analytic premise,
+canonical atom/type/flag, frontier field or hole changed. An exact identity
+at every nome is not a coupling-uniform estimate.
+
+Verification: 10+3+4+14=31 exactly matched focused gates within
+{propext, Quot.sound}, one axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/plaquette_single_link_selection.py`
+checks 448 exact rational character moments (four slots, sixteen orientations,
+spins 0..6), and 625 cut assignments with 64 extra parity survivors rejected
+by leaf incidence. Lean proves the general claims independently.
+One monitored worker, 20 GiB ceiling; user-owned test pauses respected.
+No raised limits or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-oriented-word-selection.log`,
+`/tmp/ym-slab-single-link-character.log`, `/tmp/ym-slab-singleton-occupied-link.log`,
+`/tmp/ym-shifted-probe-leaf-filter.log`.
+
+**Preceding local increment (both cancellations on one complete original numerator):**
 The 54ae68e checkpoint proved original odd-cut rejection. This increment
 closes the common connected-selection AND representation expansion, with
 the original full action, heat weights and signed vacuum subtraction retained.

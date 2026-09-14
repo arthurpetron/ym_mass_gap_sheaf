@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED all-spin singleton-link cancellation; OPEN global support and response estimate (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionOrientedWordSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSingleLinkCharacterSelection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSingletonOccupiedLink.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeLeafFilter.lean`.
+- **closed all-spin selection**: `any_slot_zero` uses cyclic trace rotation
+  and the existing harmonic Haar selection at any of four distinct links,
+  all orientations and positive spins. `original_character_link_zero` pins
+  this to the original physical plaquette, with its actual ordered word.
+- **closed full-action application**: `original_insert_singleton_zero`
+  retains every original face, deriving independence at the selected link
+  from the other incident spin-zero factors. `incident_singleton_zero`
+  consumes computed positive-spin incidence on the full physical face list.
+- **closed connected filter**: `insertion_vertical_degree_zero` discharges
+  the actual probes' selected-link independence for all four moments.
+  `original_numerator_leaf_filter` retains the exact original heat weights,
+  four-moment subtraction and connected-support/odd-cut filters while
+  deleting both replicas' temporal leaves, including even-spin leaves.
+  `retained_link_not_singleton` gives the local incidence consequence.
+- **open residue**: global positive-support cut geometry, intervening-cut
+  nonemptiness from connected coverage, combined area/heat-power bound,
+  surviving signs and signed relative remainder. Cycles and empty cuts
+  remain. No positive response floor, accepted certificate, normalization/
+  cutoff/volume persistence or continuum/Clay closure follows. All-nome
+  cancellation is not a uniform gap estimate. No hole, analytic premise,
+  canonical atom/type/flag or frontier field changed.
+- **verification**: 31 exactly matched focused gates, one axiom-free, all
+  within {propext, Quot.sound}; clean final logs, fresh own/direct-import
+  artifacts and a passing capped exact pilot. One monitored worker,
+  20 GiB ceiling; user-owned test pauses respected. No raised limits or full
+  build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
 ## CLOSED common original-numerator expansion; OPEN surviving-pair classification and estimate (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellings.lean`,

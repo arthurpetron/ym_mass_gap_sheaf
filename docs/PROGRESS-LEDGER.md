@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: joint cancellation on the full original numerator (2026-09-14)
+## Current increment: all-spin leaves removed from the original numerator (2026-09-14)
+
+The preceding checkpoint 2778cdc was PROGRESS: the common exact expansion.
+This increment is PROGRESS by proving and integrating a strictly stronger
+all-positive-spin zero-term test on that same original object.
+
+- `SU2QuaternionOrientedWordSelection.any_slot_zero` preserves ordered
+  quaternion products under cyclic trace rotation and exposes any link.
+- `BF4ExactSlabSingleLinkCharacterSelection.original_character_link_zero`
+  pins the all-spin result to any actual physical plaquette link.
+- `BF4ExactSlabSingletonOccupiedLink.original_insert_singleton_zero`
+  proves independence of the retained FULL original action from its labels.
+  A singly occupied link kills the selected positive-spin character.
+- `BF4ExactSlabShiftedProbeLeafFilter.original_numerator_leaf_filter`
+  applies the computed incidence test to all four moments and both replicas
+  inside the existing connected-support/odd-cut expansion, at every nome,
+  cutoff and margin. `retained_link_not_singleton` exposes the geometry
+  consequence without any parity-to-positive-support substitution.
+
+Next: no-leaf cut geometry for positive-spin support, connected-cut
+nonemptiness, and the combined area/heat-power bound. Those are not yet
+proved by this increment. Surviving signs, relative remainder, positive
+original response and continuum/Clay closure remain open. No canonical
+atom/type/flag, frontier field, analytic premise or hole changed.
+
+Verification: 31 exactly matched focused gates, one axiom-free, all within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+Capped pilot: 448 exact character moments and 625 cut assignments; 64 extra
+parity survivors rejected. The general Lean proof is independent of the pilot.
+One monitored worker, 20 GiB ceiling; user-owned test pauses respected.
+No raised limits or full build/audit/guard/progress run. Root imports not
+rebuilt; exact logs are in work_plan.
+
+## Previous increment: joint cancellation on the full original numerator (2026-09-14)
 
 The preceding checkpoint 54ae68e was PROGRESS: original odd-cut rejection
 through the connected form. This increment is PROGRESS by closing the exact

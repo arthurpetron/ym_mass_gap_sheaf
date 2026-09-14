@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** both cancellations now act on the
+**Latest local mathematical step:** an [all-spin leaf filter](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeLeafFilter.lean)
+now removes singly occupied temporal links from the **same complete original
+connected numerator**, including even-spin cases missed by parity.
+[Cyclic word exposure](lean/YMGap/Continuum/SU2QuaternionOrientedWordSelection.lean)
+works at any of the four literal plaquette links, preserving quaternion order.
+The [full-action cancellation](lean/YMGap/Continuum/BF4ExactSlabSingletonOccupiedLink.lean)
+derives independence from the other incident faces' zero labels; it does not
+assume that the full interacting action splits. All four original moments,
+both replica weights and the connected-support filter remain in the identity.
+Four focused modules passed 31 axiom checks within `{propext, Quot.sound}`
+(one axiom-free). The finite pilot rejects 64 additional parity-surviving
+assignments on a four-face cut. **No positive response bound is claimed:**
+the global support/area argument, signed relative remainder and continuum/Clay
+obligations remain open. This all-nome cancellation is not a uniform gap bound.
+
+The preceding common expansion puts both cancellations on the
 [same complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCoveredExpansion.lean).
 The outer sum removes separating selected supports; the inner sum removes
 thin odd cuts in either replica. An [exact covering-pair expansion](lean/YMGap/Continuum/PairedPositiveFacePolynomialExpansion.lean)
