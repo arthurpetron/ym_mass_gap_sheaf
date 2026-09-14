@@ -18,7 +18,55 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (nonzero ORIGINAL thermodynamic excitation):**
+**Latest original-action increment (bounded inverse of the ORIGINAL two-step defect):**
+The 1c73eba checkpoint supplied a nonzero thermodynamic excitation. The
+resumed source trace confirms that full observable realization and full
+quotient-level completeness are still open. It also identifies the stronger
+positive excited-response requirement in
+`CanonicalOSRoot.PositiveTimeOSRoot.probeRayleighLower`; nonzero norm and
+nonidentity alone do not discharge it. No root field is weakened here.
+
+The already-proved represented Cauchy-row limit is sufficient to construct
+a useful same-operator resolvent without that separate completeness claim.
+`BF4ExactSlabThermodynamicResolventPartial.partialSum` is the actual finite
+sum of even time translates of `center x`. `partial_norm_bound` gives
+||S_n x||^2<=4||center x||^2, using the existing squared-norm contraction
+1/4 for T_2. `partial_split` and `partial_tail_bound` retain the exact
+time-semigroup identity. `seriesRows` constructs the rows and Cauchy modulus,
+`seriesModulus X epsilon=relaxationModulus X (epsilon/4)`.
+
+`BF4ExactSlabThermodynamicResolvent.resolventRepresentative` takes their
+existing diagonal limit. Representative independence constructs `resolvent`
+on ALL classes of the same completion. `resolvent_right_inverse` and
+`resolvent_left_inverse` give (I-T_2)R=center and R(I-T_2)=center.
+`solutionCertificate` returns the actual unit-orthogonal solution and
+`resolventModulus`; no arbitrary quotient representatives are selected.
+
+`BF4ExactSlabThermodynamicResolventBound.resolvent_norm_centered_bound`
+gives ||R x||^2<=4||center x||^2 by doubling and linear cancellation.
+`resolvent_add`, `resolvent_realSmul` and `resolvent_distance_bound` give
+bounded linearity on the current carrier. `resolvent_ne_zero` proves that
+the inverse cannot erase a nonzero centered excitation. This is not a proof
+that T_2 itself has nonzero response on the constructed probe.
+
+Next: a strictly positive excited geometric-time response; the full required
+positive-time observable realization/action maps and quotient-level
+completeness remain distinct requirements. Continuum scaling, continuous-time
+generator/spectral identification, QFT axioms and all-group Clay remain open.
+All current resolvent results fix SU(2), nome 1/1024 and lattice spacing.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 19+16+13=48 exactly matched focused gates,
+all within {propext, Quot.sound}; final logs error/warning free and
+own/direct-import artifacts fresh. The exact scalar pilot
+`python3 -m computations.original_thermodynamic_resolvent_budget` passed.
+One monitored worker with the mandatory 20 GiB ceiling; no full build/audit/
+guard/progress run or raised limits. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-thermodynamic-resolvent-partial.log`,
+`/tmp/ym-bf4-thermodynamic-resolvent.log`,
+`/tmp/ym-bf4-thermodynamic-resolvent-bound.log`.
+
+**Preceding original-action increment (nonzero ORIGINAL thermodynamic excitation):**
 `BF4ExactSlabBulkProbeHomogeneousFloor.localReferenceBudget_upper` bounds
 the actual two-test budget by 2*s*Zsp^3; `rawForm_relative_floor` cancels
 the positive background to give rawForm(P-c,P-c)>=(s/8)*Zsp for all

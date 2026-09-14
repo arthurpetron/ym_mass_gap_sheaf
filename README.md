@@ -20,8 +20,12 @@ These follow from the proved completed unit-complement form gap, at SU(2)
 nome `1/1024` and fixed spacing. A [nonzero thermodynamic excitation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeExcitation.lean)
 is now constructed in that same completion: the centered plaquette probe
 has an explicit positive squared-norm floor and is not fixed by any positive
-integer time. Full observable realization/completeness and continuum scaling
-remain open; this is not Clay closure.
+integer time. The [two-step defect now has a constructive bounded inverse](lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventBound.lean)
+on that completion's unit complement: `(I-T2) R x = center x`,
+`R (I-T2) x = center x`, and `||R x||^2 <= 4||center x||^2`.
+The geometric-series solver retains its explicit approximation modulus.
+Full observable realization/completeness, a positive excited transfer-response
+bound and continuum scaling remain open; this is not Clay closure.
 
 ## Whole-project goal
 
@@ -567,6 +571,14 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |        -> every positive-time
                                   |           fixed state lies in
                                   |           that SAME unit line   [PROVED]
+                                  |        + exact geometric sums of T_2
+                                  |          + explicit tail modulus [PROVED]
+                                  |        + SAME represented Cauchy
+                                  |          limit, no representative
+                                  |          selection              [PROVED]
+                                  |        -> R=(I-T_2)^(-1) on the
+                                  |           unit complement,
+                                  |           norm^2 bound 4        [PROVED]
                                   |      + local channel selection,
                                   |        ALL spectator channels kept
                                   |        -> ORIGINAL raw-form bound
@@ -669,7 +681,37 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a spectator-preserving construction of a nonzero thermodynamic excitation.**
+**Latest result: a bounded constructive inverse on the original unit complement.**
+The [finite geometric series](lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventPartial.lean)
+is `S_n x = sum_{j<n} T_(2j)(center x)`. The existing decay gives
+`||T_2 v||^2 <= (1/4)||v||^2` on the complement. The squared-norm triangle
+inequality therefore proves `||S_n x||^2 <= 4||center x||^2` by induction;
+exact tail splitting and the original relaxation modulus give Cauchy data.
+
+The [same-carrier limit](lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolvent.lean)
+defines `R` on every completion class, independently of the supplied
+representative. It proves both inverse equations and returns a
+`solutionCertificate` with its actual vector and approximation modulus.
+The [boundedness theorem](lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventBound.lean)
+proves addition, modulus-bearing real-scalar linearity, and
+`||R x-R y||^2 <= 4||x-y||^2`. The norm proof is linear cancellation, with
+no spectral decomposition or division by a vector norm.
+
+This is the reduced resolvent of the existing geometric `T_2`, not a
+link-variable heat-bath generator or a continuum Hamiltonian. Supplied
+Cauchy rows suffice for this construction; full quotient-level completeness
+has not thereby been proved. In particular, a nonzero excitation and this
+inverse do not prove a strictly positive `T_2` response on that excitation.
+That response, full positive-time observable realization, continuum scaling,
+generator/spectral identification, QFT axioms and the remaining groups stay open.
+
+Verification: three modules, 19+16+13=48 exactly matched focused axiom gates,
+all within `{propext, Quot.sound}`; final logs error/warning free and
+own/direct-import artifacts fresh. The exact scalar pilot passed. One monitored
+worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
+Root imports updated, not rebuilt. No canonical frontier atom/type/flag changed.
+
+**Preceding result: a spectator-preserving construction of a nonzero thermodynamic excitation.**
 The new witness concerns the original thermodynamic plaquette OS completion,
 not only the earlier extent-one slab. Its normalized floor survives both
 cutoff removal and increasing volume. The following chain records why.

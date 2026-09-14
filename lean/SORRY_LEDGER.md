@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED bounded ORIGINAL two-step resolvent; OPEN positive excited response/full realization/continuum (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventPartial.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolvent.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventBound.lean`.
+- **closed same-operator geometric series**: `partialSum`, `partial_split`,
+  `partial_norm_bound`, `partial_tail_bound` and `seriesRows` retain the
+  original T_2 and its explicit Cauchy tail; ||S_n x||^2<=4||center x||^2.
+- **closed inverse and witness**: `resolventRepresentative_congr` permits
+  choice-free descent to `resolvent`. `resolvent_right_inverse` and
+  `resolvent_left_inverse` give (I-T_2)R=center and R(I-T_2)=center.
+  `solutionCertificate` retains the vector and `resolventModulus` as data.
+- **closed bounded linearity**: `resolvent_norm_centered_bound` gives
+  ||R x||^2<=4||center x||^2; `resolvent_add`, `resolvent_realSmul` and
+  `resolvent_distance_bound` prove linearity and the squared-distance bound.
+  `resolvent_ne_zero` excludes erasing any nonzero centered state.
+- **open residue**: the canonical positive excited-response requirement
+  `CanonicalOSRoot.PositiveTimeOSRoot.probeRayleighLower` is NOT discharged
+  by nonzero excitation, nonidentity, or this inverse of I-T_2. Full required
+  positive-time observable realization/action maps and quotient-level
+  completeness remain open. The series uses supplied Cauchy rows only.
+  Continuum scaling, continuous-time generator/spectral identification, QFT
+  axioms and remaining compact simple groups remain open. SU(2), w=1/1024
+  and spacing are fixed. No canonical atom/type/flag, premise or hole changed.
+- **verification**: three modules, 19+16+13=48 exactly matched focused
+  gates, all within {propext, Quot.sound}. Final logs error/warning free;
+  own/direct-import artifacts fresh; exact scalar pilot passed. One monitored
+  worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run or
+  raised limits. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-thermodynamic-resolvent-partial.log`,
+  `/tmp/ym-bf4-thermodynamic-resolvent.log`,
+  `/tmp/ym-bf4-thermodynamic-resolvent-bound.log`.
+
 ## CLOSED nonzero ORIGINAL thermodynamic excitation; OPEN full physical realization and continuum (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeHomogeneousFloor.lean`,

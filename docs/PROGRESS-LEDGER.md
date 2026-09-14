@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: nonzero ORIGINAL thermodynamic excitation (2026-09-13)
+## Current increment: bounded ORIGINAL two-step resolvent (2026-09-13)
+
+The preceding turn pushed the nonzero original thermodynamic excitation in
+1c73eba. This resumed turn is PROGRESS: the original two-step defect now has
+a constructed bounded inverse on the current completed unit complement.
+
+- `BF4ExactSlabThermodynamicResolventPartial.partial_norm_bound` gives
+  ||S_n x||^2<=4||center x||^2. `partial_split`, `partial_tail_bound` and
+  `seriesRows` construct the exact geometric tail and its original
+  relaxation-based Cauchy modulus.
+- `BF4ExactSlabThermodynamicResolvent.resolvent` is the existing diagonal
+  row limit, descended independently of representative choice.
+  `resolvent_right_inverse` and `resolvent_left_inverse` prove
+  (I-T_2)R=center and R(I-T_2)=center. `solutionCertificate` returns a
+  witnessing vector and its approximation modulus.
+- `BF4ExactSlabThermodynamicResolventBound.resolvent_norm_centered_bound`,
+  `resolvent_add`, `resolvent_realSmul` and `resolvent_distance_bound`
+  give a bounded linear inverse, with squared-norm factor four.
+  No spectral decomposition or division by vector norm is used.
+
+This consumes the already-proved represented Cauchy-row theorem, not full
+quotient-level completeness. It does not supply the strict positive
+excited-response field `CanonicalOSRoot.PositiveTimeOSRoot.probeRayleighLower`.
+That response, full required observables/action maps, continuum scaling,
+continuous-time generator/spectral identification, QFT and all-group Clay
+remain open. Nome 1/1024 and spacing are fixed; no canonical atom/type/flag,
+analytic premise or hole changed.
+
+Verification: 19+16+13=48 exactly matched focused gates, all within
+{propext, Quot.sound}; final logs error/warning free and own/direct-import
+artifacts fresh. Exact scalar pilot passed. One monitored worker, 20 GiB
+ceiling; no raised limits or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs: `/tmp/ym-bf4-thermodynamic-resolvent-partial.log`,
+`/tmp/ym-bf4-thermodynamic-resolvent.log`,
+`/tmp/ym-bf4-thermodynamic-resolvent-bound.log`.
+
+## Previous increment: nonzero ORIGINAL thermodynamic excitation (2026-09-13)
 
 The preceding goal turn was PROGRESS: 3d3256f checkpointed and pushed the
 positive original interacting minor. This turn is PROGRESS: its remaining
