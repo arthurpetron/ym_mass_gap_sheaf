@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SAME spectator background positivity and local collar intervals (2026-09-13)
+## Current increment: positive ORIGINAL interacting minor, all translated volumes (2026-09-13)
+
+The preceding goal turn was PROGRESS: a942365 proved and pushed ordinary
+spectator positivity and partition-relative collar intervals. This turn is
+PROGRESS: the actual interacting amplitudes are controlled sharply enough
+to prove the original whole-forest minor positive with the collar restored.
+
+- `BF4ExactSlabBulkProbeLocalIntervals.unitSquareInterval` uses the existing
+  cross certificate to keep cap one. Actual fundamental-probe and scalar-loop
+  caps are two and one, with explicit reflected-polynomial pins.
+- `BF4ExactSlabBulkProbeScalarBackground.scalarBackground_mass` retains the
+  exact lower scalar-square mass Zsp/256 in the positive background.
+- `BF4ExactSlabBulkProbeCollarAmplitudePin.dressedLower_collar` includes the
+  original label-sum/heat-product identity. `unitAmplitude_collar_pin` and
+  `scalarAmplitude_collar_pin` restore the actual original local collar.
+- `BF4ExactSlabBulkProbeAmplitudePerturbation.unitAmplitude_split` and
+  `scalarAmplitude_split` retain computed signed errors with coefficients
+  c*eta(w) and lambda(w)*c*eta(w)/256, c=2 or 1, relative to the SAME Zsp.
+- `BF4ExactSlabBulkProbeInteractingMinor.coefficient_guards` checks the
+  extended exact-rational pilot's margin. `interactingDeterminant_upper`
+  gives det<=-(s/2)*Zsp^2. `interactingMinor_floor` gives the explicit floor
+  ((s/2)*Zsp^2)^2; `interactingMinor_positive` proves positivity for every
+  K>=1,half at w=1/1024. This is the original interacting minor, not its reference.
+
+Next: matching reference-budget and SAME full-partition upper bounds,
+then a normalized positive floor and passage through cutoff/volume limits.
+The raw floor contains Zsp; thermodynamic nontriviality is still open.
+Full observables/completeness and continuum/QFT/all-group Clay remain open;
+no canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: five modules, 12+6+9+13+17=57 exactly matched focused gates;
+seven axiom-free, all others within {propext, Quot.sound}. Final logs
+error/warning free, own/direct-import artifacts fresh. Extended pilot passed.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-local-intervals.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-scalar-background.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-collar-amplitude-pin.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-amplitude-perturbation.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interacting-minor.log`.
+
+## Previous increment: SAME spectator background positivity and local collar intervals (2026-09-13)
 
 The preceding conversational/status turn was NO PROGRESS. This turn is
 PROGRESS: the actual spatial heat factors now have ordinary Haar positive

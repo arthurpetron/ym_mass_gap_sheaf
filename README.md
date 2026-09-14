@@ -591,9 +591,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           Dref=s^2 Zsp^4,
                                   |           Rref=s Zsp^3           [PROVED]
                                   |           s=(2*w^3)^4/32768
-                                  |        + local positive minor and
-                                  |          SAME partition-relative
-                                  |          volume-uniform estimate [OPEN]
+                                  |        + ordinary Haar positivity
+                                  |          on SAME spectator law
+                                  |        + sharp local caps 2,1
+                                  |          + exact scalar-square
+                                  |            background Zsp/256
+                                  |        + relative collar errors [PROVED]
+                                  |        -> ORIGINAL interacting
+                                  |           det <= -(s/2)*Zsp^2
+                                  |           minor >= (s/2)^2*Zsp^4
+                                  |           > 0, all K>=1,half    [PROVED]
+                                  |        + reference budget <=r*Zsp^3
+                                  |          AND full Z<=C*Zsp      [OPEN]
+                                  |        -> normalized positive
+                                  |           volume-uniform floor [OPEN]
                                   |      + nonzero thermodynamic
                                   |        excitation witness        [OPEN]
                                   |      + full quotient-level
@@ -696,7 +707,8 @@ then gives `Dref=s^2*Zsp^4`, `Rref=s*Zsp^3`, and
 `Dref=(s*Zsp)*Rref`, with `s=(2*w^3)^4/32768`.
 The actual original test energies are `Zsp` and `(s/2)*Zsp`.
 The reference minor is positive at the fixed nome for every cutoff and
-volume; it is **not yet the minor with the local collar reinstated**.
+volume. These are reference values; the interacting minor is bounded
+separately below.
 
 The [ordinary spectator heat certificate](lean/YMGap/Continuum/BF4ExactSlabSpatialHeatCertificate.lean)
 now strengthens OS positivity to positive-certificate integration, using the
@@ -709,15 +721,31 @@ kernel-checked to be at most `1/262144`; the signed lower-collar remainder
 integral is at most `Zsp/262144` in absolute value. Additional interval
 insertions retain their stated caps.
 
-**Open next:** apply these estimates sharply to the scalar-weighted
-interacting amplitudes and compare the original full partition function to `Zsp`.
-The resulting positive normalized excitation floor must survive volume
-and cutoff. No nonzero thermodynamic excitation or continuum scaling is
-claimed from the collar-removed reference alone.
+[Sharp local intervals](lean/YMGap/Continuum/BF4ExactSlabBulkProbeLocalIntervals.lean)
+give cap `2` for the actual fundamental probe and `1` for the scalar loop,
+including their reflected presentations. Keeping the lower scalar square
+inside the [positive background](lean/YMGap/Continuum/BF4ExactSlabBulkProbeScalarBackground.lean)
+retains its exact mass `Zsp/256`. The [original interacting amplitudes](lean/YMGap/Continuum/BF4ExactSlabBulkProbeAmplitudePerturbation.lean)
+are now their full-spectator references plus explicit signed errors:
+`|E0| <= c*eta(w)*Zsp`, `|E1| <= lambda(w)*c*eta(w)*Zsp/256`, with
+`c=2` for the probe and `c=1` for the unit. All original collar factors
+and selected-channel weights are retained in these identities.
 
-Latest four modules: 5+9+14+14=42 exactly matched focused gates within
+The [interacting minor theorem](lean/YMGap/Continuum/BF4ExactSlabBulkProbeInteractingMinor.lean)
+now proves `det <= -(s/2)*Zsp^2` and `minor >= ((s/2)*Zsp^2)^2 > 0`,
+at `w=1/1024`, every `K>=1` and translated half-size. This is the actual
+original whole-forest minor **with the local collar reinstated**.
+
+**Open next:** bound the matching reference budget by `r*Zsp^3` and
+the SAME original full partition by `C*Zsp`, with volume-independent
+coefficients. The resulting normalized positive excitation floor must
+then pass through the cutoff and thermodynamic limits. The current raw
+minor floor still contains `Zsp`; nonzero thermodynamic excitation and
+continuum scaling are not claimed from it.
+
+Latest five modules: 12+6+9+13+17=57 exactly matched focused gates within
 `{propext, Quot.sound}`. The extended exact-rational pilot also passed; its
-new 24-face Haar error cap was independently kernel-checked in Lean. Final logs
+new interacting coefficient margin was independently kernel-checked in Lean. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.

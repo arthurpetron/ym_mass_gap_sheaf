@@ -87,6 +87,18 @@ def certificate_candidate() -> dict:
     assert full_spectator_determinant == -weight / 32768
     assert full_spectator_budget == weight / 32768
     assert full_spectator_determinant**2 / full_spectator_budget == weight / 32768
+    # Relative error coefficients of the original interacting amplitudes.
+    # Lean must independently prove the amplitude pins and inequalities.
+    unit_probe_error = 2 * haar_collar_error
+    unit_unit_error = haar_collar_error
+    scalar_probe_error = weight * 2 * haar_collar_error * scalar_square
+    scalar_unit_error = weight * haar_collar_error * scalar_square
+    signal = weight / 32768
+    interacting_margin = ((signal - scalar_probe_error) * (1 - unit_unit_error)
+                          - unit_probe_error * scalar_unit_error)
+    assert 0 < signal - scalar_probe_error
+    assert 0 < 1 - unit_unit_error
+    assert interacting_margin >= signal / 2 > 0
     reference_energy_ceiling = Fraction(5)
     assert 2**2 + weight * Fraction(1, 2)**2 <= reference_energy_ceiling
     denominator_ceiling = 2 * reference_energy_ceiling + 1
@@ -107,6 +119,9 @@ def certificate_candidate() -> dict:
         "haar_interval_delta": haar_delta,
         "haar_24_face_collar_error": haar_collar_error,
         "haar_24_face_collar_error_ceiling": Fraction(1, 262144),
+        "interacting_unit_error_coefficients_per_Zsp": (unit_probe_error, unit_unit_error),
+        "interacting_scalar_error_coefficients_per_Zsp": (scalar_probe_error, scalar_unit_error),
+        "interacting_determinant_margin_floor_per_Zsp_squared": signal / 2,
         "maximum_first_ratio": max(ratios),
         "face_delta": deltas[0],
         "exact_product_error": error,

@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (ordinary spectator positivity and relative local collar interval):**
+**Latest original-action increment (positive ORIGINAL interacting whole-forest minor, all volumes):**
+`BF4ExactSlabBulkProbeLocalIntervals.unitSquareInterval` obtains a sharp
+linear cap one from the existing cross-square certificate. `probeInterval`
+and `upperProbeInterval` give cap two for the original fundamental character;
+`bulkScalarInterval`, `upperScalarInterval` and `upperScalar_image` preserve
+the actual reflected coordinate product with cap one.
+
+`BF4ExactSlabBulkProbeScalarBackground.scalarBackground_mass` proves that
+the positive spectator background with the lower scalar square retained
+has exactly mass Zsp/256. `scalar_weighted_bound` keeps this factor.
+`BF4ExactSlabBulkProbeCollarAmplitudePin.dressedLower_collar` includes the
+original label-sum/heat-product pin, not a definitional replacement.
+`unitAmplitude_collar_pin` and `scalarAmplitude_collar_pin` restore the
+actual local collar in the original whole-forest test amplitudes.
+
+`BF4ExactSlabBulkProbeAmplitudePerturbation.unitAmplitude_split` and
+`scalarAmplitude_split` express those amplitudes as their exact full-spectator
+references plus computed signed errors. The error coefficients are
+c*eta(w) and lambda(w)*c*eta(w)/256, c=2 for the probe, c=1 for the unit.
+`BF4ExactSlabBulkProbeInteractingMinor.coefficient_guards` independently
+kernel-checks the extended pilot's margin at the existing nome.
+`interactingDeterminant_upper` proves det<=-(s/2)*Zsp^2;
+`interactingMinor_floor` gives ((s/2)*Zsp^2)^2<=localMinor;
+`interactingMinor_positive` proves the ORIGINAL interacting minor positive
+for all K>=1,half at w=1/1024. Here s=(2*w^3)^4/32768.
+
+Next: upper-bound the matching reference budget by r*Zsp^3 and the SAME
+original full partition by C*Zsp, keeping r,C independent of K,half.
+Then transfer the normalized positive centered norm through both limits.
+The raw floor still contains Zsp; thermodynamic excitation, full observable
+realization/completeness and continuum/QFT/all-group Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: five modules, 12+6+9+13+17=57 exactly matched focused gates;
+seven axiom-free, all others within {propext, Quot.sound}. Final logs
+error/warning free, own/direct-import artifacts fresh. The extended
+`python3 -m computations.original_plaquette_small_nome_minor` passed.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-local-intervals.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-scalar-background.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-collar-amplitude-pin.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-amplitude-perturbation.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-interacting-minor.log`.
+
+**Preceding original-action increment (ordinary spectator positivity and relative local collar interval):**
 `QuaternionHaarHeatCertificate.prefixCertificate` constructs the actual
 character-prefix certificate from a supported Haar-unit scalar with the
 explicit small-nome guards. `BF4ExactSlabSpatialHeatCertificate.spatialCharacter_pin`

@@ -13,6 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED positive ORIGINAL interacting minor at every volume; OPEN normalized thermodynamic excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeLocalIntervals.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeScalarBackground.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarAmplitudePin.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeAmplitudePerturbation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeInteractingMinor.lean`.
+- **closed sharp local control**: `unitSquareInterval` uses the existing
+  cross certificate. `probeInterval`, `upperProbeInterval`, `bulkScalarInterval`,
+  `upperScalarInterval`, `upperScalar_image` retain caps two/one on the actual
+  local and reflected polynomials. No external square-root input is used.
+- **closed scalar-weighted background**: `scalarBackground_mass` proves
+  exact mass Zsp/256. `scalar_weighted_bound` retains it under signed insertions.
+- **closed original interacting pins**: `dressedLower_collar` explicitly
+  uses the original label-sum/heat-product identity. `unitAmplitude_collar_pin`
+  and `scalarAmplitude_collar_pin` include the actual collar and all selected
+  heat weights. `unitAmplitude_split` and `scalarAmplitude_split` give the
+  exact reference-plus-error identities; errors have coefficients c*eta(w)
+  and lambda(w)*c*eta(w)/256 relative to Zsp, c=2 for the probe and 1 for the unit.
+- **closed positive interacting minor**: `coefficient_guards` independently
+  kernel-checks the pilot's rational margin. `interactingDeterminant_upper`
+  gives det<=-(s/2)*Zsp^2, s=(2*w^3)^4/32768 at w=1/1024.
+  `interactingMinor_floor` gives ((s/2)*Zsp^2)^2<=localMinor;
+  `interactingMinor_positive` proves this ORIGINAL whole-forest minor strictly
+  positive at every K>=1,half, with the collar restored.
+- **open constructive/analytic residue**: upper-bound the matching reference
+  budget by r*Zsp^3 and the SAME original full partition by C*Zsp, with explicit
+  coefficients independent of K,half. Derive a normalized positive centered
+  norm floor and pass it through cutoff and thermodynamic limits. The present
+  raw floor still contains Zsp. Full observables/completeness and continuum/
+  QFT/all-group Clay remain open. No canonical atom/type/flag, analytic premise
+  or hole changed; no beta-uniform physical gap is claimed.
+- **verification**: five modules, 12+6+9+13+17=57 exactly matched focused gates;
+  seven axiom-free, all others within {propext, Quot.sound}. Final logs
+  error/warning free, own/direct-import artifacts fresh. Extended pilot passed.
+  One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-bulk-probe-local-intervals.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-scalar-background.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-collar-amplitude-pin.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-amplitude-perturbation.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-interacting-minor.log`.
+
 ## CLOSED ordinary spectator positivity and relative collar intervals; OPEN interacting minor and normalized excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`,
