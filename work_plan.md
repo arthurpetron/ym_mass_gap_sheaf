@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (positive ORIGINAL interacting whole-forest minor, all volumes):**
+**Latest original-action increment (nonzero ORIGINAL thermodynamic excitation):**
+`BF4ExactSlabBulkProbeHomogeneousFloor.localReferenceBudget_upper` bounds
+the actual two-test budget by 2*s*Zsp^3; `rawForm_relative_floor` cancels
+the positive background to give rawForm(P-c,P-c)>=(s/8)*Zsp for all
+K>=1,half and rational c. The fixed coefficient is explicit, not a new
+analytic hypothesis.
+
+`BF4ExactSlabBulkProbePartitionComparison.originalUnit_partition_pin`
+retains the original temporal change of variables, both local collars
+and all four complete crossing heat factors. `localHeatInterval` controls
+at most 24+24+4 faces, giving `existingNome_fullPartition_upper`: Zfull<=2*Zsp.
+`BF4ExactSlabBulkProbeNormalizedFloor.rawForm_fullPartition_floor` gives
+gamma*Zfull<=rawForm(P-c,P-c), gamma=s/16>0, s=(2*w^3)^4/32768, w=1/1024.
+`normalized_form_floor` passes through the original cutoff limit and SAME
+reciprocal. `connectedCovariance_floor` retains gamma after the actual
+finite-completion centering limit, at every translated volume.
+
+`BF4ExactSlabThermodynamicProbeExcitation.covarianceSequence_floor` uses
+the existing literal `bulkProbe_enlarge` pin. `norm_floor` passes to the
+SAME thermodynamic covariance; `norm_pin` identifies it with the squared
+norm of the actual centered embedded probe. `state_ne_zero`,
+`state_not_time_fixed` and `twoStep_not_identity` prove a nonzero
+unit-orthogonal state and nontrivial evolution at every positive integer
+time. `excitationCertificate`, `normCauchy` and `volumeModulus` retain
+the witnessing state, real and explicit moduli as data.
+
+Next: construct the required full positive-time observable realization,
+observable-action maps and quotient-level completeness on the physical
+carrier; the existing restricted plaquette completion must not be silently
+identified with it. Continuum scaling, continuous-time generator/spectral
+identification, QFT axioms and all-group Clay remain open. This is a
+fixed-nome/fixed-spacing SU(2) excitation, not a continuum theorem.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 13+15+17+14=59 exactly matched focused gates;
+nine axiom-free, all others within {propext, Quot.sound}. Final logs
+error/warning free, own/direct-import artifacts fresh. Extended exact-rational
+pilot passed; coefficients independently checked in Lean. One monitored
+worker, mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-homogeneous-floor.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-partition-comparison.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-normalized-floor.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-probe-excitation.log`.
+
+**Preceding original-action increment (positive ORIGINAL interacting whole-forest minor, all volumes):**
 `BF4ExactSlabBulkProbeLocalIntervals.unitSquareInterval` obtains a sharp
 linear cap one from the existing cross-square certificate. `probeInterval`
 and `upperProbeInterval` give cap two for the original fundamental character;

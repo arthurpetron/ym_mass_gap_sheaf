@@ -99,6 +99,21 @@ def certificate_candidate() -> dict:
     assert 0 < signal - scalar_probe_error
     assert 0 < 1 - unit_unit_error
     assert interacting_margin >= signal / 2 > 0
+    # Homogeneous normalization: D >= (s/2)^2 Zsp^4 and
+    # R <= 2*s*Zsp^3 give rawForm >= (s/8)*Zsp for every centering.
+    interacting_budget_coefficient = 2 * (
+        scalar_unit_error**2 + reference_energies[1] * (1 + unit_unit_error)**2)
+    interacting_budget_ceiling = 2 * signal
+    spectator_relative_floor = signal / 8
+    assert 0 < interacting_budget_coefficient <= interacting_budget_ceiling
+    assert spectator_relative_floor > 0
+    assert spectator_relative_floor * interacting_budget_ceiling == (signal / 2)**2
+    # Two collars of at most 24 faces and the four selected crossing faces.
+    local_partition_cap = (1 + haar_collar_error)**2 * (1 + haar_delta)**4
+    assert local_partition_cap == (1 + haar_delta)**52
+    assert local_partition_cap <= 2
+    normalized_floor = spectator_relative_floor / 2
+    assert normalized_floor > 0
     reference_energy_ceiling = Fraction(5)
     assert 2**2 + weight * Fraction(1, 2)**2 <= reference_energy_ceiling
     denominator_ceiling = 2 * reference_energy_ceiling + 1
@@ -122,6 +137,12 @@ def certificate_candidate() -> dict:
         "interacting_unit_error_coefficients_per_Zsp": (unit_probe_error, unit_unit_error),
         "interacting_scalar_error_coefficients_per_Zsp": (scalar_probe_error, scalar_unit_error),
         "interacting_determinant_margin_floor_per_Zsp_squared": signal / 2,
+        "interacting_reference_budget_coefficient_per_Zsp_cubed": interacting_budget_coefficient,
+        "interacting_reference_budget_ceiling_per_Zsp_cubed": interacting_budget_ceiling,
+        "interacting_raw_form_floor_coefficient_per_Zsp": spectator_relative_floor,
+        "full_partition_comparison_cap_per_Zsp": local_partition_cap,
+        "full_partition_comparison_ceiling_per_Zsp": Fraction(2),
+        "normalized_centered_form_floor_candidate": normalized_floor,
         "maximum_first_ratio": max(ratios),
         "face_delta": deltas[0],
         "exact_product_error": error,

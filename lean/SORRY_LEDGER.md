@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED nonzero ORIGINAL thermodynamic excitation; OPEN full physical realization and continuum (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeHomogeneousFloor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbePartitionComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeNormalizedFloor.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeExcitation.lean`.
+- **closed homogeneous normalization**: `localReferenceBudget_upper` gives
+  R<=2*s*Zsp^3. `rawForm_relative_floor` cancels the minor bound to give
+  F(P-c,P-c)>=(s/8)*Zsp for every K>=1,half,c.
+- **closed SAME full-partition comparison**: `originalUnit_partition_pin`
+  retains the original action through the existing temporal change of variables.
+  `localHeatInterval` controls both <=24-face collars and the four complete
+  crossing heat factors. `existingNome_fullPartition_upper`: Zfull<=2*Zsp.
+- **closed normalized limit bound**: `normalizedFloor` is the explicit
+  gamma=s/16>0 at w=1/1024. `rawForm_fullPartition_floor` gives
+  gamma*Zfull<=F(P-c,P-c). `normalized_form_floor` passes through cutoff
+  removal and the SAME reciprocal; `connectedCovariance_floor` retains
+  gamma through finite-completion centering at every translated volume.
+- **closed thermodynamic excitation**: `covarianceSequence_floor` uses the
+  original enlargement pin; `norm_floor` passes to the SAME thermodynamic
+  covariance. `norm_pin` identifies the completed squared norm of `state`.
+  `state_ne_zero`, `state_orthogonal`, `state_not_time_fixed` and
+  `twoStep_not_identity` prove nontriviality on the existing completion.
+  `excitationCertificate`, `normCauchy` and `volumeModulus` retain actual
+  state/real/modulus data, with `norm_volume_error` proving the volume estimate.
+- **open residue**: full required positive-time observable realization,
+  observable-action maps and quotient-level completeness; continuum scaling,
+  continuous-time generator/spectral identification, QFT axioms and remaining
+  compact simple groups. The witness is for the fixed-spacing SU(2) plaquette
+  completion at fixed nome, not a continuum QFT or coupling-uniform gap.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: four modules, 13+15+17+14=59 exactly matched focused
+  gates; nine axiom-free, all others within {propext, Quot.sound}. Final logs
+  error/warning free, own/direct-import artifacts fresh. Extended pilot passed.
+  One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-exact-slab-bulk-probe-homogeneous-floor.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-partition-comparison.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-normalized-floor.log`,
+  `/tmp/ym-bf4-exact-slab-thermodynamic-probe-excitation.log`.
+
 ## CLOSED positive ORIGINAL interacting minor at every volume; OPEN normalized thermodynamic excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkProbeLocalIntervals.lean`,

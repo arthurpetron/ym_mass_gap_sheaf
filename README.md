@@ -17,8 +17,11 @@ part of the trusted proof.
 evolution [converges quantitatively to its unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean),
 and [its positive-time fixed space is exactly that unit line](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean).
 These follow from the proved completed unit-complement form gap, at SU(2)
-nome `1/1024` and fixed spacing. Nonzero excitations, the full observable
-realization and continuum scaling are still open; this is not Clay closure.
+nome `1/1024` and fixed spacing. A [nonzero thermodynamic excitation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeExcitation.lean)
+is now constructed in that same completion: the centered plaquette probe
+has an explicit positive squared-norm floor and is not fixed by any positive
+integer time. Full observable realization/completeness and continuum scaling
+remain open; this is not Clay closure.
 
 ## Whole-project goal
 
@@ -601,12 +604,20 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           det <= -(s/2)*Zsp^2
                                   |           minor >= (s/2)^2*Zsp^4
                                   |           > 0, all K>=1,half    [PROVED]
-                                  |        + reference budget <=r*Zsp^3
-                                  |          AND full Z<=C*Zsp      [OPEN]
-                                  |        -> normalized positive
-                                  |           volume-uniform floor [OPEN]
-                                  |      + nonzero thermodynamic
-                                  |        excitation witness        [OPEN]
+                                  |        + reference budget <=2*s*Zsp^3
+                                  |          AND full Z<=2*Zsp     [PROVED]
+                                  |        -> normalized floor s/16
+                                  |           through cutoff limit,
+                                  |           every volume         [PROVED]
+                                  |        + SAME covariance volume
+                                  |          limit and centered pin
+                                  |        -> nonzero thermodynamic
+                                  |           excitation, norm^2>=s/16
+                                  |           with explicit moduli [PROVED]
+                                  |        + positive-time fixed-space
+                                  |          characterization
+                                  |        -> probe not fixed at any
+                                  |           positive integer time[PROVED]
                                   |      + full quotient-level
                                   |        completeness              [OPEN]
                                   |      + physical realization and
@@ -658,9 +669,10 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Current work: a spectator-preserving route to a nonzero thermodynamic excitation.**
-The existing positive excitation witness concerns the extent-one slab;
-its floor does not establish thermodynamic nontriviality.
+**Latest result: a spectator-preserving construction of a nonzero thermodynamic excitation.**
+The new witness concerns the original thermodynamic plaquette OS completion,
+not only the earlier extent-one slab. Its normalized floor survives both
+cutoff removal and increasing volume. The following chain records why.
 [Partial interface retention](lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceRetention.lean)
 now selects original unit/fundamental channels locally while leaving all
 channels of unselected faces intact. Its lower-bound theorem applies to
@@ -736,16 +748,37 @@ now proves `det <= -(s/2)*Zsp^2` and `minor >= ((s/2)*Zsp^2)^2 > 0`,
 at `w=1/1024`, every `K>=1` and translated half-size. This is the actual
 original whole-forest minor **with the local collar reinstated**.
 
-**Open next:** bound the matching reference budget by `r*Zsp^3` and
-the SAME original full partition by `C*Zsp`, with volume-independent
-coefficients. The resulting normalized positive excitation floor must
-then pass through the cutoff and thermodynamic limits. The current raw
-minor floor still contains `Zsp`; nonzero thermodynamic excitation and
-continuum scaling are not claimed from it.
+The [homogeneous floor](lean/YMGap/Continuum/BF4ExactSlabBulkProbeHomogeneousFloor.lean)
+now bounds the matching original reference budget by `2*s*Zsp^3`.
+Cancellation against the minor floor gives `rawForm(P-c,P-c)>=(s/8)*Zsp`
+for every rational centering `c`, cutoff `K>=1` and translated volume.
+The [full-partition comparison](lean/YMGap/Continuum/BF4ExactSlabBulkProbePartitionComparison.lean)
+restores at most 24 lower, 24 upper and four crossing heat factors and
+proves `Zfull<=2*Zsp`, using the SAME original action and its proved
+temporal change of variables.
 
-Latest five modules: 12+6+9+13+17=57 exactly matched focused gates within
-`{propext, Quot.sound}`. The extended exact-rational pilot also passed; its
-new interacting coefficient margin was independently kernel-checked in Lean. Final logs
+The [normalized floor](lean/YMGap/Continuum/BF4ExactSlabBulkProbeNormalizedFloor.lean)
+therefore gives `gamma*Zfull<=rawForm(P-c,P-c)`, `gamma=s/16>0`.
+The original cutoff limit and its exact reciprocal preserve the estimate;
+the constructed centering limit gives connected covariance at least `gamma`
+at every translated volume. The [thermodynamic excitation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeExcitation.lean)
+passes this bound through the SAME covariance sequence and pins it to the
+completed norm of the actual centered embedded probe. `state_ne_zero`,
+`state_not_time_fixed` and `twoStep_not_identity` prove nontriviality;
+`excitationCertificate`, `normCauchy` and `volumeModulus` retain the witnesses
+and moduli as data.
+
+**Open next:** the full required positive-time observable realization,
+observable-action maps and quotient-level completeness on the physical
+carrier. Continuum scaling, the continuous-time generator/spectral pin,
+QFT axioms and the remaining compact simple groups are still open. The new
+excitation and the existing form gap concern the current SU(2) plaquette
+completion at fixed nome and spacing, not a continuum theory.
+
+Latest four modules: 13+15+17+14=59 exactly matched focused gates;
+nine axiom-free, all others within `{propext, Quot.sound}`. The extended
+exact-rational pilot passed; its new budget, partition and normalized-floor
+constants were independently kernel-checked in Lean. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.
@@ -766,7 +799,7 @@ a supplied Cauchy representative and its existing pairing modulus.
 returns the actual scalar coefficient and its Cauchy data for a fixed state.
 The unique fixed vector with unit coefficient one is the existing nonzero unit.
 
-**Next:** a nonzero thermodynamic excitation witness. Full required
+The nonzero thermodynamic excitation witness is now proved above. Full required
 observable realization and quotient-level completeness, continuum scaling,
 continuous-time generator/spectral identification and continuum/QFT/all-group
 Clay remain open. These results concern the current plaquette OS completion
@@ -804,9 +837,9 @@ The causal proof uses the preceding signed numerator estimate:
   remove `P`; the existing centered Cauchy limits extend the strict form
   bound to every completed unit-complement vector.
 
-This bound feeds the relaxation and fixed-space results above. A nonzero
-thermodynamic excitation, full required observable realization and
-continuum scaling remain open. The coupling is fixed here; no beta- or
+This bound feeds the relaxation and fixed-space results above; the new
+thermodynamic probe supplies a nonzero excitation. Full required observable
+realization and continuum scaling remain open. The coupling is fixed here; no beta- or
 spacing-uniform gap is claimed.
 
 Six new modules: 11+4+7+10+10+10=52 exactly matched focused axiom gates
@@ -843,8 +876,9 @@ roots. Both observable bounds and carrier sizes remain in the prefactor.
 
 The normalized cutoff/thermodynamic passage, reflected-time instances
 and strict completed form bound requested at this stage are now proved
-in the six modules above. Nonzero excitations, vacuum isolation and
-continuum/QFT/all-group Clay remain open.
+in the six modules above. The subsequent results above supply the unit
+fixed-space theorem and a nonzero excitation on this restricted completion;
+the full physical realization and continuum/QFT/all-group Clay remain open.
 
 Five new modules: 16+18+21+6+5=66 exactly matched focused axiom gates
 within `{propext, Quot.sound}`; final error/warning-free logs and fresh
@@ -870,11 +904,11 @@ and is the actual two-step geometric time map, not a heat-bath generator.
 `timeCovariance_operator_sum` pins its time-semigroup moments to the
 already-constructed ORIGINAL connected-correlation limits.
 
-**Next:** a strict time-separation estimate for these same connected moments,
-and a nonzero thermodynamic excitation witness. The norm bound is **one**,
-not a strict gap constant. Vacuum uniqueness/isolation, the full required
-observable algebra and quotient-level completeness, continuum scaling,
-QFT reconstruction and all-group Clay remain open. Nome `w=1/1024` and
+The subsequent results above supply the strict time-separation estimate,
+completed gap, unit fixed-space theorem and nonzero thermodynamic excitation.
+The norm bound of this earlier module is **one**, not itself a strict gap.
+The full required observable algebra and quotient-level completeness, continuum
+scaling, QFT reconstruction and all-group Clay remain open. Nome `w=1/1024` and
 lattice spacing remain fixed; no coupling-uniform or continuum claim follows.
 
 Three new modules: 1+10+35=46 exactly matched focused axiom gates within

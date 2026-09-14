@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive ORIGINAL interacting minor, all translated volumes (2026-09-13)
+## Current increment: nonzero ORIGINAL thermodynamic excitation (2026-09-13)
+
+The preceding goal turn was PROGRESS: 3d3256f checkpointed and pushed the
+positive original interacting minor. This turn is PROGRESS: its remaining
+normalization and thermodynamic nontriviality obligations are now proved
+for the current fixed-nome plaquette completion.
+
+- `BF4ExactSlabBulkProbeHomogeneousFloor.localReferenceBudget_upper`:
+  R<=2*s*Zsp^3. `rawForm_relative_floor`: F(P-c,P-c)>=(s/8)*Zsp,
+  all K>=1,half,c, by positive-factor cancellation.
+- `BF4ExactSlabBulkProbePartitionComparison.originalUnit_partition_pin`
+  retains the same action through temporal change of variables.
+  `localHeatInterval` restores at most 24+24+4 complete local heat factors;
+  `existingNome_fullPartition_upper` gives Zfull<=2*Zsp.
+- `BF4ExactSlabBulkProbeNormalizedFloor.rawForm_fullPartition_floor`:
+  gamma*Zfull<=F(P-c,P-c), gamma=s/16>0. `normalized_form_floor` and
+  `connectedCovariance_floor` preserve gamma through cutoff removal and
+  finite-completion centering at every translated volume.
+- `BF4ExactSlabThermodynamicProbeExcitation.norm_floor` and `norm_pin`
+  pass the SAME covariance bound to the existing thermodynamic completion.
+  `state_ne_zero`, `state_orthogonal`, `state_not_time_fixed` and
+  `twoStep_not_identity` give a genuine nonzero excitation and nontrivial
+  positive integer time. `excitationCertificate`, `normCauchy` and
+  `volumeModulus` retain the constructive witnessing data.
+
+Next: full required positive-time observable realization/action maps and
+quotient-level completeness. Continuum scaling, continuous-time generator/
+spectral pin, QFT and all-group Clay remain open. The new excitation is
+SU(2), w=1/1024, fixed spacing, on the restricted plaquette OS completion.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 13+15+17+14=59 exactly matched focused gates;
+nine axiom-free, all others within {propext, Quot.sound}. Final logs
+error/warning free, own/direct-import artifacts fresh. Extended pilot passed.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-exact-slab-bulk-probe-homogeneous-floor.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-partition-comparison.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-normalized-floor.log`,
+`/tmp/ym-bf4-exact-slab-thermodynamic-probe-excitation.log`.
+
+## Previous increment: positive ORIGINAL interacting minor, all translated volumes (2026-09-13)
 
 The preceding goal turn was PROGRESS: a942365 proved and pushed ordinary
 spectator positivity and partition-relative collar intervals. This turn is
