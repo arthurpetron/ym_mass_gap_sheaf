@@ -32,7 +32,19 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [spatial defects reconstruct the original temporal label parities](lean/YMGap/Continuum/BF4ExactSlabSpatialDefectReconstruction.lean).
+**Latest local mathematical step:** [sharp SU(2) character bounds now control the original signed pair weights](lean/YMGap/Continuum/BF4ExactSlabSharpCharacterWeights.lean).
+An [exact Chebyshev energy identity](lean/YMGap/Continuum/QuaternionHaarChebyshevEnergy.lean)
+constructs sum-of-squares certificates for [both bounds `|chi_n| <= n+1`](lean/YMGap/Continuum/QuaternionHaarSharpCharacterInterval.lean),
+replacing the exponential character envelope in these new estimates.
+The original heat-weighted pair is bounded by `8 * D^2 * w^P`, where
+`D` is its original two-replica dimension product and `P` its exact Casimir
+power. Every original moment and shared link remains present. Three
+focused modules passed 27 axiom checks within `{propext, Quot.sound}`
+(three axiom-free); no full-tree audit ran. **Next:** sum these sharper
+weights over admissible spatial defects and higher labels. The short
+signed-remainder bound, positive full response and continuum/Clay remain open.
+
+The preceding [spatial defects reconstruct the original temporal label parities](lean/YMGap/Continuum/BF4ExactSlabSpatialDefectReconstruction.lean).
 For every accepted original moment, spatial odd-face incidence and the
 endpoint charges determine all temporal cut bits through an [explicit binary
 recurrence](lean/YMGap/Continuum/Z4SpatialDefectTemporalDecoder.lean).

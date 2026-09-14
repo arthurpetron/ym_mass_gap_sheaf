@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-spin temporal reconstruction from spatial defects (2026-09-14)
+## Current increment: sharp character weights on the original signed pair (2026-09-14)
+
+The preceding 7956b25 checkpoint was PROGRESS: accepted original labels
+received an injective spatial-defect/higher-label encoding. This increment
+is quantitative PROGRESS on individual terms: the new bound replaces the
+exponential character envelope by the exact representation dimension.
+
+- `QuaternionHaarChebyshevEnergy.character_energy` proves the conserved
+  polynomial identity. `cosine_gap` and `cosine_squareBound` turn it into
+  a unit square certificate on the original shared-variable carrier.
+- `QuaternionHaarSharpCharacterInterval.sharpCharacterInterval` uses
+  `U_(n+2)=U_n+2*T_(n+2)` to construct both bounds at cap n+1, not 2*16^n.
+  `character_weighted_haar_bound` retains arbitrary positive backgrounds.
+- `BF4ExactSlabSharpCharacterWeights.spin_product_pin` keeps the actual
+  physical face product. `moment_bound` covers all four probe moments;
+  `pairTerm_bound` keeps their original connected difference.
+- `signedAmplitude_bound` includes all original representation dimensions;
+  `weightedPairTerm_bound` proves `|weightedPairTerm| <= 8*D^2*w^P`
+  with the exact original Casimir power, w>=0 and physical labels <=K.
+
+Next: sum the sharper weights over admissible spatial defects and higher
+labels, preserving replica multiplicities and detached partitions. This
+is not yet a useful aggregate bound on the signed 12–32-face remainder.
+Positive full response, limits, full realization and continuum/Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or
+frontier field changed; existing coarse consumers are unchanged.
+
+Verification: 27 exactly matched focused gates within {propext, Quot.sound},
+three axiom-free; clean final logs and fresh own/direct-import artifacts.
+Symbolic proofs, one monitored worker, 20 GiB ceiling; no raised limits
+or full build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: all-spin temporal reconstruction from spatial defects (2026-09-14)
 
 The preceding 9e260fd checkpoint was PROGRESS: extra heat power was
 factored from each non-tube core. This increment is structural PROGRESS:

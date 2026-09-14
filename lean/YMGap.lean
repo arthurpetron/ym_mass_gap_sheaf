@@ -4090,6 +4090,9 @@ import YMGap.Continuum.BF4ExactSlabNonTubeHeatPower
 import YMGap.Continuum.BF4ExactSlabShortCoreHeatFactor
 import YMGap.Continuum.Z4SpatialDefectTemporalDecoder
 import YMGap.Continuum.BF4ExactSlabSpatialDefectReconstruction
+import YMGap.Continuum.QuaternionHaarChebyshevEnergy
+import YMGap.Continuum.QuaternionHaarSharpCharacterInterval
+import YMGap.Continuum.BF4ExactSlabSharpCharacterWeights
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

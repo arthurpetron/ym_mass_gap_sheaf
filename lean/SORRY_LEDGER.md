@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED sharp character and original pair bounds; OPEN weighted short-core sum (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarChebyshevEnergy.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarSharpCharacterInterval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSharpCharacterWeights.lean`.
+- **closed polynomial identity**: `character_energy` proves the exact
+  conserved Chebyshev energy. `cosine_gap` and `cosine_squareBound`
+  construct the unit cosine square bound from `1-x^2`, on the original
+  carrier with all shared variables retained.
+- **closed sharp certificate**: `unitSquareInterval` and
+  `sharpCharacterInterval` construct both signs of `|chi_n| <= n+1`.
+  `character_weighted_haar_bound` permits every positive-certificate
+  background; no trigonometric or pointwise-positivity input is assumed.
+- **closed original-action use**: `spin_product_pin` retains the actual
+  spin network and `spinNetworkInterval` bounds it by its dimension product.
+  `moment_bound` covers the four original moments; `pairTerm_bound`
+  retains their connected difference. `signedAmplitude_bound` gives
+  `8*D^2`, including the original representation dimensions.
+  `weightedPairTerm_bound` keeps the original Casimir power and proves
+  `|weightedPairTerm| <= 8*D^2*w^P` for w>=0 and physical labels <=K.
+- **open residue**: useful cutoff-/margin-uniform weighted counting on
+  the original signed short-core sum, retaining replica multiplicities
+  and detached partitions. No aggregate smallness follows from a per-pair
+  bound alone. Positive full response/certificate, limit persistence,
+  full realization, continuum/QFT/spectral pins, other groups and Clay
+  remain open. No hole, new open analytic input, canonical atom/type/flag
+  or frontier field changed. Existing coarse consumers remain unchanged.
+- **verification**: 27 exactly matched focused gates within
+  {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+  own/direct-import artifacts. Symbolic proofs, one monitored worker,
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED all-spin spatial-defect reconstruction; OPEN weighted defect count and signed bound (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4SpatialDefectTemporalDecoder.lean`,

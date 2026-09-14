@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (all-spin temporal reconstruction from spatial defects):**
+**Latest local increment (sharp character certificates and original signed-pair weights):**
+The 7956b25 checkpoint was PROGRESS: spatial odd-face data plus higher-label
+quotients encode the accepted original physical labels. This increment
+improves the weight side of the estimate: it removes the exponential
+character envelope from the new original-moment and pair bounds.
+
+`QuaternionHaarChebyshevEnergy.character_energy` proves the conserved
+polynomial identity `U_n^2 + U_(n+1)^2 - 2*x*U_n*U_(n+1) = 1` directly
+on the existing character polynomials. `cosine_gap` rewrites
+`1-(x*U_(n+1)-U_n)^2` as `U_(n+1)^2*(1-x^2)`.
+`cosine_squareBound` therefore builds an actual sum-of-squares certificate.
+`character_cosine_step` gives `U_(n+2) = U_n + 2*T_(n+2)`.
+
+`QuaternionHaarSharpCharacterInterval.unitSquareInterval` obtains the
+unit linear interval from the existing cross-square certificate, without
+the previous factor two. `sharpCharacterInterval` recursively constructs
+both signs at cap `dimQ n = n+1`, replacing `2*16^n` in the new bound.
+`character_weighted_haar_bound` retains arbitrary positive-certificate
+backgrounds on the SAME shared-variable Haar carrier.
+
+`BF4ExactSlabSharpCharacterWeights.faceCharacterInterval` applies this
+to the actual corrected plaquette holonomy. `spin_product_pin` and
+`spinNetworkInterval` retain the original ordered physical face product
+with cap `dimensionProduct`. `moment_bound` covers all four actual probe
+moments. `pairTerm_bound` bounds the original connected pair by
+`8*D_left*D_right`; `signedAmplitude_bound` includes its original heat
+coefficient dimensions and gives `8*(D_left*D_right)^2`.
+`weightedPairTerm_bound` keeps the exact original Casimir exponent P and
+gives `|weightedPairTerm| <= 8*D^2*w^P`, for w>=0 and every pair whose
+physical labels lie within K. No cutoff/volume constant or surviving
+Haar sign is presumed. Existing coarse consumers are not silently rewritten.
+
+NEXT/OPEN: weighted counting of admissible spatial defects and higher
+labels in the original 12–32-face signed remainder, with its original
+replica multiplicities and detached partitions retained. In particular,
+the sharp per-pair bound is not yet a useful bound on the entire short
+sum. Positive full response/certificate, normalization/cutoff/volume
+persistence, full realization, continuum/QFT/spectral pins, other groups
+and Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed; no coupling-uniform gap claimed.
+
+Verification: three focused modules, 9+4+14=27 exactly matched gates
+within {propext, Quot.sound}, three axiom-free; clean final logs and
+fresh own/direct-import artifacts. Symbolic polynomial identities and
+certificate constructions; no numerical experiment is trusted as proof.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/
+audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-chebyshev-energy.log`, `/tmp/ym-sharp-character-interval.log`,
+`/tmp/ym-original-sharp-character-weights.log`.
+
+**Preceding local increment (all-spin temporal reconstruction from spatial defects):**
 The 9e260fd checkpoint was PROGRESS: each original non-tube coefficient
 has an exact w^39 cofactor. This increment addresses the degrees of freedom
 needed for a defect count, without paying for every temporal tube face as
