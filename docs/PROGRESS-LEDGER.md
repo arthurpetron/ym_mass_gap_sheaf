@@ -4,7 +4,36 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all original row moments converge with explicit rates (2026-09-14)
+## Current increment: original polynomial functional and actual cyclic norms (2026-09-14)
+
+PROGRESS after c3da7a8. `RationalScalarTwoSidedError.scale_error` handles
+signed coefficients with |c|. `polynomial_error` gives error
+(sum |c_j| C(j))/N. `polynomialConvergenceCertificate` returns the actual
+limit, QCauchy data, original polynomial-transfer pin and explicit rate.
+
+`BF4ExactSlabThermodynamicPolynomialFunctional` constructs the SAME
+moment functional and proves positivity, order preservation, sup-norm
+bounds, pointwise equivalence invariance, rational linearity and F(1)=1.
+`BF4ExactSlabThermodynamicPolynomialProbeNorm.probe_inner_product` pins
+<p(T2)v,q(T2)v>=F(pq); `probe_norm_bound` controls the actual original
+cyclic polynomial vector norm. No diagonal resolution is assumed.
+
+NEXT: polynomial-difference bounds and explicit original carrier limits
+for uniform polynomial approximation. Signed-polynomial convergence and
+the positive bounded polynomial functional are CLOSED. Full continuous
+calculus/spectral realization, canonical comparisons and full completion/
+time injectivity, continuous-time/physical pins, continuum, other groups
+and Clay remain OPEN. Fixed SU(2) nome/spacing; degree-uniform norm bound,
+not beta/spacing-uniform spectral control. No new hole or analytic input,
+frontier field/atom/flag or physical weight change.
+
+Verification: four focused monitored modules, 57 matched gates within
+{propext, Quot.sound}, three axiom-free; clean logs, fresh own/direct-import
+artifacts, one worker, 20 GiB ceiling. No raised options, large tree/sample
+evaluation, full build/audit/guard/progress or root-import run. Logs in
+work_plan.
+
+## Previous increment: all original row moments converge with explicit rates (2026-09-14)
 
 PROGRESS after c8c0a7b. `weighted_choose` and `weighted_falling` prove the
 all-order exact moments of the SAME original finite Bernstein rows.

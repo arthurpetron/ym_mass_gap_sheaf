@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED all original Bernstein moments with computed convergence rates (2026-09-14)
+## CLOSED original polynomial convergence, positive functional and cyclic norms (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/RationalScalarTwoSidedError.lean`,
+  `BF4ExactSlabThermodynamicBernsteinPolynomialMoments.lean`,
+  `BF4ExactSlabThermodynamicPolynomialFunctional.lean`, and
+  `BF4ExactSlabThermodynamicPolynomialProbeNorm.lean` in the same directory.
+- **closed convergence**: `scale_error` handles arbitrary signed coefficients;
+  `polynomial_error` / `errorAt_factor` give (sum |c_j| C(j))/N.
+  `polynomialConvergenceCertificate` returns the actual limit, QCauchy
+  data, original polynomial-vector pairing and computed modulus.
+  `rowCauchy` retains each finite-row real's QCauchy data.
+- **closed functional**: `functional_positive`, `functional_sup_bound`,
+  `functional_mono`, `functional_congr`, `functional_add`,
+  `functional_scale`, `functional_one` prove a normalized rational-linear
+  positive bounded functional on the original polynomial moments.
+- **closed same-vector pin**: `probe_inner_product` proves
+  <p(T2)v,q(T2)v>=F(pq); `probe_norm_bound` bounds the actual cyclic
+  polynomial vector by a supplied rational polynomial sup bound.
+  Uniformity is in polynomial degree, not beta or lattice spacing.
+- **open residue**: polynomial-difference/explicit carrier-limit work
+  toward continuous calculus on the original cyclic sector. Full spectral
+  realization, canonical observable/scalar/carrier comparison, full
+  quotient-level completeness/time injectivity, continuous-time/physical
+  spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+  open. No new hole, analytic input, frontier type/atom/flag or physical
+  weight; fixed original SU(2) nome and spacing only.
+- **verification**: four focused monitored modules, 57 exactly matched
+  gates within {propext, Quot.sound}, three axiom-free; clean logs, fresh
+  own/direct-import artifacts, one worker, 20 GiB ceiling. No raised
+  options, large tree/sample evaluation, full build/audit/guard/progress
+  or root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED all original Bernstein moments with computed convergence rates (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinFactorialMoments.lean`,
   `BernsteinFallingProductError.lean`, and

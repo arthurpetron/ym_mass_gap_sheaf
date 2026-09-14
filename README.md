@@ -13,14 +13,25 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest operator milestone:** [all moments of the finite Bernstein rows now converge to the original transfer moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinMomentConvergence.lean).
+**Latest operator milestone:** the original transfer now has a
+[constructed positive, normalized, bounded polynomial moment functional](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialFunctional.lean).
+Signed-polynomial row averages converge with computed error
+`Σ |c_r| C(r) / N` and explicit moduli. The
+[same-operator norm identity](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialProbeNorm.lean)
+proves `<p(T2)v,q(T2)v> = F(pq)` and `||p(T2)v||² <= M²` whenever
+`|p(t)| <= M` on `[0,1]`. These are actual original cyclic probe vectors,
+not a supplied diagonal model. Four modules passed 57 focused axiom
+checks within `{propext, Quot.sound}` (three axiom-free).
+Continuous functional calculus, full spectral realization, continuum
+scaling and the Clay target remain open; nome and spacing are fixed.
+
+**Established moment convergence:** [all moments of the finite Bernstein rows converge to the original transfer moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinMomentConvergence.lean).
 At degree `N`, the two-sided error for the `r`th moment is at most
 `C(r)/N`, where `C(0)=0` and `C(r+1)=C(r)+r`. The certificate returns
 the original limiting moment `<v,T2^r v>`, its Cauchy data, the operator
 identity and a computed tolerance threshold. Three modules passed 61
 focused axiom checks within `{propext, Quot.sound}` (five axiom-free).
-The signed-polynomial extension, full spectral realization, continuum
-scaling and Clay target remain open; nome and lattice spacing are fixed.
+This is an all-order moment result at fixed nome and lattice spacing.
 
 **Established finite rows:** [positive mixed time/defect moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean)
 now produce [finite Bernstein probability rows for the original normalized probe](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinProbeRows.lean).

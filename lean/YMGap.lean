@@ -4200,6 +4200,12 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinProbeRows
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinFactorialMoments
 import YMGap.Continuum.BernsteinFallingProductError
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinMomentConvergence
+-- Signed-polynomial limits, a positive bounded original moment functional,
+-- and actual cyclic probe-vector norms; no assumed diagonal resolution.
+import YMGap.Continuum.RationalScalarTwoSidedError
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinPolynomialMoments
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialFunctional
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialProbeNorm
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

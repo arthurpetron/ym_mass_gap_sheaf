@@ -89,6 +89,35 @@ the original limiting real, QCauchy data, operator identity and modulus.
 `powerCauchy` at line 160 separately retains the finite-row real's modulus.
 No limiting spectral measure or full functional calculus is asserted.
 
+## Signed-polynomial and actual cyclic-norm update after c3da7a8
+
+`scale_error`, `lean/YMGap/Continuum/RationalScalarTwoSidedError.lean:21`,
+transports two-sided errors through signed rational coefficients with |c|.
+`polynomial_error`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinPolynomialMoments.lean:148`,
+gives the two-sided summed error; `polynomialModulus`, same file at line
+165, computes its threshold. `polynomialConvergenceCertificate`, same
+file at line 184, returns the CReal limit, QCauchy data, operator pin and
+modulus. `rowCauchy` at line 97 retains the finite-row real modulus.
+
+`functional_positive`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialFunctional.lean:80`,
+and `functional_sup_bound`, same file at line 85, prove positivity and
+rational sup-norm bounds from the SAME row limits. `functional_mono` at
+line 98 and `functional_congr` at line 121 prove order preservation and
+pointwise equivalence invariance. `functional_add` at line 152,
+`functional_scale` at line 158 and `functional_one` at line 170 prove
+rational linearity and normalization.
+
+`probe_inner_product`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialProbeNorm.lean:69`,
+proves <p(T2)v,q(T2)v>=F(pq). `probe_norm_bound`, same file at line 86,
+then bounds the ACTUAL cyclic polynomial vector norm by a polynomial
+sup bound on [0,1]. Uniformity is in polynomial degree at fixed nome and
+spacing, not in beta or physical lattice spacing. No supplied diagonal
+resolution, full-carrier polynomial operator bound, continuous calculus
+or spectral measure is constructed by these declarations.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -122,18 +151,21 @@ resolution: `PolyNormData.normDiag`,
 structure field, consumed by `dischargeBTC` at line 390. It is not an
 original spectral decomposition constructed by the new normalization.
 
-Mixed positivity, finite normalized rows and all-order monomial convergence
-are now closed by the declarations above. Next unproved targets: the
-signed-polynomial extension and the original moment functional's positivity
-and boundedness. Neither a spectral measure nor a full functional calculus
-is claimed.
+Mixed positivity, finite normalized rows, signed-polynomial convergence,
+the positive bounded normalized polynomial functional and its actual
+cyclic-vector norm pin are now closed by the declarations above. Next:
+polynomial-difference bounds and explicit representative-row carrier
+limits for uniform polynomial approximation. Neither a spectral measure
+nor a continuous functional calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
-The all-order moment-convergence increment has three new modules and 61
+The signed-polynomial/functional/cyclic-norm increment has four new modules
+and 57 exactly matched gates within `{propext, Quot.sound}`, three axiom-free.
+The all-order moment-convergence increment had three new modules and 61
 exactly matched gates within `{propext, Quot.sound}`, five axiom-free.
 The mixed-moment/finite-row increment had three new modules and 55 exactly
 matched axiom gates within `{propext, Quot.sound}`, four axiom-free.

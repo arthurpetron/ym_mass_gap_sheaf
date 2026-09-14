@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (all original factorial moments and quantitative monomial convergence):**
+**Latest increment (signed polynomials, positive functional and actual cyclic norms):**
+PROGRESS after c3da7a8. `RationalScalarTwoSidedError.scale_error` transports
+two-sided real errors through arbitrary signed rational coefficients with
+factor |c|. No positivity assumption on coefficients is introduced.
+
+`BF4ExactSlabThermodynamicBernsteinPolynomialMoments.polynomial_error`
+proves two-sided error (sum |c_j| C(j))/N, also with arbitrary degree
+offsets. `polynomialModulus` and `polynomial_error_le` compute and verify
+the tolerance threshold. `polynomialConvergenceCertificate` returns the
+actual CReal limit, QCauchy data, SAME original polynomial-transfer pin
+and modulus; `rowCauchy` retains the finite row's real modulus.
+`evalAt_zero` / `rowAt_pin` connect the coefficient sum to the existing
+Horner polynomial and the SAME finite Bernstein probability rows.
+
+`BF4ExactSlabThermodynamicPolynomialFunctional` proves order preservation
+on rational [0,1], positivity, sup-norm bounds with constant one, invariance
+under pointwise polynomial equivalence, rational linearity and F(1)=1.
+These are consequences of the finite rows and their convergence, not
+fields of a supplied spectral resolution.
+
+`BF4ExactSlabThermodynamicPolynomialProbeNorm.probe_inner_product` proves
+<p(T2)v,q(T2)v>=F(pq) by original time symmetry/composition and bilinearity.
+`probe_norm_bound` gives ||p(T2)v||^2<=M^2 for |p|<=M on [0,1]. This is
+uniform in polynomial degree on the actual normalized probe's cyclic
+polynomial vectors; it is not a new whole-carrier operator bound or a
+claim of beta/spacing-uniform spectral control.
+
+NEXT: a polynomial-difference estimate and explicit representative-row
+carrier limits for uniformly approximating polynomials, toward the
+continuous calculus on the original cyclic sector. Signed-polynomial
+convergence and the positive bounded polynomial functional are CLOSED.
+Full spectral realization/calculus, canonical observable/scalar/carrier
+comparison, full quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling,
+other groups and Clay remain OPEN. No hole, analytic premise, canonical
+field/atom/flag or physical weight change; fixed SU(2) nome 1/1024/spacing.
+
+Verification: four focused monitored modules, 4+25+21+7=57 exactly matched
+axiom gates within {propext, Quot.sound}, three axiom-free. Clean logs,
+fresh own/direct-import artifacts; one worker, 20 GiB ceiling. No raised
+options, large tree/sample evaluation, full build/audit/guard/progress
+or root-import run. Logs: `/tmp/ym-signed-real-error.log`,
+`/tmp/ym-original-bernstein-polynomial-moments.log`,
+`/tmp/ym-original-polynomial-functional.log`,
+`/tmp/ym-original-polynomial-probe-norm.log`.
+
+**Previous increment (all original factorial moments and quantitative monomial convergence):**
 PROGRESS after c8c0a7b. The SAME Bernstein rows now converge at every
 monomial order to the actual normalized original transfer moments.
 
