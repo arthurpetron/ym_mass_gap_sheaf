@@ -4,7 +4,47 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL interacting amplitudes and full spectator OS background (2026-09-13)
+## Current increment: ORIGINAL full-spectator reference and homogeneous minor balance (2026-09-13)
+
+The preceding goal turn was PROGRESS: 27be1d6 proved and pushed the
+actual interacting-amplitude pins and positive full spectator OS background.
+This turn is PROGRESS: local moments now factor against that SAME background,
+the full-spectator reference minor is explicitly positive, and its reference
+energy budget has the matching homogeneous scaling.
+
+- `ReflectedSquareTreeBlockLocality.gram_local` gives the actual channel
+  locality at every representation degree, preserved by tree products.
+- `BF4ExactSlabBulkProbeSpectatorFactorization.spectatorTree_outside`
+  proves every spectator channel avoids the probe. `detached_pair_factor`
+  yields Haar(p)*Haar(q)*Zsp with the entire original spectator tree kept.
+- `BF4ExactSlabBulkProbeSpectatorReference.bulkScalar_square_haar`
+  certifies 1/256 through the original block embedding.
+  `scalarReferencePair_factor` and the concrete pins give amplitudes
+  (0,s*Zsp,Zsp,0), energies (Zsp,(s/2)*Zsp), s=(2*w^3)^4/32768.
+- `BF4ExactSlabBulkProbeSpectatorReferenceMinor.original_scalar_energy_pin`
+  identifies the actual original scalar test energy too.
+  `reference_homogeneous_balance` proves Dref=(s*Zsp)*Rref, with
+  Dref=s^2*Zsp^4 and Rref=s*Zsp^3. The reference minor is positive at
+  the existing nome for every cutoff and half-size.
+
+The local lower collar is still removed from these reference amplitudes.
+Next: a relative signed-collar estimate and SAME full-partition comparison.
+No uniform normalized excitation follows from reference positivity alone.
+Thermodynamic excitation, full observables/completeness and continuum/Clay
+remain open; no canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 9+8+13+9=39 exactly matched focused gates within
+{propext, Quot.sound}; final logs error/warning free and own/direct-import
+artifacts fresh. The extended exact-rational pilot passed, with its new
+scalar-square value independently checked by Lean. One monitored worker,
+mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-reflected-square-tree-block-locality.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-factorization.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference-minor.log`.
+
+## Previous increment: ORIGINAL interacting amplitudes and full spectator OS background (2026-09-13)
 
 The preceding goal turn was PROGRESS: e45a530 proved and pushed translated
 local tests and the detached reference. This turn is PROGRESS: the actual

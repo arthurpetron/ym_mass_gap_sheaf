@@ -585,6 +585,12 @@ REQUIRED PHYSICAL ROUTE: ORIGINAL signed SU(2) slab law
                                   |           Zsp=H(theta Lfar*Lfar*Isp)
                                   |           (volume-dependent floor)
                                   |                                 [PROVED]
+                                  |        + every spectator channel
+                                  |          avoids the probe links
+                                  |        -> full-Zsp local reference
+                                  |           Dref=s^2 Zsp^4,
+                                  |           Rref=s Zsp^3           [PROVED]
+                                  |           s=(2*w^3)^4/32768
                                   |        + local positive minor and
                                   |          SAME partition-relative
                                   |          volume-uniform estimate [OPEN]
@@ -682,15 +688,25 @@ explicit floor `((1-128*w^3)^N)^2`, `N=lowerSpectators.length`.
 This floor is cutoff-independent but **volume-dependent**; `Zsp` has not
 been equated to the earlier bare reference `Zref`.
 
-**Open next:** factor local reference moments against this same full
-spectator background, control the signed local-collar insertion, and retain
-partition/reference-energy factors through normalization. The needed
-positive normalized floor must be uniform in volume/cutoff at the fixed
-nome. Background positivity alone does not prove a nonzero thermodynamic
-excitation or continuum scaling.
+[Full spectator factorization](lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorFactorization.lean)
+now proves that every spectator channel avoids the probe links. Removing
+only the local lower collar gives the exact reflected pairing
+`Haar(p)*Haar(q)*Zsp`. The [reference calculation](lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorReferenceMinor.lean)
+then gives `Dref=s^2*Zsp^4`, `Rref=s*Zsp^3`, and
+`Dref=(s*Zsp)*Rref`, with `s=(2*w^3)^4/32768`.
+The actual original test energies are `Zsp` and `(s/2)*Zsp`.
+The reference minor is positive at the fixed nome for every cutoff and
+volume; it is **not yet the minor with the local collar reinstated**.
 
-Latest three modules: 13+14+18=45 exactly matched focused gates within
-`{propext, Quot.sound}`; one pruning gate is axiom-free. Final logs
+**Open next:** bound the signed local-collar perturbation relative to this
+same background, and compare the original full partition function to it.
+The resulting positive normalized excitation floor must survive volume
+and cutoff. No nonzero thermodynamic excitation or continuum scaling is
+claimed from the collar-removed reference alone.
+
+Latest four modules: 9+8+13+9=39 exactly matched focused gates within
+`{propext, Quot.sound}`. The extended exact-rational pilot also passed; its
+new scalar-square moment was independently kernel-checked in Lean. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.

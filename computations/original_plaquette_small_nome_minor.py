@@ -50,6 +50,8 @@ def certificate_candidate() -> dict:
     assert radii == (Fraction(129),) * 24
     assert norms == (128, 128, 1, 1)
     assert reference == (0, Fraction(1, 128), 1, 0)
+    scalar_square = haar(p_mul(loop, loop))
+    assert scalar_square == Fraction(1, 256)
 
     nome = Fraction(1, 1024)
     ratios = tuple(2 * nome**3 * radius for radius in radii)
@@ -69,6 +71,16 @@ def certificate_candidate() -> dict:
     square_floor = determinant_upper**2
     weight = (2 * nome**3)**4
     assert 0 < weight <= 1
+    # Coefficients of the collar-removed FULL-spectator OS reference.
+    # Every amplitude/energy below still multiplies Zsp, not Haar(Lfar^2).
+    reference_amplitudes = (Fraction(0), weight * reference[1] * scalar_square,
+                            Fraction(1), Fraction(0))
+    reference_energies = (Fraction(1), weight * scalar_square**2)
+    full_spectator_determinant = -reference_amplitudes[1]
+    full_spectator_budget = 2 * reference_energies[1]
+    assert full_spectator_determinant == -weight / 32768
+    assert full_spectator_budget == weight / 32768
+    assert full_spectator_determinant**2 / full_spectator_budget == weight / 32768
     reference_energy_ceiling = Fraction(5)
     assert 2**2 + weight * Fraction(1, 2)**2 <= reference_energy_ceiling
     denominator_ceiling = 2 * reference_energy_ceiling + 1
@@ -80,6 +92,11 @@ def certificate_candidate() -> dict:
         "face_radii": radii,
         "probe_mixed_unit_loop_norms": norms,
         "reference_moments": reference,
+        "scalar_square_moment": scalar_square,
+        "collar_removed_amplitudes_per_Zsp": reference_amplitudes,
+        "collar_removed_energies_per_Zsp": reference_energies,
+        "collar_removed_determinant_per_Zsp_squared": full_spectator_determinant,
+        "collar_removed_reference_budget_per_Zsp_cubed": full_spectator_budget,
         "nome": nome,
         "maximum_first_ratio": max(ratios),
         "face_delta": deltas[0],

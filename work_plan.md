@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (actual test amplitudes and positive full spectator OS background):**
+**Latest original-action increment (full spectator reference and homogeneous minor balance):**
+`ReflectedSquareTreeBlockLocality.gram_local` proves arbitrary block
+locality for every original representation degree and tree product.
+`BF4ExactSlabBulkProbeSpectatorFactorization.spectatorTree_outside`
+shows every actual spectator channel avoids the four probe links.
+`detached_pair_factor` then proves the full OS pairing is
+Haar(p)*Haar(q)*Zsp after removing the local lower collar, without
+replacing the full spectator tree or its partition by the unit channel.
+
+`BF4ExactSlabBulkProbeSpectatorReference.bulkScalar_square_haar` proves
+Haar(S^2)=1/256 on the original translated block carrier, independently
+certifying the extended exact-rational pilot. `scalarReferencePair_factor`
+retains the four original weights. Reference amplitudes are
+(0,s*Zsp,Zsp,0) and energies (Zsp,(s/2)*Zsp), s=(2*w^3)^4/32768.
+`BF4ExactSlabBulkProbeSpectatorReferenceMinor.original_scalar_energy_pin`
+also identifies the actual original scalar test energy with (s/2)*Zsp;
+reference energies never contained the removed lower collar.
+
+`referenceMinor_pin`, `referenceBudget_pin` and
+`reference_homogeneous_balance` prove Dref=s^2*Zsp^4, Rref=s*Zsp^3 and
+Dref=(s*Zsp)*Rref. `existingNome_referenceMinor_positive` discharges
+positivity at w=1/1024 for every K,half. These are exact full-spectator
+REFERENCE identities, not the interacting amplitudes after collar
+restoration or a volume-uniform normalized excitation floor.
+
+Next: relative signed collar perturbation and SAME original full-partition
+comparison, preserving the homogeneous factors above. Then transfer a
+volume/cutoff-uniform positive centered norm to the original thermodynamic
+completion. Nonzero thermodynamic excitation, full observables/completeness
+and continuum/Clay remain open. No canonical atom/type/flag, analytic
+premise or hole changed.
+
+Verification: four modules, 9+8+13+9=39 exactly matched focused gates
+within {propext, Quot.sound}. Final logs error/warning free; own/direct-import
+artifacts fresh. `python3 -m computations.original_plaquette_small_nome_minor`
+passed with the new scalar-square and full-spectator reference assertions.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-reflected-square-tree-block-locality.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-factorization.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference-minor.log`.
+
+**Preceding original-action increment (actual test amplitudes and positive full spectator OS background):**
 `BF4ExactSlabPartialInterfaceHaarForm.retainedExpansion` pins the existing
 retained tree to a canonical polynomial: full original spatial Gram heat
 factors on unselected faces, and the actual weighted reflected square on

@@ -13,6 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED full-spectator reference minor and homogeneous budget; OPEN collar restoration and normalized excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreeBlockLocality.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorReference.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeSpectatorReferenceMinor.lean`.
+- **closed local dependence**: `gram_local` proves locality for every
+  original representation degree. `spectatorTree_outside` proves it for
+  the actual full spectator tree; `spectatorHeat_outside` retains the
+  detached lower action. `tree_pair_factor` factors each signed Haar
+  channel before summing. `detached_pair_factor` identifies the full
+  reflected pairing as Haar(p)*Haar(q)*Zsp, with no unit-channel replacement.
+- **closed original-carrier reference moments**: `source_scalar_square`
+  independently kernel-checks the extended pilot's 1/256; the original
+  block embedding proves `bulkScalar_square_haar` at every half-size.
+  `scalarReferencePair_factor` retains the four original weights, giving
+  reference amplitudes (0,s*Zsp,Zsp,0) and energies (Zsp,(s/2)*Zsp),
+  with explicit s=(2*w^3)^4/32768.
+- **closed actual energy pin**: `original_scalar_energy_pin` identifies
+  the original full-retention scalar test energy with (s/2)*Zsp. Unlike
+  the interacting amplitudes, reference energies contain no lower collar.
+- **closed homogeneous reference minor**: `referenceMinor_pin` gives
+  Dref=s^2*Zsp^4; `referenceBudget_pin` gives Rref=s*Zsp^3;
+  `reference_homogeneous_balance` gives Dref=(s*Zsp)*Rref without
+  division or an artificial +1. `existingNome_referenceMinor_positive`
+  proves the reference minor positive at w=1/1024 for every K,half.
+- **open constructive/analytic residue**: reinstate the signed local
+  lower collar with a quantitative estimate relative to this same Zsp;
+  compare the SAME full original partition to Zsp; preserve the energy
+  factors in a volume/cutoff-uniform positive normalized centered norm.
+  Transfer it to the original thermodynamic completion. The reference
+  amplitudes are not asserted equal to the interacting amplitudes.
+  Nonzero thermodynamic excitation, full observable realization/completeness
+  and continuum/QFT/all-group Clay remain open. No canonical atom/type/flag,
+  analytic premise or hole changed; no beta-uniform positive bound is claimed.
+- **verification**: four modules, 9+8+13+9=39 exactly matched focused gates
+  within {propext, Quot.sound}; final logs error/warning free and own/direct-import
+  artifacts fresh. The extended exact-rational pilot passed, including its
+  new scalar-square and reference-budget assertions. One monitored worker,
+  mandatory 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+  run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-reflected-square-tree-block-locality.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-spectator-factorization.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-spectator-reference-minor.log`.
+
 ## CLOSED original interacting-amplitude pins and positive full spectator OS background; OPEN uniform normalized excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceHaarForm.lean`,
