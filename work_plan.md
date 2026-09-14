@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (original polynomial action and relative bounds on cyclic limits):**
+**Latest increment (constructed original continuous-symbol action and compatibility):**
+PROGRESS after 77aabf9. `BF4ExactSlabThermodynamicCyclicPresentation`
+retains existing Cauchy rows, their polynomial family and point pin.
+`state` remains in the SAME original completion. `ofPolynomial` and
+`ofSymbol` construct instances with proved state pins; this is inhabited
+representation data, not a new physical/spectral analytic input or carrier.
+`stateNormCap` is computed from the existing diagonal representative.
+`approximationTolerance` is min(epsilon/(B+1),1), and `polynomial_close`
+transfers an all-points polynomial comparison to the original state.
+
+`BF4ExactSlabThermodynamicContinuousAction.symbolRows` constructs the
+Cauchy family of actual Bernstein-polynomial actions on that state,
+using a single stage for ALL rational spectral points in [0,1].
+`symbolActionCertificate` returns the constructed original completion
+vector, its Cauchy representative, convergence rate and sharp bound
+||F(T2)x||^2<=F.bound^2||x||^2. No image-Cauchy hypothesis, supplied
+diagonal resolution or coefficient-size factor is used in this bound.
+
+`BF4ExactSlabThermodynamicContinuousActionCompatibility` proves
+`symbolAction_input_congr` for equal ORIGINAL states and
+`symbolAction_symbol_congr` for symbols equal on rational [0,1], allowing
+different bounds, moduli and outside values. `symbolAction_eq_polynomial`
+recovers the pre-existing polynomial operator; `symbolAction_probe`
+recovers the original symbol-vector constructor on the normalized probe.
+`cuspActionCertificate` is a fully supplied cusp-on-cusp action instance;
+its nonzeroness is not claimed.
+
+NEXT: construct a represented cyclic presentation of each action output
+and prove the continuous action's linearity/multiplication laws. Continuous
+action and its state/symbol representation independence are CLOSED, not
+new hypotheses. Full continuous cyclic operator algebra, full-carrier
+spectral realization, canonical observable/scalar/carrier comparisons,
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. No new hole, physical input, canonical type/atom/flag, weight or
+surrogate. Fixed SU(2) nome 1/1024 and spacing; no beta/spacing-uniform gap.
+
+Verification: three focused monitored modules, 15+10+7=32 exactly matched
+gates within {propext, Quot.sound}, none axiom-free. Final logs clean,
+own/direct-import artifacts fresh. Safe-build skill: one worker, 20 GiB
+ceiling, separate process/swap preflights; no raised options, large sample
+evaluation, full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-cyclic-presentation.log`,
+`/tmp/ym-original-continuous-action.log`,
+`/tmp/ym-original-continuous-action-compatibility.log`.
+
+**Previous increment (original polynomial action and relative bounds on cyclic limits):**
 PROGRESS after dbaa81b. `BF4ExactSlabThermodynamicPolynomialContinuity`
 constructs the finite coefficient factor K([])=0, K(c::p)=2*c^2+2*K(p).
 `vector_norm_bound` / `operator_distance_bound` hold on EVERY original

@@ -237,6 +237,38 @@ action on the symbol vector with its image representative and original
 polynomial-product approximation rate. No continuous-symbol operator,
 full-carrier spectral realization or varying-spacing estimate is asserted.
 
+## Constructed original continuous action after 77aabf9
+
+`CyclicPresentation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicPresentation.lean:42`,
+retains existing Cauchy rows, polynomial coefficients and point pins.
+`state` at line 47 is still in the original completion. `ofSymbol` at
+line 49 and `ofPolynomial` at line 55 construct instances.
+`approximationTolerance` at line 85 and `polynomial_close` at line 99
+compute and prove a tolerance from the represented state's norm ceiling.
+This is represented cyclic data, not a new physical analytic premise.
+
+`symbolRows`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousAction.lean:40`,
+constructs actual original Bernstein-polynomial image Cauchy rows.
+`symbolAction` at line 52 is their original completion limit.
+`symbolAction_norm_bound` at line 82 proves the relative bound
+||F(T2)x||^2<=F.bound^2||x||^2. `symbolActionCertificate` at line 90
+retains the value's Cauchy representative, explicit rate and norm bound.
+No image-Cauchy or spectral-decomposition premise is supplied.
+
+`symbolAction_input_congr`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousActionCompatibility.lean:40`,
+proves independence from representation for equal original states.
+`symbolAction_symbol_congr` at line 47 requires symbol equality only on
+rational [0,1]. `symbolAction_eq_polynomial` at line 70 recovers the existing
+polynomial operator, and `symbolAction_probe` at line 85 recovers the
+original symbol vector on the normalized probe. `cuspActionCertificate`
+at line 93 supplies all data for a cusp-on-cusp instance; no nonzeroness
+conclusion is stated for that value. Represented-sector closure, full
+continuous operator algebra and physical-scale/continuum control are
+not conclusions of these declarations.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -277,8 +309,10 @@ convergence and symbol-vector norm bounds are now closed by the declarations
 above. Symbol-equivalence compatibility, actual polynomial operator algebra
 and relative cyclic polynomial bounds are also now closed. Original
 polynomial action and sharp relative bounds on represented cyclic limits
-are now closed as well. Next: continuous-symbol action and its algebraic/
-representation compatibility, toward continuous cyclic operator calculus. Neither
+are now closed as well. Continuous-symbol action and state/symbol
+representation independence are now constructed. Next: a represented
+cyclic presentation of the action output and continuous linearity/
+multiplication, toward continuous cyclic operator calculus. Neither
 a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -286,6 +320,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The continuous-action increment has three new modules and 32 exactly
+matched gates within `{propext, Quot.sound}`, none axiom-free.
 The represented cyclic-limit operator increment has three new modules
 and 30 exactly matched gates within `{propext, Quot.sound}`, one axiom-free.
 The symbol-compatibility/cyclic-operator increment has three new modules

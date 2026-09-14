@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original polynomial action and sharp relative bounds on represented cyclic limits (2026-09-14)
+## CLOSED constructed original continuous-symbol action and representation compatibility (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicPresentation.lean`,
+  `BF4ExactSlabThermodynamicContinuousAction.lean`, and
+  `BF4ExactSlabThermodynamicContinuousActionCompatibility.lean` in the same directory.
+- **represented inputs**: `CyclicPresentation` retains existing Cauchy
+  rows, coefficients and the polynomial point pin; `state` is in the
+  original completion. `ofPolynomial` and `ofSymbol` construct instances.
+  This is representation data, not a new spectral/physical input, frontier
+  enumeration or replacement carrier. Norm ceilings and approximation
+  tolerances are computed, not supplied as analytic assumptions.
+- **closed action construction**: `symbolRows` proves the actual original
+  Bernstein-polynomial image family Cauchy with an explicit shared rate.
+  `symbolActionCertificate` returns its original completion vector,
+  representative, rate and ||F(T2)x||^2<=F.bound^2||x||^2.
+  No supplied image-Cauchy premise or spectral decomposition is consumed.
+- **closed compatibility**: `symbolAction_input_congr` depends only on the
+  SAME original state; `symbolAction_symbol_congr` requires equality only
+  on rational [0,1]. Moduli, bounds and outside values may differ.
+  `symbolAction_eq_polynomial` recovers the existing polynomial operator;
+  `symbolAction_probe` recovers the original symbol-vector construction.
+  `cuspActionCertificate` supplies a closed cusp-on-cusp instance without
+  claiming its value nonzero.
+- **open residue**: represented cyclic presentation of action outputs,
+  continuous linearity/multiplication and full operator algebra; full-carrier
+  spectral realization, canonical comparisons, quotient-level completeness/
+  time injectivity, continuous-time/physical spectral/non-Wick pins,
+  continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing only.
+  No new hole, physical analytic input, canonical type/atom/flag, weight or surrogate.
+- **verification**: three focused monitored modules, 32 exactly matched
+  gates within {propext, Quot.sound}, none axiom-free; clean final logs and
+  fresh own/direct-import artifacts. One worker, 20 GiB ceiling; no raised
+  options, large sample evaluation, full build/audit/guard/progress or
+  root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original polynomial action and sharp relative bounds on represented cyclic limits (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialContinuity.lean`,
   `BF4ExactSlabThermodynamicPolynomialRowAction.lean`, and

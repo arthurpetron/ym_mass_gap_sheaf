@@ -13,7 +13,19 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [relative operator bounds now hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
+**Latest milestone:** [continuous-symbol action is constructed on represented original cyclic vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousAction.lean).
+The certificate returns the actual original completion vector, its Cauchy
+representative, convergence rate and bound `||F(T2)x||² <= F.bound² ||x||²`.
+[Compatibility proofs](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousActionCompatibility.lean)
+show independence from input representation and symbol data outside `[0,1]`,
+recover the existing polynomial action, and recover the original symbol
+vector on the normalized probe. No image-Cauchy or spectral-decomposition
+premise is supplied. Three modules passed 32 focused axiom checks within
+`{propext, Quot.sound}`; no full-tree run. Next: construct cyclic presentations
+of the outputs and prove the continuous operator algebra. Full-carrier and
+continuum/Clay bridges remain open; SU(2) nome and spacing remain fixed.
+
+**Established limit bound:** [relative operator bounds hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
 For `|p| <= M` on `[0,1]`,
 `||p(T2)F(T2)v||² <= M² ||F(T2)v||²` for every constructed Bernstein
 symbol vector. The image limit is proved equal to the existing original
@@ -21,8 +33,8 @@ polynomial operator value; its Cauchy representative and convergence rate
 are returned. A coefficient estimate supplies continuity but does not
 appear in the final relative bound. Three modules passed 30 focused axiom
 checks within `{propext, Quot.sound}` (one axiom-free); no full-tree run.
-Next: continuous-symbol action on these cyclic vectors. Full continuous
-operator calculus, physical-scale control and continuum/Clay remain open;
+Continuous-symbol action is now constructed above. Full continuous
+operator algebra, physical-scale control and continuum/Clay remain open;
 SU(2) nome and spacing remain fixed.
 
 **Established polynomial bound:** [relative polynomial operator bounds on the original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicOperatorBound.lean).
