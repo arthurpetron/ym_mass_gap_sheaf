@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED whole remaining two-cap family bound and absorption; OPEN four-or-more spatial faces (2026-09-14)
+## CLOSED original four-face bound and absorption; OPEN six-or-more spatial faces (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4FiniteProjectedBoundaryParity.lean`,
+  `BF4ExactSlabProjectedSpatialCycle.lean`, `Z4FourFaceClosedPairing.lean`,
+  `Z4FourProjectedFaceCode.lean`, `BF4ExactSlabFourCapLocalCode.lean`,
+  `BF4ExactSlabFourCapPairCount.lean`, `BF4ExactSlabFourCapPairSum.lean`,
+  `BF4ExactSlabFourCapRemainderBound.lean`, `BF4ExactSlabAfterFourCapRemainder.lean`
+  (all in `lean/YMGap/Continuum/`).
+- **closed original geometry/count**: `original_projectedFaces_closed` derives
+  even projected boundary incidence from original accepted moment checkers,
+  preserving replica occurrences. `closed_four_pairing` forces duplicate
+  projections by the one-edge overlap bound. `decode_encode` and
+  `code_recover_spatial` give a reversible two-anchor/local-time code.
+  `pairCode_injective` recovers the entire original pair; the actual mass-H
+  count is at most `984332414457951182460*241813452^H`.
+- **closed original quantitative bound**: `original_spatial_occupation_floor`
+  gives `12+S<=B+H`. `original_fourCap_pair_sum_small` bounds the complete
+  absolute four-face pair sum by `2^-15*w^36`; `original_fourCap_remainder_bound`
+  restores every OWN detached square and gives `2^-14*w^36*Z_full^2`.
+  All cutoffs, margins and filter times, fixed SU(2) nome `1/1024`.
+- **closed original absorption**: `original_numerator_lower_with_afterFourCap_heat54`
+  leaves `(1/4-2^-19-2^-26-2^-14-2^-14)*w^36*Z_full^2` plus the actual
+  `w^54*afterFourCapHeatResidual54`, for K>=1. The exact factorization is valid
+  for all rational nomes and all K, including zero.
+- **open residue**: every nonzero remaining pair has at least six spatial odd
+  faces and Casimir power at least 54. Its actual aggregate bound remains open.
+  Positive full response/certificate, limit persistence, full realization,
+  continuum/QFT/physical spectral pins, other groups and Clay remain open.
+  No hole, new analytic input, canonical atom/type/flag or frontier field changed.
+  No beta-uniform mass-gap claim is made.
+- **verification**: 72 focused gates within {propext, Quot.sound}, eleven
+  axiom-free; exact source/log declaration order and multiplicity, clean logs,
+  fresh own/direct-import artifacts, bounded exact pilot passed. One monitored
+  worker, 20 GiB ceiling; no raised limits, full build/audit/guard/progress run,
+  or root-import rebuild. Logs in work_plan.
+
+## Previous checkpoint: CLOSED whole remaining two-cap family; then-OPEN four-or-more spatial faces (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoCapSpatialCode.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabTwoCapLocalCode.lean`,

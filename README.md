@@ -32,7 +32,27 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the whole remaining two-spatial-cap family is bounded](lean/YMGap/Continuum/BF4ExactSlabTwoCapRemainderBound.lean),
+**Latest local mathematical step:** [the whole remaining four-spatial-face family is bounded](lean/YMGap/Continuum/BF4ExactSlabFourCapRemainderBound.lean),
+including all higher spins and each core's own detached partition square.
+The original pair's [projected spatial boundary is even](lean/YMGap/Continuum/BF4ExactSlabProjectedSpatialCycle.lean).
+Four such faces must pair in projection: distinct plaquettes share at most
+one edge, so three distinct faces cannot cancel a fourth face's four edges.
+This gives a reversible two-anchor code and an actual configuration count.
+
+At fixed SU(2) nome `w=1/1024`, for every cutoff, margin and cut-filter time,
+`|fourCapRemainder| <= 2^-14 * w^36 * Z_full^2`.
+The [exact original absorption theorem](lean/YMGap/Continuum/BF4ExactSlabAfterFourCapRemainder.lean)
+gives, for every `K>=1`:
+
+`N_full >= (1/4 - 2^-19 - 2^-26 - 2^-14 - 2^-14) * w^36 * Z_full^2 + w^54 * afterFourCapHeatResidual54`.
+
+Every nonzero remaining term has **at least six spatial odd faces**.
+**Next:** count and bound that actual family. Positive full response,
+coupling-uniform physical mass gap and continuum/Clay remain open.
+Nine new modules passed 72 focused axiom checks within `{propext, Quot.sound}`
+(eleven axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** [the whole remaining two-spatial-cap family is bounded](lean/YMGap/Continuum/BF4ExactSlabTwoCapRemainderBound.lean),
 at every cutoff and volume margin, including each core's own detached
 partition square. This covers all higher-spin labels in that family,
 not just the previously classified power-42 sector.
@@ -50,8 +70,9 @@ give, for every `K>=1`:
 
 `N_full >= (1/4 - 2^-19 - 2^-26 - 2^-14) * w^36 * Z_full^2 + w^48 * afterTwoCapHeatResidual48`.
 
-Every nonzero term in this literal remaining sum has **at least four
-spatial odd faces**. **Next:** count and bound that family. Positive full
+Every nonzero term in that literal remaining sum has **at least four
+spatial odd faces**. The four-face part is now bounded above; six-or-more
+spatial faces still need an aggregate estimate. Positive full
 response, coupling-uniform physical mass gap and continuum/Clay remain open.
 Seven new modules passed 68 focused axiom checks within `{propext, Quot.sound}`
 (fifteen axiom-free); no full-tree build or audit ran.

@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: whole original remaining two-cap family bounded and absorbed (2026-09-14)
+## Current increment: original four-face family bounded; power-54 six-face residue (2026-09-14)
+
+The 2378d02 checkpoint was PROGRESS: the two-cap family was bounded. This
+increment is PROGRESS: another ENTIRE original all-spin family is counted,
+summed with its OWN detached squares, and absorbed into the same numerator.
+
+The new mathematical step is projected conservation and four-face rigidity.
+`Z4FiniteProjectedBoundaryParity.endpoint_projected_parity` derives the
+terminal source law; `BF4ExactSlabProjectedSpatialCycle.original_projectedFaces_closed`
+applies it to both original replicas. `Z4FourFaceClosedPairing.closed_four_pairing`
+forces two paired projections. `Z4FourProjectedFaceCode.decode_encode` and
+`BF4ExactSlabFourCapLocalCode.code_recover_spatial` reduce their original spatial
+encoding to two anchors and two times. `BF4ExactSlabFourCapPairCount.original_fourCap_mass_count`
+then counts actual mass-H configurations, with no source deduplication.
+
+`BF4ExactSlabFourCapPairSum.original_spatial_occupation_floor` gives `12+S<=B+H`.
+The original four-face weighted sum is at most `2^-15*w^36`; the original
+signed remainder with OWN detached squares is at most `2^-14*w^36*Z_full^2`.
+`BF4ExactSlabAfterFourCapRemainder.original_numerator_lower_with_afterFourCap_heat54`
+absorbs this cost and leaves the literal six-or-more-face source with w^54.
+
+Fidelity: fixed nome 1/1024, same original SU(2) action/carrier/Haar weights,
+dimensions, multiplicities and partitions. No hole, new analytic input,
+canonical atom/type/flag or frontier field changed. Completion audit:
+NEXT is the actual aggregate six-or-more-face bound; positive full response,
+limit persistence, full realization, continuum/QFT/physical spectral pins,
+other groups and Clay remain OPEN. Not a beta-uniform estimate.
+
+Verification: nine focused modules, 72 gates within {propext, Quot.sound},
+eleven axiom-free; clean logs, exact gate order/multiplicity and fresh artifacts.
+Bounded exact pilot passed. One monitored worker, 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports not rebuilt.
+
+## Previous increment: whole original remaining two-cap family bounded and absorbed (2026-09-14)
 
 The 1f06764 checkpoint was PROGRESS: joint power 42 was excluded and the
 remaining original spatial sum gained a w^48 factor. This increment is

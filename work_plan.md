@@ -18,7 +18,74 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (all original remaining two-cap terms counted, summed and absorbed):**
+**Latest local increment (projected conservation; whole four-face family absorbed; power-54 residue):**
+The 2378d02 checkpoint was PROGRESS: the whole remaining two-cap family was
+bounded. This increment is PROGRESS on its literal complement, with a new
+geometric argument rather than an assumed spatial classification.
+
+`Z4FiniteProjectedBoundaryParity.endpoint_projected_parity` sums the spatial
+impulses through an explicit finite terminal time. Applied to the original
+accepted moment checkers, `BF4ExactSlabProjectedSpatialCycle.original_projectedFaces_closed`
+proves even boundary incidence of the combined spatial projection, with all
+replica occurrences retained. This holds at arbitrary spins and volumes.
+
+`Z4FourFaceClosedPairing.closed_four_pairing` uses the proved one-edge overlap
+of distinct plaquettes: four boundary edges cannot be covered by only three
+distinct other faces. The four-face list therefore has one of three exact
+pairings. `Z4FourProjectedFaceCode.decode_encode` constructs a reversible
+code using two literal anchor faces and two times. Its explicit time lower
+bounds prevent loss through truncated Nat subtraction.
+
+`BF4ExactSlabFourCapLocalCode.original_four_cap_pairing` and `code_recover_spatial`
+apply this to original short pairs. The target has at most
+`5*3*120906726^2*67^2 = 984332414457951182460` entries (five replica splits,
+three pairings, two local faces, two local times); it is not evaluated.
+`BF4ExactSlabFourCapPairCount.pairCode_injective` adds the higher-label unit
+word and recovers the ENTIRE original pair. `original_fourCap_mass_count`
+bounds the actual mass-H stratum by `984332414457951182460*241813452^H`.
+No source deduplication or cutoff multiplicity change occurs.
+
+`BF4ExactSlabFourCapPairSum.original_spatial_positive_floor` proves the general
+occupation bound `12+S <= positive occupations`; `original_spatial_occupation_floor`
+gives `12+S <= B+H`. Four spatial occurrences therefore pay sixteen units,
+plus the relative higher rate `9/2^52`. The original H-stratum count sums
+with counted rate `544080267/1125899906842624 < 1`.
+`original_fourCap_pair_sum_small` bounds the whole actual absolute sum by
+`2^-15*w^36`, at unchanged SU(2) nome `w=1/1024`, all K/margins/filter times.
+
+`BF4ExactSlabFourCapRemainderBound.original_fourCap_remainder_bound` restores
+every OWN detached square and gives `|fourCapRemainder| <= 2^-14*w^36*Z_full^2`.
+`BF4ExactSlabAfterFourCapRemainder.original_afterTwo_split_fourCap` is an exact
+original signed split at every rational nome. Its absorption theorem leaves,
+for every K>=1 at fixed nome,
+
+`N_full >= (1/4-2^-19-2^-26-2^-14-2^-14)*w^36*Z_full^2 + w^54*afterFourCapHeatResidual54`.
+
+`afterFourCap_spatial_minimum_six` and `afterFourCap_power_minimum54` prove
+the residual nonzero terms have at least six spatial odd faces and power 54.
+`original_afterFourCap_factorization54` is division-free, all rational nomes,
+all K including zero, and retains the original signed amplitudes, dimensions,
+multiplicities and OWN detached partitions. NEXT: count and bound this actual
+six-or-more-face family. The heat factor alone is not an aggregate estimate.
+Positive full response/certificate, explicit limit persistence, full observable
+realization, continuum/QFT/physical spectral pins, other groups and Clay remain
+OPEN. No hole, new analytic input, canonical atom/type/flag or frontier field
+changed. Group-independent geometry feeds fixed-nome SU(2) weights; no
+beta-uniform or physical continuum mass-gap claim is made.
+
+Verification: nine focused modules, 10+8+3+5+11+7+8+5+15=72 exactly matched
+gates within {propext, Quot.sound}, eleven axiom-free; clean logs and fresh
+own/direct-import artifacts. `computations/original_four_cap_budget.py` passed;
+Lean independently verifies the count, scalar inequality and original-sum use.
+One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-finite-projected-boundary-parity.log`,
+`/tmp/ym-original-projected-spatial-cycle.log`, `/tmp/ym-four-face-closed-pairing.log`,
+`/tmp/ym-four-projected-face-code.log`, `/tmp/ym-original-four-cap-local-code.log`,
+`/tmp/ym-original-four-cap-pair-count.log`, `/tmp/ym-original-four-cap-pair-sum.log`,
+`/tmp/ym-original-four-cap-remainder-bound.log`, `/tmp/ym-original-after-four-cap-remainder.log`.
+
+**Previous local increment (all original remaining two-cap terms counted, summed and absorbed):**
 The 1f06764 checkpoint was PROGRESS: joint power 42 was excluded and the
 actual complementary spatial remainder gained a w^48 factor. This increment
 is PROGRESS on the aggregate estimate: an ENTIRE all-spin spatial family

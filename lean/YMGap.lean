@@ -4143,6 +4143,17 @@ import YMGap.Continuum.BF4ExactSlabTwoCapHeatBound
 import YMGap.Continuum.BF4ExactSlabTwoCapPairSum
 import YMGap.Continuum.BF4ExactSlabTwoCapRemainderBound
 import YMGap.Continuum.BF4ExactSlabAfterTwoCapRemainder
+-- Original projected conservation counts/absorbs all four-face terms;
+-- six-or-more spatial faces, positive full response and continuum remain open.
+import YMGap.Continuum.Z4FiniteProjectedBoundaryParity
+import YMGap.Continuum.BF4ExactSlabProjectedSpatialCycle
+import YMGap.Continuum.Z4FourFaceClosedPairing
+import YMGap.Continuum.Z4FourProjectedFaceCode
+import YMGap.Continuum.BF4ExactSlabFourCapLocalCode
+import YMGap.Continuum.BF4ExactSlabFourCapPairCount
+import YMGap.Continuum.BF4ExactSlabFourCapPairSum
+import YMGap.Continuum.BF4ExactSlabFourCapRemainderBound
+import YMGap.Continuum.BF4ExactSlabAfterFourCapRemainder
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
