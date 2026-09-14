@@ -32,6 +32,17 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
+**Latest local mathematical step:** an [open fundamental plaquette tube](lean/YMGap/Continuum/SU2QuaternionFundamentalPlaquetteTube.lean)
+now propagates the lower plaquette character to exactly `1/16` of the upper
+character, retaining arbitrary boundary polynomials. Its four selected heat
+coefficients give exactly `w^12`, with the nome dependence explicit.
+[Kernel-checked coordinate pins](lean/YMGap/Continuum/BF4ExactSlabFundamentalTubeCoordinates.lean)
+identify the ends and temporal-gauge side kernels on the original slab's
+link carrier. This is one selected local channel, **not a positive lower
+bound for the full interacting covariance**. The shifted-probe response
+still needs the longer-tube construction and signed dressing/centering
+control that persists with volume.
+
 ## Whole-project goal
 
 The Clay target requires a non-trivial quantum Yang--Mills theory on

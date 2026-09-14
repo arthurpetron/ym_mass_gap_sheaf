@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (finite certificate for the exact ORIGINAL excited response):**
+**Latest local increment (boundary-retaining fundamental tube, with literal slab pins):**
+The 911bec0 checkpoint supplied the exact excited-response target and its
+finite-certificate criterion, not a positive response floor. This increment
+constructs an actual local propagation term for the next lower-bound argument.
+
+`SU2QuaternionPartialFactorizedHaar.partialFactors_boundary_haar` stops the
+existing exact contractor after n blocks while retaining ANY polynomial in
+the remaining coordinates. `SU2QuaternionFundamentalPlaquetteTube.tube_contraction_coefficients`
+proves the four-lower-link integral coefficientwise: chi_1 of the lower
+ordered plaquette times the four relative characters leaves (1/16)*chi_1
+of the upper plaquette. `tube_boundary_haar` retains arbitrary boundary
+insertions; `weightedCoefficient_pin` and `weighted_tube_boundary_haar`
+give exactly w^12 after the four ORIGINAL coefficients coeffW(w,1)=2*w^3.
+This is an identity with explicit nome dependence, not a uniform gap bound.
+
+`BF4ExactSlabFundamentalTubeCoordinates.lower_face_pin`, `upper_face_pin`
+and `temporal_side_pin` identify original faces 0,6 and crossing faces
+2,40,20,4. `tube_embedding_pin`, `literal_boundary_source_pin` and
+`literal_weighted_tube_boundary_haar` transport the conditional calculation
+to the original 116-link carrier, retaining all 112 non-eliminated link
+coordinates. The finite incidence checks corrected a pilot/Lean enumeration
+difference: Lean's lower/upper link table is [0,3,2,1,8,17,16,12]. The Python
+sorted raw indices are not imported as Lean indices.
+
+OPEN: this selected temporal-gauge tube is NOT the complete interacting
+covariance, and the raw ungauged five-face tube regression is Python-only.
+The outward-shifted reflected probe pair is separated by THREE lattice
+steps; this one-layer identity alone does not supply its response floor.
+Next: longer-tube composition, an original-action signed dressing/centering
+estimate preserving this signal, and cutoff/volume-stable positivity.
+No physical response certificate is instantiated. Full observables/action
+maps, quotient-level completeness, continuum scaling, continuous-time
+generator/spectral pins, QFT axioms, other groups and Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: three modules, 5+12+13=30 exactly matched focused gates;
+seven axiom-free, all others within {propext, Quot.sound}. Final logs have
+no errors/warnings; own/direct-import artifacts fresh. The exact pilot
+`python3 -m computations.original_plaquette_tube_channel` passed both raw
+and reduced polynomial identities and the explicit numbering translation.
+Lean independently checks the reduced calculation and its geometric pins.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-partial-factorized-haar.log`, `/tmp/ym-fundamental-plaquette-tube.log`,
+`/tmp/ym-bf4-fundamental-tube-coordinates.log`.
+
+**Preceding original-action increment (finite certificate for the exact ORIGINAL excited response):**
 The 9e22fdc checkpoint constructed the bounded two-step resolvent. The next
 source trace distinguishes the existing positive norm from positive transfer
 response: the proved floor concerns the unshifted boundary probe, whereas

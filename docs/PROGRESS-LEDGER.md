@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite certificate for ORIGINAL excited response (2026-09-13)
+## Current increment: exact open fundamental tube with literal slab pins (2026-09-13)
+
+The preceding turn was PROGRESS: 911bec0 pinned the original response and
+proved its finite-certificate criterion. This turn is PROGRESS by an actual
+local conditional Haar calculation, NOT by closing the positive response.
+
+- `SU2QuaternionPartialFactorizedHaar.partialFactors_boundary_haar` proves
+  partial factorized integration beneath arbitrary retained spectators.
+- `SU2QuaternionFundamentalPlaquetteTube.tube_contraction_coefficients`
+  gives the open plaquette coefficient 1/16, coefficientwise before any
+  upper variable is integrated. `weighted_tube_boundary_haar` gives w^12
+  after the four original heat coefficients, with nome dependence explicit.
+- `BF4ExactSlabFundamentalTubeCoordinates.lower_face_pin`, `upper_face_pin`
+  and `temporal_side_pin` pin the ends and reduced crossing characters.
+  `literal_boundary_source_pin` and `literal_weighted_tube_boundary_haar`
+  place the calculation on the original 116-link carrier. Lean's link
+  ordering differs from the pilot's sorted raw numbering; that translation
+  is now explicit and the actual Lean incidence predicates are checked.
+
+Next: compose the longer tube required by the shifted probe and prove a
+signed dressing/centering estimate that preserves its signal uniformly in
+cutoff and volume. A selected term is not the full covariance, and the
+Python-only raw ungauged regression is not a formal original-action floor.
+The accepted response certificate and the full realization, completeness,
+continuum/QFT/spectral, other-group and Clay requirements remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: 5+12+13=30 exactly matched gates, seven axiom-free and all
+others within {propext, Quot.sound}; final focused logs error/warning free,
+own/direct-import artifacts fresh. Exact raw/reduced pilot and numbering
+translation passed. One monitored worker, 20 GiB ceiling; no raised limits
+or full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-partial-factorized-haar.log`, `/tmp/ym-fundamental-plaquette-tube.log`,
+`/tmp/ym-bf4-fundamental-tube-coordinates.log`.
+
+## Previous increment: finite certificate for ORIGINAL excited response (2026-09-13)
 
 The preceding turn was PROGRESS: 9e22fdc constructed and pushed the bounded
 original resolvent. This turn is PROGRESS by an exact target identification

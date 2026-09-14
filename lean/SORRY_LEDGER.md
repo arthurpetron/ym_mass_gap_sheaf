@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED local fundamental tube with boundary retained; OPEN interacting response floor (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionPartialFactorizedHaar.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFundamentalPlaquetteTube.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFundamentalTubeCoordinates.lean`.
+- **closed local mathematics**: `partialFactors_boundary_haar` retains
+  arbitrary spectator polynomials. `tube_contraction_coefficients` and
+  `tube_boundary_haar` give the exact open tube coefficient 1/16.
+  `weightedCoefficient_pin` / `weighted_tube_boundary_haar` give w^12
+  for the four selected original fundamental heat coefficients.
+- **closed literal geometry**: `lower_face_pin`, `upper_face_pin`,
+  `temporal_side_pin`, `tube_embedding_pin`, `literal_boundary_source_pin`
+  and `literal_weighted_tube_boundary_haar` identify the local reduced
+  channel on the original 116-link carrier. All 112 non-eliminated
+  coordinates remain available to the spectator; the support guard is
+  proved from that spectator's declared coordinate support.
+- **open residue**: no full interacting covariance floor or accepted
+  response certificate is supplied. The outward-shifted probe pair has
+  three-step reflected separation, not the local tube's one-step length.
+  Longer-tube composition and signed dressing/centering control uniform
+  in cutoff and volume remain. The raw ungauged tube's Python regression
+  is not a Lean proof of the full interacting expression. The canonical
+  `PositiveTimeOSRoot.probeRayleighLower`, full realization/completeness,
+  continuum/QFT/spectral and other-group requirements remain open.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: 5+12+13=30 exactly matched focused gates, seven
+  axiom-free and all others within {propext, Quot.sound}; final logs
+  error/warning free and own/direct-import artifacts fresh. Exact pilot
+  passed, including Python-to-Lean link enumeration translation. One
+  monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+  guard/progress run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-partial-factorized-haar.log`, `/tmp/ym-fundamental-plaquette-tube.log`,
+  `/tmp/ym-bf4-fundamental-tube-coordinates.log`.
+
 ## CLOSED exact ORIGINAL response target and finite-certificate reduction; OPEN positive response (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeResponse.lean`,
