@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (all-spin relative heat transmission):**
+**Latest local increment (full heat-kernel tube, original all-volume carrier):**
+The 689cbe3 checkpoint proved full-cutoff two-link transmission. This increment
+composes it through the four ordered plaquette slots and along arbitrary
+finite tubes, then pins the three-layer result to the actual original slab.
+
+`SU2QuaternionRelativeHeatInsertion.coordinate_transmission_same_carrier`
+retains an arbitrary supported insertion independent of only the eliminated
+link. `SU2QuaternionRelativeHeatPairGeometry.heat_exposed` and
+`SU2QuaternionSelectedPairHeatTransmission.coordinate_transmission` use two
+explicit swaps on the whole carrier to handle any distinct physical pair.
+`SU2QuaternionLinearHeatPropagation.Propagates` has proved algebraic closure
+rules; it is an exact identity predicate, not a new analytic input.
+
+`SU2QuaternionPlaquetteHeatPropagation.plaquette_step` keeps the quaternion
+word order. `SU2QuaternionFullHeatTubeLayer.one_layer` gives w^12 with every
+packet spin on the left. `SU2QuaternionFullHeatTubeComposition.chain_haar`
+allows arbitrary length and a separate rational nome in every layer, with
+shared boundary variables and all spectators on one fixed carrier.
+`homogeneous_chain_haar` gives w^(12*n) for every cutoff K>=1.
+
+`BF4ExactSlabFullHeatTubeContraction.literalHeat` is the EXISTING swept
+`factor` with the EXISTING `heatWeights`. Its all-spin word and chain pins
+use the same full carrier permutation for all twelve actual `tubeSides`.
+`literal_boundary_haar` proves w^36 transmission at EVERY margin and K>=1,
+retaining the arbitrary boundary on that original full carrier. The guard
+is independence from precisely its twelve integrated source slots.
+
+NEXT/OPEN: prove the cancellation-preserving estimate for the remaining
+interacting plaquettes, which can depend on those twelve links. The exact
+identity is not permission to substitute the full background into its
+independence guard. Centering/normalization, a positive original response
+floor and cutoff/volume persistence remain open. No `finiteResponse` sample
+or accepted certificate. Full observable realization/completeness, canonical
+positive-time root, continuum scaling, generator/spectral pins, QFT axioms,
+other groups and Clay remain open. No canonical atom/type/flag, analytic
+premise or hole changed.
+
+Verification: 5+16+1+8+9+6+7+9=61 exactly matched focused gates, seven
+axiom-free and the rest within {propext, Quot.sound}; final logs contain no
+errors/warnings, and own/direct-import artifacts are fresh. The exact pilot
+`computations/original_full_heat_tube.py` retains symbolic nome and upper
+plaquette, checking all spins at K=1,2,3 through one, two and three layers:
+w^12, w^24, w^36. It is not a proof oracle. One monitored worker, 20 GiB
+ceiling; no raised limits or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs: `/tmp/ym-relative-heat-insertion.log`,
+`/tmp/ym-relative-heat-pair-geometry.log`, `/tmp/ym-selected-pair-heat-transmission.log`,
+`/tmp/ym-linear-heat-propagation.log`, `/tmp/ym-plaquette-heat-propagation.log`,
+`/tmp/ym-full-heat-tube-layer.log`, `/tmp/ym-full-heat-tube-composition.log`,
+`/tmp/ym-original-full-heat-tube.log`.
+
+**Preceding local increment (all-spin relative heat transmission):**
 The c9f188f checkpoint transported the selected fundamental tube to the
 original all-volume carrier. This increment proves a full-cutoff two-link
 kernel identity, with all packet spins retained before exact cancellation.

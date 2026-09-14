@@ -32,15 +32,23 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [exact two-link heat transmission](lean/YMGap/Continuum/SU2QuaternionRelativeHeatTransmission.lean)
-now sums **every original heat-packet spin through the cutoff**. For any
-rational nome `w`, cutoff `K >= 1`, and arbitrary retained polynomial boundary,
-integrating the head coordinate against that relative kernel transmits it by
-exactly `w^3`. The [all-spin character selection proof](lean/YMGap/Continuum/SU2QuaternionRelativeCharacterSelection.lean)
-annihilates every spin except the fundamental and retains all boundary data.
-This is an identity, not a coupling-uniform gap or a lower bound for the
-full interacting covariance. Composition on the physical tube and control
-of the other interacting plaquettes remain necessary.
+**Latest local mathematical step:** [full heat-kernel tube contraction](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeContraction.lean)
+now holds on the original slab at **every volume margin and every cutoff
+`K >= 1`**, for arbitrary rational nome `w`. Its twelve factors use the
+existing original `heatWeights`, retaining every spin before integration;
+the exact transmission is `w^36`, with the boundary and all spectators kept
+on the same carrier. The [arbitrary-length identity](lean/YMGap/Continuum/SU2QuaternionFullHeatTubeComposition.lean)
+gives `w^(12*n)`, or the product of the layer-dependent nomes to power 12.
+It composes the [two-link transmission](lean/YMGap/Continuum/SU2QuaternionRelativeHeatTransmission.lean)
+through the four ordered quaternion factors without commuting them.
+
+**What this does not prove:** the retained boundary must be independent of
+the twelve integrated links. The other interacting plaquettes need not
+satisfy that guard. Their cancellation-preserving signed estimate, the
+centered normalized response floor, and its cutoff/volume persistence remain
+open. This is an exact conditional identity, not a coupling-uniform mass gap.
+Eight focused modules passed 61 axiom checks within `{propext, Quot.sound}`;
+no full-tree build or audit is claimed.
 
 The preceding [three-layer conditional tube identity](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean)
 now holds on the **original full link carrier at every volume margin**, with

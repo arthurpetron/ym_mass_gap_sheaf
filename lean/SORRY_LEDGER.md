@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED all-spin relative heat transmission; OPEN full-kernel tube composition and interacting remainder (2026-09-13)
+## CLOSED full heat-kernel tube on the original all-volume carrier; OPEN interacting response estimate (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionRelativeHeatInsertion.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionRelativeHeatPairGeometry.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionSelectedPairHeatTransmission.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionLinearHeatPropagation.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionPlaquetteHeatPropagation.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFullHeatTubeLayer.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFullHeatTubeComposition.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeContraction.lean`.
+- **closed algebraic composition**: `coordinate_transmission_same_carrier`
+  and `coordinate_transmission` retain the same insertion through arbitrary
+  distinct block pairs. `plaquette_step` preserves noncommutative word order;
+  `one_layer` gives w^12 for four FULL kernels. `chain_haar` composes arbitrary
+  length and layer-dependent nomes; `homogeneous_chain_haar` gives w^(12*n).
+- **closed original-carrier bridge**: `literalHeat` uses the original
+  `factor` and `heatWeights`; `side_character_embedding_pin`,
+  `side_heat_embedding_pin` and `chain_embedding_pin` keep the same full
+  permutation and all twelve actual swept sides. `literal_boundary_haar`
+  proves exact w^36 for every margin, rational w and K>=1, with all spins
+  retained on the left. Support and independence guards are explicit.
+- **open residue**: the full interacting background need not be independent
+  of the twelve integrated links. Its cancellation-preserving signed bound,
+  centered normalized response floor and cutoff/volume persistence remain
+  open. No response sample or accepted certificate. Full realization/
+  completeness, canonical positive-time root, continuum/QFT/spectral, other
+  groups and Clay remain open. No atom/type/flag, analytic premise or hole
+  changed; the proved `Propagates` closure rules add no frontier assumption.
+- **verification**: 61 exactly matched focused gates, seven axiom-free and
+  the rest within {propext, Quot.sound}; final logs error/warning-free,
+  own/direct-import artifacts fresh. Symbolic-nome rational pilot passes
+  K=1,2,3 and layers 1,2,3, retaining the upper plaquette. It is not a proof
+  oracle. One monitored worker, 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports updated, not rebuilt. The eight
+  focused log paths are recorded in the latest `work_plan.md` increment.
+
+## Historical checkpoint: CLOSED all-spin relative heat transmission; full-kernel tube composition was then OPEN (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionTailEvaluation.lean`,
   `lean/YMGap/Continuum/SU2QuaternionHaarSparseEquality.lean`,

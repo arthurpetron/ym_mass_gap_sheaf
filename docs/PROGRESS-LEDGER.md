@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-spin relative heat transmission (2026-09-13)
+## Current increment: full heat-kernel tube on the original all-volume carrier (2026-09-13)
+
+The preceding checkpoint 689cbe3 was PROGRESS: exact all-spin two-link
+transmission. This increment is PROGRESS by composing FULL heat kernels,
+not just a selected channel, and pinning the result to the actual slab.
+
+- `SU2QuaternionRelativeHeatInsertion.coordinate_transmission_same_carrier`
+  and `SU2QuaternionSelectedPairHeatTransmission.coordinate_transmission`
+  retain the full insertion while exposing any distinct pair by two swaps.
+- `SU2QuaternionPlaquetteHeatPropagation.plaquette_step` keeps the four
+  quaternion factors ordered. `SU2QuaternionFullHeatTubeLayer.one_layer`
+  gives exact w^12 for the complete four-kernel layer.
+- `SU2QuaternionFullHeatTubeComposition.chain_haar` composes arbitrary
+  finite length and layer-dependent nomes on ONE shared carrier;
+  `homogeneous_chain_haar` gives w^(12*n), every K>=1.
+- `BF4ExactSlabFullHeatTubeContraction.literalHeat` uses the original swept
+  face `factor` and `heatWeights`, not a replacement packet. The all-spin
+  word/chain pins use one full permutation for the existing twelve tube
+  sides. `literal_boundary_haar` gives w^36 at every volume margin and K>=1.
+
+The next frontier is the remaining interacting signed estimate. Its
+background may depend on the twelve eliminated links and cannot simply
+be inserted into the proved boundary-independence guard. Centering and
+normalization, positive response and cutoff/volume persistence remain open.
+No accepted physical response certificate or canonical atom closure. Full
+observable realization/completeness, canonical positive-time root, continuum
+scaling, spectral/QFT pins, other groups and Clay remain open. No analytic
+premise, frontier type/flag or hole changed.
+
+Verification: eight focused modules, 61 exactly matched gates, seven
+axiom-free and the rest within {propext, Quot.sound}. Final logs clean;
+own/direct-import artifacts fresh. Exact symbolic-nome pilot checks complete
+K=1,2,3 packets through one, two and three layers; it is not a proof oracle.
+One monitored worker, 20 GiB ceiling. No raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. The eight log paths
+are recorded in the latest `work_plan.md` increment.
+
+## Previous increment: all-spin relative heat transmission (2026-09-13)
 
 The preceding checkpoint c9f188f was PROGRESS: the selected fundamental
 tube was contracted on the original all-volume carrier. This increment
