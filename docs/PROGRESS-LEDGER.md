@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full heat-kernel tube on the original all-volume carrier (2026-09-13)
+## Current increment: exact connected full-tube transmission (2026-09-13)
+
+The preceding checkpoint b85c5e2 was PROGRESS: raw full-kernel tube
+transmission on the original carrier. This increment is PROGRESS by proving
+the vacuum mass identity and retaining the connected subtraction exactly.
+
+- `SU2QuaternionRelativeHeatVacuum.heat_vacuum` preserves every retained
+  head-independent insertion, summing all spins at every cutoff including
+  zero. `SU2QuaternionFullHeatTubeVacuum.chain_vacuum` composes this through
+  arbitrary length and layer-dependent nomes on one fixed full carrier.
+- `SU2QuaternionFullHeatTubeCovariance.connected_transport` proves exact
+  connected numerator = transmission * terminal variance numerator. The
+  partition and nonzero mean remain in the same four-moment calculation.
+- `BF4ExactSlabFullHeatTubeCovariance.literal_connected_transport` pins
+  these four moments to both literal endpoint words and all twelve original
+  full heat factors at every margin and K>=1. The transmission is w^36.
+
+Next: signed interacting remainder control relative to this connected main
+term. The full background is not claimed independent of the twelve integrated
+links. No positive variance is asserted for arbitrary signed boundary data.
+Full positive response, normalization, cutoff/volume persistence and accepted
+response certificate remain open, as do physical realization/completeness,
+canonical positive-time root, continuum/QFT/spectral, other groups and Clay.
+No analytic premise, canonical atom/type/flag or hole changed.
+
+Verification: four focused modules, 20 exactly matched gates, all within
+{propext, Quot.sound}, clean final logs and fresh own/direct-import artifacts.
+Pilot checks full-kernel vacuum and plaquette transmission for K=1,2,3 and
+lengths 1,2,3, plus nonzero-mean boundary reference moments; it is not a proof
+oracle. One monitored worker, 20 GiB ceiling; no raised limits or full build/
+audit/guard/progress run. Root imports updated, not rebuilt. Four log paths
+are recorded in the latest `work_plan.md` increment.
+
+## Previous increment: full heat-kernel tube on the original all-volume carrier (2026-09-13)
 
 The preceding checkpoint 689cbe3 was PROGRESS: exact all-spin two-link
 transmission. This increment is PROGRESS by composing FULL heat kernels,

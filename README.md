@@ -32,7 +32,16 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [full heat-kernel tube contraction](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeContraction.lean)
+**Latest local mathematical step:** [connected full-tube transmission](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeCovariance.lean)
+now includes the partition and **both endpoint means**. The original twelve
+full heat factors preserve the retained boundary mass. Their connected
+numerator is exactly `w^36` times the upper boundary variance numerator,
+at every volume margin and `K >= 1`. A nonzero boundary mean is retained,
+not discarded. The [all-length identity](lean/YMGap/Continuum/SU2QuaternionFullHeatTubeCovariance.lean)
+also allows a separate nome in each layer. Four focused modules passed
+20 axiom checks within `{propext, Quot.sound}`; no full-tree audit is claimed.
+
+The preceding [full heat-kernel tube contraction](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeContraction.lean)
 now holds on the original slab at **every volume margin and every cutoff
 `K >= 1`**, for arbitrary rational nome `w`. Its twelve factors use the
 existing original `heatWeights`, retaining every spin before integration;
@@ -46,9 +55,9 @@ through the four ordered quaternion factors without commuting them.
 the twelve integrated links. The other interacting plaquettes need not
 satisfy that guard. Their cancellation-preserving signed estimate, the
 centered normalized response floor, and its cutoff/volume persistence remain
-open. This is an exact conditional identity, not a coupling-uniform mass gap.
-Eight focused modules passed 61 axiom checks within `{propext, Quot.sound}`;
-no full-tree build or audit is claimed.
+open. The conditional connected identity holds even for signed boundary
+weights; it does not assert positivity for arbitrary such weights. It is
+not the full interacting covariance or a coupling-uniform mass gap.
 
 The preceding [three-layer conditional tube identity](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean)
 now holds on the **original full link carrier at every volume margin**, with

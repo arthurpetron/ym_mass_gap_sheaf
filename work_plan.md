@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (full heat-kernel tube, original all-volume carrier):**
+**Latest local increment (connected full tube with exact vacuum subtraction):**
+The b85c5e2 checkpoint proved raw full-kernel tube transmission. This increment
+proves the mass and connected identities, keeping the boundary's mean and
+partition rather than treating vacuum subtraction as an absolute error.
+
+`SU2QuaternionRelativeHeatVacuum.positive_spin_partial_zero` applies the
+existing harmonic theorem to the constant test: every positive spin has zero
+conditional mean, with all retained coordinates symbolic. `heat_vacuum`
+sums the complete original packet and preserves any head-independent
+insertion at EVERY cutoff, including zero. The arbitrary-pair and all-length
+identities in `SU2QuaternionFullHeatTubeVacuum` keep one full carrier.
+
+`SU2QuaternionFullHeatTubeCovariance.connectedNumerator` is explicitly
+Z*M(p*q)-M(p)*M(q), not an assumed normalized covariance. `connected_transport`
+proves that the full chain's connected numerator is its transmission times
+the terminal boundary's variance numerator. Boundary data may be signed and
+have nonzero mean; no sign is claimed without further information.
+`BF4ExactSlabFullHeatTubeCovariance.literal_connected_transport` pins all
+four moments, both endpoint words and all twelve original full factors to
+the same original-slab permutation, at every margin and K>=1, with coefficient
+w^36. `literal_vacuum` separately pins the preserved original boundary mass.
+
+NEXT/OPEN: control the signed interacting remainder relative to this exact
+connected main term. The remaining plaquettes can use the twelve integrated
+links; they are NOT assumed to satisfy the retained-boundary independence
+guard. The positive full original response floor, normalization and its
+cutoff/volume persistence remain open. No original `finiteResponse` sample
+or accepted certificate. Full observable realization/completeness, canonical
+positive-time root, continuum scaling, generator/spectral pins, QFT axioms,
+other groups and Clay remain open. No canonical atom/type/flag, analytic
+premise or hole changed.
+
+Verification: 3+4+10+3=20 exactly matched focused gates, all within
+{propext, Quot.sound}; final logs error/warning-free and own/direct-import
+artifacts fresh. `computations/original_full_heat_tube_covariance.py` checks
+vacuum and fundamental propagation through full K=1,2,3 packets and layers
+1,2,3, retaining symbolic nome. Its four-block boundary example 1+P/4 has
+Z=1, mean=1/4, second moment=1, variance numerator=15/16; these numerical
+example values are pilot evidence, not separately claimed Lean theorems.
+The Lean connected identity is general and does not trust the pilot. One
+monitored worker, 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-relative-heat-vacuum.log`, `/tmp/ym-full-heat-tube-vacuum.log`,
+`/tmp/ym-full-heat-tube-covariance.log`, `/tmp/ym-original-full-heat-tube-covariance.log`.
+
+**Preceding local increment (full heat-kernel tube, original all-volume carrier):**
 The 689cbe3 checkpoint proved full-cutoff two-link transmission. This increment
 composes it through the four ordered plaquette slots and along arbitrary
 finite tubes, then pins the three-layer result to the actual original slab.

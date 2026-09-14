@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED connected full-tube main term; OPEN signed interacting response estimate (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionRelativeHeatVacuum.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFullHeatTubeVacuum.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionFullHeatTubeCovariance.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeCovariance.lean`.
+- **closed vacuum identity**: `positive_spin_partial_zero` and
+  `character_vacuum` retain all tail variables while eliminating every
+  positive-spin conditional mean. `heat_vacuum`, `pair_vacuum` and
+  `chain_vacuum` preserve the same boundary mass through the full packet,
+  including cutoff zero, with arbitrary nomes and finite lengths.
+- **closed connected identity**: `connected_transport` keeps the actual
+  partition and both means in Z*M(p*q)-M(p)*M(q). Its value is transmission
+  times the retained boundary's variance numerator. `connected_embedding`
+  and `literal_connected_transport` transport all four moments on the
+  original full carrier and give w^36 at every margin and K>=1.
+- **open residue**: the boundary may be signed, so no positive variance
+  floor is assumed. The full remaining interacting background can depend
+  on the twelve integrated links and is not substituted into the independence
+  guard. Its signed estimate, positive full original response, normalization
+  and cutoff/volume persistence remain open. No accepted response certificate,
+  canonical atom/type/flag, analytic premise or hole changed. Full physical
+  realization/completeness, canonical positive-time root, continuum/QFT/
+  spectral, other groups and Clay remain open.
+- **verification**: 20 exactly matched focused gates, all within
+  {propext, Quot.sound}; final logs clean and own/direct-import artifacts
+  fresh. Full-kernel vacuum/plaquette pilot passes K=1,2,3 and lengths 1,2,3;
+  nonzero-mean four-block boundary example is pilot evidence, not a proof
+  oracle. One monitored worker, 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports updated, not rebuilt. Four
+  focused log paths are recorded in the latest `work_plan.md` increment.
+
 ## CLOSED full heat-kernel tube on the original all-volume carrier; OPEN interacting response estimate (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionRelativeHeatInsertion.lean`,
