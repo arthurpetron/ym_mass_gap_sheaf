@@ -32,7 +32,30 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the original spatial-defect remainder starts at heat power 42](lean/YMGap/Continuum/BF4ExactSlabSpatialHeatPower42.lean),
+**Latest local mathematical step:** [the entire original power-42 means sector is bounded](lean/YMGap/Continuum/BF4ExactSlabPower42MeansBound.lean),
+including each core's own detached partition square. Finite temporal
+conservation [aligns each lone spatial cap with the original probe](lean/YMGap/Continuum/BF4ExactSlabSingleSpatialCap.lean).
+The exact temporal decoder and saturated area budget then force the two
+replicas to [share one cap at slice 0, 1, 2, or 3](lean/YMGap/Continuum/BF4ExactSlabPower42MeansCaps.lean).
+That slice is an [injective code for the original label pair](lean/YMGap/Continuum/BF4ExactSlabPower42MeansCount.lean),
+so there are **at most four original terms**, with no deduplication or
+assumed Haar sign. At fixed nome `w=1/1024`, for every cutoff, margin and
+cut-filter time:
+
+`|means42Remainder| <= 2^-26 * w^36 * Z_full^2`.
+
+The [exact split and absorption](lean/YMGap/Continuum/BF4ExactSlabAfterMeans42Remainder.lean)
+give, for every `K>=1`,
+
+`N_full >= (1/4 - 2^-19 - 2^-26) * w^36 * Z_full^2 + afterMeans42Remainder`.
+
+**Next:** control the joint power-42 sector and higher-power spatial terms
+in that literal remaining sum. This is not yet a positive full-response
+theorem, a coupling-uniform mass gap, or continuum/Clay closure.
+Eight new modules passed 54 focused axiom checks within `{propext, Quot.sound}`
+(ten axiom-free); no full-tree audit ran.
+
+The preceding [original spatial-defect remainder starts at heat power 42](lean/YMGap/Continuum/BF4ExactSlabSpatialHeatPower42.lean),
 strengthening the previous power-39 factor. An [explicit finite incidence argument](lean/YMGap/Continuum/Z4WeightedIncidenceParity.lean)
 proves even face-count constraints. Applied to the original Haar moments,
 it [separates the joint and product-of-means channels](lean/YMGap/Continuum/BF4ExactSlabPairChannelParity.lean)
@@ -40,12 +63,13 @@ and makes every nonzero original pair's total heat power even.
 At power 42, all fourteen replica occupations are fundamental, and a
 [nonzero spatial defect has exactly two spatial odd-face occupations](lean/YMGap/Continuum/BF4ExactSlabPower42SpatialBudget.lean).
 They split as `(2,0)` or `(0,2)` in the joint channel and `(1,1)` in the
-means channel. These are occupation counts, **not a count of configurations**.
+means channel. Those theorems count occupations; the new result above
+counts the means-channel configurations.
 The exact `w^42` cofactor retains all original signed amplitudes, dimensions
 and detached partitions. Its aggregate magnitude is still open.
 Six new modules passed 46 focused axiom checks within `{propext, Quot.sound}`
-(eight axiom-free); no full-tree audit ran. **Next:** locate and count the
-two-spatial-face configurations and control the higher-power tail.
+(eight axiom-free); no full-tree audit ran. The joint configurations and
+higher-power tail still need control.
 Positive full response and continuum/Clay remain open.
 
 The preceding [whole original zero-spatial short-core remainder is bounded](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean),

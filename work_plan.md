@@ -18,7 +18,78 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (finite incidence parity, exact original channels, and power-42 spatial structure):**
+**Latest local increment (original power-42 means configurations counted and their whole signed remainder absorbed):**
+The fcfc1fa checkpoint was PROGRESS: the original spatial remainder gained
+an exact w^42 factor and its first sector had exactly two spatial occupations.
+This increment turns the means-channel occupation count into an ORIGINAL
+configuration count and a bound on its whole signed remainder.
+
+`Z4FiniteTemporalSpatialSources.two_source_sum_even` uses the empty terminal
+cut to conserve endpoint plus spatial sources. `single_spatial_boundary_projection`
+identifies the projected cap and endpoint boundaries. Applied to the actual
+one-endpoint moment checker, `BF4ExactSlabSingleSpatialCap.single_spatial_cap_pin`
+fixes the cap's spatial base/plane and computes its remaining absolute time
+from the original odd-face list. `BF4ExactSlabSingleCapDecoder.single_cap_cut_decode`
+and `single_cap_cut_nonempty_iff` identify its exact interval tube, without
+assuming a temporal window or fundamental spins.
+
+`BF4ExactSlabPower42TemporalSaturation.power42_cut_saturation` shows that the
+actual power-42 spatial pair has four occupations in each intervening cut.
+`power42_temporal_window` excludes off-window temporal occupations;
+`power42_cuts_exclusive` excludes a doubly occupied replica cut.
+`BF4ExactSlabPower42MeansCaps.power42_means_common_cap` then proves the cap
+times coincide: different times would leave a missing or a doubly occupied
+cut. `power42_means_four_slices` computes their common index in 0..3,
+including the endpoint slices. It does NOT assert that all four cases have
+nonzero Haar weight.
+
+`BF4ExactSlabPower42MeansCount.means42_code_injective` uses original accepted
+moment checks, fundamental labels and zero nonphysical labels to recover the
+ENTIRE original pair from that slice index. `original_means42_count` counts
+the actual duplicate-free short-pair enumeration: at most four, uniformly
+in K, margin and cut-filter time. No source deduplication is performed.
+
+`BF4ExactSlabPower42MeansBound.means42_heat_counts` pins B=14,H=0. The existing
+SU(2) sharp character envelope gives per-pair cap 2^-29*w^36, summed cap
+2^-27*w^36, and, after restoring each core's OWN detached partition square,
+`original_means42_remainder_bound` gives
+
+`|means42Remainder| <= 2^-26*w^36*Z_full^2`.
+
+`BF4ExactSlabAfterMeans42Remainder.original_spatial_split_after_means42`
+is an exact identity at every rational nome, K, margin and cut time, with
+the complementary source computed by `afterMeans42Keep`. At the UNCHANGED
+nome 1/1024, `original_numerator_lower_after_means42` gives, all K>=1,
+
+`N_full >= (1/4 - 2^-19 - 2^-26)*w^36*Z_full^2 + afterMeans42Remainder`.
+
+`afterMeans42Allowance_pos` checks the remaining reference is positive.
+NEXT/OPEN: bound the joint power-42 sector and higher-power spatial terms
+in this actual complementary sum. Neither its sign nor size is assumed.
+Positive full response/certificate, explicit limit-error persistence, full
+observable realization, continuum/QFT/physical spectral pins, other groups
+and Clay remain OPEN. No original carrier, action, heat weight, signed Haar
+term, multiplicity or detached partition was replaced. No hole, new analytic
+input, canonical atom/type/flag or frontier field changed. The geometric
+lemmas do not use noncommutativity; the quantitative weights are the existing
+SU(2) ones at FIXED nome, not a beta-uniform claim.
+
+Verification: eight focused modules, 6+5+9+5+5+8+9+7=54 exactly matched gates
+within {propext, Quot.sound}, ten axiom-free; clean logs and fresh own/direct
+import artifacts. One monitored worker, 20 GiB ceiling; no raised limits or
+full build/audit/guard/progress run. Root imports updated, not rebuilt.
+`computations/original_power42_means_budget.py` passed its bounded exact
+scalar pilot; Lean independently checks the arithmetic and original sums.
+Logs: `/tmp/ym-finite-temporal-spatial-sources.log`,
+`/tmp/ym-original-single-spatial-cap.log`,
+`/tmp/ym-original-single-cap-decoder.log`,
+`/tmp/ym-original-power42-temporal-saturation.log`,
+`/tmp/ym-original-power42-means-caps.log`,
+`/tmp/ym-original-power42-means-count.log`,
+`/tmp/ym-original-power42-means-bound.log`,
+`/tmp/ym-original-after-means42-remainder.log`.
+
+**Preceding local increment (finite incidence parity, exact original channels, and power-42 spatial structure):**
 The 59be315 checkpoint was PROGRESS: the zero-spatial remainder was bounded
 with all original detached partitions. This increment constrains the ACTUAL
 remaining spatial configurations before trying to count their weights.

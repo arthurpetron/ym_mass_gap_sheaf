@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original channel parity and power-42 spatial structure; OPEN configuration count and signed bound (2026-09-14)
+## CLOSED original power-42 means count and signed bound; OPEN joint and higher-power spatial remainder (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4FiniteTemporalSpatialSources.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSingleSpatialCap.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSingleCapDecoder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42TemporalSaturation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42MeansCaps.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42MeansCount.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42MeansBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAfterMeans42Remainder.lean`.
+- **closed geometry on the original checker**: `single_spatial_boundary_projection`
+  follows from finite temporal source conservation. `single_spatial_cap_pin`
+  fixes the spatial cap's base and plane; `single_cap_cut_decode` and
+  `single_cap_cut_nonempty_iff` recover the interval tube, with no assumed
+  temporal window or fundamental-spin restriction.
+- **closed first-sector configurations**: `power42_cut_saturation`,
+  `power42_temporal_window` and `power42_cuts_exclusive` force one replica
+  per intervening cut. `power42_means_common_cap` and
+  `power42_means_four_slices` force a common cap at one of four slices.
+  `means42_code_injective` recovers the complete original pair, including
+  nonphysical indices. `original_means42_count` bounds the original list
+  length by four, with no deduplication or claim that all cases survive.
+- **closed whole signed subfamily estimate**: `means42_heat_counts`
+  pins B=14,H=0. `original_means42_pair_sum_bound` gives 2^-27*w^36;
+  `original_means42_remainder_bound` restores every original detached square
+  and gives 2^-26*w^36*Z_full^2, for all K, margins and cut-filter times,
+  at the unchanged nome 1/1024. No Haar-product sign is assumed.
+- **closed exact absorption**: `original_spatial_split_after_means42`
+  preserves the literal complementary filter at every rational nome.
+  `original_numerator_lower_after_means42` gives, at the fixed nome and K>=1,
+  `N_full >= (1/4-2^-19-2^-26)*w^36*Z_full^2 + afterMeans42Remainder`.
+  `afterMeans42Allowance_pos` proves that reference coefficient positive.
+- **open residue (constructive estimate)**: control the joint power-42
+  sector and higher-power spatial terms in the ACTUAL remaining sum.
+  Positive response/certificate, explicit limit persistence, full realization,
+  continuum/QFT/physical spectral pins, other groups and Clay remain open.
+  No hole, analytic input, canonical atom/type/flag or frontier field changed.
+  Fixed-nome SU(2) weights are not a beta-uniform mass-gap theorem.
+- **verification**: 54 focused gates within {propext, Quot.sound}, ten
+  axiom-free; clean logs and fresh own/direct-import artifacts. Bounded
+  scalar pilot `computations/original_power42_means_budget.py` passed;
+  Lean independently verifies its arithmetic and original-sum use.
+  One monitored worker, 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous checkpoint: CLOSED original channel parity and power-42 spatial structure; OPEN configuration count and signed bound (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4WeightedIncidenceParity.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabMomentFaceParity.lean`,

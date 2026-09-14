@@ -4,7 +4,49 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite incidence parity and the original power-42 spatial sector (2026-09-14)
+## Current increment: original power-42 means configurations counted and their signed remainder absorbed (2026-09-14)
+
+The fcfc1fa checkpoint was PROGRESS: exact w^42 suppression and first-sector
+occupation counts. This increment is PROGRESS: the means occupations are
+located, their ORIGINAL configurations counted, their whole signed weight
+bounded with detached partitions, and that branch removed from the remaining
+original numerator obligation.
+
+- `Z4FiniteTemporalSpatialSources.single_spatial_boundary_projection`
+  conserves endpoint and spatial sources using an empty terminal cut.
+  `BF4ExactSlabSingleSpatialCap.single_spatial_cap_pin` applies it to the
+  original moment checker; `BF4ExactSlabSingleCapDecoder.single_cap_cut_nonempty_iff`
+  identifies the actual interval tube. No cap position or window is assumed.
+- `BF4ExactSlabPower42TemporalSaturation.power42_cut_saturation` and
+  `power42_cuts_exclusive` leave exactly one replica per intervening cut.
+  `BF4ExactSlabPower42MeansCaps.power42_means_four_slices` computes a common
+  cap at slice 0..3. `BF4ExactSlabPower42MeansCount.means42_code_injective`
+  recovers the full original pair; `original_means42_count` gives at most
+  four actual terms, with original multiplicities and no deduplication.
+- `BF4ExactSlabPower42MeansBound.original_means42_remainder_bound` gives
+  `|means42Remainder| <= 2^-26*w^36*Z_full^2` at fixed nome 1/1024, all
+  cutoffs, margins and cut-filter times, including every detached square.
+- `BF4ExactSlabAfterMeans42Remainder.original_spatial_split_after_means42`
+  is exact at all rational nomes. `original_numerator_lower_after_means42`
+  leaves the positive reference `(1/4-2^-19-2^-26)*w^36*Z_full^2` plus
+  the literal complementary original spatial remainder.
+
+Fidelity audit: no original carrier/action/weight/multiplicity/detached
+partition changed; no Haar sign assumed. No hole, new analytic input,
+canonical atom/type/flag or frontier field changed. The group-agnostic
+geometry feeds the existing fixed-nome SU(2) weights, not a beta-uniform
+gap claim. Completion audit: joint power 42 and higher-power spatial terms
+remain OPEN. Positive full response/certificate, limit persistence, full
+observable realization, continuum/QFT/physical spectral pins and Clay remain
+OPEN. NEXT: the joint two-cap geometry, then the higher-power tail.
+
+Verification: 54 focused gates within {propext, Quot.sound}, ten axiom-free;
+clean logs and fresh own/direct-import artifacts. Bounded exact scalar pilot
+passed and its use independently checked in Lean. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; exact logs in work_plan.
+
+## Previous increment: finite incidence parity and the original power-42 spatial sector (2026-09-14)
 
 The preceding 59be315 checkpoint was PROGRESS: the whole zero-spatial branch
 was absorbed with its original detached partitions. This increment is
