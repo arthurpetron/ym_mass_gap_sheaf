@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED constructed original continuous-symbol action and representation compatibility (2026-09-14)
+## CLOSED original continuous-action cyclic closure and bounded linearity (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousCyclicClosure.lean`,
+  `BF4ExactSlabThermodynamicCyclicLinear.lean`, and
+  `BF4ExactSlabThermodynamicContinuousLinear.lean` in the same directory.
+- **closed output construction**: `cyclicIndex` uses the existing
+  polynomial-action modulus at 1/(n+1); `cyclicPolynomial_error` proves the
+  error of the resulting polynomial-probe row. `actionPresentationCertificate`
+  returns a cyclic presentation and explicit convergence rate.
+  `state_actionPresentation` pins it to the SAME original action value.
+  No closure/image-Cauchy hypothesis or quotient-choice operation is supplied.
+- **closed linearity and continuity**: cyclic sums, polynomial images,
+  rational scaling and differences retain their representations and state
+  pins. `symbolAction_add`, `symbolAction_smul`, `symbolAction_sub` and
+  `symbolAction_distance_bound` prove rational linearity and the relative
+  bound d(F(T2)x,F(T2)y)<=F.bound^2*d(x,y). `symbolAction_close` supplies
+  tolerance epsilon/(F.bound^2+1). Here d is the original squared distance.
+  `composition_norm_bound` applies to actual composed actions on constructed
+  output presentations; it is not the symbol multiplication identity.
+- **open residue**: continuous symbol algebra compatibility, especially
+  multiplication, and symmetry/positivity; full-carrier spectral realization,
+  canonical comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling,
+  other groups and Clay. Fixed SU(2) nome/spacing only; no beta/spacing-uniform
+  gap. No new hole, physical input, canonical type/atom/flag, weight or surrogate.
+- **verification**: three focused monitored modules, 42 exactly matched
+  gates within {propext, Quot.sound}, none axiom-free. Clean final logs and
+  fresh own/direct-import artifacts. One worker, 20 GiB ceiling; no raised
+  options or full build/audit/guard/progress/root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED constructed original continuous-symbol action and representation compatibility (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicPresentation.lean`,
   `BF4ExactSlabThermodynamicContinuousAction.lean`, and
@@ -36,8 +66,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `symbolAction_probe` recovers the original symbol-vector construction.
   `cuspActionCertificate` supplies a closed cusp-on-cusp instance without
   claiming its value nonzero.
-- **open residue**: represented cyclic presentation of action outputs,
-  continuous linearity/multiplication and full operator algebra; full-carrier
+- **subsequent closure**: output cyclic presentations and rational
+  linearity are now constructed in the entry above.
+- **open residue**: symbol multiplication and full operator algebra; full-carrier
   spectral realization, canonical comparisons, quotient-level completeness/
   time injectivity, continuous-time/physical spectral/non-Wick pins,
   continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing only.

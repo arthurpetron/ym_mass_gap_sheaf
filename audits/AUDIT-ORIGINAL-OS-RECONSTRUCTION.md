@@ -269,6 +269,35 @@ conclusion is stated for that value. Represented-sector closure, full
 continuous operator algebra and physical-scale/continuum control are
 not conclusions of these declarations.
 
+## Constructed cyclic closure and bounded linearity after e26ae24
+
+`cyclicIndex`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousCyclicClosure.lean:42`,
+selects an input row using the polynomial-action modulus at 1/(n+1).
+`cyclicPolynomial_error` at line 55 proves the corresponding polynomial
+product on the original probe approximates the nth action row.
+`actionPresentation` at line 100 constructs output cyclic data;
+`state_actionPresentation` at line 116 pins its original state to the
+existing action value. `actionPresentationCertificate` at line 123
+returns that presentation and an explicit polynomial convergence rate.
+
+`addPresentation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLinear.lean:91`,
+constructs represented sums. `polynomialPresentation` at line 101,
+`smulPresentation` at line 111 and `subPresentation` at line 117 retain
+the corresponding original states, with state pins at lines 98, 108,
+113 and 120. These are constructions, not analytic closure hypotheses.
+
+`symbolAction_add`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousLinear.lean:45`,
+and `symbolAction_smul` at line 54 prove rational linearity.
+`symbolAction_distance_bound` at line 69 proves the relative original
+squared-distance bound F.bound^2*d(x,y). `inputTolerance` at line 76
+is epsilon/(F.bound^2+1), with its effect proved by `symbolAction_close`
+at line 82. `composition_norm_bound` at line 107 controls actual composed
+actions on the constructed sector. No symbol multiplication identity,
+full-carrier or physical-scale spectral theorem follows in these files.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -310,16 +339,18 @@ above. Symbol-equivalence compatibility, actual polynomial operator algebra
 and relative cyclic polynomial bounds are also now closed. Original
 polynomial action and sharp relative bounds on represented cyclic limits
 are now closed as well. Continuous-symbol action and state/symbol
-representation independence are now constructed. Next: a represented
-cyclic presentation of the action output and continuous linearity/
-multiplication, toward continuous cyclic operator calculus. Neither
-a spectral measure nor a full continuous operator calculus is claimed.
+representation independence are now constructed, as are output cyclic
+presentations and bounded rational linearity. Next: continuous symbol
+algebra compatibility, particularly multiplication, and symmetry/positivity.
+Neither a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
+The cyclic-closure/bounded-linearity increment has three new modules and
+42 exactly matched gates within `{propext, Quot.sound}`, none axiom-free.
 The continuous-action increment has three new modules and 32 exactly
 matched gates within `{propext, Quot.sound}`, none axiom-free.
 The represented cyclic-limit operator increment has three new modules

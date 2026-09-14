@@ -13,17 +13,18 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [continuous-symbol action is constructed on represented original cyclic vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousAction.lean).
-The certificate returns the actual original completion vector, its Cauchy
-representative, convergence rate and bound `||F(T2)x||² <= F.bound² ||x||²`.
-[Compatibility proofs](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousActionCompatibility.lean)
-show independence from input representation and symbol data outside `[0,1]`,
-recover the existing polynomial action, and recover the original symbol
-vector on the normalized probe. No image-Cauchy or spectral-decomposition
-premise is supplied. Three modules passed 32 focused axiom checks within
-`{propext, Quot.sound}`; no full-tree run. Next: construct cyclic presentations
-of the outputs and prove the continuous operator algebra. Full-carrier and
-continuum/Clay bridges remain open; SU(2) nome and spacing remain fixed.
+**Latest milestone:** [continuous action preserves the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousCyclicClosure.lean)
+and [is bounded and rational-linear there](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousLinear.lean).
+The output's polynomial-probe presentation and convergence rate are
+constructed and proved to denote the same original completion vector.
+Sums and scalar multiples are preserved, and
+`d(F(T2)x,F(T2)y) <= F.bound² d(x,y)` for the original squared distance.
+The input tolerance is explicit: `epsilon/(F.bound²+1)`. Actions can now
+be composed with a proved norm bound; the symbol multiplication identity
+remains open. No closure or linearity premise is supplied. Three modules
+passed 42 focused axiom checks within `{propext, Quot.sound}`; no full-tree
+run. Full-carrier and continuum/Clay bridges remain open; SU(2) nome and
+spacing remain fixed. These are not beta/spacing-uniform gap estimates.
 
 **Established limit bound:** [relative operator bounds hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
 For `|p| <= M` on `[0,1]`,

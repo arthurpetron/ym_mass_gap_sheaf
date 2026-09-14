@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed original continuous-symbol action and compatibility):**
+**Latest increment (constructed cyclic closure and bounded linear continuous action):**
+PROGRESS after e26ae24. `BF4ExactSlabThermodynamicContinuousCyclicClosure`
+selects an input index using the existing polynomial-action modulus at
+1/(n+1). The product of the nth Bernstein polynomial and the selected
+input polynomial acts on the SAME original normalized probe. The error
+to the nth action row is at most 1/(n+1) in original squared distance.
+`cyclicRows` supplies an outer Cauchy modulus; `actionPresentationCertificate`
+returns a cyclic presentation and convergence rate. `state_actionPresentation`
+proves its state equals the ALREADY constructed continuous-action value.
+There is no supplied closure/image-Cauchy premise or quotient selection.
+
+`BF4ExactSlabThermodynamicCyclicLinear` constructs sums, polynomial actions,
+rational scaling and differences of represented cyclic inputs with exact
+state pins. `BF4ExactSlabThermodynamicContinuousLinear.symbolAction_add`,
+`symbolAction_smul` and `symbolAction_sub` prove the continuous action's
+corresponding laws. `symbolAction_distance_bound` proves
+d(F(T2)x,F(T2)y)<=F.bound^2*d(x,y) for the ORIGINAL squared distance.
+`inputTolerance` is epsilon/(F.bound^2+1); `symbolAction_close` proves it
+works. No presentation norm ceiling appears in the final relative bound.
+`composition_norm_bound` controls actual composed actions on the constructed
+output presentations, without yet asserting the symbol multiplication law.
+
+NEXT: prove symbol algebra compatibility, particularly multiplication,
+and symmetry/positivity of the continuous action. Represented-sector
+closure and rational linearity are CLOSED, not new hypotheses. Full-carrier
+spectral realization, canonical observable/scalar/carrier comparisons,
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. No new hole, physical analytic input, canonical type/atom/flag,
+weight or surrogate. Fixed SU(2) nome 1/1024 and spacing only.
+
+Verification: three focused monitored modules, 15+16+11=42 exactly matched
+gates within {propext, Quot.sound}, none axiom-free. Final logs clean,
+own/direct-import artifacts fresh. Safe-build skill: one worker, 20 GiB
+ceiling and separate process/swap preflights; no raised options, full
+build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-continuous-cyclic-closure.log`,
+`/tmp/ym-original-cyclic-linear.log`,
+`/tmp/ym-original-continuous-linear.log`.
+
+**Previous increment (constructed original continuous-symbol action and compatibility):**
 PROGRESS after 77aabf9. `BF4ExactSlabThermodynamicCyclicPresentation`
 retains existing Cauchy rows, their polynomial family and point pin.
 `state` remains in the SAME original completion. `ofPolynomial` and
@@ -45,8 +85,8 @@ recovers the original symbol-vector constructor on the normalized probe.
 `cuspActionCertificate` is a fully supplied cusp-on-cusp action instance;
 its nonzeroness is not claimed.
 
-NEXT: construct a represented cyclic presentation of each action output
-and prove the continuous action's linearity/multiplication laws. Continuous
+Output cyclic presentations and rational linearity are now constructed
+above; symbol multiplication remains open. Continuous
 action and its state/symbol representation independence are CLOSED, not
 new hypotheses. Full continuous cyclic operator algebra, full-carrier
 spectral realization, canonical observable/scalar/carrier comparisons,

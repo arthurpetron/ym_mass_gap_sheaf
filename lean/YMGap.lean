@@ -4228,10 +4228,13 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialRowAction
 import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicLimitBound
 -- Constructed continuous-symbol action on represented original cyclic inputs,
--- with state/symbol independence; represented-sector closure and full algebra remain open.
+-- with state/symbol independence, constructed cyclic closure and bounded linearity.
 import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicPresentation
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousAction
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousActionCompatibility
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousCyclicClosure
+import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicLinear
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousLinear
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
