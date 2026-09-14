@@ -25,6 +25,8 @@ def main():
     assert 0 < higher < Fraction(1, 2)
     factor = 1 / (1 - higher)
     assert factor <= 1 + 2 * higher
+    zero_spatial_relative = Fraction(9, 2 ** 53)
+    assert 8 * odd ** 12 * higher == zero_spatial_relative * nome ** 36
     for bit in range(2):
         for count in range(13):
             total = sum((2 * h + bit + 1) ** 2 * nome ** ((2 * h + bit) * (2 * h + bit + 2))
@@ -34,6 +36,7 @@ def main():
     print("52 rational label cases include nome zero and one; 26 parity-prefix checks passed.")
     print(f"At nome 1/1024: odd rate = {odd}; higher rate = {higher}.")
     print("The higher-label sum has factor 1/(1-r), bounded by 1+2r when r<=1/2.")
+    print(f"Zero-spatial non-tube per-pair cap relative to w^36: {zero_spatial_relative}.")
     print("OPEN: admissible spatial-defect counting and original signed short-core smallness.")
 
 

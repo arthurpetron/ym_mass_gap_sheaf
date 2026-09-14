@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original parity/higher activities and fixed-parity geometric tails (2026-09-14)
+## Current increment: exact original defect filter and zero-spatial per-pair cap (2026-09-14)
+
+The preceding 2e4d216 checkpoint was PROGRESS on original heat activities
+and fixed-parity tails. This increment is PROGRESS: finite charge conservation
+now forces an actual defect in every surviving original non-tube term,
+and the zero-spatial sector receives a quantitative per-pair cap.
+
+- `Z4FiniteTemporalEndpointParity.endpoint_sum_even` uses a computable
+  empty terminal cut and the exact two-impulse decoder, with no spatial faces.
+- `BF4ExactSlabZeroSpatialChannels.one_endpoint_zero` applies this to
+  the ORIGINAL all-spin moments without a fundamental/window restriction.
+  `mixed_parity_pin` and `partition_parity_zero` classify accepted parities;
+  `pairTerm_pin_no_means` removes the original product of means exactly.
+- `BF4ExactSlabZeroSpatialHigherCost.original_nonTube_coefficient`
+  filters the unchanged original coefficient to spatial defects OR positive
+  higher count. Its proof derives the required moment checks; it does not
+  confuse cutKeep with momentCheck. All rational nomes, K>=1 and margins.
+- `BF4ExactSlabZeroSpatialHeatBound.nonzero_pairParity_twelve` gives
+  B=12; non-tube survival gives H>=1. `nonTube_zeroSpatial_weight_bound`
+  gives 8*oddRate^12*higherRate, and
+  `existingNome_nonTube_zeroSpatial_bound` pins `(9/2^53)*w^36` per pair
+  at the unchanged nome. This does not bound the number of pairs or their
+  original detached partition factors.
+
+Next: explicit short-support localization, summation of the zero-spatial
+higher-label family by geometric products, and counting spatial defects.
+The original signed short-core sum, positive response, limits, full
+realization and continuum/Clay remain open. No hole, new open analytic
+input, canonical atom/type/flag or frontier field changed.
+
+Verification: 34 new focused gates within {propext, Quot.sound}, 7
+axiom-free; clean logs and fresh own/direct-import artifacts. Extended
+30-second-capped scalar pilot checks the relative-cap identity, not the
+original sum. One monitored worker, 20 GiB ceiling; no raised limits or
+full build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original parity/higher activities and fixed-parity geometric tails (2026-09-14)
 
 The preceding 02ffcfb checkpoint was PROGRESS: original pair weights lost
 the exponential character envelope. This increment is PROGRESS by proving

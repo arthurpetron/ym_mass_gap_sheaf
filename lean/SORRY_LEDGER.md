@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original non-tube defect filter and zero-spatial pair cap; OPEN aggregate defect sum (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4FiniteTemporalEndpointParity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialChannels.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHigherCost.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHeatBound.lean`.
+- **closed finite geometry**: `timeCeiling`, `cut_above_ceiling`,
+  `two_impulses_decode`, and `endpoint_sum_even` prove charge conservation
+  from the explicit empty terminal cut and zero spatial faces.
+- **closed original channels**: `accepted_flags_equal` and
+  `one_endpoint_zero` reject one-endpoint moments at all spins, with no
+  fundamental/window restriction. `mixed_parity_pin` and
+  `partition_parity_zero` classify accepted physical parities.
+  `pairTerm_pin_no_means` removes the actual mean product;
+  `nonzero_pair_checks` derives the mixed/partition tests honestly from
+  a nonzero original pairTerm and zero spatial defects in the left replica.
+- **closed original non-tube deletion**: `noHigher_nonzero_pair_pin`
+  identifies the whole original pair with the literal tube when spatial
+  defects and higher count are zero. `original_nonTube_coefficient` adds
+  the exact `defectKeep` filter to the original cut/leaf-filtered sum:
+  spatial odd-face defect OR higherCount>0. All rational nomes, K>=1 and
+  margins; no new channel-acceptance or connectedness hypothesis.
+- **closed per-pair estimate**: `nonzero_pairParity_twelve` gives B=12;
+  `nonTube_nonzero_higher` gives H>=1 off the tube support.
+  `nonTube_zeroSpatial_weight_bound` yields 8*oddRate^12*higherRate with
+  its w and activity guards explicit. `existingNome_nonTube_zeroSpatial_bound`
+  gives `(9/2^53)*w^36` PER ORIGINAL PAIR at nome 1/1024.
+- **open residue**: support localization and summing the higher-label
+  sector; spatial-pattern counting; the original detached partition
+  factors and representation multiplicities. The combined signed short-core
+  bound, positive full response/certificate, limit persistence, full
+  realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, new open analytic input, canonical atom/type/flag or
+  frontier field changed. Per-pair smallness is not aggregate smallness.
+- **verification**: 34 new focused gates within {propext, Quot.sound},
+  7 axiom-free; clean logs and fresh own/direct-import artifacts. Extended
+  capped scalar pilot passes the exact relative-cap identity, not an
+  original-sum evaluation. One monitored worker, 20 GiB ceiling; no raised
+  limits or full build/audit/guard/progress run. Root imports not rebuilt;
+  exact logs in work_plan.
+
 ## CLOSED parity/higher-label pair activities and geometric tails; OPEN spatial-pattern sum (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/SU2ParityHigherArithmetic.lean`,

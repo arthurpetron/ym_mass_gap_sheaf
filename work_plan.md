@@ -18,7 +18,69 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (parity/higher-label activities and explicit geometric tails):**
+**Latest local increment (finite charge conservation, exact defect filter, and zero-spatial pair bound):**
+The 2e4d216 checkpoint was PROGRESS: explicit original parity/higher-label
+activities and fixed-parity geometric tails. This increment connects that
+weight estimate to a genuinely necessary defect in the original coefficient.
+
+`Z4FiniteTemporalEndpointParity.timeCeiling` is an explicit finite terminal
+time. `cut_above_ceiling` makes the terminal cut empty; `two_impulses_decode`
+computes the entire charge recurrence, and `endpoint_sum_even` proves
+finite temporal charge conservation when spatial faces are absent.
+`BF4ExactSlabZeroSpatialChannels.accepted_flags_equal` applies it to the
+ORIGINAL all-spin momentCheck. `one_endpoint_zero` rejects both one-endpoint
+channels without a fundamental-label or three-layer-window premise.
+`mixed_parity_pin` fixes accepted mixed physical parities to the literal
+tube; `partition_parity_zero` fixes accepted partition parities to zero.
+`pairTerm_pin_no_means` deletes the actual mean product as soon as the left
+replica has no spatial odd faces. `nonzero_pair_checks` then derives the two
+surviving moment checks from nonzero original pairTerm, rather than assuming
+them from the cutKeep filter.
+
+`BF4ExactSlabZeroSpatialHigherCost.noHigher_nonzero_pair_pin` proves that
+zero spatial defects and zero higher count force the full original pair
+(including nonphysical indices) to be the canonical tube pair. On any
+other original selected support, `nonTube_noHigher_zero` gives exact zero.
+`original_nonTube_coefficient` therefore rewrites the SAME coefficient as
+the unchanged cut/leaf-filtered representation sum with one further
+computable `defectKeep`: spatial odd-face defect OR positive higher count.
+This holds at all rational nomes, all margins and all cutoffs K>=1, retaining
+the original signs, weights and multiplicities. No connectedness or short
+support hypothesis is needed for this deletion.
+
+`BF4ExactSlabZeroSpatialHeatBound.nonzero_pairParity_twelve` gives B=12
+for every nonzero zero-spatial original pair. `nonTube_nonzero_higher`
+gives H>=1 off the tube support. `nonTube_zeroSpatial_weight_bound` then
+proves `|weightedPairTerm| <= 8*oddRate^12*higherRate` for 0<=w<=1 and
+higherRate<=1, including zero pairTerm. At the UNCHANGED nome 1/1024,
+`existingNome_nonTube_zeroSpatial_bound` gives the explicit PER-PAIR cap
+`(9/2^53)*w^36`. This is not a sum estimate and does not absorb any
+detached partition factor.
+
+NEXT/OPEN: localize the connected 12–32-face supports in an explicit
+endpoint neighborhood; use the injective parity/higher-label encoding and
+geometric products to sum the zero-spatial higher-label family without
+cutoff/volume-dependent label counting. Count the remaining spatial defect
+patterns separately. Retain each original detached partition squared and
+every representation multiplicity. The combined signed short-core bound,
+positive full response/certificate, normalization/cutoff/volume persistence,
+full realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or frontier
+field changed; no coupling-uniform gap claimed.
+
+Verification: four focused modules, 6+11+8+9=34 exactly matched gates within
+{propext, Quot.sound}, 7 axiom-free; clean logs and fresh own/direct-import
+artifacts. The existing 30-second-capped scalar pilot was extended by the
+exact relative-cap identity; all previous arithmetic checks still pass.
+It does not enumerate the original pairs or evaluate their signed sum.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-finite-temporal-endpoint-parity.log`,
+`/tmp/ym-original-zero-spatial-channels.log`,
+`/tmp/ym-original-zero-spatial-higher-cost.log`,
+`/tmp/ym-original-zero-spatial-heat-bound.log`.
+
+**Preceding local increment (parity/higher-label activities and explicit geometric tails):**
 The 02ffcfb checkpoint was PROGRESS: the original pair weights received
 the sharp dimension bound. This increment converts that bound into the
 coordinates of the spatial-defect decoder and controls fixed-parity
