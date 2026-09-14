@@ -4245,6 +4245,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicCuspMultiplication
 import YMGap.Continuum.BF4ExactSlabThermodynamicRowPairingOrder
 import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicFormOrder
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousFormOrder
+-- General product continuity data are constructed by a finite rational encoding;
+-- the product action is the SAME original composition, not a supplied model.
+import YMGap.Continuum.UniformSymbolEncoding
+import YMGap.Continuum.BF4ExactSlabThermodynamicProductSymbol
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

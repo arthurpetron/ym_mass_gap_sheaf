@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original continuous symmetry, form order and positivity (2026-09-14)
+## CLOSED general product-symbol construction and original multiplication (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/UniformSymbolEncoding.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProductSymbol.lean`.
+- **closed representation construction**: `encodedSymbol` and
+  `encodedVanishing` retain a bounded rational value map and construct
+  the existing continuity data by finite minima of certified reciprocal
+  error bounds. `selectedDelta_mono`, `selectedDelta_pos` and
+  `selectedDelta_small` prove the computed selector's laws. No monotone
+  input oscillation-function hypothesis, infinite extremum or choice.
+- **closed product data**: `productSymbol` and `productVanishing` construct
+  the literal F*G with bound F.bound*G.bound for arbitrary admissible F,V,G,W.
+  The common input selector uses epsilon/(F.bound+G.bound+1); the finite
+  encoding supplies its oscillation/vanishing data.
+- **closed original consequences**: `productSymbol_composition` has no
+  additional H-symbol package; `productSymbol_pairing` and
+  `productSquare_form_identity` give mixed and square-form identities.
+  `productSymbolActionCertificate` returns original representative/rate,
+  action pin and norm bound. No nonzero output or strict gap is inferred.
+- **open residue**: symbol addition/unit/scalar compatibility and further
+  quantitative spectral consequences; full-carrier/canonical comparisons,
+  quotient-level completeness/time injectivity, continuous-time/physical
+  spectral/non-Wick pins, continuum scaling, other groups and Clay.
+  Fixed SU(2) nome/spacing only. No new hole, physical input, canonical
+  type/atom/flag, weight or surrogate.
+- **verification**: two focused monitored modules, 27 exactly matched
+  gates within {propext, Quot.sound}, four axiom-free. Clean final check logs,
+  fresh outputs and the encoding dependency cache validated by its narrow
+  target. Focused checks used one worker and 20 GiB. An initial dependency
+  invocation inherited the older 32 GiB default, then was repeated with
+  the explicit 20 GiB override; details and logs in work_plan. No settings
+  changed and no full build/audit/guard/progress/root-import run.
+
+## Previous checkpoint: CLOSED original continuous symmetry, form order and positivity (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRowPairingOrder.lean`,
   `BF4ExactSlabThermodynamicCyclicFormOrder.lean`, and
@@ -32,8 +65,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `square_form_identity` gives <H(T2)x,x>=||F(T2)x||^2 for represented
   H=F*F; `cuspSquare_form_identity` is fully supplied. Nonnegative forms
   are not strict positive gap estimates or nonzero-vector witnesses.
-- **open residue**: general product-symbol continuity/vanishing data and
-  remaining symbol algebra; full-carrier/canonical comparisons, quotient-level
+- **subsequent closure**: general product-symbol continuity/vanishing data
+  are now constructed in the entry above.
+- **open residue**: remaining symbol algebra; full-carrier/canonical comparisons, quotient-level
   completeness/time injectivity, continuous-time/physical spectral/non-Wick
   pins, continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing
   only. No new hole, physical input, canonical type/atom/flag, weight or surrogate.
@@ -63,8 +97,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   representative/rate. Symbol nonconstancy does not imply nonzero output.
 - **subsequent closure**: symmetry, form order and positivity are now
   proved in the entry above.
-- **open residue**: general product-symbol CtsMod/vanishing-data construction
-  and remaining symbol algebra compatibility;
+- **subsequent product-data closure**: general product-symbol CtsMod and
+  vanishing data are now constructed in the latest entry.
+- **open residue**: remaining symbol algebra compatibility;
   full-carrier/canonical comparisons, quotient-level completeness/time
   injectivity, continuous-time/physical spectral/non-Wick pins, continuum
   scaling, other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,

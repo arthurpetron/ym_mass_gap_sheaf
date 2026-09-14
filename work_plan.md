@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (original continuous symmetry, form order and positivity):**
+**Latest increment (constructed general product-symbol data and original multiplication):**
+PROGRESS after daabd55. `UniformSymbolEncoding` converts a bounded rational
+value map with a positive monotone uniform-continuity selector into the
+existing `CtsMod` and `MonotoneOmegaVanishing` data. At radius d, a finite
+minimum over reciprocal tolerances through d.den retains only certified
+bounds, with B+B as fallback. The output selector uses the value-antitone
+reciprocal level and a positive minimum; no monotonicity of the input
+oscillation functions is assumed. All searches and moduli are explicit.
+
+`BF4ExactSlabThermodynamicProductSymbol` constructs the literal product
+F.f*G.f, bound F.bound*G.bound, and all its continuity/vanishing data from
+the existing F,V,G,W. `productSymbol_composition` then identifies its
+action with F(T2)G(T2)x on every represented original cyclic input, without
+an extra product-symbol package. `productSymbol_pairing` and
+`productSquare_form_identity` give the original mixed pairing and square
+form identities; `productSymbolActionCertificate` retains the computed
+action representative, rate, pin and sharp norm bound.
+
+NEXT: finish symbol addition/unit/scalar compatibility, then use the
+original continuous calculus for quantitative spectral consequences.
+General product data and multiplication are now CLOSED and must not be
+re-assumed. Full-carrier spectral realization, canonical comparisons,
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. Fixed SU(2) nome 1/1024 and spacing only. No new hole, physical input,
+canonical type/atom/flag, weight or surrogate; no physical gap claimed.
+
+Verification: two focused monitored modules, 14+13=27 exactly matched
+gates within {propext, Quot.sound}, four axiom-free. Clean final check logs
+and fresh output artifacts. A narrow 184-job dependency target validated
+the encoding's cache, including an arithmetic artifact older than its
+source's filesystem timestamp. No full build/audit/guard/progress or
+root-import run. Focused checks used one worker, 20 GiB and separate
+process/swap preflights. The first dependency invocation accidentally
+inherited lakefile.toml's older 32 GiB default; it finished in under one
+second without swap growth. It was rerun with the explicit 20 GiB Lake
+override. No safety settings or source options were changed. Logs:
+`/tmp/ym-uniform-symbol-encoding.log`, `/tmp/ym-original-product-symbol.log`,
+`/tmp/ym-uniform-symbol-encoding-dependencies.log`, and
+`/tmp/ym-uniform-symbol-encoding-dependencies-20gib.log`.
+
+**Previous increment (original continuous symmetry, form order and positivity):**
 PROGRESS after ae243de. `BF4ExactSlabThermodynamicRowPairingOrder`
 constructs constant represented rows with zero outer modulus and proves
 rowwise pairing order, equality and positivity pass to the SAME original
@@ -40,10 +81,10 @@ of any represented H=F*F with the original squared norm of F(T2)x.
 `cuspSquare_form_identity` supplies the concrete cusp-squared instance.
 No strict positivity or nonzero action value is inferred from these facts.
 
-NEXT: remaining symbol algebra/data construction and its quantitative
-spectral consequences. General product CtsMod/vanishing-data construction
-is still open; symmetry, form order and positivity are now CLOSED and must
-not be re-assumed. Full-carrier spectral realization, canonical comparisons,
+General product CtsMod/vanishing-data construction is now closed above;
+remaining symbol algebra and quantitative spectral consequences are next.
+Symmetry, form order and positivity are CLOSED and must not be re-assumed.
+Full-carrier spectral realization, canonical comparisons,
 quotient-level completeness/time injectivity, continuous-time/physical
 spectral/non-Wick pins, continuum scaling, other groups and Clay remain
 OPEN. Fixed SU(2) nome 1/1024 and spacing only. No new hole, physical input,
@@ -80,8 +121,8 @@ Symbol nonconstancy does not assert nonzeroness of an action value.
 
 Symmetry/positivity of continuous action are now proved above; remaining
 symbol algebra data/compatibility is open. The product polynomial-limit
-action is constructed for arbitrary F,G; a general constructor of a product CtsMod with its vanishing
-data has NOT been supplied. Do not re-assume the product limit, multiplication
+action is constructed for arbitrary F,G; the general constructor of a product
+CtsMod with its vanishing data is now supplied above. Do not re-assume the product limit, multiplication
 for represented H, or commutation. Full-carrier spectral realization,
 canonical observable/scalar/carrier comparisons, quotient-level completeness/
 time injectivity, continuous-time/physical spectral/non-Wick pins, continuum
