@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: four-face even cuts and conditional twelve-face floor (2026-09-14)
+## Current increment: original odd-cut rejection through the connected form (2026-09-14)
+
+The preceding checkpoint 99771e9 was PROGRESS: conditional cut geometry.
+This increment is PROGRESS by applying it to original interacting moments
+and their existing two-replica connected form.
+
+- `BF4ExactSlabOddFaceIncidence.totalCharge_parity` pins all-spin original
+  charge to odd-labelled physical face incidence, including shared links.
+- `BF4ExactSlabShiftedProbeTemporalCut.moment_thin_cut_zero` rejects one,
+  two or three odd faces at a cut of any of the four actual moments.
+  The nonzero-moment twelve-face corollary retains three explicit nonempty cuts.
+- `BF4ExactSlabShiftedProbeConnectedCut.pairTerm_pin` retains all four
+  moments in the existing connected form. Either replica's thin cut kills
+  both products, and `weighted_sum_filter` preserves finite signed sums
+  with the original heat factors, for all nomes and cutoffs.
+
+Next: combine connected-selection and representation expansions of the
+same full numerator, classify retained pairs, and bound the signed relative
+remainder. Empty odd cuts and even-spin contributions remain. No global
+response minimum area/divisibility, sign, positive response certificate,
+continuum/Clay closure or canonical atom change is claimed.
+
+Verification: 27 exactly matched focused gates, three axiom-free, all within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+Capped 625-case pilot passes independently of the general Lean proof.
+One monitored worker, 20 GiB ceiling; paused for user-owned tests. No raised
+limits or full build/audit/guard/progress run. Root imports not rebuilt.
+
+## Previous increment: four-face even cuts and conditional twelve-face floor (2026-09-14)
 
 The preceding checkpoint 7f67b34 was PROGRESS: original all-spin parity
 cancellation. This increment is PROGRESS in the finite geometry, not a

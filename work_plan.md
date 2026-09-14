@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (four-face even cuts and a conditional twelve-face floor):**
+**Latest local increment (original odd-cut rejection through the connected two-replica form):**
+The 99771e9 checkpoint proved the conditional geometric cut floor. This
+increment connects it to the original all-spin moments and the existing
+signed connected two-slot form, not a substitute face model.
+
+`BF4ExactSlabOddFaceIncidence.faceDegree_pin` identifies the oriented-word
+charge at a physical slab index with the zero-or-one boundary incidence.
+`totalCharge_parity` equals incidence in the original odd-labelled faces
+modulo two, for all spins and extents. `vertical_even_of_check` includes
+links outside the finite slab (where incidence vanishes) and charges of
+insertions, rather than imposing independence of shared links.
+
+`BF4ExactSlabShiftedProbeTemporalCut.probe_vertical_charge_zero` proves that
+the actual lower/upper spatial probes add no temporal-link charge.
+`moment_thin_cut_zero` and `moment_cut_filter` reject cuts of one, two or
+three odd faces in each of the FOUR original moments, at every volume margin.
+`nonzero_three_cut_minimum_twelve` applies the area floor to a genuinely
+nonzero signed moment, with its three nonempty odd cuts still explicit.
+
+`BF4ExactSlabShiftedProbeConnectedCut.pairTerm` evaluates the EXISTING
+`QuaternionHaarBiadditive.connected` on two original spin-network integrands.
+`pairTerm_pin` retains mixed moment * partition - lower mean * upper mean.
+`pair_left_rejected` and `pair_right_rejected` kill both products whenever
+either replica has a rejected cut. `weighted_sum_filter` preserves any finite
+list of such pairs with the ORIGINAL two-replica heat weights, all w and K.
+This is an exact deletion identity, not a uniform estimate in coupling.
+
+NEXT/OPEN: pin a common connected-selection AND representation expansion
+of the full original connected numerator, then classify surviving pairs and
+estimate their signed remainder relative to the tube main term. The new
+filter allows empty odd cuts, including even-spin interactions; it does not
+prove that every surviving connected term crosses all intervening cuts in
+odd faces. No full-response minimum area or w^36 divisibility, sign, positive
+response floor, accepted certificate or normalization/limit persistence is
+claimed. Full realization, continuum/QFT/spectral pins, other groups and Clay
+remain open. No analytic premise, canonical atom/type/flag, frontier field
+or hole changed.
+
+Verification: 10+8+9=27 exactly matched focused gates within
+{propext, Quot.sound}, three axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/odd_face_incidence.py`
+pilot checks 625 one-cut label choices (spins 0..4), rejects all 528 thin-odd
+cases, and checks zero vertical probe charge. Lean proves the general claims
+independently. One monitored worker, 20 GiB ceiling; paused for unrelated
+user-owned tests. No limits raised and no full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-original-odd-face-incidence.log`,
+`/tmp/ym-original-probe-temporal-cut.log`,
+`/tmp/ym-original-probe-connected-cut.log`.
+
+**Preceding local increment (four-face even cuts and a conditional twelve-face floor):**
 The 7f67b34 checkpoint proved all-spin zero-term cancellation on the original
 action. This increment proves the finite geometry needed for a sharper area
 argument; it does not assume that every connected replica term meets its guards.

@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original odd-cut rejection and connected-pair filter; OPEN surviving-pair estimate (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabOddFaceIncidence.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalCut.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeConnectedCut.lean`.
+- **closed incidence bridge**: `faceDegree_pin` and `totalCharge_parity`
+  identify the existing index-based all-spin charge with odd physical face
+  incidence. `vertical_even_of_check` handles physical and exterior links.
+- **closed original-moment consequence**: `probe_vertical_charge_zero`
+  supplies the actual spatial insertion charge. `moment_thin_cut_zero`
+  and `moment_cut_filter` reject one to three odd faces on any temporal
+  cut of any original shifted-probe moment, at every volume margin.
+  `nonzero_three_cut_minimum_twelve` retains all three cut-nonemptiness guards.
+- **closed two-replica consequence**: `pairTerm_pin` uses the existing
+  `QuaternionHaarBiadditive.connected` with the original integrands.
+  `pair_left_rejected` and `pair_right_rejected` preserve the exact vacuum
+  subtraction. `weighted_sum_filter` deletes zero pairs in finite sums
+  weighted by the original two-replica heat factors, at all w and K.
+- **open residue**: a common connected-selection/representation expansion
+  of the full numerator, surviving-pair classification and signed relative
+  remainder. Empty odd cuts and even-spin interactions are retained. No
+  full-response minimum area/divisibility, sign, positive floor, accepted
+  certificate, normalization/limit persistence or continuum/Clay closure
+  follows. No hole, analytic premise, canonical atom/type/flag or frontier
+  field changed.
+- **verification**: 27 exactly matched focused gates, three axiom-free,
+  all within {propext, Quot.sound}; clean final logs and fresh own/direct-
+  import artifacts. The capped 625-case pilot passes, not a proof oracle.
+  One monitored worker, 20 GiB ceiling; user-owned test pauses respected.
+  No raised limits or full build/audit/guard/progress run. Root imports not
+  rebuilt; the three log paths are recorded in work_plan.
+
 ## CLOSED even temporal-cut area floor; OPEN original connected-term application (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/EvenBipartiteEdgeMinimum.lean`,

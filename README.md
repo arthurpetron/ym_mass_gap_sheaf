@@ -32,7 +32,20 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** a [temporal-cut area bound](lean/YMGap/Continuum/Z4TemporalCutParityMinimum.lean)
+**Latest local mathematical step:** the geometric obstruction now rejects
+terms of the [original shifted-probe moments](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalCut.lean).
+The [exact incidence bridge](lean/YMGap/Continuum/BF4ExactSlabOddFaceIncidence.lean)
+identifies all-spin charge modulo two with odd-labelled physical faces.
+A temporal cut containing one, two or three such faces forces the moment
+to vanish, at every volume margin. The [two-replica filter](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeConnectedCut.lean)
+then preserves finite signed connected sums with the original heat weights,
+keeping the partition and both endpoint means together. Three focused
+modules passed 27 axiom checks within `{propext, Quot.sound}` (three axiom-free).
+Empty odd cuts and even-spin contributions remain allowed. Combining this
+filter with the connected-selection expansion and bounding surviving pairs
+remain open; no positive-response or continuum theorem is claimed.
+
+The preceding [temporal-cut area bound](lean/YMGap/Continuum/Z4TemporalCutParityMinimum.lean)
 now proves that a nonempty cut of distinct plaquettes, with even incidence at
 every vertical link, contains at least four faces. Three nonempty consecutive
 cuts therefore require at least twelve faces. The proof identifies cut-graph
