@@ -13,6 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED parity/higher-label pair activities and geometric tails; OPEN spatial-pattern sum (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/SU2ParityHigherArithmetic.lean`,
+  `lean/YMGap/Continuum/SU2ParityHigherHeatEnvelope.lean`,
+  `lean/YMGap/Continuum/SU2FiniteParityHigherProduct.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabParityHigherPairBound.lean`.
+- **closed all-spin arithmetic**: `casimir_parity_floor` and
+  `dimension_square_bound` separate j=2h+b into costs 3b+8h and
+  squared-dimension cap 4^b*9^h. `heatWeight_bound` gives the two
+  explicit activities 4w^3 and 9w^8 for all 0<=w<=1.
+- **closed fixed-parity tails**: `higherTail_bound` returns the scalar
+  `oddRate^bit*higherRate^start/(1-higherRate)` for any finite tail,
+  with the guard 0<higherRate<1 explicit. At the unchanged physical nome,
+  `existingNome_rates` gives 2^-28 and 9*2^-80;
+  `existingNome_higher_factor` bounds the even-sector total cap by
+  1+2*higherRate. No opaque cutoff or volume constant is introduced.
+- **closed original-product use**: `heatProduct_pin` and
+  `pairedProduct_pin` retain all original squared dimensions and Casimir
+  sums. `weightedPairTerm_parity_bound` proves
+  `|weightedPairTerm| <= 8*oddRate^B*higherRate^H` for every cutoff-bounded
+  original pair. B is the sum of parity bits, H the sum of quotient units.
+- **open residue**: admissible spatial-pattern counting and the combined
+  original replica sum with its detached partitions and multiplicities.
+  The pair's cut filter does not assert that every moment channel passes
+  its own charge check. Per-label tails do not establish aggregate signed
+  short-core smallness. Positive full response/certificate, limit persistence,
+  full realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, new open analytic input, canonical atom/type/flag or frontier
+  field changed.
+- **verification**: 33 new focused gates within {propext, Quot.sound},
+  12 axiom-free; clean new-module logs and fresh own/direct-import artifacts.
+  Unchanged HeatKernelConvGen was refreshed (20 permitted gates, three
+  existing unused-variable warnings), then its three consumers rechecked.
+  Bounded scalar pilot only; one monitored worker, 20 GiB ceiling; no raised
+  limits or full build/audit/guard/progress run. Root imports not rebuilt;
+  exact logs in work_plan.
+
 ## CLOSED sharp character and original pair bounds; OPEN weighted short-core sum (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarChebyshevEnergy.lean`,

@@ -18,7 +18,68 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (sharp character certificates and original signed-pair weights):**
+**Latest local increment (parity/higher-label activities and explicit geometric tails):**
+The 02ffcfb checkpoint was PROGRESS: the original pair weights received
+the sharp dimension bound. This increment converts that bound into the
+coordinates of the spatial-defect decoder and controls fixed-parity
+higher-label tails without a cutoff-dependent constant.
+
+`SU2ParityHigherArithmetic.casimir_parity_floor` proves
+`c4(j) >= 3*(j%2)+8*(j/2)`. `dimension_square_bound` proves
+`(j+1)^2 <= 4^(j%2)*9^(j/2)` for every natural label.
+`SU2ParityHigherHeatEnvelope.heatWeight_bound` combines them for
+0<=w<=1, including both endpoints. The explicit activities are
+`oddRate w=4*w^3` and `higherRate w=9*w^8`.
+`higherTail_bound` bounds every finite fixed-parity tail by
+`oddRate^bit * higherRate^start / (1-higherRate)`, under the displayed
+guard 0<higherRate<1. The denominator remains explicit.
+
+`SU2FiniteParityHigherProduct.heatProduct_pin` and `pairedProduct_pin`
+retain the original squared dimension products and exact Casimir sums.
+`pairedProduct_bound` replaces those products by the two activities raised
+to the actual sums of parity bits and quotient units. These sums are
+computable data; higherCount is not just the number of higher-spin faces.
+`BF4ExactSlabParityHigherPairBound.weightedPairTerm_parity_bound` applies
+this to the ORIGINAL heat-weighted connected pair:
+
+`|weightedPairTerm| <= 8*(4*w^3)^B*(9*w^8)^H`.
+
+It retains all original moments, dimensions and physical labels, for
+every cutoff-bounded pair and every 0<=w<=1. At the existing nome 1/1024,
+`existingNome_rates` pins oddRate=2^-28 and higherRate=9*2^-80.
+`existingNome_higherTail_bound` controls arbitrary fixed-parity tails;
+`existingNome_higher_factor` bounds the even-sector total cap by
+`1+2*higherRate`, preserving a near-one factor rather than paying two per face.
+
+NEXT/OPEN: count admissible spatial parity patterns and sum the original
+12–32-face replica terms, retaining detached partitions and multiplicities.
+Use reconstruction on each accepted original moment channel separately:
+the pair's cutKeep filter is not a premise that all four momentCheck
+tests pass. Fixed-parity single-label tails are controlled; the combined
+spatial/label enumeration and useful signed short-core bound remain open.
+Positive full response/certificate, normalization/cutoff/volume persistence,
+full realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or frontier
+field changed; no coupling-uniform gap claimed.
+
+Verification: four new focused modules, 5+13+8+7=33 exactly matched gates
+within {propext, Quot.sound}, 12 axiom-free; clean new-module logs and fresh
+own/direct-import artifacts. One stale direct dependency, the unchanged
+HeatKernelConvGen source, was rechecked; its 20 gates passed with three
+existing unused-variable warnings left untouched. The three consumers
+were then rechecked. The 30-second-capped scalar pilot
+`computations/su2_parity_heat_envelope.py` checks 10001 labels, 52 rational
+endpoint/interior cases and 26 parity-prefix sums; it neither enumerates
+spatial defects nor evaluates the original signed remainder.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-su2-parity-higher-arithmetic.log`,
+`/tmp/ym-su2-parity-higher-heat-envelope.log`,
+`/tmp/ym-su2-finite-parity-higher-product.log`,
+`/tmp/ym-original-parity-higher-pair-bound.log`, and dependency refresh
+`/tmp/ym-refresh-heat-kernel-conv-gen.log`.
+
+**Preceding local increment (sharp character certificates and original signed-pair weights):**
 The 7956b25 checkpoint was PROGRESS: spatial odd-face data plus higher-label
 quotients encode the accepted original physical labels. This increment
 improves the weight side of the estimate: it removes the exponential

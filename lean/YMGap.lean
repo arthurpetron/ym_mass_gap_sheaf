@@ -4093,6 +4093,10 @@ import YMGap.Continuum.BF4ExactSlabSpatialDefectReconstruction
 import YMGap.Continuum.QuaternionHaarChebyshevEnergy
 import YMGap.Continuum.QuaternionHaarSharpCharacterInterval
 import YMGap.Continuum.BF4ExactSlabSharpCharacterWeights
+import YMGap.Continuum.SU2ParityHigherArithmetic
+import YMGap.Continuum.SU2ParityHigherHeatEnvelope
+import YMGap.Continuum.SU2FiniteParityHigherProduct
+import YMGap.Continuum.BF4ExactSlabParityHigherPairBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

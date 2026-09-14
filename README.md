@@ -32,7 +32,20 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [sharp SU(2) character bounds now control the original signed pair weights](lean/YMGap/Continuum/BF4ExactSlabSharpCharacterWeights.lean).
+**Latest local mathematical step:** [the original pair weights now separate into parity and higher-label costs](lean/YMGap/Continuum/BF4ExactSlabParityHigherPairBound.lean).
+Writing each label as `j=2h+b`, the [all-spin heat envelope](lean/YMGap/Continuum/SU2ParityHigherHeatEnvelope.lean)
+gives `|weightedPairTerm| <= 8*(4w^3)^B*(9w^8)^H`, with both counts
+computed from the original physical labels. At the unchanged nome `1/1024`,
+the rates are exactly `2^-28` and `9*2^-80`. Fixed-parity higher-label
+tails have an explicit geometric bound; the even-sector total cap is
+at most `1+2*(9*2^-80)`, independent of cutoff.
+Four new modules passed 33 focused axiom checks within `{propext, Quot.sound}`
+(12 axiom-free); no full-tree audit ran. **Next:** count the admissible
+spatial patterns and sum the original replica terms with their detached
+partitions. The short-remainder bound, positive full response and
+continuum/Clay remain open.
+
+The preceding [sharp SU(2) character bounds control the original signed pair weights](lean/YMGap/Continuum/BF4ExactSlabSharpCharacterWeights.lean).
 An [exact Chebyshev energy identity](lean/YMGap/Continuum/QuaternionHaarChebyshevEnergy.lean)
 constructs sum-of-squares certificates for [both bounds `|chi_n| <= n+1`](lean/YMGap/Continuum/QuaternionHaarSharpCharacterInterval.lean),
 replacing the exponential character envelope in these new estimates.

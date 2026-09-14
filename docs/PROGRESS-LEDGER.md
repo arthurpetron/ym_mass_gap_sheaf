@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: sharp character weights on the original signed pair (2026-09-14)
+## Current increment: original parity/higher activities and fixed-parity geometric tails (2026-09-14)
+
+The preceding 02ffcfb checkpoint was PROGRESS: original pair weights lost
+the exponential character envelope. This increment is PROGRESS by proving
+separate parity/higher-label activities and a cutoff-independent bound
+for each fixed-parity higher-label tail, then connecting the activities
+to the same original signed pair.
+
+- `SU2ParityHigherArithmetic.casimir_parity_floor` and
+  `dimension_square_bound` prove costs 3b+8h and 4^b*9^h for j=2h+b.
+- `SU2ParityHigherHeatEnvelope.heatWeight_bound` yields activities 4w^3
+  and 9w^8, all 0<=w<=1. `higherTail_bound` retains the explicit geometric
+  denominator 1-higherRate and the decay higherRate^start.
+- `SU2FiniteParityHigherProduct.pairedProduct_pin` preserves the original
+  squared dimensions and exact Casimir sum; `pairedProduct_bound` uses
+  actual parity and quotient-unit counts.
+- `BF4ExactSlabParityHigherPairBound.weightedPairTerm_parity_bound`
+  proves `|weightedPairTerm| <= 8*oddRate^B*higherRate^H` for the original
+  cutoff-bounded pair. `existingNome_rates` pins 2^-28 and 9*2^-80;
+  `existingNome_higher_factor` keeps the total even-sector factor <=1+2r.
+
+Next: count admissible spatial patterns and sum original replica terms
+without replacing their detached partitions or multiplicities. Apply
+reconstruction only to channels passing their own original momentCheck.
+The full short-core estimate, positive response, limits, full realization
+and continuum/Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed.
+
+Verification: 33 new focused gates within {propext, Quot.sound}, 12
+axiom-free; clean new-module logs and fresh own/direct-import artifacts.
+Unchanged HeatKernelConvGen refreshed with 20 permitted gates and three
+existing unused-variable warnings; all three consumers rechecked. Capped
+scalar pilot covers 10001 labels, 52 rational cases and 26 parity-prefix
+sums, not spatial defects or the original remainder. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: sharp character weights on the original signed pair (2026-09-14)
 
 The preceding 7956b25 checkpoint was PROGRESS: accepted original labels
 received an injective spatial-defect/higher-label encoding. This increment
