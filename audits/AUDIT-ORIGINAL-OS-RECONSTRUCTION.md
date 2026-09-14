@@ -181,6 +181,34 @@ No nonzeroness conclusion is stated for that particular vector.
 These are fixed-nome, fixed-spacing laws. The stated uniformity is in
 approximation degree and rational spectral point, not beta or spacing.
 
+## Symbol compatibility and cyclic operator-bound update after 910c342
+
+`continuousProbe_congr`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicSymbolCompatibility.lean:86`,
+proves equality of the original symbol vectors from rational pointwise
+equivalence on [0,1], without equal bounds, moduli or outside values.
+`comparisonModulus`, same file at line 67, retains the uniform comparison
+stage. `continuousProbe_eq_polynomial` at line 100 identifies the vector
+with the actual original p(T2)v for a symbol agreeing with p on [0,1].
+
+`polynomialOperator`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialOperator.lean:85`,
+is the existing time/scalar/addition polynomial action on the original
+completion. `operator_mul`, same file at line 94, proves composition;
+`operator_one` at line 102 proves identity; `operator_coordinate` at line
+105 recovers the SAME two-step transfer. `operator_symmetric` at line 110
+proves symmetry on the original pairing. These are finite polynomial
+operator laws, not continuous functional calculus.
+
+`cyclic_norm_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicOperatorBound.lean:60`,
+proves ||p(T2)q(T2)v||^2<=M^2||q(T2)v||^2 for every polynomial q from
+|p|<=M on rational [0,1]. `cyclic_distance_bound`, same file at line 77,
+gives the relative distance bound. The factor is uniform in q; neither
+statement quantifies over all completed input vectors or over varying
+physical nome/spacing. No supplied spectral resolution or operator-bound
+hypothesis is consumed.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -218,8 +246,10 @@ Mixed positivity, finite normalized rows, signed-polynomial convergence,
 the positive bounded normalized polynomial functional, actual polynomial
 difference bounds, represented Bernstein carrier limits, their pairing
 convergence and symbol-vector norm bounds are now closed by the declarations
-above. Next: symbol-equivalence compatibility and operator calculus on the
-original cyclic sector. Neither
+above. Symbol-equivalence compatibility, actual polynomial operator algebra
+and relative cyclic polynomial bounds are also now closed. Next: original
+operator action and relative bounds on represented cyclic limits, then
+continuous cyclic operator calculus. Neither
 a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -227,6 +257,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The symbol-compatibility/cyclic-operator increment has three new modules
+and 28 exactly matched gates within `{propext, Quot.sound}`, none axiom-free.
 The original limit pairing/norm increment has three new modules and 31
 exactly matched gates, all with only `{propext, Quot.sound}`; none axiom-free.
 The represented Bernstein carrier increment has four new modules and 54

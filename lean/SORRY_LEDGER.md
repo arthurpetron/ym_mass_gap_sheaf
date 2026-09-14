@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original limit pairing and Bernstein symbol-vector norm laws (2026-09-14)
+## CLOSED original symbol compatibility and relative cyclic polynomial operator bounds (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSymbolCompatibility.lean`,
+  `BF4ExactSlabThermodynamicPolynomialOperator.lean`, and
+  `BF4ExactSlabThermodynamicCyclicOperatorBound.lean` in the same directory.
+- **closed symbol compatibility**: `continuousProbe_congr` requires symbol
+  equivalence only on rational [0,1], permitting different bounds, moduli
+  and outside values. `comparisonModulus` retains the uniform comparison
+  stage. `continuousProbe_eq_polynomial` recovers the actual original
+  polynomial probe vector from interval agreement.
+- **closed finite operator algebra**: `vector_product`, `operator_mul`,
+  `operator_constant`, `operator_one`, `operator_coordinate` and
+  `operator_symmetric` prove multiplication, constants, identity, the
+  SAME T2 and symmetry on the existing completed carrier. Base-vector
+  rational linearity and polynomial add/scale laws are proved as well.
+- **closed relative bound**: `cyclic_norm_bound` proves
+  ||p(T2)q(T2)v||^2<=M^2||q(T2)v||^2 uniformly in polynomial q when
+  |p|<=M on [0,1]. `cyclic_distance_bound` proves its two-vector distance
+  form. The original positive moment functional discharges these bounds;
+  no new operator-bound field, coefficient-size loss or diagonal model.
+- **open residue**: relative-bound transport to represented cyclic limits
+  and full continuous cyclic operator calculus; full-carrier spectral
+  realization, canonical comparisons, quotient-level completeness/time
+  injectivity, physical spectral/non-Wick pins, continuum scaling, other
+  groups and Clay. Fixed SU(2) nome and spacing; no beta/spacing-uniform gap
+  conclusion. No new hole, canonical field/atom/flag or physical input.
+- **verification**: three focused monitored modules, 28 exactly matched
+  gates within {propext, Quot.sound}, none axiom-free; clean final logs and
+  fresh own/direct-import artifacts. One worker, 20 GiB ceiling. No raised
+  options, large sample evaluation, full build/audit/guard/progress or
+  root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original limit pairing and Bernstein symbol-vector norm laws (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedPairingContinuity.lean`,
   `BF4ExactSlabThermodynamicRowPairingLimit.lean`, and

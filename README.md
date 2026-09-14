@@ -13,14 +13,27 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [norm bounds and pairing limits for the original Bernstein symbol vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinLimitPairing.lean).
+**Latest milestone:** [relative polynomial operator bounds on the original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicOperatorBound.lean).
+For `|p| <= M` on `[0,1]`, the original operator satisfies
+`||p(T2)q(T2)v||² <= M² ||q(T2)v||²` for every polynomial `q`,
+without a coefficient-size factor or supplied spectral decomposition.
+[Polynomial products compose as the actual operators](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialOperator.lean),
+and the coordinate polynomial recovers the original `T2`.
+[Equivalent symbols on the spectral interval give identical constructed vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSymbolCompatibility.lean),
+even with different bounds, moduli or outside values. Three modules passed
+28 focused axiom checks within `{propext, Quot.sound}`; no full-tree run.
+Next is extending the relative operator bounds to constructed cyclic
+limits. Full continuous operator calculus, physical-scale control and
+continuum/Clay remain open; SU(2) nome and spacing remain fixed.
+
+**Established limit laws:** [norm bounds and pairing limits for the original Bernstein symbol vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinLimitPairing.lean).
 The constructed vector for a symbol `F` satisfies `||F(T2)v||² <= F.bound²`.
 Pairings of two such vectors are limits of the same original polynomial
 moment functional, with computed convergence rates and retained real
 Cauchy data. No new Yang--Mills assumption or diagonal model is supplied.
 Three modules passed 31 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree build or audit ran. Symbol-equivalence compatibility, full
-operator calculus, physical-scale control and continuum/Clay remain open.
+no full-tree build or audit ran. Full continuous operator calculus,
+physical-scale control and continuum/Clay remain open.
 These results use fixed SU(2) nome and lattice spacing.
 
 **Established carrier milestone:** [Bernstein symbol vectors have constructed limits in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinCarrier.lean).
@@ -32,7 +45,8 @@ A [concrete bounded cusp symbol](lean/YMGap/Continuum/BF4ExactSlabThermodynamicC
 continuity data constructed. Its symbol vector is not claimed nonzero.
 Four modules passed 54 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free). Their limit pairing/norm laws are now proved by the
-latest milestone above; full operator calculus and continuum remain open.
+limit-laws milestone above; full continuous operator calculus and continuum
+remain open.
 
 **Established polynomial milestone:** the original transfer has a
 [constructed positive, normalized, bounded polynomial moment functional](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialFunctional.lean).

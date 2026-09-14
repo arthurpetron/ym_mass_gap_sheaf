@@ -4217,6 +4217,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicCuspProbe
 import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedPairingContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicRowPairingLimit
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinLimitPairing
+-- Interval-symbol compatibility and actual original polynomial operator algebra;
+-- sharp relative bounds on cyclic polynomial vectors, not continuum closure.
+import YMGap.Continuum.BF4ExactSlabThermodynamicSymbolCompatibility
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialOperator
+import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicOperatorBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (original limit pairing and Bernstein norm laws):**
+**Latest increment (symbol compatibility and relative cyclic operator bounds):**
+PROGRESS after 910c342. `BF4ExactSlabThermodynamicSymbolCompatibility`
+proves `continuousProbe_congr` from rational pointwise equivalence on
+[0,1] ONLY: symbol bounds, moduli and outside values may differ.
+`comparisonModulus` retains the two uniform approximation stages;
+`rowLimits_eq_of_close` uses a common computed stage and the original
+three-segment distance bound. `continuousProbe_eq_polynomial` recovers
+the ACTUAL original polynomial vector when the symbol agrees with that
+polynomial on [0,1]. No supplied diagonal realization is consumed.
+
+`BF4ExactSlabThermodynamicPolynomialOperator` uses the existing finite
+time/scalar/addition action on the SAME completed carrier. `vector_product`
+and `operator_mul` prove exact multiplication/composition, with constants,
+identity, rational linearity, symmetry and `operator_coordinate` identifying
+the coefficient list `[0,1]` with the original two-step transfer. These are finite polynomial
+operator laws on every completed vector, not yet continuous-symbol action.
+
+`BF4ExactSlabThermodynamicCyclicOperatorBound.cyclic_norm_bound` proves
+||p(T2)q(T2)v||^2<=M^2||q(T2)v||^2 for ALL polynomials q when |p|<=M on
+rational [0,1]. Its factor is independent of q and has no coefficient-size
+loss. This follows by multiplying the scalar squared inequality by q^2
+and applying the already-constructed original positive moment functional.
+`cyclic_distance_bound` supplies the relative bound between any two
+original polynomial probe vectors. No operator-bound hypothesis is added.
+
+NEXT: original polynomial action on represented cyclic limits, including
+transport of these relative bounds; then full continuous cyclic operator
+calculus. Symbol compatibility and the cyclic polynomial relative bound
+are CLOSED, not new analytic premises. Full-carrier spectral realization,
+canonical observable/scalar/carrier comparisons, quotient-level completeness/
+time injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. No new hole, physical input,
+canonical type/atom/flag, weight or surrogate; fixed SU(2) nome 1/1024
+and lattice spacing. Uniformity is over cyclic polynomials q for the
+declared bound on p, not over beta or physical lattice spacing.
+
+Verification: three focused monitored modules, 7+16+5=28 exactly matched
+gates within {propext, Quot.sound}, none axiom-free; clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, 20 GiB
+ceiling and separate process/swap preflights. No raised options, large
+sample evaluation, full build/audit/guard/progress or root-import run.
+Logs: `/tmp/ym-original-symbol-compatibility.log`,
+`/tmp/ym-original-polynomial-operator.log`,
+`/tmp/ym-original-cyclic-operator-bound.log`.
+
+**Previous increment (original limit pairing and Bernstein norm laws):**
 PROGRESS after e8713df. The SAME completed Cauchy--Schwarz inequality and
 bilinearity prove `BF4ExactSlabThermodynamicCompletedPairingContinuity.pairing_close`:
 squared-distance tolerance epsilon^2/(8*(B+1)) controls both pairing errors
