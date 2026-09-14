@@ -13,6 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED even temporal-cut area floor; OPEN original connected-term application (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/EvenBipartiteEdgeMinimum.lean`,
+  `lean/YMGap/Continuum/Z4EvenLinkMinimum.lean`,
+  `lean/YMGap/Continuum/Z4TemporalCutParityMinimum.lean`.
+- **closed geometry**: `EvenBipartiteEdgeMinimum.minimum_four` excludes
+  nonempty even simple bipartite graphs with fewer than four edges.
+  `Z4EvenLinkMinimum.colored_injective` and `minimum_four` apply this to
+  literal lattice links. `Z4TemporalCutParityMinimum.degree_pin` gives
+  exact original vertical-link incidence. `cut_minimum_four` and
+  `three_cut_minimum_twelve` prove four faces per nonempty even cut and
+  twelve faces for three consecutive such cuts of a distinct-face list.
+- **open residue**: pin all-spin charge parity to the odd-labelled original
+  face list; apply the geometry to the actual four moments; combine it with
+  connected cancellation and classify two-replica survivors. Nonemptiness
+  of each odd cut is an explicit hypothesis, not inferred from connectedness.
+  Even-spin contributions, signs and the full relative remainder remain to
+  be controlled. No full-response minimum area, w^36 divisibility, positive
+  response, accepted certificate, normalization/limit persistence or Clay
+  closure is claimed. No hole, analytic premise, canonical atom/type/flag
+  or frontier field changed.
+- **verification**: 15 exactly matched focused gates, two axiom-free, all
+  within {propext, Quot.sound}; clean final logs and fresh own/direct-import
+  artifacts. Capped finite pilot passes independently of the Lean proof.
+  One monitored worker, 20 GiB ceiling; a memory-reserve stop and competing
+  user-owned tests were respected. No raised limits or full build/audit/
+  guard/progress run. Root imports not rebuilt; log paths are in work_plan.
+
 ## CLOSED original all-spin center-charge filter; OPEN surviving connected response estimate (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionBlockCenterCharge.lean`,

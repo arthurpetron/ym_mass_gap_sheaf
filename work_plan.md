@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-13)
+## Whole-project goal and live completion map (updated 2026-09-14)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -16,9 +16,54 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current original-action gap and continuum frontier (2026-09-13)
+### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (all-spin center-charge cancellation on the original action):**
+**Latest local increment (four-face even cuts and a conditional twelve-face floor):**
+The 7f67b34 checkpoint proved all-spin zero-term cancellation on the original
+action. This increment proves the finite geometry needed for a sharper area
+argument; it does not assume that every connected replica term meets its guards.
+
+`EvenBipartiteEdgeMinimum.minimum_four` proves that a nonempty simple bipartite
+edge list with even degrees has at least four edges. The proof excludes lists
+of lengths one, two and three directly, with no cycle-extraction oracle.
+`Z4EvenLinkMinimum.colored_injective` orients actual Z4 links by coordinate-sum
+parity without identifying distinct links. `minimum_four` transfers the bound
+to even-incidence lattice links.
+
+`Z4TemporalCutParityMinimum.degree_pin` identifies degree on a temporal cut
+with `faceIncidenceCount` at the original vertical link. `cut_minimum_four`
+then proves the four-face floor for each nonempty even cut. The three cuts
+at t, t+1, t+2 are disjoint; `three_cut_size_le` and
+`three_cut_minimum_twelve` give the twelve-face floor with all three
+nonemptiness hypotheses visible in the theorem type.
+
+NEXT/OPEN: identify the original all-spin charge modulo two with incidence
+in its odd-labelled physical face list, and transport the cut obstruction to
+the four original shifted-probe moments. Separately, combine parity rejection
+with connected-selection cancellation and classify the surviving TWO-replica
+terms, including even-spin contributions. The new theorem does not establish
+nonempty odd support at every intervening cut of every such term. No minimum
+area or w^36 divisibility theorem for the full connected response is claimed.
+The signed relative remainder, positive original response, normalization and
+cutoff/volume persistence, full physical realization, continuum/QFT/spectral
+pins, other groups and Clay remain open. No canonical atom/type/flag, analytic
+premise, frontier field or hole changed.
+
+Verification: 3+6+6=15 exactly matched focused gates within
+{propext, Quot.sound}, two axiom-free; final logs clean and own/direct-import
+artifacts fresh. Explicit successor contradictions replace arithmetic
+simplifications that introduced Classical.choice. The 30-second-capped
+`computations/temporal_cut_parity.py` pilot passes: nonempty even subgraphs
+of a 3-by-3 bipartite graph have sizes 4 or 6, and three nonempty even cuts
+of the twelve-side tube retain all twelve sides. It is not a proof oracle.
+One monitored worker, 20 GiB ceiling. An initial check stopped at the memory
+reserve; compilation resumed only after pressure recovered, and paused for
+unrelated user-owned tests. No limits were raised. No full build/audit/guard/
+progress run; root imports updated, not rebuilt. Logs:
+`/tmp/ym-even-bipartite-minimum.log`, `/tmp/ym-z4-even-link-minimum.log`,
+`/tmp/ym-z4-temporal-cut-minimum.log`.
+
+**Preceding local increment (all-spin center-charge cancellation on the original action):**
 The 05ba400 checkpoint established conditional full-tube connected transmission.
 This increment addresses selected terms of the FULL original interacting action,
 without substituting that action into the tube's independence hypothesis.

@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-13): this repository does not prove the Clay
+> **Research status (2026-09-14): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -32,7 +32,19 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** an [all-spin center-charge filter](lean/YMGap/Continuum/BF4ExactSlabCenterCharge.lean)
+**Latest local mathematical step:** a [temporal-cut area bound](lean/YMGap/Continuum/Z4TemporalCutParityMinimum.lean)
+now proves that a nonempty cut of distinct plaquettes, with even incidence at
+every vertical link, contains at least four faces. Three nonempty consecutive
+cuts therefore require at least twelve faces. The proof identifies cut-graph
+degree with the original vertical-link incidence and uses a
+[simple bipartite-graph obstruction](lean/YMGap/Continuum/EvenBipartiteEdgeMinimum.lean),
+without extracting a cycle. Three focused modules passed 15 axiom checks
+within `{propext, Quot.sound}` (two axiom-free).
+**The nonempty-cut hypotheses remain explicit:** applying this result to all
+surviving original connected terms is open. It is not a full-response area,
+`w^36` divisibility, positivity or continuum theorem.
+
+The preceding [all-spin center-charge filter](lean/YMGap/Continuum/BF4ExactSlabCenterCharge.lean)
 now removes exactly zero terms from the **original shared-link heat sum**.
 An odd total label at an integrated link forces its signed Haar coefficient
 to vanish. The proof uses actual face incidences, all spins and every slab

@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original all-spin center-charge cancellation (2026-09-13)
+## Current increment: four-face even cuts and conditional twelve-face floor (2026-09-14)
+
+The preceding checkpoint 7f67b34 was PROGRESS: original all-spin parity
+cancellation. This increment is PROGRESS in the finite geometry, not a
+closure of the full connected-response estimate.
+
+- `EvenBipartiteEdgeMinimum.minimum_four` excludes one, two or three
+  edges directly in a nonempty even simple bipartite graph.
+- `Z4EvenLinkMinimum.colored_injective` retains distinct original links
+  under the parity orientation; `minimum_four` gives the lattice version.
+- `Z4TemporalCutParityMinimum.degree_pin` is exact vertical-link incidence.
+  `cut_minimum_four` gives four faces per nonempty even cut;
+  `three_cut_minimum_twelve` counts three disjoint consecutive cuts.
+
+Next: pin original spin charge to odd-face incidence, then combine this
+geometry with the original moment filters and connected cancellation.
+All three cut-nonemptiness guards remain explicit. No assertion about every
+surviving two-replica term, full-response minimum area/divisibility, sign,
+positive original response or continuum/Clay closure follows. No canonical
+atom/type/flag, frontier field, analytic premise or hole changed.
+
+Verification: 15 exactly matched focused gates, two axiom-free, all within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+The capped finite pilot passes; it is not a proof oracle. One monitored
+worker, 20 GiB ceiling; memory and user-owned test pauses respected. No raised
+limits or full build/audit/guard/progress run. Root imports not rebuilt.
+
+## Previous increment: original all-spin center-charge cancellation (2026-09-13)
 
 The preceding checkpoint 05ba400 proved conditional connected tube
 transmission. This increment proves zero-term cancellation for the full
