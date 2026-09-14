@@ -13,7 +13,17 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest carrier milestone:** [Bernstein symbol vectors now have constructed limits in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinCarrier.lean).
+**Latest milestone:** [norm bounds and pairing limits for the original Bernstein symbol vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinLimitPairing.lean).
+The constructed vector for a symbol `F` satisfies `||F(T2)v||² <= F.bound²`.
+Pairings of two such vectors are limits of the same original polynomial
+moment functional, with computed convergence rates and retained real
+Cauchy data. No new Yang--Mills assumption or diagonal model is supplied.
+Three modules passed 31 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree build or audit ran. Symbol-equivalence compatibility, full
+operator calculus, physical-scale control and continuum/Clay remain open.
+These results use fixed SU(2) nome and lattice spacing.
+
+**Established carrier milestone:** [Bernstein symbol vectors have constructed limits in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinCarrier.lean).
 For bounded rational-valued symbols with explicit continuity data, the
 construction returns original Cauchy representatives and convergence rates;
 the limit is unique and independent of the chosen continuity modulus.
@@ -21,8 +31,8 @@ A [concrete bounded cusp symbol](lean/YMGap/Continuum/BF4ExactSlabThermodynamicC
 `min(|t - 1/2|, 1)`, supplies a proved nonconstant instance with all its
 continuity data constructed. Its symbol vector is not claimed nonzero.
 Four modules passed 54 focused axiom checks within `{propext, Quot.sound}`
-(six axiom-free). Limit pairing/norm laws, full operator calculus and the
-continuum/Clay target remain open; SU(2) nome and spacing are fixed.
+(six axiom-free). Their limit pairing/norm laws are now proved by the
+latest milestone above; full operator calculus and continuum remain open.
 
 **Established polynomial milestone:** the original transfer has a
 [constructed positive, normalized, bounded polynomial moment functional](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialFunctional.lean).

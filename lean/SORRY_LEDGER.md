@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED represented original Bernstein carrier limits and cusp instance (2026-09-14)
+## CLOSED original limit pairing and Bernstein symbol-vector norm laws (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedPairingContinuity.lean`,
+  `BF4ExactSlabThermodynamicRowPairingLimit.lean`, and
+  `BF4ExactSlabThermodynamicBernsteinLimitPairing.lean` in the same directory.
+- **closed continuity**: `pairing_close` proves both order errors on the
+  SAME original completed OS pairing with explicit squared-distance
+  tolerance epsilon^2/(8*(B+1)), from its existing CS and bilinearity.
+- **closed represented limits**: `pairingModulus`, `row_pairing_bound` and
+  `pairingCertificate` compute the two-slot convergence rate and retain
+  the actual real, its QCauchy modulus and the original row-limit pairing
+  pin. `rowLimit_norm_bound` passes uniform row norm bounds to that limit.
+  Rational norm ceilings are computed from supplied Cauchy representatives;
+  no representative choice or new physical analytic input is used.
+- **closed Bernstein laws**: `bernstein_abs_bound` is uniform in degree
+  and rational spectral point in [0,1]. `continuousProbe_norm_bound`
+  proves ||F(T2)v||^2<=F.bound^2 on the constructed original vector.
+  `momentPairingCertificate` gives same-functional polynomial-product
+  pairing limits with real/modulus data. `cuspVector_norm_bound` gives
+  <=1 for the fully supplied cusp instance, without claiming it nonzero.
+- **open residue**: symbol-equivalence compatibility and original cyclic
+  operator calculus; full spectral realization, canonical comparisons,
+  quotient-level completeness/time injectivity, continuous-time/physical
+  spectral/non-Wick pins, continuum scaling, other groups and Clay.
+  No new hole, canonical field/atom/flag or physical weight change.
+  Fixed SU(2) nome and spacing; no beta/spacing-uniform gap conclusion.
+- **verification**: three focused monitored modules, 31 exactly matched
+  gates with only {propext, Quot.sound}, none axiom-free. Clean final logs,
+  fresh own/direct-import artifacts, one worker, 20 GiB ceiling. No raised
+  options, large sample evaluation, full build/audit/guard/progress or
+  root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED represented original Bernstein carrier limits and cusp instance (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialDifference.lean`,
   `BF4ExactSlabThermodynamicPolynomialCarrierLimit.lean`,

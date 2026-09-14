@@ -153,6 +153,34 @@ original carrier-limit instance. Nonzeroness of this vector is not
 asserted. These symbol data are rational-valued, not an assertion that
 all CReal-valued continuous symbols or full operator calculus are closed.
 
+## Original limit pairing and norm update after e8713df
+
+`pairing_close`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedPairingContinuity.lean:86`,
+proves explicit two-slot continuity of the SAME original completed pairing,
+with squared-distance tolerance epsilon^2/(8*(B+1)).
+`pairingModulus`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicRowPairingLimit.lean:60`,
+computes the outer pairing rate from represented-row distance moduli and
+computed rational norm ceilings. `pairingCertificate`, same file at line 97,
+retains the original limit real, QCauchy data, same-pairing pin and rate.
+`rowLimit_norm_bound` at line 107 passes uniform row norm bounds to the
+constructed row limit.
+
+`bernstein_abs_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinLimitPairing.lean:45`,
+bounds every Bernstein polynomial by its symbol's declared bound at ALL
+rational points in [0,1]. `continuousProbe_norm_bound`, same file at line 70,
+passes the squared bound to the actual original symbol vector.
+`momentPairing_bound` at line 82 and `momentPairingCertificate` at line 103
+give two-sided convergence of the SAME original moment functional on
+products of Bernstein polynomials to the pairing of their constructed
+symbol vectors, with real/Cauchy/rate data retained. `cuspVector_norm_bound`
+at line 117 bounds the concrete cusp vector's squared norm by one.
+No nonzeroness conclusion is stated for that particular vector.
+These are fixed-nome, fixed-spacing laws. The stated uniformity is in
+approximation degree and rational spectral point, not beta or spacing.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -188,9 +216,10 @@ original spectral decomposition constructed by the new normalization.
 
 Mixed positivity, finite normalized rows, signed-polynomial convergence,
 the positive bounded normalized polynomial functional, actual polynomial
-difference bounds and represented Bernstein carrier limits are now closed
-by the declarations above. Next: limit pairing/norm laws, symbol-equivalence
-compatibility and operator calculus on the original cyclic sector. Neither
+difference bounds, represented Bernstein carrier limits, their pairing
+convergence and symbol-vector norm bounds are now closed by the declarations
+above. Next: symbol-equivalence compatibility and operator calculus on the
+original cyclic sector. Neither
 a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -198,6 +227,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The original limit pairing/norm increment has three new modules and 31
+exactly matched gates, all with only `{propext, Quot.sound}`; none axiom-free.
 The represented Bernstein carrier increment has four new modules and 54
 exactly matched gates within `{propext, Quot.sound}`, six axiom-free.
 The signed-polynomial/functional/cyclic-norm increment had four new modules

@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (actual original Bernstein carrier limits and a cusp instance):**
+**Latest increment (original limit pairing and Bernstein norm laws):**
+PROGRESS after e8713df. The SAME completed Cauchy--Schwarz inequality and
+bilinearity prove `BF4ExactSlabThermodynamicCompletedPairingContinuity.pairing_close`:
+squared-distance tolerance epsilon^2/(8*(B+1)) controls both pairing errors
+by epsilon. Only the rational tolerance arithmetic is reused from the
+finite-form module; the pairing is the original completed OS pairing.
+
+`BF4ExactSlabThermodynamicRowPairingLimit` computes norm ceilings from the
+existing diagonal representatives. The squared-distance triangle gives a
+row-tail ceiling; `pairingModulus` combines its stage with the two distance
+rates. `pairingCertificate` retains the actual limit CReal, QCauchy data,
+same-row-limit pairing pin and two-sided convergence rate.
+`rowLimit_norm_bound` proves that a uniform row norm bound passes to the
+constructed original limit. No quotient representative is selected.
+
+`BF4ExactSlabThermodynamicBernsteinLimitPairing.bernstein_abs_bound` uses
+nonnegative binomial weights and their partition of unity to prove a bound
+uniform in degree AND rational spectral point in [0,1].
+`continuousProbe_norm_bound` then proves ||F(T2)v||^2<=F.bound^2 on the
+actual original symbol vector. `momentPairing_bound` and
+`momentPairingCertificate` identify pairings of two such vectors with
+explicit-rate limits of the SAME momentFunctional on products of their
+Bernstein polynomials. `cuspVector_norm_bound` supplies the concrete
+bound <=1; nonzeroness of that particular vector is not asserted.
+
+NEXT: compatibility under equivalent symbols and original cyclic operator
+action/calculus. Represented-row pairing convergence and Bernstein
+symbol-vector norm bounds are CLOSED. No new YM analytic premise, hole,
+canonical type/atom/flag, physical weight or surrogate. Full spectral
+realization, canonical observable/scalar/carrier comparison, full
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. All physical parameters remain fixed SU(2) nome 1/1024 and spacing;
+the new uniformity is in approximation degree and spectral point, not beta
+or physical lattice spacing.
+
+Verification: three focused monitored modules, 8+13+10=31 exactly matched
+gates, all with only {propext, Quot.sound}; none axiom-free. Final logs
+clean, own/direct-import artifacts fresh. Safe-build skill: one worker,
+20 GiB ceiling, separate process/swap preflights. No raised options,
+large polynomial/sample evaluation, full build/audit/guard/progress or
+root-import run. Logs: `/tmp/ym-original-completed-pairing-continuity.log`,
+`/tmp/ym-original-row-pairing-limit.log`,
+`/tmp/ym-original-bernstein-limit-pairing.log`.
+
+**Previous increment (actual original Bernstein carrier limits and a cusp instance):**
 PROGRESS after e284003. `BF4ExactSlabThermodynamicPolynomialDifference`
 proves polynomial addition/scaling/subtraction on the SAME completion,
 and `probe_distance_bound` transfers uniform |p-q|<=M to original squared

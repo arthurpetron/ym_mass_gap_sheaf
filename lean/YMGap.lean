@@ -4212,6 +4212,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialDifference
 import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialCarrierLimit
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinCarrier
 import YMGap.Continuum.BF4ExactSlabThermodynamicCuspProbe
+-- Original completed pairing continuity, represented-row pairing limits,
+-- and Bernstein symbol-vector norm bounds; fixed nome and spacing only.
+import YMGap.Continuum.BF4ExactSlabThermodynamicCompletedPairingContinuity
+import YMGap.Continuum.BF4ExactSlabThermodynamicRowPairingLimit
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinLimitPairing
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
