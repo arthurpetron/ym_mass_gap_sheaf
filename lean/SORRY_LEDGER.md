@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original connected replica area; OPEN heat-power and signed response bounds (2026-09-14)
+## CLOSED original heat-power and signed leading/remainder decomposition; OPEN their estimates (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/SU2FiniteHeatPowerFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalPairHeatPower.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalNumeratorHeatPower.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalLeadingRemainder.lean`.
+- **closed original weights**: `coefficient_product` and
+  `original_face_factor` expose the actual Casimir powers and dimensions,
+  retaining the inclusive original heat packet and every physical face.
+  `original_pair_power` preserves the same signed Haar `pairTerm`.
+- **closed exponent floor/classification**: `retained_power_minimum`
+  consumes exact original filter membership and proves combined power
+  >= 36. `retained_minimal_power_fundamental` forces exactly twelve
+  occupied faces and only labels zero/one when the power equals 36.
+- **closed complete numerator identities**: `original_numerator_factorization`
+  extracts w^36 with a computed division-free cofactor.
+  `original_leading_remainder` proves numerator = w^36*(A+w*B(w)), with
+  explicit signed `leadingCoefficient` and `higherResidual` on the same
+  retained carrier. `residual_at_zero` identifies A at zero nome. All
+  cutoffs, margins, filter times and rational nomes are explicit.
+- **open residue**: evaluate A and prove a useful relative bound on B.
+  Neither a sign nor a positive response is proved. An accepted
+  certificate, normalization/cutoff/volume persistence, full realization,
+  continuum/QFT/spectral pins, other groups and Clay remain open. No
+  hole, analytic premise, canonical atom/type/flag or frontier field
+  changed. An all-nome identity is not a coupling-uniform gap estimate.
+- **verification**: 30 exactly matched focused gates, five axiom-free,
+  within {propext, Quot.sound}; clean final logs and fresh own/direct-import
+  artifacts. Capped pilot: 5460 exact products, 1876 signed extractions
+  and leading/remainder splits. One monitored worker, 20 GiB ceiling;
+  user-owned test pauses respected. No raised limits or full build/audit/
+  guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## CLOSED original connected replica area; subsequent heat-power closure above (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/LeaflessBipartiteEdgeMinimum.lean`,
   `lean/YMGap/Continuum/Z4LeaflessTemporalCutMinimum.lean`,

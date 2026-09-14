@@ -32,7 +32,20 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** every pair retained by the complete original
+**Latest local mathematical step:** the [complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalLeadingRemainder.lean)
+is now proved to equal `w^36 * (A + w*B(w))`, with explicit signed finite
+sums for `A` and `B`. This is a division-free identity, including at `w = 0`,
+for every cutoff and volume margin. The [original two-replica heat weights](lean/YMGap/Continuum/BF4ExactSlabOriginalPairHeatPower.lean)
+retain every representation dimension and the original signed Haar term.
+The twelve-face bound forces combined Casimir power at least 36; attaining
+36 forces exactly twelve occupied faces, all with label one (the fundamental
+representation). Four focused modules passed 30 axiom checks within
+`{propext, Quot.sound}` (five axiom-free).
+**Still open:** the value/sign of `A`, a useful relative bound on `B`, positive
+original response, normalization and cutoff/volume persistence, and the
+continuum/Clay obligations. The identity does not assert a coupling-uniform gap.
+
+The preceding geometric step proves that every pair retained by the complete original
 connected-numerator expansion has [at least twelve positive-spin faces in total](lean/YMGap/Continuum/BF4ExactSlabConnectedReplicaArea.lean).
 An [explicit temporal separator](lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalCrossing.lean)
 proves that connected selected support crosses each of the three intervening
@@ -42,9 +55,9 @@ occupies each cut; it need not be the same replica on all three cuts.
 forces at least four faces per occupied cut, including even-spin faces.
 The proof uses a [simple bipartite obstruction](lean/YMGap/Continuum/LeaflessBipartiteEdgeMinimum.lean),
 not cycle extraction or an assumed path. Five focused modules passed 25 axiom
-checks within `{propext, Quot.sound}` (one axiom-free). **Still open:** pinning
-the area to an exact original heat-power factorization, surviving signs,
-relative signed remainder, positive response and continuum/Clay closure.
+checks within `{propext, Quot.sound}` (one axiom-free). The exact heat-power
+factorization is now proved above. Surviving signs, relative signed remainder
+bounds, positive response and continuum/Clay closure remain open.
 This support theorem is not a coupling-uniform gap estimate.
 
 The preceding [all-spin leaf filter](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeLeafFilter.lean)

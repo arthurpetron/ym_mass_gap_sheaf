@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (twelve-face minimum for retained ORIGINAL replica pairs):**
+**Latest local increment (original numerator = w^36 times an explicit signed leading/remainder pair):**
+The 9dbf28b checkpoint proved the original retained-pair area bound.
+This increment pins that geometry to the ACTUAL SU(2) heat weights and
+extracts the leading heat power from the COMPLETE original numerator.
+
+`SU2FiniteHeatPowerFactorization.coefficient_product` retains all `dimQ`
+factors and sums the original `c4 spin = spin*(spin+2)` powers.
+`three_count_le` proves three units per occupied face; `casimir_decomposition`
+records the exact excess and `zero_excess_small` characterizes zero excess.
+`extract_floor` constructs a residual power by natural subtraction, not
+division, so it remains valid at zero or negative rational nome.
+
+`BF4ExactSlabOriginalPairHeatPower.positiveFaces_length` pins FULL geometric
+support back to original face indices. `original_face_factor` uses the
+actual `heatKernelPacket K w` and its inclusive-cutoff coefficient theorem.
+`original_pair_power` retains both original dimension products and the SAME
+signed Haar four-moment `pairTerm`. `retained_power_minimum` proves >= 36
+from exact filter membership. `retained_minimal_power_fundamental` proves
+that equality forces exactly twelve occupied faces and labels <= 1 on
+every original physical face in both replicas.
+
+`BF4ExactSlabOriginalNumeratorHeatPower.original_numerator_factorization`
+proves ORIGINAL numerator = `w^36 * numeratorResidual`, with an explicit
+finite cofactor and no division. `BF4ExactSlabOriginalLeadingRemainder.original_leading_remainder`
+then proves ORIGINAL numerator = `w^36 * (A + w*B(w))`, where
+`A = leadingCoefficient K margin time` selects exactly power-36 terms and
+`B = higherResidual w K margin time` retains every higher signed term.
+`residual_at_zero` identifies A with the computed cofactor at zero nome.
+All results quantify over every cutoff, margin and filter time (and all
+rational nomes where applicable); this is an identity, not a uniform estimate.
+
+NEXT/OPEN: evaluate the signed leading coefficient on the now-fundamental
+twelve-face carrier, then prove a useful relative bound for the signed
+higher remainder. A's value or positivity is NOT proved here. No accepted
+positive-response certificate, normalization/cutoff/volume persistence,
+full realization, continuum/QFT/spectral pins, other-group or Clay closure
+is claimed. No analytic premise, canonical atom/type/flag, frontier field
+or hole changed. A kernel-checked factorization does not bound its cofactor.
+
+Verification: 11+9+2+8=30 exactly matched focused gates within
+{propext, Quot.sound}, five axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/original_heat_power.py`
+checks 5460 exact products and 1876 signed, division-free floor extractions
+and leading/remainder splits, including zero and negative nomes. General
+Lean proofs do not trust the pilot. One monitored worker, 20 GiB ceiling;
+user-owned test pauses respected. No raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-finite-heat-power.log`, `/tmp/ym-original-pair-heat-power.log`,
+`/tmp/ym-original-numerator-heat-power.log`, `/tmp/ym-original-leading-remainder.log`.
+
+**Preceding local increment (twelve-face minimum for retained ORIGINAL replica pairs):**
 The 3e3061b checkpoint proved all-spin leaf rejection. This increment closes
 the positive-support geometry AND connected-cut coverage, without an extra
 nonempty-cut premise in the final original-expansion theorem.

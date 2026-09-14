@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original retained replica pairs have area at least twelve (2026-09-14)
+## Current increment: complete original numerator has explicit signed leading/remainder factors (2026-09-14)
+
+The preceding checkpoint 9dbf28b was PROGRESS: original replica area >= 12.
+This increment is PROGRESS by pinning the support count to the actual
+heat weights and separating the exact signed leading and higher terms.
+
+- `SU2FiniteHeatPowerFactorization.coefficient_product` factors original
+  SU(2) coefficients into dimensions and summed Casimir powers;
+  `casimir_decomposition` records the exact cost beyond three per face.
+- `BF4ExactSlabOriginalPairHeatPower.original_pair_power` retains both
+  original weights and the same signed four-moment Haar term.
+  `retained_power_minimum` gives >= 36; `retained_minimal_power_fundamental`
+  pins power 36 to exactly twelve occupied faces with labels one.
+- `BF4ExactSlabOriginalNumeratorHeatPower.original_numerator_factorization`
+  extracts w^36 from the COMPLETE original connected numerator.
+- `BF4ExactSlabOriginalLeadingRemainder.original_leading_remainder`
+  gives numerator = w^36*(A+w*B(w)), using explicit signed finite sums.
+  `residual_at_zero` identifies A without dividing by the nome.
+
+Next: evaluate the fundamental twelve-face leading coefficient and bound
+the signed higher remainder relative to it. Neither sign nor bound is
+proved by this decomposition. Positive original response/certificate,
+normalization and limit persistence, full realization and continuum/Clay
+closure remain open. No analytic premise, canonical atom/type/flag,
+frontier field or hole changed. This is not a coupling-uniform estimate.
+
+Verification: 30 exactly matched focused gates, five axiom-free, within
+{propext, Quot.sound}; clean logs and fresh own/direct-import artifacts.
+The capped pilot checks 5460 products and 1876 signed extractions/splits,
+including zero and negative nomes. One monitored worker, 20 GiB ceiling;
+user-owned test pauses respected. No raised limits or full build/audit/
+guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original retained replica pairs have area at least twelve (2026-09-14)
 
 The preceding checkpoint 3e3061b was PROGRESS: all-spin leaf rejection.
 This increment is PROGRESS by closing both positive-support geometry and
