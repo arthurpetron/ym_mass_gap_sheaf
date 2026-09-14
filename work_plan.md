@@ -18,7 +18,60 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (complete original signed remainder absorbed; positive thermodynamic response):**
+**Latest increment (same-operator survival at every discrete time, with explicit positive floors):**
+PROGRESS after b6d6e0b: the positive original response now propagates along
+the SAME geometric time evolution; it is not reintroduced as an assumption.
+`BF4ExactSlabThermodynamicTimeKernel.time_double_zero_iff` uses symmetry and
+positive definiteness. `time_zero_predecessor` applies the semigroup at
+n-1, reducing a zero at n+1 to a zero at n. Consequently
+`time_positive_kernel_equal` proves ker T_s=ker T_t for all positive s,t,
+and `positive_range_no_further_kernel` excludes further annihilation on
+any positive-time range. This does NOT assert a zero kernel on the entire
+completion.
+
+`BF4ExactSlabThermodynamicProbeOrbit.orbit` is the original centered probe's
+actual complementTime orbit. `orbit_nonzero`, `orbit_not_fixed`, and
+`orbit_even_autocorrelation_nonzero` hold for every orbit point and every
+applicable integer lag, from the existing response floor and fixed-space
+theorem. No inverse or spectral theorem is assumed.
+
+`BF4ExactSlabThermodynamicProbeOrbitFloor` strengthens mere nonzeroness to
+returned positive data. `moment_antitone` follows from SAME-operator
+contraction. `square_floor_step` is constructive rational positive-factor
+cancellation. With P=positivePrefactor(probe,probe), define r_0=responseFloor
+and r_(k+1)=r_k^2/P. The existing dyadic moment inequality and monotonicity
+give `positiveTimeFloor_bound`: r_k<=||T_(k+1)x||^2. Every r_k>0.
+`orbit_norm_floor`, `even_autocorrelation_floor`, and `orbitCertificate`
+retain the actual operator, same moment representative and explicit QCauchy
+data. These conservative floors shrink with time; there is no time-uniform
+positive lower bound or beta-uniform physical mass-gap claim.
+
+The source-backed `audits/AUDIT-ORIGINAL-OS-RECONSTRUCTION.md` records the
+remaining concrete-to-canonical boundaries: plaquette-generated versus
+full positive-time observables; RC-valued limiting forms versus canonical
+Q'-valued fields; norm-one normalization; represented-row versus full
+quotient-level completeness; and actual volume PLUS spacing approximation.
+No concrete-to-CanonicalOSRoot inhabitant was found in the scoped search.
+
+NEXT: construct norm-one normalization of the existing excitation from its
+positive real/modulus data, preserving its actual transfer response. Keep
+this explicitly RC-valued; do not silently convert limiting values to Q'
+or weaken a canonical field. Full observable realization/completeness,
+continuous-time generator/physical spectral/non-Wick pins, controlled
+continuum scaling, other groups and Clay remain OPEN. The current response
+survival is CLOSED. No new hole, analytic input, frontier field, canonical
+atom/type/flag or physical weight changed.
+
+Verification: three focused modules, 7+8+13=28 exactly matched axiom gates,
+all within {propext, Quot.sound}; clean logs, fresh own/direct-import
+artifacts and scoped executable-source checks. One monitored worker,
+20 GiB ceiling; no raised options or full build/audit/guard/progress run.
+Root imports added but not rebuilt. Logs:
+`/tmp/ym-original-thermodynamic-time-kernel.log`,
+`/tmp/ym-original-thermodynamic-probe-orbit.log`,
+`/tmp/ym-original-thermodynamic-probe-orbit-floor.log`.
+
+**Previous increment (complete original signed remainder absorbed; positive thermodynamic response):**
 The 9babbdc checkpoint proved the full original (S,H) count. This increment
 completes its actual weighted sum, absorbs the original remainder and carries
 the resulting positive floor through the SAME cutoff-limit, normalization,

@@ -13,7 +13,20 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest dynamical milestone:** the original thermodynamic geometric OS time
+**Latest dynamical milestone:** the [original excitation survives every discrete time](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbit.lean),
+with a [computed positive squared-norm floor at each positive time](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbitFloor.lean).
+The same symmetric time semigroup has [equal kernels at all positive integer times](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeKernel.lean).
+For the existing probe, `r_0=w^36/16`, `r_(k+1)=r_k^2/P` gives
+`0 < r_k <= ||T_(k+1)x||^2`, with the existing explicit observable bound `P`.
+Each certificate retains the same moment and its Cauchy modulus. These
+time-dependent floors do not assert a nondecaying response or injectivity
+on the entire completion. Three modules passed 28 focused axiom checks
+within `{propext, Quot.sound}`; no full-tree build or audit ran.
+The [source-level reconstruction audit](audits/AUDIT-ORIGINAL-OS-RECONSTRUCTION.md)
+identifies the remaining full-observable, scalar-codomain, normalization,
+completion and continuum-limit boundaries.
+
+**Established fixed-spacing dynamics:** the original thermodynamic geometric OS time
 evolution [converges quantitatively to its unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean),
 and [its positive-time fixed space is exactly that unit line](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFixedUnit.lean).
 These follow from the proved completed unit-complement form gap, at SU(2)

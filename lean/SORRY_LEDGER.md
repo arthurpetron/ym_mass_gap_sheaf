@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED entire original remainder and positive thermodynamic response certificate (2026-09-14)
+## CLOSED original positive-time orbit survival and computed positive margins (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeKernel.lean`,
+  `BF4ExactSlabThermodynamicProbeOrbit.lean`, and
+  `BF4ExactSlabThermodynamicProbeOrbitFloor.lean` in the same directory.
+- **closed kernel propagation**: `time_positive_kernel_equal` proves that
+  all positive discrete times have the same kernel. The preceding doubled
+  moment and predecessor lemmas use the SAME symmetric operator and
+  positive-definite form. `positive_range_no_further_kernel` excludes
+  further annihilation on any positive-time range, not a common kernel
+  on the whole completion.
+- **closed actual orbit**: `orbit_nonzero`, `orbit_not_fixed`, and
+  `orbit_even_autocorrelation_nonzero` extend the already-proved original
+  response to every integer-time translate, in the existing unit complement.
+- **closed constructive positive margins**: `positiveTimeFloor` computes
+  r_0=w^36/16 and r_(k+1)=r_k^2/P from the existing norm ceiling P.
+  `positiveTimeFloor_positive` and `positiveTimeFloor_bound` prove
+  0<r_k<=||T_(k+1)x||^2. `orbitCertificate` returns the floor, same moment
+  representative, QCauchy data and operator pin. The bounds depend on time.
+- **open residue**: norm-one normalization, full observable realization,
+  full quotient-level completeness, the canonical scalar-codomain bridge,
+  continuous-time generator/physical spectral/non-Wick pins, controlled
+  continuum scaling, other groups and Clay. Source-backed boundary audit:
+  `audits/AUDIT-ORIGINAL-OS-RECONSTRUCTION.md`. No new hole, analytic input,
+  canonical field/type/atom/flag or physical weight change; fixed SU(2)
+  nome 1/1024 and spacing, no beta-uniform physical mass-gap claim.
+- **verification**: three focused modules, 28 exactly matched gates within
+  {propext, Quot.sound}, clean logs and fresh own/direct-import artifacts.
+  One worker, 20 GiB ceiling; no raised options, full build/audit/guard/
+  progress run or root-import rebuild. Logs in work_plan.
+
+## Previous checkpoint: CLOSED entire original remainder and positive thermodynamic response certificate (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/FiniteTwoSizeGeometricSum.lean`,
   `BF4ExactSlabSpatialForestPairSum.lean`, `BF4ExactSlabSpatialForestRemainderBound.lean`,

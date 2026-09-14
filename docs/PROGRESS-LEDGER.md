@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original full remainder absorbed; thermodynamic response strictly positive (2026-09-14)
+## Current increment: original excitation survives all integer times, with computed floors (2026-09-14)
+
+PROGRESS after b6d6e0b: the already-proved original response is used to
+exclude annihilation along the entire SAME geometric time orbit. The new
+`time_positive_kernel_equal` is derived from the symmetric doubled-time
+moment and positive definiteness, not an assumed spectral decomposition.
+`orbit_nonzero` and `orbit_not_fixed` hold at every integer time.
+
+The stronger constructive result returns a positive margin: with the
+existing explicit P, r_0=w^36/16 and r_(k+1)=r_k^2/P satisfy
+0<r_k<=||T_(k+1)x||^2. `orbitCertificate` retains the same real moment,
+QCauchy modulus and operator pin. These are time-dependent margins, not
+an assertion of nondecay or a beta-uniform continuum mass gap.
+
+The scoped reconstruction audit identifies the remaining observable,
+scalar-codomain, normalization, completeness and continuum-approximation
+boundaries. NEXT is constructive norm-one normalization of the actual
+excitation, explicitly RC-valued; no canonical field is silently changed.
+Full realization, continuous-time/physical spectral/non-Wick pins,
+controlled continuum scaling, other groups and Clay remain open. No new
+hole, analytic premise, canonical atom/type/flag or physical-weight change.
+
+Verification: three focused modules, 28 exactly matched axiom gates within
+{propext, Quot.sound}; clean logs, fresh own/direct-import artifacts and
+scoped source checks. One worker, 20 GiB ceiling; no raised options,
+full build/audit/guard/progress run or root-import rebuild. Logs and audit
+path in work_plan.
+
+## Previous increment: original full remainder absorbed; thermodynamic response strictly positive (2026-09-14)
 
 PROGRESS after 9babbdc: the actual all-spatial configuration count is now
 summed with the unchanged original heat weights and every OWN detached

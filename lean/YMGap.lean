@@ -4180,6 +4180,11 @@ import YMGap.Continuum.BF4ExactSlabSpatialForestRemainderBound
 import YMGap.Continuum.BF4ExactSlabOriginalResponseNumeratorFloor
 import YMGap.Continuum.BF4ExactSlabCovarianceLowerTransport
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveResponse
+-- SAME original excitation survives all integer times with computed floors;
+-- full observable realization and continuum/Clay reconstruction remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeKernel
+import YMGap.Continuum.BF4ExactSlabThermodynamicProbeOrbit
+import YMGap.Continuum.BF4ExactSlabThermodynamicProbeOrbitFloor
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
