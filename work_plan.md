@@ -18,7 +18,82 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original joint power 42 excluded; actual remaining spatial sum starts at power 48):**
+**Latest local increment (all original remaining two-cap terms counted, summed and absorbed):**
+The 1f06764 checkpoint was PROGRESS: joint power 42 was excluded and the
+actual complementary spatial remainder gained a w^48 factor. This increment
+is PROGRESS on the aggregate estimate: an ENTIRE all-spin spatial family
+is bounded and removed from the original remaining obligation.
+
+`BF4ExactSlabTwoCapSpatialCode.two_caps_projection` is not restricted to
+power 42. In the joint channel both caps lie in one replica; in the means
+channel one probe-aligned cap lies in each. Their common projection lets
+one literal cap and the second time recover both, with the replica split.
+`channel_eq_of_spatial_eq` also recovers the original channel from spatial
+data. `BF4ExactSlabTwoCapLocalCode.capCode` carries that spatial code;
+`capCode_mem` places it in a COMPUTED finite target. Its size is bounded by
+`spatialCapacity = 3*120906726*67 = 24302251926`, independently of K/margin.
+The finite target is not evaluated or substituted for the source.
+
+`BF4ExactSlabTwoCapPairCount.spatial_higherCode_injective` reconstructs
+general original nonzero short pairs from their spatial lists and local
+higher-label profiles. `pairCode_injective` specializes this to two caps,
+including all nonphysical indices. `original_twoCap_mass_count` gives
+
+`#{original remaining two-cap pairs at H} <= 24302251926 * 241813452^H`.
+
+Here H is the sum of the quotient labels j/2, not the number of occupied
+faces. The source is the literal duplicate-free short-pair enumeration
+filtered by `twoCapKeep`; no source deduplication, Haar sign assumption,
+representation multiplicity change or cutoff factor is used.
+
+`BF4ExactSlabTwoCapHeatBound.twoCap_occupation_floor` gives B+H>=14;
+`twoCap_fundamental_minimum_sixteen` gives B>=16 when H=0, using the proved
+power-42 removal. At unchanged SU(2) nome w=1/1024 the higher activity is
+`oddRate*relativeHigherRate`, with `relativeHigherRate=9/2^52`.
+The combined higher counting/weight rate is explicitly
+`544080267/1125899906842624 < 1`. `twoCap_weight_bound` pays fourteen odd
+units plus that relative rate per higher unit. `BF4ExactSlabTwoCapPairSum`
+then sums the ORIGINAL H=0 and H>0 sublists; `original_twoCap_pair_sum_small`
+gives at most `2^-15*w^36`, for ALL K, margins and cut-filter times.
+
+`BF4ExactSlabTwoCapRemainderBound.original_twoCap_remainder_bound` restores
+each core's OWN detached partition square with the existing short-collar
+comparison:
+
+`|twoCapRemainder| <= 2^-14*w^36*Z_full^2`.
+
+`BF4ExactSlabAfterTwoCapRemainder.original_afterMeans_split_twoCap` is an
+exact signed split at every rational nome. `original_numerator_lower_after_twoCap`
+absorbs the two-cap branch at fixed nome; `original_afterTwoCap_factorization48`
+preserves the remaining exact heat factor. For every K>=1,
+
+`N_full >= (1/4-2^-19-2^-26-2^-14)*w^36*Z_full^2 + w^48*afterTwoCapHeatResidual48`.
+
+`afterTwoCapAllowance_pos` proves the reference positive;
+`afterTwoCap_spatial_minimum_four` proves every NONZERO remaining pair has
+at least four spatial odd faces. NEXT/OPEN: count and bound that actual
+family. The heat factor alone is not an aggregate estimate. Positive full
+response/certificate, explicit limit persistence, full observable realization,
+continuum/QFT/physical spectral pins, other groups and Clay remain OPEN.
+No hole, new analytic input, canonical atom/type/flag or frontier field changed.
+These fixed-nome SU(2) weights are not a beta-uniform mass-gap claim.
+
+Verification: seven focused modules, 10+11+8+11+11+5+12=68 exactly matched
+gates within {propext, Quot.sound}, fifteen axiom-free; clean logs and fresh
+own/direct-import artifacts. Bounded exact scalar pilot
+`computations/original_two_cap_budget.py` passed; its original-sum application
+and arithmetic are independently checked by Lean. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-original-two-cap-spatial-code.log`,
+`/tmp/ym-original-two-cap-local-code.log`,
+`/tmp/ym-original-two-cap-pair-count.log`,
+`/tmp/ym-original-two-cap-heat-bound.log`,
+`/tmp/ym-original-two-cap-pair-sum.log`,
+`/tmp/ym-original-two-cap-remainder-bound.log`,
+`/tmp/ym-original-after-two-cap-remainder.log`.
+
+**Previous local increment (original joint power 42 excluded; actual remaining spatial sum starts at power 48):**
 The 44f2c2d checkpoint was PROGRESS: the entire original means-42 sector
 was bounded and absorbed. This increment is PROGRESS on its literal
 complement, not a new hypothesis or renamed remainder estimate.

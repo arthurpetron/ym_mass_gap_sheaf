@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original joint power-42 exclusion and exact power-48 remainder; OPEN aggregate cofactor bound (2026-09-14)
+## CLOSED whole remaining two-cap family bound and absorption; OPEN four-or-more spatial faces (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTwoCapSpatialCode.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoCapLocalCode.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoCapPairCount.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoCapHeatBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoCapPairSum.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoCapRemainderBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAfterTwoCapRemainder.lean`.
+- **closed original geometry and code**: `two_caps_projection` holds
+  at all spins, beyond power 42. `capCode_mem` bounds the spatial code
+  by a computed target with at most 24302251926 entries. `pairCode_injective`
+  combines it with a higher-label unit word to recover the complete original
+  pair, including nonphysical indices. `original_twoCap_mass_count` counts
+  the original H-stratum by `24302251926*241813452^H`. H is total quotient
+  mass; no source is deduplicated and no cutoff multiplicity is lost.
+- **closed aggregate heat estimate**: `twoCap_occupation_floor` gives
+  B+H>=14. `twoCap_fundamental_minimum_sixteen` gives B>=16 at H=0.
+  At fixed nome 1/1024, `relativeHigher_pin` identifies the remaining
+  higher rate as 9/2^52; `relative_entropy_guard` proves its counted rate
+  below one. `original_twoCap_pair_sum_small` bounds the whole actual
+  absolute pair-weight sum by `2^-15*w^36`, uniformly in K, margin and time.
+- **closed original signed remainder**: `original_twoCap_remainder_bound`
+  includes each core's OWN detached partition square, giving
+  `|twoCapRemainder| <= 2^-14*w^36*Z_full^2`. `original_afterMeans_split_twoCap`
+  splits the original source exactly at every rational nome.
+  `original_numerator_lower_with_afterTwoCap_heat48` leaves the positive
+  reference `(1/4-2^-19-2^-26-2^-14)*w^36*Z_full^2` plus
+  `w^48*afterTwoCapHeatResidual48`, at fixed nome and K>=1.
+- **open residue (constructive estimate)**: `afterTwoCap_spatial_minimum_four`
+  proves every nonzero remaining term has at least four spatial odd faces.
+  Their actual aggregate count/weight bound remains open. Positive full
+  response/certificate, explicit limit persistence, full realization,
+  continuum/QFT/physical spectral pins, other groups and Clay remain open.
+  No hole, new analytic input, canonical atom/type/flag or frontier field
+  changed; no beta-uniform mass-gap claim is made.
+- **verification**: 68 focused gates within {propext, Quot.sound}, fifteen
+  axiom-free; clean logs, exact declaration order/multiplicity and fresh
+  own/direct-import artifacts. Bounded exact scalar pilot passed; Lean
+  independently verifies the count and its application to original sums.
+  One monitored worker, 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous checkpoint: CLOSED original joint power-42 exclusion and exact power-48 remainder; then-OPEN aggregate cofactor bound (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4PlaquetteBoundaryRigidity.lean`,
   `lean/YMGap/Continuum/Z4SpatialPlaquetteProjection.lean`,

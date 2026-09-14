@@ -4134,6 +4134,15 @@ import YMGap.Continuum.Z4ProjectedBoundaryCutComparison
 import YMGap.Continuum.BF4ExactSlabJointCapWindow
 import YMGap.Continuum.BF4ExactSlabPower42JointExclusion
 import YMGap.Continuum.BF4ExactSlabAfterMeansHeatPower48
+-- Whole all-spin two-cap source counted and absorbed with OWN partitions;
+-- four-or-more spatial faces, positive full response and continuum remain open.
+import YMGap.Continuum.BF4ExactSlabTwoCapSpatialCode
+import YMGap.Continuum.BF4ExactSlabTwoCapLocalCode
+import YMGap.Continuum.BF4ExactSlabTwoCapPairCount
+import YMGap.Continuum.BF4ExactSlabTwoCapHeatBound
+import YMGap.Continuum.BF4ExactSlabTwoCapPairSum
+import YMGap.Continuum.BF4ExactSlabTwoCapRemainderBound
+import YMGap.Continuum.BF4ExactSlabAfterTwoCapRemainder
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

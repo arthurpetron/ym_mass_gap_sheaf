@@ -32,7 +32,31 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the original joint power-42 spatial sector is excluded](lean/YMGap/Continuum/BF4ExactSlabPower42JointExclusion.lean).
+**Latest local mathematical step:** [the whole remaining two-spatial-cap family is bounded](lean/YMGap/Continuum/BF4ExactSlabTwoCapRemainderBound.lean),
+at every cutoff and volume margin, including each core's own detached
+partition square. This covers all higher-spin labels in that family,
+not just the previously classified power-42 sector.
+
+The two caps [share one spatial projection](lean/YMGap/Continuum/BF4ExactSlabTwoCapSpatialCode.lean).
+A bounded spatial code plus a higher-label unit word
+[recovers the complete original pair](lean/YMGap/Continuum/BF4ExactSlabTwoCapPairCount.lean),
+preserving its multiplicity. Summing the SU(2) heat costs gives, at fixed
+nome `w=1/1024`, for all cutoffs, margins and cut-filter times:
+
+`|twoCapRemainder| <= 2^-14 * w^36 * Z_full^2`.
+
+The [exact split and absorption](lean/YMGap/Continuum/BF4ExactSlabAfterTwoCapRemainder.lean)
+give, for every `K>=1`:
+
+`N_full >= (1/4 - 2^-19 - 2^-26 - 2^-14) * w^36 * Z_full^2 + w^48 * afterTwoCapHeatResidual48`.
+
+Every nonzero term in this literal remaining sum has **at least four
+spatial odd faces**. **Next:** count and bound that family. Positive full
+response, coupling-uniform physical mass gap and continuum/Clay remain open.
+Seven new modules passed 68 focused axiom checks within `{propext, Quot.sound}`
+(fifteen axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** [the original joint power-42 spatial sector is excluded](lean/YMGap/Continuum/BF4ExactSlabPower42JointExclusion.lean).
 The two caps have the same spatial projection and distinct times. A cut
 between them either has an impossible four-link symmetric difference of
 plaquette boundaries, or is occupied by both replicas; both contradict
@@ -52,7 +76,8 @@ At fixed nome `w=1/1024`, for every `K>=1`, margin and cut-filter time:
 `N_full >= (1/4 - 2^-19 - 2^-26) * w^36 * Z_full^2 + w^48 * afterMeansHeatResidual48`.
 
 The cofactor retains the original signed amplitudes, multiplicities and
-each core's own detached partition. **Next:** bound its aggregate size.
+each core's own detached partition. The two-cap part is now bounded above;
+the four-or-more-spatial-face part still needs an aggregate estimate.
 The factorization alone does not establish a positive full response,
 coupling-uniform mass gap, or continuum/Clay closure. Eight new modules
 passed 55 focused axiom checks within `{propext, Quot.sound}` (four

@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original joint power 42 excluded and remaining heat floor raised to 48 (2026-09-14)
+## Current increment: whole original remaining two-cap family bounded and absorbed (2026-09-14)
+
+The 1f06764 checkpoint was PROGRESS: joint power 42 was excluded and the
+remaining original spatial sum gained a w^48 factor. This increment is
+PROGRESS on its aggregate magnitude: a whole all-spin subfamily is counted,
+summed and removed from the remaining original numerator obligation.
+
+- `BF4ExactSlabTwoCapSpatialCode.two_caps_projection` constrains both
+  original caps at all spins. `BF4ExactSlabTwoCapLocalCode.capCode_mem`
+  puts their replica split, first cap and second time in a bounded target.
+- `BF4ExactSlabTwoCapPairCount.pairCode_injective` recovers the ENTIRE
+  original pair from that spatial code and a higher-label unit word.
+  `original_twoCap_mass_count` gives `24302251926*241813452^H` at mass H,
+  without replacing or deduplicating the original enumeration.
+- `BF4ExactSlabTwoCapHeatBound` proves B+H>=14 and B>=16 at H=0.
+  Its explicit relative higher rate 9/2^52 combines with the count to a
+  rate below one. `BF4ExactSlabTwoCapPairSum.original_twoCap_pair_sum_small`
+  sums the actual family, all cutoffs/margins/times, to at most 2^-15*w^36.
+- `BF4ExactSlabTwoCapRemainderBound.original_twoCap_remainder_bound`
+  restores every OWN detached square and gives 2^-14*w^36*Z_full^2.
+  `BF4ExactSlabAfterTwoCapRemainder.original_numerator_lower_with_afterTwoCap_heat48`
+  leaves `(1/4-2^-19-2^-26-2^-14)*w^36*Z_full^2` plus the literal
+  complementary original `w^48*afterTwoCapHeatResidual48`.
+
+Fidelity audit: no original action, carrier, signed Haar weight, dimension,
+multiplicity or detached partition changed. No hole, new analytic input,
+canonical atom/type/flag or frontier field changed. The estimates are for
+the existing fixed-nome SU(2) data, not beta-uniform. Completion audit:
+`afterTwoCap_spatial_minimum_four` now forces at least four spatial odd faces
+in each nonzero remaining term. NEXT: count and bound that family. Positive
+full response/certificate, explicit limit persistence, full realization,
+continuum/QFT/physical spectral pins and Clay remain OPEN.
+
+Verification: 68 focused gates within {propext, Quot.sound}, fifteen axiom-free;
+clean logs and fresh own/direct-import artifacts. Bounded exact scalar pilot
+passed; Lean independently proves its source count and original-sum use.
+One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original joint power 42 excluded and remaining heat floor raised to 48 (2026-09-14)
 
 The 44f2c2d checkpoint was PROGRESS: original means configurations were
 counted and their signed remainder absorbed. This increment is PROGRESS:
