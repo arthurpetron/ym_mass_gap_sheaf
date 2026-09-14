@@ -4254,6 +4254,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicProductSymbol
 import YMGap.Continuum.BF4ExactSlabThermodynamicSumSymbol
 import YMGap.Continuum.BF4ExactSlabThermodynamicSymbolAlgebra
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUniformBound
+-- All-vector original Bernstein moments now yield sharp polynomial bounds
+-- on the FULL original completed carrier, without a cyclic-density premise.
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorBernsteinMoments
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorPolynomialConvergence
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorPolynomialBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

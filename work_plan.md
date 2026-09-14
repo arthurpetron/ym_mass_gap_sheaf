@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (original symbol algebra and sharp uniform perturbations):**
+**Latest increment (sharp polynomial bounds on the FULL original carrier):**
+PROGRESS after 7b4ed5b. `BF4ExactSlabThermodynamicAllVectorBernsteinMoments`
+uses the existing positive mixed moments and falling-factorial identity
+for arbitrary original completed x. Finite Bernstein rows have total
+mass ||x||^2, including zero vectors, and monomial error at most
+C(r)/(n+1) * ||x||^2 in both directions. No normalization, cyclic-density
+or replacement spectral-model hypothesis is supplied.
+
+`BF4ExactSlabThermodynamicAllVectorPolynomialConvergence` retains all row
+and limit CReal/QCauchy data for supplied original Cauchy X. Signed
+polynomial error is (sum |c_r| C(r))/(n+1) * normCap(X); the existing
+polynomial threshold at epsilon/(normCap(X)+1) gives an explicit modulus.
+`polynomialConvergenceCertificate` returns the limiting real, its usable
+Cauchy data, the equality with <x,p(T2)x>, and the convergence rate.
+
+`BF4ExactSlabThermodynamicAllVectorPolynomialBound` transfers interval
+upper/lower bounds through those actual original limits, then uses
+quotient induction for the propositional all-vector statement. Its
+`polynomialForm_nonnegative` holds for EVERY original completed vector.
+Original operator symmetry and multiplication give `polynomial_norm_bound`:
+||p(T2)x||^2 <= M^2 ||x||^2 whenever |p|<=M on rational [0,1], for ALL
+original x. `polynomial_distance_bound` and `polynomial_difference_bound`
+give the corresponding same-carrier relative estimates. The computed cap
+and coefficient error are absent from these final sharp estimates.
+
+NEXT: construct continuous action on the full original carrier using the
+all-vector polynomial bound, explicit representative-level row limits and
+proved quotient descent. Compare it with the existing cyclic action;
+do not assume a representative-selection function or cyclic density.
+Full-carrier sharp POLYNOMIAL bounds are now CLOSED, not the full spectral
+realization. Canonical comparisons, quotient-level completeness/time
+injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and
+spacing only. No new hole, physical input, canonical type/atom/flag,
+weight or surrogate; no beta/spacing-uniform physical gap claimed.
+
+Verification: three focused monitored modules, 19+20+14=53 exactly matched
+gates within {propext, Quot.sound}, one axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights; no raised options,
+full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-all-vector-bernstein-moments.log`,
+`/tmp/ym-original-all-vector-polynomial-convergence.log`,
+`/tmp/ym-original-all-vector-polynomial-bound.log`.
+
+**Previous increment (original symbol algebra and sharp uniform perturbations):**
 PROGRESS after 1f7b7b5. `BF4ExactSlabThermodynamicSumSymbol` constructs
 F+G and its continuity data, using the minimum of the two selectors at
 epsilon/2 followed by the proved finite encoding. Bernstein sums preserve
@@ -40,14 +85,15 @@ interval-uniform rate is transported through `symbolComparisonModulus`;
 `symbolUniformLimitCertificate` returns the actual original target's
 Cauchy representative, same-action pin and action convergence rate.
 
-NEXT: advance the full-carrier bound, starting from the existing all-vector
+Subsequent closure: the full-carrier polynomial bound now uses the existing all-vector
 `TimeDefectMoments.mixedMoment_nonnegative`, `BernsteinWords.weights_total`
 and `BernsteinFactorialMoments.weighted_falling`. These accept arbitrary
-original completed vectors; the polynomial moment functional and sharp
-calculus above remain tied to the single normalized probe's represented
-cyclic sector. Do not assume that sector is the whole carrier. General
+original completed vectors; the all-vector polynomial form and sharp bound
+are proved in the latest entry. The continuous calculus in this checkpoint
+remains on the single normalized probe's represented cyclic sector.
+Do not assume that sector is the whole carrier. General
 sum/unit/scalar/difference/product compatibility is now CLOSED.
-Full-carrier spectral realization, canonical comparisons, quotient-level
+Full-carrier continuous action/spectral realization, canonical comparisons, quotient-level
 completeness/time injectivity, continuous-time/physical spectral/non-Wick
 pins, continuum scaling, other groups and Clay remain OPEN. Fixed SU(2)
 nome 1/1024 and spacing only. No new hole, physical input, canonical

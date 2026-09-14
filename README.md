@@ -13,16 +13,29 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [constructed symbol algebra now gives sharp uniform-error bounds for the original actions](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUniformBound.lean).
+**Latest milestone:** [sharp polynomial bounds now hold on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorPolynomialBound.lean).
+For every original completed vector `x`, `|p| <= M` on `[0,1]` gives
+`||p(T2)x||² <= M² ||x||²`. Positive Bernstein rows have total mass
+`||x||²`; their signed-polynomial moments converge to the same original
+operator forms with explicit rates. No normalization or assumption that
+one probe generates the whole carrier is needed. The final bound has
+no coefficient-size or computed norm-cap factor.
+Three modules passed 53 focused axiom checks within `{propext, Quot.sound}`
+(one axiom-free); no full-tree run. Continuous action on the full carrier
+is next. Nome and spacing remain fixed; physical-scale control and
+continuum/Clay remain open.
+
+**Established cyclic calculus:** [constructed symbol algebra gives sharp uniform-error bounds for the original actions](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUniformBound.lean).
 On represented original cyclic states, `|F-G| <= M` on `[0,1]` implies
 `||F(T2)x-G(T2)x||² <= M² ||x||²`. Sums, constants, scaling and differences
 have constructed continuity data and act as the original completed
 operations. An explicit uniform symbol-convergence rate gives an explicit
 action-convergence rate, with the original target representative retained.
 Three modules passed 35 focused axiom checks within `{propext, Quot.sound}`
-(one axiom-free); no full-tree run. The next boundary is full-carrier
-bounds: this represented cyclic sector is not asserted to be the whole
-carrier. Physical-scale control and continuum/Clay remain open.
+(one axiom-free); no full-tree run. Full-carrier polynomial bounds are now
+proved above. Continuous action in this checkpoint remains on the
+represented cyclic sector; physical-scale control and continuum/Clay
+remain open.
 
 **Established multiplication:** [products of arbitrary admissible continuous symbols have fully constructed data and compose as the original operators](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProductSymbol.lean).
 The product symbol, bound, continuity modulus and vanishing selector are

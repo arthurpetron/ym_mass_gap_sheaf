@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original symbol algebra and sharp uniform perturbation bounds (2026-09-14)
+## CLOSED sharp polynomial bounds on the FULL original completed carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorBernsteinMoments.lean`,
+  `BF4ExactSlabThermodynamicAllVectorPolynomialConvergence.lean`, and
+  `BF4ExactSlabThermodynamicAllVectorPolynomialBound.lean` in the same directory.
+- **closed all-vector moments**: `average_const` gives total row mass
+  ||x||^2 and `powerMoment_error` gives two-sided error
+  C(r)/(n+1) * ||x||^2 for every original completed x. These reuse the
+  existing all-vector mixed-moment and factorial identities, with no
+  normalization or cyclic-density premise. Zero vectors are included.
+- **closed represented polynomial convergence**: `polynomialConvergenceCertificate`
+  returns the original limiting real, QCauchy data, the <x,p(T2)x> pin,
+  and explicit rate. The rational norm cap is computed from supplied X.
+  No representative is selected from an arbitrary quotient.
+- **closed full-carrier bounds**: `polynomialForm_lower`,
+  `polynomialForm_upper`, `polynomialForm_nonnegative` hold on EVERY
+  original completed vector. `polynomial_norm_bound` gives
+  ||p(T2)x||^2 <= M^2 ||x||^2 from |p|<=M on rational [0,1];
+  `polynomial_distance_bound` and `polynomial_difference_bound` retain
+  the same sharp factor. Neither the norm cap nor a coefficient factor
+  survives in the final estimate. Quotient induction here proves a
+  proposition; it does not extract representative data.
+- **open residue**: full-carrier continuous action and spectral realization,
+  canonical comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling,
+  other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate, and no
+  beta/spacing-uniform physical gap claimed.
+- **verification**: three focused monitored modules, 53 exactly matched
+  gates within {propext, Quot.sound}, one axiom-free. Clean final logs and
+  fresh own/direct-import artifacts. One worker, explicit 20 GiB ceiling;
+  no raised options or full build/audit/guard/progress/root-import run.
+  Logs in work_plan.
+
+## Previous checkpoint: CLOSED original symbol algebra and sharp uniform perturbation bounds (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSumSymbol.lean`,
   `BF4ExactSlabThermodynamicSymbolAlgebra.lean`, and
@@ -37,8 +71,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   target representative, rate and original-action pin. The uniformity
   ranges over rational interval points and approximation indices, not
   beta or lattice spacing.
-- **open residue**: all-vector sharp polynomial/continuous bounds and
-  full-carrier spectral realization, canonical comparisons, quotient-level
+- **subsequent closure**: all-vector sharp polynomial bounds and positivity
+  are proved in the latest entry, without assuming cyclic density.
+- **open residue**: full-carrier continuous action and spectral realization,
+  canonical comparisons, quotient-level
   completeness/time injectivity, continuous-time/physical spectral/non-Wick
   pins, continuum scaling, other groups and Clay. No claim that the one
   probe's represented cyclic sector is the whole carrier. Fixed SU(2)
