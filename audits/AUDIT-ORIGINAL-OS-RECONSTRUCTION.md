@@ -298,6 +298,31 @@ at line 82. `composition_norm_bound` at line 107 controls actual composed
 actions on the constructed sector. No symbol multiplication identity,
 full-carrier or physical-scale spectral theorem follows in these files.
 
+## Original product limits and multiplication after 4b7f172
+
+`productModulus`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousProductRows.lean:66`,
+computes a shared rate for actual Bernstein polynomial-product actions.
+`product_bound` at line 71 proves convergence to the existing composition.
+`productRows` at line 87 constructs its Cauchy family;
+`productAction_eq_composition` at line 108 proves the original limit pin.
+`productCertificate` at line 116 retains the representative and rate.
+
+`product_symbol_error`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousMultiplication.lean:63`,
+uses one stage for all rational [0,1] points. `symbolAction_mul` at line
+115 proves H(T2)x=F(T2)G(T2)x, given existing H continuity/vanishing data
+and agreement with F*G on rational [0,1]. It does not construct H's data.
+`symbolAction_comm` at line 133 proves commutation for all represented
+F,G without an H package. All states and operators are the originals.
+
+`cuspSquareSymbol`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCuspMultiplication.lean:43`,
+has bound 1 and modulus 2*abs(delta). `cuspSquareVanishing` at line 51
+supplies epsilon/2. `cuspSquare_composition` at line 65 is a fully supplied
+product-law instance on every represented cyclic input. The nonconstancy
+at line 62 is about the symbol, not a nonzero original action value.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -340,8 +365,10 @@ and relative cyclic polynomial bounds are also now closed. Original
 polynomial action and sharp relative bounds on represented cyclic limits
 are now closed as well. Continuous-symbol action and state/symbol
 representation independence are now constructed, as are output cyclic
-presentations and bounded rational linearity. Next: continuous symbol
-algebra compatibility, particularly multiplication, and symmetry/positivity.
+presentations and bounded rational linearity. Product limits, multiplication
+for represented product symbols and commutation are now constructed.
+Next: symmetry/positivity, general product-symbol data construction and
+remaining symbol algebra compatibility.
 Neither a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -349,6 +376,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The product/multiplication increment has three new modules and 30 exactly
+matched gates within `{propext, Quot.sound}`, two axiom-free.
 The cyclic-closure/bounded-linearity increment has three new modules and
 42 exactly matched gates within `{propext, Quot.sound}`, none axiom-free.
 The continuous-action increment has three new modules and 32 exactly

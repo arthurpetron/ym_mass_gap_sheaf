@@ -4235,6 +4235,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousActionCompatibility
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousCyclicClosure
 import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicLinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousLinear
+-- Actual polynomial-product limits, multiplication for represented product symbols,
+-- and commutation on the original cyclic sector; physical-scale closure remains open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousProductRows
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousMultiplication
+import YMGap.Continuum.BF4ExactSlabThermodynamicCuspMultiplication
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

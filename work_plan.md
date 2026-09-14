@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed cyclic closure and bounded linear continuous action):**
+**Latest increment (original product limits, multiplication and commutation):**
+PROGRESS after 4b7f172. `BF4ExactSlabThermodynamicContinuousProductRows`
+uses the degree-uniform Bernstein bound to control polynomial action on
+the approximated G-input. `productModulus` is the maximum of the G-action
+stage at inputTolerance(F,epsilon/4) and the F-action stage on G(T2)x
+at epsilon/4. `productCertificate` returns original Cauchy data, this
+rate and the same-composition equality. The polynomial products and
+their Cauchy property are constructed, not supplied as hypotheses.
+
+`BF4ExactSlabThermodynamicContinuousMultiplication` proves uniform scalar
+product approximation using tolerance epsilon/(F.bound+G.bound+1).
+`symbolAction_mul` identifies H(T2)x with F(T2)G(T2)x whenever the supplied
+H symbol data agree with F*G on rational [0,1]. Only symbol data and that
+value pin are supplied; no new physical or spectral input is introduced.
+`symbolAction_comm` holds for ALL represented F,G without any H package.
+`BF4ExactSlabThermodynamicCuspMultiplication` constructs the squared cusp's
+bound 1, modulus 2*abs(delta) and selector epsilon/2; `cuspSquare_composition`
+instantiates multiplication on every represented original cyclic input.
+Symbol nonconstancy does not assert nonzeroness of an action value.
+
+NEXT: symmetry/positivity of continuous action and remaining symbol algebra
+data/compatibility. The product polynomial-limit action is constructed for
+arbitrary F,G; a general constructor of a product CtsMod with its vanishing
+data has NOT been supplied. Do not re-assume the product limit, multiplication
+for represented H, or commutation. Full-carrier spectral realization,
+canonical observable/scalar/carrier comparisons, quotient-level completeness/
+time injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and
+spacing only. No new hole, physical input, canonical type/atom/flag,
+weight or surrogate.
+
+Verification: three focused monitored modules, 10+12+8=30 exactly matched
+gates within {propext, Quot.sound}, two axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, 20 GiB
+ceiling and separate process/swap preflights; no raised options, full
+build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-continuous-product-rows.log`,
+`/tmp/ym-original-continuous-multiplication.log`,
+`/tmp/ym-original-cusp-multiplication.log`.
+
+**Previous increment (constructed cyclic closure and bounded linear continuous action):**
 PROGRESS after e26ae24. `BF4ExactSlabThermodynamicContinuousCyclicClosure`
 selects an input index using the existing polynomial-action modulus at
 1/(n+1). The product of the nth Bernstein polynomial and the selected
@@ -40,9 +80,10 @@ works. No presentation norm ceiling appears in the final relative bound.
 `composition_norm_bound` controls actual composed actions on the constructed
 output presentations, without yet asserting the symbol multiplication law.
 
-NEXT: prove symbol algebra compatibility, particularly multiplication,
-and symmetry/positivity of the continuous action. Represented-sector
-closure and rational linearity are CLOSED, not new hypotheses. Full-carrier
+Multiplication for represented product symbols and commutation are now
+proved above; remaining symbol algebra data and symmetry/positivity are
+open. Represented-sector closure and rational linearity are CLOSED, not
+new hypotheses. Full-carrier
 spectral realization, canonical observable/scalar/carrier comparisons,
 quotient-level completeness/time injectivity, continuous-time/physical
 spectral/non-Wick pins, continuum scaling, other groups and Clay remain

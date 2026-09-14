@@ -13,18 +13,18 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [continuous action preserves the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousCyclicClosure.lean)
-and [is bounded and rational-linear there](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousLinear.lean).
-The output's polynomial-probe presentation and convergence rate are
-constructed and proved to denote the same original completion vector.
-Sums and scalar multiples are preserved, and
-`d(F(T2)x,F(T2)y) <= F.bound² d(x,y)` for the original squared distance.
-The input tolerance is explicit: `epsilon/(F.bound²+1)`. Actions can now
-be composed with a proved norm bound; the symbol multiplication identity
-remains open. No closure or linearity premise is supplied. Three modules
-passed 42 focused axiom checks within `{propext, Quot.sound}`; no full-tree
-run. Full-carrier and continuum/Clay bridges remain open; SU(2) nome and
-spacing remain fixed. These are not beta/spacing-uniform gap estimates.
+**Latest milestone:** [continuous actions multiply and commute on the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousMultiplication.lean).
+The Bernstein polynomial-product limit is constructed with an explicit
+rate and proved equal to actual composition. Whenever a represented
+symbol `H` agrees with `F*G` on `[0,1]`, `H(T2)x = F(T2)G(T2)x`.
+Commutation holds for arbitrary represented `F` and `G`, without supplying
+`H`. A [cusp-squared instance](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCuspMultiplication.lean)
+supplies every symbol datum; no nonzero-vector conclusion is inferred.
+Three modules passed 30 focused axiom checks within `{propext, Quot.sound}`
+(two axiom-free); no full-tree run. General product-symbol data packaging,
+symmetry/positivity and full operator calculus remain open, as do the
+full-carrier and continuum/Clay bridges. SU(2) nome and spacing remain
+fixed; these are not beta/spacing-uniform gap estimates.
 
 **Established limit bound:** [relative operator bounds hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
 For `|p| <= M` on `[0,1]`,
