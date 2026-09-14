@@ -4155,14 +4155,14 @@ import YMGap.Continuum.BF4ExactSlabFourCapPairSum
 import YMGap.Continuum.BF4ExactSlabFourCapRemainderBound
 import YMGap.Continuum.BF4ExactSlabAfterFourCapRemainder
 -- Actual no-isolates components and reversible descent-only rooted codes;
--- full forest injection, six-or-more-face aggregate bound and Clay remain open.
+-- full forest injection and its original weighted bound follow below.
 import YMGap.Continuum.FiniteEvenIncidenceNeighbor
 import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceNeighbors
 import YMGap.Continuum.FiniteRootedAnimalDescentCode
 import YMGap.Continuum.FiniteBoolGraphComponentMass
 import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceComponents
 -- Reversible actual forest and full original (S,H)-stratum count;
--- weighted aggregate, positive full response and continuum/Clay remain open.
+-- original weighted sum and positive response follow below; Clay stays open.
 import YMGap.Continuum.FiniteRootedForestCode
 import YMGap.Continuum.FiniteRootedForestCount
 import YMGap.Continuum.FiniteBoolGraphComponentPermutation
@@ -4172,6 +4172,14 @@ import YMGap.Continuum.FiniteRootedAnimalForestCode
 import YMGap.Continuum.BF4ExactSlabSpatialForestCode
 import YMGap.Continuum.BF4ExactSlabSpatialForestRecovery
 import YMGap.Continuum.BF4ExactSlabSpatialForestPairCount
+-- Entire original remainder absorbed; SAME thermodynamic response positive.
+-- Full observable realization, continuous time and continuum/Clay remain open.
+import YMGap.Continuum.FiniteTwoSizeGeometricSum
+import YMGap.Continuum.BF4ExactSlabSpatialForestPairSum
+import YMGap.Continuum.BF4ExactSlabSpatialForestRemainderBound
+import YMGap.Continuum.BF4ExactSlabOriginalResponseNumeratorFloor
+import YMGap.Continuum.BF4ExactSlabCovarianceLowerTransport
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveResponse
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

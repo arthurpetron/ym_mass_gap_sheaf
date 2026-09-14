@@ -13,7 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED full original forest configuration count; OPEN weighted aggregate remainder (2026-09-14)
+## CLOSED entire original remainder and positive thermodynamic response certificate (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/FiniteTwoSizeGeometricSum.lean`,
+  `BF4ExactSlabSpatialForestPairSum.lean`, `BF4ExactSlabSpatialForestRemainderBound.lean`,
+  `BF4ExactSlabOriginalResponseNumeratorFloor.lean`,
+  `BF4ExactSlabCovarianceLowerTransport.lean`, `BF4ExactSlabThermodynamicPositiveResponse.lean`
+  (all in `lean/YMGap/Continuum/`).
+- **closed original aggregate**: `two_size_sum_bound` sums actual finite
+  two-mass strata without altering multiplicities. At fixed nome 1/1024,
+  `original_remaining_pair_sum_small` gives (1/16)*w^36. The exact
+  `original_afterFour_remaining_eq` removes ONLY zero terms;
+  `original_remaining_remainder_bound` retains OWN detached squares and
+  bounds the whole original signed remainder by (1/8)*w^36*Z_full^2.
+  All cutoffs, margins and cut-filter times are explicit.
+- **closed full original numerator**: `responseFloor_positive`,
+  `responseFloor_available`, and `original_numerator_floor` absorb the
+  entire remainder into the same reference, giving N_full>=rho*Z_full^2
+  for all K>=1 and margins, rho=(1/16)*w^36>0.
+- **closed SAME-object limit and normalization**: `connectedNumeratorLimit_floor`
+  preserves an eventual common-cutoff floor with QCauchy data;
+  `covariance_floor` cancels the original partition with its original
+  positive reciprocal. `finite_response_floor` identifies the original
+  shifted-probe quantity; `original_response_floor` and `original_operator_floor`
+  pass it to the existing thermodynamic completed OS response.
+- **closed existing response input**: `responseCertificate` is a concrete
+  inhabitant of `BF4ExactSlabThermodynamicProbeResponseCertificate.Certificate`;
+  `responseCertificate_accepted` proves acceptance and
+  `responseCertificate_floor` identifies its floor as rho/2. The underlying
+  tolerance/margin/index are computed from existing moduli, without an
+  exhaustive numerical evaluation. `original_positive_response` returns
+  rho>0 and its bound in Type. The original response, T1 x and T2 x are
+  nonzero by the three `original_*_ne_zero` declarations.
+- **open residue**: general positive-time survival/realization beyond this
+  concrete response, full observable completeness, continuous-time
+  generator and physical spectral pins, controlled continuum scaling,
+  QFT/non-Wick pins, other groups and Clay. Fixed nome/spacing only; no
+  beta-uniform mass-gap claim. No hole, new analytic input, frontier type,
+  canonical atom/flag or physical weight changed.
+- **verification**: six focused modules, 43 exactly matched gates within
+  {propext, Quot.sound}, seven axiom-free; clean logs, fresh own/direct-import
+  artifacts, scoped source checks and bounded scalar crosscheck. One worker,
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact logs and causal next steps in work_plan.
+
+## Previous checkpoint: CLOSED forest configuration count; then-OPEN weighted remainder (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/FiniteRootedForestCode.lean`,
   `FiniteRootedForestCount.lean`, `FiniteBoolGraphComponentPermutation.lean`,

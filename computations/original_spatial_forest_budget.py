@@ -1,8 +1,10 @@
-"""Exact scalar feasibility test for the proposed all-spatial forest count.
+"""Exact scalar crosscheck for the original all-spatial forest budget.
 
-The count (8*L)^S is a PROPOSED bound, not a Lean theorem or an enumeration
-of the original configurations.  This pilot only checks the scalar margin
-available if that count, with no omitted multiplicities, is proved.
+The count is now proved in BF4ExactSlabSpatialForestPairCount, the weighted
+sum in BF4ExactSlabSpatialForestPairSum, and the original thermodynamic
+response floor in BF4ExactSlabThermodynamicPositiveResponse. This pilot
+only crosschecks scalar arithmetic; Lean independently proves the source
+count, original weighted sum, limit transport and certificate acceptance.
 """
 
 from fractions import Fraction as F
@@ -17,23 +19,23 @@ def main():
     scale = 900000
     assert degree <= scale and roots * degree <= scale**2
     # Binary parenthesis shape <= 4^S; summing component counts <= 2^S.
-    proposed_spatial_base = 8 * scale
+    spatial_base = 8 * scale
     odd_rate = 4 * w**3
     higher_rate = F(9, 2**52)
-    spatial_entropy = proposed_spatial_base * odd_rate
+    spatial_entropy = spatial_base * odd_rate
     higher_entropy = roots * higher_rate
     assert 0 < spatial_entropy < 1 and 0 < higher_entropy < 1
-    proposed_pair_budget = (
+    pair_budget = (
         8 * odd_rate**12 * spatial_entropy**6
         / (1 - spatial_entropy) / (1 - higher_entropy)
     )
-    assert proposed_pair_budget <= F(1, 16) * w**36
+    assert pair_budget <= F(1, 16) * w**36
     allowance = F(1, 4) - F(1, 2**19) - F(1, 2**26) - 2 * F(1, 2**14)
     assert allowance - F(1, 8) >= F(1, 16)
     print(f"Root capacity {roots}; neighbor capacity {degree}; scale {scale}")
-    print(f"PROPOSED spatial count base: {proposed_spatial_base}")
-    print(f"PROPOSED pair budget / w^36: {float(proposed_pair_budget / w**36):.12g}")
-    print("Scalar feasibility PASS; full forest injection/count and original sum OPEN.")
+    print(f"Spatial count base: {spatial_base}")
+    print(f"Pair budget / w^36: {float(pair_budget / w**36):.12g}")
+    print("Scalar crosscheck PASS; original count, sum and response have separate Lean proofs.")
     print("Fixed nome only: no beta-uniform or continuum mass-gap conclusion.")
 
 

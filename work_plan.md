@@ -18,7 +18,72 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (reversible original forest; full two-mass configuration count):**
+**Latest increment (complete original signed remainder absorbed; positive thermodynamic response):**
+The 9babbdc checkpoint proved the full original (S,H) count. This increment
+completes its actual weighted sum, absorbs the original remainder and carries
+the resulting positive floor through the SAME cutoff-limit, normalization,
+thermodynamic covariance and completed operator pins.
+
+`FiniteTwoSizeGeometricSum.two_size_sum_bound` groups the finite source by
+both original masses. Counts D^S*E^H give an explicit product geometric
+budget, retaining all source multiplicities. `BF4ExactSlabSpatialForestPairSum`
+combines the count with the original 12+S<=B+H occupation floor. At nome
+w=1/1024, the rates are r=oddRate(w)=2^-28 and eta=9/2^52, with
+7200000*r<1 and 241813452*eta<1. `original_remaining_pair_sum_small` proves
+the complete absolute pair sum <=(1/16)*w^36, all K/margins/filter-times.
+
+`BF4ExactSlabSpatialForestRemainderBound.original_afterFour_remaining_eq`
+deletes ONLY zero pair terms from the original afterFourCap source, at any
+rational nome. `original_remaining_remainder_bound` restores every OWN
+detached square and gives |afterFourCapRemainder| <=(1/8)*w^36*Z_full^2.
+`BF4ExactSlabOriginalResponseNumeratorFloor.original_numerator_floor`
+absorbs the ENTIRE remainder into the original tube reference and proves
+`responseFloor*Z_full^2 <= N_full` for K>=1 and every margin, where
+`responseFloor=(1/16)*w^36>0`. No signed amplitude or original action changed.
+
+`BF4ExactSlabCovarianceLowerTransport.connectedNumeratorLimit_floor`
+preserves an eventual common-cutoff floor using the existing explicit
+QCauchy data. `covariance_floor` multiplies by the original positive
+reciprocal twice and cancels the SAME partition square. No volume-dependent
+reciprocal ceiling enters the retained coefficient.
+
+`BF4ExactSlabThermodynamicPositiveResponse.finite_response_floor` pins that
+bound to the original shifted-probe covariance. `original_response_floor`
+passes it through the existing thermodynamic limit; `original_operator_floor`
+therefore proves `<x,T2 x>=||T1 x||^2 >= responseFloor>0` for the existing
+centered probe and completed geometric operator. `responseCertificate`
+inhabits the EXISTING certificate format with computed tolerance, margin,
+index and proved acceptance. Its retained floor is responseFloor/2. No
+exhaustive finite sample was evaluated or trusted. `original_positive_response`
+returns the unhalved rational floor and proof as Type-level data;
+`original_response_ne_zero`, `original_translatedState_ne_zero`, and
+`original_twoStep_ne_zero` exclude annihilation on this concrete excitation.
+
+NEXT: extend this non-annihilation result along the same discrete-time orbit
+using the existing symmetric semigroup and moment identities, and audit the
+remaining bridge from this plaquette-generated fixed-spacing completion to
+full positive-time observable realization. Continuous-time reconstruction,
+controlled continuum scaling, QFT/physical spectral/non-Wick pins, other
+groups and Clay remain OPEN. The new positivity is fixed-nome SU(2), not a
+coupling-uniform physical mass gap. No hole, new analytic premise, frontier
+field, canonical atom/type/flag or physical weight changed. The existing
+scorecards do not enumerate this response certificate as a canonical atom.
+
+Verification: six focused modules, 7+7+7+4+7+11=43 exactly matched gates,
+all within {propext, Quot.sound}, seven axiom-free; clean logs, fresh
+own/direct-import artifacts and scoped executable-source checks. One
+monitored worker, 20 GiB ceiling. No raised options, full build/audit/guard/
+progress run or root-import rebuild. The bounded exact scalar pilot was
+updated to describe the now-proved count/sum and rerun; it remains untrusted
+numerical corroboration. Logs:
+`/tmp/ym-finite-two-size-geometric-sum.log`,
+`/tmp/ym-original-spatial-forest-pair-sum.log`,
+`/tmp/ym-original-spatial-forest-remainder-bound.log`,
+`/tmp/ym-original-response-numerator-floor.log`,
+`/tmp/ym-original-covariance-lower-transport.log`,
+`/tmp/ym-original-thermodynamic-positive-response.log`.
+
+**Previous local increment (reversible original forest; full two-mass configuration count):**
 The b519eb4 checkpoint proved actual no-isolates components and sharp tree
 codes. This increment constructs their entire forest and closes the count
 for all spatial sizes, preserving the original family.

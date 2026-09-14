@@ -4,7 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full original forest construction and two-mass pair count (2026-09-14)
+## Current increment: original full remainder absorbed; thermodynamic response strictly positive (2026-09-14)
+
+PROGRESS after 9babbdc: the actual all-spatial configuration count is now
+summed with the unchanged original heat weights and every OWN detached
+partition square. The complete original afterFourCap remainder is bounded,
+not left as an assumed aggregate. `original_numerator_floor` leaves the
+uniform-in-cutoff/margin coefficient rho=(1/16)*w^36 against Z_full^2.
+
+`BF4ExactSlabCovarianceLowerTransport.covariance_floor` removes the cutoff
+and cancels the SAME original partition square, without a reciprocal
+ceiling. `BF4ExactSlabThermodynamicPositiveResponse.original_response_floor`
+then transports the floor through the existing thermodynamic covariance
+limit. The actual completed operator response satisfies
+`<x,T2 x>=||T1 x||^2>=rho>0`. The old response certificate is now inhabited:
+`responseCertificate` carries computed moduli and proved acceptance, with
+floor rho/2. Both T1 x and T2 x are nonzero; no numerical sample was trusted.
+
+This closes the concrete positive-response branch, not the entire goal.
+NEXT: use the existing same-object semigroup/moment identities to extend
+non-annihilation along this orbit and identify the remaining full
+positive-time realization requirements. Full observable completeness,
+continuous-time generator/spectral identification, continuum scaling,
+QFT/non-Wick pins and Clay remain open. Fixed SU(2) nome 1/1024 and spacing;
+no beta-uniform claim, new analytic input, hole, canonical atom/type/flag,
+frontier-field change, source deduplication or physical-weight change.
+
+Verification: six focused modules, 43 exactly matched gates within
+{propext, Quot.sound}, seven axiom-free; clean logs and fresh own/direct-import
+artifacts. The bounded exact scalar pilot was updated and rerun. One
+monitored worker, 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports added but not rebuilt; logs in work_plan.
+
+## Previous increment: full original forest construction and two-mass pair count (2026-09-14)
 
 PROGRESS after b519eb4: the whole-forest route now has a constructed code,
 proved decoding, exact original-pair recovery and an actual configuration

@@ -24,15 +24,31 @@ integer time. The [two-step defect now has a constructive bounded inverse](lean/
 on that completion's unit complement: `(I-T2) R x = center x`,
 `R (I-T2) x = center x`, and `||R x||^2 <= 4||center x||^2`.
 The geometric-series solver retains its explicit approximation modulus.
-The [positive excited-response test](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeResponseCertificate.lean)
-now targets the exact original quantity `<x,T2 x> = ||T1 x||^2`: a finite
-rational covariance sample minus explicit volume and representative errors.
-The checker is proved sound and quantitatively complete, but **no accepted
-physical certificate has been constructed**. Full observable realization/
-completeness, the positive response bound and continuum scaling remain open;
-this is not Clay closure.
+The [original excited response is now proved strictly positive](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveResponse.lean):
+`<x,T2 x> = ||T1 x||^2 >= w^36/16 > 0`, with `w=1/1024`.
+The existing response-certificate format now has a concrete accepted witness,
+with computed tolerance, volume margin and representative index. Thus neither
+`T1 x` nor `T2 x` vanishes. Acceptance follows from the original analytic
+bound, not an asserted numerical sample. Full observable realization/
+completeness, continuous-time generator and physical spectral identification,
+continuum scaling and the Clay target remain open.
 
-**Latest local mathematical step:** [the entire remaining spatial family is now counted](lean/YMGap/Continuum/BF4ExactSlabSpatialForestPairCount.lean),
+**Latest mathematical step:** the [entire remaining original signed spatial remainder is bounded](lean/YMGap/Continuum/BF4ExactSlabSpatialForestRemainderBound.lean),
+including every higher-spin label and every core's own detached partition
+square. Summing the actual two-mass count gives a pair-weight budget of
+`w^36/16`; restoring the partitions gives `w^36 * Z_full^2 / 8`.
+Absorbing that remainder proves the [complete original numerator floor](lean/YMGap/Continuum/BF4ExactSlabOriginalResponseNumeratorFloor.lean)
+`N_full >= w^36 * Z_full^2 / 16`, for every `K>=1` and margin.
+
+The [same-partition lower-bound transport](lean/YMGap/Continuum/BF4ExactSlabCovarianceLowerTransport.lean)
+removes the representation cutoff and cancels `Z_full^2` using the original
+reciprocal. The already constructed thermodynamic limit preserves the floor
+and yields the original operator response above. This is fixed SU(2) nome
+and spacing, **not a beta-uniform or continuum mass-gap theorem**.
+Six modules passed 43 focused axiom checks within `{propext, Quot.sound}`
+(seven axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** [the entire remaining spatial family is counted](lean/YMGap/Continuum/BF4ExactSlabSpatialForestPairCount.lean),
 including all higher-spin labels. For every cutoff, margin and cut-filter
 time, the actual stratum with `S` spatial odd occurrences and higher-label
 mass `H` has at most `7,200,000^S * 241,813,452^H` configurations.
@@ -43,11 +59,10 @@ is deduplicated. Every nonzero remaining pair has `S>=6`.
 
 The counting gain comes from pairing each component's root cost with one
 descent: there are no isolated vertices. The forest construction and its
-finite carrier bound are now proved, not assumed. **Next:** sum the unchanged
-SU(2) heat weights over both masses and restore each core's own detached
-partition square. The exact-rational pilot shows scalar room at fixed nome
-`1/1024`, but **the aggregate remainder estimate and positive full response
-are still open**. Nine modules passed 109 focused axiom checks within
+finite carrier bound are proved, not assumed. The subsequent increment
+above now sums the unchanged weights, restores the original partitions and
+proves the positive thermodynamic response. Nine modules in this preceding
+increment passed 109 focused axiom checks within
 `{propext, Quot.sound}` (18 axiom-free); no full-tree build or audit ran.
 
 **Previous local mathematical step:** the remaining spatial occurrences have
