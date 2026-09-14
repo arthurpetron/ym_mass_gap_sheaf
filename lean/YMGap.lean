@@ -4190,6 +4190,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicProbeOrbitFloor
 import YMGap.Continuum.PositiveRationalCauchySquareRoot
 import YMGap.Continuum.PositiveCRealNormalizationScalar
 import YMGap.Continuum.BF4ExactSlabThermodynamicNormalizedProbe
+-- ORIGINAL positive time/defect moments and finite Bernstein probability rows;
+-- exact normalization/first moment, not a limiting spectral resolution.
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeDefectMoments
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinWords
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinProbeRows
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

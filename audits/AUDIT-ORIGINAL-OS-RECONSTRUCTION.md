@@ -48,6 +48,27 @@ give the Heron sample modulus and square identity;
 the original positive real; `scalar_normalizes` at line 89 proves its
 normalization. None of these declarations changes a canonical root type.
 
+## Original finite spectral-row update after f996e3a
+
+Mixed positivity is **CLOSED**: `mixedMoment_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean:111`,
+proves nonnegativity of <x,T2^k (I-T2)^l x> for all completed x,k,l.
+`mixedMoment_split` at line 119 supplies the exact two-branch identity;
+`momentCertificate` at line 161 retains actual reals/moduli and their pins.
+
+The finite Bernstein-word weights have proved mass and first count moment:
+`weights_total` and `weighted_time_count`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinWords.lean:120`
+and line 133. These are repeated-node finite expansions, not eigenvectors.
+
+For the actual normalized probe, `weight_total`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinProbeRows.lean:71`,
+proves mass one; `weighted_node_mean` at line 76 pins the first moment to
+the original response. `rowCertificate` at line 98 returns nodes in [0,1],
+nonnegative real weights, their QCauchy data, total mass and that pin.
+It does not construct a limiting spectral measure or prove the finite
+rows have support in [0,1/2]; only their mean has that upper bound.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -81,16 +102,19 @@ resolution: `PolyNormData.normDiag`,
 structure field, consumed by `dischargeBTC` at line 390. It is not an
 original spectral decomposition constructed by the new normalization.
 
-Next unproved targets: positivity of mixed ORIGINAL time/defect forms,
-then finite Bernstein moment weights. These are tasks, not new hypotheses
-or a claim that a spectral measure has already been constructed.
+Mixed positivity and finite normalized Bernstein rows are now closed by
+the declarations above. Next unproved targets: higher factorial moments
+and quantitative polynomial convergence of these SAME rows. Neither a
+spectral limit nor its functional-calculus realization is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
-The normalization increment has three new modules and 60 exactly matched
+The mixed-moment/finite-row increment has three new modules and 55 exactly
+matched axiom gates within `{propext, Quot.sound}`, four axiom-free.
+The normalization increment had three new modules and 60 exactly matched
 `#print axioms` gates within `{propext, Quot.sound}`, five axiom-free.
 The preceding orbit increment had 28 matched gates. Focused monitored
 checks only, one worker and a

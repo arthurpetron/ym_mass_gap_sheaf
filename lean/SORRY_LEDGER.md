@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED norm-one original excitation with strict actual transfer-response interval (2026-09-14)
+## CLOSED original mixed positivity and finite Bernstein probability rows (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean`,
+  `BF4ExactSlabThermodynamicBernsteinWords.lean`, and
+  `BF4ExactSlabThermodynamicBernsteinProbeRows.lean` in the same directory.
+- **closed operator facts**: `defect_positive`, `defectPower_positive`,
+  `mixedMoment_nonnegative`, and `mixedMoment_split` derive positivity and
+  exact splitting of <x,T2^k (I-T2)^l x> on ALL of the original completion.
+  `momentCertificate` returns reals/moduli pinned to these actual moments.
+  No diagonal spectral resolution is assumed.
+- **closed finite rows**: `weights_total` and `weighted_time_count` prove
+  mass ||x||^2 and count moment N<x,T2 x> in a finite binary-word expansion.
+  `rowCertificate` supplies the normalized original probe's grid nodes in
+  [0,1], nonnegative real weights, QCauchy data, mass one and exact actual
+  response pin. Repeated grid nodes are not claimed eigenvalues.
+  `row_mean_floor` and `row_mean_upper` bound the first moment, not the
+  support of the finite rows, between responseFloor/P and 1/2.
+- **open residue**: higher moments and quantitative polynomial convergence
+  of these rows; their spectral limit and functional calculus. The older
+  PolyNormData.normDiag remains supplied data, not a proved resolution.
+  Full canonical observable/scalar/carrier comparison and quotient-level
+  completeness, full-carrier time injectivity, continuous-time/physical
+  spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+  open. No new hole/input/frontier type/atom/flag or physical weight change;
+  fixed SU(2) nome and spacing only.
+- **verification**: 22+19+14=55 matched focused axiom gates within
+  {propext, Quot.sound}, four axiom-free; clean logs and fresh own/direct-
+  import artifacts. One monitored worker, 20 GiB ceiling. No raised options,
+  large tree/sample evaluation or full build/audit/guard/progress/root-import
+  run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED norm-one original excitation with strict actual transfer-response interval (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/PositiveRationalCauchySquareRoot.lean`,
   `PositiveCRealNormalizationScalar.lean`, and

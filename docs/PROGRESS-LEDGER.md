@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual norm-one original probe with strict Rayleigh interval (2026-09-14)
+## Current increment: original mixed positivity and finite probability rows (2026-09-14)
+
+PROGRESS after f996e3a. The SAME original operator now has proved positive
+mixed moments <x,T2^k (I-T2)^l x>. The proof uses geometric half-time,
+symmetry and contraction, not a spectral decomposition. Its exact split
+m(k,l)=m(k+1,l)+m(k,l+1) constructs finite Bernstein-word weights.
+
+`BF4ExactSlabThermodynamicBernsteinWords.weights_total` and
+`weighted_time_count` prove mass ||x||^2 and first count moment N<x,T2 x>.
+`BF4ExactSlabThermodynamicBernsteinProbeRows.rowCertificate` returns nodes
+k/N in [0,1], nonnegative CReal weights with QCauchy data, mass one, and
+the exact ORIGINAL normalized transfer-response pin. Its mean remains
+between responseFloor/P and 1/2; this is not a support bound for the rows.
+The binary-word representation keeps repeated nodes, not eigenvectors.
+
+NEXT: higher factorial moments and quantitative polynomial convergence
+of these rows. The spectral limit/functional calculus is OPEN, as are
+the canonical observable/scalar/carrier bridge, full completeness/time
+injectivity, continuous-time/physical spectral/non-Wick pins, controlled
+continuum scaling, other groups and Clay. No new hole or analytic input,
+canonical field/atom/flag or physical weight change. Fixed nome/spacing.
+
+Verification: three focused monitored checks, 55 exactly matched axiom
+gates within {propext, Quot.sound}, four axiom-free. Clean logs and fresh
+own/direct-import artifacts; one worker, 20 GiB ceiling; no raised options,
+large tree/sample computation, full build/audit/guard/progress or root-import
+run. Logs in work_plan.
+
+## Previous increment: actual norm-one original probe with strict Rayleigh interval (2026-09-14)
 
 PROGRESS after cd75a56: norm-one normalization is constructed with explicit
 root and reciprocal moduli, and the actual transfer response is preserved.

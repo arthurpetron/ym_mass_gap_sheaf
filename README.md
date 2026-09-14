@@ -13,7 +13,18 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest dynamical milestone:** a [norm-one excitation with a certified strict transfer-response interval](lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean)
+**Latest operator milestone:** [positive mixed time/defect moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean)
+now produce [finite Bernstein probability rows for the original normalized probe](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinProbeRows.lean).
+Their rational grid nodes lie in `[0,1]`; their nonnegative real weights
+have explicit Cauchy moduli, sum to one, and have first moment exactly
+`<v,T2 v>`. Positivity is derived from the original operator's symmetry
+and contraction, without a supplied spectral decomposition. The binary-word
+representation retains repeated grid nodes, not alleged eigenvalues.
+Three modules passed 55 focused axiom checks within `{propext, Quot.sound}`
+(four axiom-free). Higher-moment convergence and spectral realization
+remain open, as do continuum scaling and the Clay target.
+
+**Established normalized excitation:** a [norm-one excitation with a certified strict transfer-response interval](lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean)
 is now constructed in the original thermodynamic OS completion:
 `||v||^2 = 1` and `0 < responseFloor/P <= <v,T2 v> <= 1/2`.
 The normalization uses the same original squared norm and a
@@ -34,8 +45,8 @@ time-dependent floors do not assert a nondecaying response or injectivity
 on the entire completion. Three modules passed 28 focused axiom checks
 within `{propext, Quot.sound}`; no full-tree build or audit ran.
 The [source-level reconstruction audit](audits/AUDIT-ORIGINAL-OS-RECONSTRUCTION.md)
-identifies the remaining full-observable, scalar-codomain, normalization,
-completion and continuum-limit boundaries.
+records the closed normalization and the remaining full-observable,
+scalar-codomain, completion, spectral and continuum-limit boundaries.
 
 **Established fixed-spacing dynamics:** the original thermodynamic geometric OS time
 evolution [converges quantitatively to its unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRelaxation.lean),

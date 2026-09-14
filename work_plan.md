@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed norm-one original probe; strict actual Rayleigh interval):**
+**Latest increment (positive original time/defect moments and finite Bernstein rows):**
+PROGRESS after f996e3a: the next operator-positivity and finite-weight targets
+are CLOSED, using the SAME completion, original transfer and normalized probe.
+
+`BF4ExactSlabThermodynamicTimeDefectMoments.defect_positive` derives
+positivity of D=I-T2 from the original one-step contraction. Moving pairs
+of defect factors across the symmetric pairing proves
+`defectPower_positive`; moving geometric half-time gives
+`mixedMoment_nonnegative`: <x,T2^k D^l x> >= 0 for every completed x,k,l.
+`mixedMoment_split` proves m(k,l)=m(k+1,l)+m(k,l+1).
+`momentCertificate` retains constructed transformed representatives,
+actual moment reals, QCauchy data and the operator pin. No spectral input.
+
+`BF4ExactSlabThermodynamicBernsteinWords` constructs finite binary words
+with k time and l defect factors, k+l=N. Its `weights_total` proves mass
+||x||^2 and `weighted_time_count` proves first count moment N<x,T2 x>.
+This is the uncoalesced Bernstein representation: equal-count words have
+the same grid node and weight, and are deliberately not called eigenstates.
+
+`BF4ExactSlabThermodynamicBernsteinProbeRows.probeCauchy_pin` identifies
+the retained representative with the actual normalized original vector.
+`rowCertificate` returns nodes k/N in [0,1], weights, every QCauchy modulus,
+nonnegativity, total mass one, and the exact SAME-operator first-moment pin.
+`row_mean_floor` / `row_mean_upper` retain responseFloor/P <= mean <= 1/2.
+The upper bound is on the MEAN; these finite grids are not claimed to be
+supported in [0,1/2]. No large binary tree or real sample was evaluated.
+
+NEXT: higher factorial-moment identities and quantitative polynomial
+convergence of these SAME rows. Their spectral limit/functional-calculus
+realization remains unproved; PolyNormData.normDiag is still not supplied.
+The canonical scalar/carrier/observable comparison, full quotient-level
+completeness and time injectivity, continuous-time generator and physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain OPEN.
+No new hole, analytic input, frontier type/atom/flag or physical weight;
+fixed SU(2) nome 1/1024 and spacing only.
+
+Verification: three focused monitored checks, 22+19+14=55 exactly matched
+axiom gates within {propext, Quot.sound}, four axiom-free; clean final logs
+and fresh own/direct-import artifacts. One worker, 20 GiB ceiling; no
+raised options, full build/audit/guard/progress run or root-import rebuild.
+Logs: `/tmp/ym-original-time-defect-moments.log`,
+`/tmp/ym-original-bernstein-words.log`,
+`/tmp/ym-original-bernstein-probe-rows.log`.
+
+**Previous increment (constructed norm-one original probe; strict actual Rayleigh interval):**
 PROGRESS after cd75a56: the original excitation now has a norm-one
 normalization, not a supplied normalization scalar or a replacement vector.
 
