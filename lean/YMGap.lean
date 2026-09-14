@@ -4240,6 +4240,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousLinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousProductRows
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousMultiplication
 import YMGap.Continuum.BF4ExactSlabThermodynamicCuspMultiplication
+-- Original represented pairing order, polynomial form order and continuous
+-- symmetry/positivity; nonnegative forms are not a positive physical mass gap.
+import YMGap.Continuum.BF4ExactSlabThermodynamicRowPairingOrder
+import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicFormOrder
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousFormOrder
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (original product limits, multiplication and commutation):**
+**Latest increment (original continuous symmetry, form order and positivity):**
+PROGRESS after ae243de. `BF4ExactSlabThermodynamicRowPairingOrder`
+constructs constant represented rows with zero outer modulus and proves
+rowwise pairing order, equality and positivity pass to the SAME original
+row limits. The existing explicit pairing modulus supplies the shared stage;
+no representative is selected from an arbitrary quotient.
+
+`BF4ExactSlabThermodynamicCyclicFormOrder` identifies the polynomial-probe
+form with the existing moment functional on p*r*r. Its positivity proves
+`cyclic_form_mono`; represented pairing limits then give
+`polynomial_form_mono` and `polynomial_form_nonnegative` on every original
+represented cyclic state. No spectral decomposition is supplied.
+
+`BF4ExactSlabThermodynamicContinuousFormOrder` proves Bernstein sampling
+and nonnegative weights preserve symbol order, including degree zero.
+`symbolAction_symmetric`, `symbolAction_form_mono` and
+`symbolAction_form_nonnegative` pass polynomial symmetry/order/positivity
+through the original limits. `square_form_identity` identifies the form
+of any represented H=F*F with the original squared norm of F(T2)x.
+`cuspSquare_form_identity` supplies the concrete cusp-squared instance.
+No strict positivity or nonzero action value is inferred from these facts.
+
+NEXT: remaining symbol algebra/data construction and its quantitative
+spectral consequences. General product CtsMod/vanishing-data construction
+is still open; symmetry, form order and positivity are now CLOSED and must
+not be re-assumed. Full-carrier spectral realization, canonical comparisons,
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. Fixed SU(2) nome 1/1024 and spacing only. No new hole, physical input,
+canonical type/atom/flag, weight or surrogate; no physical gap claimed.
+
+Verification: three focused monitored modules, 6+4+11=21 exactly matched
+gates within {propext, Quot.sound}, none axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, 20 GiB
+ceiling and separate process/swap preflights; no raised options, full
+build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-row-pairing-order.log`,
+`/tmp/ym-original-cyclic-form-order.log`,
+`/tmp/ym-original-continuous-form-order.log`.
+
+**Previous increment (original product limits, multiplication and commutation):**
 PROGRESS after 4b7f172. `BF4ExactSlabThermodynamicContinuousProductRows`
 uses the degree-uniform Bernstein bound to control polynomial action on
 the approximated G-input. `productModulus` is the maximum of the G-action
@@ -38,9 +78,9 @@ bound 1, modulus 2*abs(delta) and selector epsilon/2; `cuspSquare_composition`
 instantiates multiplication on every represented original cyclic input.
 Symbol nonconstancy does not assert nonzeroness of an action value.
 
-NEXT: symmetry/positivity of continuous action and remaining symbol algebra
-data/compatibility. The product polynomial-limit action is constructed for
-arbitrary F,G; a general constructor of a product CtsMod with its vanishing
+Symmetry/positivity of continuous action are now proved above; remaining
+symbol algebra data/compatibility is open. The product polynomial-limit
+action is constructed for arbitrary F,G; a general constructor of a product CtsMod with its vanishing
 data has NOT been supplied. Do not re-assume the product limit, multiplication
 for represented H, or commutation. Full-carrier spectral realization,
 canonical observable/scalar/carrier comparisons, quotient-level completeness/

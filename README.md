@@ -13,18 +13,17 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [continuous actions multiply and commute on the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousMultiplication.lean).
-The Bernstein polynomial-product limit is constructed with an explicit
-rate and proved equal to actual composition. Whenever a represented
-symbol `H` agrees with `F*G` on `[0,1]`, `H(T2)x = F(T2)G(T2)x`.
-Commutation holds for arbitrary represented `F` and `G`, without supplying
-`H`. A [cusp-squared instance](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCuspMultiplication.lean)
-supplies every symbol datum; no nonzero-vector conclusion is inferred.
-Three modules passed 30 focused axiom checks within `{propext, Quot.sound}`
-(two axiom-free); no full-tree run. General product-symbol data packaging,
-symmetry/positivity and full operator calculus remain open, as do the
-full-carrier and continuum/Clay bridges. SU(2) nome and spacing remain
-fixed; these are not beta/spacing-uniform gap estimates.
+**Latest milestone:** [continuous action is symmetric and preserves quadratic-form order on the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousFormOrder.lean).
+If `F <= G` on `[0,1]`, then `<F(T2)x,x> <= <G(T2)x,x>`; nonnegative
+symbols give nonnegative forms. For a represented square `H=F*F`,
+`<H(T2)x,x> = ||F(T2)x||²`, with a fully supplied cusp-squared instance.
+The proofs use the original positive moment functional and explicit
+pairing-limit moduli, not a supplied spectral decomposition.
+Three modules passed 21 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. General product-symbol data packaging and remaining
+symbol algebra remain open, as do the full-carrier and continuum/Clay
+bridges. SU(2) nome and spacing remain fixed. Nonnegative forms are not
+a strictly positive physical gap or beta/spacing-uniform gap estimate.
 
 **Established limit bound:** [relative operator bounds hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
 For `|p| <= M` on `[0,1]`,

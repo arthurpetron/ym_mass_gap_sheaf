@@ -323,6 +323,31 @@ supplies epsilon/2. `cuspSquare_composition` at line 65 is a fully supplied
 product-law instance on every represented cyclic input. The nonconstancy
 at line 62 is about the symbol, not a nonzero original action value.
 
+## Original continuous form order and symmetry after ae243de
+
+`constantRows`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicRowPairingOrder.lean:31`,
+retains a supplied original representative with zero outer modulus.
+`rowLimit_pairing_le` at line 47, `rowLimit_pairing_eq` at line 63 and
+`rowLimit_pairing_nonnegative` at line 69 pass rowwise facts to actual
+original limits using the existing pairing modulus.
+
+`cyclic_form_mono`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicFormOrder.lean:40`,
+uses the existing positive moment functional on p*r*r.
+`polynomial_form_mono` at line 54 and `polynomial_form_nonnegative` at
+line 65 extend this to every represented original cyclic state.
+
+`symbolAction_symmetric`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousFormOrder.lean:88`,
+passes original polynomial symmetry to the continuous action.
+`symbolAction_form_mono` at line 98 and `symbolAction_form_nonnegative`
+at line 111 use order-preserving Bernstein weights and samples, with the
+degree-zero case included. `square_form_identity` at line 121 gives
+<H(T2)x,x>=||F(T2)x||^2 for represented H=F*F.
+`cuspSquare_form_identity` at line 128 supplies the concrete instance.
+These are nonnegative form statements, not strictly positive physical gaps.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -367,8 +392,9 @@ are now closed as well. Continuous-symbol action and state/symbol
 representation independence are now constructed, as are output cyclic
 presentations and bounded rational linearity. Product limits, multiplication
 for represented product symbols and commutation are now constructed.
-Next: symmetry/positivity, general product-symbol data construction and
-remaining symbol algebra compatibility.
+Symmetry, form order and positivity are now proved as well. Next: general
+product-symbol data construction, remaining symbol algebra compatibility
+and quantitative spectral consequences on the original represented sector.
 Neither a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -376,6 +402,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The symmetry/form-order increment has three new modules and 21 exactly
+matched gates within `{propext, Quot.sound}`, none axiom-free.
 The product/multiplication increment has three new modules and 30 exactly
 matched gates within `{propext, Quot.sound}`, two axiom-free.
 The cyclic-closure/bounded-linearity increment has three new modules and
