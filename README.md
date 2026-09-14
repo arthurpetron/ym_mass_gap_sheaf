@@ -13,7 +13,19 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [relative polynomial operator bounds on the original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicOperatorBound.lean).
+**Latest milestone:** [relative operator bounds now hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).
+For `|p| <= M` on `[0,1]`,
+`||p(T2)F(T2)v||² <= M² ||F(T2)v||²` for every constructed Bernstein
+symbol vector. The image limit is proved equal to the existing original
+polynomial operator value; its Cauchy representative and convergence rate
+are returned. A coefficient estimate supplies continuity but does not
+appear in the final relative bound. Three modules passed 30 focused axiom
+checks within `{propext, Quot.sound}` (one axiom-free); no full-tree run.
+Next: continuous-symbol action on these cyclic vectors. Full continuous
+operator calculus, physical-scale control and continuum/Clay remain open;
+SU(2) nome and spacing remain fixed.
+
+**Established polynomial bound:** [relative polynomial operator bounds on the original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicOperatorBound.lean).
 For `|p| <= M` on `[0,1]`, the original operator satisfies
 `||p(T2)q(T2)v||² <= M² ||q(T2)v||²` for every polynomial `q`,
 without a coefficient-size factor or supplied spectral decomposition.
@@ -22,8 +34,8 @@ and the coordinate polynomial recovers the original `T2`.
 [Equivalent symbols on the spectral interval give identical constructed vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSymbolCompatibility.lean),
 even with different bounds, moduli or outside values. Three modules passed
 28 focused axiom checks within `{propext, Quot.sound}`; no full-tree run.
-Next is extending the relative operator bounds to constructed cyclic
-limits. Full continuous operator calculus, physical-scale control and
+The extension to represented cyclic limits is now proved above.
+Full continuous operator calculus, physical-scale control and
 continuum/Clay remain open; SU(2) nome and spacing remain fixed.
 
 **Established limit laws:** [norm bounds and pairing limits for the original Bernstein symbol vectors](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinLimitPairing.lean).

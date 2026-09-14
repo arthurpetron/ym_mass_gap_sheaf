@@ -4222,6 +4222,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinLimitPairing
 import YMGap.Continuum.BF4ExactSlabThermodynamicSymbolCompatibility
 import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialOperator
 import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicOperatorBound
+-- Actual polynomial action commutes with represented original limits;
+-- the sharp relative bound survives on constructed continuous symbol vectors.
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialContinuity
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialRowAction
+import YMGap.Continuum.BF4ExactSlabThermodynamicCyclicLimitBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

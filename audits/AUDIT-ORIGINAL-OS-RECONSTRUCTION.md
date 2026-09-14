@@ -209,6 +209,34 @@ statement quantifies over all completed input vectors or over varying
 physical nome/spacing. No supplied spectral resolution or operator-bound
 hypothesis is consumed.
 
+## Original polynomial action on represented cyclic limits after dbaa81b
+
+`normFactor`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialContinuity.lean:33`,
+computes K([])=0, K(c::p)=2*c^2+2*K(p). `operatorTolerance`, same file
+at line 98, is epsilon/(K+1); `operator_close` at line 104 proves
+continuity of the existing original polynomial action.
+
+`operatorRows`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialRowAction.lean:30`,
+constructs mapped original Cauchy rows. `operator_rowLimit`, same file at
+line 51, equates their limit with the original polynomial operator on the
+input limit. `actionCertificate` at line 65 retains the representative,
+same-action pin and computed convergence rate.
+
+`rowLimit_norm_comparison`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean:52`,
+passes relative norm bounds to original row limits using the explicit
+epsilon/(C+1) error budget. `cyclicLimit_norm_bound`, same file at line 73,
+applies this to represented families of original cyclic polynomial vectors.
+`continuousProbe_operator_norm_bound` at line 89 proves
+||p(T2)F(T2)v||^2<=M^2||F(T2)v||^2 for |p|<=M on rational [0,1].
+The continuity coefficient factor is absent from this bound.
+`continuousActionCertificate` at line 115 returns the actual polynomial
+action on the symbol vector with its image representative and original
+polynomial-product approximation rate. No continuous-symbol operator,
+full-carrier spectral realization or varying-spacing estimate is asserted.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -247,9 +275,10 @@ the positive bounded normalized polynomial functional, actual polynomial
 difference bounds, represented Bernstein carrier limits, their pairing
 convergence and symbol-vector norm bounds are now closed by the declarations
 above. Symbol-equivalence compatibility, actual polynomial operator algebra
-and relative cyclic polynomial bounds are also now closed. Next: original
-operator action and relative bounds on represented cyclic limits, then
-continuous cyclic operator calculus. Neither
+and relative cyclic polynomial bounds are also now closed. Original
+polynomial action and sharp relative bounds on represented cyclic limits
+are now closed as well. Next: continuous-symbol action and its algebraic/
+representation compatibility, toward continuous cyclic operator calculus. Neither
 a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
@@ -257,6 +286,8 @@ Clay remain open.
 
 ## Verification boundary
 
+The represented cyclic-limit operator increment has three new modules
+and 30 exactly matched gates within `{propext, Quot.sound}`, one axiom-free.
 The symbol-compatibility/cyclic-operator increment has three new modules
 and 28 exactly matched gates within `{propext, Quot.sound}`, none axiom-free.
 The original limit pairing/norm increment has three new modules and 31

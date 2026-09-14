@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (symbol compatibility and relative cyclic operator bounds):**
+**Latest increment (original polynomial action and relative bounds on cyclic limits):**
+PROGRESS after dbaa81b. `BF4ExactSlabThermodynamicPolynomialContinuity`
+constructs the finite coefficient factor K([])=0, K(c::p)=2*c^2+2*K(p).
+`vector_norm_bound` / `operator_distance_bound` hold on EVERY original
+completed vector. `operatorTolerance` returns epsilon/(K+1), and
+`operator_close` proves the resulting explicit continuity estimate.
+The coefficient factor is a continuity tool, not the final cyclic bound.
+
+`BF4ExactSlabThermodynamicPolynomialRowAction.operatorRows` maps actual
+original Cauchy representatives through the existing time/scalar/addition
+construction, retaining its outer modulus. `operator_rowLimit` proves
+that the constructed image limit equals the SAME pre-existing polynomial
+operator applied to the original row limit. `actionCertificate` returns
+the image representative, that pin and the explicit convergence rate.
+There is no quotient representative selection or new operator premise.
+
+`BF4ExactSlabThermodynamicCyclicLimitBound.rowLimit_norm_comparison`
+passes relative norm inequalities through the already-proved two-sided
+pairing convergence, with error budget epsilon/(C+1).
+`cyclicLimit_norm_bound` proves the sharp M^2 bound on ANY represented
+original cyclic polynomial limit. `continuousProbe_operator_norm_bound`
+specializes it to ||p(T2)F(T2)v||^2<=M^2||F(T2)v||^2 when |p|<=M on
+rational [0,1]. The coarse coefficient factor is absent from this result.
+`continuousActionCertificate` supplies the actual p(T2)F(T2)v representative
+and rate of the original polynomial-product approximations.
+
+NEXT: construct continuous-symbol action on represented cyclic vectors,
+then prove its algebraic/representation compatibility for continuous cyclic
+operator calculus. Polynomial action on represented limits and its sharp
+relative cyclic bound are CLOSED, not open inputs. Full-carrier spectral
+realization, canonical observable/scalar/carrier comparisons, quotient-level
+completeness/time injectivity, continuous-time/physical spectral/non-Wick
+pins, continuum scaling, other groups and Clay remain OPEN. No new hole,
+physical input, canonical type/atom/flag, weight or surrogate. Fixed SU(2)
+nome 1/1024 and spacing; no beta/spacing-uniform spectral conclusion.
+
+Verification: three focused monitored modules, 13+8+9=30 exactly matched
+gates within {propext, Quot.sound}, one axiom-free. Final logs clean and
+own/direct-import artifacts fresh. Safe-build skill: one worker, 20 GiB
+ceiling, separate process/swap preflights; no raised options, large sample
+evaluation, full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-polynomial-continuity.log`,
+`/tmp/ym-original-polynomial-row-action.log`,
+`/tmp/ym-original-cyclic-limit-bound.log`.
+
+**Previous increment (symbol compatibility and relative cyclic operator bounds):**
 PROGRESS after 910c342. `BF4ExactSlabThermodynamicSymbolCompatibility`
 proves `continuousProbe_congr` from rational pointwise equivalence on
 [0,1] ONLY: symbol bounds, moduli and outside values may differ.

@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original symbol compatibility and relative cyclic polynomial operator bounds (2026-09-14)
+## CLOSED original polynomial action and sharp relative bounds on represented cyclic limits (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialContinuity.lean`,
+  `BF4ExactSlabThermodynamicPolynomialRowAction.lean`, and
+  `BF4ExactSlabThermodynamicCyclicLimitBound.lean` in the same directory.
+- **closed continuity**: `normFactor`, `vector_norm_bound`,
+  `operator_distance_bound`, `operatorTolerance` and `operator_close`
+  supply explicit polynomial continuity on every original completed
+  vector, using K([])=0, K(c::p)=2*c^2+2*K(p), epsilon/(K+1).
+- **closed same-action limit**: `operatorRows` retains actual original
+  image representatives and moduli. `operator_rowLimit` pins the image
+  limit to the existing polynomial operator on the original limit.
+  `actionCertificate` returns that representative, pin and rate.
+- **closed sharp relative bound**: `rowLimit_norm_comparison` passes
+  relative norm inequalities through original pairing limits.
+  `cyclicLimit_norm_bound` applies the sharp M^2 bound to represented
+  cyclic polynomial limits; `continuousProbe_operator_norm_bound` gives
+  ||p(T2)F(T2)v||^2<=M^2||F(T2)v||^2 for every constructed symbol vector
+  when |p|<=M on rational [0,1]. No coefficient factor remains in this bound.
+  `continuousActionCertificate` returns the actual image representative
+  and original polynomial-product convergence rate.
+- **open residue**: continuous-symbol action and its algebraic/representation
+  compatibility on the cyclic sector; full-carrier spectral realization,
+  canonical comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling, other
+  groups and Clay. Fixed SU(2) nome/spacing only. No new hole, physical
+  analytic input, canonical type/atom/flag, weight or surrogate.
+- **verification**: three focused monitored modules, 30 exactly matched
+  gates within {propext, Quot.sound}, one axiom-free; clean final logs and
+  fresh own/direct-import artifacts. One worker, 20 GiB ceiling. No raised
+  options, large sample evaluation, full build/audit/guard/progress or
+  root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original symbol compatibility and relative cyclic polynomial operator bounds (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSymbolCompatibility.lean`,
   `BF4ExactSlabThermodynamicPolynomialOperator.lean`, and
