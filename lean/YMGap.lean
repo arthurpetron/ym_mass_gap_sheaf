@@ -4249,6 +4249,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousFormOrder
 -- the product action is the SAME original composition, not a supplied model.
 import YMGap.Continuum.UniformSymbolEncoding
 import YMGap.Continuum.BF4ExactSlabThermodynamicProductSymbol
+-- Constructed symbol algebra and sharp interval-uniform perturbation bounds
+-- on represented ORIGINAL cyclic states; not a full-carrier or physical gap.
+import YMGap.Continuum.BF4ExactSlabThermodynamicSumSymbol
+import YMGap.Continuum.BF4ExactSlabThermodynamicSymbolAlgebra
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUniformBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

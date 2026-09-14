@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED general product-symbol construction and original multiplication (2026-09-14)
+## CLOSED original symbol algebra and sharp uniform perturbation bounds (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSumSymbol.lean`,
+  `BF4ExactSlabThermodynamicSymbolAlgebra.lean`, and
+  `BF4ExactSlabThermodynamicContinuousUniformBound.lean` in the same directory.
+- **closed algebra construction**: sum, constant, scaled and difference
+  symbols and their vanishing data are built from the existing inputs.
+  `sumSymbol_action`, `constantSymbol_action`, `oneSymbol_action`,
+  `zeroSymbol_action`, `scaledSymbol_action`, `differenceSymbol_action`
+  identify their actions with the SAME original completed operations.
+- **closed interval bounds**: `symbolAction_interval_norm_bound` and
+  `symbolAction_interval_norm_lower` transfer supplied upper/lower bounds
+  on |F| over rational [0,1] through square-form order. The latter is a
+  conditional calculus theorem, NOT a supplied or discharged physical gap.
+  `symbolAction_interval_distance_bound` gives the sharp relative
+  squared-error bound M^2 ||x||^2 for a symbol difference bounded by M.
+- **closed rate transport**: `uniformComparisonCertificate` returns an
+  explicit positive rational input tolerance working for every admissible
+  symbol pair on the given represented input. `symbolComparisonModulus`
+  and `symbolAction_uniform_convergence` transport a supplied interval
+  convergence rate; `symbolUniformLimitCertificate` retains the actual
+  target representative, rate and original-action pin. The uniformity
+  ranges over rational interval points and approximation indices, not
+  beta or lattice spacing.
+- **open residue**: all-vector sharp polynomial/continuous bounds and
+  full-carrier spectral realization, canonical comparisons, quotient-level
+  completeness/time injectivity, continuous-time/physical spectral/non-Wick
+  pins, continuum scaling, other groups and Clay. No claim that the one
+  probe's represented cyclic sector is the whole carrier. Fixed SU(2)
+  nome/spacing only. No new hole, physical input, canonical type/atom/flag,
+  weight or surrogate.
+- **verification**: three focused monitored modules, 35 exactly matched
+  gates within {propext, Quot.sound}, one axiom-free. Clean final logs and
+  fresh own/direct-import artifacts. One worker, explicit 20 GiB ceiling;
+  no raised options or full build/audit/guard/progress/root-import run.
+  Logs in work_plan.
+
+## Previous checkpoint: CLOSED general product-symbol construction and original multiplication (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/UniformSymbolEncoding.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProductSymbol.lean`.
@@ -32,8 +69,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `productSquare_form_identity` give mixed and square-form identities.
   `productSymbolActionCertificate` returns original representative/rate,
   action pin and norm bound. No nonzero output or strict gap is inferred.
-- **open residue**: symbol addition/unit/scalar compatibility and further
-  quantitative spectral consequences; full-carrier/canonical comparisons,
+- **subsequent closure**: addition/unit/scalar/difference compatibility and
+  sharp interval-uniform perturbation estimates are now proved above.
+- **open residue**: full-carrier/canonical comparisons,
   quotient-level completeness/time injectivity, continuous-time/physical
   spectral/non-Wick pins, continuum scaling, other groups and Clay.
   Fixed SU(2) nome/spacing only. No new hole, physical input, canonical
@@ -67,7 +105,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   are not strict positive gap estimates or nonzero-vector witnesses.
 - **subsequent closure**: general product-symbol continuity/vanishing data
   are now constructed in the entry above.
-- **open residue**: remaining symbol algebra; full-carrier/canonical comparisons, quotient-level
+- **subsequent algebra closure**: sum/unit/scalar/difference compatibility
+  and uniform perturbation estimates are now proved in the latest entry.
+- **open residue**: full-carrier/canonical comparisons, quotient-level
   completeness/time injectivity, continuous-time/physical spectral/non-Wick
   pins, continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing
   only. No new hole, physical input, canonical type/atom/flag, weight or surrogate.
@@ -99,8 +139,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   proved in the entry above.
 - **subsequent product-data closure**: general product-symbol CtsMod and
   vanishing data are now constructed in the latest entry.
-- **open residue**: remaining symbol algebra compatibility;
-  full-carrier/canonical comparisons, quotient-level completeness/time
+- **subsequent algebra closure**: sum/unit/scalar/difference compatibility
+  is now proved in the latest entry.
+- **open residue**: full-carrier/canonical comparisons, quotient-level completeness/time
   injectivity, continuous-time/physical spectral/non-Wick pins, continuum
   scaling, other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
   physical input, canonical type/atom/flag, weight or surrogate.

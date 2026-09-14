@@ -13,15 +13,27 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [products of arbitrary admissible continuous symbols now have fully constructed data and compose as the original operators](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProductSymbol.lean).
+**Latest milestone:** [constructed symbol algebra now gives sharp uniform-error bounds for the original actions](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUniformBound.lean).
+On represented original cyclic states, `|F-G| <= M` on `[0,1]` implies
+`||F(T2)x-G(T2)x||² <= M² ||x||²`. Sums, constants, scaling and differences
+have constructed continuity data and act as the original completed
+operations. An explicit uniform symbol-convergence rate gives an explicit
+action-convergence rate, with the original target representative retained.
+Three modules passed 35 focused axiom checks within `{propext, Quot.sound}`
+(one axiom-free); no full-tree run. The next boundary is full-carrier
+bounds: this represented cyclic sector is not asserted to be the whole
+carrier. Physical-scale control and continuum/Clay remain open.
+
+**Established multiplication:** [products of arbitrary admissible continuous symbols have fully constructed data and compose as the original operators](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProductSymbol.lean).
 The product symbol, bound, continuity modulus and vanishing selector are
 computed from those of `F` and `G`; `(FG)(T2)x = F(T2)G(T2)x` requires no
 extra product-symbol package. A finite rational encoding handles the fact
 that the input continuity bounds need not be monotone. The construction
 retains original action representatives and explicit convergence rates.
 Two modules passed 27 focused axiom checks within `{propext, Quot.sound}`
-(four axiom-free); no full-tree run. Remaining symbol algebra, full-carrier
-and continuum/Clay bridges remain open. SU(2) nome and spacing stay fixed;
+(four axiom-free); no full-tree run. Sum/unit/scalar/difference algebra
+is now proved above; full-carrier and continuum/Clay bridges remain open.
+SU(2) nome and spacing stay fixed;
 this is not a beta/spacing-uniform physical gap.
 
 **Established form laws:** [continuous action is symmetric and preserves quadratic-form order on the represented original cyclic sector](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousFormOrder.lean).
@@ -31,9 +43,9 @@ symbols give nonnegative forms. For a represented square `H=F*F`,
 The proofs use the original positive moment functional and explicit
 pairing-limit moduli, not a supplied spectral decomposition.
 Three modules passed 21 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree run. General product-symbol data are now constructed above;
-remaining symbol algebra stays open, as do the full-carrier and continuum/Clay
-bridges. SU(2) nome and spacing remain fixed. Nonnegative forms are not
+no full-tree run. General product data and symbol algebra are now constructed
+above; full-carrier and continuum/Clay bridges remain open.
+SU(2) nome and spacing remain fixed. Nonnegative forms are not
 a strictly positive physical gap or beta/spacing-uniform gap estimate.
 
 **Established limit bound:** [relative operator bounds hold on constructed original cyclic limits](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCyclicLimitBound.lean).

@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed general product-symbol data and original multiplication):**
+**Latest increment (original symbol algebra and sharp uniform perturbations):**
+PROGRESS after 1f7b7b5. `BF4ExactSlabThermodynamicSumSymbol` constructs
+F+G and its continuity data, using the minimum of the two selectors at
+epsilon/2 followed by the proved finite encoding. Bernstein sums preserve
+addition in rational equivalence, so `sumSymbol_action` is equality with
+the SAME original completed sum. `BF4ExactSlabThermodynamicSymbolAlgebra`
+constructs constant, scaled and difference symbols and their vanishing
+data. Their actions are the original scalar, identity, zero and difference
+operators. These laws are proved, not supplied algebraic hypotheses.
+
+`BF4ExactSlabThermodynamicContinuousUniformBound` uses square-form order
+to prove sharp upper and lower squared-norm bounds from interval bounds
+on |F|. The lower estimate transports a SUPPLIED rational symbol bound;
+it does not assert one for a physical gap symbol. The constructed difference
+gives ||F(T2)x-G(T2)x||^2 <= M^2 ||x||^2 when |F-G|<=M on rational [0,1],
+independent of the symbols' global presentation bounds. The computed
+positive tolerance in `uniformComparisonCertificate` works for every
+admissible pair on the given original represented input. A supplied
+interval-uniform rate is transported through `symbolComparisonModulus`;
+`symbolUniformLimitCertificate` returns the actual original target's
+Cauchy representative, same-action pin and action convergence rate.
+
+NEXT: advance the full-carrier bound, starting from the existing all-vector
+`TimeDefectMoments.mixedMoment_nonnegative`, `BernsteinWords.weights_total`
+and `BernsteinFactorialMoments.weighted_falling`. These accept arbitrary
+original completed vectors; the polynomial moment functional and sharp
+calculus above remain tied to the single normalized probe's represented
+cyclic sector. Do not assume that sector is the whole carrier. General
+sum/unit/scalar/difference/product compatibility is now CLOSED.
+Full-carrier spectral realization, canonical comparisons, quotient-level
+completeness/time injectivity, continuous-time/physical spectral/non-Wick
+pins, continuum scaling, other groups and Clay remain OPEN. Fixed SU(2)
+nome 1/1024 and spacing only. No new hole, physical input, canonical
+type/atom/flag, weight or surrogate; no physical gap claimed.
+
+Verification: three focused monitored modules, 13+14+8=35 exactly matched
+gates within {propext, Quot.sound}, one axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights; no raised options,
+full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-sum-symbol.log`, `/tmp/ym-original-symbol-algebra.log`,
+`/tmp/ym-original-continuous-uniform-bound.log`.
+
+**Previous increment (constructed general product-symbol data and original multiplication):**
 PROGRESS after daabd55. `UniformSymbolEncoding` converts a bounded rational
 value map with a positive monotone uniform-continuity selector into the
 existing `CtsMod` and `MonotoneOmegaVanishing` data. At radius d, a finite
@@ -36,8 +79,8 @@ an extra product-symbol package. `productSymbol_pairing` and
 form identities; `productSymbolActionCertificate` retains the computed
 action representative, rate, pin and sharp norm bound.
 
-NEXT: finish symbol addition/unit/scalar compatibility, then use the
-original continuous calculus for quantitative spectral consequences.
+Symbol addition/unit/scalar/difference compatibility and sharp uniform
+perturbation estimates are now proved in the latest entry above.
 General product data and multiplication are now CLOSED and must not be
 re-assumed. Full-carrier spectral realization, canonical comparisons,
 quotient-level completeness/time injectivity, continuous-time/physical
@@ -81,8 +124,8 @@ of any represented H=F*F with the original squared norm of F(T2)x.
 `cuspSquare_form_identity` supplies the concrete cusp-squared instance.
 No strict positivity or nonzero action value is inferred from these facts.
 
-General product CtsMod/vanishing-data construction is now closed above;
-remaining symbol algebra and quantitative spectral consequences are next.
+General product data, symbol algebra and sharp uniform perturbation
+estimates are now closed above; full-carrier bounds are next.
 Symmetry, form order and positivity are CLOSED and must not be re-assumed.
 Full-carrier spectral realization, canonical comparisons,
 quotient-level completeness/time injectivity, continuous-time/physical
@@ -119,8 +162,8 @@ bound 1, modulus 2*abs(delta) and selector epsilon/2; `cuspSquare_composition`
 instantiates multiplication on every represented original cyclic input.
 Symbol nonconstancy does not assert nonzeroness of an action value.
 
-Symmetry/positivity of continuous action are now proved above; remaining
-symbol algebra data/compatibility is open. The product polynomial-limit
+Symmetry/positivity and sum/unit/scalar/difference symbol algebra of
+continuous action are now proved above. The product polynomial-limit
 action is constructed for arbitrary F,G; the general constructor of a product
 CtsMod with its vanishing data is now supplied above. Do not re-assume the product limit, multiplication
 for represented H, or commutation. Full-carrier spectral realization,
