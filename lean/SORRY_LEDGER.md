@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED exact ORIGINAL response target and finite-certificate reduction; OPEN positive response (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeResponse.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeResponseCertificate.lean`.
+- **closed same-object target**: `response_norm_pin` and `response_pin`
+  give <x,T_2 x>=||T_1 x||^2 and identify it with the thermodynamic
+  reflected covariance of `shiftedProbe`, the one-slice OUTWARD translate.
+  The existing positive norm floor for x is not a floor for this scalar.
+  `response_zero_iff` and `response_zero_iff_twoStep_zero` prove the exact
+  annihilation equivalences for the original geometric time operator.
+- **closed finite test**: `finiteResponseCauchy`, `volumeModulus`,
+  `representativeModulus` and `sample_interval` retain original volume
+  and inner-index errors, each delta. `Certificate.response_floor` and
+  `operator_floor` consume the decidable rational/natural `check`.
+  `certificateOfFloor` conversely computes accepted data from a supplied
+  positive response floor rho; tolerance rho/8, retained floor rho/2.
+  This is a finite proof-certificate format, not a parallel scorecard.
+- **open residue**: NO accepted physical certificate or positive response
+  floor is constructed. Thus `CanonicalOSRoot.PositiveTimeOSRoot.probeRayleighLower`
+  remains open; its normalized full positive-time realization is not
+  replaced by this restricted CReal plaquette carrier. Full observable
+  realization/action maps, quotient-level completeness, continuum scaling,
+  continuous-time generator/spectral identification, QFT axioms and remaining
+  groups remain open. SU(2), w=1/1024 and spacing are fixed. No canonical
+  atom/type/flag, analytic premise or hole changed.
+- **verification**: two modules, 17+16=33 exactly matched focused gates;
+  one axiom-free, all others within {propext, Quot.sound}. Final logs
+  error/warning free and own/direct-import artifacts fresh. Exact scalar
+  budget pilot passed; no physical response evaluation performed. One
+  monitored worker, mandatory 20 GiB ceiling; no full build/audit/guard/
+  progress run or raised limits. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-bf4-thermodynamic-probe-response.log`,
+  `/tmp/ym-bf4-thermodynamic-probe-response-certificate.log`.
+
 ## CLOSED bounded ORIGINAL two-step resolvent; OPEN positive excited response/full realization/continuum (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventPartial.lean`,

@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: bounded ORIGINAL two-step resolvent (2026-09-13)
+## Current increment: finite certificate for ORIGINAL excited response (2026-09-13)
+
+The preceding turn was PROGRESS: 9e22fdc constructed and pushed the bounded
+original resolvent. This turn is PROGRESS by an exact target identification
+and a sound/complete finite-certificate reduction, NOT a positive-response
+closure. The already-positive unshifted probe norm is a different quantity.
+
+- `BF4ExactSlabThermodynamicProbeResponse.response_norm_pin` and
+  `response_pin` identify <x,T_2 x>=||T_1 x||^2 with the ORIGINAL
+  thermodynamic covariance of the one-slice outward shifted probe.
+  `response_zero_iff` and `response_zero_iff_twoStep_zero` show exactly
+  what a zero response means for the current physical time operator.
+- `BF4ExactSlabThermodynamicProbeResponseCertificate.sample_interval`
+  gives [sample-2*delta,sample+2*delta], retaining original finite-volume
+  and representative moduli. The rational sample includes the original
+  nested numerator and reciprocal cutoff schedules; it is not a claim
+  about a single common raw cutoff.
+- `Certificate.response_floor` / `operator_floor` soundly consume the
+  finite Boolean check. `certificateOfFloor` constructs an accepted
+  certificate from any supplied positive response floor rho, with
+  tolerance rho/8 and retained floor rho/2. All witnesses are data.
+
+No physical certificate is instantiated or numerically evaluated. Next:
+prove a positive lower bound for this shifted covariance on the original
+law. Full required observables/action maps and quotient-level completeness,
+continuum scaling, generator/spectral identification, QFT and all-group
+Clay remain open. No canonical atom/type/flag, analytic premise or hole
+changed; nome 1/1024 and spacing are fixed.
+
+Verification: 17+16=33 exactly matched focused gates, one axiom-free and
+all others within {propext, Quot.sound}; final logs error/warning free,
+own/direct-import artifacts fresh. Exact scalar budget pilot passed, not a
+physical covariance computation. One monitored worker, 20 GiB ceiling;
+no raised limits or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs: `/tmp/ym-bf4-thermodynamic-probe-response.log`,
+`/tmp/ym-bf4-thermodynamic-probe-response-certificate.log`.
+
+## Previous increment: bounded ORIGINAL two-step resolvent (2026-09-13)
 
 The preceding turn pushed the nonzero original thermodynamic excitation in
 1c73eba. This resumed turn is PROGRESS: the original two-step defect now has

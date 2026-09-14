@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (bounded inverse of the ORIGINAL two-step defect):**
+**Latest original-action increment (finite certificate for the exact ORIGINAL excited response):**
+The 9e22fdc checkpoint constructed the bounded two-step resolvent. The next
+source trace distinguishes the existing positive norm from positive transfer
+response: the proved floor concerns the unshifted boundary probe, whereas
+`<x,T_2 x>` is the norm squared of its one-slice OUTWARD translate. The
+old floor cannot simply be reused for that different observable.
+
+`BF4ExactSlabThermodynamicProbeResponse.shiftedProbe`, `translatedState_pin`,
+`response_norm_pin` and `response_pin` identify the exact scalar with
+`covarianceLimit shiftedProbe shiftedProbe`. `finiteResponse`,
+`finiteResponseCauchy`, `volumeModulus` and `representativeModulus` retain
+the SAME original action, reciprocal, centering and nested cutoff schedules.
+`response_zero_iff` and `response_zero_iff_twoStep_zero` identify zero
+response precisely with annihilation of the probe by T_1 and T_2 respectively.
+
+`BF4ExactSlabThermodynamicProbeResponseCertificate.sample_interval` encloses
+that response in [sample-2*delta,sample+2*delta] at the displayed finite
+volume and representative indices. The two errors are separately controlled.
+`check` is a decidable rational/natural test; `Certificate.response_floor`
+and `Certificate.operator_floor` prove soundness. An accepted certificate
+excludes both annihilation conclusions. `certificateOfFloor` proves the
+converse constructively: a supplied positive response floor rho computes
+delta=rho/8, both indices and an accepted certificate with floor rho/2.
+This is a finite-certificate reduction, not a new frontier enumeration or
+an analytic premise disguised as a check.
+
+OPEN: no accepted physical certificate or positive response floor is supplied.
+The scalar budget pilot does not evaluate the physical covariance, and no
+affordability claim is made for its nested rational approximants. Next:
+construct a certified positive lower bound for THIS shifted-probe covariance,
+either by an accepted finite certificate or a direct original-action estimate.
+The required full observable realization/action maps, quotient-level
+completeness, continuum scaling, continuous-time generator/spectral pins,
+QFT axioms and all-group Clay remain open. SU(2), nome 1/1024 and spacing
+are fixed. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: two modules, 17+16=33 exactly matched focused gates; one
+axiom-free, all others within {propext, Quot.sound}. Final logs error/warning
+free and own/direct-import artifacts fresh. Exact scalar budget pilot
+`python3 -m computations.original_thermodynamic_response_budget` passed;
+physical response evaluation NOT performed. One monitored worker, mandatory
+20 GiB ceiling; no full build/audit/guard/progress run or raised limits.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-thermodynamic-probe-response.log`,
+`/tmp/ym-bf4-thermodynamic-probe-response-certificate.log`.
+
+**Preceding original-action increment (bounded inverse of the ORIGINAL two-step defect):**
 The 1c73eba checkpoint supplied a nonzero thermodynamic excitation. The
 resumed source trace confirms that full observable realization and full
 quotient-level completeness are still open. It also identifies the stronger

@@ -24,8 +24,13 @@ integer time. The [two-step defect now has a constructive bounded inverse](lean/
 on that completion's unit complement: `(I-T2) R x = center x`,
 `R (I-T2) x = center x`, and `||R x||^2 <= 4||center x||^2`.
 The geometric-series solver retains its explicit approximation modulus.
-Full observable realization/completeness, a positive excited transfer-response
-bound and continuum scaling remain open; this is not Clay closure.
+The [positive excited-response test](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeResponseCertificate.lean)
+now targets the exact original quantity `<x,T2 x> = ||T1 x||^2`: a finite
+rational covariance sample minus explicit volume and representative errors.
+The checker is proved sound and quantitatively complete, but **no accepted
+physical certificate has been constructed**. Full observable realization/
+completeness, the positive response bound and continuum scaling remain open;
+this is not Clay closure.
 
 ## Whole-project goal
 
