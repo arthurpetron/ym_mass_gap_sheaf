@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED leading-power spatial continuation and partition cancellation; OPEN leading evaluation (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4ThreeCutSaturation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalPowerWindow.lean`,
+  `lean/YMGap/Continuum/Z4TemporalSpatialIncidence.lean`,
+  `lean/YMGap/Continuum/Z4WindowSpatialParity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalMomentParity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalMomentContinuation.lean`.
+- **closed support**: `retained_minimal_window` forces both original
+  replicas into the three temporal layers at power 36; no extra geometric
+  path premise is added. `positive_eq_odd` retains the actual physical
+  fundamental carrier; `retained_minimal_spatial_zero` excludes spatial faces.
+- **closed incidence/parity**: `spatial_next`, `spatial_bottom`,
+  `spatial_top` and `window_parity_unique` give exact binary continuation.
+  `moment_geometry_parity` uses the ORIGINAL all-link SU(2) insertion
+  checker. `retimed_endpoint_mem` preserves actual endpoint membership.
+- **closed original cancellations**: `moment_cut_pin` identifies each cut
+  bit with the lower endpoint charge; `one_endpoint_zero` kills one-endpoint
+  moments. `accepted_partition_empty` proves a passing partition moment has
+  no occupied face. `retained_minimal_pairTerm` removes the mean product;
+  `retained_nonempty_partition_zero` kills an original leading pair with
+  nonempty partition-replica support. No signed Haar evaluation is assumed.
+- **open residue**: literal mixed-moment tube classification, original
+  weighted amplitude and filtered-enumeration multiplicity, hence A's value
+  and sign; useful signed relative remainder bound, positive response and
+  accepted certificate, normalization/cutoff/volume persistence. Full
+  realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, analytic premise, canonical atom/type/flag or frontier
+  field changed. No coupling-uniform gap follows from these identities.
+- **verification**: 40 exactly matched focused gates, seven axiom-free,
+  within {propext, Quot.sound}; clean logs and fresh own/direct-import
+  artifacts. Capped pilot: eight saturated replica distributions, 32 binary
+  strip assignments. One monitored worker, 20 GiB ceiling; user-owned test
+  pauses respected. No raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED original heat-power and signed leading/remainder decomposition; OPEN their estimates (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/SU2FiniteHeatPowerFactorization.lean`,

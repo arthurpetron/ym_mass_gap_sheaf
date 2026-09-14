@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: complete original numerator has explicit signed leading/remainder factors (2026-09-14)
+## Current increment: original leading-power spatial continuation removes mean and partition support (2026-09-14)
+
+The preceding checkpoint fd4251c was PROGRESS: the exact original signed
+leading/remainder decomposition. This increment is PROGRESS by restricting
+the original leading carrier and proving further exact Haar cancellations.
+
+- `BF4ExactSlabMinimalPowerWindow.retained_minimal_window` derives three-layer
+  temporal-only support from saturation of the original area bound.
+- `Z4TemporalSpatialIncidence.spatial_next` and
+  `Z4WindowSpatialParity.window_parity_unique` turn actual spatial-link
+  incidence into a unique three-cut binary continuation.
+- `BF4ExactSlabMinimalMomentParity.moment_geometry_parity` supplies its
+  equations from the ORIGINAL insertion checker; endpoint retiming is pinned.
+- `BF4ExactSlabMinimalMomentContinuation.moment_cut_pin` identifies cut
+  bits with the actual probe boundary. `one_endpoint_zero` kills both means;
+  `accepted_partition_empty` excludes occupied partition support.
+  `retained_minimal_pairTerm` and `retained_nonempty_partition_zero` apply
+  these cancellations on the EXACT original retained pair carrier.
+
+Next: literal mixed-moment tube support, weighted Haar evaluation AND
+enumeration multiplicity, then a useful relative bound for the signed
+higher remainder. No value/sign of A, positive response/certificate,
+normalization/limit persistence, full realization or continuum/Clay closure
+is claimed. No analytic premise, canonical atom/type/flag, frontier field
+or hole changed. A support/cancellation theorem is not a uniform gap bound.
+
+Verification: 40 exactly matched focused gates, seven axiom-free, within
+{propext, Quot.sound}; clean logs and fresh own/direct-import artifacts.
+Capped pilot: eight saturated replica distributions, all 32 binary strips.
+One monitored worker, 20 GiB ceiling; user-owned test pauses respected.
+No raised limits or full build/audit/guard/progress run. Root imports not
+rebuilt; exact logs in work_plan.
+
+## Previous increment: complete original numerator has explicit signed leading/remainder factors (2026-09-14)
 
 The preceding checkpoint 9dbf28b was PROGRESS: original replica area >= 12.
 This increment is PROGRESS by pinning the support count to the actual

@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalLeadingRemainder.lean)
+**Latest local mathematical step:** [minimal-power spatial continuation](lean/YMGap/Continuum/BF4ExactSlabMinimalMomentContinuation.lean)
+now eliminates both one-endpoint moments from the leading connected term.
+[Saturation of the original twelve-face bound](lean/YMGap/Continuum/BF4ExactSlabMinimalPowerWindow.lean)
+confines every occupied face to the three intervening temporal layers.
+Exact spatial-link incidence and the original SU(2) center-charge checker
+then force the same boundary bit through all three cuts. A passing
+partition moment has empty occupied support; any leading pair with an
+occupied partition-replica face contributes zero. This uses the original
+signed Haar moments, not a replacement measure or an assumed tube path.
+Six focused modules passed 40 axiom checks within `{propext, Quot.sound}`
+(seven axiom-free). **Still open:** identify and evaluate the surviving
+mixed-moment carrier, evaluate the leading coefficient, bound the signed
+remainder, and prove original positive response and continuum/Clay closure.
+These are exact support/cancellation statements, not a uniform gap estimate.
+
+The preceding [complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalLeadingRemainder.lean)
 is now proved to equal `w^36 * (A + w*B(w))`, with explicit signed finite
 sums for `A` and `B`. This is a division-free identity, including at `w = 0`,
 for every cutoff and volume margin. The [original two-replica heat weights](lean/YMGap/Continuum/BF4ExactSlabOriginalPairHeatPower.lean)

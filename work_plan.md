@@ -18,7 +18,59 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original numerator = w^36 times an explicit signed leading/remainder pair):**
+**Latest local increment (original leading-power spatial continuation and partition cancellation):**
+The fd4251c checkpoint proved original numerator = `w^36*(A+w*B(w))`.
+This increment constrains the ORIGINAL leading terms rather than assuming
+the twelve occupied faces form the desired tube.
+
+`Z4ThreeCutSaturation.window_count` counts the disjoint three-cut union;
+`saturated_in_window` forces all support into it at equality.
+`BF4ExactSlabMinimalPowerWindow.retained_minimal_window` applies this to
+both original replicas at power 36, using the exact existing filters.
+`positive_eq_odd` pins fundamental positive support to the original odd-face
+carrier; `retained_minimal_spatial_zero` excludes every spatial plaquette.
+
+`Z4TemporalSpatialIncidence.spatial_next` identifies spatial-link incidence
+with the cut count above plus that below. `Z4WindowSpatialParity.spatial_bottom`
+and `spatial_top` close the window endpoints. Distinct physical faces make
+each cut count a bit. `binary_strip` and `window_parity_unique` prove unique
+continuation of those bits through the four even-charge equations.
+
+`BF4ExactSlabMinimalMomentParity.moment_geometry_parity` obtains the equations
+from the ORIGINAL all-link insertion checker, including links outside the
+physical list. `retimed_endpoint_mem` pins the actual endpoint boundaries.
+`BF4ExactSlabMinimalMomentContinuation.moment_cut_pin` identifies every
+spatial cut bit with the actual lower endpoint charge and equates the upper
+charge to it. `one_endpoint_zero` kills both one-endpoint moments;
+`accepted_partition_empty` forces empty occupied support for a passing
+partition moment. On the exact original retained pair carrier,
+`retained_minimal_pairTerm` removes the mean product and
+`retained_nonempty_partition_zero` kills any pair whose partition replica
+has an occupied face. No Haar value or sign is inferred just from parity.
+
+NEXT/OPEN: pin the surviving mixed-moment support to the literal twelve-face
+tube, evaluate its original weighted amplitude AND its multiplicity in the
+exact filtered enumeration, then bound the signed higher remainder relative
+to that leading coefficient. A's value/sign remains unproved. Original
+positive response/certificate, normalization/cutoff/volume persistence,
+full realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No analytic premise, canonical atom/type/flag, frontier field or hole
+changed. These nome-free support/cancellation identities are not a
+coupling-uniform gap bound.
+
+Verification: 6+3+14+5+4+8=40 exactly matched focused gates within
+{propext, Quot.sound}, seven axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/three_cut_saturation.py`
+checks eight saturated replica distributions and all 32 binary strip
+assignments (only all-zero/all-one survive). General Lean proofs do not
+trust the pilot. One monitored worker, 20 GiB ceiling; user-owned test
+pauses respected. No raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs: `/tmp/ym-three-cut-saturation.log`,
+`/tmp/ym-minimal-power-window.log`, `/tmp/ym-temporal-spatial-incidence.log`,
+`/tmp/ym-window-spatial-parity.log`, `/tmp/ym-minimal-moment-parity.log`,
+`/tmp/ym-minimal-moment-continuation.log`.
+
+**Preceding local increment (original numerator = w^36 times an explicit signed leading/remainder pair):**
 The 9dbf28b checkpoint proved the original retained-pair area bound.
 This increment pins that geometry to the ACTUAL SU(2) heat weights and
 extracts the leading heat power from the COMPLETE original numerator.
