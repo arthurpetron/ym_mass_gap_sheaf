@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (positive original time/defect moments and finite Bernstein rows):**
+**Latest increment (all original factorial moments and quantitative monomial convergence):**
+PROGRESS after c8c0a7b. The SAME Bernstein rows now converge at every
+monomial order to the actual normalized original transfer moments.
+
+`BF4ExactSlabThermodynamicBernsteinFactorialMoments.weighted_choose`
+proves the all-order Pascal identity; `factorial_choose_all` extends the
+existing natural factorial bridge through the out-of-support region.
+`weighted_falling` gives sum (count)_r*weight = (N)_r*m(k+r,l), for all
+orders, degrees and mixed offsets, on the original completion. Only
+finite arithmetic is reused from the transvectant modules; no analytic
+or group-theoretic premise is added.
+
+`BernsteinFallingProductError` constructs the rational falling products,
+proves 0<=product<=(k/N)^r<=product+C(r)/N for every 0<=k<=N, and
+returns `modulus` with `error_small`. Here N=n+1 and C is the computed
+triangular recursion C(0)=0, C(r+1)=C(r)+r. All truncating-natural cases
+are included; the positive denominator ceiling is C(r)+1, even at r=0,1.
+
+`BF4ExactSlabThermodynamicBernsteinMomentConvergence.falling_average`
+pins the falling-weight average to the SAME original moment times its
+known normalization factor. `powerMoment_error` gives BOTH directions
+of the C(r)/N bound. `powerCauchy` retains the finite-row real modulus;
+`limitCauchy` retains the original moment's modulus. `moment_error_le`
+uses the computed threshold. `momentConvergenceCertificate` returns
+the limit real, QCauchy data, the exact <v,T_(r+r)v> identity and rate.
+No large binary tree or rational sample was evaluated.
+
+NEXT: signed-polynomial convergence and the original moment functional's
+positivity/boundedness, then a controlled spectral realization. All-order
+monomial convergence is CLOSED; a spectral measure or full functional
+calculus is not yet constructed. Canonical observable/scalar/carrier
+comparison, full quotient-level completeness and time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling, other
+groups and Clay remain OPEN. No hole, new analytic input, frontier
+type/atom/flag or physical weight change; fixed SU(2) nome 1/1024/spacing.
+
+Verification: three focused monitored modules, 8+24+29=61 exactly matched
+axiom gates within {propext, Quot.sound}, five axiom-free; clean logs and
+fresh own/direct-import artifacts. One worker, 20 GiB ceiling; no raised
+options, full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-bernstein-factorial-moments.log`,
+`/tmp/ym-bernstein-falling-product-error.log`,
+`/tmp/ym-original-bernstein-moment-convergence.log`.
+
+**Previous increment (positive original time/defect moments and finite Bernstein rows):**
 PROGRESS after f996e3a: the next operator-positivity and finite-weight targets
 are CLOSED, using the SAME completion, original transfer and normalized probe.
 

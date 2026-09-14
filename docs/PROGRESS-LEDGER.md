@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original mixed positivity and finite probability rows (2026-09-14)
+## Current increment: all original row moments converge with explicit rates (2026-09-14)
+
+PROGRESS after c8c0a7b. `weighted_choose` and `weighted_falling` prove the
+all-order exact moments of the SAME original finite Bernstein rows.
+`BernsteinFallingProductError` controls the ordinary-power/falling-product
+difference by C(r)/N with an explicit tolerance modulus and all boundary
+cases, where C(0)=0, C(r+1)=C(r)+r.
+
+`BF4ExactSlabThermodynamicBernsteinMomentConvergence.powerMoment_error`
+proves the two-sided C(r)/N error against the ORIGINAL <v,T2^r v>.
+`momentConvergenceCertificate` returns that actual limit, QCauchy data,
+operator identity and rate. The finite-row reals retain `powerCauchy`.
+No spectral resolution or new analytic input was assumed.
+
+NEXT: signed-polynomial extension and positivity/boundedness of the
+original moment functional, toward full spectral realization. Monomial
+convergence is CLOSED. Spectral measure/functional calculus, full
+canonical observable/scalar/carrier comparison and completeness/time
+injectivity, continuous time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. Fixed SU(2) nome/spacing;
+no new hole, frontier field/atom/flag or physical weight change.
+
+Verification: three focused monitored modules, 61 matched gates within
+{propext, Quot.sound}, five axiom-free; clean logs, fresh own/direct-import
+artifacts, one worker, 20 GiB ceiling. No raised options, large tree/sample
+computation, full build/audit/guard/progress or root-import run. Logs in
+work_plan.
+
+## Previous increment: original mixed positivity and finite probability rows (2026-09-14)
 
 PROGRESS after f996e3a. The SAME original operator now has proved positive
 mixed moments <x,T2^k (I-T2)^l x>. The proof uses geometric half-time,

@@ -69,6 +69,26 @@ nonnegative real weights, their QCauchy data, total mass and that pin.
 It does not construct a limiting spectral measure or prove the finite
 rows have support in [0,1/2]; only their mean has that upper bound.
 
+## All-order moment convergence update after c8c0a7b
+
+`weighted_choose` and `weighted_falling`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinFactorialMoments.lean:52`
+and line 94, prove every exact factorial moment of the ORIGINAL rows.
+`power_le_product_error`,
+`lean/YMGap/Continuum/BernsteinFallingProductError.lean:90`, bounds the
+ordinary-power/falling-product difference by C(r)/N; `modulus` at line
+129 and `error_small` at line 132 compute and prove a tolerance threshold.
+C is defined by the triangular recursion `coefficient` at line 42.
+
+All monomial moments now converge with a rate: `powerMoment_error`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinMomentConvergence.lean:131`,
+gives the two-sided C(r)/N bound. `limitMoment_pin` at line 77 pins the
+limit to the original operator; `moment_error_le` at line 168 supplies
+the tolerance form. `momentConvergenceCertificate` at line 180 returns
+the original limiting real, QCauchy data, operator identity and modulus.
+`powerCauchy` at line 160 separately retains the finite-row real's modulus.
+No limiting spectral measure or full functional calculus is asserted.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -102,17 +122,20 @@ resolution: `PolyNormData.normDiag`,
 structure field, consumed by `dischargeBTC` at line 390. It is not an
 original spectral decomposition constructed by the new normalization.
 
-Mixed positivity and finite normalized Bernstein rows are now closed by
-the declarations above. Next unproved targets: higher factorial moments
-and quantitative polynomial convergence of these SAME rows. Neither a
-spectral limit nor its functional-calculus realization is claimed.
+Mixed positivity, finite normalized rows and all-order monomial convergence
+are now closed by the declarations above. Next unproved targets: the
+signed-polynomial extension and the original moment functional's positivity
+and boundedness. Neither a spectral measure nor a full functional calculus
+is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
-The mixed-moment/finite-row increment has three new modules and 55 exactly
+The all-order moment-convergence increment has three new modules and 61
+exactly matched gates within `{propext, Quot.sound}`, five axiom-free.
+The mixed-moment/finite-row increment had three new modules and 55 exactly
 matched axiom gates within `{propext, Quot.sound}`, four axiom-free.
 The normalization increment had three new modules and 60 exactly matched
 `#print axioms` gates within `{propext, Quot.sound}`, five axiom-free.

@@ -4195,6 +4195,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicNormalizedProbe
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeDefectMoments
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinWords
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinProbeRows
+-- All original factorial moments and monomial convergence with explicit rates;
+-- no supplied spectral resolution or continuum conclusion.
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinFactorialMoments
+import YMGap.Continuum.BernsteinFallingProductError
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinMomentConvergence
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

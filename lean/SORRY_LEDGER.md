@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original mixed positivity and finite Bernstein probability rows (2026-09-14)
+## CLOSED all original Bernstein moments with computed convergence rates (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinFactorialMoments.lean`,
+  `BernsteinFallingProductError.lean`, and
+  `BF4ExactSlabThermodynamicBernsteinMomentConvergence.lean` in the same directory.
+- **closed exact identities**: `weighted_choose`, `factorial_choose_all`
+  and `weighted_falling` prove every binomial/falling-factorial moment of
+  the SAME original rows, including orders greater than the degree.
+  Existing finite factorial arithmetic is reused, not a spectral input.
+- **closed quantitative approximation**: `power_le_product_error`,
+  `product_falling`, `modulus`, and `error_small` give the all-order
+  rational product error C(r)/N, with C(0)=0 and C(r+1)=C(r)+r.
+  `falling_average`, `powerMoment_error` and `moment_error_le` lift this
+  to BOTH directions of the actual row/operator moment error.
+  `momentConvergenceCertificate` returns the original limiting real,
+  QCauchy data, its <v,T_(r+r)v> pin and computed threshold; `powerCauchy`
+  retains the finite row's own QCauchy data.
+- **open residue**: signed-polynomial extension and its positivity/norm
+  bounds; full spectral realization/functional calculus. All-order
+  monomial convergence is not reopened as an input. The canonical
+  observable/scalar/carrier comparison, full quotient-level completeness
+  and time injectivity, continuous-time/physical spectral/non-Wick pins,
+  continuum scaling, other groups and Clay remain open. No new hole,
+  analytic premise, frontier type/atom/flag or physical weight change;
+  fixed original SU(2) nome and spacing only.
+- **verification**: three focused monitored modules, 61 exactly matched
+  gates within {propext, Quot.sound}, five axiom-free; clean logs and fresh
+  own/direct-import artifacts. One worker, 20 GiB ceiling; no raised
+  options, large tree/sample evaluation, full build/audit/guard/progress
+  or root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original mixed positivity and finite Bernstein probability rows (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean`,
   `BF4ExactSlabThermodynamicBernsteinWords.lean`, and

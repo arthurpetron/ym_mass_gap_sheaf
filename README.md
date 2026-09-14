@@ -13,7 +13,16 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest operator milestone:** [positive mixed time/defect moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean)
+**Latest operator milestone:** [all moments of the finite Bernstein rows now converge to the original transfer moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinMomentConvergence.lean).
+At degree `N`, the two-sided error for the `r`th moment is at most
+`C(r)/N`, where `C(0)=0` and `C(r+1)=C(r)+r`. The certificate returns
+the original limiting moment `<v,T2^r v>`, its Cauchy data, the operator
+identity and a computed tolerance threshold. Three modules passed 61
+focused axiom checks within `{propext, Quot.sound}` (five axiom-free).
+The signed-polynomial extension, full spectral realization, continuum
+scaling and Clay target remain open; nome and lattice spacing are fixed.
+
+**Established finite rows:** [positive mixed time/defect moments](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeDefectMoments.lean)
 now produce [finite Bernstein probability rows for the original normalized probe](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinProbeRows.lean).
 Their rational grid nodes lie in `[0,1]`; their nonnegative real weights
 have explicit Cauchy moduli, sum to one, and have first moment exactly
@@ -21,8 +30,8 @@ have explicit Cauchy moduli, sum to one, and have first moment exactly
 and contraction, without a supplied spectral decomposition. The binary-word
 representation retains repeated grid nodes, not alleged eigenvalues.
 Three modules passed 55 focused axiom checks within `{propext, Quot.sound}`
-(four axiom-free). Higher-moment convergence and spectral realization
-remain open, as do continuum scaling and the Clay target.
+(four axiom-free). These are finite probability rows, not assumed
+eigenvalues or a supplied spectral decomposition.
 
 **Established normalized excitation:** a [norm-one excitation with a certified strict transfer-response interval](lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean)
 is now constructed in the original thermodynamic OS completion:
