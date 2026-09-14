@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original tube reference floor uniform in cutoff and margin (2026-09-14)
+## Current increment: large signed core tail absorbed into the original tube reference (2026-09-14)
+
+The preceding acc4f1c checkpoint was PROGRESS: it discharged the original
+detached/full partition comparison. This increment is PROGRESS by bounding
+the actual large other-core remainder and removing it from the open input.
+
+- `BF4ExactSlabResummedSubfamilyBound.resummed_subfamily_tail` applies
+  the original partition-relative estimate and count to an actual sublist,
+  preserving its original coefficients and detached partition factors.
+- `BF4ExactSlabOriginalCoreTailWindow.otherCoreRemainder_split` partitions
+  the existing remainder exactly into short and large cores. The short
+  window has size >=12, size <threshold and excludes the tube.
+- `BF4ExactSlabOriginalCoreTailCertificate.size33_tailCoefficient_le`
+  certifies the explicit scalar budget <=w^36/4 at w=1/1024, using small
+  inverse-power blocks, entropy <=1/4096 and a geometric reciprocal <=2.
+- `largeOtherRemainder_size33_bound` bounds the actual signed >=33-face
+  remainder by `(w^36/4)*Z_full^2`, uniformly in cutoff and margin.
+- `original_numerator_lower_with_short_remainder` gives
+  `N_full >= (w^36/4)*Z_full^2 + shortOtherRemainder` for K>=1.
+
+Next: cancellation-aware signed control of the ORIGINAL 12–32-face
+non-tube sum, still carrying all cutoff spins and detached partitions.
+No sign or useful magnitude bound is assumed for this short branch.
+Positive full response/certificate, limits, full realization and
+continuum/Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed.
+
+Verification: 27 exactly matched focused gates within {propext, Quot.sound},
+three axiom-free; clean final logs and fresh own/direct-import artifacts.
+Capped scalar pilot checks block bounds and thresholds 30..33, not the
+full numerator or short-core values. One monitored worker, 20 GiB ceiling;
+no raised limits or full build/audit/guard/progress run. Root imports not
+rebuilt; exact logs in work_plan.
+
+## Previous increment: original tube reference floor uniform in cutoff and margin (2026-09-14)
 
 The preceding 4df39db checkpoint was PROGRESS: the complete tube core was
 evaluated and extracted from the original resummation. This increment is
@@ -26,7 +60,8 @@ PROGRESS by discharging the required detached/full partition comparison.
 - `original_numerator_lower_with_remainder` retains the exact signed
   `otherCoreRemainder`. No full-response positivity is inferred.
 
-Next: signed other-core control on the reference scale. Positive full
+The large tail is now controlled above; signed short-core control on the
+reference scale remains open. Positive full
 response/certificate, normalization/limit persistence, full realization,
 continuum/QFT/spectral pins, other groups and Clay remain open. No hole,
 new open analytic input, canonical atom/type/flag or frontier field changed.

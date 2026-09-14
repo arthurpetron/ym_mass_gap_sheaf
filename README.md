@@ -32,7 +32,20 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [actual dressed tube term now has a positive reference floor](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeReferenceFloor.lean)
+**Latest local mathematical step:** the [large signed core remainder is now controlled](lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailCertificate.lean)
+at nome `1/1024`, uniformly in cutoff and volume margin. The [exact split](lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailWindow.lean)
+retains the original coefficients, multiplicities and detached partitions.
+All other cores with at least 33 faces cost at most `(w^36/4) * Z_full^2`
+in absolute value. Absorbing this into the tube reference gives
+`N_full >= (w^36/4) * Z_full^2 + shortOtherRemainder`.
+Three focused modules passed 27 axiom checks within `{propext, Quot.sound}`
+(three axiom-free); no full-tree audit ran.
+**Next:** control the exact signed non-tube remainder with 12–32 faces.
+The bounded-size window still retains every cutoff spin and original
+partition factor; its sign is not assumed. Positive full response, limit
+persistence and continuum/Clay closure remain open.
+
+The preceding [actual dressed tube term has a positive reference floor](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeReferenceFloor.lean)
 relative to the original full partition, at every cutoff and volume margin
 at nome `1/1024`. Its collar has at most 336 faces. Iterating the [original
 one-face partition comparison](lean/YMGap/Continuum/BF4ExactSlabRelativePartitionCeiling.lean)

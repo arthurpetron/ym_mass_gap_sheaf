@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED large other-core tail absorption; OPEN original 12–32-face signed remainder (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabResummedSubfamilyBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailWindow.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailCertificate.lean`.
+- **closed actual subfamily bound**: `resummed_subfamily_tail` inherits
+  the original core count and per-core partition comparison on an actual
+  sublist, preserving every original detached partition factor.
+- **closed exact split**: `otherCoreRemainder_split` partitions the
+  previous signed remainder without changing multiplicities.
+  `shortOtherCores_window` proves size >=12, size <threshold and non-tube
+  membership; `largeOtherRemainder_bound` bounds the actual large subfamily
+  at every cutoff and margin with explicit nome-dependent constants.
+- **closed quantitative absorption**: at w=1/1024, inverse floor powers
+  8 and 48 are bounded by 1025/1024 and 17/16; probe prefactor <=2,
+  entropy <=1/4096 and geometric reciprocal <=2. `size33_scalar_guard`
+  and `size33_tailCoefficient_le` certify the >=33-face coefficient
+  <=w^36/4. `largeOtherRemainder_size33_bound` applies it to the SAME
+  original full partition square. `original_numerator_lower_with_short_remainder`
+  absorbs this tail and retains only the original 12–32-face signed sum.
+- **open residue**: useful cancellation-aware control of that short
+  non-tube sum, retaining all cutoff spins and detached partition factors;
+  positive full response/certificate, normalization/cutoff/volume
+  persistence, full realization, continuum/QFT/spectral pins, other groups
+  and Clay. No hole, new open analytic input, canonical atom/type/flag or
+  frontier field changed. No sign assumption on the short sum and no
+  coupling-uniform gap claim.
+- **verification**: 27 exactly matched focused gates within
+  {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+  own/direct-import artifacts. Capped scalar pilot checks the blocks and
+  thresholds 30..33, not original short-core values or the numerator.
+  One monitored worker, 20 GiB ceiling; no raised limits or full build/
+  audit/guard/progress run. Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED original tube partition-relative reference floor; OPEN signed other-core control (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/RationalLinearPowerCeiling.lean`,

@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (a positive original tube reference floor, uniform in cutoff and margin):**
+**Latest local increment (large signed cores absorbed; only the 12–32-face window remains):**
+The acc4f1c checkpoint was PROGRESS: the original tube contribution has a
+positive reference floor relative to the full partition. This increment
+controls an ACTUAL remainder subfamily, not the full numerator again.
+
+`BF4ExactSlabResummedSubfamilyBound.subfamily_weight_tail` inherits the
+existing size count on any actual sublist of connecting anchors.
+`resummed_subfamily_tail` keeps every original coefficient and its own
+detached partition square. `BF4ExactSlabOriginalCoreTailWindow` defines
+short and large filters of the existing `otherCoreRemainder` list and
+proves `otherCoreRemainder_split`, with all multiplicities unchanged.
+`shortOtherCores_window` proves size >=12, size <threshold and exclusion
+of the tube. `largeOtherRemainder_bound` gives an explicit nome-dependent
+tail coefficient, uniform in cutoff and margin.
+
+`BF4ExactSlabOriginalCoreTailCertificate` improves the existing scalar
+ceilings in small blocks: inverse face floor to power eight <=1025/1024,
+power 48 <=17/16, probe prefactor <=2, entropy <=1/4096 and the geometric
+reciprocal <=2. `size33_scalar_guard` checks
+`16 * (1562500*(1/4096)^33) * 2 <= w^36/4` at w=1/1024.
+`largeOtherRemainder_size33_bound` therefore bounds the actual signed
+large-core remainder by `(w^36/4)*Z_full^2` at every cutoff and margin.
+`original_numerator_lower_with_short_remainder` absorbs it into the
+proved tube reference floor and yields, for every K>=1 and margin,
+
+`N_full >= (w^36/4)*Z_full^2 + shortOtherRemainder(w,K,33,margin)`.
+
+NEXT/OPEN: useful cancellation-aware signed control of the ORIGINAL
+12–32-face non-tube core sum, retaining all cutoff spins and detached
+partitions. Bounded support size alone is not such a bound. Positive full
+response/certificate, normalization/cutoff/volume persistence, full
+realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or
+frontier field changed; no coupling-uniform gap claimed.
+
+Verification: three focused modules, 2+12+13=27 exactly matched gates
+within {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+own/direct-import artifacts. The 30-second-capped exact-rational pilot
+`computations/original_large_core_tail.py` checks the scalar blocks and
+thresholds 30..33, not original numerator or short-core values. Lean
+independently checks the scalar certificate and its original-action use.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/
+audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-resummed-subfamily-bound.log`, `/tmp/ym-original-core-tail-window.log`,
+`/tmp/ym-original-core-tail-certificate.log`.
+
+**Preceding local increment (a positive original tube reference floor, uniform in cutoff and margin):**
 The 4df39db checkpoint was PROGRESS: the complete tube coefficient was
 evaluated and its actual dressed term extracted. This increment closes the
 needed detached/full partition comparison, without assuming a sign for the
@@ -44,7 +90,8 @@ term below by `referenceFloor nome * Z_full^2`.
 `original_numerator_lower_with_remainder` retains the SAME signed
 `otherCoreRemainder` in the lower bound for the original full numerator.
 
-NEXT/OPEN: bound the signed other-core sum at this reference scale. The
+The large other-core tail is now controlled above; signed control of
+the bounded-size window remains open at this reference scale. The
 whole-numerator upper budget remains too coarse and is not recycled as
 a remainder bound. Positive full response/certificate, normalization and
 cutoff/volume persistence, full realization, continuum/QFT/spectral pins,
