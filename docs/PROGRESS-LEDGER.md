@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: complete original tube core evaluated and extracted (2026-09-14)
+## Current increment: original tube reference floor uniform in cutoff and margin (2026-09-14)
+
+The preceding 4df39db checkpoint was PROGRESS: the complete tube core was
+evaluated and extracted from the original resummation. This increment is
+PROGRESS by discharging the required detached/full partition comparison.
+
+- `BF4ExactSlabRelativePartitionCeiling.relative_square_bounded_count`
+  bounds the original full partition square by a finite-removal factor
+  times the same original background partition square, at every cutoff
+  and extent with explicit coupling guards.
+- `RationalLinearPowerCeiling.linear_inverse_bound` proves
+  `(1-n*d)*(1+d)^n <= 1`. Its one-step correction is `(n+1)*d^2 >= 0`.
+  `power_le_two` uses only the explicit linear half-floor guard.
+- `BF4ExactSlabOriginalTubeReferenceFloor.tube_collar_length_le` bounds
+  the literal collar by 336. `tube_partition_ceiling` therefore uses
+  exponent 672, independent of the volume margin.
+- `existingNome_detached_half_floor` proves `Z_detached^2 >= Z_full^2/2`
+  for every K and margin at w=1/1024. `existingNome_dressed_tube_floor`
+  gives the positive reference coefficient `w^36/2` relative to Z_full^2.
+- `original_numerator_lower_with_remainder` retains the exact signed
+  `otherCoreRemainder`. No full-response positivity is inferred.
+
+Next: signed other-core control on the reference scale. Positive full
+response/certificate, normalization/limit persistence, full realization,
+continuum/QFT/spectral pins, other groups and Clay remain open. No hole,
+new open analytic input, canonical atom/type/flag or frontier field changed.
+
+Verification: 17 exactly matched focused gates within {propext, Quot.sound},
+three axiom-free; clean final logs and fresh own/direct-import artifacts.
+Capped scalar pilot: 28 invariant cases, collar counts and three nomes,
+not the full numerator or other-core sum. One monitored worker, 20 GiB
+ceiling; no raised limits or full build/audit/guard/progress run. Root
+imports not rebuilt; exact logs in work_plan.
+
+## Previous increment: complete original tube core evaluated and extracted (2026-09-14)
 
 The preceding 5024a93 checkpoint was PROGRESS: exact small-support cancellation
 entered the original partition-relative resummation. This increment is
@@ -26,8 +60,8 @@ and extracting its actual term from the original resummed numerator.
   `w^36 * Z_detached^2 + otherCoreRemainder`. Every other signed core and
   its detached partition square remains in the explicit remainder.
 
-Next: useful relative control of this other-core sum and the required
-detached/full partition comparison. Positive full response/certificate,
+The required detached/full comparison is now proved above; useful relative
+control of the other-core sum remains open. Positive full response/certificate,
 normalization/limit persistence, full realization and continuum/Clay remain
 open. No hole, new open analytic input, canonical atom/type/flag or frontier
 field changed. The evaluated positive core is not a positivity proof for

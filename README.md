@@ -32,7 +32,19 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [full original tube core is evaluated exactly](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeCoreSplit.lean),
+**Latest local mathematical step:** the [actual dressed tube term now has a positive reference floor](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeReferenceFloor.lean)
+relative to the original full partition, at every cutoff and volume margin
+at nome `1/1024`. Its collar has at most 336 faces. Iterating the [original
+one-face partition comparison](lean/YMGap/Continuum/BF4ExactSlabRelativePartitionCeiling.lean)
+charges only for that collar; a [short inductive power bound](lean/YMGap/Continuum/RationalLinearPowerCeiling.lean)
+gives `Z_detached^2 >= Z_full^2/2`. The dressed tube contribution is therefore
+at least `(w^36/2) * Z_full^2`. Three focused modules passed 17 axiom checks
+within `{propext, Quot.sound}` (three axiom-free); no full-tree audit ran.
+**Next:** bound the signed `otherCoreRemainder` at this reference scale.
+It is retained in the full numerator's lower bound, not discarded.
+Positive full response, limit persistence and continuum/Clay closure remain open.
+
+The preceding [full original tube core is evaluated exactly](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeCoreSplit.lean),
 including every cutoff spin, not only its leading term. A [common sweep](lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalSweep.lean)
 preserves the partition, both means and mixed moment. The [original ordered
 tube heat sub-action](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeActionSweep.lean)

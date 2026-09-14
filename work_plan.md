@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (the complete tube core is exact and extracted from the original resummation):**
+**Latest local increment (a positive original tube reference floor, uniform in cutoff and margin):**
+The 4df39db checkpoint was PROGRESS: the complete tube coefficient was
+evaluated and its actual dressed term extracted. This increment closes the
+needed detached/full partition comparison, without assuming a sign for the
+other cores or changing the original action.
+
+`BF4ExactSlabRelativePartitionCeiling.relative_ceiling` iterates the
+original one-face upper Haar comparison. `relative_square_bounded_count`
+retains the same full and background partitions and charges only for the
+number of removed faces. `RationalLinearPowerCeiling.linear_inverse_bound`
+proves `(1-n*d)*(1+d)^n <= 1` by induction for every nonnegative rational d;
+`power_le_two` reduces the power ceiling to `1/2 <= 1-n*d`.
+
+`BF4ExactSlabOriginalTubeReferenceFloor.tube_collar_length_le` bounds the
+actual tube collar by `6*(8+4*12)=336`, at every margin.
+`tube_partition_ceiling` gives `Z_full^2 <= (1+delta(w))^672 Z_detached^2`
+with the original small-nome guards explicit. `detached_half_floor` uses
+the additional explicit linear guard; `existingNome_linear_guard` checks
+it at w=1/1024. `existingNome_detached_half_floor` thus gives
+`Z_detached^2 >= Z_full^2/2` at every cutoff and margin.
+`referenceFloor w = w^36/2` is returned as rational data and is positive
+for w>0. `existingNome_dressed_tube_floor` bounds the actual dressed tube
+term below by `referenceFloor nome * Z_full^2`.
+`original_numerator_lower_with_remainder` retains the SAME signed
+`otherCoreRemainder` in the lower bound for the original full numerator.
+
+NEXT/OPEN: bound the signed other-core sum at this reference scale. The
+whole-numerator upper budget remains too coarse and is not recycled as
+a remainder bound. Positive full response/certificate, normalization and
+cutoff/volume persistence, full realization, continuum/QFT/spectral pins,
+other groups and Clay remain open. No hole, new open analytic input,
+canonical atom/type/flag or frontier field changed.
+
+Verification: three focused modules, 2+6+9=17 exactly matched axiom gates
+within {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+own/direct-import artifacts. The 30-second-capped exact-rational pilot
+`computations/original_tube_reference_floor.py` checks 28 invariant cases,
+the collar/exponent counts and three nomes, not the full numerator or
+other-core sum. Lean proves the bounds independently by induction and
+kernel-checked scalar guards. One monitored worker, 20 GiB ceiling; no
+raised limits or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-linear-power-ceiling.log`,
+`/tmp/ym-relative-partition-ceiling.log`, `/tmp/ym-original-tube-reference-floor.log`.
+
+**Preceding local increment (the complete tube core is exact and extracted from the original resummation):**
 The 5024a93 checkpoint was PROGRESS: original small-support cancellation
 entered the partition-relative budget. This increment evaluates the whole
 tube core, including all cutoff spins, and isolates its ACTUAL resummed term.
@@ -52,9 +96,9 @@ is invoked. `tube_large_anchor` proves membership in the actual resummed list.
 and margin. `otherCoreRemainder` is the exact signed sum of all other
 original cores, each with its own detached partition square.
 
-NEXT/OPEN: bound that signed other-core sum relative to the dressed tube
-term and control the detached/full partition comparison in the needed
-direction. Neither a useful remainder bound nor a positive full response
+At this checkpoint the remaining steps were the signed other-core bound
+and the needed detached/full partition comparison; the latter is now
+proved above. Neither a useful remainder bound nor a positive full response
 is claimed. Positive response/certificate, normalization/cutoff/volume
 persistence, full realization, continuum/QFT/spectral pins, other groups
 and Clay remain open. No hole, new open analytic input, canonical

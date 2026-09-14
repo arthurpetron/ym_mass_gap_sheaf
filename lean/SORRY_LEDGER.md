@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original tube partition-relative reference floor; OPEN signed other-core control (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/RationalLinearPowerCeiling.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRelativePartitionCeiling.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalTubeReferenceFloor.lean`.
+- **closed finite-removal comparison**: `relative_ceiling` and
+  `relative_square_bounded_count` compare the original shared-link
+  partitions, charging only for removed faces with explicit nome guards.
+- **closed scalar reduction**: `linear_inverse_bound` proves
+  `(1-n*d)*(1+d)^n <= 1` for all nonnegative rational d by induction;
+  `power_le_two` consumes the explicit guard `1/2 <= 1-n*d`.
+- **closed reference floor**: `tube_collar_length_le` gives 336 for the
+  actual twelve-face tube at every margin. `tube_partition_ceiling` uses
+  exponent 672. `existingNome_linear_guard` discharges the scalar guard
+  at w=1/1024, and `existingNome_detached_half_floor` gives
+  `Z_detached^2 >= Z_full^2/2` at every cutoff and margin. `referenceFloor`
+  is explicit rational w^36/2, positive for w>0. The actual dressed term
+  satisfies `existingNome_dressed_tube_floor`.
+- **open residue**: `original_numerator_lower_with_remainder` retains
+  the signed `otherCoreRemainder`; useful control at the reference scale
+  remains open, as do positive full response/certificate, normalization,
+  cutoff/volume persistence, full realization, continuum/QFT/spectral
+  pins, other groups and Clay. No hole, new open analytic input, canonical
+  atom/type/flag or frontier field changed. No coupling-uniform gap claimed.
+- **verification**: 17 exactly matched focused gates within
+  {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+  own/direct-import artifacts. The capped rational pilot checks 28
+  invariant cases, collar counts and three nomes, not the full numerator
+  or other-core sum. One monitored worker, 20 GiB ceiling; no raised limits
+  or full build/audit/guard/progress run. Root imports not rebuilt; exact
+  logs in work_plan.
+
 ## CLOSED complete original tube coefficient and dressed-core extraction; OPEN other-core control (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalSweep.lean`,
@@ -36,7 +68,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The remainder is the explicit signed sum of the OTHER original cores,
   with their original detached partition squares, not a surrogate model.
 - **open residue**: useful other-core control relative to the dressed tube
-  term and the needed detached/full partition comparison; positive full
+  term (the needed detached/full comparison is now proved above); positive full
   response/certificate, normalization/cutoff/volume persistence. Full
   realization, continuum/QFT/spectral pins, other groups and Clay remain
   open. No hole, new open analytic input, canonical atom/type/flag or
