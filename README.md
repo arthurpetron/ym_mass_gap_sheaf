@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** an [all-spin leaf filter](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeLeafFilter.lean)
+**Latest local mathematical step:** every pair retained by the complete original
+connected-numerator expansion has [at least twelve positive-spin faces in total](lean/YMGap/Continuum/BF4ExactSlabConnectedReplicaArea.lean).
+An [explicit temporal separator](lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalCrossing.lean)
+proves that connected selected support crosses each of the three intervening
+cuts. The existing replica labels cover each selected face, so some replica
+occupies each cut; it need not be the same replica on all three cuts.
+[No temporal leaves](lean/YMGap/Continuum/BF4ExactSlabPositiveFaceCutMinimum.lean)
+forces at least four faces per occupied cut, including even-spin faces.
+The proof uses a [simple bipartite obstruction](lean/YMGap/Continuum/LeaflessBipartiteEdgeMinimum.lean),
+not cycle extraction or an assumed path. Five focused modules passed 25 axiom
+checks within `{propext, Quot.sound}` (one axiom-free). **Still open:** pinning
+the area to an exact original heat-power factorization, surviving signs,
+relative signed remainder, positive response and continuum/Clay closure.
+This support theorem is not a coupling-uniform gap estimate.
+
+The preceding [all-spin leaf filter](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeLeafFilter.lean)
 now removes singly occupied temporal links from the **same complete original
 connected numerator**, including even-spin cases missed by parity.
 [Cyclic word exposure](lean/YMGap/Continuum/SU2QuaternionOrientedWordSelection.lean)
@@ -44,8 +59,9 @@ both replica weights and the connected-support filter remain in the identity.
 Four focused modules passed 31 axiom checks within `{propext, Quot.sound}`
 (one axiom-free). The finite pilot rejects 64 additional parity-surviving
 assignments on a four-face cut. **No positive response bound is claimed:**
-the global support/area argument, signed relative remainder and continuum/Clay
-obligations remain open. This all-nome cancellation is not a uniform gap bound.
+the global positive-support area argument is now proved above, but the signed
+relative remainder and continuum/Clay obligations remain open. This all-nome
+cancellation is not a uniform gap bound.
 
 The preceding common expansion puts both cancellations on the
 [same complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCoveredExpansion.lean).
@@ -83,9 +99,10 @@ degree with the original vertical-link incidence and uses a
 [simple bipartite-graph obstruction](lean/YMGap/Continuum/EvenBipartiteEdgeMinimum.lean),
 without extracting a cycle. Three focused modules passed 15 axiom checks
 within `{propext, Quot.sound}` (two axiom-free).
-**The nonempty-cut hypotheses remain explicit:** applying this result to all
-surviving original connected terms is open. It is not a full-response area,
-`w^36` divisibility, positivity or continuum theorem.
+**The odd-cut nonemptiness hypotheses remain explicit.** The newer no-leaf
+argument above instead uses FULL positive-spin support and replica coverage
+to prove the original retained-pair area bound. Neither area result proves
+`w^36` divisibility, positivity or a continuum theorem.
 
 The preceding [all-spin center-charge filter](lean/YMGap/Continuum/BF4ExactSlabCenterCharge.lean)
 now removes exactly zero terms from the **original shared-link heat sum**.

@@ -18,7 +18,55 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (all-spin leaf rejection in the original connected expansion):**
+**Latest local increment (twelve-face minimum for retained ORIGINAL replica pairs):**
+The 3e3061b checkpoint proved all-spin leaf rejection. This increment closes
+the positive-support geometry AND connected-cut coverage, without an extra
+nonempty-cut premise in the final original-expansion theorem.
+
+`LeaflessBipartiteEdgeMinimum.minimum_four` allows odd degrees greater than
+one: no degree-one vertex in a simple nonempty bipartite edge list forces
+at least four edges. `Z4LeaflessTemporalCutMinimum.cut_minimum_four` uses
+the existing injective lattice bipartition and exact temporal-link degree
+pin. `pair_three_cut_minimum_twelve` permits coverage to alternate replicas.
+`BF4ExactSlabPositiveFaceCutMinimum.incidentOccupied_length` identifies the
+computed checker count with incidence of FULL original positive-spin faces.
+`retained_vertical_no_leaf` and `retained_cut_minimum_four` consume the
+existing leaf filter, not a parity-to-positive-support substitution.
+
+`BF4ExactSlabConnectedTemporalCrossing.temporalSeparator` returns the
+explicit selected-index cut by base time. Under no crossing, every lower
+region link has time <= t and every upper region link has time > t.
+`shifted_probe_crossing_nonempty` contradicts the existing separating-cut
+filter for each intervening time. `BF4ExactSlabConnectedReplicaArea.retained_pair_crossing`
+combines this with the existing `PairedPositiveFaceLabellings.covers`.
+`original_retained_pair_minimum_twelve` proves total positive-face count
+>= 12 from membership in the EXACT outer/inner filters of
+`original_numerator_leaf_filter`, at every cutoff, margin and filter time.
+No explicit path, cycle oracle, action independence or sign premise is used.
+
+NEXT/OPEN: pin the actual `coeffW w spin = dimQ spin * qpow w (c4 spin)`
+and the two full original face weights to a combined exponent >= 36; the
+area theorem alone is not a heat-power factorization. Then classify signed
+leading terms and control the relative signed remainder. Positive original
+response, an accepted certificate, normalization and cutoff/volume
+persistence remain open, as do full realization, continuum/QFT/spectral
+pins, other groups and Clay. No analytic premise, canonical atom/type/flag,
+frontier field or hole changed. A nome-free support obstruction is not a
+coupling-uniform gap estimate.
+
+Verification: 1+5+7+8+4=25 exactly matched focused gates within
+{propext, Quot.sound}, one axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/leafless_cut_minimum.py`
+checks 512 bipartite subsets, 6561 paired square assignments, and 16384
+temporal selected supports (8260 connected) across three cuts. Lean proves
+the general claims independently. One monitored worker, 20 GiB ceiling;
+user-owned test pauses respected. No raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-leafless-bipartite-minimum.log`, `/tmp/ym-leafless-temporal-cut.log`,
+`/tmp/ym-positive-face-cut-minimum.log`, `/tmp/ym-connected-temporal-crossing.log`,
+`/tmp/ym-connected-replica-area.log`.
+
+**Preceding local increment (all-spin leaf rejection in the original connected expansion):**
 The 2778cdc checkpoint proved the common original-numerator expansion.
 This increment strengthens its retained representation support beyond parity:
 a temporal link cannot be occupied by exactly one positive-spin face.

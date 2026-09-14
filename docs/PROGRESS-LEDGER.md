@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-spin leaves removed from the original numerator (2026-09-14)
+## Current increment: original retained replica pairs have area at least twelve (2026-09-14)
+
+The preceding checkpoint 3e3061b was PROGRESS: all-spin leaf rejection.
+This increment is PROGRESS by closing both positive-support geometry and
+connected-cut nonemptiness on the exact retained original replica carrier.
+
+- `LeaflessBipartiteEdgeMinimum.minimum_four` requires no degree-one
+  vertex, not even parity; odd degrees above one are permitted.
+- `Z4LeaflessTemporalCutMinimum.cut_minimum_four` transfers this to
+  original temporal-link incidence. `BF4ExactSlabPositiveFaceCutMinimum.incidentOccupied_length`
+  pins the computed checker to FULL positive-spin support; the retained
+  leaf filter supplies the no-degree-one premise.
+- `BF4ExactSlabConnectedTemporalCrossing.temporalSeparator` computes the
+  actual separating index cut under no crossing. Its
+  `shifted_probe_crossing_nonempty` contradicts the existing outer filter.
+- `BF4ExactSlabConnectedReplicaArea.original_retained_pair_minimum_twelve`
+  combines the two branches through exact replica coverage. All three
+  intervening cuts are covered by some replica, each occupied cut has
+  >= 4 faces, and disjoint cut times give combined area >= 12.
+
+Next: pin the actual two heat weights to a combined exponent >= 36, then
+classify signed leading terms and control the relative remainder.
+The support theorem alone proves no factorization, sign, response floor,
+accepted certificate, limit persistence or continuum/Clay closure. No
+analytic premise, canonical atom/type/flag, frontier field or hole changed.
+
+Verification: 25 exactly matched focused gates, one axiom-free, all within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+Capped pilot checks 512 bipartite subsets, 6561 paired assignments and
+16384 temporal selections (8260 connected). General Lean proofs do not
+trust the pilot. One monitored worker, 20 GiB ceiling; user-owned test
+pauses respected. No raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: all-spin leaves removed from the original numerator (2026-09-14)
 
 The preceding checkpoint 2778cdc was PROGRESS: the common exact expansion.
 This increment is PROGRESS by proving and integrating a strictly stronger

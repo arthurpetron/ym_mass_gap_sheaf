@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED all-spin singleton-link cancellation; OPEN global support and response estimate (2026-09-14)
+## CLOSED original connected replica area; OPEN heat-power and signed response bounds (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/LeaflessBipartiteEdgeMinimum.lean`,
+  `lean/YMGap/Continuum/Z4LeaflessTemporalCutMinimum.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPositiveFaceCutMinimum.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalCrossing.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabConnectedReplicaArea.lean`.
+- **closed geometric obstruction**: `minimum_four`, `cut_minimum_four`,
+  `incidentOccupied_length` and `retained_vertical_no_leaf` prove four
+  faces per occupied temporal cut of the original positive-spin support.
+  No parity requirement excludes even-spin faces from this count.
+- **closed connected coverage**: `temporalSeparator` computes a separating
+  cut when no selected face crosses. `shifted_probe_crossing_nonempty`
+  contradicts the retained separator filter at each intervening time.
+  `retained_pair_crossing` uses the existing exact replica coverage.
+- **closed original area**: `original_retained_pair_minimum_twelve`
+  consumes membership in the SAME complete original-numerator filters and
+  proves combined positive-face count >= 12, all K/margins/filter times.
+  No separate nonempty-cut assumption remains. Replicas may alternate
+  which cut they cover; no individual replica path is asserted.
+- **open residue**: exact factorization of the two original heat weights
+  with combined exponent >= 36, signed leading-term classification,
+  relative signed remainder, positive response, accepted certificate and
+  normalization/cutoff/volume persistence. Full realization, continuum/
+  QFT/spectral pins, other groups and Clay remain open. No hole, analytic
+  premise, canonical atom/type/flag or frontier field changed. The
+  nome-free support theorem is not a coupling-uniform gap bound.
+- **verification**: 25 exactly matched focused gates, one axiom-free,
+  within {propext, Quot.sound}; clean final logs and fresh own/direct-import
+  artifacts. Capped pilot: 512 bipartite subsets, 6561 paired assignments,
+  16384 selected temporal supports. One monitored worker, 20 GiB ceiling;
+  test pauses respected. No raised limits or full build/audit/guard/
+  progress run. Root imports not rebuilt; logs in work_plan.
+
+## CLOSED all-spin singleton-link cancellation; subsequent global area closure above (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionOrientedWordSelection.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSingleLinkCharacterSelection.lean`,
