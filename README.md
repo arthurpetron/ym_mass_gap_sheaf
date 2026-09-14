@@ -32,7 +32,21 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [every surviving original non-tube term must pay a defect cost](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHigherCost.lean).
+**Latest local mathematical step:** [the original zero-spatial short-pair weights now have a uniform sum bound](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairSum.lean).
+Every original short core is [localized within radius 33 of the lower probe](lean/YMGap/Continuum/BF4ExactSlabShortCoreLocalization.lean),
+independently of volume. An injective local code preserves its higher-label
+cost `H`; [counting by that cost](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairCount.lean)
+turns the whole zero-spatial pair family into a convergent geometric bound.
+At the unchanged nome `w=1/1024`, the **sum of absolute original pair weights**
+is at most `2^-20 * w^36`, uniformly in cutoff, margin and cut-filter time.
+This advances the previous per-pair estimate to a sum estimate.
+**The individual detached partition squares are not included yet.**
+Six new modules passed 66 focused axiom checks within `{propext, Quot.sound}`
+(13 axiom-free); no full-tree audit ran. **Next:** restore those partition
+factors and control the separate spatial-defect family. The complete
+short-remainder bound, positive full response and continuum/Clay remain open.
+
+The preceding [exact defect filter shows every surviving original non-tube term must pay a defect cost](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHigherCost.lean).
 Finite temporal charge conservation [rejects the one-endpoint channels exactly](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialChannels.lean)
 when there are no spatial odd faces, at all spins and without an assumed
 three-layer window. The mixed channel then has the tube's parity pattern;
@@ -41,11 +55,8 @@ exactly filtered to spatial defects or positive higher-label count.
 In the zero-spatial sector, [each original non-tube pair has magnitude at most
 `(9/2^53)*w^36`](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHeatBound.lean)
 at the unchanged nome `1/1024`. **This is per pair, not a bound on their sum.**
-Four new modules passed 34 focused axiom checks within `{propext, Quot.sound}`
-(7 axiom-free); no full-tree audit ran. **Next:** localize and sum these
-defect-bearing pairs, with their original multiplicities and detached
-partitions. The short-remainder bound, positive full response and
-continuum/Clay remain open.
+That checkpoint passed 34 focused axiom checks within `{propext, Quot.sound}`
+(7 axiom-free), not a full-tree audit.
 
 The preceding [original pair weights separate into parity and higher-label costs](lean/YMGap/Continuum/BF4ExactSlabParityHigherPairBound.lean).
 Writing each label as `j=2h+b`, the [all-spin heat envelope](lean/YMGap/Continuum/SU2ParityHigherHeatEnvelope.lean)

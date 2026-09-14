@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED uniform original zero-spatial pair sum; OPEN detached partition and spatial-defect branches (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4LinfFiniteRegion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShortCoreLocalization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLocalizedHigherCode.lean`,
+  `lean/YMGap/Continuum/FiniteOccupationUnitCode.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairCount.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairSum.lean`.
+- **closed localization**: `relativeFace` and `offset_relative` give
+  explicit local coordinates. `short_core_radius` applies the faithful
+  two-probe animal to the actual shortOtherCores 33 list. The radius-33
+  region has at most 120906726 physical face indices; `short_pair_outside`
+  proves both original labelings zero elsewhere, at every cutoff and margin.
+- **closed weight-preserving code**: `higherCode_injective` recovers
+  original zero-spatial nonzero pairs, even from different supports.
+  `higherCode_power` is the exact original pairHigher exponent;
+  `higherCode_bounded` retains the cutoff bound.
+- **closed actual multiplicity count**: `unitWord_injective` and
+  `mass_stratum_count` encode occupation mass H in H coordinate symbols.
+  `shortPairs_nodup` uses original support uniqueness, not deduplication.
+  `original_mass_stratum_count` bounds the original H-stratum by
+  241813452^H, with H>=1 derived for K>=1.
+- **closed aggregate weight estimate**: `original_weight_abs_sum_bound`
+  proves the geometric budget 8*oddRate^12*(M*r)/(1-M*r) with w and rate
+  guards explicit. `existingNome_original_weight_abs_sum_bound` proves
+  `sum |weightedPairTerm| <= 2^-20*w^36` over the actual zeroSpatialPairs
+  list at the unchanged nome 1/1024, uniformly in K>=1, margin and filter time.
+- **open residue**: the individual detached partition squares are NOT
+  present in this sum. Their short-collar comparison and the exact split
+  of shortOtherRemainder remain next; the spatial-defect family still needs
+  its own estimate. Complete short-core smallness, positive response,
+  limit persistence, full realization, continuum/QFT/physical spectral
+  pins, other groups and Clay remain open. No hole, new analytic input,
+  canonical atom/type/flag or frontier field changed.
+- **verification**: 66 focused gates within {propext, Quot.sound},
+  13 axiom-free; clean logs and fresh own/direct-import artifacts. Capped
+  pilot checks 9600 coordinate cases, 1365 occupation profiles and scalar
+  caps, not the large original sum or partitions. One monitored worker,
+  20 GiB ceiling; no full build/audit/guard/progress run or raised limits.
+  Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED original non-tube defect filter and zero-spatial pair cap; OPEN aggregate defect sum (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4FiniteTemporalEndpointParity.lean`,

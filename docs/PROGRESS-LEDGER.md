@@ -4,7 +4,45 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact original defect filter and zero-spatial per-pair cap (2026-09-14)
+## Current increment: volume-independent localization and aggregate zero-spatial pair sum (2026-09-14)
+
+The preceding 4cafcb5 checkpoint was PROGRESS: exact non-tube defect deletion
+and per-pair smallness. This increment is PROGRESS on the actual aggregate
+estimate: localization plus mass-counting sums the ORIGINAL zero-spatial
+short-pair weights uniformly in cutoff and margin.
+
+- `Z4LinfFiniteRegion.offset_relative` recovers explicit local coordinates.
+  `BF4ExactSlabShortCoreLocalization.short_core_radius` localizes every
+  actual short core to radius 33; `shortNearbyIds_length_le` bounds the
+  physical coordinate list by 120906726 faces, independent of volume.
+  `short_pair_outside` proves both original labelings vanish outside it.
+- `BF4ExactSlabLocalizedHigherCode.higherCode_injective` preserves
+  original pair identity; `higherCode_power` preserves pairHigher exactly.
+- `FiniteOccupationUnitCode.mass_stratum_count` bounds fixed-mass
+  profiles by m^H. `BF4ExactSlabZeroSpatialPairCount.original_mass_stratum_count`
+  applies this to the original short-core/cut/leaf list, without deduplication,
+  with M=241813452 and H>=1 off the tube.
+- `BF4ExactSlabZeroSpatialPairSum.original_weight_abs_sum_bound` proves
+  the aggregate budget 8*oddRate^12*(M*r)/(1-M*r), with guards explicit.
+  `existingNome_original_weight_abs_sum_bound` gives
+  `sum |weightedPairTerm| <= 2^-20*w^36`, all K>=1, margins and filter times,
+  at the unchanged nome 1/1024.
+
+NEXT/OPEN: restore each original detached partition square by a uniform
+short-collar comparison, and split the actual shortOtherRemainder so this
+bound applies to its zero-spatial branch. The spatial-defect branch is not
+bounded here. Full short-core smallness, positive response/certificate,
+limits, full realization and continuum/Clay remain open. No hole, new
+analytic input, canonical atom/type/flag or frontier field changed.
+
+Verification: 66 focused gates within {propext, Quot.sound}, 13 axiom-free;
+clean logs and fresh own/direct-import artifacts. Capped pilot: 9600
+coordinate cases, 1365 occupation profiles, capacity and scalar caps;
+no evaluation of the large region or original sum. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: exact original defect filter and zero-spatial per-pair cap (2026-09-14)
 
 The preceding 2e4d216 checkpoint was PROGRESS on original heat activities
 and fixed-parity tails. This increment is PROGRESS: finite charge conservation

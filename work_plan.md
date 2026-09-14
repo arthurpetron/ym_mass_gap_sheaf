@@ -18,7 +18,76 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (finite charge conservation, exact defect filter, and zero-spatial pair bound):**
+**Latest local increment (uniform summation of original zero-spatial short-pair weights):**
+The 4cafcb5 checkpoint was PROGRESS: original non-tube defect deletion and
+the zero-spatial per-pair cap. This increment removes cutoff/volume label
+counting from the aggregate zero-spatial short-pair estimate.
+
+`Z4LinfFiniteRegion.relativeFace` is a computable local-coordinate witness;
+`offset_relative` recovers the literal face. `region_length` bounds the
+containing translated box independently of its root, including near the
+coordinate boundary. `BF4ExactSlabShortCoreLocalization.short_core_radius`
+uses the EXISTING faithful two-probe animal to put every member of the
+actual shortOtherCores 33 list within radius 33 of the lower probe.
+`shortNearbyIds_length_le` gives at most 120906726 physical indices.
+`short_pair_outside` proves both original labelings vanish elsewhere,
+including at nonphysical indices. No huge box list is evaluated.
+
+`BF4ExactSlabLocalizedHigherCode.higherCode_injective` recovers original
+zero-spatial nonzero pairs from their quotient labels on that local list.
+`higherCode_power` preserves the EXACT original pairHigher exponent;
+`higherCode_bounded` retains the explicit K/2 coordinate bound.
+`FiniteOccupationUnitCode.unitWord` records the coordinate of each unit
+of occupation. Its length is total mass H, its alphabet is bounded by
+the profile length, and `unitWord_injective` recovers equal-length profiles.
+`mass_stratum_count` gives m^H, avoiding a prefactor exponential in the
+number of unoccupied local coordinates.
+
+`BF4ExactSlabZeroSpatialPairCount.zeroSpatialPairs` is the ACTUAL
+short-other-core/cut/leaf representation list, filtered only by zero spatial
+odd faces and nonzero original pairTerm. `shortPairs_nodup` follows from
+original selected-support uniqueness; no deduplication changes multiplicities.
+`original_mass_stratum_count` gives at most M^H original pairs for
+M=241813452=2*shortFaceCapacity. `zeroSpatialPairs_higher_positive` derives
+H>=1 for K>=1 because these are non-tube supports.
+
+`BF4ExactSlabZeroSpatialPairSum.original_higher_sum_bound` sums those
+strata using the existing finite geometric theorem. `original_weight_abs_sum_bound`
+proves the explicit budget `8*oddRate^12*(M*r)/(1-M*r)`, r=higherRate,
+with 0<=w<=1 and M*r<1 displayed. At the UNCHANGED nome 1/1024,
+`existingNome_original_weight_abs_sum_bound` proves
+
+`sum_{zeroSpatialPairs K margin time} |weightedPairTerm| <= 2^-20*w^36`
+
+for ALL K>=1, margins and cut-filter times. This is now an aggregate
+ORIGINAL representation-weight bound, not a per-pair estimate or scalar pilot.
+
+NEXT/OPEN: each core's ORIGINAL detached partition square is not yet
+included in this sum. Prove its uniform short-collar comparison, split the
+actual shortOtherRemainder into zero-spatial and spatial-defect subfamilies,
+and feed this absolute-sum estimate into the zero-spatial branch. Count and
+sum the spatial-defect branch separately. The complete signed short-core
+bound, positive full response/certificate, limit persistence, full observable
+realization, continuum/QFT/physical spectral pins, other groups and Clay
+remain open. No hole, new open analytic input, canonical atom/type/flag or
+frontier field changed; no coupling-uniform gap claimed.
+
+Verification: six focused modules, 8+12+10+11+17+8=66 exactly matched gates
+within {propext, Quot.sound}, 13 axiom-free; clean logs and fresh own/direct-
+import artifacts. The 30-second-capped
+`computations/zero_spatial_localized_budget.py` checks 9600 coordinate cases,
+1365 finite occupation profiles, region capacity and scalar geometric caps.
+It does not enumerate the large region, original representation list or
+detached partitions. One monitored worker, 20 GiB ceiling; no raised limits
+or full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-linf-finite-region.log`,
+`/tmp/ym-original-short-core-localization.log`,
+`/tmp/ym-original-localized-higher-code.log`,
+`/tmp/ym-finite-occupation-unit-code.log`,
+`/tmp/ym-original-zero-spatial-pair-count.log`,
+`/tmp/ym-original-zero-spatial-pair-sum.log`.
+
+**Preceding local increment (finite charge conservation, exact defect filter, and zero-spatial pair bound):**
 The 2e4d216 checkpoint was PROGRESS: explicit original parity/higher-label
 activities and fixed-parity geometric tails. This increment connects that
 weight estimate to a genuinely necessary defect in the original coefficient.

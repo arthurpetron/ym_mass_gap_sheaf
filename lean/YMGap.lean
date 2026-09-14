@@ -4101,6 +4101,12 @@ import YMGap.Continuum.Z4FiniteTemporalEndpointParity
 import YMGap.Continuum.BF4ExactSlabZeroSpatialChannels
 import YMGap.Continuum.BF4ExactSlabZeroSpatialHigherCost
 import YMGap.Continuum.BF4ExactSlabZeroSpatialHeatBound
+import YMGap.Continuum.Z4LinfFiniteRegion
+import YMGap.Continuum.BF4ExactSlabShortCoreLocalization
+import YMGap.Continuum.BF4ExactSlabLocalizedHigherCode
+import YMGap.Continuum.FiniteOccupationUnitCode
+import YMGap.Continuum.BF4ExactSlabZeroSpatialPairCount
+import YMGap.Continuum.BF4ExactSlabZeroSpatialPairSum
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
