@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original occurrence-component geometry and sharp tree code; OPEN full forest count (2026-09-14)
+## CLOSED full original forest configuration count; OPEN weighted aggregate remainder (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/FiniteRootedForestCode.lean`,
+  `FiniteRootedForestCount.lean`, `FiniteBoolGraphComponentPermutation.lean`,
+  `BF4ExactSlabLocalOccurrenceLattice.lean`, `BF4ExactSlabSpatialComponentAnimal.lean`,
+  `FiniteRootedAnimalForestCode.lean`, `BF4ExactSlabSpatialForestCode.lean`,
+  `BF4ExactSlabSpatialForestRecovery.lean`, `BF4ExactSlabSpatialForestPairCount.lean`
+  (all in `lean/YMGap/Continuum/`).
+- **closed generic forest construction/count**: `decode_encode` reconstructs
+  actual root/tour records; `bits_length` and `choices_length` give 2S bits
+  and S-c descents. `root_descent_cost` uses 2c<=S, D<=L, M*D<=L^2;
+  `carrier_length_le` bounds the constructed finite carrier by (8L)^S.
+- **closed original realization**: `graph_flatten_perm` preserves the
+  original occurrence list; `componentAnimal` supplies genuine local
+  rooted animals with Type-valued paths. `componentAnimal_support_forget`
+  retains exact component lists. `original_forest_mass`, `code_support`,
+  `code_mem`, and `code_recover_spatial` preserve exact mass and recover
+  both original ordered spatial lists. Local D=3216, M<=241813452,
+  L=900000 give the actual code-carrier bound 7200000^S.
+- **closed entire-pair count**: `pairCode_injective` recovers both complete
+  original labellings from forest code and higher-label unit word.
+  `original_remaining_mass_count` bounds the actual remaining (S,H) stratum
+  by `7200000^S*241813452^H`, all K/margin/filter-time. No source deduplication.
+  `remaining_spatial_lower/upper` and `remaining_higher_upper` provide the
+  finite summation ranges, in particular S>=6.
+- **open residue**: sum the original heat costs over both masses, restore
+  every OWN detached square and absorb the full afterFourCap remainder.
+  The scalar pilot is not that aggregate proof. Positive full response,
+  limit persistence, full realization, continuum/QFT/physical spectral pins,
+  other groups and Clay remain open. No new hypothesis, hole, frontier type,
+  canonical atom/flag or physical weight changed; no beta-uniform gap claim.
+- **verification**: nine focused modules, 109 exactly matched gates within
+  {propext, Quot.sound}, 18 axiom-free; clean logs, fresh own/direct-import
+  artifacts and scoped executable-source checks. One monitored worker,
+  20 GiB ceiling, no raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact log paths and next steps in work_plan.
+
+## Previous checkpoint: CLOSED occurrence geometry and tree code; then-OPEN forest count (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/FiniteEvenIncidenceNeighbor.lean`,
   `BF4ExactSlabSpatialOccurrenceNeighbors.lean`, `FiniteRootedAnimalDescentCode.lean`,

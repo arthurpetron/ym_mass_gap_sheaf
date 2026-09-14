@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual no-isolates components and sharper rooted-tree count (2026-09-14)
+## Current increment: full original forest construction and two-mass pair count (2026-09-14)
+
+PROGRESS after b519eb4: the whole-forest route now has a constructed code,
+proved decoding, exact original-pair recovery and an actual configuration
+count for ALL S>=6 and all higher-label masses H. This removes the count
+obligation rather than replacing it by another supplied interface.
+
+`FiniteRootedForestCode.decode_encode` recovers actual root/tour records.
+`FiniteRootedForestCount.root_descent_cost` pairs every root cost with a
+descent using 2c<=S; `carrier_length_le` gives (8L)^S. The actual component
+permutation and `BF4ExactSlabSpatialComponentAnimal.componentAnimal` retain
+all original occurrences, their tags and full plaquettes, and Type-valued
+paths through the real local occurrence lattice. `code_recover_spatial`
+recovers both original ordered spatial lists; adding the existing unit word
+recovers both complete labellings by `pairCode_injective`.
+
+`BF4ExactSlabSpatialForestPairCount.original_remaining_mass_count` bounds
+the actual (S,H) stratum by `7200000^S*241813452^H`, independently of K,
+margin and filter time. The finite ranges 6<=S<=241813452 and
+H<=120906726*K are also proved. No source deduplication or weight change.
+
+NEXT contraction: sum the unchanged heat costs in both masses, restore OWN
+detached squares and absorb the original afterFourCap remainder. Scalar
+feasibility was previously checked at nome 1/1024; the weighted aggregate
+is not yet proved. Positive full response/certificate, limit persistence,
+full realization and continuum/Clay remain open. No hole, new analytic
+input, canonical atom/type/flag or frontier field changed.
+
+Verification: nine focused modules, 109 exactly matched gates within
+{propext, Quot.sound}, 18 axiom-free; clean logs and fresh own/direct-import
+artifacts. One monitored worker, 20 GiB ceiling; no raised options or full
+build/audit/guard/progress run. Root imports added but not rebuilt.
+
+## Previous increment: actual no-isolates components and sharper rooted-tree count (2026-09-14)
 
 PROGRESS after 70db9a2: a single combinatorial route now addresses all S>=6,
 rather than introducing a separate box for each spatial size. On the original

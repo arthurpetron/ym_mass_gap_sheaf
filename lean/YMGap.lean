@@ -4161,6 +4161,17 @@ import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceNeighbors
 import YMGap.Continuum.FiniteRootedAnimalDescentCode
 import YMGap.Continuum.FiniteBoolGraphComponentMass
 import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceComponents
+-- Reversible actual forest and full original (S,H)-stratum count;
+-- weighted aggregate, positive full response and continuum/Clay remain open.
+import YMGap.Continuum.FiniteRootedForestCode
+import YMGap.Continuum.FiniteRootedForestCount
+import YMGap.Continuum.FiniteBoolGraphComponentPermutation
+import YMGap.Continuum.BF4ExactSlabLocalOccurrenceLattice
+import YMGap.Continuum.BF4ExactSlabSpatialComponentAnimal
+import YMGap.Continuum.FiniteRootedAnimalForestCode
+import YMGap.Continuum.BF4ExactSlabSpatialForestCode
+import YMGap.Continuum.BF4ExactSlabSpatialForestRecovery
+import YMGap.Continuum.BF4ExactSlabSpatialForestPairCount
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

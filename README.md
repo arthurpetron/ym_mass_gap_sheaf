@@ -32,7 +32,25 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the remaining spatial occurrences now have
+**Latest local mathematical step:** [the entire remaining spatial family is now counted](lean/YMGap/Continuum/BF4ExactSlabSpatialForestPairCount.lean),
+including all higher-spin labels. For every cutoff, margin and cut-filter
+time, the actual stratum with `S` spatial odd occurrences and higher-label
+mass `H` has at most `7,200,000^S * 241,813,452^H` configurations.
+The [reversible whole-forest code](lean/YMGap/Continuum/FiniteRootedForestCode.lean)
+retains replica tags and full original plaquettes. Together with the
+higher-label word it recovers both complete original labellings; no source
+is deduplicated. Every nonzero remaining pair has `S>=6`.
+
+The counting gain comes from pairing each component's root cost with one
+descent: there are no isolated vertices. The forest construction and its
+finite carrier bound are now proved, not assumed. **Next:** sum the unchanged
+SU(2) heat weights over both masses and restore each core's own detached
+partition square. The exact-rational pilot shows scalar room at fixed nome
+`1/1024`, but **the aggregate remainder estimate and positive full response
+are still open**. Nine modules passed 109 focused axiom checks within
+`{propext, Quot.sound}` (18 axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** the remaining spatial occurrences have
 [actual connected components with at most half as many components as occurrences](lean/YMGap/Continuum/BF4ExactSlabSpatialOccurrenceComponents.lean).
 Replica tags and original times are retained. Even projected incidence gives
 each occurrence a distinct neighbor; the components have total size exactly
@@ -42,10 +60,9 @@ lies in an explicit list of 3,216 candidates, independent of cutoff and margin.
 A [reversible descent-only tree code](lean/YMGap/Continuum/FiniteRootedAnimalDescentCode.lean)
 also improves the rooted size-`k` code-space bound from
 `(D+1)^(2*(k-1))` to `(4*D)^(k-1)`. Returns need no new neighbor choice.
-**Next:** assemble these into a reversible forest code for the original
-family and prove its weighted sum bound. The exact-rational pilot finds
-sufficient numerical room, but **the forest count and aggregate estimate
-are not yet proved**. Five modules passed 52 focused axiom checks within
+The forest assembly and original configuration count are now closed by the
+latest increment above; the weighted aggregate estimate remains open.
+Five modules in this preceding increment passed 52 focused axiom checks within
 `{propext, Quot.sound}` (seven axiom-free); no full-tree build or audit ran.
 
 **Previous local mathematical step:** [the whole remaining four-spatial-face family is bounded](lean/YMGap/Continuum/BF4ExactSlabFourCapRemainderBound.lean),

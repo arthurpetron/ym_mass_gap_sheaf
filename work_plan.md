@@ -18,7 +18,74 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (actual no-isolates components and descent-only tree codes):**
+**Latest local increment (reversible original forest; full two-mass configuration count):**
+The b519eb4 checkpoint proved actual no-isolates components and sharp tree
+codes. This increment constructs their entire forest and closes the count
+for all spatial sizes, preserving the original family.
+
+`FiniteRootedForestCode.expand_forest` and `decode_encode` reconstruct the
+actual root/tour records from binary shape, root list and descent list.
+`bits_length` is 2S and `choices_length` is S-c. In
+`FiniteRootedForestCount.root_descent_cost`, the bound 2c<=S pairs c root
+choices with c descents: D<=L and M*D<=L^2 imply M^c*D^(S-c)<=L^S.
+`carrier_length_le` then bounds the explicitly constructed forest carrier
+by (8L)^S, including its finite component-count strata.
+
+`FiniteBoolGraphComponentPermutation.graph_flatten_perm` proves that the
+actual component algorithm preserves the exact occurrence list up to
+permutation. `BF4ExactSlabLocalOccurrenceLattice.boundedLattice` supplies
+the real projected-link lattice of local replica-tagged occurrences and
+its complete 3216-entry neighbor bound. With M=241813452 and L=900000,
+`local_forest_carrier_bound` gives 7200000^S.
+
+`BF4ExactSlabSpatialComponentAnimal.componentAnimal` lifts each actual
+component's Type-valued internal paths to this lattice and hence to the
+existing genuine BFS spanning tree. `componentAnimal_support_forget`
+returns the EXACT original component list. `FiniteRootedAnimalForestCode`
+proves decoded union-support recovery; `BF4ExactSlabSpatialForestCode`
+proves exact mass, original support recovery and actual code membership.
+`BF4ExactSlabSpatialForestRecovery.code_recover_spatial` upgrades this to
+equality of both canonically ordered original spatial lists.
+
+`BF4ExactSlabSpatialForestPairCount.pairCode_injective` adds the existing
+higher-label unit word and recovers BOTH COMPLETE original labellings,
+including nonphysical indices. `original_remaining_mass_count` proves:
+
+`# {pair in remainingPairs K margin time | pairSpatial=S and pairHigher=H}
+ <= 7200000^S * 241813452^H`.
+
+`remaining_spatial_lower/upper` give 6<=S<=241813452 and
+`remaining_higher_upper` gives H<=120906726*K. All cutoffs, margins and
+cut-filter times are explicit. `remainingPairs` is the actual short-pair
+source filtered by nonzero pairTerm and the existing afterFourCapKeep.
+No source erasure, weight or multiplicity change occurs.
+
+NEXT: sum the original two-mass heat costs using 12+S<=B+H, then restore
+OWN detached partition squares and absorb the full afterFourCap remainder.
+The existing exact pilot's proposed pair budget is approximately
+0.051354*w^36 at nome 1/1024; the new theorem supplies its previously
+missing count, but the weighted-sum and original-remainder comparison
+are NOT yet proved. Positive full response/certificate, limit persistence,
+full realization, continuum/QFT/physical spectral pins, other groups and
+Clay remain OPEN. No hole, new analytic input, frontier field, canonical
+atom/type/flag or physical weight changed; no beta-uniform gap claimed.
+
+Verification: nine focused modules, 21+12+5+14+13+10+18+5+11=109 exactly
+matched gates, all within {propext, Quot.sound}, 18 axiom-free. Clean logs,
+fresh own/direct-import artifacts and scoped executable-source checks.
+One monitored worker, 20 GiB ceiling, no raised options or full
+build/audit/guard/progress run. Root imports added but not rebuilt. Logs:
+`/tmp/ym-finite-rooted-forest-code.log`,
+`/tmp/ym-finite-rooted-forest-count.log`,
+`/tmp/ym-finite-bool-graph-component-permutation.log`,
+`/tmp/ym-original-local-occurrence-lattice.log`,
+`/tmp/ym-original-spatial-component-animal.log`,
+`/tmp/ym-finite-rooted-animal-forest-code.log`,
+`/tmp/ym-original-spatial-forest-code.log`,
+`/tmp/ym-original-spatial-forest-recovery.log`,
+`/tmp/ym-original-spatial-forest-pair-count.log`.
+
+**Previous local increment (actual no-isolates components and descent-only tree codes):**
 The 70db9a2 checkpoint bounded the whole four-face family. This increment
 advances a single forest-count route for its entire six-or-more-face
 complement; it does not peel another fixed spatial size.
@@ -49,7 +116,7 @@ exactly k-1 neighbor choices; the canonical genuine BFS animal code has
 carrier size `(4*D)^(k-1)` by `carrier_length`. `code_decode` and
 `code_eq_sameSupport` prove support recovery. No forest injection is assumed.
 
-NEXT, in causal order: faithfully encode the actual component forest (root
+At this checkpoint the next tasks were: faithfully encode the actual component forest (root
 choices, binary shape, descent choices); recover original spatial lists and
 the entire pair together with the existing higher-label code; bound the
 actual (S,H) strata; sum their unchanged heat costs and restore OWN detached
