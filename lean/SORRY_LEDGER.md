@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original zero-spatial remainder with detached partitions; OPEN spatial-defect estimate (2026-09-14)
+## CLOSED original channel parity and power-42 spatial structure; OPEN configuration count and signed bound (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4WeightedIncidenceParity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMomentFaceParity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPairChannelParity.lean`,
+  `lean/YMGap/Continuum/SU2FiniteCasimirEvenExcess.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpatialHeatPower42.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42SpatialBudget.lean`.
+- **closed finite geometric law**: `closed_face_counts_even` derives
+  even total and spatial face counts from even link incidence using explicit
+  coordinate weights and finite double counting. `moment_face_parities`
+  applies this to the actual charged original moment at every spin/margin.
+- **closed original channel separation**: `joint_means_exclusive`,
+  `pairTerm_joint_pin`, `pairTerm_means_pin`, and `nonzero_pair_channel_checks`
+  give a computed channel bit and its actual Haar products/checks. No sign
+  of either product is assumed. `nonzero_spatial_minimum_two` derives an
+  even spatial count of at least two; means require a face in each replica.
+- **closed stronger original heat floor**: `nonzero_pairPower_even`
+  and `nonTube_sub42_amplitude_zero` remove every non-tube amplitude below
+  42. `retained_power42_fundamental` pins fourteen fundamental occupations.
+  `original_spatial_remainder_factorization42` extracts w^42, for all rational
+  w and K>=1, without division or any change of signed weights or detached
+  partitions. `original_numerator_lower_with_spatial_heat42` feeds it into
+  the preceding original numerator inequality.
+- **closed first-sector occupation counts**: `original_temporal_spatial_budget`
+  reserves twelve temporal occupations. `power42_spatial_count_two` leaves
+  exactly two spatial odd faces. `power42_spatial_distribution` gives
+  (2,0)/(0,2) for the joint channel, (1,1) for means. Locations and counts
+  of configurations are NOT supplied by these occupation-count theorems.
+- **open residue (constructive)**: locate/count the two-spatial-face
+  configurations and control higher powers, giving a useful bound on the
+  actual signed cofactor relative to Z_full^2. Positive response/certificate,
+  limit persistence, full realization, continuum/QFT/physical spectral pins,
+  other groups and Clay remain open. No hole, analytic input, canonical
+  atom/type/flag or frontier field changed.
+- **verification**: 46 focused gates within {propext, Quot.sound}, eight
+  axiom-free; clean logs and fresh own/direct-import artifacts. One monitored
+  worker, 20 GiB ceiling; no raised limits or full build/audit/guard/progress
+  run. Root imports not rebuilt; exact logs in work_plan.
+
+## Previous checkpoint: CLOSED original zero-spatial remainder with detached partitions; OPEN spatial-defect estimate (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabShortDetachedPartition.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabShortSpatialRemainderSplit.lean`,

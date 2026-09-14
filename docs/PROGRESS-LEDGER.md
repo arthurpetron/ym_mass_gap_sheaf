@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original zero-spatial remainder bounded with all detached partitions (2026-09-14)
+## Current increment: finite incidence parity and the original power-42 spatial sector (2026-09-14)
+
+The preceding 59be315 checkpoint was PROGRESS: the whole zero-spatial branch
+was absorbed with its original detached partitions. This increment is
+PROGRESS on the remaining spatial branch: new geometric constraints remove
+additional heat powers and fix the first sector's occupation counts.
+
+- `Z4WeightedIncidenceParity.closed_face_counts_even` uses explicit
+  coordinate cochains and finite incidence double counting.
+  `BF4ExactSlabMomentFaceParity.moment_face_parities` applies it to the
+  actual original endpoint-charged Haar checker, all spins and margins.
+- `BF4ExactSlabPairChannelParity.joint_means_exclusive` separates the
+  actual joint and means channels; `nonzero_pair_channel_checks` returns
+  the accepted checks for their computed channel bit. Total and spatial
+  odd-face counts are even, and a nonzero spatial defect contains at least two.
+- `BF4ExactSlabSpatialHeatPower42.nonTube_sub42_amplitude_zero` combines
+  that parity with all-spin Casimir arithmetic and prior literal tube
+  uniqueness. The actual remaining spatial remainder now factors exactly
+  as `w^42*spatialHeatResidual42`, preserving all original dimensions,
+  signed moments, multiplicities and detached partitions.
+- `BF4ExactSlabPower42SpatialBudget.power42_spatial_count_two` derives
+  exactly two spatial odd-face occupations at power 42, among fourteen
+  fundamental occupations. `power42_spatial_distribution` gives (2,0) or
+  (0,2) in the joint channel and (1,1) in the means channel.
+
+Fidelity audit: no original data or analytic hypotheses were replaced; no
+hole, canonical atom/type/flag or frontier field changed. Completion audit:
+occupation counts do not count configurations. NEXT: locate/count these
+two-face configurations and bound the higher-power tail. The cofactor
+magnitude, positive response, explicit limit persistence, full observable
+realization, continuum/QFT/physical spectral pins and Clay remain OPEN.
+
+Verification: 46 focused gates within {propext, Quot.sound}, eight axiom-free;
+clean logs and fresh own/direct-import artifacts. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original zero-spatial remainder bounded with all detached partitions (2026-09-14)
 
 The preceding 828d7ac checkpoint was PROGRESS: uniform aggregate original
 pair-weight counting. This increment is PROGRESS, not a renamed obligation:

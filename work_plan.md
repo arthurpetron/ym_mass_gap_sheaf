@@ -18,7 +18,75 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original detached partitions restored; only spatial defects remain in the numerator bound):**
+**Latest local increment (finite incidence parity, exact original channels, and power-42 spatial structure):**
+The 59be315 checkpoint was PROGRESS: the zero-spatial remainder was bounded
+with all original detached partitions. This increment constrains the ACTUAL
+remaining spatial configurations before trying to count their weights.
+
+`Z4WeightedIncidenceParity.allFaceWeight` and `spatialFaceWeight` are
+explicit coordinate cochains. `weighted_incidence` is finite double
+counting with a duplicate-free link carrier; the face list may repeat.
+`closed_face_counts_even` proves even total and spatial face counts when
+all link incidences are even. No topological or gauge-group assumption is
+introduced. `BF4ExactSlabMomentFaceParity.chargedFaces` appends the actual
+endpoint probe faces to the original odd-face list. `moment_face_parities`
+then pins both counts to the endpoint flags, at every spin and margin.
+
+`BF4ExactSlabPairChannelParity.joint_means_exclusive` proves the actual
+joint-moment/partition and product-of-means checkers cannot both accept.
+`pairTerm_joint_pin` and `pairTerm_means_pin` keep the original Haar
+products and their correct signs. `jointCheck` is a computable channel bit;
+`nonzero_pair_channel_checks` supplies both original accepted moment checks
+for that bit. `nonzero_pair_face_counts_even` and
+`nonzero_spatial_minimum_two` show that a nonzero spatial defect has an
+even count of at least two spatial odd-face occupations. The means channel
+has at least one in each replica. These statements assert no Haar sign.
+
+`SU2FiniteCasimirEvenExcess.paired_even_sub42_eq36` combines parity with
+the original all-spin excess decomposition. At twelve or more occupations,
+an even power below 42 must be 36. `paired_power42_fundamental` shows that
+power 42 has exactly fourteen fundamental occupations. The original
+physical face-index reindexing in `BF4ExactSlabSpatialHeatPower42.oddFaces_length`
+connects this arithmetic to the SAME pairPower. `nonzero_pairPower_even`
+and prior literal tube uniqueness give `nonTube_sub42_amplitude_zero`.
+`original_spatial_remainder_factorization42` proves, for all rational w,
+all K>=1, margins and cut times, the exact division-free identity
+
+`spatialDefectRemainder = w^42*spatialHeatResidual42`.
+
+The cofactor retains every original dimension, signed Haar term, multiplicity
+and core-specific detached partition. `original_numerator_lower_with_spatial_heat42`
+therefore gives, at the UNCHANGED nome 1/1024,
+
+`N_full >= (1/4 - 2^-19)*w^36*Z_full^2 + w^42*spatialHeatResidual42`.
+
+`BF4ExactSlabPower42SpatialBudget.original_temporal_spatial_budget`
+reserves twelve temporal occupations in the three actual intervening cuts,
+disjoint from spatial faces. `power42_spatial_count_two` makes the first
+nonzero spatial sector's count EXACTLY two. `power42_spatial_distribution`
+gives (2,0) or (0,2) in the joint channel, (1,1) in the means channel.
+These count replica occupations, NOT their locations or configurations.
+
+NEXT/OPEN: classify and count these two-spatial-face configurations using
+the original channel and temporal decoder; bound the higher-power spatial
+tail. The w^42 factor alone is not a useful uniform cofactor bound. Positive
+full response/certificate, explicit limit-error persistence, full observable
+realization, continuum/QFT/physical spectral pins, other groups and Clay
+remain open. No hole, new analytic input, canonical atom/type/flag or
+frontier field changed. No coupling-uniform mass gap is claimed.
+
+Verification: six focused modules, 8+7+10+7+10+4=46 exactly matched gates
+within {propext, Quot.sound}, eight axiom-free; clean logs and fresh own/direct
+import artifacts. One monitored worker, 20 GiB ceiling; no raised limits or
+full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-weighted-incidence-parity.log`,
+`/tmp/ym-original-moment-face-parity.log`,
+`/tmp/ym-original-pair-channel-parity.log`,
+`/tmp/ym-su2-finite-casimir-even-excess.log`,
+`/tmp/ym-original-spatial-heat-power42.log`,
+`/tmp/ym-original-power42-spatial-budget.log`.
+
+**Preceding local increment (original detached partitions restored; only spatial defects remain in the numerator bound):**
 The 828d7ac checkpoint was PROGRESS: localization and original mass-stratum
 counting gave an aggregate pair-weight bound. This increment composes that
 bound with the original partition comparison and the actual remainder split.

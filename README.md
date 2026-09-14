@@ -32,7 +32,23 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the whole original zero-spatial short-core remainder is now bounded](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean),
+**Latest local mathematical step:** [the original spatial-defect remainder starts at heat power 42](lean/YMGap/Continuum/BF4ExactSlabSpatialHeatPower42.lean),
+strengthening the previous power-39 factor. An [explicit finite incidence argument](lean/YMGap/Continuum/Z4WeightedIncidenceParity.lean)
+proves even face-count constraints. Applied to the original Haar moments,
+it [separates the joint and product-of-means channels](lean/YMGap/Continuum/BF4ExactSlabPairChannelParity.lean)
+and makes every nonzero original pair's total heat power even.
+At power 42, all fourteen replica occupations are fundamental, and a
+[nonzero spatial defect has exactly two spatial odd-face occupations](lean/YMGap/Continuum/BF4ExactSlabPower42SpatialBudget.lean).
+They split as `(2,0)` or `(0,2)` in the joint channel and `(1,1)` in the
+means channel. These are occupation counts, **not a count of configurations**.
+The exact `w^42` cofactor retains all original signed amplitudes, dimensions
+and detached partitions. Its aggregate magnitude is still open.
+Six new modules passed 46 focused axiom checks within `{propext, Quot.sound}`
+(eight axiom-free); no full-tree audit ran. **Next:** locate and count the
+two-spatial-face configurations and control the higher-power tail.
+Positive full response and continuum/Clay remain open.
+
+The preceding [whole original zero-spatial short-core remainder is bounded](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean),
 including every core's own detached partition square. The [exact split](lean/YMGap/Continuum/BF4ExactSlabShortSpatialRemainderSplit.lean)
 preserves the original signed weights and removes only zero terms.
 The [short-collar comparison](lean/YMGap/Continuum/BF4ExactSlabShortDetachedPartition.lean)
