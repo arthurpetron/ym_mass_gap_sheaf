@@ -18,7 +18,58 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (signed polynomials, positive functional and actual cyclic norms):**
+**Latest increment (actual original Bernstein carrier limits and a cusp instance):**
+PROGRESS after e284003. `BF4ExactSlabThermodynamicPolynomialDifference`
+proves polynomial addition/scaling/subtraction on the SAME completion,
+and `probe_distance_bound` transfers uniform |p-q|<=M to original squared
+distance <=M^2. `vectorRepresentative` constructs each polynomial's
+original Cauchy row from time/scalar/addition lifts; its pin is proved.
+No quotient representative is selected.
+
+`BF4ExactSlabThermodynamicPolynomialCarrierLimit.polynomialRows` uses
+the explicit scalar tolerance min(epsilon,1), whose square is <=epsilon,
+and a uniform [0,1] polynomial modulus to construct represented Cauchy
+rows. `polynomialLimitCertificate` returns the original representative
+and outer rate. The limit is unique and recovers a constant sequence's
+actual polynomial vector (`polynomialLimit_constant`).
+
+`BF4ExactSlabThermodynamicBernsteinCarrier` SUPPLIES that uniform input
+from the existing rational `CtsMod` and `MonotoneOmegaVanishing` data via
+`bernsteinStageData` / `bernsteinErrorModulus`. `bernstein_uniformCauchy`
+uses one computed stage for ALL rational points of [0,1]; the older
+`SpectralUnifCauchy p lam` itself is only a single-point statement.
+`continuousProbeCertificate` returns an actual original symbol-vector
+representative and its rate. `continuousProbe_modulus_independent`
+proves independence of the chosen vanishing modulus for the same symbol.
+No diagonal resolution or image-Cauchy premise is assumed.
+
+`BF4ExactSlabThermodynamicCuspProbe` constructs f(t)=min(|t-1/2|,1),
+proves its global bound, 1-Lipschitz estimate and nonconstancy, and
+constructs its continuity modulus and monotone vanishing selector.
+`cuspVectorCertificate` is therefore an inhabited original carrier-limit
+certificate with no symbol data left to supply. The symbol is nonconstant;
+nonzeroness of its particular original vector is NOT asserted.
+
+NEXT: original limit pairing/norm laws, symbol-equivalence compatibility
+and operator action/calculus on the cyclic sector. Polynomial difference
+bounds and represented Bernstein symbol-vector limits are CLOSED. Full
+operator/spectral realization, canonical observable/scalar/carrier
+comparison, full quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling,
+other groups and Clay remain OPEN. Existing CtsMod/MOV inputs are
+function data, not a new YM analytic premise; the cusp inhabits them.
+No hole, canonical field/atom/flag or physical weight change; fixed
+SU(2) nome 1/1024 and spacing only.
+
+Verification: four focused monitored modules, 11+14+12+17=54 exactly
+matched gates within {propext, Quot.sound}, six axiom-free. Clean logs,
+fresh own/direct-import artifacts; one worker, 20 GiB ceiling. No raised
+options, large polynomial/sample evaluation, full build/audit/guard/
+progress or root-import run. Logs: `/tmp/ym-original-polynomial-difference.log`,
+`/tmp/ym-original-polynomial-carrier-limit.log`,
+`/tmp/ym-original-bernstein-carrier.log`, `/tmp/ym-original-cusp-probe.log`.
+
+**Previous increment (signed polynomials, positive functional and actual cyclic norms):**
 PROGRESS after c3da7a8. `RationalScalarTwoSidedError.scale_error` transports
 two-sided real errors through arbitrary signed rational coefficients with
 factor |c|. No positivity assumption on coefficients is introduced.

@@ -13,7 +13,18 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest operator milestone:** the original transfer now has a
+**Latest carrier milestone:** [Bernstein symbol vectors now have constructed limits in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinCarrier.lean).
+For bounded rational-valued symbols with explicit continuity data, the
+construction returns original Cauchy representatives and convergence rates;
+the limit is unique and independent of the chosen continuity modulus.
+A [concrete bounded cusp symbol](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCuspProbe.lean),
+`min(|t - 1/2|, 1)`, supplies a proved nonconstant instance with all its
+continuity data constructed. Its symbol vector is not claimed nonzero.
+Four modules passed 54 focused axiom checks within `{propext, Quot.sound}`
+(six axiom-free). Limit pairing/norm laws, full operator calculus and the
+continuum/Clay target remain open; SU(2) nome and spacing are fixed.
+
+**Established polynomial milestone:** the original transfer has a
 [constructed positive, normalized, bounded polynomial moment functional](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialFunctional.lean).
 Signed-polynomial row averages converge with computed error
 `Σ |c_r| C(r) / N` and explicit moduli. The

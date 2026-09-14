@@ -118,6 +118,41 @@ spacing, not in beta or physical lattice spacing. No supplied diagonal
 resolution, full-carrier polynomial operator bound, continuous calculus
 or spectral measure is constructed by these declarations.
 
+## Represented Bernstein carrier update after e284003
+
+`probe_distance_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialDifference.lean:64`,
+controls the ORIGINAL polynomial-vector squared distance by the squared
+uniform polynomial difference. `vectorRepresentative` at line 78 and
+`vectorRepresentative_pin` at line 83 construct and pin its actual rows.
+
+`polynomialRows`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialCarrierLimit.lean:57`,
+constructs outer Cauchy data; `polynomialLimitCertificate` at line 87
+returns the original representative and rate. `polynomialLimit_unique`
+at line 94 and `polynomialLimit_constant` at line 110 prove uniqueness
+and constant-sequence compatibility.
+
+`SpectralUnifCauchy`,
+`lean/YMGap/Continuum/ContinuousTransferCalculus.lean:207`, has a single
+parameter lam, and its `cauchy` field at line 213 only evaluates at lam.
+The new `bernstein_uniformCauchy`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicBernsteinCarrier.lean:45`,
+instead exposes ALL rational t in [0,1] with one computed rate, using the
+existing CtsMod/MOV stage construction. `continuousProbeCertificate` at
+line 71 returns the original limit representative and rate;
+`continuousProbe_modulus_independent` at line 85 proves that the chosen
+vanishing modulus does not change the limit.
+
+`cuspSymbol`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicCuspProbe.lean:68`, and
+`cuspVanishing` at line 77 construct min(|t-1/2|,1) with all required
+continuity data. `cusp_nonconstant` at line 91 distinguishes its values
+at zero and one-half. `cuspVectorCertificate` at line 104 constructs the
+original carrier-limit instance. Nonzeroness of this vector is not
+asserted. These symbol data are rational-valued, not an assertion that
+all CReal-valued continuous symbols or full operator calculus are closed.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -152,18 +187,20 @@ structure field, consumed by `dischargeBTC` at line 390. It is not an
 original spectral decomposition constructed by the new normalization.
 
 Mixed positivity, finite normalized rows, signed-polynomial convergence,
-the positive bounded normalized polynomial functional and its actual
-cyclic-vector norm pin are now closed by the declarations above. Next:
-polynomial-difference bounds and explicit representative-row carrier
-limits for uniform polynomial approximation. Neither a spectral measure
-nor a continuous functional calculus is claimed.
+the positive bounded normalized polynomial functional, actual polynomial
+difference bounds and represented Bernstein carrier limits are now closed
+by the declarations above. Next: limit pairing/norm laws, symbol-equivalence
+compatibility and operator calculus on the original cyclic sector. Neither
+a spectral measure nor a full continuous operator calculus is claimed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
-The signed-polynomial/functional/cyclic-norm increment has four new modules
+The represented Bernstein carrier increment has four new modules and 54
+exactly matched gates within `{propext, Quot.sound}`, six axiom-free.
+The signed-polynomial/functional/cyclic-norm increment had four new modules
 and 57 exactly matched gates within `{propext, Quot.sound}`, three axiom-free.
 The all-order moment-convergence increment had three new modules and 61
 exactly matched gates within `{propext, Quot.sound}`, five axiom-free.

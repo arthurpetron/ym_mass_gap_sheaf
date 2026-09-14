@@ -4,7 +4,36 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original polynomial functional and actual cyclic norms (2026-09-14)
+## Current increment: represented original Bernstein carrier limits (2026-09-14)
+
+PROGRESS after e284003. `vector_sub` and `probe_distance_bound` identify
+the SAME polynomial differences and original squared distances.
+`vectorRepresentative` constructs actual Cauchy representatives.
+`polynomialRows` then constructs outer Cauchy data from a uniform [0,1]
+polynomial rate, and `polynomialLimitCertificate` returns an original
+representative and rate, with uniqueness and constant-sequence recovery.
+
+`bernstein_uniformCauchy` supplies the uniform rate from existing
+CtsMod/MOV symbol data. `continuousProbeCertificate` constructs the actual
+original symbol-vector limit; its value is independent of the vanishing
+modulus. `cuspSymbol` / `cuspVanishing` construct min(|t-1/2|,1) and all
+its required data; `cuspVectorCertificate` inhabits the new carrier path.
+Nonconstancy of the symbol is proved; nonzeroness of its vector is not.
+
+NEXT: limit pairing/norm laws, symbol equivalence and operator calculus
+on the original cyclic sector. The difference and represented Bernstein
+limit frontiers are CLOSED. Full operator/spectral realization, canonical
+comparisons/completeness/time injectivity, continuous-time/physical pins,
+continuum, other groups and Clay remain OPEN. Fixed SU(2) nome/spacing;
+no diagonal resolution, image-Cauchy input, new YM analytic premise, hole,
+frontier field/atom/flag or physical weight change.
+
+Verification: four focused monitored modules, 54 matched gates within
+{propext, Quot.sound}, six axiom-free; clean logs, fresh own/direct-import
+artifacts, one worker, 20 GiB ceiling. No raised options, large sample
+evaluation, full build/audit/guard/progress or root-import run. Logs in work_plan.
+
+## Previous increment: original polynomial functional and actual cyclic norms (2026-09-14)
 
 PROGRESS after c3da7a8. `RationalScalarTwoSidedError.scale_error` handles
 signed coefficients with |c|. `polynomial_error` gives error

@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original polynomial convergence, positive functional and cyclic norms (2026-09-14)
+## CLOSED represented original Bernstein carrier limits and cusp instance (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialDifference.lean`,
+  `BF4ExactSlabThermodynamicPolynomialCarrierLimit.lean`,
+  `BF4ExactSlabThermodynamicBernsteinCarrier.lean`, and
+  `BF4ExactSlabThermodynamicCuspProbe.lean` in the same directory.
+- **closed differences/representatives**: `vector_sub`, `probe_distance_bound`,
+  `vectorRepresentative` and `probeRepresentative_pin` identify polynomial
+  differences with actual original squared distances and retain the
+  Cauchy rows; no quotient representative selection.
+- **closed original limit**: `polynomialRows` constructs the outer modulus
+  from a genuinely uniform [0,1] polynomial rate. `polynomialLimitCertificate`
+  returns the original representative and convergence rate; uniqueness
+  and constant-sequence compatibility are proved.
+- **supplied uniform approximation**: `bernstein_uniformCauchy` derives
+  the one-stage/all-points bound from existing CtsMod/MOV function data.
+  `continuousProbeCertificate` constructs the original symbol-vector limit,
+  with uniqueness and `continuousProbe_modulus_independent`. The older
+  `SpectralUnifCauchy` is only pointwise; its name is not used as evidence
+  of uniformity. No diagonal or image-Cauchy input is assumed.
+- **constructed instance**: `cuspSymbol`, `cuspVanishing`, `cusp_nonconstant`
+  and `cuspVectorCertificate` supply min(|t-1/2|,1) with its global bound,
+  Lipschitz/vanishing data and original limit. The new vector's nonzeroness
+  is not claimed merely from the symbol's nonconstancy.
+- **open residue**: limit pairing/norm laws, symbol equivalence and operator
+  calculus on the original cyclic sector; full spectral realization,
+  canonical comparisons/completeness/time injectivity, continuous-time/
+  physical spectral/non-Wick pins, continuum scaling, other groups and
+  Clay. No new hole, YM analytic premise, frontier type/atom/flag or
+  physical weight; fixed original SU(2) nome and lattice spacing.
+- **verification**: four focused monitored modules, 54 matched gates within
+  {propext, Quot.sound}, six axiom-free; clean logs and fresh own/direct-import
+  artifacts. One worker, 20 GiB ceiling; no raised options, large sample
+  evaluation, full build/audit/guard/progress or root-import run. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original polynomial convergence, positive functional and cyclic norms (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/RationalScalarTwoSidedError.lean`,
   `BF4ExactSlabThermodynamicBernsteinPolynomialMoments.lean`,

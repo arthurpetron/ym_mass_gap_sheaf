@@ -4206,6 +4206,12 @@ import YMGap.Continuum.RationalScalarTwoSidedError
 import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinPolynomialMoments
 import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialFunctional
 import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialProbeNorm
+-- Actual original polynomial Cauchy rows and Bernstein symbol-vector limits,
+-- including a constructed nonconstant cusp symbol; operator calculus remains open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialDifference
+import YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialCarrierLimit
+import YMGap.Continuum.BF4ExactSlabThermodynamicBernsteinCarrier
+import YMGap.Continuum.BF4ExactSlabThermodynamicCuspProbe
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
