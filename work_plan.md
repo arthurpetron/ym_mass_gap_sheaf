@@ -18,7 +18,42 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original leading amplitudes are bits; complete coefficient is a count):**
+**Latest local increment (the complete original leading coefficient is zero or one):**
+The 6f8a736 checkpoint proved A = ofNat(leadingCount) and A >= 0.
+`PairedPositiveFaceLabellingUniqueness.positivePairs_nodup` and
+`labels_nodup` now prove the unchanged two-replica enumeration is duplicate
+free on each duplicate-free support. Reading the updated head recovers its
+spin branch; `setPair_erase` recovers the tail without deciding equality
+of functions.
+
+`BF4ExactSlabLeadingCountUniqueness.selected_support_eq` recovers the
+ordered selected list from pair occupancy. `retainedPairs_nodup` applies
+this to the actual connected selections and both existing filters.
+`leading_pair_pin` identifies every accepted leading pair, as functions on
+ALL natural indices, with `(tubeLabelling margin, zeroEdgeLabelling)`.
+`leadingCount_le_one` and `leadingCoefficient_zero_or_one` therefore give
+the exact zero-or-one alternative for the COMPLETE original coefficient,
+at every cutoff, margin and filter time. No enumeration was deduplicated,
+replaced or assumed to have a unique entry.
+
+NEXT/OPEN: prove membership of the explicit tube pair through every original
+filter for K >= 1, then bound the signed higher remainder relative to the
+leading term. Positive response/certificate, normalization and cutoff/volume
+persistence, full realization, continuum/QFT/spectral pins, other groups
+and Clay remain open. No analytic premise, canonical atom/type/flag,
+frontier field or hole changed. Uniqueness alone is not positivity.
+
+Verification: two focused modules, 5+9=14 exactly matched axiom gates within
+{propext, Quot.sound}, no axiom-free gates; final logs error/warning free and
+own/direct-import artifacts fresh. The 30-second-capped independent pilot
+`computations/paired_label_uniqueness.py` checks 5,278 replica entries for
+cutoffs 0..3 and supports of size 0..3, with no duplicates. It does not test
+physical leading-count positivity and is not trusted by Lean. One monitored
+worker, 20 GiB ceiling, no raised limits or full build/audit/guard/progress
+run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-paired-label-uniqueness.log`, `/tmp/ym-leading-count-uniqueness.log`.
+
+**Preceding local increment (original leading amplitudes are bits; complete coefficient is a count):**
 The 1cd9d42 checkpoint proved original minimal-power spatial continuation,
 one-endpoint cancellation and empty accepted partition support. This
 increment closes the literal mixed carrier AND its actual Haar amplitude,

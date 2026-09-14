@@ -4,7 +4,36 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original leading amplitudes are zero-one and the full coefficient is a count (2026-09-14)
+## Current increment: the complete original leading coefficient is zero or one (2026-09-14)
+
+The preceding checkpoint 6f8a736 was PROGRESS: literal Haar evaluation and
+the exact nonnegative-count identity. This increment is PROGRESS by proving
+uniqueness for the actual original retained enumeration and its leading pair.
+
+- `PairedPositiveFaceLabellingUniqueness.labels_nodup` recovers each
+  branch from its head and each tail by resetting the head to zero.
+- `BF4ExactSlabLeadingCountUniqueness.selected_support_eq` recovers
+  each ordered selected support from occupied indices;
+  `retainedPairs_nodup` proves no original pair is enumerated twice.
+- `leading_pair_pin` identifies every accepted leading pair with the
+  explicit tube/zero pair on all natural indices.
+- `leadingCount_le_one` and `leadingCoefficient_zero_or_one` give
+  the exact zero-or-one alternative for the complete original coefficient,
+  at every cutoff, margin and filter time, without altering any filter.
+
+Next: prove that the explicit tube pair is retained when K >= 1, then bound
+the signed higher remainder. Strict positivity of A, positive response/
+certificate, normalization/limit persistence, full realization and
+continuum/Clay closure remain open. No analytic premise, canonical
+atom/type/flag, frontier field or hole changed.
+
+Verification: 14 exactly matched focused gates within {propext, Quot.sound};
+clean final logs, fresh own/direct-import artifacts. Independent capped
+pilot: 5,278 replica entries with no duplicates, no physical positivity
+test. One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original leading amplitudes are zero-one and the full coefficient is a count (2026-09-14)
 
 The preceding checkpoint 1cd9d42 was PROGRESS: spatial continuation and
 partition cancellation. This increment is PROGRESS by closing the literal

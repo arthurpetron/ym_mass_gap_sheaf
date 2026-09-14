@@ -32,8 +32,21 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [complete original leading coefficient is a finite count](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientCount.lean),
-and is therefore nonnegative. The [accepted mixed-moment support](lean/YMGap/Continuum/BF4ExactSlabMinimalMixedTube.lean)
+**Latest local mathematical step:** the [complete original leading coefficient is exactly zero or one](lean/YMGap/Continuum/BF4ExactSlabLeadingCountUniqueness.lean),
+at every cutoff, margin and filter time. The [original paired-label enumeration](lean/YMGap/Continuum/PairedPositiveFaceLabellingUniqueness.lean)
+is now proved duplicate-free: reading the head recovers its branch, and
+resetting that head to zero recovers its tail. Each pair determines its
+ordered selected support. Every accepted leading pair is exactly
+`(tubeLabelling margin, zeroEdgeLabelling)`, including nonphysical indices;
+therefore the original `leadingCount` is at most one. Two focused modules
+passed 14 axiom checks within `{propext, Quot.sound}`; no full-tree audit
+was run. **Next:** prove that this explicit pair survives every original
+filter for cutoff at least one, then bound the signed higher remainder.
+Positive original response, limit persistence and continuum/Clay closure
+remain open. A zero-or-one leading coefficient does not bound the full response.
+
+The preceding [finite-count identity](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientCount.lean)
+retains the complete original coefficient. The [accepted mixed-moment support](lean/YMGap/Continuum/BF4ExactSlabMinimalMixedTube.lean)
 is proved to be exactly the literal twelve-face tube, including its physical
 labels. A common gauge sweep and the existing full-carrier contraction prove
 `4096 * bareTubeMoment = 1`. The [actual original dimension products](lean/YMGap/Continuum/BF4ExactSlabMinimalPairAmplitude.lean)
@@ -41,8 +54,8 @@ give that same 4096, so every retained leading amplitude is exactly zero or
 one. Summation preserves the original connected selections, label filters
 and multiplicities: `A = ofNat (leadingCount K margin time)`.
 Seven focused modules passed 38 axiom checks within `{propext, Quot.sound}`
-(four axiom-free). **Still open:** evaluate the count (in particular its
-positivity and uniqueness for nonzero cutoff), bound the signed higher
+(four axiom-free). Uniqueness is now proved above. **Still open:** prove
+positivity of the count for nonzero cutoff, bound the signed higher
 remainder, establish original positive response and limit persistence,
 and close the continuum/Clay obligations. Nonnegative leading terms alone
 do not bound the complete response or give a coupling-uniform gap.

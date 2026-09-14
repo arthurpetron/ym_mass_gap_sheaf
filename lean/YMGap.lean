@@ -4034,6 +4034,7 @@ import YMGap.Continuum.BF4ExactSlabOddFaceIncidence
 import YMGap.Continuum.BF4ExactSlabShiftedProbeTemporalCut
 import YMGap.Continuum.BF4ExactSlabShiftedProbeConnectedCut
 import YMGap.Continuum.PairedPositiveFaceLabellings
+import YMGap.Continuum.PairedPositiveFaceLabellingUniqueness
 import YMGap.Continuum.PolynomialBiadditivePositiveExpansion
 import YMGap.Continuum.PairedPositiveFacePolynomialExpansion
 import YMGap.Continuum.BF4ExactSlabCoveredPairExpansion
@@ -4064,6 +4065,7 @@ import YMGap.Continuum.BF4ExactSlabMinimalTubeSweep
 import YMGap.Continuum.BF4ExactSlabBareTubeEvaluation
 import YMGap.Continuum.BF4ExactSlabMinimalPairAmplitude
 import YMGap.Continuum.BF4ExactSlabLeadingCoefficientCount
+import YMGap.Continuum.BF4ExactSlabLeadingCountUniqueness
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

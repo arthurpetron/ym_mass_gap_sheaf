@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original leading-count uniqueness; OPEN explicit accepted-pair membership (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellingUniqueness.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLeadingCountUniqueness.lean`.
+- **closed enumeration**: `positivePairs_nodup`, `setPair_erase` and
+  `labels_nodup` recover branch and tail in the original enumeration;
+  `selected_support_eq` recovers the ordered support from occupancy.
+  `retainedPairs_nodup` proves no repeated original retained pair across
+  either supports or representation branches.
+- **closed coefficient**: `leading_pair_pin` identifies every accepted
+  leading pair with the explicit tube/zero pair on all natural indices.
+  `leadingCount_le_one` and `leadingCoefficient_zero_or_one` prove the
+  complete original coefficient is exactly zero or one at every cutoff,
+  margin and filter time. All original filters and multiplicities remain.
+- **open residue**: membership of that tube pair through all original
+  filters for K >= 1, hence positivity of A; signed relative remainder
+  bound; positive response/certificate and normalization/limit persistence.
+  Full realization, continuum/QFT/spectral pins, other groups and Clay
+  remain open. No hole, analytic premise, canonical atom/type/flag or
+  frontier field changed. Uniqueness does not imply a positive response.
+- **verification**: 14 exactly matched focused gates within
+  {propext, Quot.sound}; clean final logs and fresh own/direct-import
+  artifacts. The capped pilot checks 5,278 enumeration entries, not
+  physical response positivity. One monitored worker, 20 GiB ceiling;
+  no raised limits or full build/audit/guard/progress run. Root imports
+  not rebuilt; exact logs in work_plan.
+
 ## CLOSED literal original tube amplitude and nonnegative leading count; OPEN count evaluation (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTubeSupportGeometry.lean`,
