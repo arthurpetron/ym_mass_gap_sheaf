@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-length selected propagation and actual three-step geometry (2026-09-13)
+## Current increment: common temporal sweep of the full ORIGINAL action and shifted probe (2026-09-13)
+
+The preceding turn was PROGRESS: 5885c96 proved all-length tube composition
+and actual shifted-probe geometry. This turn is PROGRESS by an exact common
+change of variables on the full action, not independent facewise gauges.
+
+- `BF4ExactSlabTemporalSweepCharacters.swept_links_fixed` keeps earlier
+  relative kernels fixed under later cuts. `swept_ledger_image` and
+  `step_character_carrier` use the actual physical ledger at every spin.
+- `BF4ExactSlabTemporalSweep.step_haar` and `sweep_haar` extend this to
+  finite signed character factors and arbitrary sweep lengths.
+  `full_action_zero` and `full_action_sweep` pin the existing full heat
+  action and preserve its Haar integral, at every cutoff and odd extent.
+- `BF4ExactSlabShiftedProbeTemporalSweep.shifted_probe_action_sweep`
+  retains the original centered endpoint observables and full action.
+  `tube_side_character_pin` reduces all twelve selected temporal faces
+  simultaneously at every volume margin.
+
+Next: compact tube / literal sixteen-link product recoding, followed by
+signed remainder control and cutoff/volume-stable positivity. The gauge
+composition is closed; the original response floor remains open. This is
+a raw fixed-cutoff identity, not a nested response-certificate evaluation.
+Full realization/completeness, continuum/QFT/spectral, other groups and
+Clay remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: 12+15+9=36 exactly matched gates, eight axiom-free, all others
+within {propext, Quot.sound}; final focused logs error/warning free and
+own/direct-import artifacts fresh. Exact pilot passed 4,914 shared-assignment
+word checks; Lean proves Haar invariance independently. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs: `/tmp/ym-bf4-temporal-sweep-characters.log`,
+`/tmp/ym-bf4-temporal-sweep.log`, `/tmp/ym-bf4-shifted-probe-temporal-sweep.log`.
+
+## Previous increment: all-length selected propagation and actual three-step geometry (2026-09-13)
 
 The preceding turn was PROGRESS: d6e8710 proved the boundary-retaining
 one-layer tube. This turn is PROGRESS by induction to arbitrary length,

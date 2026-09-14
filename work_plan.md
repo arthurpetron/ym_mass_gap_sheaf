@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (all-length tube composition and actual shifted-probe geometry):**
+**Latest local increment (one common temporal sweep of the ORIGINAL full action and shifted probe):**
+The 5885c96 checkpoint supplied the selected w^36 tube and all-margin
+geometry. This increment proves the common change of variables needed to
+place that geometry alongside the FULL interacting action.
+
+`BF4ExactSlabTemporalSweepCharacters.swept_links_fixed` proves that both
+spatial links of an already reduced temporal face are untouched by later
+cuts. `swept_ledger_image` uses the existing whole physical link ledger;
+`step_character_carrier` reduces the current layer and preserves every
+other all-spin face character under arbitrary polynomial insertions.
+
+`BF4ExactSlabTemporalSweep.product_image`, `product_carrier` and `step_haar`
+lift this to arbitrary finite signed character factors, including repeated
+faces and shared coordinates. `sweep_haar` inducts through arbitrary numbers
+of cuts. `full_action_zero` is literal equality with the EXISTING
+`fullHeatProduct`; `full_action_sweep` preserves its entire Haar integral,
+at every cutoff and odd extent, with no positivity or small-nome premise.
+
+`BF4ExactSlabShiftedProbeTemporalSweep.probe_product_pin` and
+`shifted_probe_action_sweep` retain the actual `upper/lower (enlarge margin
+shiftedProbe)` insertions, with arbitrary rational centering constants,
+alongside that same full action. `tube_side_character_pin` proves that
+all twelve literal sides simultaneously become their relative-link kernels
+after the sweep through margin+3. No face weight or other spin is dropped.
+
+OPEN: the explicit compact sixteen-block tube / literal full-carrier
+product recoding and the cancellation-preserving signed remainder bound.
+The common gauge sweep is now proved; it is not the missing lower estimate.
+This is a raw fixed-cutoff moment identity, not evaluation of the nested
+`finiteResponse` approximants or an accepted response certificate.
+Cutoff/volume persistence, full observable realization and quotient-level
+completeness, continuum scaling, generator/spectral pins, QFT axioms,
+other groups and Clay remain open. No canonical atom/type/flag, analytic
+premise or hole changed.
+
+Verification: three modules, 12+15+9=36 exactly matched focused gates;
+eight axiom-free, all others within {propext, Quot.sound}. Final logs have
+no errors/warnings; own/direct-import artifacts fresh. The exact free-word
+pilot `python3 -m computations.original_temporal_sweep` passed 4,914
+common-assignment checks across extents 1,2,3. It tests word reductions,
+not Haar invariance; Lean proves the latter independently. One monitored
+worker, mandatory 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-bf4-temporal-sweep-characters.log`, `/tmp/ym-bf4-temporal-sweep.log`,
+`/tmp/ym-bf4-shifted-probe-temporal-sweep.log`.
+
+**Preceding local increment (all-length tube composition and actual shifted-probe geometry):**
 The d6e8710 checkpoint retained the boundary of one selected fundamental
 tube. `SU2QuaternionFundamentalTubeComposition.tubeChain_haar` now composes
 that identity by induction, keeping the SAME intermediate variables and

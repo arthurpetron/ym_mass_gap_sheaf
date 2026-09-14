@@ -32,17 +32,17 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [boundary-retaining fundamental tube](lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean)
-now composes through any number of layers by induction. Its selected heat
-coefficients give exactly `w^(12*n)` for `n` layers, retaining arbitrary
-boundary polynomials. Subtracting arbitrary constants from both endpoints
-leaves this selected signal unchanged: the required three-layer term is
-exactly `w^36`. [Kernel-checked geometry](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTubeGeometry.lean)
-identifies the actual shifted-probe endpoints and twelve distinct connecting
-faces at every volume margin. This remains **a selected term, not a positive
-lower bound for the full interacting covariance**. A joint original-action
-integrand identity and signed remainder control that preserves the signal
-through cutoff and volume limits are still open.
+**Latest local mathematical step:** a [common ascending temporal gauge sweep](lean/YMGap/Continuum/BF4ExactSlabTemporalSweep.lean)
+now preserves the full original finite-action Haar integral at every cutoff
+and odd extent. The [actual centered shifted probe](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalSweep.lean)
+is retained under this same sweep, with all action weights and shared links
+present. All twelve selected tube sides become their literal relative-link
+kernels simultaneously. The earlier [tube-composition theorem](lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean)
+gives exactly `w^(12*n)`, including `w^36` for three layers, unchanged by
+endpoint centering. **This is not yet a positive lower bound for the full
+interacting covariance.** The compact tube's full-carrier recoding and
+signed remainder control preserving its signal through cutoff and volume
+limits remain open.
 
 ## Whole-project goal
 

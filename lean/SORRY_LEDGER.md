@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED common full-action temporal sweep with actual shifted probe; OPEN response floor (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTemporalSweepCharacters.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTemporalSweep.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalSweep.lean`.
+- **closed common gauge composition**: `swept_links_fixed`,
+  `swept_ledger_image` and `step_character_carrier` preserve already
+  reduced faces while reducing the next layer, using the same physical
+  Haar-preserving ledger. `product_image`, `product_carrier`, `step_haar`
+  and `sweep_haar` keep arbitrary signed coefficients, repeated faces
+  and shared links throughout finite sums/products and arbitrary cuts.
+- **closed original-object pins**: `full_action_zero` / `full_action_sweep`
+  identify and preserve the pre-existing full heat action at every cutoff.
+  `probe_product_pin` / `shifted_probe_action_sweep` retain the actual
+  original enlarged lower/upper shifted probe and arbitrary centers.
+  `tube_side_character_pin` reduces all twelve physical tube sides
+  simultaneously at every volume margin.
+- **open residue**: the compact sixteen-block tube / literal full-carrier
+  product recoding, signed remainder control and cutoff/volume-stable
+  positive response. No nested `finiteResponse` sample is evaluated and
+  no response certificate is instantiated. The common gauge sweep is
+  proved, not the response floor. Canonical positive-time root, full
+  observable realization, quotient-level completeness, continuum/QFT/
+  spectral and other-group requirements remain open. No canonical
+  atom/type/flag, analytic premise or hole changed.
+- **verification**: 12+15+9=36 exactly matched focused gates, eight
+  axiom-free, all others within {propext, Quot.sound}; final logs
+  error/warning free, own/direct-import artifacts fresh. Exact pilot:
+  4,914 common-assignment word checks at extents 1,2,3; not a proof
+  oracle for Haar invariance. One monitored worker, 20 GiB ceiling;
+  no raised limits or full build/audit/guard/progress run. Root imports
+  updated, not rebuilt. Logs: `/tmp/ym-bf4-temporal-sweep-characters.log`,
+  `/tmp/ym-bf4-temporal-sweep.log`, `/tmp/ym-bf4-shifted-probe-temporal-sweep.log`.
+
 ## CLOSED all-length selected tube and shifted-probe geometry; OPEN full response floor (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean`,
