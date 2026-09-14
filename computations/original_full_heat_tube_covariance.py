@@ -24,6 +24,13 @@ def integrate_all(polynomial, links):
 
 def pilot():
     reference = chi(1, holonomy(list(enumerate((1, 1, -1, -1)))))
+    bare_z = integrate_all(P_ONE, range(4))
+    bare_mean = integrate_all(reference, range(4))
+    bare_square = integrate_all(p_mul(reference, reference), range(4))
+    bare_variance = sp_add(sp_mul(bare_z, bare_square), sp_scale(sp_mul(bare_mean, bare_mean), -1))
+    assert bare_z == {0: Fraction(1)}
+    assert bare_mean == {}
+    assert bare_variance == {0: Fraction(1)}
     boundary = {m: dict(c) for m, c in P_ONE.items()}
     p_add_into(boundary, p_scale_s(reference, 0, Fraction(1, 4)))
     z = integrate_all(boundary, range(4))
@@ -50,7 +57,8 @@ def pilot():
             rows.append({"cutoff": cutoff, "layers": layer + 1,
                          "connected_numerator": f"(15/16)*w^{12*(layer+1)}",
                          "normalized_covariance": f"(15/16)*w^{12*(layer+1)}"})
-    return {"checks": rows, "boundary": "1+P_upper/4; reference moments checked on four blocks",
+    return {"checks": rows, "bare_boundary_variance": "1; bare tube connected numerator w^36",
+            "boundary": "1+P_upper/4; reference moments checked on four blocks",
             "interacting_remainder": "NOT BOUNDED"}
 
 

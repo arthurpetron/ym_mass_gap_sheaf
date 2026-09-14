@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [exact cancellation on fewer than twelve selected faces](lean/YMGap/Continuum/BF4ExactSlabShortSupportCancellation.lean)
+**Latest local mathematical step:** the [full original tube core is evaluated exactly](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeCoreSplit.lean),
+including every cutoff spin, not only its leading term. A [common sweep](lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalSweep.lean)
+preserves the partition, both means and mixed moment. The [original ordered
+tube heat sub-action](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeActionSweep.lean)
+then contracts to [exactly `w^36`](lean/YMGap/Continuum/BF4ExactSlabOriginalTubeHeatValue.lean)
+for every rational nome, cutoff `K >= 1` and margin. Its proper selections
+vanish, so its complete connected coefficient is also exactly `w^36`.
+The full original resummed numerator is now
+`w^36 * Z_detached^2 + otherCoreRemainder`, with the tube proved to belong
+to the actual computed core list. Four focused modules passed 30 axiom
+checks within `{propext, Quot.sound}` (two axiom-free); no full-tree audit ran.
+**Next:** control the signed other-core sum relative to this dressed tube
+term. The detached partition is not silently replaced by the full partition.
+Positive full response, limit persistence and continuum/Clay closure remain open.
+
+The preceding [exact cancellation on fewer than twelve selected faces](lean/YMGap/Continuum/BF4ExactSlabShortSupportCancellation.lean)
 now feeds the [original partition-relative resummation](lean/YMGap/Continuum/BF4ExactSlabOriginalTwelveFaceBudget.lean).
 Each occupied replica cut embeds in the [selected support's cut](lean/YMGap/Continuum/BF4ExactSlabRetainedSelectedArea.lean),
 so overlaps are counted once. Three four-face cuts force twelve selected
@@ -44,8 +59,9 @@ passed 21 axiom checks within `{propext, Quot.sound}`; no full-tree audit ran.
 **Boundary:** this bounds the full numerator, not the signed higher remainder.
 At nome `1/1024`, the exact-rational scalar pilot finds the budget about
 `3.52e69` times `w^36`, so it does not certify positivity. The next frontier
-is to isolate and control the dressed tube corrections within this same
-resummed sum. Positive response and continuum/Clay closure remain open.
+was to isolate and control the dressed tube corrections within this same
+resummed sum. The tube core is now evaluated above; the other-core sum,
+positive response and continuum/Clay closure remain open.
 
 The preceding [complete original leading coefficient is exactly one](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientOne.lean)
 for every cutoff `K >= 1`, margin and filter time. The [explicit tube pair](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeSupport.lean)

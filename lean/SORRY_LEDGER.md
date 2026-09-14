@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED complete original tube coefficient and dressed-core extraction; OPEN other-core control (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabConnectedTemporalSweep.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalTubeActionSweep.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalTubeHeatValue.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalTubeCoreSplit.lean`.
+- **closed original-action pin**: `sweep_connected` preserves all four
+  connected moments under the same temporal sweep. `tubeIds_faces_perm`
+  and `original_tube_connected_sweep` pin the original ordered tube
+  sub-action, both probes and every full heat coefficient to literalChain.
+- **closed whole tube value**: `unit_chain_embedding` retains the full
+  carrier. `compact_upper_variance` and `connected_extend` give retained
+  variance one. `original_tube_numerator` is exactly w^36 for every rational
+  w, cutoff K >= 1 and margin, with partition and means included.
+- **closed resummed term**: proper tube subselections vanish by the proved
+  short-support cancellation, so `original_tube_coefficient` is exactly
+  w^36. `tube_core_fixed` forces the actual computed core using nonzero
+  coefficient and the existing rooted factorization. `tube_large_anchor`
+  proves actual list membership; `original_dressed_tube_split` gives the
+  full original numerator as `w^36 * Z_detached^2 + otherCoreRemainder`.
+  The remainder is the explicit signed sum of the OTHER original cores,
+  with their original detached partition squares, not a surrogate model.
+- **open residue**: useful other-core control relative to the dressed tube
+  term and the needed detached/full partition comparison; positive full
+  response/certificate, normalization/cutoff/volume persistence. Full
+  realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, new open analytic input, canonical atom/type/flag or
+  frontier field changed. A positive core is not a positive full sum.
+- **verification**: 30 exactly matched focused gates within
+  {propext, Quot.sound}, two axiom-free; clean final logs, fresh own/direct-
+  import artifacts. The capped polynomial pilot checks unit and nonconstant
+  boundary variances and nine small-cutoff/layer transmissions, not the
+  full interacting response. One monitored worker, 20 GiB ceiling; no
+  raised limits or full build/audit/guard/progress run. Root imports not
+  rebuilt; exact logs in work_plan.
+
 ## CLOSED original short-support cancellation and twelve-face partition budget; OPEN signed remainder (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabRetainedSelectedArea.lean`,

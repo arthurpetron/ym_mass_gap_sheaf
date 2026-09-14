@@ -18,7 +18,61 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (exact short-support cancellation enters the original partition budget):**
+**Latest local increment (the complete tube core is exact and extracted from the original resummation):**
+The 5024a93 checkpoint was PROGRESS: original small-support cancellation
+entered the partition-relative budget. This increment evaluates the whole
+tube core, including all cutoff spins, and isolates its ACTUAL resummed term.
+
+`BF4ExactSlabConnectedTemporalSweep.sweep_connected` applies one common
+temporal sweep to the partition, both means and mixed moment of arbitrary
+finite physical face factors. `original_connected_pin` retains the existing
+numerator's product order. `BF4ExactSlabOriginalTubeActionSweep.tubeIds_faces_perm`
+pins the original ordered physical-index support to the literal twelve-face
+tube. `selected_action_zero`, `tube_action_zero` and `tube_action_swept`
+retain every heat coefficient. `original_tube_connected_sweep` transports
+the same two probes and whole tube sub-action, with no ambient-action
+independence assumption.
+
+`BF4ExactSlabOriginalTubeHeatValue.unit_chain_embedding` keeps the full
+original carrier, including unit padding. The exact sixteen-block
+`compact_upper_variance` is one; `connected_extend` retains inactive Haar
+variables. The existing full-kernel contraction therefore proves
+`original_tube_numerator = w^36` for every rational w, K >= 1 and margin.
+This is a statement about the tube sub-action, not the full ambient action.
+
+`BF4ExactSlabOriginalTubeCoreSplit.tube_coefficient_is_numerator` uses
+the prior short-support cancellation on every proper tube subselection.
+`original_tube_coefficient` is thus exactly w^36, with no higher-spin residue
+on this core. `tube_core_fixed` uses the existing rooted coefficient
+factorization and the nonzero exact value at w=1, K=1 to force the computed
+geometric core to be the entire tube; no positivity of that ambient action
+is invoked. `tube_large_anchor` proves membership in the actual resummed list.
+`original_dressed_tube_split` then gives the FULL original numerator as
+`w^36 * Z_detached^2 + otherCoreRemainder`, for every rational w, K >= 1
+and margin. `otherCoreRemainder` is the exact signed sum of all other
+original cores, each with its own detached partition square.
+
+NEXT/OPEN: bound that signed other-core sum relative to the dressed tube
+term and control the detached/full partition comparison in the needed
+direction. Neither a useful remainder bound nor a positive full response
+is claimed. Positive response/certificate, normalization/cutoff/volume
+persistence, full realization, continuum/QFT/spectral pins, other groups
+and Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed.
+
+Verification: four focused modules, 5+11+7+7=30 exactly matched gates within
+{propext, Quot.sound}, two axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped exact-polynomial pilot checks the
+bare boundary variance one and nine cutoff/layer transmissions (K=1..3,
+one to three layers), while retaining the previous nonconstant-boundary
+variance 15/16 test. It does not evaluate the full interacting numerator
+or certify positivity; Lean checks independently. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-connected-temporal-sweep.log`, `/tmp/ym-original-tube-action-sweep.log`,
+`/tmp/ym-original-tube-heat-value.log`, `/tmp/ym-original-tube-core-split.log`.
+
+**Preceding local increment (exact short-support cancellation enters the original partition budget):**
 The f3e6e42 checkpoint proved the original leading coefficient is one.
 This increment connects the original leaf/cut geometry to the existing
 partition-relative resummation, without assuming a false size floor for

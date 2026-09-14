@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original short-support cancellation enters the partition budget (2026-09-14)
+## Current increment: complete original tube core evaluated and extracted (2026-09-14)
+
+The preceding 5024a93 checkpoint was PROGRESS: exact small-support cancellation
+entered the original partition-relative resummation. This increment is
+PROGRESS by evaluating the full heat tube core, not merely its leading term,
+and extracting its actual term from the original resummed numerator.
+
+- `BF4ExactSlabConnectedTemporalSweep.sweep_connected` preserves the
+  partition, both means and mixed moment under one common sweep.
+- `BF4ExactSlabOriginalTubeActionSweep.original_tube_connected_sweep`
+  retains the original physical-index support and every cutoff heat spin.
+- `BF4ExactSlabOriginalTubeHeatValue.original_tube_numerator` is exactly
+  w^36 for every rational w, K >= 1 and margin, using the existing full-heat
+  contraction and exact unit boundary variance on the same full carrier.
+- `BF4ExactSlabOriginalTubeCoreSplit.original_tube_coefficient` uses the
+  zero proper subselections to evaluate the complete coefficient. The
+  existing rooted factorization and its nonzero value force `tube_core_fixed`.
+  `tube_large_anchor` pins actual resummed-list membership.
+- `original_dressed_tube_split` gives the FULL original numerator as
+  `w^36 * Z_detached^2 + otherCoreRemainder`. Every other signed core and
+  its detached partition square remains in the explicit remainder.
+
+Next: useful relative control of this other-core sum and the required
+detached/full partition comparison. Positive full response/certificate,
+normalization/limit persistence, full realization and continuum/Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or frontier
+field changed. The evaluated positive core is not a positivity proof for
+the full interacting response.
+
+Verification: 30 exactly matched focused gates within {propext, Quot.sound},
+two axiom-free; clean final logs and fresh own/direct-import artifacts.
+Capped polynomial pilot: unit boundary variance one, nonconstant-boundary
+variance 15/16, nine cutoff/layer transmissions, no full-response evaluation.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports not rebuilt; exact logs in work_plan.
+
+## Previous increment: original short-support cancellation enters the partition budget (2026-09-14)
 
 The preceding f3e6e42 checkpoint was PROGRESS: the original leading coefficient
 is exactly one. This increment is PROGRESS by connecting the original
