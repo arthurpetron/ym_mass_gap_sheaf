@@ -32,7 +32,19 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [connected full-tube transmission](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeCovariance.lean)
+**Latest local mathematical step:** an [all-spin center-charge filter](lean/YMGap/Continuum/BF4ExactSlabCenterCharge.lean)
+now removes exactly zero terms from the **original shared-link heat sum**.
+An odd total label at an integrated link forces its signed Haar coefficient
+to vanish. The proof uses actual face incidences, all spins and every slab
+extent; it does not assume the other plaquettes are independent.
+The [four shifted-probe moment filters](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCenterCharge.lean)
+include each observable's charge in the same test. Partition, endpoint means
+and mixed moment require different tests. Three focused modules passed
+30 axiom checks within `{propext, Quot.sound}` (three axiom-free).
+This is zero-term cancellation, **not** a positive-response bound: disconnected
+caps can pass parity, and surviving connected interactions remain to be bounded.
+
+The preceding [connected full-tube transmission](lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeCovariance.lean)
 now includes the partition and **both endpoint means**. The original twelve
 full heat factors preserve the retained boundary mass. Their connected
 numerator is exactly `w^36` times the upper boundary variance numerator,

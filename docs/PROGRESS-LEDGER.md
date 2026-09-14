@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact connected full-tube transmission (2026-09-13)
+## Current increment: original all-spin center-charge cancellation (2026-09-13)
+
+The preceding checkpoint 05ba400 proved conditional connected tube
+transmission. This increment proves zero-term cancellation for the full
+selected original interacting action, including shared integrated links.
+
+- `SU2QuaternionBlockCenterCharge.HasCharge.character` proves charge
+  spin*degree modulo two through the ordinary character recurrence.
+  `haar_insert_zero` permits charged, shared-link insertions.
+- `BF4ExactSlabCenterCharge.coefficient_filter` targets the existing signed
+  physical Haar coefficient with actual slab incidences. `dual_sum_filter`
+  preserves finite original heat sums at every extent, nome and cutoff.
+- `BF4ExactSlabShiftedProbeCenterCharge.moment_filter` computes a separate
+  correct charge test for each of the four actual shifted-probe moments.
+
+Next: combine parity with connected cancellation and classify/bound surviving
+contributions. The pilot verifies that disconnected endpoint caps pass parity;
+it is not a minimum connected-surface theorem. No positive original response,
+accepted certificate, normalization/limit persistence or continuum/Clay
+closure follows. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: 30 exactly matched focused gates, three axiom-free, all within
+{propext, Quot.sound}; clean final logs, fresh own/direct-import artifacts.
+The exact capped pilot passes; it is not a proof oracle. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Full check scope is recorded in work_plan.
+
+## Previous increment: exact connected full-tube transmission (2026-09-13)
 
 The preceding checkpoint b85c5e2 was PROGRESS: raw full-kernel tube
 transmission on the original carrier. This increment is PROGRESS by proving

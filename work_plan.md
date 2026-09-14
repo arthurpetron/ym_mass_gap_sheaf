@@ -18,7 +18,52 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (connected full tube with exact vacuum subtraction):**
+**Latest local increment (all-spin center-charge cancellation on the original action):**
+The 05ba400 checkpoint established conditional full-tube connected transmission.
+This increment addresses selected terms of the FULL original interacting action,
+without substituting that action into the tube's independence hypothesis.
+
+`SU2QuaternionBlockCenterCharge.HasCharge.character` proves the ordinary
+all-spin character recurrence has charge spin*degree modulo two. Unlike exact
+homogeneous degree, this invariant survives the recurrence's lower terms.
+`haar_insert_zero` adds the charges of shared-link insertions before rejecting
+an odd integrated block. No independence, sign, cutoff or nome guard is needed.
+
+`BF4ExactSlabCenterCharge.face_degree` derives the degree from the actual
+oriented boundary and original slab coordinate indices. `coefficient_zero`
+and `coefficient_filter` apply directly to `exactCorrectedSlabHaarCoefficient`,
+not the multiplicity model. `dual_sum_filter` deletes rejected labels from any
+finite sum of `exactCorrectedSlabDualTerm`, at every extent, cutoff and nome.
+`BF4ExactSlabShiftedProbeCenterCharge.moment_filter` specializes the charged
+insertion theorem to all FOUR moments of the existing shifted/enlarged probe,
+at every volume margin, with the full selected original action retained.
+
+NEXT/OPEN: combine this zero-term filter with existing connected-selection
+cancellation, classify surviving leading connected contributions, and bound
+the signed remainder relative to the tube signal. Parity does NOT imply
+connectedness or positivity. The pilot explicitly exhibits disconnected
+endpoint caps passing parity. Applying the partition charge test unchanged
+to the mixed moment would wrongly discard the tube contribution: the pilot's
+partition/lower/upper/mixed checks on that selection are false/false/false/true.
+These concrete geometry checks are pilot evidence; the general filter is proved
+in Lean independently. No minimum connected area or w^36 divisibility theorem
+for the full response has been proved. Positive original response, its
+normalization and cutoff/volume persistence, full observable realization,
+canonical positive-time root, continuum/QFT/spectral pins, other groups and
+Clay remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: 10+15+5=30 exactly matched focused gates within
+{propext, Quot.sound}, three axiom-free; clean final logs and fresh
+own/direct-import artifacts. A generic `List.all_eq_false` proof initially
+introduced Classical.choice; it was replaced by explicit finite recursion,
+and the final gates exclude it. The 30-second-capped pilot
+`computations/original_slab_center_charge.py` passes. One monitored worker,
+20 GiB ceiling; paused for a user-owned test workflow, resumed when clear.
+No raised limits or full build/audit/guard/progress run. Root imports updated,
+not rebuilt. Logs: `/tmp/ym-block-center-charge.log`,
+`/tmp/ym-original-slab-center-charge.log`, `/tmp/ym-shifted-probe-center-charge.log`.
+
+**Preceding local increment (connected full tube with exact vacuum subtraction):**
 The b85c5e2 checkpoint proved raw full-kernel tube transmission. This increment
 proves the mass and connected identities, keeping the boundary's mean and
 partition rather than treating vacuum subtraction as an absolute error.

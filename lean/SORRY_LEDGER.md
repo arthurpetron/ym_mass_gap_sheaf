@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original all-spin center-charge filter; OPEN surviving connected response estimate (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionBlockCenterCharge.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCenterCharge.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCenterCharge.lean`.
+- **closed**: `HasCharge.character` handles all spins; `haar_insert_zero`
+  cancels odd charge on any integrated shared block. Actual oriented
+  incidences give `face_degree`; `coefficient_filter` rejects zero values
+  of the EXISTING original signed Haar coefficient. `dual_sum_filter`
+  preserves finite original heat sums while removing rejected labels.
+  `moment_filter` includes the actual shifted probe's charge in each of
+  its four original moments, for every margin and full action labelling.
+- **open residue**: connect the parity and connected-selection filters,
+  classify leading surviving connected contributions, and control their
+  signed remainder. Passing parity does not imply connectedness or a sign;
+  disconnected caps pass it. No full-response minimum-area/divisibility
+  theorem, positive response floor, normalization/limit persistence or
+  accepted certificate is claimed. Physical realization, continuum/QFT/
+  spectral pins, other groups and Clay remain open. No hole, analytic
+  premise, canonical atom/type/flag or frontier field changed.
+- **verification**: 30 exactly matched focused gates within
+  {propext, Quot.sound}, three axiom-free; final logs clean, own/direct-import
+  artifacts fresh. The exact pilot checks spin parity and tube/cap incidence,
+  not a physical lower bound. One monitored worker, 20 GiB ceiling; no raised
+  limits or full build/audit/guard/progress run. Root imports not rebuilt.
+  Log paths and the constructive list-recursion replacement are in work_plan.
+
 ## CLOSED connected full-tube main term; OPEN signed interacting response estimate (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionRelativeHeatVacuum.lean`,

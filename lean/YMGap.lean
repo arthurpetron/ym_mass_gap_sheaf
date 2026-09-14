@@ -4024,6 +4024,9 @@ import YMGap.Continuum.SU2QuaternionRelativeHeatVacuum
 import YMGap.Continuum.SU2QuaternionFullHeatTubeVacuum
 import YMGap.Continuum.SU2QuaternionFullHeatTubeCovariance
 import YMGap.Continuum.BF4ExactSlabFullHeatTubeCovariance
+import YMGap.Continuum.SU2QuaternionBlockCenterCharge
+import YMGap.Continuum.BF4ExactSlabCenterCharge
+import YMGap.Continuum.BF4ExactSlabShiftedProbeCenterCharge
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
