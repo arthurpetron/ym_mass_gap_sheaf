@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (large signed cores absorbed; only the 12–32-face window remains):**
+**Latest local increment (local leading cancellation and exact w^39 short-core factor):**
+The c9ec3de checkpoint was PROGRESS: the >=33-face tail was absorbed into
+the original tube reference. This increment exposes extra heat power on
+each ORIGINAL non-tube core before its detached partition is multiplied in.
+
+`SU2FiniteCasimirFirstExcess.scalar_excess_zero_or_five` and
+`excessSum_zero_or_five` prove that the nonzero excess beyond three per
+positive label is at least five. `paired_small_power_eq36` therefore
+excludes totals 37 and 38 above the twelve-occupation floor, at all spins.
+`BF4ExactSlabNonTubeHeatPower.leading_support_pin` combines the existing
+leading-pair pin with multiplicity-faithful selected-support uniqueness.
+`nonTube_leading_amplitude_zero` removes power 36 on EACH non-tube core;
+`nonTube_sub39_amplitude_zero` includes powers 37 and 38. This is not
+cancellation between unrelated core partitions.
+
+`nonTube_pair_factorization` and `nonTube_coefficient_factorization`
+extract w^39 on the unchanged retained label list. The explicit cofactor
+keeps the original signed Haar amplitudes and all representation dimensions.
+`BF4ExactSlabShortCoreHeatFactor.shortOtherRemainder_factorization` keeps
+each core's detached partition square and proves
+`shortOtherRemainder = w^39 * shortHeatResidual` for every rational w,
+K>=1, threshold, margin and filter time, including w=0 without division.
+`original_numerator_lower_with_heat_residual` connects this directly to
+the proved size-33 tail absorption at w=1/1024:
+
+`N_full >= (w^36/4)*Z_full^2 + w^39*shortHeatResidual`.
+
+NEXT/OPEN: a useful cancellation-aware magnitude bound for the explicit
+signed short cofactor, uniform in cutoff and margin and retaining the
+original partitions. The extra power does not itself bound that cofactor.
+Positive full response/certificate, normalization/cutoff/volume persistence,
+full realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or frontier
+field changed; no coupling-uniform gap claimed.
+
+Verification: three focused modules, 3+8+6=17 exactly matched gates within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+The 30-second-capped scalar pilot `computations/original_non_tube_heat_power.py`
+checks 10001 scalar spins and reachable powers <=60 for 12..32 occupations
+with labels 1..7. It does not evaluate original amplitudes or residuals;
+Lean proves the all-spin gap and original-action factorization independently.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-su2-first-casimir-excess.log`, `/tmp/ym-non-tube-heat-power.log`,
+`/tmp/ym-short-core-heat-factor.log`.
+
+**Preceding local increment (large signed cores absorbed; only the 12–32-face window remains):**
 The acc4f1c checkpoint was PROGRESS: the original tube contribution has a
 positive reference floor relative to the full partition. This increment
 controls an ACTUAL remainder subfamily, not the full numerator again.

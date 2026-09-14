@@ -32,7 +32,21 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [large signed core remainder is now controlled](lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailCertificate.lean)
+**Latest local mathematical step:** the [remaining short-core sum has an exact `w^39` factor](lean/YMGap/Continuum/BF4ExactSlabShortCoreHeatFactor.lean).
+The [leading-pair support is pinned to the literal tube](lean/YMGap/Continuum/BF4ExactSlabNonTubeHeatPower.lean),
+so every non-tube core has zero original amplitude at power 36. The
+[all-spin SU(2) Casimir gap](lean/YMGap/Continuum/SU2FiniteCasimirFirstExcess.lean)
+excludes retained powers 37 and 38. The factorization preserves every
+signed Haar amplitude, representation dimension and detached partition,
+and holds even at zero or negative rational nome, for every `K >= 1`.
+At nome `1/1024`, the original bound is now
+`N_full >= (w^36/4) * Z_full^2 + w^39 * shortHeatResidual`.
+Three focused modules passed 17 axiom checks within `{propext, Quot.sound}`;
+no full-tree audit ran. **Next:** prove a useful cutoff- and volume-uniform
+bound on that explicit signed cofactor. The extra power alone does not
+make it small. Positive full response and continuum/Clay remain open.
+
+The preceding [large signed core remainder is controlled](lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailCertificate.lean)
 at nome `1/1024`, uniformly in cutoff and volume margin. The [exact split](lean/YMGap/Continuum/BF4ExactSlabOriginalCoreTailWindow.lean)
 retains the original coefficients, multiplicities and detached partitions.
 All other cores with at least 33 faces cost at most `(w^36/4) * Z_full^2`

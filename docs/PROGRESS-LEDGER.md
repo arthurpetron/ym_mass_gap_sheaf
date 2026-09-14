@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: large signed core tail absorbed into the original tube reference (2026-09-14)
+## Current increment: exact local leading cancellation and w^39 short-core factor (2026-09-14)
+
+The preceding c9ec3de checkpoint was PROGRESS: the actual >=33-face tail
+was absorbed. This increment is PROGRESS by proving leading cancellation
+on each non-tube core and extracting extra heat power before dressing.
+
+- `SU2FiniteCasimirFirstExcess.paired_small_power_eq36` excludes powers
+  37 and 38 above twelve occupied labels, at all spins; nonzero Casimir
+  excess is at least five.
+- `BF4ExactSlabNonTubeHeatPower.leading_support_pin` pins the original
+  selected support of every accepted leading pair to the tube.
+  `nonTube_sub39_amplitude_zero` proves zero signed amplitude on each
+  non-tube core below power 39.
+- `nonTube_coefficient_factorization` extracts w^39 with the original
+  retained labels, representation dimensions and signed Haar terms.
+- `BF4ExactSlabShortCoreHeatFactor.shortOtherRemainder_factorization`
+  retains every individual detached partition and gives the exact short
+  remainder as `w^39*shortHeatResidual`, all rational w and K>=1.
+- `original_numerator_lower_with_heat_residual` connects this to the
+  original size-33 tail absorption at w=1/1024, every margin and K>=1.
+
+Next: useful cutoff- and margin-uniform signed cofactor control on the
+original 12–32-face window. No magnitude or sign follows from the extra
+power alone. Positive full response, limits, full realization and
+continuum/Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed.
+
+Verification: 17 exactly matched focused gates within {propext, Quot.sound};
+clean final logs and fresh own/direct-import artifacts. Capped scalar
+pilot checks 10001 scalar spins and finite reachable powers, not original
+amplitudes or residuals. One monitored worker, 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports not rebuilt;
+exact logs in work_plan.
+
+## Previous increment: large signed core tail absorbed into the original tube reference (2026-09-14)
 
 The preceding acc4f1c checkpoint was PROGRESS: it discharged the original
 detached/full partition comparison. This increment is PROGRESS by bounding

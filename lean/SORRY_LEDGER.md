@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED local non-tube leading cancellation and w^39 factor; OPEN signed cofactor bound (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/SU2FiniteCasimirFirstExcess.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabNonTubeHeatPower.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShortCoreHeatFactor.lean`.
+- **closed all-spin arithmetic**: `scalar_excess_zero_or_five` and
+  `excessSum_zero_or_five` give excess zero or >=5. Together with twelve
+  occupied labels, `paired_small_power_eq36` excludes total powers 37–38.
+- **closed local cancellation**: `leading_support_pin` pins the original
+  leading pair's selected support to the tube. `nonTube_sub39_amplitude_zero`
+  proves zero original signed amplitude below power 39 on every non-tube
+  core, without cancellation between different detached partitions.
+- **closed exact cofactor**: `nonTube_pair_factorization` and
+  `nonTube_coefficient_factorization` retain all original dimensions,
+  Haar amplitudes and label multiplicities. `shortOtherRemainder_factorization`
+  retains each detached partition square and extracts w^39 on the exact
+  short-core list, all rational w, K>=1, thresholds, margins and filter
+  times. `original_numerator_lower_with_heat_residual` feeds it to the
+  original lower bound after size-33 tail absorption at nome 1/1024.
+- **open residue**: useful cutoff- and margin-uniform signed cofactor
+  control. The extra w^3 relative to the reference does not establish
+  smallness. Positive full response/certificate, normalization/cutoff/
+  volume persistence, full realization, continuum/QFT/spectral pins,
+  other groups and Clay remain open. No hole, new open analytic input,
+  canonical atom/type/flag or frontier field changed.
+- **verification**: 17 exactly matched focused gates within
+  {propext, Quot.sound}; clean final logs and fresh own/direct-import
+  artifacts. Capped scalar pilot checks 10001 spins and finite reachable
+  powers, not original amplitudes or residuals. One monitored worker,
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED large other-core tail absorption; OPEN original 12–32-face signed remainder (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabResummedSubfamilyBound.lean`,
