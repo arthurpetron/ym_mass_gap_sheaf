@@ -64,6 +64,7 @@ def pilot():
     assert leafless(carrier)  # Degree three is allowed: parity is not assumed.
     square = [(0, 0), (0, 1), (1, 0), (1, 1)]
     pair_sizes = []
+    selected_sizes = []
     assignments = 0
     for spins in product(range(3), repeat=8):
         assignments += 1
@@ -73,13 +74,20 @@ def pilot():
             size = sum(map(len, replicas))
             assert size >= 4
             pair_sizes.append(size)
+            selected = set(replicas[0]) | set(replicas[1])
+            assert len(selected) >= 4
+            selected_sizes.append(len(selected))
     assert min(pair_sizes) == 4
     for sizes in product(sorted(set(pair_sizes)), repeat=3):
+        assert sum(sizes) >= 12
+    for sizes in product(sorted(set(selected_sizes)), repeat=3):
         assert sum(sizes) >= 12
     return {"bipartite_subsets": 512, "nonempty_leafless": len(survivors),
             "minimum_edges": min(survivors), "odd_degree_survivor": "K3,3",
             "paired_square_spin_assignments": assignments,
             "minimum_combined_three_cut_size_given_coverage": 12,
+            "minimum_selected_union_three_cut_size_given_coverage": 12,
+            "overlapping_replicas_counted_once_in_selected_union": True,
             "temporal_separator_pilot": temporal_separators(),
             "general_original_expansion_claim": "REQUIRES LEAN PROOF",
             "full_original_response_floor": "NOT PROVED"}

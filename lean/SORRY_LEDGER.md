@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original short-support cancellation and twelve-face partition budget; OPEN signed remainder (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabRetainedSelectedArea.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShortSupportCancellation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCancellationTailBudget.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalTwelveFaceBudget.lean`.
+- **closed selected support**: `positive_cut_length_le_selected` embeds
+  each replica cut into the selected cut. `connected_leaf_selected_minimum_twelve`
+  counts at least twelve selected faces, without double-counting overlaps.
+- **closed exact cancellation**: `original_short_coefficient_zero` proves
+  every original selected coefficient below size twelve is zero for every
+  rational nome, cutoff and margin. It uses existing disconnected Haar
+  cancellation or emptiness of the original retained replica enumeration.
+- **closed original budget**: `resummed_large_expansion` removes only
+  proved-zero small coefficients before taking absolute values, retaining
+  detached partition squares. `original_large_expansion` and
+  `original_response_partition_bound` instantiate this with the original
+  probes and proved cancellation. `responseBudget` is explicit rational
+  nome-dependent data with no K or margin parameter. The SAME full partition
+  square multiplies it. `existingNome_original_response_partition_bound`
+  supplies all guards at nome 1/1024, for all K and margins.
+- **open residue**: this is an upper bound on the full numerator, not the
+  signed higher residual. The scalar budget/leading ratio is about 3.52e69
+  at nome 1/1024, so positivity is not certified. Signed dressed-tube
+  corrections, positive full response/certificate and normalization/limit
+  persistence remain open, as do full realization, continuum/QFT/spectral
+  pins, other groups and Clay. No hole, new open analytic input, canonical
+  atom/type/flag or frontier field changed.
+- **verification**: 21 exactly matched focused gates within
+  {propext, Quot.sound}, none axiom-free; clean final logs, fresh own/direct-
+  import artifacts. Capped geometry/union-support and exact-rational budget
+  pilots do not evaluate the original numerator or prove positivity.
+  One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+  guard/progress run. Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED original leading coefficient equals one; OPEN signed relative remainder (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellingCompleteness.lean`,

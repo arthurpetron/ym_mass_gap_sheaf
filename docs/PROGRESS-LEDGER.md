@@ -4,7 +4,42 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: the complete original leading coefficient is exactly one (2026-09-14)
+## Current increment: original short-support cancellation enters the partition budget (2026-09-14)
+
+The preceding f3e6e42 checkpoint was PROGRESS: the original leading coefficient
+is exactly one. This increment is PROGRESS by connecting the original
+replica geometry to the original partition-relative resummation.
+
+- `BF4ExactSlabRetainedSelectedArea.connected_leaf_selected_minimum_twelve`
+  counts twelve selected faces, with overlapping replicas counted once.
+  Each occupied four-edge replica cut embeds in the selected cut.
+- `BF4ExactSlabShortSupportCancellation.original_short_coefficient_zero`
+  proves exact zero for every original coefficient below that selected size,
+  at every rational nome, cutoff and margin.
+- `BF4ExactSlabCancellationTailBudget.resummed_large_expansion` removes
+  only these zeros, with detached partition squares still attached.
+  The filtered original core family inherits the existing size count.
+- `BF4ExactSlabOriginalTwelveFaceBudget.original_response_partition_bound`
+  supplies the actual probe intervals and cancellation, yielding an explicit
+  nome-dependent budget times the SAME full partition square for every K
+  and margin. The existing nome 1/1024 has all guards supplied.
+
+The bound is on the full numerator, NOT the isolated signed higher residual.
+Its scalar budget/leading ratio is about 3.52e69 at nome 1/1024; it cannot
+certify positivity. Next: isolate and control dressed-tube corrections in
+the same resummed sum. Positive response/certificate, normalization/limit
+persistence, full realization and continuum/Clay closure remain open.
+No hole, new open analytic input, canonical atom/type/flag or frontier field
+changed; no coupling-uniform or other-group gap is claimed.
+
+Verification: 21 exactly matched focused gates within {propext, Quot.sound},
+none axiom-free; clean final logs, fresh own/direct-import artifacts.
+Independent capped pilots test union-support geometry and the exact scalar
+budget at three nomes, not the original response. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; exact logs and pilot counts in work_plan.
+
+## Previous increment: the complete original leading coefficient is exactly one (2026-09-14)
 
 The preceding checkpoint 60910f6 was PROGRESS: original leading-count
 uniqueness. This increment is PROGRESS by constructing the accepted original

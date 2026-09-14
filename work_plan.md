@@ -18,7 +18,57 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (the complete original leading coefficient is exactly one):**
+**Latest local increment (exact short-support cancellation enters the original partition budget):**
+The f3e6e42 checkpoint proved the original leading coefficient is one.
+This increment connects the original leaf/cut geometry to the existing
+partition-relative resummation, without assuming a false size floor for
+all geometrically connecting cores.
+
+`BF4ExactSlabRetainedSelectedArea.positive_cut_length_le_selected`
+embeds each replica cut into the selected face cut using the original
+zero-outside labelling property. `selected_cut_minimum_four` takes the
+occupied replica on each intervening cut; `connected_leaf_selected_minimum_twelve`
+counts at least twelve SELECTED faces, with overlaps counted only once.
+`BF4ExactSlabShortSupportCancellation.original_short_coefficient_zero`
+then proves every original selected coefficient of size below twelve is
+zero, for every rational nome, cutoff and margin. Disconnected selections
+use their existing exact Haar cancellation; connected ones have no pair
+left in the original cut/leaf-filtered representation enumeration.
+
+`BF4ExactSlabCancellationTailBudget.resummed_large_expansion` removes
+only proved-zero small coefficients, leaving their detached partition
+squares intact until cancellation. `large_connecting_weight_tail` inherits
+the existing two-probe count by a filtered sublist. The original specialization
+`BF4ExactSlabOriginalTwelveFaceBudget.original_response_partition_bound`
+has no remaining cancellation premise: both actual plaquette intervals
+have cap two, carrier size one and four links. Its explicit budget is
+`8 * r^96 * 1562500 * s^12 / (1-s)`, where
+`delta=128*w^3`, `r=1/(1-delta)` and `s=625*(2*delta+delta^2)*r^48`.
+All nome guards are named. Cutoff K and margin do not enter the budget;
+the right side retains the SAME original full partition square. The
+existing nome 1/1024 is explicitly instantiated for all K and margins.
+
+NEXT/OPEN: isolate and control the signed dressed-tube corrections within
+this resummed original sum. This increment bounds the FULL numerator, not
+the higher residual after subtracting `w^36`. The exact-rational pilot at
+w=1/1024 gives budget about 1.49848e-39 and budget/w^36 about 3.51925e69;
+this bound cannot certify the positive response. Positive full response/
+certificate, normalization/cutoff/volume persistence, full realization,
+continuum/QFT/spectral pins, other groups and Clay remain open. No hole,
+new open analytic input, canonical atom/type/flag or frontier field changed.
+
+Verification: four focused modules, 5+4+4+8=21 exactly matched gates within
+{propext, Quot.sound}, none axiom-free; clean final logs and fresh own/direct-
+import artifacts. Capped pilots: 512 bipartite subsets, 6,561 paired square
+spin assignments (union support also checked), 16,384 temporal support
+selections, and exact rational budgets at nomes 1/1024, 1/2048, 1/4096.
+No original numerator evaluation or positivity test is claimed. One
+monitored worker, 20 GiB ceiling; no raised limits or full build/audit/guard/
+progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-retained-selected-area.log`, `/tmp/ym-short-support-cancellation.log`,
+`/tmp/ym-cancellation-tail-budget.log`, `/tmp/ym-original-twelve-face-budget.log`.
+
+**Preceding local increment (the complete original leading coefficient is exactly one):**
 The 60910f6 checkpoint proved uniqueness. This increment constructs the
 explicit accepted pair in the ORIGINAL enumeration and evaluates the count.
 

@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [complete original leading coefficient is exactly one](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientOne.lean)
+**Latest local mathematical step:** [exact cancellation on fewer than twelve selected faces](lean/YMGap/Continuum/BF4ExactSlabShortSupportCancellation.lean)
+now feeds the [original partition-relative resummation](lean/YMGap/Continuum/BF4ExactSlabOriginalTwelveFaceBudget.lean).
+Each occupied replica cut embeds in the [selected support's cut](lean/YMGap/Continuum/BF4ExactSlabRetainedSelectedArea.lean),
+so overlaps are counted once. Three four-face cuts force twelve selected
+faces. Smaller original coefficients vanish exactly; their detached partition
+factors are retained until cancellation, before absolute values are taken.
+The resulting bound `|N| <= responseBudget(w) * Z^2` names the coupling and
+smallness guards, and holds at every cutoff and margin. Four focused modules
+passed 21 axiom checks within `{propext, Quot.sound}`; no full-tree audit ran.
+**Boundary:** this bounds the full numerator, not the signed higher remainder.
+At nome `1/1024`, the exact-rational scalar pilot finds the budget about
+`3.52e69` times `w^36`, so it does not certify positivity. The next frontier
+is to isolate and control the dressed tube corrections within this same
+resummed sum. Positive response and continuum/Clay closure remain open.
+
+The preceding [complete original leading coefficient is exactly one](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientOne.lean)
 for every cutoff `K >= 1`, margin and filter time. The [explicit tube pair](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeSupport.lean)
 belongs to the unchanged representation enumeration. Its [nonzero original
 Haar moment](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeMoments.lean)
