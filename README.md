@@ -32,7 +32,23 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the whole remaining four-spatial-face family is bounded](lean/YMGap/Continuum/BF4ExactSlabFourCapRemainderBound.lean),
+**Latest local mathematical step:** the remaining spatial occurrences now have
+[actual connected components with at most half as many components as occurrences](lean/YMGap/Continuum/BF4ExactSlabSpatialOccurrenceComponents.lean).
+Replica tags and original times are retained. Even projected incidence gives
+each occurrence a distinct neighbor; the components have total size exactly
+`S`, and each has at least two members. For short pairs, every graph neighbor
+lies in an explicit list of 3,216 candidates, independent of cutoff and margin.
+
+A [reversible descent-only tree code](lean/YMGap/Continuum/FiniteRootedAnimalDescentCode.lean)
+also improves the rooted size-`k` code-space bound from
+`(D+1)^(2*(k-1))` to `(4*D)^(k-1)`. Returns need no new neighbor choice.
+**Next:** assemble these into a reversible forest code for the original
+family and prove its weighted sum bound. The exact-rational pilot finds
+sufficient numerical room, but **the forest count and aggregate estimate
+are not yet proved**. Five modules passed 52 focused axiom checks within
+`{propext, Quot.sound}` (seven axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** [the whole remaining four-spatial-face family is bounded](lean/YMGap/Continuum/BF4ExactSlabFourCapRemainderBound.lean),
 including all higher spins and each core's own detached partition square.
 The original pair's [projected spatial boundary is even](lean/YMGap/Continuum/BF4ExactSlabProjectedSpatialCycle.lean).
 Four such faces must pair in projection: distinct plaquettes share at most

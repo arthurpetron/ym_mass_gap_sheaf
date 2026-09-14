@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original occurrence-component geometry and sharp tree code; OPEN full forest count (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/FiniteEvenIncidenceNeighbor.lean`,
+  `BF4ExactSlabSpatialOccurrenceNeighbors.lean`, `FiniteRootedAnimalDescentCode.lean`,
+  `FiniteBoolGraphComponentMass.lean`, `BF4ExactSlabSpatialOccurrenceComponents.lean`
+  (all in `lean/YMGap/Continuum/`).
+- **closed original geometry**: `original_neighbor` selects a distinct
+  replica-tagged original occurrence at each projected boundary link.
+  `occurrences_nodup/length/project` retain all original multiplicities.
+  `neighbors_length` and `rootCarrier_length_le` bound neighbor/root lists by
+  3216 and 241813452; `original_edge_mem_neighbors` covers actual short-pair
+  edges. `original_component_mass` preserves exactly S occurrences;
+  `original_component_pair` constructs two distinct members of each actual
+  component, and `original_component_count` proves `2*c<=S`.
+- **closed generic compression**: `inflate_shape` recovers the old tour;
+  `tree_descents_length` gives k-1 descent choices. `carrier_length` and
+  `code_decode` give support-recovering rooted-animal codes of size
+  `(4*D)^(k-1)`, from the already constructed faithful BFS tree.
+- **open residue**: assemble a faithful forest code for the original family,
+  recover the full pair, prove the proposed spatial count, and sum the
+  original S>=6,H>=0 weights with OWN detached squares. The exact-rational
+  pilot supplies scalar feasibility only. Positive full response, limit
+  persistence, full realization, continuum/QFT/physical spectral pins,
+  other groups and Clay remain open. No new hypothesis, hole, frontier type,
+  canonical atom/flag, or physical weight changed; no beta-uniform claim.
+- **verification**: 52 focused gates within {propext, Quot.sound}, seven
+  axiom-free; exact source/log order and multiplicity, clean logs and fresh
+  own/direct-import artifacts. One monitored worker, 20 GiB ceiling. No
+  raised options, full build/audit/guard/progress run, or root-import rebuild.
+  Exact scalar pilot passed; log paths and next steps are in work_plan.
+
 ## CLOSED original four-face bound and absorption; OPEN six-or-more spatial faces (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4FiniteProjectedBoundaryParity.lean`,

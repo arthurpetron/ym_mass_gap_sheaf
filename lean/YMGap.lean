@@ -4154,6 +4154,13 @@ import YMGap.Continuum.BF4ExactSlabFourCapPairCount
 import YMGap.Continuum.BF4ExactSlabFourCapPairSum
 import YMGap.Continuum.BF4ExactSlabFourCapRemainderBound
 import YMGap.Continuum.BF4ExactSlabAfterFourCapRemainder
+-- Actual no-isolates components and reversible descent-only rooted codes;
+-- full forest injection, six-or-more-face aggregate bound and Clay remain open.
+import YMGap.Continuum.FiniteEvenIncidenceNeighbor
+import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceNeighbors
+import YMGap.Continuum.FiniteRootedAnimalDescentCode
+import YMGap.Continuum.FiniteBoolGraphComponentMass
+import YMGap.Continuum.BF4ExactSlabSpatialOccurrenceComponents
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

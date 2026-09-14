@@ -18,7 +18,61 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (projected conservation; whole four-face family absorbed; power-54 residue):**
+**Latest local increment (actual no-isolates components and descent-only tree codes):**
+The 70db9a2 checkpoint bounded the whole four-face family. This increment
+advances a single forest-count route for its entire six-or-more-face
+complement; it does not peel another fixed spatial size.
+
+`FiniteEvenIncidenceNeighbor.neighbor` constructively selects a distinct
+contributor to an even incidence count. `BF4ExactSlabSpatialOccurrenceNeighbors`
+applies it to the original nonzero pair, with replica tags and complete
+plaquettes retained. `occurrences_nodup`, `occurrences_length`, and
+`occurrences_project` pin this carrier to the original spatial list without
+erasing repeated projections. `original_local_neighbor`, `neighbors_length`,
+and `rootCarrier_length_le` supply explicit neighbor/root capacities
+`D=3216=2*67*24` and `M=241813452=2*shortFaceCapacity` for all original short
+pairs, independent of K and margin.
+
+`FiniteBoolGraphComponentMass.graph_mass` proves exact mass preservation by
+the existing component algorithm; `componentPair` returns two distinct
+members when no vertex is isolated. On the actual projected occurrence
+graph, `BF4ExactSlabSpatialOccurrenceComponents.original_component_mass`
+gives total mass S, `original_components_connected` retains internal paths
+in Type, `original_components_separated` proves distinct-component
+separation, and `original_component_count` gives `2*c<=S`. These geometric
+statements hold at arbitrary spins and volumes. `original_edge_mem_neighbors`
+places every actual short-pair graph edge in the explicit neighbor list.
+
+`FiniteRootedAnimalDescentCode.inflate_shape` reconstructs the full old tour
+from a binary shape and its descent indices. `tree_descents_length` counts
+exactly k-1 neighbor choices; the canonical genuine BFS animal code has
+carrier size `(4*D)^(k-1)` by `carrier_length`. `code_decode` and
+`code_eq_sameSupport` prove support recovery. No forest injection is assumed.
+
+NEXT, in causal order: faithfully encode the actual component forest (root
+choices, binary shape, descent choices); recover original spatial lists and
+the entire pair together with the existing higher-label code; bound the
+actual (S,H) strata; sum their unchanged heat costs and restore OWN detached
+partition squares. `computations/original_spatial_forest_budget.py` checks
+ONLY scalar feasibility: L=900000 satisfies D<=L and M*D<=L^2. If the proposed
+spatial count `(8*L)^S` is proved, the S>=6,H>=0 pair budget is less than
+`(1/16)*w^36` at fixed nome 1/1024 (ratio approximately 0.051354). This is
+NOT a proved configuration count or aggregate estimate. Positive full
+response/certificate, limit persistence, full realization, continuum/QFT/
+physical spectral pins, other groups and Clay remain OPEN. No hole, new
+analytic input, frontier field, canonical atom/type/flag, or weight changed.
+
+Verification: five focused modules, 1+14+16+8+13=52 exactly matched gates,
+all within {propext, Quot.sound}, seven axiom-free. Clean logs and fresh
+own/direct-import artifacts; bounded exact pilot passed. One monitored
+worker, 20 GiB ceiling, no raised options, full build/audit/guard/progress
+run, or root-import rebuild. Logs: `/tmp/ym-finite-even-incidence-neighbor.log`,
+`/tmp/ym-original-spatial-occurrence-neighbors.log`,
+`/tmp/ym-finite-rooted-animal-descent-code.log`,
+`/tmp/ym-finite-bool-graph-component-mass.log`,
+`/tmp/ym-original-spatial-occurrence-components.log`.
+
+**Previous local increment (projected conservation; whole four-face family absorbed; power-54 residue):**
 The 2378d02 checkpoint was PROGRESS: the whole remaining two-cap family was
 bounded. This increment is PROGRESS on its literal complement, with a new
 geometric argument rather than an assumed spatial classification.

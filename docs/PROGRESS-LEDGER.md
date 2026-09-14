@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original four-face family bounded; power-54 six-face residue (2026-09-14)
+## Current increment: actual no-isolates components and sharper rooted-tree count (2026-09-14)
+
+PROGRESS after 70db9a2: a single combinatorial route now addresses all S>=6,
+rather than introducing a separate box for each spatial size. On the original
+replica-tagged spatial list, even projected incidence constructively supplies
+a distinct neighbor. The actual projected graph has total component mass S
+and `2*c<=S`; every short-pair edge lies in a 3216-entry neighbor list, with
+root capacity 241813452. Declarations: `original_neighbor`,
+`original_edge_mem_neighbors`, `original_component_mass`,
+`original_component_pair`, `original_component_count` in the new
+`BF4ExactSlabSpatialOccurrenceNeighbors/Components` modules.
+
+The second mathematical gain is reversible compression, not another
+assumed compiler: `FiniteRootedAnimalDescentCode.inflate_shape` rebuilds the
+tour from binary shape and descent indices. `carrier_length` gives the
+rooted size-k bound `(4*D)^(k-1)`; `code_decode` recovers the support of the
+genuine BFS tree. Returns no longer pay a free neighbor index.
+
+Remaining contraction: assemble the actual forest code and prove original
+(S,H)-stratum counts before summing the unchanged SU(2) weights and OWN
+detached squares. The bounded exact-rational pilot tests the proposed count's
+scalar margin only; neither that count nor the aggregate estimate is proved.
+Positive full response/certificate, limits, realization and continuum/Clay
+remain open. No frontier atom/type/flag, hole or weight changed.
+
+Verification: five focused modules, 52 gates within {propext, Quot.sound},
+seven axiom-free; exact gate order/multiplicity, clean logs, fresh artifacts.
+One monitored worker, 20 GiB ceiling; no full build/audit/guard/progress run,
+raised limits or root-import rebuild. Log paths and causal next steps are
+recorded in work_plan.
+
+## Previous increment: original four-face family bounded; power-54 six-face residue (2026-09-14)
 
 The 2378d02 checkpoint was PROGRESS: the two-cap family was bounded. This
 increment is PROGRESS: another ENTIRE original all-spin family is counted,
