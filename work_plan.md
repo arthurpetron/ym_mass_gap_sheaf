@@ -18,7 +18,56 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (uniform summation of original zero-spatial short-pair weights):**
+**Latest local increment (original detached partitions restored; only spatial defects remain in the numerator bound):**
+The 828d7ac checkpoint was PROGRESS: localization and original mass-stratum
+counting gave an aggregate pair-weight bound. This increment composes that
+bound with the original partition comparison and the actual remainder split.
+
+`BF4ExactSlabShortDetachedPartition.short_collar_reciprocal_le_two` uses
+the literal collar-degree bound for eight probe links and at most 32 core
+faces. The reciprocal exponent is at most 1632. Small exact power blocks
+prove `short_inverse_cost_le_two`; no huge rational power is evaluated.
+`original_short_detached_square_le_two` gives each core's OWN original
+detached partition square at most `2*Z_full^2`, all cutoffs and margins,
+at the unchanged nome 1/1024. It uses the original mixed comparison with
+the all-faces interior test, proved equal to the original partition square.
+
+`BF4ExactSlabShortSpatialRemainderSplit.original_short_remainder_split`
+proves, for every rational w and every K, margin and cut time,
+`shortOtherRemainder = zeroSpatialRemainder + spatialDefectRemainder`
+at rational equivalence. Both branches retain the ORIGINAL cut/leaf label
+lists and individual detached partitions. `noSpatial_sum_eq` discards only
+zero original pair terms; `spatialDefectKeep_nonempty` proves the other
+branch really has a nonempty spatial odd-face pattern in at least one replica.
+
+`BF4ExactSlabZeroSpatialRemainderBound.original_zeroSpatial_remainder_bound`
+now bounds the whole signed zero-spatial branch, with partitions included:
+`|zeroSpatialRemainder| <= 2^-19*w^36*Z_full^2`, uniformly in K>=1,
+margin and cut time at nome 1/1024. The finite sum is flattened without
+deduplication or changing multiplicities. `spatialAllowance` is the explicit
+positive scalar `(1/4 - 2^-19)*w^36`.
+`original_numerator_lower_with_spatial_remainder` proves
+
+`N_full >= spatialAllowance*Z_full^2 + spatialDefectRemainder`.
+
+NEXT/OPEN: count and bound the ACTUAL spatial-defect branch using the
+original spatial-parity reconstruction and heat costs. Its sign and size
+are not assumed. Positive full response/certificate, explicit limit-error
+persistence, full observable realization, continuum/QFT/physical spectral
+pins, other groups and Clay remain open. This is a fixed-nome theorem,
+not a coupling-uniform or continuum mass gap. No hole, new analytic input,
+canonical atom/type/flag or frontier field changed.
+
+Verification: three focused modules, 5+13+8=26 exactly matched gates within
+{propext, Quot.sound}, six axiom-free; clean logs and fresh own/direct-import
+artifacts. Exact scalar guards were checked by Lean. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-original-short-detached-partition.log`,
+`/tmp/ym-original-short-spatial-remainder-split.log`,
+`/tmp/ym-original-zero-spatial-remainder-bound.log`.
+
+**Preceding local increment (uniform summation of original zero-spatial short-pair weights):**
 The 4cafcb5 checkpoint was PROGRESS: original non-tube defect deletion and
 the zero-spatial per-pair cap. This increment removes cutoff/volume label
 counting from the aggregate zero-spatial short-pair estimate.
@@ -62,7 +111,7 @@ with 0<=w<=1 and M*r<1 displayed. At the UNCHANGED nome 1/1024,
 for ALL K>=1, margins and cut-filter times. This is now an aggregate
 ORIGINAL representation-weight bound, not a per-pair estimate or scalar pilot.
 
-NEXT/OPEN: each core's ORIGINAL detached partition square is not yet
+At that checkpoint, NEXT/OPEN: each core's ORIGINAL detached partition square was not yet
 included in this sum. Prove its uniform short-collar comparison, split the
 actual shortOtherRemainder into zero-spatial and spatial-defect subfamilies,
 and feed this absolute-sum estimate into the zero-spatial branch. Count and

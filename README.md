@@ -32,7 +32,24 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the original zero-spatial short-pair weights now have a uniform sum bound](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairSum.lean).
+**Latest local mathematical step:** [the whole original zero-spatial short-core remainder is now bounded](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean),
+including every core's own detached partition square. The [exact split](lean/YMGap/Continuum/BF4ExactSlabShortSpatialRemainderSplit.lean)
+preserves the original signed weights and removes only zero terms.
+The [short-collar comparison](lean/YMGap/Continuum/BF4ExactSlabShortDetachedPartition.lean)
+costs at most a factor of 2, independently of cutoff and volume.
+At the unchanged nome `w=1/1024`, for every `K>=1`, margin and cut time:
+
+`|zeroSpatialRemainder| <= 2^-19 * w^36 * Z_full^2`
+
+Combining this with the tube reference and large-core tail gives
+`N_full >= (1/4 - 2^-19) * w^36 * Z_full^2 + spatialDefectRemainder`.
+**Next:** bound that actual spatial-defect remainder. Its sign and size are
+still open; the inequality is not yet a positive full-response theorem.
+Three new modules passed 26 focused axiom checks within `{propext, Quot.sound}`
+(six axiom-free); no full-tree audit ran. Positive response, full observable
+realization and continuum/Clay remain open.
+
+The preceding [original zero-spatial short-pair weights have a uniform sum bound](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairSum.lean).
 Every original short core is [localized within radius 33 of the lower probe](lean/YMGap/Continuum/BF4ExactSlabShortCoreLocalization.lean),
 independently of volume. An injective local code preserves its higher-label
 cost `H`; [counting by that cost](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialPairCount.lean)
@@ -40,11 +57,12 @@ turns the whole zero-spatial pair family into a convergent geometric bound.
 At the unchanged nome `w=1/1024`, the **sum of absolute original pair weights**
 is at most `2^-20 * w^36`, uniformly in cutoff, margin and cut-filter time.
 This advances the previous per-pair estimate to a sum estimate.
-**The individual detached partition squares are not included yet.**
+That pair-weight theorem alone does not include detached partition squares;
+the new result above restores them.
 Six new modules passed 66 focused axiom checks within `{propext, Quot.sound}`
-(13 axiom-free); no full-tree audit ran. **Next:** restore those partition
-factors and control the separate spatial-defect family. The complete
-short-remainder bound, positive full response and continuum/Clay remain open.
+(13 axiom-free); no full-tree audit ran. The separate spatial-defect family,
+the complete short-remainder bound, positive full response and continuum/Clay
+remain open.
 
 The preceding [exact defect filter shows every surviving original non-tube term must pay a defect cost](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialHigherCost.lean).
 Finite temporal charge conservation [rejects the one-endpoint channels exactly](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialChannels.lean)

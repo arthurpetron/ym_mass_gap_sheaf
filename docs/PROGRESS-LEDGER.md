@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: volume-independent localization and aggregate zero-spatial pair sum (2026-09-14)
+## Current increment: original zero-spatial remainder bounded with all detached partitions (2026-09-14)
+
+The preceding 828d7ac checkpoint was PROGRESS: uniform aggregate original
+pair-weight counting. This increment is PROGRESS, not a renamed obligation:
+the partition factors are restored and the entire zero-spatial branch is
+absorbed into the ORIGINAL numerator lower bound.
+
+- `BF4ExactSlabShortDetachedPartition.original_short_detached_square_le_two`
+  gives each original short-core detached partition square at most twice
+  the same full partition square, uniformly in K and margin at nome 1/1024.
+- `BF4ExactSlabShortSpatialRemainderSplit.original_short_remainder_split`
+  splits the actual signed short remainder exactly into zero-spatial and
+  spatial-defect branches. It holds for every rational w, K, margin and cut
+  time, preserving each pair weight and its core's own detached partition.
+- `BF4ExactSlabZeroSpatialRemainderBound.original_zeroSpatial_remainder_bound`
+  proves `|zeroSpatialRemainder| <= 2^-19*w^36*Z_full^2`, all K>=1,
+  margins and cut times, at the unchanged nome.
+  `original_numerator_lower_with_spatial_remainder` gives
+  `N_full >= (1/4 - 2^-19)*w^36*Z_full^2 + spatialDefectRemainder`.
+
+Fidelity audit: no original carrier, action, heat weight, signed Haar term,
+representation multiplicity or detached partition was replaced. No hole,
+new analytic input, canonical atom/type/flag or frontier field changed.
+Completion audit: spatial-defect smallness is still OPEN. Positive full
+response/certificate, explicit limit-error persistence, full observable
+realization, continuum/QFT/physical spectral pins and Clay remain open.
+NEXT: actual spatial-defect counting with original parity/heat costs.
+
+Verification: 26 focused gates within {propext, Quot.sound}, six axiom-free;
+clean logs and fresh own/direct-import artifacts. Scalar guards checked
+by Lean. One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: volume-independent localization and aggregate zero-spatial pair sum (2026-09-14)
 
 The preceding 4cafcb5 checkpoint was PROGRESS: exact non-tube defect deletion
 and per-pair smallness. This increment is PROGRESS on the actual aggregate

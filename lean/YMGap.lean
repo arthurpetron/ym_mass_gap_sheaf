@@ -4107,6 +4107,9 @@ import YMGap.Continuum.BF4ExactSlabLocalizedHigherCode
 import YMGap.Continuum.FiniteOccupationUnitCode
 import YMGap.Continuum.BF4ExactSlabZeroSpatialPairCount
 import YMGap.Continuum.BF4ExactSlabZeroSpatialPairSum
+import YMGap.Continuum.BF4ExactSlabShortDetachedPartition
+import YMGap.Continuum.BF4ExactSlabShortSpatialRemainderSplit
+import YMGap.Continuum.BF4ExactSlabZeroSpatialRemainderBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

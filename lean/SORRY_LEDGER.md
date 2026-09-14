@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED uniform original zero-spatial pair sum; OPEN detached partition and spatial-defect branches (2026-09-14)
+## CLOSED original zero-spatial remainder with detached partitions; OPEN spatial-defect estimate (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabShortDetachedPartition.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShortSpatialRemainderSplit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean`.
+- **closed partition comparison**: `short_collar_reciprocal_le_two`
+  bounds the two-copy collar cost by 2 for eight probe links and at most
+  32 core faces. `original_short_detached_square_le_two` restores each
+  original core's own detached partition, uniformly in cutoff and margin
+  at nome 1/1024. The full partition is the same original action.
+- **closed exact original split**: `original_short_remainder_split`
+  holds for every rational nome, K, margin and cut time. The zero-spatial
+  branch uses the already counted original nonzero pairs; the other branch
+  has an actual spatial odd-face defect (`spatialDefectKeep_nonempty`).
+  Every original weight and detached factor remains; only zero terms vanish.
+- **closed whole-branch bound**: `original_zeroSpatial_remainder_bound`
+  gives `|zeroSpatialRemainder| <= 2^-19*w^36*Z_full^2` for all K>=1,
+  margins and cut times at the unchanged nome 1/1024.
+  `original_numerator_lower_with_spatial_remainder` combines this with
+  the tube reference and large-core tail, giving
+  `N_full >= (1/4 - 2^-19)*w^36*Z_full^2 + spatialDefectRemainder`.
+  `spatialAllowance_pos` proves the displayed scalar strictly positive.
+- **open residue (constructive estimate)**: bound this ACTUAL spatial-defect
+  remainder relative to the same full partition. Its sign/size is not assumed.
+  Positive full response/certificate, limit persistence, full realization,
+  continuum/QFT/physical spectral pins, other groups and Clay remain open.
+  No hole, new analytic input, canonical atom/type/flag or frontier field changed.
+- **verification**: 26 focused gates within {propext, Quot.sound}, six
+  axiom-free; clean logs and fresh own/direct-import artifacts. Scalar guards
+  checked by Lean. One monitored worker, 20 GiB ceiling; no raised limits or
+  full build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous checkpoint: CLOSED uniform original zero-spatial pair sum; detached partitions subsequently restored above (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4LinfFiniteRegion.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabShortCoreLocalization.lean`,
