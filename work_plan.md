@@ -18,7 +18,78 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original power-42 means configurations counted and their whole signed remainder absorbed):**
+**Latest local increment (original joint power 42 excluded; actual remaining spatial sum starts at power 48):**
+The 44f2c2d checkpoint was PROGRESS: the entire original means-42 sector
+was bounded and absorbed. This increment is PROGRESS on its literal
+complement, not a new hypothesis or renamed remainder estimate.
+
+`Z4PlaquetteBoundaryRigidity.two_boundary_links_determine_face` proves
+literal plaquette-boundary rigidity. Distinct plaquettes share at most one
+boundary link; `symmetricBoundary_ne_four` excludes length four for their
+symmetric difference, including the equal-face case. `Z4SpatialPlaquetteProjection`
+transports these literal boundaries through time without changing their
+spatial base or plane.
+
+`Z4TwoSpatialFaceContinuation.two_spatial_projected_boundary` derives equal
+cap projections from finite endpoint/spatial source conservation.
+`BF4ExactSlabTwoSpatialJointContinuation.joint_two_spatial_projection` and
+`joint_two_spatial_times_ne` apply this to the ORIGINAL accepted joint
+moment checks; `joint_cut_between_caps` decodes their actual cuts.
+`Z4ProjectedBoundaryCutComparison.cut_symmetricBoundary_perm` identifies
+the literal cut list with that boundary symmetric difference, preserving
+the exact cardinality rather than substituting a surrogate cut.
+
+`BF4ExactSlabJointCapWindow.joint_caps_test_cut` computes the test time as
+the minimum of the two distinct cap times. The proved temporal window puts
+it between the probe endpoints. `BF4ExactSlabPower42JointExclusion.power42_spatial_joint_false`
+then eliminates both placements: caps in the mixed replica contradict the
+four-link count, while caps in the partition replica contradict exclusive
+replica occupancy. Only the power-42 joint spatial sector is excluded.
+
+`BF4ExactSlabAfterMeansHeatPower48.original_spatial_minimum_fourteen`
+combines the twelve temporal occupations with the at-least-two spatial
+odd faces, using their literal sublist inclusion in positive faces.
+`paired_even_first_band` is an all-spin SU(2) arithmetic lemma for an
+arbitrary even occupation floor. At floor fourteen it makes every nonzero
+spatial power below 48 equal 42. `afterMeans42_power42_pairTerm_zero`
+then removes it from the actual complementary filter, and
+`afterMeans42_sub48_amplitude_zero` proves all its sub-48 amplitudes zero.
+
+`original_afterMeans_remainder_factorization48` holds at EVERY rational
+nome, cutoff, margin and cut-filter time, including w=0 and K=0:
+
+`afterMeans42Remainder = w^48 * afterMeansHeatResidual48`.
+
+It uses no division and retains every original signed Haar amplitude,
+dimension, multiplicity and OWN detached partition square. At unchanged
+nome 1/1024 and every K>=1, `original_numerator_lower_with_afterMeans_heat48`
+gives
+
+`N_full >= (1/4-2^-19-2^-26)*w^36*Z_full^2 + w^48*afterMeansHeatResidual48`.
+
+NEXT/OPEN: bound this actual cofactor's aggregate magnitude. An extracted
+heat power is not an aggregate estimate. Positive full response/certificate,
+explicit limit-error persistence, full observable realization, continuum/QFT/
+physical spectral pins, other groups and Clay remain OPEN. No original
+data, analytic input, hole, canonical atom/type/flag or frontier field was
+changed. Group-agnostic geometry feeds the existing SU(2) Casimir data;
+the numerical response reference is at FIXED nome, not beta-uniform.
+
+Verification: eight focused modules, 10+8+4+8+5+7+3+10=55 exactly matched
+gates within {propext, Quot.sound}, four axiom-free; clean logs and fresh
+own/direct-import artifacts, source hashes recorded in the check output.
+One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-plaquette-boundary-rigidity.log`,
+`/tmp/ym-spatial-plaquette-projection.log`,
+`/tmp/ym-two-spatial-face-continuation.log`,
+`/tmp/ym-original-two-spatial-joint-continuation.log`,
+`/tmp/ym-projected-boundary-cut-comparison.log`,
+`/tmp/ym-original-joint-cap-window.log`,
+`/tmp/ym-original-power42-joint-exclusion.log`,
+`/tmp/ym-original-aftermeans-heat48.log`.
+
+**Previous local increment (original power-42 means configurations counted and their whole signed remainder absorbed):**
 The fcfc1fa checkpoint was PROGRESS: the original spatial remainder gained
 an exact w^42 factor and its first sector had exactly two spatial occupations.
 This increment turns the means-channel occupation count into an ORIGINAL

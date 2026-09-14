@@ -4,7 +4,48 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original power-42 means configurations counted and their signed remainder absorbed (2026-09-14)
+## Current increment: original joint power 42 excluded and remaining heat floor raised to 48 (2026-09-14)
+
+The 44f2c2d checkpoint was PROGRESS: original means configurations were
+counted and their signed remainder absorbed. This increment is PROGRESS:
+the other first-sector channel is excluded and every remaining sub-48
+amplitude is proved zero on the actual original source.
+
+- `Z4PlaquetteBoundaryRigidity.symmetricBoundary_ne_four` is a finite
+  geometric obstruction. `BF4ExactSlabTwoSpatialJointContinuation`
+  derives two parallel caps at distinct times from the original checker.
+  `Z4ProjectedBoundaryCutComparison.cut_symmetricBoundary_perm` connects
+  their decoded mod-two boundary to the literal original cut list.
+- `BF4ExactSlabJointCapWindow.joint_caps_test_cut` computes an intervening
+  time from the original caps. `BF4ExactSlabPower42JointExclusion.power42_spatial_joint_false`
+  excludes both joint placements via the saturated four-link budget or
+  exclusive replica occupancy. No cap geometry or Haar sign was assumed.
+- `BF4ExactSlabAfterMeansHeatPower48.original_spatial_minimum_fourteen`
+  proves the general spatial occupation floor. `paired_even_first_band`
+  is a reusable all-spin SU(2) arithmetic reduction, not a fixed-cutoff
+  enumeration. `afterMeans42_sub48_amplitude_zero` removes every lower
+  power from the actual complementary source.
+- `original_afterMeans_remainder_factorization48` gives, all rational
+  nomes and all cutoffs, `afterMeans42Remainder = w^48*afterMeansHeatResidual48`.
+  `original_numerator_lower_with_afterMeans_heat48` inserts this exact
+  cofactor into the original response lower bound at fixed nome 1/1024.
+
+Fidelity audit: original signed amplitudes, dimensions, multiplicities and
+each core's OWN detached partition square are retained. No hole, analytic
+input, canonical atom/type/flag or frontier field changed. Geometry is
+group-agnostic; the Casimir arithmetic is SU(2)-specific and the numerical
+reference is fixed-nome, not beta-uniform. Completion audit: the cofactor's
+aggregate magnitude is OPEN; the power extraction is not a signed remainder
+bound. Positive full response/certificate, explicit limit persistence, full
+realization, continuum/QFT/physical spectral pins and Clay remain OPEN.
+NEXT: bound the remaining original spatial family at powers at least 48.
+
+Verification: 55 focused gates within {propext, Quot.sound}, four axiom-free;
+clean logs, exact gate order/multiplicity and fresh own/direct-import
+artifacts. One monitored worker, 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
+## Previous increment: original power-42 means configurations counted and their signed remainder absorbed (2026-09-14)
 
 The fcfc1fa checkpoint was PROGRESS: exact w^42 suppression and first-sector
 occupation counts. This increment is PROGRESS: the means occupations are

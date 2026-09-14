@@ -4124,6 +4124,16 @@ import YMGap.Continuum.BF4ExactSlabPower42MeansCaps
 import YMGap.Continuum.BF4ExactSlabPower42MeansCount
 import YMGap.Continuum.BF4ExactSlabPower42MeansBound
 import YMGap.Continuum.BF4ExactSlabAfterMeans42Remainder
+-- Original joint power-42 exclusion and exact complementary power-48 factor;
+-- the aggregate spatial cofactor estimate and continuum/Clay remain open.
+import YMGap.Continuum.Z4PlaquetteBoundaryRigidity
+import YMGap.Continuum.Z4SpatialPlaquetteProjection
+import YMGap.Continuum.Z4TwoSpatialFaceContinuation
+import YMGap.Continuum.BF4ExactSlabTwoSpatialJointContinuation
+import YMGap.Continuum.Z4ProjectedBoundaryCutComparison
+import YMGap.Continuum.BF4ExactSlabJointCapWindow
+import YMGap.Continuum.BF4ExactSlabPower42JointExclusion
+import YMGap.Continuum.BF4ExactSlabAfterMeansHeatPower48
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

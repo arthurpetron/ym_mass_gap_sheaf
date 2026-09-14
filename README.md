@@ -32,7 +32,33 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** [the entire original power-42 means sector is bounded](lean/YMGap/Continuum/BF4ExactSlabPower42MeansBound.lean),
+**Latest local mathematical step:** [the original joint power-42 spatial sector is excluded](lean/YMGap/Continuum/BF4ExactSlabPower42JointExclusion.lean).
+The two caps have the same spatial projection and distinct times. A cut
+between them either has an impossible four-link symmetric difference of
+plaquette boundaries, or is occupied by both replicas; both contradict
+the already proved saturated cut budget. This uses the original moment
+checker, not an assumed cap geometry or Haar sign.
+
+Every nonzero spatial pair also needs at least fourteen occupied faces.
+SU(2) Casimir excess and even-power arithmetic then exclude all powers
+between 42 and 48. After the previously bounded means sector is removed,
+[the actual remaining sum factors exactly](lean/YMGap/Continuum/BF4ExactSlabAfterMeansHeatPower48.lean),
+at every rational nome and cutoff:
+
+`afterMeans42Remainder = w^48 * afterMeansHeatResidual48`.
+
+At fixed nome `w=1/1024`, for every `K>=1`, margin and cut-filter time:
+
+`N_full >= (1/4 - 2^-19 - 2^-26) * w^36 * Z_full^2 + w^48 * afterMeansHeatResidual48`.
+
+The cofactor retains the original signed amplitudes, multiplicities and
+each core's own detached partition. **Next:** bound its aggregate size.
+The factorization alone does not establish a positive full response,
+coupling-uniform mass gap, or continuum/Clay closure. Eight new modules
+passed 55 focused axiom checks within `{propext, Quot.sound}` (four
+axiom-free); no full-tree build or audit ran.
+
+**Previous local mathematical step:** [the entire original power-42 means sector is bounded](lean/YMGap/Continuum/BF4ExactSlabPower42MeansBound.lean),
 including each core's own detached partition square. Finite temporal
 conservation [aligns each lone spatial cap with the original probe](lean/YMGap/Continuum/BF4ExactSlabSingleSpatialCap.lean).
 The exact temporal decoder and saturated area budget then force the two
@@ -49,8 +75,8 @@ give, for every `K>=1`,
 
 `N_full >= (1/4 - 2^-19 - 2^-26) * w^36 * Z_full^2 + afterMeans42Remainder`.
 
-**Next:** control the joint power-42 sector and higher-power spatial terms
-in that literal remaining sum. This is not yet a positive full-response
+The joint power-42 sector is now excluded above; higher-power spatial terms
+in that literal remaining sum still require a bound. This is not yet a positive full-response
 theorem, a coupling-uniform mass gap, or continuum/Clay closure.
 Eight new modules passed 54 focused axiom checks within `{propext, Quot.sound}`
 (ten axiom-free); no full-tree audit ran.
@@ -68,8 +94,8 @@ counts the means-channel configurations.
 The exact `w^42` cofactor retains all original signed amplitudes, dimensions
 and detached partitions. Its aggregate magnitude is still open.
 Six new modules passed 46 focused axiom checks within `{propext, Quot.sound}`
-(eight axiom-free); no full-tree audit ran. The joint configurations and
-higher-power tail still need control.
+(eight axiom-free); no full-tree audit ran. The new results above settle
+the power-42 configurations; the higher-power tail still needs control.
 Positive full response and continuum/Clay remain open.
 
 The preceding [whole original zero-spatial short-core remainder is bounded](lean/YMGap/Continuum/BF4ExactSlabZeroSpatialRemainderBound.lean),

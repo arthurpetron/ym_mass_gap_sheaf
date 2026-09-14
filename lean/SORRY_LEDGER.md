@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original power-42 means count and signed bound; OPEN joint and higher-power spatial remainder (2026-09-14)
+## CLOSED original joint power-42 exclusion and exact power-48 remainder; OPEN aggregate cofactor bound (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4PlaquetteBoundaryRigidity.lean`,
+  `lean/YMGap/Continuum/Z4SpatialPlaquetteProjection.lean`,
+  `lean/YMGap/Continuum/Z4TwoSpatialFaceContinuation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoSpatialJointContinuation.lean`,
+  `lean/YMGap/Continuum/Z4ProjectedBoundaryCutComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabJointCapWindow.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPower42JointExclusion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAfterMeansHeatPower48.lean`.
+- **closed geometric obstruction**: `two_boundary_links_determine_face`
+  and `symmetricBoundary_ne_four` are literal lattice geometry.
+  `joint_two_spatial_projection`, `joint_two_spatial_times_ne` and
+  `joint_cut_between_caps` derive the caps/cuts from the original joint
+  moment checker. `cut_symmetricBoundary_perm` preserves the actual
+  cut cardinality; `joint_caps_test_cut` computes an intervening test time.
+- **closed original sector**: `power42_spatial_joint_false` eliminates
+  the joint channel at power 42. Mixed-replica caps violate the four-link
+  cut count; partition-replica caps violate exclusive replica occupancy.
+  No higher-power joint channel is declared absent.
+- **closed stronger heat floor**: `original_spatial_minimum_fourteen`
+  uses the original positive/odd-face lists and disjoint spatial/temporal
+  occupations. `paired_even_first_band` combines the SU(2) Casimir excess
+  with even power. `afterMeans42_sub48_amplitude_zero` eliminates EVERY
+  sub-48 amplitude from the actual complementary source.
+- **closed exact original identity**: `original_afterMeans_remainder_factorization48`
+  gives `afterMeans42Remainder = w^48*afterMeansHeatResidual48` for every
+  rational w, K, margin and cut-filter time, without division. It retains
+  the signed Haar terms, dimensions, multiplicities and OWN detached squares.
+  `original_numerator_lower_with_afterMeans_heat48` gives the positive
+  reference `(1/4-2^-19-2^-26)*w^36*Z_full^2` plus that remainder,
+  at unchanged nome 1/1024 and K>=1.
+- **open residue (constructive estimate)**: bound the aggregate cofactor.
+  The heat floor alone is not a bound on the sum. Positive full response/
+  certificate, explicit limit persistence, full realization, continuum/QFT/
+  physical spectral pins, other groups and Clay remain open. No hole,
+  new analytic input, canonical atom/type/flag or frontier field changed.
+  The group-agnostic geometry and fixed-nome SU(2) weights do not give a
+  beta-uniform mass-gap claim.
+- **verification**: 55 focused gates within {propext, Quot.sound}, four
+  axiom-free; clean logs, matched declaration order/multiplicity and fresh
+  own/direct-import artifacts. One monitored worker, 20 GiB ceiling;
+  no raised limits or full build/audit/guard/progress run. Root imports
+  not rebuilt; exact logs in work_plan.
+
+## Previous checkpoint: CLOSED original power-42 means count and signed bound; then-OPEN joint and higher-power spatial remainder (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4FiniteTemporalSpatialSources.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSingleSpatialCap.lean`,
