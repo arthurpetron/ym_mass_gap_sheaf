@@ -18,7 +18,48 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (local leading cancellation and exact w^39 short-core factor):**
+**Latest local increment (all-spin temporal reconstruction from spatial defects):**
+The 9e260fd checkpoint was PROGRESS: each original non-tube coefficient
+has an exact w^39 cofactor. This increment addresses the degrees of freedom
+needed for a defect count, without paying for every temporal tube face as
+an independent choice. It does not yet improve the numerical remainder bound.
+
+`Z4SpatialDefectTemporalDecoder.incidence_zero` and `incidence_next`
+split arbitrary distinct face-list incidence into spatial incidence and
+the adjacent temporal cut bits. `temporalBit` is the explicit boundary-started
+binary recurrence. `cutCount_decode` proves it reconstructs every cut from
+the given charge sequence and spatial-face incidence; no temporal window
+or weight hypothesis is used.
+
+`BF4ExactSlabSpatialDefectReconstruction.moment_odd_geometry_parity`
+pins the ORIGINAL moment checker to this equation at every lattice link,
+including outside the physical slab, for arbitrary labels. `moment_temporal_bit`
+and `moment_temporal_face_iff` reconstruct the original odd temporal faces.
+`spatial_odd_determine_membership` and `spatial_odd_determine_face_parity`
+prove that equal spatial odd-face data fix every physical label parity.
+`spatial_and_higher_determine_face_label` adds the quotient by two and
+recovers each original physical label. This is an injective encoding for
+accepted moments, not an assertion that every encoded datum is accepted.
+
+NEXT/OPEN: useful weighted counting of these spatial defects and higher
+labels in the original 12–32-face signed core sum, retaining its original
+Haar factors, replica multiplicities and detached partitions. Neither an
+encoding nor the w^39 factor alone bounds the short cofactor. Positive
+full response/certificate, normalization/cutoff/volume persistence, full
+realization, continuum/QFT/spectral pins, other groups and Clay remain
+open. No hole, new open analytic input, canonical atom/type/flag or
+frontier field changed; no coupling-uniform gap claimed.
+
+Verification: two focused modules, 12+8=20 exactly matched gates within
+{propext, Quot.sound}, five axiom-free; clean final logs and fresh
+own/direct-import artifacts. These are symbolic incidence/parity proofs;
+no numerical certificate or computed weight bound is asserted. One
+monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-spatial-defect-temporal-decoder.log`,
+`/tmp/ym-original-spatial-defect-reconstruction.log`.
+
+**Preceding local increment (local leading cancellation and exact w^39 short-core factor):**
 The c9ec3de checkpoint was PROGRESS: the >=33-face tail was absorbed into
 the original tube reference. This increment exposes extra heat power on
 each ORIGINAL non-tube core before its detached partition is multiplied in.

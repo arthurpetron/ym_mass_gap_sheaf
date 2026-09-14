@@ -32,7 +32,20 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [remaining short-core sum has an exact `w^39` factor](lean/YMGap/Continuum/BF4ExactSlabShortCoreHeatFactor.lean).
+**Latest local mathematical step:** [spatial defects reconstruct the original temporal label parities](lean/YMGap/Continuum/BF4ExactSlabSpatialDefectReconstruction.lean).
+For every accepted original moment, spatial odd-face incidence and the
+endpoint charges determine all temporal cut bits through an [explicit binary
+recurrence](lean/YMGap/Continuum/Z4SpatialDefectTemporalDecoder.lean).
+This holds at every spin and volume margin, without a three-layer window
+restriction. Equal spatial odd-face data fix all physical label parities;
+adding each label's quotient by two fixes the original physical labels.
+Two focused modules passed 20 axiom checks within `{propext, Quot.sound}`
+(five axiom-free); no full-tree audit ran. **Next:** turn this injective
+encoding into a useful weighted defect count for the signed short-core
+remainder. The encoding alone is not that estimate. Positive full response
+and continuum/Clay remain open.
+
+The preceding [remaining short-core sum has an exact `w^39` factor](lean/YMGap/Continuum/BF4ExactSlabShortCoreHeatFactor.lean).
 The [leading-pair support is pinned to the literal tube](lean/YMGap/Continuum/BF4ExactSlabNonTubeHeatPower.lean),
 so every non-tube core has zero original amplitude at power 36. The
 [all-spin SU(2) Casimir gap](lean/YMGap/Continuum/SU2FiniteCasimirFirstExcess.lean)

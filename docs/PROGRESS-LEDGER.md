@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact local leading cancellation and w^39 short-core factor (2026-09-14)
+## Current increment: all-spin temporal reconstruction from spatial defects (2026-09-14)
+
+The preceding 9e260fd checkpoint was PROGRESS: extra heat power was
+factored from each non-tube core. This increment is structural PROGRESS:
+it proves an injective encoding beyond the minimal-power/window regime.
+It does not yet improve the signed remainder estimate.
+
+- `Z4SpatialDefectTemporalDecoder.incidence_zero` and `incidence_next`
+  identify the exact spatial-source/temporal-cut recurrence on arbitrary
+  face lists. `temporalBit` supplies the decoder and `cutCount_decode`
+  proves recovery of every cut for distinct charge-admissible faces.
+- `BF4ExactSlabSpatialDefectReconstruction.moment_odd_geometry_parity`
+  applies this to the original all-spin moment checker at all lattice links.
+  `moment_temporal_face_iff` reconstructs its temporal odd-face membership.
+- `spatial_odd_determine_face_parity` fixes all physical label parities
+  from spatial odd-face data; `spatial_and_higher_determine_face_label`
+  adds label quotients by two and recovers every original physical label.
+
+Next: weighted defect counting on the original short-core remainder,
+retaining signed Haar terms, replica multiplicities and detached partitions.
+The original cofactor bound remains open; no count or smallness is inferred
+from injection alone. Positive full response, limits, full realization and
+continuum/Clay remain open. No hole, new open analytic input, canonical
+atom/type/flag or frontier field changed.
+
+Verification: 20 exactly matched focused gates within {propext, Quot.sound},
+five axiom-free; clean final logs and fresh own/direct-import artifacts.
+Symbolic proofs without a numerical certificate or estimate claim. One
+monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports not rebuilt; exact logs in work_plan.
+
+## Previous increment: exact local leading cancellation and w^39 short-core factor (2026-09-14)
 
 The preceding c9ec3de checkpoint was PROGRESS: the actual >=33-face tail
 was absorbed. This increment is PROGRESS by proving leading cancellation

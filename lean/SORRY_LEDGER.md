@@ -13,6 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED all-spin spatial-defect reconstruction; OPEN weighted defect count and signed bound (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/Z4SpatialDefectTemporalDecoder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpatialDefectReconstruction.lean`.
+- **closed geometric decoder**: `incidence_zero` and `incidence_next`
+  split arbitrary face incidence into spatial incidence and adjacent cut
+  bits. `temporalBit` explicitly computes the recurrence; `cutCount_decode`
+  proves it recovers the cuts of any distinct face list satisfying the
+  prescribed charge equations, without a temporal-window restriction.
+- **closed original-action pin**: `moment_odd_geometry_parity` gives
+  those equations for the actual moment checker, all spins and margins,
+  including nonphysical links. `moment_temporal_face_iff` decodes original
+  temporal odd-face membership. `spatial_odd_determine_face_parity` fixes
+  all physical parities from the spatial odd-face data, and
+  `spatial_and_higher_determine_face_label` recovers each physical label
+  when its quotient by two is supplied as well.
+- **open residue**: useful weighted defect counting and cutoff-/margin-
+  uniform control of the original signed 12–32-face remainder, keeping
+  its Haar terms, replica multiplicities and detached partitions.
+  Injective encoding is not a count of its image or a magnitude bound.
+  Positive full response/certificate, limit persistence, full realization,
+  continuum/QFT/spectral pins, other groups and Clay remain open. No hole,
+  new open analytic input, canonical atom/type/flag or frontier field changed.
+- **verification**: 20 exactly matched focused gates within
+  {propext, Quot.sound}, five axiom-free; clean final logs and fresh
+  own/direct-import artifacts. Symbolic proofs, no numerical estimate
+  asserted. One monitored worker, 20 GiB ceiling; no raised limits or
+  full build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
 ## CLOSED local non-tube leading cancellation and w^39 factor; OPEN signed cofactor bound (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/SU2FiniteCasimirFirstExcess.lean`,

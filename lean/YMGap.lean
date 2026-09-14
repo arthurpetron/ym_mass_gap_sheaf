@@ -4088,6 +4088,8 @@ import YMGap.Continuum.BF4ExactSlabOriginalCoreTailCertificate
 import YMGap.Continuum.SU2FiniteCasimirFirstExcess
 import YMGap.Continuum.BF4ExactSlabNonTubeHeatPower
 import YMGap.Continuum.BF4ExactSlabShortCoreHeatFactor
+import YMGap.Continuum.Z4SpatialDefectTemporalDecoder
+import YMGap.Continuum.BF4ExactSlabSpatialDefectReconstruction
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
