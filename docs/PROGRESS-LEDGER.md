@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original leading-power spatial continuation removes mean and partition support (2026-09-14)
+## Current increment: original leading amplitudes are zero-one and the full coefficient is a count (2026-09-14)
+
+The preceding checkpoint 1cd9d42 was PROGRESS: spatial continuation and
+partition cancellation. This increment is PROGRESS by closing the literal
+mixed carrier, its original Haar normalization, and the complete leading
+coefficient's nonnegative-count identity.
+
+- `BF4ExactSlabMinimalMixedTube.accepted_mixed_support_perm` and
+  `accepted_mixed_label_pin` identify actual physical support and labels.
+- `BF4ExactSlabMinimalTubeMomentPin.accepted_mixed_moment_pin` removes only
+  spin-zero units from the full original integrand;
+  `accepted_partition_one` evaluates the accepted partition moment.
+- `BF4ExactSlabMinimalTubeSweep.original_tube_sweep` retains the SAME
+  fourteen original factors under a common Haar-preserving gauge sweep.
+- `BF4ExactSlabBareTubeEvaluation.dimension_times_tube` proves
+  `4096 * bareTubeMoment = 1`, including the upper boundary and spectator
+  normalization. `BF4ExactSlabMinimalPairAmplitude.retained_dimensions`
+  gives the same 4096 from the actual dimensions; `retained_amplitude_bit`
+  therefore gives exactly zero or one for every original leading pair.
+- `BF4ExactSlabLeadingCoefficientCount.leadingCoefficient_count` gives
+  A = ofNat(leadingCount), retaining the exact original enumeration and
+  multiplicities. `leadingCoefficient_nonnegative` proves A >= 0.
+
+Next: evaluate the count (positivity/uniqueness for K >= 1), then bound
+the signed higher remainder relative to it. No strict positivity of A,
+original positive response/certificate, normalization/limit persistence,
+full realization or continuum/Clay closure is claimed. No analytic premise,
+canonical atom/type/flag, frontier field or hole changed.
+
+Verification: 38 exactly matched focused gates, four axiom-free, within
+{propext, Quot.sound}; clean logs and fresh own/direct-import artifacts.
+Capped pilots: 36,102 geometry memberships, exact three-layer contraction
+and dimension cancellation. One monitored worker, 20 GiB ceiling; no raised
+limits or full build/audit/guard/progress run. Root imports not rebuilt;
+exact logs in work_plan.
+
+## Previous increment: original leading-power spatial continuation removes mean and partition support (2026-09-14)
 
 The preceding checkpoint fd4251c was PROGRESS: the exact original signed
 leading/remainder decomposition. This increment is PROGRESS by restricting

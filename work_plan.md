@@ -18,7 +18,66 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original leading-power spatial continuation and partition cancellation):**
+**Latest local increment (original leading amplitudes are bits; complete coefficient is a count):**
+The 1cd9d42 checkpoint proved original minimal-power spatial continuation,
+one-endpoint cancellation and empty accepted partition support. This
+increment closes the literal mixed carrier AND its actual Haar amplitude,
+then retains enumeration multiplicity in an explicit natural count.
+
+`BF4ExactSlabTubeSupportGeometry.tube_mem_iff` characterizes the existing
+tube by the three-layer window and actual endpoint boundary;
+`temporal_face_mem_iff_count` recovers face membership from cut incidence.
+`BF4ExactSlabMinimalMixedTube.accepted_mixed_mem` and
+`accepted_mixed_support_perm` identify the original positive support with
+the literal tube. `accepted_mixed_label_pin` identifies every original
+physical label with the computed `tubeLabelling` (zero outside the physical
+index list). No path or Haar sign is assumed from cardinality.
+
+`BF4ExactSlabMinimalTubeMomentPin.binary_character_product` removes only
+spin-zero unit factors. `accepted_mixed_moment_pin` identifies the FULL
+original mixed moment with `bareTubeMoment`; `accepted_partition_one`
+evaluates the accepted partition moment. `BF4ExactSlabMinimalTubeSweep.original_tube_sweep`
+applies the existing common Haar-preserving sweep to the SAME fourteen
+original characters, retaining both endpoints and all twelve sides.
+
+`BF4ExactSlabBareTubeEvaluation.upper_lift_eq` pins the actual upper
+boundary to the retained four-block plaquette. `retained_square_one`
+normalizes the upper square including inactive spectator variables;
+`dimension_times_tube` proves `4096 * bareTubeMoment margin = 1` in Q'.eqv.
+`BF4ExactSlabMinimalPairAmplitude.retained_dimensions` obtains precisely
+4096 from the ACTUAL original dimension products at power 36.
+`retained_amplitude_bit` evaluates every original leading amplitude to
+zero or one, selected by the original mixed/partition moment checks.
+
+`BF4ExactSlabLeadingCoefficientCount.leadingCoefficient_count` proves
+`A = ofNat (leadingCount K margin time)` for the COMPLETE original
+leading coefficient, at all cutoffs, margins and filter times.
+`leadingCoefficient_nonnegative` closes A >= 0. `leadingCount` retains
+every original connected selection, representation filter and list
+multiplicity. Neither uniqueness nor a positive count is assumed.
+
+NEXT/OPEN: evaluate this exact count (in particular positivity/uniqueness
+for K >= 1), then prove a useful signed relative higher-remainder bound.
+Strict positivity of A is NOT proved here. Original positive response/
+certificate, normalization/cutoff/volume persistence, full realization,
+continuum/QFT/spectral pins, other groups and Clay remain open. No analytic
+premise, canonical atom/type/flag, frontier field or hole changed. An exact
+nonnegative leading coefficient is not a full-response or uniform-gap bound.
+
+Verification: 5+6+7+4+5+4+7=38 exactly matched focused gates within
+{propext, Quot.sound}, four axiom-free; clean final logs and fresh own/direct-
+import artifacts. The 30-second-capped `computations/leading_tube_support.py`
+checks 36,102 face memberships at margins 0,1,3; the existing capped
+`computations/original_plaquette_tube_composition.py` independently checks
+1/16, 1/256, 1/4096 contractions and the dimension cancellation. Lean does
+not trust either pilot. One monitored worker, 20 GiB ceiling, no raised
+limits or full build/audit/guard/progress run. Root imports updated, not
+rebuilt. Logs: `/tmp/ym-tube-support-geometry.log`, `/tmp/ym-minimal-mixed-tube.log`,
+`/tmp/ym-minimal-tube-moment-pin.log`, `/tmp/ym-minimal-tube-sweep.log`,
+`/tmp/ym-bare-tube-evaluation.log`, `/tmp/ym-minimal-pair-amplitude.log`,
+`/tmp/ym-leading-coefficient-count.log`.
+
+**Preceding local increment (original leading-power spatial continuation and partition cancellation):**
 The fd4251c checkpoint proved original numerator = `w^36*(A+w*B(w))`.
 This increment constrains the ORIGINAL leading terms rather than assuming
 the twelve occupied faces form the desired tube.

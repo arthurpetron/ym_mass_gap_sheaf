@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED literal original tube amplitude and nonnegative leading count; OPEN count evaluation (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabTubeSupportGeometry.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalMixedTube.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalTubeMomentPin.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalTubeSweep.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBareTubeEvaluation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabMinimalPairAmplitude.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientCount.lean`.
+- **closed carrier**: `tube_mem_iff`, `accepted_mixed_support_perm` and
+  `accepted_mixed_label_pin` identify the SAME physical positive support
+  and labels with the literal tube. No path is added as a hypothesis.
+- **closed original amplitude**: `fundamental_integrand` removes only
+  zero-spin units; `accepted_mixed_moment_pin` and `accepted_partition_one`
+  retain the full original Haar meanings. `original_tube_sweep` applies
+  one common gauge sweep; `dimension_times_tube` proves 4096 times that
+  original tube moment is one. `retained_dimensions` derives 4096 from
+  the actual original dimensions; `retained_amplitude_bit` gives exact
+  zero-one leading amplitudes, not just a positivity assertion.
+- **closed full coefficient**: `leadingCoefficient_count` identifies
+  the complete original A with `ofNat (leadingCount K margin time)`;
+  `leadingCoefficient_nonnegative` proves A >= 0. All original connected
+  selections, label filters and multiplicities remain in this finite count.
+- **open residue**: evaluate the count, including positivity/uniqueness
+  at K >= 1; useful signed relative higher-remainder bound; positive
+  response and accepted certificate, normalization/cutoff/volume persistence.
+  Full realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, analytic premise, canonical atom/type/flag or frontier field
+  changed. Nonnegative leading terms alone give no uniform gap estimate.
+- **verification**: 38 exactly matched focused gates, four axiom-free,
+  within {propext, Quot.sound}; clean logs and fresh own/direct-import
+  artifacts. Capped pilots: 36,102 geometry memberships and exact three-layer
+  Haar contraction with dimension cancellation. One monitored worker,
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports not rebuilt; exact logs in work_plan.
+
 ## CLOSED leading-power spatial continuation and partition cancellation; OPEN leading evaluation (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/Z4ThreeCutSaturation.lean`,
