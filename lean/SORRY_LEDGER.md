@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original positive-time orbit survival and computed positive margins (2026-09-14)
+## CLOSED norm-one original excitation with strict actual transfer-response interval (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/PositiveRationalCauchySquareRoot.lean`,
+  `PositiveCRealNormalizationScalar.lean`, and
+  `BF4ExactSlabThermodynamicNormalizedProbe.lean` in the same directory.
+- **closed scalar construction**: `sampleIndex`, `sampleCauchy`,
+  `value_square`, `inverseCauchy`, and `inverse_square_source` construct
+  the Heron/root and reciprocal streams with explicit moduli and SAME-
+  source cancellation. `clamped_value` preserves the original positive
+  real; `scalar_normalizes` proves s*(s*a)=1 without a CSqrtData input.
+  `normalized_weight_floor` transports a positive response floor beta
+  to beta/P using the original norm ceiling P.
+- **closed actual norm-one probe**: `unitProbe`, `unitProbe_norm`,
+  `unitProbe_orthogonal`, and `normalizedResponse_pin` retain the existing
+  vector, complement, real-scalar action and geometric operator.
+  `normalizedResponse_floor` / `normalizedResponse_upper` give
+  0<responseFloor/P<=<v,T2 v><=1/2. `normalizedCertificate` returns both
+  endpoints, the actual response real and QCauchy data. Previous positive
+  orbit margins persist by `unitProbe_orbit_floor`.
+- **open residue**: the canonical Q'-valued scalar/carrier bridge, full
+  observable realization and quotient-level completeness, full-carrier
+  time injectivity, actual spectral resolution and continuous-time
+  generator/physical spectral/non-Wick pins, controlled continuum scaling,
+  other groups and Clay. The existing PolyNormData.normDiag remains a
+  supplied spectral input, not discharged by this result. Next original
+  time/defect positivity and Bernstein moment targets are not assumed.
+  No new hole, analytic premise, canonical field/type/atom/flag or physical
+  weight change; fixed SU(2) nome/spacing only.
+- **verification**: three focused modules, 60 exactly matched gates within
+  {propext, Quot.sound}, five axiom-free; clean logs, fresh own/direct-import
+  artifacts and scoped source checks. One worker, 20 GiB ceiling; no
+  raised options or full build/audit/guard/progress/root-import run. No
+  large numerical Heron sample was evaluated. Logs in work_plan.
+
+## Previous checkpoint: CLOSED original positive-time orbit survival and computed positive margins (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeKernel.lean`,
   `BF4ExactSlabThermodynamicProbeOrbit.lean`, and

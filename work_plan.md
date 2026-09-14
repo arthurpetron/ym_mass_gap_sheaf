@@ -18,7 +18,58 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (same-operator survival at every discrete time, with explicit positive floors):**
+**Latest increment (constructed norm-one original probe; strict actual Rayleigh interval):**
+PROGRESS after cd75a56: the original excitation now has a norm-one
+normalization, not a supplied normalization scalar or a replacement vector.
+
+`PositiveRationalCauchySquareRoot.sampleIndex` computes a Heron sampling
+index with squared error at most invSucc n. `square_gap` and `sampleCauchy`
+derive a QCauchy modulus for a rational source bounded below by L^2.
+`value_square` pins its square to the ORIGINAL stream; `inverseCauchy`
+retains the reciprocal modulus and `inverse_square_source` proves exact
+normalization of that source. No CSqrtData or real inverse is assumed.
+
+`PositiveCRealNormalizationScalar.clampedCauchy` preserves the given
+QCauchy modulus when samples are clamped to the supplied positive floor.
+`clamped_value` proves the original real is unchanged. The returned
+`scalar` and `scalarCauchy` satisfy `scalar_normalizes`: s*(s*a)=1.
+`scalarSquare_floor` gives 1/P<=s^2 when a<=P; `normalized_weight_floor`
+then transports any positive response floor beta to beta/P.
+
+`BF4ExactSlabThermodynamicNormalizedProbe.unitProbe` is the existing
+`completedRealSmul` of the ORIGINAL centered state. `unitProbe_norm` proves
+its squared norm is exactly one; `unitProbe_orthogonal` retains the unit
+complement. `normalizedResponse_pin` identifies the SAME geometric
+two-step operator response. `normalizedResponse_floor` and
+`normalizedResponse_upper` prove responseFloor/P<=<v,T2 v><=1/2, with
+strictly positive computed lower endpoint. `normalizedCertificate` returns
+v, BOTH endpoints, the actual response real, QCauchy data, norm-one pin,
+operator pin and the two inequalities. `unitProbe_time_norm` and
+`unitProbe_orbit_floor` retain the previous positive-time margins divided
+by P. No enormous rational Heron sample was evaluated or trusted.
+
+The reconstruction audit now marks RC-valued normalization CLOSED, while
+keeping the canonical Q'-valued scalar/carrier pin OPEN. The older
+`ContinuousFunctionalCalculusForm.PolyNormData` still requires `normDiag`
+against a supplied `DiagResolution`; it is not an available original
+spectral resolution. NEXT: form powers of the ORIGINAL two-step defect
+I-T2 and derive positivity of mixed time/defect forms and finite Bernstein
+moment weights directly on this completion. These are unproved targets,
+not new supplied analytic fields. Full observable realization/completeness,
+full-carrier time injectivity, continuous-time generator/physical spectral/
+non-Wick pins, controlled continuum scaling, other groups and Clay remain
+OPEN. No canonical field/type/atom/flag or physical weight changed. Fixed
+SU(2) nome 1/1024 and spacing only; no beta-uniform physical-gap claim.
+
+Verification: three focused modules, 21+18+21=60 exactly matched gates
+within {propext, Quot.sound}, five axiom-free; clean logs, fresh own/direct-
+import artifacts and scoped source checks. One monitored worker, 20 GiB
+ceiling; no raised options, full build/audit/guard/progress run or root-
+import rebuild. Logs: `/tmp/ym-positive-rational-cauchy-square-root.log`,
+`/tmp/ym-positive-creal-normalization-scalar.log`,
+`/tmp/ym-original-thermodynamic-normalized-probe.log`.
+
+**Previous increment (same-operator survival at every discrete time, with explicit positive floors):**
 PROGRESS after b6d6e0b: the positive original response now propagates along
 the SAME geometric time evolution; it is not reintroduced as an assumption.
 `BF4ExactSlabThermodynamicTimeKernel.time_double_zero_iff` uses symmetry and

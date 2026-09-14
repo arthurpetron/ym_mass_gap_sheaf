@@ -4185,6 +4185,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveResponse
 import YMGap.Continuum.BF4ExactSlabThermodynamicTimeKernel
 import YMGap.Continuum.BF4ExactSlabThermodynamicProbeOrbit
 import YMGap.Continuum.BF4ExactSlabThermodynamicProbeOrbitFloor
+-- Computed scalar/root moduli and norm-one ORIGINAL excitation;
+-- strict actual RC-valued Rayleigh interval, not a canonical-root inhabitant.
+import YMGap.Continuum.PositiveRationalCauchySquareRoot
+import YMGap.Continuum.PositiveCRealNormalizationScalar
+import YMGap.Continuum.BF4ExactSlabThermodynamicNormalizedProbe
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

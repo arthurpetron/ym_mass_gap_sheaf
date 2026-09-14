@@ -13,7 +13,18 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest dynamical milestone:** the [original excitation survives every discrete time](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbit.lean),
+**Latest dynamical milestone:** a [norm-one excitation with a certified strict transfer-response interval](lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean)
+is now constructed in the original thermodynamic OS completion:
+`||v||^2 = 1` and `0 < responseFloor/P <= <v,T2 v> <= 1/2`.
+The normalization uses the same original squared norm and a
+[constructed reciprocal square root with explicit moduli](lean/YMGap/Continuum/PositiveCRealNormalizationScalar.lean).
+Its certificate returns the actual state, both rational interval endpoints,
+the response real and its Cauchy data. Positive orbit floors survive the
+normalization. Three modules passed 60 focused axiom checks within
+`{propext, Quot.sound}` (five axiom-free); no full-tree build or audit ran.
+This remains fixed-nome, fixed-spacing SU(2), not continuum Yang--Mills.
+
+**Established discrete-time survival:** the [original excitation survives every discrete time](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbit.lean),
 with a [computed positive squared-norm floor at each positive time](lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbitFloor.lean).
 The same symmetric time semigroup has [equal kernels at all positive integer times](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeKernel.lean).
 For the existing probe, `r_0=w^36/16`, `r_(k+1)=r_k^2/P` gives

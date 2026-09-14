@@ -28,6 +28,26 @@ fixed spacing, not that continuum theorem.
   positive rational floor, the same moment representative, its QCauchy
   data, and the operator pin. The floors depend on time.
 
+## Normalization update after cd75a56
+
+The RC-valued normalization step is now **CLOSED**. `unitProbe_norm`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean:64`,
+proves squared norm one for the actual scaled original state.
+`normalizedResponse_pin` at line 78 pins its original two-step response;
+`normalizedResponse_floor` / `normalizedResponse_upper` at lines 92 and 98
+bound it between the positive responseFloor/P and 1/2.
+`normalizedCertificate` at line 131 returns the state, both rational
+endpoints, response real and QCauchy data, with all these proofs.
+
+The scalar is constructed, not assumed: `sampleCauchy` and `value_square`,
+`lean/YMGap/Continuum/PositiveRationalCauchySquareRoot.lean:84` and line 119,
+give the Heron sample modulus and square identity;
+`inverse_square_source` at line 143 gives original-source cancellation.
+`clamped_value`,
+`lean/YMGap/Continuum/PositiveCRealNormalizationScalar.lean:41`, preserves
+the original positive real; `scalar_normalizes` at line 89 proves its
+normalization. None of these declarations changes a canonical root type.
+
 ## Source-level boundaries before canonical reconstruction
 
 | Boundary | Concrete source | Canonical requirement / status |
@@ -36,10 +56,10 @@ fixed spacing, not that continuum theorem.
 | Scalar codomain | `value`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerFunctional.lean:54`, is RC-valued; `valueRepresentative`, same file, line 62, retains CReal/QCauchy data. | `ProbFunctional.E`, `lean/YMGap/Continuum/ObservableMeasure.lean:82`, and `GNSData.B`, `lean/YMGap/Continuum/GNSQuotient.lean:102`, are Q'-valued. `PositiveTimeOSRoot.positive`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:272`, requires that `GNSData`. These are different declared types; no rational-value conversion is proved here. |
 | Completion | `Completion`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicSeminormCompletion.lean:155`, is the existing Cauchy-class carrier. `embedOSQuotient_injective`, same file, line 200, proves the original OS quotient embeds injectively. | `CauchyRows`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCauchyRows.lean:48`, requires supplied representative rows. `rowLimit` at line 99, `rowLimit_bound` at line 104 and `rowLimit_independent` at line 147 construct their unique limit. These declarations do not take an arbitrary sequence of quotient points without representative data. The module explicitly leaves full quotient-level completeness separate. |
 | Time and form pins | `completedTime`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedTime.lean:53`, acts on that completion; `completedTime_moments`, same file, line 153, pins the moments of the same operator. | `PositiveTimeOSRoot.reflectedForm` and `transferRepresentative`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:298` and line 302, require pins to the SAME canonical ambient observable algebra and its `tau`. No inhabitant supplying these canonical pins from the concrete modules was found in the stated search. |
-| Probe normalization | `orbitCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicProbeOrbitFloor.lean:115`, supplies positive squared-norm floors, not norm-one equalities. | `PositiveTimeOSRoot.probeNormOne`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:321`, explicitly requires norm one. The new certificate does not fill this field. |
+| Probe normalization | `unitProbe_norm`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicNormalizedProbe.lean:64`, now proves the actual RC-valued squared norm is one; `normalizedCertificate`, same file, line 131, retains its strict response interval and QCauchy data. | `PositiveTimeOSRoot.probeNormOne`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:321`, is still a field of the canonical Q'-valued representative form. RC normalization is closed, but the scalar/carrier comparison required to fill this canonical field is not supplied by the new declaration. |
 | Continuum approximation | The new orbit and floors have integer-time parameters, but no spacing schedule. | `ReferenceWeightStageFamily.spacingTendsToZero`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:93`, and `CanonicalSchwingerLimit.continuumModulus` / `approximationConverges`, same file, lines 146–147, require an actual second limiting parameter alongside volume. They are not consequences stated by the new orbit declarations. |
 
-Search scope for the missing concrete-to-canonical inhabitant: all
+Historical search scope at cd75a56 for the missing concrete-to-canonical inhabitant: all
 `lean/YMGap/Continuum/BF4ExactSlab*.lean` files were searched for
 `CanonicalOSRoot`, `CanonicalSchwingerLimit`, and `PositiveTimeOSRoot`, with
 no matches. The destination structures in `CanonicalOSRoot.lean` and the
@@ -51,21 +71,29 @@ not a claim of mathematical impossibility or permission to change a field.
 The concrete response-survival obligation is closed, including returned
 positive margins. It must not be reopened as another supplied response
 hypothesis. The remaining realization work must address the observable
-carrier, scalar codomain, normalization and completion boundaries above.
+carrier, scalar codomain and completion boundaries above. RC normalization
+is now closed by the declarations above, not a new open input.
 No canonical type, atom or flag is changed by this increment.
 
-The immediate bounded mathematical continuation is constructive norm-one
-normalization of the existing excitation using its retained real/modulus
-and positive floor. Such a result must remain explicitly RC-valued unless
-a separate, proved comparison supplies the canonical Q'-valued fields.
+The older functional calculus still requires a supplied diagonal spectral
+resolution: `PolyNormData.normDiag`,
+`lean/YMGap/Continuum/ContinuousFunctionalCalculusForm.lean:379`, is a
+structure field, consumed by `dischargeBTC` at line 390. It is not an
+original spectral decomposition constructed by the new normalization.
+
+Next unproved targets: positivity of mixed ORIGINAL time/defect forms,
+then finite Bernstein moment weights. These are tasks, not new hypotheses
+or a claim that a spectral measure has already been constructed.
 Full observable realization, continuous-time generator and physical
 spectral/non-Wick pins, controlled continuum scaling, other groups and
 Clay remain open.
 
 ## Verification boundary
 
-Three new modules, 28 exactly matched `#print axioms` gates, all within
-`{propext, Quot.sound}`. Focused monitored checks only, one worker and a
+The normalization increment has three new modules and 60 exactly matched
+`#print axioms` gates within `{propext, Quot.sound}`, five axiom-free.
+The preceding orbit increment had 28 matched gates. Focused monitored
+checks only, one worker and a
 20 GiB ceiling. No new hole or analytic input, no increased options, no
 full-tree build/audit/guard/progress run, and no root-import rebuild.
 Exact logs are listed in `work_plan.md`.

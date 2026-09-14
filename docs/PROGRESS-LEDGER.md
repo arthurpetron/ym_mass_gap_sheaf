@@ -4,7 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original excitation survives all integer times, with computed floors (2026-09-14)
+## Current increment: actual norm-one original probe with strict Rayleigh interval (2026-09-14)
+
+PROGRESS after cd75a56: norm-one normalization is constructed with explicit
+root and reciprocal moduli, and the actual transfer response is preserved.
+`PositiveRationalCauchySquareRoot` computes Heron sampling indices, proves
+the sample QCauchy estimate and exact inverse-square cancellation.
+`PositiveCRealNormalizationScalar.clamped_value` preserves the ORIGINAL
+real; `scalar_normalizes` derives s*(s*a)=1, not a supplied root identity.
+
+`BF4ExactSlabThermodynamicNormalizedProbe.unitProbe_norm` gives ||v||^2=1
+for the actual scaled original excitation. `normalizedResponse_pin`,
+`normalizedResponse_floor`, and `normalizedResponse_upper` pin
+0<responseFloor/P<=<v,T2 v><=1/2. `normalizedCertificate` returns the state,
+both rational endpoints, response real, QCauchy data and all pins.
+`unitProbe_orbit_floor` preserves the positive-time margins divided by P.
+
+NEXT: actual time/defect polynomial positivity and finite Bernstein moment
+weights, toward the SAME operator's spectral realization. The older
+PolyNormData.normDiag requires a supplied spectral resolution; that is not
+a proved input here. RC normalization is CLOSED; full observable and
+canonical scalar/carrier bridges, full completeness, continuous time,
+physical spectral/non-Wick pins, continuum scaling and Clay remain OPEN.
+No hole, new analytic premise, canonical atom/type/flag or weight changed.
+
+Verification: three focused modules, 60 exactly matched gates within
+{propext, Quot.sound}, five axiom-free; clean logs and fresh own/direct-import
+artifacts. One worker, 20 GiB ceiling; no raised options, full build/audit/
+guard/progress run or root-import rebuild. No large numerical Heron sample
+was evaluated; logs in work_plan.
+
+## Previous increment: original excitation survives all integer times, with computed floors (2026-09-14)
 
 PROGRESS after b6d6e0b: the already-proved original response is used to
 exclude annihilation along the entire SAME geometric time orbit. The new
