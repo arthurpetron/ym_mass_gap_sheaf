@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original odd-cut rejection through the connected form (2026-09-14)
+## Current increment: joint cancellation on the full original numerator (2026-09-14)
+
+The preceding checkpoint 54ae68e was PROGRESS: original odd-cut rejection
+through the connected form. This increment is PROGRESS by closing the exact
+common connected-selection/representation expansion, not adding a surrogate.
+
+- `PairedPositiveFaceLabellings.labels` constructs pairs with bounded spins,
+  occupied union exactly on the selected faces, and zero labels outside.
+- `PolynomialBiadditivePositiveExpansion.increment_positive` and
+  `PairedPositiveFacePolynomialExpansion.pairedCoefficient_labels` expand
+  the existing coefficient by finite additivity, preserving signs.
+- `BF4ExactSlabCoveredPairExpansion.connectedCoefficient_original` restores
+  all original full-slab face factors, including omitted spin-zero units.
+- `BF4ExactSlabShiftedProbeCoveredExpansion.original_numerator_joint_filter`
+  combines the outer connected-support and inner odd-cut filters on the
+  COMPLETE original numerator with both original replica weights and all
+  four moments, at every cutoff, margin, nome and temporal cut.
+
+Next: classify surviving pairs and control their signed relative remainder.
+All-positive-spin isolated-link cancellation is a candidate strengthening of
+the parity filter; its arbitrary original-link application is not yet proved.
+Empty odd cuts and even-spin interactions remain. No global response area,
+w^36 divisibility, sign, positive response certificate, continuum/Clay closure
+or canonical atom change is claimed. An identity at every nome is not a
+coupling-uniform estimate.
+
+Verification: 32 exactly matched focused gates, two axiom-free, all within
+{propext, Quot.sound}; clean final logs and fresh own/direct-import artifacts.
+The capped finite coverage/inclusion-exclusion pilot passes independently of
+the general Lean proof. One monitored worker, 20 GiB ceiling; user-owned test
+pauses respected. No raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; exact log paths are in work_plan.
+
+## Previous increment: original odd-cut rejection through the connected form (2026-09-14)
 
 The preceding checkpoint 99771e9 was PROGRESS: conditional cut geometry.
 This increment is PROGRESS by applying it to original interacting moments

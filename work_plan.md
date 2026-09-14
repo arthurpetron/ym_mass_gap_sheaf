@@ -18,7 +18,60 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (original odd-cut rejection through the connected two-replica form):**
+**Latest local increment (both cancellations on one complete original numerator):**
+The 54ae68e checkpoint proved original odd-cut rejection. This increment
+closes the common connected-selection AND representation expansion, with
+the original full action, heat weights and signed vacuum subtraction retained.
+
+`PairedPositiveFaceLabellings.labels` constructs the finite replica carrier
+by choosing left-positive, right-positive or both-positive spins at each
+selected face. `bounded`, `covers` and `outside` prove cutoff bounds, occupied
+union coverage and spin zero elsewhere. `PolynomialBiadditivePositiveExpansion`
+expands the existing two-slot increment by finite additivity alone.
+`PairedPositiveFacePolynomialExpansion.pairedCoefficient_labels` identifies
+the existing iterated coefficient with this exact finite sum for distinct
+selected indices; no rational-linearity or independent-variable law is assumed.
+
+`BF4ExactSlabCoveredPairExpansion.labelProduct_original` restores every
+nonselected face as its exact spin-zero unit, yielding the ORIGINAL full
+weighted integrand. `connectedCoefficient_original` pins the existing
+selected coefficient to those two full integrands.
+`BF4ExactSlabShiftedProbeCoveredExpansion.original_pair_pin` extracts the
+original two-replica face weights while retaining the same four-moment form.
+`original_numerator_joint_filter` puts the connected-support outer filter
+and the odd-cut inner filter on the COMPLETE original shifted-probe numerator,
+at all cutoffs, margins, rational nomes and selected temporal cuts.
+
+NEXT/OPEN: classify retained pairs, then bound their signed remainder relative
+to the tube signal. The exact identity is not a uniform coupling estimate.
+Empty odd cuts and even-spin interactions remain. A useful next source-level
+route is all-positive-spin isolated-link cancellation: the existing
+`SU2QuaternionRelativeHeatVacuum.character_vacuum` and
+`BF4ExactSlabAllExtentSelectedFaceSelection.original_character_product_zero`
+provide conditional Haar selection, but their application to arbitrary
+occupied temporal-cut links of these original replica terms is not yet proved.
+No full-response minimum area, w^36 divisibility, sign, positive response floor,
+accepted certificate or normalization/limit persistence is claimed. Full
+realization, continuum/QFT/spectral pins, other groups and Clay remain open.
+No analytic premise, canonical atom/type/flag, frontier field or hole changed.
+
+Verification: 6+10+4+4+8=32 exactly matched focused gates within
+{propext, Quot.sound}, two axiom-free; clean final logs and fresh own/direct-
+import artifacts. The core `List.nodup_range` introduces Classical.choice in
+this toolchain; the existing constructive `CayleyParentInj.range_nodup` is used.
+The 30-second-capped `computations/paired_positive_labels.py` pilot checks
+cutoffs 0..2 and face counts 0..3, exact coverage and signed inclusion-exclusion
+against an interacting finite summand. Lean proves the general identities
+independently. One monitored worker, 20 GiB ceiling; user-owned test pauses
+respected. No limits raised and no full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-paired-positive-labels.log`,
+`/tmp/ym-biadditive-positive-expansion.log`,
+`/tmp/ym-paired-positive-polynomial-expansion.log`,
+`/tmp/ym-slab-covered-pair-expansion.log`,
+`/tmp/ym-shifted-probe-covered-expansion.log`.
+
+**Preceding local increment (original odd-cut rejection through the connected two-replica form):**
 The 99771e9 checkpoint proved the conditional geometric cut floor. This
 increment connects it to the original all-spin moments and the existing
 signed connected two-slot form, not a substitute face model.

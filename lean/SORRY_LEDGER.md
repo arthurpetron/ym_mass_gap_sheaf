@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED common original-numerator expansion; OPEN surviving-pair classification and estimate (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellings.lean`,
+  `lean/YMGap/Continuum/PolynomialBiadditivePositiveExpansion.lean`,
+  `lean/YMGap/Continuum/PairedPositiveFacePolynomialExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCoveredPairExpansion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCoveredExpansion.lean`.
+- **closed finite expansion**: `labels`, `bounded`, `covers`, `outside`
+  construct the cutoff-bounded replica carrier with occupied union equal to
+  the selection. `increment_positive` and `pairedCoefficient_labels` expand
+  the EXISTING two-slot iterated coefficient with exact signs and weights.
+- **closed same-object pin**: `labelProduct_original` reinstates omitted
+  spin-zero factors in the original full action. `connectedCoefficient_original`
+  and `original_pair_pin` retain the original heat weights and four moments.
+- **closed joint filter**: `original_numerator_joint_filter` combines outer
+  connected-support cancellation with inner odd-cut rejection on the SAME
+  complete original shifted-probe numerator, for all K, margins, rational
+  nomes and temporal cuts. No independence premise is added.
+- **open residue**: classification of surviving pairs and their signed
+  relative remainder. Empty odd cuts and even-spin interactions survive the
+  test. Conditional positive-spin Haar selection exists, but a general
+  occupied-link exclusion for these original replica terms is not proved.
+  No full-response area/divisibility, sign, positive floor, accepted response
+  certificate, normalization/limit persistence or continuum/Clay closure
+  follows. This all-nome identity is not a uniform estimate. No hole,
+  analytic premise, canonical atom/type/flag or frontier field changed.
+- **verification**: 32 exactly matched focused gates, two axiom-free, all
+  within {propext, Quot.sound}; clean final logs, fresh own/direct-import
+  artifacts and a passing capped finite pilot. One monitored worker,
+  20 GiB ceiling; user-owned test pauses respected. No raised limits or full
+  build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
 ## CLOSED original odd-cut rejection and connected-pair filter; OPEN surviving-pair estimate (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabOddFaceIncidence.lean`,

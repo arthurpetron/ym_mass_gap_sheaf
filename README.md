@@ -32,7 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the geometric obstruction now rejects
+**Latest local mathematical step:** both cancellations now act on the
+[same complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeCoveredExpansion.lean).
+The outer sum removes separating selected supports; the inner sum removes
+thin odd cuts in either replica. An [exact covering-pair expansion](lean/YMGap/Continuum/PairedPositiveFacePolynomialExpansion.lean)
+and [full-slab integrand pin](lean/YMGap/Continuum/BF4ExactSlabCoveredPairExpansion.lean)
+preserve the original heat weights, signed Haar terms, partition and both
+endpoint means. Each selected face has positive spin in at least one replica;
+both replicas are spin zero outside the selection. This holds for every
+cutoff, volume margin and rational nome, without an independence premise.
+Five focused modules passed 32 axiom checks within `{propext, Quot.sound}`
+(two axiom-free). **This is an exact identity, not a coupling-uniform bound.**
+Empty odd cuts and even-spin interactions remain. Surviving-pair classification,
+signed relative remainder control and a positive response certificate are open,
+as are the continuum/Clay obligations.
+
+The preceding geometric obstruction rejects
 terms of the [original shifted-probe moments](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalCut.lean).
 The [exact incidence bridge](lean/YMGap/Continuum/BF4ExactSlabOddFaceIncidence.lean)
 identifies all-spin charge modulo two with odd-labelled physical faces.
@@ -41,9 +56,9 @@ to vanish, at every volume margin. The [two-replica filter](lean/YMGap/Continuum
 then preserves finite signed connected sums with the original heat weights,
 keeping the partition and both endpoint means together. Three focused
 modules passed 27 axiom checks within `{propext, Quot.sound}` (three axiom-free).
-Empty odd cuts and even-spin contributions remain allowed. Combining this
-filter with the connected-selection expansion and bounding surviving pairs
-remain open; no positive-response or continuum theorem is claimed.
+Empty odd cuts and even-spin contributions remain allowed. The common
+connected-selection expansion is now proved above; bounding surviving pairs
+remains open. No positive-response or continuum theorem is claimed.
 
 The preceding [temporal-cut area bound](lean/YMGap/Continuum/Z4TemporalCutParityMinimum.lean)
 now proves that a nonempty cut of distinct plaquettes, with even incidence at
