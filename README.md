@@ -32,17 +32,18 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** a [common ascending temporal gauge sweep](lean/YMGap/Continuum/BF4ExactSlabTemporalSweep.lean)
-now preserves the full original finite-action Haar integral at every cutoff
-and odd extent. The [actual centered shifted probe](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalSweep.lean)
-is retained under this same sweep, with all action weights and shared links
-present. All twelve selected tube sides become their literal relative-link
-kernels simultaneously. The earlier [tube-composition theorem](lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean)
-gives exactly `w^(12*n)`, including `w^36` for three layers, unchanged by
-endpoint centering. **This is not yet a positive lower bound for the full
-interacting covariance.** The compact tube's full-carrier recoding and
-signed remainder control preserving its signal through cutoff and volume
-limits remain open.
+**Latest local mathematical step:** the [three-layer conditional tube identity](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean)
+now holds on the **original full link carrier at every volume margin**, with
+exact coefficient `w^36`. One [explicit permutation](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierEmbedding.lean)
+places the sixteen tube links first and retains every spectator. The
+[ordered word and product pins](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierWords.lean)
+identify all twelve actual swept side faces, including centered endpoint
+products. The preceding [common gauge sweep](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTemporalSweep.lean)
+preserves the full original action and probe. **The conditional identity is
+not a positive lower bound for the full interacting covariance:** it accepts
+arbitrary retained boundary data, but not dependence on the twelve integrated
+links. Controlling the remaining signed interactions and preserving the
+signal through cutoff and volume limits are still open.
 
 ## Whole-project goal
 

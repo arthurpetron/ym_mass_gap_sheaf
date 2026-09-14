@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED all-volume literal tube contraction; OPEN interacting signed remainder (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarEmbeddingCompletion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTubeCarrierEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTubeCarrierWords.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean`.
+- **closed same-carrier bridge**: `complete` retains a prescribed injective
+  block prefix and all unused blocks. `carrierEmbedding` and
+  `carrier_link_pin` place all sixteen actual tube links at every margin.
+  `slice_embedding_pin`, `side_embedding_pin`, `side_faces_pin` and
+  `selected_product_pin` pin the ordered original slices, exactly twelve
+  swept sides, arbitrary centers/weight and the mapped spectator polynomial.
+- **closed conditional calculation**: `contraction_coefficients` gives
+  1/4096 after twelve integrations. `heatCoefficient_pin` gives 4096*w^36
+  for the twelve original fundamental heat coefficients.
+  `literal_weighted_boundary_haar` yields w^36 times the remaining boundary
+  moment on the full original carrier, retaining the upper four links and
+  all other spectators. The boundary has N-12 supported blocks; it cannot
+  depend on the twelve eliminated links.
+- **open residue**: no claim that the complete interacting background
+  satisfies that independence guard. Its cancellation-preserving signed
+  remainder, normalized centered response floor and cutoff/volume persistence
+  remain open. No `finiteResponse` sample or accepted certificate is produced.
+  Full realization/completeness, canonical positive-time root, continuum/QFT/
+  spectral, other groups and Clay remain open. No canonical atom/type/flag,
+  analytic premise or hole changed.
+- **verification**: 8+18+19+12=57 exactly matched gates, thirteen axiom-free,
+  all others within {propext, Quot.sound}; final focused logs error/warning
+  free, own/direct-import artifacts fresh. Carrier pilot at margins 0,1,2,
+  three-layer rational pilot and two centering regressions pass independently
+  of Lean's proofs. One monitored worker, 20 GiB ceiling, no raised limits or
+  full build/audit/guard/progress run. Root imports updated, not rebuilt.
+  Logs: `/tmp/ym-haar-embedding-completion.log`,
+  `/tmp/ym-bf4-tube-carrier-embedding.log`, `/tmp/ym-bf4-tube-carrier-words.log`,
+  `/tmp/ym-bf4-tube-carrier-contraction.log`.
+
 ## CLOSED common full-action temporal sweep with actual shifted probe; OPEN response floor (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabTemporalSweepCharacters.lean`,

@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (one common temporal sweep of the ORIGINAL full action and shifted probe):**
+**Latest local increment (literal all-volume three-layer conditional contraction):**
+The be687cd checkpoint proved the common full-action temporal sweep. This
+increment closes the selected tube's full-carrier coordinate and conditional
+integration bridge, without assuming independence of the interacting action.
+
+`SU2QuaternionHaarEmbeddingCompletion.complete` extends any injective block
+placement to a full carrier permutation, retaining the prescribed prefix.
+`BF4ExactSlabTubeCarrierEmbedding.tubeEmbedding`, `carrierEmbedding` and
+`carrier_link_pin` construct and pin the actual sixteen physical tube links
+at every margin; every remaining link occurs exactly once in the carrier.
+
+`BF4ExactSlabTubeCarrierWords.slice_embedding_pin`, `side_embedding_pin`
+and `side_faces_pin` identify the four ordered plaquette slices and precisely
+the existing twelve swept temporal faces. `selected_product_pin` transports
+their product with arbitrary scalar weight, both endpoint centers and a
+mapped spectator polynomial, coefficientwise on the full carrier.
+
+`BF4ExactSlabTubeCarrierContraction.contraction_coefficients` checks the
+joint twelve-link contraction, retaining a plaquette with coefficient
+1/4096. `heatCoefficient_pin` retains the twelve original fundamental heat
+coefficients, whose product is 4096*w^36. `literal_weighted_boundary_haar`
+therefore gives exact w^36 transmission on the original extent 2*m+3 slab,
+with arbitrary boundary data in its N-12 retained blocks: the upper four
+tube links and every other spectator. No product of all twelve sides is
+expanded during the finite certificate check.
+
+OPEN: the full interacting background can depend on the twelve integrated
+links and is NOT asserted to satisfy this boundary support guard. The
+cancellation-preserving signed remainder estimate, normalized centered
+response floor and cutoff/volume persistence remain open. No nested
+`finiteResponse` sample or accepted certificate is produced. Full observable
+realization, quotient-level completeness, canonical positive-time root,
+continuum scaling, generator/spectral pins, QFT axioms, other groups and
+Clay remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 8+18+19+12=57 exactly matched focused gates;
+thirteen axiom-free, all others within {propext, Quot.sound}. Final logs
+error/warning free; own/direct-import artifacts fresh. The exact carrier
+pilot passes margins 0,1,2 (1,488 / 6,804 / 20,288 links), retaining every
+spectator; the three-layer rational pilot and two centering regressions
+also pass. Neither pilot is a proof oracle. One monitored worker, mandatory
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs:
+`/tmp/ym-haar-embedding-completion.log`, `/tmp/ym-bf4-tube-carrier-embedding.log`,
+`/tmp/ym-bf4-tube-carrier-words.log`, `/tmp/ym-bf4-tube-carrier-contraction.log`.
+
+**Preceding local increment (one common temporal sweep of the ORIGINAL full action and shifted probe):**
 The 5885c96 checkpoint supplied the selected w^36 tube and all-margin
 geometry. This increment proves the common change of variables needed to
 place that geometry alongside the FULL interacting action.

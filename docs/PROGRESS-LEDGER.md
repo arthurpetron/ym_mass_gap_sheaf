@@ -4,7 +4,43 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: common temporal sweep of the full ORIGINAL action and shifted probe (2026-09-13)
+## Current increment: literal all-volume three-layer conditional contraction (2026-09-13)
+
+The preceding turn was PROGRESS: be687cd proved the common full-action sweep.
+This turn is PROGRESS by transporting the selected tube's exact conditional
+calculation to its actual full physical carrier at every volume margin.
+
+- `SU2QuaternionHaarEmbeddingCompletion.complete` retains an injective prefix
+  and every unused coordinate. `BF4ExactSlabTubeCarrierEmbedding.carrierEmbedding`
+  and `carrier_link_pin` construct the actual sixteen-link placement without
+  assuming volume-dependent index tables or dropping any spectator.
+- `BF4ExactSlabTubeCarrierWords.slice_embedding_pin`, `side_embedding_pin`
+  and `side_faces_pin` identify the ordered slices and precisely the twelve
+  existing swept faces. `selected_product_pin` includes arbitrary weight,
+  both endpoint centers and the full mapped spectator polynomial.
+- `BF4ExactSlabTubeCarrierContraction.contraction_coefficients` gives the
+  retained 1/4096 plaquette. The twelve original fundamental heat coefficients
+  give 4096*w^36. `literal_weighted_boundary_haar` proves exact w^36 conditional
+  transmission, with all N-12 remaining blocks and no boundary degree bound.
+
+Next: cancellation-preserving signed remainder control for the full original
+interacting response, including centering/normalization and cutoff/volume
+persistence. The conditional boundary excludes the twelve integrated links;
+the full background is NOT assumed to obey that exclusion. No accepted
+response certificate, canonical atom/type/flag, analytic premise or hole
+changed. Full realization/completeness, canonical positive-time root,
+continuum/QFT/spectral, other groups and Clay remain open.
+
+Verification: 57 exactly matched gates (13 axiom-free; remainder only
+{propext, Quot.sound}), error/warning-free focused logs, fresh own/direct-import
+artifacts. Exact carrier pilot at margins 0,1,2 and three-layer rational pilot
+with two centering regressions pass; neither is a proof oracle. One monitored
+worker, 20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs: `/tmp/ym-haar-embedding-completion.log`,
+`/tmp/ym-bf4-tube-carrier-embedding.log`, `/tmp/ym-bf4-tube-carrier-words.log`,
+`/tmp/ym-bf4-tube-carrier-contraction.log`.
+
+## Previous increment: common temporal sweep of the full ORIGINAL action and shifted probe (2026-09-13)
 
 The preceding turn was PROGRESS: 5885c96 proved all-length tube composition
 and actual shifted-probe geometry. This turn is PROGRESS by an exact common
