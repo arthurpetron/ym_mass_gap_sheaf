@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED original leading coefficient equals one; OPEN signed relative remainder (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellingCompleteness.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeSupport.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeMoments.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeConnected.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientOne.lean`.
+- **closed explicit membership**: `labels_complete` and
+  `tubePair_enumerated` place the existing tube/zero pair in the unchanged
+  original representation list for K >= 1. `tube_positive_perm` pins its
+  actual support, including the zero labels outside physical indices.
+- **closed original filters**: `tube_mixed_moment`, `zero_partition_moment`
+  and `tube_pair_moment` evaluate the original full-carrier moments before
+  imposing a filter. Their nonzero value forces `tube_amplitudeKeep`,
+  `tube_pairKeep` and `tube_pairLeafKeep`. The actual three-face strip
+  proves `tube_no_separator`, hence `tubeIds_connected` for the original
+  finite separator search.
+- **closed complete coefficient**: `tube_pair_power` is 36;
+  `tubePair_leading` supplies the original accepted term. `leadingCount_one`
+  and `leadingCoefficient_one` give A = 1 at every K >= 1, margin and filter
+  time. `original_unit_leading_remainder` gives the exact full numerator
+  `w^36*(1+w*B(w))` for every rational w, without division or a sign premise.
+- **open residue**: signed partition-relative remainder estimate; positive
+  full original response/certificate; normalization/cutoff/volume persistence.
+  Full realization, continuum/QFT/spectral pins, other groups and Clay remain
+  open. No hole, analytic premise, canonical atom/type/flag or frontier field
+  changed. One positive leading coefficient is not a full-response bound.
+- **verification**: 49 exactly matched focused gates within
+  {propext, Quot.sound}, four axiom-free; clean final logs and fresh own/direct-
+  import artifacts. Capped pilots: 5,278 bounded-pair memberships, 12,288
+  positional cuts, 36,102 geometry cases. No full-response positivity test.
+  One monitored worker, 20 GiB ceiling; no raised limits or full
+  build/audit/guard/progress run. Root imports not rebuilt; logs in work_plan.
+
 ## CLOSED original leading-count uniqueness; OPEN explicit accepted-pair membership (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/PairedPositiveFaceLabellingUniqueness.lean`,

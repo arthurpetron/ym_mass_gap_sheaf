@@ -4,7 +4,40 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: the complete original leading coefficient is zero or one (2026-09-14)
+## Current increment: the complete original leading coefficient is exactly one (2026-09-14)
+
+The preceding checkpoint 60910f6 was PROGRESS: original leading-count
+uniqueness. This increment is PROGRESS by constructing the accepted original
+tube pair and evaluating the complete count, not a selected surrogate sum.
+
+- `PairedPositiveFaceLabellingCompleteness.labels_complete` and
+  `BF4ExactSlabCanonicalTubeSupport.tubePair_enumerated` construct
+  membership in the unchanged representation enumeration for K >= 1.
+- `BF4ExactSlabCanonicalTubeMoments.tube_pair_moment` evaluates the actual
+  four-moment term without assuming a filter. Nonzero original moments force
+  the original charge, odd-cut and leaf filters to accept the pair.
+- `BF4ExactSlabCanonicalTubeConnected.tube_no_separator` follows a literal
+  three-face strip: shared edges force cut membership until the upper probe
+  contradicts disjointness. `tubeIds_connected` pins the actual search result.
+- `BF4ExactSlabLeadingCoefficientOne.leadingCount_one` and
+  `leadingCoefficient_one` prove A = 1 at every K >= 1, margin and filter time.
+  `original_unit_leading_remainder` gives the same full original numerator
+  as `w^36*(1+w*B(w))`, including at w = 0.
+
+Next: signed partition-relative remainder control, using the existing
+spectator-resummation identities as source starting points. No useful bound
+on B, positive full response/certificate, normalization/limit persistence,
+full realization or continuum/Clay closure is claimed. No analytic premise,
+canonical atom/type/flag, frontier field or hole changed.
+
+Verification: 49 exactly matched focused gates within {propext, Quot.sound},
+four axiom-free; clean logs and fresh own/direct-import artifacts. Independent
+capped pilots check 5,278 explicit pair memberships, 12,288 positional cuts,
+and 36,102 geometry cases, not full-response positivity. One monitored worker,
+20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports not rebuilt; exact logs in work_plan.
+
+## Previous increment: the complete original leading coefficient is zero or one (2026-09-14)
 
 The preceding checkpoint 6f8a736 was PROGRESS: literal Haar evaluation and
 the exact nonnegative-count identity. This increment is PROGRESS by proving

@@ -18,7 +18,58 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest local increment (the complete original leading coefficient is zero or one):**
+**Latest local increment (the complete original leading coefficient is exactly one):**
+The 60910f6 checkpoint proved uniqueness. This increment constructs the
+explicit accepted pair in the ORIGINAL enumeration and evaluates the count.
+
+`PairedPositiveFaceLabellingCompleteness.labels_complete` reconstructs
+each original branch from the given head labels and an explicit zero-at-head
+tail. `BF4ExactSlabCanonicalTubeSupport.tubePair_enumerated` applies it to
+the original ordered physical-index filter at every K >= 1; all nonphysical
+indices remain zero. `tube_positive_perm` identifies its actual face support.
+
+`BF4ExactSlabCanonicalTubeMoments.tube_mixed_moment` evaluates the full
+original mixed moment WITHOUT assuming any filter. The zero replica has
+partition moment one; `tube_pair_moment` removes the one-endpoint product.
+`bareTube_nonzero` uses the proved 4096 normalization. The original rejection
+theorems then force `tube_amplitudeKeep`, `tube_pairKeep` and
+`tube_pairLeafKeep`, without a separate geometric charge enumeration.
+
+`BF4ExactSlabCanonicalTubeConnected.force_left` propagates membership
+in any separating cut across a shared link. A literal three-face strip
+joins the lower and upper probe edges; `tube_no_separator` contradicts
+the original separator's disjointness. `tubeIds_connected` therefore proves
+acceptance by the ACTUAL finite search, not a new connectivity predicate.
+
+`BF4ExactSlabLeadingCoefficientOne.tube_pair_power` gives power 36;
+`tubePair_leading` supplies the explicit original accepted term.
+`leadingCount_one` combines membership with the prior no-duplicates result;
+`leadingCoefficient_one` proves A = 1 for every K >= 1, margin and filter time.
+`original_unit_leading_remainder` proves the SAME full original numerator
+equals `w^36*(1+w*B(w))`, for every rational w, including zero.
+
+NEXT/OPEN: useful signed, partition-relative higher-remainder control;
+positive full original response/certificate; normalization/cutoff/volume
+persistence; full realization; continuum/QFT/spectral pins, other groups
+and Clay. Existing source starting points are
+`BF4ExactSlabRootedFamilyResummation.connectedNumerator_resummed_expansion`
+and `BF4ExactSlabResummedCoefficientBound.detached_cleared_bound`; neither
+is asserted to bound the newly isolated relative remainder. No analytic
+premise, canonical atom/type/flag, frontier field or hole changed.
+
+Verification: five focused modules, 3+13+11+13+9=49 exactly matched gates
+within {propext, Quot.sound}, four axiom-free; clean final logs and fresh
+own/direct-import artifacts. Independent 30-second-capped pilots check
+5,278 explicit bounded-pair memberships, 12,288 positional tube cuts at
+margins 0,1,3 (no separators), and 36,102 face-membership cases. They are
+not proof oracles and do not test full-response positivity. One monitored
+worker, 20 GiB ceiling; launches paused for live external test suites;
+no raised limits or full build/audit/guard/progress run. Root imports
+updated, not rebuilt. Logs: `/tmp/ym-paired-label-completeness.log`,
+`/tmp/ym-canonical-tube-support.log`, `/tmp/ym-canonical-tube-moments.log`,
+`/tmp/ym-canonical-tube-connected.log`, `/tmp/ym-leading-coefficient-one.log`.
+
+**Preceding local increment (the complete original leading coefficient is zero or one):**
 The 6f8a736 checkpoint proved A = ofNat(leadingCount) and A >= 0.
 `PairedPositiveFaceLabellingUniqueness.positivePairs_nodup` and
 `labels_nodup` now prove the unchanged two-replica enumeration is duplicate

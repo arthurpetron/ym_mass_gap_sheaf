@@ -42,9 +42,17 @@ def pilot():
                     assert tuple(i for i in ids if left[i] or right[i]) == selected
                 full += block
             assert len(set(full)) == len(full) == (cutoff + 1) ** (2 * size)
+            enumerated = set(full)
+            for values in product(range(cutoff + 1), repeat=2 * size):
+                left, right = [0] * 6, [0] * 6
+                for position, face in enumerate(ids):
+                    left[face] = values[position]
+                    right[face] = values[size + position]
+                assert (tuple(left), tuple(right)) in enumerated
             count += len(full)
     return {"cutoffs": [0, 1, 2, 3], "maximum_selected_faces": 3,
             "combined_replica_entries": count, "duplicate_entries": 0,
+            "explicit_bounded_pair_membership_checks": count,
             "physical_leading_count_positivity": "NOT TESTED"}
 
 

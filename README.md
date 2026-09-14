@@ -32,18 +32,22 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [complete original leading coefficient is exactly zero or one](lean/YMGap/Continuum/BF4ExactSlabLeadingCountUniqueness.lean),
-at every cutoff, margin and filter time. The [original paired-label enumeration](lean/YMGap/Continuum/PairedPositiveFaceLabellingUniqueness.lean)
-is now proved duplicate-free: reading the head recovers its branch, and
-resetting that head to zero recovers its tail. Each pair determines its
-ordered selected support. Every accepted leading pair is exactly
-`(tubeLabelling margin, zeroEdgeLabelling)`, including nonphysical indices;
-therefore the original `leadingCount` is at most one. Two focused modules
-passed 14 axiom checks within `{propext, Quot.sound}`; no full-tree audit
-was run. **Next:** prove that this explicit pair survives every original
-filter for cutoff at least one, then bound the signed higher remainder.
-Positive original response, limit persistence and continuum/Clay closure
-remain open. A zero-or-one leading coefficient does not bound the full response.
+**Latest local mathematical step:** the [complete original leading coefficient is exactly one](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientOne.lean)
+for every cutoff `K >= 1`, margin and filter time. The [explicit tube pair](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeSupport.lean)
+belongs to the unchanged representation enumeration. Its [nonzero original
+Haar moment](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeMoments.lean)
+forces the charge, odd-cut and leaf filters to accept it. A [three-face
+strip](lean/YMGap/Continuum/BF4ExactSlabCanonicalTubeConnected.lean)
+rules out every actual separating cut: shared edges force all three faces
+onto the lower-probe side until the last meets the upper probe.
+Together with [proved uniqueness](lean/YMGap/Continuum/BF4ExactSlabLeadingCountUniqueness.lean),
+this gives `leadingCount = 1` and the exact full original numerator
+`w^36 * (1 + w*B(w))`. Five focused modules passed 49 axiom checks within
+`{propext, Quot.sound}` (four axiom-free); no full-tree audit was run.
+**Next:** control the signed higher remainder relative to the original
+partition. Positive full response, normalization/limit persistence and
+continuum/Clay closure remain open. A positive leading coefficient alone
+does not bound the full response or prove a coupling-uniform mass gap.
 
 The preceding [finite-count identity](lean/YMGap/Continuum/BF4ExactSlabLeadingCoefficientCount.lean)
 retains the complete original coefficient. The [accepted mixed-moment support](lean/YMGap/Continuum/BF4ExactSlabMinimalMixedTube.lean)
@@ -54,8 +58,8 @@ give that same 4096, so every retained leading amplitude is exactly zero or
 one. Summation preserves the original connected selections, label filters
 and multiplicities: `A = ofNat (leadingCount K margin time)`.
 Seven focused modules passed 38 axiom checks within `{propext, Quot.sound}`
-(four axiom-free). Uniqueness is now proved above. **Still open:** prove
-positivity of the count for nonzero cutoff, bound the signed higher
+(four axiom-free). Existence and uniqueness are now proved above.
+**Still open:** bound the signed higher
 remainder, establish original positive response and limit persistence,
 and close the continuum/Clay obligations. Nonnegative leading terms alone
 do not bound the complete response or give a coupling-uniform gap.
@@ -70,9 +74,9 @@ partition moment has empty occupied support; any leading pair with an
 occupied partition-replica face contributes zero. This uses the original
 signed Haar moments, not a replacement measure or an assumed tube path.
 Six focused modules passed 40 axiom checks within `{propext, Quot.sound}`
-(seven axiom-free). **Still open:** identify and evaluate the surviving
-mixed-moment carrier, evaluate the leading coefficient, bound the signed
-remainder, and prove original positive response and continuum/Clay closure.
+(seven axiom-free). The mixed-moment carrier and complete leading coefficient
+are now evaluated above. The signed remainder, original positive response
+and continuum/Clay closure remain open.
 These are exact support/cancellation statements, not a uniform gap estimate.
 
 The preceding [complete original connected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalLeadingRemainder.lean)
@@ -84,8 +88,8 @@ The twelve-face bound forces combined Casimir power at least 36; attaining
 36 forces exactly twelve occupied faces, all with label one (the fundamental
 representation). Four focused modules passed 30 axiom checks within
 `{propext, Quot.sound}` (five axiom-free).
-**Still open:** the value/sign of `A`, a useful relative bound on `B`, positive
-original response, normalization and cutoff/volume persistence, and the
+The value of `A` is now proved above. **Still open:** a useful relative bound
+on `B`, positive original response, normalization and cutoff/volume persistence, and the
 continuum/Clay obligations. The identity does not assert a coupling-uniform gap.
 
 The preceding geometric step proves that every pair retained by the complete original
