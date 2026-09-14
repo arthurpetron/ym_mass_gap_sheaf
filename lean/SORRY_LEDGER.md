@@ -13,6 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED ordinary spectator positivity and relative collar intervals; OPEN interacting minor and normalized excitation (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpatialHeatCertificate.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbePositiveBackground.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarInterval.lean`.
+- **closed ordinary positivity**: `prefixCertificate` constructs the actual
+  heat-prefix certificate from the supported unit-scalar bound.
+  `spatialCharacter_pin` is an all-degree, arbitrary-insertion equality
+  between the literal two-link word and the original reflected Gram kernel.
+  `spectatorCertificate` keeps every unselected face and all its heat terms.
+- **closed same-background comparison**: `background_image` pins the
+  original theta(Lfar)*Lfar*Isp to a positive explicit upper/lower face product.
+  `backgroundCertificate` supplies its ordinary positivity;
+  `background_integral_pin` gives the SAME Zsp. `background_weighted_bound`
+  bounds signed interval insertions relative to Zsp without a volume-sized
+  coefficient norm or a replacement squared-half partition.
+- **closed local collar interval**: `productErrorInterval` certifies the
+  existing original telescoping remainder with cap (1+128*w^3)^N-1.
+  `collarInterval` and `reflectedCollarInterval` use at most 24 faces.
+  `existingNome_collar_relative_bound` gives |H(Bsp*Rcollar)| <= Zsp/262144
+  at w=1/1024, all K,half, with the nome guards discharged.
+  `reflectedCollar_insert_bound` retains an extra signed insertion's interval cap.
+- **open constructive/analytic residue**: sharp scalar-weighted interacting
+  amplitude control, positivity of the interacting minor, comparison of the
+  SAME original full partition to Zsp, and a volume/cutoff-uniform normalized
+  positive centered norm passed to the original thermodynamic completion.
+  Full observables/completeness and continuum/QFT/all-group Clay remain open.
+  No canonical atom/type/flag, analytic premise or hole changed. The error
+  cap depends explicitly on w; no beta-uniform positive gap is claimed.
+- **verification**: four modules, 5+9+14+14=42 exactly matched focused gates;
+  four axiom-free, the rest within {propext, Quot.sound}. Final logs error/warning
+  free, own/direct-import artifacts fresh. Extended exact-rational pilot passed;
+  new 24-face cap independently kernel-checked. One monitored worker, mandatory
+  20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+  Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-quaternion-haar-heat-certificate.log`,
+  `/tmp/ym-bf4-exact-slab-spatial-heat-certificate.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-positive-background.log`,
+  `/tmp/ym-bf4-exact-slab-bulk-probe-collar-interval.log`.
+
 ## CLOSED full-spectator reference minor and homogeneous budget; OPEN collar restoration and normalized excitation (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreeBlockLocality.lean`,

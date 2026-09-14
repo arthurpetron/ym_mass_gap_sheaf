@@ -698,15 +698,26 @@ The actual original test energies are `Zsp` and `(s/2)*Zsp`.
 The reference minor is positive at the fixed nome for every cutoff and
 volume; it is **not yet the minor with the local collar reinstated**.
 
-**Open next:** bound the signed local-collar perturbation relative to this
-same background, and compare the original full partition function to it.
+The [ordinary spectator heat certificate](lean/YMGap/Continuum/BF4ExactSlabSpatialHeatCertificate.lean)
+now strengthens OS positivity to positive-certificate integration, using the
+actual two-link character/Gram identity under arbitrary Haar insertions.
+The [same-background comparison](lean/YMGap/Continuum/BF4ExactSlabBulkProbePositiveBackground.lean)
+preserves `Zsp` exactly. The [local collar interval](lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarInterval.lean)
+has cap `(1+128*w^3)^24-1`, for the lower collar and its explicit reflected
+face list, independently of cutoff and volume. At `w=1/1024`, the cap is
+kernel-checked to be at most `1/262144`; the signed lower-collar remainder
+integral is at most `Zsp/262144` in absolute value. Additional interval
+insertions retain their stated caps.
+
+**Open next:** apply these estimates sharply to the scalar-weighted
+interacting amplitudes and compare the original full partition function to `Zsp`.
 The resulting positive normalized excitation floor must survive volume
 and cutoff. No nonzero thermodynamic excitation or continuum scaling is
 claimed from the collar-removed reference alone.
 
-Latest four modules: 9+8+13+9=39 exactly matched focused gates within
+Latest four modules: 5+9+14+14=42 exactly matched focused gates within
 `{propext, Quot.sound}`. The extended exact-rational pilot also passed; its
-new scalar-square moment was independently kernel-checked in Lean. Final logs
+new 24-face Haar error cap was independently kernel-checked in Lean. Final logs
 error/warning free and own/direct-import artifacts fresh. One monitored
 worker, mandatory 20 GiB ceiling; no full build/audit/guard/progress run.
 Root imports updated, not rebuilt. No canonical frontier atom is closed.

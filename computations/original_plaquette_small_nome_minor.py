@@ -54,6 +54,12 @@ def certificate_candidate() -> dict:
     assert scalar_square == Fraction(1, 256)
 
     nome = Fraction(1, 1024)
+    # Ordinary Haar interval cap, retaining the full spectator background.
+    # Only the number of removed local faces enters this error budget.
+    haar_delta = 128 * nome**3
+    haar_collar_error = (1 + haar_delta)**24 - 1
+    assert haar_delta == Fraction(1, 8388608)
+    assert 0 < haar_collar_error <= Fraction(1, 262144)
     ratios = tuple(2 * nome**3 * radius for radius in radii)
     deltas = tuple(2 * ratio for ratio in ratios)
     error = prod(1 + delta for delta in deltas) - 1
@@ -98,6 +104,9 @@ def certificate_candidate() -> dict:
         "collar_removed_determinant_per_Zsp_squared": full_spectator_determinant,
         "collar_removed_reference_budget_per_Zsp_cubed": full_spectator_budget,
         "nome": nome,
+        "haar_interval_delta": haar_delta,
+        "haar_24_face_collar_error": haar_collar_error,
+        "haar_24_face_collar_error_ceiling": Fraction(1, 262144),
         "maximum_first_ratio": max(ratios),
         "face_delta": deltas[0],
         "exact_product_error": error,

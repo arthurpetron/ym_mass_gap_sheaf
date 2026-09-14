@@ -18,7 +18,47 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest original-action increment (full spectator reference and homogeneous minor balance):**
+**Latest original-action increment (ordinary spectator positivity and relative local collar interval):**
+`QuaternionHaarHeatCertificate.prefixCertificate` constructs the actual
+character-prefix certificate from a supported Haar-unit scalar with the
+explicit small-nome guards. `BF4ExactSlabSpatialHeatCertificate.spatialCharacter_pin`
+identifies each actual two-link character with its reflected Gram kernel
+under arbitrary insertions; `spectatorCertificate` retains all unselected
+faces and their complete heat prefixes. This is ordinary positive-certificate
+integration, not just OS positivity.
+
+`BF4ExactSlabBulkProbePositiveBackground.background_image` pins the explicit
+upper/lower physical face product times Isp to theta(Lfar)*Lfar*Isp.
+`backgroundCertificate` constructs its positive presentation;
+`background_integral_pin` preserves the SAME Zsp; `background_weighted_bound`
+gives |H(Bsp*r)| <= d*Zsp for a constructed interval certificate |r|<=d.
+
+`BF4ExactSlabBulkProbeCollarInterval.productErrorInterval` bounds the existing
+original telescoping remainder by (1+delta(w))^N-1, delta(w)=128*w^3.
+`collarInterval` and `reflectedCollarInterval` use N<=24, independent of K,half.
+`existingNome_collar_cap` independently checks the extended pilot's 1/262144
+ceiling. `existingNome_collar_relative_bound` discharges every guard at the
+fixed nome and gives |H(Bsp*Rcollar)| <= Zsp/262144 for all K,half.
+`reflectedCollar_insert_bound` retains the explicit cap of an extra signed insertion.
+
+Next: apply these intervals sharply to the scalar-weighted interacting
+amplitudes, then compare the SAME original full partition to Zsp. Neither
+the interacting minor sign nor a normalized thermodynamic excitation floor
+is claimed. Full observables/completeness and continuum/QFT/all-group Clay
+remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 5+9+14+14=42 exactly matched focused gates,
+four axiom-free and all others within {propext, Quot.sound}; final logs
+error/warning free, own/direct-import artifacts fresh. The extended
+`python3 -m computations.original_plaquette_small_nome_minor` passed.
+One monitored worker, mandatory 20 GiB ceiling; no full build/audit/guard/
+progress run or raised limits. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-quaternion-haar-heat-certificate.log`,
+`/tmp/ym-bf4-exact-slab-spatial-heat-certificate.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-positive-background.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-collar-interval.log`.
+
+**Preceding original-action increment (full spectator reference and homogeneous minor balance):**
 `ReflectedSquareTreeBlockLocality.gram_local` proves arbitrary block
 locality for every original representation degree and tree product.
 `BF4ExactSlabBulkProbeSpectatorFactorization.spectatorTree_outside`

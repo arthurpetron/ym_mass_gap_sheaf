@@ -4,7 +4,46 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL full-spectator reference and homogeneous minor balance (2026-09-13)
+## Current increment: SAME spectator background positivity and local collar intervals (2026-09-13)
+
+The preceding conversational/status turn was NO PROGRESS. This turn is
+PROGRESS: the actual spatial heat factors now have ordinary Haar positive
+certificates, and the local collar remainder has a volume-independent
+relative bound against the SAME full spectator OS background.
+
+- `QuaternionHaarHeatCertificate.prefixCertificate` constructs the heat
+  prefix from the supported unit-scalar square bound, under explicit nome guards.
+- `BF4ExactSlabSpatialHeatCertificate.spatialCharacter_pin` pins the literal
+  two-link word to the original Gram kernel at every degree and insertion.
+  `spectatorCertificate` retains every unselected heat factor.
+- `BF4ExactSlabBulkProbePositiveBackground.background_image` gives an explicit
+  positive upper/lower face presentation of theta(Lfar)*Lfar*Isp.
+  `background_integral_pin` preserves Zsp and `background_weighted_bound`
+  gives the signed interval estimate relative to Zsp, not L1 of a background.
+- `BF4ExactSlabBulkProbeCollarInterval.productErrorInterval` certifies the
+  EXISTING original product remainder with cap (1+128*w^3)^N-1.
+  `collarInterval` and `reflectedCollarInterval` specialize to at most 24 faces.
+  `existingNome_collar_relative_bound` proves |H(Bsp*Rcollar)| <= Zsp/262144
+  for every K,half at w=1/1024. `reflectedCollar_insert_bound` includes an
+  extra signed interval insertion with its explicit cap.
+
+Next: sharp scalar-weighted interacting amplitude estimates and the SAME
+original full-partition comparison. Interacting minor positivity, normalized
+thermodynamic excitation, full observables/completeness and continuum/Clay
+remain open. No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: four modules, 5+9+14+14=42 exactly matched focused gates;
+four axiom-free, the rest within {propext, Quot.sound}. Final logs error/warning
+free and own/direct-import artifacts fresh. The extended exact-rational pilot
+passed; its new 24-face error ceiling was independently kernel-checked.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-quaternion-haar-heat-certificate.log`,
+`/tmp/ym-bf4-exact-slab-spatial-heat-certificate.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-positive-background.log`,
+`/tmp/ym-bf4-exact-slab-bulk-probe-collar-interval.log`.
+
+## Previous increment: ORIGINAL full-spectator reference and homogeneous minor balance (2026-09-13)
 
 The preceding goal turn was PROGRESS: 27be1d6 proved and pushed the
 actual interacting-amplitude pins and positive full spectator OS background.
