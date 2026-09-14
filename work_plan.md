@@ -18,7 +18,50 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (boundary-retaining fundamental tube, with literal slab pins):**
+**Latest local increment (all-length tube composition and actual shifted-probe geometry):**
+The d6e8710 checkpoint retained the boundary of one selected fundamental
+tube. `SU2QuaternionFundamentalTubeComposition.tubeChain_haar` now composes
+that identity by induction, keeping the SAME intermediate variables and
+arbitrary retained spectators. The explicit transmission is the product
+of w_i^12; `transmission_constant` gives w^(12*n) at constant nome.
+`tubeChain_closed` closes the upper plaquette, and
+`tubeChain_centering_invariant` proves that arbitrary constants subtracted
+from BOTH endpoints leave the selected signal unchanged for nonempty tubes.
+`threeLayer_centering_invariant` gives exactly w^36, not an asymptotic term.
+`tubeChain_closed_positive` certifies positivity of the displayed selection
+when all its nomes are positive, not positivity of the full response.
+
+`BF4ExactSlabShiftedProbeTubeGeometry.lower_shifted_probe_pin` and
+`upper_shifted_probe_pin` identify the actual original enlarged probe
+polynomials at spatial base (1+m,1+m,1+m), times m and m+3, in the original
+response slab of extent 2*m+3. `endpoint_reflection`, `slice_word_links`,
+`layer_link_pairs`, `tubeSides_nodup` and `tubeSides_physical` pin the
+reflection, ordered horizontal link pairs and twelve distinct physical
+temporal faces at EVERY margin m.
+
+OPEN: a joint three-layer gauge/coordinate identity for the original
+interacting integrand and a cancellation-preserving signed remainder bound.
+These two proved modules do not yet identify their entire integrands.
+The earlier absolute collar error is not a relative bound on the small
+w^36 signal. Spatial heat weights and other spin selections must still be
+controlled, including their centering contributions, cutoff and volume
+limits. No accepted original response certificate, canonical atom, new
+analytic premise or hole is supplied/changed. Full realization/completeness,
+continuum scaling, generator/spectral pins, QFT axioms, other groups and
+Clay remain open.
+
+Verification: two modules, 20+14=34 exactly matched focused gates; eight
+axiom-free, all others within {propext, Quot.sound}; final logs have no
+errors/warnings and own/direct-import artifacts are fresh. The exact pilot
+`python3 -m computations.original_plaquette_tube_composition` passed the
+three-layer propagation, two centering regressions and finite face checks.
+Lean independently proves all-length propagation and all-margin geometry.
+One monitored worker, mandatory 20 GiB ceiling; no raised limits or full
+build/audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-fundamental-tube-composition.log`,
+`/tmp/ym-bf4-shifted-probe-tube-geometry.log`.
+
+**Preceding local increment (boundary-retaining fundamental tube, with literal slab pins):**
 The 911bec0 checkpoint supplied the exact excited-response target and its
 finite-certificate criterion, not a positive response floor. This increment
 constructs an actual local propagation term for the next lower-bound argument.

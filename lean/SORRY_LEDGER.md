@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED all-length selected tube and shifted-probe geometry; OPEN full response floor (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTubeGeometry.lean`.
+- **closed exact propagation**: `tubeChain_haar` retains arbitrary
+  spectators and shared intermediate variables. `transmission_constant`
+  gives w^(12*n); `tubeChain_closed` evaluates the closed selected tube.
+  `tubeChain_centering_invariant` removes arbitrary endpoint constants
+  for nonempty tubes. `threeLayer_centering_invariant` is exactly w^36.
+  `tubeChain_closed_positive` concerns only this displayed selection.
+- **closed original geometry**: `lower_shifted_probe_pin` and
+  `upper_shifted_probe_pin` identify the actual response observables at
+  times m and m+3. `endpoint_reflection`, `slice_word_links` and
+  `layer_link_pairs` preserve reflection and ordered link incidence.
+  `tubeSides_nodup` / `tubeSides_physical` certify twelve distinct original
+  side faces at every margin, in the same extent 2*m+3 slab.
+- **open residue**: no joint three-layer gauge/coordinate identity for
+  the original interacting integrand, no signed remainder estimate
+  preserving the selected signal, and no accepted response certificate.
+  The existing absolute collar error is not a relative w^36 estimate.
+  Full action weights, other spin channels, their centering contributions,
+  cutoff and volume persistence remain. The canonical
+  `PositiveTimeOSRoot.probeRayleighLower`, full realization/completeness,
+  continuum/QFT/spectral and other-group requirements remain open.
+  No canonical atom/type/flag, analytic premise or hole changed.
+- **verification**: 20+14=34 exactly matched focused gates, eight
+  axiom-free, all others within {propext, Quot.sound}; final logs
+  error/warning free and own/direct-import artifacts fresh. Exact
+  three-layer pilot, two centering regressions and finite geometry passed.
+  One monitored worker, 20 GiB ceiling; no raised limits or full build/
+  audit/guard/progress run. Root imports updated, not rebuilt. Logs:
+  `/tmp/ym-fundamental-tube-composition.log`,
+  `/tmp/ym-bf4-shifted-probe-tube-geometry.log`.
+
 ## CLOSED local fundamental tube with boundary retained; OPEN interacting response floor (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionPartialFactorizedHaar.lean`,

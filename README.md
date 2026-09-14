@@ -32,16 +32,17 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** an [open fundamental plaquette tube](lean/YMGap/Continuum/SU2QuaternionFundamentalPlaquetteTube.lean)
-now propagates the lower plaquette character to exactly `1/16` of the upper
-character, retaining arbitrary boundary polynomials. Its four selected heat
-coefficients give exactly `w^12`, with the nome dependence explicit.
-[Kernel-checked coordinate pins](lean/YMGap/Continuum/BF4ExactSlabFundamentalTubeCoordinates.lean)
-identify the ends and temporal-gauge side kernels on the original slab's
-link carrier. This is one selected local channel, **not a positive lower
-bound for the full interacting covariance**. The shifted-probe response
-still needs the longer-tube construction and signed dressing/centering
-control that persists with volume.
+**Latest local mathematical step:** the [boundary-retaining fundamental tube](lean/YMGap/Continuum/SU2QuaternionFundamentalTubeComposition.lean)
+now composes through any number of layers by induction. Its selected heat
+coefficients give exactly `w^(12*n)` for `n` layers, retaining arbitrary
+boundary polynomials. Subtracting arbitrary constants from both endpoints
+leaves this selected signal unchanged: the required three-layer term is
+exactly `w^36`. [Kernel-checked geometry](lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTubeGeometry.lean)
+identifies the actual shifted-probe endpoints and twelve distinct connecting
+faces at every volume margin. This remains **a selected term, not a positive
+lower bound for the full interacting covariance**. A joint original-action
+integrand identity and signed remainder control that preserves the signal
+through cutoff and volume limits are still open.
 
 ## Whole-project goal
 

@@ -4,7 +4,41 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact open fundamental tube with literal slab pins (2026-09-13)
+## Current increment: all-length selected propagation and actual three-step geometry (2026-09-13)
+
+The preceding turn was PROGRESS: d6e8710 proved the boundary-retaining
+one-layer tube. This turn is PROGRESS by induction to arbitrary length,
+exact endpoint-centering cancellation and all-margin physical incidence.
+It does not close the full interacting response lower bound.
+
+- `SU2QuaternionFundamentalTubeComposition.tubeChain_haar` composes with
+  the same intermediate variables and arbitrary retained spectators.
+  `transmission_constant` gives w^(12*n); `tubeChain_centering_invariant`
+  proves that subtracting arbitrary constants from both endpoints does
+  not change this nonempty selected tube. Three layers give exactly w^36.
+- `BF4ExactSlabShiftedProbeTubeGeometry.lower_shifted_probe_pin` and
+  `upper_shifted_probe_pin` locate the original response observables at
+  times m and m+3. `layer_link_pairs` pins their ordered layer incidence;
+  `tubeSides_nodup` and `tubeSides_physical` certify all twelve distinct
+  connecting faces at every volume margin.
+
+Next: the joint three-layer original integrand pin and signed dressing
+control preserving this signal, with cutoff/volume persistence. The old
+absolute collar error does not already provide that relative estimate.
+No accepted original response certificate, canonical atom/type/flag,
+analytic premise or hole changed. Full realization/completeness,
+continuum/QFT/spectral, other-group and Clay requirements remain open.
+
+Verification: 20+14=34 exactly matched focused gates, eight axiom-free,
+all others within {propext, Quot.sound}; final logs error/warning free,
+own/direct-import artifacts fresh. Exact three-layer pilot and two
+centering regressions passed; Lean independently proves the general
+identities. One monitored worker, 20 GiB ceiling; no raised limits or
+full build/audit/guard/progress run. Root imports updated, not rebuilt.
+Logs: `/tmp/ym-fundamental-tube-composition.log`,
+`/tmp/ym-bf4-shifted-probe-tube-geometry.log`.
+
+## Previous increment: exact open fundamental tube with literal slab pins (2026-09-13)
 
 The preceding turn was PROGRESS: 911bec0 pinned the original response and
 proved its finite-certificate criterion. This turn is PROGRESS by an actual
