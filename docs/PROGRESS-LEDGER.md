@@ -4,7 +4,44 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: literal all-volume three-layer conditional contraction (2026-09-13)
+## Current increment: all-spin relative heat transmission (2026-09-13)
+
+The preceding checkpoint c9f188f was PROGRESS: the selected fundamental
+tube was contracted on the original all-volume carrier. This increment
+proves exact transmission for the FULL two-link heat packet, not one
+selected character term.
+
+- `SU2QuaternionTailEvaluation.partialHaarHead_evaluate` specializes only
+  auxiliary coefficients of the harmonic identity, keeping both physical
+  links symbolic. `SU2QuaternionHaarSparseEquality.carrier_of_canon_check`
+  justifies zero-padding removal under arbitrary insertions without
+  discarding any nonzero coordinate.
+- `SU2QuaternionRelativeCharacterSelection.character_coordinate_boundary`
+  pairs every ordinary relative character with a head coordinate and
+  arbitrary retained boundary: only spin one survives, with coefficient 1/2.
+- `SU2QuaternionRelativeHeatTransmission.coordinate_transmission` sums
+  ALL original `heatKernelPacket K w` coefficients and gives exactly w^3,
+  for every K>=1, rational w and carrier retaining the second physical link.
+
+Next: compose these full relative kernels on the physical tube. The existing
+w^36 tube identity still concerns selected fundamental factors. The remaining
+signed interacting estimate, centered normalized response floor and
+cutoff/volume persistence remain open. No nested response sample or accepted
+certificate. Full realization/completeness, canonical positive-time root,
+continuum/QFT/spectral, other groups and Clay remain open. No canonical
+atom/type/flag, analytic premise or hole changed.
+
+Verification: 35 exactly matched gates (ten axiom-free, remainder within
+{propext, Quot.sound}), error/warning-free final logs, fresh own/direct-import
+artifacts. Exact rational pilot passes 24 character coordinate checks and
+60 heat sums with symbolic retained V; it is not a proof oracle. One monitored
+worker, 20 GiB ceiling; no raised limits or full build/audit/guard/progress run.
+Root imports updated, not rebuilt. Logs: `/tmp/ym-quaternion-tail-evaluation.log`,
+`/tmp/ym-haar-sparse-equality.log`, `/tmp/ym-relative-character-selection.log`,
+`/tmp/ym-relative-heat-transmission.log`. The pre-existing full-audit helper
+import failure and focused-parser fallback are recorded in `work_plan.md`.
+
+## Previous increment: literal all-volume three-layer conditional contraction (2026-09-13)
 
 The preceding turn was PROGRESS: be687cd proved the common full-action sweep.
 This turn is PROGRESS by transporting the selected tube's exact conditional

@@ -18,7 +18,54 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-13)
 
-**Latest local increment (literal all-volume three-layer conditional contraction):**
+**Latest local increment (all-spin relative heat transmission):**
+The c9f188f checkpoint transported the selected fundamental tube to the
+original all-volume carrier. This increment proves a full-cutoff two-link
+kernel identity, with all packet spins retained before exact cancellation.
+
+`SU2QuaternionTailEvaluation.partialHaarHead_evaluate` commutes explicit
+auxiliary coefficient evaluation with polynomial-valued head Haar.
+`SU2QuaternionHaarSparseEquality.carrier_of_canon_check` removes only zero
+exponent padding under arbitrary insertions; its checker retains EVERY
+nonzero coordinate, including out-of-carrier coordinates.
+
+`SU2QuaternionRelativeCharacterSelection.high_spin_coordinate_zero`
+specializes the four-word harmonic proof while keeping both physical links
+symbolic. `solid_character_pin` uses the two proved Haar radius units.
+`character_coordinate_boundary` gives zero for every spin except one,
+and one-half of the retained coordinate for spin one, with arbitrary
+polynomial boundary data on every carrier retaining that second link.
+
+`SU2QuaternionRelativeHeatTransmission.relativeHeat` uses the ORIGINAL
+`heatKernelPacket K w`, not a selected-spin replacement.
+`coordinate_transmission` sums its entire range 0..K and proves exact w^3
+transmission for every K>=1 and rational w. The coefficient dependence is
+explicit: (2*w^3)*(1/2)=w^3. No small-nome premise or spectral estimate occurs.
+
+NEXT/OPEN: compose the full relative kernels on the actual physical tube;
+the existing w^36 tube theorem still concerns selected fundamental factors.
+Control the remaining signed interactions without losing that signal, then
+centering/normalization and cutoff/volume persistence. No original nested
+`finiteResponse` sample or accepted certificate is produced. Full observable
+realization/completeness, canonical positive-time root, continuum scaling,
+generator/spectral pins, QFT axioms, other groups and Clay remain open.
+No canonical atom/type/flag, analytic premise or hole changed.
+
+Verification: 10+5+17+3=35 exactly matched focused gates; ten axiom-free,
+all others within {propext, Quot.sound}; error/warning-free final logs and
+fresh own/direct-import artifacts. The exact rational pilot checks 24 solid
+character coordinate identities (spins 0..5) and 60 heat sums (three nomes,
+cutoffs 1..5, four coordinates), keeping V symbolic. It is not a proof oracle.
+One monitored worker, 20 GiB ceiling; no raised limits or full build/audit/
+guard/progress run. Root imports updated, not rebuilt. Logs:
+`/tmp/ym-quaternion-tail-evaluation.log`, `/tmp/ym-haar-sparse-equality.log`,
+`/tmp/ym-relative-character-selection.log`, `/tmp/ym-relative-heat-transmission.log`.
+The existing `scripts/lean_axiom_audit.py` failed a helper import with
+`NameError: dataclass is not defined`; it was not edited. Focused log
+validation instead checked every expected declaration, order and axiom set
+directly, using the existing source lexer. No full-audit success is claimed.
+
+**Preceding local increment (literal all-volume three-layer conditional contraction):**
 The be687cd checkpoint proved the common full-action temporal sweep. This
 increment closes the selected tube's full-carrier coordinate and conditional
 integration bridge, without assuming independence of the interacting action.

@@ -32,9 +32,19 @@ physical certificate has been constructed**. Full observable realization/
 completeness, the positive response bound and continuum scaling remain open;
 this is not Clay closure.
 
-**Latest local mathematical step:** the [three-layer conditional tube identity](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean)
+**Latest local mathematical step:** [exact two-link heat transmission](lean/YMGap/Continuum/SU2QuaternionRelativeHeatTransmission.lean)
+now sums **every original heat-packet spin through the cutoff**. For any
+rational nome `w`, cutoff `K >= 1`, and arbitrary retained polynomial boundary,
+integrating the head coordinate against that relative kernel transmits it by
+exactly `w^3`. The [all-spin character selection proof](lean/YMGap/Continuum/SU2QuaternionRelativeCharacterSelection.lean)
+annihilates every spin except the fundamental and retains all boundary data.
+This is an identity, not a coupling-uniform gap or a lower bound for the
+full interacting covariance. Composition on the physical tube and control
+of the other interacting plaquettes remain necessary.
+
+The preceding [three-layer conditional tube identity](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierContraction.lean)
 now holds on the **original full link carrier at every volume margin**, with
-exact coefficient `w^36`. One [explicit permutation](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierEmbedding.lean)
+exact coefficient `w^36` for its selected fundamental factors. One [explicit permutation](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierEmbedding.lean)
 places the sixteen tube links first and retains every spectator. The
 [ordered word and product pins](lean/YMGap/Continuum/BF4ExactSlabTubeCarrierWords.lean)
 identify all twelve actual swept side faces, including centered endpoint

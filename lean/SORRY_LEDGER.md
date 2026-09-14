@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## CLOSED all-spin relative heat transmission; OPEN full-kernel tube composition and interacting remainder (2026-09-13)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionTailEvaluation.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionHaarSparseEquality.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionRelativeCharacterSelection.lean`,
+  `lean/YMGap/Continuum/SU2QuaternionRelativeHeatTransmission.lean`.
+- **closed algebraic specialization**: `partialHaarHead_evaluate` retains
+  the head Haar identity under explicit evaluation of auxiliary coefficients.
+  `carrier_of_canon_check` compares all nonzero exponents and removes only
+  zero padding under arbitrary insertions, including unsupported insertions.
+  It does not fix a physical link or delete a nonzero out-of-carrier exponent.
+- **closed all-spin identity**: `high_spin_coordinate_zero`,
+  `fundamental_coordinate`, `solid_character_pin` and
+  `character_coordinate_boundary` give the ordinary relative-character
+  pairing with a head coordinate and arbitrary retained boundary: zero
+  except at spin one, where the coefficient is 1/2.
+- **closed full packet sum**: `relativeHeat` uses `heatKernelPacket K w`.
+  `coordinate_transmission` sums all spins 0..K and gives exact w^3
+  transmission at every K>=1, any rational w and any carrier retaining V.
+  This is not a uniform spectral estimate; the nome dependence is explicit.
+- **open residue**: full-kernel composition on the actual physical tube
+  (the existing w^36 tube theorem selects fundamental factors), the remaining
+  interacting signed estimate, centering/normalization and cutoff/volume
+  persistence. No `finiteResponse` sample or accepted certificate. Full
+  realization/completeness, canonical positive-time root, continuum/QFT/
+  spectral, other groups and Clay remain open. No atom/type/flag, analytic
+  premise or hole changed.
+- **verification**: 35 exactly matched gates, ten axiom-free and all others
+  within {propext, Quot.sound}; final focused logs error/warning free;
+  own/direct-import artifacts fresh. Rational pilot: 24 character component
+  checks and 60 heat sums with symbolic V. One monitored worker, 20 GiB
+  ceiling; no raised limits or full build/audit/guard/progress run. Root
+  imports updated, not rebuilt. Logs: `/tmp/ym-quaternion-tail-evaluation.log`,
+  `/tmp/ym-haar-sparse-equality.log`, `/tmp/ym-relative-character-selection.log`,
+  `/tmp/ym-relative-heat-transmission.log`.
+
 ## CLOSED all-volume literal tube contraction; OPEN interacting signed remainder (2026-09-13)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarEmbeddingCompletion.lean`,
