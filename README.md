@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [positivity of the actual completed one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean).
+**Latest result:** [the constructed positive root equals actual one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean).
+On every state of the **existing** thermodynamic completion, `rootAction = T1`.
+The constructive proof uses commuting polynomial approximations, the newly
+proved geometric positivity, and the already constructed next root to reduce
+the difference to zero squared norm. No spectral theorem or inverse is assumed.
+
+The [existing positive-real-time action now recovers all original lattice steps](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean):
+`A(n/2) = T_n`, including odd steps, independently of the supplied time
+presentation. These are the **existing dimensionless units**: one semigroup
+time unit is two lattice steps, not a proved physical-spacing calibration.
+
+The next obstruction is a controlled range approximation for arbitrary
+unshifted observables. **Injectivity, full-space time-zero continuity, the
+physical Hamiltonian and continuum/Clay closure remain open.** SU(2) nome
+`1/1024` and spacing stay fixed. Fourteen focused constructive axiom checks
+passed; no full-tree run or raised resource limits.
+
+**Previous positivity result:** [positivity of the actual completed one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean).
 For every state in the **existing** thermodynamic completion,
 `<T1 x, x> >= 0`. The proof identifies the literal geometric one-step insertion
 with an even-slab reflected square, retaining the full original heat action.
@@ -32,7 +49,7 @@ No positive-root operator is substituted for geometric time translation.
 
 This is at the existing SU(2) nome `1/1024` and fixed spacing. **Positivity is
 not injectivity.** Identification of `T1` with the constructed positive square
-root is next; arbitrary-state range control, full-space time zero, physical
+root is now supplied above; arbitrary-state range control, full-space time zero, physical
 Hamiltonian and continuum/Clay closure remain open. Twenty-three focused
 constructive axiom checks passed; no full-tree run or raised resource limits.
 

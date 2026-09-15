@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original completed geometric T1 positivity; OPEN root identification and independent range (2026-09-15)
+## CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean`.
+- **same-object commutation**: `time_polynomialVector`, `time_polynomialOperator`,
+  `sequenceAction_time` and `rootAction_time` carry the actual time composition
+  through the existing polynomial and explicit-modulus pairing limits.
+- **proved identification**: `geometric_one_eq_root` proves geometric T1 equals
+  the constructed `rootAction` on EVERY old completed state. For d=T1x-Sx,
+  (T1+S)d=0; original positivity and the already constructed next root give
+  Sd=T1d=0, then symmetry gives ||d||^2=0. `generator_one_geometric` pins the
+  first old dyadic generator. No inverse or zero-kernel premise is supplied.
+- **actual time calibration**: `geometric_mesh_value`, `geometricTime` and
+  `geometricTime_real` construct/pin dimensionless time n/2. `dyadic_geometric`,
+  `positiveAction_geometric`, `positiveAction_at_geometric` and
+  `realTimeAction_geometric` identify the PREVIOUS dyadic/positive-real-time
+  action with original `completedTime n`, including odd n, independently of
+  time presentation. `realTimeAction_geometric_commutes` gives commutation
+  with all original integer translations. One old semigroup unit remains two
+  lattice steps; no physical-spacing or Hamiltonian calibration is asserted.
+- **open residue**: controlled approximate range for arbitrary unshifted
+  original dense states, injectivity/range density and full-space time zero;
+  physical Hamiltonian, beta(a)/spacing, continuum/QFT, other compact simple
+  groups and Clay. `ZeroTimeCertificate.certificateOfRangeApproximation` and
+  `Certificate.continuityData` are the existing consumers of the missing
+  range estimate, not evidence it has been supplied. No literal hole, axiom,
+  analytic premise or canonical field/type/atom/flag changed.
+- **verification**: 14 exact public gates within {propext, Quot.sound}; one
+  axiom-free and two propext-only. Clean final focused logs, fresh own/direct
+  artifacts, no forbidden tokens/options; one definitional-equality correction.
+  Safe one-worker/20-GiB checks with separate preflights and no increased swap.
+  Two additive root imports, not compiled. No dependency rebuild/full-tree run;
+  exact scope/hashes in `work_plan.md`.
+
+## Previous CLOSED original completed geometric T1 positivity; then-OPEN root identification and independent range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSpacetimeEvenComparison.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSiteOneStepForm.lean`, and

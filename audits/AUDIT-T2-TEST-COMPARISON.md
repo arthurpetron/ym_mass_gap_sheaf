@@ -1,6 +1,32 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest completed-positivity follow-up, 2026-09-15, after `4d27795`: the
+Latest geometric-time identification follow-up, 2026-09-15, after `e838e34`:
+the old constructed positive root equals the ORIGINAL geometric T1 on the
+EXISTING completion. The previous positive-real-time action at n/2 now equals
+original lattice time n, including odd n. Its time unit is unchanged: A(1)=T2.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual time commutes with the old calculus | `time_polynomialVector`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean:51`; `time_polynomialOperator`, same file `:59`; `sequenceAction_time`, same file `:64`; `rootAction_time`, same file `:82` | Every original integer lag; original polynomial composition and explicit-modulus row pairing limits. |
+| Geometric root identification | `geometric_one_eq_root`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean:86`; `generator_one_geometric`, same file `:132` | T1=rootAction on all old completed states. Uses original T1 positivity, commutation, common square T2 and the already constructed next root; no inverse or kernel-zero premise. |
+| Explicit old time units | `geometric_mesh_value`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean:39`; `geometricTime`, same file `:44`; `geometricTime_real`, same file `:46` | Constructed time data with value n/2, n>0; no physical-spacing rescaling. |
+| Every original lattice step is recovered | `dyadic_geometric`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean:50`; `positiveAction_geometric`, same file `:57`; `positiveAction_at_geometric`, same file `:62`; `realTimeAction_geometric`, same file `:68` | Existing dyadic and positive-real-time operators equal original completedTime n, including odd n; any supplied time presentation with the proved same value. |
+| Same semigroup and integer translations | `realTimeAction_geometric_commutes`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean:72` | The previous positive-real-time semigroup commutes with every original lattice translation. |
+
+**NOT FOUND in these two modules:** arbitrary-state approximate-range data,
+injectivity/range density or full-space time-zero continuity. These remain
+ledgered. The existing consumer `certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`,
+requires an actual Cauchy preimage with squared-distance error epsilon/128;
+`Certificate.continuityData`, same file `:138`, returns a positive radius.
+Neither input is produced for arbitrary unshifted observables here.
+Physical Hamiltonian, beta(a)/spacing, continuum/QFT, other groups and Clay
+remain open. Fourteen exact public gates passed within {propext, Quot.sound};
+no full-tree run, changed canonical field or added analytic premise. Exact
+scope/hashes are in `work_plan.md`. Older open-root statements below are
+historical checkpoint/module boundaries, superseded by this identification.
+
+Previous completed-positivity follow-up, 2026-09-15, after `4d27795`: the
 ORIGINAL geometric T1 is now proved positive on the EXISTING thermodynamic
 completion. The proof consumes the full-action site square and the actual
 odd/even comparison; it does not substitute a positive root for geometric time.

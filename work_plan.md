@@ -119,7 +119,63 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original completed geometric T1 positivity; OPEN root identification and independent range):**
+**Latest mathematical increment (CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero):**
+PROGRESS after `e838e34`. `BF4ExactSlabThermodynamicGeometricRootIdentification`
+proves `time_polynomialVector` and `time_polynomialOperator` for every original
+integer lag. `sequenceAction_time` passes commutation through the EXISTING
+explicit-modulus row pairing limits; `rootAction_time` specializes it to the
+constructed root. No new continuity/modulus assumption or representative choice.
+
+The short constructive argument in `geometric_one_eq_root` is:
+let A=geometric T1, B=rootAction and d=Ax-Bx. Their same square T2 and proved
+commutation give (A+B)d=0. Original T1 positivity forces <Bd,d><=0. The
+ALREADY constructed second dyadic root C satisfies <Bd,d>=||Cd||^2 and C^2=B,
+so Cd=Bd=Ad=0. Symmetry gives ||d||^2=<x,(A-B)d>=0; the existing positive
+definite completion identifies Ax=Bx. Neither an inverse, zero-kernel premise
+nor a classical square-root uniqueness/spectral theorem is used.
+`generator_one_geometric` pins the old first dyadic generator to literal T1.
+
+`BF4ExactSlabThermodynamicGeometricTimePins.dyadic_geometric` then proves the
+old depth-one mesh action at n/2 equals `completedTime n`, INCLUDING odd n.
+`geometricTime` constructs the existing positive-time data from n>0;
+`geometric_mesh_value` and `geometricTime_real` prove its actual value is n/2.
+`positiveAction_geometric`, `positiveAction_at_geometric` and
+`realTimeAction_geometric` recover the original operator in the PREVIOUS
+positive-real-time construction, independently of the supplied time presentation.
+`realTimeAction_geometric_commutes` combines this pin with the old semigroup
+law to commute every positive real time with every original lattice translation.
+These are the existing dimensionless time units: A(1)=T2, now A(1/2)=T1.
+No physical lattice-spacing normalization or Hamiltonian identification follows.
+
+NEXT necessary input: construct an original-norm approximate T2 preimage for
+each unshifted dense observable at every tolerance, or an adequate controlled
+approximation by the already understood geometric T1 range. The existing
+`BF4ExactSlabThermodynamicZeroTimeCertificate.certificateOfRangeApproximation`
+consumes an actual supplied Cauchy preimage with squared-distance error
+epsilon/128; `Certificate.continuityData` returns the time-zero radius.
+No new wrapper around an unsupplied range premise is needed. The earlier
+scalar test equals an original plaquette pairing and supplies no extra
+separation; its completion should not be reopened as an inverse argument.
+Transfer injectivity/range density and full-space time zero remain unproved.
+Physical Hamiltonian, beta(a)/spacing, continuum/QFT, other compact simple
+groups and Clay remain open; no canonical frontier field/type/atom/flag changed.
+
+Verification: 6 + 8 exact public gates within {propext, Quot.sound}; one
+axiom-free and two propext-only. Clean final logs and fresh own/direct artifacts;
+no forbidden source tokens/options. The first root check needed a final `rfl`
+to identify the unfolded sequence action with its rootAction definition; the
+argument and statements were unchanged. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap preflights on all three launches. Swap decreased
+from 12181.81 to 12165.31 MiB. No raised limits, dependency rebuild or full
+build/audit/guard/progress run. Two additive root imports; root not compiled.
+Final logs/SHA-256:
+
+- `/tmp/ym-geometric-root-identification.log`:
+  `59460826e608ffe943e0b47d01605944ef58d4572b36e7736c67d68933528362`.
+- `/tmp/ym-geometric-time-pins.log`:
+  `fa62b5dfe7314bf64bb477e093c6ab459882d0780f9b37758aa5c68c5f14f9e2`.
+
+**Previous mathematical increment (CLOSED original completed geometric T1 positivity; then-OPEN root identification and independent range):**
 PROGRESS after `4d27795`. `BF4ExactSlabSpacetimeEvenComparison.evenEvaluate`
 evaluates the EXISTING spacetime syntax on adjacent-even slabs at the same
 translated physical coordinates. `evenSquareBound`, `evenLocal` and
