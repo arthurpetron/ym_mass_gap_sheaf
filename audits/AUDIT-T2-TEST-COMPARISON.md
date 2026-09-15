@@ -1,5 +1,34 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Derivative-image bound and whole-graph time increments (2026-09-15)
+
+Follow-up after `6121a40`. This closes the missing IMAGE-norm estimate
+on the original completion, then passes the increment bound to the old
+graph and real-time action. It does not yet prove full-domain Taylor
+differentiation.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Positive refinement cross term | `defect_refine`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:48`; `refinement_cross_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:57`; `quotient_cross_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:74` | Exact square law and sum of original positive moments m(0,3), m(1,3). |
+| Increasing quotient norms | `quotient_norm_step`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:94`; `quotient_norm_mono`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:103` | Original pairing and completed norm, not an auxiliary norm. |
+| Image-norm estimate | `quotient_image_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:111` | ||Q_depth y||^2<=||J y||^2 using the already constructed quotient-row limit. |
+| Every dyadic increment on the old core | `meshQuotient_image_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:121`; `mesh_increment_quotient`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:129`; `mesh_increment_image_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean:136` | Finite time average and exact normalization; ||T2y-A_t(T2y)||^2<=t^2||Jy||^2, all nonnegative dyadic meshes. |
+| Same mesh action on row limits | `meshRows`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:57`; `meshRows_pin`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:67`; `meshRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:71` | Original supplied modulus retained by contraction; limit equals old action on old limit. |
+| Whole-graph dyadic bound | `graph_mesh_increment_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:78`; `GraphPoint.mesh_increment_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:99` | Old two-coordinate graph approximants; no preimage convergence. |
+| Whole-graph positive-real-time bound | `graph_real_increment_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:105`; `GraphPoint.real_increment_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean:136` | J u=T2 v implies ||u-A_t u||^2<=t^2||v||^2 for every supplied positive real t, with constant one. Original realTimeAction and realValue retained. |
+
+NOT FOUND in these two modules: the full-graph Taylor remainder bound
+and computed radius, generation/canonical physical Hamiltonian/spectral
+interface inhabitant, J=L, physical time/spacing/beta(a) calibration,
+continuum QFT or all-group Clay closure. These residues remain ledgered.
+The uniformity is in time only, for fixed SU(2), nome 1/1024 and spacing;
+T2-time units are not a physical calibration. Earlier NOT FOUND records
+retain their dated, named-module scope.
+
+Seventeen exact public gates passed with {propext, Quot.sound}; three
+focused safe one-worker/20 GiB checks, no raised limits or full-tree run.
+Exact name matching, artifact checks and log hashes are in work_plan.
+
 ## Constructed closed graph and real-pairing adjoint equality (2026-09-15)
 
 Follow-up after `a5c49a3`. The graph remains on the original real

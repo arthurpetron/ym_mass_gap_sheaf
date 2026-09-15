@@ -4430,6 +4430,8 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicDifferentiatedCore
 -- Full-domain generation and physical/continuum/all-group pins remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeGraphApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph
+import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeImageBound
+import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeBound
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

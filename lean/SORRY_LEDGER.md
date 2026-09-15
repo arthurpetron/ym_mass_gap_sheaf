@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED constructed graph approximation, real adjoint-graph equality and extended form gap; OPEN full-domain generation (2026-09-15)
+## CLOSED derivative-image norm estimate and whole-graph time increment control; OPEN full-domain differentiation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean`.
+- **missing image estimate proved**: the refinement cross term is a sum
+  of two positive original mixed moments. `quotient_norm_mono` and the
+  existing explicit limit prove `quotient_image_bound`,
+  ||Q_depth y||^2<=||J y||^2. No new analytic input or limit oracle.
+- **same-object time bound**: finite averages and exact normalization
+  prove `mesh_increment_image_bound`. The old graph's state/image rows
+  give `graph_mesh_increment_bound`; the original positive-real time
+  rows give `graph_real_increment_bound`. Every J u=T2 v satisfies
+  ||u-A_t u||^2<=t^2||v||^2 for every supplied positive real time, with
+  constant one and no small-time restriction. `meshRows` carries the
+  original modulus unchanged. No preimage convergence is assumed.
+- **consumer/residue**: the full-graph Taylor proof must combine the new
+  bound on a graph difference with the old core Taylor radius and the
+  real-scalar image correction. This proof and its explicit radius are
+  still OPEN, as are generation/canonical physical Hamiltonian/spectral
+  identification, J=L, physical time/spacing/beta(a), continuum QFT and
+  all groups/Clay. Time-uniform means only the fixed original SU(2),
+  nome 1/1024, fixed-spacing theory, in T2-time units; not beta-uniform.
+  No canonical field, analytic premise, axiom, literal hole or legacy
+  scorecard flag changed.
+- **verification**: 17 exact public gates, all {propext, Quot.sound};
+  exact logged names, clean final logs and fresh own/direct artifacts.
+  Three focused safe one-worker/20 GiB checks, separate preflights,
+  no raised limits or full-tree run. Two additive root imports, root
+  not compiled; CI manual-only. Exact hashes in work_plan.
+
+## Previous CLOSED constructed graph approximation, real adjoint-graph equality and extended form gap; OPEN full-domain generation (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean`.
@@ -39,7 +69,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **residue**: full-domain generation/differentiation, canonical physical
   Hamiltonian/spectral interface, J=L, physical time/spacing/beta(a),
   continuum QFT and all groups/Clay. A difference-quotient bound in the
-  IMAGE norm is the next estimate; the earlier PREIMAGE norm bound does
+  IMAGE norm was the next estimate (now proved above); the earlier PREIMAGE norm bound does
   not provide it. Fixed SU(2), nome 1/1024, original real completion and
   T2-time units only. No canonical field, analytic premise, axiom,
   literal hole or legacy scorecard flag changed.

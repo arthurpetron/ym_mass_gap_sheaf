@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the original derivative graph equals its real-pairing adjoint](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean).
+**Latest analytic result:** [time increments are controlled by the derivative image on the whole original graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean).
+For every graph point `J u = T2 v` and every supplied positive real time,
+`||u - A_t u||^2 <= t^2 ||v||^2`. The constant is one, with no small-time
+restriction. Positive original mixed moments show that the squared dyadic
+quotient norms increase to `||J y||^2`. Finite averages and the existing
+two-coordinate graph approximants then pass this image-norm estimate to
+the whole graph and the actual real-time action. No convergence of
+preimages is assumed.
+
+This supplies the missing uniform increment control for extending the
+Taylor derivative to the whole graph; that differentiation remains the
+next proof. The scope is still the original real completion, SU(2), nome
+`1/1024`, fixed spacing and T2-time units. Physical Hamiltonian/spectral
+identification, scaling, continuum QFT and every required group remain
+open. All 17 new public axiom checks passed within the constructive gate
+in focused safe checks; no full-tree run or raised limits.
+
+**Previous analytic result:** [the original derivative graph equals its real-pairing adjoint](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean).
 The equation `J u = T2 v` now defines a single-valued graph extending
 `H0(T2 y) = J y`. One computed finite-sum degree approximates both `u`
 and `v` by points of the old differentiated domain. These approximants

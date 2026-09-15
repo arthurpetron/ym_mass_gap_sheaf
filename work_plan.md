@@ -119,7 +119,62 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED constructed graph approximation, real-pairing adjoint equality and extended form gap; OPEN full-domain generation):**
+**Latest mathematical increment (CLOSED derivative-image norm control and whole-graph real-time increment bound; OPEN full-domain differentiation):**
+PROGRESS after `6121a40`. `BF4ExactSlabThermodynamicDerivativeImageBound`
+proves `refinement_cross_nonnegative`: pairing the finer defect square
+with the coarser defect is the sum of the original positive moments
+m(0,3) and m(1,3). Therefore `quotient_norm_step` / `quotient_norm_mono`
+increase the squared quotient norm. `quotient_image_bound` compares it
+with its ALREADY CONSTRUCTED limit and gives ||Q_depth y||^2<=||J y||^2.
+No new monotone-limit existence principle or analytic premise is used.
+
+The old finite time averages give `meshQuotient_image_bound`, and the
+exact mesh normalization gives `mesh_increment_image_bound`:
+  ||T2 y - A_t(T2 y)||^2 <= t^2 ||J y||^2
+for ALL nonnegative dyadic meshes, with constant one.
+`BF4ExactSlabThermodynamicGraphTimeBound.meshRows` preserves the original
+Cauchy-row modulus by contraction; `meshRows_limit` is the old action
+on the old limit. `graph_mesh_increment_bound` passes the bound through
+the PREVIOUS stateRows/imageRows. `graph_real_increment_bound` and
+`GraphPoint.real_increment_bound` retain the actual time coefficient in
+the original positive-real-time limit. Thus every graph point J u=T2 v
+satisfies ||u-A_t u||^2<=t^2||v||^2 for every supplied positive real time.
+No preimage convergence, representative choice or replacement carrier.
+
+NEXT CAUSAL FRONTIER: extend `RealDerivative.real_taylor_bound` to the
+whole graph using this image-norm control. For supplied U,V and epsilon,
+choose the existing core approximant with image squared error at most
+epsilon/16. Its OLD `realRadius` supplies the small-time radius for the
+core remainder. The new increment bound applies to the graph difference;
+the old real-scalar norm law controls the image correction. Prove the
+exact three-term remainder decomposition and its squared-error budget,
+then return the resulting radius as Type-level data. This is a proof
+plan, NOT yet a full-domain differentiation theorem. Do not divide a
+state-approximation error by t or assume the preimages converge.
+
+OPEN: full-domain differentiation/generation and canonical physical
+Hamiltonian/spectral interface, J=L, physical time/spacing/beta(a),
+continuum QFT and every compact simple group/Clay. The new constant-one
+increment bound is uniform in time for this fixed SU(2), nome 1/1024,
+fixed-spacing ORIGINAL real completion; it asserts no beta/spacing
+uniformity or physical mass. T2-time units remain unchanged. No canonical
+field, analytic premise, axiom, literal hole or legacy flag changed.
+
+Verification: 17 exact public gates, all {propext, Quot.sound}; exact
+declaration/gate/log matching, clean final logs, own/direct artifacts
+fresh. Three focused safe checks (two image-bound, one graph-time-bound),
+one worker/20 GiB, separate process/swap preflights; swap stable at
+11869.31 MiB. Corrected a namespace for the mesh value and removed one
+unused simp argument; no mathematical change or raised limit. No
+dependency rebuild or full build/audit/guard/progress run. Two root
+imports added, root not compiled; CI remains manual-only. Logs/SHA-256:
+
+- `/tmp/ym-derivative-image-bound.log`:
+  `bf7a67f681b3abed09217b0139b0e98071c46bda5bf43eae1b5db8b2b213a54b`
+- `/tmp/ym-graph-time-bound.log`:
+  `944ac98dffa7f19aea2ac50d3816f81fc9676b4c494c60f295121fe209d51231`
+
+**Previous mathematical increment (CLOSED constructed graph approximation, real-pairing adjoint equality and extended form gap; OPEN full-domain generation):**
 PROGRESS after `a5c49a3`. `BF4ExactSlabThermodynamicDerivativeGraphApproximation`
 defines GraphPoint with ORIGINAL state u, image v and the equation J u=T2 v.
 `GraphPoint.image_unique` uses actual T2 injectivity; `fromCore` embeds the
@@ -152,7 +207,7 @@ through the SAME pairing limits and proves B(v,u)>=(1/2)B(u,u) for every
 graph point with u orthogonal to the original unit. This does not itself
 construct a nonzero excitation or a physical mass normalization.
 
-NEXT CAUSAL FRONTIER: extend the existing time-derivative estimate from
+NEXT FRONTIER AT THAT CHECKPOINT (image estimate now proved above): extend the existing time-derivative estimate from
 the T2 range to this entire graph. The needed intermediate estimate is
   ||differenceQuotient depth y||^2 <= ||J y||^2,
 in the IMAGE norm, not the already proved PREIMAGE bound <=||y||^2.
