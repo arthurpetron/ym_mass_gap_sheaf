@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED finite ORIGINAL range-residual and zero-time certificates (2026-09-14)
+## CLOSED finite ORIGINAL retained-bulk interface comparison (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSquareWeightComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFiniteInterfaceCoercivity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalInterfaceCoercivity.lean`.
+- **closed same-channel comparison**: `WeightBound` retains the literal
+  polynomials and finite tree shape while comparing weights. Its
+  `product`, `finiteSum`, `finiteProduct` and `haar_bound` propagate
+  that comparison through the EXISTING square expansions.
+- **closed explicit physical interface floor**: `coefficient_lower`
+  and `coefficient_upper` compare the SU(2) coefficients at w and one,
+  using c4(s)=s*(s+2). `interface_form_lower` and
+  `interface_form_upper` give rho*Q_1(p)<=Q_w(p)<=Q_1(p), with
+  `interfaceFloor_exponent` pinning rho=w^(K*(K+2)*F) and
+  `interfaceFloor_positive` proving positivity for w>0.
+  `interface_form_zero_iff` proves finite nullity equivalence.
+  `interfaceComparisonCertificate` returns the factor and all pins.
+- **closed ORIGINAL full-action pin**: `original_interface_pin`
+  uses the existing literal-reflection/temporal-gauge identity on
+  `dressedLower w K e`. `retainedBulkReference` keeps this SAME
+  bulk-dressed polynomial, not a different normalized Gibbs state.
+  `original_lower`, `original_upper`, `original_null_iff` and
+  `originalComparisonCertificate` supply the actual full-action result.
+- **open residue**: removing the crossing cutoff for the SAME fixed
+  insertion; control as the bulk cutoff and volume also grow;
+  identification with completed transfer/range estimates; residual
+  decay for every original dense observable; full-space zero-time
+  continuity, physical Hamiltonian/scaling, other groups and Clay.
+  The positive floor is NOT cutoff-, volume-, beta- or spacing-uniform.
+  The nome-one reference is a FINITE Gram form, not an infinite heat
+  law at nome one. No new hole, analytic premise, canonical atom/type/
+  flag, weight or surrogate is introduced or discharged.
+- **verification**: 9+17+8=34 exactly matched focused gates, all
+  within {propext, Quot.sound}, two axiom-free; clean logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate process/swap preflights; no raised options or full build/
+  audit/guard/progress/root-import run. Log hashes are in work_plan.
+
+## Previous checkpoint: CLOSED finite ORIGINAL range-residual and zero-time certificates (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeApproximation.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeDefectEnergy.lean`,

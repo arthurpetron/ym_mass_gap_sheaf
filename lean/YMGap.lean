@@ -4312,6 +4312,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRangeZeroContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicRangeApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicRangeDefectEnergy
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
+-- Same-channel finite interface coercivity, pinned to the original bulk
+-- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.
+import YMGap.Continuum.BF4ExactSlabSquareWeightComparison
+import YMGap.Continuum.BF4ExactSlabFiniteInterfaceCoercivity
+import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

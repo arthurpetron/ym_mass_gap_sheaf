@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [finite original-moment certificates for continuity at zero](lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean).
+**Latest milestone:** [an explicit finite interface comparison for the original action](lean/YMGap/Continuum/BF4ExactSlabOriginalInterfaceCoercivity.lean).
+At `0 < w <= 1`, the original reflected numerator is bounded above
+by its retained-bulk reference and below by that reference times
+`w^(K*(K+2)*F)`, where `K` is the spin cutoff and `F` counts the
+actual crossing faces. Only the crossing coefficients change in the
+reference: the observable, original lower bulk interaction and shared
+links are retained. The two finite forms have exactly the same nullity.
+Three modules passed 34 focused axiom checks within `{propext, Quot.sound}`
+(two axiom-free); no full-tree run. The positive factor is explicitly
+coupling-, cutoff- and volume-dependent. This is not a uniform limit
+bound, a transfer inverse, or a proof of a zero completed transfer kernel.
+Next: use the existing fixed-insertion selection theorem to test removal
+of the crossing cutoff while retaining the same original insertion.
+Full-space time-zero continuity, physical scaling and continuum/Clay
+remain open.
+
+**Established range certificates:** [finite original-moment certificates for continuity at zero](lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean).
 With `D = I - T2`, a computed finite sum satisfies
 `T2 (x + D x + ... + D^(n-1) x) + D^n x = x`.
 Its squared approximation error is exactly the existing original moment

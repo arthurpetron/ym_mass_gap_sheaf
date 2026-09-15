@@ -18,7 +18,55 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (finite ORIGINAL range-residual and zero-time certificates):**
+**Latest increment (finite ORIGINAL retained-bulk interface comparison):**
+PROGRESS after 1141639. The search for an actual physical range estimate
+now reaches the existing reflection-positive finite square channels.
+`BF4ExactSlabSquareWeightComparison.WeightBound` compares weights on
+the SAME polynomial leaves and tree shape; its product/sum and Haar
+lemmas preserve the existing channel decomposition and shared links.
+`BF4ExactSlabFiniteInterfaceCoercivity` compares the actual crossing
+heat coefficients with their nome-one values. Casimir monotonicity
+gives `coefficient_lower` and `coefficient_upper`; the finite product
+and Haar-square identities give rho*Q_1(p)<=Q_w(p)<=Q_1(p), where
+`interfaceFloor_exponent` is exactly rho=w^(K*(K+2)*F), F the actual
+number of central fixed faces. The floor is positive for w>0.
+`interface_form_zero_iff` identifies finite nullity. The certificate
+returns the factor and exact exponent as Type-level data.
+
+`BF4ExactSlabOriginalInterfaceCoercivity.original_interface_pin`
+identifies Q_w with the ORIGINAL complete reflected numerator and
+p=`dressedLower w K e`. `retainedBulkReference` changes ONLY crossing
+coefficients to one; it keeps the original lower bulk heat interaction,
+observable and literal shared links. `original_lower`, `original_upper`,
+`original_null_iff` and `originalComparisonCertificate` prove the
+comparison and nullity result for that same full action. No selected
+sub-action, independent-link law or normalized nome-one state is used.
+
+NEXT: check the mixed bulk/interface-cutoff pin needed to use the
+EXISTING `BF4ExactSlabAllExtentInterfaceCutoffLimit.interfacePairing_stable`
+on a FIXED original insertion. That theorem concerns the original
+plaquette interface; applying it to the spatial Gram form without the
+temporal-gauge/insertion pin would be invalid. Bulk-cutoff and volume
+control, completed transfer range/density and zero kernel, full-space
+time-zero continuity, physical Hamiltonian/scaling, other groups and
+continuum/Clay remain OPEN. This floor is explicitly w-, K- and
+extent-dependent; no beta/spacing-uniform claim or canonical atom
+closure. No new hole, analytic input, canonical type/flag or surrogate.
+
+Verification: three focused monitored modules, 9+17+8=34 exactly
+matched gates within {propext, Quot.sound}, two axiom-free. Clean
+final logs and fresh own/direct-import artifacts. Safe-build skill:
+one worker, explicit 20 GiB ceiling and separate process/swap
+preflights; no raised options or full build/audit/guard/progress/
+root-import run. Logs and SHA-256:
+`/tmp/ym-original-square-weight-comparison.log`
+(`35e077b4af50561f1cb2a43f397123c9f3c9f631d1922a28d67017510ce4e5dc`),
+`/tmp/ym-original-finite-interface-coercivity.log`
+(`a9410b00abf35edd34ec1d31919f2c84f3c04b1221e41bd973b0897fceb3a684`),
+`/tmp/ym-original-full-action-interface-coercivity.log`
+(`d6d01f0dd129c5985093f9d734f2e3ef97024625b6798bcdfe3ad39b5b60bf3c`).
+
+**Previous increment (finite ORIGINAL range-residual and zero-time certificates):**
 PROGRESS after 32cb905. The full-space time-zero question now has a
 finite, same-object moment test, not an assumed range-density premise.
 `BF4ExactSlabThermodynamicRangeApproximation.partialPreimage` computes
