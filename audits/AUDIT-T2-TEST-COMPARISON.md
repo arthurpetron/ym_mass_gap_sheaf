@@ -1,5 +1,35 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Range/time-zero obstruction closed on the original space (2026-09-15)
+
+Follow-up after `8ee3ef9`: the original test estimate now yields computed
+residual decay, actual approximate preimages, and full-space time-zero
+continuity. The table names the new declarations, not proposed arrows.
+
+| Result | Declaration and source | Actual scope |
+| --- | --- | --- |
+| Dense degree | `responseTolerance`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean:50`; `denseDegree`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean:59` | Two existing rational tolerances and the old geometric-range energy modulus compute a degree. |
+| Dense error | `dense_residual_small`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean:81`; `densePreimage_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean:106` | Original m_f(0,2n)<=epsilon for every later degree; the old finite preimage sum attains the bound. |
+| Arbitrary-state decay | `residualModulus`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:58`; `residual_small`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:61` | Actual dense sample plus original defect contraction bounds X's own residual. |
+| Constructive original range density | `approximatePreimage_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:80`; `rangeApproximationData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:86` | Every supplied X and epsilon>0 return an original Cauchy preimage Y and dist(X,T2Y)<=epsilon. |
+| Successful finite test | `zeroCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:91` | Constructs the existing accepted finite test; no unbounded search or acceptance premise. |
+| Full-space time zero | `zeroRadius`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:98`; `full_space_zero_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:107`; `zeroContinuityData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:112` | Computed positive radius controls the old realTimeAction at EVERY original represented state. Radius is T2-time, error is squared distance. |
+| Original injectivity | `transfer_kernel_trivial`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:119`; `transfer_injective`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean:130` | The actual T2 is injective on all original quotient states. |
+
+Moduli and preimages are computed from supplied Cauchy representatives;
+no quotient representative is chosen. No action, carrier, partition,
+observable or original time operator is replaced. No uniform inverse
+or new physical mass-gap bound is asserted. This remains SU(2), nome
+1/1024, fixed spacing. The physical Hamiltonian and its same-semigroup
+pins, physical-scale/coupling control, continuum/QFT and all-group Clay
+target remain open. Earlier NOT FOUND statements below are historical
+and scoped to the modules they searched, not current global absences.
+
+Twenty new exact public gates passed within {propext, Quot.sound};
+no canonical field, analytic premise or hole changed. Five safe focused
+checks, one worker/20 GiB, no raised limits or full-tree run. Hashes in
+work_plan. This follow-up does not claim a refreshed whole-tree audit.
+
 ## Completed original transfer-relative test estimate (2026-09-15)
 
 Follow-up after `7dbb2df`. The preceding proposed estimate and its extension

@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the transfer-relative test bound holds on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean).
+**Latest analytic result:** [computed range density and time-zero continuity on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean).
+Every supplied original Cauchy state and positive squared-error tolerance
+now compute a finite approximate preimage under the actual two-step
+transfer. The residual is bounded at every degree above the computed
+threshold. The existing positive-real-time action consequently tends to
+the identity on the whole original space, with a computed radius. The
+original two-step transfer is also proved injective.
+
+The proof uses two rational tolerances, the transfer-relative test bound,
+Cauchy--Schwarz, and finite telescoping. Dense samples and defect
+contraction extend it to arbitrary original state data. No inverse is
+assumed and no range-closure space replaces the original completion.
+
+This remains SU(2), nome `1/1024`, fixed spacing. Moduli use supplied
+Cauchy representatives; no representative is selected from a quotient.
+There is no uniform inverse bound or new physical mass-gap claim.
+Next is the densely defined generator of this same semigroup; its
+physical identification, spacing/coupling control, continuum QFT and the
+all-group Clay target remain open. All 20 new constructive axiom checks
+passed in focused checks; no full-tree run or raised resource limits.
+
+**Previous analytic result:** [the transfer-relative test bound holds on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean).
 For every original completed state `x` and fixed original test `f`,
 `B(f,x)^2 <= bound(f) * B(T1 x,x)`. Here `B` is the original OS pairing,
 `T1` is the actual geometric one-step transfer, and `bound(f)` is the
@@ -35,10 +56,10 @@ pairing limits extend the bound to all original completed `x`.
 
 This is SU(2), nome `1/1024`, fixed spacing. The cap depends on the test;
 the estimate is **not** a uniform lower spectral bound or a physical mass
-gap. Next is a computed residual modulus for the existing finite preimage
-sums. Full-space time zero, physical Hamiltonian, continuum QFT and the
-all-group Clay target remain open. All 19 new constructive axiom checks
-passed; no full-tree run or raised resource limits.
+gap. The residual modulus and full-space time-zero consequence are now
+proved above. Physical Hamiltonian, continuum QFT and the all-group Clay
+target remain open. All 19 constructive axiom checks for this earlier
+increment passed; no full-tree run or raised resource limits.
 
 **Previous analytic result:** [a bounded inward test is pinned to the original reflected pairing](lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean).
 Moving the reflection plane to the adjacent time slice permits an arbitrary
@@ -50,8 +71,8 @@ unchanged. The mixed identity reaches the existing thermodynamic form with
 an explicit volume modulus.
 
 This supplied the concrete test for the transfer-relative Cauchy--Schwarz
-argument now completed above. Neither range density nor full-space time
-zero is claimed. The finite bound has explicit small-nome guards, while the
+argument completed above. This earlier increment alone did not prove range
+density or full-space time zero. The finite bound has explicit small-nome guards, while the
 thermodynamic pin uses SU(2), nome `1/1024`, fixed spacing. It is a size bound,
 not a mass-gap estimate. All 22 focused constructive axiom checks passed;
 no full-tree run or raised resource limits. The physical Hamiltonian,
@@ -73,8 +94,8 @@ This result concerns the existing canonical source collar (at most 24 faces),
 at SU(2) nome `1/1024` and fixed spacing. It does **not** define multiplication
 on arbitrary OS classes or identify the corrected state with a time-transfer
 preimage. Identifying that corrected state with a transfer preimage remains
-open; the direct test estimate above uses another argument. Full-space
-time zero, physical Hamiltonian and the continuum/all-group Clay target remain open.
+open; the direct test estimate and time-zero proof above use another argument.
+Physical Hamiltonian and the continuum/all-group Clay target remain open.
 Twenty-nine focused constructive axiom checks passed; no full-tree run or
 raised resource limits.
 

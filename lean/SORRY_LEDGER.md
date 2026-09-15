@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED transfer-relative bound on the ENTIRE original completion; OPEN arbitrary-state residual modulus (2026-09-15)
+## CLOSED original residual decay, constructive range density, injectivity and full-space time zero (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean`.
+- **dense estimate**: `responseTolerance` uses the existing rational
+  smallTolerance twice. `denseDegree` is computed using old geometric-T1
+  residual energy. `dense_residual_small` bounds the ORIGINAL m_f(0,2n)
+  at every n above that degree. The proof composes original CS, the proved
+  transfer-relative test inequality, and moment antitonicity. No inverse,
+  fourth root, division by the test cap, or spectral hypothesis is added.
+  `densePreimage_bound` certifies the old finite-sum candidate.
+- **arbitrary original states**: `residualModulus` takes the actual dense
+  sample at X.modulus(epsilon/4); `residual_small` extends the estimate
+  with defect contraction on the same original completed distance.
+  `approximatePreimage_bound` / `rangeApproximationData` construct the
+  original finite-sum preimage for X itself, with its proved error.
+- **time zero and kernel**: `zeroCertificate` constructs the OLD finite
+  accepted test at every positive tolerance using `certificateOfMomentBound`.
+  `zeroRadius`, `full_space_zero_bound` and `zeroContinuityData` prove
+  continuity at zero for the existing positive-real-time action on EVERY
+  supplied original Cauchy state. Radius is T2-time; error is squared distance.
+  No representative is selected from a quotient. `transfer_kernel_trivial`
+  and `transfer_injective` hold on all original quotient states.
+- **scope and residue**: SU(2), nome 1/1024, fixed spacing. The old range/
+  time-zero obstruction is closed on this original space; a bounded inverse
+  or physical mass gap is not asserted. Still open: actual densely defined
+  same-semigroup generator, self-adjointness/derivative/spectral pins,
+  physical normalization and spacing/coupling control, continuum QFT,
+  other compact simple groups and Clay. No canonical field/type/atom/flag,
+  analytic premise, axiom or literal hole changed. Legacy scorecards do not
+  enumerate this local original-space result. Older entries retain their
+  historical/module-local scope; current status is this entry.
+- **verification**: 20 exact public gates within {propext, Quot.sound};
+  final logs clean, names mapped exactly, own/direct artifacts fresh.
+  Five monitored checks, one worker/20 GiB, separate preflights; no raised
+  limits, dependency rebuild or full-tree run. Two root imports added,
+  not compiled. CI manual-only. Exact hashes/scope in work_plan.
+
+## Previous CLOSED transfer-relative bound on the ENTIRE original completion; then-OPEN arbitrary-state residual modulus (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteMixedSquare.lean`,
   `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean`,

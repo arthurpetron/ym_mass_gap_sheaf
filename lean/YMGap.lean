@@ -4391,12 +4391,16 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicCorrectedState
 import YMGap.Continuum.BF4ExactSlabSiteInwardTest
 import YMGap.Continuum.BF4ExactSlabSiteInwardTestNorm
 -- Full-action mixed site CS and the original inward test now give the
--- geometric T1-relative bound for every original completed state. A
--- quantified residual/preimage and full-space time zero remain open.
+-- geometric T1-relative bound for every original completed state.
 import YMGap.Continuum.BF4ExactSlabSiteMixedSquare
 import YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz
 import YMGap.Continuum.BF4ExactSlabSiteCauchySchwarz
 import YMGap.Continuum.BF4ExactSlabThermodynamicTransferTestBound
+-- That bound and original defect energy compute dense and arbitrary-state
+-- residual moduli, actual preimages, full-space time zero and T2 injectivity.
+-- Physical Hamiltonian and continuum/all-group conclusions remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicDenseResidualDecay
+import YMGap.Continuum.BF4ExactSlabThermodynamicFullSpaceZeroContinuity
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

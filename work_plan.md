@@ -119,7 +119,80 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED transfer-relative bound on the ENTIRE original completion; OPEN arbitrary-state residual modulus):**
+**Latest mathematical increment (CLOSED computed original residual decay, range density, injectivity and full-space time zero):**
+PROGRESS after `8ee3ef9`. The analytic test estimate now discharges the
+arbitrary-state range/time-zero obstruction, not just a conditional wrapper.
+`BF4ExactSlabThermodynamicDenseResidualDecay.dense_residual_small` bounds
+m_f(0,2n) at EVERY degree n >= the computed `denseDegree f epsilon`.
+For C=diagonalCeiling(f), the algorithm uses the existing rational map
+d_C(r)=smallTolerance C hC r twice: `responseTolerance f epsilon`
+is d_C(d_C(epsilon)), and denseDegree is the old residualDegree on
+the original constant representative at that tolerance.
+
+The short proof retains the actual objects. Put y=D^n f, D=I-T2.
+Old geometric-T1 residual energy bounds ||T1 y||^2; old moment
+antitonicity bounds ||y||^2 by C. Completed CS gives B(T1 y,y)
+<=d_C(epsilon). The original transfer-relative test estimate and
+the rational tolerance budget then give B(f,y)<=epsilon. Finally
+m_f(0,2n)<=m_f(0,n)=B(f,y). No fourth root, division by C, heat
+inverse, spectral measure or newly assumed dual bound is needed.
+`densePreimage_bound` consumes the OLD finite partialPreimageCauchy.
+
+`BF4ExactSlabThermodynamicFullSpaceZeroContinuity.residualModulus`
+uses X's original Cauchy modulus to select a dense presentation at
+epsilon/4, then its denseDegree at epsilon/4. `residual_small` uses
+defect contraction and the old squared-distance triangle to bound X's
+OWN residual for every later degree. `approximatePreimage_bound` and
+`rangeApproximationData` return the actual original finite-sum preimage
+for X itself and its error. No quotient representative is selected.
+
+`zeroCertificate` constructs an accepted instance of the OLD finite test
+via `certificateOfMomentBound`, using the now-proved residual bound at
+epsilon/32. Its `zeroRadius`, `full_space_zero_bound` and
+`zeroContinuityData` supply time-zero continuity of the EXISTING
+positive-real-time action for EVERY supplied original Cauchy state.
+The radius is in T2-time, the tolerance in original squared distance.
+`transfer_kernel_trivial` and `transfer_injective` prove injectivity of
+the actual T2 on all original quotient states. Moduli/preimages remain
+data on supplied representatives, not choice functions on quotients.
+
+NEXT CAUSAL FRONTIER: construct the densely defined generator of this
+SAME semigroup. A candidate next mathematical estimate is a uniform,
+explicit rational-polynomial tail bound for the bounded regularized
+logarithm t*(-log t); combine its constructed operator with the now
+injective, dense original T2 range as a witnessed domain. This is a
+proof plan, not a constructed Hamiltonian or a proved derivative pin.
+The existing positive-time action and its full-space time-zero modulus
+are the objects to match. The legacy `OSReconstruction.SelfAdjointOp`
+and `ContractionSemigroup` have abstract/Unit carriers; the legacy
+`CompletionGenerator` uses a different ordinary-GNS/finite spectral
+construction. None is a supplied generator instance for this original
+thermodynamic semigroup. Do not fill a surrogate to declare this closed.
+
+OPEN: actual densely defined generator and its same-semigroup derivative/
+self-adjointness/spectral pins, physical time/spacing and beta(a) control,
+continuum/QFT, all other compact simple groups and Clay. Current scope
+remains SU(2), nome 1/1024, fixed spacing. No uniform inverse or new physical
+mass gap is claimed. No canonical field/type/atom/flag, analytic premise,
+axiom or literal hole changed; the legacy scorecards enumerate none of
+this original local range/time-zero result.
+
+Verification: 7+13 exact public gates, all {propext, Quot.sound}; exact
+public/gate/log names, clean final logs, own/direct artifact freshness,
+forbidden-source and option checks. Five monitored focused launches
+(three dense, two full-space), each after a separate process/swap check,
+one worker/20 GiB. Swap stayed at 12093.31 MiB. Repairs were zero-time/
+constant-representative rewrites and reuse of the existing equality-from-
+small-distance theorem; no limits raised, dependency rebuild or full
+build/audit/guard/progress run. Two additive root imports; root not compiled.
+CI remains manual-only. Final logs/SHA-256:
+
+- `/tmp/ym-dense-residual-decay.log`:
+  `3f50cb6e50d643c087eb57eda034f9fa1acb6b8a584b537b15ee497614aa0e81`.
+- `/tmp/ym-full-space-zero-continuity.log`:
+  `6f7a18c4179672efc24e8ebd09c4e348b65baa5581179c257a0d480aa6f3011a`.
+
+**Previous mathematical increment (CLOSED transfer-relative bound on the ENTIRE original completion; then-OPEN arbitrary-state residual modulus):**
 PROGRESS after `7dbb2df`. The proposed estimate is now proved:
 `ThermodynamicTransferTestBound.completed_bound` gives
 B(f,x)^2 <= diagonalCeiling(f)*B(T1 x,x) for EVERY x in the EXISTING
