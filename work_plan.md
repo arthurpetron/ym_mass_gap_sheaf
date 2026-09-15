@@ -119,7 +119,74 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED arbitrary-nome local Haar tails and original second-moment control; OPEN dressed OS estimate and physical scale):**
+**Latest mathematical increment (CLOSED arbitrary-nome dressed OS cutoff limit; OPEN changing-action and physical-scale control):**
+PROGRESS after `a7f434e`. Additive extensions of the EXISTING
+`BF4ExactSlabLocalHeatCutoffNorm` and
+`BF4ExactSlabThermodynamicLocalHeatState`; all legacy public signatures
+and implementations are preserved. No new module, observable or carrier.
+`bulkLowerSquare_allNome` / `bulkUpperSquare_allNome` reuse the exact
+old `difference_eval` pin and the original product-tail Interval.
+`bulk_norm_bound_allNome` gives bound(e)*epsilon^2 in the ORIGINAL
+normalized reflected form for every bulk padding/allowed lag, any
+inserted 0<w<1 and independent action 0<v<1, beyond `productCutoff`.
+`thermodynamic_norm_bound_allNome` passes this fixed-observable bound
+through the OLD action's formLimit, still at nome 1/1024.
+
+`normTolerance` = min(1,epsilon/(B+1)) pays the source square constant
+without roots or an unnecessarily deep dyadic tolerance search.
+`normCutoff` depends on inserted w, face count, bound(e) and epsilon,
+not padding, allowed lag, later tail length or finite action nome v.
+`sample_cauchy_allNome` / `cauchy_allNome` construct an actual Cauchy
+representative of the SAME samples. `state_allNome_approximation`
+controls the returned state's completed squared distance at every
+cutoff beyond that modulus. `state_allNome_eq_legacy` proves equality
+with the old small-nome state when its guard holds; the selected
+touching-face region also has an explicit completed approximation.
+
+This closes this LOCAL cutoff branch. It is not a bounded OS
+multiplication operator, changing-action thermodynamic limit, uniform
+decay in coupling, or physical mass gap. In particular, arbitrary
+inserted w must not be relabelled as arbitrary thermodynamic action w.
+
+NEXT CAUSAL FRONTIER: return to the action comparison, not more
+fixed-action completion wrappers. The old
+`BF4ExactSlabSmallNomeHaarComparison.originalBackground_comparison`
+compares an entire face factor with one and is obstructed near w=1.
+First test/prove a background-relative comparison of ACTUAL late
+heat prefixes, retaining a non-small head: for positive original
+background p, make |H(p*(H_(K+L)-H_K))| <= eta*H(p*H_K) with a
+computed cutoff depending on w/eta, not the background's size.
+The new tail Interval pays the numerator; a strict head floor relative
+to H(p), not a whole-volume partition floor, is the missing input.
+Inspect the existing Jacobi positive approximant and its same-object
+weighted-heat/deficit pins to produce that input or identify an actual
+obstruction. Do not infer a certificate for unweighted prefixes merely
+from positivity of the Jacobi approximant or its integrated limit.
+This proposed comparison remains UNPROVED and would control truncation,
+not the low-spin interaction's spatial decay. The latter still needs
+a genuine scale/volume estimate before any new thermodynamic family.
+
+OPEN: that relative comparison and low-spin scale/volume control;
+original-action thermodynamic decay/moduli along a coupling/physical-scale
+family; AF/spacing pins, physical generator/spectral and complex/QFT
+interfaces, beta(a), continuum QFT and every required group/Clay.
+No canonical field, analytic premise, axiom, literal hole or legacy
+flag changed.
+Verification: 17 new gates (two empty, one propext-only, fourteen
+{propext, Quot.sound}) and all 22 old public gates in the edited files;
+39 total (two empty, five propext-only, thirty-two {propext, Quot.sound}).
+Two focused safe one-worker/20 GiB checks, both passed first launch.
+Separate preflights, exact public/gate/log name matching, clean logs,
+fresh own/direct artifacts, swap stable at 11869.31 MiB. No dependency
+rebuild, root change, full-tree run or raised limits. CI manual-only.
+Logs and SHA-256:
+
+- `/tmp/ym-all-nome-local-heat-norm.log`:
+  `3c100a04dfb5a249b219fee75a72e733b0f4e105deb073e791d3203d7159489f`.
+- `/tmp/ym-all-nome-local-heat-state.log`:
+  `ec82c5aca1f1a23ef9cf9ad0cc5e298cd7f53e6293a25490594b8e2a580fe7e7`.
+
+**Previous mathematical increment (CLOSED arbitrary-nome local Haar tails and original second-moment control; dressed OS consumer subsequently supplied above):**
 PROGRESS after `c25629d`. `BF4ExactSlabAllNomeTailInterval`
 uses the OLD sharp character Interval, at the exact dimension cap, and
 the OLD computed high-spin cutoff/geometric envelope. `closedTail_small`

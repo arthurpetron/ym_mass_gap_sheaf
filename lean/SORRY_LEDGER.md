@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED arbitrary-nome local Haar tails and original second moments; OPEN dressed OS and physical-scale control (2026-09-15)
+## CLOSED arbitrary-nome dressed OS cutoff limit; OPEN changing-action and physical-scale control (2026-09-15)
+
+- **files**: additive extensions of
+  `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean`.
+  Legacy declarations and signatures unchanged; no new carrier/module.
+- **actual reflected estimate**: `bulk_norm_bound_allNome` bounds the
+  OLD dressed difference's ORIGINAL reflected norm by bound(e)*epsilon^2.
+  The computed cutoff depends on inserted w, region size and epsilon;
+  not padding, allowed lag, tail length or independent finite action v.
+  Lower and upper certificates use the same old expression-evaluation pin.
+- **actual original limit/state**: `thermodynamic_small_norm_allNome`
+  pays the source constant with a computed rational tolerance.
+  `cauchy_allNome` returns the SAME sample sequence with its new modulus;
+  `state_allNome_approximation` bounds actual completed squared distance.
+  `state_allNome_eq_legacy` identifies the result with the older state
+  wherever its guard holds. The old selected touching region is included.
+- **precise boundary**: thermodynamic action STILL nome 1/1024. The
+  inserted nome is arbitrary, not the thermodynamic action. No OS
+  multiplication operator, changing-action limit, coupling-uniform decay
+  or physical gap follows. No canonical field, analytic premise, axiom,
+  literal hole or legacy flag changed.
+- **next obligation**: background-relative late-prefix comparison,
+  retaining the full low-spin head. A strict head floor relative to
+  H(p), for arbitrary positive original background p, remains needed;
+  the old Jacobi positivity and same-object deficit pins are sources to
+  examine, not a supplied unweighted-prefix floor. This would control
+  truncation only. Low-spin scale/volume decay, AF/spacing pins, physical
+  generator/spectral/QFT interfaces, continuum and every required group
+  remain open.
+- **verification**: 17 new and 22 legacy public gates, all within the
+  constructive gate; two focused safe one-worker/20 GiB checks, both
+  passed first launch. Exact matching, clean logs and fresh own/direct
+  artifacts. No raised limits, root change or full-tree run. CI manual-only;
+  hashes in work_plan.
+
+## Previous CLOSED arbitrary-nome local Haar tails and original second moments; dressed OS consumer supplied above (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean`.

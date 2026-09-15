@@ -8,14 +8,17 @@ The complete original action and its own normalization stay unchanged.
 The estimate passes to the EXISTING thermodynamic form with an explicit
 source-dependent cutoff modulus, not a changing-observable limit inference.
 
-The heat-region nome has an explicit smallness guard. The thermodynamic
-action is the existing nome 1/1024 at fixed spacing. This is not a bounded
+The original geometric estimate retains its smallness guard. The allNome
+estimates instead use a computed late cutoff for every 0<w<1, retaining
+the full low-spin head. The thermodynamic action is the existing nome
+1/1024 at fixed spacing. This is not a bounded
 OS multiplication operator, a changed-action comparison or a T2 preimage.
 -/
 
 import YMGap.Continuum.BF4ExactSlabLocalHeatTailInterval
 import YMGap.Continuum.BF4ExactSlabBulkCollarApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicReflectedForm
+import YMGap.Continuum.BF4ExactSlabAllNomeProductTail
 
 namespace YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
 
@@ -170,6 +173,123 @@ theorem thermodynamic_norm_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ (1
   leEv_of_convergesTo_le (form_converges _ _) (convergesTo_const _)
     (fun padding => bulk_norm_bound hw0 hw1 hsmall nome nome_pos nome_lt_one padding ⟨0,Nat.zero_lt_succ _⟩ K L ids hi e)
 
+open YMGap.Continuum.BF4ExactSlabAllNomeProductTail (productCutoff smallProductTailInterval)
+
+private def mappedSquare_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (epsilon : Q') (he : (0 : Q') < epsilon) (K L extent : Nat) (phi : Nat → Nat) {half : Nat}
+    (ids : List Nat) (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (hK : productCutoff w ids.length epsilon ≤ K)
+    (hphi : ∀ id,id ∈ ids → phi id ∈ slabPhysicalFaceEdges extent)
+    (hs : SupportedQuaternionBlocks (boundaryCompleteSlabLinks extent).length
+      (evaluate (faceGenerator extent phi) (difference w K L ids hi e)))
+    (P : SquareBound (boundaryCompleteSlabLinks extent).length (evaluate (faceGenerator extent phi) e) (bound e)) :
+    SquareBound (boundaryCompleteSlabLinks extent).length
+      (evaluate (faceGenerator extent phi) (difference w K L ids hi e)) (bound e * (epsilon*epsilon)) := by
+  let R := smallProductTailInterval hw0 hw1 extent (ids.map phi) (fun _ h => by
+    obtain ⟨id,hid,rfl⟩ := List.mem_map.mp h
+    exact hphi id hid) epsilon he K L (by simpa only [List.length_map] using hK)
+  exact .ofCoeff hs (difference_eval w K L extent phi ids hi e)
+    (P.mul ⟨R.support,Q'.mul_nonneg _ _ R.nonnegative R.nonnegative,(R.mul R).upper⟩)
+
+def bulkLowerSquare_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (padding : Nat) (s : Fin (padding+1)) (K L : Nat)
+    (ids : List Nat) (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (hK : productCutoff w ids.length epsilon ≤ K) :
+    SquareBound (blocks (half+padding)) (lower (bulkAtTime padding s (difference w K L ids hi e)))
+      (bound e * (epsilon*epsilon)) := by
+  let phi := bulkFaceId half padding s.val
+  have hs : ∀ q : PlaquetteExpression half, SupportedQuaternionBlocks (blocks (half+padding))
+      (evaluate (faceGenerator (centralExtent (half+padding)) phi) q) := by
+    intro q
+    simpa only [lower,evaluate_bulkAtTime] using lower_supported (bulkAtTime padding s q)
+  have P : SquareBound (blocks (half+padding)) (evaluate (faceGenerator (centralExtent (half+padding)) phi) e) (bound e) := by
+    simpa only [lower,evaluate_bulkAtTime,bound_bulkAtTime] using lowerBound (bulkAtTime padding s e)
+  unfold lower
+  rw [evaluate_bulkAtTime]
+  exact mappedSquare_allNome hw0 hw1 epsilon he K L _ phi ids hi e hK
+    (fun id hid => bulkFaceId_physical (mem_centralLowerFaceIds.mp (hi id hid)).1) (hs _) P
+
+def bulkUpperSquare_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (padding : Nat) (s : Fin (padding+1)) (K L : Nat)
+    (ids : List Nat) (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (hK : productCutoff w ids.length epsilon ≤ K) :
+    SquareBound (blocks (half+padding)) (upper (bulkAtTime padding s (difference w K L ids hi e)))
+      (bound e * (epsilon*epsilon)) := by
+  let phi := fun id => slabFaceReflectId (centralExtent (half+padding)) (bulkFaceId half padding s.val id)
+  have hs : ∀ q : PlaquetteExpression half, SupportedQuaternionBlocks (blocks (half+padding))
+      (evaluate (faceGenerator (centralExtent (half+padding)) phi) q) := by
+    intro q
+    simpa only [upper,evaluate_bulkAtTime] using upper_supported (bulkAtTime padding s q)
+  have P : SquareBound (blocks (half+padding)) (evaluate (faceGenerator (centralExtent (half+padding)) phi) e) (bound e) := by
+    simpa only [upper,evaluate_bulkAtTime,bound_bulkAtTime] using upperBound (bulkAtTime padding s e)
+  unfold upper
+  rw [evaluate_bulkAtTime]
+  exact mappedSquare_allNome hw0 hw1 epsilon he K L _ phi ids hi e hK
+    (fun id hid => slabFaceReflectId_physical (bulkFaceId_physical (mem_centralLowerFaceIds.mp (hi id hid)).1)) (hs _) P
+
+/-- Same original action and normalization, every padding and allowed lag.
+The inserted nome w and surrounding action nome v are independent. -/
+theorem bulk_norm_bound_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (v : Q') (hv0 : (0 : Q') < v) (hv1 : v < (1 : Q'))
+    {half : Nat} (padding : Nat) (s : Fin (padding+1)) (K L : Nat)
+    (ids : List Nat) (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (hK : productCutoff w ids.length epsilon ≤ K) :
+    leEv (form v hv0 hv1 (bulkAtTime padding s (difference w K L ids hi e)) (bulkAtTime padding s (difference w K L ids hi e)))
+      (ofQ' (bound e * (epsilon*epsilon))) :=
+  expectation_upper v hv0 hv1 (half+padding) _ _
+    ((bulkUpperSquare_allNome hw0 hw1 padding s K L ids hi e epsilon he hK).cross
+      (bulkLowerSquare_allNome hw0 hw1 padding s K L ids hi e epsilon he hK))
+
+/-- Only the INSERTED nome varies. The old formLimit still uses action nome 1/1024. -/
+theorem thermodynamic_norm_bound_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (K L : Nat) (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (hK : productCutoff w ids.length epsilon ≤ K) :
+    leEv (formLimit (difference w K L ids hi e) (difference w K L ids hi e))
+      (ofQ' (bound e * (epsilon*epsilon))) :=
+  leEv_of_convergesTo_le (form_converges _ _) (convergesTo_const _)
+    (fun padding => bulk_norm_bound_allNome hw0 hw1 nome nome_pos nome_lt_one
+      padding ⟨0,Nat.zero_lt_succ _⟩ K L ids hi e epsilon he hK)
+
+/-- Rational, square-root-free payment of the source square-bound constant. -/
+def normTolerance (B epsilon : Q') : Q' := Q'.min' 1 (HKConv.divPos epsilon (B+1))
+
+theorem normTolerance_positive (B : Q') {epsilon : Q'} (he : (0 : Q') < epsilon) :
+    (0 : Q') < normTolerance B epsilon := by
+  unfold normTolerance Q'.min'
+  split
+  · decide
+  · exact HKConv.divPos_pos (num_pos_of_pos he)
+
+theorem normTolerance_budget {B epsilon : Q'} (hB : (0 : Q') ≤ B) (he : (0 : Q') < epsilon) :
+    B * (normTolerance B epsilon * normTolerance B epsilon) ≤ epsilon := by
+  let delta := normTolerance B epsilon
+  have hd : (0 : Q') ≤ delta := Q'.le_of_lt (normTolerance_positive B he)
+  have hs : delta*delta ≤ delta := Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ (Q'.min_le_left' _ _) hd)
+    (Q'.le_of_eqv (Q'.one_mul_eqv _))
+  have hp : (0 : Q') < B+1 := HeatKernelRGStep.lt_of_lt_of_le (by decide : (0 : Q') < 1)
+    (Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg 1 B hB) (Q'.le_of_eqv (Q'.add_comm_eqv _ _)))
+  have hpay : delta*B ≤ epsilon := Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_left _ _ _ (Q'.add_le_self_of_nonneg B 1 Q'.zero_le_one) hd)
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ (Q'.min_le_right' _ _) (Q'.le_of_lt hp))
+      (Q'.le_of_eqv (HKConv.divPos_mul_eqv (num_pos_of_pos hp))))
+  exact Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _ hs hB)
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) hpay)
+
+def normCutoff (w : Q') (size : Nat) (B epsilon : Q') : Nat :=
+  productCutoff w size (normTolerance B epsilon)
+
+theorem thermodynamic_small_norm_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (K L : Nat) (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (hK : normCutoff w ids.length (bound e) epsilon ≤ K) :
+    leEv (formLimit (difference w K L ids hi e) (difference w K L ids hi e)) (ofQ' epsilon) :=
+  leEv_trans (thermodynamic_norm_bound_allNome hw0 hw1 K L ids hi e
+    (normTolerance (bound e) epsilon) (normTolerance_positive (bound e) he) hK)
+    (leEv_ofQ'_of_approx_ge (fun _ => normTolerance_budget (bound_nonnegative e) he))
+
 end YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
 
 #print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.dressed
@@ -178,3 +298,12 @@ end YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
 #print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.bulkUpperSquare
 #print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.bulk_norm_bound
 #print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.thermodynamic_norm_bound
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.bulkLowerSquare_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.bulkUpperSquare_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.bulk_norm_bound_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.thermodynamic_norm_bound_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.normTolerance
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.normTolerance_positive
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.normTolerance_budget
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.normCutoff
+#print axioms YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm.thermodynamic_small_norm_allNome

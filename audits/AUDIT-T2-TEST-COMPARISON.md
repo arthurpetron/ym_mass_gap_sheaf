@@ -1,5 +1,51 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Arbitrary-nome heat insertions in the ORIGINAL reflected completion (2026-09-15)
+
+Follow-up after `a7f434e`. These are additive extensions of two old
+modules, with the same expressions, samples, action and completion.
+This section supersedes the then-open OS consumer in the entry below.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Same old observable and difference | `dressed`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:63`; `difference`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:67` | Definitions unchanged. |
+| Actual lower/upper square certificates | `bulkLowerSquare_allNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:194`; `bulkUpperSquare_allNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:212` | Original reflected embeddings, actual shared-variable tail, every inserted 0<w<1 beyond its computed cutoff. |
+| Original normalized reflected bound | `bulk_norm_bound_allNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:232` | bound(e)*epsilon^2, all padding/allowed lag, independent explicit action 0<v<1. |
+| Same thermodynamic form | `thermodynamic_norm_bound_allNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:244` | Fixed K,L before volume passage; action remains nome 1/1024. |
+| Computed squared-norm budget | `normTolerance`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:255`; `normTolerance_budget`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:264`; `normCutoff`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:281`; `thermodynamic_small_norm_allNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:284` | min(1,epsilon/(B+1)); cutoff depends on w, face count, B and epsilon, not volume or finite action v. |
+| Actual Cauchy data/state | `sample_cauchy_allNome`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:214`; `cauchy_allNome`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:231`; `state_allNome`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:238` | Old sample sequence, explicit modulus, old completion. No quotient representative selected. |
+| Every later cutoff approximates | `state_allNome_approximation`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:243`; `selectedState_allNome_approximation`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:266` | Original completed squared distance, including the original selected touching-face region. |
+| Compatibility with the legacy state | `state_allNome_eq_legacy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:253` | Equality in the old completion whenever the old small-nome guard holds. |
+
+The local cutoff branch is now closed. No changing-action thermodynamic
+family, bounded OS multiplication operator, coupling-uniform spatial
+decay, physical mass calibration, continuum QFT or all-group Clay result
+is asserted. Existing public small-nome declarations are unchanged.
+
+Next source-backed obstruction is the comparison to the unit background:
+`originalBackground_comparison`,
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:160`.
+The proposed replacement is a background-relative comparison of late
+original heat prefixes with the retained head, not with one. Its strict
+head floor is NOT supplied here. Relevant old ingredients are
+`face_certificate`, `lean/YMGap/Continuum/BF4ExactSlabJacobiHaarFloor.lean:68`,
+and `original_eq_weighted_add_deficit` /
+`productDeficit_small`,
+`lean/YMGap/Continuum/BF4ExactSlabJacobiProductComparison.lean:60` /
+`lean/YMGap/Continuum/BF4ExactSlabJacobiProductComparison.lean:65`.
+They concern positive Jacobi approximants and coefficient-level deficits;
+they must not be relabelled as a strict unweighted-prefix certificate.
+The existing `fullActionFloor`,
+`lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean:53`,
+depends on the whole slab face count and does not provide the required
+background-size-independent local comparison. Even a successful local
+relative comparison would control truncation, not low-spin decay.
+
+Seventeen new plus 22 legacy public gates passed within {propext,
+Quot.sound}; two focused safe one-worker/20 GiB checks, both passed first
+launch. No raised limits, root change or full-tree run. Exact name
+matching, clean logs, artifact checks and log hashes in work_plan.
+
 ## Arbitrary-nome original-Haar local tails and normalized square control (2026-09-15)
 
 Follow-up after `c25629d`. The low-spin head is retained; only the

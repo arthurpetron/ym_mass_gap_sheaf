@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [arbitrary-nome local heat tails now have original-Haar certificates](lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean).
+**Latest result:** [arbitrary-nome heat insertions converge in the original reflected OS norm](lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean).
+For every rational inserted `0<w<1`, a computed cutoff controls the
+existing heat-dressed observable, uniformly over bulk padding and allowed
+lag, under any independent finite-volume action nome `0<v<1`.
+[The same samples now construct a state in the existing thermodynamic completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean),
+with an explicit approximation modulus and equality to the legacy state
+where its old guard holds. No new carrier or replacement observable.
+
+The thermodynamic action is **still fixed at nome `1/1024`**. This removes
+an inserted-cutoff restriction, not the changing-action or physical-scale
+obstruction. Next is a background-relative retained-head/tail comparison;
+low-spin decay, a compatible scaling family, continuum QFT and all required
+groups remain open. Seventeen new public gates and all 22 existing gates
+in the two edited modules passed within the constructive axiom gate in
+two focused safe checks; no full-tree run or raised limits.
+
+**Previous result:** [arbitrary-nome local heat tails now have original-Haar certificates](lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean).
 The low-spin head is retained exactly. For every rational `0<w<1`,
 a computed cutoff makes the omitted tail small in original Haar order.
 [The actual product remainder and prefix difference are controlled too](lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean):
@@ -32,7 +48,7 @@ the action's nome `v` is an independent, explicit parameter.
 
 This is local representation-cutoff control, not thermodynamic decay
 or a mass-gap theorem. The cutoff is not uniform in `w` or region size.
-Next is the reflected OS norm of the existing heat-dressed observable.
+The reflected OS-norm consumer is now supplied above.
 Physical scaling, continuum QFT and all required groups remain open.
 All 25 public axiom checks passed within the constructive gate in
 focused safe checks; no full-tree run or raised limits.

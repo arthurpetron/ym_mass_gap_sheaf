@@ -12,6 +12,10 @@ not volume, padding, cutoff increment or the surrounding action cutoff.
 The thermodynamic action remains the existing fixed nome 1/1024. This is
 not a limit of changing actions or inverse collar corrections, an OS
 multiplication operator, or an original T2 preimage.
+
+The allNome construction uses the SAME sample sequence and completion,
+with a nome-dependent late-tail modulus for every rational 0<w<1. Where
+the older small-nome guard holds, its state equals the older state.
 -/
 
 import YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
@@ -196,6 +200,77 @@ theorem selectedState_approximation {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤
       (selectedState hw0 hw1 hsmall hi e)) (Quotient.mk crealSetoid (ofQ' epsilon)) :=
   state_approximation hw0 hw1 hsmall (selectedRegion half id) (selectedRegion_lower hi) e epsilon he K hK
 
+open YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm (normCutoff thermodynamic_small_norm_allNome)
+
+theorem sample_append_bound_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (K L : Nat)
+    (hK : normCutoff w ids.length (bound e) epsilon ≤ K) :
+    leEv (distSq (sample w ids hi e (K+L)) (sample w ids hi e K)) (ofQ' epsilon) :=
+  leEv_trans (leEv_of_equiv (sample_distance w ids hi e K L))
+    (thermodynamic_small_norm_allNome hw0 hw1 K L ids hi e epsilon he hK)
+
+theorem sample_cauchy_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (m n : Nat)
+    (hm : normCutoff w ids.length (bound e) epsilon ≤ m)
+    (hn : normCutoff w ids.length (bound e) epsilon ≤ n) :
+    leEv (distSq (sample w ids hi e m) (sample w ids hi e n)) (ofQ' epsilon) := by
+  cases Nat.le_total m n with
+  | inl h =>
+      have hb := sample_append_bound_allNome hw0 hw1 ids hi e epsilon he m (n-m) hm
+      rw [Nat.add_sub_of_le h] at hb
+      exact leEv_trans (leEv_of_equiv (distSq_symm _ _)) hb
+  | inr h =>
+      have hb := sample_append_bound_allNome hw0 hw1 ids hi e epsilon he n (m-n) hn
+      rwa [Nat.add_sub_of_le h] at hb
+
+/-- Original presentations plus an explicit modulus; no representative choice. -/
+def cauchy_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half) : seminorm.Cauchy where
+  seq := sample w ids hi e
+  modulus := normCutoff w ids.length (bound e)
+  isCauchy := sample_cauchy_allNome hw0 hw1 ids hi e
+
+def state_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half) : Completion :=
+  Quotient.mk seminorm.completionSetoid (cauchy_allNome hw0 hw1 ids hi e)
+
+theorem state_allNome_approximation {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (K : Nat)
+    (hK : normCutoff w ids.length (bound e) epsilon ≤ K) :
+    RCle (completedDist (embedPresentation (sample w ids hi e K)) (state_allNome hw0 hw1 ids hi e))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) :=
+  constantApproximation_bound (cauchy_allNome hw0 hw1 ids hi e) epsilon he K hK
+
+/-- Changing the modulus does not change the old completed observable. -/
+theorem state_allNome_eq_legacy {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hsmall : heatRatio w ≤ HalfPow.half) {half : Nat} (ids : List Nat)
+    (hi : ∀ id,id ∈ ids → id ∈ centralLowerFaceIds half) (e : PlaquetteExpression half) :
+    state_allNome hw0 hw1 ids hi e = state (Q'.le_of_lt hw0) (Q'.le_of_lt hw1) hsmall ids hi e := by
+  apply Quotient.sound
+  exact ⟨⟨fun _ => 0,fun _ he _ _ => leEv_trans (leEv_of_equiv (distSq_refl _))
+    (leEv_of_le (ofQ'_le_ofQ' (Q'.le_of_lt he)))⟩⟩
+
+/-- The very same selected touching-face region, now at any inserted 0<w<1. -/
+def selectedState_allNome {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half id : Nat} (hi : id ∈ centralFixedFaceIds half) (e : PlaquetteExpression half) : Completion :=
+  state_allNome hw0 hw1 (selectedRegion half id) (selectedRegion_lower hi) e
+
+theorem selectedState_allNome_approximation {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {half id : Nat} (hi : id ∈ centralFixedFaceIds half) (e : PlaquetteExpression half)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (K : Nat)
+    (hK : normCutoff w (selectedRegion half id).length (bound e) epsilon ≤ K) :
+    RCle (completedDist (embedPresentation (sample w (selectedRegion half id) (selectedRegion_lower hi) e K))
+      (selectedState_allNome hw0 hw1 hi e)) (Quotient.mk crealSetoid (ofQ' epsilon)) :=
+  state_allNome_approximation hw0 hw1 (selectedRegion half id) (selectedRegion_lower hi) e epsilon he K hK
+
 end YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState
 
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.cutoffConstant
@@ -214,3 +289,11 @@ end YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.selectedRegion_length_le
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.selectedState
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.selectedState_approximation
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.sample_append_bound_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.sample_cauchy_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.cauchy_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.state_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.state_allNome_approximation
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.state_allNome_eq_legacy
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.selectedState_allNome
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState.selectedState_allNome_approximation
