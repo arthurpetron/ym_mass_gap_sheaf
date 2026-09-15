@@ -21,27 +21,39 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest mathematical check:** [the scalar probe's global gauge-transformation image](lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean).
-A single explicit change of variables acts on **all original slab links**,
-preserves their full supported product-Haar integral, and has exactly the local
-scalar image used by the earlier 1/128 calculation. The common vertex assignment
-also preserves every plaquette's spin character under arbitrary insertions.
-The full action and observable image still need to be assembled and compared
-through the existing limits; the completed scalar functional is **not yet**
-identified with the plaquette pairing. These are gauge identities, not a
-transfer-range or mass-gap theorem. Three focused modules passed 34 constructive
-axiom checks; no full-tree run and no resource limits raised.
+**Latest result:** [the completed scalar test is exactly an original plaquette pairing](lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean).
+On the **existing** thermodynamic OS completion,
+`completedTest(x) = <x, (1/128) * original plaquette state>`.
+The representing state is explicitly constructed; no representation theorem,
+new state algebra or choice of representatives is assumed.
+
+The proof retains the full original interacting action, removes the heat cutoff
+using the same partition normalization, then compares the existing volume and
+completion limits. The finite identity holds at every cutoff and rational
+coupling; cutoff removal assumes `0 < w < 1`. The thermodynamic/completed result
+uses the existing SU(2) nome `1/1024` at fixed spacing. **This is an identity,
+not a coupling-uniform spectral estimate or a continuum mass gap.** Forty-five
+focused constructive axiom checks passed; no full-tree run or raised limits.
+
+This settles what the test measures: it adds no separating information beyond
+the existing plaquette pairing. The next obstruction is an actual-transfer
+approximation/range estimate for unshifted boundary states, not more wrappers
+around this scalar test. Full-space time zero and continuum/Clay closure remain open.
+
+**Supporting gauge calculation:** [the global scalar-probe image](lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean)
+and [full original-action invariance](lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean).
+One common vertex assignment changes all original links, preserves the whole
+supported product-Haar functional and every spin character, and retains
+neighboring action factors even when they share probe links.
 
 **Previous local calculation:** [what the scalar test measures under local gauge averaging](lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean).
 Three exact SU(2) Schur contractions turn its vertex-gauged four-link product
 into the **original plaquette character divided by 128**. This holds on the
 actual translated slab links, retaining arbitrary dependence on all original
-links. Only the three auxiliary gauge variables are integrated. The missing
-step is preservation of the full interacting action and observable insertion
-under the common change of variables now supplied above; the completed functional
-is **not yet** identified with that plaquette pairing. This local result supplies no new separating
-family, transfer preimage or mass gap. Focused constructive checks passed;
-no full-tree run.
+links. Only the three auxiliary gauge variables are integrated. The full-action
+identity and completed identification above now consume this local calculation.
+Neither the local calculation nor the completed identity supplies a transfer
+preimage or mass gap. Focused constructive checks passed; no full-tree run.
 
 **Previous completed-space result:** [the scalar test on the original completed OS carrier](lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean).
 Common-volume comparison and null descent make the test independent of the

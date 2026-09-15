@@ -119,7 +119,69 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED common all-link Haar ledger and scalar image):**
+**Latest mathematical increment (CLOSED original interacting and completed scalar-test identification):**
+PROGRESS after `b0f695b`: the scalar-test identification branch is now composed
+through the EXISTING thermodynamic OS completion. `completedTest_eq_pairing`
+proves `completedTest x = (1/128) * completedInner x (embedPresentation <0,probe>)`.
+`representingState` computes that original embedded plaquette scaled by 1/128;
+`completedTest_represented` is its exact original inner-product representation.
+No Hilbert representation theorem, enlarged observable algebra or representative
+selection is used. This is a genuine same-object identification, not a new gap.
+
+The causal proof uses four modules. `SU2QuaternionAuxiliaryLiftAlgebra` tracks
+all original coordinates under auxiliary lifting; `SupportedHaarEqv` permits
+only explicitly supported insertions when removing common padding.
+`BF4ExactSlabVertexGaugeAction.character_invariant` retains the actual ordered
+plaquette, every spin and the SAME vertex field. `heatProduct_invariant` and
+`fullActionInsertion_invariant` assemble the complete ORIGINAL heat product
+and upper observable; shared neighboring action factors are not discarded.
+The finite `Invariant` property is proved for these actual factors, not added
+as an uninhabited analytic premise.
+
+`BF4ExactSlabBulkScalarInteractingIdentity.scalar_numerator_eq_plaquette`
+composes that full integrand image with the earlier scalar image and three
+normalized auxiliary integrations. The result is the EXISTING original
+plaquette-pairing numerator divided by 128, for every rational w, cutoff K,
+half-size and original expression. `scalar_numeratorLimit_eq_plaquette` passes
+to the existing cutoff limits; `scalar_expectation_eq_plaquette` retains the
+SAME partition reciprocal, under the original guards 0<w<1.
+`BF4ExactSlabBulkScalarPlaquettePairing` compares common-volume presentations,
+then the supplied Cauchy sequences, to identify the existing completed test.
+Its thermodynamic/completed scope is the existing SU(2) nome 1/1024 at fixed
+spacing. The algebraic 1/128 is not a beta-uniform contraction or physical gap.
+
+NEXT: stop extending or treating this scalar test as new separating information:
+it is exactly the already-present plaquette pairing. Return to the actual
+range consumer `BF4ExactSlabThermodynamicRangeApproximation.partialPreimage_distance`:
+the original candidate's squared error is `mixedMoment x 0 (n+n)`. What remains
+is a computed small-error index for arbitrary unshifted original dense states,
+or a sufficient original-norm approximation by the already-handled geometric
+T1 range. `oneStep_residual_weighted` handles actual T1 states only. This
+identification supplies neither a backward-time preimage nor that range estimate.
+Full-space time zero, geometric T1/root comparison, physical Hamiltonian,
+beta(a)/continuum, QFT/spectral pins, other compact simple groups and Clay
+remain open. No canonical field, analytic premise or hole changed.
+
+Verification: 17 + 17 + 5 + 6 exact public gates within {propext, Quot.sound},
+including one axiom-free and two propext-only. Fresh own/direct artifacts;
+clean final logs and targeted executable-token/option checks. Generic ordered
+word algebra and explicit CReal multiplicative equivalence resolved elaboration
+timeouts; the common-volume probe pin was proved by explicit equality composition.
+No theorem statement or resource limit was weakened/raised. Safe-build skill:
+one worker, explicit 20 GiB, separate process/swap preflights; swap decreased
+from 12261.81 to 12245.81 MiB. Four additive root imports, old multiplicities
+preserved; root not compiled. No full build/audit/guard/progress run. Logs/SHA-256:
+
+- `/tmp/ym-auxiliary-lift-algebra.log`:
+  `fc2d02496195ec9c2f2e298c40dbcac82e6980983178fa772cad9af6521029eb`.
+- `/tmp/ym-vertex-gauge-action.log`:
+  `7186fff6d06bdbe778e0272512a9b8849453ec9e54191334ac466b0a407aee9b`.
+- `/tmp/ym-bulk-scalar-interacting-identity.log`:
+  `a5834dc744fe0a5e3fb28734970b6fbd2f151f6da1804370628b0e4851538abb`.
+- `/tmp/ym-bulk-scalar-plaquette-pairing.log`:
+  `e8b50a24e1fde23b4c02a0ba76754d953386595ccd552195b47f43f93d141759`.
+
+**Previous mathematical increment (CLOSED common all-link Haar ledger and scalar image):**
 PROGRESS after `7256911`: `SU2QuaternionAuxiliaryVertexGaugeLedger` constructs
 the finite change of variables U_i -> g_start^-1 U_i g_finish for every original
 link simultaneously. Three added gauge blocks are fixed by every link batch;

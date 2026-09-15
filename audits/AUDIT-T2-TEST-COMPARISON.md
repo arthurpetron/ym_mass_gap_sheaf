@@ -1,5 +1,16 @@
 # Actual T2, collar tests, and the missing range estimate
 
+Latest implementation follow-up, 2026-09-15, after `b0f695b`: the scalar-test
+identification branch is CLOSED through the existing completion. The new
+`completedTest_represented`,
+`lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:96`, identifies
+the test with pairing against the original embedded plaquette scaled by 1/128.
+The full action, original cutoff normalization, volume family and completed
+pairing are retained. Details and exact source pins are in the final section.
+This supplies no new separating information beyond that existing pairing;
+the actual-transfer range obligation below remains open. Earlier dated
+follow-ups record their own verification boundaries.
+
 Second implementation follow-up, 2026-09-15: original interior presentations
 now have literal geometric T1 preimages, with no analytic range premise.
 All declarations in the following table are in
@@ -705,3 +716,54 @@ final logs. An axiom-gate failure in broad simplification of the vertex tags
 was repaired constructively; explicit polynomial arguments removed an inference
 timeout. No limits were raised. Three additive root imports, not compiled.
 No full build/audit/guard/progress run. Exact logs and SHA-256 are in work_plan.
+
+## Implemented full interacting identity through the ORIGINAL completion (2026-09-15)
+
+Implementation after `b0f695b`. The preceding common-ledger/local-average
+residue is now composed through the original completed scalar functional.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `lift_supported` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryLiftAlgebra.lean:73` | Adjoining n gauges retains every original coordinate and gives the explicit carrier size blocks+n. |
+| `SupportedHaarEqv` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryLiftAlgebra.lean:119` | Only insertions supported on the stated carrier are admitted when using padded equality. No unsupported variables are erased. |
+| `Invariant` | `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:60` | Original polynomial support and equality of its actual lifted ledger image under supported insertions. Proved for the physical consumers below; no analytic premise. |
+| `character_invariant` | `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:208` | Every original physical plaquette character, at every spin, under the SAME common vertex assignment. |
+| `heatProduct_invariant` | `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:234` | The existing heat polynomial product over a supplied list of original physical face IDs; all coefficients and cutoff K retained. |
+| `fullActionInsertion_invariant` | `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:260` | The complete original physical face list multiplied by the original upper observable, including neighboring factors sharing probe links. |
+| `bulkScalarVertexImage_supported` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean:100` | The previously computed literal scalar image belongs to the augmented original carrier. |
+| `bulkScalar_invariant_tail` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean:112` | Full Haar substitution followed by three normalized auxiliary integrations; any proved invariant original tail is retained. |
+| `scalar_numerator_eq_plaquette` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean:146` | EXISTING original scalar numerator equals the EXISTING plaquette-pairing numerator /128, for all rational w, K, half-size and original expressions. |
+| `scalar_numeratorLimit_eq_plaquette` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean:167` | The existing cutoff limits, with their previous moduli and 0<w<1 guards, satisfy the same scaled identity. |
+| `scalar_expectation_eq_plaquette` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean:183` | Normalized cutoff-removed identity using exactly the same original partition reciprocal. |
+| `testAt_eq_plaquette` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:60` | Same common-volume test and original reflected pairing at the existing nome. |
+| `meanLimit_eq_presented_pairing` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:68` | Existing thermodynamic scalar limit is the common-presentation original pairing /128. |
+| `representativeTest_eq_pairing` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:78` | The same identity on every supplied original Cauchy representative, using the existing limits. |
+| `completedTest_eq_pairing` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:86` | EXISTING completed functional equals EXISTING completed pairing with the original plaquette /128. |
+| `representingState` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:94` | Explicit rational scaling of the original embedded probe; no representation theorem or selected representative. |
+| `completedTest_represented` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean:96` | `completedTest x = completedInner x representingState`. |
+
+Scope: the finite identity has arbitrary rational coupling and cutoff; the
+cutoff limit has the explicit 0<w<1 guards. The thermodynamic/completed pins
+use the existing SU(2) nome 1/1024 at fixed spacing. The coefficient 1/128 is
+an algebraic Schur factor, not a uniform-in-beta contraction or mass estimate.
+
+**Causal consequence:** this scalar test is exactly an already-present
+plaquette pairing. Its representation does not add a new separating family
+or a backward-time preimage. The next actual consumer remains
+`partialPreimage_distance`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeApproximation.lean:89`:
+the original candidate's squared approximation error is `mixedMoment x 0 (n+n)`.
+The computed small-error index for arbitrary unshifted dense states remains
+unsupplied by this increment. `oneStep_residual_weighted`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean:95`,
+has an actual geometric T1 input, not an arbitrary unshifted state. The new
+scalar identity does not remove that restriction. No canonical frontier,
+analytic hypothesis, hole, physical Hamiltonian or continuum/Clay claim changed.
+
+Verification: 17 + 17 + 5 + 6 exact public gates within {propext, Quot.sound},
+including one axiom-free and two propext-only. Four focused monitored checks,
+one worker, explicit 20 GiB and separate process/swap preflights; swap decreased.
+Generic ordered-word algebra and explicit CReal equalities resolved elaboration
+timeouts without raising limits. Clean final logs and fresh own/direct artifacts.
+Four additive root imports, not compiled; no full build/audit/guard/progress run.
+Exact logs and SHA-256 are in the latest work_plan increment.

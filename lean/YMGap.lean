@@ -4329,6 +4329,10 @@ import YMGap.Continuum.BF4ExactSlabBulkScalarGaugeAverage
 import YMGap.Continuum.SU2QuaternionAuxiliaryVertexGaugeLedger
 import YMGap.Continuum.BF4ExactSlabAuxiliaryVertexGauge
 import YMGap.Continuum.BF4ExactSlabBulkScalarVertexImage
+import YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
+import YMGap.Continuum.BF4ExactSlabVertexGaugeAction
+import YMGap.Continuum.BF4ExactSlabBulkScalarInteractingIdentity
+import YMGap.Continuum.BF4ExactSlabBulkScalarPlaquettePairing
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 -- Same-channel finite interface coercivity, pinned to the original bulk
 -- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.

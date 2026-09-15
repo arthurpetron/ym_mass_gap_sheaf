@@ -13,7 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED common all-link Haar ledger and scalar image; OPEN full-action assembly (2026-09-15)
+## CLOSED original interacting and completed scalar-test identification; OPEN actual-transfer range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionAuxiliaryLiftAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabBulkScalarInteractingIdentity.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean`.
+- **full original action**: explicit lifted support and common-carrier equality
+  are retained. `character_invariant`, `heatProduct_invariant` and
+  `fullActionInsertion_invariant` prove the common vertex assignment preserves
+  every original character, all heat factors and the original upper observable.
+  `Invariant` is a proved finite property with no new analytic hypothesis;
+  `SupportedHaarEqv` never discards unsupported coordinates through padding.
+- **interacting numerator and cutoff limit**: `scalar_numerator_eq_plaquette`
+  keeps the existing numerator, all physical faces, original heat coefficients
+  and arbitrary K/w/half-size. The scalar numerator is exactly the original
+  plaquette-pairing numerator /128. `scalar_numeratorLimit_eq_plaquette` and
+  `scalar_expectation_eq_plaquette` use the existing cutoff moduli and SAME
+  partition reciprocal under 0<w<1. No spectator independence on original
+  probe links is assumed; only the added gauge coordinates are integrated.
+- **completed same-object pin**: `meanLimit_eq_presented_pairing` compares the
+  existing common-volume family. `representativeTest_eq_pairing` then compares
+  supplied original Cauchy sequences. `completedTest_eq_pairing` identifies
+  the EXISTING completed test with the EXISTING embedded plaquette pairing
+  /128. `representingState` explicitly scales that original state, and
+  `completedTest_represented` proves its representation. Completed scope:
+  existing SU(2), nome 1/1024, fixed spacing; no representation/choice axiom.
+- **open residue / route correction**: this single scalar test adds no
+  separating information beyond the existing plaquette pairing. Its wrappers
+  are not an actual-transfer range argument. The original candidate-preimage
+  residual still needs a computed small-error index for unshifted dense states,
+  or an adequate original-norm approximation by the known T1 range. Full-space
+  time zero, geometric T1/root comparison, Hamiltonian, beta(a)/continuum,
+  QFT/spectral pins, other compact simple groups and Clay remain open.
+  No canonical field/type/atom/flag, new analytic premise or hole changed.
+- **verification**: 17 + 17 + 5 + 6 exact public gates within {propext,
+  Quot.sound}, one axiom-free and two propext-only. Four focused monitored
+  module checks, one worker, explicit 20 GiB and separate preflights; swap
+  decreased. Clean final logs, fresh own/direct artifacts and no raised
+  options. Four additive root imports, not compiled. No full build/audit/
+  guard/progress run. Work_plan records the exact logs/hashes and corrections.
+
+## Previous CLOSED common all-link Haar ledger and scalar image; OPEN full-action assembly (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean`, and
