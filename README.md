@@ -21,7 +21,19 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest milestone:** [time-zero continuity on the actual geometric one-step range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean).
+**Latest milestone:** [literal time preimages for original interior observables](lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean).
+A decidable support condition identifies plaquette expressions strictly inside
+the reflection boundary. A computed inward shift is their exact geometric
+one-step preimage: translating it back gives the **same polynomial on the same
+link variables**, before taking any measure or quotient. The preceding range
+estimate then supplies approximate two-step preimages and a time-zero modulus.
+Eighteen focused axiom checks passed within `{propext, Quot.sound}`; no full-tree
+run. Ordinary box enlargement preserves the condition, so it cannot remove a
+boundary contact. The test is sufficient, not a characterization of the range.
+Boundary-touching observables, range density, full-space time zero, the physical
+Hamiltonian and continuum/Clay closure remain open.
+
+**Established range estimate:** [time-zero continuity on the actual geometric one-step range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean).
 A finite telescoping argument proves
 `n * ||(I-T2)^n T1 x||^2 <= ||x||^2` for the **original** geometric operators.
 It computes approximate two-step preimages of one-step states, then uses

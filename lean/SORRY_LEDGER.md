@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED computed approximate T2 range and time zero for original geometric T1 states (2026-09-15)
+## CLOSED literal interior time preimages; OPEN boundary-touching source comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean`.
+- **closed source geometry**: `Interior` and `interiorDecision` give a
+  decidable syntactic support condition. `lower_top_le`, `boundary_top` and
+  `interior_enlarge` distinguish actual boundary contact from box size.
+  `inwardFaceId_pin`, `inwardFaceId_lower`, `inward` and `placed_inward`
+  construct an admissible inward shift in the original plaquette algebra.
+- **closed existing-operator consumer**: `polynomial_translate_preimage`
+  proves literal equality of original common-volume polynomials after the
+  existing outward translation. `samePreimage` and `completed_preimage`
+  give an exact geometric T1 preimage of each interior original presentation.
+  `interiorApproximationCertificate` and `interiorZeroContinuityCertificate`
+  return approximate original T2 preimages and an actual time-zero modulus
+  by consuming the preceding geometric-range theorem. No measure is changed.
+- **open residue**: boundary-touching original observables require an analytic
+  comparison; density of interior states is not established. The condition is
+  sufficient only; a failed syntactic test does not imply a state is outside
+  the range. Box enlargement preserves this test and cannot manufacture a
+  margin. T2 injectivity/range density, full-space time zero, geometric T1
+  positivity/root identification, physical Hamiltonian, beta(a)/continuum,
+  QFT/spectral pins, other groups and Clay remain open. No canonical atom,
+  type, field or flag changes; no new analytic premise or hole.
+- **verification**: 18 exact focused public gates, one axiom-free and the
+  rest within {propext, Quot.sound}; fresh own/direct-import artifacts,
+  clean final output, no forbidden executable tokens or extra options.
+  Explicit constructive directions removed an automation-induced classical
+  dependency found by the first check. Safe-build skill: one worker,
+  explicit 20 GiB, separate process/swap preflights. One new root import;
+  root not compiled, no full build/audit/guard/progress run. Log/hash in work_plan.
+
+## Previous checkpoint: CLOSED computed approximate T2 range and time zero for original geometric T1 states (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean`.
 - **closed estimate**: `moment_weighted_energy` and `moment_weighted_bound`

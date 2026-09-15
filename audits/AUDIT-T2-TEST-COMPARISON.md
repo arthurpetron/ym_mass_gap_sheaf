@@ -1,5 +1,27 @@
 # Actual T2, collar tests, and the missing range estimate
 
+Second implementation follow-up, 2026-09-15: original interior presentations
+now have literal geometric T1 preimages, with no analytic range premise.
+All declarations in the following table are in
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean`.
+
+| Source result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Computed support test | `Interior`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean:77`; `interiorDecision`, same file `:84` | Every syntactic character generator has maximum face time strictly below the reflection plane. Sufficient condition only. |
+| Box enlargement cannot create this margin | `interior_enlarge`, same file `:95`; `boundary_top`, same file `:72` | Ordinary zero-lag enlargement preserves the test; a lower face failing the strict inequality touches the plane. No claim about semantic non-membership in the range. |
+| Original-link polynomial preimage | `polynomial_translate_preimage`, same file `:161` | Translating the computed inward expression back gives the literal original polynomial at every common volume >=base+2. No measure or exterior interaction is changed. |
+| Same completed state | `completed_preimage`, same file `:178` | The existing completed geometric T1 maps the constructed presentation to the original interior state. |
+| Actual approximate range and time zero | `interiorApproximationCertificate`, same file `:184`; `interiorZeroContinuityCertificate`, same file `:196` | Returns approximate original T2 preimages and a positive time-zero radius, consuming the preceding geometric-range estimate. |
+
+Boundary-touching source expressions remain outside this construction's scope.
+Density of the interior family is not proved. A failed syntactic test does not
+imply that its completed state lies outside the range. This narrows the missing
+source comparison without establishing full-space time zero or limit injectivity.
+The new module passed 18 focused public axiom checks (one axiom-free, the rest
+within {propext, Quot.sound}); no full-tree audit. The exact log/hash, initial
+check corrections and safe-build boundary are recorded in `work_plan.md`.
+The dated source baseline and findings below are preserved.
+
 Implementation follow-up, 2026-09-15: the restricted geometric one-step
 range now has the approximate-preimage data discussed here.
 `oneStep_residual_weighted`,

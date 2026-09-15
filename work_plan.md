@@ -101,7 +101,53 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (computed approximate range for ACTUAL geometric T1 states):**
+**Latest increment (literal geometric preimages of ORIGINAL interior sources):**
+PROGRESS after 6c05311. `BF4ExactSlabThermodynamicInteriorTimePreimage`
+defines `faceTopTime`, the maximum time vertex of a face, and proves
+`lower_top_le`. `Interior` checks that each syntactic character generator has
+top time strictly below the reflection plane; `interiorDecision` computes
+this finite decision. `interior_enlarge` proves the condition invariant under
+ordinary zero-lag box enlargement. `boundary_top` identifies the remaining
+face-level contact as top time equal to the plane, not an indexing failure.
+
+`inwardFaceId_pin` and `inwardFaceId_lower` place an interior source at base+1
+with space shift 1 and time shift 2. `inward` constructs its original
+plaquette expression. `placed_inward` and `polynomial_translate_preimage`
+prove that the existing outward step recovers the original polynomial at
+every common volume >=base+2. This is literal equality on the original links;
+no interaction, measure or exterior term is removed or replaced.
+`samePreimage` and `completed_preimage` carry that equality through the
+EXISTING semantic quotient and completion. `interiorApproximationCertificate`
+and `interiorZeroContinuityCertificate` consume the preceding geometric-range
+estimate to return approximate T2 preimages and a positive time-zero radius
+for these unshifted original states. No analytic range hypothesis is supplied.
+
+NEXT: handle boundary-touching original expressions by a same-action analytic
+comparison or approximation. No density of the interior family is established;
+the decidable syntactic criterion is only sufficient. Its failure does not
+prove non-membership in the geometric range (different expressions can denote
+the same state). Simply rebasing in a larger box cannot create the margin.
+This isolates the remaining source-boundary issue, not a T2 zero mode.
+Range density/injectivity, full-space time zero, geometric T1 positivity/root
+identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins,
+other groups and Clay remain open. Fixed SU(2) nome and spacing throughout.
+
+Verification: 18 exact focused public gates, one axiom-free and the rest
+within {propext, Quot.sound}; clean final log, fresh own/direct-import
+artifacts, no forbidden executable tokens, only autoImplicit false.
+The first check exposed two elaboration errors and a Classical.choice
+dependency from applying arithmetic automation directly to an equivalence;
+explicit case analysis, the decidable type and two constructive implications
+fixed them. No classical dependency remains in the final checked declarations.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap preflights;
+latest preflight swap 12421.81 MiB, down from 12670.31 MiB.
+One new root import, previous multiplicities preserved; root not compiled.
+No full build/audit/guard/progress run, new hole, analytic premise, canonical
+atom/type/field/flag change or classical input. Log
+`/tmp/ym-interior-time-preimage.log`, SHA-256
+`bdfe32acb66c332b4ae4669f26a5273a5dc4409e98c97ff3648e7021e2fd8d19`.
+
+**Previous increment (computed approximate range for ACTUAL geometric T1 states):**
 PROGRESS after 521c06f. `BF4ExactSlabThermodynamicGeometricRangeContinuity`
 uses the existing nonnegative mixed moments, not a new analytic premise.
 `moment_weighted_energy` telescopes the exact split
