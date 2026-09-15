@@ -663,3 +663,45 @@ The original A,D,C,B enumeration required explicit scalar reordering; no
 quaternion ordering or theorem statement was weakened. Two additive root
 imports, not compiled. No full build/audit/guard/progress run. Exact logs
 and hashes are recorded in the current work_plan increment.
+
+## Implemented common all-link Haar change and literal scalar image (2026-09-15)
+
+Implementation after `7256911`. This closes the global coordinate/Haar and
+scalar-source parts of the preceding local-average residue. It does not yet
+assemble the full original-action expectation identity or its completed limit.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `endpointSteps` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:46` | Computed left/right link translation with a distinct auxiliary gauge multiplier; original blocks begin at 3. |
+| `steps_fix_gauge` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:82` | Every chain selecting only original links fixes the auxiliary gauges. |
+| `batches_image` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:174` | A duplicate-free batch list sends each contained link to its whole endpoint word; other batches preserve that word. |
+| `gaugeLedger` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:210` | Explicit batch list over every original link index. |
+| `gaugeQuaternion_link` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:220` | The simultaneous global coordinate image is g_start^-1 U_i g_finish, with common carrier padding. |
+| `gaugePolynomial_haar` | `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean:238` | The WHOLE supported product-Haar integral is preserved at arbitrary polynomial degree. |
+| `liftThree_coordinate` | `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:65` | The existing triple lift is exactly coordinate-block offset +3. |
+| `slabGauge_link` | `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:93` | Same-vertex endpoint image on every member of the original corrected-slab link list. |
+| `slabGauge_haar` | `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:106` | Global Haar invariance for the physical common vertex assignment and any supported integrand. |
+| `slabGauge_face_word` | `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:121` | Ordered image of each physical lifted plaquette word. |
+| `vertexFace_character` | `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:156` | Every spin character is unchanged by the common endpoint gauges as a Haar-carrier equality under arbitrary insertions. |
+| `probeTags` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean:83` | Explicit assignment of the three auxiliary gauges to the actual non-base probe corners. |
+| `bulkScalar_global_vertex_image` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean:148` | The global ledger's image of the EXISTING lifted `bulkScalar` is precisely the EXISTING local `bulkScalarVertexImage`. |
+
+The scalar image's existing consumer is `bulkScalar_vertex_average_with_tail`,
+`lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:88`. The common
+assignment, not the older temporal assignment, now supplies its scalar image.
+However, character-polynomial substitution, the full action and original
+observable insertion still require their combined image/support argument,
+auxiliary integration and original normalization/limit pins. The local image
+and global Haar identity are not yet a proved interacting expectation identity.
+
+No equality of the existing `completedTest` with a plaquette pairing is claimed.
+No new separating-family, actual-transfer range or full-space time-zero theorem
+is supplied. No canonical frontier, new analytic assumption or hole changed.
+
+Verification: 16 + 16 + 2 exact public gates within {propext, Quot.sound},
+including four axiom-free and five propext-only. One monitored worker, explicit
+20 GiB, separate process/swap preflights, fresh own/direct artifacts and clean
+final logs. An axiom-gate failure in broad simplification of the vertex tags
+was repaired constructively; explicit polynomial arguments removed an inference
+timeout. No limits were raised. Three additive root imports, not compiled.
+No full build/audit/guard/progress run. Exact logs and SHA-256 are in work_plan.

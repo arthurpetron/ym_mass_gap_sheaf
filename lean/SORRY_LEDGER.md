@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED local scalar gauge average; OPEN full-action identification (2026-09-15)
+## CLOSED common all-link Haar ledger and scalar image; OPEN full-action assembly (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionAuxiliaryVertexGaugeLedger.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean`.
+- **global change of variables**: an explicit finite ledger changes every
+  original link to its ordered endpoint-gauged word while fixing the three
+  auxiliary gauges. `gaugeQuaternion_link` proves the simultaneous images;
+  `gaugePolynomial_haar` preserves the whole supported Haar integral at all
+  polynomial degrees. Endpoint tags are finite data, not new analytic premises.
+- **physical pins**: `slabGauge_link` uses the SAME vertex assignment on every
+  actual slab link. `slabGauge_face_word` gives the ordered face image;
+  `vertexFace_character` preserves every spin character under arbitrary
+  insertions on the augmented original Haar carrier. `probeTags` computes the
+  actual probe corners and `bulkScalar_global_vertex_image` identifies the
+  transformed EXISTING scalar product with the local image already averaged
+  by `bulkScalar_vertex_average_with_tail`.
+- **open residue**: assemble the full original action/observable image with
+  original support, integrate the auxiliaries, retain normalization, then
+  compare the existing cutoff/volume/completed limits. No completed scalar
+  plaquette-pairing identity, separating family, transfer preimage or range
+  density is asserted. Full-space time zero, Hamiltonian, beta(a)/continuum,
+  QFT/spectral pins, other compact simple groups and Clay remain open.
+  No new analytic premise, canonical field/type/atom/flag or hole changed.
+- **verification**: 16 + 16 + 2 exact public gates within {propext, Quot.sound},
+  four axiom-free and five propext-only. Focused monitored checks, one worker,
+  explicit 20 GiB and separate preflights; swap decreased during the increment.
+  Explicit polynomial arguments avoided a timeout. A broad-simplifier classical
+  dependency was caught and removed with restricted constructive proofs.
+  Clean final logs and fresh own/direct artifacts. No limits raised despite
+  user permission. Three additive root imports, not compiled. No full build/
+  audit/guard/progress run; work_plan records exact logs and hashes.
+
+## Previous CLOSED local scalar gauge average; OPEN full-action identification (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean`;

@@ -119,7 +119,57 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original-link local gauge average):**
+**Latest mathematical increment (CLOSED common all-link Haar ledger and scalar image):**
+PROGRESS after `7256911`: `SU2QuaternionAuxiliaryVertexGaugeLedger` constructs
+the finite change of variables U_i -> g_start^-1 U_i g_finish for every original
+link simultaneously. Three added gauge blocks are fixed by every link batch;
+the remaining batches preserve the whole already-transformed endpoint word.
+`gaugePolynomial_haar` preserves the WHOLE supported product-Haar functional
+at arbitrary degree, not just an isolated probe integral.
+
+`BF4ExactSlabAuxiliaryVertexGauge` uses one vertex-tag function for both ends
+of every physical corrected-slab link. `slabGauge_link` proves their literal
+coordinate images; `slabGauge_face_word` proves the ordered plaquette image.
+`vertexFace_character` cancels the common endpoint gauges for every spin under
+arbitrary insertions, including neighboring factors sharing original links.
+`BF4ExactSlabBulkScalarVertexImage.probeTags` computes the three actual probe
+corners. `bulkScalar_global_vertex_image` identifies the global transformation
+of the EXISTING lifted `bulkScalar` with the EXISTING local `bulkScalarVertexImage`.
+Its consumer is the previous `bulkScalar_vertex_average_with_tail`, not a new
+observable algebra or a surrogate transfer operator.
+
+NEXT: assemble the original character-polynomial, full-action and observable
+images under this SAME ledger, with the original support and normalization;
+compose auxiliary integration with the existing 1/128 identity. Then compare
+the original cutoff/volume/completed limits. The completed scalar functional
+is NOT yet identified with a plaquette pairing, and one such identification
+would not itself supply a separating family or actual-time range density.
+Actual T2 approximate range/full-space time zero, geometric T1/root comparison,
+physical Hamiltonian, beta(a)/continuum, QFT/spectral pins, other compact simple
+groups and Clay remain open. No canonical field, analytic premise or hole changed.
+
+Verification: 16 + 16 + 2 exact public gates within {propext, Quot.sound},
+including four axiom-free and five propext-only. Fresh own/direct artifacts;
+clean final logs; targeted executable-token/option and root-import checks.
+An implicit polynomial inference timeout was resolved with explicit arguments.
+The axiom gate detected a classical dependency in broad simplification of the
+vertex-tag checks; explicit decidable arithmetic and restricted simplification
+removed it without changing any theorem statement. Temporary traces/checks
+were removed before the final clean run. The user's permission to raise limits
+was not needed: no heartbeat or memory limit was raised. Safe-build skill:
+one worker, explicit 20 GiB, separate process/swap preflights; swap decreased
+from 12389.81 to 12261.81 MiB during this increment. Three additive root imports,
+old multiplicities preserved; root not compiled. No full build/audit/guard/
+progress run. Logs and SHA-256:
+
+- `/tmp/ym-auxiliary-vertex-gauge-ledger.log`:
+  `7160cced2ca0aa5a4a36207f8e9939f199c00ecabef036389a6ccb7d295b524d`.
+- `/tmp/ym-slab-auxiliary-vertex-gauge.log`:
+  `77042e211762ef9018d35c66096573c7b7b1f552343b275b658de4f9a71ddd0c`.
+- `/tmp/ym-bulk-scalar-global-vertex-image.log`:
+  `90783ca6ffb679b3c09931414ba62afad361a3a915236afa92373e7b11a04943`.
+
+**Previous mathematical increment (CLOSED original-link local gauge average):**
 PROGRESS after `646d14d`: `SU2QuaternionScalarVertexGaugeAverage` integrates
 three auxiliary vertex gauges, leaving every original link polynomial symbolic.
 The existing scalar Schur identity contributes 1/4 at each vertex, giving

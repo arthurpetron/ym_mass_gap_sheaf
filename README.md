@@ -21,14 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest mathematical check:** [what the scalar test measures under local gauge averaging](lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean).
+**Latest mathematical check:** [the scalar probe's global gauge-transformation image](lean/YMGap/Continuum/BF4ExactSlabBulkScalarVertexImage.lean).
+A single explicit change of variables acts on **all original slab links**,
+preserves their full supported product-Haar integral, and has exactly the local
+scalar image used by the earlier 1/128 calculation. The common vertex assignment
+also preserves every plaquette's spin character under arbitrary insertions.
+The full action and observable image still need to be assembled and compared
+through the existing limits; the completed scalar functional is **not yet**
+identified with the plaquette pairing. These are gauge identities, not a
+transfer-range or mass-gap theorem. Three focused modules passed 34 constructive
+axiom checks; no full-tree run and no resource limits raised.
+
+**Previous local calculation:** [what the scalar test measures under local gauge averaging](lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean).
 Three exact SU(2) Schur contractions turn its vertex-gauged four-link product
 into the **original plaquette character divided by 128**. This holds on the
 actual translated slab links, retaining arbitrary dependence on all original
 links. Only the three auxiliary gauge variables are integrated. The missing
-step is a common change of variables preserving the full interacting action
-and observable insertion; the completed functional is **not yet** identified
-with that plaquette pairing. This local result supplies no new separating
+step is preservation of the full interacting action and observable insertion
+under the common change of variables now supplied above; the completed functional
+is **not yet** identified with that plaquette pairing. This local result supplies no new separating
 family, transfer preimage or mass gap. Focused constructive checks passed;
 no full-tree run.
 
