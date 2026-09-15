@@ -18,7 +18,74 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (bounded ORIGINAL coefficients on the actual completion):**
+**Latest increment (ORIGINAL coefficients separate the actual completed states):**
+PROGRESS after 4634773. At every finite slab and 0<w<1, equality of all
+original intrinsic channel coefficients is now equivalent to equality of
+states in the EXISTING original completion. No new carrier, transfer
+inverse, basis-resolution premise or channel-uniform positive floor.
+
+`BF4ExactSlabWholePacketNormBound.wholePacket_finite_bound` bounds the
+ENTIRE actual N-packet by the original full quadratic form at every K>=N,
+using original crossing monotonicity with bulk cutoff K. The bulk limit
+gives `wholePacket_bulk_bound`. `normalizedPacket` multiplies by the
+SAME original partition reciprocal; `normalizedPacket_norm_bound` has
+constant one, independent of N. This is a packet-to-OS-norm comparison,
+not a strict transfer gap. `normalizedPacket_reconstruction_bound`
+passes any common packet upper bound to the original dense norm via the
+previously constructed channel reconstruction.
+
+`BF4ExactSlabCompletedChannelSeparation.energyLimit_converges_of_leaves`
+passes the existing coefficient limits through the actual finite square
+tree, preserving multiplicity and shared variables. If the completed
+coefficients of X vanish, `residualCoefficient_converges` says the
+coefficient of e-X_n converges to that of the same dense e.
+`densePacket_bound_of_zero_coefficients` consequently bounds each
+normalized packet of e by the original completed distance to X.
+`denseNorm_bound_of_zero_coefficients` contracts all these packet bounds
+to norm(e)^2<=dist(e,X)^2.
+
+For n>=X.modulus(epsilon), the existing `constantApproximation_bound`
+makes this upper bound at e=X_n at most epsilon. Original mixed-norm
+convergence then gives `representativeInner_zero_of_coefficients_zero`.
+Positive definiteness gives `completed_zero_of_coefficients_zero` and
+`completed_zero_iff_coefficients_zero`. The actual completed difference
+law (`representativeCoefficient_sub`, `completedCoefficient_sub`) gives
+`completedCoefficients_injective` and `completed_eq_iff_coefficients_eq`.
+All limit objects/moduli are existing explicit original constructions;
+the new convergence plumbing is used only to prove identities and bounds.
+No selection of a representative of an arbitrary quotient state occurs.
+
+NEXT: the volume-and-time bridge for this original coefficient/packet
+construction. The active operator is specifically
+`BF4ExactSlabThermodynamicCompletedTime.twoStepTransfer` (line 197), on
+`BF4ExactSlabThermodynamicSeminormCompletion.Completion`, at nome 1/1024.
+It is NOT an operator on one fixed-slab completion. The existing
+`BF4ExactSlabThermodynamicReflectedForm.form_converges` supplies original
+finite-form convergence, and `BF4ExactSlabThermodynamicTimeGeometry.translate`
+and `.polynomial_translate` pin actual translated presentations. Their
+relationship to the new separating coefficient family still needs proof.
+Do not transport injectivity merely by taking a volume limit.
+Quantitative completed packet resolution, this channel/volume/time bridge,
+completed T2 range density/zero kernel, full-space time-zero continuity,
+geometric T1/physical Hamiltonian, beta(a)/spacing-uniform continuum control,
+canonical physical spectral/non-Wick pins, other groups and Clay remain
+OPEN. No new hole, analytic premise, canonical field/type/atom/flag or surrogate.
+
+Verification: two focused monitored modules, 6+11=17 exactly matched
+public declaration gates, all within {propext, Quot.sound}. Clean final
+logs, fresh own/direct-import artifacts, no forbidden executable tokens,
+only autoImplicit false; root imports unique but root not compiled.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; swap stable at 12814.31 MiB. Corrected locally specialized
+recursive arguments and exposed beta-reduction before a rewrite. No
+raised options or limits; no full build/audit/guard/progress run.
+Logs and SHA-256:
+`/tmp/ym-original-whole-packet-bound.log`
+(`e072048facaa55c81d8643d695c46949909b4c486bbb3359b6031a88c1c80c5c`),
+`/tmp/ym-original-completed-channel-separation.log`
+(`11dfd0c063986600393d6511d598b671cb21b823f86e3bb1dc1e4f2954bb9753`).
+
+**Previous increment (bounded ORIGINAL coefficients on the actual completion):**
 PROGRESS after 28147b1. Each intrinsic packet-leaf coefficient now
 descends through the original null quotient and the existing modulated
 completion, with no replacement carrier or choice of representatives.

@@ -13,7 +13,54 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED bounded ORIGINAL channel coefficients on the actual completion (2026-09-14)
+## CLOSED ORIGINAL channel separation on the existing finite-slab completion (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabWholePacketNormBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean`.
+- **closed whole-packet domination**: `wholePacket_finite_bound` compares
+  the entire original N-packet to the full original quadratic at K>=N;
+  `wholePacket_bulk_bound` removes the bulk cutoff. `normalizedPacket`
+  uses the SAME original reciprocal. `normalizedPacket_norm_bound`
+  gives packet<=original norm with constant one independent of N, not
+  a sum of individual coefficient bounds and not a strict transfer gap.
+  `normalizedPacket_nonnegative` preserves positivity;
+  `normalizedPacket_reconstruction_bound` passes a common packet bound
+  through the existing original dense reconstruction.
+- **closed separation mechanism**: `energyLimit_converges_of_leaves`
+  preserves every actual square-tree leaf and multiplicity.
+  `residualCoefficient_converges` pins the coefficients of e-X_n to e
+  when the completed coefficients of X vanish.
+  `densePacket_bound_of_zero_coefficients` and
+  `denseNorm_bound_of_zero_coefficients` give
+  packet(e)<=dist(e,X)^2 and norm(e)^2<=dist(e,X)^2.
+  The existing explicit approximation modulus and original norm limit
+  yield `representativeInner_zero_of_coefficients_zero`; no new limit
+  object or computational witness is extracted from Prop.
+- **closed original completed nullity and equality**:
+  `completed_zero_of_coefficients_zero` and
+  `completed_zero_iff_coefficients_zero` use original positive definiteness.
+  `representativeCoefficient_sub` and `completedCoefficient_sub` give
+  the actual difference law. `completedCoefficients_injective` and
+  `completed_eq_iff_coefficients_eq` prove joint injectivity on the
+  existing original finite-slab completed space, for every 0<w<1.
+- **open residue**: quantitative completed packet resolution and the
+  volume/time bridge to the thermodynamic completion. The active
+  `BF4ExactSlabThermodynamicCompletedTime.twoStepTransfer` is on that
+  thermodynamic carrier, not a single finite slab. Finite-slab separation
+  does not discharge its zero-kernel/range-density obligation. Full-space
+  zero-time continuity, geometric T1/physical Hamiltonian, physical
+  beta(a)/spacing-uniform gap, continuum/non-Wick pins, other groups and
+  Clay remain open. No new hole, analytic premise, canonical field/type/
+  atom/flag, surrogate or arbitrary quotient representative selection.
+- **verification**: 6+11=17 exact focused public gates, only
+  {propext, Quot.sound}. Clean logs, fresh own/direct-import artifacts,
+  only autoImplicit false. Root imports unique but root not compiled.
+  Safe-build skill: one worker, explicit 20 GiB and separate process/swap
+  preflights. Corrected specialized recursive calls and explicit
+  beta-reduction before rewriting; no raised options/limits. No full
+  build/audit/guard/progress run. Log hashes are recorded in work_plan.
+
+## Previous checkpoint: CLOSED bounded ORIGINAL channel coefficients on the actual completion (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelQuotient.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean`.

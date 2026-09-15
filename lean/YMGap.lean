@@ -4343,9 +4343,14 @@ import YMGap.Continuum.BF4ExactSlabIntrinsicChannelOrder
 import YMGap.Continuum.BF4ExactSlabIntrinsicChannelNormBound
 -- The same channel coefficients descend to the original null quotient and
 -- completion, with explicit continuity/approximation radii and the original
--- norm floor. Completed separation and actual transfer compatibility remain open.
+-- norm floor. Completed separation follows below; actual transfer compatibility remains open.
 import YMGap.Continuum.BF4ExactSlabIntrinsicChannelQuotient
 import YMGap.Continuum.BF4ExactSlabIntrinsicChannelCompletion
+-- Whole-packet domination and dense reconstruction prove that the original
+-- coefficients separate the SAME finite-slab completed states. This is not
+-- a zero-kernel theorem for the thermodynamic two-step transfer.
+import YMGap.Continuum.BF4ExactSlabWholePacketNormBound
+import YMGap.Continuum.BF4ExactSlabCompletedChannelSeparation
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

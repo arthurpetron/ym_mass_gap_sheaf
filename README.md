@@ -13,7 +13,21 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [original channel coefficients now extend to the original completed OS space](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean).
+**Latest milestone:** [original channel coefficients distinguish original completed states](lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean).
+At each finite slab and `0 < w < 1`, two states of the original completed
+OS space are now proved equal **if and only if all their actual channel
+coefficients agree**. The proof bounds each entire retained packet by
+the original normalized norm, uses the existing dense packet reconstruction,
+and passes through the original explicit-modulus state approximation.
+It assumes neither a channel resolution nor a transfer inverse.
+Two modules passed 17 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. Next: transport the channel/packet information through
+growing volume and actual time translation. The active two-step transfer
+acts on the **thermodynamic** completion; this finite-slab separation
+does not prove its injectivity, range density, or continuity at time zero.
+The physical Hamiltonian, continuum control and Clay target remain open.
+
+**Established extension:** [original channel coefficients extend to the original completed OS space](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean).
 At fixed finite volume, every actual packet-leaf coefficient is now a
 well-defined functional on the **same original null quotient and completion**.
 The construction retains explicit outer and numerical Cauchy moduli,
@@ -23,9 +37,9 @@ factor gives `F*A(x)² <= <x,x>` for every completed state `x`.
 The tolerance `F*epsilon²/2` controls coefficient differences; a computed
 precision index selects an actual dense approximant with that accuracy.
 Two modules passed 46 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree run. Next: whole-packet control and separation on completed
-states, then compatibility with actual time translation. **Vanishing of all
-completed coefficients is not yet proved to imply a zero completed state.**
+no full-tree run. Whole-packet control and completed separation are now
+proved above. Growing-volume and actual time-translation compatibility
+remain open for this coefficient construction.
 The floor depends on the channel, heat parameter and finite volume; no
 volume/beta/spacing-uniform gap or continuum/Clay theorem is claimed.
 
@@ -40,8 +54,8 @@ An embedded dense expression is now proved zero **if and only if** all
 its actual packet-leaf coefficients vanish.
 Three modules passed 35 focused axiom checks within `{propext, Quot.sound}`
 (three axiom-free); no full-tree run. The coefficient extensions are now
-constructed above; completed separation and actual time-translation
-compatibility remain open. `F` depends on the leaf, heat parameter and finite volume;
+constructed above, as is completed separation. Actual time-translation
+compatibility remains open. `F` depends on the leaf, heat parameter and finite volume;
 this is not a uniform transfer gap or a continuum/Clay result.
 
 **Established reconstruction:** [actual channel squares reconstruct the original reflected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean).
@@ -54,8 +68,8 @@ coefficient of a dense expression vanishes, its **original normalized
 OS form and embedded completed state are zero**.
 Two modules passed 28 focused axiom checks within `{propext, Quot.sound}`;
 no full-tree run. The coefficient norm bounds and reverse null implication
-are now proved above, as is completed coefficient descent. Completed
-separation and compatibility with actual time translation remain open. This is not yet a
+are now proved above, as are completed coefficient descent and separation.
+Compatibility with actual time translation remains open. This is not yet a
 Hilbert-space channel resolution or a zero-transfer-kernel theorem.
 Volume/physical-scale control and continuum/Clay remain open.
 
