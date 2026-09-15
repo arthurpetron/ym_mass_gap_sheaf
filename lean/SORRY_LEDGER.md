@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; OPEN parity/T1 pin and range (2026-09-15)
+## CLOSED original-law cross-parity boundary comparison; OPEN one-step insertion/volume pin and range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabCoordinateInclusion.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCoordinateAction.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean`.
+- **same coordinates and action**: `embedding`, `faceId_pin`, `link_pin`,
+  `plaquette_pin`, `character_pin` and `odd_even_room` provide the actual
+  parity-changing link/face inclusion. `full_action_split` retains all
+  exterior heat factors. `heatFactor_pin`, `heatProduct_pin`, `numerator_pin`
+  and `partition_pin` carry the original insertion and heat product together.
+  `numeratorLimit_pin`, `partitionLimit_pin`, `expectation_pin` and
+  `expectation_pin_of_prefix` pass to the existing cutoff limits and cancel
+  the same partition normalization. No full-target/source marginal equality
+  is claimed without the boundary estimate.
+- **proved geometric input**: `facePreimage` computes the source face index;
+  `RootCeiling`, `exterior_distance` and `core_size_floor` prove far-side
+  clearance and margin+1-|probe.support| <= |core|. `shifted_base_ceiling`
+  supplies clearance for growing slabs around original base faces.
+- **actual consumer**: `expectation_bound` applies the existing normalized
+  mask tail; `odd_even_bound` compares the full even law with the EXISTING
+  odd expectation. All coupling guards and finite insertion/image/support/
+  interval/locality/probe hypotheses remain explicit. No new analytic
+  boundary-decay premise replaces the already-proved core theorem.
+- **open residue**: construct the actual one-step reflected insertion pin,
+  its bounded-size receding probe and the volume-limit application. These
+  modules do not prove thermodynamic/completed T1 positivity or root equality.
+  Arbitrary-state range, full-space time zero, physical Hamiltonian,
+  beta(a)/continuum/QFT, all compact simple groups and Clay remain open.
+  No canonical field/type/atom/flag, analytic premise, axiom or hole changed.
+- **verification**: 34 exact public gates within {propext, Quot.sound}; one
+  axiom-free and two propext-only. Fresh own/direct artifacts, clean final
+  focused logs, no forbidden source tokens/options. Elaboration fixes only;
+  one worker, explicit 20 GiB, separate preflights and unchanged swap.
+  Three additive root imports, not compiled. No dependency rebuild or
+  full-tree build/audit/guard; exact scope and hashes in `work_plan.md`.
+
+## Previous CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; then-OPEN parity/T1 pin and range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean`, and

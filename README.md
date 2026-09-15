@@ -21,7 +21,20 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest cutoff-limit result:** [normalized site reflection positivity](lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean).
+**Latest result:** [original-action comparison across odd/even slabs](lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean).
+The smaller slab is included without moving coordinates. Its original heat
+factors and observable move through the same injective link-index map, and
+its normalized expectation is recovered exactly from the kept target faces.
+The added exterior action remains explicit. Proved geometric clearance and
+the existing signed boundary estimate now bound the full even-slab expectation
+against the **existing odd-slab expectation**, under explicit small-nome guards.
+
+The next step is the literal one-step observable/reflection identity and its
+receding-volume application. **Completed one-step positivity, full-space time
+zero and the Clay target remain open.** Focused constructive checks passed;
+no full-tree run or raised resource limits.
+
+**Previous cutoff-limit result:** [normalized site reflection positivity](lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean).
 The heat cutoff is now removed at every fixed even volume, keeping the full
 original action and its own partition normalization. Explicit moduli control
 the normalized cutoff values and their constructive-real limit. The new
@@ -30,11 +43,10 @@ is proved equal to the existing expectation on every full odd slab.
 
 The existing [boundary estimate now also passes through this normalization](lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean)
 for any physical face mask, with both partition factors cancelled exactly.
-The remaining one-step bridge needs the actual odd/even slab inclusion,
-observable/reflection identity and receding-boundary separation. **Completed
-one-step positivity, full-space time zero and the Clay target remain open.**
-Twenty-three focused constructive axiom checks passed; no full-tree run or
-raised resource limits.
+The inclusion and separation steps are now supplied above; identifying the
+one-step reflected insertion and taking its volume limit remain open.
+Twenty-three focused constructive axiom checks passed at this earlier checkpoint;
+no full-tree run or raised resource limits.
 
 **Previous finite result:** [site reflection positivity with the full original heat action](lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean).
 At every finite cutoff and even-slab size, the original reflected quadratic

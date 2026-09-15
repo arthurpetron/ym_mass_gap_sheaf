@@ -119,7 +119,74 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; OPEN parity geometry/T1 pin and range):**
+**Latest mathematical increment (CLOSED original-law cross-parity boundary comparison; OPEN one-step insertion/volume pin and range):**
+PROGRESS after `933bd55`. `BF4ExactSlabCoordinateInclusion.embedding` includes
+the actual source link list into any larger extent without moving coordinates.
+`faceId_pin`, `link_pin`, `plaquette_pin` and `character_pin` retain the original
+ordered holonomies; `odd_even_room` specializes the map to odd/adjacent-even
+slabs. No new geometry model or interacting marginal equality is assumed.
+
+`BF4ExactSlabCoordinateAction` computes the included-face mask and proves
+`kept_perm`. `full_action_split` retains the actual exterior heat product,
+including shared-link dependence. `heatFactor_pin`, `heatProduct_pin`,
+`numerator_pin` and `partition_pin` transport the SAME insertion and source
+heat factors at every rational w and cutoff. `numeratorLimit_pin` and
+`partitionLimit_pin` use the existing explicit-modulus cutoff limits.
+`expectation_pin` cancels the actual partitions to recover the original source
+law under the explicit small-nome guards. `expectation_pin_of_prefix` permits
+a supported literal target polynomial, with its image equality proved separately.
+
+`BF4ExactSlabCoordinateBoundaryComparison` simplifies the geometry: because
+the inclusion has zero shift, no negative-coordinate exterior is added.
+The far-side clearance `RootCeiling source margin root` suffices.
+`facePreimage` computes a physical source index, `exterior_distance` proves
+the margin lower bound, and `core_size_floor` obtains
+margin+1-probe.support.length <= activeCore.length from the existing animal
+theorem. `shifted_base_ceiling` supplies this clearance for growing slabs
+around an original base face. `expectation_bound` consumes the existing
+normalized mask tail; `odd_even_bound` specializes it to the EXISTING odd law:
+
+  | E_even(q) - E_oldOdd(p) |
+    <= (c+c) * summedBoundaryBudget(probe,w,margin+1-|probe.support|).
+
+The insertion image, support, interval, link locality and root clearance are
+explicit finite hypotheses. This is not yet their construction for the
+thermodynamic one-step family. No claim that the probe-size loss is constant
+for that family is made without its carrier construction. No reciprocal
+ceiling survives in the final coefficient; w and the existing entropy/core
+guards remain explicit. No new analytic premise, axiom, hole or canonical
+field was introduced or discharged.
+
+NEXT physical edge: identify the literal one-step insertion from
+`BF4ExactSlabThermodynamicTimeBalance.time_inner_bulk` with an even site
+reflected square under this coordinate inclusion; supply its interval/locality
+and translated bounded-size probe, then use `odd_even_bound` and existing
+volume moduli to pass site positivity to the original thermodynamic pairing.
+The coordinate identity to check is reflection in extent 2*r+1 after time
+shift m versus reflection in extent 2*r+2 after shift m+1. Completed T1
+positivity/root equality and the INDEPENDENT arbitrary-state range/time-zero
+obligation remain open. Physical Hamiltonian, beta(a), continuum/QFT and all
+compact simple groups remain open; this checkpoint does not close Clay.
+
+Verification: 12 + 15 + 7 exact public gates within {propext, Quot.sound};
+one axiom-free and two propext-only. Final focused logs are clean, with fresh
+own/direct artifacts and no forbidden source tokens/options. The initial
+checks exposed an index inference issue, namespace/section-variable omissions
+and a backward face-index rewrite that unfolded the wrong occurrence; explicit
+arguments and the forward target-index pin corrected these without raised
+heartbeats or weakened statements. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap preflights on every launch; swap remained
+12197.81 MiB. No dependency rebuild or full build/audit/guard/progress run.
+Three additive root imports; root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-coordinate-inclusion.log`:
+  `8994082500c70e2477e2689b8010d6517b36d54e963089e239fc17dd0af444e7`.
+- `/tmp/ym-coordinate-action.log`:
+  `39a65652a5558808365b3c96a430b5eb4fd72f867585b1db17d331545d1ec3bc`.
+- `/tmp/ym-coordinate-boundary-comparison.log`:
+  `d1f6f89e8c4dc5da76e37ef9421852e5dc20381a887c457537cf7671096fcf55`.
+
+**Previous mathematical increment (CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; then-OPEN parity geometry/T1 pin and range):**
 PROGRESS after `3fdebff`. Source review identified the concrete mismatch:
 `BF4ExactSlabPolynomialExpectation.expectation` and the existing thermodynamic
 spacetime family use odd `centralExtent` slabs; site positivity uses

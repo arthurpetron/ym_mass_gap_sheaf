@@ -1,6 +1,32 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest cutoff-limit follow-up, 2026-09-15, after `3fdebff`: normalized site
+Latest geometry/action follow-up, 2026-09-15, after `933bd55`: the actual
+odd/adjacent-even inclusion and its normalized original-law boundary comparison
+are now proved. No coordinates move; only actual finite enumeration indices
+change. This supplies the parity geometry previously missing below, not the
+literal one-step insertion pin or completed positivity.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual carrier inclusion | `embedding`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateInclusion.lean:74`; `link_pin`, same file `:95`; `plaquette_pin`, same file `:130`; `character_pin`, same file `:137`; `odd_even_room`, same file `:144` | Injective original block map; same ordered holonomy at the same coordinates; any source <= target, including odd/even. |
+| Full action retains the exterior | `kept_perm`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateAction.lean:70`; `full_action_split`, same file `:82` | Kept faces are exactly source images. Original exterior factors, including shared-link dependence, remain explicit. |
+| Exact insertion and heat transport | `heatFactor_pin`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateAction.lean:110`; `heatProduct_pin`, same file `:123`; `numerator_pin`, same file `:130`; `partition_pin`, same file `:159` | Every rational w and finite K. Supported source insertion and source action move through the same map. |
+| Original normalized source law | `numeratorLimit_pin`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateAction.lean:174`; `partitionLimit_pin`, same file `:183`; `expectation_pin`, same file `:190`; `expectation_pin_of_prefix`, same file `:206` | Existing cutoff limits, same partition cancellation; explicit small-nome guards, not an equality with the full target law. |
+| Constructed source preimage and separation | `facePreimage`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean:67`; `RootCeiling`, same file `:84`; `exterior_distance`, same file `:87`; `shifted_base_ceiling`, same file `:101` | Computed physical face index. Far-side root clearance suffices because no negative-coordinate exterior is added. |
+| Active cores pay distance | `core_size_floor`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean:110` | margin+1-|probe.support| <= |core|; consumes the existing actual-animal distance theorem. |
+| Cross-parity normalized estimate | `expectation_bound`, `lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean:119`; `odd_even_bound`, same file `:140` | Full even expectation versus EXISTING odd expectation, bounded by (c+c)*summedBoundaryBudget with the explicit probe-size loss and coupling guards. |
+
+**NOT FOUND in these three modules:** a construction of the one-step reflected
+insertion as the even site square, its translated bounded-size probe, or the
+thermodynamic limit application. `time_inner_bulk`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeBalance.lean:70`, is the
+existing intended pairing consumer; these modules do not yet identify its
+insertion. Completed T1 positivity/root equality and the independent range
+obligation remain open. Thirty-four exact public gates passed within
+{propext, Quot.sound}; no full-tree run. No canonical field or analytic premise
+changed. Exact verification scope and hashes are in `work_plan.md`.
+
+Previous cutoff-limit follow-up, 2026-09-15, after `3fdebff`: normalized site
 reflection positivity now survives heat-cutoff removal at each fixed even
 volume. Arbitrary-mask normalized boundary response is also proved without
 an odd/even restriction. This does not identify the thermodynamic T1 form.
