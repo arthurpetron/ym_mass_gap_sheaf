@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [actual channel squares reconstruct the original reflected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean).
+**Latest milestone:** [every actual packet-leaf coefficient is bounded by the original OS form](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelNormBound.lean).
+Enlarging the crossing cutoff retains the original coefficients and adds
+nonnegative channel contributions, with shared links preserved. Every
+actual leaf has a strictly positive weight and remains bounded by the
+original full action through bulk cutoff removal. Normalizing by the
+**same original partition function** gives `F*A(e)² <= form(e,e)`, with
+a computed `F > 0` independent of the observable `e`.
+An embedded dense expression is now proved zero **if and only if** all
+its actual packet-leaf coefficients vanish.
+Three modules passed 35 focused axiom checks within `{propext, Quot.sound}`
+(three axiom-free); no full-tree run. Next: descend and extend these
+coefficient maps to completed states, then relate them to actual time
+translation. `F` depends on the leaf, heat parameter and finite volume;
+this is not a uniform transfer gap or a continuum/Clay result.
+
+**Established reconstruction:** [actual channel squares reconstruct the original reflected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean).
 At fixed finite volume, each crossing packet's bulk limit equals its
 actual finite sum of nonnegative-weight channel amplitudes squared. The
 amplitudes use the original lower action, not a replacement measure.
@@ -22,8 +37,9 @@ computed packet and numerical thresholds. If every actual packet-leaf
 coefficient of a dense expression vanishes, its **original normalized
 OS form and embedded completed state are zero**.
 Two modules passed 28 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree run. Next: coefficient bounds/descent on completed states
-and compatibility with actual time translation. This is not yet a
+no full-tree run. The coefficient norm bounds and reverse null implication
+are now proved above. Completed coefficient descent and compatibility
+with actual time translation remain open. This is not yet a
 Hilbert-space channel resolution or a zero-transfer-kernel theorem.
 Volume/physical-scale control and continuum/Clay remain open.
 

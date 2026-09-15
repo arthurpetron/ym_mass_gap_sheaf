@@ -13,7 +13,60 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED actual channel-square reconstruction of the ORIGINAL reflected numerator (2026-09-14)
+## CLOSED intrinsic ORIGINAL channel norm bounds and exact dense nullity criterion (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/ReflectedSquareTreePositiveOrder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelOrder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelNormBound.lean`.
+- **closed finite positive order**: `PositiveOrder` compares weighted
+  evaluation against every nonnegative function of the ACTUAL polynomial
+  channel. `value_product` retains polynomial multiplication, not an
+  independence premise. `PositiveOrder.product`, `.leaf`, `.range_mono`
+  and `.finiteProduct` prove shared-variable product closure, individual
+  leaf bounds and nonnegative-prefix growth. This is finite proved algebra,
+  not an additional analytic input or frontier enumeration.
+- **closed original crossing monotonicity**: `faceExpansion_tree`
+  identifies each ACTUAL face tree with `spinPrefix` using the unchanged
+  original `coeffW`. `face_order` and `interface_order` compare different
+  crossing cutoffs. `mixed_cutoff_mono` keeps bulk dressing fixed while
+  increasing the crossing cutoff. `intrinsic_leaf_finite_bound` bounds ANY
+  leaf from packet N by the full original reflected numerator at every
+  K>=N, with the original bulk cutoff also K. No recoding to the earlier
+  globally selected spin family is assumed.
+- **closed strict intrinsic weights**: `interface_leaf_positive` applies
+  the existing representation Gram positivity and original heat-coefficient
+  positivity through actual finite sums and products. It gives strict
+  positivity for every actual packet leaf, not a family-uniform floor.
+- **closed full-cutoff and normalized norm bounds**:
+  `intrinsic_energy_bound` passes the retained weighted square through the
+  existing bulk limits. `intrinsicNormFloor` is exactly the leaf weight
+  times the original `reciprocalFloor`; `intrinsicNormFloor_positive` proves
+  it positive. `intrinsic_normalized_energy_bound` gives F*A(e)^2<=form(e,e)
+  on the SAME original normalized form. F has no observable argument and
+  depends on the leaf, nome and finite volume. No inverse or new law.
+- **closed exact nullity criterion**: `original_null_iff_channel_coefficients_zero`,
+  `form_null_iff_channel_coefficients_zero` and
+  `embedded_zero_iff_channel_coefficients_zero` characterize zero by every
+  intrinsic packet-leaf coefficient, first for the raw original numerator,
+  then the normalized OS form, then the existing completed-state embedding
+  of a dense expression. Positive-factor cancellation and the prior
+  reconstruction supply the two directions.
+- **open residue**: coefficient linearity/null descent and constructive
+  extension to completed states; a Hilbert-space channel resolution;
+  quantitative normalized packet approximation; compatibility with actual
+  time translation; growing-volume passage; completed transfer range/density
+  and zero kernel; full-space zero-time continuity, physical Hamiltonian/
+  scaling, other groups and continuum/Clay. No volume/beta/spacing-uniform
+  floor. No new hole, analytic premise, canonical field/type/atom/flag or surrogate.
+- **verification**: 16+9+10=35 exactly matched focused gates, only
+  {propext, Quot.sound}; three axiom-free and eight propext-only. Clean final
+  logs and fresh own/direct-import artifacts. Safe-build skill: one worker,
+  explicit 20 GiB ceiling and separate process/swap preflights. Core
+  rational/list APIs and a binary equality helper were corrected; no options
+  were raised. No full build/audit/guard/progress/root-import run. Log hashes
+  are in work_plan.
+
+## Previous checkpoint: CLOSED actual channel-square reconstruction of the ORIGINAL reflected numerator (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabChannelSquareBulkLimit.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean`.
@@ -47,10 +100,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `embedded_zero_of_all_channel_coefficients_zero` concludes equality
   with zero in the pre-existing original plaquette completion for the
   embedded dense expression. No transfer-kernel premise or conclusion.
-- **open residue**: reverse vanishing implication for this intrinsic
-  packet-leaf family (the earlier all-spin selected family has its own
-  proved forward implication); norm bounds and descent of coefficients
-  to completed states; a Hilbert-space channel resolution; quantitative
+- **open residue**: the reverse intrinsic vanishing implication and
+  original normalized coefficient norm bounds are now proved above;
+  descent/extension of coefficients to completed states;
+  a Hilbert-space channel resolution; quantitative
   normalized sum approximants; compatibility with actual time translation;
   volume passage; completed transfer range/density and zero kernel;
   full-space zero-time continuity, physical Hamiltonian/scaling, other

@@ -4334,6 +4334,13 @@ import YMGap.Continuum.BF4ExactSlabCrossingPacketBulkLimit
 -- Completed coefficient descent and physical transfer compatibility remain open.
 import YMGap.Continuum.BF4ExactSlabChannelSquareBulkLimit
 import YMGap.Continuum.BF4ExactSlabOriginalChannelReconstruction
+-- Monotone original crossing packets control EVERY intrinsic leaf. A
+-- computed positive factor bounds its coefficient square by the SAME OS
+-- norm, and the whole leaf family detects exactly the null dense states.
+-- Completed coefficient extension and actual transfer compatibility remain open.
+import YMGap.Continuum.ReflectedSquareTreePositiveOrder
+import YMGap.Continuum.BF4ExactSlabIntrinsicChannelOrder
+import YMGap.Continuum.BF4ExactSlabIntrinsicChannelNormBound
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

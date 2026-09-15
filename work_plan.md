@@ -18,7 +18,74 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (actual channel-square reconstruction and original embedded nullity):**
+**Latest increment (intrinsic ORIGINAL coefficient norm bounds and exact dense nullity):**
+PROGRESS after da4a16d. The actual finite-packet leaf family is now
+controlled directly by the original normalized OS form. No identification
+with the earlier globally selected spin family is needed or assumed.
+
+`ReflectedSquareTreePositiveOrder.value` evaluates a tree against a
+function of its actual polynomial channels. `PositiveOrder` compares
+every nonnegative such function. `value_product` proves the nested
+shared-variable identity; `.product`, `.leaf`, `.range_mono` and
+`.finiteProduct` give product monotonicity, retained leaf bounds and
+positive-prefix growth. This is finite algebra, not a new analytic field.
+
+`BF4ExactSlabIntrinsicChannelOrder.faceExpansion_tree` identifies the
+ACTUAL face expansion with `spinPrefix`: `coeffAt_heatKernelPacket`
+equals the same original `coeffW` on every retained spin. `face_order`
+and `interface_order` compare crossing cutoffs. `mixed_cutoff_mono`
+then compares the original mixed forms with bulk dressing held fixed.
+`intrinsic_leaf_finite_bound` bounds every actual N-packet leaf by the
+full original numerator at each K>=N, whose bulk cutoff is also K.
+`interface_leaf_positive` proves strict positivity for every intrinsic
+leaf from the existing Gram and original heat weights. No uniform lower
+factor over all leaves or growing cutoffs is claimed.
+
+`BF4ExactSlabIntrinsicChannelNormBound.intrinsic_energy_bound` passes
+the weighted square through the constructed original bulk limit.
+`intrinsicNormFloor` is the ACTUAL leaf weight times `reciprocalFloor`
+of the SAME original partition function. It is positive and has NO
+observable argument. `intrinsic_normalized_energy_bound` proves
+F*A(e)^2<=form(e,e). F depends explicitly on the leaf, nome and finite
+volume; this is an observable-uniform coefficient bound, not a physical
+mass-gap floor uniform in beta, spacing, volume or channel.
+
+`original_null_iff_channel_coefficients_zero` supplies both directions
+for the intrinsic family. `original_null_of_form_null` multiplies back
+by the original partition function, with its proved reciprocal identity.
+`form_null_iff_channel_coefficients_zero` and
+`embedded_zero_iff_channel_coefficients_zero` then characterize zero
+in the SAME normalized form and existing completed-state embedding of
+dense expressions. The reverse direction uses prior channel reconstruction;
+the forward uses the new retained-energy bound and strict weight.
+
+NEXT: prove the coefficient linearity/difference laws, descend these
+norm-bounded coefficient maps through original null equivalence, and
+construct their extensions on modulated completed states. Then establish
+their relationship to actual time translation and the needed range
+approximation. A Hilbert-space channel resolution, quantitative normalized
+packet approximation, growing-volume control, completed T2 range density/
+zero kernel, full-space time-zero continuity, geometric T1/physical
+Hamiltonian identification, canonical spectral/non-Wick comparisons,
+quotient-level completeness, beta(a)/spacing-uniform continuum control,
+other groups and Clay remain OPEN. No new hole, analytic premise,
+canonical field/type/atom/flag or surrogate.
+
+Verification: three focused monitored modules, 16+9+10=35 exactly matched
+gates, only {propext, Quot.sound}; three axiom-free and eight propext-only.
+Clean final logs and fresh own/direct-import artifacts. Safe-build skill:
+one worker, explicit 20 GiB ceiling, separate process/swap preflights.
+Corrected a rational-order lemma name, core list-range API usage and an
+unavailable binary congruence helper; no raised options. No full build/
+audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-reflected-square-tree-positive-order.log`
+(`fc2dbf0f35c1d3e9010d708d271b0c2b91f28d33b68f05395f549b7a073b894e`),
+`/tmp/ym-original-intrinsic-channel-order.log`
+(`ae15dfe3c823da33ba118bebf74343f6ad468400cfe9a669a5fe0140c8bd32ca`),
+`/tmp/ym-original-intrinsic-channel-norm-bound.log`
+(`b4eb17c5df8b5ec9d8b22f4cd082c647ab4b4242765cdd8a1c10f673a5e43a07`).
+
+**Previous increment (actual channel-square reconstruction and original embedded nullity):**
 PROGRESS after 3715a8a. The finite crossing packet is now identified
 with its ACTUAL finite sum of limiting original channel squares. This
 is quantitative reconstruction of the original reflected numerator,
@@ -56,11 +123,10 @@ uses the SAME original partition reciprocal and reflection pin;
 pre-existing completed plaquette carrier for the embedded dense expression.
 This does not assert a zero transfer kernel or range density.
 
-NEXT: control the intrinsic packet-leaf coefficients by the original
-norm, descend them to completed states, and establish their compatibility
-with actual time translation. The reverse null implication for this
-intrinsic family is not yet proved; do not silently identify it with the
-earlier globally selected all-spin family. A full Hilbert-space channel
+NEXT at this checkpoint: control the intrinsic packet-leaf coefficients
+by the original norm and prove the reverse null implication (now proved
+above), descend them to completed states, and establish their compatibility
+with actual time translation. A full Hilbert-space channel
 resolution and quantitative normalized packet approximation remain open.
 So do growing-volume passage, completed T2 range density/zero kernel,
 full-space time-zero continuity, geometric T1/physical Hamiltonian
