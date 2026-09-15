@@ -119,7 +119,68 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original-law cross-parity boundary comparison; OPEN one-step insertion/volume pin and range):**
+**Latest mathematical increment (CLOSED original completed geometric T1 positivity; OPEN root identification and independent range):**
+PROGRESS after `4d27795`. `BF4ExactSlabSpacetimeEvenComparison.evenEvaluate`
+evaluates the EXISTING spacetime syntax on adjacent-even slabs at the same
+translated physical coordinates. `evenSquareBound`, `evenLocal` and
+`inclusion_pin` construct the support/cap, link locality and original inclusion
+image. `parity_bound` supplies the actual fixed-size shifted box probe and
+far-side clearance, obtaining EXACTLY the old spacetime amplitude and rate:
+
+  | E_even(e,margin) - E_oldOdd(e,margin) |
+    <= amplitude(w,e) * entropyRate(w)^(margin+1-boxSize(base)).
+
+The coupling/core guards remain explicit. At the existing nome 1/1024,
+`evenVolumeModulus` reuses the old computed geometric modulus at epsilon/4;
+`evenSequence_close` and `evenSequence_converges` reach the EXISTING
+`SpacetimeThermodynamicLimit.meanLimit`. No new even-volume limit/state is
+chosen, and the probe-size loss is independent of margin.
+
+`BF4ExactSlabSiteOneStepForm` supplies the actual reflection-plane calculation.
+`one_step_face` retains temporal-link orientation; `one_step_reflection` and
+`insertion_pin` identify the old mixed `oneStepExpression` with the even site
+square. `lower_oneSided` includes boundary-touching original generators.
+`site_expectation_pin` integrates against the SAME full original heat product
+and partition normalization. `even_one_step_nonnegative` consumes original
+site positivity, then `one_step_form_nonnegative` passes through the proved
+even/odd comparison to the original thermodynamic one-step form.
+
+`BF4ExactSlabThermodynamicOneStepPositivity` uses the existing
+`time_inner_bulk` consumer, Cauchy pairing limits and quotient descent:
+`presented_one_step_nonnegative`, `representative_one_step_nonnegative` and
+`completedTime_one_nonnegative` prove <T1 x,x> >= 0 for EVERY state of the
+EXISTING completion. `completedTime_nonnegative` combines positivity with the
+old same-object symmetry/composition to cover all integer lags, including odd.
+No surrogate operator, positive-root substitution, analytic positivity premise,
+new axiom/hole or changed canonical frontier field is involved.
+
+NEXT physical edge: identify geometric `completedTime 1` with the already
+constructed `rootAction`, both positive symmetric contractions squaring to T2.
+Seek a constructive positive-square-root uniqueness argument using the existing
+polynomial approximation and pairing algebra; do not assume the identification.
+Positivity alone is NOT injectivity. Arbitrary-state approximate range/density
+and full-space time-zero continuity remain an INDEPENDENT obligation. Physical
+Hamiltonian, beta(a)/spacing normalization, continuum/QFT and other compact
+simple groups remain open. This fixed-nome, fixed-spacing result does not close
+the Clay target or its canonical continuum scorecards.
+
+Verification: 10 + 9 + 4 exact public gates, all {propext, Quot.sound}; clean
+final focused logs, fresh own/direct artifacts, no forbidden source tokens or
+options. One initial geometry check needed an explicit spatial offset and
+tuple-coordinate equality simplification; no changed claim or raised heartbeat.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap preflight
+on every launch. Swap decreased from 12189.81 to 12181.81 MiB. No dependency
+rebuild or full build/audit/guard/progress run. Three additive root imports;
+root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-spacetime-even-comparison.log`:
+  `bacdb70b700255f4cca4ba6e5f3501b5c05c43c0552d73542395222ef6a2a30f`.
+- `/tmp/ym-site-one-step-form.log`:
+  `87c06761d81f97f62cd5976a5899f36c0b7743a3ed33b5dbe006299fea250de6`.
+- `/tmp/ym-thermodynamic-one-step-positivity.log`:
+  `3d26101d8cb624a30606fd8ff7d4c74727116d4c23b61462bc20ba8125aa950f`.
+
+**Previous mathematical increment (CLOSED original-law cross-parity boundary comparison; then-OPEN one-step insertion/volume pin and range):**
 PROGRESS after `933bd55`. `BF4ExactSlabCoordinateInclusion.embedding` includes
 the actual source link list into any larger extent without moving coordinates.
 `faceId_pin`, `link_pin`, `plaquette_pin` and `character_pin` retain the original

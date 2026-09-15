@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original-law cross-parity boundary comparison; OPEN one-step insertion/volume pin and range (2026-09-15)
+## CLOSED original completed geometric T1 positivity; OPEN root identification and independent range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSpacetimeEvenComparison.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSiteOneStepForm.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean`.
+- **same-observable volume comparison**: `evenEvaluate`, `evenSquareBound`,
+  `evenLocal` and `inclusion_pin` construct the actual even carrier insertion
+  and every finite support/locality/image premise. `parity_bound` supplies
+  the fixed-size shifted probe and obtains the old amplitude/rate with
+  explicit coupling guards. `evenVolumeModulus`, `evenSequence_close` and
+  `evenSequence_converges` reach the EXISTING thermodynamic meanLimit at
+  nome 1/1024, without a second thermodynamic state or chosen limit.
+- **original reflected quadratic**: `lower_oneSided`, `one_step_face`,
+  `one_step_reflection`, `oneStepExpression` and `insertion_pin` identify the
+  actual mixed geometric-time insertion with the even site square, including
+  boundary-touching generators and temporal orientation. `site_expectation_pin`
+  keeps the full original action and partition normalization.
+  `even_one_step_nonnegative` and `one_step_form_nonnegative` pass original
+  site positivity to the EXISTING thermodynamic form.
+- **completed consumer**: `presented_one_step_nonnegative`,
+  `representative_one_step_nonnegative`, `completedTime_one_nonnegative`
+  and `completedTime_nonnegative` use existing time-inner identification,
+  pairing limits, quotient descent, symmetry and composition. The actual
+  geometric T1 is positive on the entire old completion, and all integer
+  time forms are nonnegative. No positive root is substituted for T1.
+- **open residue**: equality of T1 with `rootAction`; the INDEPENDENT
+  arbitrary-state approximate-range/density estimate and full-space time zero;
+  physical Hamiltonian, beta(a)/spacing, continuum/QFT, other compact simple
+  groups and Clay. Positivity does not assert strict positivity or injectivity.
+  No literal hole, axiom, analytic premise, canonical field/type/atom/flag changed.
+- **verification**: 23 exact public gates, all {propext, Quot.sound}; clean
+  final focused logs and fresh own/direct artifacts. Explicit-offset/coordinate
+  simplification fixes only; one worker, explicit 20 GiB, separate preflights,
+  no increased swap or raised limits. Three additive root imports, not compiled;
+  no dependency rebuild or full-tree run. Exact scope/hashes in `work_plan.md`.
+
+## Previous CLOSED original-law cross-parity boundary comparison; then-OPEN one-step insertion/volume pin and range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabCoordinateInclusion.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCoordinateAction.lean`, and

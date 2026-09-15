@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [original-action comparison across odd/even slabs](lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean).
+**Latest result:** [positivity of the actual completed one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean).
+For every state in the **existing** thermodynamic completion,
+`<T1 x, x> >= 0`. The proof identifies the literal geometric one-step insertion
+with an even-slab reflected square, retaining the full original heat action.
+An explicit odd/even volume comparison converges to the **existing**
+thermodynamic pairing; its existing Cauchy limits then extend positivity to
+the completion. Symmetry and composition give positivity at every integer lag.
+No positive-root operator is substituted for geometric time translation.
+
+This is at the existing SU(2) nome `1/1024` and fixed spacing. **Positivity is
+not injectivity.** Identification of `T1` with the constructed positive square
+root is next; arbitrary-state range control, full-space time zero, physical
+Hamiltonian and continuum/Clay closure remain open. Twenty-three focused
+constructive axiom checks passed; no full-tree run or raised resource limits.
+
+**Previous geometry result:** [original-action comparison across odd/even slabs](lean/YMGap/Continuum/BF4ExactSlabCoordinateBoundaryComparison.lean).
 The smaller slab is included without moving coordinates. Its original heat
 factors and observable move through the same injective link-index map, and
 its normalized expectation is recovered exactly from the kept target faces.
@@ -29,10 +44,10 @@ The added exterior action remains explicit. Proved geometric clearance and
 the existing signed boundary estimate now bound the full even-slab expectation
 against the **existing odd-slab expectation**, under explicit small-nome guards.
 
-The next step is the literal one-step observable/reflection identity and its
-receding-volume application. **Completed one-step positivity, full-space time
-zero and the Clay target remain open.** Focused constructive checks passed;
-no full-tree run or raised resource limits.
+The literal one-step observable/reflection identity, receding-volume application
+and completed positivity that were open at this checkpoint are now supplied
+above. Full-space time zero and the Clay target remain open. Focused
+constructive checks passed; no full-tree run or raised resource limits.
 
 **Previous cutoff-limit result:** [normalized site reflection positivity](lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean).
 The heat cutoff is now removed at every fixed even volume, keeping the full
@@ -43,8 +58,8 @@ is proved equal to the existing expectation on every full odd slab.
 
 The existing [boundary estimate now also passes through this normalization](lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean)
 for any physical face mask, with both partition factors cancelled exactly.
-The inclusion and separation steps are now supplied above; identifying the
-one-step reflected insertion and taking its volume limit remain open.
+The inclusion, separation, one-step reflected insertion and its volume-limit
+application that were open at this checkpoint are now supplied above.
 Twenty-three focused constructive axiom checks passed at this earlier checkpoint;
 no full-tree run or raised resource limits.
 
@@ -55,10 +70,10 @@ heat weight. All lower, upper and shared-slice interactions are retained.
 The identity holds for arbitrary rational nome; nonnegativity uses explicit
 small-nome guards, discharged in particular at the existing nome `1/1024`.
 
-This closes the finite heat-action step, **not positivity of the completed
-physical one-step transfer**. Identification with its existing thermodynamic
-pairing remains open, as does the distinct transfer-range approximation needed
-for full-space time zero. Twenty focused constructive axiom checks passed;
+This closed the finite heat-action step; identification with the existing
+thermodynamic pairing and completed one-step positivity are now supplied above.
+The distinct transfer-range approximation needed for full-space time zero
+remains open. Twenty focused constructive axiom checks passed;
 no full-tree run. The preceding [unweighted conditional square](lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean)
 supplies the computed monomial decomposition used here.
 

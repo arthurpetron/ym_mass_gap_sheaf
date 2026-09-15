@@ -4344,6 +4344,11 @@ import YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison
 import YMGap.Continuum.BF4ExactSlabCoordinateInclusion
 import YMGap.Continuum.BF4ExactSlabCoordinateAction
 import YMGap.Continuum.BF4ExactSlabCoordinateBoundaryComparison
+-- Original even-site square reaches the existing thermodynamic pairing and
+-- proves completed geometric T1 positivity; root identity/range remain open.
+import YMGap.Continuum.BF4ExactSlabSpacetimeEvenComparison
+import YMGap.Continuum.BF4ExactSlabSiteOneStepForm
+import YMGap.Continuum.BF4ExactSlabThermodynamicOneStepPositivity
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 -- Same-channel finite interface coercivity, pinned to the original bulk
 -- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.

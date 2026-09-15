@@ -1,6 +1,31 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest geometry/action follow-up, 2026-09-15, after `933bd55`: the actual
+Latest completed-positivity follow-up, 2026-09-15, after `4d27795`: the
+ORIGINAL geometric T1 is now proved positive on the EXISTING thermodynamic
+completion. The proof consumes the full-action site square and the actual
+odd/even comparison; it does not substitute a positive root for geometric time.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Same spacetime expression on the even carrier | `evenEvaluate`, `lean/YMGap/Continuum/BF4ExactSlabSpacetimeEvenComparison.lean:60`; `evenSquareBound`, same file `:68`; `evenLocal`, same file `:78`; `inclusion_pin`, same file `:87` | Actual translated original holonomies; constructed cap/support/locality and original coordinate-inclusion image. |
+| Fixed-size probe and old rate | `parity_bound`, `lean/YMGap/Continuum/BF4ExactSlabSpacetimeEvenComparison.lean:112` | Original even/odd expectation difference <= old amplitude times rate^(margin+1-boxSize); explicit small-nome and entropy guards. No margin-dependent probe-size loss. |
+| Same existing thermodynamic limit | `evenVolumeModulus`, `lean/YMGap/Continuum/BF4ExactSlabSpacetimeEvenComparison.lean:139`; `evenSequence_close`, same file `:142`; `evenSequence_converges`, same file `:170` | Computed old volume modulus at epsilon/4; reaches existing meanLimit at nome 1/1024, not a newly chosen even-family state. |
+| Actual one-step reflected square | `lower_oneSided`, `lean/YMGap/Continuum/BF4ExactSlabSiteOneStepForm.lean:83`; `one_step_face`, same file `:103`; `one_step_reflection`, same file `:113`; `oneStepExpression`, same file `:133`; `insertion_pin`, same file `:136` | Original boundary-touching insertions, literal shifted reflection plane and ordered temporal orientation. |
+| Full original expectation and dense one-step form | `site_expectation_pin`, `lean/YMGap/Continuum/BF4ExactSlabSiteOneStepForm.lean:155`; `even_one_step_nonnegative`, same file `:171`; `one_step_form_nonnegative`, same file `:178` | Retains every original heat factor and the same partition, then passes site positivity to the old thermodynamic form. |
+| Entire existing completion | `presented_one_step_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean:37`; `representative_one_step_nonnegative`, same file `:45`; `completedTime_one_nonnegative`, same file `:51` | Existing time_inner_bulk, pairing limits and quotient descent prove <T1 x,x> >= 0 for every old completed state. No new positivity hypothesis. |
+| All integer lags | `completedTime_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicOneStepPositivity.lean:57` | Same old time symmetry/composition, now including odd lags. |
+
+**NOT FOUND in these three modules:** equality of geometric T1 with
+`rootAction`, arbitrary-state approximate-range/density data, injectivity or
+full-space time-zero continuity. These remain open ledgered obligations;
+positivity is not strict positivity. Physical Hamiltonian, beta(a)/spacing
+control, continuum/QFT, other compact simple groups and Clay remain open.
+Twenty-three exact public gates passed with {propext, Quot.sound}; no new
+axiom/hole, canonical field or analytic premise. No full-tree run; exact
+verification scope/hashes are in `work_plan.md`. The historical NOT FOUND
+statements below describe their named modules/checkpoints, not this later result.
+
+Previous geometry/action follow-up, 2026-09-15, after `933bd55`: the actual
 odd/adjacent-even inclusion and its normalized original-law boundary comparison
 are now proved. No coordinates move; only actual finite enumeration indices
 change. This supplies the parity geometry previously missing below, not the
