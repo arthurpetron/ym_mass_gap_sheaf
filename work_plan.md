@@ -18,7 +18,76 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (quantitative positive dyadic time continuity on the ORIGINAL carrier):**
+**Latest increment (constructed positive real-time operator family on the ORIGINAL carrier):**
+PROGRESS after bad00a8. `Constructive/DyadicTimeRationals.value` maps a
+mesh to its exact rational time. `value_le_iff` and `value_eqv_iff`
+identify order/equality with natural cross products; `value_refine`
+preserves the value. For q>=0, `upper` computes floor(q*2^n)+1 steps at depth n.
+`upper_error` proves q<=value(upper q n)<=q+half^n for nonnegative q.
+`relative_step_budget` converts a relative rational time bound to the
+EXACT natural step budget consumed by the previous energy theorem.
+
+`PositiveRealDyadicTimeData.PositiveTime` retains a supplied CReal,
+its Type-level QCauchy modulus, a positive rational floor and the index
+after which the floor holds. These are numerical time data, not a new
+YM analytic premise. `approximation` shifts past that index and rounds
+upward; `approximationModulus D epsilon` is
+max(D.cauchy.M(half*epsilon),halfCutoff(half*epsilon)).
+`approximationCauchy` retains the actual rational modulus, and
+`approximationReal_equiv` proves equality with the ORIGINAL supplied
+real time. `rational` constructs all these data for any positive rational.
+
+`BF4ExactSlabThermodynamicPositiveTimeAction.mesh_close_bound` compares
+arbitrary meshes with a common positive time floor b: two-sided rational
+time error<=b*half^k gives original squared-distance error<=half^k*||x||^2.
+`timeModulus` applies the numerical modulus at
+D.floor*half^(rangeModulus X epsilon). Thus `timeRows` constructs
+original operator Cauchy data and `positiveAction` descends its row limit
+to the SAME original completion. `actionCertificate` supplies output
+Cauchy data, their original quotient pin, and convergence rate
+`convergenceModulus` (the row-limit rate, using epsilon/16).
+Rational linearity, symmetry, positivity and contraction are proved
+through exact original pairing limits, not assumed.
+
+`BF4ExactSlabThermodynamicPositiveTimePins.positiveAction_time_congr`
+compares already-constructed limits at the smaller of two positive floors.
+Different numerical representations of the SAME real time give identical
+original operators. Prop-valued Equiv is used only in this equality
+proof, never to choose any output representative or modulus.
+`dyadicPinModulus` is the computed half-power cutoff for
+value(p)*half^(rangeModulus X epsilon); `positiveAction_dyadic` and
+`realTimeAction_dyadic` recover EVERY pre-existing positive dyadic action
+exactly. `positiveAction_unit` and `positiveAction_center` retain the
+original unit and centering. `realTimeAction` descends to `PositiveTimeValue`;
+`realValue_injective` pins that quotient injectively to the original RC
+time value. No state or time representative is selected from a quotient.
+
+NEXT: construct sum-time numerical data and prove that positive real-time
+addition gives composition. The positive-real-time OPERATOR FAMILY and
+its exact dyadic pins are CLOSED, NOT yet the real-time semigroup law.
+Density of the T2 range, zero transfer kernel and full-space time-zero
+continuity remain OPEN. Geometric T1 identification, full spectral
+realization, canonical comparisons, quotient-level completeness/time
+injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and
+spacing only. No new hole, physical input, canonical type/atom/flag,
+weight or surrogate; no beta/spacing-uniform physical gap is asserted.
+
+Verification: four focused monitored modules, 18+17+23+21=79 exactly
+matched gates within {propext, Quot.sound}, 13 axiom-free. Clean final
+logs and fresh own/direct-import artifacts. Safe-build skill: one worker,
+explicit 20 GiB ceiling, separate process/swap preflights; no raised
+options or full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-dyadic-time-rationals.log`
+(`2888bba504175c205d52ec624089e34d7fc859690d1f50ed5c95b2d2893adfe4`),
+`/tmp/ym-positive-real-dyadic-time-data.log`
+(`52f85f59603b14d180e25bd628e0a946c7d10e139abc757e96c61fd499ebf6c2`),
+`/tmp/ym-original-positive-time-action.log`
+(`0b4e750702a708840a7c415c2909fee44e86dbc97c78e2a0b65833b45ffa733f`),
+`/tmp/ym-original-positive-time-pins.log`
+(`205b83f031760b26edbb29eb69dbe8345aac3299f5a761f7f94bf580632b2372`).
+
+**Previous increment (quantitative positive dyadic time continuity on the ORIGINAL carrier):**
 PROGRESS after b574d0f. `BF4ExactSlabThermodynamicDyadicEnergy` proves a
 direct finite energy argument, without a spectral model, inverse,
 zero-kernel hypothesis or change of carrier. `time_form_dominates_norm`
@@ -47,8 +116,10 @@ the threshold as Type-level data. A positive anchor s gives the explicit
 increment threshold s/2^k. At s=0 the budget permits only zero increments,
 so NO full-space continuity-at-zero assertion is hidden in this theorem.
 
-NEXT: controlled positive-time Cauchy families and real-time extension,
-retaining exact original time pins. Positive-time RIGHT continuity and
+Subsequent closure: controlled positive-time Cauchy families and a
+representation-independent positive-real-time operator family, retaining
+exact original dyadic pins, are constructed above; time addition is open.
+Positive-time RIGHT continuity and
 zero-time continuity on the T2 RANGE are CLOSED. Density of that range,
 zero transfer kernel, and full-space time-zero continuity are NOT proved.
 Geometric T1 identification, full spectral realization, canonical
@@ -90,7 +161,7 @@ data; `representative_congr` proves its representation independence.
 Subsequent closure: positive-time right continuity and zero-time
 continuity on the T2 range are proved above, with explicit moduli.
 The representation-independent ALGEBRAIC nonnegative dyadic semigroup
-is CLOSED; full-space continuity at zero and real-time extension remain
+is CLOSED; full-space continuity at zero and the real-time semigroup law remain
 open. Geometric T1 identification, full
 spectral realization, canonical comparisons, quotient-level completeness/
 time injectivity, continuous-time/physical spectral/non-Wick pins,

@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [quantitative positive-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean).
+**Latest milestone:** [positive real-time operators on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimePins.lean).
+Every supplied positive real time, with explicit numerical Cauchy data,
+now constructs an operator on the same completed state space. Certified
+dyadic rounding and the energy estimate give computed convergence rates
+and output representatives. Different representations of the same time
+give the same operator; positive dyadic times recover the existing
+operators exactly. Positivity, symmetry, contraction, rational linearity,
+the original unit and centering are retained.
+Four modules passed 79 focused axiom checks within `{propext, Quot.sound}`
+(13 axiom-free); no full-tree run.
+Next: prove that addition of positive real times gives composition.
+This is an operator family, not yet a proved real-time semigroup.
+Full-space continuity at zero, geometric `T1` identification, the
+Hamiltonian, physical-scale control and continuum/Clay remain open;
+nome and spacing are fixed.
+
+**Established energy estimate:** [quantitative positive-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean).
 A finite energy argument now proves
 `||A(t)A(s)x - A(s)x||² <= 2^(-k)||x||²`
 whenever dyadic `t <= s/2^k`. The next finer square root controls each
@@ -24,7 +40,8 @@ an explicit depth threshold. This proves positive-time right continuity
 on every original state, and continuity at zero on the range of `T2`.
 One module passed 29 focused axiom checks within `{propext, Quot.sound}`;
 no full-tree run.
-Next: controlled positive-time Cauchy families and real-time extension.
+Controlled positive-time Cauchy families and the positive-real-time
+operator family are now constructed above; its time-addition law is open.
 Density of the `T2` range, zero transfer kernel and full-space continuity
 at zero are not proved. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
@@ -42,7 +59,7 @@ Two modules passed 51 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
 Quantitative positive-time right continuity and zero-time continuity on
 the `T2` range are now proved above. Full-space continuity at zero and a
-real-time extension are not established; the possible kernel of `T2`
+real-time semigroup are not established; the possible kernel of `T2`
 remains open. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
 are fixed.

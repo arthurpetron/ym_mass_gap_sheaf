@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED quantitative positive dyadic time continuity on the ORIGINAL carrier (2026-09-14)
+## CLOSED positive real-time operator family on the ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Constructive/DyadicTimeRationals.lean`,
+  `lean/YMGap/Continuum/PositiveRealDyadicTimeData.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimeAction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimePins.lean`.
+- **closed numerical approximation**: `value_le_iff`, `value_eqv_iff`
+  and `value_refine` pin mesh arithmetic to exact rational time.
+  `upper_error` certifies computed upward dyadic rounding;
+  `relative_step_budget` supplies the precise natural energy budget.
+  `PositiveTime` carries ordinary numerical CReal/QCauchy/floor/start
+  data, NOT a physical analytic input. `rational` supplies instances;
+  `approximationCauchy` computes a modulus and `approximationReal_equiv`
+  identifies the stream with the ORIGINAL supplied real time.
+- **closed original limit construction**: `mesh_close_bound` transfers
+  two-sided rational time errors with a positive floor into original
+  squared-distance bounds. `timeRows` computes actual operator Cauchy
+  data; `positiveAction` is its limit on the SAME original completion.
+  `actionCertificate` returns output Cauchy data and convergence rate
+  with their exact quotient pin. State-representative independence,
+  symmetry, positivity, contraction and rational linearity are proved.
+- **closed same-time and same-operator pins**:
+  `positiveAction_time_congr` proves independence of supplied time
+  representatives by comparing already-constructed limits. No modulus
+  or output data are extracted from the legacy Prop-valued Equiv.
+  `dyadicPinModulus` is explicit; `positiveAction_dyadic` and
+  `realTimeAction_dyadic` recover every original positive dyadic action.
+  The original unit and centering are retained. `realValue_injective`
+  pins the time quotient to the original RC time value. No time/state
+  quotient representative is selected.
+- **open residue**: the positive-real-time ADDITION/COMPOSITION law;
+  density of the T2 range; zero transfer kernel; full-space time-zero
+  continuity; geometric T1 identification; full spectral realization;
+  canonical comparisons; quotient-level completeness/time injectivity;
+  continuous-time/physical spectral/non-Wick pins; continuum scaling;
+  other groups and Clay. This is an operator family, NOT yet a proved
+  real-time semigroup. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate; no
+  beta/spacing-uniform physical gap is asserted.
+- **verification**: 79 exactly matched focused gates within
+  {propext, Quot.sound}, 13 axiom-free; clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate preflights; no raised options or full build/audit/guard/
+  progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED quantitative positive dyadic time continuity on the ORIGINAL carrier (2026-09-14)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean`.
 - **closed energy inequality**: `time_form_dominates_norm` uses the
@@ -35,9 +80,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   epsilon/(normCap X+1). At positive anchor s the time threshold is
   s/2^k. A zero anchor permits only zero increments, NOT a full-space
   time-zero continuity conclusion.
-- **open residue**: controlled positive-time Cauchy families and
-  real-time extension; density of the T2 range; zero transfer kernel;
-  full-space continuity at zero; geometric T1 identification; full
+- **subsequent closure**: controlled positive-time Cauchy families and
+  the original positive-real-time operator family, with exact dyadic
+  pins, are constructed above; its time-addition law remains open.
+- **open residue**: real-time semigroup law; density of the T2 range;
+  zero transfer kernel; full-space continuity at zero; geometric T1 identification; full
   spectral realization; canonical comparisons; quotient-level
   completeness/time injectivity; continuous-time/physical spectral/
   non-Wick pins; continuum scaling; other groups and Clay. Fixed SU(2)
@@ -75,7 +122,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **subsequent closure**: positive-time right continuity and zero-time
   continuity on the T2 range are quantitative in the latest entry.
 - **open residue**: full-space time-zero continuity;
-  real-time extension; geometric T1 identification; full spectral
+  real-time semigroup law; geometric T1 identification; full spectral
   realization; canonical comparisons; quotient-level completeness/time
   injectivity; continuous-time/physical spectral/non-Wick pins;
   continuum scaling; other groups and Clay. The possible kernel of T2
@@ -119,7 +166,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   NOT a proof that this kernel vanishes.
 - **subsequent closure**: representation-independent nonnegative dyadic
   indexing and addition are proved in the latest entry.
-- **open residue**: full-space time-zero continuity, real-time extension,
+- **open residue**: full-space time-zero continuity, real-time semigroup law,
   geometric T1 identification, full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,

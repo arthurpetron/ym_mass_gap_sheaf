@@ -4290,6 +4290,12 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicTimeMeshes
 import YMGap.Constructive.NonnegativeDyadicTime
 import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicSemigroup
 import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicEnergy
+-- Positive real-time limits retain the original action and exact dyadic
+-- pins; time addition and full-space continuity at zero remain open.
+import YMGap.Constructive.DyadicTimeRationals
+import YMGap.Continuum.PositiveRealDyadicTimeData
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveTimeAction
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveTimePins
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
