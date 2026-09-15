@@ -4385,6 +4385,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState
 import YMGap.Continuum.QuaternionHaarPolynomialCorrectorStability
 import YMGap.Continuum.BF4ExactSlabCorrectedCutoffNorm
 import YMGap.Continuum.BF4ExactSlabThermodynamicCorrectedState
+-- An inward site test retains the original zero-lag pairing and has a
+-- normalized source-only cap. The transfer-relative Schwarz estimate and
+-- arbitrary-state range/time-zero consequence remain open.
+import YMGap.Continuum.BF4ExactSlabSiteInwardTest
+import YMGap.Continuum.BF4ExactSlabSiteInwardTestNorm
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

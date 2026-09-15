@@ -119,7 +119,75 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED joint corrected-state limit and original re-dressing equality; OPEN actual-transfer comparison):**
+**Latest mathematical increment (CLOSED original inward-site test, normalized cap and thermodynamic pin; OPEN transfer-relative Schwarz estimate):**
+PROGRESS after `fa356fb`. The next proposed inequality is
+B(f,e)^2 <= bound(f)*B(e,T1 e), with the ORIGINAL B and geometric T1,
+arbitrary original e, and a cap depending only on the fixed test f.
+The existing consumers are `ThermodynamicRangeApproximation.partialPreimage_distance`
+and `ThermodynamicZeroTimeCertificate.certificateOfRangeApproximation`.
+They need an explicit small residual / approximate preimage, not an exact
+heat inverse. This increment constructs the actual test and its bound;
+it does not yet supply the displayed inequality or residual modulus.
+
+`BF4ExactSlabSiteInwardTest.inward` moves an original expression by space
+one and time two into base+1. Relative to the old zero-lag insertion, this
+is one step inward toward the adjacent site plane. `inward_face_not_upper`
+and `inward_oneSided` include fixed-slice spatial faces and temporal faces
+ending there. All boundary-touching original generators are covered.
+`inwardSquareBound` retains the original syntactic cap. The actual oriented
+plaquette reflection gives `inward_reflection`; `mixed_insertion_pin` is the
+EXACT old zero-lag reflected product on the same enlarged carrier.
+
+`BF4ExactSlabSiteInwardTestNorm.finite_upper` evaluates a supplied positive
+polynomial cap in the FULL original face action and cancels its SAME finite
+partition exactly. `expectation_upper` passes through the old cutoff limit.
+`upperSquareBound`, `diagonal_pin` and `site_diagonal_bound` construct the
+literal inward test's site norm bound <=bound(f). It is independent of
+volume/margin/cutoff and action nome WITHIN the explicit 0<w<1,
+heatRatio(w)<=1/2, heatRemainderBound(w)<1 guards. This is a size bound, not
+a decay or mass-gap estimate. The source expression still determines its cap.
+
+`mixed_expectation_pin` identifies the actual mixed normalized site form
+with the old reflected spacetime insertion. At the existing SU(2) nome
+1/1024, `mixedSequence`, `mixedVolumeModulus`, `mixed_close` and
+`mixed_thermodynamic_converges` reach the EXISTING `formLimit` of the two
+zero-lag base+1 presentations. The volume threshold is computed from the
+old even-volume modulus at half tolerance; no limit or modulus is selected
+from bare existence. No new carrier, changed action, inverse-heat assumption
+or multiplication of OS quotient states was introduced.
+
+Next: prove full-action site Cauchy--Schwarz (retaining the shared-slice
+weight), combine its first diagonal with the EXISTING `SiteOneStepForm`
+pin and its test diagonal with this new bound, and pass to the original
+thermodynamic pairing. Then extend the FIRST argument with the test fixed.
+Only a proved estimate may feed the existing defect-moment/partial-preimage
+machinery. The older collar-correction results remain valid but are not
+premises of this proposed shorter argument. Do not replace the original
+carrier by a range closure without a canonical correspondence theorem.
+
+OPEN: the transfer-relative inequality, completed extension, arbitrary-state
+residual modulus/range/injectivity, full-space time zero, physical Hamiltonian,
+beta(a)/spacing, continuum/QFT, other compact simple groups and Clay.
+No canonical field/type/atom/flag, analytic hypothesis, axiom or literal hole
+changed. Legacy scorecards enumerate none of this local analytic step.
+
+Verification: 8 + 14 exact public gates, all with {propext, Quot.sound}.
+Public/gate/log names match exactly; final logs are clean; own and direct
+dependency artifacts are fresh; forbidden-source and option checks passed.
+Safe-build skill: six focused launches (two geometry, four normalization),
+one worker/20 GiB and a separate process/swap preflight each time; swap
+remained at 12109.31 MiB. The repairs were a final arithmetic contradiction,
+one local two-argument congruence and an explicit support namespace; no
+statement weakened or limit raised. No dependency rebuild or full build/
+audit/guard/progress run. Two additive root imports; root not compiled.
+CI remains manual-only. Final logs/SHA-256:
+
+- `/tmp/ym-site-inward-test.log`:
+  `cee7b77b73f4451e5dc79b8111abed511556e82fc70ff440171c86d35d029e0f`.
+- `/tmp/ym-site-inward-test-norm.log`:
+  `383cd16c297443df95a643ee287d302f8c3409691536923d71aaf2ea6cda48c0`.
+
+**Previous mathematical increment (CLOSED joint corrected-state limit and original re-dressing equality; then-OPEN actual-transfer comparison):**
 PROGRESS after `4b5b624`. The actual canonical collar corrections now have
 joint heat-cutoff/order control in the EXISTING original OS completion.
 This is the missing corrected-expression limit, not another preimage compiler.

@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the original collar corrections now have a joint cutoff/order limit](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean).
+**Latest analytic result:** [a bounded inward test is pinned to the original reflected pairing](lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean).
+Moving the reflection plane to the adjacent time slice permits an arbitrary
+original plaquette expression to move one step inward, including its
+boundary-touching terms. Its site-reflected mixed product is exactly the
+original zero-lag product. Its site squared norm is bounded by the original
+expression's computed square cap, with the full action and its partition
+unchanged. The mixed identity reaches the existing thermodynamic form with
+an explicit volume modulus.
+
+This supplies the concrete test for a shorter proposed transfer-relative
+Cauchy--Schwarz argument. That inequality and its completed-space extension
+are **not yet proved**; neither range density nor full-space time zero is
+claimed. The finite bound has explicit small-nome guards, while the
+thermodynamic pin uses SU(2), nome `1/1024`, fixed spacing. It is a size bound,
+not a mass-gap estimate. All 22 focused constructive axiom checks passed;
+no full-tree run or raised resource limits. The physical Hamiltonian,
+continuum QFT and all-group Clay target remain open.
+
+**Previous analytic result:** [the original collar corrections now have a joint cutoff/order limit](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean).
 The actual existing corrections `e * G_K(H_K-1)` converge in the **existing
 OS completion**, with an explicit source-dependent, volume-independent
 modulus. Both the heat cutoff and correction order increase together.

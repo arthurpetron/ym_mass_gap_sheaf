@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED joint corrected-state limit and original re-dressing equality; OPEN actual-transfer comparison (2026-09-15)
+## CLOSED original inward-site test, normalized cap and thermodynamic pin; OPEN transfer-relative Schwarz estimate (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTest.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean`.
+- **actual test**: `inward` is an original expression shifted one step
+  inward relative to the zero-lag base+1 placement. `inward_oneSided` admits
+  fixed-slice spatial faces and temporal faces ending there, including all
+  boundary-touching generators. `inwardSquareBound` keeps the old cap.
+  `inward_reflection` and `mixed_insertion_pin` use the actual oriented
+  reflection to recover the old zero-lag upper and mixed product.
+- **normalized bound**: `finite_upper` retains every original heat factor
+  and cancels the SAME finite partition; `expectation_upper` passes to the
+  old cutoff limit. `upperSquareBound`, `diagonal_pin` and
+  `site_diagonal_bound` prove the literal test's site norm <=bound(f),
+  uniformly in margin/volume/cutoff and w within the displayed small-nome
+  guards. This cap depends on f and is not decay or a spectral gap.
+- **same-object limit**: `mixed_expectation_pin` gives the original mixed
+  normalized spacetime expectation. `mixedSequence`, `mixedVolumeModulus`,
+  `mixed_close` and `mixed_thermodynamic_converges` retain an explicit
+  volume threshold and reach the old formLimit of the two zero-lag base+1
+  presentations at SU(2) nome 1/1024 and fixed spacing.
+- **open residue / consumer**: full-action site Cauchy--Schwarz and the
+  old one-step diagonal pin must still be composed to prove
+  B(f,e)^2 <= bound(f)*B(e,T1 e). Its completed-first-argument extension
+  and small residual modulus are NOT supplied. The actual consumers remain
+  `partialPreimage_distance` and `certificateOfRangeApproximation`.
+  No original-carrier change or inverse-heat premise. Range/injectivity,
+  full-space time zero, physical Hamiltonian, beta(a)/spacing,
+  continuum/QFT, other compact simple groups and Clay remain open.
+  No canonical field/type/atom/flag, analytic premise, axiom or literal hole
+  changed; legacy scorecards enumerate none of this local analytic step.
+- **verification**: 22 exact public gates, all {propext, Quot.sound}; clean
+  logs, exact name mappings, fresh own/direct artifacts and source checks.
+  Six focused safe launches with separate preflights, one worker/20 GiB;
+  no raised limits, dependency rebuild or full-tree run. Two additive root
+  imports, not compiled. CI remains manual-only. Scope/hashes in work_plan.
+
+## Previous CLOSED joint corrected-state limit and original re-dressing equality; then-OPEN actual-transfer comparison (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialCorrectorStability.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean`, and

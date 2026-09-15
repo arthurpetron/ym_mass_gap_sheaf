@@ -1,6 +1,44 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest joint-correction follow-up, 2026-09-15, after `4b5b624`: the actual
+## Original inward-site test and normalized cap (2026-09-15)
+
+Follow-up after `fa356fb`. This is a concrete test for a proposed shorter
+transfer-relative inequality; the inequality itself is not yet proved.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Original expression moved inward | `inward`, `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTest.lean:61` | Space shift one, time shift two into base+1; original finite syntax and physical holonomies. |
+| Original cap retained | `inward_bound`, same file `:70`; `inwardSquareBound`, same file `:79` | Old expression cap; no coupling, cutoff or margin dependence. |
+| All original generators remain one-sided | `inward_face_not_upper`, same file `:85`; `inward_oneSided`, same file `:103` | Fixed-slice spatial faces allowed; temporal faces end there. Boundary-touching terms are not discarded. |
+| Actual reflection and mixed product | `inward_face_reflection`, same file `:119`; `inward_reflection`, same file `:130`; `mixed_insertion_pin`, same file `:150` | Site reflection produces the original zero-lag upper insertion and its original mixed product, with temporal orientation retained. |
+| Original finite normalization | `finite_upper`, `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean:88`; `expectation_upper`, same file `:98` | Full original face action; exact same-partition cancellation. Explicit 0<w<1, heatRatio(w)<=1/2 and heatRemainderBound(w)<1. |
+| Literal site norm bounded | `upperSquareBound`, same file `:130`; `diagonal_pin`, same file `:141`; `site_diagonal_bound`, same file `:163` | Bound(f), independent of volume/margin/cutoff/w within the guards; this is a size bound, not decay or a gap. |
+| Original normalized mixed identity | `mixedInsertion`, same file `:174`; `mixed_expectation_pin`, same file `:178` | Actual site expression equals the normalized old zero-lag spacetime expectation. |
+| Explicit same-object volume limit | `mixedSequence`, same file `:187`; `mixedVolumeModulus`, same file `:193`; `mixed_close`, same file `:197`; `mixed_thermodynamic_converges`, same file `:217` | Old formLimit of zero-lag base+1 presentations, existing SU(2) nome 1/1024. Volume threshold computed from the old even-volume modulus at half tolerance. |
+
+The existing first-diagonal pin is `oneStepExpression` /
+`site_expectation_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabSiteOneStepForm.lean:133` / `:155`.
+**NOT FOUND in the two new modules:** a proof of
+B(f,e)^2 <= bound(f)*B(e,T1 e), its completed-first-argument extension,
+or an arbitrary-state small residual modulus. The next required mathematical
+step is the full-action site Cauchy--Schwarz estimate, with the original
+shared-slice weight retained, followed by these same-object pins.
+The intended existing consumers remain `partialPreimage_distance`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeApproximation.lean:89`,
+and `certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`.
+The original carrier is unchanged; no range-closure substitution or
+inverse-heat hypothesis is asserted. Full-space time zero, physical
+Hamiltonian, continuum/QFT, all compact simple groups and Clay remain open.
+
+Twenty-two exact public gates passed within {propext, Quot.sound}; no
+canonical field, analytic premise or hole changed. Six focused safe checks,
+one worker/20 GiB, no raised limits or full-tree run. Exact scope and hashes
+are in `work_plan.md`. Earlier NOT FOUND statements retain their historical
+and named-module scope.
+
+Previous joint-correction follow-up, 2026-09-15, after `4b5b624`: the actual
 canonical collar corrections now converge with BOTH heat cutoff and correction
 order increasing. Re-dressing the same samples recovers the original completed
 state. No product of OS quotient classes or actual-transfer inverse is asserted.
