@@ -1,6 +1,38 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest reflected-local-comparison follow-up, 2026-09-15, after `08bf7a4`:
+Latest original-norm heat-cutoff follow-up, 2026-09-15, after `e2067ac`:
+actual changing heat-dressed source expressions now form a constructed Cauchy
+sequence in the EXISTING thermodynamic completion. This is a state-cutoff
+limit, not a changed-action comparison or an inverse-correction limit.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Spin-only omitted heat block | `heatBlock_bound`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:41`; `faceTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:59` | delta(w)*2^(-K), every omitted length L and physical extent, explicit 0<=w<=1 and heatRatio(w)<=1/2. |
+| Shared-variable region remainder | `tailConstant`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:70`; `productTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:82` | Computed nonnegative S(w,n); cap S(w,|R|)*2^(-K). Actual shared links retained; no factor-independence assertion. |
+| Actual original expressions | `dressed`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:60`; `difference`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:64` | Original e*H_(K+L)-e*H_K on one fixed lower source region. |
+| Both sides under actual enlargement | `bulkLowerSquare`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:121`; `bulkUpperSquare`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:138` | Same bound(e)*(S(w,|R|)*2^(-K))^2 for every padding and allowed lag; embedded source region, not a newly chosen target-volume region. |
+| Existing normalized forms | `bulk_norm_bound`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:156`; `thermodynamic_norm_bound`, `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:165` | Full finite action at any separate 0<v<1, then OLD thermodynamic form at action nome 1/1024. No reciprocal partition ceiling. |
+| Explicit cutoff modulus | `cutoffConstant`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:54`; `cutoffModulus`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:63`; `cutoff_budget`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:67` | Computed from bound(e)*S(w,|R|)^2 and epsilon. Source dependence remains; no volume/padding/increment argument. |
+| Old presentation-distance pin and Cauchy proof | `sample_distance`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:104`; `sample_cauchy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:123` | Actual old same-base difference, both cutoff indices arbitrary beyond the computed modulus. |
+| Constructed original completed state | `cauchy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:138`; `state`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:145`; `state_approximation`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:150` | Returns the actual representative and quotient state, plus every sufficiently large cutoff's old completed-distance error. No supplied convergence field or quotient representative selection. |
+| Concrete selected-face source region | `selectedRegion`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:159`; `selectedRegion_lower`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:172`; `selectedRegion_length_le`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:182`; `selectedState`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:186`; `selectedState_approximation`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:191` | EXACT previous nearIds over otherFaces; at most five, all lower. Same state-cutoff theorem, not removal of an action factor. |
+
+**NOT FOUND in these three modules:** cutoff convergence of inverse-corrected
+expressions, a changed-action comparison or bounded multiplication/dual operator
+on arbitrary original OS classes, or an actual T2 approximate preimage for
+`certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`.
+The preceding `comparisonDegree`,
+`lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:165`, still takes
+the insertion e and touching B; its factor is not an operator bound uniform
+over e. These missing original-norm/range steps remain ledgered.
+No beta(a)/spacing, full-space time zero, physical Hamiltonian, continuum/QFT
+or all-group Clay closure is asserted. Twenty-seven exact public gates passed
+within {propext, Quot.sound}; no new analytic premise/canonical field and no
+full-tree run. Exact scope and hashes are in `work_plan.md`. Earlier NOT FOUND
+statements retain their named-module/historical scope.
+
+Previous reflected-local-comparison follow-up, 2026-09-15, after `08bf7a4`:
 local selection and positive comparison now concern the SAME complete
 reflection-compatible physical action. The comparison factor no longer
 depends on selected or distant cutoffs; the touching cutoff B remains fixed.

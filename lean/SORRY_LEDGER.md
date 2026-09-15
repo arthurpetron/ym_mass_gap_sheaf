@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED reflected local comparison with cutoff saturation; OPEN touching-cutoff original-norm control (2026-09-15)
+## CLOSED local-heat state cutoff limit in the original OS completion; OPEN inverse-correction/action/range bridge (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean`.
+- **signed local estimate**: `heatBlock_bound`, `faceTailInterval` and
+  `productTailInterval` bound the actual omitted heat terms and shared-link
+  product remainder by S(w,|R|)*2^(-K). `tailConstant` returns S by recursion.
+  `difference` is the actual original expression e*H_(K+L)-e*H_K; prefix
+  cancellation precedes absolute bounds. `bulkLowerSquare` and
+  `bulkUpperSquare` preserve its source region through actual embeddings.
+- **original normalization and limits**: `bulk_norm_bound` proves squared
+  OS norm <= bound(e)*(S(w,|R|)*2^(-K))^2 in the complete original action,
+  any separate action nome 0<v<1, every padding/allowed lag. Its own partition
+  cancels; no 1/Z ceiling. `thermodynamic_norm_bound` reaches the pre-existing
+  formLimit at action nome 1/1024. Test nome w satisfies explicit smallness.
+- **actual completed consumer**: `cutoffConstant`, `cutoffModulus` and
+  `cutoff_budget` compute and certify a source-dependent order, independent
+  of volume, padding and cutoff increment. `sample_distance` pins the old
+  presentation distance. `cauchy` / `state` return an actual original Cauchy
+  witness and state in the EXISTING completion. `state_approximation` gives
+  the original completed-distance bound at every K beyond that order.
+  `selectedRegion_lower` / `selectedRegion_length_le` locate the preceding
+  local selection's at-most-five touching faces; `selectedState` and its
+  approximation theorem instantiate the result there.
+- **open residue**: this is convergence of heat-dressed SOURCE states, not
+  changing actions or inverse-corrected states. The preceding local comparison
+  degree depends on the insertion and therefore supplies no uniform bounded
+  multiplication/dual operator. Inverse-correction control, original-norm
+  changed-action/dual comparison and the actual T2 identity/preimage remain
+  unsupplied. Range/injectivity, full-space time zero, physical Hamiltonian,
+  beta(a)/spacing, continuum/QFT, other compact simple groups and Clay remain
+  open. No canonical field/type/atom/flag, analytic premise, axiom or literal
+  hole changed; legacy scorecards enumerate none of this local analytic step.
+- **verification**: 27 exact public gates within {propext, Quot.sound}; one
+  axiom-free and five propext-only. Exact gate/log mapping, clean logs,
+  own/direct freshness and source checks passed. A generic list-erasure
+  lemma's Classical.choice dependency was removed by a direct Nat proof,
+  not quarantined or accepted. Ten safe one-worker/20-GiB focused launches
+  with separate preflights and unchanged swap; no dependency rebuild,
+  full-tree run or raised limits. Three additive root imports, not compiled.
+  Exact scope and log hashes are in `work_plan.md`.
+
+## Previous CLOSED reflected local comparison with cutoff saturation; then-OPEN touching-cutoff original-norm control (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabProfileOriginalInterface.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean`, and

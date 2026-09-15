@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest finite result:** [a positive local comparison on the full reflected action](lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean).
+**Latest analytic result:** [local heat cutoffs converge in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean).
+For a fixed original source expression `e` and finite lower face region `R`,
+the actual states `e * H_K(R)` now have a computed Cauchy modulus. Their
+cutoff difference has squared OS norm at most
+`bound(e) * (S(w, |R|) * 2^(-K))^2`, independently of volume, padding and
+cutoff increment. The common heat prefix is cancelled before bounding the
+signed remainder; the full original action keeps its own normalization.
+
+This constructs a state in the **existing** thermodynamic completion and
+certifies every sufficiently large cutoff's completed-distance error. The
+actual at-most-five other faces touching a selected crossing link provide
+a concrete instance. The test nome `w` has an explicit smallness guard;
+the thermodynamic action remains SU(2), nome `1/1024`, fixed spacing.
+
+This controls changing **heat-dressed states**, not changing actions,
+inverse corrections or a bounded multiplication operator on all completed
+states. The actual transfer preimage is still missing. Twenty-seven focused
+constructive axiom checks passed; no full-tree run or raised resource limits.
+Range/injectivity, full-space time zero, physical Hamiltonian, continuum
+and the all-group Clay target remain open.
+
+**Previous finite result:** [a positive local comparison on the full reflected action](lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean).
 The lower heat profile now determines its actual reflected upper profile.
 The complete original action is identified with the same-channel Gram form,
 so positivity and cutoff selection apply to **the same object**.
@@ -35,8 +56,9 @@ selected face's nome to one; every other heat factor remains unchanged.
 
 `D` still depends on `B`, the insertion, nomes and extent. This is an
 unnormalized finite comparison, **not** a completed OS-norm or mass-gap theorem.
-The next task is touching-cutoff/error control in the original normalized
-thermodynamic norm. Forty-six focused constructive axiom checks passed;
+The source-state heat-cutoff estimate above supplies part of the next
+original-norm control, not a changed-action or range comparison. Forty-six
+focused constructive axiom checks passed;
 no full-tree run or raised resource limits. Range, full-space time zero,
 physical Hamiltonian and continuum/Clay closure remain open.
 

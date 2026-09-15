@@ -119,7 +119,74 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED reflected local comparison with cutoff saturation; OPEN touching-cutoff original-norm control):**
+**Latest mathematical increment (CLOSED local-heat state cutoff limit in the original OS completion; OPEN inverse-correction/action/range bridge):**
+PROGRESS after `e2067ac`. The previous comparison degree depends on the
+insertion: its positive factor is NOT a bounded original-OS operator estimate.
+This increment instead controls the actual changing source expressions
+`e * H_K(R)` in the EXISTING normalized original form and completion.
+
+`BF4ExactSlabLocalHeatTailInterval.heatBlock_bound` and `faceTailInterval`
+give delta(w)*2^(-K) for every omitted block above K, with no extent or tail
+length loss. `tailConstant` computes S(w,n) by the nonnegative recursion
+S_0=0, S_(n+1)=(1+delta)*S_n+delta*(1+delta)^n.
+`productTailInterval` bounds the actual shared-variable product remainder
+by S(w,|R|)*2^(-K); it does not assert independent face variables.
+
+`BF4ExactSlabLocalHeatCutoffNorm.difference` is the signed difference of
+the EXISTING expressions at K+L and K. The proof cancels their common heat
+prefix before estimating. `bulkLowerSquare` and `bulkUpperSquare` transport
+the SAME source region through actual bulk embeddings and reflection.
+`bulk_norm_bound` gives bound(e)*(S(w,|R|)*2^(-K))^2 for every padding and
+allowed lag in the complete normalized action at any separate 0<v<1.
+`thermodynamic_norm_bound` passes this estimate to the old formLimit at its
+fixed action nome 1/1024. The test nome w retains 0<=w<=1 and heatRatio(w)<=1/2.
+No reciprocal partition ceiling or changing-observable limit inference occurs.
+
+The concrete consumer `BF4ExactSlabThermodynamicLocalHeatState.cutoffModulus`
+computes an order from bound(e)*S(w,|R|)^2 and epsilon using the old geometric
+budget. `sample_distance` identifies original presentation distance with the
+same difference form. `sample_cauchy`, `cauchy` and `state` construct an
+actual original Cauchy representative and its old completed state;
+`state_approximation` certifies EVERY K beyond that explicit order.
+`selectedRegion` is exactly the preceding local selection's other touching
+faces, `selectedRegion_lower` proves they are lower, and
+`selectedRegion_length_le` bounds their number by FIVE. `selectedState`
+and `selectedState_approximation` instantiate the construction on that region.
+Under enlargement this remains the embedded SOURCE region, not a newly
+chosen region of the target volume. Source expression, size and test nome
+remain in the modulus; padding/volume and cutoff increment do not.
+
+OPEN: convergence/control of inverse-corrected expressions and the needed
+changed-action or dual-test comparison; neither follows from convergence of
+heat-dressed states. No multiplication operator on arbitrary OS classes or
+arbitrary-state preimage for `ZeroTimeCertificate.certificateOfRangeApproximation`
+is supplied. Range/injectivity, full-space time zero, physical Hamiltonian,
+beta(a)/spacing, continuum/QFT, other compact simple groups and Clay remain
+open. No canonical field/type/atom/flag, analytic premise, axiom or literal
+hole changed. Next work must identify and prove the needed corrected-state
+or original-norm dual estimate and actual-T2 identity, not add another
+conditional preimage compiler.
+
+Verification: 5 + 6 + 16 exact public gates within {propext, Quot.sound};
+one axiom-free, five propext-only, twenty-one with both. Clean final logs,
+exact public/source/log name agreement and fresh own/direct artifacts;
+no forbidden source tokens/options. Fixes were namespace qualification, a
+closed rational computation, an unused pattern variable, and replacement
+of the classical generic `List.Nodup.mem_erase_iff` path with a direct Nat
+permutation proof. No statement weakened. Safe-build skill: ten focused
+launches, one worker, explicit 20 GiB, separate process/swap preflights;
+swap stayed at 12157.31 MiB. No raised limits, dependency rebuild or full
+build/audit/guard/progress run. Three additive root imports; root not compiled.
+Final logs/SHA-256:
+
+- `/tmp/ym-local-heat-tail-interval.log`:
+  `63e1bfe142b5ef7163e8bdbbb20001d4bd870c25e8de6d01245e846e0c69babe`.
+- `/tmp/ym-local-heat-cutoff-norm.log`:
+  `5476813ab4610eb1c99790d2c172cc9086eaf3a45f0f13b381ca294ab18e5107`.
+- `/tmp/ym-thermodynamic-local-heat-state.log`:
+  `269957e55a4e9bc1a99ec26dd90d170dcc6b6d6806683a9042b73dd472209ded`.
+
+**Previous mathematical increment (CLOSED reflected local comparison with cutoff saturation; then-OPEN touching-cutoff original-norm control):**
 PROGRESS after `08bf7a4`. The local-selection and same-channel comparison
 branches now compose on the COMPLETE original reflection-compatible action.
 

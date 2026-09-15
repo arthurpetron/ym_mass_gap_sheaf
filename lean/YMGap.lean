@@ -4373,6 +4373,12 @@ import YMGap.Continuum.BF4ExactSlabLocalBulkCutoff
 import YMGap.Continuum.BF4ExactSlabProfileOriginalInterface
 import YMGap.Continuum.BF4ExactSlabReflectedHeatProfiles
 import YMGap.Continuum.BF4ExactSlabReflectedLocalCutoff
+-- Signed local-heat tails give an explicit cutoff modulus for actual original
+-- heat-dressed states, including the five-face source region. Changing actions,
+-- inverse corrections and the original T2 range comparison remain open.
+import YMGap.Continuum.BF4ExactSlabLocalHeatTailInterval
+import YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
+import YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
