@@ -1,5 +1,30 @@
 # Actual T2, collar tests, and the missing range estimate
 
+Latest finite follow-up, 2026-09-15, after `941b2ae`: the integer-slice
+conditional-square calculation is now proved for arbitrary supported one-sided
+polynomials, with the boundary polynomial computed from their original monomials.
+This addresses a finite input to the separate geometric T1 positivity branch,
+not the missing T2 range estimate. The full heat-weighted thermodynamic T1 pin
+is not a theorem of the modules below.
+
+| Finite result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual side exchange | `blockSide_reflection`, `lean/YMGap/Continuum/BF4ExactSlabSiteHaarFactorization.lean:64` | Existing boundary-complete even slab and literal link reflection. |
+| Shared-slice factorization | `pairing_factor`, `lean/YMGap/Continuum/BF4ExactSlabSiteHaarFactorization.lean:107`; `sum_pairing`, `lean/YMGap/Continuum/BF4ExactSlabSiteHaarFactorization.lean:211` | Strict halves integrate separately; the shared spatial-link Haar integral and every signed mixed term remain. |
+| Boundary reflection is proved | `boundary_reflection`, `lean/YMGap/Continuum/BF4ExactSlabSiteBoundaryReflection.lean:135` | Finite block locality implies the actual polynomial reflection identity. No supplied reflection premise in the final result. |
+| Computed original monomial split | `pieces`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:111`; `pieces_pin`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:116` | Every one-sided input polynomial is reproduced on its declared carrier. Support is separately required before taking the full Haar identity. |
+| Witnessing boundary polynomial | `conditionalPolynomial`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:124`; `conditional_local`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:132` | Explicit finite data on the shared slice, not an original OS state or a transfer preimage. |
+| Original unweighted reflected square | `conditional_square`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:138`; `one_sided_reflection_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean:167` | H(theta(p)*p)=H(C(p)*C(p))>=0 for arbitrary supported one-sided polynomials. No heat action or beta-uniform rate occurs. |
+
+The three new modules passed 40 exact public axiom gates within
+{propext, Quot.sound}; final focused logs and hashes are in `work_plan.md`.
+No full-tree check. **NOT FOUND in these three modules,**
+`BF4ExactSlabThermodynamicTimeBalance.lean`, or
+`BF4ExactSlabThermodynamicSquareRootAction.lean`: a declaration identifying this
+site Haar square with the full original heat-weighted thermodynamic T1 form.
+That identification and the independently missing original range estimate
+remain open; no canonical field or analytic premise changed.
+
 Latest implementation follow-up, 2026-09-15, after `b0f695b`: the scalar-test
 identification branch is CLOSED through the existing completion. The new
 `completedTest_represented`,

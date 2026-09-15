@@ -119,7 +119,61 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original interacting and completed scalar-test identification):**
+**Latest mathematical increment (CLOSED finite integer-slice conditional square; OPEN heat-weighted T1 pin and range):**
+PROGRESS after `941b2ae` on the distinct geometric one-step positivity branch.
+Source review of the range/interior/collar modules supplied no new unshifted
+boundary-state preimage. The older adjacent-even boundary-character Haar
+quadratic explicitly lacks its physical identification. Instead, the new
+finite calculation works directly with the original quaternion product Haar
+and the actual boundary-complete even-slab reflection, including time-link
+conjugation. It does not import that older auxiliary quadratic as the action.
+
+The argument is a conditional square. Integrate the two strict halves but
+retain their shared spatial slice. `pairing_factor` and `sum_pairing` in
+`BF4ExactSlabSiteHaarFactorization` retain every mixed term of signed finite
+sums. `BF4ExactSlabSiteBoundaryReflection.boundary_reflection` proves the actual
+fixed-slice polynomial reflection from link geometry, rather than requesting
+it as an analytic premise. Finally `BF4ExactSlabSiteConditionalSquare.pieces`
+computes the separated monomials of ANY one-sided polynomial; `pieces_pin`
+reproduces its original carrier prefix. `conditionalPolynomial` returns the
+boundary-local square witness. With explicit original support,
+`conditional_square` proves H(theta(p)*p)=H(C(p)*C(p));
+`one_sided_reflection_nonnegative` proves its nonnegativity. No polynomial
+outside the stated carrier is silently truncated. No cutoff, nome or gap rate
+occurs: the theorem is unweighted finite product Haar, at arbitrary even-slab
+radius and polynomial degree.
+
+NEXT physical edge: retain the ORIGINAL lower/upper heat factors and fixed-slice
+heat weight, then prove the identification with the existing thermodynamic
+geometric one-step form. No declaration in the inspected site/Haar, time-balance
+or square-root modules currently supplies that identification. This finite
+result is intended for that missing edge; it does not itself prove
+`completedInner (completedTime 1 x) x >= 0`, identify T1 with `rootAction`, or
+prove any range estimate. The independently open original range consumer is
+still `partialPreimage_distance`: compute a small-error index for arbitrary
+unshifted original dense states. Full-space time zero, physical Hamiltonian,
+beta(a)/continuum, QFT/spectral pins, other compact simple groups and Clay
+remain open. No canonical field, analytic premise or hole changed.
+
+Verification: 19 + 5 + 16 exact public gates within {propext, Quot.sound};
+two axiom-free and eleven propext-only. Clean final logs; fresh own and direct
+dependency artifacts; focused executable-token/option checks. Initial checks
+were corrected for namespace scope, section-variable inclusion, tactic
+indentation and explicit prefix-versus-reflection transport. A timeout after
+an unknown identifier was resolved by opening the defining namespace, not by
+raising limits. Safe-build skill: one worker, explicit 20 GiB and separate
+process/swap preflights. Swap stayed at 12245.81 MiB. The user's permission to
+raise limits was not needed. Three additive root imports; root not compiled.
+No full build/audit/guard/progress run. Logs/SHA-256:
+
+- `/tmp/ym-site-haar-factorization.log`:
+  `693d1adb89e2ec15fc8c8c805f671864f9efa3a041d3e6d55e3b14d01c62e519`.
+- `/tmp/ym-site-boundary-reflection.log`:
+  `165d001bbaa49706b103b057ef6b85b82cda104426e5f94190b2ea5ca46eac70`.
+- `/tmp/ym-site-conditional-square.log`:
+  `094e4c4a8bfe4a3b1a133269113b23664636bfa231f23e6ac5b0fbd624ff0e37`.
+
+**Previous mathematical increment (CLOSED original interacting and completed scalar-test identification):**
 PROGRESS after `b0f695b`: the scalar-test identification branch is now composed
 through the EXISTING thermodynamic OS completion. `completedTest_eq_pairing`
 proves `completedTest x = (1/128) * completedInner x (embedPresentation <0,probe>)`.

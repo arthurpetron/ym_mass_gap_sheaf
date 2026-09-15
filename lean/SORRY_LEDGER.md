@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original interacting and completed scalar-test identification; OPEN actual-transfer range (2026-09-15)
+## CLOSED finite integer-slice conditional square; OPEN heat-weighted T1 pin and range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteHaarFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSiteBoundaryReflection.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean`.
+- **actual finite geometry**: `blockSide_reflection`, `fixed_link` and
+  `fixed_block` use the existing boundary-complete even slab and its literal
+  link involution. `boundary_reflection` proves every boundary-local polynomial
+  is fixed by the orientation-correct reflection, up to existing common padding.
+- **conditional square**: `pairing_factor` integrates the strict halves while
+  retaining the shared slice. `sum_pairing` preserves signed mixed terms.
+  `pieces` computes a monomial split; `pieces_pin` reconstructs every original
+  one-sided polynomial on its carrier. `conditionalPolynomial` returns the
+  boundary-local polynomial witness. `conditional_square` identifies the
+  ORIGINAL finite Haar reflected quadratic with its Haar square;
+  `one_sided_reflection_nonnegative` proves nonnegativity with no supplied
+  decomposition, positivity or reflection assumption. Original support is
+  explicit. `OneSidedTerm` contains the input term and a finite locality proof,
+  not an analytic input or a frontier bundle.
+- **open residue**: full heat-weighted site factorization and its identification
+  with the EXISTING thermodynamic geometric T1 pairing. No T1 positivity/root
+  identification or original-state range approximation is proved here. The
+  small residual index for unshifted dense states, full-space time zero,
+  physical Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and
+  Clay remain open. No canonical field/type/atom/flag, analytic premise or
+  hole changed. This is finite unweighted Haar, not an OS-norm comparison.
+- **verification**: 40 exact public axiom gates within {propext, Quot.sound},
+  two axiom-free and eleven propext-only. Three focused monitored checks,
+  one worker, explicit 20 GiB, separate preflights, unchanged swap. Namespace
+  and elaboration corrections required no raised limits. Fresh own/direct
+  artifacts; clean final logs. Three additive root imports, not compiled.
+  No full build/audit/guard/progress run. Exact log hashes are in `work_plan.md`.
+
+## Previous CLOSED original interacting and completed scalar-test identification; OPEN actual-transfer range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionAuxiliaryLiftAlgebra.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean`,
