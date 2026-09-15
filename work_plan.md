@@ -18,7 +18,72 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (intrinsic ORIGINAL coefficient norm bounds and exact dense nullity):**
+**Latest increment (bounded ORIGINAL coefficients on the actual completion):**
+PROGRESS after 28147b1. Each intrinsic packet-leaf coefficient now
+descends through the original null quotient and the existing modulated
+completion, with no replacement carrier or choice of representatives.
+
+`BF4ExactSlabIntrinsicChannelQuotient.coefficient_add`, `.coefficient_smul`,
+`.coefficient_neg` and `.coefficient_sub` prove the original lower-action
+linearity/difference identities. `coefficient_null_congr` uses the actual
+form-null criterion on the difference. `quotientCoefficient` is a
+well-defined RC-valued map on the original `Carrier`, with exact dense
+agreement, addition and rational scaling laws.
+
+`coefficient_difference_bound` applies the previous normalized norm bound
+to the SAME original difference. `coefficientTolerance` is F*epsilon^2/2,
+with F=`intrinsicNormFloor`; its positivity is proved. The pure scalar
+`weighted_square_small` consumes a spare half-square budget, and
+`coefficient_close` gives two-sided error epsilon. Neither observable is
+a parameter of this tolerance.
+
+`BF4ExactSlabIntrinsicChannelCompletion.coefficientRawRate` composes that
+tolerance with the supplied physical Cauchy modulus. `coefficientRate`
+uses the existing proved antitone closure. `coefficientReg` uses the
+original numerator's own numerical modulus. These explicit data construct
+`representativeCoefficient` via the existing choice-free diagonal limit;
+`representativeCoefficientCauchy` retains its numerical modulus.
+`coefficientCloseRate`, `coefficientSequence_close` and
+`representativeCoefficient_welldef` prove original completion descent.
+
+`completedCoefficient` lives on the EXISTING `Completion`, agrees with
+both dense-expression and original-null-quotient embeddings, and is
+additive and rational-linear. `completedCoefficient_norm_bound` passes
+F*A(x)^2<=<x,x> through the original mixed-pairing limit.
+`representativeCoefficient_difference_bound` and `completedCoefficient_close`
+preserve the SAME tolerance for arbitrary completed states.
+`coefficientApproximationIndex` returns its rational denominator;
+`completedCoefficient_approximant` controls the coefficient of the
+existing actual dense approximant at every later index. This is not
+completeness of arbitrary quotient-valued sequences without representatives.
+
+NEXT: whole-packet bounds on the original completed carrier, then
+completed separation/reconstruction using the existing dense packet limit
+and actual-state approximation. Only after that: prove the relation to
+actual time translation and the needed original transfer range approximation.
+Dense separation alone has NOT been promoted to completed separation.
+Completed Hilbert-space channel resolution, growing-volume passage,
+completed T2 range density/zero kernel, full-space time-zero continuity,
+geometric T1/physical Hamiltonian identification, canonical spectral/non-Wick
+pins, beta(a)/spacing-uniform continuum control, other groups and Clay
+remain OPEN. F is not uniform in channel, volume, beta or spacing.
+No new hole, analytic premise, canonical field/type/atom/flag or surrogate.
+
+Verification: two focused monitored modules, 16+30=46 exactly matched
+public declaration gates, all within {propext, Quot.sound}. Clean final
+logs, fresh own/direct-import artifacts, no forbidden executable tokens,
+only autoImplicit false, unique root imports (root not compiled).
+Safe-build skill: one worker, explicit 20 GiB ceiling and separate
+process/swap preflights; swap remained 12814.31 MiB. One unavailable
+addition-congruence namespace was corrected to the existing Pivot2 helper;
+no raised limits or options. No full build/audit/guard/progress run.
+Logs and SHA-256:
+`/tmp/ym-original-channel-quotient.log`
+(`d9ecce049146c75b200c85618b9820830c348b5c3484a8d1b972c0a14721d7da`),
+`/tmp/ym-original-channel-completion.log`
+(`c2bab8f2fa8e5b8f37f1c8002af0da59ae205f6db6632463762353d40b959881`).
+
+**Previous increment (intrinsic ORIGINAL coefficient norm bounds and exact dense nullity):**
 PROGRESS after da4a16d. The actual finite-packet leaf family is now
 controlled directly by the original normalized OS form. No identification
 with the earlier globally selected spin family is needed or assumed.

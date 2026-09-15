@@ -4331,16 +4331,21 @@ import YMGap.Continuum.BF4ExactSlabBulkUniformCrossingTail
 import YMGap.Continuum.BF4ExactSlabCrossingPacketBulkLimit
 -- Actual finite limiting channel squares reconstruct the ORIGINAL reflected
 -- numerator. All coefficients zero implies zero in the original dense embedding.
--- Completed coefficient descent and physical transfer compatibility remain open.
+-- Completed coefficients are constructed below; physical transfer compatibility remains open.
 import YMGap.Continuum.BF4ExactSlabChannelSquareBulkLimit
 import YMGap.Continuum.BF4ExactSlabOriginalChannelReconstruction
 -- Monotone original crossing packets control EVERY intrinsic leaf. A
 -- computed positive factor bounds its coefficient square by the SAME OS
 -- norm, and the whole leaf family detects exactly the null dense states.
--- Completed coefficient extension and actual transfer compatibility remain open.
+-- Completed extension follows below; actual transfer compatibility remains open.
 import YMGap.Continuum.ReflectedSquareTreePositiveOrder
 import YMGap.Continuum.BF4ExactSlabIntrinsicChannelOrder
 import YMGap.Continuum.BF4ExactSlabIntrinsicChannelNormBound
+-- The same channel coefficients descend to the original null quotient and
+-- completion, with explicit continuity/approximation radii and the original
+-- norm floor. Completed separation and actual transfer compatibility remain open.
+import YMGap.Continuum.BF4ExactSlabIntrinsicChannelQuotient
+import YMGap.Continuum.BF4ExactSlabIntrinsicChannelCompletion
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

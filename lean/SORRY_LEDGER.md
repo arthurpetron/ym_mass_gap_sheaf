@@ -13,7 +13,55 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED intrinsic ORIGINAL channel norm bounds and exact dense nullity criterion (2026-09-14)
+## CLOSED bounded ORIGINAL channel coefficients on the actual completion (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelQuotient.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean`.
+- **closed original null descent**: `coefficient_add`, `coefficient_smul`,
+  `coefficient_neg` and `coefficient_sub` use the original lower numerator.
+  `coefficient_null_congr` uses the norm-null criterion for the actual
+  difference. `quotientCoefficient`, `.quotientCoefficient_embed`,
+  `.quotientCoefficient_add` and `.quotientCoefficient_smul` give the
+  RC-valued functional on the original null quotient.
+- **closed quantitative continuity**: `coefficient_difference_bound`
+  preserves the original normalized norm floor. `coefficientTolerance`
+  returns F*epsilon^2/2, positive by `coefficientTolerance_positive`.
+  `weighted_square_small` and `coefficient_close` give two-sided error
+  epsilon. F and the tolerance are independent of both observables.
+- **closed constructive completed extension**: `coefficientRawRate`,
+  `coefficientRate` and `coefficientReg` are explicit outer/inner moduli
+  from the existing physical Cauchy datum and original coefficient.
+  `representativeCoefficient`, `coefficientSequence_converges` and
+  `representativeCoefficientCauchy` construct the numerical limit and
+  retain its modulus. `coefficientCloseRate`, `coefficientSequence_close`
+  and `representativeCoefficient_welldef` prove descent through precisely
+  the existing completion relation. No representative is selected.
+- **closed same-object linearity and bounds**: `completedCoefficient`
+  agrees with both original embeddings, is additive and rational-linear,
+  and maps zero to zero. `completedCoefficient_norm_bound` gives
+  F*A(x)^2<=<x,x> using the ORIGINAL completed pairing.
+  `representativeCoefficient_difference_bound` and
+  `completedCoefficient_close` extend the SAME quantitative tolerance.
+  `coefficientApproximationIndex` and `completedCoefficient_approximant`
+  return/control an actual dense original-state approximation index.
+- **open residue**: whole-packet control and separation/reconstruction on
+  completed states. Vanishing of all completed coefficients does NOT yet
+  have a proved zero-state converse. Compatibility with actual time
+  translation, completed transfer range/density and zero kernel,
+  full-space zero-time continuity, growing-volume passage, geometric
+  T1/physical Hamiltonian, beta(a)/spacing-uniform physical gap, other
+  groups and continuum/Clay remain open. No channel/volume/beta/spacing-
+  uniform floor, arbitrary quotient-representative choice, new hole,
+  analytic premise, canonical field/type/atom/flag or surrogate.
+- **verification**: 16+30=46 exactly matched focused public gates, only
+  {propext, Quot.sound}. Clean logs and fresh own/direct-import artifacts;
+  only autoImplicit false; root imports unique but root not compiled.
+  Safe-build skill: one worker, explicit 20 GiB and separate process/swap
+  preflights. An addition-congruence namespace was corrected; no options
+  or limits raised. No full build/audit/guard/progress run. Log hashes
+  are recorded in work_plan.
+
+## Previous checkpoint: CLOSED intrinsic ORIGINAL channel norm bounds and exact dense nullity criterion (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/ReflectedSquareTreePositiveOrder.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelOrder.lean`,

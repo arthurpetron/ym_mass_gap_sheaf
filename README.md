@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [every actual packet-leaf coefficient is bounded by the original OS form](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelNormBound.lean).
+**Latest milestone:** [original channel coefficients now extend to the original completed OS space](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean).
+At fixed finite volume, every actual packet-leaf coefficient is now a
+well-defined functional on the **same original null quotient and completion**.
+The construction retains explicit outer and numerical Cauchy moduli,
+agrees with the original coefficient on dense expressions, and preserves
+addition and rational scalar multiplication. The same computed positive
+factor gives `F*A(x)² <= <x,x>` for every completed state `x`.
+The tolerance `F*epsilon²/2` controls coefficient differences; a computed
+precision index selects an actual dense approximant with that accuracy.
+Two modules passed 46 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. Next: whole-packet control and separation on completed
+states, then compatibility with actual time translation. **Vanishing of all
+completed coefficients is not yet proved to imply a zero completed state.**
+The floor depends on the channel, heat parameter and finite volume; no
+volume/beta/spacing-uniform gap or continuum/Clay theorem is claimed.
+
+**Established norm bounds:** [every actual packet-leaf coefficient is bounded by the original OS form](lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelNormBound.lean).
 Enlarging the crossing cutoff retains the original coefficients and adds
 nonnegative channel contributions, with shared links preserved. Every
 actual leaf has a strictly positive weight and remains bounded by the
@@ -23,9 +39,9 @@ a computed `F > 0` independent of the observable `e`.
 An embedded dense expression is now proved zero **if and only if** all
 its actual packet-leaf coefficients vanish.
 Three modules passed 35 focused axiom checks within `{propext, Quot.sound}`
-(three axiom-free); no full-tree run. Next: descend and extend these
-coefficient maps to completed states, then relate them to actual time
-translation. `F` depends on the leaf, heat parameter and finite volume;
+(three axiom-free); no full-tree run. The coefficient extensions are now
+constructed above; completed separation and actual time-translation
+compatibility remain open. `F` depends on the leaf, heat parameter and finite volume;
 this is not a uniform transfer gap or a continuum/Clay result.
 
 **Established reconstruction:** [actual channel squares reconstruct the original reflected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean).
@@ -38,8 +54,8 @@ coefficient of a dense expression vanishes, its **original normalized
 OS form and embedded completed state are zero**.
 Two modules passed 28 focused axiom checks within `{propext, Quot.sound}`;
 no full-tree run. The coefficient norm bounds and reverse null implication
-are now proved above. Completed coefficient descent and compatibility
-with actual time translation remain open. This is not yet a
+are now proved above, as is completed coefficient descent. Completed
+separation and compatibility with actual time translation remain open. This is not yet a
 Hilbert-space channel resolution or a zero-transfer-kernel theorem.
 Volume/physical-scale control and continuum/Clay remain open.
 
