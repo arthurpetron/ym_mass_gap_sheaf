@@ -21,7 +21,18 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest local calculation:** [adjacent-plaquette shared-link integration](lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean).
+**Latest route correction:** [a checked obstruction to exact plaquette-only recoding](lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean).
+Two explicit unit-quaternion configurations agree on every observable in the
+existing plaquette-generated algebra, but an outer-rectangle character has
+values `-2` and `0` on them. The proof uses the **original slab coordinates and
+evaluator**. Thus exact pointwise/coefficient recoding of this rectangle—or its
+half-normalization—into that algebra is impossible. This rules out one proposed
+boundary compiler, **not** OS-norm approximation or the Yang--Mills goal.
+Nineteen focused constructive axiom checks passed; no full-tree run. The next
+comparison must concern the unchanged original state and its actual OS norm,
+with the full action retained.
+
+**Previous local calculation:** [adjacent-plaquette shared-link integration](lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean).
 Integrating the shared link of two selected fundamental plaquettes gives
 exactly half the outer-rectangle character, with all six outer links retained.
 A symbolic Schur proof avoids expanding those paths; arbitrary spectator

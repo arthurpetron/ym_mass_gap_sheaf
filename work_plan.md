@@ -105,7 +105,61 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (symbolic conditional Schur rule and adjacent-plaquette output):**
+**Latest increment (REFUTED exact plaquette-only recoding on the ORIGINAL carrier):**
+PROGRESS after 8afdac6: the output-algebra question now has a constructive
+counterexample, not another unfilled compiler interface.
+`SU2PlaquetteCharacterNonseparation` constructs two rational unit-quaternion
+fields on the literal 4D lattice. The consecutive corner x0 links carry I,I
+or I,J; every other link is the unit. `plaquette_scalar_equal` proves that
+ALL elementary plaquettes have the same class coordinate in the two fields.
+This is a structural six-plane argument, not a bounded numerical search.
+
+`fieldEnvironment` uses the ORIGINAL corrected slab link indexing, and
+`fieldEnvironment_unit` certifies every coordinate block's sphere equation.
+`original_lower_equal` proves that every existing `PlaquetteExpression`
+evaluated by the existing `lower` agrees on these fields, at every half-size
+and every spin. The face-evaluation and expression-induction proofs retain
+the same original polynomials and link coordinates.
+
+`rectanglePolynomial` is the six-link outer-rectangle character on the original
+extent-one slab. `rectangle_evaluation` gives -2 and 0 on the SAME two unit
+fields. `no_pointwise_plaquette_recoding`, `no_polynomial_plaquette_recoding`
+and `no_coefficient_plaquette_recoding` therefore rule out an exact original
+half-zero expression for that rectangle. `no_coefficient_half_rectangle_recoding`
+also rules out the exact 1/2 normalization from the preceding Schur calculation;
+closure under rational scaling cannot fix the missing relative-axis information.
+
+CONTRACTION: stop the proposed universal exact pointwise/coefficient compiler
+from boundary integration back into the plaquette-only algebra. Its needed
+output already fails in this concrete original slab. This does NOT prove
+failure of almost-everywhere, Haar-carrier, or completed OS-state equality;
+nor does it prove OS-norm non-density, a physical T2 kernel, or failure of the
+Yang--Mills route. No original observable algebra was expanded or replaced.
+
+NEXT: address the unchanged boundary-state approximation in its ACTUAL OS norm
+with all shared-link action factors retained. A pointwise obstruction cannot
+be promoted to that norm without a proved comparison. If a larger observable
+algebra is used, first construct its relation to the original carrier and
+operators explicitly; do not silently alter the target or use its density
+as density in the old completion. Full-space time zero, geometric T1/root
+identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins,
+other groups and Clay remain open. No canonical field/atom/type/flag, analytic
+premise, hole or classical input changed.
+
+Verification: 19 exactly matched focused public gates, five axiom-free and
+the remainder within {propext, Quot.sound}; clean final log, fresh own/direct
+artifacts, no forbidden executable tokens, only autoImplicit false. The first
+attempt found a missing holonomy dependency, built with its narrow :olean
+target; no broad build. Explicit finite Decidable cases removed an initial
+automation-induced classical dependency. An opaque generic scalar-comparison
+lemma avoided repeated expansion in the original evaluator, without increasing
+heartbeats or memory limits. Safe-build skill: one worker, explicit 20 GiB,
+separate process/swap preflights, latest swap 12413.81 MiB. One new root import,
+old multiplicities preserved; root not compiled. No full build/audit/guard/
+progress run. Log `/tmp/ym-plaquette-character-nonseparation.log`, SHA-256
+`84e92c60f5eaa46109d6738285e82d6d0243669bdc6ad3269c73e5881a7fbf1e`.
+
+**Previous increment (symbolic conditional Schur rule and adjacent-plaquette output):**
 PROGRESS after e3469a9 on the local boundary calculation, not a closure of
 the remaining physical range comparison. `SU2QuaternionHeadLinearHaar`
 proves `partialHaarHead_mul_lift`, `atom_pair`, `linear_pair` and `four_pair`:

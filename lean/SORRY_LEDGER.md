@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED conditional adjacent-plaquette gluing; OPEN original-algebra/full-action consumer (2026-09-15)
+## REFUTED exact original plaquette-only rectangle recoding; OPEN OS-state comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean`.
+- **closed original-carrier test**: `unitI`, `unitJ` and `field` construct
+  explicit unit-norm configurations I,I versus I,J on two consecutive corner
+  links. `plaquette_scalar_equal` holds for every elementary 4D face.
+  `fieldEnvironment` uses the original slab indexing; `fieldEnvironment_unit`
+  certifies its sphere blocks. `original_lower_equal` proves equality of
+  evaluations of EVERY existing original `PlaquetteExpression`, at every
+  half-size and spin. No new observable algebra is substituted.
+- **refuted compiler route**: `rectangle_evaluation` gives -2 and 0 for the
+  same original extent-one `rectanglePolynomial`. The three
+  `no_pointwise_plaquette_recoding`, `no_polynomial_plaquette_recoding` and
+  `no_coefficient_plaquette_recoding` theorems rule out exact half-zero original
+  recoding; `no_coefficient_half_rectangle_recoding` includes the 1/2 Schur
+  normalization. Do not build a universal exact coefficient compiler whose
+  output would contradict this example.
+- **open residue**: this is not almost-everywhere/Haar-carrier or OS-norm
+  nonrepresentability. An unchanged original boundary-state approximation
+  still needs an ACTUAL OS-norm estimate, with every shared-link interaction
+  retained. Pointwise separation alone proves no norm obstruction or transfer
+  kernel. A larger algebra cannot silently replace the original completion.
+  Full-space time zero, geometric T1/root identification, physical Hamiltonian,
+  beta(a)/continuum, QFT/spectral pins, other groups and Clay remain open.
+  No canonical field/atom/type/flag, analytic premise or hole changed.
+- **verification**: 19 exact focused public gates, five axiom-free and the
+  rest within {propext, Quot.sound}; clean final output and fresh own/direct
+  imports. A missing dependency was built narrowly. Finite explicit decisions
+  and an opaque scalar-comparison helper removed an initial classical
+  dependency and elaboration timeouts. Safe-build skill, one worker, explicit
+  20 GiB, separate process/swap checks, no raised options. One root import;
+  root not compiled and no full build/audit/guard/progress run. Log/hash in work_plan.
+
+## Previous checkpoint: CLOSED conditional adjacent-plaquette gluing; OPEN original-algebra/full-action consumer (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadLinearHaar.lean` and
   `lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean`.

@@ -300,3 +300,44 @@ replaced by a structural proof, with no limit increase. The safe-build skill
 kept one worker and explicit 20 GiB throughout these focused checks. No
 full-tree run; the two new root imports were checked statically, not compiled.
 Exact final log hashes are recorded in the new work-plan entry.
+
+## Exact pointwise recoding is now refuted on the original slab (2026-09-15)
+
+The preceding addendum left rectangle representability open. The new result
+answers the **exact pointwise/coefficient** question negatively. It does not
+answer the completed-state or OS-norm approximation question.
+
+All declarations in this section are in
+`lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean`:
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `unitI`, `unitJ`, `field` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:44`, `:45`, `:51` | Explicit rational unit-norm configurations I,I versus I,J on consecutive corner x0 links; unit elsewhere. |
+| `plaquette_scalar_equal` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:57` | Class coordinates agree for ALL elementary 4D plaquettes, by a structural six-plane proof. |
+| `fieldEnvironment`; `fieldEnvironment_unit` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:97`; `:107` | The original corrected-slab coordinate decoder, with every block certified on S^3. |
+| `original_lower_equal` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:251` | Every original `PlaquetteExpression`, under the existing `lower` evaluator, agrees on these two fields at every half-size and spin. |
+| `rectanglePolynomial`; `rectangle_evaluation` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:270`; `:293` | The six-link rectangle on the SAME original extent-one slab has values -2 and 0. |
+| `no_pointwise_plaquette_recoding` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:311` | No half-zero original expression represents the rectangle on all rational unit fields. |
+| `no_polynomial_plaquette_recoding`; `no_coefficient_plaquette_recoding` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:324`; `:338` | Neither `RatPolyEqv` nor `RatPolyCoeffEqv` can give that recoding. |
+| `no_coefficient_half_rectangle_recoding` | `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean:344` | The 1/2 Schur normalization does not fix the obstruction: rational scaling is already in the original algebra. |
+
+**Planning consequence:** reject a universal exact coefficient compiler back
+into the original plaquette-only algebra. The previous shared-link identity's
+outer-loop output cannot simply be assumed to have such a recoding.
+
+**Not proved:** almost-everywhere nonrepresentability, Haar-carrier inequality,
+OS-norm non-density, absence of a completed-state realization, a nonzero actual
+T2 kernel, or failure of the Yang--Mills route. Pointwise evaluations have not
+been proved continuous in the original OS norm. The required next comparison
+must address that norm and retain the shared-link-dependent action factors.
+A larger observable algebra has not been installed, nor has a canonical type
+or field been changed; any use of one needs an explicit original-carrier bridge.
+
+Verification: 19 exact focused public gates, five axiom-free and the remainder
+within {propext, Quot.sound}; own/direct-import artifacts fresh, clean final log,
+no new holes/classical input/extra options. One missing holonomy dependency was
+built with a narrow :olean target. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap checks. No full-tree build/audit/guard/progress
+run; root import checked statically only. Final log:
+`/tmp/ym-plaquette-character-nonseparation.log`, SHA-256
+`84e92c60f5eaa46109d6738285e82d6d0243669bdc6ad3269c73e5881a7fbf1e`.
