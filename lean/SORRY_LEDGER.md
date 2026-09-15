@@ -13,7 +13,55 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED scalar ORIGINAL channel-packet bridge to thermodynamic translated norms (2026-09-14)
+## CLOSED ORIGINAL all-spin branch transport and full-spectator packet bounds (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabGramChannelTransport.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabGrowingRetainedChannel.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorRetention.lean`.
+- **closed channel transport**: `SameWeights`, `mapLeaf`,
+  `mapLeaf_weight`, `tensorTransport`, `gramTransport`, `transport`,
+  `transport_spin` and `transport_weight` preserve the original branch
+  and exact weight at every spin. `transport_channel` consumes a
+  supplied polynomial-column relation; geometric pullback is still open.
+- **closed growing physical leaf**: `bulkFaceId_fixed` preserves actual
+  fixed-plane membership. `shiftedChannel`, `shiftedChannel_spin` and
+  `shiftedChannel_weight` use the target face's original link polynomial.
+  `singletonChannel` and `growingChannel` construct an original full-tree
+  leaf with exact source weight, using unit leaves at other faces.
+  `growingChannel_weight`, `growingChannel_positive`,
+  `growingChannel_finite_bound`, `growingChannel_bulk_bound` and
+  `growingChannel_normalized_bound` retain the original lower action
+  and volume-dependent original normalization.
+- **closed arbitrary-spin full spectators**: `Choice`, `faceTree`,
+  `facePruning`, `partialProduct`, `productPruning`, `retainedInterface`
+  and `interfacePruning` retain the ENTIRE tree at each unselected face.
+  Shared variables remain shared. `retainedPacket` and
+  `retainedPacketCauchy` give the original bulk limit and numerical
+  modulus. `retainedPacket_nonnegative`, `retainedPacket_le_packet`
+  and `normalizedRetainedPacket_bound` give nonnegativity and the
+  original norm upper bound. The two `keepAll` theorems recover the
+  original objects. `growingChoice_selected`, `growingChoice_spectator`
+  and `growingSpectatorPacket_bound` give the actual growing consumer;
+  physical membership is supplied through `bulkFaceId_fixed`.
+- **open residue**: geometric polynomial pullback and normalized
+  growing-volume control of selected channels with full spectators.
+  No positive surviving packet/amplitude floor or thermodynamic
+  separating functional is constructed. Weight persistence alone does
+  not control the original lower amplitude or partition reciprocal.
+  Thermodynamic T2 zero kernel/range density, full-space time-zero
+  continuity, geometric T1/physical Hamiltonian, beta(a)/spacing-uniform
+  gap, continuum/non-Wick pins, other groups and Clay remain open.
+  No new hole, analytic premise, canonical field/type/atom/flag,
+  surrogate or arbitrary quotient representative selection.
+- **verification**: 18+11+21=50 exact focused public gates: 18 axiom-free,
+  the rest only {propext, Quot.sound}. Clean logs and fresh own/direct
+  imports; only autoImplicit false. Three new root imports occur once;
+  root not compiled and its pre-existing duplicate is unchanged.
+  Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+  preflights; no raised limits/options, no full build/audit/guard/progress
+  run. Log hashes and next source pointers are recorded in work_plan.
+
+## Previous checkpoint: CLOSED scalar ORIGINAL channel-packet bridge to thermodynamic translated norms (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabNormalizedChannelReconstruction.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean`.

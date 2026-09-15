@@ -18,7 +18,75 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (ORIGINAL packets approximate actual thermodynamic translated norms):**
+**Latest increment (ORIGINAL all-spin channels in growing volumes with full spectators):**
+PROGRESS after 553c9bf. This closes the combinatorial channel/weight
+transport and all-spin spectator-retention step, not the analytic volume
+bridge or a canonical continuum/gap atom.
+
+`BF4ExactSlabGramChannelTransport.SameWeights` carries actual matching
+tree branches as Type-level data. `mapLeaf` and `mapLeaf_weight` preserve
+the selected path and literal weight. `tensorTransport`, `gramTransport`
+and `transport` handle every spin, column, tensor row and real/imaginary
+component of the ORIGINAL representation formula. `transport_channel`
+transports a SUPPLIED relation between the original polynomial columns;
+it does not itself prove their geometric pullback relation.
+
+`BF4ExactSlabGrowingRetainedChannel.bulkFaceId_fixed` proves that actual
+bulk enlargement preserves the physical crossing plane. `shiftedChannel`
+uses that face's actual link polynomial and preserves spin and exact
+heat weight. `singletonChannel` and `growingChannel` construct a literal
+original interface leaf by retaining the selected channel and using the
+original unit leaf elsewhere. `growingChannel_finite_bound`,
+`growingChannel_bulk_bound` and `growingChannel_normalized_bound` preserve
+the original lower action and SAME original partition reciprocal. Only
+the selected weight, not the amplitude/reciprocal, is padding-independent.
+
+`BF4ExactSlabAllSpinSpectatorRetention.Choice` allows any original spin
+through the retained cutoff, with none meaning the FULL face expansion.
+`facePruning`, `productPruning` and `interfacePruning` construct pruning
+of the actual original tree with shared variables intact. `retainedPacket`
+and `retainedPacketCauchy` construct its original bulk limit and explicit
+numerical modulus; `retainedPacket_nonnegative`, `retainedPacket_le_packet`
+and `normalizedRetainedPacket_bound` give positivity and domination by
+the original norm. `retainedInterface_keepAll` and `retainedPacket_keepAll`
+recover the original objects exactly. `growingChoice_selected` and
+`growingChoice_spectator` pin the selected shifted channel and every full
+spectator; `growingSpectatorPacket_bound` supplies the actual norm bound.
+The source face's physical membership, when supplied, is transported by
+`bulkFaceId_fixed`; no identity of different coordinate polynomials is assumed.
+
+NEXT: establish the actual polynomial pullback and normalized volume
+control for locally retained all-spin packets with full spectators.
+The earlier fundamental-spin `BF4ExactSlabPartialInterfaceHaarForm` and
+`BF4ExactSlabBulkProbeInterfaceFactorization` retain the full spectator
+action; their finite algebra is relevant, not a volume-uniform floor.
+No surviving normalized coefficient/packet, thermodynamic coefficient
+limit/separation or T2 zero-kernel/range-density result follows yet.
+Full-space time-zero continuity, geometric T1/physical Hamiltonian,
+beta(a)/spacing-uniform continuum control, spectral/non-Wick pins, other
+groups and Clay remain OPEN. No new hole, analytic premise, canonical
+field/type/atom/flag, surrogate or quotient representative choice.
+
+Verification: three focused monitored modules, 18+11+21=50 exactly
+matched public declaration gates; the first 18 are axiom-free, all
+remaining gates use only {propext, Quot.sound}. Clean final logs, fresh
+own/direct-import artifacts, no forbidden executable tokens, only
+autoImplicit false. Three new root imports occur once; root not compiled.
+The pre-existing repeated `HarmonicLowerSixCubicDebtCoefficient1330Physical`
+root import is unchanged. Safe-build skill: one worker, explicit 20 GiB,
+separate process/swap preflights; latest swap stable at 12790.31 MiB.
+Factored exact weighted transport before geometric specialization to
+avoid dependent rewriting/whnf expansion. No raised options/limits;
+no full build/audit/guard/progress run.
+Logs and SHA-256:
+`/tmp/ym-original-gram-channel-transport.log`
+(`0b8b73b9e7bba33e606841f96204540752c14cd411fa501567879a2fe1f7e62a`),
+`/tmp/ym-original-growing-retained-channel.log`
+(`1338845ab6c066dd04d584bb89ca048190e68d95795df69af0be3f16ad34f6e5`),
+`/tmp/ym-original-all-spin-spectator-retention.log`
+(`e8e522fa228799530ddccc41979fbd7c0b335b7e77f4a2969a698325adc08bbb`).
+
+**Previous increment (ORIGINAL packets approximate actual thermodynamic translated norms):**
 PROGRESS after 22a80df. The finite-slab packet construction now has a
 quantitative, same-object scalar bridge to the existing thermodynamic
 time operator. No coefficient persistence, transfer inverse or uniform

@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [original channel packets approximate actual thermodynamic translated norms](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean).
+**Latest milestone:** [arbitrary-spin local channels retain the full surrounding interface](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorRetention.lean).
+An original Gram channel can now be followed to the physically shifted
+crossing face in every larger slab, preserving its spin, branch and exact
+heat weight. Selecting such channels need not freeze the surroundings:
+every unselected face retains its **complete original channel expansion**.
+The resulting packet has an explicit original-action bulk-limit modulus,
+is nonnegative, and is bounded by the **same original normalized OS norm**.
+Three modules passed 50 focused axiom checks, 18 axiom-free and the rest
+within `{propext, Quot.sound}`; no full-tree run.
+Only the selected channel's heat weight is independent of enlargement;
+its interacting amplitude and the original partition reciprocal are not.
+Geometric polynomial pullback and normalized growing-volume control remain
+open, as do thermodynamic coefficient separation, transfer injectivity,
+full-space time-zero continuity and the continuum/Clay target.
+
+**Established scalar bridge:** [original channel packets approximate actual thermodynamic translated norms](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean).
 For any dense presentation, integer time lag and positive rational
 `epsilon`, the construction now computes a volume, crossing cutoff and
 numerical precision. Its actual original channel-square sample encloses

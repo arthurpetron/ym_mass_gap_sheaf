@@ -4356,6 +4356,12 @@ import YMGap.Continuum.BF4ExactSlabCompletedChannelSeparation
 -- packet approximation, not persistent coefficients or transfer injectivity.
 import YMGap.Continuum.BF4ExactSlabNormalizedChannelReconstruction
 import YMGap.Continuum.BF4ExactSlabThermodynamicTranslatedChannelPacket
+-- Original all-spin branches persist at the actual enlarged crossing face.
+-- Full spectators can be retained with the original bulk limit/norm bound;
+-- polynomial pullback and normalized volume control remain open.
+import YMGap.Continuum.BF4ExactSlabGramChannelTransport
+import YMGap.Continuum.BF4ExactSlabGrowingRetainedChannel
+import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorRetention
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
