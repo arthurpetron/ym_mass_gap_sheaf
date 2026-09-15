@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED sharp polynomial bounds on the FULL original completed carrier (2026-09-14)
+## CLOSED bounded symmetric continuous action on the FULL original completed carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean`
+  and `BF4ExactSlabThermodynamicAllVectorContinuousLinear.lean` in the same directory.
+- **closed construction**: `symbolRows` uses the sharp all-vector
+  polynomial bound and computed tolerance min(epsilon/(normCap(X)+1),1)
+  for supplied original Cauchy X. `representedAction_congr` proves
+  independence from X; `continuousAction` is a quotient lift on ALL
+  original completed states, with no representative choice or cyclic
+  density. `continuousActionCertificate` returns output representative,
+  rate, same-action pin and sharp norm bound.
+- **closed compatibility**: `continuousAction_cyclic` identifies the
+  earlier cyclic action as the restriction. `continuousAction_symbol_congr`,
+  `continuousAction_modulus_independent` and `continuousAction_eq_polynomial`
+  establish rational-interval symbol equivalence, modulus independence
+  and exact equality with the original polynomial operators.
+- **closed operator laws**: `continuousAction_add`, `continuousAction_smul`,
+  `continuousAction_sub`, `continuousAction_symmetric` hold on the whole
+  original completion. `continuousAction_norm_bound` and
+  `continuousAction_distance_bound` retain the factor F.bound^2.
+  `continuityCertificate` returns a positive epsilon/(F.bound^2+1)
+  tolerance applying to all original x,y. This uniformity is over the
+  original states, not beta or lattice spacing.
+- **open residue**: full-carrier symbol multiplication and form order,
+  full spectral realization, canonical comparisons, quotient-level
+  completeness/time injectivity, continuous-time/physical spectral/non-Wick
+  pins, continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing
+  only. No new hole, physical input, canonical type/atom/flag, weight or
+  surrogate, and no beta/spacing-uniform physical gap claimed.
+- **verification**: two focused monitored modules, 30 exactly matched
+  gates within {propext, Quot.sound}, clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling;
+  no raised options or full build/audit/guard/progress/root-import run.
+  Logs and SHA-256 digests in work_plan.
+
+## Previous checkpoint: CLOSED sharp polynomial bounds on the FULL original completed carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorBernsteinMoments.lean`,
   `BF4ExactSlabThermodynamicAllVectorPolynomialConvergence.lean`, and
@@ -35,7 +70,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the same sharp factor. Neither the norm cap nor a coefficient factor
   survives in the final estimate. Quotient induction here proves a
   proposition; it does not extract representative data.
-- **open residue**: full-carrier continuous action and spectral realization,
+- **subsequent closure**: full-carrier continuous action and its bounded
+  symmetric rational-linear laws are constructed in the latest entry,
+  without representative choice or cyclic density.
+- **open residue**: full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
   other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
@@ -71,9 +109,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   target representative, rate and original-action pin. The uniformity
   ranges over rational interval points and approximation indices, not
   beta or lattice spacing.
-- **subsequent closure**: all-vector sharp polynomial bounds and positivity
-  are proved in the latest entry, without assuming cyclic density.
-- **open residue**: full-carrier continuous action and spectral realization,
+- **subsequent closure**: all-vector sharp polynomial bounds, positivity
+  and bounded symmetric continuous action are proved above, without
+  assuming cyclic density.
+- **open residue**: full spectral realization,
   canonical comparisons, quotient-level
   completeness/time injectivity, continuous-time/physical spectral/non-Wick
   pins, continuum scaling, other groups and Clay. No claim that the one

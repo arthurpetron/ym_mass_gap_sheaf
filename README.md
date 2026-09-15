@@ -13,7 +13,20 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [sharp polynomial bounds now hold on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorPolynomialBound.lean).
+**Latest milestone:** [continuous action is constructed on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean),
+with [bounded symmetric rational-linear operator laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousLinear.lean).
+Bernstein approximations now define `F(T2)x` for every original completed
+state, with explicit output representatives and convergence rates for
+supplied input representatives. The value is independent of the representative,
+recovers the original polynomial operators, and agrees with the earlier
+cyclic action. The bound `||F(T2)x||² <= F.bound² ||x||²` retains the
+original norm; no assumption that one probe generates the whole space is
+needed. Two modules passed 30 focused axiom checks within
+`{propext, Quot.sound}`; no full-tree run. Full-space multiplication and
+form-order laws are next. Nome and spacing remain fixed; physical-scale
+control and continuum/Clay remain open.
+
+**Established polynomial bound:** [sharp polynomial bounds hold on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorPolynomialBound.lean).
 For every original completed vector `x`, `|p| <= M` on `[0,1]` gives
 `||p(T2)x||² <= M² ||x||²`. Positive Bernstein rows have total mass
 `||x||²`; their signed-polynomial moments converge to the same original
@@ -22,7 +35,7 @@ one probe generates the whole carrier is needed. The final bound has
 no coefficient-size or computed norm-cap factor.
 Three modules passed 53 focused axiom checks within `{propext, Quot.sound}`
 (one axiom-free); no full-tree run. Continuous action on the full carrier
-is next. Nome and spacing remain fixed; physical-scale control and
+is now constructed above. Nome and spacing remain fixed; physical-scale control and
 continuum/Clay remain open.
 
 **Established cyclic calculus:** [constructed symbol algebra gives sharp uniform-error bounds for the original actions](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUniformBound.lean).

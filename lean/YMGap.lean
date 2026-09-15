@@ -4259,6 +4259,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUniformBound
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorBernsteinMoments
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorPolynomialConvergence
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorPolynomialBound
+-- Constructed bounded symmetric continuous action on ALL original states,
+-- with explicit represented rates and proved quotient descent; fixed spacing.
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorContinuousAction
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorContinuousLinear
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

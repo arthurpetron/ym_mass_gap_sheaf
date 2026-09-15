@@ -18,7 +18,51 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (sharp polynomial bounds on the FULL original carrier):**
+**Latest increment (constructed bounded symmetric continuous action on the FULL original carrier):**
+PROGRESS after 9d25025. `BF4ExactSlabThermodynamicAllVectorContinuousAction`
+uses the sharp all-vector polynomial bound to construct Bernstein Cauchy
+rows for every supplied original Cauchy representative X. Its computed
+scalar tolerance is min(epsilon/(normCap(X)+1),1); Bernstein convergence
+and the original diagonal completion supply the output representative and
+rate. `representedAction_congr` proves independence from X, so
+`continuousAction` descends by quotient lift to ALL original completed
+states, without a representative-selection function or cyclic-density
+premise. `continuousActionCertificate` returns output representative,
+rate, same-action equality and the sharp bound
+||F(T2)x||^2 <= F.bound^2 ||x||^2. `continuousAction_cyclic` identifies
+the former cyclic action as the restriction of this same operator.
+
+`BF4ExactSlabThermodynamicAllVectorContinuousLinear` proves rational
+linearity, symmetry, symbol equivalence on rational [0,1], independence
+from the supplied vanishing modulus, and exact recovery of the original
+polynomial operators. `continuousAction_distance_bound` gives
+d(F(T2)x,F(T2)y) <= F.bound^2 d(x,y) on the full original carrier;
+`continuityCertificate` returns epsilon/(F.bound^2+1) as a positive
+input tolerance controlling all original x,y. The norm cap affects the
+represented Bernstein rate, not the sharp operator bound.
+
+NEXT: extend symbol multiplication and quadratic-form order/positivity
+to this full-carrier action, using the actual output representatives and
+the existing polynomial and pairing-limit identities. Full-carrier
+continuous action and its bounded symmetric rational-linear laws are now
+CLOSED; the full spectral/physical realization is not. Canonical
+comparisons, quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling,
+other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and spacing
+only. No new hole, physical input, canonical type/atom/flag, weight or
+surrogate; no beta/spacing-uniform physical gap claimed.
+
+Verification: two focused monitored modules, 18+12=30 exactly matched
+gates within {propext, Quot.sound}, clean final logs and fresh
+own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights; no raised options,
+full build/audit/guard/progress or root-import run. Logs:
+`/tmp/ym-original-all-vector-continuous-action.log` (SHA-256
+`e9bb4b784a65dfa810b7c684a6c67e53b750a0e3f75285d742de6d11ab7cf9ce`),
+`/tmp/ym-original-all-vector-continuous-linear.log` (SHA-256
+`ab68d8a871cabb22bfd0adbd5ee10fff3761e5ca5c36eb07412e5b364aca5df6`).
+
+**Previous increment (sharp polynomial bounds on the FULL original carrier):**
 PROGRESS after 7b4ed5b. `BF4ExactSlabThermodynamicAllVectorBernsteinMoments`
 uses the existing positive mixed moments and falling-factorial identity
 for arbitrary original completed x. Finite Bernstein rows have total
@@ -43,12 +87,11 @@ original x. `polynomial_distance_bound` and `polynomial_difference_bound`
 give the corresponding same-carrier relative estimates. The computed cap
 and coefficient error are absent from these final sharp estimates.
 
-NEXT: construct continuous action on the full original carrier using the
-all-vector polynomial bound, explicit representative-level row limits and
-proved quotient descent. Compare it with the existing cyclic action;
-do not assume a representative-selection function or cyclic density.
-Full-carrier sharp POLYNOMIAL bounds are now CLOSED, not the full spectral
-realization. Canonical comparisons, quotient-level completeness/time
+Subsequent closure: full-carrier continuous action, explicit represented
+rates, quotient descent, cyclic restriction, rational linearity and
+symmetry are proved in the latest entry. No representative selection or
+cyclic-density premise was added. Full-carrier sharp POLYNOMIAL bounds
+are CLOSED, not the full spectral realization. Canonical comparisons, quotient-level completeness/time
 injectivity, continuous-time/physical spectral/non-Wick pins, continuum
 scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and
 spacing only. No new hole, physical input, canonical type/atom/flag,
@@ -89,11 +132,12 @@ Subsequent closure: the full-carrier polynomial bound now uses the existing all-
 `TimeDefectMoments.mixedMoment_nonnegative`, `BernsteinWords.weights_total`
 and `BernsteinFactorialMoments.weighted_falling`. These accept arbitrary
 original completed vectors; the all-vector polynomial form and sharp bound
-are proved in the latest entry. The continuous calculus in this checkpoint
+are proved above. The continuous calculus in this historical checkpoint
 remains on the single normalized probe's represented cyclic sector.
 Do not assume that sector is the whole carrier. General
 sum/unit/scalar/difference/product compatibility is now CLOSED.
-Full-carrier continuous action/spectral realization, canonical comparisons, quotient-level
+Full-carrier continuous action is subsequently constructed above; spectral
+realization, canonical comparisons, quotient-level
 completeness/time injectivity, continuous-time/physical spectral/non-Wick
 pins, continuum scaling, other groups and Clay remain OPEN. Fixed SU(2)
 nome 1/1024 and spacing only. No new hole, physical input, canonical
