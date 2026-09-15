@@ -341,3 +341,41 @@ built with a narrow :olean target. Safe-build skill: one worker, explicit
 run; root import checked statically only. Final log:
 `/tmp/ym-plaquette-character-nonseparation.log`, SHA-256
 `84e92c60f5eaa46109d6738285e82d6d0243669bdc6ad3269c73e5881a7fbf1e`.
+
+## Shared-link quadratic heat calculation, not an OS inverse (2026-09-15)
+
+The whole-plaquette local identity already exists as `one_layer`,
+`lean/YMGap/Continuum/SU2QuaternionFullHeatTubeLayer.lean:96`.
+It requires the retained insertion to be independent of each of the four
+integrated links. Thus multiplying known coordinate transmission formulas is
+not a justified way to handle repeated occurrences of the same link. The new
+calculation addresses that next polynomial degree directly, using the existing
+`relativeHeat`, `lean/YMGap/Continuum/SU2QuaternionRelativeHeatTransmission.lean:37`.
+
+Every declaration in the table is in
+`lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean`.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `quadratic`; `quadratic_trace_decomposition` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:61`; `:69` | The original coordinate product is its trace-free degree-two part plus the explicitly retained radius trace. |
+| `low_spin_partial`; `high_spin_partial_zero` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:83`; `:90` | Exact low-spin moments and annihilation of all higher solid characters, with polynomial tail coefficients retained. |
+| `character_quadratic_boundary` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:118` | For ordinary characters, only spin two survives, with coefficient 1/3, against every retained polynomial insertion. |
+| `quadratic_heat_transmission` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:183` | The SAME full relative heat packet transmits the quadratic by w^8 for every K>=2. Nome, cutoff guard and carrier are explicit. |
+| `quadraticInverse`; `quadratic_inverse_transmission` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:226`; `:231` | An explicit polynomial scaled by 1/w^8 for supplied w>0 is an exact relative-kernel preimage. This is not a geometric T1/T2 or OS-state preimage. |
+| `cutoff_one_quadratic_zero`; `off_diagonal_haar_norm` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:248`; `:269` | K=1 annihilates these modes, including a polynomial with ordinary Haar squared norm 1/24. |
+| `heat_not_multiplicative` | `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean:276` | At w=1/2, K=2, integrating U_0 U_1 differs from multiplying the two known degree-one images, as tested by the same retained coordinate product. |
+
+This removes the multiplicative-extension shortcut and a cutoff-independent
+inverse shortcut. It does not introduce a new observable algebra or prove
+that the local inverse is an admissible original test with a controlled OS
+norm. The full shared-link action and that original-state comparison remain
+necessary for this proposed route. An all-degree local inverse alone would
+not establish those identifications or the continuum theorem.
+
+Verification: 19 exact focused public gates, three axiom-free and the remainder
+within {propext, Quot.sound}. Own/direct artifacts are fresh. No forbidden
+executable tokens, extra options, holes or classical input. Safe-build skill:
+one worker, explicit 20 GiB, separate process/swap preflights. One additive
+root import was checked statically; root not compiled and no full-tree run.
+Final log `/tmp/ym-quadratic-heat-transmission.log`, SHA-256
+`d39ae2a89e20371de284c1929572d4c2bc5054ae8599ac0e7cd2b28fd5320048`.

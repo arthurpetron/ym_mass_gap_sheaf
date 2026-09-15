@@ -105,7 +105,56 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (REFUTED exact plaquette-only recoding on the ORIGINAL carrier):**
+**Latest increment (EXACT quadratic transmission and local inverse; two shortcuts refuted):**
+The preceding goal turn made no new proof progress; it confirmed the goal
+instructions. This turn resumed the actual source comparison. The existing
+`SU2QuaternionFullHeatTubeLayer.one_layer` and
+`BF4ExactSlabFullHeatTubeContraction.literal_boundary_haar` already transport
+whole plaquettes, but require independence from every integrated link. They
+do not authorize dropping other action factors or extending linear coordinate
+transmission multiplicatively to shared-link products.
+
+`SU2QuaternionQuadraticHeatTransmission` now supplies that next local degree
+calculation on the SAME original `relativeHeat`, without replacing its packet.
+Its `quadratic` is U_i*U_j - delta_ij*|U|^2/4, with an exact trace decomposition.
+`low_spin_partial` computes the three low-spin conditional integrals;
+`high_spin_partial_zero` uses the existing all-spin harmonic degree argument.
+`quadratic_heat_transmission` then sums EVERY packet coefficient: for all
+K >= 2 and all retained polynomial insertions, the factor is exactly w^8.
+The coupling, cutoff guard and retained carrier are explicit in the type.
+
+`quadraticInverse` computes a polynomial with scale 1/w^8 for supplied w>0;
+`quadratic_inverse_transmission` proves its exact relative-kernel preimage
+identity. `cutoff_one_quadratic_zero` shows why the cutoff guard is necessary:
+the original K=1 relative kernel annihilates these quadratics.
+`off_diagonal_haar_norm` gives the concrete nonzero squared Haar norm 1/24.
+`heat_not_multiplicative` is a literal two-link counterexample at w=1/2, K=2
+to multiplying the two existing degree-one heat images. This is not a
+counterexample about the physical OS transfer or its spectrum.
+
+CONTRACTION: do not build either a multiplicative heat-image compiler or an
+inverse valid for every cutoff. This local inverse is genuine polynomial data,
+but NOT an original interacting T1/T2 preimage. NEXT remains the full-action
+original OS-state comparison: determine how a conditional inverse can enter
+an admissible original test with an OS-norm estimate, retaining every shared
+interaction. Do not automatically launch a degree-by-degree catalogue without
+that consumer. All-degree reproduction, full-space time zero, geometric T1/root
+identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins,
+other groups and Clay remain open. No original algebra, canonical field/type/
+atom/flag, analytic premise or hole was changed.
+
+Verification: 19 exactly matched public gates, three axiom-free and all others
+within {propext, Quot.sound}; clean final log, fresh own/direct artifacts, no
+forbidden executable tokens and only autoImplicit false. The first coefficient
+test exposed a trailing-monomial-padding mismatch; using the original coordinate
+polynomials fixed it without weakening coefficient equality. Temporary diagnostic
+evaluations were removed. Safe-build skill: one worker, explicit 20 GiB,
+separate process/swap preflights; swap stayed 12413.81 MiB. One additive root
+import, old multiplicities preserved; root not compiled. No full build/audit/
+guard/progress run. Log `/tmp/ym-quadratic-heat-transmission.log`, SHA-256
+`d39ae2a89e20371de284c1929572d4c2bc5054ae8599ac0e7cd2b28fd5320048`.
+
+**Previous increment (REFUTED exact plaquette-only recoding on the ORIGINAL carrier):**
 PROGRESS after 8afdac6: the output-algebra question now has a constructive
 counterexample, not another unfilled compiler interface.
 `SU2PlaquetteCharacterNonseparation` constructs two rational unit-quaternion

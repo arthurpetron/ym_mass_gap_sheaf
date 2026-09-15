@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## REFUTED exact original plaquette-only rectangle recoding; OPEN OS-state comparison (2026-09-15)
+## CLOSED quadratic relative-heat transmission/inverse; OPEN interacting OS comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean`.
+- **closed local calculation**: `quadratic_trace_decomposition`,
+  `low_spin_partial`, `high_spin_partial_zero` and
+  `character_quadratic_boundary` prove all-spin selection for the trace-free
+  quadratic U_i*U_j - delta_ij*|U|^2/4. `quadratic_heat_transmission` retains
+  the entire original relative heat packet, every K>=2, and an arbitrary
+  retained polynomial insertion. Its factor is the explicit w^8.
+- **constructed witness**: `inverseRate` and `quadraticInverse` return the
+  actual polynomial scaled by 1/w^8 for supplied w>0.
+  `quadratic_inverse_transmission` verifies this one-link-kernel preimage.
+  These are data, not an erased existence statement or an OS transfer inverse.
+- **refuted shortcuts**: `cutoff_one_quadratic_zero` proves annihilation at
+  K=1, while `off_diagonal_haar_norm` is 1/24. `heat_not_multiplicative`
+  proves that the product of two degree-one images is not the quadratic image
+  for the same relative kernel at w=1/2, K=2. No conclusion about the actual
+  OS norm or thermodynamic kernel is drawn from this ordinary Haar calculation.
+- **open residue**: a local inverse does not supply an admissible original
+  interacting test or its OS-norm comparison. Retain all action factors on
+  integrated links and justify the original-algebra consumer before extending
+  this into a general polynomial inverse. Full-space time zero, geometric
+  T1/root identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral
+  pins, other groups and Clay remain open. No canonical field/type/atom/flag,
+  named analytic premise or hole changed.
+- **verification**: 19 exact focused public gates, three axiom-free and the
+  rest within {propext, Quot.sound}; fresh own/direct artifacts, no forbidden
+  executable tokens, only autoImplicit false. Safe-build skill, one worker,
+  explicit 20 GiB, separate process/swap checks. One additive root import;
+  root not compiled, no full build/audit/guard/progress run. Log/hash in work_plan.
+
+## Previous checkpoint: REFUTED exact original plaquette-only rectangle recoding; OPEN OS-state comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean`.
 - **closed original-carrier test**: `unitI`, `unitJ` and `field` construct

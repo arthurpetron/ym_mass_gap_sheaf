@@ -21,7 +21,17 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest route correction:** [a checked obstruction to exact plaquette-only recoding](lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean).
+**Latest local result:** [exact quadratic heat transmission and its polynomial inverse](lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean).
+For the original relative one-link heat kernel, trace-free quadratic modes
+transmit by `w^8` at every cutoff `K >= 2`, with arbitrary retained polynomial
+insertions. The inverse is explicit and coupling-dependent. A checked example
+shows that multiplying two degree-one images gives the wrong answer; cutoff
+one also annihilates a quadratic mode with nonzero ordinary Haar norm.
+Nineteen focused constructive axiom checks passed; no full-tree run.
+These are local kernel identities, **not** preimages for the interacting OS
+transfer. The full-action boundary-state comparison remains open.
+
+**Established route correction:** [a checked obstruction to exact plaquette-only recoding](lean/YMGap/Continuum/SU2PlaquetteCharacterNonseparation.lean).
 Two explicit unit-quaternion configurations agree on every observable in the
 existing plaquette-generated algebra, but an outer-rectangle character has
 values `-2` and `0` on them. The proof uses the **original slab coordinates and
