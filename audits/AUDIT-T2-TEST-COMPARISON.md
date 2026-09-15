@@ -1,6 +1,33 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest localized-interface follow-up, 2026-09-15, after `b97335a`: the finite
+Latest local-selection follow-up, 2026-09-15, after `655cf04`: exact selected
+heat-cutoff saturation now retains the COMPLETE physical face list while
+its threshold ignores all detached cutoff choices. The touching cutoff B
+remains fixed. These are finite Haar identities, not an OS-norm comparison.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual original heat profiles | `profileHeat`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkSelection.lean:51`; `profileHeat_supported`, same file `:54`; `profileHeat_local`, same file `:60` | Original ordered plaquette factors, arbitrary individual rational nomes and finite cutoffs. |
+| Computed local split | `nearIds`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkSelection.lean:65`; `farIds`, same file `:68`; `nearIds_length_le`, same file `:71`; `localHeat_pin`, same file `:88` | Incidence partition, at most six touching faces; polynomial factorization, not integral independence. |
+| Detached degrees do not enter | `farHeat_degree_zero`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkSelection.lean:112`; `localDegree`, same file `:133`; `local_character_zero`, same file `:139` | One computed threshold from p and the touching B-cutoff collar; all detached factors retained at arbitrary cutoffs. |
+| Exact selected heat saturation | `tail_zero`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean:65`; `pairing_append`, same file `:80`; `pairing_stable`, same file `:92` | All high-spin terms cancel in the same Haar functional. No limiting estimate or positivity premise. |
+| Complete physical action | `otherFaces`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean:102`; `fullCutoff`, same file `:114`; `fullPairing`, same file `:117`; `fullPairing_pin`, same file `:121` | Just the selected face is separated; every other original heat factor remains in its actual position/carrier. |
+| Five-neighbor bound and concrete threshold | `fullNear_length_le`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean:144`; `fullDegree`, same file `:165`; `fullPairing_stable`, same file `:169` | At most five other touching faces. Exact saturation for EVERY detached cutoff profile; B, insertion and extent remain parameters. |
+| Pre-existing diagonal | `fullPairing_diagonal`, `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean:178` | Equal nomes/cutoffs give the old full original numerator by equality. Does not identify arbitrary profiles with a reflected positive Gram form. |
+
+**NOT FOUND in these two modules:** a reflection-compatible profile pin to
+`profile_form_comparison`,
+`lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean:99`,
+touching-cutoff removal controlled in the original thermodynamic OS norm,
+or an arbitrary-state approximate preimage for `certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`.
+No reflection positivity for arbitrary mixed profiles, fixed-source
+volume-invariant threshold, coupling-uniform strict floor or physical mass
+claim is made. These missing comparisons remain ledgered. Twenty-five exact
+public gates passed within {propext, Quot.sound}; no full-tree run or changed
+canonical field. Exact verification scope/hashes are in `work_plan.md`.
+
+Previous localized-interface follow-up, 2026-09-15, after `b97335a`: the finite
 comparison factor now charges ONLY changed physical crossing faces. The
 existing shared channels and original bulk dressing are retained. This removes
 the whole-interface factor from this comparison, not the independent

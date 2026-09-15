@@ -119,7 +119,67 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED localized original-interface comparison; OPEN original-norm range estimate):**
+**Latest mathematical increment (CLOSED local full-action cutoff selection; OPEN touching-cutoff original-norm control):**
+PROGRESS after `655cf04`. The existing `selectedCutoff` inspects the entire
+bulk-dressed insertion. Instead, exact selected-character cancellation now
+uses a computed touching collar and proves that the remaining actual heat
+factors have exposed degree zero, retaining their shared other links.
+
+`BF4ExactSlabLocalBulkSelection.profileHeat` uses the ORIGINAL ordered
+plaquette heat factors with individual nome/cutoff profiles. Its support
+and locality are proved. `nearIds` / `farIds` use the old incidence partition;
+`nearIds_length_le` gives at most six touching faces in a physical nodup list.
+`localHeat_pin` factors the polynomial, NOT its Haar integral.
+`farHeat_degree_zero` proves the actual detached product has degree zero in
+the selected exposed block at EVERY profile of detached cutoffs.
+`localDegree` computes the threshold from p times the touching B-cutoff heat
+product, with no detached-cutoff argument. `local_character_zero` consumes
+the old all-carrier four-block selection theorem on these actual factors.
+
+The actual consumer `BF4ExactSlabLocalBulkCutoff.tail_zero` kills the whole
+selected heat tail; `pairing_append` / `pairing_stable` give exact saturation.
+`otherFaces` removes just the selected physical face. A constructive erasure
+permutation proves `fullPairing_pin` on the COMPLETE original physical face
+list. `fullNear_length_le` sharpens the local count to FIVE other touching
+faces, since the selected face occupies one of the original six slots.
+`fullDegree` is explicit data, and `fullPairing_stable` supplies one exact
+selected-cutoff threshold for EVERY choice of individual detached cutoffs.
+`fullPairing_diagonal` identifies equal nomes/cutoffs with the pre-existing
+full original `numerator`, by equality rather than a surrogate-law comparison.
+
+Scope: finite original-plaquette Haar identities at arbitrary rational nome
+profiles. No positivity guard is needed for exact high-spin cancellation.
+The threshold still depends on B, the insertion and its physical extent;
+neither a fixed-source volume-invariant threshold nor the B->infinity limit
+is established. Arbitrary mixed profiles need not be reflection-compatible;
+their reflection positivity and equality with the earlier Gram profiles are
+NOT asserted. The diagonal pin alone does not remove these restrictions.
+
+NEXT: connect reflection-compatible local cutoff profiles to the same-channel
+Gram comparison, and obtain touching-collar cutoff/error control in the
+ORIGINAL normalized thermodynamic OS norm. These are still missing before
+the existing `ZeroTimeCertificate.certificateOfRangeApproximation` can receive
+an actual approximate preimage for an arbitrary unshifted original state.
+Range/injectivity, full-space time zero, physical Hamiltonian, beta(a)/spacing,
+continuum/QFT, other compact simple groups and Clay remain open. No canonical
+field/type/atom/flag, analytic premise, axiom or literal hole changed.
+
+Verification: 13 + 12 exact public gates within {propext, Quot.sound}; one
+axiom-free. Clean final logs, exact public/source/log name agreement, fresh
+own/direct artifacts and no forbidden source tokens/options. Initial fixes
+were missing namespace opens, the existing rational-zero lemma names and
+an explicit local-definition pin for the arithmetic tactic; no theorem was
+weakened. Safe-build skill: six focused launches, one worker, explicit 20 GiB,
+separate process/swap preflights; swap stayed at 12157.31 MiB. No raised
+limits, dependency rebuild or full build/audit/guard/progress run. Two
+additive root imports; root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-local-bulk-selection.log`:
+  `e44379ce45f460d9242642d9e00668dbd678032a3c1c5c294c20e583b6ed0eb2`.
+- `/tmp/ym-local-bulk-cutoff.log`:
+  `f15e054ed5baaeecfa70630074f0e320a144b639df35dc0dbd735593fa9b92ac`.
+
+**Previous mathematical increment (CLOSED localized original-interface comparison; OPEN original-norm range estimate):**
 PROGRESS after `b97335a`. The old finite lower factor charged every crossing
 face, including faces whose heat packets need not change. The constructive
 argument now compares the SAME square channels face by face, assigning factor

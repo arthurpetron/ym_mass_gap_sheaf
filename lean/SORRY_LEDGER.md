@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED localized original-interface comparison; OPEN original-norm range estimate (2026-09-15)
+## CLOSED local full-action cutoff selection; OPEN touching-cutoff original-norm control (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalBulkSelection.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean`.
+- **constructed local selection**: `profileHeat_supported`, `profileHeat_local`,
+  `localHeat_pin` and `farHeat_degree_zero` retain the actual physical factors
+  and prove the detached product's exposed degree zero. `localDegree` computes
+  a threshold from p times the touching B-cutoff collar; `local_character_zero`
+  kills above-threshold characters with EVERY detached cutoff still arbitrary.
+  No independence of the full integral or shared other variables is asserted.
+- **actual full-action consumer**: `tail_zero`, `pairing_append` and
+  `pairing_stable` give exact heat saturation. `fullPairing_pin` retains the
+  complete physical face list; `fullNear_length_le` bounds the other touching
+  faces by FIVE. `fullPairing_stable` uses the computed `fullDegree` for every
+  detached cutoff profile. `fullPairing_diagonal` is exactly the old original
+  full-action numerator when nomes/cutoffs agree.
+- **open residue**: reflection-compatible profile pin to the Gram comparison;
+  touching-cutoff B and error control in the original normalized thermodynamic
+  OS norm. No fixed-source volume-uniform degree or arbitrary-profile reflection
+  positivity is proved. No arbitrary-state approximate preimage, range/injectivity,
+  full-space time zero, physical Hamiltonian, beta(a)/spacing, continuum/QFT,
+  other compact simple group or Clay closure. No canonical field/type/atom/flag,
+  analytic premise, axiom or literal hole changed.
+- **verification**: 25 exact public gates within {propext, Quot.sound}; one
+  axiom-free. Exact gate/log mapping, clean logs, own/direct freshness and
+  source checks passed. Safe one-worker/20-GiB focused checks with separate
+  preflights and unchanged swap; no dependency rebuild/full-tree run or raised
+  limits. Two additive root imports, not compiled. Scope/hashes in `work_plan.md`.
+
+## Previous CLOSED localized original-interface comparison; OPEN original-norm range estimate (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean`.

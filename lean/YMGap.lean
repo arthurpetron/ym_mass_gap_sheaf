@@ -4363,6 +4363,10 @@ import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
 -- original bulk dressing; completed original-norm/range control remains open.
 import YMGap.Continuum.BF4ExactSlabProfileInterfaceComparison
 import YMGap.Continuum.BF4ExactSlabLocalInterfaceCoercivity
+-- Exact selected heat saturation ignores all detached cutoffs, retaining
+-- every original face; touching-cutoff OS-norm control remains open.
+import YMGap.Continuum.BF4ExactSlabLocalBulkSelection
+import YMGap.Continuum.BF4ExactSlabLocalBulkCutoff
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
