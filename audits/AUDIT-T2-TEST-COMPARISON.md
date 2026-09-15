@@ -1,5 +1,32 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Real-time Taylor estimate on the original transfer range (2026-09-15)
+
+Follow-up after `ebc052e`. This closes the dyadic-to-positive-real-time
+passage for the same original derivative, without a generator premise.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Constructed scalar rows | `scalarSequence`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean:66`; `scalarRows`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean:77` | Supplied QCauchy stream becomes constant-polynomial rows with explicit moduli. |
+| Old real-scalar limit and rate | `scalarRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean:99`; `scalarLimitRate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean:114`; `scalar_limit_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean:117` | Limit is the EXISTING completedRealSmul; output/rate are data, not selected from Prop. |
+| Same remainder before and after limits | `remainderRows_pin`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:61`; `remainderRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:69` | Original mesh remainder converges to original realTimeAction remainder, same J and time scalar. |
+| Computed real-time radius | `realRadius`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:77`; `realRadius_positive`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:79` | Half the previous meshRadius, determined by the supplied original state and epsilon. |
+| Every represented positive real increment | `real_taylor_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:83`; `realTaylorCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean:117` | Squared norm of T2y-A_t(T2y)-t*J(y) is at most epsilon*t^2 for t below that radius, on the original T2 range in T2-time units. |
+
+NOT FOUND in these two modules or the inspected
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean`:
+an equality of J with `regularizedAction` (defined there at :53), a
+self-adjoint maximal-domain theorem, physical time/spacing/beta(a)
+calibration, continuum QFT or all-group Clay closure. The concrete
+unjoined candidate is `CorePoint.image`, that file :112, defined with L,
+not J. These residues remain ledgered. Scope is fixed SU(2), nome 1/1024,
+fixed spacing; no new physical mass-gap estimate is asserted.
+
+Seventeen exact public gates passed (1 {propext}, 16 {propext, Quot.sound});
+four focused safe one-worker/20 GiB checks, no raised limits or full-tree
+audit. Exact matching, artifact checks and log hashes are in work_plan.
+Earlier NOT FOUND statements retain their dated, named-module scope.
+
 ## Uniform original Taylor estimate on every dyadic mesh (2026-09-15)
 
 Follow-up after `40108e9`. The derivative estimate now holds for all

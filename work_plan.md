@@ -119,7 +119,64 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED uniform Taylor estimate over EVERY dyadic mesh; OPEN real-time limit passage):**
+**Latest mathematical increment (CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification):**
+PROGRESS after `ebc052e`. `BF4ExactSlabThermodynamicScalarRows` treats an
+explicitly QCauchy scalar stream as constant polynomials in the EXISTING
+uniform-action calculus. `scalarRows` retains actual Cauchy data;
+`scalarRows_pin`, `scalar_pairing_limit` and `scalarRows_limit` identify
+its limit with the OLD completedRealSmul, not a new compatible scalar
+operation. `scalarLimitRate` / `scalar_limit_bound` retain an explicit
+squared-distance rate. `pairing_converges` and `limit_le_of_eventual`
+are used only to compare already-constructed limits in Prop; no output
+or modulus is extracted from their existential side conditions.
+
+`BF4ExactSlabThermodynamicRealDerivative.remainderRows` subtracts the
+actual time rows and scalar rows from constant T2 rows. `remainderRows_pin`
+is the old mesh remainder; `remainderRows_limit` is the remainder of the
+EXISTING realTimeAction and completedRealSmul with the PREVIOUS J output.
+The numerical time pin approximationReal_equiv retains the same t in
+the state and the bound. `realRadius X epsilon=meshRadius X epsilon/2`
+is computed. The half-radius margin makes the dyadic approximations
+eventually fall below meshRadius; pairing and scalar-product limits give
+`real_taylor_bound` for EVERY supplied positive real time t below realRadius:
+  ||T2y-A_t(T2y)-t*J(y)||^2 <= epsilon*t^2.
+`realTaylorCertificate` returns the radius, its positivity and the bound
+as data. The derivative vector and original range have not changed;
+no inverse time, representative selection, or analytic premise is added.
+
+NEXT CAUSAL FRONTIER: identify the actual derivativeAction J with the
+previous LogarithmicCore.regularizedAction L. The concrete consumer is
+LogarithmicCore.CorePoint.image: it is L(y), while real_taylor_bound
+currently certifies J(y). No equality between them or self-adjoint
+maximal-domain theorem exists in the inspected derivative/core modules.
+Find a finite scalar/operator comparison estimate before expanding the
+interface. A proof of J=L would connect the existing positive symmetric
+dense-domain candidate to the actual real-time derivative. If a shorter
+direct generation argument avoids this logarithmic branch, retain the
+same original objects and prove its needed laws instead of assuming them.
+
+OPEN: logarithmic identification, self-adjoint generator/maximal domain,
+physical Hamiltonian/time/spacing/beta(a) calibration and spectral pins,
+continuum QFT and every compact simple gauge group/Clay. Fixed SU(2),
+nome 1/1024 and T2-time units only. No canonical frontier field, analytic
+premise, axiom, literal hole or legacy scorecard flag changed. This is
+not a new physical mass-gap estimate.
+
+Verification: 17 exact public gates (1 {propext}, 16 {propext, Quot.sound});
+exact declaration/gate/log matching, clean final logs, own/direct artifacts
+fresh. Four focused safe checks (two per module), one worker/20 GiB,
+separate process/swap preflights; swap declined from 11885.31 to 11869.31
+MiB. Fixed explicit quotient/setoid and namespace/modulus elaboration;
+no statement weakening or raised limits. No dependency rebuild or full
+build/audit/guard/progress run. Two additive root imports, root not compiled;
+CI remains manual-only. Logs and SHA-256:
+
+- `/tmp/ym-scalar-rows.log`:
+  `c321e7b6b34a4a7a6bc5d6f778f5555ec83664dcd46c2b646b46b45938748105`
+- `/tmp/ym-real-derivative.log`:
+  `4e55140f5abf603203c64c99d124474e20fcf4db721a318d2d9631080015730e`
+
+**Previous mathematical increment (CLOSED uniform Taylor estimate over EVERY dyadic mesh; real-time passage subsequently closed above):**
 PROGRESS after `40108e9`. `BF4ExactSlabThermodynamicTimeAverages` proves
 `pairing_common_bound` from the original squared distance, then
 `average_norm_bound` / `average_distance_bound` with no factor depending

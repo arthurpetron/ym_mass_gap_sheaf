@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED uniform Taylor estimate on all original dyadic meshes; OPEN real-time passage/generation (2026-09-15)
+## CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean`.
+- **scalar limit**: `scalarRows` carries explicit original Cauchy data;
+  `scalarRows_limit` identifies its limit with the OLD completedRealSmul.
+  `scalarLimitRate` / `scalar_limit_bound` retain a computed rate.
+  Auxiliary Prop convergence is used only to compare constructed limits,
+  never to extract an output or required modulus.
+- **same-object remainder**: `remainderRows_pin` is the old dyadic
+  remainder, and `remainderRows_limit` is the EXISTING real-time remainder
+  with the same previously constructed derivativeAction. The scalar and
+  time limits both represent the supplied time D.real.
+- **real-time estimate**: `realRadius` is half the old meshRadius.
+  `real_taylor_bound` proves ||T2y-A_t(T2y)-t*J(y)||^2<=epsilon*t^2
+  for every supplied positive real t below that computed radius.
+  `realTaylorCertificate` returns the radius and bound as data.
+  No inverse time or quotient-representative selection is used.
+- **residue**: equality of J with LogarithmicCore.regularizedAction L,
+  self-adjoint generation/maximal domain and physical spectral pins.
+  The old CorePoint.image is L(y), not silently J(y). SU(2), nome 1/1024,
+  fixed spacing and T2-time units only; physical calibration, beta(a),
+  continuum QFT, all groups and Clay remain open. No canonical field,
+  analytic premise, axiom, literal hole or legacy scorecard flag changed.
+- **verification**: 17 exact gates, 1 {propext} and 16 {propext, Quot.sound};
+  exact logged names, clean final logs, own/direct artifacts fresh. Four
+  focused one-worker/20 GiB checks, separate preflights, no raised limits
+  or full-tree run. Two additive root imports, root not compiled; CI
+  manual-only. Exact hashes in work_plan.
+
+## Previous CLOSED uniform Taylor estimate on all original dyadic meshes; real-time passage subsequently closed above (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAverages.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean`.

@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [one derivative estimate now controls every dyadic time mesh](lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean).
+**Latest analytic result:** [the derivative estimate now holds for positive real times](lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean).
+For every supplied original state representative and `epsilon > 0`, a
+computed positive radius controls the existing real-time action:
+`||T2 y - A_t(T2 y) - t J y||^2 <= epsilon*t^2`.
+The derivative vector `J y`, scalar multiplication, time action and norm
+are all the original ones. Explicit Cauchy rows and their limit identities
+pass the previous dyadic estimate to every represented positive real time
+below the radius; no inverse-time or quotient-representative choice is used.
+
+This is real-time differentiation on the original transfer range, in
+**T2-time units**. Equality with the logarithmic candidate, self-adjoint
+generation and physical scaling remain open. The scope is still SU(2),
+nome `1/1024`, fixed spacing; continuum QFT and the all-group Clay target
+are not proved. All 17 new public axiom checks passed within the
+constructive gate in focused safe checks; no full-tree run or raised limits.
+
+**Previous analytic result:** [one derivative estimate controls every dyadic time mesh](lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean).
 The actual multi-step quotient is a finite average of translated one-step
 quotients. A length-independent norm bound and the original time-zero
 continuity give a computed radius such that
@@ -30,8 +46,8 @@ for **every dyadic time** below that radius, including coarse mesh
 presentations. `J y` is the previous constructed derivative limit, not a
 supplied generator. All vectors and norms are the original ones.
 
-Passing this estimate to arbitrary real times remains open, as do
-self-adjoint generation, logarithmic identification and physical scaling.
+The real-time extension is now proved above. Self-adjoint generation,
+logarithmic identification and physical scaling remain open.
 This is still SU(2), nome `1/1024`, fixed spacing and T2-time units;
 continuum QFT and the all-group Clay target are not proved.
 All 39 new public axiom checks passed in focused safe builds; no full-tree run.
@@ -45,8 +61,8 @@ modulus. The key estimate is
 It follows from positive mixed moments and repeated finite telescoping,
 without assuming a logarithm or a generator.
 
-This proves convergence along `h = 2^(-k)` in **T2-time units**, not yet
-differentiability for arbitrary real increments or a physical Hamiltonian.
+That milestone proved convergence along `h = 2^(-k)` in **T2-time units**;
+the arbitrary-positive-real-increment estimate is now proved above.
 Identification with the logarithmic candidate below, self-adjointness,
 physical scaling, continuum QFT and the all-group Clay target remain open.
 Scope remains SU(2), nome `1/1024`, fixed spacing. All 41 new public axiom
