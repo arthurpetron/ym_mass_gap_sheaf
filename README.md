@@ -13,7 +13,24 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [quantitative real-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealLocalContinuity.lean).
+**Latest milestone:** [finite original-moment certificates for continuity at zero](lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean).
+With `D = I - T2`, a computed finite sum satisfies
+`T2 (x + D x + ... + D^(n-1) x) + D^n x = x`.
+Its squared approximation error is exactly the existing original moment
+`m_x(0,2n)`. A finite rational sample, checked against that moment's
+explicit modulus, can therefore certify a time-zero continuity radius
+for the **same original state**. The test is not presumed to succeed:
+acceptance is constructed for every actual `T2` output, using the proved
+bound `n ||D^n T2 y||² <= ||y||²`. Any supplied sufficiently close
+original transfer output also computes an accepted test.
+Three modules passed 40 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. Next: prove residual decay for every original dense
+observable. Neither full range density nor a zero transfer kernel is
+established; a possible kernel vector's residual is proved unchanged.
+Full-space continuity at zero, physical Hamiltonian identification and
+continuum/Clay remain open. Nome and spacing are fixed.
+
+**Established continuity:** [quantitative real-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealLocalContinuity.lean).
 At every positive real time, the same operator action now has computed
 time and state continuity radii. A uniform estimate away from zero
 compares actual real-time values, independently of their numerical

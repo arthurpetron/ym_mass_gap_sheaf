@@ -18,7 +18,78 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (quantitative real-time and range-zero continuity on the ORIGINAL carrier):**
+**Latest increment (finite ORIGINAL range-residual and zero-time certificates):**
+PROGRESS after 32cb905. The full-space time-zero question now has a
+finite, same-object moment test, not an assumed range-density premise.
+`BF4ExactSlabThermodynamicRangeApproximation.partialPreimage` computes
+P_n x=sum_(j<n) D^j x for D=I-T2. `partialPreimage_identity` proves
+T2(P_n x)+D^n x=x; `partialPreimage_distance` identifies the ORIGINAL
+squared approximation error with mixedMoment x 0 (n+n).
+`approximationCertificate` retains preimage Cauchy data, the original
+residual CReal, its QCauchy modulus and both pins.
+`kernel_residual_fixed` explicitly preserves any possible kernel vector.
+
+`BF4ExactSlabThermodynamicRangeDefectEnergy.defect_energy` reuses the
+existing T2 energy inequality to prove ||T2 z||^2+||D z||^2<=||z||^2.
+The successive range residuals decrease. `residual_weighted_energy`
+proves n*||T2 D^n x||^2+||D^n x||^2<=||x||^2 by finite telescoping.
+Commutation gives `range_residual_dyadic_bound`:
+m_(T2 x)(0,2*2^k)<=half^k*||x||^2. `residualDegree` computes 2^k
+using the existing norm-cap/tolerance modulus;
+`range_residual_small` proves the corresponding tolerance bound.
+`defectPower_distance_contraction` also controls original state errors.
+
+`BF4ExactSlabThermodynamicZeroTimeCertificate.check` uses one rational
+sample of the EXISTING momentRepresentative, its EXISTING QCauchy
+modulus, and finite rational/natural comparisons. At tolerance epsilon,
+acceptance gives a residual squared norm <=epsilon/16.
+`Certificate.range_error` constructs an actual nearby original T2
+output; `Certificate.zero_bound` uses its existing zero-time radius,
+contraction, and the three-segment inequality for the ORIGINAL X.
+`Certificate.continuityData` returns a positive radius as Type-level
+data. No success at every tolerance is assumed for arbitrary X.
+
+The converse is quantitative: `certificateOfMomentBound` computes an
+accepted test from a supplied original moment bound epsilon/32.
+`rangeCertificate` constructs acceptance on every actual T2 output
+for every epsilon>0 from the preceding energy estimate.
+`certificateOfRangeApproximation` computes acceptance from ANY supplied
+original T2 output whose squared distance to X is <=epsilon/128.
+Thus the finite test is tied in both directions to genuine approximation
+in the original norm. There is no replacement state space or inverse.
+
+NEXT: obtain residual decay/accepted certificates at all positive
+tolerances for EVERY original dense observable, using the actual
+physical state and correlations. A general inverse/range approximation
+was NOT found in the inspected original presentation, time geometry,
+dense-time, time-kernel and probe modules. Geometric translation
+injectivity is not OS/completed injectivity; non-annihilation of the
+specific excited probe does not prove a zero kernel on all states.
+Full original range density, zero kernel and full-space zero-time
+continuity remain OPEN, as do geometric T1/physical Hamiltonian
+identification, full spectral realization/canonical comparisons,
+quotient-level completeness, physical spectral/non-Wick pins,
+beta(a)/spacing-uniform continuum control, other groups and Clay.
+Fixed SU(2) nome 1/1024 and spacing. No new hole, assumed analytic input,
+canonical field/atom/flag, weight or surrogate is introduced or closed.
+
+Verification: three focused monitored modules, 12+12+16=40 exactly
+matched gates within {propext, Quot.sound}; one uses only propext,
+none axiom-free. Clean final logs and fresh own/direct-import artifacts.
+Safe-build skill: one worker, explicit 20 GiB ceiling, separate
+process/swap preflights; no raised options or full build/audit/guard/
+progress/root-import run. The physical sample proof initially expanded
+large nested data and reached the default heartbeat limit; the final
+proof factors the numerical enclosure over abstract CReal/QCauchy
+data without raising limits. Logs and SHA-256:
+`/tmp/ym-original-range-approximation.log`
+(`cafa843a70d9ba1a92e383089512cf8c42b2bd4ed6eaa5c3919d9c9e951693bc`),
+`/tmp/ym-original-range-defect-energy.log`
+(`e5428d129645ccd74afcd85cf478337179909dabc7631696e78eadb33af12272`),
+`/tmp/ym-original-zero-time-certificate.log`
+(`2ee1efeaf2369ce1fbb974848b3acf6040f1bb03d1cfe750429a022b1e6ed6d5`).
+
+**Previous increment (quantitative real-time and range-zero continuity on the ORIGINAL carrier):**
 PROGRESS after ad162cc. `BF4ExactSlabThermodynamicRowDistanceOrder`
 constructs `differenceRows` from the existing original addition and
 constant-polynomial action, retaining their Cauchy data.

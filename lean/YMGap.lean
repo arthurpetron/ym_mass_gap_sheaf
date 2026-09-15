@@ -4307,6 +4307,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicRowDistanceOrder
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRealContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRealLocalContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRangeZeroContinuity
+-- Exact original range residuals and finite moment-to-zero-time certificates.
+-- Successful tests on EVERY original dense observable remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicRangeApproximation
+import YMGap.Continuum.BF4ExactSlabThermodynamicRangeDefectEnergy
+import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

@@ -13,7 +13,60 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED quantitative positive real-time and range-zero continuity on the ORIGINAL carrier (2026-09-14)
+## CLOSED finite ORIGINAL range-residual and zero-time certificates (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeApproximation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeDefectEnergy.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean`.
+- **closed exact original range approximation**:
+  `partialPreimage_identity` proves T2(P_n x)+D^n x=x for the
+  computed finite sum P_n, D=I-T2. `partialPreimage_distance` identifies
+  its squared error with the EXISTING mixedMoment x 0 (n+n).
+  `approximationCertificate` returns the preimage Cauchy data,
+  original residual real, QCauchy modulus and pins.
+  `kernel_residual_fixed` proves that a possible T2-kernel vector
+  stays unchanged under D^n. No inverse or density is asserted.
+- **closed actual range residual decay**: `defect_energy` and
+  `defect_contraction` follow from the existing T2 energy inequality.
+  `residual_weighted_energy` telescopes decreasing T2-responses and
+  retains the terminal residual norm. `range_residual_dyadic_bound`
+  proves m_(T2 x)(0,2*2^k)<=half^k*||x||^2.
+  `residualDegree` and `range_residual_small` compute the required
+  finite degree from ORIGINAL preimage data and a positive tolerance.
+- **closed finite acceptance-to-continuity compiler**:
+  `check` tests one original rational moment sample and its existing
+  modulus. `Certificate.residual_bound` gives error <=epsilon/16.
+  `Certificate.range_error` constructs an actual nearby T2 output.
+  Contraction, existing range continuity and the three-segment
+  inequality prove `Certificate.zero_bound`; `continuityData` returns
+  its positive radius. No arbitrary quotient representative is chosen.
+- **closed quantitative converse and concrete instances**:
+  `certificateOfMomentBound` computes acceptance from a supplied
+  original moment bound epsilon/32; `rangeCertificate` constructs
+  accepted certificates on every ACTUAL T2 output at every epsilon>0.
+  `nearby_range_residual` and `certificateOfRangeApproximation`
+  turn any supplied original range approximation with squared error
+  <=epsilon/128 into an accepted certificate. This is a finite format,
+  not a new analytic input or parallel frontier enumeration.
+- **open residue**: certificates/residual decay at all positive
+  tolerances for EVERY original dense observable; full original
+  range density and zero kernel; full-space zero-time continuity;
+  geometric T1 and physical Hamiltonian identification; full spectral
+  realization/canonical comparisons; quotient-level completeness;
+  physical spectral/non-Wick pins; beta(a), spacing-uniform continuum
+  control; other groups and Clay. The full original carrier is NOT
+  replaced by a range or regular sector. Fixed SU(2) nome/spacing;
+  no new hole, assumed analytic input, canonical field/atom/flag,
+  weight or surrogate is introduced or discharged.
+- **verification**: 12+12+16=40 exactly matched focused gates, all
+  within {propext, Quot.sound}; one uses only propext, none axiom-free.
+  Clean final logs and fresh own/direct-import artifacts. One worker,
+  explicit 20 GiB ceiling and separate preflights. The sample bound
+  was factored over abstract CReal/QCauchy data to avoid elaborator
+  expansion; no limits/options were raised. No full build/audit/guard/
+  progress/root-import run. Log hashes are recorded in work_plan.
+
+## Previous checkpoint: CLOSED quantitative positive real-time and range-zero continuity on the ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRowDistanceOrder.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealContinuity.lean`,
