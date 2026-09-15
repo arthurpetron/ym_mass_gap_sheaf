@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED representation-independent dyadic semigroup on the ORIGINAL carrier (2026-09-14)
+## CLOSED quantitative positive dyadic time continuity on the ORIGINAL carrier (2026-09-14)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean`.
+- **closed energy inequality**: `time_form_dominates_norm` uses the
+  next finer root H, A=H^2, and contraction to get ||Az||^2<=<Az,z>.
+  `time_dissipation` proves ||Az-z||^2+||Az||^2<=||z||^2 in the SAME
+  original norm. `blockError_succ`, `weighted_energy` and `weighted_error`
+  telescope decreasing increments to N*||A^(N+1)x-A^N x||^2<=||x||^2.
+- **closed range estimate**: `time_error_le_blockError` constructs the
+  remaining interval by total-steps*N and applies contraction, with
+  no inverse or zero-kernel assumption. `full_mesh_time` identifies
+  the full dyadic mesh with the PRE-EXISTING T2. `range_smallTime_bound`
+  gives error<=half^k*||x||^2 for every increment<=2^(-k) on T2 x;
+  `half_power_normalizes` proves the exact scalar cancellation.
+- **closed positive-time right continuity**: `anchored_smallTime_bound`
+  compares arbitrary anchor/increment meshes by exact refinement and
+  proves ||A(t)A(s)x-A(s)x||^2<=half^k*||x||^2 when t*2^k<=s.
+  `rangeModulus`, `scaled_norm_small`, `rangeContinuityCertificate`
+  and `anchoredContinuityCertificate` retain an explicit cutoff for
+  epsilon/(normCap X+1). At positive anchor s the time threshold is
+  s/2^k. A zero anchor permits only zero increments, NOT a full-space
+  time-zero continuity conclusion.
+- **open residue**: controlled positive-time Cauchy families and
+  real-time extension; density of the T2 range; zero transfer kernel;
+  full-space continuity at zero; geometric T1 identification; full
+  spectral realization; canonical comparisons; quotient-level
+  completeness/time injectivity; continuous-time/physical spectral/
+  non-Wick pins; continuum scaling; other groups and Clay. Fixed SU(2)
+  nome/spacing only. No new hole, physical input, canonical type/atom/flag,
+  weight or surrogate; no beta/spacing-uniform physical gap is asserted.
+- **verification**: 29 exactly matched focused gates within
+  {propext, Quot.sound}; clean final log and fresh own/direct-import
+  artifacts. One worker, explicit 20 GiB ceiling, separate preflights;
+  no raised options or full build/audit/guard/progress/root-import run.
+  Log and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED representation-independent dyadic semigroup on the ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Constructive/NonnegativeDyadicTime.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean`.
@@ -36,7 +72,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   original pairings. `representativeCertificate` retains output Cauchy
   sequence/modulus data for supplied time/input presentations, with
   `representative_pin` and `representative_congr`.
-- **open residue**: quantitative time continuity, especially at zero;
+- **subsequent closure**: positive-time right continuity and zero-time
+  continuity on the T2 range are quantitative in the latest entry.
+- **open residue**: full-space time-zero continuity;
   real-time extension; geometric T1 identification; full spectral
   realization; canonical comparisons; quotient-level completeness/time
   injectivity; continuous-time/physical spectral/non-Wick pins;
@@ -81,8 +119,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   NOT a proof that this kernel vanishes.
 - **subsequent closure**: representation-independent nonnegative dyadic
   indexing and addition are proved in the latest entry.
-- **open residue**: quantitative time continuity (especially at
-  zero), geometric T1 identification, full spectral realization,
+- **open residue**: full-space time-zero continuity, real-time extension,
+  geometric T1 identification, full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
   other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
@@ -125,7 +163,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `time_positive_kernel_equal` do not assert either missing fact.
 - **subsequent closure**: original unit compatibility and coherent finite
   dyadic time meshes are constructed in the latest entry.
-- **open residue**: quantitative time continuity, real-time extension,
+- **open residue**: full-space time-zero continuity, real-time extension,
   geometric half-time identification, full spectral
   realization, canonical comparisons, quotient-level completeness/time
   injectivity, continuous-time/physical spectral/non-Wick pins, continuum

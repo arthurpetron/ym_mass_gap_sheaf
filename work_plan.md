@@ -18,7 +18,54 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (representation-independent dyadic semigroup on the ORIGINAL carrier):**
+**Latest increment (quantitative positive dyadic time continuity on the ORIGINAL carrier):**
+PROGRESS after b574d0f. `BF4ExactSlabThermodynamicDyadicEnergy` proves a
+direct finite energy argument, without a spectral model, inverse,
+zero-kernel hypothesis or change of carrier. `time_form_dominates_norm`
+uses the next finer mesh's square root H: A=H^2 and contraction of H give
+||Az||^2 <= <Az,z>. `time_dissipation` then gives
+||Az-z||^2+||Az||^2 <= ||z||^2 by the original bilinear expansion.
+
+`blockError_succ` shows increment errors decrease. `weighted_energy`
+telescopes the actual losses to
+N*||A^(N+1)x-A^N x||^2+||A^N x||^2 <= ||x||^2.
+`time_error_le_blockError` computes the unused interval as
+total-steps*N, so contraction transports the error to ANY later time
+within the supplied finite step budget. `range_weighted_error` pins
+the endpoint to the PRE-EXISTING T2 via `full_mesh_time`.
+
+`half_power_normalizes` cancels the positive integer 2^k explicitly.
+`range_smallTime_bound` gives squared error <= half^k*||x||^2 for ALL
+dyadic increments <=2^(-k) on T2 x. `anchored_smallTime_bound` uses
+common mesh refinement to prove the stronger estimate
+||A(t)A(s)x-A(s)x||^2 <= half^k*||x||^2 whenever t*2^k<=s.
+`rangeModulus X epsilon` is
+halfCutoff(linearTolerance(normCap X)(normCap_nonnegative X)epsilon),
+i.e. a computed half-power cutoff for epsilon/(normCap X+1).
+`rangeContinuityCertificate` and `anchoredContinuityCertificate` retain
+the threshold as Type-level data. A positive anchor s gives the explicit
+increment threshold s/2^k. At s=0 the budget permits only zero increments,
+so NO full-space continuity-at-zero assertion is hidden in this theorem.
+
+NEXT: controlled positive-time Cauchy families and real-time extension,
+retaining exact original time pins. Positive-time RIGHT continuity and
+zero-time continuity on the T2 RANGE are CLOSED. Density of that range,
+zero transfer kernel, and full-space time-zero continuity are NOT proved.
+Geometric T1 identification, full spectral realization, canonical
+comparisons, quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling,
+other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and spacing
+only. No new hole, physical input, canonical type/atom/flag, weight or
+surrogate; no beta/spacing-uniform physical gap is asserted.
+
+Verification: one focused monitored module, 29 exactly matched gates
+within {propext, Quot.sound}. Clean final log and fresh own/direct-import
+artifacts. Safe-build skill: one worker, explicit 20 GiB ceiling,
+separate process/swap preflights; no raised options or full build/audit/
+guard/progress/root-import run. Log `/tmp/ym-original-dyadic-energy.log`,
+SHA-256 `aaac399c86591baed017b8c8f310e629acd0ac58eb43e87868f4bb3704de7154`.
+
+**Previous increment (representation-independent dyadic semigroup on the ORIGINAL carrier):**
 PROGRESS after 121604a. `Constructive/NonnegativeDyadicTime` carries a
 mesh presentation (depth,steps) of steps/2^depth. `Equivalent` is exact
 natural-number cross multiplication, with proved equivalence laws.
@@ -40,10 +87,11 @@ pairing identities. `representativeCertificate` returns the actual output
 Cauchy sequence/modulus and its quotient pin for supplied mesh and input
 data; `representative_congr` proves its representation independence.
 
-NEXT: quantitative time continuity, with time-zero behavior and the
-possible transfer kernel kept explicit. The representation-independent
-ALGEBRAIC nonnegative dyadic semigroup is CLOSED; no continuity at zero
-or real-time extension is asserted. Geometric T1 identification, full
+Subsequent closure: positive-time right continuity and zero-time
+continuity on the T2 range are proved above, with explicit moduli.
+The representation-independent ALGEBRAIC nonnegative dyadic semigroup
+is CLOSED; full-space continuity at zero and real-time extension remain
+open. Geometric T1 identification, full
 spectral realization, canonical comparisons, quotient-level completeness/
 time injectivity, continuous-time/physical spectral/non-Wick pins,
 continuum scaling, other groups and Clay remain OPEN. Fixed SU(2) nome
@@ -96,9 +144,10 @@ Every generator's kernel equals that of T2, NOT a proved zero kernel.
 
 Subsequent closure: the representation-independent nonnegative dyadic-time
 action, addition law and constructive output data are proved above.
-Quantitative time-continuity statements remain open. Unit compatibility
+Positive-time right continuity is now quantitative; full-space time-zero
+continuity remains open. Unit compatibility
 and coherent finite mesh refinement are CLOSED. No real-time semigroup
-or continuity at zero is asserted. Geometric T1 identification, full spectral
+or full-space continuity at zero is asserted. Geometric T1 identification, full spectral
 realization, canonical comparisons, quotient-level completeness/time
 injectivity, continuous-time/physical spectral/non-Wick pins, continuum
 scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and

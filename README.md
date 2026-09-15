@@ -13,7 +13,24 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [one representation-independent dyadic semigroup on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean).
+**Latest milestone:** [quantitative positive-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean).
+A finite energy argument now proves
+`||A(t)A(s)x - A(s)x||² <= 2^(-k)||x||²`
+whenever dyadic `t <= s/2^k`. The next finer square root controls each
+step's norm loss; telescoping and contraction give the estimate without
+an inverse or spectral representation. Different time meshes are compared
+by exact refinement. A supplied state representative and tolerance produce
+an explicit depth threshold. This proves positive-time right continuity
+on every original state, and continuity at zero on the range of `T2`.
+One module passed 29 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run.
+Next: controlled positive-time Cauchy families and real-time extension.
+Density of the `T2` range, zero transfer kernel and full-space continuity
+at zero are not proved. Geometric `T1` identification, the Hamiltonian,
+physical-scale control and continuum/Clay remain open; nome and spacing
+are fixed.
+
+**Established dyadic semigroup:** [representation-independent time on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean).
 Different mesh descriptions of the same nonnegative dyadic time now give
 exactly the same operator. Addition of times gives composition, on the
 same original completed carrier. Positivity, symmetry, contraction,
@@ -23,9 +40,10 @@ Supplied time and state representatives construct output Cauchy data;
 no representative is selected from a quotient.
 Two modules passed 51 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
-Next: quantitative time continuity. This algebraic semigroup does not
-establish continuity at zero or a real-time extension; the possible
-kernel of `T2` remains open. Geometric `T1` identification, the Hamiltonian,
+Quantitative positive-time right continuity and zero-time continuity on
+the `T2` range are now proved above. Full-space continuity at zero and a
+real-time extension are not established; the possible kernel of `T2`
+remains open. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
 are fixed.
 
@@ -39,9 +57,9 @@ operator on the next finer mesh; the coarsest mesh equals all original
 even geometric times. Output representatives are constructed.
 Three modules passed 70 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
-Representation-independent dyadic-time indexing and its addition law are
-now proved above. Quantitative time continuity remains open: all
-generators retain the possible kernel of `T2`.
+Representation-independent dyadic-time indexing, its addition law and
+quantitative positive-time right continuity are now proved above. Full-space
+continuity at zero remains open: all generators retain the possible kernel of `T2`.
 Geometric `T1` identification, physical-scale control and continuum/Clay
 remain open; nome and spacing are fixed.
 
